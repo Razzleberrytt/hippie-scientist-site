@@ -7,6 +7,7 @@ import { buildLosslessCaptionContract, validateLosslessCaptionContract } from '.
 import { buildThumbnailContract, validateThumbnailContract } from './creative-thumbnail-contract.mjs'
 import { buildLosslessAccessibilityDescriptionContract, validateLosslessAccessibilityDescriptionContract } from './creative-accessibility-description-contract.mjs'
 import { buildCreativeVisualRegressionContract, validateCreativeVisualRegressionContract } from './creative-visual-regression-contract.mjs'
+import { buildCreativeHook } from './social-post-copy.mjs'
 
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const sentence = (value) => {
@@ -37,6 +38,7 @@ function continuationSlides(role, eyebrow, plan, { body = null, colorTreatment }
 
 export function buildLosslessCreativeSpec(input) {
   const base = buildCreativeSpec(input)
+  const creativeHook = buildCreativeHook(input)
   const maxChars = CREATIVE_BRAND_TOKENS.typography.bodyMaxChars
   const copyPlan = buildLosslessCreativeCopyPlan({
     finding: sentence(input.finding),
@@ -44,8 +46,16 @@ export function buildLosslessCreativeSpec(input) {
   }, { maxChars })
 
   const evidenceSlide = base.carousel.slides.find((slide) => slide.role === 'finding')
-  const hookSlide = base.carousel.slides.find((slide) => slide.role === 'hook')
+  const baseHookSlide = base.carousel.slides.find((slide) => slide.role === 'hook')
+  const hookSlide = baseHookSlide
+    ? { ...baseHookSlide, eyebrow: 'Human evidence', headline: creativeHook }
+    : null
   const sourceSlide = base.carousel.slides.find((slide) => slide.role === 'source')
+  const videoScenes = base.verticalVideo.scenes.map((scene, index) => (
+    index === 0
+      ? { ...scene, onScreenText: creativeHook, voiceover: creativeHook, factualAuthority: 'creative-framing' }
+      : scene
+  ))
 
   const findingSlides = continuationSlides(
     'finding',
@@ -91,13 +101,13 @@ export function buildLosslessCreativeSpec(input) {
   }
 
   const captions = buildLosslessCaptionContract({
-    scenes: base.verticalVideo.scenes,
+    scenes: videoScenes,
     platformSafeAreas: base.verticalVideo.platformSafeAreas,
     maxCharsPerLine: CREATIVE_BRAND_TOKENS.typography.captionMaxCharsPerLine,
     maxLines: CREATIVE_BRAND_TOKENS.typography.captionMaxLines,
     minimumPxAt1080: CREATIVE_BRAND_TOKENS.typography.minimumCaptionPxAt1080,
   })
-  const captionErrors = validateLosslessCaptionContract(captions, base.verticalVideo.scenes)
+  const captionErrors = validateLosslessCaptionContract(captions, videoScenes)
   if (captionErrors.length) {
     throw new Error(`Invalid lossless caption contract: ${captionErrors.join('; ')}`)
   }
@@ -148,6 +158,8 @@ export function buildLosslessCreativeSpec(input) {
 
   const verticalVideo = {
     ...base.verticalVideo,
+    firstTwoSecondHook: creativeHook,
+    scenes: videoScenes,
     captions,
     losslessCopy: copyPlan,
     sourceLegibility,
@@ -157,6 +169,7 @@ export function buildLosslessCreativeSpec(input) {
     accessibilityDescription,
     accessibility: {
       ...base.verticalVideo.accessibility,
+      transcript: videoScenes.map((scene) => scene.voiceover).join(' '),
       losslessDeterministicCaptionsRequired: true,
       captionVoiceoverReconstructionRequired: true,
       cropResilientThumbnailHeadlineRequired: true,
@@ -195,7 +208,7 @@ export function buildLosslessCreativeSpec(input) {
     accessibilityDescriptionContract: accessibilityDescription,
     factualTextPolicy: 'Finding and limitation copy must be rendered from losslessCopy pages verbatim and in order. Continuation pages/scenes may expand presentation length/count but may never truncate, paraphrase, or drop governed factual text.',
     sourcePresentationPolicy: 'The canonical source URL must remain fully legible, untruncated, inside the platform safe area, and visible on a dedicated video source scene for at least three seconds. A CTA or disclosure may never replace or cover the source.',
-    hookPresentationPolicy: 'The opening hook must occupy the first two seconds, remain readable inside the vertical safe area, avoid unsupported certainty or ranking language, and may not compete with a CTA.',
+    hookPresentationPolicy: 'The opening hook should be curiosity-first and question-led, occupy the first two seconds, remain readable inside the vertical safe area, avoid unsupported certainty or ranking language, and may not compete with a CTA.',
     ctaPresentationPolicy: 'The CTA must use the fixed evidence-first wording, link exactly to the canonical evidence page, remain readable inside the platform safe area during the final three seconds, preserve source/disclosure visibility, and never use urgency or scarcity pressure.',
     captionPresentationPolicy: 'Captions must preserve scene voiceover exactly after whitespace normalization, split only at word boundaries, stay within the two-line readability budget and platform safe areas, and fail closed rather than truncate or add ellipses.',
     thumbnailPresentationPolicy: 'Thumbnail experiments must preserve the exact governed hook text across every stable variant, keep the headline/logo/disclosure crop-safe for 9:16, 4:5, and 1:1 surfaces, use at least 64px headline typography at 1080-wide output, contain no CTA, and vary composition only.',
@@ -216,7 +229,7 @@ export function buildLosslessCreativeSpec(input) {
 
   return {
     ...base,
-    version: 12,
+    version: 13,
     thumbnails,
     accessibilityDescription,
     visualRegression,
@@ -234,6 +247,7 @@ export function buildLosslessCreativeSpec(input) {
     },
     guardrails: {
       ...base.guardrails,
+      curiosityFirstHookRequired: true,
       losslessGovernedCopyRequired: true,
       continuationPagesMayNotBeDropped: true,
       governedCopyReconstructionMustMatchExactly: true,
