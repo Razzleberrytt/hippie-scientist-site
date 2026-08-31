@@ -326,6 +326,8 @@ function isAllowedRouteManifestEntry(routeStr: string): boolean {
 
   const allowedCoreStaticRoutes = new Set([
     '/',
+    '/info',
+    '/evidence',
     '/info/about',
     '/info/contact',
     '/info/faq',
@@ -517,6 +519,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const sitemapEntries: MetadataRoute.Sitemap = [
     route(normalizeSitemapUrl('/'), 'weekly', 1.0),
+    route(normalizeSitemapUrl('/info'), 'monthly', 0.8),
+    route(normalizeSitemapUrl('/evidence'), 'monthly', 0.8),
     route(normalizeSitemapUrl('/info/about'), 'yearly', 0.6),
     route(normalizeSitemapUrl('/info/author'), 'yearly', 0.6),
     route(normalizeSitemapUrl('/info/contact'), 'yearly', 0.5),
