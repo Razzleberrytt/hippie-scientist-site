@@ -2,10 +2,10 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-08-30
+**Updated:** 2026-08-31
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub reconciliation at `6691af63b8eadb54da8a4cff192fc5947d5bd7f0` on 2026-08-30 records 0/3 normal implementation workstreams occupied. Revenue/Conversion #4732 / PR #4734 and Authority prerequisite #4784 / PR #4813 are merged/closed and no longer own WIP. Open factual-label safety issue #4731 is the highest-priority legal follow-up. Main's governor queue contains no active lease, so #4266 remains blocked from canonical mutation even though the persistent transaction capability is merged. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP. SEO-003 and AUTH-001 remain retired by their exact-current diagnostics.
+**Current admission:** Live GitHub reconciliation at `0f70ea16364c9a2aa33b68f218fba43d9174d552` on 2026-08-31 records 1/3 normal implementation workstreams occupied. Discovery/SEO incident #4949 is in review on PR #4950: exact-head output evidence confirms its internal-link repair (`blockingOrphan=0`), but inherited sitemap completeness failures for `/evidence` and `/info` block the required release suite and therefore block merge. #4731 / PR #4947 is merged/closed and no longer owns WIP. Revenue/Conversion and Authority/Content remain free; main's governor queue contains no active lease, so #4266 remains blocked from canonical mutation even though the persistent transaction capability is merged. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP. SEO-003 and AUTH-001 remain retired by their exact-current diagnostics.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,11 +49,11 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active — observed implementation WIP 0/3
+## Active / in review — observed implementation WIP 1/3
 
 - **Revenue/Conversion:** free. #4732 / PR #4734 is merged/closed; provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
 - **Authority/Content:** free. #4784 / PR #4813 is merged/closed, but no real governor lease is active; AUTH-001/#4800 remains retired after PR #4803's current audit returned zero duplicate-slug findings.
-- **Discovery/SEO:** free. SEO-003 remains retired after #4795 / PR #4796's exact-current Schema and Media Governance revalidation passed.
+- **Discovery/SEO:** in review and blocked. #4949 / PR #4950 extends the existing comparison-hub inventory and adds focused regression coverage. Exact-head output evidence confirms `blockingOrphan=0`; merge remains blocked because the same release suite finds `/evidence` and `/info` missing from every advertised sitemap. No route, claim, evidence, safety, publication, or monetization change is authorized.
 
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
 
@@ -65,10 +65,9 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 | Order | Candidate | Workstream | Admission state | Proof required before implementation |
 |---:|---|---|---|---|
-| 1 | #4731 — close unbound dose, onset, and comparative-efficacy label bypasses | R/L2 safety incident | **Ready — Revenue slot is free** | Extend the existing factual-copy validator surgically; cover common working/begin/start onset phrasing and hyphenated durations, comparative-efficacy wording such as “more effective than” / “matches efficacy,” and supplement dose units including IU, µg/μg and CFU; preserve nonfactual labels and canonical scientific truth; resolve PR #4729's three review threads and pass exact-head distribution + repository gates |
-| 2 | #4266 — evaluate 2026 KSM-66 Ashwagandha safety RCT | A evidence | Research staged; **blocked on a real governor lease transaction** | PR #4631 staged source boundaries only. The persistent transaction capability is merged in #4813, but `ops/enrichment-governor/work-queue.json` has no active lease; acquire and merge a valid state-only transaction before any workbook, registry, rollup, public-profile, grade, or publication mutation |
+| 1 | #4266 — evaluate 2026 KSM-66 Ashwagandha safety RCT | A evidence | Research staged; **blocked on a real governor lease transaction** | PR #4631 staged source boundaries only. The persistent transaction capability is merged in #4813, but `ops/enrichment-governor/work-queue.json` has no active lease; acquire and merge a valid state-only transaction before any workbook, registry, rollup, public-profile, grade, or publication mutation |
 
-Discovery/SEO is free after SEO-003 retirement, but no stale SEO item is promoted merely to fill the slot. Revalidate a current problem before admission.
+Discovery/SEO is occupied by in-review incident #4949 / PR #4950. No second Discovery/SEO item may be admitted until that issue merges/closes or is explicitly retired, and no stale SEO item is promoted merely to fill a later slot.
 
 ## Control hardening — merged implementation, observed use still gated
 
@@ -114,6 +113,7 @@ The sprint exits only when all of the following are true or have a precise exter
 
 ## Recently retired from this sprint
 
+- **#4731 / PR #4947:** merged as `6e32a773d908495f08fa297fc51da1cea6fb2659`; the factual-copy validator now closes the scoped unbound dose-unit, onset/duration, and comparative-efficacy label bypasses with focused rejection/nonfactual controls. Current-main build application passes, while post-merge output verification exposed separate Discovery/SEO incident #4949.
 - **#4730 / PR #4858:** merged as `44b019fa1f67ead0538076944224243a098dbfde`; stale published or paused-but-live assets retain a governed withdrawal path and receipt while stale non-live assets remain terminal-invalid. The reopened issue is closed complete.
 - **#4784 / PR #4813:** merged as `1e8fae58a3499c9f6a79b4338e636244620ec629`; the least-privilege persistent governor transaction capability is on main. Capability does not equal an acquired lease, and current queue state has none.
 - **#4732 / PR #4734:** merged as `4d26d1cfacb5fb577f9216b7fa116e006e7b0a0d`; the bounded Metricool adapter is repository capability only. Provider credentials/configuration, live scheduling, publication confirmation, and public/business outcomes remain externally gated or Unknown.

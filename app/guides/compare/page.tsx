@@ -42,6 +42,7 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
       { slug: 'guarana-vs-guayusa', label: 'Guarana vs Guayusa', note: 'Two naturally caffeinated botanicals' },
       { slug: 'guarana-vs-yerba-mate', label: 'Guarana vs Yerba Mate', note: 'Caffeine source and preparation differences' },
       { slug: 'caffeine-vs-l-theanine', label: 'Caffeine vs L-Theanine', note: 'Stimulation vs calm-focus context' },
+      { slug: 'caffeine-vs-caffeine-plus-l-theanine', label: 'Caffeine vs Caffeine + L-Theanine', note: 'Caffeine alone vs the combined focus stack' },
       { slug: 'caffeine-vs-l-theanine-vs-bacopa-for-focus', label: 'Caffeine vs L-Theanine vs Bacopa', note: 'Fast stimulation vs slower support' },
     ],
   },

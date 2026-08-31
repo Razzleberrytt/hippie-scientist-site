@@ -79,4 +79,32 @@ describe('apply-redirect-overrides', () => {
     expect(lines.some((line) => line.startsWith('/goals/stress '))).toBe(false)
     expect(lines.some((line) => line.includes('/de/ziele/stress'))).toBe(false)
   })
+
+  it('keeps restored info and evidence hubs out of the deployed redirect table', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ths-restored-hubs-'))
+    tempRoots.push(root)
+
+    fs.mkdirSync(path.join(root, 'out'), { recursive: true })
+    fs.writeFileSync(path.join(root, 'out', '_redirects'), '')
+    fs.cpSync(
+      path.resolve('public/redirect-overrides'),
+      path.join(root, 'public', 'redirect-overrides'),
+      { recursive: true },
+    )
+
+    const result = spawnSync(process.execPath, [scriptPath], {
+      cwd: root,
+      encoding: 'utf8',
+    })
+
+    expect(result.status, result.stderr || result.stdout).toBe(0)
+
+    const activeRules = fs.readFileSync(path.join(root, 'out', '_redirects'), 'utf8')
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .filter((line) => line && !line.startsWith('#'))
+
+    expect(activeRules.some((line) => /^\/info\/?\s+/.test(line))).toBe(false)
+    expect(activeRules.some((line) => /^\/evidence\/?\s+/.test(line))).toBe(false)
+  })
 })

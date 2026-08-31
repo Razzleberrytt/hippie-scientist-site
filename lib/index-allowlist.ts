@@ -1,11 +1,13 @@
 export const CORE_INDEXABLE_ROUTES = [
   '/',
+  '/info',
   '/info/about',
   '/articles',
   '/compounds',
   '/info/contact',
   '/info/dosing',
   '/info/faq',
+  '/evidence',
   '/goals',
   '/guides',
   '/herbs',

@@ -2,3 +2,7 @@
 # Keep the old audit exports intact for provenance; apply-redirect-overrides.mjs
 # suppresses matching historical sources without emitting a self-redirect.
 # @canonical-source /compounds/phosphatidylserine/
+# Restored directory-root hubs supersede the July 2026 404-era audit redirects.
+# Keep both variants live so the post-export sitemap can advertise the canonicals.
+# @canonical-source /info/
+# @canonical-source /evidence/
