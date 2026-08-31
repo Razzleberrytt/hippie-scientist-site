@@ -12,7 +12,7 @@ on:
     types: [created]
 
 concurrency:
-  group: owner-control-plane-bridge-${{ github.event_name }}-${{ github.event.issue.number || github.run_id }}
+  group: owner-control-plane-bridge-global
   cancel-in-progress: false
 
 jobs:
@@ -119,20 +119,29 @@ jobs:
           set -euo pipefail
           gh pr ready "$PR_NUMBER" --repo "$GITHUB_REPOSITORY"
 
-      - name: Verify ready transition preserved exact head
+      - name: Verify transition preserved exact head and current main
         env:
           GH_TOKEN: ${{ github.token }}
           PR_NUMBER: ${{ steps.validate.outputs.pr_number }}
           EXPECTED_HEAD_SHA: ${{ steps.validate.outputs.head_sha }}
+          EXPECTED_MAIN_SHA: ${{ steps.validate.outputs.main_sha }}
         run: |
           set -euo pipefail
           pr_json="$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER")"
           actual_head_sha="$(jq -r '.head.sha' <<<"$pr_json")"
           actual_state="$(jq -r '.state' <<<"$pr_json")"
           actual_draft="$(jq -r '.draft' <<<"$pr_json")"
-          test "$actual_head_sha" = "$EXPECTED_HEAD_SHA"
-          test "$actual_state" = "open"
-          test "$actual_draft" = "false"
+          actual_main_sha="$(gh api "repos/$GITHUB_REPOSITORY/branches/main" --jq '.commit.sha')"
+          if [ "$actual_head_sha" != "$EXPECTED_HEAD_SHA" ] || \
+             [ "$actual_main_sha" != "$EXPECTED_MAIN_SHA" ] || \
+             [ "$actual_state" != "open" ] || \
+             [ "$actual_draft" != "false" ]; then
+            if [ "$actual_state" = "open" ] && [ "$actual_draft" = "false" ]; then
+              gh pr ready "$PR_NUMBER" --undo --repo "$GITHUB_REPOSITORY" || true
+            fi
+            echo "Ready transition became stale or invalid; restored draft state when possible." >&2
+            exit 1
+          fi
 
       - name: Dispatch exact-head recovery validation
         env:
