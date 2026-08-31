@@ -67,7 +67,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 |---:|---|---|---|---|
 | 1 | #4266 — evaluate 2026 KSM-66 Ashwagandha safety RCT | A evidence | Research staged; **blocked on a real governor lease transaction** | PR #4631 staged source boundaries only. The persistent transaction capability is merged in #4813, but `ops/enrichment-governor/work-queue.json` has no active lease; acquire and merge a valid state-only transaction before any workbook, registry, rollup, public-profile, grade, or publication mutation |
 
-Discovery/SEO is free after SEO-003 retirement, but no stale SEO item is promoted merely to fill the slot. Revalidate a current problem before admission.
+Discovery/SEO is occupied by current release incident #4949. No second Discovery/SEO item may be admitted until that issue merges/closes, and no stale SEO item is promoted merely to fill a later slot.
 
 ## Control hardening — merged implementation, observed use still gated
 
