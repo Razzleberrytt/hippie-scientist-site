@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "transactionType": "enrichment_governor_lease",
+  "requestedAt": "2026-08-31T23:33:23.610Z",
+  "operation": "release",
+  "actor": "github-actions[bot]",
+  "owner": "site-swarm-integration",
+  "leaseId": "lease-4266-ashwagandha-safety-rct",
+  "purpose": null,
+  "files": [],
+  "entities": [],
+  "disposition": "verified",
+  "baseSha": "8aba655daae2aba8d07cd2ba6f32ed52f8f3b498",
+  "before": {
+    "workQueueSha256": "aea94f1d778a98003e7f03b45e02a8cc9ffb78e9879597fdeceb10a9350524ca",
+    "ledgerSha256": "f61fcff0500d719705b34a5d8b16d29fe30a22c9787330f680073227ef8e8e8b"
+  },
+  "after": {
+    "workQueueSha256": "a19c7872586e81159ee97be0e24dd75ffcce4f628270d30d8acaa47c7185e5a2",
+    "ledgerSha256": "39227f5e7166fe89fd22266703817edc7d7feb35d782e21810da895c63b37845"
+  },
+  "result": {
+    "released": true,
+    "existed": true
+  },
+  "transactionCommitSha": null
+}
