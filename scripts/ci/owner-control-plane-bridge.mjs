@@ -89,6 +89,7 @@ export function validateReadySnapshot(pr, repository) {
   if (pr.base?.ref !== 'main') throw new Error('pull request base must be main')
   if (pr.head?.repo?.full_name !== repository) throw new Error('pull request head must come from the same repository')
   if (!pr.head?.sha || !/^[0-9a-f]{40}$/i.test(pr.head.sha)) throw new Error('pull request head SHA is missing or invalid')
+  if (!pr.head?.ref || /[\r\n]/.test(pr.head.ref)) throw new Error('pull request head ref is missing or invalid')
   return true
 }
 
@@ -153,6 +154,8 @@ export async function validateReadyAgainstGitHub({ repository, prNumber, token }
     ok: true,
     prNumber: number,
     headSha: pr.head.sha,
+    headRef: pr.head.ref,
+    baseRef: pr.base.ref,
     session,
   }
 }
@@ -185,6 +188,8 @@ async function main() {
     appendOutputs({
       pr_number: result.prNumber,
       head_sha: result.headSha,
+      head_ref: result.headRef,
+      base_ref: result.baseRef,
       session: result.session || '',
     })
     process.stdout.write(`${JSON.stringify(result, null, 2)}\n`)
