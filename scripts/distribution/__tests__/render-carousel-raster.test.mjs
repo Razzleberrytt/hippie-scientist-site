@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { buildDistributionPackFromResearchObject } from '../build-distribution-pack.mjs'
 import { CREATIVE_BRAND_TOKENS } from '../creative-spec.mjs'
@@ -34,7 +35,7 @@ async function withRenderedAssets(run) {
   }
 }
 
-test('deterministically derives PNG and WebP assets from canonical SVG bytes', async () => {
+test('deterministically derives canonical PNG and provider-safe WebP assets from canonical SVG bytes', async () => {
   await withRenderedAssets(async ({ dir, svgManifest }) => {
     expect(svgManifest.renderer).toBe('carousel-svg-v2')
     const first = await renderCarouselRasterAssets({ manifest: svgManifest, outputDir: dir })
@@ -43,8 +44,13 @@ test('deterministically derives PNG and WebP assets from canonical SVG bytes', a
     expect(second).toEqual(first)
     expect(first.parentRenderer).toBe('carousel-svg-v2')
     expect(first.assets).toHaveLength(svgManifest.assets.length * 2)
+
+    const portrait = CREATIVE_BRAND_TOKENS.canvas.portrait
+    const expectedWebpWidth = Math.round(portrait.width * (1080 / portrait.height))
+
     for (const asset of first.assets) {
       const bytes = fs.readFileSync(path.join(dir, asset.file))
+      const metadata = await sharp(bytes).metadata()
       expect(bytes.equals(firstBytes.get(asset.file))).toBe(true)
       expect(asset.sha256).toBe(digest(bytes))
       expect(asset.sourceContentHash).toBe(svgManifest.sourceContentHash)
@@ -52,6 +58,17 @@ test('deterministically derives PNG and WebP assets from canonical SVG bytes', a
       expect(asset.parentSvgSha256).toBe(parent.sha256)
       expect(asset.sourceUrl).toBe(parent.sourceUrl)
       expect(asset.exporter).toBe('carousel-raster-v1')
+      expect(asset.width).toBe(metadata.width)
+      expect(asset.height).toBe(metadata.height)
+
+      if (asset.format === 'png') {
+        expect(asset.width).toBe(portrait.width)
+        expect(asset.height).toBe(portrait.height)
+      } else if (asset.format === 'webp') {
+        expect(asset.width).toBe(expectedWebpWidth)
+        expect(asset.height).toBe(1080)
+        expect(Math.max(asset.width, asset.height)).toBeLessThanOrEqual(1080)
+      }
     }
   })
 })
