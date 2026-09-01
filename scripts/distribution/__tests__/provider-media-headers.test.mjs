@@ -1,8 +1,10 @@
 import { readFileSync } from 'node:fs'
+import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
 
-const headersPath = fileURLToPath(new URL('../../../public/_headers', import.meta.url))
+const testDir = dirname(fileURLToPath(import.meta.url))
+const headersPath = resolve(testDir, '../../../public/_headers')
 const headers = readFileSync(headersPath, 'utf8')
 
 function ruleBody(pattern) {
