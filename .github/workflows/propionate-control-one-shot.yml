@@ -1,0 +1,94 @@
+name: Propionate control sync one-shot
+
+on:
+  push:
+    branches:
+      - data/propionate-closure-4992
+    paths:
+      - .github/workflows/propionate-control-one-shot.yml
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact branch head
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Sync project-control admission
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          import { execFileSync } from 'node:child_process'
+
+          const mainSha = execFileSync('git', ['rev-parse', 'origin/main'], { encoding: 'utf8' }).trim()
+
+          function replaceRequired(text, pattern, replacement, label) {
+            if (!pattern.test(text)) throw new Error(`missing expected ${label}`)
+            return text.replace(pattern, replacement)
+          }
+
+          const sprintPath = 'docs/CURRENT_SPRINT.md'
+          let sprint = fs.readFileSync(sprintPath, 'utf8')
+          sprint = replaceRequired(
+            sprint,
+            /^\*\*Current admission:\*\*.*$/m,
+            `**Current admission:** Live GitHub reconciliation at \`${mainSha}\` on 2026-09-01 records 1/3 normal implementation workstreams occupied. #4992 is active in Authority/Content under durable lease \`lease-4992-propionate-closure\` to close staged Propionate evidence before #4983; Revenue/Conversion and Discovery/SEO are free. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP. SEO-003 and AUTH-001 remain retired by their exact-current diagnostics.`,
+            'CURRENT_SPRINT admission line',
+          )
+          sprint = replaceRequired(
+            sprint,
+            '## Active / in review — observed implementation WIP 0/3',
+            '## Active / in review — observed implementation WIP 1/3',
+            'CURRENT_SPRINT active heading',
+          )
+          sprint = replaceRequired(
+            sprint,
+            '| Workstream | Ticket | Owner | Status | Scope |\n|---|---|---|---|---|\n',
+            '| Workstream | Ticket | Owner | Status | Scope |\n|---|---|---|---|---|\n| Authority/Content | #4992 | site-swarm-integration | Active | Close four staged Propionate findings with three governed sources, four calibrated normalized records, deterministic rollup, terminal semantic attestations, and exact no-overclaim regression; #4983 remains blocked until closure. |\n',
+            'CURRENT_SPRINT active table',
+          )
+          sprint = replaceRequired(
+            sprint,
+            /^- \*\*Authority\/Content:\*\* free\..*$/m,
+            '- **Authority/Content:** occupied by #4992 under durable lease `lease-4992-propionate-closure`. Scope is limited to terminal governance of the four already-staged Propionate findings: acute sodium-propionate surrogate physiology, calcium-propionate preservative-exposure conflict, the 12-month iPREVENT null, and chemical-form/delivery non-interchangeability. No generic efficacy or consumer-dose claim is authorized; #4983 remains blocked until this closure is merged and verified.',
+            'CURRENT_SPRINT Authority line',
+          )
+          fs.writeFileSync(sprintPath, sprint)
+
+          const backlogPath = 'docs/MASTER_BACKLOG.md'
+          let backlog = fs.readFileSync(backlogPath, 'utf8')
+          backlog = replaceRequired(
+            backlog,
+            /^Live GitHub reconciliation at `[^`]+` on 2026-09-01 shows \*\*0\/3 normal implementation workstreams occupied\*\*:/m,
+            `Live GitHub reconciliation at \`${mainSha}\` on 2026-09-01 shows **1/3 normal implementation workstreams occupied**:`,
+            'MASTER_BACKLOG admission line',
+          )
+          backlog = replaceRequired(
+            backlog,
+            '| Ticket | Title | Lane | Status |\n|---|---|---|---|\n',
+            '| Ticket | Title | Lane | Status |\n|---|---|---|---|\n| #4992 | Close staged Propionate evidence before MS follow-up | A evidence | Active under governed lease |\n',
+            'MASTER_BACKLOG active table',
+          )
+          backlog = replaceRequired(
+            backlog,
+            /^- \*\*A — free:\*\*.*$/m,
+            '- **A — #4992 active:** governed Propionate closure owns Authority/Content under lease `lease-4992-propionate-closure`; three source identities, four calibrated normalized findings, deterministic rollup, terminal semantic attestations, and no-overclaim regression are the complete scope. #4983 remains dependency-blocked until closure.',
+            'MASTER_BACKLOG Authority line',
+          )
+          fs.writeFileSync(backlogPath, backlog)
+          NODE
+
+      - name: Commit control sync and remove one-shot workflow
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/CURRENT_SPRINT.md docs/MASTER_BACKLOG.md
+          git rm .github/workflows/propionate-control-one-shot.yml
+          git commit -m "docs(control): admit Propionate closure work"
+          git push origin HEAD:${GITHUB_REF_NAME}
