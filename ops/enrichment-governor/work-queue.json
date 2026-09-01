@@ -1,8 +1,20 @@
 {
   "version": 1,
-  "leases": [],
+  "leases": [
+    {
+      "id": "lease-4992-propionate-closure",
+      "owner": "site-swarm-integration",
+      "purpose": "close staged Propionate evidence before MS follow-up",
+      "files": [],
+      "entities": [
+        "compound:propionate"
+      ],
+      "acquiredAt": "2026-09-01T19:17:16.767Z",
+      "expiresAt": "2026-09-01T20:47:16.767Z"
+    }
+  ],
   "queued": [],
   "batched": [],
   "blocked": [],
-  "updatedAt": "2026-09-01T05:29:07.575Z"
+  "updatedAt": "2026-09-01T19:17:16.767Z"
 }
