@@ -4,3 +4,4 @@
 {"event":"lease_acquired","at":"2026-09-01T05:02:49.239Z","leaseId":"lease-4260-cannabidiol-safety-meta","owner":"site-swarm-integration","files":[],"entities":["compound:cannabidiol"],"expiresAt":"2026-09-01T06:32:49.239Z"}
 {"event":"lease_released","at":"2026-09-01T05:29:07.576Z","leaseId":"lease-4260-cannabidiol-safety-meta","owner":"site-swarm-integration","existed":true,"disposition":"verified"}
 {"event":"lease_acquired","at":"2026-09-01T19:17:16.767Z","leaseId":"lease-4992-propionate-closure","owner":"site-swarm-integration","files":[],"entities":["compound:propionate"],"expiresAt":"2026-09-01T20:47:16.767Z"}
+{"event":"lease_acquired","at":"2026-09-01T20:52:54.131Z","leaseId":"lease-4992-propionate-closure","owner":"site-swarm-integration","files":[],"entities":["compound:propionate"],"expiresAt":"2026-09-01T22:22:54.131Z"}
