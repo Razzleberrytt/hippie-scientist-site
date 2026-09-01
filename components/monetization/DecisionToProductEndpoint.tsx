@@ -108,7 +108,7 @@ export default async function DecisionToProductEndpoint({
 
       <p className='mt-5 text-xs leading-6 text-muted'>
         Product examples are sourcing starting points, not prescriptions. For a brand-neutral checklist, use the{' '}
-        <Link href='/buy-guide/' className='font-semibold text-brand-700 hover:underline'>supplement buying guide</Link>.
+        <Link href='/learn/product-quality/' className='font-semibold text-brand-700 hover:underline'>supplement product-quality guide</Link>.
       </p>
     </section>
   )
