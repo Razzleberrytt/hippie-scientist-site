@@ -5,6 +5,7 @@ import sharp from 'sharp'
 
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
 const CANONICAL_SVG_FILE = /^carousel-\d{2,}\.svg$/
+const SUPPORTED_PARENT_RENDERERS = new Set(['carousel-svg-v1', 'carousel-svg-v2'])
 
 function decodeXml(value) {
   return value.replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')
@@ -16,8 +17,8 @@ function embeddedProvenance(bytes) {
   if (!match) throw new Error('SVG parent is missing authenticated provenance metadata')
   let metadata
   try { metadata = JSON.parse(decodeXml(match[1])) } catch { throw new Error('SVG parent provenance metadata is invalid') }
-  if (metadata?.renderer !== 'carousel-svg-v1' || !metadata?.contentHash || !metadata?.sourceUrl || !metadata?.factualProvenanceFingerprint || !metadata?.templateVersion) {
-    throw new Error('SVG parent provenance metadata is incomplete')
+  if (!SUPPORTED_PARENT_RENDERERS.has(metadata?.renderer) || !metadata?.contentHash || !metadata?.sourceUrl || !metadata?.factualProvenanceFingerprint || !metadata?.templateVersion) {
+    throw new Error('SVG parent provenance metadata is incomplete or uses an unsupported carousel renderer')
   }
   return metadata
 }
@@ -42,6 +43,7 @@ function assertSvgParent(asset, outputDir, manifest) {
   if (sha256(bytes) !== asset.sha256) throw new Error(`SVG parent hash mismatch: ${asset.file}`)
   const provenance = embeddedProvenance(bytes)
   if (
+    provenance.renderer !== manifest.renderer ||
     provenance.contentHash !== manifest.sourceContentHash ||
     provenance.contentHash !== asset.sourceContentHash ||
     provenance.sourceUrl !== asset.sourceUrl ||
@@ -62,10 +64,10 @@ function assertManifest(manifest) {
     !manifest?.factualProvenanceFingerprint ||
     !manifest?.presentationFingerprint ||
     !manifest?.templateVersion ||
-    manifest?.renderer !== 'carousel-svg-v1' ||
+    !SUPPORTED_PARENT_RENDERERS.has(manifest?.renderer) ||
     !Array.isArray(manifest.assets)
   ) {
-    throw new Error('raster exporter requires a provenance-complete carousel-svg-v1 asset manifest')
+    throw new Error('raster exporter requires a provenance-complete supported carousel SVG asset manifest')
   }
   for (const asset of manifest.assets) {
     if (
