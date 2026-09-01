@@ -208,7 +208,7 @@ jobs:
             if (sha256(bytes) !== String(item.sha256 || '')) throw new Error(`governed media hash mismatch in static output: ${url.pathname}`)
             if (Number(item.bytes) !== bytes.length) throw new Error(`governed media byte-size mismatch in static output: ${url.pathname}`)
             if (manifest.mediaType === 'video' && !url.pathname.endsWith('.mp4')) throw new Error('vertical-video deployment must expose an MP4')
-            if (manifest.mediaType === 'image' && !url.pathname.endsWith('.png')) throw new Error('carousel deployment must expose PNG media')
+            if (manifest.mediaType === 'image' && !url.pathname.endsWith('.webp')) throw new Error('carousel deployment must expose WebP media')
           }
           console.log(`[distribution] verified deployed ${manifest.format} manifest with ${manifest.media.length} media asset(s)`)
           NODE

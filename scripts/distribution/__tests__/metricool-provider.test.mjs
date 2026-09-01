@@ -212,14 +212,14 @@ describe('Metricool live lifecycle promotion', () => {
 })
 
 describe('Metricool public media staging', () => {
-  it('copies hash-verified PNG assets and swaps only the destination URL for its governed attribution variant', () => {
+  it('copies hash-verified WebP assets and swaps only the destination URL for its governed attribution variant', () => {
     const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'ths-metricool-stage-'))
     try {
       const sourceDir = path.join(temp, 'pilot')
       const publicRoot = path.join(temp, 'public-media')
       fs.mkdirSync(sourceDir, { recursive: true })
-      const bytes = Buffer.from('deterministic-png-fixture')
-      fs.writeFileSync(path.join(sourceDir, 'carousel-01.png'), bytes)
+      const bytes = Buffer.from('deterministic-webp-fixture')
+      fs.writeFileSync(path.join(sourceDir, 'carousel-01.webp'), bytes)
       const lifecycle = dryRunScheduledLifecycle()
       const pilot = {
         schemaVersion: 'bounded-distribution-pilot-v1',
@@ -233,8 +233,8 @@ describe('Metricool public media staging', () => {
           sourceContentHash: identity.researchObjectHash,
           assets: [{
             type: 'carousel-slide-raster',
-            format: 'png',
-            file: 'carousel-01.png',
+            format: 'webp',
+            file: 'carousel-01.webp',
             sha256: sha256(bytes),
             width: 1080,
             height: 1350,
@@ -265,7 +265,7 @@ describe('Metricool public media staging', () => {
       expect(manifest.media).toHaveLength(1)
       expect(manifest.media[0].url).toContain('/media/distribution/metricool/ashwagandha-stress-evidence/')
       expect(fs.existsSync(path.join(publicRoot, 'latest.json'))).toBe(true)
-      expect(fs.existsSync(path.join(publicRoot, 'ashwagandha-stress-evidence', lifecycle.identity.fingerprint.slice(0, 20), 'carousel-01.png'))).toBe(true)
+      expect(fs.existsSync(path.join(publicRoot, 'ashwagandha-stress-evidence', lifecycle.identity.fingerprint.slice(0, 20), 'carousel-01.webp'))).toBe(true)
     } finally {
       fs.rmSync(temp, { recursive: true, force: true })
     }
