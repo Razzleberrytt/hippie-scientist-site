@@ -35,7 +35,7 @@ async function withRenderedAssets(run) {
   }
 }
 
-test('deterministically derives canonical PNG and provider-safe WebP assets from canonical SVG bytes', async () => {
+test('deterministically derives existing PNG and provider-safe WebP assets from canonical SVG bytes', async () => {
   await withRenderedAssets(async ({ dir, svgManifest }) => {
     expect(svgManifest.renderer).toBe('carousel-svg-v2')
     const first = await renderCarouselRasterAssets({ manifest: svgManifest, outputDir: dir })
@@ -62,8 +62,11 @@ test('deterministically derives canonical PNG and provider-safe WebP assets from
       expect(asset.height).toBe(metadata.height)
 
       if (asset.format === 'png') {
-        expect(asset.width).toBe(portrait.width)
-        expect(asset.height).toBe(portrait.height)
+        // Preserve the pre-existing Sharp density=96 raster output. The SVG
+        // design canvas is 1080x1350 CSS px, while the emitted PNG bytes are
+        // 1440x1800. TikTok publication consumes the bounded WebP derivative.
+        expect(asset.width).toBe(1440)
+        expect(asset.height).toBe(1800)
       } else if (asset.format === 'webp') {
         expect(asset.width).toBe(expectedWebpWidth)
         expect(asset.height).toBe(1080)
