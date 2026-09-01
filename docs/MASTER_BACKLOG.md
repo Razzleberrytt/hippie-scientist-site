@@ -46,14 +46,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Live GitHub reconciliation at `f61631bba9fc1aeaea80bc532ab0e47455c0e857` on 2026-09-01 shows **1/3 normal implementation workstreams occupied**:
+Live GitHub reconciliation at `b4af01097a41f3da6bfad22b04027bd43ceb9023` on 2026-09-01 shows **0/3 normal implementation workstreams occupied**:
 
 | Ticket | Title | Lane | Status |
 |---|---|---|---|
-| #4260 / PR #4999 | Add 2026 healthy-adult CBD safety meta-analysis | A evidence | In review |
 
 - **R — free:** #4732 / PR #4734 merged and closed. Provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
-- **A — #4260 / PR #4999 in review:** the healthy-adult CBD safety meta-analysis review owns the Authority/Content workstream under lease `lease-4260-cannabidiol-safety-meta`; scope is one source identity, one calibrated adverse-effect record, the deterministic governed rollup, and exact regression coverage.
+- **A — free:** #4260 / PR #4999 is merged/closed; the bounded healthy-adult CBD safety meta-analysis source and adverse-effect record are on `main`, and PR #5001 released the verified lease.
 - **D — free:** #4949 and #4951 are closed through merged PR #4952. The comparison discovery, core-hub sitemap/redirect alignment, and historical-audit tombstone repair are on `main`; post-merge release and deploy checks passed.
 
 Research-only enrichment staging remains separate from canonical implementation/promotion WIP. #4731 / PR #4947 and #4949 / #4951 / PR #4952 are merged/closed. No stale SEO item is admitted merely because Discovery/SEO is now free.
@@ -101,6 +100,7 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
+| #4260 / PR #4999 | Merged as `754828d80ff0895b40091227d8aa1549a0f1521b`; registered PMID 41789242 / DOI 10.1097/MS9.0000000000004549, added one short-term healthy-adult adverse-effect record preserving the diarrhea estimate and null findings, regenerated governed output, and added an exact no-overclaim regression. All exact-head scientific, build, release, and control checks passed; PR #5001 released the verified lease. No efficacy, general dose, broad or long-term safety, traffic, analytics, or business outcome is inferred. |
 | #4266 / PR #4972 | Merged as `8aba655daae2aba8d07cd2ba6f32ed52f8f3b498`; registered PMID 41943502 / DOI 10.1002/ptr.70315, added three formulation- and population-bounded KSM-66 safety records, regenerated governed output, and added an exact no-overclaim regression. All required exact-head checks passed, and PR #4976 released the governed lease; no efficacy, general-dose, traffic, analytics, or business outcome is inferred. |
 | #4949 / #4951 / PR #4952 | Merged as `0c667ca7bd9bf49279594e7df79a806cb4c1237a`; restored caffeine/L-theanine comparison discovery, added canonical `/evidence/` and `/info/` sitemap/redirect alignment, preserved historical audit exports with tombstones, and passed exact-head plus post-merge release/deploy checks. No traffic, ranking, indexing, analytics, or revenue outcome is inferred. |
 | #4731 / PR #4947 | Merged as `6e32a773d908495f08fa297fc51da1cea6fb2659`; scoped unbound dose-unit, onset/duration, and comparative-efficacy label bypasses are closed with focused regressions. The separate Discovery/SEO incident exposed afterward is retired above. |
