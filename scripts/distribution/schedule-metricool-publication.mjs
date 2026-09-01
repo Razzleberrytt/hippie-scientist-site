@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { buildMetricoolSchedulerRequest, scheduleMetricoolPublication } from './metricool-provider.mjs'
+import { buildMediaFirstCaption } from './media-first-caption.mjs'
 
 const clean = (value) => String(value ?? '').trim()
 const DEFAULT_MANIFEST_URL = 'https://thehippiescientist.net/media/distribution/metricool/latest.json'
@@ -75,6 +76,7 @@ export async function scheduleMetricoolPublicationFromArtifacts({
   const selection = readJson(path.join(distributionDir, 'opportunity-selection.json'))
   const objectId = clean(selection?.selected?.id)
   if (!objectId) throw new Error('Metricool scheduling requires a selected governed opportunity')
+  const packageData = readJson(path.join(distributionDir, `${objectId}.json`))
   const pilotPath = path.join(distributionDir, 'pilots', objectId, 'bounded-pilot.json')
   const pilot = readJson(pilotPath)
   if (pilot?.lifecycle?.identity?.fingerprint !== liveManifest.identityFingerprint) {
@@ -83,6 +85,9 @@ export async function scheduleMetricoolPublicationFromArtifacts({
   if (liveManifest.researchObjectId !== objectId || liveManifest.lifecycleId !== pilot.lifecycle.lifecycleId) {
     throw new Error('live Metricool media does not match the current bounded pilot')
   }
+  if (packageData?.mediaPack?.status !== 'validated' || packageData.mediaPack.packId !== liveManifest.packId) {
+    throw new Error('Metricool scheduling requires the validated distribution package matching the live media manifest')
+  }
 
   const selectedNetworks = requestedNetworks(networks)
   const allowedNetworks = new Set(Array.isArray(liveManifest.allowedNetworks) ? liveManifest.allowedNetworks.map((item) => clean(item).toLowerCase()) : [])
@@ -90,11 +95,15 @@ export async function scheduleMetricoolPublicationFromArtifacts({
   if (disallowed.length) throw new Error(`live governed media is not authorized for network(s): ${disallowed.join(', ')}`)
 
   await assertMediaReachable(liveManifest.media, mediaType, fetchImpl)
+  const mediaCaption = buildMediaFirstCaption(packageData.sharedFacts, packageData.socialPost, {
+    format: liveManifest.format,
+    taggedDestination: pilot.lifecycle.identity.taggedDestination,
+  })
   const includesYouTube = selectedNetworks.includes('youtube')
   const request = buildMetricoolSchedulerRequest({
     format: liveManifest.format,
     networks: selectedNetworks,
-    text: liveManifest.text,
+    text: mediaCaption.text,
     mediaUrls: liveManifest.media.map((item) => item.url),
     publicationAt,
     timezone: 'America/New_York',
@@ -137,6 +146,7 @@ export async function scheduleMetricoolPublicationFromArtifacts({
     identityFingerprint: result.lifecycle.identity.fingerprint,
     idempotencyKey: result.lifecycle.identity.idempotencyKey,
     mediaManifestUrl: manifestUrl,
+    captionSchemaVersion: mediaCaption.schemaVersion,
     lifecycle: result.lifecycle,
   }
   const receiptDir = path.join(distributionDir, 'metricool')

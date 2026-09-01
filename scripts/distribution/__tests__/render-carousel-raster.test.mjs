@@ -36,10 +36,12 @@ async function withRenderedAssets(run) {
 
 test('deterministically derives PNG and WebP assets from canonical SVG bytes', async () => {
   await withRenderedAssets(async ({ dir, svgManifest }) => {
+    expect(svgManifest.renderer).toBe('carousel-svg-v2')
     const first = await renderCarouselRasterAssets({ manifest: svgManifest, outputDir: dir })
     const firstBytes = new Map(first.assets.map((asset) => [asset.file, fs.readFileSync(path.join(dir, asset.file))]))
     const second = await renderCarouselRasterAssets({ manifest: svgManifest, outputDir: dir })
     expect(second).toEqual(first)
+    expect(first.parentRenderer).toBe('carousel-svg-v2')
     expect(first.assets).toHaveLength(svgManifest.assets.length * 2)
     for (const asset of first.assets) {
       const bytes = fs.readFileSync(path.join(dir, asset.file))
@@ -73,6 +75,13 @@ test('binds declared provenance to the provenance embedded in hashed SVG bytes',
   })
 })
 
+test('binds the manifest renderer version to the renderer embedded in SVG provenance', async () => {
+  await withRenderedAssets(async ({ dir, svgManifest }) => {
+    const mismatched = { ...svgManifest, renderer: 'carousel-svg-v1' }
+    await expect(renderCarouselRasterAssets({ manifest: mismatched, outputDir: dir })).rejects.toThrow(/provenance mismatch/)
+  })
+})
+
 test('rejects parent paths that can escape the output directory', async () => {
   await withRenderedAssets(async ({ dir, svgManifest }) => {
     const parent = svgManifest.assets[0]
@@ -83,7 +92,7 @@ test('rejects parent paths that can escape the output directory', async () => {
 
 test('rejects noncanonical manifests and unsupported formats', async () => {
   await withRenderedAssets(async ({ dir, svgManifest }) => {
-    await expect(renderCarouselRasterAssets({ manifest: { ...svgManifest, renderer: 'other' }, outputDir: dir })).rejects.toThrow(/carousel-svg-v1/)
+    await expect(renderCarouselRasterAssets({ manifest: { ...svgManifest, renderer: 'other' }, outputDir: dir })).rejects.toThrow(/supported carousel SVG asset manifest/)
     await expect(renderCarouselRasterAssets({ manifest: svgManifest, outputDir: dir, formats: ['jpg'] })).rejects.toThrow(/png and\/or webp/)
   })
 })
