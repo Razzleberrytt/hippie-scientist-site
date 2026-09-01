@@ -246,7 +246,7 @@
           "studyDesignWeight": 5,
           "humanRelevance": "direct-human",
           "directnessToClaim": "direct",
-          "replicationDepth": 3,
+          "replicationDepth": 4,
           "sourceReliabilityTier": "tier-a",
           "recencyWeight": 2,
           "editorialConfidence": "medium",
