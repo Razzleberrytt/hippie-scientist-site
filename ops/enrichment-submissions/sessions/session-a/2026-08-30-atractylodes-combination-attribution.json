@@ -1,0 +1,49 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "A",
+  "shard": 0,
+  "batchId": "session-a-20260830-atractylodes-attribution",
+  "createdAt": "2026-08-30T16:29:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_a-atractylodes-tcm-combination-attribution",
+      "authoringPackId": "ap_a_atractylodes_pubmed_38170849",
+      "workpackId": "wp_herb_atractylodes_macrocephala",
+      "entityType": "herb",
+      "entitySlug": "atractylodes-macrocephala",
+      "sourceId": "src_pubmed-38170849",
+      "topicType": "population_specific_note",
+      "claimType": "population_note",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "The 12-RCT/1,140-participant meta-analysis tested multi-herb TCM interventions; it did not test isolated Atractylodes macrocephala.",
+      "findingTextNormalized": "PMID 38170849 pooled 12 randomized trials involving 1,140 participants receiving multi-herb traditional Chinese medicine interventions for chronic atrophic gastritis. Atractylodes macrocephala was identified later as one of seven hub herbs through formulation association and network-pharmacology analysis, so the pooled clinical effect and participant count must remain owned by the multi-herb interventions rather than being attributed to isolated Atractylodes.",
+      "strengthLabel": "strong",
+      "populationContext": "Participants with chronic atrophic gastritis receiving multi-herb TCM interventions",
+      "usageContext": "Combination-formula systematic review/meta-analysis plus network-pharmacology analysis",
+      "uncertaintyNote": "The paper supports formulation-level clinical evidence and herb-association context, not Atractylodes monotherapy efficacy.",
+      "reviewStatus": "ready_for_review",
+      "editorialStatus": "needs_review",
+      "active": true
+    },
+    {
+      "submissionId": "sub_a-atractylodes-network-pharmacology-ceiling",
+      "authoringPackId": "ap_a_atractylodes_pubmed_38170849",
+      "workpackId": "wp_herb_atractylodes_macrocephala",
+      "entityType": "herb",
+      "entitySlug": "atractylodes-macrocephala",
+      "sourceId": "src_pubmed-38170849",
+      "topicType": "research_gap",
+      "claimType": "research_gap",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "Hub-herb identification by formulation frequency/network pharmacology cannot be promoted into isolated-human efficacy evidence.",
+      "findingTextNormalized": "Atractylodes macrocephala appears in the source as a frequently associated hub herb identified through formulation composition and network-pharmacology analysis. That analytic role cannot transfer the meta-analysis effect size, sample size, or evidence strength to Atractylodes as an isolated intervention. Direct proposition-compatible human monotherapy evidence remains separately required.",
+      "strengthLabel": "strong",
+      "populationContext": "Evidence-attribution context for a multi-herb clinical literature synthesis",
+      "usageContext": "Combination-to-component propagation boundary",
+      "uncertaintyNote": "This correction prevents attribution inflation; it does not establish that Atractylodes has no effects when studied directly.",
+      "reviewStatus": "ready_for_review",
+      "editorialStatus": "needs_review",
+      "active": true
+    }
+  ]
+}
