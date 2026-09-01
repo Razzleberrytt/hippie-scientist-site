@@ -50,10 +50,10 @@ Live GitHub reconciliation at `f61631bba9fc1aeaea80bc532ab0e47455c0e857` on 2026
 
 | Ticket | Title | Lane | Status |
 |---|---|---|---|
-| #4260 | Add 2026 healthy-adult CBD safety meta-analysis | A evidence | Active |
+| #4260 / PR #4999 | Add 2026 healthy-adult CBD safety meta-analysis | A evidence | In review |
 
 - **R — free:** #4732 / PR #4734 merged and closed. Provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
-- **A — #4260 active:** the healthy-adult CBD safety meta-analysis review owns the Authority/Content workstream under lease `lease-4260-cannabidiol-safety-meta`; scope is one source identity, one calibrated adverse-effect record, the deterministic governed rollup, and exact regression coverage.
+- **A — #4260 / PR #4999 in review:** the healthy-adult CBD safety meta-analysis review owns the Authority/Content workstream under lease `lease-4260-cannabidiol-safety-meta`; scope is one source identity, one calibrated adverse-effect record, the deterministic governed rollup, and exact regression coverage.
 - **D — free:** #4949 and #4951 are closed through merged PR #4952. The comparison discovery, core-hub sitemap/redirect alignment, and historical-audit tombstone repair are on `main`; post-merge release and deploy checks passed.
 
 Research-only enrichment staging remains separate from canonical implementation/promotion WIP. #4731 / PR #4947 and #4949 / #4951 / PR #4952 are merged/closed. No stale SEO item is admitted merely because Discovery/SEO is now free.

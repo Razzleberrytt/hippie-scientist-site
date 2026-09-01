@@ -5,7 +5,7 @@
 **Updated:** 2026-08-31
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub reconciliation at `f61631bba9fc1aeaea80bc532ab0e47455c0e857` on 2026-09-01 records 1/3 normal implementation workstreams occupied. #4260 is active in Authority/Content under durable lease `lease-4260-cannabidiol-safety-meta`; Revenue/Conversion and Discovery/SEO are free. PR #4976 released the governed Ashwagandha lease through the state-only transaction path. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP. SEO-003 and AUTH-001 remain retired by their exact-current diagnostics.
+**Current admission:** Live GitHub reconciliation at `f61631bba9fc1aeaea80bc532ab0e47455c0e857` on 2026-09-01 records 1/3 normal implementation workstreams occupied. #4260 / PR #4999 is in review in Authority/Content under durable lease `lease-4260-cannabidiol-safety-meta`; Revenue/Conversion and Discovery/SEO are free. PR #4976 released the governed Ashwagandha lease through the state-only transaction path. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP. SEO-003 and AUTH-001 remain retired by their exact-current diagnostics.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -53,10 +53,10 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| Authority/Content | #4260 | site-swarm-integration | Active | Add one 2026 healthy-adult CBD safety meta-analysis source, one calibrated adverse-effect record, the deterministic governed rollup, and exact regression coverage. |
+| Authority/Content | #4260 / PR #4999 | site-swarm-integration | In review | Add one 2026 healthy-adult CBD safety meta-analysis source, one calibrated adverse-effect record, the deterministic governed rollup, and exact regression coverage. |
 
 - **Revenue/Conversion:** free. #4732 / PR #4734 is merged/closed; provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
-- **Authority/Content:** occupied by #4260 under the durable `compound:cannabidiol` lease. Scope is limited to the short-term healthy-adult meta-analysis, including its diarrhea signal and null findings; efficacy, general dosing, and broad or long-term safety reassurance remain out of scope.
+- **Authority/Content:** occupied by #4260 / PR #4999 under the durable `compound:cannabidiol` lease. Scope is limited to the short-term healthy-adult meta-analysis, including its diarrhea signal and null findings; efficacy, general dosing, and broad or long-term safety reassurance remain out of scope.
 - **Discovery/SEO:** free. #4949 and #4951 are closed; PR #4952 merged the comparison-hub discovery repair plus canonical `/evidence/` and `/info/` sitemap/redirect alignment. Post-merge release and deploy checks passed.
 
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.

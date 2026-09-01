@@ -47,7 +47,7 @@
             "src_pubmed-41789242"
           ],
           "targetType": "population",
-          "targetName": "healthy adults",
+          "targetName": "healthy adults in short-term placebo-controlled trials",
           "uncertaintyNote": "The four-trial evidence base was small, the diarrhea confidence interval was wide, and exposures were heterogeneous; findings do not establish risk outside healthy adults, a general dose, or long-term safety."
         }
       ],
@@ -118,7 +118,7 @@
             "sourceId": "src_pubmed-41789242",
             "safetyTopicType": "adverse_effect",
             "targetType": "population",
-            "targetName": "healthy adults",
+            "targetName": "healthy adults in short-term placebo-controlled trials",
             "severityLabel": "moderate",
             "urgencyLabel": "caution",
             "evidenceClass": "human-clinical",
