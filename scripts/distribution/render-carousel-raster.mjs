@@ -6,6 +6,7 @@ import sharp from 'sharp'
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
 const CANONICAL_SVG_FILE = /^carousel-\d{2,}\.svg$/
 const SUPPORTED_PARENT_RENDERERS = new Set(['carousel-svg-v1', 'carousel-svg-v2'])
+const METRICOOL_WEBP_MAX_DIMENSION = 1080
 
 function decodeXml(value) {
   return value.replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')
@@ -81,10 +82,31 @@ function assertManifest(manifest) {
   }
 }
 
-async function rasterize(svgBytes, format) {
+function rasterDimensions(parent, format) {
+  const width = Number(parent?.width)
+  const height = Number(parent?.height)
+  if (!Number.isFinite(width) || !Number.isFinite(height) || width < 1 || height < 1) {
+    throw new Error(`raster exporter requires positive numeric dimensions: ${String(parent?.file || '<unknown>')}`)
+  }
+  if (format !== 'webp') return { width, height }
+  const largestDimension = Math.max(width, height)
+  if (largestDimension <= METRICOOL_WEBP_MAX_DIMENSION) return { width, height }
+  const scale = METRICOOL_WEBP_MAX_DIMENSION / largestDimension
+  return {
+    width: Math.max(1, Math.round(width * scale)),
+    height: Math.max(1, Math.round(height * scale)),
+  }
+}
+
+async function rasterize(svgBytes, format, dimensions) {
   const pipeline = sharp(svgBytes, { density: 96, failOn: 'error' }).rotate()
   if (format === 'png') return pipeline.png({ compressionLevel: 9, adaptiveFiltering: false, palette: false }).toBuffer()
-  if (format === 'webp') return pipeline.webp({ quality: 92, alphaQuality: 100, smartSubsample: false, effort: 6 }).toBuffer()
+  if (format === 'webp') {
+    return pipeline
+      .resize(dimensions.width, dimensions.height, { fit: 'fill' })
+      .webp({ quality: 92, alphaQuality: 100, smartSubsample: false, effort: 6 })
+      .toBuffer()
+  }
   throw new Error(`unsupported raster format: ${format}`)
 }
 
@@ -102,7 +124,8 @@ export async function renderCarouselRasterAssets({ manifest, outputDir, formats 
   for (const parent of manifest.assets) {
     const { bytes: svgBytes } = assertSvgParent(parent, dir, manifest)
     for (const format of uniqueFormats) {
-      const rasterBytes = await rasterize(svgBytes, format)
+      const dimensions = rasterDimensions(parent, format)
+      const rasterBytes = await rasterize(svgBytes, format, dimensions)
       const file = parent.file.replace(/\.svg$/i, `.${format}`)
       const outputPath = path.resolve(dir, file)
       if (path.dirname(outputPath) !== dir) throw new Error(`raster output escapes output directory: ${file}`)
@@ -113,8 +136,8 @@ export async function renderCarouselRasterAssets({ manifest, outputDir, formats 
         format,
         file,
         sha256: sha256(rasterBytes),
-        width: parent.width,
-        height: parent.height,
+        width: dimensions.width,
+        height: dimensions.height,
         sourceContentHash: manifest.sourceContentHash,
         sourceUrl: parent.sourceUrl,
         factualProvenanceFingerprint: manifest.factualProvenanceFingerprint,
@@ -122,6 +145,7 @@ export async function renderCarouselRasterAssets({ manifest, outputDir, formats 
         parentSvgSha256: parent.sha256,
         parentSvgFile: parent.file,
         exporter: 'carousel-raster-v1',
+        deliveryProfile: format === 'webp' ? 'metricool-tiktok-photo-v1' : 'canonical',
       })
     }
   }
