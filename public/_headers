@@ -27,6 +27,11 @@
   Content-Type: application/json; charset=utf-8
   X-Content-Type-Options: nosniff
 
+/media/distribution/*
+  ! Cross-Origin-Resource-Policy
+  Cross-Origin-Resource-Policy: cross-origin
+  Access-Control-Allow-Origin: *
+
 /llms.txt
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
   Content-Type: text/plain; charset=utf-8
