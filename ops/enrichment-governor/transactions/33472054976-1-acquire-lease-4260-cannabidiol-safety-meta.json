@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "transactionType": "enrichment_governor_lease",
+  "requestedAt": "2026-09-01T05:02:49.247Z",
+  "operation": "acquire",
+  "actor": "github-actions[bot]",
+  "owner": "site-swarm-integration",
+  "leaseId": "lease-4260-cannabidiol-safety-meta",
+  "purpose": "Evaluate 2026 healthy-adult cannabidiol safety meta-analysis under governed canonical review",
+  "files": [],
+  "entities": [
+    "compound:cannabidiol"
+  ],
+  "disposition": null,
+  "baseSha": "c4ee260c21898f44d690d660aee69bed748141e4",
+  "before": {
+    "workQueueSha256": "a19c7872586e81159ee97be0e24dd75ffcce4f628270d30d8acaa47c7185e5a2",
+    "ledgerSha256": "39227f5e7166fe89fd22266703817edc7d7feb35d782e21810da895c63b37845"
+  },
+  "after": {
+    "workQueueSha256": "474178737b92e0c795623cf7215203c05561ba34006363cdfc544b2d1a1de9aa",
+    "ledgerSha256": "f836b9206690d90d4c9af9b07c04d969f9bd3fb0d3b7aa0bd236cbb352e94353"
+  },
+  "result": {
+    "acquired": true,
+    "expiresAt": "2026-09-01T06:32:49.239Z"
+  },
+  "transactionCommitSha": "caf922d55b762c5fffe98c61655a894d7659b05a",
+  "finalizedAt": "2026-09-01T05:02:50.174Z"
+}
