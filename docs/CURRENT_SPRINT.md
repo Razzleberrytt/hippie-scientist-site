@@ -5,7 +5,7 @@
 **Updated:** 2026-08-31
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub reconciliation at `b4af01097a41f3da6bfad22b04027bd43ceb9023` on 2026-09-01 records 0/3 normal implementation workstreams occupied. #4260 / PR #4999 is merged/closed and retired from Authority/Content WIP; PR #5001 released the verified governed cannabidiol lease. Revenue/Conversion, Authority/Content, and Discovery/SEO are free. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP. SEO-003 and AUTH-001 remain retired by their exact-current diagnostics.
+**Current admission:** Live GitHub reconciliation at `e3b19e2015b8efb449e488cd0ec5c60c66507bc7` on 2026-09-01 records 1/3 normal implementation workstreams occupied. #4992 is active in Authority/Content under durable lease `lease-4992-propionate-closure` to close staged Propionate evidence before #4983; Revenue/Conversion and Discovery/SEO are free. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP. SEO-003 and AUTH-001 remain retired by their exact-current diagnostics.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,13 +49,14 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — observed implementation WIP 0/3
+## Active / in review — observed implementation WIP 1/3
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
+| Authority/Content | #4992 | site-swarm-integration | Active | Close four staged Propionate findings with three governed sources, four calibrated normalized records, deterministic rollup, terminal semantic attestations, and exact no-overclaim regression; #4983 remains blocked until closure. |
 
 - **Revenue/Conversion:** free. #4732 / PR #4734 is merged/closed; provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
-- **Authority/Content:** free. #4260 / PR #4999 is merged/closed; the 2026 healthy-adult CBD safety meta-analysis source, one bounded adverse-effect record, deterministic governed rollup, and exact regression are on `main`. PR #5001 released the verified lease. No efficacy, general dosing, or broad or long-term safety reassurance was added.
+- **Authority/Content:** occupied by #4992 under durable lease `lease-4992-propionate-closure`. Scope is limited to terminal governance of the four already-staged Propionate findings: acute sodium-propionate surrogate physiology, calcium-propionate preservative-exposure conflict, the 12-month iPREVENT null, and chemical-form/delivery non-interchangeability. No generic efficacy or consumer-dose claim is authorized; #4983 remains blocked until this closure is merged and verified.
 - **Discovery/SEO:** free. #4949 and #4951 are closed; PR #4952 merged the comparison-hub discovery repair plus canonical `/evidence/` and `/info/` sitemap/redirect alignment. Post-merge release and deploy checks passed.
 
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
