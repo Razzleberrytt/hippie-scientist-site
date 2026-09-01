@@ -1,0 +1,30 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "A",
+  "shard": 0,
+  "batchId": "session-a-20260831-saffron-pregnancy",
+  "createdAt": "2026-08-31T20:45:00-04:00",
+  "submissions": [
+    {
+      "submissionId": "sub_a-saffron-pregnancy-exposure-context",
+      "authoringPackId": "ap_a_saffron_pubmed_42186868",
+      "workpackId": "wp_herb_saffron",
+      "entityType": "herb",
+      "entitySlug": "saffron",
+      "sourceId": "src_pubmed-42186868",
+      "topicType": "pregnancy_note",
+      "claimType": "safety_risk",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A 2026 integrative review links higher saffron exposure with uterine stimulation and miscarriage risk while finding pregnancy evidence limited and context-dependent.",
+      "findingTextNormalized": "PMID 42186868 integrated 12 sources on saffron use during pregnancy and childbirth. The review reports that some low-dose studies in term pregnancy found labor-related signals, while higher doses or occupational exposure were linked to uterine stimulation and increased miscarriage risk. Those gestational, dose, preparation, and exposure contexts are not interchangeable. The authors describe the overall pregnancy efficacy and safety evidence as limited and inconclusive and call for standardized preparations and longer-term safety data before clinical recommendations. No studied pregnancy regimen is promoted here as a consumer or clinical dosing recommendation.",
+      "strengthLabel": "limited",
+      "populationContext": "Pregnant people across term-pregnancy clinical studies and broader pregnancy or occupational-exposure evidence summarized in an integrative review",
+      "usageContext": "Pregnancy-specific safety calibration for canonical Saffron; term labor studies must not be generalized across gestation",
+      "safetyContext": "Preserve the higher-exposure uterine-stimulation and miscarriage-risk signal without converting context-specific term-pregnancy findings into blanket safety or a dosing recommendation.",
+      "uncertaintyNote": "The review combines heterogeneous study designs, exposures, preparations and gestational contexts; it explicitly characterizes the evidence as limited and inconclusive and identifies a need for standardized preparations and long-term safety data.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "needs_review",
+      "active": true
+    }
+  ]
+}
