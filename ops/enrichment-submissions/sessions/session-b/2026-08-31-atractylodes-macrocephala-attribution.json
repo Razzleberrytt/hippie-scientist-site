@@ -1,0 +1,49 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "B",
+  "shard": 1,
+  "batchId": "session-b-20260831-atractylodes-attribution",
+  "createdAt": "2026-08-31T20:05:00-04:00",
+  "submissions": [
+    {
+      "submissionId": "sub_b-atractylodes-macrocephala-tcm-combination-attribution",
+      "authoringPackId": "ap_b_atractylodes_pubmed_38170849",
+      "workpackId": "wp_herb_atractylodes",
+      "entityType": "herb",
+      "entitySlug": "atractylodes",
+      "sourceId": "src_pubmed-38170849",
+      "topicType": "population_specific_note",
+      "claimType": "population_note",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "PMID 38170849 tested multi-herb TCM interventions and later identified Atractylodes macrocephala as a hub herb; it did not test isolated Atractylodes or isolated A. macrocephala.",
+      "findingTextNormalized": "PMID 38170849 pooled 12 randomized trials involving 1,140 participants receiving multi-herb traditional Chinese medicine interventions for chronic atrophic gastritis. Atractylodes macrocephala was identified later as one of seven hub herbs through formulation association and network-pharmacology analysis. The repository redirects the deprecated Atractylodes macrocephala profile into canonical Atractylodes, but that canonicalization does not broaden the source proposition: the pooled clinical effect, participant count, and meta-analysis strength remain owned by the multi-herb interventions and may not be attributed to isolated Atractylodes, the Atractylodes genus generally, or isolated A. macrocephala.",
+      "strengthLabel": "strong",
+      "populationContext": "Participants with chronic atrophic gastritis receiving multi-herb TCM interventions",
+      "usageContext": "Species-bounded attribution correction attached to canonical Atractylodes owner; combination-formula evidence, not monotherapy efficacy",
+      "uncertaintyNote": "Canonical redirect ownership is a repository identity decision, not evidence that the genus-level canonical or A. macrocephala monotherapy caused the pooled clinical outcomes.",
+      "reviewStatus": "ready_for_review",
+      "editorialStatus": "needs_review",
+      "active": true
+    },
+    {
+      "submissionId": "sub_b-atractylodes-macrocephala-network-pharmacology-ceiling",
+      "authoringPackId": "ap_b_atractylodes_pubmed_38170849",
+      "workpackId": "wp_herb_atractylodes",
+      "entityType": "herb",
+      "entitySlug": "atractylodes",
+      "sourceId": "src_pubmed-38170849",
+      "topicType": "research_gap",
+      "claimType": "research_gap",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "Hub-herb identification of A. macrocephala cannot be promoted into isolated-human efficacy for canonical Atractylodes.",
+      "findingTextNormalized": "Atractylodes macrocephala appears in PMID 38170849 as a frequently associated hub herb identified through formulation composition and network-pharmacology analysis. Because the repository canonicalizes the deprecated species slug into Atractylodes, the finding is staged under canonical owner wp_herb_atractylodes while retaining the species-specific source identity. Neither canonicalization nor hub-herb status transfers the meta-analysis effect size, sample size, or evidence strength to isolated Atractylodes or A. macrocephala. Direct proposition-compatible monotherapy evidence remains separately required.",
+      "strengthLabel": "strong",
+      "populationContext": "Evidence-attribution context for a multi-herb clinical literature synthesis",
+      "usageContext": "Canonical-owner correction with species firewall and combination-to-component propagation boundary",
+      "uncertaintyNote": "This prevents attribution inflation; it does not establish absence of effects for directly studied Atractylodes preparations or A. macrocephala.",
+      "reviewStatus": "ready_for_review",
+      "editorialStatus": "needs_review",
+      "active": true
+    }
+  ]
+}
