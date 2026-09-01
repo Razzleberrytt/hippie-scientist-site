@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import { validateLeaseTransactionInput } from '../enrichment-governor/lease-transaction.mjs'
 
 const GOVERNOR_PREFIX = '/governor '
+const METRICOOL_PREFIX = '/publish-metricool '
 const ALLOWED_GOVERNOR_KEYS = new Set([
   'operation',
   'id',
@@ -12,6 +13,9 @@ const ALLOWED_GOVERNOR_KEYS = new Set([
   'entities',
   'disposition',
 ])
+const ALLOWED_METRICOOL_KEYS = new Set(['publication_at', 'networks'])
+const ALLOWED_METRICOOL_NETWORKS = new Set(['facebook', 'tiktok'])
+const OFFSET_AWARE_ISO_RE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d{1,3})?)?(?:Z|[+-]\d{2}:\d{2})$/
 const SESSION_FILE_RE = /^ops\/enrichment-submissions\/sessions\/(session-[a-z0-9-]+)\//
 const SHA_RE = /^[0-9a-f]{40}$/i
 
@@ -27,19 +31,23 @@ function assertStringArray(label, value) {
   return value
 }
 
-export function parseGovernorComment(comment) {
-  const text = String(comment ?? '').trim()
-  if (!text.startsWith(GOVERNOR_PREFIX)) {
-    throw new Error('governor command must start with /governor followed by a JSON object')
+function parseCommandPayload(text, prefix, label) {
+  if (!text.startsWith(prefix)) {
+    throw new Error(`${label} command must start with ${prefix.trim()} followed by a JSON object`)
   }
-
   let payload
   try {
-    payload = JSON.parse(text.slice(GOVERNOR_PREFIX.length))
+    payload = JSON.parse(text.slice(prefix.length))
   } catch (error) {
-    throw new Error(`governor command payload must be valid JSON: ${error.message}`)
+    throw new Error(`${label} command payload must be valid JSON: ${error.message}`)
   }
-  if (!isPlainObject(payload)) throw new Error('governor command payload must be a JSON object')
+  if (!isPlainObject(payload)) throw new Error(`${label} command payload must be a JSON object`)
+  return payload
+}
+
+export function parseGovernorComment(comment) {
+  const text = String(comment ?? '').trim()
+  const payload = parseCommandPayload(text, GOVERNOR_PREFIX, 'governor')
 
   const unknown = Object.keys(payload).filter(key => !ALLOWED_GOVERNOR_KEYS.has(key))
   if (unknown.length) throw new Error(`unsupported governor command fields: ${unknown.sort().join(', ')}`)
@@ -68,6 +76,41 @@ export function governorDispatchInputs(request) {
     files: request.files.join(','),
     entities: request.entities.join(','),
     disposition: request.disposition || '',
+  }
+}
+
+export function parseMetricoolPublishComment(comment, { now = new Date() } = {}) {
+  const text = String(comment ?? '').trim()
+  const payload = parseCommandPayload(text, METRICOOL_PREFIX, 'Metricool publish')
+  const unknown = Object.keys(payload).filter(key => !ALLOWED_METRICOOL_KEYS.has(key))
+  if (unknown.length) throw new Error(`unsupported Metricool publish fields: ${unknown.sort().join(', ')}`)
+
+  const publicationAt = String(payload.publication_at ?? '').trim()
+  if (!publicationAt || !OFFSET_AWARE_ISO_RE.test(publicationAt)) {
+    throw new Error('publication_at must be an offset-aware ISO timestamp')
+  }
+  const publicationMs = Date.parse(publicationAt)
+  const nowMs = now instanceof Date ? now.getTime() : Date.parse(String(now))
+  if (!Number.isFinite(publicationMs) || !Number.isFinite(nowMs)) throw new Error('publication_at or validation clock is invalid')
+  if (publicationMs <= nowMs + 120_000) {
+    throw new Error('publication_at must be at least two minutes in the future')
+  }
+
+  const rawNetworks = assertStringArray('networks', payload.networks)
+  if (!rawNetworks.length) throw new Error('networks must contain at least one authorized network')
+  const networks = [...new Set(rawNetworks.map(network => network.trim().toLowerCase()).filter(Boolean))]
+  if (!networks.length) throw new Error('networks must contain at least one authorized network')
+  const unsupported = networks.filter(network => !ALLOWED_METRICOOL_NETWORKS.has(network))
+  if (unsupported.length) throw new Error(`unsupported Metricool publish networks: ${unsupported.sort().join(', ')}`)
+
+  return { publicationAt, networks }
+}
+
+export function metricoolDispatchInputs(request) {
+  return {
+    publication_at: request.publicationAt,
+    networks: request.networks.join(','),
+    auto_publish: 'true',
   }
 }
 
@@ -203,6 +246,13 @@ async function main() {
     process.stdout.write(`${JSON.stringify({ ok: true, inputs }, null, 2)}\n`)
     return
   }
+  if (command === 'parse-metricool') {
+    const request = parseMetricoolPublishComment(process.env.COMMENT_BODY)
+    const inputs = metricoolDispatchInputs(request)
+    appendOutputs(inputs)
+    process.stdout.write(`${JSON.stringify({ ok: true, inputs }, null, 2)}\n`)
+    return
+  }
   if (command === 'validate-ready') {
     const result = await validateReadyAgainstGitHub({
       repository: process.env.GITHUB_REPOSITORY,
@@ -220,7 +270,7 @@ async function main() {
     process.stdout.write(`${JSON.stringify(result, null, 2)}\n`)
     return
   }
-  throw new Error('Usage: owner-control-plane-bridge.mjs parse-governor|validate-ready')
+  throw new Error('Usage: owner-control-plane-bridge.mjs parse-governor|parse-metricool|validate-ready')
 }
 
 if (process.argv[1] && new URL(import.meta.url).pathname === new URL(`file://${process.argv[1]}`).pathname) {

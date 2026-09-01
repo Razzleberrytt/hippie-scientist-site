@@ -81,6 +81,48 @@ jobs:
             -f "entities=$LEASE_ENTITIES" \
             -f "disposition=$LEASE_DISPOSITION"
 
+  metricool_publish:
+    if: >-
+      github.event_name == 'issue_comment' &&
+      github.event.issue.pull_request == null &&
+      github.event.comment.user.login == github.repository_owner &&
+      startsWith(github.event.comment.body, '/publish-metricool ')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: write
+      contents: read
+    steps:
+      - name: Check out trusted default branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Parse and validate Metricool publish command
+        id: parse
+        env:
+          COMMENT_BODY: ${{ github.event.comment.body }}
+        run: node scripts/ci/owner-control-plane-bridge.mjs parse-metricool
+
+      - name: Dispatch governed Metricool publication workflow
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PUBLICATION_AT: ${{ steps.parse.outputs.publication_at }}
+          NETWORKS: ${{ steps.parse.outputs.networks }}
+        run: |
+          set -euo pipefail
+          gh workflow run metricool-publication.yml \
+            --repo "$GITHUB_REPOSITORY" \
+            --ref main \
+            -f "publication_at=$PUBLICATION_AT" \
+            -f "networks=$NETWORKS" \
+            -f "auto_publish=true"
+
   ready:
     if: >-
       github.event_name == 'issue_comment' &&
