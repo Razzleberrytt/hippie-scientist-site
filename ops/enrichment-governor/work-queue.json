@@ -1,20 +1,8 @@
 {
   "version": 1,
-  "leases": [
-    {
-      "id": "lease-4260-cannabidiol-safety-meta",
-      "owner": "site-swarm-integration",
-      "purpose": "Evaluate 2026 healthy-adult cannabidiol safety meta-analysis under governed canonical review",
-      "files": [],
-      "entities": [
-        "compound:cannabidiol"
-      ],
-      "acquiredAt": "2026-09-01T05:02:49.239Z",
-      "expiresAt": "2026-09-01T06:32:49.239Z"
-    }
-  ],
+  "leases": [],
   "queued": [],
   "batched": [],
   "blocked": [],
-  "updatedAt": "2026-09-01T05:02:49.239Z"
+  "updatedAt": "2026-09-01T05:29:07.575Z"
 }
