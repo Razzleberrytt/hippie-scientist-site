@@ -632,6 +632,216 @@
     }
   },
   {
+    "entityType": "compound",
+    "entitySlug": "propionate",
+    "researchEnrichment": {
+      "evidenceSummary": "4 approved normalized findings across 4 topic types.",
+      "evidenceTier": "tier-1-strong",
+      "evidenceClassesPresent": [
+        "human-clinical"
+      ],
+      "supportedUses": [],
+      "unsupportedOrUnclearUses": [
+        {
+          "claim": "In the multicentre double-blind iPREVENT trial, 270 adults aged 20 to 40 years at risk of weight gain were randomized to 10 g/day inulin-propionate ester or 10 g/day inulin for 12 months; inulin-propionate ester did not prevent weight gain versus inulin and most body-composition and fasting biomarker outcomes did not differ.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-40663640"
+          ],
+          "uncertaintyNote": "This long-duration null finding applies to the engineered inulin-propionate ester versus an active inulin control and must not be converted into a generic propionate efficacy, ineffectiveness, or dosing claim.",
+          "strengthNote": "moderate"
+        }
+      ],
+      "mechanisms": [
+        {
+          "claim": "In a randomized crossover study of 18 healthy adults, oral sodium propionate tablets totaling 6845 mg over 180 minutes acutely increased resting energy expenditure and whole-body lipid oxidation, while glucose and insulin concentrations did not change.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-29134744"
+          ],
+          "relationType": "observed_to_affect",
+          "targetType": "biological_process",
+          "targetName": "resting energy expenditure and lipid oxidation",
+          "biologicalContext": "Acute fasting substrate metabolism",
+          "uncertaintyNote": "This is an acute surrogate physiology finding and does not establish durable weight loss, chronic cardiometabolic benefit, or a consumer dosing recommendation.",
+          "mechanismEntryId": "menr_propionate-acute-sodium-energy-surrogate",
+          "mechanismStrengthLabel": "moderate"
+        }
+      ],
+      "constituents": [],
+      "interactions": [],
+      "contraindications": [],
+      "adverseEffects": [],
+      "dosageContextNotes": [],
+      "populationSpecificNotes": [],
+      "conflictNotes": [
+        {
+          "claim": "In a randomized placebo-controlled crossover study of 28 healthy adults after a propionic-acid-free diet, 1500 mg calcium propionate increased glucagon and norepinephrine at rest and increased counter-regulatory hormones and endogenous glucose production under clamp conditions.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-34312159"
+          ],
+          "uncertaintyNote": "Do not generalize calcium-propionate preservative exposure to sodium propionate, endogenous propionate, inulin-propionate ester, rectal delivery, mixed short-chain-fatty-acid delivery, chronic outcomes, or consumer dosing.",
+          "conflictNote": "This exposure-specific counter-regulatory signal constrains generic metabolic-benefit narratives but is not evidence that endogenous microbiota-derived propionate has the same effect.",
+          "strengthNote": "moderate"
+        }
+      ],
+      "researchGaps": [
+        {
+          "claim": "Human propionate research spans endogenous microbiota-derived propionate, sodium propionate, calcium propionate food-preservative exposure, colon-targeted inulin-propionate ester, and rectal or mixed-short-chain-fatty-acid delivery; shared released propionate does not make these interventions interchangeable for efficacy, dose, safety, or recommendation.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-40663640"
+          ],
+          "uncertaintyNote": "This is an evidence-governance boundary, not a claim that every propionate exposure shares one benefit, risk, dose, or clinical effect.",
+          "strengthNote": "strong"
+        }
+      ],
+      "safetyProfile": {
+        "safetyEntries": [],
+        "summary": {
+          "total": 0,
+          "byTopicType": {},
+          "bySeverity": {}
+        }
+      },
+      "topicEvidenceJudgments": {
+        "conflict_note": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-b",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 14
+          },
+          "conflictNotes": [
+            "Source-backed conflict notes are present for this topic."
+          ],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "pathway": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-b",
+            "recencyWeight": 1,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 13
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "research_gap": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-b",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 14
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "unsupported_or_unclear_use": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-b",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 14
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        }
+      },
+      "pageEvidenceJudgment": {
+        "evidenceLabel": "mixed_or_uncertain",
+        "grading": {
+          "evidenceClass": [
+            "human-clinical"
+          ],
+          "studyDesignWeight": 5,
+          "humanRelevance": "direct-human",
+          "directnessToClaim": "direct",
+          "replicationDepth": 3,
+          "sourceReliabilityTier": "tier-b",
+          "recencyWeight": 2,
+          "editorialConfidence": "medium",
+          "conflictState": "mixed_or_uncertain",
+          "confidenceIndex": 16
+        },
+        "conflictNotes": [
+          "Source-backed conflict notes are present for this topic."
+        ],
+        "uncertaintyNotes": [
+          "One or more findings carry explicit uncertainty notes from editorial review."
+        ],
+        "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+      },
+      "editorialReadiness": {
+        "publishable": true,
+        "hasConflictOrWeakEvidence": true,
+        "conflictLabelingPresent": true,
+        "weakEvidenceClaimsLabeled": true
+      },
+      "sourceRegistryIds": [
+        "src_pubmed-29134744",
+        "src_pubmed-34312159",
+        "src_pubmed-40663640"
+      ],
+      "lastReviewedAt": "2026-09-01T20:40:00.000Z",
+      "reviewedBy": "normalized-enrichment-pipeline",
+      "editorialStatus": "approved"
+    }
+  },
+  {
     "entityType": "herb",
     "entitySlug": "ashwagandha",
     "researchEnrichment": {
