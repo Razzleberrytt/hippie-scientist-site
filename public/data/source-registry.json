@@ -292,5 +292,42 @@
     "reviewedAt": "2026-08-31T23:10:00.000Z",
     "notes": "PMCID PMC13436282. Randomized double-blind placebo-controlled multicenter/multinational safety study in 1002 adults aged 18-65 with borderline-to-moderate anxiety and elevated stress. The studied product was root-only KSM-66 extract standardized to >5% total withanolides and <0.1% withaferin A, 300 mg twice daily (600 mg/day) for eight weeks. No serious adverse events or significant between-group liver, renal, or hematologic laboratory changes were reported, but tolerability did not differ significantly (p=0.487), paired laboratory data were incomplete, biomarker depth and follow-up were limited, and recruitment was predominantly in India. This source does not establish comparative efficacy, exclude rare or longer-latency injury, or support other products, doses, durations, or populations. Shri Kartikeya Pharma supported the study; Ixoreal Biomed supplied KSM-66; authors declared no conflicts of interest.",
     "active": true
+  },
+  {
+    "sourceId": "src_pubmed-41789242",
+    "title": "Safety of cannabidiol versus placebo in healthy population: a systematic review and meta-analysis",
+    "shortTitle": "CBD healthy-adult safety meta-analysis",
+    "sourceType": "meta-analysis",
+    "sourceClass": "systematic-review-meta-analysis",
+    "authors": [
+      "Fnu Sawaira",
+      "Muhammad Asim Shah",
+      "Ahmed W Hageen",
+      "Maham Rashid",
+      "Rahat Ullah",
+      "Mohammad Eisa Ali",
+      "Aizaz Ali",
+      "Muhammad Younas",
+      "Hassaan Qazi",
+      "Muhammad Owais",
+      "Muhammad Yasir",
+      "Husna Irfan Thalib",
+      "Mazhar Ali Shah",
+      "Kamil Ahmad Kamil"
+    ],
+    "publicationYear": 2026,
+    "citationText": "Sawaira F, et al. Safety of cannabidiol versus placebo in healthy population: a systematic review and meta-analysis. Ann Med Surg (Lond). 2026;88(3):2348-2356.",
+    "doi": "10.1097/MS9.0000000000004549",
+    "pmid": "41789242",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/41789242/",
+    "language": "en",
+    "evidenceClass": "human-clinical",
+    "studyDesign": "meta-analysis",
+    "publicationStatus": "published",
+    "reliabilityTier": "tier-a",
+    "reviewer": "enrichment-governor",
+    "reviewedAt": "2026-09-01T05:00:00.000Z",
+    "notes": "Systematic review and meta-analysis of four randomized placebo-controlled trials involving 269 healthy adults. Diarrhea was higher with cannabidiol (RR 5.85, 95% CI 1.14–30.02; P=0.03); abdominal pain and headache trends were not statistically significant, and fatigue, dizziness, and upper respiratory tract infection did not differ significantly. Exposures were heterogeneous and short-term, so the study does not establish a general dose or long-term safety. PMCID PMC12959810. The authors declared no conflict of interest.",
+    "active": true
   }
 ]

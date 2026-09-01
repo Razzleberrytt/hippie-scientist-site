@@ -46,13 +46,14 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Live GitHub reconciliation at `4510f4c7966f3f92a9f0ad4275ef004c7c831083` on 2026-08-31 shows **0/3 normal implementation workstreams occupied**:
+Live GitHub reconciliation at `f61631bba9fc1aeaea80bc532ab0e47455c0e857` on 2026-09-01 shows **1/3 normal implementation workstreams occupied**:
 
 | Ticket | Title | Lane | Status |
 |---|---|---|---|
+| #4260 | Add 2026 healthy-adult CBD safety meta-analysis | A evidence | Active |
 
 - **R — free:** #4732 / PR #4734 merged and closed. Provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
-- **A — free:** #4266 / PR #4972 is merged/closed; the governed KSM-66 safety source, three calibrated records, regenerated rollup, and exact regression are on `main`.
+- **A — #4260 active:** the healthy-adult CBD safety meta-analysis review owns the Authority/Content workstream under lease `lease-4260-cannabidiol-safety-meta`; scope is one source identity, one calibrated adverse-effect record, the deterministic governed rollup, and exact regression coverage.
 - **D — free:** #4949 and #4951 are closed through merged PR #4952. The comparison discovery, core-hub sitemap/redirect alignment, and historical-audit tombstone repair are on `main`; post-merge release and deploy checks passed.
 
 Research-only enrichment staging remains separate from canonical implementation/promotion WIP. #4731 / PR #4947 and #4949 / #4951 / PR #4952 are merged/closed. No stale SEO item is admitted merely because Discovery/SEO is now free.
@@ -63,7 +64,6 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| #4260 | Add 2026 healthy-adult CBD safety meta-analysis | O/A evidence | Planned | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Persistent governor lease path + source dedupe; revalidate source status at start | Preserve short-term healthy-adult scope, diarrhea signal and null findings; no general dose or long-term safety reassurance |
 | DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous reconciliation maintenance | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
 
 ## Blocked — important but not startable
