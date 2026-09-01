@@ -42,8 +42,8 @@ function fixture(temp) {
       sourceUrl,
       sourceContentHash: 'source-hash',
       assets: [
-        { type: 'carousel-slide-raster', format: 'png', file: 'carousel-01.png', sha256: sha256(pngBytes), width: 1080, height: 1350 },
-        { type: 'carousel-slide-raster', format: 'webp', file: 'carousel-01.webp', sha256: sha256(webpBytes), width: 1080, height: 1350 },
+        { type: 'carousel-slide-raster', format: 'png', file: 'carousel-01.png', sha256: sha256(pngBytes), width: 1080, height: 1350, deliveryProfile: 'canonical' },
+        { type: 'carousel-slide-raster', format: 'webp', file: 'carousel-01.webp', sha256: sha256(webpBytes), width: 864, height: 1080, deliveryProfile: 'metricool-tiktok-photo-v1' },
       ],
     },
   }
@@ -56,7 +56,7 @@ function fixture(temp) {
 }
 
 describe('Metricool governed carousel media compatibility', () => {
-  it('stages WebP rather than PNG for TikTok-compatible carousel publication', () => {
+  it('stages provider-safe WebP rather than PNG for TikTok-compatible carousel publication', () => {
     const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'ths-metricool-carousel-webp-'))
     try {
       const data = fixture(temp)
@@ -73,7 +73,10 @@ describe('Metricool governed carousel media compatibility', () => {
         file: 'carousel-01.webp',
         contentType: 'image/webp',
         sha256: sha256(data.webpBytes),
+        width: 864,
+        height: 1080,
       })
+      expect(Math.max(manifest.media[0].width, manifest.media[0].height)).toBeLessThanOrEqual(1080)
       expect(fs.existsSync(path.join(data.publicRoot, 'ashwagandha-stress-evidence', 'a'.repeat(20), 'carousel-01.webp'))).toBe(true)
       expect(fs.existsSync(path.join(data.publicRoot, 'ashwagandha-stress-evidence', 'a'.repeat(20), 'carousel-01.png'))).toBe(false)
     } finally {
