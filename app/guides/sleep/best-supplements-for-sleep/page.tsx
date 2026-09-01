@@ -9,6 +9,7 @@ import EmailCapture from '@/components/EmailCapture'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import References from '@/components/References'
+import DecisionToProductEndpoint from '@/components/monetization/DecisionToProductEndpoint'
 import { buildTwitterMetadata } from '@/lib/seo'
 
 const PAGE_URL = `${SITE_URL}/guides/sleep/best-supplements-for-sleep`
@@ -84,6 +85,33 @@ const FAQS = [
   { question: 'Is L-theanine better than melatonin?', answer: 'They answer different questions. Melatonin is a circadian signal and fits timing problems better. L-theanine has newer evidence for subjective sleep-quality outcomes but is not established as a treatment for clinical insomnia.' },
   { question: 'Should I choose valerian or passionflower?', answer: 'Neither has strong evidence. Valerian has a larger review literature but a 2024 umbrella review found no demonstrated insomnia efficacy. Passionflower has a small randomized evidence base with some positive signals, including total sleep time in one trial, but remains preliminary.' },
   { question: 'Can I stack several sleep supplements?', answer: 'Separate positive studies do not establish synergy when ingredients are combined. A stack is a new intervention with new interaction and attribution problems. Combining sedating products may also increase impairment.' },
+]
+
+const SLEEP_DECISION_CANDIDATES = [
+  {
+    slug: 'melatonin',
+    label: 'Melatonin',
+    fit: 'Best-defined when circadian timing or sleep onset is the actual problem; not a blanket answer for chronic insomnia.',
+    safetyCheck: 'Review medication interactions, next-day drowsiness, autoimmune context, and the uncertainty around long-term use.',
+    qualitySignals: ['Clearly labeled amount per serving', 'Independent quality or label-accuracy verification', 'No proprietary sleep blend hiding the melatonin amount'],
+    profileHref: '/compounds/melatonin/',
+  },
+  {
+    slug: 'l-theanine',
+    label: 'L-Theanine',
+    fit: 'Promising for subjective sleep quality and pre-sleep mental quieting, but not established as a clinical-insomnia treatment.',
+    safetyCheck: 'Review sedative stacking and blood-pressure context before combining it with other calming products.',
+    qualitySignals: ['Single-ingredient or transparently labeled formula', 'Clear serving-size labeling', 'Third-party quality verification when available'],
+    profileHref: '/compounds/l-theanine/',
+  },
+  {
+    slug: 'magnesium',
+    label: 'Magnesium',
+    fit: 'Plausible for relaxation and some poor-sleep contexts, with overall evidence still limited and effects likely dependent on baseline status.',
+    safetyCheck: 'Kidney impairment materially changes magnesium safety; GI tolerance and total supplemental intake also matter.',
+    qualitySignals: ['Elemental magnesium amount is explicit', 'Form is named rather than hidden in a blend', 'Third-party quality verification when available'],
+    profileHref: '/compounds/magnesium/',
+  },
 ]
 
 export default function BestSupplementsForSleepPage() {
@@ -237,6 +265,13 @@ export default function BestSupplementsForSleepPage() {
               <p>A 2026 AASM guideline on combined treatment suggested CBT-I plus medication over medication alone, but suggested against the combination over CBT-I alone.<Cite n={3} /> That is strong context against treating a supplement ranking as the main solution for persistent insomnia.</p>
             </div>
           </section>
+
+          <DecisionToProductEndpoint
+            title="If a supplement still fits, choose the product by form and quality—not hype"
+            description="These are optional sourcing paths after the evidence and safety checks above. A commerce action appears only when both the live ingredient record and the existing product set are currently allowed by site governance."
+            candidates={SLEEP_DECISION_CANDIDATES}
+            trackingLocation="sleep-decision-endpoint"
+          />
 
           <References refs={REFS} />
 
