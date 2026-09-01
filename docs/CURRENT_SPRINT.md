@@ -53,7 +53,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| Authority/Content | #4992 | site-swarm-integration | Active | Close four staged Propionate findings with three governed sources, four calibrated normalized records, deterministic rollup, terminal semantic attestations, and exact no-overclaim regression; #4983 remains blocked until closure. |
+| Authority/Content | #4992 / PR #5016 | site-swarm-integration | Active | Close four staged Propionate findings with three governed sources, four calibrated normalized records, deterministic rollup, terminal semantic attestations, and exact no-overclaim regression; #4983 remains blocked until closure. |
 
 - **Revenue/Conversion:** free. #4732 / PR #4734 is merged/closed; provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
 - **Authority/Content:** occupied by #4992 under durable lease `lease-4992-propionate-closure`. Scope is limited to terminal governance of the four already-staged Propionate findings: acute sodium-propionate surrogate physiology, calcium-propionate preservative-exposure conflict, the 12-month iPREVENT null, and chemical-form/delivery non-interchangeability. No generic efficacy or consumer-dose claim is authorized; #4983 remains blocked until this closure is merged and verified.

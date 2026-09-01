@@ -50,7 +50,7 @@ Live GitHub reconciliation at `e3b19e2015b8efb449e488cd0ec5c60c66507bc7` on 2026
 
 | Ticket | Title | Lane | Status |
 |---|---|---|---|
-| #4992 | Close staged Propionate evidence before MS follow-up | A evidence | Active under governed lease |
+| #4992 / PR #5016 | Close staged Propionate evidence before MS follow-up | A evidence | Active under governed lease |
 
 - **R — free:** #4732 / PR #4734 merged and closed. Provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
 - **A — #4992 active:** governed Propionate closure owns Authority/Content under lease `lease-4992-propionate-closure`; three source identities, four calibrated normalized findings, deterministic rollup, terminal semantic attestations, and no-overclaim regression are the complete scope. #4983 remains dependency-blocked until closure.
