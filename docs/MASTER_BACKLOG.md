@@ -46,13 +46,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Live GitHub reconciliation at `4510f4c7966f3f92a9f0ad4275ef004c7c831083` on 2026-08-31 shows **0/3 normal implementation workstreams occupied**:
+Live GitHub reconciliation at `b4af01097a41f3da6bfad22b04027bd43ceb9023` on 2026-09-01 shows **0/3 normal implementation workstreams occupied**:
 
 | Ticket | Title | Lane | Status |
 |---|---|---|---|
 
 - **R — free:** #4732 / PR #4734 merged and closed. Provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
-- **A — free:** #4266 / PR #4972 is merged/closed; the governed KSM-66 safety source, three calibrated records, regenerated rollup, and exact regression are on `main`.
+- **A — free:** #4260 / PR #4999 is merged/closed; the bounded healthy-adult CBD safety meta-analysis source and adverse-effect record are on `main`, and PR #5001 released the verified lease.
 - **D — free:** #4949 and #4951 are closed through merged PR #4952. The comparison discovery, core-hub sitemap/redirect alignment, and historical-audit tombstone repair are on `main`; post-merge release and deploy checks passed.
 
 Research-only enrichment staging remains separate from canonical implementation/promotion WIP. #4731 / PR #4947 and #4949 / #4951 / PR #4952 are merged/closed. No stale SEO item is admitted merely because Discovery/SEO is now free.
@@ -63,7 +63,6 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| #4260 | Add 2026 healthy-adult CBD safety meta-analysis | O/A evidence | Planned | P1 evidence | 4/5/3/5/.75/3 | 75.0 | Persistent governor lease path + source dedupe; revalidate source status at start | Preserve short-term healthy-adult scope, diarrhea signal and null findings; no general dose or long-term safety reassurance |
 | DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous reconciliation maintenance | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
 
 ## Blocked — important but not startable
@@ -101,6 +100,7 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
+| #4260 / PR #4999 | Merged as `754828d80ff0895b40091227d8aa1549a0f1521b`; registered PMID 41789242 / DOI 10.1097/MS9.0000000000004549, added one short-term healthy-adult adverse-effect record preserving the diarrhea estimate and null findings, regenerated governed output, and added an exact no-overclaim regression. All exact-head scientific, build, release, and control checks passed; PR #5001 released the verified lease. No efficacy, general dose, broad or long-term safety, traffic, analytics, or business outcome is inferred. |
 | #4266 / PR #4972 | Merged as `8aba655daae2aba8d07cd2ba6f32ed52f8f3b498`; registered PMID 41943502 / DOI 10.1002/ptr.70315, added three formulation- and population-bounded KSM-66 safety records, regenerated governed output, and added an exact no-overclaim regression. All required exact-head checks passed, and PR #4976 released the governed lease; no efficacy, general-dose, traffic, analytics, or business outcome is inferred. |
 | #4949 / #4951 / PR #4952 | Merged as `0c667ca7bd9bf49279594e7df79a806cb4c1237a`; restored caffeine/L-theanine comparison discovery, added canonical `/evidence/` and `/info/` sitemap/redirect alignment, preserved historical audit exports with tombstones, and passed exact-head plus post-merge release/deploy checks. No traffic, ranking, indexing, analytics, or revenue outcome is inferred. |
 | #4731 / PR #4947 | Merged as `6e32a773d908495f08fa297fc51da1cea6fb2659`; scoped unbound dose-unit, onset/duration, and comparative-efficacy label bypasses are closed with focused regressions. The separate Discovery/SEO incident exposed afterward is retired above. |

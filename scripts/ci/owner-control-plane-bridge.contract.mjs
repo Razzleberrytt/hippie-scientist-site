@@ -6,7 +6,9 @@ import { fileURLToPath } from 'node:url'
 
 import {
   governorDispatchInputs,
+  metricoolDispatchInputs,
   parseGovernorComment,
+  parseMetricoolPublishComment,
   sessionFromChangedFiles,
   shouldInspectSessionCandidate,
   validateCurrentMainAncestry,
@@ -66,6 +68,42 @@ test('rejects release commands that try to redefine lease scope', () => {
   )
 })
 
+test('parses a strict future owner Metricool publish command into bounded workflow inputs', () => {
+  const request = parseMetricoolPublishComment(
+    '/publish-metricool {"publication_at":"2026-08-31T20:30:00-04:00","networks":["TikTok","tiktok"]}',
+    { now: new Date('2026-08-31T20:00:00-04:00') },
+  )
+  assert.deepEqual(request, {
+    publicationAt: '2026-08-31T20:30:00-04:00',
+    networks: ['tiktok'],
+  })
+  assert.deepEqual(metricoolDispatchInputs(request), {
+    publication_at: '2026-08-31T20:30:00-04:00',
+    networks: 'tiktok',
+    auto_publish: 'true',
+  })
+})
+
+test('Metricool owner publish command rejects unsafe fields, unsupported networks, stale time, and offset-less time', () => {
+  const now = new Date('2026-08-31T20:00:00-04:00')
+  assert.throws(
+    () => parseMetricoolPublishComment('/publish-metricool {"publication_at":"2026-08-31T20:30:00-04:00","networks":["tiktok"],"token":"secret"}', { now }),
+    /unsupported Metricool publish fields: token/,
+  )
+  assert.throws(
+    () => parseMetricoolPublishComment('/publish-metricool {"publication_at":"2026-08-31T20:30:00-04:00","networks":["youtube"]}', { now }),
+    /unsupported Metricool publish networks: youtube/,
+  )
+  assert.throws(
+    () => parseMetricoolPublishComment('/publish-metricool {"publication_at":"2026-08-31T19:59:00-04:00","networks":["tiktok"]}', { now }),
+    /at least two minutes in the future/,
+  )
+  assert.throws(
+    () => parseMetricoolPublishComment('/publish-metricool {"publication_at":"2026-08-31T20:30:00","networks":["tiktok"]}', { now }),
+    /offset-aware ISO timestamp/,
+  )
+})
+
 test('detects one enrichment session and rejects a multi-session PR', () => {
   assert.equal(
     sessionFromChangedFiles(['ops/enrichment-submissions/sessions/session-c/example.json', 'README.md']),
@@ -117,7 +155,7 @@ test('ready transition requires the head to contain exact current main', () => {
   )
 })
 
-test('workflow is owner-only, serialized, main-trusted, and explicitly dispatches exact-head recovery validation', () => {
+test('workflow is owner-only, serialized, main-trusted, and explicitly dispatches governed control-plane workflows', () => {
   const workflow = fs.readFileSync(path.join(repoRoot, '.github', 'workflows', 'owner-control-plane-bridge.yml'), 'utf8')
   assert.match(workflow, /issue_comment:/)
   assert.match(workflow, /github\.event\.comment\.user\.login == github\.repository_owner/)
@@ -126,6 +164,9 @@ test('workflow is owner-only, serialized, main-trusted, and explicitly dispatche
   assert.match(workflow, /pull-requests:\s*write/)
   assert.match(workflow, /ref:\s*main/)
   assert.match(workflow, /gh workflow run enrichment-governor-transaction\.yml/)
+  assert.match(workflow, /startsWith\(github\.event\.comment\.body, '\/publish-metricool '\)/)
+  assert.match(workflow, /gh workflow run metricool-publication\.yml/)
+  assert.match(workflow, /auto_publish=true/)
   assert.match(workflow, /gh pr ready/)
   assert.match(workflow, /Verify transition preserved exact head and current main/)
   assert.match(workflow, /gh pr ready "\$PR_NUMBER" --undo/)

@@ -3,7 +3,7 @@
     "entityType": "compound",
     "entitySlug": "cannabidiol",
     "researchEnrichment": {
-      "evidenceSummary": "4 approved normalized findings across 4 topic types.",
+      "evidenceSummary": "5 approved normalized findings across 4 topic types.",
       "evidenceTier": "tier-1-strong",
       "evidenceClassesPresent": [
         "human-clinical",
@@ -39,6 +39,16 @@
           "targetType": "population",
           "targetName": "healthy adults",
           "uncertaintyNote": "Do not transfer this risk estimate to people with baseline liver disease, concomitant hepatotoxic medications, other doses, or longer durations without direct evidence."
+        },
+        {
+          "claim": "A meta-analysis of four randomized placebo-controlled trials involving 269 healthy adults found more diarrhea with cannabidiol than placebo (RR 5.85, 95% CI 1.14–30.02; P=0.03); abdominal pain and headache trended higher without statistical significance, while fatigue, dizziness, and upper respiratory tract infection did not differ significantly.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-41789242"
+          ],
+          "targetType": "population",
+          "targetName": "healthy adults in short-term placebo-controlled trials",
+          "uncertaintyNote": "The four-trial evidence base was small, the diarrhea confidence interval was wide, and exposures were heterogeneous; findings do not establish risk outside healthy adults, a general dose, or long-term safety."
         }
       ],
       "dosageContextNotes": [],
@@ -102,16 +112,35 @@
             "reviewedAt": "2026-08-25T01:20:00.000Z",
             "editorialStatus": "approved",
             "active": true
+          },
+          {
+            "safetyEntryId": "senr_cbd-adverse-effect-diarrhea-meta-analysis",
+            "sourceId": "src_pubmed-41789242",
+            "safetyTopicType": "adverse_effect",
+            "targetType": "population",
+            "targetName": "healthy adults in short-term placebo-controlled trials",
+            "severityLabel": "moderate",
+            "urgencyLabel": "caution",
+            "evidenceClass": "human-clinical",
+            "findingTextShort": "Short-term CBD use increased diarrhea risk in a healthy-adult meta-analysis.",
+            "findingTextNormalized": "A meta-analysis of four randomized placebo-controlled trials involving 269 healthy adults found more diarrhea with cannabidiol than placebo (RR 5.85, 95% CI 1.14–30.02; P=0.03); abdominal pain and headache trended higher without statistical significance, while fatigue, dizziness, and upper respiratory tract infection did not differ significantly.",
+            "mechanismKnown": false,
+            "populationContext": "Healthy adults across four randomized placebo-controlled trials",
+            "uncertaintyNote": "The four-trial evidence base was small, the diarrhea confidence interval was wide, and exposures were heterogeneous; findings do not establish risk outside healthy adults, a general dose, or long-term safety.",
+            "reviewer": "enrichment-governor",
+            "reviewedAt": "2026-09-01T05:00:00.000Z",
+            "editorialStatus": "approved",
+            "active": true
           }
         ],
         "summary": {
-          "total": 2,
+          "total": 3,
           "byTopicType": {
             "medication_class_caution": 1,
-            "adverse_effect": 1
+            "adverse_effect": 2
           },
           "bySeverity": {
-            "moderate": 1,
+            "moderate": 2,
             "high": 1
           }
         }
@@ -126,17 +155,16 @@
             "studyDesignWeight": 5,
             "humanRelevance": "direct-human",
             "directnessToClaim": "direct",
-            "replicationDepth": 1,
-            "sourceReliabilityTier": "tier-b",
+            "replicationDepth": 2,
+            "sourceReliabilityTier": "tier-a",
             "recencyWeight": 2,
             "editorialConfidence": "medium",
             "conflictState": "mixed_or_uncertain",
-            "confidenceIndex": 14
+            "confidenceIndex": 16
           },
           "conflictNotes": [],
           "uncertaintyNotes": [
-            "One or more findings carry explicit uncertainty notes from editorial review.",
-            "Evidence is sourced from a single source record; replication depth is limited."
+            "One or more findings carry explicit uncertainty notes from editorial review."
           ],
           "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
         },
@@ -218,7 +246,7 @@
           "studyDesignWeight": 5,
           "humanRelevance": "direct-human",
           "directnessToClaim": "direct",
-          "replicationDepth": 3,
+          "replicationDepth": 4,
           "sourceReliabilityTier": "tier-a",
           "recencyWeight": 2,
           "editorialConfidence": "medium",
@@ -242,9 +270,10 @@
       "sourceRegistryIds": [
         "src_fda-epidiolex-label-2026",
         "src_pubmed-36271316",
-        "src_pubmed-40622698"
+        "src_pubmed-40622698",
+        "src_pubmed-41789242"
       ],
-      "lastReviewedAt": "2026-08-25T01:20:00.000Z",
+      "lastReviewedAt": "2026-09-01T05:00:00.000Z",
       "reviewedBy": "normalized-enrichment-pipeline",
       "editorialStatus": "approved"
     }

@@ -5,6 +5,8 @@ import sharp from 'sharp'
 
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
 const CANONICAL_SVG_FILE = /^carousel-\d{2,}\.svg$/
+const SUPPORTED_PARENT_RENDERERS = new Set(['carousel-svg-v1', 'carousel-svg-v2'])
+const WEBP_MAX_DIMENSION = 1080
 
 function decodeXml(value) {
   return value.replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')
@@ -16,8 +18,8 @@ function embeddedProvenance(bytes) {
   if (!match) throw new Error('SVG parent is missing authenticated provenance metadata')
   let metadata
   try { metadata = JSON.parse(decodeXml(match[1])) } catch { throw new Error('SVG parent provenance metadata is invalid') }
-  if (metadata?.renderer !== 'carousel-svg-v1' || !metadata?.contentHash || !metadata?.sourceUrl || !metadata?.factualProvenanceFingerprint || !metadata?.templateVersion) {
-    throw new Error('SVG parent provenance metadata is incomplete')
+  if (!SUPPORTED_PARENT_RENDERERS.has(metadata?.renderer) || !metadata?.contentHash || !metadata?.sourceUrl || !metadata?.factualProvenanceFingerprint || !metadata?.templateVersion) {
+    throw new Error('SVG parent provenance metadata is incomplete or uses an unsupported carousel renderer')
   }
   return metadata
 }
@@ -42,6 +44,7 @@ function assertSvgParent(asset, outputDir, manifest) {
   if (sha256(bytes) !== asset.sha256) throw new Error(`SVG parent hash mismatch: ${asset.file}`)
   const provenance = embeddedProvenance(bytes)
   if (
+    provenance.renderer !== manifest.renderer ||
     provenance.contentHash !== manifest.sourceContentHash ||
     provenance.contentHash !== asset.sourceContentHash ||
     provenance.sourceUrl !== asset.sourceUrl ||
@@ -62,10 +65,10 @@ function assertManifest(manifest) {
     !manifest?.factualProvenanceFingerprint ||
     !manifest?.presentationFingerprint ||
     !manifest?.templateVersion ||
-    manifest?.renderer !== 'carousel-svg-v1' ||
+    !SUPPORTED_PARENT_RENDERERS.has(manifest?.renderer) ||
     !Array.isArray(manifest.assets)
   ) {
-    throw new Error('raster exporter requires a provenance-complete carousel-svg-v1 asset manifest')
+    throw new Error('raster exporter requires a provenance-complete supported carousel SVG asset manifest')
   }
   for (const asset of manifest.assets) {
     if (
@@ -80,10 +83,26 @@ function assertManifest(manifest) {
 }
 
 async function rasterize(svgBytes, format) {
-  const pipeline = sharp(svgBytes, { density: 96, failOn: 'error' }).rotate()
-  if (format === 'png') return pipeline.png({ compressionLevel: 9, adaptiveFiltering: false, palette: false }).toBuffer()
-  if (format === 'webp') return pipeline.webp({ quality: 92, alphaQuality: 100, smartSubsample: false, effort: 6 }).toBuffer()
-  throw new Error(`unsupported raster format: ${format}`)
+  let pipeline = sharp(svgBytes, { density: 96, failOn: 'error' }).rotate()
+  if (format === 'webp') {
+    pipeline = pipeline.resize({
+      width: WEBP_MAX_DIMENSION,
+      height: WEBP_MAX_DIMENSION,
+      fit: 'inside',
+      withoutEnlargement: true,
+    })
+  }
+
+  let rendered
+  if (format === 'png') rendered = await pipeline.png({ compressionLevel: 9, adaptiveFiltering: false, palette: false }).toBuffer({ resolveWithObject: true })
+  else if (format === 'webp') rendered = await pipeline.webp({ quality: 92, alphaQuality: 100, smartSubsample: false, effort: 6 }).toBuffer({ resolveWithObject: true })
+  else throw new Error(`unsupported raster format: ${format}`)
+
+  return {
+    bytes: rendered.data,
+    width: rendered.info.width,
+    height: rendered.info.height,
+  }
 }
 
 export async function renderCarouselRasterAssets({ manifest, outputDir, formats = ['png', 'webp'] }) {
@@ -100,19 +119,19 @@ export async function renderCarouselRasterAssets({ manifest, outputDir, formats 
   for (const parent of manifest.assets) {
     const { bytes: svgBytes } = assertSvgParent(parent, dir, manifest)
     for (const format of uniqueFormats) {
-      const rasterBytes = await rasterize(svgBytes, format)
+      const rendered = await rasterize(svgBytes, format)
       const file = parent.file.replace(/\.svg$/i, `.${format}`)
       const outputPath = path.resolve(dir, file)
       if (path.dirname(outputPath) !== dir) throw new Error(`raster output escapes output directory: ${file}`)
-      fs.writeFileSync(outputPath, rasterBytes)
+      fs.writeFileSync(outputPath, rendered.bytes)
       assets.push({
         id: `${parent.id}-${format}`,
         type: 'carousel-slide-raster',
         format,
         file,
-        sha256: sha256(rasterBytes),
-        width: parent.width,
-        height: parent.height,
+        sha256: sha256(rendered.bytes),
+        width: rendered.width,
+        height: rendered.height,
         sourceContentHash: manifest.sourceContentHash,
         sourceUrl: parent.sourceUrl,
         factualProvenanceFingerprint: manifest.factualProvenanceFingerprint,

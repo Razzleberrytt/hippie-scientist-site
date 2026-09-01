@@ -5,7 +5,7 @@
 **Updated:** 2026-08-31
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub reconciliation at `4510f4c7966f3f92a9f0ad4275ef004c7c831083` on 2026-08-31 records 0/3 normal implementation workstreams occupied. #4266 / PR #4972 is merged/closed and retired from active Authority/Content WIP; Revenue/Conversion, Authority/Content, and Discovery/SEO are free. PR #4976 released the governed Ashwagandha lease through the state-only transaction path. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP. SEO-003 and AUTH-001 remain retired by their exact-current diagnostics.
+**Current admission:** Live GitHub reconciliation at `b4af01097a41f3da6bfad22b04027bd43ceb9023` on 2026-09-01 records 0/3 normal implementation workstreams occupied. #4260 / PR #4999 is merged/closed and retired from Authority/Content WIP; PR #5001 released the verified governed cannabidiol lease. Revenue/Conversion, Authority/Content, and Discovery/SEO are free. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP. SEO-003 and AUTH-001 remain retired by their exact-current diagnostics.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -55,7 +55,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 |---|---|---|---|---|
 
 - **Revenue/Conversion:** free. #4732 / PR #4734 is merged/closed; provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
-- **Authority/Content:** free. #4266 / PR #4972 is merged/closed; the KSM-66 safety source, three calibrated normalized records, governed rollup, and exact regression are on `main`, while efficacy, general dosing, and broad long-term safety claims remain out of scope.
+- **Authority/Content:** free. #4260 / PR #4999 is merged/closed; the 2026 healthy-adult CBD safety meta-analysis source, one bounded adverse-effect record, deterministic governed rollup, and exact regression are on `main`. PR #5001 released the verified lease. No efficacy, general dosing, or broad or long-term safety reassurance was added.
 - **Discovery/SEO:** free. #4949 and #4951 are closed; PR #4952 merged the comparison-hub discovery repair plus canonical `/evidence/` and `/info/` sitemap/redirect alignment. Post-merge release and deploy checks passed.
 
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
@@ -94,7 +94,7 @@ Discovery/SEO is free after #4949 and #4951 closed through merged PR #4952. No s
 
 Promote only after checking overlap, current exact-main state, source freshness, and the canonical governor/lease/provenance contract.
 
-1. **#4260** — add the 2026 healthy-adult CBD safety meta-analysis only after a durable lease and governed source review are available; preserve short-term population scope, the diarrhea signal, null findings, and no general dose or long-term safety reassurance.
+No fallback ticket is currently promoted. #4260 is completed and retired; the next admission requires a fresh authoritative queue decision.
 
 ## Sprint exit conditions
 

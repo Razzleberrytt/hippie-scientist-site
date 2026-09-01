@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { buildDistributionPackFromResearchObject } from '../build-distribution-pack.mjs'
 import { CREATIVE_BRAND_TOKENS } from '../creative-spec.mjs'
@@ -34,15 +35,22 @@ async function withRenderedAssets(run) {
   }
 }
 
-test('deterministically derives PNG and WebP assets from canonical SVG bytes', async () => {
+test('deterministically derives existing PNG and provider-safe WebP assets from canonical SVG bytes', async () => {
   await withRenderedAssets(async ({ dir, svgManifest }) => {
+    expect(svgManifest.renderer).toBe('carousel-svg-v2')
     const first = await renderCarouselRasterAssets({ manifest: svgManifest, outputDir: dir })
     const firstBytes = new Map(first.assets.map((asset) => [asset.file, fs.readFileSync(path.join(dir, asset.file))]))
     const second = await renderCarouselRasterAssets({ manifest: svgManifest, outputDir: dir })
     expect(second).toEqual(first)
+    expect(first.parentRenderer).toBe('carousel-svg-v2')
     expect(first.assets).toHaveLength(svgManifest.assets.length * 2)
+
+    const portrait = CREATIVE_BRAND_TOKENS.canvas.portrait
+    const expectedWebpWidth = Math.round(portrait.width * (1080 / portrait.height))
+
     for (const asset of first.assets) {
       const bytes = fs.readFileSync(path.join(dir, asset.file))
+      const metadata = await sharp(bytes).metadata()
       expect(bytes.equals(firstBytes.get(asset.file))).toBe(true)
       expect(asset.sha256).toBe(digest(bytes))
       expect(asset.sourceContentHash).toBe(svgManifest.sourceContentHash)
@@ -50,6 +58,20 @@ test('deterministically derives PNG and WebP assets from canonical SVG bytes', a
       expect(asset.parentSvgSha256).toBe(parent.sha256)
       expect(asset.sourceUrl).toBe(parent.sourceUrl)
       expect(asset.exporter).toBe('carousel-raster-v1')
+      expect(asset.width).toBe(metadata.width)
+      expect(asset.height).toBe(metadata.height)
+
+      if (asset.format === 'png') {
+        // Preserve the pre-existing Sharp density=96 raster output. The SVG
+        // design canvas is 1080x1350 CSS px, while the emitted PNG bytes are
+        // 1440x1800. TikTok publication consumes the bounded WebP derivative.
+        expect(asset.width).toBe(1440)
+        expect(asset.height).toBe(1800)
+      } else if (asset.format === 'webp') {
+        expect(asset.width).toBe(expectedWebpWidth)
+        expect(asset.height).toBe(1080)
+        expect(Math.max(asset.width, asset.height)).toBeLessThanOrEqual(1080)
+      }
     }
   })
 })
@@ -73,6 +95,13 @@ test('binds declared provenance to the provenance embedded in hashed SVG bytes',
   })
 })
 
+test('binds the manifest renderer version to the renderer embedded in SVG provenance', async () => {
+  await withRenderedAssets(async ({ dir, svgManifest }) => {
+    const mismatched = { ...svgManifest, renderer: 'carousel-svg-v1' }
+    await expect(renderCarouselRasterAssets({ manifest: mismatched, outputDir: dir })).rejects.toThrow(/provenance mismatch/)
+  })
+})
+
 test('rejects parent paths that can escape the output directory', async () => {
   await withRenderedAssets(async ({ dir, svgManifest }) => {
     const parent = svgManifest.assets[0]
@@ -83,7 +112,7 @@ test('rejects parent paths that can escape the output directory', async () => {
 
 test('rejects noncanonical manifests and unsupported formats', async () => {
   await withRenderedAssets(async ({ dir, svgManifest }) => {
-    await expect(renderCarouselRasterAssets({ manifest: { ...svgManifest, renderer: 'other' }, outputDir: dir })).rejects.toThrow(/carousel-svg-v1/)
+    await expect(renderCarouselRasterAssets({ manifest: { ...svgManifest, renderer: 'other' }, outputDir: dir })).rejects.toThrow(/supported carousel SVG asset manifest/)
     await expect(renderCarouselRasterAssets({ manifest: svgManifest, outputDir: dir, formats: ['jpg'] })).rejects.toThrow(/png and\/or webp/)
   })
 })

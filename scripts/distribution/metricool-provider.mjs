@@ -128,7 +128,11 @@ export function buildMetricoolSchedulerRequest({
     providers: selectedNetworks.map((network) => ({ network })),
     autoPublish: Boolean(autoPublish),
     draft: false,
-    shortener: false,
+    // The staged caption deliberately contains the governed UTM destination for
+    // attribution. Metricool shortens HTTPS links only at publish time, so the
+    // campaign destination survives while readers see a compact link instead of
+    // a screen-filling query string.
+    shortener: true,
     saveExternalMediaFiles: true,
     media: urls,
   }
