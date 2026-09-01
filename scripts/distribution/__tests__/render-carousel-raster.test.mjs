@@ -34,7 +34,7 @@ async function withRenderedAssets(run) {
   }
 }
 
-test('deterministically derives PNG and WebP assets from canonical SVG bytes', async () => {
+test('deterministically derives canonical PNG and provider-safe WebP assets from canonical SVG bytes', async () => {
   await withRenderedAssets(async ({ dir, svgManifest }) => {
     expect(svgManifest.renderer).toBe('carousel-svg-v2')
     const first = await renderCarouselRasterAssets({ manifest: svgManifest, outputDir: dir })
@@ -52,6 +52,17 @@ test('deterministically derives PNG and WebP assets from canonical SVG bytes', a
       expect(asset.parentSvgSha256).toBe(parent.sha256)
       expect(asset.sourceUrl).toBe(parent.sourceUrl)
       expect(asset.exporter).toBe('carousel-raster-v1')
+      if (asset.format === 'png') {
+        expect(asset.width).toBe(parent.width)
+        expect(asset.height).toBe(parent.height)
+        expect(asset.deliveryProfile).toBe('canonical')
+      } else {
+        const scale = Math.min(1, 1080 / Math.max(parent.width, parent.height))
+        expect(asset.width).toBe(Math.max(1, Math.round(parent.width * scale)))
+        expect(asset.height).toBe(Math.max(1, Math.round(parent.height * scale)))
+        expect(Math.max(asset.width, asset.height)).toBeLessThanOrEqual(1080)
+        expect(asset.deliveryProfile).toBe('metricool-tiktok-photo-v1')
+      }
     }
   })
 })
