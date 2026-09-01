@@ -1,4 +1,21 @@
 {
   "modelVersion": "enrichment-semantic-attestation-v1",
-  "entries": []
+  "entries": [
+    {
+      "submissionId": "sub_e-propionate-acute-energy-surrogate",
+      "promotionStatus": "promoted"
+    },
+    {
+      "submissionId": "sub_e-propionate-counterregulatory-signal",
+      "promotionStatus": "promoted"
+    },
+    {
+      "submissionId": "sub_e-propionate-ipe-weight-null",
+      "promotionStatus": "promoted"
+    },
+    {
+      "submissionId": "sub_e-propionate-form-delivery-firewall",
+      "promotionStatus": "promoted"
+    }
+  ]
 }
