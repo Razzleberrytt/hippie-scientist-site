@@ -60,15 +60,15 @@ function stageCarousel({ pilot, sourceDirectory, bundleDir, publicOrigin, object
   if (pilot?.assets?.exporter !== 'carousel-raster-v1' || !Array.isArray(pilot?.assets?.assets)) {
     throw new Error('Metricool carousel staging requires a governed carousel raster manifest')
   }
-  const pngAssets = pilot.assets.assets
-    .filter((asset) => asset?.format === 'png' && asset?.type === 'carousel-slide-raster')
+  const webpAssets = pilot.assets.assets
+    .filter((asset) => asset?.format === 'webp' && asset?.type === 'carousel-slide-raster')
     .sort((a, b) => clean(a.file).localeCompare(clean(b.file)))
-  if (!pngAssets.length) throw new Error('Metricool media staging requires at least one PNG carousel asset')
+  if (!webpAssets.length) throw new Error('Metricool media staging requires at least one WebP carousel asset')
 
   const media = []
-  for (const asset of pngAssets) {
+  for (const asset of webpAssets) {
     const file = assertSafeSegment(asset.file, 'carousel asset filename')
-    if (!/^carousel-\d{2,}\.png$/i.test(file)) throw new Error(`unexpected Metricool carousel filename: ${file}`)
+    if (!/^carousel-\d{2,}\.webp$/i.test(file)) throw new Error(`unexpected Metricool carousel filename: ${file}`)
     const sourceFile = path.resolve(sourceDirectory, file)
     if (path.dirname(sourceFile) !== sourceDirectory) throw new Error(`Metricool source asset escaped pilot directory: ${file}`)
     const bytes = fs.readFileSync(sourceFile)
@@ -80,7 +80,7 @@ function stageCarousel({ pilot, sourceDirectory, bundleDir, publicOrigin, object
       sha256: actualHash,
       width: asset.width,
       height: asset.height,
-      contentType: 'image/png',
+      contentType: 'image/webp',
       bytes: bytes.length,
       url: `${publicOrigin}/media/distribution/metricool/${objectId}/${bundleId}/${file}`,
     })
