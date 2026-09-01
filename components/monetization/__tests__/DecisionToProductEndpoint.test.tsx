@@ -48,7 +48,7 @@ describe('DecisionToProductEndpoint', () => {
     expect(affiliateLinks[0]).toHaveAttribute('rel', 'nofollow sponsored noopener noreferrer')
 
     expect(screen.getByText('L-Theanine').closest('article')).toHaveTextContent(/no governed product action is shown/i)
-    expect(screen.getByRole('link', { name: /review evidence and safety/i })).toHaveAttribute('href', '/compounds/l-theanine/')
+    expect(screen.getByRole('link', { name: /review evidence and safety/i })).toHaveAttribute('href', '/compounds/l-theanine')
   })
 
   it('renders no affiliate disclosure or sponsored anchor when every runtime record is blocked', async () => {
