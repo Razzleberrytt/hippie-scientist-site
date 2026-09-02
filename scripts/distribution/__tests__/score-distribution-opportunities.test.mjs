@@ -51,4 +51,13 @@ describe('distribution opportunity scorer', () => {
     expect(preclinical.score).toBeLessThan(human.score)
     expect(preclinical.signals.claimRisk).toBeGreaterThan(human.signals.claimRisk)
   })
+
+  it('fails closed when lastVerified is in the future', () => {
+    const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10)
+    const result = scoreResearchObject({ ...base, lastVerified: tomorrow })
+    expect(result.eligible).toBe(false)
+    expect(result.score).toBe(0)
+    expect(result.signals.freshness).toBe(0)
+    expect(result.signals.freshnessDays).toBeLessThan(0)
+  })
 })

@@ -11,7 +11,7 @@ function clamp(value, min = 0, max = 10) { return Math.max(min, Math.min(max, va
 function daysSince(date) {
   const parsed = Date.parse(`${date}T00:00:00Z`)
   if (!Number.isFinite(parsed)) return 0
-  return Math.max(0, Math.floor((Date.now() - parsed) / 86400000))
+  return Math.floor((Date.now() - parsed) / 86400000)
 }
 
 const evidenceStrength = { A: 10, B: 8, C: 6, D: 3, 'Avoid/Insufficient': 0 }
@@ -21,7 +21,8 @@ export function scoreResearchObject(object) {
   const tags = Array.isArray(object.tags) ? object.tags.map((tag) => String(tag).toLowerCase()) : []
   const evidence = evidenceStrength[object.evidenceGrade] ?? 0
   const freshnessDays = daysSince(object.lastVerified)
-  const freshness = freshnessDays <= 30 ? 10 : freshnessDays <= 90 ? 8 : freshnessDays <= 180 ? 5 : 2
+  const verificationDateValid = freshnessDays >= 0
+  const freshness = verificationDateValid ? (freshnessDays <= 30 ? 10 : freshnessDays <= 90 ? 8 : freshnessDays <= 180 ? 5 : 2) : 0
   const humanEvidence = tags.includes('human-evidence') || /human|randomized|meta-analysis/i.test(`${object.evidenceType} ${object.title}`)
   const socialSuitability = clamp(5 + (humanEvidence ? 2 : 0) + (tags.length >= 3 ? 1 : 0) + (String(object.finding || '').length <= 360 ? 1 : 0))
   const informationUniqueness = clamp(5 + (object.formulationContext ? 1 : 0) + (object.populationContext ? 1 : 0) + (object.doseContext ? 1 : 0))
@@ -31,7 +32,7 @@ export function scoreResearchObject(object) {
   const formats = ['carousel', 'infographic', 'vertical-video'].map((format) => {
     const platformFit = format === 'vertical-video' ? socialSuitability : clamp(socialSuitability + (informationUniqueness >= 7 ? 1 : 0))
     const productionCost = formatCost[format]
-    const score = sourceEligible
+    const score = sourceEligible && verificationDateValid
       ? Math.round(3 * evidence + 2 * freshness + 2 * socialSuitability + 2 * informationUniqueness + 2 * platformFit - productionCost - 2 * claimRisk)
       : 0
     return { format, score, platformFit, productionCost }
@@ -41,7 +42,7 @@ export function scoreResearchObject(object) {
     id: object.id,
     title: object.title,
     destinationUrl: object.sourceUrl,
-    eligible: sourceEligible && evidence > 0,
+    eligible: sourceEligible && evidence > 0 && verificationDateValid,
     evidenceGrade: object.evidenceGrade,
     lastVerified: object.lastVerified,
     signals: { evidenceStrength: evidence, freshness, freshnessDays, socialSuitability, informationUniqueness, claimRisk },
