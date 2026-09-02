@@ -1,8 +1,20 @@
 {
   "version": 1,
-  "leases": [],
+  "leases": [
+    {
+      "id": "lease-5021-vitamin-b6-closure",
+      "owner": "site-swarm-integration",
+      "purpose": "close staged Vitamin B6 evidence and neuropathy safety calibration",
+      "files": [],
+      "entities": [
+        "compound:vitamin-b6"
+      ],
+      "acquiredAt": "2026-09-02T00:43:33.760Z",
+      "expiresAt": "2026-09-02T02:13:33.760Z"
+    }
+  ],
   "queued": [],
   "batched": [],
   "blocked": [],
-  "updatedAt": "2026-09-02T00:22:34.173Z"
+  "updatedAt": "2026-09-02T00:43:33.760Z"
 }
