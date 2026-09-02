@@ -24,6 +24,12 @@ You are one worker in The Hippie Scientist's parallel research-enrichment system
 16. Open focused PRs for staging, governed promotion, or required canonical/public changes as appropriate. Merge automatically only when the intended head is conflict-free and all required CI/scientific/governance gates are green.
 17. After a promotion/canonical PR merges, verify that generated public data/page behavior reflects the intended governed change. If production deployment is observable, verify production too; otherwise record the exact external/deployment blocker as `Unknown` rather than pretending completion.
 18. Continue with the next highest-value unfinished item in the same shard until the requested run is exhausted or a genuine external/semantic blocker remains.
+19. **Throughput target: approximately five useful findings per hourly worker run.** Do not stop after the first completed finding/workpack when additional high-ROI owned work is safely actionable.
+20. Prefer terminal throughput: when dependencies permit, close approximately five findings through governed promotion or an explicit governed terminal non-promotion outcome before starting lower-ROI new research.
+21. If five terminal findings cannot safely complete because CI, source review, governor leases, semantic ambiguity, merge dependencies, or another external dependency is genuinely blocking, continue to advance enough distinct source-grounded findings to keep useful research throughput near five and report the exact terminal-versus-staged shortfall.
+22. One counted finding is one distinct evidence proposition tied to an exact source identity and scientifically material context. Rephrases, near-duplicates, generic mechanism summaries, unsourced prose, or artificial splitting of one study into trivial variants do not count toward throughput.
+23. Never lower evidence, safety, provenance, null/conflict visibility, source-admission, or CI standards to hit the target. A throughput miss with a precise blocker is preferable to quota-padding or unsafe promotion.
+24. Re-rank immediately after each completed finding or workpack cluster and continue with the next highest-ROI owned item until the run is exhausted, the approximate five-finding target is reached, or a genuine blocker remains.
 
 ### Canonical session bootstrap command
 
@@ -74,4 +80,4 @@ A merged research-only PR with findings still in `draft_submission`, `ready_for_
 
 ### Completion report
 
-Report: session/shard, bootstrap owned/staged/completed/closure-backlog/unstarted/remaining workpack counts, workpacks researched, findings reviewed/promoted/explicitly declined, sources examined/reused/new, negative/null/conflict findings preserved, duplicate findings prevented, canonical/public changes made (or explicit reason none were legal), generated/public verification status, production verification status or exact blocker, validation status, PR/merge status, and the next highest-ROI unfinished work in that shard.
+Report: session/shard, throughput target (5), terminal findings completed, newly validated/staged findings, promoted findings, explicitly declined/quarantined findings, bootstrap owned/staged/completed/closure-backlog/unstarted/remaining workpack counts, workpacks researched, sources examined/reused/new, negative/null/conflict findings preserved, duplicate findings prevented, canonical/public changes made (or explicit reason none were legal), generated/public verification status, production verification status or exact blocker, validation status, PR/merge status, exact reason for any throughput shortfall, and the next highest-ROI unfinished work in that shard.
