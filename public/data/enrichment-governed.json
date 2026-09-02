@@ -633,6 +633,167 @@
   },
   {
     "entityType": "compound",
+    "entitySlug": "methyl-eugenol",
+    "researchEnrichment": {
+      "evidenceSummary": "2 approved normalized findings across 2 topic types.",
+      "evidenceTier": "tier-3-limited",
+      "evidenceClassesPresent": [
+        "regulatory-monograph"
+      ],
+      "supportedUses": [],
+      "unsupportedOrUnclearUses": [],
+      "mechanisms": [],
+      "constituents": [],
+      "interactions": [],
+      "contraindications": [],
+      "adverseEffects": [
+        {
+          "claim": "IARC Volume 134 classifies methyleugenol as probably carcinogenic to humans (Group 2A), based on sufficient evidence for cancer in experimental animals and strong mechanistic evidence, while the evidence regarding cancer in humans is inadequate. The hazard classification and human-evidence limitation must both remain explicit.",
+          "evidenceClass": "regulatory-monograph",
+          "sourceRefIds": [
+            "src_iarc-v134-methyleugenol-2024"
+          ],
+          "targetType": "population",
+          "targetName": "people exposed to methyleugenol",
+          "uncertaintyNote": "IARC hazard classification does not by itself quantify risk for every dose, exposure route, product matrix, or background dietary exposure.",
+          "strengthNote": "strong"
+        }
+      ],
+      "dosageContextNotes": [],
+      "populationSpecificNotes": [],
+      "conflictNotes": [],
+      "researchGaps": [
+        {
+          "claim": "IARC notes that methyleugenol occurs naturally in essential oils of many plants and that the general population is exposed through foods and consumer products, while its use as a flavouring agent is prohibited in the United States and European Union. Natural occurrence, background dietary exposure, essential-oil exposure, and a concentrated isolated supplement therefore require separate exposure propositions.",
+          "evidenceClass": "regulatory-monograph",
+          "sourceRefIds": [
+            "src_iarc-v134-methyleugenol-2024"
+          ],
+          "uncertaintyNote": "The source establishes hazard and exposure distinctions; it does not provide one universal quantitative risk estimate across all matrices, routes, and doses.",
+          "strengthNote": "strong"
+        }
+      ],
+      "safetyProfile": {
+        "safetyEntries": [
+          {
+            "safetyEntryId": "senr_methyl-eugenol-iarc-group2a-hazard",
+            "sourceId": "src_iarc-v134-methyleugenol-2024",
+            "safetyTopicType": "adverse_effect",
+            "targetType": "population",
+            "targetName": "people exposed to methyleugenol",
+            "severityLabel": "high",
+            "urgencyLabel": "prompt_review",
+            "evidenceClass": "regulatory-monograph",
+            "findingTextShort": "IARC classifies methyleugenol as probably carcinogenic to humans (Group 2A).",
+            "findingTextNormalized": "IARC Volume 134 classifies methyleugenol as probably carcinogenic to humans (Group 2A), based on sufficient evidence for cancer in experimental animals and strong mechanistic evidence, while the evidence regarding cancer in humans is inadequate. The hazard classification and human-evidence limitation must both remain explicit.",
+            "mechanismKnown": true,
+            "populationContext": "Carcinogenic-hazard evaluation integrating animal, mechanistic, and available human evidence",
+            "uncertaintyNote": "IARC hazard classification does not by itself quantify risk for every dose, exposure route, product matrix, or background dietary exposure.",
+            "reviewer": "site-swarm-integration",
+            "reviewedAt": "2026-09-02T01:15:00.000Z",
+            "editorialStatus": "approved",
+            "active": true
+          }
+        ],
+        "summary": {
+          "total": 1,
+          "byTopicType": {
+            "adverse_effect": 1
+          },
+          "bySeverity": {
+            "high": 1
+          }
+        }
+      },
+      "topicEvidenceJudgments": {
+        "adverse_effect": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "regulatory-monograph"
+            ],
+            "studyDesignWeight": 3,
+            "humanRelevance": "none",
+            "directnessToClaim": "indirect",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 11
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "research_gap": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "regulatory-monograph"
+            ],
+            "studyDesignWeight": 3,
+            "humanRelevance": "none",
+            "directnessToClaim": "indirect",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 11
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        }
+      },
+      "pageEvidenceJudgment": {
+        "evidenceLabel": "conflicting_evidence",
+        "grading": {
+          "evidenceClass": [
+            "regulatory-monograph"
+          ],
+          "studyDesignWeight": 3,
+          "humanRelevance": "none",
+          "directnessToClaim": "indirect",
+          "replicationDepth": 1,
+          "sourceReliabilityTier": "tier-a",
+          "recencyWeight": 2,
+          "editorialConfidence": "medium",
+          "conflictState": "conflicting_evidence",
+          "confidenceIndex": 9
+        },
+        "conflictNotes": [
+          "Regulatory or monograph guidance is directionally mixed across cited sources."
+        ],
+        "uncertaintyNotes": [
+          "One or more findings carry explicit uncertainty notes from editorial review.",
+          "Evidence is sourced from a single source record; replication depth is limited."
+        ],
+        "toneGuidance": "Lead with disagreement across sources and avoid directional conclusions."
+      },
+      "editorialReadiness": {
+        "publishable": false,
+        "hasConflictOrWeakEvidence": true,
+        "conflictLabelingPresent": false,
+        "weakEvidenceClaimsLabeled": true
+      },
+      "sourceRegistryIds": [
+        "src_iarc-v134-methyleugenol-2024"
+      ],
+      "lastReviewedAt": "2026-09-02T01:15:00.000Z",
+      "reviewedBy": "normalized-enrichment-pipeline",
+      "editorialStatus": "approved"
+    }
+  },
+  {
+    "entityType": "compound",
     "entitySlug": "propionate",
     "researchEnrichment": {
       "evidenceSummary": "4 approved normalized findings across 4 topic types.",
