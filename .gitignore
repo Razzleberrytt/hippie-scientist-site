@@ -119,6 +119,14 @@ data-sources/*
 !data-sources/ai-performance/
 data-sources/ai-performance/*
 !data-sources/ai-performance/README.md
+# Generated Bing AI reports/history can contain query-level analytics derived
+# from those private exports. Keep them local too; only explicit aggregate
+# documentation or governed telemetry should be committed.
+ops/reports/ai-query-opportunities.json
+ops/reports/ai-query-opportunities.md
+ops/reports/ai-citations.json
+ops/reports/ai-citations.md
+ops/ai-citations/history/*.json
 data-sources/*.csv
 data-sources/*.json
 
@@ -156,8 +164,8 @@ agent/cache/
 ops/enrichment/*
 !ops/enrichment/README.md
 # Batch workers and their research records are hand-authored inputs, not
-# generated state — `scan` cannot reproduce them. They are the only place a
-# no-op's reason is written down, which is what stops a later pass re-covering
-# ground that was already researched and found empty.
+# generated state — `scan` cannot reproduce them. The durable artifacts are
+# the contract (scripts/enrichment-pipeline/contract) and any exported patch
+# proposal in data-sources/workbook-patches.
 !ops/enrichment/*-work.mjs
 !ops/enrichment/*-research.json
