@@ -1,5 +1,4 @@
-import test from 'node:test'
-import assert from 'node:assert/strict'
+import { test, expect } from 'vitest'
 import { readFileSync } from 'node:fs'
 import path from 'node:path'
 
@@ -19,18 +18,18 @@ test('Bing AI raw exports and query-derived generated outputs remain local/priva
   ]
 
   for (const rule of requiredIgnoreRules) {
-    assert.match(gitignore, new RegExp(`^${rule.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'm'), `missing privacy ignore rule: ${rule}`)
+    expect(gitignore).toMatch(new RegExp(`^${rule.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'm'))
   }
 
-  assert.match(gitignore, /^!data-sources\/ai-performance\/README\.md$/m)
+  expect(gitignore).toMatch(/^!data-sources\/ai-performance\/README\.md$/m)
 })
 
 test('canonical analyzers keep writing only to the protected local report/history paths', () => {
-  assert.match(opportunityAnalyzer, /ops\/reports|OUTPUT_DIR/)
-  assert.match(opportunityAnalyzer, /ai-query-opportunities\.json/)
-  assert.match(opportunityAnalyzer, /ai-query-opportunities\.md/)
+  expect(opportunityAnalyzer).toMatch(/ops\/reports|OUTPUT_DIR/)
+  expect(opportunityAnalyzer).toMatch(/ai-query-opportunities\.json/)
+  expect(opportunityAnalyzer).toMatch(/ai-query-opportunities\.md/)
 
-  assert.match(citationTracker, /ops['"], ['"]ai-citations['"], ['"]history/)
-  assert.match(citationTracker, /ai-citations\.json/)
-  assert.match(citationTracker, /ai-citations\.md/)
+  expect(citationTracker).toMatch(/ops['"], ['"]ai-citations['"], ['"]history/)
+  expect(citationTracker).toMatch(/ai-citations\.json/)
+  expect(citationTracker).toMatch(/ai-citations\.md/)
 })
