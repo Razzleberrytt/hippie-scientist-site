@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "targetUsefulFindingsPerHourlyRun": 5,
+  "preferTerminalCompletion": true,
+  "allowQualityReductionToMeetTarget": false,
+  "countingUnit": "distinct_source_grounded_evidence_proposition",
+  "stagingCountsAsTerminal": false,
+  "duplicatesCountTowardTarget": false,
+  "reportTerminalAndStagedSeparately": true
+}
