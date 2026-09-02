@@ -1,0 +1,151 @@
+name: Metricool Connector Publication Proof
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_receipt_run_id:
+        description: 'Metricool Connector Receipt workflow run ID that created scheduled lifecycle evidence'
+        required: true
+        type: string
+      external_id:
+        description: 'Confirmed published Metricool external post ID; must match the scheduled receipt'
+        required: true
+        type: string
+      request_id:
+        description: 'Optional publication-status request ID'
+        required: false
+        default: ''
+        type: string
+
+concurrency:
+  group: metricool-publication-proof-${{ inputs.source_receipt_run_id }}
+  cancel-in-progress: false
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: production
+    steps:
+      - name: Download exact scheduled lifecycle evidence
+        uses: actions/download-artifact@v8
+        with:
+          pattern: metricool-connector-ingestion-*
+          path: artifacts/publication-source
+          merge-multiple: true
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.source_receipt_run_id }}
+          github-token: ${{ github.token }}
+
+      - name: Read and preserve scheduled identity
+        id: scheduled
+        run: |
+          set -euo pipefail
+          INGESTION="$(find artifacts/publication-source -type f -name ingestion.json -print -quit)"
+          test -n "$INGESTION"
+          test "$(jq -r '.schemaVersion' "$INGESTION")" = 'metricool-connector-ingestion-v1'
+          test "$(jq -r '.status' "$INGESTION")" = 'accepted'
+          test "$(jq -r '.provider' "$INGESTION")" = 'metricool'
+          test "$(jq -r '.externalId' "$INGESTION")" = '${{ inputs.external_id }}'
+          test "$(jq -r '.lifecycle.state' "$INGESTION")" = 'scheduled'
+          test "$(jq -r '.lifecycle.dryRun' "$INGESTION")" = 'false'
+          PRESERVED="$RUNNER_TEMP/metricool-scheduled-ingestion.json"
+          cp "$INGESTION" "$PRESERVED"
+          echo "dispatch_sha=$(jq -r '.dispatchSha' "$PRESERVED")" >> "$GITHUB_OUTPUT"
+          echo "ingestion=$PRESERVED" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout exact dispatch SHA
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ steps.scheduled.outputs.dispatch_sha }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --fund=false
+
+      - name: Validate publication-proof boundary
+        run: npx vitest run scripts/distribution/__tests__/metricool-connector-publication-proof.test.mjs
+
+      - name: Regenerate exact governed lifecycle identity
+        run: |
+          node scripts/distribution/build-research-distribution.mjs
+          node scripts/distribution/build-opportunity-selection.mjs
+          node scripts/distribution/build-bounded-pilot.mjs
+
+      - name: Bind confirmed publication proof
+        env:
+          INGESTION_PATH: ${{ steps.scheduled.outputs.ingestion }}
+          EXTERNAL_ID: ${{ inputs.external_id }}
+          REQUEST_ID: ${{ inputs.request_id }}
+          SOURCE_RECEIPT_RUN_ID: ${{ inputs.source_receipt_run_id }}
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/distribution/metricool-connector-publication-proof
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          import path from 'node:path'
+          import { recordMetricoolConnectorPublishedReceipt } from './scripts/distribution/metricool-connector-publication-proof.mjs'
+
+          const clean = (value) => String(value ?? '').trim()
+          const ingestion = JSON.parse(fs.readFileSync(process.env.INGESTION_PATH, 'utf8'))
+          const selection = JSON.parse(fs.readFileSync('artifacts/distribution/opportunity-selection.json', 'utf8'))
+          const objectId = clean(selection?.selected?.id)
+          const pilotPath = path.join('artifacts/distribution/pilots', objectId, 'bounded-pilot.json')
+          const pilot = JSON.parse(fs.readFileSync(pilotPath, 'utf8'))
+          if (pilot.lifecycle.identity.fingerprint !== ingestion.identityFingerprint) {
+            throw new Error('current governed lifecycle identity does not match scheduled ingestion')
+          }
+          const proof = {
+            schemaVersion: 'metricool-connector-publication-proof-v1',
+            provider: 'metricool',
+            status: 'published',
+            lifecycleId: ingestion.lifecycleId,
+            identityFingerprint: ingestion.identityFingerprint,
+            idempotencyKey: ingestion.idempotencyKey,
+            externalId: clean(process.env.EXTERNAL_ID),
+            requestId: clean(process.env.REQUEST_ID) || null,
+          }
+          const lifecycle = recordMetricoolConnectorPublishedReceipt({
+            lifecycle: ingestion.lifecycle,
+            currentIdentity: pilot.lifecycle.identity,
+            proof,
+          })
+          const evidence = {
+            schemaVersion: 'metricool-connector-publication-ingestion-v1',
+            status: 'accepted',
+            sourceReceiptRunId: clean(process.env.SOURCE_RECEIPT_RUN_ID),
+            dispatchSha: ingestion.dispatchSha,
+            lifecycleId: lifecycle.lifecycleId,
+            identityFingerprint: lifecycle.identity.fingerprint,
+            idempotencyKey: lifecycle.identity.idempotencyKey,
+            provider: 'metricool',
+            externalId: clean(process.env.EXTERNAL_ID),
+            lifecycle,
+          }
+          fs.writeFileSync('artifacts/distribution/metricool-connector-publication-proof/ingestion.json', `${JSON.stringify(evidence, null, 2)}\n`)
+          NODE
+
+      - name: Upload durable publication evidence
+        uses: actions/upload-artifact@v7
+        with:
+          name: metricool-connector-publication-${{ inputs.source_receipt_run_id }}
+          path: artifacts/distribution/metricool-connector-publication-proof/ingestion.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Summarize
+        run: |
+          echo '## Metricool connector publication proof' >> "$GITHUB_STEP_SUMMARY"
+          echo "- Scheduled receipt run: ${{ inputs.source_receipt_run_id }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Dispatch SHA: ${{ steps.scheduled.outputs.dispatch_sha }}" >> "$GITHUB_STEP_SUMMARY"
+          echo '- Result: confirmed published provider state bound to the exact scheduled lifecycle' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Publication evidence: uploaded as a durable artifact for attributable measurement ingestion' >> "$GITHUB_STEP_SUMMARY"
