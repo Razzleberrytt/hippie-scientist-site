@@ -1,0 +1,51 @@
+name: Session A-H post-merge bootstrap
+
+on:
+  push:
+    branches:
+      - verify/session-e-postmerge-4992
+
+permissions:
+  contents: read
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        session: [A, B, C, D, E, F, G, H]
+    steps:
+      - name: Checkout verification branch
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - name: Bootstrap session
+        run: node scripts/enrichment-pipeline/session-bootstrap-cli.mjs ${{ matrix.session }}
+      - name: Print compact closure queue
+        run: |
+          SESSION=$(echo '${{ matrix.session }}' | tr '[:upper:]' '[:lower:]')
+          node --input-type=module <<NODE
+          import fs from 'node:fs'
+          const report = JSON.parse(fs.readFileSync('artifacts/enrichment-session-bootstrap-${SESSION}.json','utf8'))
+          console.log(JSON.stringify({
+            sessionId: report.sessionId,
+            workerId: report.workerId,
+            shard: report.shard,
+            shardCount: report.shardCount,
+            ownedWorkpacks: report.ownedWorkpacks,
+            stagedWorkpacks: report.stagedWorkpacks,
+            completedWorkpacks: report.completedWorkpacks,
+            closureBacklogWorkpacks: report.closureBacklogWorkpacks,
+            unstartedWorkpacks: report.unstartedWorkpacks,
+            remainingWorkpacks: report.remainingWorkpacks,
+            topClosureDebt: (report.candidates ?? []).filter(x => x.staged && !x.completed).slice(0,10).map(x => ({workpackId:x.workpackId,score:x.score,pendingFindings:x.pendingFindings,promotedFindings:x.promotedFindings,reasons:x.reasons})),
+          }, null, 2))
+          NODE
+      - name: Upload bootstrap
+        uses: actions/upload-artifact@v4
+        with:
+          name: session-${{ matrix.session }}-bootstrap
+          path: artifacts/enrichment-session-bootstrap-*.json
