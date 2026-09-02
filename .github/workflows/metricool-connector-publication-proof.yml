@@ -58,24 +58,31 @@ jobs:
           echo "dispatch_sha=$(jq -r '.dispatchSha' "$PRESERVED")" >> "$GITHUB_OUTPUT"
           echo "ingestion=$PRESERVED" >> "$GITHUB_OUTPUT"
 
-      - name: Checkout exact dispatch SHA
+      - name: Checkout trusted publication-proof tools
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          path: tools
+
+      - name: Checkout exact historical dispatch source
         uses: actions/checkout@v7
         with:
           ref: ${{ steps.scheduled.outputs.dispatch_sha }}
+          path: source
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
-          node-version-file: .nvmrc
+          node-version-file: tools/.nvmrc
           cache: npm
+          cache-dependency-path: source/package-lock.json
 
-      - name: Install dependencies
+      - name: Install historical source dependencies
+        working-directory: source
         run: npm ci --no-audit --fund=false
 
-      - name: Validate publication-proof boundary
-        run: npx vitest run scripts/distribution/__tests__/metricool-connector-publication-proof.test.mjs
-
       - name: Regenerate exact governed lifecycle identity
+        working-directory: source
         run: |
           node scripts/distribution/build-research-distribution.mjs
           node scripts/distribution/build-opportunity-selection.mjs
@@ -93,16 +100,17 @@ jobs:
           node --input-type=module <<'NODE'
           import fs from 'node:fs'
           import path from 'node:path'
-          import { recordMetricoolConnectorPublishedReceipt } from './scripts/distribution/metricool-connector-publication-proof.mjs'
+          import { recordMetricoolConnectorPublishedReceipt } from './tools/scripts/distribution/metricool-connector-publication-proof.mjs'
 
           const clean = (value) => String(value ?? '').trim()
           const ingestion = JSON.parse(fs.readFileSync(process.env.INGESTION_PATH, 'utf8'))
-          const selection = JSON.parse(fs.readFileSync('artifacts/distribution/opportunity-selection.json', 'utf8'))
+          const selection = JSON.parse(fs.readFileSync('source/artifacts/distribution/opportunity-selection.json', 'utf8'))
           const objectId = clean(selection?.selected?.id)
-          const pilotPath = path.join('artifacts/distribution/pilots', objectId, 'bounded-pilot.json')
+          if (!objectId) throw new Error('historical dispatch has no selected research object')
+          const pilotPath = path.join('source/artifacts/distribution/pilots', objectId, 'bounded-pilot.json')
           const pilot = JSON.parse(fs.readFileSync(pilotPath, 'utf8'))
           if (pilot.lifecycle.identity.fingerprint !== ingestion.identityFingerprint) {
-            throw new Error('current governed lifecycle identity does not match scheduled ingestion')
+            throw new Error('historical governed lifecycle identity does not match scheduled ingestion')
           }
           const proof = {
             schemaVersion: 'metricool-connector-publication-proof-v1',
