@@ -1,0 +1,48 @@
+name: Methyl Eugenol governed one-shot
+
+on:
+  push:
+    branches:
+      - data/session-d-methyl-eugenol-closure-20260901
+    paths:
+      - .github/workflows/methyl-eugenol-governed-one-shot.yml
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact branch head
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --fund=false
+
+      - name: Generate governed enrichment
+        run: node scripts/enrichment/generate-governed-enrichment.mjs
+
+      - name: Verify Session D closure
+        run: node scripts/enrichment-pipeline/session-bootstrap-cli.mjs D
+
+      - name: Run Methyl Eugenol boundary regression
+        run: node --test scripts/enrichment-governor/__tests__/methyl-eugenol-closure-boundaries.test.mjs
+
+      - name: Commit exact generated artifact and remove one-shot workflow
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/enrichment-governed.json
+          git rm .github/workflows/methyl-eugenol-governed-one-shot.yml
+          git commit -m "data(enrichment): generate Methyl Eugenol governed closure"
+          git push origin HEAD:${GITHUB_REF_NAME}
