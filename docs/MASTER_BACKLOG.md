@@ -46,14 +46,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Live GitHub reconciliation at `e3b19e2015b8efb449e488cd0ec5c60c66507bc7` on 2026-09-01 shows **1/3 normal implementation workstreams occupied**:
+Live GitHub reconciliation at `4461ac4c59aa48bafca85125f86e4a37e6ee4610` on 2026-09-02 shows **0/3 normal implementation workstreams occupied**:
 
 | Ticket | Title | Lane | Status |
 |---|---|---|---|
-| #4992 / PR #5016 | Close staged Propionate evidence before MS follow-up | A evidence | Active under governed lease |
 
 - **R — free:** #4732 / PR #4734 merged and closed. Provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
-- **A — #4992 active:** governed Propionate closure owns Authority/Content under lease `lease-4992-propionate-closure`; three source identities, four calibrated normalized findings, deterministic rollup, terminal semantic attestations, and no-overclaim regression are the complete scope. #4983 remains dependency-blocked until closure.
+- **A — free:** #4992 / PR #5016 completed the Propionate closure and PR #5020 released the verified lease. #5021 is Ready next for Vitamin B6 evidence/safety closure but requires a narrow `compound:vitamin-b6` governor lease before canonical mutation.
 - **D — free:** #4949 and #4951 are closed through merged PR #4952. The comparison discovery, core-hub sitemap/redirect alignment, and historical-audit tombstone repair are on `main`; post-merge release and deploy checks passed.
 
 Research-only enrichment staging remains separate from canonical implementation/promotion WIP. #4731 / PR #4947 and #4949 / #4951 / PR #4952 are merged/closed. No stale SEO item is admitted merely because Discovery/SEO is now free.
@@ -64,6 +63,7 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
+| #5021 | Close staged Vitamin B6 evidence and neuropathy safety calibration | A evidence | Ready for governed implementation | P0 safety/integrity | — | — | Fresh A–H bootstrap run 33575183434; #4658 staging complete; acquire narrow `compound:vitamin-b6` governor lease before mutation | Six staged findings 6→0 pending; journal provenance + semantic attestations; no historical-dose consumer directive; generated grade/recommendation/safety state becomes source-consistent; post-merge Session F bootstrap terminal |
 | DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous reconciliation maintenance | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
 
 ## Blocked — important but not startable
@@ -101,6 +101,7 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
+| #4992 / PR #5016 / PR #5020 | Propionate closure merged as `523ba9323dd3506e51f2d1aaab53b6d0a2e49aa5`; post-merge Session E bootstrap proved all four staged findings terminal and promoted with 0 pending; verified lease release merged as `4461ac4c59aa48bafca85125f86e4a37e6ee4610`. No generic efficacy, consumer-dose, indexing, monetization, traffic, analytics, or business outcome is inferred. |
 | #4260 / PR #4999 | Merged as `754828d80ff0895b40091227d8aa1549a0f1521b`; registered PMID 41789242 / DOI 10.1097/MS9.0000000000004549, added one short-term healthy-adult adverse-effect record preserving the diarrhea estimate and null findings, regenerated governed output, and added an exact no-overclaim regression. All exact-head scientific, build, release, and control checks passed; PR #5001 released the verified lease. No efficacy, general dose, broad or long-term safety, traffic, analytics, or business outcome is inferred. |
 | #4266 / PR #4972 | Merged as `8aba655daae2aba8d07cd2ba6f32ed52f8f3b498`; registered PMID 41943502 / DOI 10.1002/ptr.70315, added three formulation- and population-bounded KSM-66 safety records, regenerated governed output, and added an exact no-overclaim regression. All required exact-head checks passed, and PR #4976 released the governed lease; no efficacy, general-dose, traffic, analytics, or business outcome is inferred. |
 | #4949 / #4951 / PR #4952 | Merged as `0c667ca7bd9bf49279594e7df79a806cb4c1237a`; restored caffeine/L-theanine comparison discovery, added canonical `/evidence/` and `/info/` sitemap/redirect alignment, preserved historical audit exports with tombstones, and passed exact-head plus post-merge release/deploy checks. No traffic, ranking, indexing, analytics, or revenue outcome is inferred. |

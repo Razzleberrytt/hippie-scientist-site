@@ -5,7 +5,7 @@
 **Updated:** 2026-08-31
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub reconciliation at `e3b19e2015b8efb449e488cd0ec5c60c66507bc7` on 2026-09-01 records 1/3 normal implementation workstreams occupied. #4992 is active in Authority/Content under durable lease `lease-4992-propionate-closure` to close staged Propionate evidence before #4983; Revenue/Conversion and Discovery/SEO are free. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP. SEO-003 and AUTH-001 remain retired by their exact-current diagnostics.
+**Current admission:** Live GitHub reconciliation at `4461ac4c59aa48bafca85125f86e4a37e6ee4610` on 2026-09-02 records 0/3 normal implementation workstreams occupied. #4992 / PR #5016 completed the governed Propionate closure, post-merge Session E bootstrap proved 4/4 terminal promoted findings with 0 pending, and PR #5020 released the verified lease. Authority/Content, Revenue/Conversion, and Discovery/SEO are free. #5021 is the first Ready-next Authority/Content candidate; canonical Vitamin B6 mutation still requires a narrow `compound:vitamin-b6` governor lease. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,14 +49,13 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — observed implementation WIP 1/3
+## Active / in review — observed implementation WIP 0/3
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| Authority/Content | #4992 / PR #5016 | site-swarm-integration | Active | Close four staged Propionate findings with three governed sources, four calibrated normalized records, deterministic rollup, terminal semantic attestations, and exact no-overclaim regression; #4983 remains blocked until closure. |
 
 - **Revenue/Conversion:** free. #4732 / PR #4734 is merged/closed; provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
-- **Authority/Content:** occupied by #4992 under durable lease `lease-4992-propionate-closure`. Scope is limited to terminal governance of the four already-staged Propionate findings: acute sodium-propionate surrogate physiology, calcium-propionate preservative-exposure conflict, the 12-month iPREVENT null, and chemical-form/delivery non-interchangeability. No generic efficacy or consumer-dose claim is authorized; #4983 remains blocked until this closure is merged and verified.
+- **Authority/Content:** free after #4992 / PR #5016 completed and verified lease-release PR #5020 merged. #5021 is Ready next for governed Vitamin B6 evidence/safety closure; implementation remains blocked until a narrow `compound:vitamin-b6` lease is acquired.
 - **Discovery/SEO:** free. #4949 and #4951 are closed; PR #4952 merged the comparison-hub discovery repair plus canonical `/evidence/` and `/info/` sitemap/redirect alignment. Post-merge release and deploy checks passed.
 
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
@@ -69,6 +68,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 | Order | Candidate | Workstream | Admission state | Proof required before implementation |
 |---:|---|---|---|---|
+| 1 | #5021 | Authority/Content | Ready next — governor lease required | Fresh Session F bootstrap; acquire narrow `compound:vitamin-b6` lease, verify/register journal sources, terminally govern all six staged findings, preserve neuropathy dose/duration boundaries and null/low-quality evidence, then prove post-merge Session F closure. |
 
 Discovery/SEO is free after #4949 and #4951 closed through merged PR #4952. No stale SEO item is promoted merely to fill the slot; any future admission still requires current evidence and this queue.
 
@@ -116,6 +116,7 @@ The sprint exits only when all of the following are true or have a precise exter
 
 ## Recently retired from this sprint
 
+- **#4992 / PR #5016 / PR #5020:** Propionate closure merged as `523ba9323dd3506e51f2d1aaab53b6d0a2e49aa5`; post-merge Session E bootstrap proved 4 findings terminal/promoted with 0 pending, and verified state-only lease release merged as `4461ac4c59aa48bafca85125f86e4a37e6ee4610`. No generic efficacy, consumer-dose, or business outcome is inferred.
 - **#4266 / PR #4972:** merged as `8aba655daae2aba8d07cd2ba6f32ed52f8f3b498`; registered PMID 41943502 / DOI 10.1002/ptr.70315, added three formulation- and population-bounded KSM-66 safety records, regenerated the governed rollup, and added exact regression coverage without creating an efficacy or general-dose claim. All required exact-head checks passed; PR #4976 subsequently released the governed lease. The optional Cloudflare preview remained in progress at merge and no production outcome is inferred.
 - **#4949 / #4951 / PR #4952:** merged as `0c667ca7bd9bf49279594e7df79a806cb4c1237a`; restored direct comparison-hub discovery for the caffeine/L-theanine route, aligned canonical `/evidence/` and `/info/` hubs with sitemap and redirect ownership, and preserved historical audit exports with canonical-source tombstones. Exact-head and post-merge required checks, Cloudflare Pages, and deploy passed. This proves deterministic crawl/release recovery, not traffic, ranking, indexing, analytics, or revenue outcomes.
 - **#4731 / PR #4947:** merged as `6e32a773d908495f08fa297fc51da1cea6fb2659`; the factual-copy validator closes the scoped unbound dose-unit, onset/duration, and comparative-efficacy label bypasses with focused rejection/nonfactual controls. The separate Discovery/SEO incident later exposed by post-merge output verification is retired above.
