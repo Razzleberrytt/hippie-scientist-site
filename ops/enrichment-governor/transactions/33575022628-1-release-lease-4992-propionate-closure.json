@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "transactionType": "enrichment_governor_lease",
+  "requestedAt": "2026-09-02T00:22:34.180Z",
+  "operation": "release",
+  "actor": "github-actions[bot]",
+  "owner": "site-swarm-integration",
+  "leaseId": "lease-4992-propionate-closure",
+  "purpose": null,
+  "files": [],
+  "entities": [],
+  "disposition": "verified",
+  "baseSha": "523ba9323dd3506e51f2d1aaab53b6d0a2e49aa5",
+  "before": {
+    "workQueueSha256": "d5653a80c01330bd981e4805b9db2b66147cfa8c9ee678f1a3e091b34e52c187",
+    "ledgerSha256": "b484d08a8cd73ba2c0d8e856636d7ff375ff96df053374f66204e09015f54d0c"
+  },
+  "after": {
+    "workQueueSha256": "42ec290cad5940374b536d14a0ffaca7db83d38e0bdfcb0fb6e64d0e13e7585d",
+    "ledgerSha256": "576749d36e57d54e29c9c2e8e2315d6ec50521729dedfd395b58e5de659b2986"
+  },
+  "result": {
+    "released": true,
+    "existed": true
+  },
+  "transactionCommitSha": "a434766c8ee3e084391a8ced946d8c1fd504528c",
+  "finalizedAt": "2026-09-02T00:22:34.851Z"
+}
