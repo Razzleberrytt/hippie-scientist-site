@@ -16,6 +16,14 @@
     {
       "submissionId": "sub_e-propionate-form-delivery-firewall",
       "promotionStatus": "promoted"
+    },
+    {
+      "submissionId": "sub_d-methyl-eugenol-iarc-group2a",
+      "promotionStatus": "promoted"
+    },
+    {
+      "submissionId": "sub_d-methyl-eugenol-exposure-context-firewall",
+      "promotionStatus": "promoted"
     }
   ]
 }
