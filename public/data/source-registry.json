@@ -412,5 +412,26 @@
     "reviewedAt": "2026-09-01T20:40:00.000Z",
     "notes": "NIHR Efficacy and Mechanism Evaluation report indexed in PubMed (Bookshelf ID NBK616126). Multicentre double-blind randomized trial in 270 adults aged 20–40 years at risk of weight gain. Inulin-propionate ester 10 g/day did not prevent weight gain versus 10 g/day inulin over 12 months; most body-composition and fasting biomarker outcomes did not differ. The engineered colon-targeted ester and active inulin control are not interchangeable with generic oral propionate, propionate salts, preservative exposure, endogenous microbiota-derived propionate, or other delivery routes.",
     "active": true
+  },
+  {
+    "sourceId": "src_iarc-v134-methyleugenol-2024",
+    "title": "Aspartame, Methyleugenol, and Isoeugenol — IARC Monographs Volume 134",
+    "shortTitle": "IARC Volume 134 methyleugenol monograph",
+    "sourceType": "regulatory-guidance",
+    "sourceClass": "regulatory-agency-monograph-guidance",
+    "organization": "International Agency for Research on Cancer",
+    "publicationYear": 2024,
+    "citationText": "International Agency for Research on Cancer. Aspartame, Methyleugenol, and Isoeugenol. IARC Monographs on the Identification of Carcinogenic Hazards to Humans. Volume 134. Lyon, France: IARC; 2024.",
+    "monographId": "IARC-Monographs-Volume-134-Methyleugenol",
+    "canonicalUrl": "https://publications.iarc.who.int/627",
+    "language": "en",
+    "evidenceClass": "regulatory-monograph",
+    "studyDesign": "regulatory-guidance",
+    "publicationStatus": "published",
+    "reliabilityTier": "tier-a",
+    "reviewer": "site-swarm-integration",
+    "reviewedAt": "2026-09-02T01:15:00.000Z",
+    "notes": "IARC Volume 134 classifies methyleugenol as probably carcinogenic to humans (Group 2A), based on sufficient evidence for cancer in experimental animals and strong mechanistic evidence, while evidence regarding cancer in humans is inadequate. The monograph also distinguishes ubiquitous natural occurrence and background exposure through foods and consumer products from prohibited use as an added flavouring agent in the United States and European Union. Hazard classification is not a universal quantitative risk estimate for every dose, route, or matrix.",
+    "active": true
   }
 ]
