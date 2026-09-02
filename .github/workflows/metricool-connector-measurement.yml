@@ -1,0 +1,177 @@
+name: Metricool Connector Measurement
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_publication_run_id:
+        description: 'Metricool Connector Publication Proof workflow run ID'
+        required: true
+        type: string
+      observed_from:
+        description: 'Observation window start, ISO-8601; must be at/after publication'
+        required: true
+        type: string
+      observed_to:
+        description: 'Observation window end, ISO-8601'
+        required: true
+        type: string
+      captured_at:
+        description: 'Metric capture timestamp, ISO-8601'
+        required: true
+        type: string
+      asset_views:
+        description: 'Platform-specific asset views; must be explicit, never inferred as zero'
+        required: true
+        type: string
+      qualified_visits:
+        description: 'Attributed qualified visits for this exact platform/publication'
+        required: true
+        type: string
+      completion_rate:
+        description: 'Completion rate from 0 to 1 for this exact platform/publication'
+        required: true
+        type: string
+      save_rate:
+        description: 'Save rate from 0 to 1 for this exact platform/publication'
+        required: true
+        type: string
+
+concurrency:
+  group: metricool-measurement-${{ inputs.source_publication_run_id }}
+  cancel-in-progress: false
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: production
+    steps:
+      - name: Download exact publication evidence
+        uses: actions/download-artifact@v8
+        with:
+          pattern: metricool-connector-publication-*
+          path: artifacts/measurement-source
+          merge-multiple: true
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.source_publication_run_id }}
+          github-token: ${{ github.token }}
+
+      - name: Read and preserve published identity
+        id: published
+        run: |
+          set -euo pipefail
+          INGESTION="$(find artifacts/measurement-source -type f -name ingestion.json -print -quit)"
+          test -n "$INGESTION"
+          test "$(jq -r '.schemaVersion' "$INGESTION")" = 'metricool-connector-publication-ingestion-v1'
+          test "$(jq -r '.status' "$INGESTION")" = 'accepted'
+          test "$(jq -r '.provider' "$INGESTION")" = 'metricool'
+          test "$(jq -r '.lifecycle.state' "$INGESTION")" = 'published'
+          test "$(jq -r '.lifecycle.dryRun' "$INGESTION")" = 'false'
+          PRESERVED="$RUNNER_TEMP/metricool-publication-ingestion.json"
+          cp "$INGESTION" "$PRESERVED"
+          echo "dispatch_sha=$(jq -r '.dispatchSha' "$PRESERVED")" >> "$GITHUB_OUTPUT"
+          echo "ingestion=$PRESERVED" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout trusted measurement tools
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          path: tools
+
+      - name: Checkout exact historical dispatch source
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ steps.published.outputs.dispatch_sha }}
+          path: source
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: tools/.nvmrc
+          cache: npm
+          cache-dependency-path: source/package-lock.json
+
+      - name: Install historical source dependencies
+        working-directory: source
+        run: npm ci --no-audit --fund=false
+
+      - name: Regenerate exact governed lifecycle identity
+        working-directory: source
+        run: |
+          node scripts/distribution/build-research-distribution.mjs
+          node scripts/distribution/build-opportunity-selection.mjs
+          node scripts/distribution/build-bounded-pilot.mjs
+
+      - name: Bind attributable measurement
+        env:
+          PUBLICATION_INGESTION_PATH: ${{ steps.published.outputs.ingestion }}
+          SOURCE_PUBLICATION_RUN_ID: ${{ inputs.source_publication_run_id }}
+          OBSERVED_FROM: ${{ inputs.observed_from }}
+          OBSERVED_TO: ${{ inputs.observed_to }}
+          CAPTURED_AT: ${{ inputs.captured_at }}
+          ASSET_VIEWS: ${{ inputs.asset_views }}
+          QUALIFIED_VISITS: ${{ inputs.qualified_visits }}
+          COMPLETION_RATE: ${{ inputs.completion_rate }}
+          SAVE_RATE: ${{ inputs.save_rate }}
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/distribution/metricool-connector-measurement
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          import path from 'node:path'
+          import { recordMetricoolConnectorMeasuredObservation } from './tools/scripts/distribution/metricool-connector-measurement.mjs'
+
+          const clean = (value) => String(value ?? '').trim()
+          const publicationEvidence = JSON.parse(fs.readFileSync(process.env.PUBLICATION_INGESTION_PATH, 'utf8'))
+          const selection = JSON.parse(fs.readFileSync('source/artifacts/distribution/opportunity-selection.json', 'utf8'))
+          const candidate = selection?.selected
+          if (!candidate?.id || !candidate?.platform || !candidate?.angleKey) {
+            throw new Error('historical dispatch has no attributable selected candidate')
+          }
+          const pilotPath = path.join('source/artifacts/distribution/pilots', clean(candidate.id), 'bounded-pilot.json')
+          const pilot = JSON.parse(fs.readFileSync(pilotPath, 'utf8'))
+          if (pilot.lifecycle.identity.fingerprint !== publicationEvidence.identityFingerprint) {
+            throw new Error('historical governed lifecycle identity does not match publication evidence')
+          }
+
+          const result = recordMetricoolConnectorMeasuredObservation({
+            publicationEvidence,
+            currentIdentity: pilot.lifecycle.identity,
+            candidate,
+            observation: {
+              observedFrom: process.env.OBSERVED_FROM,
+              observedTo: process.env.OBSERVED_TO,
+              capturedAt: process.env.CAPTURED_AT,
+              assetViews: process.env.ASSET_VIEWS,
+              qualifiedVisits: process.env.QUALIFIED_VISITS,
+              completionRate: process.env.COMPLETION_RATE,
+              saveRate: process.env.SAVE_RATE,
+            },
+          })
+          const evidence = {
+            ...result,
+            sourcePublicationRunId: clean(process.env.SOURCE_PUBLICATION_RUN_ID),
+            dispatchSha: publicationEvidence.dispatchSha,
+          }
+          fs.writeFileSync('artifacts/distribution/metricool-connector-measurement/ingestion.json', `${JSON.stringify(evidence, null, 2)}\n`)
+          NODE
+
+      - name: Upload durable measurement evidence
+        uses: actions/upload-artifact@v7
+        with:
+          name: metricool-connector-measurement-${{ inputs.source_publication_run_id }}
+          path: artifacts/distribution/metricool-connector-measurement/ingestion.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Summarize
+        run: |
+          echo '## Metricool connector measurement' >> "$GITHUB_STEP_SUMMARY"
+          echo "- Publication proof run: ${{ inputs.source_publication_run_id }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Dispatch SHA: ${{ steps.published.outputs.dispatch_sha }}" >> "$GITHUB_STEP_SUMMARY"
+          echo '- Result: exact published lifecycle advanced to measured from one explicit platform-specific observation' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Missing metrics are never inferred as zero; cross-platform pooling remains rejected by canonical ingestion' >> "$GITHUB_STEP_SUMMARY"
