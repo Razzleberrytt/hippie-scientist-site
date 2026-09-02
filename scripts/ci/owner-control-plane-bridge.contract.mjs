@@ -155,8 +155,9 @@ test('ready transition requires the head to contain exact current main', () => {
   )
 })
 
-test('workflow is owner-only, serialized, main-trusted, and explicitly dispatches governed control-plane workflows', () => {
+test('workflow is owner-only, serialized, main-trusted, and dispatches the governed free-plan connector preparation path', () => {
   const workflow = fs.readFileSync(path.join(repoRoot, '.github', 'workflows', 'owner-control-plane-bridge.yml'), 'utf8')
+  const connectorWorkflow = fs.readFileSync(path.join(repoRoot, '.github', 'workflows', 'metricool-connector-publication.yml'), 'utf8')
   assert.match(workflow, /issue_comment:/)
   assert.match(workflow, /github\.event\.comment\.user\.login == github\.repository_owner/)
   assert.match(workflow, /group:\s*owner-control-plane-bridge-global/)
@@ -165,8 +166,15 @@ test('workflow is owner-only, serialized, main-trusted, and explicitly dispatche
   assert.match(workflow, /ref:\s*main/)
   assert.match(workflow, /gh workflow run enrichment-governor-transaction\.yml/)
   assert.match(workflow, /startsWith\(github\.event\.comment\.body, '\/publish-metricool '\)/)
-  assert.match(workflow, /gh workflow run metricool-publication\.yml/)
+  assert.match(workflow, /gh workflow run metricool-connector-publication\.yml/)
   assert.match(workflow, /auto_publish=true/)
+  assert.match(connectorWorkflow, /group:\s*metricool-publication/)
+  assert.match(connectorWorkflow, /metricool-dispatch-reservation-/)
+  assert.match(connectorWorkflow, /metricool-connector-dispatch-v1/)
+  assert.match(connectorWorkflow, /reserved-awaiting-connector/)
+  assert.match(connectorWorkflow, /Provider call: not performed by GitHub Actions/)
+  assert.doesNotMatch(connectorWorkflow, /METRICOOL_USER_TOKEN/)
+  assert.doesNotMatch(connectorWorkflow, /X-Mc-Auth/)
   assert.match(workflow, /gh pr ready/)
   assert.match(workflow, /Verify transition preserved exact head and current main/)
   assert.match(workflow, /gh pr ready "\$PR_NUMBER" --undo/)
