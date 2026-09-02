@@ -46,13 +46,14 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Live GitHub reconciliation at `b4af01097a41f3da6bfad22b04027bd43ceb9023` on 2026-09-01 shows **0/3 normal implementation workstreams occupied**:
+Live GitHub reconciliation at `e3b19e2015b8efb449e488cd0ec5c60c66507bc7` on 2026-09-01 shows **1/3 normal implementation workstreams occupied**:
 
 | Ticket | Title | Lane | Status |
 |---|---|---|---|
+| #4992 / PR #5016 | Close staged Propionate evidence before MS follow-up | A evidence | Active under governed lease |
 
 - **R — free:** #4732 / PR #4734 merged and closed. Provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
-- **A — free:** #4260 / PR #4999 is merged/closed; the bounded healthy-adult CBD safety meta-analysis source and adverse-effect record are on `main`, and PR #5001 released the verified lease.
+- **A — #4992 active:** governed Propionate closure owns Authority/Content under lease `lease-4992-propionate-closure`; three source identities, four calibrated normalized findings, deterministic rollup, terminal semantic attestations, and no-overclaim regression are the complete scope. #4983 remains dependency-blocked until closure.
 - **D — free:** #4949 and #4951 are closed through merged PR #4952. The comparison discovery, core-hub sitemap/redirect alignment, and historical-audit tombstone repair are on `main`; post-merge release and deploy checks passed.
 
 Research-only enrichment staging remains separate from canonical implementation/promotion WIP. #4731 / PR #4947 and #4949 / #4951 / PR #4952 are merged/closed. No stale SEO item is admitted merely because Discovery/SEO is now free.
