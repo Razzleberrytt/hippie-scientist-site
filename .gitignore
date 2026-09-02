@@ -119,6 +119,14 @@ data-sources/*
 !data-sources/ai-performance/
 data-sources/ai-performance/*
 !data-sources/ai-performance/README.md
+# Generated Bing AI reports/history can contain query-level analytics derived
+# from those private exports. Keep them local too; only explicit aggregate
+# documentation or governed telemetry should be committed.
+ops/reports/ai-query-opportunities.json
+ops/reports/ai-query-opportunities.md
+ops/reports/ai-citations.json
+ops/reports/ai-citations.md
+ops/ai-citations/history/*.json
 data-sources/*.csv
 data-sources/*.json
 
