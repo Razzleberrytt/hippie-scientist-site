@@ -1,0 +1,151 @@
+name: Metricool Connector Receipt
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: 'Metricool Connector Publication workflow run ID that created the reservation/envelope'
+        required: true
+        type: string
+      external_id:
+        description: 'Confirmed Metricool external post ID'
+        required: true
+        type: string
+      request_id:
+        description: 'Optional Metricool request ID'
+        required: false
+        default: ''
+        type: string
+
+concurrency:
+  group: metricool-receipt-${{ inputs.source_run_id }}
+  cancel-in-progress: false
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: production
+    steps:
+      - name: Download exact reserved connector envelope
+        uses: actions/download-artifact@v8
+        with:
+          pattern: metricool-connector-envelope-*
+          path: artifacts/connector-source
+          merge-multiple: true
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.source_run_id }}
+          github-token: ${{ github.token }}
+
+      - name: Read and preserve dispatch identity
+        id: dispatch
+        run: |
+          set -euo pipefail
+          ENVELOPE="$(find artifacts/connector-source -type f -name envelope.json -print -quit)"
+          test -n "$ENVELOPE"
+          test "$(jq -r '.schemaVersion' "$ENVELOPE")" = 'metricool-connector-dispatch-v1'
+          test "$(jq -r '.status' "$ENVELOPE")" = 'reserved-awaiting-connector'
+          test "$(jq -r '.workflowRunId' "$ENVELOPE")" = '${{ inputs.source_run_id }}'
+          PRESERVED="$RUNNER_TEMP/metricool-connector-envelope.json"
+          cp "$ENVELOPE" "$PRESERVED"
+          echo "dispatch_sha=$(jq -r '.dispatchSha' "$PRESERVED")" >> "$GITHUB_OUTPUT"
+          echo "envelope=$PRESERVED" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout exact dispatch SHA
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ steps.dispatch.outputs.dispatch_sha }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --fund=false
+
+      - name: Validate receipt boundary
+        run: npx vitest run scripts/distribution/__tests__/metricool-connector-receipt.test.mjs scripts/distribution/__tests__/metricool-connector-receipt-workflow.test.mjs
+
+      - name: Regenerate exact governed lifecycle
+        run: |
+          node scripts/distribution/build-research-distribution.mjs
+          node scripts/distribution/build-opportunity-selection.mjs
+          node scripts/distribution/build-bounded-pilot.mjs
+
+      - name: Bind provider receipt to reserved lifecycle
+        env:
+          ENVELOPE_PATH: ${{ steps.dispatch.outputs.envelope }}
+          EXTERNAL_ID: ${{ inputs.external_id }}
+          REQUEST_ID: ${{ inputs.request_id }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/distribution/metricool-connector-receipt
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          import path from 'node:path'
+          import { recordMetricoolConnectorScheduledReceipt } from './scripts/distribution/metricool-connector-receipt.mjs'
+
+          const clean = (value) => String(value ?? '').trim()
+          const envelope = JSON.parse(fs.readFileSync(process.env.ENVELOPE_PATH, 'utf8'))
+          const selection = JSON.parse(fs.readFileSync('artifacts/distribution/opportunity-selection.json', 'utf8'))
+          const objectId = clean(selection?.selected?.id)
+          if (!objectId || objectId !== clean(envelope.researchObjectId)) {
+            throw new Error('dispatch selection no longer matches reserved research object')
+          }
+          const pilotPath = path.join('artifacts/distribution/pilots', objectId, 'bounded-pilot.json')
+          const pilot = JSON.parse(fs.readFileSync(pilotPath, 'utf8'))
+          const receipt = {
+            schemaVersion: 'metricool-connector-provider-receipt-v1',
+            provider: 'metricool',
+            status: 'scheduled',
+            externalId: clean(process.env.EXTERNAL_ID),
+            requestId: clean(process.env.REQUEST_ID) || null,
+            identityFingerprint: envelope.identityFingerprint,
+            idempotencyKey: envelope.idempotencyKey,
+            dispatchSha: envelope.dispatchSha,
+            workflowRunId: clean(process.env.SOURCE_RUN_ID),
+          }
+          const lifecycle = recordMetricoolConnectorScheduledReceipt({
+            lifecycle: pilot.lifecycle,
+            currentIdentity: pilot.lifecycle.identity,
+            envelope,
+            receipt,
+          })
+          const evidence = {
+            schemaVersion: 'metricool-connector-ingestion-v1',
+            status: 'accepted',
+            sourceRunId: clean(process.env.SOURCE_RUN_ID),
+            dispatchSha: envelope.dispatchSha,
+            lifecycleId: lifecycle.lifecycleId,
+            identityFingerprint: lifecycle.identity.fingerprint,
+            idempotencyKey: lifecycle.identity.idempotencyKey,
+            provider: 'metricool',
+            externalId: clean(process.env.EXTERNAL_ID),
+            requestId: clean(process.env.REQUEST_ID) || null,
+            lifecycle,
+          }
+          fs.writeFileSync('artifacts/distribution/metricool-connector-receipt/ingestion.json', `${JSON.stringify(evidence, null, 2)}\n`)
+          NODE
+
+      - name: Upload durable ingestion evidence
+        uses: actions/upload-artifact@v7
+        with:
+          name: metricool-connector-ingestion-${{ inputs.source_run_id }}
+          path: artifacts/distribution/metricool-connector-receipt/ingestion.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Summarize
+        run: |
+          echo '## Metricool connector receipt' >> "$GITHUB_STEP_SUMMARY"
+          echo "- Source dispatch run: ${{ inputs.source_run_id }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Dispatch SHA: ${{ steps.dispatch.outputs.dispatch_sha }}" >> "$GITHUB_STEP_SUMMARY"
+          echo '- Result: provider receipt bound to exact governed lifecycle' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Lifecycle evidence: uploaded as durable ingestion artifact' >> "$GITHUB_STEP_SUMMARY"
