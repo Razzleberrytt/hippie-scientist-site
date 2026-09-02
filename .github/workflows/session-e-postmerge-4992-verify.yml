@@ -1,0 +1,59 @@
+name: Session E post-merge 4992 verification
+
+on:
+  push:
+    branches:
+      - verify/session-e-postmerge-4992
+
+permissions:
+  contents: read
+
+jobs:
+  verify-session-e:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact verification branch
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - name: Run Session E bootstrap on merged corpus
+        run: node scripts/enrichment-pipeline/session-bootstrap-cli.mjs E
+      - name: Assert Propionate closure is terminal
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          const path = 'artifacts/enrichment-session-bootstrap-e.json'
+          const report = JSON.parse(fs.readFileSync(path, 'utf8'))
+          const propionate = (report.candidates ?? []).find(item => item.workpackId === 'wp_compound_propionate')
+          if (!propionate) throw new Error('wp_compound_propionate missing from Session E owned inventory')
+          if (propionate.completed !== true) throw new Error(`Propionate not completed: ${JSON.stringify(propionate)}`)
+          if (propionate.pendingFindings !== 0) throw new Error(`Propionate pending findings = ${propionate.pendingFindings}`)
+          if (propionate.promotedFindings !== 4) throw new Error(`Propionate promoted findings = ${propionate.promotedFindings}; expected 4`)
+          if (propionate.closureState !== 'terminal_with_promotion') throw new Error(`Propionate closureState = ${propionate.closureState}`)
+          if ((report.next ?? []).some(item => item.workpackId === 'wp_compound_propionate')) throw new Error('Propionate still appears in remaining/next queue')
+          console.log(JSON.stringify({
+            sessionId: report.sessionId,
+            workerId: report.workerId,
+            shard: report.shard,
+            shardCount: report.shardCount,
+            closureBacklogWorkpacks: report.closureBacklogWorkpacks,
+            remainingWorkpacks: report.remainingWorkpacks,
+            propionate: {
+              workpackId: propionate.workpackId,
+              completed: propionate.completed,
+              closureState: propionate.closureState,
+              findingCount: propionate.findingCount,
+              terminalFindings: propionate.terminalFindings,
+              promotedFindings: propionate.promotedFindings,
+              pendingFindings: propionate.pendingFindings,
+              outcomes: propionate.outcomes,
+            },
+          }, null, 2))
+          NODE
+      - name: Upload Session E bootstrap proof
+        uses: actions/upload-artifact@v4
+        with:
+          name: session-e-postmerge-4992-bootstrap
+          path: artifacts/enrichment-session-bootstrap-e.json
