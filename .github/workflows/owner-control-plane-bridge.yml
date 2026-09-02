@@ -109,14 +109,14 @@ jobs:
           COMMENT_BODY: ${{ github.event.comment.body }}
         run: node scripts/ci/owner-control-plane-bridge.mjs parse-metricool
 
-      - name: Dispatch governed Metricool publication workflow
+      - name: Dispatch governed Metricool connector preparation workflow
         env:
           GH_TOKEN: ${{ github.token }}
           PUBLICATION_AT: ${{ steps.parse.outputs.publication_at }}
           NETWORKS: ${{ steps.parse.outputs.networks }}
         run: |
           set -euo pipefail
-          gh workflow run metricool-publication.yml \
+          gh workflow run metricool-connector-publication.yml \
             --repo "$GITHUB_REPOSITORY" \
             --ref main \
             -f "publication_at=$PUBLICATION_AT" \
