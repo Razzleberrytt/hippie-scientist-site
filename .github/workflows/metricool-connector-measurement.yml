@@ -7,32 +7,8 @@ on:
         description: 'Metricool Connector Publication Proof workflow run ID'
         required: true
         type: string
-      observed_from:
-        description: 'Observation window start, ISO-8601; must be at/after publication'
-        required: true
-        type: string
-      observed_to:
-        description: 'Observation window end, ISO-8601'
-        required: true
-        type: string
-      captured_at:
-        description: 'Metric capture timestamp, ISO-8601'
-        required: true
-        type: string
-      asset_views:
-        description: 'Platform-specific asset views; must be explicit, never inferred as zero'
-        required: true
-        type: string
-      qualified_visits:
-        description: 'Attributed qualified visits for this exact platform/publication'
-        required: true
-        type: string
-      completion_rate:
-        description: 'Completion rate from 0 to 1 for this exact platform/publication'
-        required: true
-        type: string
-      save_rate:
-        description: 'Save rate from 0 to 1 for this exact platform/publication'
+      provider_snapshot_json:
+        description: 'Exact Metricool provider measurement snapshot JSON; missing metrics are rejected, never inferred as zero'
         required: true
         type: string
 
@@ -106,17 +82,11 @@ jobs:
           node scripts/distribution/build-opportunity-selection.mjs
           node scripts/distribution/build-bounded-pilot.mjs
 
-      - name: Bind attributable measurement
+      - name: Bind attributable provider measurement snapshot
         env:
           PUBLICATION_INGESTION_PATH: ${{ steps.published.outputs.ingestion }}
           SOURCE_PUBLICATION_RUN_ID: ${{ inputs.source_publication_run_id }}
-          OBSERVED_FROM: ${{ inputs.observed_from }}
-          OBSERVED_TO: ${{ inputs.observed_to }}
-          CAPTURED_AT: ${{ inputs.captured_at }}
-          ASSET_VIEWS: ${{ inputs.asset_views }}
-          QUALIFIED_VISITS: ${{ inputs.qualified_visits }}
-          COMPLETION_RATE: ${{ inputs.completion_rate }}
-          SAVE_RATE: ${{ inputs.save_rate }}
+          PROVIDER_SNAPSHOT_JSON: ${{ inputs.provider_snapshot_json }}
         run: |
           set -euo pipefail
           mkdir -p artifacts/distribution/metricool-connector-measurement
@@ -124,9 +94,17 @@ jobs:
           import fs from 'node:fs'
           import path from 'node:path'
           import { recordMetricoolConnectorMeasuredObservation } from './tools/scripts/distribution/metricool-connector-measurement.mjs'
+          import { normalizeMetricoolProviderMeasurementSnapshot } from './tools/scripts/distribution/metricool-provider-measurement-snapshot.mjs'
 
           const clean = (value) => String(value ?? '').trim()
           const publicationEvidence = JSON.parse(fs.readFileSync(process.env.PUBLICATION_INGESTION_PATH, 'utf8'))
+          let snapshot
+          try {
+            snapshot = JSON.parse(process.env.PROVIDER_SNAPSHOT_JSON)
+          } catch {
+            throw new Error('Metricool provider snapshot must be valid JSON')
+          }
+          const observation = normalizeMetricoolProviderMeasurementSnapshot({ publicationEvidence, snapshot })
           const selection = JSON.parse(fs.readFileSync('source/artifacts/distribution/opportunity-selection.json', 'utf8'))
           const candidate = selection?.selected
           if (!candidate?.id || !candidate?.platform || !candidate?.angleKey) {
@@ -142,15 +120,7 @@ jobs:
             publicationEvidence,
             currentIdentity: pilot.lifecycle.identity,
             candidate,
-            observation: {
-              observedFrom: process.env.OBSERVED_FROM,
-              observedTo: process.env.OBSERVED_TO,
-              capturedAt: process.env.CAPTURED_AT,
-              assetViews: process.env.ASSET_VIEWS,
-              qualifiedVisits: process.env.QUALIFIED_VISITS,
-              completionRate: process.env.COMPLETION_RATE,
-              saveRate: process.env.SAVE_RATE,
-            },
+            observation,
           })
           const evidence = {
             ...result,
@@ -173,5 +143,5 @@ jobs:
           echo '## Metricool connector measurement' >> "$GITHUB_STEP_SUMMARY"
           echo "- Publication proof run: ${{ inputs.source_publication_run_id }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Dispatch SHA: ${{ steps.published.outputs.dispatch_sha }}" >> "$GITHUB_STEP_SUMMARY"
-          echo '- Result: exact published lifecycle advanced to measured from one explicit platform-specific observation' >> "$GITHUB_STEP_SUMMARY"
-          echo '- Missing metrics are never inferred as zero; cross-platform pooling remains rejected by canonical ingestion' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Result: exact published lifecycle advanced to measured from one identity-bound Metricool provider snapshot' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Missing metrics are never inferred as zero; cross-publication and cross-platform snapshots fail closed' >> "$GITHUB_STEP_SUMMARY"
