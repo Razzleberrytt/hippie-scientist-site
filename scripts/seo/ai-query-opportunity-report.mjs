@@ -13,6 +13,7 @@ const flag = (name, fallback) => {
 const ROOT = process.cwd()
 const INPUT_DIR = path.resolve(ROOT, String(flag('dir', 'data-sources/ai-performance')))
 const OUTPUT_DIR = path.resolve(ROOT, String(flag('out', 'ops/reports')))
+const EXPLICIT_QUERY = flag('query', null)
 const JSON_PATH = path.join(OUTPUT_DIR, 'ai-query-opportunities.json')
 const MD_PATH = path.join(OUTPUT_DIR, 'ai-query-opportunities.md')
 
@@ -85,6 +86,15 @@ function detectCandidate(file) {
   return { file, rows, type, keys: { dateKey, citationsKey, citedPagesKey, queryKey, intentKey, topicKey, shareKey }, mtimeMs: statSync(file).mtimeMs }
 }
 
+function explicitQueryCandidate(dir, value) {
+  if (!value) return null
+  const file = path.isAbsolute(String(value)) ? String(value) : path.resolve(dir, String(value))
+  if (!existsSync(file)) throw new Error(`Explicit Bing AI query export does not exist: ${file}`)
+  const candidate = detectCandidate(file)
+  if (!candidate || candidate.type !== 'query') throw new Error(`Explicit --query file is not a usable Search Query export: ${file}`)
+  return candidate
+}
+
 function selectCandidates(dir) {
   if (!existsSync(dir)) return { overview: null, query: null }
   const candidates = readdirSync(dir)
@@ -103,7 +113,12 @@ function selectCandidates(dir) {
     })
     .sort((a, b) => b.maxDate - a.maxDate || b.mtimeMs - a.mtimeMs)[0] ?? null
 
-  const query = queryCandidates.sort((a, b) => b.mtimeMs - a.mtimeMs)[0] ?? null
+  const explicit = explicitQueryCandidate(dir, EXPLICIT_QUERY)
+  if (!explicit && queryCandidates.length > 1) {
+    const names = queryCandidates.map((candidate) => path.basename(candidate.file)).sort().join(', ')
+    throw new Error(`Multiple usable Bing AI Search Query exports found (${names}). Their schema has no intrinsic export date, so freshness cannot be inferred safely. Re-run with --query=<filename> to select the intended export explicitly.`)
+  }
+  const query = explicit ?? queryCandidates[0] ?? null
   return { overview, query }
 }
 
@@ -271,25 +286,30 @@ function renderMarkdown(report) {
 }
 
 function main() {
-  const { overview, query } = selectCandidates(INPUT_DIR)
-  if (!overview && !query) {
-    console.error(`No usable Bing AI Performance CSVs found in ${INPUT_DIR}`)
+  try {
+    const { overview, query } = selectCandidates(INPUT_DIR)
+    if (!overview && !query) {
+      console.error(`No usable Bing AI Performance CSVs found in ${INPUT_DIR}`)
+      process.exitCode = 1
+      return
+    }
+    const overviewReport = analyzeOverview(overview)
+    const queryReport = analyzeQueries(query, overviewReport?.totalCitations ?? null)
+    const report = {
+      generatedAt: new Date().toISOString(),
+      inputDir: path.relative(ROOT, INPUT_DIR),
+      overview: overviewReport,
+      queries: queryReport,
+    }
+    mkdirSync(OUTPUT_DIR, { recursive: true })
+    writeFileSync(JSON_PATH, `${JSON.stringify(report, null, 2)}\n`)
+    writeFileSync(MD_PATH, renderMarkdown(report))
+    console.log(renderMarkdown(report))
+    console.log(`Wrote ${path.relative(ROOT, JSON_PATH)} and ${path.relative(ROOT, MD_PATH)}`)
+  } catch (error) {
+    console.error(error instanceof Error ? error.message : String(error))
     process.exitCode = 1
-    return
   }
-  const overviewReport = analyzeOverview(overview)
-  const queryReport = analyzeQueries(query, overviewReport?.totalCitations ?? null)
-  const report = {
-    generatedAt: new Date().toISOString(),
-    inputDir: path.relative(ROOT, INPUT_DIR),
-    overview: overviewReport,
-    queries: queryReport,
-  }
-  mkdirSync(OUTPUT_DIR, { recursive: true })
-  writeFileSync(JSON_PATH, `${JSON.stringify(report, null, 2)}\n`)
-  writeFileSync(MD_PATH, renderMarkdown(report))
-  console.log(renderMarkdown(report))
-  console.log(`Wrote ${path.relative(ROOT, JSON_PATH)} and ${path.relative(ROOT, MD_PATH)}`)
 }
 
 main()
