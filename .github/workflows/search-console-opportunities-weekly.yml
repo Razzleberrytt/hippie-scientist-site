@@ -46,6 +46,12 @@ jobs:
       - name: Rank search opportunities
         run: npm run seo:opportunities
 
+      - name: Feed observed search demand into governed distribution ranking
+        run: |
+          node scripts/distribution/build-search-opportunity-signals.mjs
+          node scripts/distribution/build-research-distribution.mjs
+          node scripts/distribution/build-opportunity-selection.mjs
+
       - name: Measure August spam-update cohorts
         run: node scripts/seo/post-spam-cohort-monitor.mjs
 
@@ -68,6 +74,8 @@ jobs:
             ops/reports/ai-citations.md
             data-sources/search-console/fetch-metadata.json
             data-sources/search-console/pages-by-date.csv
+            data/distribution/opportunity-signals.json
+            artifacts/distribution/opportunity-selection.json
           retention-days: 60
           if-no-files-found: ignore
 
@@ -82,6 +90,11 @@ jobs:
             cat ops/reports/search-opportunities.md >> "$GITHUB_STEP_SUMMARY"
           else
             echo "- Search opportunity report was not generated; inspect the failed step above." >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ -f artifacts/distribution/opportunity-selection.json ]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "### Distribution demand binding" >> "$GITHUB_STEP_SUMMARY"
+            jq -r '"- Signal mode: \(.signalEvidence.mode)\n- Observed demand fields: \(.signalEvidence.observedDemandFieldCount)/\(.signalEvidence.expectedDemandFieldCount)\n- Selected: \(.selected.id // "none")"' artifacts/distribution/opportunity-selection.json >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ -f ops/reports/post-spam-cohorts.md ]; then
             echo "" >> "$GITHUB_STEP_SUMMARY"
