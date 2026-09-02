@@ -11,10 +11,21 @@
       ],
       "acquiredAt": "2026-09-02T00:43:33.760Z",
       "expiresAt": "2026-09-02T02:13:33.760Z"
+    },
+    {
+      "id": "lease-5026-methyl-eugenol-closure",
+      "owner": "site-swarm-integration",
+      "purpose": "close staged Methyl Eugenol hazard evidence",
+      "files": [],
+      "entities": [
+        "compound:methyl-eugenol"
+      ],
+      "acquiredAt": "2026-09-02T01:53:05.596Z",
+      "expiresAt": "2026-09-02T03:23:05.596Z"
     }
   ],
   "queued": [],
   "batched": [],
   "blocked": [],
-  "updatedAt": "2026-09-02T00:43:33.760Z"
+  "updatedAt": "2026-09-02T01:53:05.596Z"
 }

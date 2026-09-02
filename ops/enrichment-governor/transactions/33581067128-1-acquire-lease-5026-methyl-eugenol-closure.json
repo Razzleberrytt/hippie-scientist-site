@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "transactionType": "enrichment_governor_lease",
+  "requestedAt": "2026-09-02T01:53:05.602Z",
+  "operation": "acquire",
+  "actor": "github-actions[bot]",
+  "owner": "site-swarm-integration",
+  "leaseId": "lease-5026-methyl-eugenol-closure",
+  "purpose": "close staged Methyl Eugenol hazard evidence",
+  "files": [],
+  "entities": [
+    "compound:methyl-eugenol"
+  ],
+  "disposition": null,
+  "baseSha": "7b3e3f9b0428fbbb0e09517fc5314e6f3cebeee4",
+  "before": {
+    "workQueueSha256": "762b8508c81fc8746b2e21ed5e34b9541e6c44c82307d7c346fb0a2ff8a663f0",
+    "ledgerSha256": "954915af0b42e15b6a8252097b17c275de54291aa8435bb2749a17b3da8a56fa"
+  },
+  "after": {
+    "workQueueSha256": "972c06b2269fa93494f853d09ee4cdecc7f5b0866cf1f9572c808b577fd3c361",
+    "ledgerSha256": "7bdc5f06750960f857faab2fda68f47174cba47733423c5460a6b5262b9bf3c4"
+  },
+  "result": {
+    "acquired": true,
+    "expiresAt": "2026-09-02T03:23:05.596Z"
+  },
+  "transactionCommitSha": null
+}
