@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import fs from 'node:fs'
+import { pathToFileURL } from 'node:url'
 import path from 'node:path'
 import { validateOpportunitySignals } from './opportunity-signal-contract.mjs'
 
@@ -85,4 +86,4 @@ function main() {
   console.log(`[distribution] output: ${path.relative(root, outputPath)}`)
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(new URL(import.meta.url).pathname)) main()
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main()

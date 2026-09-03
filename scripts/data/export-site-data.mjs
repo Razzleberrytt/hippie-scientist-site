@@ -8,6 +8,7 @@
 // so files only change when the data changes.
 
 import path from 'node:path'
+import { pathToFileURL } from 'node:url'
 import { writeJson, ensureDir } from './canonical/jsonl.mjs'
 import { loadDataset } from './canonical/store.mjs'
 import { exportSiteRecords } from './canonical/site-export.mjs'
@@ -45,7 +46,7 @@ export function exportSampleSiteData({ outDir = generatedDir } = {}) {
   return summary
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const summary = exportSampleSiteData()
   console.log('✓ exported canonical site data to data/generated/site/')
   console.log(`  entities=${summary.counts.entities} → site herbs=${summary.counts.site_herbs} compounds=${summary.counts.site_compounds}`)

@@ -7,6 +7,7 @@
 // Usage: node scripts/data/normalize-patch.mjs --file data/patches/inbox/example.md
 
 import fs from 'node:fs'
+import { pathToFileURL } from 'node:url'
 import path from 'node:path'
 import { normalizePatch } from './canonical/patch-normalize.mjs'
 import { normalizedPatchSchema, validateAll } from './canonical/schema.mjs'
@@ -87,4 +88,4 @@ function main() {
   }
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) main()
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main()

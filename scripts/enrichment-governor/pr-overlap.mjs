@@ -1,4 +1,5 @@
 import fs from 'node:fs'
+import { pathToFileURL } from 'node:url'
 import { contract } from './governor.mjs'
 
 const token = process.env.GITHUB_TOKEN
@@ -62,7 +63,7 @@ async function main() {
   return overlapReport(currentFiles, otherPrs)
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   try {
     const result = await main()
     process.stdout.write(`${JSON.stringify(result, null, 2)}\n`)

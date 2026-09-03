@@ -117,7 +117,7 @@ A separate pipeline that orchestrates AI-assisted content enrichment. Agents pro
 **Workflow:**
 1. Run agents: `npm run agent:run --mode=standard --batch=5`
 2. Patches appear in `agent/patches/{date}/*.json`
-3. CI validates patches automatically (`npm run validate:agent-patches`, part of `check:full`)
+3. Validate the patches with `npm run validate:agent-patches` (not part of `check:full` — run it yourself, or see `npm run status:agent-patches` for a queue overview)
 4. Review: `npm run agent:review` → creates `ops/agent-review/approved-patches.{json,csv}`
 5. Manually merge approved data into the workbook
 6. Run `npm run data:build` to regenerate `public/data`

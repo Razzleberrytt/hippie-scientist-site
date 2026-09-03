@@ -59,10 +59,17 @@ for (const file of pageFiles) {
   if (isExemptRoute(file)) continue;
 
   const content = read(file);
+  // Next.js accepts several export forms for page metadata, and the localized
+  // profile routes plus the article aliases use ones a literal substring check
+  // cannot see:
+  //   export const generateMetadata = route.generateMetadata   (assignment)
+  //   export { metadata, default } from '../.../page'          (re-export)
+  // Matching only the three declaration forms reported nine pages that ship
+  // perfectly good metadata as failures.
   const hasMetadata =
-    content.includes('export const metadata') ||
-    content.includes('export async function generateMetadata') ||
-    content.includes('export function generateMetadata') ||
+    /export\s+(?:const|let|var)\s+(?:metadata|generateMetadata)\b/.test(content) ||
+    /export\s+(?:async\s+)?function\s+generateMetadata\b/.test(content) ||
+    /export\s*\{[^}]*\b(?:metadata|generateMetadata)\b[^}]*\}/.test(content) ||
     content.includes('buildPageMetadata(') ||
     content.includes('generateDetailMetadata(');
 
