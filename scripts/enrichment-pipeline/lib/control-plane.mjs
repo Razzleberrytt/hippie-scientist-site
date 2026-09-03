@@ -6,7 +6,10 @@ const NEGATIVE_CLAIMS = new Set(['efficacy_null_or_mixed','evidence_conflict','r
 const HUMAN_EVIDENCE = new Set(['human-clinical','human-observational','regulatory-monograph'])
 const HARD_PROMOTION_BLOCK_REASONS = new Set([
   'submission_inactive','semantic_mismatch','route_source_quarantine','route_no_op',
+  'automated_adjudication_rejected','source_publication_not_current','source_evidence_class_mismatch',
 ])
+const SOURCE_REJECT_STATUSES = new Set(['withdrawn','superseded'])
+const REJECTED_REVIEW_STATUSES = new Set(['rejected','deprecated_submission'])
 
 export const ROUTES = Object.freeze([
   'profile_enrichment','safety_correction','source_quarantine','evidence_grade_change',
@@ -22,11 +25,51 @@ export function semanticAttestationStatus(attestation) {
   return 'incomplete'
 }
 
+export function automatedAdjudicationDecision(submission = {}, source = null) {
+  const reasons = []
+  const semantic = semanticAttestationStatus(submission.semanticAttestation)
+
+  if (submission.active !== true || REJECTED_REVIEW_STATUSES.has(submission.reviewStatus)) {
+    reasons.push('submission_not_active_for_adjudication')
+    return { status: 'auto_rejected', reviewer: 'enrichment-adjudicator', semantic, reasons }
+  }
+
+  if (!source) {
+    reasons.push('source_missing_from_registry')
+    return { status: 'quarantined_unresolved', reviewer: 'enrichment-adjudicator', semantic, reasons }
+  }
+  if (source.active !== true) {
+    reasons.push('source_inactive')
+    return { status: 'quarantined_unresolved', reviewer: 'enrichment-adjudicator', semantic, reasons }
+  }
+  if (SOURCE_REJECT_STATUSES.has(source.publicationStatus)) {
+    reasons.push(`source_publication_${source.publicationStatus}`)
+    return { status: 'auto_rejected', reviewer: 'enrichment-adjudicator', semantic, reasons }
+  }
+  if (source.evidenceClass && submission.evidenceClass && source.evidenceClass !== submission.evidenceClass) {
+    reasons.push(`source_evidence_class_${source.evidenceClass}_submission_${submission.evidenceClass}`)
+    return { status: 'auto_rejected', reviewer: 'enrichment-adjudicator', semantic, reasons }
+  }
+  if (semantic === 'mismatch') {
+    reasons.push('semantic_mismatch')
+    return { status: 'auto_rejected', reviewer: 'enrichment-adjudicator', semantic, reasons }
+  }
+  if (semantic !== 'verified') {
+    reasons.push(`semantic_${semantic}`)
+    return { status: 'quarantined_unresolved', reviewer: 'enrichment-adjudicator', semantic, reasons }
+  }
+
+  reasons.push('active_current_source')
+  reasons.push('source_evidence_class_compatible')
+  reasons.push('all_semantic_axes_verified')
+  return { status: 'auto_approved', reviewer: 'enrichment-adjudicator', semantic, reasons }
+}
+
 export function routeSubmission(submission, { sourceIdentityStatus = 'verified' } = {}) {
   if (sourceIdentityStatus === 'mismatch' || semanticAttestationStatus(submission.semanticAttestation) === 'mismatch') {
     return 'source_quarantine'
   }
-  if (submission.active === false || submission.reviewStatus === 'rejected' || submission.reviewStatus === 'deprecated_submission') {
+  if (submission.active === false || REJECTED_REVIEW_STATUSES.has(submission.reviewStatus)) {
     return 'no_op'
   }
   if (submission.claimType === 'research_gap' || submission.topicType === 'research_gap') return 'research_gap'
@@ -40,19 +83,27 @@ export function routeSubmission(submission, { sourceIdentityStatus = 'verified' 
 
 export function promotionDecision(submission, source, { requireSemanticAttestation = true } = {}) {
   const reasons = []
+  const adjudication = automatedAdjudicationDecision(submission, source)
+  const autoApproved = adjudication.status === 'auto_approved'
+
   if (!source) reasons.push('source_missing_from_registry')
   else if (source.active !== true) reasons.push('source_inactive')
-  if (submission.reviewStatus !== 'approved_for_rollup') reasons.push('not_approved_for_rollup')
+  if (source && SOURCE_REJECT_STATUSES.has(source.publicationStatus)) reasons.push('source_publication_not_current')
+  if (source?.evidenceClass && submission.evidenceClass && source.evidenceClass !== submission.evidenceClass) {
+    reasons.push('source_evidence_class_mismatch')
+  }
+  if (submission.reviewStatus !== 'approved_for_rollup' && !autoApproved) reasons.push('automated_adjudication_unresolved')
   if (submission.active !== true) reasons.push('submission_inactive')
 
   const semantic = semanticAttestationStatus(submission.semanticAttestation)
   if (semantic === 'mismatch') reasons.push('semantic_mismatch')
   if (requireSemanticAttestation && semantic !== 'verified') reasons.push(`semantic_${semantic}`)
+  if (adjudication.status === 'auto_rejected') reasons.push('automated_adjudication_rejected')
 
   const route = routeSubmission(submission, { sourceIdentityStatus: source?.identityAttestation?.status ?? 'verified' })
   if (route === 'source_quarantine' || route === 'no_op') reasons.push(`route_${route}`)
 
-  return { eligible: reasons.length === 0, route, semantic, reasons }
+  return { eligible: reasons.length === 0, route, semantic, adjudication, reasons: [...new Set(reasons)] }
 }
 
 export function promotionBlockerDisposition(decision = {}) {
