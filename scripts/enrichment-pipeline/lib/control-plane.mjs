@@ -4,6 +4,7 @@ const SAFETY_TOPICS = new Set([
 ])
 const NEGATIVE_CLAIMS = new Set(['efficacy_null_or_mixed','evidence_conflict','research_gap'])
 const HUMAN_EVIDENCE = new Set(['human-clinical','human-observational','regulatory-monograph'])
+const SEMANTIC_AXES = ['entity','preparation','population','endpoint','conclusion']
 const HARD_PROMOTION_BLOCK_REASONS = new Set([
   'submission_inactive','semantic_mismatch','route_source_quarantine','route_no_op',
   'automated_adjudication_rejected','source_publication_not_current','source_evidence_class_mismatch',
@@ -18,11 +19,36 @@ export const ROUTES = Object.freeze([
 
 export function semanticAttestationStatus(attestation) {
   if (!attestation) return 'missing'
-  const axes = ['entity','preparation','population','endpoint','conclusion']
-  const values = axes.map(axis => attestation?.[axis]?.status ?? attestation?.[axis])
+  const values = SEMANTIC_AXES.map(axis => attestation?.[axis]?.status ?? attestation?.[axis])
   if (values.some(value => value === 'mismatch')) return 'mismatch'
   if (values.every(value => value === 'matched' || value === 'not_applicable')) return 'verified'
   return 'incomplete'
+}
+
+export function semanticAttestationEvidenceReceipt(attestation) {
+  const semantic = semanticAttestationStatus(attestation)
+  const reasons = []
+  if (semantic !== 'verified') reasons.push(`semantic_${semantic}`)
+  if (attestation?.reviewer !== 'enrichment-adjudicator') reasons.push('reviewer_not_enrichment_adjudicator')
+  if (!Number.isFinite(Date.parse(attestation?.reviewedAt ?? ''))) reasons.push('reviewed_at_missing_or_invalid')
+  const confidence = attestation?.confidence
+  const highConfidence = confidence === 'high' || (Number.isFinite(Number(confidence)) && Number(confidence) >= 0.85)
+  if (!highConfidence) reasons.push('confidence_below_auto_approval_threshold')
+
+  for (const axis of SEMANTIC_AXES) {
+    const row = attestation?.[axis]
+    if (!row || typeof row !== 'object') {
+      reasons.push(`${axis}_receipt_missing`)
+      continue
+    }
+    if (typeof row.reason !== 'string' || row.reason.trim().length < 12) reasons.push(`${axis}_reason_missing`)
+    if (row.status === 'matched') {
+      const refs = Array.isArray(row.evidenceRefs) ? row.evidenceRefs.filter(Boolean) : []
+      if (!refs.length) reasons.push(`${axis}_evidence_refs_missing`)
+    }
+  }
+
+  return { complete: reasons.length === 0, semantic, reasons }
 }
 
 export function automatedAdjudicationDecision(submission = {}, source = null) {
@@ -36,11 +62,11 @@ export function automatedAdjudicationDecision(submission = {}, source = null) {
 
   if (!source) {
     reasons.push('source_missing_from_registry')
-    return { status: 'quarantined_unresolved', reviewer: 'enrichment-adjudicator', semantic, reasons }
+    return { status: 'pending_source_admission', reviewer: 'enrichment-adjudicator', semantic, reasons }
   }
   if (source.active !== true) {
     reasons.push('source_inactive')
-    return { status: 'quarantined_unresolved', reviewer: 'enrichment-adjudicator', semantic, reasons }
+    return { status: 'pending_source_admission', reviewer: 'enrichment-adjudicator', semantic, reasons }
   }
   if (SOURCE_REJECT_STATUSES.has(source.publicationStatus)) {
     reasons.push(`source_publication_${source.publicationStatus}`)
@@ -56,12 +82,23 @@ export function automatedAdjudicationDecision(submission = {}, source = null) {
   }
   if (semantic !== 'verified') {
     reasons.push(`semantic_${semantic}`)
-    return { status: 'quarantined_unresolved', reviewer: 'enrichment-adjudicator', semantic, reasons }
+    return { status: 'pending_semantic_adjudication', reviewer: 'enrichment-adjudicator', semantic, reasons }
+  }
+
+  if (submission.reviewStatus === 'approved_for_rollup') {
+    reasons.push('existing_governed_rollup_approval')
+    return { status: 'existing_approved', reviewer: submission.reviewer ?? 'existing-governed-review', semantic, reasons }
+  }
+
+  const receipt = semanticAttestationEvidenceReceipt(submission.semanticAttestation)
+  if (!receipt.complete) {
+    reasons.push(...receipt.reasons)
+    return { status: 'pending_evidence_receipt', reviewer: 'enrichment-adjudicator', semantic, reasons }
   }
 
   reasons.push('active_current_source')
   reasons.push('source_evidence_class_compatible')
-  reasons.push('all_semantic_axes_verified')
+  reasons.push('all_semantic_axes_verified_with_evidence_receipt')
   return { status: 'auto_approved', reviewer: 'enrichment-adjudicator', semantic, reasons }
 }
 
