@@ -4,6 +4,9 @@ const SAFETY_TOPICS = new Set([
 ])
 const NEGATIVE_CLAIMS = new Set(['efficacy_null_or_mixed','evidence_conflict','research_gap'])
 const HUMAN_EVIDENCE = new Set(['human-clinical','human-observational','regulatory-monograph'])
+const HARD_PROMOTION_BLOCK_REASONS = new Set([
+  'submission_inactive','semantic_mismatch','route_source_quarantine','route_no_op',
+])
 
 export const ROUTES = Object.freeze([
   'profile_enrichment','safety_correction','source_quarantine','evidence_grade_change',
@@ -52,6 +55,20 @@ export function promotionDecision(submission, source, { requireSemanticAttestati
   return { eligible: reasons.length === 0, route, semantic, reasons }
 }
 
+export function promotionBlockerDisposition(decision = {}) {
+  const reasons = [...new Set(decision.reasons ?? [])]
+  const hardReasons = reasons.filter(reason => HARD_PROMOTION_BLOCK_REASONS.has(reason))
+  const reviewReasons = reasons.filter(reason => !HARD_PROMOTION_BLOCK_REASONS.has(reason))
+  const hardBlocked = hardReasons.length > 0
+  return {
+    hardBlocked,
+    manualReviewPending: !hardBlocked && reviewReasons.length > 0,
+    canContinueResearch: !hardBlocked,
+    reviewReasons,
+    hardReasons,
+  }
+}
+
 export function scoreOrphan(item = {}) {
   const components = {
     published: item.published === true ? 30 : 0,
@@ -72,7 +89,8 @@ export function scoreWorkpack(workpack = {}) {
     sourceAvailability: clamp(workpack.sourceAvailability ?? 0, 0, 5) * 3,
     expectedYield: clamp(workpack.expectedYield ?? 0, 0, 5) * 5,
     contradictionOpportunity: workpack.seekContradictions === true ? 8 : 0,
-    stalePenalty: workpack.blocked === true ? -100 : 0,
+    manualReviewPenalty: workpack.manualReviewPending === true ? -4 : 0,
+    stalePenalty: workpack.blocked === true || workpack.hardBlocked === true ? -100 : 0,
   }
   return { score: Object.values(components).reduce((a,b) => a + b, 0), components }
 }
