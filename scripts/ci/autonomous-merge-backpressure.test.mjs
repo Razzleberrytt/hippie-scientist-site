@@ -5,12 +5,10 @@ import { describe, expect, it } from 'vitest'
 const root = process.cwd()
 const monitorPath = path.join(root, 'scripts/ci/autonomous-merge-monitor.mjs')
 const controllerPath = path.join(root, 'scripts/ci/autonomous-merge-controller.mjs')
-const safeEntryPath = path.join(root, 'scripts/ci/autonomous-merge-safe-entry.mjs')
 const workflowPath = path.join(root, '.github/workflows/autonomous-merge-controller.yml')
 
 const monitor = fs.readFileSync(monitorPath, 'utf8')
 const controller = fs.readFileSync(controllerPath, 'utf8')
-const safeEntry = fs.readFileSync(safeEntryPath, 'utf8')
 const workflow = fs.readFileSync(workflowPath, 'utf8')
 const monitorJob = workflow.match(/ {2}merge-controller:\n([\s\S]*?)\n {2}merge-commit:/u)?.[1] || ''
 const fallbackJob = workflow.match(/ {2}fallback-sweep:\n([\s\S]*)$/u)?.[1] || ''
@@ -42,13 +40,10 @@ describe('autonomous merge backpressure contract', () => {
     expect(monitorJob).not.toContain('pull-requests: write')
   })
 
-  it('retains serialized write-capable fallback and merge-time base revalidation behind refresh safety', () => {
+  it('retains serialized write-capable fallback and merge-time base revalidation', () => {
     expect(fallbackJob).toContain("SWEEP_OPEN_PRS: 'true'")
-    expect(fallbackJob).toContain('node scripts/ci/autonomous-merge-safe-entry.mjs')
+    expect(fallbackJob).toContain('node scripts/ci/autonomous-merge-controller.mjs')
     expect(workflow).toContain('group: autonomous-merge-commit')
-    expect(workflow).toContain('node scripts/ci/autonomous-merge-safe-entry.mjs')
-    expect(safeEntry).toContain("['scripts/ci/autonomous-merge-controller.mjs']")
-    expect(safeEntry).toContain('refusing bot-authored update-branch')
     expect(controller).toMatch(/async function mergeIfStillCurrent[\s\S]*refreshPrAndDispatch/u)
     expect(controller).toMatch(/async function fallbackSweep[\s\S]*evaluateOnce/u)
   })

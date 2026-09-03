@@ -6,6 +6,7 @@ const GOOD_CONCLUSIONS = new Set(['success', 'neutral', 'skipped'])
 const TRANSIENT_CONCLUSIONS = new Set(['cancelled', 'timed_out', 'stale', 'startup_failure'])
 const HOLD_LABELS = new Set(['hold-merge', 'do-not-merge', 'manual-merge'])
 const DISPATCH_EVENTS = new Set(['pull_request', 'workflow_dispatch'])
+const WORKFLOW_CONTROL_PATH = /^\.github\/workflows\//u
 
 const FAST_REQUIRED_WORKFLOWS = []
 const MEDIUM_CORE_REQUIRED_WORKFLOWS = [
@@ -172,6 +173,10 @@ export function requiredChecksFor(riskTier) {
   return riskTier === 'high' ? [] : [...CORE_REQUIRED_CHECKS]
 }
 
+export function canAutoRefreshPr(changedFiles = []) {
+  return !changedFiles.some((path) => WORKFLOW_CONTROL_PATH.test(path))
+}
+
 async function github(path, { method = 'GET', body } = {}) {
   const token = requiredEnv('GITHUB_TOKEN')
   const response = await fetch(`${API_ROOT}${path}`, {
@@ -300,6 +305,11 @@ async function headContainsBase(repo, baseSha, headSha) {
 }
 
 async function refreshPrAndDispatch({ repo, pr, workflowRuns, currentBaseSha }) {
+  const changedFiles = await getPrFiles(repo, pr.number)
+  if (!canAutoRefreshPr(changedFiles)) {
+    throw new Error(`[PR #${pr.number}] NEEDS_CLEAN_RESTAGE: workflow-changing PRs may not use bot-authored update-branch`)
+  }
+
   let workingPr = pr
   let expectedBaseSha = currentBaseSha
   for (let attempt = 1; attempt <= 3; attempt += 1) {
