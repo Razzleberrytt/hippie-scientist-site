@@ -150,6 +150,11 @@ validation-report.md
 *_audit*.json
 *_audit*.md
 
+# SEO triage/report output. Regenerated on demand from a Search Console export or
+# a build (`seo:triage-404`, `report:grounding-queue`); the durable artifacts are
+# the curated rules that get promoted into public/redirect-overrides/.
+ops/seo/
+
 # Local Claude environment and database state
 .claude/
 ops/state.db
