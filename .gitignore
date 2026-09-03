@@ -17,6 +17,7 @@ hippie-scientist-site-main_consolidated.zip
 scripts/audit_missing_key_fields.csv
 scripts/out/
 public/og/
+public/media/social/articles/
 public/stats.json
 
 # Local/archive artifacts that should not ship
@@ -164,8 +165,7 @@ agent/cache/
 ops/enrichment/*
 !ops/enrichment/README.md
 # Batch workers and their research records are hand-authored inputs, not
-# generated state — `scan` cannot reproduce them. They are the only place a
-# no-op's reason is written down, which is what stops a later pass re-covering
-# ground that was already researched and found empty.
+# generated state — `scan` cannot reproduce them. The durable artifacts are
+# the contract and the research records below.
 !ops/enrichment/*-work.mjs
 !ops/enrichment/*-research.json
