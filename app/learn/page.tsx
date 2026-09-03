@@ -235,6 +235,7 @@ const variabilityAndContext = [
   { title: 'Why Sleep Changes Emotional Regulation', href: '/learn/why-sleep-changes-emotional-regulation/' },
   { title: 'Neuroscience Glossary', href: '/learn/neuroscience-glossary/' },
   { title: 'Inflammation and the Brain', href: '/learn/inflammation/' },
+  { title: 'Supplement Product Quality Guide', href: '/learn/product-quality/' },
 ]
 
 function CompactSection({
