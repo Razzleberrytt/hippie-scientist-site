@@ -39,6 +39,7 @@
     "seo:indexnow": "node scripts/seo/indexnow-submit.mjs",
     "seo:opportunities": "node scripts/seo/search-opportunity-engine.mjs",
     "seo:triage-404": "node scripts/seo/triage-404-export.mjs",
+    "report:grounding-queue": "node scripts/report-grounding-readiness.mjs --all --data-dir=out/data --limit=40 --json=ops/seo/grounding-readiness.json",
     "seo:fetch-search-console": "node scripts/seo/fetch-search-console.mjs",
     "dev": "npm run -s check:deps && next dev --turbo",
     "dev:watch": "nodemon --watch . --exec \"npm run dev\"",

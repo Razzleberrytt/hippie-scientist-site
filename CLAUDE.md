@@ -302,6 +302,27 @@ Writes confident rules to `ops/seo/404-triage-redirects.txt`, a review queue to
 `ops/seo/404-triage-report.json`. `--apply` copies the confident rules into
 `public/redirect-overrides/`; nothing ever writes `public/_redirects` directly.
 
+### What actually gates the indexed corpus
+
+The site authors 856 profiles and publishes ~318. `npm run report:grounding-queue`
+(after a build) ranks every held profile by what it would take to publish it:
+
+```
+538 held → 359 pass content completeness → 72 also cite a study
+                                        → 287 cite nothing at all
+```
+
+**Do not read a content score as permission to publish.** `scoreIndexability`
+measures structure — identity, mechanism text, effects, summary shape — and never
+looks at evidence. 287 held profiles score a perfect 100 while citing nothing,
+which is precisely what `noindex-decision:hidden_until_grounded` exists to
+withhold. Only 11% of already-published profiles cite nothing, versus 77% of the
+held ones: the hold is doing real work, and lifting it in bulk would mass-publish
+unsourced health pages.
+
+The promotable set is the 72 that are both content-complete and grounded.
+Everything else needs research, not a governance decision.
+
 **URLs with no live equivalent are deliberately left as 404.** Bulk-redirecting
 unrelated dead URLs to a hub page is read by Google as a soft 404 — it burns the
 same crawl budget, dilutes the hub's relevance, and can suppress the hub itself. A
