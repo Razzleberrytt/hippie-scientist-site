@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "entityType": "compound",
+      "entitySlug": "vitamin-b6",
+      "sourceIds": [
+        "src_pubmed-10334745",
+        "src_pubmed-38684926",
+        "src_pubmed-31928364",
+        "src_pubmed-35851507",
+        "src_pubmed-37447150"
+      ],
+      "summary": "Vitamin B6 has limited, context-specific human evidence for PMS symptoms and a short high-dose anxiety signal, with important trial-quality and comparator limitations. Excess supplemental exposure can cause peripheral neuropathy; dose and duration matter.",
+      "description": "Vitamin B6 evidence is mixed and context-specific rather than high-confidence: PMS signals coexist with substantial risk-of-bias and comparator limitations, while high supplemental exposure carries a source-backed peripheral-neuropathy risk.",
+      "safetyNotes": "Avoid high or prolonged supplemental exposure without appropriate clinical context; peripheral neuropathy is the key dose- and duration-related safety limiter.",
+      "evidenceLevel": "Limited Human Evidence",
+      "evidenceGrade": "c",
+      "reviewStatus": "sourced_pending_review",
+      "medicalRisk": "moderate",
+      "governanceReason": "mixed_limited_evidence_and_neuropathy_risk",
+      "indexabilityStatus": "NOINDEX",
+      "robots": "noindex,follow",
+      "sitemapIncluded": false,
+      "recommendationAllowed": false,
+      "monetizationAllowed": false,
+      "indexingAllowed": false,
+      "requiresHumanReview": true,
+      "dosage": "",
+      "typicalDosage": ""
+    }
+  ]
+}

@@ -842,6 +842,247 @@
     }
   },
   {
+    "entityType": "compound",
+    "entitySlug": "vitamin-b6",
+    "researchEnrichment": {
+      "evidenceSummary": "5 approved normalized findings across 4 topic types.",
+      "evidenceTier": "tier-1-strong",
+      "evidenceClassesPresent": [
+        "human-clinical"
+      ],
+      "supportedUses": [
+        {
+          "claim": "A systematic review of nine randomized placebo-controlled vitamin-B6 trials representing 940 patients with premenstrual syndrome reported pooled symptom-improvement signals, but the authors explicitly limited their conclusion because most included trials were low quality; this supports a possible PMS signal rather than unconditional high-confidence efficacy.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-10334745"
+          ],
+          "uncertaintyNote": "Historical efficacy-era doses must not be copied into modern consumer guidance, and low trial quality remains part of the proposition.",
+          "strengthNote": "limited"
+        },
+        {
+          "claim": "In an exploratory double-blind placebo-controlled study recruiting mainly young adults/students, vitamin B6 at 100 mg/day as pyridoxine hydrochloride for roughly 30-35 days reduced self-reported anxiety and increased visual surround suppression, while several other outcomes were not reliably changed.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-35851507"
+          ],
+          "uncertaintyNote": "This short high-exposure signal is hypothesis-generating, is not evidence for routine anxiety-disorder treatment, and must remain bounded by dose- and duration-related neuropathy risk.",
+          "strengthNote": "limited"
+        }
+      ],
+      "unsupportedOrUnclearUses": [
+        {
+          "claim": "A double-blind randomized treatment-controlled pilot allocated 78 participants (72 completed) to vitamin B6 at 80 mg/day or a broad-spectrum micronutrient intervention for three menstrual cycles; both groups improved on PMS measures, but without a placebo arm the changes cannot be attributed specifically to B6 beyond expectation, time, or nonspecific treatment effects.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-31928364"
+          ],
+          "uncertaintyNote": "No placebo arm; preserve this as comparator/mixed evidence and do not turn the studied exposure into consumer dosing guidance.",
+          "strengthNote": "limited"
+        }
+      ],
+      "mechanisms": [],
+      "constituents": [],
+      "interactions": [],
+      "contraindications": [],
+      "adverseEffects": [
+        {
+          "claim": "A 2023 systematic review found that higher vitamin-B6 levels, usually following nutritional supplementation, may lead to predominantly sensory axonal peripheral neuropathy; the review also found no firm evidence that low B6 directly causes peripheral neuropathy and concluded that the therapeutic role of B6 supplementation for neuropathy cannot be confirmed.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-37447150"
+          ],
+          "targetType": "population",
+          "targetName": "people with high supplemental vitamin-B6 exposure",
+          "uncertaintyNote": "Do not collapse the evidence into one universal safe/unsafe cutoff, and do not present B6 as a neuropathy treatment.",
+          "strengthNote": "moderate"
+        }
+      ],
+      "dosageContextNotes": [],
+      "populationSpecificNotes": [],
+      "conflictNotes": [
+        {
+          "claim": "A systematic review covering 31 randomized trials and 3254 participants across nutritional interventions for psychological PMS symptoms reported consistently positive vitamin-B6 signals, while only one included study overall was judged low risk of bias and the authors called for more rigorous research before conclusive nutritional recommendations.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-38684926"
+          ],
+          "uncertaintyNote": "The review does not justify a page-level Grade-A or high-confidence treatment claim.",
+          "conflictNote": "Positive consistency coexists with broad trial-quality limitations.",
+          "strengthNote": "limited"
+        }
+      ],
+      "researchGaps": [],
+      "safetyProfile": {
+        "safetyEntries": [
+          {
+            "safetyEntryId": "senr_vitamin-b6-neuropathy-safety-systematic-review",
+            "sourceId": "src_pubmed-37447150",
+            "safetyTopicType": "adverse_effect",
+            "targetType": "population",
+            "targetName": "people with high supplemental vitamin-B6 exposure",
+            "severityLabel": "high",
+            "urgencyLabel": "caution",
+            "evidenceClass": "human-clinical",
+            "findingTextShort": "High supplemental B6 exposure is linked to predominantly sensory axonal peripheral neuropathy.",
+            "findingTextNormalized": "A 2023 systematic review found that higher vitamin-B6 levels, usually following nutritional supplementation, may lead to predominantly sensory axonal peripheral neuropathy; the review also found no firm evidence that low B6 directly causes peripheral neuropathy and concluded that the therapeutic role of B6 supplementation for neuropathy cannot be confirmed.",
+            "mechanismKnown": false,
+            "uncertaintyNote": "Do not collapse the evidence into one universal safe/unsafe cutoff, and do not present B6 as a neuropathy treatment.",
+            "reviewer": "site-swarm-integration",
+            "reviewedAt": "2026-09-02T01:40:00.000Z",
+            "editorialStatus": "approved",
+            "active": true
+          }
+        ],
+        "summary": {
+          "total": 1,
+          "byTopicType": {
+            "adverse_effect": 1
+          },
+          "bySeverity": {
+            "high": 1
+          }
+        }
+      },
+      "topicEvidenceJudgments": {
+        "adverse_effect": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 15
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "conflict_note": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 15
+          },
+          "conflictNotes": [
+            "Source-backed conflict notes are present for this topic."
+          ],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "supported_use": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 2,
+            "sourceReliabilityTier": "tier-b",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 15
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "unsupported_or_unclear_use": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-b",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 14
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        }
+      },
+      "pageEvidenceJudgment": {
+        "evidenceLabel": "conflicting_evidence",
+        "grading": {
+          "evidenceClass": [
+            "human-clinical"
+          ],
+          "studyDesignWeight": 5,
+          "humanRelevance": "direct-human",
+          "directnessToClaim": "direct",
+          "replicationDepth": 5,
+          "sourceReliabilityTier": "tier-a",
+          "recencyWeight": 2,
+          "editorialConfidence": "medium",
+          "conflictState": "conflicting_evidence",
+          "confidenceIndex": 15
+        },
+        "conflictNotes": [
+          "Human evidence includes both efficacy-supporting and null/mixed findings.",
+          "Source-backed conflict notes are present for this topic."
+        ],
+        "uncertaintyNotes": [
+          "One or more findings carry explicit uncertainty notes from editorial review."
+        ],
+        "toneGuidance": "Lead with disagreement across sources and avoid directional conclusions."
+      },
+      "editorialReadiness": {
+        "publishable": true,
+        "hasConflictOrWeakEvidence": true,
+        "conflictLabelingPresent": true,
+        "weakEvidenceClaimsLabeled": true
+      },
+      "sourceRegistryIds": [
+        "src_pubmed-10334745",
+        "src_pubmed-31928364",
+        "src_pubmed-35851507",
+        "src_pubmed-37447150",
+        "src_pubmed-38684926"
+      ],
+      "lastReviewedAt": "2026-09-02T01:40:00.000Z",
+      "reviewedBy": "normalized-enrichment-pipeline",
+      "editorialStatus": "approved"
+    }
+  },
+  {
     "entityType": "herb",
     "entitySlug": "ashwagandha",
     "researchEnrichment": {
