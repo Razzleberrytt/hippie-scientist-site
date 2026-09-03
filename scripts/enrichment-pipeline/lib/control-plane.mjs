@@ -68,6 +68,10 @@ export function automatedAdjudicationDecision(submission = {}, source = null) {
     reasons.push('source_inactive')
     return { status: 'pending_source_admission', reviewer: 'enrichment-adjudicator', semantic, reasons }
   }
+  if (source?.identityAttestation?.status === 'mismatch') {
+    reasons.push('source_identity_mismatch')
+    return { status: 'auto_rejected', reviewer: 'enrichment-adjudicator', semantic, reasons }
+  }
   if (SOURCE_REJECT_STATUSES.has(source.publicationStatus)) {
     reasons.push(`source_publication_${source.publicationStatus}`)
     return { status: 'auto_rejected', reviewer: 'enrichment-adjudicator', semantic, reasons }
