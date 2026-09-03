@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { spawnSync } from 'node:child_process'
-import test from 'node:test'
+import { test } from 'vitest'
 
 const policy = JSON.parse(readFileSync('config/ai-citation-protection-policy.json', 'utf8'))
 const ledger = JSON.parse(readFileSync('config/ai-citation-protected-assets.json', 'utf8'))
