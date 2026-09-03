@@ -6,7 +6,7 @@ import { createCanonicalOwnerResolver } from './lib/canonical-owner.mjs'
 import { evaluateRuntimeSourceRegistryReferences } from '../lib/runtime-source-registry-audit.mjs'
 import {
   admissionDecision, computeSessionYield, fanoutCandidates, prioritizeSubmissions,
-  promotionDecision, scheduleShard, scoreOrphan,
+  promotionBlockerDisposition, promotionDecision, scheduleShard, scoreOrphan,
 } from './lib/control-plane.mjs'
 
 const ROOT = process.cwd()
@@ -17,6 +17,7 @@ const ATTESTATIONS = path.join(ROOT, 'ops', 'enrichment-semantic-attestations.js
 const IDENTITY_QUARANTINE = path.join(ROOT, 'ops', 'source-identity-quarantine.json')
 const OUTPUT = path.join(ROOT, 'artifacts', 'enrichment-control-plane.json')
 const PROMOTION_QUEUE = path.join(ROOT, 'artifacts', 'enrichment-promotion-queue.json')
+const ADJUDICATION_QUEUE = path.join(ROOT, 'artifacts', 'enrichment-automated-adjudication-queue.json')
 const ORPHAN_QUEUE = path.join(ROOT, 'artifacts', 'enrichment-orphan-repair-queue.json')
 
 function readJson(file, fallback) {
@@ -77,6 +78,7 @@ const command = process.argv[2] ?? 'report'
 const submissions = loadSubmissions()
 const sources = readJson(SOURCE_REGISTRY, [])
 const sourceById = new Map(sources.map(source => [source.sourceId, source]))
+const submissionById = new Map(submissions.map(submission => [submission.submissionId, submission]))
 const manifest = readJson(MANIFEST, { shardCount: 8, sessions: [] })
 
 function promotionDecisions() {
@@ -85,8 +87,56 @@ function promotionDecisions() {
     const effectiveSource = source && submission.sourceIdentityStatus === 'mismatch'
       ? { ...source, identityAttestation: { status: 'mismatch' } }
       : source
-    return { submissionId: submission.submissionId, ...promotionDecision(submission, effectiveSource) }
+    const decision = promotionDecision(submission, effectiveSource)
+    return { submissionId: submission.submissionId, ...decision, ...promotionBlockerDisposition(decision) }
   })
+}
+
+function adjudicationKinds(reasons = []) {
+  const kinds = []
+  if (reasons.some(reason => reason === 'source_missing_from_registry' || reason === 'source_inactive')) kinds.push('source_admission')
+  if (reasons.some(reason => reason === 'semantic_missing' || reason === 'semantic_incomplete')) kinds.push('semantic_attestation')
+  if (reasons.includes('not_approved_for_rollup')) kinds.push('scientific_editorial_adjudication')
+  return kinds
+}
+
+function buildAutomatedAdjudicationQueue(decisions = promotionDecisions()) {
+  return decisions
+    .filter(decision => decision.automatedAdjudicationPending)
+    .map(decision => {
+      const submission = submissionById.get(decision.submissionId) ?? {}
+      return {
+        submissionId: decision.submissionId,
+        sessionId: submission.sessionId ?? null,
+        shard: submission.shard ?? null,
+        workpackId: submission.workpackId ?? null,
+        sourceId: submission.sourceId ?? null,
+        entityType: submission.entityType ?? null,
+        entitySlug: submission.entitySlug ?? null,
+        surfaceId: submission.surfaceId ?? null,
+        topicType: submission.topicType ?? null,
+        claimType: submission.claimType ?? null,
+        evidenceClass: submission.evidenceClass ?? null,
+        route: decision.route,
+        semantic: decision.semantic,
+        adjudicationKinds: adjudicationKinds(decision.adjudicationReasons),
+        reasons: decision.adjudicationReasons,
+        canContinueResearch: decision.canContinueResearch,
+        requiredChecks: [
+          'bibliographic_identity',
+          'entity_intervention_identity',
+          'preparation_formulation_species_route',
+          'population',
+          'endpoint',
+          'conclusion_direction_including_null_mixed',
+          'study_design_source_class_reliability',
+          'publication_integrity',
+          'claim_boundary_overclaim_risk',
+        ],
+        unresolvedPolicy: 'second_pass_then_quarantine_never_ask_owner_to_judge_science',
+      }
+    })
+    .sort((a,b) => String(a.workpackId ?? '').localeCompare(String(b.workpackId ?? '')) || a.submissionId.localeCompare(b.submissionId))
 }
 
 function buildOrphanQueue() {
@@ -112,14 +162,23 @@ function buildOrphanQueue() {
 
 if (command === 'report' || command === 'validate') {
   const promotion = promotionDecisions()
+  const adjudicationQueue = buildAutomatedAdjudicationQueue(promotion)
   const prioritized = prioritizeSubmissions(submissions)
+  const generatedAt = new Date().toISOString()
   const report = {
-    generatedAt: new Date().toISOString(), modelVersion: 'enrichment-control-plane-v1',
+    generatedAt, modelVersion: 'enrichment-control-plane-v2',
     summary: computeSessionYield(submissions),
     routes: Object.groupBy
       ? Object.groupBy(prioritized, item => item.route)
       : prioritized.reduce((acc, item) => ((acc[item.route] ??= []).push(item), acc), {}),
-    promotion: { eligible: promotion.filter(item => item.eligible).length, blocked: promotion.filter(item => !item.eligible).length, decisions: promotion },
+    promotion: {
+      eligible: promotion.filter(item => item.eligible).length,
+      blocked: promotion.filter(item => !item.eligible).length,
+      automatedAdjudicationPending: promotion.filter(item => item.automatedAdjudicationPending).length,
+      hardBlocked: promotion.filter(item => item.hardBlocked).length,
+      decisions: promotion,
+    },
+    automatedAdjudication: { queued: adjudicationQueue.length },
     semanticAttestations: {
       total: attestationBySubmission.size,
       coveredSubmissions: submissions.filter(s => s.semanticAttestation).length,
@@ -143,8 +202,16 @@ if (command === 'report' || command === 'validate') {
     else console.log('Enrichment control-plane invariants are safe.')
   } else {
     writeJson(OUTPUT, report)
+    writeJson(ADJUDICATION_QUEUE, {
+      modelVersion: 'enrichment-automated-adjudication-queue-v1',
+      generatedAt,
+      count: adjudicationQueue.length,
+      queue: adjudicationQueue,
+    })
     console.log(JSON.stringify(report.summary, null, 2))
+    console.log(`automated adjudication queued: ${adjudicationQueue.length}`)
     console.log(`report: ${path.relative(ROOT, OUTPUT)}`)
+    console.log(`adjudication queue: ${path.relative(ROOT, ADJUDICATION_QUEUE)}`)
   }
 } else if (command === 'rollup') {
   const decisions = promotionDecisions()
