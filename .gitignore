@@ -17,6 +17,7 @@ hippie-scientist-site-main_consolidated.zip
 scripts/audit_missing_key_fields.csv
 scripts/out/
 public/og/
+public/media/social/articles/
 public/stats.json
 
 # Local/archive artifacts that should not ship
