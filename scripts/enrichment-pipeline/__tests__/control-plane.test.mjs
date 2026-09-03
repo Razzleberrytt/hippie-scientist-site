@@ -1,61 +1,73 @@
 import { describe, expect, it } from 'vitest'
 import {
-  admissionDecision, computeSessionYield, contradictionPriority, promotionBlockerDisposition, promotionDecision,
-  routeSubmission, semanticAttestationStatus, scoreOrphan, scoreWorkpack,
+  admissionDecision, automatedAdjudicationDecision, computeSessionYield, contradictionPriority,
+  promotionBlockerDisposition, promotionDecision, routeSubmission, semanticAttestationStatus,
+  scoreOrphan, scoreWorkpack,
 } from '../lib/control-plane.mjs'
 
 const verified = {
-  entity: { status: 'matched' }, preparation: { status: 'matched' },
-  population: { status: 'not_applicable' }, endpoint: { status: 'matched' },
-  conclusion: { status: 'matched' },
+  entity: { status: 'matched', reason: 'Exact entity identity verified.', evidence: ['entity identity receipt'] },
+  preparation: { status: 'matched', reason: 'Preparation boundary verified.', evidence: ['preparation receipt'] },
+  population: { status: 'not_applicable', reason: 'Population is not a gating distinction for this fixture.', evidence: ['fixture boundary'] },
+  endpoint: { status: 'matched', reason: 'Endpoint is proposition compatible.', evidence: ['endpoint receipt'] },
+  conclusion: { status: 'matched', reason: 'Conclusion direction is preserved.', evidence: ['conclusion receipt'] },
+}
+
+const source = {
+  sourceId: 'src_test', active: true, publicationStatus: 'published', evidenceClass: 'human-clinical',
 }
 
 function base(overrides = {}) {
   return {
     submissionId: 'sub_test', entityType: 'herb', entitySlug: 'sage', sourceId: 'src_test',
     topicType: 'supported_use', claimType: 'efficacy_signal', evidenceClass: 'human-clinical',
-    reviewStatus: 'approved_for_rollup', active: true, semanticAttestation: verified, ...overrides,
+    reviewStatus: 'ready_for_review', active: true, semanticAttestation: verified, ...overrides,
   }
 }
 
 describe('enrichment control plane', () => {
-  it('requires all semantic axes before promotion while routing unknowns to automated adjudication', () => {
+  it('auto-approves a review-ready submission when source and all five semantic axes are proven', () => {
     expect(semanticAttestationStatus(verified)).toBe('verified')
-    expect(promotionDecision(base(), { sourceId: 'src_test', active: true }).eligible).toBe(true)
-    const incomplete = base({ semanticAttestation: { ...verified, endpoint: { status: 'unknown' } } })
-    const decision = promotionDecision(incomplete, { sourceId: 'src_test', active: true })
+    expect(automatedAdjudicationDecision(base(), source)).toMatchObject({
+      status: 'auto_approved', reviewer: 'enrichment-adjudicator', semantic: 'verified',
+    })
+    const decision = promotionDecision(base(), source)
+    expect(decision.eligible).toBe(true)
+    expect(decision.adjudication.status).toBe('auto_approved')
+  })
+
+  it('quarantines incomplete semantic proof without asking the owner and keeps research live', () => {
+    const incomplete = base({ semanticAttestation: { ...verified, endpoint: { status: 'unknown', reason: 'Endpoint could not be resolved.', evidence: ['insufficient source detail'] } } })
+    const decision = promotionDecision(incomplete, source)
     expect(decision.eligible).toBe(false)
-    expect(promotionBlockerDisposition(decision)).toMatchObject({
+    expect(decision.adjudication.status).toBe('quarantined_unresolved')
+    const disposition = promotionBlockerDisposition(decision)
+    expect(disposition).toMatchObject({
       hardBlocked: false,
       automatedAdjudicationPending: true,
       canContinueResearch: true,
-      adjudicationReasons: ['semantic_incomplete'],
     })
+    expect(disposition.adjudicationReasons).toContain('semantic_incomplete')
   })
 
-  it('routes source admission and editorial approval to automated adjudication', () => {
-    const missingSource = promotionDecision(base(), null)
-    expect(promotionBlockerDisposition(missingSource)).toMatchObject({
+  it('keeps missing source admission in automated resolution rather than human review', () => {
+    const decision = promotionDecision(base(), null)
+    expect(decision.adjudication.status).toBe('quarantined_unresolved')
+    const disposition = promotionBlockerDisposition(decision)
+    expect(disposition).toMatchObject({
       hardBlocked: false,
       automatedAdjudicationPending: true,
       canContinueResearch: true,
     })
-    expect(promotionBlockerDisposition(missingSource).adjudicationReasons).toContain('source_missing_from_registry')
-
-    const needsEditorial = promotionDecision(base({ reviewStatus: 'needs_review' }), { sourceId: 'src_test', active: true })
-    expect(promotionBlockerDisposition(needsEditorial)).toMatchObject({
-      hardBlocked: false,
-      automatedAdjudicationPending: true,
-      canContinueResearch: true,
-    })
-    expect(promotionBlockerDisposition(needsEditorial).adjudicationReasons).toContain('not_approved_for_rollup')
+    expect(disposition.adjudicationReasons).toContain('source_missing_from_registry')
   })
 
-  it('quarantines semantic mismatches as hard blocks regardless of review status', () => {
-    const submission = base({ semanticAttestation: { ...verified, conclusion: { status: 'mismatch' } } })
+  it('auto-rejects semantic mismatches as hard blocks', () => {
+    const submission = base({ semanticAttestation: { ...verified, conclusion: { status: 'mismatch', reason: 'Source conclusion contradicts staged claim.', evidence: ['direction mismatch'] } } })
     expect(routeSubmission(submission)).toBe('source_quarantine')
-    const decision = promotionDecision(submission, { sourceId: 'src_test', active: true })
+    const decision = promotionDecision(submission, source)
     expect(decision.eligible).toBe(false)
+    expect(decision.adjudication.status).toBe('auto_rejected')
     expect(promotionBlockerDisposition(decision)).toMatchObject({
       hardBlocked: true,
       automatedAdjudicationPending: false,
@@ -63,11 +75,21 @@ describe('enrichment control plane', () => {
     })
   })
 
+  it('auto-rejects withdrawn/superseded sources and evidence-class conflicts', () => {
+    const withdrawn = promotionDecision(base(), { ...source, publicationStatus: 'withdrawn' })
+    expect(withdrawn.adjudication.status).toBe('auto_rejected')
+    expect(promotionBlockerDisposition(withdrawn).hardBlocked).toBe(true)
+
+    const classMismatch = promotionDecision(base(), { ...source, evidenceClass: 'preclinical-mechanistic' })
+    expect(classMismatch.adjudication.status).toBe('auto_rejected')
+    expect(promotionBlockerDisposition(classMismatch).hardBlocked).toBe(true)
+  })
+
   it('keeps rejected or inactive submissions hard-blocked', () => {
-    const rejected = promotionDecision(base({ reviewStatus: 'rejected' }), { sourceId: 'src_test', active: true })
+    const rejected = promotionDecision(base({ reviewStatus: 'rejected' }), source)
     expect(promotionBlockerDisposition(rejected).hardBlocked).toBe(true)
 
-    const inactive = promotionDecision(base({ active: false }), { sourceId: 'src_test', active: true })
+    const inactive = promotionDecision(base({ active: false }), source)
     expect(promotionBlockerDisposition(inactive)).toMatchObject({ hardBlocked: true, canContinueResearch: false })
   })
 
@@ -108,7 +130,7 @@ describe('enrichment control plane', () => {
 
   it('reports conversion-oriented session yield', () => {
     const report = computeSessionYield([
-      base({ promotionStatus: 'promoted' }),
+      base({ reviewStatus: 'approved_for_rollup', promotionStatus: 'promoted' }),
       base({ submissionId: 'sub_null', claimType: 'efficacy_null_or_mixed' }),
     ], { elapsedHours: 2 })
     expect(report.findings).toBe(2)
