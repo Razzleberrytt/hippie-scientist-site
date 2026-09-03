@@ -5,7 +5,7 @@
 **Updated:** 2026-09-03
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub reconciliation at `70ba137cbfec444557ad8c8b7ff0656f35651b61` on 2026-09-03 records 0/3 normal implementation workstreams occupied. #5021 / PR #5028 completed and deployed the governed Vitamin B6 closure with five promoted findings plus one governed non-promotion. PR #5084 merged the AI-citation asset-identity protection infrastructure and does not occupy normal WIP. Authority/Content, Revenue/Conversion, and Discovery/SEO are free. #5031 is now the first Ready-next Revenue/Conversion candidate because it is a deterministic live newsletter-capture trust defect with a tiny blast radius and no scientific/provider dependency. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP.
+**Current admission:** Live GitHub reconciliation at `7b110d7a19c51e08de3d3b112ac36e96824bfd27` on 2026-09-03 records 0/3 normal implementation workstreams occupied. #5031 / PR #5090 completed and deployed the newsletter-interest CTA repair and no longer occupies Revenue/Conversion. #5021 / PR #5028 completed and deployed the governed Vitamin B6 closure with five promoted findings plus one governed non-promotion. PR #5084 merged the AI-citation asset-identity protection infrastructure and does not occupy normal WIP. Authority/Content, Revenue/Conversion, and Discovery/SEO are free. #5076 is now the first Ready-next Revenue/Conversion candidate: a bounded, claim-neutral post-answer sleep-research next-action path that preserves answer-first evidence and safety ordering. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -54,7 +54,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
 
-- **Revenue/Conversion:** free. #5031 is Ready next for the deterministic newsletter-interest CTA repair; implementation must preserve provider, analytics, privacy, tagging, and scientific boundaries.
+- **Revenue/Conversion:** free. #5076 is Ready next for a reusable post-answer sleep research next-action path; implementation must remain claim-neutral, preserve answer/evidence/safety ordering, retain newsletter privacy/tag semantics, and avoid product-ranking or unsupported recommendation language.
 - **Authority/Content:** free after #5021 / PR #5028 completed the governed Vitamin B6 evidence/safety closure and post-merge verification.
 - **Discovery/SEO:** free after PR #5084 merged AI-citation asset-identity protection. Fresh page-level citation telemetry is still required before any winner ledger can be populated.
 
@@ -68,7 +68,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 | Order | Candidate | Workstream | Admission state | Proof required before implementation |
 |---:|---|---|---|---|
-| 1 | #5031 | Revenue/Conversion | Ready next | Re-fetch exact main and lane overlap; implement the explicit `captureTitle` presentation contract in `NewsletterInterestSignup`; add focused state/a11y regression coverage; preserve provider action, payload/tag semantics, privacy copy, analytics events, lead-magnet behavior, scientific content, and SEO/IA; pass exact-head required gates; verify `/info/newsletter/` after deploy. |
+| 1 | #5076 | Revenue/Conversion | Ready next | Re-fetch exact main and lane overlap; coordinate the canonical sleep-hub destination with Lane 3; implement one reusable claim-neutral `SleepResearchNextActions`-class component on 2–3 representative sleep guides only after direct answer + evidence/safety content; preserve newsletter privacy/tag semantics and scientific/recommendation boundaries; add focused component, page-order, mobile and a11y regressions; pass exact-head required gates; verify live placement after deploy; keep conversion outcomes `Unknown` until observed. |
 
 Authority/Content and Discovery/SEO are free. No stale item is promoted merely to fill a slot; any future admission still requires current evidence and this queue.
 
@@ -95,7 +95,7 @@ Authority/Content and Discovery/SEO are free. No stale item is promoted merely t
 
 Promote only after checking overlap, current exact-main state, source freshness, and the canonical governor/lease/provenance contract.
 
-No fallback ticket is currently promoted. #5076 remains a prepared Revenue/Conversion candidate behind #5031 and is not implementation-authorized by this sentence.
+No fallback ticket is currently promoted. #5076 is explicitly admitted under `Ready next` above and must still pass its fresh collision/dependency check before Lane 4 source mutation.
 
 ## Sprint exit conditions
 
@@ -116,6 +116,7 @@ The sprint exits only when all of the following are true or have a precise exter
 
 ## Recently retired from this sprint
 
+- **#5031 / PR #5090:** merged as `7b110d7a19c51e08de3d3b112ac36e96824bfd27`; explicit newsletter capture titles remove the duplicated `research` trust defect while preserving provider, tag, privacy, analytics and scientific boundaries. Exact-main deployment verification completed. Conversion lift remains `Unknown` until attributable observations exist.
 - **#5021 / PR #5028:** merged as `27613f9fba936c78cb024d1381811d2b2da159c9`; five Vitamin B6 findings were governed promoted and one was governed non-promoted, with neuropathy dose/duration boundaries retained, generic dose placeholders removed, recommendation/monetization/indexing fail-closed, and post-merge deployment verification completed. This is scientific-governance throughput, not traffic or revenue proof.
 - **PR #5084:** merged as `70ba137cbfec444557ad8c8b7ff0656f35651b61`; AI-citation asset-identity protection is on main. The ledger intentionally remains awaiting fresh page-level telemetry rather than inventing winner URLs from partial query exports.
 - **#4992 / PR #5016 / PR #5020:** Propionate closure merged as `523ba9323dd3506e51f2d1aaab53b6d0a2e49aa5`; post-merge Session E bootstrap proved 4 findings terminal/promoted with 0 pending, and verified state-only lease release merged as `4461ac4c59aa48bafca85125f86e4a37e6ee4610`. No generic efficacy, consumer-dose, or business outcome is inferred.
