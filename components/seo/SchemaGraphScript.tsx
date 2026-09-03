@@ -1,4 +1,5 @@
 import SchemaOrg from '@/components/SchemaOrg'
+import { resolveAiEntityArtifactRoute } from '@/lib/ai-entity-artifact-route'
 
 type SchemaGraphScriptProps = {
   graph: Record<string, unknown>
@@ -32,15 +33,16 @@ export function getEntityArtifact(graph: Record<string, unknown>): EntityArtifac
       const url = new URL(canonicalUrl)
       const match = url.pathname.match(/^\/(herbs|compounds)\/([^/]+)\/?$/)
       if (!match) continue
-      const kind = match[1] === 'herbs' ? 'herb' : 'compound'
-      const slug = match[2]
-      const href = `/data/ai-entities/${kind}/${slug}.json`
+      const routeKind = match[1] === 'herbs' ? 'herb' : 'compound'
+      const routeSlug = match[2]
+      const artifactRoute = resolveAiEntityArtifactRoute(routeKind, routeSlug)
+      const href = `/data/ai-entities/${artifactRoute.kind}/${artifactRoute.slug}.json`
       return {
         href,
         absoluteUrl: `${url.origin}${href}`,
         canonicalUrl: canonicalUrl.endsWith('/') ? canonicalUrl : `${canonicalUrl}/`,
         entityId,
-        name: typeof record.name === 'string' ? record.name : slug,
+        name: typeof record.name === 'string' ? record.name : routeSlug,
       }
     } catch {
       continue
