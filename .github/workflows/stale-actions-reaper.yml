@@ -1,0 +1,65 @@
+name: Stale Actions reaper
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/stale-actions-reaper.yml'
+      - 'scripts/ci/stale-actions-reaper.mjs'
+      - 'scripts/ci/stale-actions-reaper.test.mjs'
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+    inputs:
+      threshold_hours:
+        description: Minimum run age before an orphaned PR run can be cancelled
+        required: true
+        default: '6'
+        type: string
+      dry_run:
+        description: Report selections without cancelling runs
+        required: true
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+
+concurrency:
+  group: stale-actions-reaper
+  cancel-in-progress: false
+
+permissions:
+  actions: write
+  contents: read
+  pull-requests: read
+
+jobs:
+  reap-stale-orphans:
+    name: Reap stale orphaned PR runs
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_REPOSITORY: ${{ github.repository }}
+      REAPER_CURRENT_RUN_ID: ${{ github.run_id }}
+      REAPER_THRESHOLD_HOURS: ${{ github.event_name == 'workflow_dispatch' && inputs.threshold_hours || '6' }}
+      REAPER_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
+    steps:
+      - name: Checkout trusted reaper from main
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+
+      - name: Select and reap only safe stale orphaned PR runs
+        run: node scripts/ci/stale-actions-reaper.mjs
+
+      - name: Upload cancellation receipt
+        if: always() && hashFiles('artifacts/ci/stale-actions-reaper-receipt.json') != ''
+        uses: actions/upload-artifact@v7
+        with:
+          name: stale-actions-reaper-receipt-${{ github.run_id }}
+          path: artifacts/ci/stale-actions-reaper-receipt.json
+          retention-days: 30
