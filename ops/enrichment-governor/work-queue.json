@@ -2,19 +2,19 @@
   "version": 1,
   "leases": [
     {
-      "id": "lease-5021-vitamin-b6-closure",
-      "owner": "site-swarm-integration",
-      "purpose": "close staged Vitamin B6 evidence and neuropathy safety calibration",
+      "id": "lease-5081-sage-closure-v2",
+      "owner": "site-swarm-lane-2",
+      "purpose": "Close Sage human evidence and SAGE-718 identity contamination after stale transaction cleanup",
       "files": [],
       "entities": [
-        "compound:vitamin-b6"
+        "herb:sage"
       ],
-      "acquiredAt": "2026-09-02T00:43:33.760Z",
-      "expiresAt": "2026-09-02T02:13:33.760Z"
+      "acquiredAt": "2026-09-03T10:06:45.398Z",
+      "expiresAt": "2026-09-03T11:36:45.398Z"
     }
   ],
   "queued": [],
   "batched": [],
   "blocked": [],
-  "updatedAt": "2026-09-02T00:43:33.760Z"
+  "updatedAt": "2026-09-03T10:06:45.398Z"
 }

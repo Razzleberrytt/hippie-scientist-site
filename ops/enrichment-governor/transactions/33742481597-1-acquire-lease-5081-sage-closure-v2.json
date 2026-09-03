@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "transactionType": "enrichment_governor_lease",
+  "requestedAt": "2026-09-03T10:06:45.406Z",
+  "operation": "acquire",
+  "actor": "github-actions[bot]",
+  "owner": "site-swarm-lane-2",
+  "leaseId": "lease-5081-sage-closure-v2",
+  "purpose": "Close Sage human evidence and SAGE-718 identity contamination after stale transaction cleanup",
+  "files": [],
+  "entities": [
+    "herb:sage"
+  ],
+  "disposition": null,
+  "baseSha": "70ba137cbfec444557ad8c8b7ff0656f35651b61",
+  "before": {
+    "workQueueSha256": "762b8508c81fc8746b2e21ed5e34b9541e6c44c82307d7c346fb0a2ff8a663f0",
+    "ledgerSha256": "954915af0b42e15b6a8252097b17c275de54291aa8435bb2749a17b3da8a56fa"
+  },
+  "after": {
+    "workQueueSha256": "e15c3101f757e8bb6aa13cb08144e7ef16eda747dafd8ed8931bab174434d854",
+    "ledgerSha256": "b8ffbecb73b19f4c7fea85b67bacc5c573819f20cfcf3ad8bb2afa237387d200"
+  },
+  "result": {
+    "acquired": true,
+    "expiresAt": "2026-09-03T11:36:45.398Z"
+  },
+  "transactionCommitSha": null
+}
