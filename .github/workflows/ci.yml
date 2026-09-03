@@ -112,7 +112,11 @@ jobs:
         run: npm run audit:high
 
       - name: Generate raw npm audit JSON
-        if: always()
+        if: ${{ always() && !cancelled() }}
+        timeout-minutes: 2
+        env:
+          NPM_CONFIG_FETCH_TIMEOUT: '60000'
+          NPM_CONFIG_FETCH_RETRIES: '1'
         run: npm audit --json > npm-audit.after.json || true
 
       - name: Upload audit artifact
