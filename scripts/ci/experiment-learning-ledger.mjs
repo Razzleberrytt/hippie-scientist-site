@@ -1,4 +1,5 @@
 import fs from 'node:fs'
+import { pathToFileURL } from 'node:url'
 import crypto from 'node:crypto'
 
 export const RESULTS = new Set(['positive','negative','null','underpowered','invalid','Unknown'])
@@ -73,7 +74,7 @@ export function assertAppendOnly(previousEntries, nextEntries) {
   }
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const ledgerPath = process.argv[2] || 'ops/experiments/learning-ledger.jsonl'
   const entries = parseLedger(fs.readFileSync(ledgerPath,'utf8'))
   const errors = validateLedger(entries)

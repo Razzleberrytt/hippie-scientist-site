@@ -117,7 +117,7 @@ A separate pipeline that orchestrates AI-assisted content enrichment. Agents pro
 **Workflow:**
 1. Run agents: `npm run agent:run --mode=standard --batch=5`
 2. Patches appear in `agent/patches/{date}/*.json`
-3. CI validates patches automatically (`npm run validate:agent-patches`, part of `check:full`)
+3. Validate the patches with `npm run validate:agent-patches` (not part of `check:full` — run it yourself, or see `npm run status:agent-patches` for a queue overview)
 4. Review: `npm run agent:review` → creates `ops/agent-review/approved-patches.{json,csv}`
 5. Manually merge approved data into the workbook
 6. Run `npm run data:build` to regenerate `public/data`
@@ -132,10 +132,25 @@ Patches do **not** modify `public/data` directly. See `docs/agent-integration-gu
 - ESLint enforces enhanced a11y rules on `app/**/*`, `components/**/*`, and `lib/**/*`
 
 ```bash
-npm run test                     # All tests
+npm run test                     # Vitest only — does NOT cover the node:test suites
+npm run test:node                # Native node:test suites (14 files, ~75 assertions)
+npm run test:all                 # Both runners — use this before pushing
 npm run test:a11y                # A11y tests only
 npx vitest run app/__tests__/a11y.test.tsx  # Single file
 ```
+
+**Two runners, and `npm run test` only covers one.** `vitest.config.ts` excludes
+`scripts/enrichment-governor/__tests__/` and `scripts/content/__tests__/` because Vite
+tries to bundle the prefix-only `node:test` builtin rather than handing those files to
+the intended runner. Those suites plus
+`scripts/ci/owner-control-plane-bridge.contract.mjs` are executed in CI by four separate
+workflows, so a failure there is invisible to `npm run test` — that is how a broken
+governor test reached main. `npm run test:node` discovers suites by looking for a real
+top-level `import ... from 'node:test'`, so new ones are picked up automatically.
+
+The inverse matters too: specs importing `describe`/`it`/`expect` from vitest must never
+be run under `node --test`. That loads vitest's runner uninitialized and fails with
+`Cannot read properties of undefined (reading 'config')`.
 
 ## Validation & Quality Gates
 
@@ -265,6 +280,55 @@ npm run seo:audit               # SEO indexation audit
 npm run audit:safety            # Safety fill-rate audit
 npm run audit:source-of-truth   # Strict source-of-truth audit
 ```
+
+### Crawl-budget recovery
+
+Search Console reported 1,995 `Not found (404)` and 734 `Page with redirect` URLs
+against a site that publishes ~780 indexable pages, so most of Googlebot's crawl
+budget goes to URLs that no longer exist. Recovery had been manual — see
+`public/redirect-overrides/020-gsc-404-recovery-2026-08-27.txt`, 58 paths mapped by
+hand — which does not scale to two thousand.
+
+```bash
+# 1. Search Console → Page indexing → "Not found (404)" → EXPORT (CSV)
+# 2. Build first: triage matches against routes that actually exist in out/
+npm run build
+npm run seo:triage-404 -- --input=path/to/export.csv
+# 3. Review ops/seo/404-triage-review.tsv, then re-run with --apply
+```
+
+Writes confident rules to `ops/seo/404-triage-redirects.txt`, a review queue to
+`ops/seo/404-triage-review.tsv`, and a full report to
+`ops/seo/404-triage-report.json`. `--apply` copies the confident rules into
+`public/redirect-overrides/`; nothing ever writes `public/_redirects` directly.
+
+### What actually gates the indexed corpus
+
+The site authors 856 profiles and publishes ~318. `npm run report:grounding-queue`
+(after a build) ranks every held profile by what it would take to publish it:
+
+```
+538 held → 359 pass content completeness → 72 also cite a study
+                                        → 287 cite nothing at all
+```
+
+**Do not read a content score as permission to publish.** `scoreIndexability`
+measures structure — identity, mechanism text, effects, summary shape — and never
+looks at evidence. 287 held profiles score a perfect 100 while citing nothing,
+which is precisely what `noindex-decision:hidden_until_grounded` exists to
+withhold. Only 11% of already-published profiles cite nothing, versus 77% of the
+held ones: the hold is doing real work, and lifting it in bulk would mass-publish
+unsourced health pages.
+
+The promotable set is the 72 that are both content-complete and grounded.
+Everything else needs research, not a governance decision.
+
+**URLs with no live equivalent are deliberately left as 404.** Bulk-redirecting
+unrelated dead URLs to a hub page is read by Google as a soft 404 — it burns the
+same crawl budget, dilutes the hub's relevance, and can suppress the hub itself. A
+404 for a page that genuinely no longer exists is the correct answer. The tool also
+refuses to emit a rule from a path to itself, and will not cross sections when
+fixing a typo.
 
 ### Data pipeline scripts (individual steps)
 ```bash

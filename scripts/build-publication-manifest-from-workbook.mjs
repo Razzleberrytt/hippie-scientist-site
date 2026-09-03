@@ -117,7 +117,37 @@ function isCompoundEligible(compound, herbCounts) {
   return (reverseLookupReady || hasHerbCoverage || isReadinessAB || isExportReady) && hasMechanism
 }
 
+// The ordering requirement above is documented but was never enforced, so the
+// only thing standing between a checkout and a wrong manifest was whether the
+// operator had read the header. #4916 is what that costs. Requiring an explicit
+// flag makes the correct order the only way to run this: `data:build` and
+// `check:data` pass it from the position after apply-governance-overlay.mjs and
+// build-runtime-summary-indexes.mjs, and a bare invocation now refuses instead
+// of silently producing an overstated manifest.
+function assertPostOverlay() {
+  if (process.argv.includes('--post-overlay') || process.env.GOVERNANCE_OVERLAY_APPLIED === '1') return
+
+  console.error('[publication-manifest] REFUSING to run: cannot confirm the governance overlay has been applied.')
+  console.error('')
+  console.error('  public/data in a fresh checkout is parser output. Its indexability_status is what')
+  console.error('  the workbook asserted, before apply-governance-overlay.mjs decides what may actually')
+  console.error('  be published, and it overstates the publishable corpus by roughly 31%.')
+  console.error('')
+  console.error('  Building the manifest from that state produces a file that looks refreshed and is')
+  console.error('  wrong. In #4916 it took the compound count from 112 to 181 and read as 69 profiles')
+  console.error('  finally being recognised; the overlay puts it back at 112, because those 69 are')
+  console.error('  compounds governance withholds.')
+  console.error('')
+  console.error('  Regenerate through the pipeline, which applies the overlay first:')
+  console.error('    npm run data:build')
+  console.error('')
+  console.error('  If you have genuinely already applied the overlay to public/data in this session:')
+  console.error('    node scripts/build-publication-manifest-from-workbook.mjs --post-overlay')
+  process.exit(1)
+}
+
 function run() {
+  assertPostOverlay()
   const previousManifest = readManifest('publication-manifest.json')
   const previousHerbs = Array.isArray(previousManifest?.entities?.herbs) ? previousManifest.entities.herbs : []
   const previousCompounds = Array.isArray(previousManifest?.entities?.compounds) ? previousManifest.entities.compounds : []

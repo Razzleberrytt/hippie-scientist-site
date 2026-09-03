@@ -1,4 +1,5 @@
 import fs from 'node:fs'
+import { pathToFileURL } from 'node:url'
 import { collectionHasMeaningfulText } from '../../lib/data-quality.mjs'
 import { evaluateProfileCompleteness } from '../../lib/profile-completeness.mjs'
 
@@ -113,4 +114,4 @@ function runGapAnalysis() {
   console.log(`[content-gaps] Evaluated ${profiles.length} profiles; wrote reports/content-gaps.{json,md}`)
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) runGapAnalysis()
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) runGapAnalysis()

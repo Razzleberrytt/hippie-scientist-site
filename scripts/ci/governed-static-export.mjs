@@ -1,4 +1,5 @@
 import fs from 'node:fs'
+import { pathToFileURL } from 'node:url'
 import path from 'node:path'
 import crypto from 'node:crypto'
 import process from 'node:process'
@@ -279,7 +280,7 @@ function main() {
   throw new Error('Usage: node scripts/ci/governed-static-export.mjs <write|verify> --source-sha <sha> --base-sha <sha> [--run-id <id>] [--export-dir out] [--verification-state-dir public/data] [--build-manifest .next/build-manifest.json] [--receipt path]')
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   try {
     main()
   } catch (error) {

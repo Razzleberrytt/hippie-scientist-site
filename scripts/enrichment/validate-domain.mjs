@@ -5,6 +5,7 @@
  */
 import { join } from 'node:path';
 import { readdirSync, readFileSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { REPO_ROOT, bootstrapStateDb, runSqlite } from './_shared.mjs';
 
 const TASK_VALIDATORS = {
@@ -318,6 +319,6 @@ function main() {
   if (failed > 0) process.exit(1);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) main();
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
 
 export { validateMechanismText, validatePatchDomain };

@@ -44,6 +44,8 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
       { slug: 'caffeine-vs-l-theanine', label: 'Caffeine vs L-Theanine', note: 'Stimulation vs calm-focus context' },
       { slug: 'caffeine-vs-caffeine-plus-l-theanine', label: 'Caffeine vs Caffeine + L-Theanine', note: 'Caffeine alone vs the combined focus stack' },
       { slug: 'caffeine-vs-l-theanine-vs-bacopa-for-focus', label: 'Caffeine vs L-Theanine vs Bacopa', note: 'Fast stimulation vs slower support' },
+      { slug: 'bacopa-vs-citicoline', label: 'Bacopa vs Citicoline' },
+      { slug: 'citicoline-vs-alpha-gpc', label: 'Citicoline vs Alpha-GPC' },
     ],
   },
   {
@@ -54,6 +56,10 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
       { slug: 'american-ginseng-vs-asian-ginseng', label: 'American vs Asian Ginseng', note: 'Closely related species with different practical profiles' },
       { slug: 'st-johns-wort-vs-saffron', label: "St. John’s Wort vs Saffron", note: 'Mood evidence with interaction burden front and center' },
       { slug: 'ashwagandha-vs-l-theanine-vs-magnesium', label: 'Ashwagandha vs L-Theanine vs Magnesium', note: 'Three different calm-support approaches' },
+      { slug: 'ashwagandha-vs-magnesium', label: 'Ashwagandha vs Magnesium' },
+      { slug: 'ashwagandha-vs-saffron', label: 'Ashwagandha vs Saffron' },
+      { slug: 'l-theanine-vs-ashwagandha', label: 'L-Theanine vs Ashwagandha' },
+      { slug: 'l-theanine-vs-magnesium', label: 'L-Theanine vs Magnesium' },
     ],
   },
   {
@@ -80,6 +86,7 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
     pairs: [
       { slug: 'berberine-vs-metformin', label: 'Berberine vs Metformin' },
       { slug: 'berberine-vs-inositol', label: 'Berberine vs Inositol' },
+      { slug: 'berberine-vs-cinnamon', label: 'Berberine vs Cinnamon' },
       { slug: 'curcumin-vs-boswellia-vs-omega-3', label: 'Curcumin vs Boswellia vs Omega-3' },
     ],
   },
