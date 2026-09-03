@@ -11,7 +11,9 @@ const valerian = {
   slug: 'valerian-root',
   title: 'Valerian Root for Sleep: Does It Work? Evidence Review (2026)',
   category: 'Sleep',
-  evidenceGrade: 'B',
+  // Deliberately present to prove unbound evidence-grade frontmatter cannot
+  // become a social-distribution claim.
+  evidenceGrade: 'A+',
   sourceCount: 15,
 }
 
@@ -19,7 +21,6 @@ const lionsMane = {
   slug: 'lions-mane-bdnf',
   title: "Lion's Mane, BDNF & Cognitive Resilience",
   category: 'Field Notes',
-  evidenceGrade: '',
   sourceCount: 0,
 }
 
@@ -43,6 +44,14 @@ describe('article social preview cards', () => {
     expect(svg).toContain('Valerian Root for Sleep')
     expect(svg).toContain('15 CITED SOURCES')
     expect(svg).not.toContain('SUPPLEMENT RESEARCH FRAMEWORK')
+  })
+
+  it('does not promote unbound evidence-grade frontmatter onto social cards', () => {
+    const model = buildSocialCardModel(valerian)
+    const svg = renderSocialCardSvg(valerian)
+
+    expect(model).not.toHaveProperty('evidenceGrade')
+    expect(svg).not.toContain('EVIDENCE A+')
   })
 
   it('keeps page metadata, Twitter metadata, and Article JSON-LD off og-default.jpg', () => {
