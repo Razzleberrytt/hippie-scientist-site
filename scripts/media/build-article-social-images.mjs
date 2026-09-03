@@ -95,14 +95,12 @@ const readCardSource = (filePath, defaultCategory) => {
   if (!SLUG_PATTERN.test(slug) || !title) return null
 
   const category = clean(data.category || defaultCategory)
-  const evidenceGrade = clean(data.evidenceGrade || data.evidence_grade)
   const references = Array.isArray(data.references) ? data.references : []
 
   return {
     slug,
     title,
     category,
-    evidenceGrade,
     sourceCount: references.length,
     sourceFile: path.relative(PROJECT_ROOT, filePath).replace(/\\/g, '/'),
   }
@@ -111,13 +109,11 @@ const readCardSource = (filePath, defaultCategory) => {
 export function buildSocialCardModel(source) {
   const title = normalizeTitle(source.title)
   const category = truncate(source.category || 'Evidence Review', 42)
-  const evidenceGrade = truncate(source.evidenceGrade, 24)
   const sourceCount = Number.isInteger(source.sourceCount) && source.sourceCount > 0 ? source.sourceCount : 0
   return {
     slug: source.slug,
     title,
     category,
-    evidenceGrade,
     sourceCount,
     publicPath: `/media/social/articles/${source.slug}.jpg`,
   }
@@ -128,12 +124,8 @@ export function renderSocialCardSvg(source) {
   const { lines, fontSize } = wrapTitle(model.title)
   const lineHeight = Math.round(fontSize * 1.08)
   const titleY = lines.length === 3 ? 245 : lines.length === 2 ? 270 : 304
-  const evidenceChip = model.evidenceGrade
-    ? `<g transform="translate(94 454)"><rect width="190" height="48" rx="24" fill="${COLORS.sage}"/><text x="95" y="31" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="${COLORS.forest}">EVIDENCE ${escapeXml(model.evidenceGrade.toUpperCase())}</text></g>`
-    : ''
-  const sourceChipX = model.evidenceGrade ? 304 : 94
   const sourceChip = model.sourceCount > 0
-    ? `<g transform="translate(${sourceChipX} 454)"><rect width="188" height="48" rx="24" fill="${COLORS.white}" stroke="${COLORS.brass}" stroke-width="2"/><text x="94" y="31" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="${COLORS.graphite}">${model.sourceCount} CITED ${model.sourceCount === 1 ? 'SOURCE' : 'SOURCES'}</text></g>`
+    ? `<g transform="translate(94 454)"><rect width="188" height="48" rx="24" fill="${COLORS.white}" stroke="${COLORS.brass}" stroke-width="2"/><text x="94" y="31" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="${COLORS.graphite}">${model.sourceCount} CITED ${model.sourceCount === 1 ? 'SOURCE' : 'SOURCES'}</text></g>`
     : ''
 
   const titleMarkup = lines.map((line, index) => (
@@ -156,7 +148,6 @@ export function renderSocialCardSvg(source) {
 
   <text x="94" y="190" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="3.2" fill="${COLORS.forest}">${escapeXml(model.category.toUpperCase())}</text>
   ${titleMarkup}
-  ${evidenceChip}
   ${sourceChip}
 
   <line x1="94" y1="548" x2="1106" y2="548" stroke="${COLORS.brass}" stroke-opacity="0.38"/>
