@@ -26,7 +26,16 @@ const ROOT = process.cwd()
 const OUT = path.join(ROOT, 'out')
 
 // Hubs whose children must all be reachable from the hub page itself.
-const HUBS = ['/guides/compare']
+//
+// /guides is deliberately absent. Its hub lists sections rather than pages, and
+// its three stranded children (/guides/ashwagandha, /guides/cognition,
+// /guides/lions-mane) sit outside that taxonomy. Two of them also compete with
+// existing pages for the same queries — /guides/ashwagandha "Complete Guide to
+// Benefits" against /guides/herbs/ashwagandha "What the Evidence Supports for
+// Stress", both indexable and self-canonical. Linking them from the section list
+// would entrench that overlap; consolidating or canonicalizing them is an
+// editorial call. Tracked in #5078.
+const HUBS = ['/guides/compare', '/learn', '/evidence/evidence-report']
 
 function readHtml(routePath) {
   const file = path.join(OUT, routePath.replace(/^\//, ''), 'index.html')

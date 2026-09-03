@@ -120,6 +120,10 @@ const recovery = [
     title: 'How Emotional Regulation Works',
     href: '/learn/how-emotional-regulation-works/',
   },
+  {
+    title: 'Rhabdomyolysis: How Muscle Breakdown Can Injure the Kidneys',
+    href: '/learn/rhabdomyolysis/',
+  },
 ]
 
 const psychoactive = [
@@ -134,6 +138,26 @@ const psychoactive = [
   {
     title: 'Psychoactive Substances Overview',
     href: '/novel-psychoactive-substances/',
+  },
+  {
+    title: 'Calming Psychoactives: GABA, Stress Regulation & Safety',
+    href: '/learn/calming/',
+  },
+  {
+    title: 'Dissociative Mechanisms: NMDA, Perception & Safety',
+    href: '/learn/dissociative-mechanisms/',
+  },
+  {
+    title: 'Psychoactive Harm Reduction: Interactions, Set, Setting & Safety',
+    href: '/learn/harm-reduction/',
+  },
+  {
+    title: 'Serotonergic Stacking Risks',
+    href: '/learn/serotonergic-stacking-risks/',
+  },
+  {
+    title: '18 Supplements That Can Trigger Serotonin Syndrome',
+    href: '/learn/serotonin-syndrome-supplements/',
   },
 ]
 
@@ -180,6 +204,7 @@ const researchLiteracy = [
   { title: 'Common Neurochemistry Myths', href: '/learn/common-neurochemistry-myths/' },
   { title: 'Scientific but Human Neuroscience', href: '/learn/scientific-but-human-neuroscience/' },
   { title: 'Understanding Individual Variability', href: '/learn/understanding-individual-variability/' },
+  { title: 'Study Design Snapshots: Reading an Evidence Grade', href: '/learn/study-design-snapshot/' },
 ]
 
 const psychoactivePlants = [
@@ -188,6 +213,8 @@ const psychoactivePlants = [
   { title: 'How Psychoactive Plants Affect the Brain', href: '/learn/how-psychoactive-plants-affect-the-brain/' },
   { title: 'How Psychoactive Substances Affect Perception', href: '/learn/how-psychoactive-substances-affect-perception/' },
   { title: 'How Herbal Psychoactives Differ from Pharmaceuticals', href: '/learn/how-herbal-psychoactives-differ-from-pharmaceuticals/' },
+  { title: 'Dream Herbs: Oneirogenic Plants, REM Sleep & Safety', href: '/learn/dream-herbs/' },
+  { title: 'Entheogens and Psychoactive Botanicals', href: '/learn/entheogens/' },
 ]
 
 const burnoutFatigue = [
