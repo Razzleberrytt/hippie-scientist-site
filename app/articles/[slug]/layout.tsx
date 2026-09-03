@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Omit<LayoutProps, 'children'>
       card: 'summary_large_image',
       title: compactMetaTitle(page.title),
       description: page.description,
-      images: ['/og-default.jpg'],
+      images: [`/media/social/articles/${page.slug}.jpg`],
     },
   }
 }
