@@ -2,11 +2,15 @@
 
 **Status:** Required repository-governance setup for `main`
 **Tracking issue:** #4014
-**Last verified:** 2026-08-26
+**Last verified:** 2026-09-02
 
 ## Current state
 
 GitHub currently reports branch protection disabled for `main`. Repository quality gates therefore remain advisory at the branch boundary until an authorized repository administrator enables a branch protection rule or ruleset.
+
+The canonical in-repository mutation path is `.github/workflows/enforce-main-protection.yml`. It is intentionally owner-dispatched and requires the repository secret `REPO_ADMIN_TOKEN`; the ordinary `GITHUB_TOKEN` remains read-only and cannot alter repository governance. The admin token should be a fine-grained token scoped only to this repository with **Administration: write** permission (or an equivalently scoped classic token). Do not place the token in workflow inputs, logs, committed files, or issue/PR text.
+
+After provisioning that secret, dispatch **Enforce Main Protection** with confirmation exactly `PROTECT MAIN`. The workflow applies this contract and then re-reads GitHub's live branch/protection endpoints; failure to authenticate, mutate, or verify fails closed.
 
 ## Required merge boundary
 
@@ -56,6 +60,8 @@ After configuration, verify all of the following without weakening any gate:
 4. A green PR with required checks can merge normally.
 5. A docs-only PR can merge without waiting forever on any path-filtered static required context.
 6. The required-check/workflow configuration is re-verified after any workflow rename, split, path-filter change, or retirement.
+
+The hourly `Main Protection Audit` remains the independent continuous verifier after enforcement. It must not be treated as a substitute for GitHub's own branch-level control.
 
 ## Change-management rule
 
