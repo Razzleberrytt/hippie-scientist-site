@@ -3,6 +3,25 @@
   "$id": "https://hippiescientist.app/schemas/enrichment-submission.schema.json",
   "title": "Enrichment submission",
   "description": "Contractor-authored enrichment submission staged for governance review and deterministic promotion.",
+  "$defs": {
+    "semanticAxis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "reason", "evidence"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["matched", "not_applicable", "mismatch", "unknown"]
+        },
+        "reason": { "type": "string", "minLength": 12 },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 8 }
+        }
+      }
+    }
+  },
   "type": "array",
   "items": {
     "type": "object",
@@ -36,20 +55,10 @@
       },
       "entityType": {
         "type": "string",
-        "enum": [
-          "herb",
-          "compound",
-          "surface"
-        ]
+        "enum": ["herb", "compound", "surface"]
       },
-      "entitySlug": {
-        "type": "string",
-        "minLength": 1
-      },
-      "surfaceId": {
-        "type": "string",
-        "minLength": 1
-      },
+      "entitySlug": { "type": "string", "minLength": 1 },
+      "surfaceId": { "type": "string", "minLength": 1 },
       "sourceId": {
         "type": "string",
         "pattern": "^src_[a-z0-9]+(?:-[a-z0-9]+)*$"
@@ -110,49 +119,34 @@
           "regulatory-monograph"
         ]
       },
-      "findingTextShort": {
-        "type": "string",
-        "minLength": 12
-      },
-      "findingTextNormalized": {
-        "type": "string",
-        "minLength": 24
-      },
+      "findingTextShort": { "type": "string", "minLength": 12 },
+      "findingTextNormalized": { "type": "string", "minLength": 24 },
       "strengthLabel": {
         "type": "string",
-        "enum": [
-          "strong",
-          "moderate",
-          "limited",
-          "insufficient"
-        ]
+        "enum": ["strong", "moderate", "limited", "insufficient"]
       },
-      "populationContext": {
-        "type": "string"
+      "populationContext": { "type": "string" },
+      "usageContext": { "type": "string" },
+      "safetyContext": { "type": "string" },
+      "mechanismContext": { "type": "string" },
+      "traditionalUseContext": { "type": "string" },
+      "uncertaintyNote": { "type": "string" },
+      "semanticAttestation": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["reviewer", "reviewedAt", "entity", "preparation", "population", "endpoint", "conclusion"],
+        "properties": {
+          "reviewer": { "type": "string", "minLength": 1 },
+          "reviewedAt": { "type": "string", "format": "date-time" },
+          "entity": { "$ref": "#/$defs/semanticAxis" },
+          "preparation": { "$ref": "#/$defs/semanticAxis" },
+          "population": { "$ref": "#/$defs/semanticAxis" },
+          "endpoint": { "$ref": "#/$defs/semanticAxis" },
+          "conclusion": { "$ref": "#/$defs/semanticAxis" }
+        }
       },
-      "usageContext": {
-        "type": "string"
-      },
-      "safetyContext": {
-        "type": "string"
-      },
-      "mechanismContext": {
-        "type": "string"
-      },
-      "traditionalUseContext": {
-        "type": "string"
-      },
-      "uncertaintyNote": {
-        "type": "string"
-      },
-      "reviewer": {
-        "type": "string",
-        "minLength": 1
-      },
-      "reviewedAt": {
-        "type": "string",
-        "format": "date-time"
-      },
+      "reviewer": { "type": "string", "minLength": 1 },
+      "reviewedAt": { "type": "string", "format": "date-time" },
       "reviewStatus": {
         "type": "string",
         "enum": [
@@ -166,22 +160,14 @@
           "deprecated_submission"
         ]
       },
-      "approvalNotes": {
-        "type": "string"
-      },
+      "approvalNotes": { "type": "string" },
       "revisionReasons": {
         "type": "array",
-        "items": {
-          "type": "string",
-          "minLength": 1
-        }
+        "items": { "type": "string", "minLength": 1 }
       },
       "rejectedReasons": {
         "type": "array",
-        "items": {
-          "type": "string",
-          "minLength": 1
-        }
+        "items": { "type": "string", "minLength": 1 }
       },
       "editorialStatus": {
         "type": "string",
@@ -197,40 +183,18 @@
           "deprecated"
         ]
       },
-      "active": {
-        "type": "boolean"
-      }
+      "active": { "type": "boolean" }
     },
     "allOf": [
       {
-        "if": {
-          "properties": {
-            "entityType": {
-              "const": "surface"
-            }
-          }
-        },
+        "if": { "properties": { "entityType": { "const": "surface" } } },
         "then": {
-          "properties": {
-            "surfaceId": {
-              "type": "string",
-              "minLength": 1
-            }
-          },
-          "required": [
-            "surfaceId"
-          ]
+          "properties": { "surfaceId": { "type": "string", "minLength": 1 } },
+          "required": ["surfaceId"]
         },
         "else": {
-          "properties": {
-            "entitySlug": {
-              "type": "string",
-              "minLength": 1
-            }
-          },
-          "required": [
-            "entitySlug"
-          ]
+          "properties": { "entitySlug": { "type": "string", "minLength": 1 } },
+          "required": ["entitySlug"]
         }
       }
     ]
