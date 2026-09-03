@@ -14,7 +14,7 @@ on:
         type: string
 
 concurrency:
-  group: ci-${{ github.ref }}
+  group: ci-v2-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
