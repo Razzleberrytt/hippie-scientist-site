@@ -92,12 +92,12 @@ function promotionDecisions() {
   })
 }
 
-function adjudicationKinds(reasons = []) {
-  const kinds = []
-  if (reasons.some(reason => reason === 'source_missing_from_registry' || reason === 'source_inactive')) kinds.push('source_admission')
-  if (reasons.some(reason => reason === 'semantic_missing' || reason === 'semantic_incomplete')) kinds.push('semantic_attestation')
-  if (reasons.includes('not_approved_for_rollup')) kinds.push('scientific_editorial_adjudication')
-  return kinds
+function adjudicationKinds(decision) {
+  const status = decision.adjudication?.status
+  if (status === 'pending_source_admission') return ['source_admission']
+  if (status === 'pending_semantic_adjudication') return ['semantic_attestation']
+  if (status === 'pending_evidence_receipt') return ['semantic_evidence_receipt', 'scientific_editorial_adjudication']
+  return ['scientific_editorial_adjudication']
 }
 
 function buildAutomatedAdjudicationQueue(decisions = promotionDecisions()) {
@@ -119,8 +119,10 @@ function buildAutomatedAdjudicationQueue(decisions = promotionDecisions()) {
         evidenceClass: submission.evidenceClass ?? null,
         route: decision.route,
         semantic: decision.semantic,
-        adjudicationKinds: adjudicationKinds(decision.adjudicationReasons),
-        reasons: decision.adjudicationReasons,
+        adjudicationStatus: decision.adjudication?.status ?? null,
+        adjudicationKinds: adjudicationKinds(decision),
+        blockerReasons: decision.adjudicationReasons,
+        evidenceDebtReasons: decision.adjudication?.reasons ?? [],
         canContinueResearch: decision.canContinueResearch,
         requiredChecks: [
           'bibliographic_identity',
@@ -133,7 +135,15 @@ function buildAutomatedAdjudicationQueue(decisions = promotionDecisions()) {
           'publication_integrity',
           'claim_boundary_overclaim_risk',
         ],
-        unresolvedPolicy: 'second_pass_then_quarantine_never_ask_owner_to_judge_science',
+        evidenceReceiptRequirements: {
+          reviewer: 'enrichment-adjudicator',
+          confidence: 'high_or_numeric_gte_0.85',
+          reviewedAt: 'valid_iso_datetime',
+          axes: ['entity','preparation','population','endpoint','conclusion'],
+          matchedAxisRequires: ['reason_min_12_chars','evidenceRefs_nonempty'],
+          notApplicableAxisRequires: ['reason_min_12_chars'],
+        },
+        unresolvedPolicy: 'bounded_second_pass_then_quarantine_never_ask_owner_to_judge_science',
       }
     })
     .sort((a,b) => String(a.workpackId ?? '').localeCompare(String(b.workpackId ?? '')) || a.submissionId.localeCompare(b.submissionId))
