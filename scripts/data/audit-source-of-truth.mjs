@@ -30,7 +30,18 @@ const NEVER_BLOCK_PATHS = new Set([
   'next.config.mjs',
   'data/goals.ts',
   'pagefind.yml',
+  // Lighthouse CI configuration. These list route URLs to audit, so the herb and
+  // compound paths in them trip the entity-content heuristic — but they are CI
+  // config, not a content source. `.lighthouserc.json` was already allowed and its
+  // four siblings were simply missed when they were added.
   '.lighthouserc.json',
+  '.lighthouserc.a11y.json',
+  '.lighthouserc.a11y.pr.json',
+  '.lighthouserc.desktop.json',
+  '.lighthouserc.pr.json',
+  // Root TypeScript declarations. The `types/` directory is already a never-block
+  // prefix; this file is the same thing at the repo root.
+  'types.ts',
   'content-collections.ts',
   'mdx-components.tsx',
   'security/audit-allowlist.json',
@@ -47,6 +58,10 @@ const NEVER_BLOCK_PATHS = new Set([
 ])
 const NEVER_BLOCK_PREFIXES = [
   'src/lib/', 'lib/', 'scripts/', '.github/', 'types/', 'utils/', 'config/', 'data/', 'agent/', 'agent-tools/',
+  // Cloudflare Pages Functions — runtime request handlers, the same class as lib/
+  // and config/ above. They reference herb and safety routes because that is what
+  // they serve, not because they duplicate the workbook.
+  'functions/',
   // Redirect-mapping files (URL slug -> URL slug), not entity content.
   'public/redirect-overrides/',
   // Applied/proposed workbook-patch ledger, independently validated end-to-end
@@ -84,7 +99,10 @@ function walk(dir) {
   while (stack.length) {
     const current = stack.pop()
     for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
-      if (entry.name === 'node_modules' || entry.name === '.git' || entry.name === '.claude' || entry.name === 'dist' || entry.name === '.next' || entry.name === 'out' || entry.name === 'scratch' || entry.name === '.content-collections') continue
+      // `.build-cache` holds the build cache manifest, which is gitignored and
+      // rebuilt on every run; scanning it reported a cache manifest as an
+      // unapproved content source.
+      if (entry.name === 'node_modules' || entry.name === '.git' || entry.name === '.claude' || entry.name === 'dist' || entry.name === '.next' || entry.name === 'out' || entry.name === 'scratch' || entry.name === '.content-collections' || entry.name === '.build-cache') continue
       const abs = path.join(current, entry.name)
       if (entry.isDirectory()) stack.push(abs)
       else out.push(abs)
