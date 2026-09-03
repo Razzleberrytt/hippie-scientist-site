@@ -129,6 +129,18 @@
       "rationale": "openai is used only by the separate AI enrichment agent pipeline (npm run agent:run), which is run manually/offline to generate patch files and is never part of the site build, the static-export output, or any shipped runtime code path. It is flagged through a transitive dependency. Interim allowlist until openai can be bumped in the agent tooling."
     },
     {
+      "id": "toml-content-collections-build-only-2026-09",
+      "package": "toml",
+      "severity": "high",
+      "expiresOn": "2026-09-13",
+      "advisoryUrls": [
+        "https://github.com/advisories/GHSA-82x6-q7mm-w9cf",
+        "https://github.com/advisories/GHSA-v5mp-jgw5-2x6j"
+      ],
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/5108",
+      "rationale": "npm currently reports toml 3.0.0 through @content-collections/mdx -> mdx-bundler -> remark-mdx-frontmatter, whose package pins toml ^3.0.0; npm reports fixAvailable=false for the affected parent chain. The parser is used only during trusted static content/MDX generation from repository-owned source files and is not shipped in the static export or exposed to user-supplied runtime TOML. This exception is limited to the two named TOML advisories and expires quickly while upstream compatibility with a patched TOML major is evaluated. Any other high/critical TOML advisory remains fail-closed."
+    },
+    {
       "id": "brace-expansion-advisory-metadata-backport-2026-09",
       "package": "brace-expansion",
       "severity": "high",
