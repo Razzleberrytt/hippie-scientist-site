@@ -281,6 +281,34 @@ npm run audit:safety            # Safety fill-rate audit
 npm run audit:source-of-truth   # Strict source-of-truth audit
 ```
 
+### Crawl-budget recovery
+
+Search Console reported 1,995 `Not found (404)` and 734 `Page with redirect` URLs
+against a site that publishes ~780 indexable pages, so most of Googlebot's crawl
+budget goes to URLs that no longer exist. Recovery had been manual — see
+`public/redirect-overrides/020-gsc-404-recovery-2026-08-27.txt`, 58 paths mapped by
+hand — which does not scale to two thousand.
+
+```bash
+# 1. Search Console → Page indexing → "Not found (404)" → EXPORT (CSV)
+# 2. Build first: triage matches against routes that actually exist in out/
+npm run build
+npm run seo:triage-404 -- --input=path/to/export.csv
+# 3. Review ops/seo/404-triage-review.tsv, then re-run with --apply
+```
+
+Writes confident rules to `ops/seo/404-triage-redirects.txt`, a review queue to
+`ops/seo/404-triage-review.tsv`, and a full report to
+`ops/seo/404-triage-report.json`. `--apply` copies the confident rules into
+`public/redirect-overrides/`; nothing ever writes `public/_redirects` directly.
+
+**URLs with no live equivalent are deliberately left as 404.** Bulk-redirecting
+unrelated dead URLs to a hub page is read by Google as a soft 404 — it burns the
+same crawl budget, dilutes the hub's relevance, and can suppress the hub itself. A
+404 for a page that genuinely no longer exists is the correct answer. The tool also
+refuses to emit a rule from a path to itself, and will not cross sections when
+fixing a typo.
+
 ### Data pipeline scripts (individual steps)
 ```bash
 npm run data:build:core         # Core parse: workbook → herbs.json, compounds.json, indexes, search
