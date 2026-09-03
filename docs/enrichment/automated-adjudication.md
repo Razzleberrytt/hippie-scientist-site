@@ -20,11 +20,60 @@ For every adjudication task, independently inspect enough authoritative evidence
 8. **Publication integrity** — retraction, expression of concern, correction, withdrawal, supersession, and identity anomalies are checked when relevant.
 9. **Claim boundary / overclaim risk** — no mechanism→clinical, preclinical→human, adjacent-population, combination→monotherapy, or studied-dose→consumer-dose inheritance.
 
+## Evidence receipt required for auto-approval
+
+A new AI adjudication cannot become promotion-eligible from five bare `matched` flags. The semantic attestation must include an evidence receipt:
+
+- top-level `reviewer: "enrichment-adjudicator"`;
+- valid ISO `reviewedAt`;
+- `confidence: "high"` or numeric confidence `>= 0.85`;
+- all five axes: `entity`, `preparation`, `population`, `endpoint`, `conclusion`;
+- every axis contains a substantive `reason` (minimum 12 characters);
+- every `matched` axis contains at least one `evidenceRefs[]` entry pointing to the source/receipt used to make the decision;
+- `not_applicable` axes still require a substantive reason explaining why that dimension does not gate the proposition.
+
+Example shape:
+
+```json
+{
+  "reviewer": "enrichment-adjudicator",
+  "reviewedAt": "2026-09-03T20:00:00.000Z",
+  "confidence": "high",
+  "entity": {
+    "status": "matched",
+    "reason": "The intervention is the exact canonical compound studied in the source.",
+    "evidenceRefs": ["src_example"]
+  },
+  "preparation": {
+    "status": "matched",
+    "reason": "The staged statement preserves the extract/formulation boundary.",
+    "evidenceRefs": ["src_example"]
+  },
+  "population": {
+    "status": "matched",
+    "reason": "The staged population matches the human participants in the study.",
+    "evidenceRefs": ["src_example"]
+  },
+  "endpoint": {
+    "status": "matched",
+    "reason": "The source directly measured the endpoint described by the finding.",
+    "evidenceRefs": ["src_example"]
+  },
+  "conclusion": {
+    "status": "matched",
+    "reason": "The staged direction preserves positive, null, mixed, and uncertainty details.",
+    "evidenceRefs": ["src_example"]
+  }
+}
+```
+
+Existing findings that already passed the prior governed `approved_for_rollup` path are not forced to acquire retroactive AI receipts merely to remain valid. The stricter receipt requirement applies when automation substitutes for a pending scientific/editorial review.
+
 ## Decision policy
 
 The reviewer may resolve an item to:
 
-- `approved_for_rollup` only when source identity and every proposition-critical semantic dimension are sufficiently supported;
+- automated approval only when the source is active/current, source evidence class is compatible, every proposition-critical semantic dimension is verified, and the evidence receipt above is complete;
 - `rejected` / `not_promoted` when the source is real but does not support the proposed proposition;
 - `quarantined` when source identity or semantic identity is mismatched or contaminated;
 - an explicit unresolved hold only when the evidence remains genuinely ambiguous after the second-pass rule below.
@@ -44,7 +93,7 @@ Do not ask Willie to decide the science. An unresolved scientific question is a 
 
 ## Independence and bot identity
 
-Existing governed automated reviewer identities such as `source-review-bot` may be used where the current source-governance path already supports them. Automated adjudication must reuse existing source-registry, semantic-attestation, enrichment-governor, normalized-data, and release contracts rather than inventing a second factual authority.
+Existing governed automated reviewer identities such as `source-review-bot` may be used where the current source-governance path already supports them. Semantic auto-approval uses the explicit `enrichment-adjudicator` receipt above. Automated adjudication must reuse existing source-registry, semantic-attestation, enrichment-governor, normalized-data, and release contracts rather than inventing a second factual authority.
 
 ## Throughput rule
 
