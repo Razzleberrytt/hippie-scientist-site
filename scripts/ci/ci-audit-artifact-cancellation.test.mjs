@@ -3,7 +3,7 @@ import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 
 const source = fs.readFileSync(path.join(process.cwd(), '.github/workflows/ci.yml'), 'utf8')
-const rawAuditStep = source.match(/- name: Generate raw npm audit JSON[\s\S]*?(?=\n      - name: Upload audit artifact)/u)?.[0] || ''
+const rawAuditStep = source.match(/- name: Generate raw npm audit JSON[\s\S]*?(?=\n {6}- name: Upload audit artifact)/u)?.[0] || ''
 
 describe('CI raw audit artifact cancellation contract', () => {
   it('does not keep a cancelled superseded CI run alive', () => {
