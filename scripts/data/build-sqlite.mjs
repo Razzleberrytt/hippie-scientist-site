@@ -5,6 +5,7 @@
 // (no native dependency, no hosted service).
 
 import fs from 'node:fs'
+import { pathToFileURL } from 'node:url'
 import { DatabaseSync } from 'node:sqlite'
 import { loadDataset } from './canonical/store.mjs'
 import { sqliteDbPath, dbDir } from './canonical/paths.mjs'
@@ -247,7 +248,7 @@ export function buildDatabase({ dbPath = sqliteDbPath } = {}) {
 }
 
 // Run directly (not when imported).
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const { dbPath, counts } = buildDatabase()
   console.log(`✓ built ${dbPath}`)
   console.log(`  entities=${counts.entities} claims=${counts.claims} edges=${counts.edges} sources=${counts.sources}`)

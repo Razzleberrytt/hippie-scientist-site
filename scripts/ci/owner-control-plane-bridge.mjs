@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 
 import { validateLeaseTransactionInput } from '../enrichment-governor/lease-transaction.mjs'
+import { pathToFileURL } from 'node:url'
 
 const GOVERNOR_PREFIX = '/governor '
 const METRICOOL_PREFIX = '/publish-metricool '
@@ -273,7 +274,7 @@ async function main() {
   throw new Error('Usage: owner-control-plane-bridge.mjs parse-governor|parse-metricool|validate-ready')
 }
 
-if (process.argv[1] && new URL(import.meta.url).pathname === new URL(`file://${process.argv[1]}`).pathname) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch(error => {
     console.error(error.message)
     process.exitCode = 1

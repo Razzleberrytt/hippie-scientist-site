@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { pathToFileURL } from 'node:url'
 
 const DEFAULT_ORIGIN = 'https://thehippiescientist.net'
 
@@ -97,7 +98,7 @@ async function main() {
   throw new Error('Usage: node scripts/ci/deployment-receipt.mjs <write|verify>')
 }
 
-const isMain = process.argv[1] && new URL(import.meta.url).pathname === new URL(`file://${process.argv[1]}`).pathname
+const isMain = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href
 if (isMain) {
   main().catch((error) => {
     console.error(error?.stack || error)

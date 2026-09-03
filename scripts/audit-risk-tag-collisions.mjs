@@ -20,6 +20,7 @@
 // deliberate CI gate once the allowlist has proven itself over time).
 
 import { assertWorkbookExists, resolveWorkbookPath } from './workbook-source.mjs'
+import { pathToFileURL } from 'node:url'
 import { getSheet, readWorkbook, sheetToRows } from './data/workbook-parser.mjs'
 import { KEYWORDS } from './data/build-interaction-data.mjs'
 
@@ -172,6 +173,6 @@ async function main() {
   process.exit(strict && (findings.length > 0 || weakFindings.length > 0) ? 1 : 0)
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main()
 }

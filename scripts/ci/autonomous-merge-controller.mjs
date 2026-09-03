@@ -1,4 +1,5 @@
 import fs from 'node:fs'
+import { pathToFileURL } from 'node:url'
 
 const API_ROOT = process.env.GITHUB_API_URL || 'https://api.github.com'
 const GOOD_CONCLUSIONS = new Set(['success', 'neutral', 'skipped'])
@@ -573,7 +574,7 @@ async function main() {
   else await followOnePr()
 }
 
-const isMain = process.argv[1] && new URL(import.meta.url).pathname === new URL(`file://${process.argv[1]}`).pathname
+const isMain = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href
 if (isMain) {
   main().catch((error) => {
     console.error(error?.stack || error)

@@ -4,6 +4,7 @@
 //   OR run standalone: node build_interaction_data.mjs <workbook.xlsx> <outDir>
 import { readFileSync } from 'node:fs';
 import { writeFileSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 
 export const KEYWORDS = {
   serotonergic:      ['seroton','ssri','snri','maoi'],
@@ -186,7 +187,7 @@ export function validate({ edges, tags }) {
 }
 
 // standalone runner
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const [,, wbPath = 'herb_monograph_master.xlsx', outDir = '.'] = process.argv;
   const XLSX = await import('xlsx');
   const wb = XLSX.read(readFileSync(wbPath), { type: 'buffer' });
