@@ -25,6 +25,6 @@ describe('functional mushrooms legacy route consolidation', () => {
   it('keeps redirected article fallbacks fail-closed for indexing', () => {
     const articleRoute = read(ARTICLE_ROUTE)
     expect(articleRoute).toContain('withRedirectSourceMetadata')
-    expect(articleRoute).toContain("`/articles/${article.slug}/`")
+    expect(articleRoute).toContain("`/articles/${page.slug}/`")
   })
 })
