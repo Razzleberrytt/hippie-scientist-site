@@ -10,6 +10,7 @@ import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 import References from '@/components/References'
 import ComparisonVerdict from '@/components/editorial/ComparisonVerdict'
+import SleepResearchNextActions from '@/components/SleepResearchNextActions'
 
 const CANONICAL_PATH = '/guides/sleep/magnesium-vs-melatonin/'
 const route = 'guides/magnesium-vs-melatonin'
@@ -247,6 +248,9 @@ export default function MagnesiumVsMelatoninGuidePage() {
         </section>
       </div>
 
+      <div className="mt-6">
+        <SleepResearchNextActions />
+      </div>
       <EmailCapture location="guides-magnesium-vs-melatonin" className="mt-6" />
     </ArticleLayout>
   )
