@@ -92,7 +92,7 @@ jobs:
           persist-credentials: false
 
       - name: Revalidate current base and merge
-        run: node scripts/ci/autonomous-merge-controller.mjs
+        run: node scripts/ci/autonomous-merge-safe-entry.mjs
 
       - name: Attest controller-authorized merge
         env:
@@ -160,7 +160,7 @@ jobs:
         run: |
           set -euo pipefail
           log_file="$(mktemp)"
-          node scripts/ci/autonomous-merge-controller.mjs | tee "$log_file"
+          node scripts/ci/autonomous-merge-safe-entry.mjs | tee "$log_file"
 
           merge_line="$(grep -E '^Merged PR #[0-9]+ as [0-9a-f]{40}$' "$log_file" | tail -1 || true)"
           if [ -z "$merge_line" ]; then
