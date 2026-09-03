@@ -10,10 +10,12 @@ describe('CI raw audit artifact cancellation contract', () => {
     expect(rawAuditStep).toContain('always() && !cancelled()')
   })
 
-  it('bounds artifact-only npm audit network wait', () => {
-    expect(rawAuditStep).toContain('timeout-minutes: 2')
+  it('bounds artifact-only npm audit without turning timeout into a CI failure', () => {
+    expect(rawAuditStep).not.toContain('timeout-minutes:')
+    expect(rawAuditStep).toContain('timeout --signal=TERM --kill-after=10s 110s npm audit --json')
     expect(rawAuditStep).toContain("NPM_CONFIG_FETCH_TIMEOUT: '60000'")
     expect(rawAuditStep).toContain("NPM_CONFIG_FETCH_RETRIES: '1'")
-    expect(rawAuditStep).toContain('npm audit --json')
+    expect(rawAuditStep).toContain('audit_status=$?')
+    expect(rawAuditStep).toContain('exit 0')
   })
 })
