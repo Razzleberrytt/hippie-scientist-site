@@ -2,19 +2,19 @@
   "version": 1,
   "leases": [
     {
-      "id": "lease-5021-vitamin-b6-closure",
-      "owner": "site-swarm-integration",
-      "purpose": "close staged Vitamin B6 evidence and neuropathy safety calibration",
+      "id": "lease-5071-propionate-closure",
+      "owner": "site-swarm-lane-2",
+      "purpose": "Terminally disposition Propionate MS evidence after fresh PMID 42402345 review",
       "files": [],
       "entities": [
-        "compound:vitamin-b6"
+        "compound:propionate"
       ],
-      "acquiredAt": "2026-09-02T00:43:33.760Z",
-      "expiresAt": "2026-09-02T02:13:33.760Z"
+      "acquiredAt": "2026-09-03T13:08:15.702Z",
+      "expiresAt": "2026-09-03T14:38:15.702Z"
     }
   ],
   "queued": [],
   "batched": [],
   "blocked": [],
-  "updatedAt": "2026-09-02T00:43:33.760Z"
+  "updatedAt": "2026-09-03T13:08:15.702Z"
 }

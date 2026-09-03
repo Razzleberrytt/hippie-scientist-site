@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "transactionType": "enrichment_governor_lease",
+  "requestedAt": "2026-09-03T13:08:15.762Z",
+  "operation": "acquire",
+  "actor": "github-actions[bot]",
+  "owner": "site-swarm-lane-2",
+  "leaseId": "lease-5071-propionate-closure",
+  "purpose": "Terminally disposition Propionate MS evidence after fresh PMID 42402345 review",
+  "files": [],
+  "entities": [
+    "compound:propionate"
+  ],
+  "disposition": null,
+  "baseSha": "7b110d7a19c51e08de3d3b112ac36e96824bfd27",
+  "before": {
+    "workQueueSha256": "762b8508c81fc8746b2e21ed5e34b9541e6c44c82307d7c346fb0a2ff8a663f0",
+    "ledgerSha256": "954915af0b42e15b6a8252097b17c275de54291aa8435bb2749a17b3da8a56fa"
+  },
+  "after": {
+    "workQueueSha256": "b5aebf6cc449476af7e0c74576f0e39169ba3af215e4786310bbe22aa9b82db1",
+    "ledgerSha256": "c2b16122fe8a72d455107540b2954bef5ddd605f626027d705c06d7073d35219"
+  },
+  "result": {
+    "acquired": true,
+    "expiresAt": "2026-09-03T14:38:15.702Z"
+  },
+  "transactionCommitSha": null
+}
