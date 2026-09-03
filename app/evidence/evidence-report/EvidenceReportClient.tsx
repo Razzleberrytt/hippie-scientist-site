@@ -254,6 +254,8 @@ export default function EvidenceReportClient({ datasetVersion, citationText, met
         <div className="mt-5 flex flex-wrap gap-4 text-sm font-semibold">
           <Link href="/info/editorial-policy/" className="text-brand-700 hover:underline">Methodology &amp; inclusion rules →</Link>
           <Link href="/evidence/evidence-report/changelog/" className="text-brand-700 hover:underline">Dataset changelog →</Link>
+          <Link href="/evidence/evidence-report/compare/" className="text-brand-700 hover:underline">Year-over-year comparison →</Link>
+          <Link href="/evidence/evidence-report/2026/" className="text-brand-700 hover:underline">Archived 2026 edition →</Link>
           <Link href="/info/corrections/" className="text-brand-700 hover:underline">Submit a correction →</Link>
           <Link href="/learn/citation-explorer/" className="text-brand-700 hover:underline">Search the studies →</Link>
         </div>
