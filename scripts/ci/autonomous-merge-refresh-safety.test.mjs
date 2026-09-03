@@ -4,7 +4,11 @@ import { describe, expect, it } from 'vitest'
 import { canAutoRefreshPr } from './autonomous-merge-controller.mjs'
 
 const source = fs.readFileSync(path.join(process.cwd(), 'scripts/ci/autonomous-merge-controller.mjs'), 'utf8')
-const refreshFunction = source.match(/async function refreshPrAndDispatch[\s\S]*?\n}\n\nasync function recoverZeroJobActionRequired/u)?.[0] || ''
+const refreshStart = source.indexOf('async function refreshPrAndDispatch')
+const refreshEnd = source.indexOf('\nasync function recoverZeroJobActionRequired', refreshStart)
+const refreshFunction = refreshStart >= 0 && refreshEnd > refreshStart
+  ? source.slice(refreshStart, refreshEnd)
+  : ''
 
 describe('autonomous merge workflow refresh safety', () => {
   it('refuses update-branch for any PR that changes workflow control files', () => {
