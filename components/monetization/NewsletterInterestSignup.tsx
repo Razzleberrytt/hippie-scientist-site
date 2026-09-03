@@ -8,14 +8,15 @@ type InterestOption = {
   label: string
   goal: Extract<EmailCaptureGoal, 'sleep' | 'stress' | 'anxiety' | 'focus' | 'default'>
   description: string
+  captureTitle: string
 }
 
 const INTEREST_OPTIONS: readonly InterestOption[] = [
-  { label: 'Sleep', goal: 'sleep', description: 'Sleep quality, timing, forms, and next-day tradeoffs.' },
-  { label: 'Stress', goal: 'stress', description: 'Calming, adaptogen-style research, and stress-related tradeoffs.' },
-  { label: 'Anxiety', goal: 'anxiety', description: 'Cautious evidence and safety context for anxiety-adjacent research.' },
-  { label: 'Focus', goal: 'focus', description: 'Attention, cognition, stimulation, and non-stimulant approaches.' },
-  { label: 'General research', goal: 'default', description: 'The broad evidence digest rather than one topic lane.' },
+  { label: 'Sleep', goal: 'sleep', description: 'Sleep quality, timing, forms, and next-day tradeoffs.', captureTitle: 'Follow sleep research' },
+  { label: 'Stress', goal: 'stress', description: 'Calming, adaptogen-style research, and stress-related tradeoffs.', captureTitle: 'Follow stress research' },
+  { label: 'Anxiety', goal: 'anxiety', description: 'Cautious evidence and safety context for anxiety-adjacent research.', captureTitle: 'Follow anxiety research' },
+  { label: 'Focus', goal: 'focus', description: 'Attention, cognition, stimulation, and non-stimulant approaches.', captureTitle: 'Follow focus research' },
+  { label: 'General research', goal: 'default', description: 'The broad evidence digest rather than one topic lane.', captureTitle: 'Follow general research' },
 ]
 
 export default function NewsletterInterestSignup() {
@@ -56,7 +57,7 @@ export default function NewsletterInterestSignup() {
         goal={selected.goal}
         variant='wide'
         className='mt-6'
-        title={`Follow ${selected.label.toLowerCase()} research`}
+        title={selected.captureTitle}
         description='Subscribe or update this email address so future evidence notes can be selected for this research-interest lane.'
       />
     </section>

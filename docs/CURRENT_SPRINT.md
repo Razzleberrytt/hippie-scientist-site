@@ -2,10 +2,10 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-08-31
+**Updated:** 2026-09-03
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub reconciliation at `4461ac4c59aa48bafca85125f86e4a37e6ee4610` on 2026-09-02 records 0/3 normal implementation workstreams occupied. #4992 / PR #5016 completed the governed Propionate closure, post-merge Session E bootstrap proved 4/4 terminal promoted findings with 0 pending, and PR #5020 released the verified lease. Authority/Content, Revenue/Conversion, and Discovery/SEO are free. #5021 is the first Ready-next Authority/Content candidate; canonical Vitamin B6 mutation still requires a narrow `compound:vitamin-b6` governor lease. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP.
+**Current admission:** Live GitHub reconciliation at `70ba137cbfec444557ad8c8b7ff0656f35651b61` on 2026-09-03 records 0/3 normal implementation workstreams occupied. #5021 / PR #5028 completed and deployed the governed Vitamin B6 closure with five promoted findings plus one governed non-promotion. PR #5084 merged the AI-citation asset-identity protection infrastructure and does not occupy normal WIP. Authority/Content, Revenue/Conversion, and Discovery/SEO are free. #5031 is now the first Ready-next Revenue/Conversion candidate because it is a deterministic live newsletter-capture trust defect with a tiny blast radius and no scientific/provider dependency. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -54,9 +54,9 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
 
-- **Revenue/Conversion:** free. #4732 / PR #4734 is merged/closed; provider configuration, credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown.
-- **Authority/Content:** free after #4992 / PR #5016 completed and verified lease-release PR #5020 merged. #5021 is Ready next for governed Vitamin B6 evidence/safety closure; implementation remains blocked until a narrow `compound:vitamin-b6` lease is acquired.
-- **Discovery/SEO:** free. #4949 and #4951 are closed; PR #4952 merged the comparison-hub discovery repair plus canonical `/evidence/` and `/info/` sitemap/redirect alignment. Post-merge release and deploy checks passed.
+- **Revenue/Conversion:** free. #5031 is Ready next for the deterministic newsletter-interest CTA repair; implementation must preserve provider, analytics, privacy, tagging, and scientific boundaries.
+- **Authority/Content:** free after #5021 / PR #5028 completed the governed Vitamin B6 evidence/safety closure and post-merge verification.
+- **Discovery/SEO:** free after PR #5084 merged AI-citation asset-identity protection. Fresh page-level citation telemetry is still required before any winner ledger can be populated.
 
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
 
@@ -68,9 +68,9 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 | Order | Candidate | Workstream | Admission state | Proof required before implementation |
 |---:|---|---|---|---|
-| 1 | #5021 | Authority/Content | Ready next — governor lease required | Fresh Session F bootstrap; acquire narrow `compound:vitamin-b6` lease, verify/register journal sources, terminally govern all six staged findings, preserve neuropathy dose/duration boundaries and null/low-quality evidence, then prove post-merge Session F closure. |
+| 1 | #5031 | Revenue/Conversion | Ready next | Re-fetch exact main and lane overlap; implement the explicit `captureTitle` presentation contract in `NewsletterInterestSignup`; add focused state/a11y regression coverage; preserve provider action, payload/tag semantics, privacy copy, analytics events, lead-magnet behavior, scientific content, and SEO/IA; pass exact-head required gates; verify `/info/newsletter/` after deploy. |
 
-Discovery/SEO is free after #4949 and #4951 closed through merged PR #4952. No stale SEO item is promoted merely to fill the slot; any future admission still requires current evidence and this queue.
+Authority/Content and Discovery/SEO are free. No stale item is promoted merely to fill a slot; any future admission still requires current evidence and this queue.
 
 ## Control hardening — merged implementation, observed use still gated
 
@@ -88,14 +88,14 @@ Discovery/SEO is free after #4949 and #4951 closed through merged PR #4952. No s
 | REV-001 / #4280 | Production analytics receipt | Code readiness merged; production GA4/Ahrefs configuration/event receipt remains Unknown | Obtain authorized environment/property/network/DebugView evidence without exposing secrets |
 | SEO-004 | 28-day GSC baseline | No authorized fixed-window export in repo | Supply authorized Search Console access/export and record exact dates |
 | REV-002 | Aligned funnel/revenue baseline | Cross-source baseline incomplete | Reconcile GA4/GSC/Amazon/Mailchimp once source access exists; partial source-level observations remain explicitly partial |
-| #4014 | `main` branch protection/ruleset | Repository enforcement is not proven | Apply/verify required settings with authorized repository-settings access |
+| #4014 | `main` branch protection/ruleset | GitHub currently reports provider-side protection disabled | Apply/verify required settings with authorized repository-settings access; enforcement code alone does not close this incident |
 | #4341 | Recurring Cloudflare production failure class | Repository-side checks do not expose root-cause logs | Inspect failed production deployment logs; repair only if a deterministic repository/config cause is identified |
 
 ## Additional fallback work when every named candidate above is blocked
 
 Promote only after checking overlap, current exact-main state, source freshness, and the canonical governor/lease/provenance contract.
 
-No fallback ticket is currently promoted. #4260 is completed and retired; the next admission requires a fresh authoritative queue decision.
+No fallback ticket is currently promoted. #5076 remains a prepared Revenue/Conversion candidate behind #5031 and is not implementation-authorized by this sentence.
 
 ## Sprint exit conditions
 
@@ -116,6 +116,8 @@ The sprint exits only when all of the following are true or have a precise exter
 
 ## Recently retired from this sprint
 
+- **#5021 / PR #5028:** merged as `27613f9fba936c78cb024d1381811d2b2da159c9`; five Vitamin B6 findings were governed promoted and one was governed non-promoted, with neuropathy dose/duration boundaries retained, generic dose placeholders removed, recommendation/monetization/indexing fail-closed, and post-merge deployment verification completed. This is scientific-governance throughput, not traffic or revenue proof.
+- **PR #5084:** merged as `70ba137cbfec444557ad8c8b7ff0656f35651b61`; AI-citation asset-identity protection is on main. The ledger intentionally remains awaiting fresh page-level telemetry rather than inventing winner URLs from partial query exports.
 - **#4992 / PR #5016 / PR #5020:** Propionate closure merged as `523ba9323dd3506e51f2d1aaab53b6d0a2e49aa5`; post-merge Session E bootstrap proved 4 findings terminal/promoted with 0 pending, and verified state-only lease release merged as `4461ac4c59aa48bafca85125f86e4a37e6ee4610`. No generic efficacy, consumer-dose, or business outcome is inferred.
 - **#4266 / PR #4972:** merged as `8aba655daae2aba8d07cd2ba6f32ed52f8f3b498`; registered PMID 41943502 / DOI 10.1002/ptr.70315, added three formulation- and population-bounded KSM-66 safety records, regenerated the governed rollup, and added exact regression coverage without creating an efficacy or general-dose claim. All required exact-head checks passed; PR #4976 subsequently released the governed lease. The optional Cloudflare preview remained in progress at merge and no production outcome is inferred.
 - **#4949 / #4951 / PR #4952:** merged as `0c667ca7bd9bf49279594e7df79a806cb4c1237a`; restored direct comparison-hub discovery for the caffeine/L-theanine route, aligned canonical `/evidence/` and `/info/` hubs with sitemap and redirect ownership, and preserved historical audit exports with canonical-source tombstones. Exact-head and post-merge required checks, Cloudflare Pages, and deploy passed. This proves deterministic crawl/release recovery, not traffic, ranking, indexing, analytics, or revenue outcomes.
