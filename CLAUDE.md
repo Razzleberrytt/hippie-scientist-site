@@ -132,10 +132,25 @@ Patches do **not** modify `public/data` directly. See `docs/agent-integration-gu
 - ESLint enforces enhanced a11y rules on `app/**/*`, `components/**/*`, and `lib/**/*`
 
 ```bash
-npm run test                     # All tests
+npm run test                     # Vitest only — does NOT cover the node:test suites
+npm run test:node                # Native node:test suites (14 files, ~75 assertions)
+npm run test:all                 # Both runners — use this before pushing
 npm run test:a11y                # A11y tests only
 npx vitest run app/__tests__/a11y.test.tsx  # Single file
 ```
+
+**Two runners, and `npm run test` only covers one.** `vitest.config.ts` excludes
+`scripts/enrichment-governor/__tests__/` and `scripts/content/__tests__/` because Vite
+tries to bundle the prefix-only `node:test` builtin rather than handing those files to
+the intended runner. Those suites plus
+`scripts/ci/owner-control-plane-bridge.contract.mjs` are executed in CI by four separate
+workflows, so a failure there is invisible to `npm run test` — that is how a broken
+governor test reached main. `npm run test:node` discovers suites by looking for a real
+top-level `import ... from 'node:test'`, so new ones are picked up automatically.
+
+The inverse matters too: specs importing `describe`/`it`/`expect` from vitest must never
+be run under `node --test`. That loads vitest's runner uninitialized and fails with
+`Cannot read properties of undefined (reading 'config')`.
 
 ## Validation & Quality Gates
 

@@ -63,7 +63,18 @@ test('Propionate closure registers exact source identities and calibrated canoni
   assert.ok(iprevent.some(item => item.topicType === 'research_gap' && /not make these interventions interchangeable/.test(item.findingTextNormalized)))
 })
 
-test('Propionate staged Session E findings are terminally promoted', () => {
+// The lock this test exists for is that the four attested Session E findings stay
+// terminally promoted and never silently regress to staged.
+//
+// It deliberately does NOT assert the workpack is closed. `closure_required` is the
+// resting state of every workpack in the repository — propionate is the only one with
+// any promoted findings at all — so staging further research legitimately reopens it.
+// Asserting `completed === true` conflated "these four stayed promoted" with "nobody
+// may study propionate again", and broke the moment the MS-biomarker submissions were
+// staged in #4990. Promoting those newer findings is a governance act: it needs
+// src_pubmed-42402345 registered and attested by a person, and until that happens the
+// pipeline is right to hold them.
+test('Propionate Session E promotions stay terminal as later research is staged', () => {
   const bySubmission = new Map(attestations.entries.map(item => [item.submissionId, item]))
   for (const submissionId of SUBMISSION_IDS) {
     assert.equal(bySubmission.get(submissionId)?.promotionStatus, 'promoted')
@@ -72,10 +83,10 @@ test('Propionate staged Session E findings are terminally promoted', () => {
   const report = buildSessionBootstrap({ root: process.cwd(), sessionId: 'E', manifest })
   const candidate = report.candidates.find(item => item.workpackId === 'wp_compound_propionate')
   assert.ok(candidate)
-  assert.equal(candidate.completed, true)
-  assert.equal(candidate.closureState, 'terminal_with_promotion')
-  assert.equal(candidate.pendingFindings, 0)
-  assert.ok(candidate.promotedFindings >= 4)
+  assert.ok(candidate.promotedFindings >= SUBMISSION_IDS.length)
+  assert.ok(candidate.terminalFindings >= SUBMISSION_IDS.length)
+  assert.ok(candidate.findingCount >= candidate.terminalFindings)
+  assert.equal(candidate.outcomes.promoted, candidate.promotedFindings)
 })
 
 test('governed Propionate output preserves null/conflict/form boundaries without efficacy or dose inflation', () => {
