@@ -19,7 +19,7 @@ function base(overrides = {}) {
 }
 
 describe('enrichment control plane', () => {
-  it('requires all semantic axes before promotion while keeping review holds research-live', () => {
+  it('requires all semantic axes before promotion while routing unknowns to automated adjudication', () => {
     expect(semanticAttestationStatus(verified)).toBe('verified')
     expect(promotionDecision(base(), { sourceId: 'src_test', active: true }).eligible).toBe(true)
     const incomplete = base({ semanticAttestation: { ...verified, endpoint: { status: 'unknown' } } })
@@ -27,28 +27,28 @@ describe('enrichment control plane', () => {
     expect(decision.eligible).toBe(false)
     expect(promotionBlockerDisposition(decision)).toMatchObject({
       hardBlocked: false,
-      manualReviewPending: true,
+      automatedAdjudicationPending: true,
       canContinueResearch: true,
-      reviewReasons: ['semantic_incomplete'],
+      adjudicationReasons: ['semantic_incomplete'],
     })
   })
 
-  it('keeps source admission and editorial approval pending as side-queue review work', () => {
+  it('routes source admission and editorial approval to automated adjudication', () => {
     const missingSource = promotionDecision(base(), null)
     expect(promotionBlockerDisposition(missingSource)).toMatchObject({
       hardBlocked: false,
-      manualReviewPending: true,
+      automatedAdjudicationPending: true,
       canContinueResearch: true,
     })
-    expect(promotionBlockerDisposition(missingSource).reviewReasons).toContain('source_missing_from_registry')
+    expect(promotionBlockerDisposition(missingSource).adjudicationReasons).toContain('source_missing_from_registry')
 
     const needsEditorial = promotionDecision(base({ reviewStatus: 'needs_review' }), { sourceId: 'src_test', active: true })
     expect(promotionBlockerDisposition(needsEditorial)).toMatchObject({
       hardBlocked: false,
-      manualReviewPending: true,
+      automatedAdjudicationPending: true,
       canContinueResearch: true,
     })
-    expect(promotionBlockerDisposition(needsEditorial).reviewReasons).toContain('not_approved_for_rollup')
+    expect(promotionBlockerDisposition(needsEditorial).adjudicationReasons).toContain('not_approved_for_rollup')
   })
 
   it('quarantines semantic mismatches as hard blocks regardless of review status', () => {
@@ -58,7 +58,7 @@ describe('enrichment control plane', () => {
     expect(decision.eligible).toBe(false)
     expect(promotionBlockerDisposition(decision)).toMatchObject({
       hardBlocked: true,
-      manualReviewPending: false,
+      automatedAdjudicationPending: false,
       canContinueResearch: false,
     })
   })
@@ -83,15 +83,15 @@ describe('enrichment control plane', () => {
     expect(high.score).toBeGreaterThan(low.score)
   })
 
-  it('separates manual-review friction from a true hard workpack block', () => {
-    const reviewPending = scoreWorkpack({ safetyRisk: 5, evidenceGap: 5, expectedYield: 5, manualReviewPending: true })
+  it('separates automated-adjudication latency from a true hard workpack block', () => {
+    const adjudicationPending = scoreWorkpack({ safetyRisk: 5, evidenceGap: 5, expectedYield: 5, automatedAdjudicationPending: true })
     const sameOpen = scoreWorkpack({ safetyRisk: 5, evidenceGap: 5, expectedYield: 5 })
     const hardBlocked = scoreWorkpack({ safetyRisk: 5, evidenceGap: 5, expectedYield: 5, hardBlocked: true })
-    expect(reviewPending.components.manualReviewPenalty).toBe(-4)
-    expect(reviewPending.components.stalePenalty).toBe(0)
-    expect(reviewPending.score).toBe(sameOpen.score - 4)
+    expect(adjudicationPending.components.adjudicationPenalty).toBe(-2)
+    expect(adjudicationPending.components.stalePenalty).toBe(0)
+    expect(adjudicationPending.score).toBe(sameOpen.score - 2)
     expect(hardBlocked.components.stalePenalty).toBe(-100)
-    expect(reviewPending.score).toBeGreaterThan(hardBlocked.score)
+    expect(adjudicationPending.score).toBeGreaterThan(hardBlocked.score)
   })
 
   it('uses safety, gaps, yield and contradiction opportunity in workpack ROI', () => {
