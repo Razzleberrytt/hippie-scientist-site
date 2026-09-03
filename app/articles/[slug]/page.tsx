@@ -17,6 +17,12 @@ import {
   normalizeCitationMetadata,
   resolveRelatedArticles,
 } from '@/lib/article-citation-metadata'
+import {
+  ARTICLE_SOCIAL_CARD_HEIGHT,
+  ARTICLE_SOCIAL_CARD_WIDTH,
+  articleSocialAltText,
+  articleSocialImagePath,
+} from '@/lib/article-social'
 import { SITE_URL, buildPageMetadata, compactMetaTitle } from '../../../lib/seo'
 import { withRedirectSourceMetadata } from '@/lib/redirect-source-metadata'
 import {
@@ -27,11 +33,12 @@ import {
 } from '@/lib/schema-identities'
 
 const articlePages = [...allArticleMonographs, ...allBlogPosts]
-const articleSocialImagePath = (slug: string) => `/media/social/articles/${slug}.jpg`
 
 type PageProps = {
   params: Promise<{ slug: string }>
 }
+
+const articleSocialSourceCount = (references: unknown) => Array.isArray(references) ? references.length : 0
 
 export function generateStaticParams() {
   return articlePages.map((page) => ({ slug: page.slug }))
@@ -42,6 +49,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const page = articlePages.find((item) => item.slug === slug)
   if (!page) return { title: 'Page Not Found', robots: { index: false, follow: true } }
 
+  const socialImage = articleSocialImagePath({
+    slug: page.slug,
+    title: page.title,
+    category: page.category,
+    sourceCount: articleSocialSourceCount(page.references),
+  })
+
   // Some legacy article URLs are 301'd to a guide. Those pages still build, so
   // without this they would claim to be canonical for content that lives
   // elsewhere.
@@ -50,7 +64,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: compactMetaTitle(page.title),
       description: page.description,
       path: `/articles/${page.slug}/`,
-      image: articleSocialImagePath(page.slug),
+      image: socialImage,
       keywords: page.tags,
       openGraphType: 'article',
     }),
@@ -73,6 +87,13 @@ export default async function ArticleMonographPage({ params }: PageProps) {
     sourceCount: articleReferences.length,
     evidenceGrade: page.evidenceGrade,
   })
+  const socialImagePath = articleSocialImagePath({
+    slug: page.slug,
+    title: page.title,
+    category: page.category,
+    sourceCount: articleSocialSourceCount(page.references),
+  })
+  const socialImageUrl = `${SITE_URL}${socialImagePath}`
 
   const sourceAuthor = 'author' in page && typeof page.author === 'string' ? page.author.trim() : ''
   const author = sourceAuthor || AUTHOR_NAME
@@ -95,7 +116,14 @@ export default async function ArticleMonographPage({ params }: PageProps) {
     dateModified: factualUpdated,
     datePublished: page.date ?? factualUpdated,
     mainEntityOfPage: `${SITE_URL}${pagePath}`,
-    image: `${SITE_URL}${articleSocialImagePath(page.slug)}`,
+    image: {
+      '@type': 'ImageObject',
+      url: socialImageUrl,
+      width: ARTICLE_SOCIAL_CARD_WIDTH,
+      height: ARTICLE_SOCIAL_CARD_HEIGHT,
+      caption: articleSocialAltText(page.title),
+    },
+    thumbnailUrl: socialImageUrl,
     keywords: page.tags,
     articleSection: page.category,
     ...(canonicalConcepts.length > 0 ? { about: canonicalConcepts } : {}),
