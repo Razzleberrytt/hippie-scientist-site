@@ -58,13 +58,13 @@ export function promotionDecision(submission, source, { requireSemanticAttestati
 export function promotionBlockerDisposition(decision = {}) {
   const reasons = [...new Set(decision.reasons ?? [])]
   const hardReasons = reasons.filter(reason => HARD_PROMOTION_BLOCK_REASONS.has(reason))
-  const reviewReasons = reasons.filter(reason => !HARD_PROMOTION_BLOCK_REASONS.has(reason))
+  const adjudicationReasons = reasons.filter(reason => !HARD_PROMOTION_BLOCK_REASONS.has(reason))
   const hardBlocked = hardReasons.length > 0
   return {
     hardBlocked,
-    manualReviewPending: !hardBlocked && reviewReasons.length > 0,
+    automatedAdjudicationPending: !hardBlocked && adjudicationReasons.length > 0,
     canContinueResearch: !hardBlocked,
-    reviewReasons,
+    adjudicationReasons,
     hardReasons,
   }
 }
@@ -89,7 +89,7 @@ export function scoreWorkpack(workpack = {}) {
     sourceAvailability: clamp(workpack.sourceAvailability ?? 0, 0, 5) * 3,
     expectedYield: clamp(workpack.expectedYield ?? 0, 0, 5) * 5,
     contradictionOpportunity: workpack.seekContradictions === true ? 8 : 0,
-    manualReviewPenalty: workpack.manualReviewPending === true ? -4 : 0,
+    adjudicationPenalty: workpack.automatedAdjudicationPending === true ? -2 : 0,
     stalePenalty: workpack.blocked === true || workpack.hardBlocked === true ? -100 : 0,
   }
   return { score: Object.values(components).reduce((a,b) => a + b, 0), components }
