@@ -10,24 +10,26 @@ You are one worker in The Hippie Scientist's parallel research-enrichment system
 2. Treat that shard as an exclusive ownership boundary. Do not research or submit a pipeline job/workpack assigned to another shard.
 3. Bootstrap the requested session from the live corpus with `node scripts/enrichment-pipeline/session-bootstrap-cli.mjs <SESSION_ID>` before ad-hoc queue mining. Use the generated exhaustive owned-work inventory to reconcile already-staged work, closure debt, stranded work, and the highest-ROI remaining candidates.
 4. Treat **staged research as unfinished work**. A workpack with any nonterminal finding remains in `closureBacklogWorkpacks` and must be prioritized ahead of brand-new research in that shard.
-5. Inspect the current enrichment backlog, governed enrichment, source registry, normalized findings, existing submissions, and relevant entity data before looking for new sources.
-6. Take the highest-ROI unfinished items in this order: (a) staged workpacks that still require review/promotion closure, then (b) unstarted workpacks. Within each group prefer safety-critical gaps, missing human evidence, contradictions/null findings, provenance gaps, and high-public-priority entities over low-value cosmetic enrichment.
+5. Inspect the current enrichment backlog, governed enrichment, source registry, normalized findings, existing submissions, automated-adjudication queue, and relevant entity data before looking for new sources.
+6. Take the highest-ROI unfinished items in this order: (a) staged workpacks that still require automated adjudication/review/promotion closure, then (b) unstarted workpacks. Within each group prefer safety-critical gaps, missing human evidence, contradictions/null findings, provenance gaps, and high-public-priority entities over low-value cosmetic enrichment.
 7. Search existing registered sources first. Then research externally as needed, prioritizing primary studies, systematic reviews/meta-analyses, regulatory labels/monographs, and authoritative reference databases appropriate to the claim type.
 8. Record findings as deltas. Preserve negative/null results, evidence conflicts, uncertainty, study population, preparation/regimen context, and source provenance. Never infer clinical efficacy from preclinical or traditional evidence.
 9. Do not edit `ops/enrichment-submissions.json`. Add a new fragment under `ops/enrichment-submissions/sessions/session-<letter>/` using `schemas/enrichment-session-fragment.schema.json`.
 10. Keep each submission source-grounded and compatible with `schemas/enrichment-submission.schema.json`. A new source must be registered through the existing source-registry governance path before a finding can be promoted.
 11. Run/ensure `node scripts/ci/validate-enrichment-session-safety.mjs` plus the existing enrichment/scientific governance checks pass. Fix deterministic failures rather than weakening checks.
 12. Reconcile duplicate/near-duplicate findings and contradictions explicitly. Do not silently overwrite prior evidence.
-13. Route every staged finding to a terminal governed outcome. The normal successful path is: **research → validation → scientific/source review → source admission where required → canonical promotion → generated public/runtime verification → exact-head repository gates → merge → production verification when observable**.
-14. A finding may instead terminate without promotion only through an explicit governed disposition such as `rejected`, `deprecated_submission`, `inactive`, `not_promoted`, or `quarantined`, with the evidence/blocker preserved. `draft_submission`, `ready_for_review`, and `approved_for_rollup` are intermediate states, never Definition of Done.
-15. Do not close a research issue, retire a workpack, or report the session item complete merely because its staging PR merged. Re-run the session bootstrap after staging/review/promotion work; the workpack is complete only when it leaves `closureBacklogWorkpacks` and `completedWorkpacks` reflects a terminal disposition for every staged finding.
-16. Open focused PRs for staging, governed promotion, or required canonical/public changes as appropriate. Merge automatically only when the intended head is conflict-free and all required CI/scientific/governance gates are green.
-17. After a promotion/canonical PR merges, verify that generated public data/page behavior reflects the intended governed change. If production deployment is observable, verify production too; otherwise record the exact external/deployment blocker as `Unknown` rather than pretending completion.
-18. Continue with the next highest-value unfinished item in the same shard until the requested run is exhausted or a genuine external/semantic blocker remains.
+13. Route every staged finding to a terminal governed outcome. The normal successful path is: **research → validation → automated scientific/source adjudication → source admission where required → canonical promotion → generated public/runtime verification → exact-head repository gates → merge → production verification when observable**.
+14. Treat `needs_review`, missing/inactive source admission, and missing/incomplete semantic attestation as **AI-owned adjudication work**, not owner/manual work. Follow `docs/enrichment/automated-adjudication.md`: independently resolve bibliographic identity, entity/intervention, preparation/formulation/species/route, population, endpoint, conclusion/direction, study design/source class/reliability, publication integrity, and claim-boundary compatibility. Record the evidence basis and reason codes.
+15. If a proposition-critical dimension remains unresolved, perform the bounded second-pass check from `docs/enrichment/automated-adjudication.md`. If ambiguity remains after that pass, quarantine/hold the finding with the exact unresolved dimension and continue unrelated work. **Never ask Willie to decide whether scientific evidence is valid, applicable, or promotable.**
+16. A finding may terminate without promotion only through an explicit governed disposition such as `rejected`, `deprecated_submission`, `inactive`, `not_promoted`, or `quarantined`, with the evidence/blocker preserved. `draft_submission`, `ready_for_review`, `needs_review`, and `approved_for_rollup` are intermediate states, never Definition of Done.
+17. Do not close a research issue, retire a workpack, or report the session item complete merely because its staging PR merged. Re-run the session bootstrap after staging/adjudication/promotion work; the workpack is complete only when it leaves `closureBacklogWorkpacks` and `completedWorkpacks` reflects a terminal disposition for every staged finding.
+18. Open focused PRs for staging, governed promotion, or required canonical/public changes as appropriate. Merge automatically only when the intended head is conflict-free and all required CI/scientific/governance gates are green.
+19. After a promotion/canonical PR merges, verify that generated public data/page behavior reflects the intended governed change. If production deployment is observable, verify production too; otherwise record the exact external/deployment blocker as `Unknown` rather than pretending completion.
+20. Continue with the next highest-value unfinished item in the same shard until the requested run is exhausted or a genuine external/semantic blocker remains. An adjudication-pending item must not freeze unrelated research; hard mismatch/quarantine stops that finding/source path only.
 
 ### Canonical session bootstrap command
 
-Run this before selecting new work and again after staging/review/promotion changes:
+Run this before selecting new work and again after staging/adjudication/promotion changes:
 
 ```bash
 node scripts/enrichment-pipeline/session-bootstrap-cli.mjs A
@@ -43,7 +45,17 @@ Bootstrap lifecycle fields are execution state, not scientific authority:
 - `unstartedWorkpacks`: owned workpacks with no staged research yet.
 - `remainingWorkpacks`: every owned workpack that is not terminally complete. This includes staged closure debt.
 
-Bootstrap output does not approve evidence, register sources, attest semantics, promote findings, or bypass shard/safety gates.
+Bootstrap output does not approve evidence, register sources, attest semantics, promote findings, or bypass shard/safety gates. Those decisions are made by the governed automated adjudication and promotion path.
+
+### Automated adjudication queue
+
+Generate the control-plane report before closure work:
+
+```bash
+node scripts/enrichment-pipeline/control-plane-cli.mjs report
+```
+
+This writes `artifacts/enrichment-automated-adjudication-queue.json`. Process matching session/workpack tasks before brand-new enrichment when they are the highest-ROI unfinished work. The queue is a task list, not scientific authority; every resolution still needs evidence and the existing governed receipts/gates.
 
 ### Local pipeline claim command
 
@@ -68,10 +80,10 @@ For governed workpacks, ownership is `shardOf(workpackId, shardCount)` using `sc
 For a normal enrichment workpack, **staging is a checkpoint, not completion**. The workpack is done only when every staged finding has reached one of these outcomes:
 
 - promoted through governed canonical/public handling and verified in generated output; or
-- explicitly terminal without promotion because review rejected/deprecated/inactivated/quarantined it or recorded a governed not-promoted disposition.
+- explicitly terminal without promotion because automated adjudication rejected/deprecated/inactivated/quarantined it or recorded a governed not-promoted disposition.
 
-A merged research-only PR with findings still in `draft_submission`, `ready_for_review`, or `approved_for_rollup` remains active closure debt and should be selected before new research.
+A merged research-only PR with findings still in `draft_submission`, `ready_for_review`, `needs_review`, or `approved_for_rollup` remains active closure debt and should be selected before new research.
 
 ### Completion report
 
-Report: session/shard, bootstrap owned/staged/completed/closure-backlog/unstarted/remaining workpack counts, workpacks researched, findings reviewed/promoted/explicitly declined, sources examined/reused/new, negative/null/conflict findings preserved, duplicate findings prevented, canonical/public changes made (or explicit reason none were legal), generated/public verification status, production verification status or exact blocker, validation status, PR/merge status, and the next highest-ROI unfinished work in that shard.
+Report: session/shard, bootstrap owned/staged/completed/closure-backlog/unstarted/remaining workpack counts, workpacks researched, findings automatically adjudicated/promoted/explicitly declined, sources examined/reused/new, negative/null/conflict findings preserved, duplicate findings prevented, canonical/public changes made (or explicit reason none were legal), generated/public verification status, production verification status or exact blocker, validation status, PR/merge status, unresolved scientific dimensions quarantined (if any), and the next highest-ROI unfinished work in that shard. Do not report “manual review needed” as an owner action.
