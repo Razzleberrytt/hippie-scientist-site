@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "minCitations": 100,
+  "minCitationSharePct": 5,
+  "cumulativeCoveragePct": 60,
+  "maxAssets": 25,
+  "staleAfterDays": 45
+}

@@ -135,6 +135,12 @@ const checks = [
     args: ['scripts/ci/audit-ai-claim-integrity.mjs', ...strictArg],
   }),
   runCheck({
+    id: 'protected-assets',
+    label: 'Protected AI citation asset identity',
+    command: process.execPath,
+    args: ['scripts/ci/validate-ai-citation-protected-assets.mjs'],
+  }),
+  runCheck({
     id: 'entity-completeness',
     label: 'AI entity identity, claims, citations, relationships, safety, and freshness',
     command: process.execPath,
