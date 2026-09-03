@@ -27,6 +27,7 @@ import {
 } from '@/lib/schema-identities'
 
 const articlePages = [...allArticleMonographs, ...allBlogPosts]
+const articleSocialImagePath = (slug: string) => `/media/social/articles/${slug}.jpg`
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -49,6 +50,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: compactMetaTitle(page.title),
       description: page.description,
       path: `/articles/${page.slug}/`,
+      image: articleSocialImagePath(page.slug),
       keywords: page.tags,
       openGraphType: 'article',
     }),
@@ -93,7 +95,7 @@ export default async function ArticleMonographPage({ params }: PageProps) {
     dateModified: factualUpdated,
     datePublished: page.date ?? factualUpdated,
     mainEntityOfPage: `${SITE_URL}${pagePath}`,
-    image: `${SITE_URL}/og-default.jpg`,
+    image: `${SITE_URL}${articleSocialImagePath(page.slug)}`,
     keywords: page.tags,
     articleSection: page.category,
     ...(canonicalConcepts.length > 0 ? { about: canonicalConcepts } : {}),
