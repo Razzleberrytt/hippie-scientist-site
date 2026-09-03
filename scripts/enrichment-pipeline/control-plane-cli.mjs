@@ -12,6 +12,7 @@ import {
 const ROOT = process.cwd()
 const FRAGMENT_ROOT = path.join(ROOT, 'ops', 'enrichment-submissions', 'sessions')
 const SOURCE_REGISTRY = path.join(ROOT, 'public', 'data', 'source-registry.json')
+const SOURCE_INTAKE_QUEUE = path.join(ROOT, 'ops', 'reports', 'source-intake-queue.json')
 const MANIFEST = path.join(ROOT, 'ops', 'research-sessions', 'session-manifest.json')
 const ATTESTATIONS = path.join(ROOT, 'ops', 'enrichment-semantic-attestations.json')
 const IDENTITY_QUARANTINE = path.join(ROOT, 'ops', 'source-identity-quarantine.json')
@@ -77,6 +78,7 @@ function loadSubmissions() {
 const command = process.argv[2] ?? 'report'
 const submissions = loadSubmissions()
 const sources = readJson(SOURCE_REGISTRY, [])
+const sourceIntakeDocument = readJson(SOURCE_INTAKE_QUEUE, { tasks: [] })
 const sourceById = new Map(sources.map(source => [source.sourceId, source]))
 const submissionById = new Map(submissions.map(submission => [submission.submissionId, submission]))
 const manifest = readJson(MANIFEST, { shardCount: 8, sessions: [] })
@@ -100,13 +102,15 @@ function adjudicationKinds(decision) {
   return ['scientific_editorial_adjudication']
 }
 
-function buildAutomatedAdjudicationQueue(decisions = promotionDecisions()) {
+function buildSubmissionAdjudicationQueue(decisions = promotionDecisions()) {
   return decisions
     .filter(decision => decision.automatedAdjudicationPending)
     .map(decision => {
       const submission = submissionById.get(decision.submissionId) ?? {}
       return {
+        origin: 'enrichment_submission',
         submissionId: decision.submissionId,
+        intakeTaskId: null,
         sessionId: submission.sessionId ?? null,
         shard: submission.shard ?? null,
         workpackId: submission.workpackId ?? null,
@@ -146,7 +150,62 @@ function buildAutomatedAdjudicationQueue(decisions = promotionDecisions()) {
         unresolvedPolicy: 'bounded_second_pass_then_quarantine_never_ask_owner_to_judge_science',
       }
     })
-    .sort((a,b) => String(a.workpackId ?? '').localeCompare(String(b.workpackId ?? '')) || a.submissionId.localeCompare(b.submissionId))
+}
+
+function isLegacyManualReviewStop(task = {}) {
+  const attempts = task.adaptiveRetryAttempts ?? []
+  const last = attempts[attempts.length - 1]
+  return last?.pass === 'pass_4_stop_manual_review'
+    || (task.unresolvedAfterRetries ?? []).includes('manual_review_required')
+    || task.completion?.completionState === 'blocked_manual_review'
+}
+
+function buildLegacySourceEscalationQueue() {
+  return (sourceIntakeDocument.tasks ?? [])
+    .filter(isLegacyManualReviewStop)
+    .map(task => ({
+      origin: 'legacy_source_intake_manual_stop',
+      submissionId: null,
+      intakeTaskId: task.intakeTaskId ?? null,
+      sessionId: null,
+      shard: null,
+      workpackId: (task.relatedWorkpackIds ?? [])[0] ?? null,
+      relatedWorkpackIds: task.relatedWorkpackIds ?? [],
+      sourceId: null,
+      entityType: null,
+      entitySlug: task.entitySlug ?? null,
+      surfaceId: task.surfaceId ?? null,
+      topicType: task.topicType ?? null,
+      claimType: null,
+      evidenceClass: null,
+      route: 'source_acquisition',
+      semantic: 'not_yet_applicable',
+      adjudicationStatus: 'pending_automated_deep_research',
+      adjudicationKinds: ['source_deep_research', 'source_identity_resolution'],
+      blockerReasons: task.unresolvedAfterRetries ?? ['legacy_manual_review_stop'],
+      evidenceDebtReasons: ['deterministic_source_retries_exhausted'],
+      canContinueResearch: true,
+      recommendedSourceClasses: task.recommendedSourceClasses ?? [],
+      recommendedOrganizations: task.recommendedOrganizations ?? [],
+      recommendedStudyDesigns: task.recommendedStudyDesigns ?? [],
+      minimumAcceptanceCriteria: task.minimumAcceptanceCriteria ?? [],
+      requiredChecks: [
+        'targeted_authoritative_source_search',
+        'bibliographic_identity',
+        'source_class_governance',
+        'publication_integrity',
+        'duplicate_identity',
+        'entity_topic_compatibility',
+      ],
+      unresolvedPolicy: 'legacy_manual_stop_is_ai_owned_bounded_deep_research_then_quarantine',
+      ownerActionRequired: false,
+    }))
+}
+
+function buildAutomatedAdjudicationQueue(decisions = promotionDecisions()) {
+  return [...buildSubmissionAdjudicationQueue(decisions), ...buildLegacySourceEscalationQueue()]
+    .sort((a,b) => String(a.workpackId ?? '').localeCompare(String(b.workpackId ?? ''))
+      || String(a.submissionId ?? a.intakeTaskId ?? '').localeCompare(String(b.submissionId ?? b.intakeTaskId ?? '')))
 }
 
 function buildOrphanQueue() {
@@ -188,7 +247,11 @@ if (command === 'report' || command === 'validate') {
       hardBlocked: promotion.filter(item => item.hardBlocked).length,
       decisions: promotion,
     },
-    automatedAdjudication: { queued: adjudicationQueue.length },
+    automatedAdjudication: {
+      queued: adjudicationQueue.length,
+      submissionQueue: adjudicationQueue.filter(item => item.origin === 'enrichment_submission').length,
+      legacyManualStopsAbsorbed: adjudicationQueue.filter(item => item.origin === 'legacy_source_intake_manual_stop').length,
+    },
     semanticAttestations: {
       total: attestationBySubmission.size,
       coveredSubmissions: submissions.filter(s => s.semanticAttestation).length,
@@ -213,13 +276,15 @@ if (command === 'report' || command === 'validate') {
   } else {
     writeJson(OUTPUT, report)
     writeJson(ADJUDICATION_QUEUE, {
-      modelVersion: 'enrichment-automated-adjudication-queue-v1',
+      modelVersion: 'enrichment-automated-adjudication-queue-v2',
       generatedAt,
       count: adjudicationQueue.length,
+      ownerManualScientificReviewRequired: false,
       queue: adjudicationQueue,
     })
     console.log(JSON.stringify(report.summary, null, 2))
     console.log(`automated adjudication queued: ${adjudicationQueue.length}`)
+    console.log(`legacy manual-review stops absorbed: ${report.automatedAdjudication.legacyManualStopsAbsorbed}`)
     console.log(`report: ${path.relative(ROOT, OUTPUT)}`)
     console.log(`adjudication queue: ${path.relative(ROOT, ADJUDICATION_QUEUE)}`)
   }
