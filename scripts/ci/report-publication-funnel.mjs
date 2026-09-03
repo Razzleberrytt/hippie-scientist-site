@@ -90,9 +90,15 @@ const governed = routeManifestProfileCount()
 
 /**
  * publication-manifest.json, kept in view as an artifact rather than a stage.
- * No build step regenerates it while roughly 15 scripts read it, so it drifts
- * and quietly degrades their output. Reporting it beats quoting it as a funnel
- * stage or dropping it silently — its number is plausible enough to be trusted.
+ *
+ * It used to drift: roughly 15 scripts read it and nothing regenerated it, so it
+ * quietly degraded their output while looking plausible enough to trust.
+ * data:build and check:data now rebuild it after apply-governance-overlay.mjs and
+ * build-runtime-summary-indexes.mjs, and the builder refuses to run without
+ * --post-overlay, so the pre-governance version cannot be produced by accident.
+ *
+ * It stays reported rather than promoted to a funnel stage because it is still a
+ * committed artifact that a checkout can carry forward between data builds.
  */
 const orphanedManifestCount = manifest
   ? (manifest.entities?.herbs?.length ?? 0) + (manifest.entities?.compounds?.length ?? 0)
@@ -261,16 +267,27 @@ if (dataEligible && inSitemap) {
 if (orphanedManifestCount != null) {
   const detail = []
   if (staleDays != null && staleDays > 7) detail.push(`${staleDays} days behind the data`)
-  if (coverage?.publishableButUnknown) detail.push(`missing ${coverage.publishableButUnknown} profiles marked PUBLISH`)
   console.log(
     `\n  publication-manifest.json reports ${orphanedManifestCount} profiles` +
       (detail.length ? ` and is ${detail.join(', ')}.` : '.') +
-      '\n  No build step regenerates it, yet ~15 reporting scripts read it, so it drifts' +
-      '\n  silently and takes their output with it. Refresh it with' +
-      '\n  Refreshing it means running apply-governance-overlay.mjs FIRST and then' +
-      '\n  build-publication-manifest-from-workbook.mjs. Building it from committed data' +
-      '\n  alone reads the pre-governance status and overstates what may be published.',
+      '\n  data:build and check:data now regenerate it, from the position after' +
+      '\n  apply-governance-overlay.mjs and build-runtime-summary-indexes.mjs. Running the' +
+      '\n  builder by hand refuses without --post-overlay, because building it from committed' +
+      '\n  data reads the pre-governance status and overstates what may be published (#4916).',
   )
+  // Deliberately NOT reported as a shortfall: the manifest carries fewer profiles
+  // than indexability_status marks PUBLISH, and that gap is the overstatement this
+  // same report warns about a few lines above. Calling it "missing N profiles" read
+  // as a defect and invited exactly the wrong fix — regenerating the manifest from
+  // pre-governance data to close a gap that is supposed to be there.
+  if (coverage?.publishableButUnknown) {
+    console.log(
+      `\n  ${coverage.publishableButUnknown} profiles marked PUBLISH are absent from the manifest.` +
+        '\n  That is the expected shape, not a shortfall: PUBLISH is the pre-governance' +
+        '\n  assertion and the manifest is what survives the overlay. Closing this gap would' +
+        '\n  mean publishing what governance withholds.',
+    )
+  }
 }
 
 if (sitemapGap) {

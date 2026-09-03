@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-02T20:58:56.665Z",
+  "generatedAt": "2026-09-03T03:15:10.288Z",
   "source": "workbook+summary-indexes",
   "entities": {
     "herbs": [
@@ -42,10 +42,6 @@
       {
         "slug": "angelica-root",
         "name": "Angelica Root"
-      },
-      {
-        "slug": "angelica-sinensis",
-        "name": "Angelica Sinensis"
       },
       {
         "slug": "anise-hyssop",
@@ -118,10 +114,6 @@
       {
         "slug": "berberis-vulgaris",
         "name": "Berberis Vulgaris"
-      },
-      {
-        "slug": "black-cohosh",
-        "name": "Black Cohosh (Actaea racemosa)"
       },
       {
         "slug": "black-seed",
@@ -212,14 +204,6 @@
         "name": "Cistanche"
       },
       {
-        "slug": "cistanche-deserticola",
-        "name": "Cistanche Deserticola"
-      },
-      {
-        "slug": "citicoline",
-        "name": "Citicoline"
-      },
-      {
         "slug": "citrus-bergamia",
         "name": "Citrus Bergamia"
       },
@@ -278,10 +262,6 @@
       {
         "slug": "crataegus-monogyna",
         "name": "Hawthorn"
-      },
-      {
-        "slug": "crocus-sativus",
-        "name": "Crocus Sativus"
       },
       {
         "slug": "curcuma-wenyujin",
@@ -392,10 +372,6 @@
         "name": "Garcinia Indica"
       },
       {
-        "slug": "garcinia-mangostana",
-        "name": "Garcinia Mangostana"
-      },
-      {
         "slug": "garlic",
         "name": "Garlic (Allium sativum)"
       },
@@ -412,10 +388,6 @@
         "name": "Ginkgo"
       },
       {
-        "slug": "glycyrrhiza-glabra",
-        "name": "Glycyrrhiza Glabra"
-      },
-      {
         "slug": "gotu-kola",
         "name": "Gotu Kola (Centella asiatica)"
       },
@@ -426,10 +398,6 @@
       {
         "slug": "guayusa",
         "name": "Guayusa"
-      },
-      {
-        "slug": "gudmar",
-        "name": "Gudmar"
       },
       {
         "slug": "gymnema-sylvestre",
@@ -516,10 +484,6 @@
         "name": "Licorice"
       },
       {
-        "slug": "ligusticum-chuanxiong",
-        "name": "Ligusticum Chuanxiong"
-      },
-      {
         "slug": "lithospermum-erythrorhizon",
         "name": "Lithospermum Erythrorhizon"
       },
@@ -570,10 +534,6 @@
       {
         "slug": "momordica-charantia",
         "name": "Bitter Melon"
-      },
-      {
-        "slug": "morinda-citrifolia",
-        "name": "Morinda Citrifolia"
       },
       {
         "slug": "moringa",
@@ -648,10 +608,6 @@
         "name": "Oregano"
       },
       {
-        "slug": "paeonia-lactiflora",
-        "name": "Paeonia Lactiflora"
-      },
-      {
         "slug": "paeonia-suffruticosa",
         "name": "Paeonia Suffruticosa"
       },
@@ -698,10 +654,6 @@
       {
         "slug": "phellodendron-amurense",
         "name": "Phellodendron Amurense"
-      },
-      {
-        "slug": "phosphatidylserine",
-        "name": "Phosphatidylserine"
       },
       {
         "slug": "piper-longum",
@@ -760,10 +712,6 @@
         "name": "Punarnava"
       },
       {
-        "slug": "quercetin",
-        "name": "Quercetin"
-      },
-      {
         "slug": "raspberry-leaf",
         "name": "Raspberry Leaf"
       },
@@ -778,10 +726,6 @@
       {
         "slug": "reishi",
         "name": "Reishi (Ganoderma lucidum)"
-      },
-      {
-        "slug": "resveratrol",
-        "name": "Resveratrol"
       },
       {
         "slug": "rheum-palmatum",
@@ -840,10 +784,6 @@
         "name": "Schisandra Chinensis"
       },
       {
-        "slug": "scutellaria-baicalensis",
-        "name": "Scutellaria Baicalensis"
-      },
-      {
         "slug": "selaginella-tamariscina",
         "name": "Selaginella Tamariscina"
       },
@@ -896,10 +836,6 @@
         "name": "Suma"
       },
       {
-        "slug": "syzygium-aromaticum",
-        "name": "Syzygium Aromaticum"
-      },
-      {
         "slug": "tamarind",
         "name": "Tamarind"
       },
@@ -928,16 +864,8 @@
         "name": "Fenugreek"
       },
       {
-        "slug": "tripterygium-wilfordii",
-        "name": "Tripterygium Wilfordii"
-      },
-      {
         "slug": "turmeric",
         "name": "Turmeric (Curcuma longa)"
-      },
-      {
-        "slug": "tyrosine",
-        "name": "L-Tyrosine"
       },
       {
         "slug": "valerian",
@@ -969,7 +897,6 @@
       "acarbose",
       "acemannan",
       "acetyl-11-keto-beta-boswellic-acid",
-      "acetyl-l-carnitine",
       "aescin",
       "alpha-asarone",
       "alpha-gpc",
@@ -1029,6 +956,7 @@
       "glucosamine",
       "glycinate-magnesium-complex",
       "glycine",
+      "green-tea-egcg-isolated",
       "green-tea-extract-egcg",
       "guggulsterone",
       "huperzine-a",
@@ -1054,7 +982,6 @@
       "omega-3",
       "passionflower",
       "peppermint-oil",
-      "phosphatidylcholine",
       "pomegranate-extract",
       "probiotics",
       "psyllium-husk",
@@ -1080,9 +1007,9 @@
     ]
   },
   "counts": {
-    "herbs_total": 291,
-    "herbs_eligible": 240,
-    "compounds_total": 565,
-    "compounds_eligible": 112
+    "herbs_total": 286,
+    "herbs_eligible": 222,
+    "compounds_total": 570,
+    "compounds_eligible": 111
   }
 }
