@@ -2,8 +2,8 @@
   "id": "vitamin-b6",
   "slug": "vitamin-b6",
   "name": "Vitamin B6",
-  "summary": "Vitamin B6 carries a Grade A rating — strong evidence. Recorded activity centres on metabolic regulation, neurotransmitter modulation and neuroprotective activity, which describes mechanism rather than demonstrated benefit. Avoid chronic high-dose use; neuropathy risk is the key safety limiter.",
-  "description": "Vitamin B6 supports B vitamin; PMS; metabolism with high confidence in this merged decision layer.",
+  "summary": "Vitamin B6 has limited, context-specific human evidence for PMS symptoms and a short high-dose anxiety signal, with important trial-quality and comparator limitations. Excess supplemental exposure can cause peripheral neuropathy; dose and duration matter.",
+  "description": "Vitamin B6 evidence is mixed and context-specific rather than high-confidence: PMS signals coexist with substantial risk-of-bias and comparator limitations, while high supplemental exposure carries a source-backed peripheral-neuropathy risk.",
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",
@@ -14,31 +14,116 @@
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Avoid chronic high-dose use; neuropathy risk is the key safety limiter.",
-  "evidenceLevel": "",
+  "safetyNotes": "Avoid high or prolonged supplemental exposure without appropriate clinical context; peripheral neuropathy is the key dose- and duration-related safety limiter.",
+  "evidenceLevel": "Limited Human Evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
     "legalRisk": "none",
-    "medicalRisk": "low",
-    "monetizationAllowed": true,
+    "medicalRisk": "moderate",
+    "monetizationAllowed": false,
     "indexingAllowed": false,
-    "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": ""
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "mixed_limited_evidence_and_neuropathy_risk"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 5,
+    "sourceIds": [
+      "src_pubmed-10334745",
+      "src_pubmed-38684926",
+      "src_pubmed-31928364",
+      "src_pubmed-35851507",
+      "src_pubmed-37447150"
+    ]
   },
   "claimMap": [],
   "indexability_status": "NOINDEX",
   "robots": "noindex,follow",
-  "dosage": "powder or capsule",
-  "typical_dosage": "powder or capsule",
+  "dosage": "",
+  "typical_dosage": "",
   "sitemap_included": false,
   "indexability_reasons": [
     "noindex-decision:hidden_until_grounded"
+  ],
+  "evidence_tier": "Limited Human Evidence",
+  "evidenceTier": "Limited Human Evidence",
+  "evidence_grade": "c",
+  "evidence_label": "Limited Human Evidence",
+  "evidenceLabel": "Limited Human Evidence",
+  "sources": [
+    {
+      "sourceId": "src_pubmed-10334745",
+      "title": "Efficacy of vitamin B-6 in the treatment of premenstrual syndrome: systematic review",
+      "sourceType": "systematic-review",
+      "studyType": "systematic-review",
+      "pmid": "10334745",
+      "doi": "10.1136/bmj.318.7195.1375",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10334745/",
+      "publicationYear": 1999,
+      "authors": "Wyatt KM, Dimmock PW, Jones PW, Shaughn O'Brien PM",
+      "evidenceClass": "human-clinical",
+      "reviewer": "site-swarm-integration"
+    },
+    {
+      "sourceId": "src_pubmed-38684926",
+      "title": "Effect of nutritional interventions on the psychological symptoms of premenstrual syndrome in women of reproductive age: a systematic review of randomized controlled trials",
+      "sourceType": "systematic-review",
+      "studyType": "systematic-review",
+      "pmid": "38684926",
+      "doi": "10.1093/nutrit/nuae043",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38684926/",
+      "publicationYear": 2025,
+      "authors": "Robinson J, Ferreira A, Iacovou M, Kellow NJ",
+      "evidenceClass": "human-clinical",
+      "reviewer": "site-swarm-integration"
+    },
+    {
+      "sourceId": "src_pubmed-31928364",
+      "title": "A Pilot Randomized Treatment-Controlled Trial Comparing Vitamin B6 with Broad-Spectrum Micronutrients for Premenstrual Syndrome",
+      "sourceType": "rct",
+      "studyType": "randomized-controlled-trial",
+      "pmid": "31928364",
+      "doi": "10.1089/acm.2019.0305",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31928364/",
+      "publicationYear": 2020,
+      "authors": "Retallick-Brown H, Blampied N, Rucklidge JJ",
+      "evidenceClass": "human-clinical",
+      "reviewer": "site-swarm-integration"
+    },
+    {
+      "sourceId": "src_pubmed-35851507",
+      "title": "High-dose Vitamin B6 supplementation reduces anxiety and strengthens visual surround suppression",
+      "sourceType": "rct",
+      "studyType": "randomized-controlled-trial",
+      "pmid": "35851507",
+      "doi": "10.1002/hup.2852",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35851507/",
+      "publicationYear": 2022,
+      "authors": "Field DT, Cracknell RO, Eastwood JR, Scarfe P, Williams CM, Zheng Y, Tavassoli T",
+      "evidenceClass": "human-clinical",
+      "reviewer": "site-swarm-integration"
+    },
+    {
+      "sourceId": "src_pubmed-37447150",
+      "title": "The Role of Vitamin B6 in Peripheral Neuropathy: A Systematic Review",
+      "sourceType": "systematic-review",
+      "studyType": "systematic-review",
+      "pmid": "37447150",
+      "doi": "10.3390/nu15132823",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37447150/",
+      "publicationYear": 2023,
+      "authors": "Muhamad R, Akrivaki A, Papagiannopoulou G, Zavridis P, Zis P",
+      "evidenceClass": "human-clinical",
+      "reviewer": "site-swarm-integration"
+    }
+  ],
+  "pmids": [
+    "10334745",
+    "38684926",
+    "31928364",
+    "35851507",
+    "37447150"
   ]
 }

@@ -16,6 +16,30 @@
     {
       "submissionId": "sub_e-propionate-form-delivery-firewall",
       "promotionStatus": "promoted"
+    },
+    {
+      "submissionId": "sub_f-b6-pms-quality-limited-benefit",
+      "promotionStatus": "promoted"
+    },
+    {
+      "submissionId": "sub_f-b6-pms-recent-review-bias-limit",
+      "promotionStatus": "promoted"
+    },
+    {
+      "submissionId": "sub_f-b6-80mg-comparator-pilot",
+      "promotionStatus": "promoted"
+    },
+    {
+      "submissionId": "sub_f-b6-high-dose-anxiety-experimental",
+      "promotionStatus": "promoted"
+    },
+    {
+      "submissionId": "sub_f-b6-neuropathy-safety-systematic-review",
+      "promotionStatus": "promoted"
+    },
+    {
+      "submissionId": "sub_f-b6-prolonged-high-dose-neuropathy-warning",
+      "promotionStatus": "not_promoted"
     }
   ]
 }
