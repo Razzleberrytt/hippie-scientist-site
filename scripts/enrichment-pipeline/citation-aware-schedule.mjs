@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { shardOf } from './lib/ids.mjs'
 import { createCanonicalOwnerResolver } from './lib/canonical-owner.mjs'
+import { aiCitationManifestFreshness } from './lib/ai-citation-freshness.mjs'
 import { scheduleShard } from './lib/control-plane.mjs'
 
 const ROOT = process.cwd()
@@ -54,6 +55,11 @@ if (!signals || !Array.isArray(signals.defendUrls) || !signals.entityBoosts) {
   console.error('[citation-aware-schedule] missing or invalid config/ai-citation-swarm-priorities.json')
   process.exit(1)
 }
+const signalFreshness = aiCitationManifestFreshness(signals)
+const activeSignals = signalFreshness.fresh ? signals : null
+if (!activeSignals) {
+  console.error(`[citation-aware-schedule] ignoring ${signalFreshness.reason} AI citation snapshot ${signalFreshness.snapshotLabel ?? 'unknown'}; using citation-neutral scheduling`)
+}
 
 const sessionManifest = readJson(SESSION_MANIFEST, { shardCount: 8 })
 const shardCount = Number(sessionManifest?.shardCount ?? 8)
@@ -73,14 +79,20 @@ const ranked = scheduleShard(
   shardCount,
   shardOf,
   ownerResolver.resolveWorkpack,
-  { aiCitationManifest: signals },
+  { aiCitationManifest: activeSignals },
 )
-const selected = portfolioSelect(ranked, Math.floor(limit), signals.capacityPolicy)
+const effectiveLimit = Math.floor(limit)
+const selected = activeSignals
+  ? portfolioSelect(ranked, effectiveLimit, signals.capacityPolicy)
+  : (Number.isInteger(effectiveLimit) && effectiveLimit > 0 ? ranked.slice(0, effectiveLimit) : ranked)
 
 const summary = {
   snapshotLabel: signals.snapshotLabel ?? null,
+  citationSignalStatus: signalFreshness.fresh ? 'fresh' : 'stale_ignored',
+  citationSignalReason: signalFreshness.reason,
+  citationSignalExpiresAt: signalFreshness.expiresAt,
   measurementBoundary: signals.measurementBoundary ?? null,
-  capacityPolicy: signals.capacityPolicy ?? null,
+  capacityPolicy: activeSignals ? (signals.capacityPolicy ?? null) : null,
   shard,
   shardCount,
   availableWorkpacks: ranked.length,
@@ -90,5 +102,5 @@ const summary = {
   exploration: selected.filter(item => Number(item.aiCitationPriority ?? 0) <= 0).length,
 }
 
-console.error(`[citation-aware-schedule] snapshot=${summary.snapshotLabel ?? 'unknown'} shard=${shard}/${shardCount} selected=${selected.length}/${ranked.length} citation-adjacent=${summary.citationAdjacent} exploration=${summary.exploration}`)
+console.error(`[citation-aware-schedule] snapshot=${summary.snapshotLabel ?? 'unknown'} signal=${summary.citationSignalStatus} shard=${shard}/${shardCount} selected=${selected.length}/${ranked.length} citation-adjacent=${summary.citationAdjacent} exploration=${summary.exploration}`)
 console.log(JSON.stringify({ summary, workpacks: selected }, null, 2))
