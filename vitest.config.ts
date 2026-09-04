@@ -60,15 +60,16 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: './vitest.setup.ts',
-    // Native node:test suites are executed by their owning workflows. Letting
-    // Vitest discover them makes Vite try to bundle the prefix-only node:test
-    // builtin instead of exercising the intended runner.
+    // Native node:test suites are executed by `npm run test:node` and focused
+    // owning workflows. Letting Vitest discover them makes Vite try to bundle
+    // the prefix-only node:test builtin instead of exercising the native runner.
     exclude: [
       '**/node_modules/**',
       '**/dist/**',
       '**/.next/**',
       '**/.claude/**',
       '**/out/**',
+      'agent/lib/runtime-resilience.test.js',
       'scripts/enrichment-governor/__tests__/**',
       'scripts/content/__tests__/**',
     ],

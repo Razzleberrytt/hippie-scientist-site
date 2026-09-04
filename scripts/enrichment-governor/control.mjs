@@ -2,8 +2,14 @@ import path from 'node:path'
 import crypto from 'node:crypto'
 import { fileURLToPath } from 'node:url'
 
-import { acquireLease, contract, quarantineDecision, runBenchmark } from './governor.mjs'
+import { acquireLease, contract, runBenchmark } from './governor.mjs'
 import { validateLeaseTransactionInput } from './lease-transaction.mjs'
+import {
+  quarantineCaseForKey,
+  reconcileQueueWithQuarantine,
+  refreshQuarantineState,
+  releaseQuarantineRecord,
+} from './queue-resilience.mjs'
 import { appendJsonl, atomicJson, loadJsonStrict, statePath, withWriterLock } from './state-io.mjs'
 
 const nowIso = () => new Date().toISOString()
@@ -123,7 +129,34 @@ function release(args) {
 function queueAdd(args) {
   return withWriterLock(() => {
     if (!args.key) throw new Error('queue-add requires --key')
+    const now = Date.now()
     const queue = loadJsonStrict(statePath('work-queue.json'), { version: 1, leases: [], queued: [], batched: [], blocked: [] })
+    const quarantine = refreshQuarantineState(
+      loadJsonStrict(statePath('quarantine.json'), { version: 1, cases: [] }),
+      contract.quarantine,
+      now
+    )
+    const activeCase = quarantineCaseForKey(quarantine, args.key, contract.quarantine, now)
+
+    if (activeCase) {
+      const reconciled = reconcileQueueWithQuarantine(queue, quarantine, contract.quarantine, now)
+      atomicJson(statePath('quarantine.json'), { ...reconciled.quarantine, updatedAt: nowIso() })
+      atomicJson(statePath('work-queue.json'), { ...reconciled.queue, updatedAt: nowIso() })
+      event('work_queue_skipped_quarantine', {
+        key: args.key,
+        releaseAt: activeCase.releaseAt || null,
+        reviewEligible: Boolean(activeCase.reviewEligible),
+      })
+      return {
+        ok: true,
+        queued: false,
+        disposition: 'quarantined',
+        key: args.key,
+        releaseAt: activeCase.releaseAt || null,
+        reviewEligible: Boolean(activeCase.reviewEligible),
+      }
+    }
+
     const item = {
       key: args.key,
       kind: args.kind || 'enrichment',
@@ -135,9 +168,10 @@ function queueAdd(args) {
     }
     const queued = [...(queue.queued || []).filter(row => row.key !== item.key), item]
       .sort((a, b) => Number(b.score || 0) - Number(a.score || 0) || a.key.localeCompare(b.key))
-    atomicJson(statePath('work-queue.json'), { ...queue, queued, updatedAt: nowIso() })
+    const blocked = (queue.blocked || []).filter(row => row.key !== item.key || row.reason !== 'quarantined')
+    atomicJson(statePath('work-queue.json'), { ...queue, queued, blocked, updatedAt: nowIso() })
     event('work_queued', { key: item.key, kind: item.kind, score: item.score })
-    return { ok: true, item }
+    return { ok: true, queued: true, item }
   })
 }
 
@@ -234,22 +268,84 @@ function improvement(args, disposition) {
 function failure(args) {
   return withWriterLock(() => {
     if (!args.key) throw new Error('failure requires --key')
+    const now = Date.now()
+    const at = new Date(now).toISOString()
     const quarantine = loadJsonStrict(statePath('quarantine.json'), { version: 1, cases: [] })
+    const queue = loadJsonStrict(statePath('work-queue.json'), { version: 1, leases: [], queued: [], batched: [], blocked: [] })
     const existing = (quarantine.cases || []).find(row => row.key === args.key) || { key: args.key, consecutiveFailures: 0 }
     const next = {
       ...existing,
       consecutiveFailures: Number(existing.consecutiveFailures || 0) + 1,
-      lastFailureAt: nowIso(),
+      lastFailureAt: at,
       lastRootCause: args.reason || 'unknown',
+      releasedAt: null,
+      releaseMaterialChange: null,
     }
-    const decision = quarantineDecision(next)
-    next.quarantined = decision.quarantined
-    next.releaseAt = decision.releaseAt || next.releaseAt || null
-    next.releaseRequiresMaterialChange = contract.quarantine.releaseRequiresMaterialChange
-    const cases = [...(quarantine.cases || []).filter(row => row.key !== args.key), next].sort((a, b) => a.key.localeCompare(b.key))
-    atomicJson(statePath('quarantine.json'), { version: 1, cases, updatedAt: nowIso() })
-    event('failure_recorded', { key: args.key, consecutiveFailures: next.consecutiveFailures, quarantined: next.quarantined, reason: next.lastRootCause })
-    return { ok: true, case: next }
+    const provisional = {
+      ...quarantine,
+      cases: [...(quarantine.cases || []).filter(row => row.key !== args.key), next],
+    }
+    const reconciled = reconcileQueueWithQuarantine(queue, provisional, contract.quarantine, now)
+    const refreshedCase = reconciled.quarantine.cases.find(row => row.key === args.key)
+
+    atomicJson(statePath('quarantine.json'), { ...reconciled.quarantine, updatedAt: at })
+    atomicJson(statePath('work-queue.json'), { ...reconciled.queue, updatedAt: at })
+    event('failure_recorded', {
+      key: args.key,
+      consecutiveFailures: refreshedCase.consecutiveFailures,
+      quarantined: refreshedCase.quarantined,
+      reviewEligible: Boolean(refreshedCase.reviewEligible),
+      reason: refreshedCase.lastRootCause,
+    })
+    if (refreshedCase.quarantined) {
+      event('work_quarantined', {
+        key: args.key,
+        releaseAt: refreshedCase.releaseAt || null,
+        reviewEligible: Boolean(refreshedCase.reviewEligible),
+      })
+    }
+    return { ok: true, case: refreshedCase, queueMetrics: reconciled.metrics }
+  })
+}
+
+function quarantineRelease(args) {
+  return withWriterLock(() => {
+    if (!args.key) throw new Error('quarantine-release requires --key')
+    const now = Date.now()
+    const at = new Date(now).toISOString()
+    const quarantine = refreshQuarantineState(
+      loadJsonStrict(statePath('quarantine.json'), { version: 1, cases: [] }),
+      contract.quarantine,
+      now
+    )
+    const queue = loadJsonStrict(statePath('work-queue.json'), { version: 1, leases: [], queued: [], batched: [], blocked: [] })
+    const existing = (quarantine.cases || []).find(row => row.key === args.key)
+    if (!existing) return { ok: true, released: false, reason: 'not_found', key: args.key }
+
+    const result = releaseQuarantineRecord(existing, {
+      config: contract.quarantine,
+      materialChange: args['material-change'],
+      now,
+    })
+    if (!result.ok) {
+      event('quarantine_release_denied', { key: args.key, reason: result.code, releaseAt: result.releaseAt || null })
+      return result
+    }
+    if (!result.released) return { ok: true, released: false, reason: result.reason, key: args.key }
+
+    const cases = [...(quarantine.cases || []).filter(row => row.key !== args.key), result.record]
+      .sort((a, b) => a.key.localeCompare(b.key))
+    const updatedQuarantine = { ...quarantine, cases }
+    const reconciled = reconcileQueueWithQuarantine(queue, updatedQuarantine, contract.quarantine, now)
+
+    atomicJson(statePath('quarantine.json'), { ...reconciled.quarantine, updatedAt: at })
+    atomicJson(statePath('work-queue.json'), { ...reconciled.queue, updatedAt: at })
+    event('quarantine_released', {
+      key: args.key,
+      releasedAt: result.record.releasedAt,
+      materialChange: result.record.releaseMaterialChange,
+    })
+    return { ok: true, released: true, case: result.record }
   })
 }
 
@@ -275,8 +371,9 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     else if (command === 'improvement-reject') printResult(improvement(args, 'rejected'))
     else if (command === 'improvement-revert') printResult(improvement(args, 'reverted'))
     else if (command === 'failure') printResult(failure(args))
+    else if (command === 'quarantine-release') printResult(quarantineRelease(args))
     else {
-      console.error('Usage: control.mjs lease-acquire|lease-release|queue-add|metric|blocker|integrity-record|improvement-propose|improvement-adopt|improvement-reject|improvement-revert|failure [--key=value]')
+      console.error('Usage: control.mjs lease-acquire|lease-release|queue-add|metric|blocker|integrity-record|improvement-propose|improvement-adopt|improvement-reject|improvement-revert|failure|quarantine-release [--key=value]')
       process.exitCode = 2
     }
   } catch (error) {
