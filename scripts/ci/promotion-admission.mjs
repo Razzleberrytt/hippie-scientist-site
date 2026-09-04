@@ -33,6 +33,10 @@ export function canAutoRefreshPromotionPr(changedFiles = []) {
   return !changedFiles.some(file => WORKFLOW_CONTROL_PATH.test(String(file || '')))
 }
 
+export function shouldStageStalePromotion(relationship = {}) {
+  return relationship.exact !== true
+}
+
 function compareCandidateOrder(a, b) {
   const aCreated = Date.parse(a?.created_at || '') || 0
   const bCreated = Date.parse(b?.created_at || '') || 0
@@ -151,13 +155,13 @@ export async function buildAdmissionPlan({ repository, token }) {
 
   if (active) {
     const relationship = await relationshipToMain(repository, mainSha, active.head?.sha, token)
-    if (!relationship.exact) {
+    if (shouldStageStalePromotion(relationship)) {
       const changedFiles = await changedFilesForPr(repository, active.number, token)
+      stageNumbers.push(active.number)
       if (!canAutoRefreshPromotionPr(changedFiles)) {
-        stageNumbers.push(active.number)
         cleanRestageNumbers.push(active.number)
-        active = null
       }
+      active = null
     }
   }
 
