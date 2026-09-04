@@ -171,6 +171,11 @@ const RESEARCH_ARTICLES: GuideCard[] = [
     title: '5-HTP for Sleep',
     desc: 'A small 2024 older-adult RCT, very limited insomnia evidence, and the serotonergic safety context.',
   },
+  {
+    href: '/articles/sleep-supplement-formulations/',
+    title: 'Why Formulations Are Not Interchangeable',
+    desc: 'Why one magnesium salt, branded extract, juice, tea, or proprietary blend cannot validate an entire ingredient class.',
+  },
 ]
 
 const SLEEP_SCIENCE: GuideCard[] = [
@@ -198,6 +203,26 @@ const SLEEP_SCIENCE: GuideCard[] = [
     href: '/articles/caffeine-and-sleep-timing/',
     title: 'Caffeine and Sleep Timing',
     desc: 'Dose × timing evidence, including newer controlled trials and meta-analyses of sleep disruption.',
+  },
+  {
+    href: '/articles/alcohol-and-sleep/',
+    title: 'Alcohol and Sleep',
+    desc: 'Why faster sedation does not equal better sleep, including the 2025 dose-response REM meta-analysis.',
+  },
+  {
+    href: '/articles/morning-light-and-sleep-timing/',
+    title: 'Morning Light and Sleep Timing',
+    desc: 'Circadian phase shifting, recent insomnia meta-analyses, and why the clock time of light exposure changes its effect.',
+  },
+  {
+    href: '/articles/exercise-timing-and-sleep/',
+    title: 'Exercise Timing and Sleep',
+    desc: 'The 2026 morning-vs-evening review: flexible timing, with intensity and proximity to bed as the bigger variables.',
+  },
+  {
+    href: '/articles/naps-and-nighttime-sleep/',
+    title: 'Naps and Nighttime Sleep',
+    desc: 'Sleep pressure, nap timing, cognitive benefits and the very different logic of shift-work napping.',
   },
   {
     href: '/articles/insomnia-vs-sleep-deprivation/',
@@ -315,8 +340,8 @@ export default function SleepGuideIndex() {
       <section className="mb-12">
         <HubSectionHeading
           eyebrow="Sleep science"
-          title="Understand the measurements before judging an intervention"
-          sub="Onset, maintenance, wearables, regularity, caffeine and the difference between insomnia and simply not getting enough sleep."
+          title="Understand the measurements and upstream variables"
+          sub="Onset, maintenance, wearables, regularity, caffeine, alcohol, light, exercise, naps and the difference between insomnia and simply not getting enough sleep."
         />
         <GuideCardGrid cards={SLEEP_SCIENCE} />
       </section>
