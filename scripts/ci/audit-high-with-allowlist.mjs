@@ -8,6 +8,9 @@ const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../
 const allowlistPath = path.join(repoRoot, 'security', 'audit-allowlist.json')
 const allowlistFragmentsDir = path.join(repoRoot, 'security', 'audit-allowlist.d')
 const auditTimeoutMs = Math.max(30_000, Number(process.env.NPM_AUDIT_TIMEOUT_MS || 120_000))
+const configuredAttempts = Number.parseInt(process.env.NPM_AUDIT_MAX_ATTEMPTS || '2', 10)
+const auditMaxAttempts = Math.min(3, Math.max(1, Number.isFinite(configuredAttempts) ? configuredAttempts : 2))
+const auditAttemptTimeoutMs = Math.max(10_000, Math.floor(auditTimeoutMs / auditMaxAttempts))
 
 function readRules(filePath) {
   const payload = JSON.parse(fs.readFileSync(filePath, 'utf8'))
@@ -51,31 +54,91 @@ function getNpmInvocation() {
   }
 }
 
+function parseAuditAttempt(auditRun) {
+  if (auditRun.error) {
+    const timedOut = auditRun.error.code === 'ETIMEDOUT'
+    return {
+      report: null,
+      reason: timedOut
+        ? `timed out after ${auditAttemptTimeoutMs}ms`
+        : `spawn failed: ${auditRun.error.message}`,
+    }
+  }
+
+  const raw = String(auditRun.stdout || '').trim()
+  const stderr = String(auditRun.stderr || '').trim()
+  if (!raw) {
+    return {
+      report: null,
+      reason: stderr ? `no JSON output; stderr: ${stderr.slice(0, 1000)}` : 'no JSON output',
+    }
+  }
+
+  let report
+  try {
+    report = JSON.parse(raw)
+  } catch (error) {
+    return {
+      report: null,
+      reason: `unparseable JSON: ${error.message}${stderr ? `; stderr: ${stderr.slice(0, 1000)}` : ''}`,
+    }
+  }
+
+  const structurallyValid = Number.isFinite(report?.auditReportVersion)
+    && report.vulnerabilities
+    && typeof report.vulnerabilities === 'object'
+    && !Array.isArray(report.vulnerabilities)
+    && report.metadata
+    && typeof report.metadata === 'object'
+
+  if (report?.error || !structurallyValid) {
+    return {
+      report: null,
+      reason: `invalid npm audit report${report?.error ? `: ${JSON.stringify(report.error).slice(0, 1000)}` : ''}`,
+    }
+  }
+
+  return { report, reason: null }
+}
+
 const npmInvocation = getNpmInvocation()
-const auditRun = spawnSync(npmInvocation.command, npmInvocation.args, {
-  cwd: repoRoot,
-  encoding: 'utf8',
-  timeout: auditTimeoutMs,
-  killSignal: 'SIGTERM',
-  env: {
-    ...process.env,
-    NPM_CONFIG_FETCH_TIMEOUT: process.env.NPM_CONFIG_FETCH_TIMEOUT || '60000',
-    NPM_CONFIG_FETCH_RETRIES: process.env.NPM_CONFIG_FETCH_RETRIES || '1',
-  },
-})
-if (auditRun.error) {
-  const timedOut = auditRun.error.code === 'ETIMEDOUT'
-  console.error(`[audit:high] FAIL: unable to run ${npmInvocation.label}${timedOut ? ` within ${auditTimeoutMs}ms` : ''}`)
-  console.error(auditRun.error.message)
+let report = null
+const transportFailures = []
+
+for (let attempt = 1; attempt <= auditMaxAttempts; attempt += 1) {
+  const auditRun = spawnSync(npmInvocation.command, npmInvocation.args, {
+    cwd: repoRoot,
+    encoding: 'utf8',
+    timeout: auditAttemptTimeoutMs,
+    killSignal: 'SIGTERM',
+    env: {
+      ...process.env,
+      NPM_CONFIG_FETCH_TIMEOUT: process.env.NPM_CONFIG_FETCH_TIMEOUT || '60000',
+      NPM_CONFIG_FETCH_RETRIES: process.env.NPM_CONFIG_FETCH_RETRIES || '1',
+    },
+  })
+
+  const parsed = parseAuditAttempt(auditRun)
+  if (parsed.report) {
+    report = parsed.report
+    if (attempt > 1) {
+      console.warn(`[audit:high] recovered a valid npm audit report on attempt ${attempt}/${auditMaxAttempts}`)
+    }
+    break
+  }
+
+  transportFailures.push({ attempt, reason: parsed.reason })
+  if (attempt < auditMaxAttempts) {
+    console.warn(`[audit:high] transient audit transport/report failure on attempt ${attempt}/${auditMaxAttempts}; retrying: ${parsed.reason}`)
+  }
+}
+
+if (!report) {
+  console.error(`[audit:high] FAIL: unable to obtain valid npm audit JSON after ${auditMaxAttempts} attempt(s) within a ${auditTimeoutMs}ms total command-time budget`)
+  console.error(JSON.stringify({ transportFailures }, null, 2))
   process.exit(1)
 }
-const raw = String(auditRun.stdout || '').trim()
-if (!raw) {
-  console.error('[audit:high] FAIL: npm audit returned no JSON output')
-  console.error(String(auditRun.stderr || '').trim())
-  process.exit(1)
-}
-const report = JSON.parse(raw)
+
 const vulnerabilities = report.vulnerabilities || {}
 
 function isHighOrCritical(vuln) {
