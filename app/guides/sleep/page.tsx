@@ -109,9 +109,14 @@ const START_HERE: IntentRoute[] = [
 
 const BEST_FIRST: GuideCard[] = [
   {
+    href: '/articles/sleep-interventions-evidence-matrix/',
+    title: 'Sleep Interventions Evidence Matrix',
+    desc: 'Compare supplements, CBT-I, circadian tools, environmental interventions, substances and red flags in one decision-first map.',
+  },
+  {
     href: '/guides/sleep/best-supplements-for-sleep/',
     title: 'Best Supplements for Sleep',
-    desc: 'The evidence-graded supplement overview — start here if you are not sure what you need.',
+    desc: 'The evidence-graded supplement overview — start here if your question is specifically about supplements.',
   },
   {
     href: '/articles/cbt-i-vs-sleep-supplements/',
@@ -233,6 +238,11 @@ const RESEARCH_ARTICLES: GuideCard[] = [
 
 const CORE_SLEEP_SCIENCE: GuideCard[] = [
   {
+    href: '/articles/sleep-interventions-evidence-matrix/',
+    title: 'Sleep Interventions Evidence Matrix',
+    desc: 'A fast map of evidence position, best-supported role, main signal and biggest limitation across the sleep cluster.',
+  },
+  {
     href: '/articles/sleep-onset-vs-sleep-maintenance/',
     title: 'Sleep Onset vs Sleep Maintenance',
     desc: 'SOL, WASO, total sleep time and sleep efficiency — learn which endpoint a study actually changed.',
@@ -265,6 +275,11 @@ const CORE_SLEEP_SCIENCE: GuideCard[] = [
 ]
 
 const CIRCADIAN_AND_SCHEDULE: GuideCard[] = [
+  {
+    href: '/articles/night-owl-chronotype-vs-delayed-sleep-phase/',
+    title: 'Night Owl vs Delayed Sleep Phase Disorder',
+    desc: 'A late chronotype is not automatically a disorder; impairment and schedule conflict are what change the interpretation.',
+  },
   {
     href: '/articles/delayed-sleep-wake-phase-vs-insomnia/',
     title: 'Delayed Sleep Phase vs Insomnia',
@@ -539,7 +554,7 @@ export default function SleepGuideIndex() {
         <HubSectionHeading
           eyebrow="Core sleep science"
           title="Understand what the studies are actually measuring"
-          sub="Onset, maintenance, subjective versus objective sleep, trackers, post-waking grogginess and the difference between insomnia and insufficient sleep."
+          sub="Evidence mapping, onset, maintenance, subjective versus objective sleep, trackers, post-waking grogginess and the difference between insomnia and insufficient sleep."
         />
         <GuideCardGrid cards={CORE_SLEEP_SCIENCE} />
       </section>
@@ -548,7 +563,7 @@ export default function SleepGuideIndex() {
         <HubSectionHeading
           eyebrow="Circadian & schedule"
           title="When clock timing matters more than sedation"
-          sub="Delayed sleep phase, shift work, light, melatonin timing, regularity, catch-up sleep, naps, exercise and meal timing."
+          sub="Chronotype, delayed sleep phase, shift work, light, melatonin timing, regularity, catch-up sleep, naps, exercise and meal timing."
         />
         <GuideCardGrid cards={CIRCADIAN_AND_SCHEDULE} />
       </section>
