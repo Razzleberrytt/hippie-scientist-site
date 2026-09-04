@@ -40,6 +40,72 @@
     {
       "submissionId": "sub_f-b6-prolonged-high-dose-neuropathy-warning",
       "promotionStatus": "not_promoted"
+    },
+    {
+      "submissionId": "sub_d-methyl-eugenol-iarc-group2a",
+      "attestation": {
+        "reviewer": "enrichment-adjudicator",
+        "reviewedAt": "2026-09-04T14:30:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "IARC Volume 134 evaluates methyleugenol as the exact chemical entity named by the staged finding.",
+          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+        },
+        "preparation": {
+          "status": "not_applicable",
+          "reason": "The proposition is an IARC carcinogenic-hazard classification for methyleugenol itself rather than a preparation-specific clinical formulation claim.",
+          "evidenceRefs": []
+        },
+        "population": {
+          "status": "matched",
+          "reason": "The staged finding correctly preserves IARC's integrated evidence basis, including sufficient animal evidence, strong mechanistic evidence, and inadequate human cancer evidence.",
+          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "The source endpoint is carcinogenic hazard classification and its evidentiary basis, exactly matching the staged safety-risk proposition.",
+          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "The finding preserves Group 2A probable human carcinogenicity while explicitly retaining that direct human cancer evidence is inadequate.",
+          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+        }
+      }
+    },
+    {
+      "submissionId": "sub_d-methyl-eugenol-exposure-context-firewall",
+      "attestation": {
+        "reviewer": "enrichment-adjudicator",
+        "reviewedAt": "2026-09-04T14:30:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "The IARC monograph discusses methyleugenol occurrence and exposure, matching the exact compound governed by this proposition.",
+          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+        },
+        "preparation": {
+          "status": "matched",
+          "reason": "The staged firewall preserves the source distinction among natural occurrence, food and consumer-product exposure, essential-oil exposure, and concentrated isolated exposure.",
+          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+        },
+        "population": {
+          "status": "matched",
+          "reason": "The source describes general-population exposure through foods and consumer products, which is the population context stated by the finding.",
+          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "This proposition governs exposure-form and regulatory context rather than a clinical efficacy endpoint, consistent with the source material used.",
+          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "The finding appropriately prevents background natural or dietary exposure from being treated as quantitatively equivalent to concentrated isolated methyleugenol exposure.",
+          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+        }
+      }
     }
   ]
 }
