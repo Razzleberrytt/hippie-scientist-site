@@ -31,6 +31,25 @@ test('worker pool releases a failed item and continues processing remaining work
   assert.deepEqual(failures, [{ item: 2, message: 'synthetic blocker' }])
 })
 
+test('telemetry failure cannot become a worker blocker', async () => {
+  const visited = []
+  const results = await runWorkerPool([1, 2, 3], async value => {
+    visited.push(value)
+    if (value === 1) throw new Error('work failed')
+    return value
+  }, {
+    concurrency: 1,
+    onItemError: async () => {
+      throw new Error('logger unavailable')
+    },
+  })
+
+  assert.deepEqual(visited, [1, 2, 3])
+  assert.equal(results[0].ok, false)
+  assert.equal(results[1].value, 2)
+  assert.equal(results[2].value, 3)
+})
+
 test('timeout converts a hung task into a bounded failure', async () => {
   await assert.rejects(
     () => withTimeout(() => new Promise(() => {}), 15, 'hung-fixture'),
@@ -52,6 +71,9 @@ test('transient failures retry with a ceiling and eventually recover', async () 
     attempts: 4,
     baseDelayMs: 1,
     maxDelayMs: 2,
+    onRetry: async () => {
+      throw new Error('telemetry unavailable')
+    },
   })
 
   assert.equal(value, 'recovered')
