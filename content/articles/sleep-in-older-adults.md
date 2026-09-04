@@ -70,9 +70,19 @@ references:
     year: "2025"
     pmid: "41483206"
     url: "https://pubmed.ncbi.nlm.nih.gov/41483206/"
+  - title: "The effectiveness of the behavioural components of cognitive behavioural therapy for insomnia in older adults: A systematic review"
+    authors: "McLaren DM, Evans J, Baylan S, Smith S, Gardani M"
+    year: "2023"
+    pmid: "36802110"
+    url: "https://pubmed.ncbi.nlm.nih.gov/36802110/"
+  - title: "Sleep quality and duration and frailty in older adults: a systematic review"
+    authors: "de Souza AMN, et al."
+    year: "2025"
+    pmid: "40078770"
+    url: "https://pubmed.ncbi.nlm.nih.gov/40078770/"
 ---
 
-> **Bottom line:** Sleep changes with age, but “you are older, so bad sleep is normal” is a poor evidence-based conclusion. Older adults often have lighter, more fragmented sleep and changes in circadian timing, yet clinically important insomnia, sleep apnea, restless legs and medication-related sleep disruption remain identifiable problems with their own treatment pathways. CBT-I still works, and medication safety deserves more—not less—attention with age.[1-8]
+> **Bottom line:** Sleep changes with age, but “you are older, so bad sleep is normal” is a poor evidence-based conclusion. Older adults often have lighter, more fragmented sleep and changes in circadian timing, yet clinically important insomnia, sleep apnea, restless legs and medication-related sleep disruption remain identifiable problems with their own treatment pathways. CBT-I still works, and medication safety deserves more—not less—attention with age.[1-9]
 
 ## What actually changes with normal aging?
 
@@ -164,7 +174,7 @@ That is a perfect example of why “did total sleep time go up?” is not the on
 
 ## Subjective and objective sleep can still disagree
 
-A 2023 systematic review of behavioral components of CBT-I in older adults found stronger improvements in subjective sleep measures than in actigraphy or polysomnography outcomes.[4-related behavioral evidence]
+A 2023 systematic review of behavioral components of CBT-I in older adults found stronger improvements in subjective sleep measures than in actigraphy or polysomnography outcomes.[9]
 
 That does not make the subjective improvement fake.
 
@@ -254,7 +264,7 @@ See [Naps and Nighttime Sleep](/articles/naps-and-nighttime-sleep/) for that fra
 
 ## Sleep duration and frailty: important, but mostly observational
 
-Recent systematic reviews report associations between poor sleep quality, atypical sleep duration and frailty in older adults.[9]
+A 2025 systematic review reported associations between poor sleep quality, atypical sleep duration and frailty in older adults.[10]
 
 Those findings are clinically important but should not be flattened into a causal rule.
 
@@ -295,7 +305,7 @@ Only then does “what sleep aid should we add?” become the right question.
 
 Older-adult sleep deserves its own evidence framework.
 
-Normal aging can make sleep lighter, more fragmented and differently timed, but that should not become an excuse to ignore persistent insomnia or another sleep disorder. CBT-I remains well supported. OSA and restless legs are common enough to stay high on the differential. Medication and OTC-sedative risks become more important as fall risk, cognitive vulnerability and polypharmacy increase.[1-8]
+Normal aging can make sleep lighter, more fragmented and differently timed, but that should not become an excuse to ignore persistent insomnia or another sleep disorder. CBT-I remains well supported. OSA and restless legs are common enough to stay high on the differential. Medication and OTC-sedative risks become more important as fall risk, cognitive vulnerability and polypharmacy increase.[1-9]
 
 The most defensible principle is simple:
 
