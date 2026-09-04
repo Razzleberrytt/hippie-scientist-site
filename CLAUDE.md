@@ -86,7 +86,8 @@ Plan from `out/sitemap.xml` or `runtime-manifests/route-manifest.json`, and use
 - `/natural-anxiolytics-beyond-ashwagandha`, `/sleep-herbs-vs-melatonin`, `/psychedelic-adjacent-herbs`
 
 **Depth layer** — authoritative profiles:
-- `/herbs/:slug`, `/compounds/:slug`, `/stacks/:slug`, `/compare/:slug`
+- `/herbs/:slug`, `/compounds/:slug`, `/guides/compare/:slug`
+- `/stacks/:slug` and top-level `/compare/:slug` are gone; see Route Contracts below
 
 ### Key Directory Layout
 
@@ -220,7 +221,7 @@ These routes are linked widely and indexed. If you must rename or remove one, ad
 - `/herbs/:slug`
 - `/compounds/:slug`
 - `/goals/:slug`
-- `/compare/:slug`
+- `/guides/compare/:slug`
 - Discovery cluster routes listed in `AGENTS.md`
 
 `/stacks/:slug` was listed here but no longer builds: `app/stacks/` does not
@@ -228,6 +229,20 @@ exist and no stack data is emitted, so the sitemap contains none of these
 routes. `sitemap.ts`, `ComparePageScaffold` and two `lib/` modules still
 reference the shape, so the concept is dormant rather than deleted — restoring
 it is a content decision, not a routing one.
+
+Top-level `/compare/:slug` was listed here too and is likewise gone. `app/compare/`
+contains only `on-demand/`, which is `noindex`; live comparisons are at
+`/guides/compare/:slug`, and `AGENTS.md` already classes top-level `/compare/*` as
+legacy. It is worth being precise about the scale, because the Search Console 404
+report is dominated by it: **801 of 1,000 reported 404s are `/compare/*`, and of 593
+unique slugs exactly one has a live equivalent.** They were auto-generated compound ×
+compound permutations (`/compare/lycopene-vs-commipheric-acid`).
+
+The generator is already removed — `public/data/comparison-candidates.json` is empty
+and nothing emits those routes — so this will not recur. Those URLs are historical
+residue and are deliberately left to 404: redirecting ~1,600 combinatorial pages into
+`/guides/compare/` would be a soft 404 at scale and would put the hub's own ranking at
+risk. See `public/redirect-overrides/030-gsc-404-recovery-2026-09-03.txt`.
 
 Run `npm run routes:inventory` to regenerate the full route inventory at `docs/generated/route-inventory.md`.
 
