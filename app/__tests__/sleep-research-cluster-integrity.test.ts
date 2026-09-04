@@ -36,6 +36,7 @@ const REQUIRED_RESEARCH_ARTICLES = [
   'night-owl-chronotype-vs-delayed-sleep-phase',
   'delayed-sleep-wake-phase-vs-insomnia',
   'shift-work-sleep-disorder',
+  'teen-sleep-and-school-start-times',
   'morning-light-and-sleep-timing',
   'melatonin-timing-vs-dose',
   'blue-light-screens-and-sleep',
@@ -44,21 +45,26 @@ const REQUIRED_RESEARCH_ARTICLES = [
   'naps-and-nighttime-sleep',
   'exercise-timing-and-sleep',
   'time-restricted-eating-and-sleep',
+  'sleep-environment-evidence-guide',
   'eye-masks-earplugs-and-sleep',
+  'bedroom-air-quality-ventilation-and-sleep',
   'sleep-temperature-and-cooling',
   'warm-bath-shower-before-bed',
   'white-noise-and-sleep',
   'music-for-sleep',
   'weighted-blankets-for-sleep',
   'mindfulness-for-insomnia',
+  'sleep-position-osa-and-reflux',
   'caffeine-and-sleep-timing',
   'alcohol-and-sleep',
   'cannabis-cannabinoids-and-sleep',
   'nicotine-vaping-and-sleep',
   'otc-antihistamines-for-sleep',
+  'teen-adolescent-sleep',
   'menopause-and-sleep',
   'pregnancy-postpartum-and-sleep',
   'chronic-pain-and-sleep',
+  'sleep-in-older-adults',
   'cbt-i-vs-sleep-supplements',
   'sleep-apnea-vs-insomnia',
   'mouth-taping-for-sleep',
@@ -87,6 +93,7 @@ describe('sleep research cluster integrity', () => {
     expect(hub).toContain('Check the bottleneck')
     expect(hub).toContain('Start with the actual sleep problem, not the product')
     expect(hub).toContain('/articles/sleep-interventions-evidence-matrix/')
+    expect(hub).toContain('/articles/sleep-environment-evidence-guide/')
   })
 
   it('keeps research articles publication-ready rather than placeholder shells', () => {
@@ -150,6 +157,9 @@ describe('sleep research cluster integrity', () => {
     const music = read('content/articles/music-for-sleep.md').replace(/\s+/g, ' ')
     const mindfulness = read('content/articles/mindfulness-for-insomnia.md').replace(/\s+/g, ' ')
     const sensory = read('content/articles/eye-masks-earplugs-and-sleep.md').replace(/\s+/g, ' ')
+    const ventilation = read('content/articles/bedroom-air-quality-ventilation-and-sleep.md').replace(/\s+/g, ' ')
+    const position = read('content/articles/sleep-position-osa-and-reflux.md').replace(/\s+/g, ' ')
+    const environment = read('content/articles/sleep-environment-evidence-guide.md').replace(/\s+/g, ' ')
 
     expect(noise).toMatch(/2020.*very low|very low quality/i)
     expect(noise).toMatch(/2025.*meta-analysis/i)
@@ -161,6 +171,24 @@ describe('sleep research cluster integrity', () => {
     expect(mindfulness).toMatch(/active control|CBT-I/i)
     expect(sensory).toMatch(/ICU|intensive-care/i)
     expect(sensory).toMatch(/earplugs alone.*less|less consistent|no significant/i)
+    expect(ventilation).toMatch(/CO₂.*marker|CO2.*marker|marker of ventilation/i)
+    expect(ventilation).toMatch(/universal.*threshold|one universal.*CO₂|one universal.*CO2/i)
+    expect(position).toMatch(/no.*universal.*best|no universal.*position/i)
+    expect(position).toMatch(/left-side|left lateral/i)
+    expect(position).toMatch(/CPAP.*more effective|less effective than CPAP/i)
+    expect(environment).toMatch(/problem-removal system|largest reversible disturbance/i)
+    expect(environment).toMatch(/purifier.*not.*ventilation|Air purifiers are not ventilation/i)
+  })
+
+  it('keeps adolescent sleep separated into biology, opportunity, insomnia and policy questions', () => {
+    const teen = read('content/articles/teen-adolescent-sleep.md').replace(/\s+/g, ' ')
+    const school = read('content/articles/teen-sleep-and-school-start-times.md').replace(/\s+/g, ' ')
+
+    expect(teen).toMatch(/late chronotype.*not automatically|night owl.*not automatically|not automatically delayed/i)
+    expect(teen).toMatch(/CBT-I/i)
+    expect(school).toMatch(/69 minutes|69 additional minutes/i)
+    expect(school).toMatch(/26-minute|26 minute/i)
+    expect(school).toMatch(/sleep opportunity|circadian-social mismatch/i)
   })
 
   it('keeps shift-work and wake-transition safety visible', () => {
@@ -174,16 +202,23 @@ describe('sleep research cluster integrity', () => {
   })
 
   it('keeps life-stage and comorbidity pages from collapsing distinct sleep problems into one treatment', () => {
+    const teen = read('content/articles/teen-adolescent-sleep.md').replace(/\s+/g, ' ')
     const menopause = read('content/articles/menopause-and-sleep.md').replace(/\s+/g, ' ')
     const pregnancy = read('content/articles/pregnancy-postpartum-and-sleep.md').replace(/\s+/g, ' ')
     const pain = read('content/articles/chronic-pain-and-sleep.md').replace(/\s+/g, ' ')
+    const older = read('content/articles/sleep-in-older-adults.md').replace(/\s+/g, ' ')
 
+    expect(teen).toMatch(/school start|circadian/i)
+    expect(teen).toMatch(/CBT-I/i)
     expect(menopause).toMatch(/hot flash|vasomotor/i)
     expect(menopause).toMatch(/CBT-I|sleep apnea|restless legs/i)
     expect(pregnancy).toMatch(/sleep deprivation.*not automatically insomnia|not automatically insomnia/i)
     expect(pregnancy).toMatch(/pregnancy.*safety|breastfeeding|lactation/i)
     expect(pain).toMatch(/bidirectional|feedback loop/i)
     expect(pain).toMatch(/insomnia.*improve.*pain|sleep.*improve.*pain/i)
+    expect(older).toMatch(/normal aging|aging changes/i)
+    expect(older).toMatch(/CBT-I/i)
+    expect(older).toMatch(/sleep apnea|OSA/i)
   })
 
   it('keeps legacy dream and sedative posts free of the removed DIY dosing and stacking recipes', () => {
