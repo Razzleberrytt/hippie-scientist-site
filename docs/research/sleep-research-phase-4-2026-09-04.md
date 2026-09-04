@@ -4,7 +4,7 @@ Date: 2026-09-04
 
 ## Goal
 
-Continue widening the sleep authority graph beyond supplement selection by adding high-value diagnostic boundaries, circadian distinctions, airway-adjunct evidence, medication effects, parasomnia differentiation, and central-hypersomnolence context.
+Continue widening the sleep authority graph beyond supplement selection by adding high-value diagnostic boundaries, circadian distinctions, airway-adjunct evidence, medication effects, and central-hypersomnolence context.
 
 All Phase 4 work is developed on a branch rather than written directly to `main`, preserving the governed PR → autonomous controller → deploy lifecycle.
 
@@ -20,7 +20,10 @@ Canonical route: `/articles/rem-sleep-behavior-disorder/`
 
 PR #5202 independently merged the canonical RBD review, covering diagnosis, polysomnography, injury prevention, treatment guidance and neurologic/synucleinopathy context. Phase 4 therefore treats that page as an established dependency rather than creating another RBD core review.
 
-The parasomnia comparison page now links to this canonical route.
+### Night terrors versus nightmares — merged independently
+Canonical route: `/articles/night-terrors-vs-nightmares/`
+
+PR #5209 independently shipped the cross-parasomnia night-terror/nightmare comparison while Phase 4 was staged. Because the Phase 4 `nightmares-sleep-terrors-and-rbd` draft substantially overlapped that decision intent and the already-canonical RBD review, the duplicate Phase 4 page was deleted rather than creating a competing diagnostic router.
 
 This is the duplicate-control policy working as intended: search not only current `main`, but also active/recent parallel PRs before publication.
 
@@ -86,26 +89,7 @@ Editorial boundary:
 - Prescription dose/timing/stopping changes belong with a prescriber or pharmacist rather than DIY experimentation.
 - Do not build sedative/stimulant stacks to cancel side effects before identifying the source.
 
-### 5. Nightmares, sleep terrors and RBD
-Canonical target: `/articles/nightmares-sleep-terrors-and-rbd/`
-
-Evidence anchors:
-- PMID 38368059 — nightmare disorder review (2024)
-- PMID 38368070 — sleep terrors review (2024)
-- PMID 38328386 — REM parasomnia neurophysiology review (2024)
-- PMID 37590824 — REM sleep behavior disorder and other REM parasomnias review
-- PMID 35388549 — disorders of arousal review
-- PMID 39419343 — conscious experience in NREM parasomnias review
-
-Editorial boundary:
-- Nightmares: distressing REM dreams, usually remembered.
-- Sleep terrors/sleepwalking: NREM disorders of arousal, often confused with limited/variable recall.
-- RBD: REM dream enactment caused by abnormal loss of REM atonia.
-- Adult NREM parasomnias can be complex and injurious; they are not exclusively pediatric.
-- Violent, injurious, stereotyped or unusual adult-onset episodes require a broader differential including seizure and sleep-disordered breathing.
-- This comparison page remains distinct from both the canonical RBD core review and the PTSD/nightmare review because it answers a cross-parasomnia differentiation intent.
-
-### 6. Hypersomnolence versus insufficient sleep
+### 5. Hypersomnolence versus insufficient sleep
 Canonical target: `/articles/hypersomnolence-vs-insufficient-sleep/`
 
 Evidence anchors:
@@ -121,15 +105,20 @@ Editorial boundary:
 - MSLT is useful but not a standalone disease detector; test preparation and preceding sleep opportunity materially affect interpretation.
 - Actigraphy and sleep logs help establish whether chronic restriction or circadian irregularity is contaminating the workup.
 - Stimulant response does not diagnose the cause of sleepiness.
+- This page remains a cause-of-sleepiness router rather than a replacement for the canonical narcolepsy and idiopathic-hypersomnia disease reviews added in parallel.
 
 ## Collision audit
 
-Recent PR search on 2026-09-04 found no competing PR for the six staged intents:
+Repeated recent-PR search on 2026-09-04 pruned three overlapping drafts before publication:
+- sleep paralysis → PR #5199 canonical page;
+- RBD core review → PR #5202 canonical page;
+- nightmares versus sleep terrors comparison → PR #5209 canonical comparison.
+
+The five remaining Phase 4 intents are:
 - advanced sleep phase / early waking;
 - sleep bruxism and OSA;
 - nasal obstruction and OSA;
 - medication-related sleep effects;
-- nightmares versus sleep terrors versus RBD;
 - hypersomnolence versus insufficient sleep.
 
 Re-run this audit immediately before opening the Phase 4 PR because parallel workers are moving quickly.
