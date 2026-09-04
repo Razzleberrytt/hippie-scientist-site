@@ -6,6 +6,7 @@ on:
       - 'agent/lib/runtime-resilience.js'
       - 'agent/lib/runtime-resilience.test.js'
       - 'agent/lib/metadata-harvester.js'
+      - 'agent/lib/openai-client.js'
       - 'agent/lib/queue.js'
       - 'agent/run-agent.js'
       - 'agent/orchestrator/run-orchestrator.js'
@@ -16,6 +17,7 @@ on:
       - 'agent/lib/runtime-resilience.js'
       - 'agent/lib/runtime-resilience.test.js'
       - 'agent/lib/metadata-harvester.js'
+      - 'agent/lib/openai-client.js'
       - 'agent/lib/queue.js'
       - 'agent/run-agent.js'
       - 'agent/orchestrator/run-orchestrator.js'
@@ -42,6 +44,8 @@ jobs:
         run: node --check agent/lib/runtime-resilience.js
       - name: Syntax check metadata harvester
         run: node --check agent/lib/metadata-harvester.js
+      - name: Syntax check AI client
+        run: node --check agent/lib/openai-client.js
       - name: Syntax check queue
         run: node --check agent/lib/queue.js
       - name: Syntax check agent runner
