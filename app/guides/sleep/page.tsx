@@ -190,6 +190,11 @@ const SLEEP_SCIENCE: GuideCard[] = [
     desc: 'Why insomnia can feel severe even when polysomnography or wearable changes look smaller.',
   },
   {
+    href: '/articles/why-sleep-studies-disagree/',
+    title: 'Why Sleep Studies Disagree',
+    desc: 'Nine reasons apparently conflicting trials can be answering different questions rather than cancelling each other out.',
+  },
+  {
     href: '/articles/sleep-trackers-accuracy/',
     title: 'How Accurate Are Sleep Trackers?',
     desc: 'The 2025–2026 evidence on wearables, actigraphy, sleep stages and systematic measurement bias.',
@@ -341,7 +346,7 @@ export default function SleepGuideIndex() {
         <HubSectionHeading
           eyebrow="Sleep science"
           title="Understand the measurements and upstream variables"
-          sub="Onset, maintenance, wearables, regularity, caffeine, alcohol, light, exercise, naps and the difference between insomnia and simply not getting enough sleep."
+          sub="Onset, maintenance, study design, wearables, regularity, caffeine, alcohol, light, exercise, naps and the difference between insomnia and simply not getting enough sleep."
         />
         <GuideCardGrid cards={SLEEP_SCIENCE} />
       </section>
