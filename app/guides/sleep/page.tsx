@@ -553,7 +553,7 @@ const ALL_GUIDES = [
   { slug: 'magnesium-for-sleep', title: 'Magnesium for Sleep' },
   { slug: 'best-magnesium-for-sleep', title: 'Best Magnesium for Sleep' },
   { slug: 'magnesium-types-for-sleep', title: 'Magnesium Types for Sleep' },
-  { slug: 'magnesium-glycinate-vs-l-threonate-for-sleep', title: 'Magnesium Glycinate vs L-Threonate' },
+  { slug: 'magnesium-glycinate-vs-l-threonate-for-sleep', title: 'Magnesium Glycinate vs L-Threonate for Sleep' },
   { slug: 'glycine-for-sleep', title: 'Glycine for Sleep' },
   { slug: 'apigenin-for-sleep', title: 'Apigenin for Sleep' },
   { slug: 'l-theanine-for-sleep', title: 'L-Theanine for Sleep' },
