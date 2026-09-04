@@ -35,7 +35,7 @@ const OUT = path.join(ROOT, 'out')
 // Stress", both indexable and self-canonical. Linking them from the section list
 // would entrench that overlap; consolidating or canonicalizing them is an
 // editorial call. Tracked in #5078.
-const HUBS = ['/guides/compare', '/learn', '/evidence/evidence-report']
+const HUBS = ['/guides/compare', '/learn', '/evidence/evidence-report', '/guides/sleep']
 
 function readHtml(routePath) {
   const file = path.join(OUT, routePath.replace(/^\//, ''), 'index.html')
