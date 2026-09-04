@@ -56,9 +56,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     sourceCount: articleSocialSourceCount(page.references),
   })
 
-  // Some legacy article URLs are 301'd to a guide. Those pages still build, so
-  // without this they would claim to be canonical for content that lives
-  // elsewhere.
   return withRedirectSourceMetadata(
     buildPageMetadata({
       title: compactMetaTitle(page.title),
@@ -79,7 +76,13 @@ export default async function ArticleMonographPage({ params }: PageProps) {
 
   const pagePath = `/articles/${page.slug}/`
   const relatedPages = resolveRelatedArticles(page, articlePages)
-  const { keyTakeaways, citationQuestions, canonicalConcepts } = normalizeCitationMetadata(page)
+  const {
+    keyTakeaways,
+    citationQuestions,
+    canonicalConcepts,
+    decisionRows,
+    faqAnswers,
+  } = normalizeCitationMetadata(page)
   const articleReferences = normalizeArticleReferences(page.references)
   const citationReadySummary = buildCitationReadySummary({
     description: page.description,
@@ -147,6 +150,21 @@ export default async function ArticleMonographPage({ params }: PageProps) {
       }
     : null
 
+  const faqSchema = faqAnswers.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqAnswers.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      }
+    : null
+
   const medicalPageSchema = lastReviewed || articleReferences.length > 0
     ? {
         '@context': 'https://schema.org',
@@ -172,6 +190,7 @@ export default async function ArticleMonographPage({ params }: PageProps) {
       <JsonLd schema={articleSchema} />
       {medicalPageSchema ? <JsonLd schema={medicalPageSchema} /> : null}
       {takeawaySchema ? <JsonLd schema={takeawaySchema} /> : null}
+      {faqSchema ? <JsonLd schema={faqSchema} /> : null}
 
       <header className="hero-shell rounded-[2rem] border p-6 sm:p-8 lg:p-10">
         <div className="flex flex-wrap items-center gap-2.5">
@@ -274,11 +293,45 @@ export default async function ArticleMonographPage({ params }: PageProps) {
         </section>
       ) : null}
 
+      {decisionRows.length > 0 ? (
+        <section className="mt-8 rounded-[1.5rem] border border-[color:var(--hs-hairline)] bg-[color:var(--surface-subtle)] p-5 sm:p-6" aria-labelledby="decision-snapshot-title">
+          <p className="section-label">Decision snapshot</p>
+          <h2 id="decision-snapshot-title" className="mt-3 font-display text-2xl font-semibold tracking-[-0.03em] text-[color:var(--hs-ink)]">
+            What changes the decision
+          </h2>
+          <dl className="mt-5 grid gap-0 sm:grid-cols-2">
+            {decisionRows.map((row) => (
+              <div key={`${row.label}-${row.value}`} className="border-t border-[color:var(--hs-hairline)] py-4 sm:px-4 sm:first:pl-0">
+                <dt className="text-xs font-bold uppercase tracking-[0.12em] text-[color:var(--hs-gold-ink)]">{row.label}</dt>
+                <dd className="mt-2 text-sm leading-6 text-[color:var(--hs-body)]">{row.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      ) : null}
+
       <div className="mt-8">
         <ContentCards>
           <ArticleMdx code={page.body} />
         </ContentCards>
       </div>
+
+      {faqAnswers.length > 0 ? (
+        <section className="mt-10 border-t border-[color:var(--hs-hairline)] pt-8" aria-labelledby="quick-answers-title">
+          <p className="section-label">Quick answers</p>
+          <h2 id="quick-answers-title" className="mt-3 font-display text-2xl font-semibold tracking-[-0.03em] text-[color:var(--hs-ink)]">
+            Common questions
+          </h2>
+          <div className="mt-5 divide-y divide-[color:var(--hs-hairline)]">
+            {faqAnswers.map((faq) => (
+              <div key={faq.question} className="py-5 first:pt-0 last:pb-0">
+                <h3 className="text-base font-bold text-[color:var(--hs-ink)]">{faq.question}</h3>
+                <p className="mt-2 text-sm leading-6 text-[color:var(--hs-body)]">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       {articleReferences.length > 0 ? (
         <div className="mt-8">
