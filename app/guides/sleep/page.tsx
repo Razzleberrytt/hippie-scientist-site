@@ -653,7 +653,7 @@ export default function SleepGuideIndex() {
                 href={`/guides/sleep/${g.slug}/`}
                 className="text-sm font-medium text-brand-800 hover:underline dark:text-[var(--text-primary)]"
               >
-                {g.title} →
+                {g.title}
               </Link>
             </li>
           ))}
