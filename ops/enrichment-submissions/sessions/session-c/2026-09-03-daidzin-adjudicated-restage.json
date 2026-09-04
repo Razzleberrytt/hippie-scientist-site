@@ -1,0 +1,136 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "C",
+  "shard": 2,
+  "batchId": "session-c-20260903-daidzin-adjudicated-restage",
+  "createdAt": "2026-09-03T21:07:40.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_c-daidzin-intact-absorption-null",
+      "authoringPackId": "ap_c_daidzin_pubmed_12145021",
+      "workpackId": "wp_compound_daidzin",
+      "entityType": "compound",
+      "entitySlug": "daidzin",
+      "sourceId": "src_pubmed-12145021",
+      "topicType": "conflict_note",
+      "claimType": "efficacy_null_or_mixed",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A small human absorption study did not detect intact daidzin in plasma after pure daidzin or glycoside-rich soy exposure.",
+      "findingTextNormalized": "In healthy adults, mass-spectrometric analysis did not detect intact daidzin in plasma 1, 2, or 8 hours after pure daidzin or glycoside-rich soy exposure, while hydrolyzable circulating isoflavone material was measurable. This is pharmacokinetic evidence and does not establish clinical efficacy.",
+      "strengthLabel": "moderate",
+      "populationContext": "Healthy adults",
+      "usageContext": "Oral daidzin/isoflavone-glycoside absorption and metabolism",
+      "uncertaintyNote": "Small samples and later contradictory intact-glycoside detection prevent an absolute absorption rule.",
+      "semanticAttestation": {
+        "reviewer": "enrichment-adjudicator", "reviewedAt": "2026-09-03T21:07:40.000Z", "confidence": "high",
+        "entity": {"status":"matched","reason":"The PubMed record directly studies daidzin and soy isoflavone glycoside absorption.","evidenceRefs":["src_pubmed-12145021"]},
+        "preparation": {"status":"matched","reason":"The finding preserves pure daidzin and soyfood glycoside exposure as the studied forms.","evidenceRefs":["src_pubmed-12145021"]},
+        "population": {"status":"matched","reason":"The source studied healthy adult participants.","evidenceRefs":["src_pubmed-12145021"]},
+        "endpoint": {"status":"matched","reason":"The measured endpoint was intact glycoside detection and systemic isoflavone exposure.","evidenceRefs":["src_pubmed-12145021"]},
+        "conclusion": {"status":"matched","reason":"The staged conclusion preserves non-detection and limits it to pharmacokinetics, not efficacy.","evidenceRefs":["src_pubmed-12145021"]}
+      },
+      "reviewStatus": "ready_for_review", "editorialStatus": "needs_review", "active": true
+    },
+    {
+      "submissionId": "sub_c-daidzin-intact-absorption-positive-conflict",
+      "authoringPackId": "ap_c_daidzin_pubmed_18443032",
+      "workpackId": "wp_compound_daidzin",
+      "entityType": "compound", "entitySlug": "daidzin", "sourceId": "src_pubmed-18443032",
+      "topicType": "conflict_note", "claimType": "efficacy_null_or_mixed", "evidenceClass": "human-clinical",
+      "findingTextShort": "A two-volunteer kinako study reported intact daidzin in 1-hour plasma, conflicting with earlier non-detection studies.",
+      "findingTextNormalized": "After 50 g kinako was given to two healthy volunteers, HPLC and mass spectrometry identified intact daidzin and genistin in 1-hour plasma. The result conflicts with earlier human non-detection work and should remain an analytical/pharmacokinetic conflict rather than an efficacy claim.",
+      "strengthLabel": "limited", "populationContext": "Two healthy volunteers", "usageContext": "Kinako food-matrix intact glycoside detection", "uncertaintyNote": "Sample size was two; both conflicting analytical results must remain visible.",
+      "semanticAttestation": {
+        "reviewer":"enrichment-adjudicator","reviewedAt":"2026-09-03T21:07:40.000Z","confidence":"high",
+        "entity":{"status":"matched","reason":"The PubMed record directly reports daidzin and genistin after kinako exposure.","evidenceRefs":["src_pubmed-18443032"]},
+        "preparation":{"status":"matched","reason":"The finding preserves the 50 g kinako food matrix rather than isolated daidzin.","evidenceRefs":["src_pubmed-18443032"]},
+        "population":{"status":"matched","reason":"The source reports two healthy volunteers.","evidenceRefs":["src_pubmed-18443032"]},
+        "endpoint":{"status":"matched","reason":"The endpoint was analytical detection of intact plasma glycosides after ingestion.","evidenceRefs":["src_pubmed-18443032"]},
+        "conclusion":{"status":"matched","reason":"The conclusion preserves positive detection and the conflict with earlier non-detection evidence.","evidenceRefs":["src_pubmed-18443032"]}
+      },
+      "reviewStatus":"ready_for_review","editorialStatus":"needs_review","active":true
+    },
+    {
+      "submissionId": "sub_c-daidzin-vs-daidzein-pk",
+      "authoringPackId": "ap_c_daidzin_pubmed_18469255",
+      "workpackId": "wp_compound_daidzin", "entityType": "compound", "entitySlug": "daidzin", "sourceId": "src_pubmed-18469255",
+      "topicType": "constituent_relationship", "claimType": "relationship_signal", "evidenceClass": "human-clinical",
+      "findingTextShort": "A randomized crossover study found greater daidzein/metabolite exposure after daidzin glucoside than matched daidzein aglycone.",
+      "findingTextNormalized": "Seven healthy men received pure daidzein or pure daidzein-7-O-beta-D-glucoside at matched aglycone-equivalent dosing in a randomized double-blind crossover study. Daidzein and most metabolite exposure measures were several-fold greater after the glucoside. This is formulation-dependent pharmacokinetics, not therapeutic benefit or consumer dosing.",
+      "strengthLabel":"limited","populationContext":"Seven healthy men aged 22-30 years","usageContext":"Single-dose isolated daidzin glucoside versus daidzein aglycone pharmacokinetics","uncertaintyNote":"Very small acute study; exposure differences cannot imply efficacy or safety superiority.",
+      "semanticAttestation": {
+        "reviewer":"enrichment-adjudicator","reviewedAt":"2026-09-03T21:07:40.000Z","confidence":"high",
+        "entity":{"status":"matched","reason":"The PubMed record directly compares daidzein with daidzein-7-O-beta-D-glucoside, daidzin.","evidenceRefs":["src_pubmed-18469255"]},
+        "preparation":{"status":"matched","reason":"The finding preserves isolated glucoside versus aglycone dosing at matched equivalents.","evidenceRefs":["src_pubmed-18469255"]},
+        "population":{"status":"matched","reason":"The source studied seven healthy adult men.","evidenceRefs":["src_pubmed-18469255"]},
+        "endpoint":{"status":"matched","reason":"The endpoints were plasma and urine pharmacokinetic exposure metrics and metabolites.","evidenceRefs":["src_pubmed-18469255"]},
+        "conclusion":{"status":"matched","reason":"The conclusion preserves greater exposure after glucoside while explicitly blocking efficacy inference.","evidenceRefs":["src_pubmed-18469255"]}
+      },
+      "reviewStatus":"ready_for_review","editorialStatus":"needs_review","active":true
+    },
+    {
+      "submissionId":"sub_c-daidzin-downstream-daidzein-null-firewall","authoringPackId":"ap_c_daidzin_pubmed_24149925","workpackId":"wp_compound_daidzin","entityType":"compound","entitySlug":"daidzin","sourceId":"src_pubmed-24149925",
+      "topicType":"research_gap","claimType":"research_gap","evidenceClass":"human-clinical",
+      "findingTextShort":"A null purified-daidzein trial is downstream aglycone evidence and cannot be inherited as a direct daidzin efficacy result.",
+      "findingTextNormalized":"A six-month randomized placebo-controlled trial in equol-producing prehypertensive postmenopausal women tested purified daidzein, not daidzin, and found no significant improvement in menopausal symptoms. It is useful negative adjacent-entity evidence but must not masquerade as a direct daidzin trial.",
+      "strengthLabel":"strong","populationContext":"Equol-producing prehypertensive postmenopausal women","usageContext":"Cross-entity evidence firewall for purified daidzein versus daidzin","uncertaintyNote":"Related-metabolite evidence constrains propagation but does not substitute for isolated-daidzin trials.",
+      "semanticAttestation": {
+        "reviewer":"enrichment-adjudicator","reviewedAt":"2026-09-03T21:07:40.000Z","confidence":"high",
+        "entity":{"status":"matched","reason":"The intervention was purified daidzein, so the staged proposition explicitly uses it only as an adjacent-entity firewall.","evidenceRefs":["src_pubmed-24149925"]},
+        "preparation":{"status":"matched","reason":"The source used purified daidzein plus a separate whole-soy arm; the staged text does not relabel either as daidzin.","evidenceRefs":["src_pubmed-24149925"]},
+        "population":{"status":"matched","reason":"The population is equol-producing prehypertensive postmenopausal women.","evidenceRefs":["src_pubmed-24149925"]},
+        "endpoint":{"status":"matched","reason":"The endpoint was change in menopausal symptoms over six months.","evidenceRefs":["src_pubmed-24149925"]},
+        "conclusion":{"status":"matched","reason":"The null result is preserved and explicitly not attributed upstream to daidzin.","evidenceRefs":["src_pubmed-24149925"]}
+      },
+      "reviewStatus":"ready_for_review","editorialStatus":"needs_review","active":true
+    },
+    {
+      "submissionId":"sub_c-daidzin-mixed-isoflavone-equol-firewall","authoringPackId":"ap_c_daidzin_pubmed_25332325","workpackId":"wp_compound_daidzin","entityType":"compound","entitySlug":"daidzin","sourceId":"src_pubmed-25332325",
+      "topicType":"population_specific_note","claimType":"population_note","evidenceClass":"human-clinical",
+      "findingTextShort":"Mixed-isoflavone intervention effects varied with composition and equol-producer phenotype and cannot be assigned to isolated daidzin.",
+      "findingTextNormalized":"A double-blind randomized placebo-controlled crossover study in postmenopausal women tested multi-isoflavone supplements containing daidzein/daidzin plus other isoflavones. Gene-expression responses varied by composition and equol-producing phenotype; body weight, adipocyte size and plasma lipids were not affected. These outcomes cannot be attributed to isolated daidzin.",
+      "strengthLabel":"strong","populationContext":"Postmenopausal women stratified by equol-producing phenotype","usageContext":"Mixed soy-isoflavone supplements and equol-producer phenotype","uncertaintyNote":"Combination composition and microbiome phenotype are proposition-critical attribution limits.",
+      "semanticAttestation": {
+        "reviewer":"enrichment-adjudicator","reviewedAt":"2026-09-03T21:07:40.000Z","confidence":"high",
+        "entity":{"status":"matched","reason":"The paper includes daidzin only inside multi-isoflavone supplements, which the finding preserves as an attribution boundary.","evidenceRefs":["src_pubmed-25332325"]},
+        "preparation":{"status":"matched","reason":"The intervention is explicitly preserved as mixed isoflavone supplements rather than daidzin monotherapy.","evidenceRefs":["src_pubmed-25332325"]},
+        "population":{"status":"matched","reason":"The source studied postmenopausal women stratified by equol-producing phenotype.","evidenceRefs":["src_pubmed-25332325"]},
+        "endpoint":{"status":"matched","reason":"The endpoints included adipose gene expression plus anthropometric and lipid outcomes.","evidenceRefs":["src_pubmed-25332325"]},
+        "conclusion":{"status":"matched","reason":"The conclusion preserves phenotype and composition effects plus null body-weight, adipocyte-size and lipid findings.","evidenceRefs":["src_pubmed-25332325"]}
+      },
+      "reviewStatus":"ready_for_review","editorialStatus":"needs_review","active":true
+    },
+    {
+      "submissionId":"sub_c-daidzin-human-enzyme-not-clinical-trial","authoringPackId":"ap_c_daidzin_pubmed_8433985","workpackId":"wp_compound_daidzin","entityType":"compound","entitySlug":"daidzin","sourceId":"src_pubmed-8433985",
+      "topicType":"conflict_note","claimType":"evidence_conflict","evidenceClass":"preclinical-mechanistic",
+      "findingTextShort":"Daidzin inhibition of human mitochondrial aldehyde dehydrogenase is biochemical mechanism evidence, not an administered-human trial.",
+      "findingTextNormalized":"Biochemical experiments showed potent selective inhibition of human mitochondrial aldehyde dehydrogenase by daidzin. The study establishes an enzyme mechanism using human-derived molecular material; it did not administer daidzin to participants or measure clinical outcomes.",
+      "strengthLabel":"strong","usageContext":"Biochemical enzyme-selectivity evidence only","uncertaintyNote":"Mechanistic plausibility does not establish in-vivo exposure, efficacy, safety or regimen.",
+      "semanticAttestation": {
+        "reviewer":"enrichment-adjudicator","reviewedAt":"2026-09-03T21:07:40.000Z","confidence":"high",
+        "entity":{"status":"matched","reason":"The source directly studies daidzin as an inhibitor of human mitochondrial aldehyde dehydrogenase.","evidenceRefs":["src_pubmed-8433985"]},
+        "preparation":{"status":"matched","reason":"The source is a biochemical enzyme study, not an administered consumer or clinical preparation.","evidenceRefs":["src_pubmed-8433985"]},
+        "population":{"status":"matched","reason":"Human-derived enzyme material is not a human-participant population, and the staged finding preserves that distinction.","evidenceRefs":["src_pubmed-8433985"]},
+        "endpoint":{"status":"matched","reason":"The measured endpoint is aldehyde-dehydrogenase inhibition and selectivity.","evidenceRefs":["src_pubmed-8433985"]},
+        "conclusion":{"status":"matched","reason":"The conclusion is limited to biochemical mechanism and explicitly rejects clinical-trial inheritance.","evidenceRefs":["src_pubmed-8433985"]}
+      },
+      "reviewStatus":"ready_for_review","editorialStatus":"needs_review","active":true
+    },
+    {
+      "submissionId":"sub_c-daidzin-direct-efficacy-gap","authoringPackId":"ap_c_daidzin_pubmed_12145021","workpackId":"wp_compound_daidzin","entityType":"compound","entitySlug":"daidzin","sourceId":"src_pubmed-12145021",
+      "topicType":"research_gap","claimType":"research_gap","evidenceClass":"human-clinical",
+      "findingTextShort":"The located direct human daidzin evidence is pharmacokinetic and metabolic rather than isolated-daidzin therapeutic efficacy.",
+      "findingTextNormalized":"The proposition-compatible direct human literature located for daidzin centers on absorption, hydrolysis and systemic daidzein/metabolite exposure. Purified daidzein, whole soy, mixed-isoflavone or downstream-metabolite trials cannot fill an isolated-daidzin therapeutic-efficacy claim; the direct efficacy and regimen gap should remain explicit.",
+      "strengthLabel":"strong","usageContext":"Evidence-governance gap for isolated daidzin","uncertaintyNote":"This scoped gap is not proof of no biological effect and may change with future direct human trials.",
+      "semanticAttestation": {
+        "reviewer":"enrichment-adjudicator","reviewedAt":"2026-09-03T21:07:40.000Z","confidence":"high",
+        "entity":{"status":"matched","reason":"The direct source administers daidzin and therefore anchors the isolated-compound evidence boundary.","evidenceRefs":["src_pubmed-12145021"]},
+        "preparation":{"status":"matched","reason":"The source includes pure daidzin exposure, while adjacent evidence is explicitly excluded from monotherapy efficacy inheritance.","evidenceRefs":["src_pubmed-12145021"]},
+        "population":{"status":"matched","reason":"The direct source studied healthy adults rather than a therapeutic patient population.","evidenceRefs":["src_pubmed-12145021"]},
+        "endpoint":{"status":"matched","reason":"The measured endpoints are pharmacokinetic and analytical rather than therapeutic efficacy outcomes.","evidenceRefs":["src_pubmed-12145021"]},
+        "conclusion":{"status":"matched","reason":"The conclusion preserves a direct efficacy gap without converting absence of located trials into proof of no effect.","evidenceRefs":["src_pubmed-12145021"]}
+      },
+      "reviewStatus":"ready_for_review","editorialStatus":"needs_review","active":true
+    }
+  ]
+}
