@@ -10,7 +10,6 @@ const allowlistFragmentsDir = path.join(repoRoot, 'security', 'audit-allowlist.d
 const auditTimeoutMs = Math.max(30_000, Number(process.env.NPM_AUDIT_TIMEOUT_MS || 120_000))
 const configuredAttempts = Number.parseInt(process.env.NPM_AUDIT_MAX_ATTEMPTS || '2', 10)
 const auditMaxAttempts = Math.min(3, Math.max(1, Number.isFinite(configuredAttempts) ? configuredAttempts : 2))
-const auditAttemptTimeoutMs = Math.max(10_000, Math.floor(auditTimeoutMs / auditMaxAttempts))
 
 function readRules(filePath) {
   const payload = JSON.parse(fs.readFileSync(filePath, 'utf8'))
@@ -54,13 +53,13 @@ function getNpmInvocation() {
   }
 }
 
-function parseAuditAttempt(auditRun) {
+function parseAuditAttempt(auditRun, attemptTimeoutMs) {
   if (auditRun.error) {
     const timedOut = auditRun.error.code === 'ETIMEDOUT'
     return {
       report: null,
       reason: timedOut
-        ? `timed out after ${auditAttemptTimeoutMs}ms`
+        ? `timed out after ${attemptTimeoutMs}ms`
         : `spawn failed: ${auditRun.error.message}`,
     }
   }
@@ -104,8 +103,21 @@ function parseAuditAttempt(auditRun) {
 const npmInvocation = getNpmInvocation()
 let report = null
 const transportFailures = []
+const auditStartedAtMs = Date.now()
 
 for (let attempt = 1; attempt <= auditMaxAttempts; attempt += 1) {
+  const elapsedMs = Date.now() - auditStartedAtMs
+  const remainingBudgetMs = auditTimeoutMs - elapsedMs
+  if (remainingBudgetMs <= 0) {
+    transportFailures.push({ attempt, reason: 'total audit time budget exhausted before attempt started' })
+    break
+  }
+
+  // Give each attempt the full remaining total budget rather than dividing the
+  // budget evenly. A fast transport failure therefore leaves almost the whole
+  // budget for a retry, while a slow-but-valid registry response can still use
+  // the original 120s allowance. The sequence as a whole remains bounded.
+  const auditAttemptTimeoutMs = Math.max(1, remainingBudgetMs)
   const auditRun = spawnSync(npmInvocation.command, npmInvocation.args, {
     cwd: repoRoot,
     encoding: 'utf8',
@@ -118,7 +130,7 @@ for (let attempt = 1; attempt <= auditMaxAttempts; attempt += 1) {
     },
   })
 
-  const parsed = parseAuditAttempt(auditRun)
+  const parsed = parseAuditAttempt(auditRun, auditAttemptTimeoutMs)
   if (parsed.report) {
     report = parsed.report
     if (attempt > 1) {
@@ -128,13 +140,13 @@ for (let attempt = 1; attempt <= auditMaxAttempts; attempt += 1) {
   }
 
   transportFailures.push({ attempt, reason: parsed.reason })
-  if (attempt < auditMaxAttempts) {
+  if (attempt < auditMaxAttempts && (Date.now() - auditStartedAtMs) < auditTimeoutMs) {
     console.warn(`[audit:high] transient audit transport/report failure on attempt ${attempt}/${auditMaxAttempts}; retrying: ${parsed.reason}`)
   }
 }
 
 if (!report) {
-  console.error(`[audit:high] FAIL: unable to obtain valid npm audit JSON after ${auditMaxAttempts} attempt(s) within a ${auditTimeoutMs}ms total command-time budget`)
+  console.error(`[audit:high] FAIL: unable to obtain valid npm audit JSON after at most ${auditMaxAttempts} attempt(s) within a ${auditTimeoutMs}ms total command-time budget`)
   console.error(JSON.stringify({ transportFailures }, null, 2))
   process.exit(1)
 }
