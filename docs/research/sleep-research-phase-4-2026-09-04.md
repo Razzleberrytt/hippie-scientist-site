@@ -4,7 +4,7 @@ Date: 2026-09-04
 
 ## Goal
 
-Continue widening the sleep authority graph beyond supplement selection by adding high-value diagnostic boundaries, circadian distinctions, airway-adjunct evidence, medication effects, and parasomnia differentiation.
+Continue widening the sleep authority graph beyond supplement selection by adding high-value diagnostic boundaries, circadian distinctions, airway-adjunct evidence, medication effects, parasomnia differentiation, and central-hypersomnolence context.
 
 All Phase 4 work is being developed on a branch rather than written directly to `main`, preserving the repository's governed PR → controller → deploy lifecycle.
 
@@ -103,6 +103,23 @@ Editorial boundary:
 - Adult NREM parasomnias can be complex and injurious; they are not exclusively pediatric.
 - Violent, injurious, stereotyped or unusual adult-onset episodes require a broader differential including seizure and sleep-disordered breathing.
 
+### 7. Hypersomnolence versus insufficient sleep
+Canonical target: `/articles/hypersomnolence-vs-insufficient-sleep/`
+
+Evidence anchors:
+- PMID 38796978 — clinical considerations in idiopathic hypersomnia (2024)
+- PMID 40533080 — central disorders of hypersomnolence review (2025)
+- PMID 40976193 — biomarkers review (2025)
+- PMID 40990641 — idiopathic hypersomnia diagnosis/pathophysiology review (2025)
+- PMID 39150683 — prior sleep opportunity and MSLT results (2024)
+
+Editorial boundary:
+- Central hypersomnolence requires persistent pathological sleepiness despite adequate sleep opportunity; chronic short sleep is a major mimic.
+- Narcolepsy type 1 has a clearer orexin/cataplexy biology than narcolepsy type 2 or idiopathic hypersomnia.
+- MSLT is useful but not a standalone disease detector; test preparation and preceding sleep opportunity materially affect interpretation.
+- Actigraphy and sleep logs help establish whether chronic restriction or circadian irregularity is contaminating the workup.
+- Stimulant response does not diagnose the cause of sleepiness.
+
 ## Dependency on Phase 3
 
 Several Phase 4 pages intentionally cross-link to Phase 3 pages currently being validated in PR #5188:
@@ -124,9 +141,9 @@ Do not bundle a stale full-hub rewrite into the research PR. The hub is being mo
 ## Remaining high-value gaps
 
 Screen before publication:
-- central hypersomnolence / idiopathic hypersomnia versus insufficient sleep (avoid duplicating Phase 3 daytime-sleepiness page);
 - medication-specific deep dives only where search intent justifies them;
 - pediatric sleep only if age-specific safety and evidence can be kept clearly separate;
-- sleep and cardiometabolic disease only where causality versus observational association can be handled carefully.
+- sleep and cardiometabolic disease only where causality versus observational association can be handled carefully;
+- trauma/PTSD sleep content only if nightmare, insomnia, OSA, and trauma-associated sleep-disorder boundaries can be kept distinct.
 
 Priority remains diagnostic clarity and high-volume myth correction over low-certainty supplement proliferation.
