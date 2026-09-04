@@ -1,245 +1,213 @@
 # Sleep Research Expansion — 2026-09-04
 
-## Goal
+## Status
 
-Build the sleep cluster into an evidence-dense topical authority layer rather than a collection of repetitive “best sleep aid” pages. New content should add distinct search intent, improve internal evidence discipline, preserve null/conflicting results, and make it easier for readers and downstream AI systems to distinguish outcomes, populations, formulations, and measurement methods.
+**Expansion pass: implemented.**
 
-## Expansion completed today
+The sleep cluster was expanded from a supplement-heavy guide set into a broader evidence system covering ingredient efficacy, sleep endpoints, measurement methods, circadian timing, upstream disruptors, behavior, and formulation directness.
 
-### Ingredient evidence pages
-
-#### 1. Tart cherry for sleep
-
-**Page:** `/articles/tart-cherry-for-sleep/`
-
-**Evidence position:** Limited and heterogeneous.
-
-Evidence anchors:
-
-- 2025 systematic review: 7 interventional studies; only some reported improvement in sleep indicators and melatonin-related measures, with substantial heterogeneity. PMID 40964149.
-- 2018 older-adult insomnia crossover pilot: 8 completers; large polysomnographic total-sleep-time signal, but far too small for a stable expected effect estimate. PMID 28901958.
-- 2010 chronic-insomnia pilot: improvements in selected outcomes but no placebo-separated improvement across several other key sleep measures. PMID 20438325.
-- 2024 randomized crossover powder study: no significant measured sleep benefit. PMID 39683518.
-- 2022 controlled trial in healthy adults: no meaningful sleep benefit. PMID 35790450.
-
-**Do not overclaim:** “Contains melatonin” does not establish melatonin-like clinical efficacy. Juice, concentrate, powder, capsule, and standardized products are not automatically equivalent.
-
-#### 2. Saffron for sleep
-
-**Page:** `/articles/saffron-for-sleep/`
-
-**Evidence position:** Moderate short-term evidence, mainly subjective and product-specific.
-
-Evidence anchors:
-
-- 2022 meta-analysis of RCTs: pooled improvements in PSQI, ISI, and RSQ. PMID 35325766.
-- 2023 systematic review: 5 RCTs, 379 participants, initial support for improved sleep quality. PMID 37484523.
-- 2020 and 2021 RCTs: positive subjective sleep signals with standardized extracts. PMIDs 32056539 and 34438361.
-- 2025 RCT in 165 adults with moderate insomnia: statistically significant but small primary insomnia-score improvement, alongside mixed secondary outcomes. PMID 40698027.
-
-**Do not overclaim:** “Modest short-term benefit with product-specific uncertainty” is more defensible than “clinically proven insomnia treatment.”
-
-#### 3. Chamomile for sleep
-
-**Page:** `/articles/chamomile-for-sleep/`
-
-**Evidence position:** Limited and outcome-specific.
-
-Evidence anchors:
-
-- 2024 systematic review/meta-analysis: favorable signal especially around nighttime awakenings, but not consistent across sleep duration, efficiency, and daytime outcomes. PMID 39106912.
-- 2019 systematic review/meta-analysis: pooled subjective sleep-quality signal, but direct insomnia-severity evidence remained weak. PMID 31006899.
-- 2011 chronic primary insomnia RCT: no significant between-group improvement across major sleep endpoints. PMID 21939549.
-
-**Do not overclaim:** Extract evidence should not be transferred automatically to chamomile tea or isolated apigenin.
-
-#### 4. L-tryptophan for sleep
-
-**Page:** `/articles/l-tryptophan-for-sleep/`
-
-**Evidence position:** Limited, endpoint-specific.
-
-Evidence anchors:
-
-- 2022 systematic review/meta-analysis: the clearest pooled signal is reduced **wake after sleep onset (WASO)**, not a broad pooled sleep-latency benefit. PMID 33942088.
-- AASM chronic-insomnia pharmacologic guideline: suggested against tryptophan for sleep-onset or sleep-maintenance insomnia because evidence was insufficient. PMID 27998379.
-- NCCIH continues to describe insomnia evidence for tryptophan/5-HTP as very limited.
-
-**Contradiction repaired:** The served `tryptophan` compound payload previously said “moderate evidence for modest sleep latency reduction.” It now reflects the endpoint-level synthesis: limited evidence with the clearest pooled signal for reduced WASO.
-
-**Do not overclaim:** Being a serotonin/melatonin precursor does not make tryptophan equivalent to exogenous melatonin or establish a predictable bedtime effect.
-
-#### 5. 5-HTP for sleep
-
-**Page:** `/articles/5-htp-for-sleep/`
-
-**Evidence position:** Limited.
-
-Evidence anchors:
-
-- 2024 randomized trial in 30 older adults: selected subjective sleep-quality improvements, particularly among participants with poor sleep at baseline. PMID 38309227.
-- NCCIH: insomnia evidence remains very limited.
-- Human serotonin-syndrome interaction report involving 5-HTP and linezolid. PMID 25978918.
-- Human overdose case reinforces biological activity and dose-related risk. PMID 35878559.
-
-**Do not overclaim:** One small population-specific RCT does not establish treatment efficacy for chronic insomnia or prove superiority to tryptophan/melatonin.
-
-## Sleep-science authority pages completed
-
-### 6. Sleep onset vs sleep maintenance
-
-**Page:** `/articles/sleep-onset-vs-sleep-maintenance/`
-
-Separates:
-
-- sleep-onset latency (SOL),
-- wake after sleep onset (WASO),
-- total sleep time (TST),
-- sleep efficiency,
-- subjective sleep quality,
-- insomnia severity,
-- next-day functioning.
-
-**Authority value:** Creates a reusable internal evidence framework so future pages cannot convert one favorable endpoint into the generic claim “improves sleep.”
-
-### 7. Subjective vs objective sleep
-
-**Page:** `/articles/subjective-vs-objective-sleep/`
-
-Evidence anchors:
-
-- 2025 umbrella review: insomnia-control differences are largest and most consistent on subjective measures; objective changes are generally smaller. PMID 40850055.
-- 2019 CBT-I meta-analysis: strong diary improvement without consistent PSG transformation. PMID 31377503.
-- AASM actigraphy evidence review. PMID 29991438.
-- 2025 sleep-state misperception theoretical review. PMID 40327948.
-
-**Authority value:** Prevents the common mistakes “subjective = worthless” and “wearable/PSG = complete measure of how sleep feels.”
-
-### 8. Sleep tracker accuracy
-
-**Page:** `/articles/sleep-trackers-accuracy/`
-
-Evidence anchors:
-
-- 2026 systematic review: poor-to-moderate concordance between consumer wearable metrics and validated subjective sleep quality; systematic bias in several parameters. PMID 41946254.
-- 2025 World Sleep Society recommendations for consumer sleep trackers. PMID 40300398.
-- Actigraphy-vs-PSG systematic review/meta-analysis. PMID 31154154.
-
-**Authority value:** Captures current consumer search intent while positioning wearables as trend tools rather than miniature sleep laboratories.
-
-### 9. Sleep regularity
-
-**Page:** `/articles/sleep-regularity-health/`
-
-Evidence anchors:
-
-- 2025 systematic review of 59 studies: increasingly consistent associations between sleep irregularity and several mental, metabolic, cardiovascular, cognitive, and mortality outcomes. PMID 41259946.
-- 2024 older-adult review: similar signal for cardiovascular, cognitive, and mortality outcomes. PMID 38831959.
-
-**Do not overclaim:** The evidence is heavily observational. Association is not proof that irregular timing directly causes the downstream disease.
-
-### 10. Caffeine and sleep timing
-
-**Page:** `/articles/caffeine-and-sleep-timing/`
-
-Evidence anchors:
-
-- 2023 systematic review/meta-analysis: caffeine reduced total sleep time and efficiency, increased SOL/WASO, and reduced slow-wave sleep; modeled timing effects varied by dose. PMID 36870101.
-- 2013 controlled 400-mg study: measurable disruption even 6 hours before bedtime. PMID 24235903.
-- 2024 randomized dose/timing crossover trial. PMID 39377163.
-- 2025 dose/age meta-analysis of controlled crossover trials. PMID 41124973.
-
-**Do not overclaim:** The modeled 8.8-hour coffee interval is not a universal prescription or biological cliff.
-
-### 11. Insomnia vs sleep deprivation
-
-**Page:** `/articles/insomnia-vs-sleep-deprivation/`
-
-Evidence anchors:
-
-- NHLBI insomnia definition emphasizes difficulty sleeping despite adequate opportunity/environment.
-- NHLBI sleep-deprivation framework separates insufficient sleep from broader sleep deficiency.
-- 2023 systematic review of insomnia nosology. PMID 37122153.
-- 2022 meta-epidemiological study: many RCTs/reviews use “insomnia” without clearly distinguishing disorder from symptoms. PMID 36231555.
-
-**Authority value:** Prevents treatment mismatch. A short sleep opportunity and insomnia disorder can produce similar daytime symptoms but do not imply the same intervention.
-
-## Hub integration completed
-
-`/guides/sleep/` now separates:
-
-1. decision-first sleep guides,
-2. ingredient evidence reviews,
-3. sleep-science / evidence-literacy pages,
-4. ADHD-specific sleep pages,
-5. compound/herb depth profiles.
-
-The hub schema graph includes the new research and sleep-science pages, reducing orphan risk and strengthening the semantic cluster.
-
-## Evidence-discipline rules now established for the sleep cluster
-
-Every future sleep article should explicitly preserve:
-
-1. **Population** — healthy poor sleepers, diagnosed insomnia, older adults, children, shift workers, etc.
-2. **Endpoint** — SOL, WASO, TST, sleep efficiency, questionnaire score, sleep stage, next-day function.
-3. **Measurement method** — diary, validated questionnaire, actigraphy, consumer wearable, or PSG.
-4. **Comparator** — within-group change is not the same as beating placebo.
-5. **Magnitude** — statistical significance is not automatically clinically large.
-6. **Formulation** — specific extract/product evidence should not be generalized to an ingredient class without justification.
-7. **Duration** — one-night, short-term, and multi-week outcomes are different evidence questions.
-8. **Safety context** — especially sedative, serotonergic, pregnancy, kidney/liver, and medication-interaction considerations.
-9. **Null findings** — preserve major outcomes that did not improve.
-10. **Highest-level synthesis** — recent systematic reviews/meta-analyses should anchor the verdict when available.
-
-## Next high-ROI expansion queue
-
-### A. Sleep formulation equivalence — HIGH
-
-Create an article explaining why magnesium salts, saffron extracts, tart-cherry formats, chamomile preparations, valerian extracts, and branded formulations cannot be assumed clinically interchangeable.
-
-**Strategic value:** This becomes a reusable citation target across dozens of supplement pages and protects against ingredient-class overgeneralization.
-
-### B. Alcohol and sleep architecture — HIGH
-
-Build a research-first page separating faster perceived sleep onset from later-night fragmentation, REM effects, breathing risk, and next-day sleep quality.
-
-**Strategic value:** Large consumer search intent and a strong non-supplement sleep-disruptor page that can route users upstream before they add more bedtime products.
-
-### C. Morning light and circadian timing — HIGH
-
-Explain light timing, circadian phase shifting, delayed sleep schedules, and why “more light” is not a timing-neutral intervention.
-
-**Strategic value:** Strengthens melatonin/circadian content and ADHD sleep routing without creating another redundant melatonin article.
-
-### D. Exercise timing and sleep — MEDIUM-HIGH
-
-Synthesize exercise and sleep meta-analyses while keeping time-of-day, intensity, training status, and individual response separate.
-
-### E. Naps and nighttime sleep — MEDIUM-HIGH
-
-Separate short strategic naps from long/late naps, sleep pressure, shift-work contexts, and sleep-deprivation recovery.
-
-### F. Why sleep supplement studies disagree — MEDIUM-HIGH
-
-Cross-cutting methodology page covering small samples, product identity, baseline deficiency, sleep phenotype, placebo effects, measurement mismatch, and multiplicity of endpoints.
-
-## Internal-link expansion queue
-
-Priority contextual links still worth adding:
-
-- Best Supplements for Sleep → saffron, tart cherry, chamomile, tryptophan, 5-HTP depth pages where appropriate.
-- Best Herbs for Sleep → saffron and chamomile.
-- Apigenin for Sleep → chamomile evidence page.
-- Sleep Herbs vs Melatonin → chamomile evidence page.
-- Existing caffeine/focus pages → caffeine-and-sleep-timing when sleep disruption is discussed.
-- Wearable references across magnesium/sleep pages → sleep-trackers-accuracy.
-- Articles using subjective-only outcomes → subjective-vs-objective-sleep.
-- Any page saying “insomnia” loosely → insomnia-vs-sleep-deprivation or outcome-specific explainer as context.
-
-## Highest-ROI editorial principle
-
-The competitive edge is not publishing the largest list of sleep supplements. It is building a cluster where each claim can answer:
+The goal is not to publish the largest possible list of sleep aids. The goal is to make every sleep claim answer:
 
 > **What changed, by how much, in which population, measured how, compared with what, using which formulation, and with what safety/uncertainty?**
 
-That structure is useful to readers, search engines, and AI systems because it makes the evidence graph explicit rather than burying it inside generic wellness copy.
+## New ingredient evidence pages
+
+### Tart cherry for sleep
+
+**Route:** `/articles/tart-cherry-for-sleep/`
+
+**Position:** Limited and heterogeneous.
+
+Anchors include the 2025 systematic review (PMID 40964149), the small 2018 older-adult insomnia pilot (PMID 28901958), older chronic-insomnia data (PMID 20438325), and newer null trials (PMIDs 39683518 and 35790450).
+
+**Guardrail:** Juice, concentrate, powder, capsule, and melatonin-related biomarker changes are not automatically interchangeable or equivalent to exogenous melatonin.
+
+### Saffron for sleep
+
+**Route:** `/articles/saffron-for-sleep/`
+
+**Position:** Moderate short-term evidence, primarily subjective and product-specific.
+
+Anchors include the 2022 meta-analysis (PMID 35325766), 2023 systematic review (PMID 37484523), positive standardized-extract RCTs, and the 2025 moderate-insomnia RCT (PMID 40698027).
+
+**Guardrail:** “Modest short-term benefit with product-specific uncertainty” is more defensible than “proven insomnia treatment.”
+
+### Chamomile for sleep
+
+**Route:** `/articles/chamomile-for-sleep/`
+
+**Position:** Limited and outcome-specific.
+
+Anchors include the 2024 meta-analysis (PMID 39106912), 2019 synthesis (PMID 31006899), and the direct null chronic-primary-insomnia pilot (PMID 21939549).
+
+**Guardrail:** Do not transfer standardized-extract evidence directly to tea or isolated apigenin.
+
+### L-tryptophan for sleep
+
+**Route:** `/articles/l-tryptophan-for-sleep/`
+
+**Position:** Limited, endpoint-specific.
+
+The 2022 meta-analysis (PMID 33942088) has its clearest pooled signal for reduced **wake after sleep onset (WASO)** rather than a generic pooled sleep-latency benefit. AASM guidance (PMID 27998379) remains cautious for chronic insomnia.
+
+**Data correction completed:** The served `tryptophan` compound payload previously claimed “moderate evidence for modest sleep latency reduction.” That stale summary was replaced with an endpoint-accurate limited-evidence verdict.
+
+### 5-HTP for sleep
+
+**Route:** `/articles/5-htp-for-sleep/`
+
+**Position:** Limited.
+
+Anchors include the small 2024 randomized trial in older adults (PMID 38309227), NCCIH's limited-evidence framing, a human serotonergic interaction report (PMID 25978918), and overdose safety context (PMID 35878559).
+
+**Guardrail:** One small trial does not establish chronic-insomnia efficacy, a universal bedtime dose, or equivalence with melatonin.
+
+## New evidence-methodology page
+
+### Why sleep supplement formulations are not interchangeable
+
+**Route:** `/articles/sleep-supplement-formulations/`
+
+This page formalizes a recurring site-wide rule: a clinical trial tests a **specific preparation**.
+
+Examples include:
+
+- magnesium bisglycinate vs other magnesium salts;
+- standardized saffron extracts vs generic saffron products;
+- tart-cherry juice/concentrate/powder differences;
+- chamomile extract vs tea;
+- valerian extract heterogeneity;
+- separately studied ingredients vs an untested multi-ingredient stack.
+
+The farther a product moves from the formulation actually studied, the more cautious the efficacy claim should become.
+
+## New sleep-science authority pages
+
+### Sleep onset vs sleep maintenance
+
+**Route:** `/articles/sleep-onset-vs-sleep-maintenance/`
+
+Separates SOL, WASO, total sleep time, sleep efficiency, subjective sleep quality, insomnia severity, and next-day function.
+
+**Purpose:** Prevent one favorable endpoint from becoming the generic claim “improves sleep.”
+
+### Subjective vs objective sleep
+
+**Route:** `/articles/subjective-vs-objective-sleep/`
+
+Anchored to the 2025 umbrella review (PMID 40850055), CBT-I objective meta-analysis (PMID 31377503), AASM actigraphy evidence (PMID 29991438), and sleep-state-misperception literature (PMID 40327948).
+
+**Purpose:** Prevent both “subjective = worthless” and “PSG/wearable = complete measure of sleep experience.”
+
+### Sleep tracker accuracy
+
+**Route:** `/articles/sleep-trackers-accuracy/`
+
+Anchored to the 2026 wearable systematic review (PMID 41946254), 2025 World Sleep Society guidance (PMID 40300398), and actigraphy-vs-PSG literature.
+
+**Purpose:** Treat wearables as useful trend detectors without turning proprietary stage estimates into diagnostic facts.
+
+### Sleep regularity
+
+**Route:** `/articles/sleep-regularity-health/`
+
+Anchored to the 2025 systematic review of 59 studies (PMID 41259946) and 2024 older-adult review (PMID 38831959).
+
+**Guardrail:** Most evidence is observational; association is not proof of causation.
+
+### Insomnia vs sleep deprivation
+
+**Route:** `/articles/insomnia-vs-sleep-deprivation/`
+
+Separates insomnia despite adequate sleep opportunity from insufficient sleep caused by too little opportunity, while acknowledging overlap.
+
+Anchors include NHLBI definitions, insomnia-nosology work (PMID 37122153), and the meta-epidemiological finding that research often uses “insomnia” imprecisely (PMID 36231555).
+
+## New upstream-variable pages
+
+### Caffeine and sleep timing
+
+**Route:** `/articles/caffeine-and-sleep-timing/`
+
+Anchors include the 2023 meta-analysis (PMID 36870101), classic 6-hour controlled study (PMID 24235903), 2024 dose/timing crossover trial (PMID 39377163), and 2025 dose/age meta-analysis (PMID 41124973).
+
+**Guardrail:** Pooled/modelled timing thresholds are not universal biological cutoffs.
+
+### Alcohol and sleep
+
+**Route:** `/articles/alcohol-and-sleep/`
+
+Anchored to the 2025 systematic review/meta-analysis (PMID 39631226).
+
+Core finding: REM disruption appears even at lower alcohol doses and worsens with dose, while high-dose alcohol can shorten sleep-onset latency. Sedation is therefore not equivalent to better sleep.
+
+**Guardrail:** The review has greater certainty for REM disruption than for pooled total sleep time, sleep efficiency, or WASO.
+
+### Morning light and sleep timing
+
+**Route:** `/articles/morning-light-and-sleep-timing/`
+
+Anchors include recent insomnia light-therapy syntheses (PMIDs 39733392 and 37002704), the adult delayed-sleep-wake-phase review (PMID 34381579), and the 2026 morning-blue-light meta-analysis (PMID 42263407).
+
+Core principle: morning light generally advances circadian timing while evening light generally delays it; the intervention must match the timing problem.
+
+### Exercise timing and sleep
+
+**Route:** `/articles/exercise-timing-and-sleep/`
+
+Anchored to the 2026 morning-vs-evening systematic review/meta-analysis (PMID 42632303), plus broader exercise/sleep reviews.
+
+Core finding: there is no clear universal morning advantage for most sleep outcomes. Evening/nighttime exercise has a modest WASO signal, with intensity and proximity to bedtime appearing more important than “evening” as a label.
+
+### Naps and nighttime sleep
+
+**Route:** `/articles/naps-and-nighttime-sleep/`
+
+Anchors include day-level actigraphy data (PMID 35195690), population timing data (PMID 31300205), cognitive-benefit meta-analysis (PMID 36041284), and night-shift napping evidence (PMID 32492169).
+
+Core position: naps are context-dependent tools. Long/late naps can reduce nighttime sleep pressure, while strategic naps can improve cognition or manage shift-work sleepiness.
+
+## Hub integration
+
+`/guides/sleep/` now has distinct layers for:
+
+1. **Decision-first guides** — route by the actual sleep problem.
+2. **Comparisons** — direct buyer/decision questions.
+3. **Ingredient research** — saffron, tart cherry, chamomile, tryptophan, 5-HTP, and formulation directness.
+4. **Sleep science** — endpoints, measurement, wearables, regularity, caffeine, alcohol, light, exercise, naps, and insomnia-vs-insufficient-sleep.
+5. **ADHD & sleep** — separate timing/stimulant context.
+6. **Depth profiles** — herb/compound records.
+
+The hub schema graph includes both the ingredient research and sleep-science article sets so the new pages are not orphaned.
+
+## Evidence-discipline standard for future sleep work
+
+Every future sleep article should preserve:
+
+1. **Population** — healthy poor sleepers, diagnosed insomnia, older adults, children, shift workers, etc.
+2. **Endpoint** — SOL, WASO, TST, sleep efficiency, questionnaire score, stage, next-day function.
+3. **Measurement** — diary, validated questionnaire, actigraphy, consumer wearable, or PSG.
+4. **Comparator** — within-group change is not the same as placebo-separated benefit.
+5. **Magnitude** — statistical significance is not automatically clinically meaningful.
+6. **Formulation** — product/extract/form evidence should not be generalized without justification.
+7. **Duration** — acute, short-term, and repeated dosing answer different questions.
+8. **Safety** — preserve medication, sedative, serotonergic, pregnancy, kidney/liver, and disorder-specific context.
+9. **Null outcomes** — do not bury major measures that failed to improve.
+10. **Highest-level synthesis** — recent systematic reviews/meta-analyses should anchor the verdict when available.
+
+## Remaining high-ROI gaps after this pass
+
+The cluster is now broad enough that the next work should prioritize **integration and refreshes over raw page count**.
+
+Best remaining opportunities:
+
+- contextual links from flagship ranking pages into the new depth articles;
+- refresh existing melatonin pages around dose **versus timing** without creating redundant URLs;
+- add a methodology piece on why sleep studies disagree (small samples, multiple endpoints, formulation heterogeneity, placebo response, phenotype mismatch);
+- audit older blog posts for unsupported dose language and formulation overreach;
+- promote vetted enrichment findings into currently noindex compound/herb records where provenance requirements are satisfied;
+- monitor 2026+ systematic reviews and RCTs for changes that materially alter existing evidence grades.
+
+## Strategic outcome
+
+The sleep cluster now has a defensible research moat: it can explain not only **which option has evidence**, but **what kind of evidence it is, what part of sleep changed, whether the measurement was subjective or objective, whether the formulation matches, and whether an upstream behavior is a more likely bottleneck than another bedtime supplement**.
