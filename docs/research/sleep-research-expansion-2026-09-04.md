@@ -4,7 +4,7 @@
 
 **Expansion pass: implemented and extended.**
 
-The sleep cluster was expanded from a supplement-heavy guide set into a broader evidence system covering ingredient efficacy, sleep endpoints, measurement methods, circadian timing, upstream disruptors, behavior, formulation directness, research-method interpretation, and disorder-level decision boundaries.
+The sleep cluster was expanded from a supplement-heavy guide set into a broader evidence system covering ingredient efficacy, sleep endpoints, measurement methods, circadian timing, upstream disruptors, behavior, formulation directness, research-method interpretation, disorder-level decision boundaries, thermal environment, and chrononutrition.
 
 The goal is not to publish the largest possible list of sleep aids. The goal is to make every sleep claim answer:
 
@@ -42,6 +42,26 @@ Anchors include the 2024 meta-analysis (PMID 39106912), 2019 synthesis (PMID 310
 
 **Guardrail:** Do not transfer standardized-extract evidence directly to tea or isolated apigenin.
 
+### Lavender for sleep
+
+**Route:** `/articles/lavender-for-sleep/`
+
+**Position:** Promising but still formulation- and endpoint-limited.
+
+The 2026 meta-analysis (PMID 40600743) pooled 11 randomized trials with 628 adults and found a statistically significant sleep-quality signal (SMD -0.56, 95% CI -0.96 to -0.17). Earlier randomized and systematic evidence generally points in the same direction, but delivery methods, populations, comparators, and outcome measures vary substantially.
+
+**Guardrail:** Most direct sleep evidence is for inhaled lavender essential oil/aromatherapy. Do not transfer that effect directly to oral lavender, tea, topical cosmetics, isolated linalool, or arbitrary diffuser concentrations. Subjective sleep-quality improvement is not proof of increased deep sleep or REM.
+
+### Passionflower for sleep
+
+**Route:** `/articles/passionflower-for-sleep/`
+
+**Position:** Limited, with direct insomnia evidence.
+
+The 2020 double-blind randomized trial in 110 adults with DSM-5 insomnia (PMID 31714321) found an approximately 23-minute placebo-separated increase in total sleep time over two weeks. Sleep efficiency and WASO improved within the passionflower group but did not significantly separate from placebo. The older tea crossover study (PMID 21294203) supports subjective sleep quality, while a 2024 standardized-extract RCT (PMID 38646244) adds a positive stress-and-sleep signal.
+
+**Guardrail:** Tea, standardized extracts, standalone botanicals, and multi-herb formulas are not interchangeable. Do not convert one favorable TST result into a generic claim that passionflower improves all insomnia endpoints.
+
 ### L-tryptophan for sleep
 
 **Route:** `/articles/l-tryptophan-for-sleep/`
@@ -77,6 +97,8 @@ Examples include:
 - tart-cherry juice/concentrate/powder differences;
 - chamomile extract vs tea;
 - valerian extract heterogeneity;
+- inhaled lavender essential oil vs oral/topical lavender;
+- passionflower tea vs standardized extract vs combinations; and
 - separately studied ingredients vs an untested multi-ingredient stack.
 
 The farther a product moves from the formulation actually studied, the more cautious the efficacy claim should become.
@@ -98,6 +120,8 @@ This page explains why apparently conflicting sleep trials can be answering diff
 9. heterogeneity inherited by systematic reviews and meta-analyses.
 
 Anchors include the 2025 scoping review of OTC insomnia RCTs (PMID 40054227), the 2025 insomnia subjective/objective umbrella review (PMID 40850055), the 2025 tart-cherry systematic review (PMID 40964149), the 2024 valerian umbrella review (PMID 38359657), and the 2022 meta-epidemiological analysis of ambiguous insomnia definitions (PMID 36231555).
+
+The newer time-restricted-eating syntheses reinforce the same lesson: reviews can reach different-looking conclusions when one includes Ramadan fasting and broader observational contexts while another emphasizes controlled TRE comparisons.
 
 **Purpose:** Replace the vague phrase “research is mixed” with a structured explanation of exactly why findings differ.
 
@@ -179,6 +203,20 @@ Anchors include recent insomnia light-therapy syntheses (PMIDs 39733392 and 3700
 
 Core principle: morning light generally advances circadian timing while evening light generally delays it; the intervention must match the timing problem.
 
+### Melatonin timing vs dose
+
+**Route:** `/articles/melatonin-timing-vs-dose/`
+
+Anchored to the 2024 systematic review and dose-response meta-analysis (PMID 38888087; 26 double-blind RCTs, 1,689 observations) and the 2026 scoping review of systematic reviews (PMID 41014554; 57 systematic reviews containing 227 meta-analyses).
+
+The 2024 modelling suggests that both dose and administration timing help explain trial outcomes, including a modelled dose-response region around 4 mg and earlier administration relative to the sleep episode. These are **research-level model outputs, not universal personal dosing instructions**.
+
+The 2026 evidence map found that most inactive-comparator meta-analyses favored melatonin, while only 8.8% of included systematic reviews met all seven predefined rigor criteria and definitions of sleep quality varied substantially.
+
+**Position:** Melatonin has a broad human sleep signal, but it should be framed as a circadian-timing intervention as well as a sleep-promoting agent. Indication, clock timing, formulation, and endpoint matter alongside milligrams.
+
+**Guardrail:** Do not convert meta-regression averages into a default regimen. Immediate-release and prolonged-release formulations are not interchangeable.
+
 ### Blue light, screens and sleep
 
 **Route:** `/articles/blue-light-screens-and-sleep/`
@@ -188,6 +226,28 @@ Anchors include the 2025 blue-blocking-glasses actigraphy meta-analysis (PMID 41
 **Position:** The circadian mechanism is real, but screen effects are not only a wavelength problem. Brightness, timing, duration, content, arousal, and delayed bedtime also matter.
 
 **Guardrail:** Do not turn “blue light affects circadian biology” into “all blue light is bad.” Morning light can be useful for phase timing.
+
+### Sleep temperature and cooling
+
+**Route:** `/articles/sleep-temperature-and-cooling/`
+
+Anchored to the 2024 systematic review of ambient heat and real-world sleep (PMID 38598988), the recent cooling-bedding systematic review/meta-analysis (PMID 39708549), and the 2024 sleepwear/bedding-fibre review (PMID 38627879).
+
+**Position:** Excess ambient heat is generally associated with worse sleep quality and quantity, but that does not prove that every cooling product improves sleep. The cooling-bedding meta-analysis included nine randomized studies and found no pooled benefit for SOL, sleep efficiency, WASO, TST, or sleep-stage proportions; certainty was very low to low.
+
+**Guardrail:** Temperature change is not a surrogate for sleep benefit. Do not turn thermoregulation plausibility into unsupported claims about deep sleep, REM, or a universal bedroom thermostat setting.
+
+### Time-restricted eating and sleep
+
+**Route:** `/articles/time-restricted-eating-and-sleep/`
+
+Anchored to the 2026 TRE systematic review/meta-analysis (PMID 40498475; 13 studies, 638 participants), the 2025 time-restricted-feeding meta-analysis (PMID 41208478), and the 2024 systematic review of randomized TRE trials (PMID 39144285).
+
+The 2026 synthesis found small within-group improvements in sleep duration and PSQI but no significant controlled-trial advantage for sleep duration or PSQI. The broader 2025 synthesis found worse subjective sleep and shorter self-reported TST overall, with materially different patterns for Ramadan vs non-Ramadan protocols. The randomized-trial review found no consistent sleep benefit and several negative signals in individual studies.
+
+**Position:** Meal timing has circadian plausibility, but current human evidence is limited and context-dependent.
+
+**Guardrail:** Do not market TRE, intermittent fasting, or a specific fasting window as a dependable insomnia treatment. Ramadan fasting, early TRE, late TRE, and weight-management fasting protocols should not be collapsed into one intervention.
 
 ### Exercise timing and sleep
 
@@ -241,8 +301,8 @@ Anchored to the current AASM RLS/periodic-limb-movement guideline (PMID 39324694
 
 1. **Decision-first guides** — route by the actual sleep problem.
 2. **Comparisons** — direct buyer/decision questions.
-3. **Ingredient research** — saffron, tart cherry, chamomile, tryptophan, 5-HTP, and formulation directness.
-4. **Sleep science** — endpoints, study methodology, measurement, wearables, regularity, catch-up sleep, caffeine, alcohol, light/screens, exercise, naps, and insomnia-vs-insufficient-sleep.
+3. **Ingredient research** — saffron, tart cherry, chamomile, lavender, passionflower, tryptophan, 5-HTP, and formulation directness.
+4. **Sleep science** — endpoints, study methodology, measurement, wearables, regularity, catch-up sleep, caffeine, alcohol, light/screens, melatonin timing, thermal environment, chrononutrition, exercise, naps, and insomnia-vs-insufficient-sleep.
 5. **Check the bottleneck** — CBT-I, sleep apnea/COMISA, and restless legs/iron when another supplement may be the wrong next move.
 6. **ADHD & sleep** — separate timing/stimulant context.
 7. **Depth profiles** — herb/compound records.
@@ -264,20 +324,23 @@ Every future sleep article should preserve:
 9. **Null outcomes** — do not bury major measures that failed to improve.
 10. **Highest-level synthesis** — recent systematic reviews/meta-analyses should anchor the verdict when available.
 11. **Disorder boundary** — do not let a supplement ranking substitute for evaluation of a plausible sleep disorder.
+12. **Behavior/environment distinction** — a plausible circadian, thermal, or behavioral mechanism is not proof that a consumer protocol or product improves sleep.
+13. **Analysis hierarchy** — when a review reports both within-group and controlled effects, prioritize the controlled comparison for efficacy claims.
 
 ## Remaining high-ROI gaps after this pass
 
-The cluster is now broad enough that the next work should prioritize **integration and refreshes over raw page count**.
+The cluster is now broad enough that the next work should prioritize **integration, contradiction repair, and refreshes over raw page count**.
 
 Best remaining opportunities:
 
-- contextual links from flagship ranking pages into the new CBT-I / COMISA / RLS decision pages;
-- refresh existing melatonin pages around dose **versus timing** without creating redundant URLs;
-- audit older blog posts for unsupported dose language, formulation overreach, and sleep-disorder claims;
+- contextual links from flagship ranking pages into the new ingredient, timing, CBT-I / COMISA / RLS, temperature, and chrononutrition depth pages;
+- propagate the new **melatonin timing-versus-dose** guardrails across older melatonin pages without creating redundant URLs;
+- audit older blog posts for unsupported dose language, formulation overreach, sleep-stage claims, exact-temperature claims, and sleep-disorder claims;
+- inspect flagship `best herbs` and `sleep herbs vs melatonin` language so lavender and passionflower grades match the new direct reviews;
 - clean unresolved sleep/ADHD research TODOs in internal source drafts where evidence has already been verified elsewhere;
 - promote vetted enrichment findings into currently noindex compound/herb records where provenance requirements are satisfied;
 - monitor 2026+ systematic reviews and RCTs for changes that materially alter existing evidence grades.
 
 ## Strategic outcome
 
-The sleep cluster now has a defensible research moat: it can explain not only **which option has evidence**, but **what kind of evidence it is, what part of sleep changed, whether the measurement was subjective or objective, why studies can disagree, whether the formulation matches, whether an upstream behavior is a more likely bottleneck than another bedtime supplement, and when the sleep complaint belongs in a disorder-specific evidence pathway instead of a supplement stack**.
+The sleep cluster now has a defensible research moat: it can explain not only **which option has evidence**, but **what kind of evidence it is, what part of sleep changed, whether the measurement was subjective or objective, why studies can disagree, whether the formulation matches, whether timing/temperature/meal schedule is an upstream variable, whether a behavioral mechanism actually survives a controlled comparison, and when the sleep complaint belongs in a disorder-specific evidence pathway instead of a supplement stack**.
