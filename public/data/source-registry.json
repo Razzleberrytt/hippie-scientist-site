@@ -550,5 +550,26 @@
     "reviewedAt": "2026-09-02T01:40:00.000Z",
     "notes": "Systematic review of 20 articles. Higher B6 levels, usually following nutritional supplementation, were associated with predominantly sensory axonal peripheral neuropathy; evidence did not confirm B6 monotherapy as a neuropathy treatment. Risk depends on exposure and individual context rather than a single universal cutoff.",
     "active": true
+  },
+  {
+    "sourceId": "src_iarc-v134-methyleugenol-2024",
+    "title": "Aspartame, Methyleugenol, and Isoeugenol",
+    "shortTitle": "IARC Volume 134 methyleugenol",
+    "sourceType": "monograph",
+    "sourceClass": "regulatory-agency-monograph-guidance",
+    "organization": "International Agency for Research on Cancer",
+    "publicationYear": 2024,
+    "citationText": "IARC Working Group on the Identification of Carcinogenic Hazards to Humans. Aspartame, Methyleugenol, and Isoeugenol. Lyon (FR): International Agency for Research on Cancer; 2024. IARC Monographs on the Identification of Carcinogenic Hazards to Humans, No. 134.",
+    "monographId": "IARC Monographs Volume 134",
+    "canonicalUrl": "https://publications.iarc.who.int/627",
+    "language": "en",
+    "evidenceClass": "regulatory-monograph",
+    "studyDesign": "regulatory-guidance",
+    "publicationStatus": "published",
+    "reliabilityTier": "tier-a",
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-09-04T14:41:00.000Z",
+    "notes": "IARC Volume 134 classifies methyleugenol as probably carcinogenic to humans (Group 2A), based on sufficient evidence of carcinogenicity in experimental animals and strong mechanistic evidence. Evidence regarding cancer in humans was inadequate. Natural/background occurrence and consumer exposure must not be treated as quantitatively interchangeable with concentrated isolated exposure.",
+    "active": true
   }
 ]
