@@ -17,7 +17,11 @@ function runAuditFixture(mode) {
 import fs from 'node:fs'
 const counterPath = process.env.FAKE_AUDIT_COUNTER
 let count = 0
-try { count = Number(fs.readFileSync(counterPath, 'utf8')) || 0 } catch {}
+try {
+  count = Number(fs.readFileSync(counterPath, 'utf8')) || 0
+} catch (error) {
+  void error
+}
 count += 1
 fs.writeFileSync(counterPath, String(count))
 const clean = {
