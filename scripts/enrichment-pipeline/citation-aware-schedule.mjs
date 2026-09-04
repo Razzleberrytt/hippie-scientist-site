@@ -4,6 +4,7 @@ import path from 'node:path'
 import { shardOf } from './lib/ids.mjs'
 import { createCanonicalOwnerResolver } from './lib/canonical-owner.mjs'
 import { aiCitationManifestFreshness } from './lib/ai-citation-freshness.mjs'
+import { portfolioSelect } from './lib/portfolio-select.mjs'
 import { scheduleShard } from './lib/control-plane.mjs'
 
 const ROOT = process.cwd()
@@ -12,28 +13,6 @@ const SESSION_MANIFEST = path.join(ROOT, 'ops', 'research-sessions', 'session-ma
 
 function readJson(file, fallback = null) {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')) } catch { return fallback }
-}
-
-function portfolioSelect(ranked, limit, policy = {}) {
-  if (!Number.isInteger(limit) || limit <= 0 || ranked.length <= limit) return ranked
-  const citationTargetPct = Math.max(0, Math.min(100, Number(policy.citationAdjacentTargetPct ?? 65)))
-  const explorationFloorPct = Math.max(0, Math.min(100, Number(policy.explorationFloorPct ?? 35)))
-  const cited = ranked.filter(item => Number(item.aiCitationPriority ?? 0) > 0)
-  const exploration = ranked.filter(item => Number(item.aiCitationPriority ?? 0) <= 0)
-
-  const minExploration = Math.min(exploration.length, Math.ceil(limit * explorationFloorPct / 100))
-  const maxCitationByTarget = Math.floor(limit * citationTargetPct / 100)
-  const citationCount = Math.min(cited.length, Math.max(0, Math.min(maxCitationByTarget, limit - minExploration)))
-  const selected = [...cited.slice(0, citationCount), ...exploration.slice(0, minExploration)]
-  const selectedIds = new Set(selected.map(item => item.workpackId))
-
-  for (const item of ranked) {
-    if (selected.length >= limit) break
-    if (selectedIds.has(item.workpackId)) continue
-    selected.push(item)
-    selectedIds.add(item.workpackId)
-  }
-  return selected.sort((a,b) => b.roi.score - a.roi.score || a.workpackId.localeCompare(b.workpackId))
 }
 
 const inputFile = process.argv[2] ? path.resolve(process.argv[2]) : null
@@ -82,9 +61,12 @@ const ranked = scheduleShard(
   { aiCitationManifest: activeSignals },
 )
 const effectiveLimit = Math.floor(limit)
-const selected = activeSignals
-  ? portfolioSelect(ranked, effectiveLimit, signals.capacityPolicy)
-  : (Number.isInteger(effectiveLimit) && effectiveLimit > 0 ? ranked.slice(0, effectiveLimit) : ranked)
+const selected = portfolioSelect(
+  ranked,
+  effectiveLimit,
+  activeSignals ? signals.capacityPolicy : null,
+  { citationEnabled: Boolean(activeSignals) },
+)
 
 const summary = {
   snapshotLabel: signals.snapshotLabel ?? null,
