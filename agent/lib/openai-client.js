@@ -2,6 +2,9 @@ import OpenAI from 'openai'
 
 import { safeJsonParse } from './errors.js'
 
+const OPENAI_REQUEST_TIMEOUT_MS = 45_000
+const OPENAI_MAX_RETRIES = 2
+
 let cachedClient = null
 
 export function createOpenAIClient() {
@@ -15,7 +18,11 @@ export function createOpenAIClient() {
     return cachedClient
   }
 
-  cachedClient = new OpenAI({ apiKey })
+  cachedClient = new OpenAI({
+    apiKey,
+    timeout: OPENAI_REQUEST_TIMEOUT_MS,
+    maxRetries: OPENAI_MAX_RETRIES,
+  })
 
   return cachedClient
 }

@@ -11,6 +11,7 @@ import {
   isPublishableEntry,
 } from './governor.mjs'
 import { verifyCanaries } from './canary.mjs'
+import { reconcileQueueWithQuarantine } from './queue-resilience.mjs'
 import { atomicJson, loadJsonStrict, repoRoot, stateDir, withWriterLock } from './state-io.mjs'
 
 function parseJsonl(file) {
@@ -101,7 +102,7 @@ function summarizeLedger() {
   return { totalEvents: events.length, counts, recent: tail }
 }
 
-function consolidateUnlocked({ write }) {
+function consolidateUnlocked({ write, strict }) {
   const now = new Date()
   const nowMs = now.getTime()
   const nowIso = now.toISOString()
@@ -110,19 +111,26 @@ function consolidateUnlocked({ write }) {
   const sourceRegistry = loadJsonStrict(path.join(repoRoot, 'public', 'data', 'source-registry.json'), [])
   const state = loadJsonStrict(path.join(stateDir, 'state.json'), { version: 1 })
   const scoreboard = loadJsonStrict(path.join(stateDir, 'scoreboard.json'), { version: 1, totals: {} })
-  const queue = loadJsonStrict(path.join(stateDir, 'work-queue.json'), { version: 1, leases: [], queued: [], batched: [], blocked: [] })
-  const quarantine = loadJsonStrict(path.join(stateDir, 'quarantine.json'), { version: 1, cases: [] })
+  const rawQueue = loadJsonStrict(path.join(stateDir, 'work-queue.json'), { version: 1, leases: [], queued: [], batched: [], blocked: [] })
+  const rawQuarantine = loadJsonStrict(path.join(stateDir, 'quarantine.json'), { version: 1, cases: [] })
   const watch = loadJsonStrict(path.join(stateDir, 'integrity-watch.json'), { version: 1, sources: [] })
 
+  const queueReconciliation = reconcileQueueWithQuarantine(rawQueue, rawQuarantine, contract.quarantine, nowMs)
+  const queue = queueReconciliation.queue
+  const quarantine = queueReconciliation.quarantine
   const heatmap = buildCoverageHeatmap(publishableEntries)
   const graph = buildClaimSourceGraph(publishableEntries, sourceRegistry)
   const canaries = verifyCanaries(entries, sourceRegistry)
   const drift = architectureDriftCheck(repoRoot)
   const integrityWatch = buildIntegrityQueue(publishableEntries, watch, nowMs, nowIso)
   const researchTargets = buildResearchTargets(heatmap, quarantine)
-  const activeLeases = (queue.leases || []).filter(lease => Date.parse(lease.expiresAt) > nowMs)
   const nextFrontier = researchTargets.find(row => !row.quarantined) || null
   const ledgerSummary = summarizeLedger()
+  const releaseBlockers = [
+    ...(!canaries.pass ? canaries.blockers.map(blocker => `canary:${blocker}`) : []),
+    ...(!drift.ok ? drift.missing.map(file => `architecture:${file}`) : []),
+  ]
+  const releaseGatePass = releaseBlockers.length === 0
 
   const updatedScoreboard = {
     ...scoreboard,
@@ -130,13 +138,16 @@ function consolidateUnlocked({ write }) {
     recurringBlockers: scoreboard.recurringBlockers || {},
     updatedAt: nowIso,
   }
-  const updatedQueue = { ...queue, leases: activeLeases, updatedAt: nowIso }
+  const updatedQueue = { ...queue, updatedAt: nowIso }
+  const updatedQuarantine = { ...quarantine, updatedAt: nowIso }
   const updatedState = {
     ...state,
     lastDailyConsolidationAt: nowIso,
     nextFrontier: nextFrontier?.key || null,
     lastArchitectureDriftOk: drift.ok,
     lastCanaryPass: canaries.pass,
+    releaseBlocked: !releaseGatePass,
+    releaseBlockers,
   }
   const summary = {
     generatedAt: nowIso,
@@ -150,21 +161,22 @@ function consolidateUnlocked({ write }) {
     canaryDebt: canaries.debt,
     architectureDriftOk: drift.ok,
     architectureMissing: drift.missing,
+    releaseGatePass,
+    releaseBlockers,
     dueIntegrityRechecks: integrityWatch.sources.filter(row => row.due).length,
     nextFrontier,
-    activeLeases: activeLeases.length,
-    quarantinedCases: (quarantine.cases || []).filter(row => row.quarantined).length,
+    activeLeases: (updatedQueue.leases || []).length,
+    quarantinedCases: (updatedQuarantine.cases || []).filter(row => row.quarantined).length,
+    quarantineReviewEligible: (updatedQuarantine.cases || []).filter(row => row.quarantined && row.reviewEligible).length,
+    queueMaintenance: queueReconciliation.metrics,
     scoreboardRates: updatedScoreboard.rates,
     ledgerEvents: ledgerSummary.totalEvents,
   }
 
-  if (!canaries.pass) {
-    throw new Error(`Daily consolidation blocked by canary failures: ${canaries.blockers.join(', ')}`)
-  }
-  if (!drift.ok) {
-    throw new Error(`Daily consolidation blocked by architecture drift: ${drift.missing.join(', ')}`)
-  }
-
+  // Control-plane maintenance is deliberately independent of the release gate.
+  // Red canaries or architecture drift must keep publication/release blocked,
+  // but they must not prevent lease pruning, quarantine reconciliation,
+  // diagnostics, or selection of other executable research work.
   if (write) {
     atomicJson(path.join(stateDir, 'coverage-heatmap.json'), heatmap)
     atomicJson(path.join(stateDir, 'claim-source-graph.json'), graph)
@@ -174,18 +186,26 @@ function consolidateUnlocked({ write }) {
     atomicJson(path.join(stateDir, 'research-targets.json'), { version: 1, generatedAt: nowIso, targets: researchTargets })
     atomicJson(path.join(stateDir, 'ledger-summary.json'), ledgerSummary)
     atomicJson(path.join(stateDir, 'scoreboard.json'), updatedScoreboard)
+    atomicJson(path.join(stateDir, 'quarantine.json'), updatedQuarantine)
     atomicJson(path.join(stateDir, 'work-queue.json'), updatedQueue)
     atomicJson(path.join(stateDir, 'state.json'), updatedState)
     atomicJson(path.join(stateDir, 'daily-summary.json'), summary)
   }
+
+  if (strict && !releaseGatePass) {
+    throw new Error(`Daily consolidation release gate blocked: ${releaseBlockers.join(', ')}`)
+  }
+
   return summary
 }
 
-export function runDailyConsolidation({ write = true } = {}) {
-  return write ? withWriterLock(() => consolidateUnlocked({ write: true })) : consolidateUnlocked({ write: false })
+export function runDailyConsolidation({ write = true, strict = true } = {}) {
+  return write
+    ? withWriterLock(() => consolidateUnlocked({ write: true, strict }))
+    : consolidateUnlocked({ write: false, strict })
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const dryRun = process.argv.includes('--dry-run')
-  process.stdout.write(`${JSON.stringify(runDailyConsolidation({ write: !dryRun }), null, 2)}\n`)
+  process.stdout.write(`${JSON.stringify(runDailyConsolidation({ write: !dryRun, strict: true }), null, 2)}\n`)
 }

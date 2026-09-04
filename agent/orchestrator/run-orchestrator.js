@@ -8,6 +8,7 @@ import { writePatch } from '../lib/patch-store.js'
 import { logError, logInfo, logWarn } from '../lib/logger.js'
 import { prioritizeCompounds } from '../lib/prioritization.js'
 import { harvestMetadataBatch } from '../lib/metadata-harvester.js'
+import { runWorkerPool } from '../lib/runtime-resilience.js'
 
 import { runValidationAgent } from '../agents/validation-agent.js'
 import { runScoringAgent } from '../agents/scoring-agent.js'
@@ -16,6 +17,7 @@ import { runAffiliateAgent } from '../agents/affiliate-agent.js'
 import { runDedupeAgent } from '../agents/dedupe-agent.js'
 
 const repoRoot = process.cwd()
+const RESULT_PROCESSING_CONCURRENCY = 3
 
 const MODE_CONFIG = {
   fast: {
@@ -110,7 +112,7 @@ function buildSeoAssets(slug) {
   }
 }
 
-function confidenceArbitration(validation, scoring) {
+function confidenceArbitration(validation, scoring, sourceFailures = []) {
   const notes = []
   const flags = []
 
@@ -124,9 +126,123 @@ function confidenceArbitration(validation, scoring) {
     flags.push('low_confidence')
   }
 
+  if (sourceFailures.length > 0) {
+    const failedSources = [...new Set(sourceFailures.map(row => row.source).filter(Boolean))]
+    notes.push(`Metadata harvest continued with unavailable source(s): ${failedSources.join(', ')}.`)
+    flags.push('partial_metadata_failure')
+  }
+
   return {
     notes,
-    flags,
+    flags: [...new Set(flags)],
+  }
+}
+
+async function processMetadataResult({ result, config, client, validateEvidence, mode }) {
+  const sourceFailures = result.source_failures || []
+  if (sourceFailures.length) {
+    logWarn(`metadata degraded for ${result.slug}: ${sourceFailures.map(row => `${row.source}:${row.reason}`).join(', ')}`)
+  }
+
+  const evidenceRows = [
+    ...(result.pubmed?.articles || []).map(article => ({
+      compound_slug: result.slug,
+      pmid_or_source: article.pmid,
+      doi: article.doi,
+      study_type: article.study_type || 'unknown',
+      population: 'humans (PubMed-indexed)',
+      title: article.title,
+      publication_date: article.publication_date,
+    })),
+    ...(result.clinical_trials?.trial_metadata || []).map(trial => ({
+      compound_slug: result.slug,
+      pmid_or_source: trial.nct_id,
+      study_type: trial.study_type || 'clinical_trial',
+      population: trial.population || 'human participants',
+      sample_size: trial.sample_size,
+      registry_has_results: trial.has_results,
+      title: trial.title,
+    })),
+  ]
+
+  const validationResult = await runValidationAgent({
+    slug: result.slug,
+    evidence: evidenceRows,
+  })
+  const validation = validationResult?.data || {
+    validation_status: 'rejected',
+    rejection_reasons: ['validation_unavailable'],
+    entries: [],
+  }
+  const dedupedEvidence = runDedupeAgent(validation.entries || [])
+  const scoring = runScoringAgent(dedupedEvidence)
+
+  const arbitration = confidenceArbitration(validation, scoring, sourceFailures)
+
+  const evidencePatch = {
+    ...basePatch(result.slug, 'metadata-harvester', 'evidence', config.depth),
+    evidence: dedupedEvidence,
+    validation,
+    scoring,
+    metadata_sources: result.metadata_sources,
+    confidence_notes: arbitration.notes,
+    review_flags: arbitration.flags,
+    seo_assets: buildSeoAssets(result.slug),
+  }
+
+  if (validateEvidence(evidencePatch)) {
+    writePatch({
+      slug: result.slug,
+      sourceAgent: 'metadata-harvester',
+      patchId: evidencePatch.patch_id,
+      data: evidencePatch,
+    })
+
+    logInfo(`wrote metadata patch for ${result.slug}`)
+  }
+
+  if (
+    config.enrichment &&
+    client &&
+    scoring.confidence_score >= 0.45
+  ) {
+    const enrichmentPatch = {
+      ...basePatch(result.slug, 'enrichment-agent', 'enrichment', config.depth),
+      enrichment: runEnrichmentAgent(result.slug),
+      metadata_sources: result.metadata_sources,
+      confidence_notes: arbitration.notes,
+      review_flags: arbitration.flags,
+      seo_assets: buildSeoAssets(result.slug),
+    }
+
+    writePatch({
+      slug: result.slug,
+      sourceAgent: 'enrichment-agent',
+      patchId: enrichmentPatch.patch_id,
+      data: enrichmentPatch,
+    })
+
+    if (mode === 'deep') {
+      const affiliatePatch = {
+        ...basePatch(result.slug, 'affiliate-agent', 'affiliate', config.depth),
+        affiliate: runAffiliateAgent(),
+        metadata_sources: result.metadata_sources,
+        seo_assets: buildSeoAssets(result.slug),
+      }
+
+      writePatch({
+        slug: result.slug,
+        sourceAgent: 'affiliate-agent',
+        patchId: affiliatePatch.patch_id,
+        data: affiliatePatch,
+      })
+    }
+  }
+
+  return {
+    slug: result.slug,
+    metadataSources: result.metadata_sources.length,
+    degradedSources: sourceFailures.length,
   }
 }
 
@@ -157,109 +273,25 @@ async function main() {
 
   const validateEvidence = createSchemaValidator(loadSchema('evidence.schema.json'))
 
-  for (const result of metadataResults) {
-    try {
-      const evidenceRows = [
-        ...(result.pubmed?.articles || []).map(article => ({
-          compound_slug: result.slug,
-          pmid_or_source: article.pmid,
-          doi: article.doi,
-          study_type: article.study_type || 'unknown',
-          population: 'humans (PubMed-indexed)',
-          title: article.title,
-          publication_date: article.publication_date,
-        })),
-        ...(result.clinical_trials?.trial_metadata || []).map(trial => ({
-          compound_slug: result.slug,
-          pmid_or_source: trial.nct_id,
-          study_type: trial.study_type || 'clinical_trial',
-          population: trial.population || 'human participants',
-          sample_size: trial.sample_size,
-          registry_has_results: trial.has_results,
-          title: trial.title,
-        })),
-      ]
+  const processingResults = await runWorkerPool(metadataResults, result => processMetadataResult({
+    result,
+    config,
+    client,
+    validateEvidence,
+    mode,
+  }), {
+    concurrency: RESULT_PROCESSING_CONCURRENCY,
+    onItemError: ({ item, error }) => {
+      logError(`pipeline failed for ${item?.slug || 'unknown'}; worker released for next item`, error)
+    },
+  })
 
-      const validationResult = await runValidationAgent({
-        slug: result.slug,
-        evidence: evidenceRows,
-      })
-      const validation = validationResult?.data || {
-        validation_status: 'rejected',
-        rejection_reasons: ['validation_unavailable'],
-        entries: [],
-      }
-      const dedupedEvidence = runDedupeAgent(validation.entries || [])
-      const scoring = runScoringAgent(dedupedEvidence)
-
-      const arbitration = confidenceArbitration(validation, scoring)
-
-      const evidencePatch = {
-        ...basePatch(result.slug, 'metadata-harvester', 'evidence', config.depth),
-        evidence: dedupedEvidence,
-        validation,
-        scoring,
-        metadata_sources: result.metadata_sources,
-        confidence_notes: arbitration.notes,
-        review_flags: arbitration.flags,
-        seo_assets: buildSeoAssets(result.slug),
-      }
-
-      if (validateEvidence(evidencePatch)) {
-        writePatch({
-          slug: result.slug,
-          sourceAgent: 'metadata-harvester',
-          patchId: evidencePatch.patch_id,
-          data: evidencePatch,
-        })
-
-        logInfo(`wrote metadata patch for ${result.slug}`)
-      }
-
-      if (
-        config.enrichment &&
-        client &&
-        scoring.confidence_score >= 0.45
-      ) {
-        const enrichmentPatch = {
-          ...basePatch(result.slug, 'enrichment-agent', 'enrichment', config.depth),
-          enrichment: runEnrichmentAgent(result.slug),
-          metadata_sources: result.metadata_sources,
-          confidence_notes: arbitration.notes,
-          review_flags: arbitration.flags,
-          seo_assets: buildSeoAssets(result.slug),
-        }
-
-        writePatch({
-          slug: result.slug,
-          sourceAgent: 'enrichment-agent',
-          patchId: enrichmentPatch.patch_id,
-          data: enrichmentPatch,
-        })
-
-        if (mode === 'deep') {
-          const affiliatePatch = {
-            ...basePatch(result.slug, 'affiliate-agent', 'affiliate', config.depth),
-            affiliate: runAffiliateAgent(),
-            metadata_sources: result.metadata_sources,
-            seo_assets: buildSeoAssets(result.slug),
-          }
-
-          writePatch({
-            slug: result.slug,
-            sourceAgent: 'affiliate-agent',
-            patchId: affiliatePatch.patch_id,
-            data: affiliatePatch,
-          })
-        }
-      }
-    } catch (error) {
-      logError(`pipeline failed for ${result.slug}`, error)
-    }
-  }
+  const failed = processingResults.filter(row => !row.ok).length
+  const degraded = metadataResults.filter(row => (row.source_failures || []).length > 0).length
+  logInfo(`orchestrator completed processed=${processingResults.length - failed} failed=${failed} degraded=${degraded} total=${processingResults.length}`)
 }
 
 main().catch(error => {
-  logError('orchestrator failed', error)
-  process.exit(0)
+  logError('orchestrator failed before item-level isolation could continue', error)
+  process.exitCode = 1
 })
