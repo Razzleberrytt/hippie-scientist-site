@@ -18,7 +18,6 @@ export async function withTimeout(task, timeoutMs, label = 'task') {
       Promise.resolve().then(task),
       new Promise((_, reject) => {
         timer = setTimeout(() => reject(new TimeoutError(label, timeoutMs)), timeoutMs)
-        timer.unref?.()
       }),
     ])
   } finally {
