@@ -230,6 +230,16 @@ const SLEEP_SCIENCE: GuideCard[] = [
     desc: 'Why faster sedation does not equal better sleep, including the 2025 dose-response REM meta-analysis.',
   },
   {
+    href: '/articles/cannabis-cannabinoids-and-sleep/',
+    title: 'Cannabis and Sleep',
+    desc: 'Randomized insomnia signals, weak CBD-only results, objective sleep-architecture limits and recreational-use contradictions.',
+  },
+  {
+    href: '/articles/nicotine-vaping-and-sleep/',
+    title: 'Nicotine, Vaping and Sleep',
+    desc: 'Vaping associations, smoking-cessation withdrawal and why temporary quit-related insomnia does not mean nicotine improves sleep.',
+  },
+  {
     href: '/articles/morning-light-and-sleep-timing/',
     title: 'Morning Light and Sleep Timing',
     desc: 'Circadian phase shifting, recent insomnia meta-analyses, and why the clock time of light exposure changes its effect.',
@@ -400,7 +410,7 @@ export default function SleepGuideIndex() {
         <HubSectionHeading
           eyebrow="Sleep science"
           title="Understand the measurements and upstream variables"
-          sub="Onset, maintenance, study design, wearables, regularity, catch-up sleep, caffeine, alcohol, light, temperature, meal timing, exercise, naps and the difference between insomnia and simply not getting enough sleep."
+          sub="Onset, maintenance, study design, wearables, regularity, catch-up sleep, caffeine, alcohol, cannabis, nicotine, light, temperature, meal timing, exercise, naps and the difference between insomnia and simply not getting enough sleep."
         />
         <GuideCardGrid cards={SLEEP_SCIENCE} />
       </section>
