@@ -2,7 +2,7 @@
   "id": "tryptophan",
   "slug": "tryptophan",
   "name": "Tryptophan",
-  "summary": "L-tryptophan has moderate evidence for modest sleep latency reduction.",
+  "summary": "L-tryptophan has limited human sleep evidence; a 2022 meta-analysis found its clearest pooled signal for reduced wake after sleep onset rather than a broad sleep-latency benefit.",
   "description": "Tryptophan is an essential amino-acid precursor feeding serotonin and melatonin synthesis, relevant to sleep-wake regulation and mood biology.",
   "compoundClass": "",
   "mechanisms": [
