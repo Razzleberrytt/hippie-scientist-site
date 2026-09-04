@@ -460,6 +460,11 @@ const LIFE_STAGES_AND_COMORBIDITY: GuideCard[] = [
     desc: 'Migraine and sleep problems can reinforce each other, but subjective complaints, objective sleep changes, insomnia and sleep apnea remain distinct questions.',
   },
   {
+    href: '/articles/anxiety-and-sleep/',
+    title: 'Anxiety and Sleep',
+    desc: 'Anxiety and insomnia can reinforce each other, while CBT-I treats the sleep disorder more strongly than it treats anxiety itself.',
+  },
+  {
     href: '/articles/sleep-in-older-adults/',
     title: 'Sleep in Older Adults',
     desc: 'Normal aging changes sleep, but persistent insomnia, sleep apnea, restless legs and medication effects still need their own evidence pathways.',
@@ -650,7 +655,7 @@ export default function SleepGuideIndex() {
         <HubSectionHeading
           eyebrow="Life stages & comorbidity"
           title="When the sleep problem changes with the person"
-          sub="Adolescence, menopause, pregnancy and postpartum sleep, chronic pain, migraine, and older-adult sleep each change the evidence hierarchy, safety boundaries, or underlying bottleneck."
+          sub="Adolescence, menopause, pregnancy and postpartum sleep, chronic pain, migraine, anxiety, and older-adult sleep each change the evidence hierarchy, safety boundaries, or underlying bottleneck."
         />
         <GuideCardGrid cards={LIFE_STAGES_AND_COMORBIDITY} />
       </section>
