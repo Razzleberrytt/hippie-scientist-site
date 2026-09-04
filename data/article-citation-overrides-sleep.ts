@@ -7,6 +7,7 @@ import { sleepBehaviorCitationOverrides } from './article-citation-overrides-sle
 import { sleepCoreCitationOverrides } from './article-citation-overrides-sleep-core'
 import { sleepInterventionCitationOverrides } from './article-citation-overrides-sleep-interventions'
 import { sleepLifeStageCitationOverrides } from './article-citation-overrides-sleep-life-stage'
+import { sleepRemainingCitationOverrides } from './article-citation-overrides-sleep-remaining'
 import { sleepSafetyCitationOverrides } from './article-citation-overrides-sleep-safety'
 import { sleepScheduleCitationOverrides } from './article-citation-overrides-sleep-schedule'
 
@@ -20,4 +21,5 @@ export const sleepCitationOverrides: Record<string, ArticleCitationOverride> = {
   ...sleepSafetyCitationOverrides,
   ...sleepScheduleCitationOverrides,
   ...sleepLifeStageCitationOverrides,
+  ...sleepRemainingCitationOverrides,
 }
