@@ -1,11 +1,26 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
+import {
+  CircuitBreaker,
+  isTransientError,
+  retryWithBackoff,
+  runWorkerPool,
+  withTimeout,
+} from './runtime-resilience.js'
+
 const cacheRoot = path.join(process.cwd(), 'agent', 'cache')
 const REQUEST_TIMEOUT_MS = 15_000
+const SOURCE_TASK_TIMEOUT_MS = 65_000
 const MAX_RESULTS = 5
 const CACHE_VERSION = 3
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000
+const BATCH_CONCURRENCY = 4
+
+const sourceCircuitBreaker = new CircuitBreaker({
+  failureThreshold: 3,
+  cooldownMs: 2 * 60 * 1000,
+})
 
 function cachePath(slug, source) {
   return path.join(cacheRoot, `${slug}-${source}.json`)
@@ -28,26 +43,26 @@ function saveCache(slug, source, data) {
   fs.writeFileSync(fileURL(slug, source), JSON.stringify(data, null, 2))
 }
 
-async function fetchJson(url, attempt = 0) {
-  const response = await fetch(url, {
-    headers: { 'User-Agent': 'hippie-scientist-site/1.0 (evidence metadata harvester)' },
-    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+async function fetchJson(url) {
+  return retryWithBackoff(async () => {
+    const response = await fetch(url, {
+      headers: { 'User-Agent': 'hippie-scientist-site/1.0 (evidence metadata harvester)' },
+      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+    })
+
+    if (!response.ok) {
+      const error = new Error(`Metadata request failed (${response.status}) for ${url.hostname}`)
+      error.status = response.status
+      throw error
+    }
+
+    return response.json()
+  }, {
+    attempts: 4,
+    baseDelayMs: 750,
+    maxDelayMs: 6_000,
+    shouldRetry: isTransientError,
   })
-
-  if (response.status === 429 && attempt < 3) {
-    const retryAfter = Number(response.headers.get('retry-after'))
-    const delay = Number.isFinite(retryAfter) && retryAfter > 0
-      ? retryAfter * 1000
-      : 750 * (attempt + 1)
-    await new Promise(resolve => setTimeout(resolve, delay))
-    return fetchJson(url, attempt + 1)
-  }
-
-  if (!response.ok) {
-    throw new Error(`Metadata request failed (${response.status}) for ${url.hostname}`)
-  }
-
-  return response.json()
 }
 
 function isFreshCache(value) {
@@ -188,22 +203,93 @@ export function classifyStudyType(text = '') {
   return 'unknown'
 }
 
-export async function harvestMetadataBatch({ compounds = [] }) {
-  const results = []
-
-  for (const compound of compounds) {
-    const [pubmed, clinicalTrials] = await Promise.all([
-      harvestPubMedMetadata({ slug: compound.slug || compound.name }),
-      harvestClinicalTrialsMetadata({ slug: compound.slug || compound.name }),
-    ])
-
-    results.push({
-      slug: compound.slug || compound.name,
-      metadata_sources: ['pubmed', 'clinicaltrials'],
-      pubmed,
-      clinical_trials: clinicalTrials,
-    })
+async function harvestSource({ source, slug, harvest, breaker, timeoutMs }) {
+  const permission = breaker.canRun(source)
+  if (!permission.allowed) {
+    return {
+      ok: false,
+      source,
+      skipped: true,
+      reason: 'circuit_open',
+      retryAfter: new Date(permission.reopenAt).toISOString(),
+    }
   }
 
-  return results
+  try {
+    const value = await withTimeout(
+      () => harvest({ slug }),
+      timeoutMs,
+      `${source}:${slug}`
+    )
+    breaker.recordSuccess(source)
+    return { ok: true, source, value }
+  } catch (error) {
+    breaker.recordFailure(source)
+    return {
+      ok: false,
+      source,
+      skipped: false,
+      reason: error?.code === 'TASK_TIMEOUT' ? 'timeout' : 'source_error',
+      error: error instanceof Error ? error.message : String(error),
+    }
+  }
+}
+
+export async function harvestMetadataBatch({
+  compounds = [],
+  concurrency = BATCH_CONCURRENCY,
+  timeoutMs = SOURCE_TASK_TIMEOUT_MS,
+  breaker = sourceCircuitBreaker,
+  harvestPubMed = harvestPubMedMetadata,
+  harvestClinicalTrials = harvestClinicalTrialsMetadata,
+} = {}) {
+  const rows = await runWorkerPool(compounds, async compound => {
+    const slug = compound?.slug || compound?.name
+    if (!slug) {
+      return {
+        slug: 'unknown',
+        metadata_sources: [],
+        source_failures: [{ source: 'batch', reason: 'missing_slug' }],
+        pubmed: null,
+        clinical_trials: null,
+      }
+    }
+
+    const [pubmed, clinicalTrials] = await Promise.all([
+      harvestSource({ source: 'pubmed', slug, harvest: harvestPubMed, breaker, timeoutMs }),
+      harvestSource({ source: 'clinicaltrials', slug, harvest: harvestClinicalTrials, breaker, timeoutMs }),
+    ])
+
+    const successful = [pubmed, clinicalTrials].filter(row => row.ok)
+    const failed = [pubmed, clinicalTrials]
+      .filter(row => !row.ok)
+      .map(({ source, skipped, reason, retryAfter, error }) => ({ source, skipped, reason, retryAfter, error }))
+
+    return {
+      slug,
+      metadata_sources: successful.map(row => row.source),
+      source_failures: failed,
+      pubmed: pubmed.ok ? pubmed.value : null,
+      clinical_trials: clinicalTrials.ok ? clinicalTrials.value : null,
+    }
+  }, {
+    concurrency,
+  })
+
+  return rows.map((row, index) => {
+    if (row.ok) return row.value
+    const compound = compounds[index] || {}
+    return {
+      slug: compound.slug || compound.name || 'unknown',
+      metadata_sources: [],
+      source_failures: [{
+        source: 'batch',
+        skipped: false,
+        reason: 'unexpected_worker_error',
+        error: row.error?.message || String(row.error),
+      }],
+      pubmed: null,
+      clinical_trials: null,
+    }
+  })
 }
