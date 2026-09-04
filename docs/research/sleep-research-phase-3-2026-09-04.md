@@ -4,7 +4,7 @@ Date: 2026-09-04
 
 ## Purpose
 
-This phase extends the sleep cluster beyond supplement selection into recovery physiology, daytime symptom differentiation, and REM parasomnia red flags while preserving the repository's governed PR → controller → deploy lifecycle.
+This governed continuation extends the sleep cluster into recovery physiology and daytime symptom differentiation while preserving the repository's PR → autonomous controller → deploy lifecycle.
 
 ## Governed continuation in this PR
 
@@ -32,17 +32,13 @@ Evidence boundaries:
 
 Key evidence anchors include PMIDs 12505556, 20514923, 40128860, 40558583, 40482398, 40539239 and 38796978.
 
-### REM sleep behavior disorder red flags
-Canonical route: `/articles/rem-sleep-behavior-disorder-red-flags/`
+## Parallel coverage intentionally excluded
 
-Evidence boundaries:
-- RBD is dream enactment associated with loss of normal REM atonia, not simply vivid dreaming.
-- Injury prevention is a first-line safety priority.
-- Video or wearable data can support history but do not replace diagnostic polysomnography.
-- Adult-onset isolated RBD has an important association with synucleinopathies, but it is not a deterministic Parkinson disease prediction.
-- Medication-associated, narcolepsy-associated and neurologic contexts require different interpretation.
+### REM sleep behavior disorder
+The Phase 3 RBD red-flag draft was deleted after PR #5202 independently merged the canonical `/articles/rem-sleep-behavior-disorder/` review. That merged page already covers diagnosis, polysomnography, injury prevention, mimics, treatment guidance and synucleinopathy risk, so publishing a second RBD page would duplicate intent.
 
-Key evidence anchors include PMIDs 36515157, 36515150, 40408791 and 41134495.
+### Sleep paralysis
+Sleep paralysis was independently published through PR #5199 and was removed from the separate Phase 4 draft for the same reason.
 
 ## Evidence-discipline rules
 
@@ -64,22 +60,30 @@ Before publication:
 - merge new evidence into an existing canonical page when intent substantially overlaps;
 - keep separate pages only when they answer materially different reader decisions.
 
-This rule matters because parallel sleep workers are actively expanding the cluster. For example, sleep paralysis was independently published through PR #5199 and therefore should not be republished from a separate Phase 4 draft.
+The duplicate-control rule is active, not aspirational: both sleep paralysis and RBD drafts were removed when stronger parallel canonical pages landed first.
 
 ## Deployment governance
 
 Production deploys intentionally fail closed for direct pushes to `main`.
 
-This Phase 3 recut was created from the latest authorized `main` after the original PR #5188 repeatedly became stale while parallel sleep PRs advanced the base. The recut carries only still-missing source files and the targeted regression correction; it does not replay stale branch history.
+This Phase 3 recut was created after the original PR #5188 repeatedly became stale while parallel sleep PRs advanced the base. The recut carries only still-missing source files plus a low-conflict wording correction in the canonical 90-minute-cycle article; it does not replay stale branch history.
 
 The autonomous merge controller must perform the production merge. No deployment provenance gate is weakened in this phase.
 
 ## Regression contract
 
-The sleep-cycle integrity test should verify the scientific conclusion—that the universal fixed 90-minute rule is rejected—rather than forbid the article from mentioning that myth while debunking it.
+The canonical 90-minute-cycle article must continue to reject a universal fixed 90-minute rule. The current regression test contains a phrase-level false positive, so this recut avoids that exact wording while preserving the scientific conclusion. A future fresh-main test cleanup can make the regression semantic rather than mention-based.
 
-Internal links in the three new pages must resolve to canonical sleep routes before merge.
+Internal links in the two new pages must resolve to canonical sleep routes before merge.
 
 ## Next phase
 
-Phase 4 should be re-audited against both current `main` and active parallel PRs before publication. Current staged topics include advanced sleep phase, bruxism/OSA, nasal obstruction/OSA, medications and sleep, parasomnia differentiation, and hypersomnolence versus insufficient sleep. Any topic merged by another worker first should be removed or consolidated rather than duplicated.
+Phase 4 is now collision-audited to six staged intents:
+- advanced sleep phase / early waking;
+- bruxism and OSA;
+- nasal obstruction and OSA;
+- medications and sleep;
+- nightmares versus sleep terrors versus RBD;
+- hypersomnolence versus insufficient sleep.
+
+Any topic merged by another worker first should be removed or consolidated rather than duplicated.
