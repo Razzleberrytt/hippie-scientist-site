@@ -233,6 +233,8 @@ describe('normalizeCitationMetadata', () => {
       keyTakeaways: [],
       citationQuestions: [],
       canonicalConcepts: [],
+      decisionRows: [],
+      faqAnswers: [],
     })
   })
 
@@ -242,6 +244,15 @@ describe('normalizeCitationMetadata', () => {
     expect(metadata.keyTakeaways).toContain('Blotter paper is a delivery format, not proof that a sample contains LSD.')
     expect(metadata.citationQuestions).toContain('How can seizures lead to rhabdomyolysis and acute kidney injury?')
     expect(metadata.canonicalConcepts).toContain('rhabdomyolysis')
+  })
+
+  it('loads decision and FAQ metadata for upgraded sleep pages', () => {
+    const metadata = normalizeCitationMetadata({ slug: 'sleep-apnea-in-women' })
+
+    expect(metadata.decisionRows).toHaveLength(4)
+    expect(metadata.decisionRows[0].label).toBe('Why cases can be missed')
+    expect(metadata.faqAnswers).toHaveLength(3)
+    expect(metadata.faqAnswers[0].question).toBe('Can women have sleep apnea without loud snoring?')
   })
 
   it('prefers explicit frontmatter over registry values', () => {
@@ -265,6 +276,8 @@ describe('normalizeCitationMetadata', () => {
       keyTakeaways: [],
       citationQuestions: [],
       canonicalConcepts: [],
+      decisionRows: [],
+      faqAnswers: [],
     })
   })
 })
