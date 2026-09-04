@@ -1,0 +1,5 @@
+# Search/AI citation-quality consolidation for #5052 / #5098.
+# The legacy article remains in source as compatibility content, but search/crawl
+# authority belongs to the newer preparation-bounded evidence guide.
+# Slash/non-slash variants are emitted by scripts/seo/apply-redirect-overrides.mjs.
+/articles/functional-mushrooms-guide/ /guides/other/functional-mushrooms-guide/ 301
