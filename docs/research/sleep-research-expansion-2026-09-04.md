@@ -4,7 +4,7 @@
 
 **Expansion pass: implemented.**
 
-The sleep cluster was expanded from a supplement-heavy guide set into a broader evidence system covering ingredient efficacy, sleep endpoints, measurement methods, circadian timing, upstream disruptors, behavior, and formulation directness.
+The sleep cluster was expanded from a supplement-heavy guide set into a broader evidence system covering ingredient efficacy, sleep endpoints, measurement methods, circadian timing, upstream disruptors, behavior, formulation directness, and research-method interpretation.
 
 The goal is not to publish the largest possible list of sleep aids. The goal is to make every sleep claim answer:
 
@@ -62,7 +62,7 @@ Anchors include the small 2024 randomized trial in older adults (PMID 38309227),
 
 **Guardrail:** One small trial does not establish chronic-insomnia efficacy, a universal bedtime dose, or equivalence with melatonin.
 
-## New evidence-methodology page
+## New evidence-methodology pages
 
 ### Why sleep supplement formulations are not interchangeable
 
@@ -80,6 +80,26 @@ Examples include:
 - separately studied ingredients vs an untested multi-ingredient stack.
 
 The farther a product moves from the formulation actually studied, the more cautious the efficacy claim should become.
+
+### Why sleep studies disagree
+
+**Route:** `/articles/why-sleep-studies-disagree/`
+
+This page explains why apparently conflicting sleep trials can be answering different questions. It covers:
+
+1. different sleeper populations and insomnia phenotypes;
+2. different endpoints such as SOL, WASO, TST, sleep efficiency, and symptom scales;
+3. subjective vs objective measurement;
+4. formulation heterogeneity;
+5. unstable estimates from small samples;
+6. multiple endpoints and selective emphasis;
+7. placebo response and regression toward the mean;
+8. acute vs repeated-treatment duration; and
+9. heterogeneity inherited by systematic reviews and meta-analyses.
+
+Anchors include the 2025 scoping review of OTC insomnia RCTs (PMID 40054227), the 2025 insomnia subjective/objective umbrella review (PMID 40850055), the 2025 tart-cherry systematic review (PMID 40964149), the 2024 valerian umbrella review (PMID 38359657), and the 2022 meta-epidemiological analysis of ambiguous insomnia definitions (PMID 36231555).
+
+**Purpose:** Replace the vague phrase “research is mixed” with a structured explanation of exactly why findings differ.
 
 ## New sleep-science authority pages
 
@@ -174,7 +194,7 @@ Core position: naps are context-dependent tools. Long/late naps can reduce night
 1. **Decision-first guides** — route by the actual sleep problem.
 2. **Comparisons** — direct buyer/decision questions.
 3. **Ingredient research** — saffron, tart cherry, chamomile, tryptophan, 5-HTP, and formulation directness.
-4. **Sleep science** — endpoints, measurement, wearables, regularity, caffeine, alcohol, light, exercise, naps, and insomnia-vs-insufficient-sleep.
+4. **Sleep science** — endpoints, study methodology, measurement, wearables, regularity, caffeine, alcohol, light, exercise, naps, and insomnia-vs-insufficient-sleep.
 5. **ADHD & sleep** — separate timing/stimulant context.
 6. **Depth profiles** — herb/compound records.
 
@@ -203,11 +223,10 @@ Best remaining opportunities:
 
 - contextual links from flagship ranking pages into the new depth articles;
 - refresh existing melatonin pages around dose **versus timing** without creating redundant URLs;
-- add a methodology piece on why sleep studies disagree (small samples, multiple endpoints, formulation heterogeneity, placebo response, phenotype mismatch);
 - audit older blog posts for unsupported dose language and formulation overreach;
 - promote vetted enrichment findings into currently noindex compound/herb records where provenance requirements are satisfied;
 - monitor 2026+ systematic reviews and RCTs for changes that materially alter existing evidence grades.
 
 ## Strategic outcome
 
-The sleep cluster now has a defensible research moat: it can explain not only **which option has evidence**, but **what kind of evidence it is, what part of sleep changed, whether the measurement was subjective or objective, whether the formulation matches, and whether an upstream behavior is a more likely bottleneck than another bedtime supplement**.
+The sleep cluster now has a defensible research moat: it can explain not only **which option has evidence**, but **what kind of evidence it is, what part of sleep changed, whether the measurement was subjective or objective, why studies can disagree, whether the formulation matches, and whether an upstream behavior is a more likely bottleneck than another bedtime supplement**.
