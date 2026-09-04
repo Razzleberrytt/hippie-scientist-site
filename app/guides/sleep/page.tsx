@@ -9,20 +9,20 @@ import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { buildGuideHubSchemaGraph } from '../../../lib/schema-graph'
 
 export const metadata: Metadata = {
-  title: 'Sleep Supplements: Evidence, Timing & Safety',
+  title: 'Sleep Research & Supplements: Evidence, Timing & Safety',
   description:
-    'Compare sleep supplements by the problem you are trying to solve, human evidence, timing, safety, and next-day effects. Covers melatonin, magnesium, herbs, and non-supplement options.',
+    'Evidence-based sleep research covering supplements, insomnia, circadian timing, shift work, sleep measurement, environmental tools, substances, and safety.',
   alternates: { canonical: `${SITE_URL}/guides/sleep/` },
   openGraph: {
-    title: 'Sleep Supplements: Evidence, Timing & Safety',
-    description: 'Compare sleep aids by evidence, timing, safety, and next-day effects.',
+    title: 'Sleep Research & Supplements: Evidence, Timing & Safety',
+    description: 'Compare sleep interventions by evidence, mechanism, timing, measurement, safety, and the actual sleep problem.',
     url: `${SITE_URL}/guides/sleep/`,
     type: 'website',
     images: ['/og-default.jpg'],
   },
   twitter: buildTwitterMetadata({
-    title: 'Sleep Supplements: Evidence, Timing & Safety',
-    description: 'Compare sleep aids by evidence, timing, safety, and next-day effects.',
+    title: 'Sleep Research & Supplements: Evidence, Timing & Safety',
+    description: 'Compare sleep interventions by evidence, mechanism, timing, measurement, safety, and the actual sleep problem.',
   }),
 }
 
@@ -44,6 +44,24 @@ const START_HERE: IntentRoute[] = [
     why: 'Glycine is a sleep-quality experiment, not a knockout sedative.',
     cta: 'Glycine for Sleep',
     href: '/guides/sleep/glycine-for-sleep/',
+  },
+  {
+    problem: 'You sleep fine — but only very late',
+    why: 'If sleep becomes normal on a later schedule, circadian delay may fit better than generic insomnia.',
+    cta: 'Delayed Sleep Phase vs Insomnia',
+    href: '/articles/delayed-sleep-wake-phase-vs-insomnia/',
+  },
+  {
+    problem: 'Night or rotating shifts are wrecking sleep',
+    why: 'Shift work combines circadian misalignment, sleep loss and alertness problems that need a schedule-specific toolkit.',
+    cta: 'Shift Work Sleep Disorder',
+    href: '/articles/shift-work-sleep-disorder/',
+  },
+  {
+    problem: 'Light or noise keeps waking you',
+    why: 'Environmental control can be a cleaner first experiment than adding another supplement.',
+    cta: 'Eye Masks & Earplugs',
+    href: '/articles/eye-masks-earplugs-and-sleep/',
   },
   {
     problem: 'Not sure which magnesium to buy',
@@ -93,27 +111,27 @@ const BEST_FIRST: GuideCard[] = [
   {
     href: '/guides/sleep/best-supplements-for-sleep/',
     title: 'Best Supplements for Sleep',
-    desc: 'The evidence-graded overview — start here if you are not sure what you need.',
+    desc: 'The evidence-graded supplement overview — start here if you are not sure what you need.',
   },
   {
-    href: '/guides/sleep/magnesium-for-sleep/',
-    title: 'Magnesium for Sleep',
-    desc: 'What the evidence shows, who may be more likely to benefit, and when magnesium is a poor fit.',
+    href: '/articles/cbt-i-vs-sleep-supplements/',
+    title: 'CBT-I vs Sleep Supplements',
+    desc: 'The evidence hierarchy for chronic insomnia before you add another bedtime product.',
   },
   {
-    href: '/guides/sleep/glycine-for-sleep/',
-    title: 'Glycine for Sleep',
-    desc: 'For sleep-quality and next-day tiredness questions — not a knockout sedative.',
+    href: '/articles/insomnia-vs-sleep-deprivation/',
+    title: 'Insomnia vs Sleep Deprivation',
+    desc: 'Same exhausted feeling, different bottleneck: can you sleep, or are you simply not getting enough opportunity?',
   },
   {
-    href: '/guides/sleep/l-theanine-for-sleep/',
-    title: 'L-Theanine for Sleep',
-    desc: 'For a busy mind at lights-out — calm without grogginess.',
+    href: '/articles/melatonin-timing-vs-dose/',
+    title: 'Melatonin Timing vs Dose',
+    desc: 'Why clock timing, indication and formulation can matter as much as milligrams.',
   },
   {
-    href: '/guides/sleep/sleep-stack-guide/',
-    title: 'Sleep Stack Guide',
-    desc: 'How to combine options into one coherent, safe routine.',
+    href: '/articles/why-sleep-studies-disagree/',
+    title: 'Why Sleep Studies Disagree',
+    desc: 'A research-literacy map for endpoints, formulations, populations, measurements and conflicting meta-analyses.',
   },
 ]
 
@@ -213,7 +231,7 @@ const RESEARCH_ARTICLES: GuideCard[] = [
   },
 ]
 
-const SLEEP_SCIENCE: GuideCard[] = [
+const CORE_SLEEP_SCIENCE: GuideCard[] = [
   {
     href: '/articles/sleep-onset-vs-sleep-maintenance/',
     title: 'Sleep Onset vs Sleep Maintenance',
@@ -235,6 +253,44 @@ const SLEEP_SCIENCE: GuideCard[] = [
     desc: 'The 2025–2026 evidence on wearables, actigraphy, sleep stages and systematic measurement bias.',
   },
   {
+    href: '/articles/sleep-inertia-grogginess-after-waking/',
+    title: 'Sleep Inertia After Waking',
+    desc: 'Why post-waking grogginess is a measurable performance state and why short naps do not guarantee avoiding it.',
+  },
+  {
+    href: '/articles/insomnia-vs-sleep-deprivation/',
+    title: 'Insomnia vs Sleep Deprivation',
+    desc: 'Same tired feeling, different bottleneck: adequate sleep opportunity is the key distinction.',
+  },
+]
+
+const CIRCADIAN_AND_SCHEDULE: GuideCard[] = [
+  {
+    href: '/articles/delayed-sleep-wake-phase-vs-insomnia/',
+    title: 'Delayed Sleep Phase vs Insomnia',
+    desc: 'When sleep is relatively normal on a later schedule, the biological clock may be a better target than stronger sedation.',
+  },
+  {
+    href: '/articles/shift-work-sleep-disorder/',
+    title: 'Shift Work Sleep Disorder',
+    desc: 'The 2025–2026 guidance on naps, light, caffeine, melatonin, meal timing and fixed versus rotating nights.',
+  },
+  {
+    href: '/articles/morning-light-and-sleep-timing/',
+    title: 'Morning Light and Sleep Timing',
+    desc: 'Circadian phase shifting, recent insomnia meta-analyses, and why the clock time of light exposure changes its effect.',
+  },
+  {
+    href: '/articles/melatonin-timing-vs-dose/',
+    title: 'Melatonin Timing vs Dose',
+    desc: 'The 2024 dose-response meta-analysis and 2026 review-of-reviews explain why timing, indication and formulation matter alongside milligrams.',
+  },
+  {
+    href: '/articles/blue-light-screens-and-sleep/',
+    title: 'Blue Light, Screens and Sleep',
+    desc: 'Mechanism is real, intervention evidence is mixed, and bedtime screens affect sleep through more than wavelength alone.',
+  },
+  {
     href: '/articles/sleep-regularity-health/',
     title: 'Sleep Regularity',
     desc: 'Why day-to-day timing stability is emerging as a sleep-health dimension separate from duration.',
@@ -245,44 +301,27 @@ const SLEEP_SCIENCE: GuideCard[] = [
     desc: 'Partial recovery versus social jet lag: why sleeping in can help without fully erasing chronic sleep debt.',
   },
   {
-    href: '/articles/caffeine-and-sleep-timing/',
-    title: 'Caffeine and Sleep Timing',
-    desc: 'Dose × timing evidence, including newer controlled trials and meta-analyses of sleep disruption.',
+    href: '/articles/naps-and-nighttime-sleep/',
+    title: 'Naps and Nighttime Sleep',
+    desc: 'Sleep pressure, nap timing, cognitive benefits and the very different logic of shift-work napping.',
   },
   {
-    href: '/articles/alcohol-and-sleep/',
-    title: 'Alcohol and Sleep',
-    desc: 'Why faster sedation does not equal better sleep, including the 2025 dose-response REM meta-analysis.',
+    href: '/articles/exercise-timing-and-sleep/',
+    title: 'Exercise Timing and Sleep',
+    desc: 'The 2026 morning-vs-evening review: flexible timing, with intensity and proximity to bed as bigger variables.',
   },
   {
-    href: '/articles/cannabis-cannabinoids-and-sleep/',
-    title: 'Cannabis and Sleep',
-    desc: 'Randomized insomnia signals, weak CBD-only results, objective sleep-architecture limits and recreational-use contradictions.',
+    href: '/articles/time-restricted-eating-and-sleep/',
+    title: 'Time-Restricted Eating and Sleep',
+    desc: 'Recent meta-analyses disagree: controlled trials do not establish a dependable sleep benefit from fasting windows.',
   },
+]
+
+const ENVIRONMENT_AND_NON_DRUG: GuideCard[] = [
   {
-    href: '/articles/nicotine-vaping-and-sleep/',
-    title: 'Nicotine, Vaping and Sleep',
-    desc: 'Vaping associations, smoking-cessation withdrawal and why temporary quit-related insomnia does not mean nicotine improves sleep.',
-  },
-  {
-    href: '/articles/otc-antihistamines-for-sleep/',
-    title: 'OTC Antihistamines for Sleep',
-    desc: 'Why diphenhydramine and doxylamine sedation is not the same as a strong chronic-insomnia treatment, with anticholinergic and next-day tradeoffs.',
-  },
-  {
-    href: '/articles/morning-light-and-sleep-timing/',
-    title: 'Morning Light and Sleep Timing',
-    desc: 'Circadian phase shifting, recent insomnia meta-analyses, and why the clock time of light exposure changes its effect.',
-  },
-  {
-    href: '/articles/melatonin-timing-vs-dose/',
-    title: 'Melatonin Timing vs Dose',
-    desc: 'The 2024 dose-response meta-analysis and 2026 review-of-reviews explain why clock time, indication and formulation matter alongside milligrams.',
-  },
-  {
-    href: '/articles/blue-light-screens-and-sleep/',
-    title: 'Blue Light, Screens and Sleep',
-    desc: 'Mechanism is real, intervention evidence is mixed, and bedtime screens affect sleep through more than wavelength alone.',
+    href: '/articles/eye-masks-earplugs-and-sleep/',
+    title: 'Eye Masks, Earplugs, and Sleep',
+    desc: 'The strongest evidence comes from bright, noisy clinical environments; eye masks and combined use outperform earplugs alone more consistently.',
   },
   {
     href: '/articles/sleep-temperature-and-cooling/',
@@ -293,31 +332,6 @@ const SLEEP_SCIENCE: GuideCard[] = [
     href: '/articles/warm-bath-shower-before-bed/',
     title: 'Warm Bath or Shower Before Bed',
     desc: 'A meta-analytic sleep-onset signal that complements—not contradicts—cool-bedroom thermoregulation evidence.',
-  },
-  {
-    href: '/articles/time-restricted-eating-and-sleep/',
-    title: 'Time-Restricted Eating and Sleep',
-    desc: 'Recent meta-analyses disagree in informative ways: controlled trials do not establish a dependable sleep benefit from fasting windows.',
-  },
-  {
-    href: '/articles/exercise-timing-and-sleep/',
-    title: 'Exercise Timing and Sleep',
-    desc: 'The 2026 morning-vs-evening review: flexible timing, with intensity and proximity to bed as the bigger variables.',
-  },
-  {
-    href: '/articles/naps-and-nighttime-sleep/',
-    title: 'Naps and Nighttime Sleep',
-    desc: 'Sleep pressure, nap timing, cognitive benefits and the very different logic of shift-work napping.',
-  },
-  {
-    href: '/articles/shift-work-sleep-disorder/',
-    title: 'Shift Work Sleep Disorder',
-    desc: 'The 2025–2026 AASM guidance on naps, light, caffeine, melatonin, meal timing and why fixed versus rotating nights require different strategies.',
-  },
-  {
-    href: '/articles/sleep-inertia-grogginess-after-waking/',
-    title: 'Sleep Inertia After Waking',
-    desc: 'Why post-waking grogginess is a measurable performance state, why short naps do not guarantee avoiding it, and what caffeine or light can realistically do.',
   },
   {
     href: '/articles/white-noise-and-sleep/',
@@ -339,10 +353,33 @@ const SLEEP_SCIENCE: GuideCard[] = [
     title: 'Mindfulness for Insomnia',
     desc: 'Why improvement versus waitlist is not the same as an advantage over active controls or full CBT-I.',
   },
+]
+
+const SUBSTANCES_AND_OTC: GuideCard[] = [
   {
-    href: '/articles/insomnia-vs-sleep-deprivation/',
-    title: 'Insomnia vs Sleep Deprivation',
-    desc: 'Same tired feeling, different bottleneck: adequate sleep opportunity is the key distinction.',
+    href: '/articles/caffeine-and-sleep-timing/',
+    title: 'Caffeine and Sleep Timing',
+    desc: 'Dose × timing evidence, including newer controlled trials and meta-analyses of sleep disruption.',
+  },
+  {
+    href: '/articles/alcohol-and-sleep/',
+    title: 'Alcohol and Sleep',
+    desc: 'Why faster sedation does not equal better sleep, including the 2025 dose-response REM meta-analysis.',
+  },
+  {
+    href: '/articles/cannabis-cannabinoids-and-sleep/',
+    title: 'Cannabis and Sleep',
+    desc: 'Randomized insomnia signals, weak CBD-only results, objective sleep-architecture limits and recreational-use contradictions.',
+  },
+  {
+    href: '/articles/nicotine-vaping-and-sleep/',
+    title: 'Nicotine, Vaping and Sleep',
+    desc: 'Vaping associations, withdrawal, and why temporary quit-related insomnia does not mean nicotine improves sleep.',
+  },
+  {
+    href: '/articles/otc-antihistamines-for-sleep/',
+    title: 'OTC Antihistamines for Sleep',
+    desc: 'Why diphenhydramine and doxylamine sedation is not the same as strong chronic-insomnia treatment evidence.',
   },
 ]
 
@@ -408,19 +445,22 @@ const DEPTH_LINKS = [
 export default function SleepGuideIndex() {
   const schemaGraph = buildGuideHubSchemaGraph({
     path: '/guides/sleep/',
-    title: 'Sleep Supplement Guides & Natural Sleep Aids',
+    title: 'Sleep Research, Supplement Guides & Natural Sleep Aids',
     description:
-      'Choose the right natural sleep support based on what is actually keeping you awake — racing thoughts, physical tension, stress, or timing.',
+      'Choose the right sleep intervention based on what is actually keeping you awake: insomnia, circadian timing, environment, substances, shift work, or a supplement question.',
     breadcrumbs: [
       { name: 'Home', url: `${SITE_URL}/` },
       { name: 'Guides', url: `${SITE_URL}/guides/` },
       { name: 'Sleep', url: `${SITE_URL}/guides/sleep/` },
     ],
-    itemListName: 'Sleep Supplement Guides and Research',
+    itemListName: 'Sleep Research and Evidence Guides',
     items: [
       ...ALL_GUIDES.map((g) => ({ name: g.title, url: `/guides/sleep/${g.slug}/` })),
       ...RESEARCH_ARTICLES.map((g) => ({ name: g.title, url: g.href })),
-      ...SLEEP_SCIENCE.map((g) => ({ name: g.title, url: g.href })),
+      ...CORE_SLEEP_SCIENCE.map((g) => ({ name: g.title, url: g.href })),
+      ...CIRCADIAN_AND_SCHEDULE.map((g) => ({ name: g.title, url: g.href })),
+      ...ENVIRONMENT_AND_NON_DRUG.map((g) => ({ name: g.title, url: g.href })),
+      ...SUBSTANCES_AND_OTC.map((g) => ({ name: g.title, url: g.href })),
       ...WHEN_SUPPLEMENTS_ARE_NOT_THE_MAIN_QUESTION.map((g) => ({ name: g.title, url: g.href })),
     ],
   })
@@ -437,18 +477,18 @@ export default function SleepGuideIndex() {
       </nav>
 
       <header className="mb-10">
-        <h1 className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">Sleep Supplement Guides</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">Sleep Research & Supplement Guides</h1>
         <p className="mt-3 max-w-2xl text-lg leading-8 text-muted">
-          Supplements work best when they match the actual reason you cannot sleep. Tell us what is
-          keeping you awake and we will point you to the right guide first.
+          Start with the actual sleep problem, not the product. Compare supplements, insomnia care,
+          circadian timing, environmental tools, substances, shift work and sleep measurement in one evidence-first hub.
         </p>
       </header>
 
       <section className="mb-12">
         <HubSectionHeading
           eyebrow="Start here"
-          title="What is keeping you awake?"
-          sub="Pick the description that fits best — each routes you to the most relevant guide."
+          title="What is actually getting in the way of sleep?"
+          sub="Pick the closest pattern. The router points to the mechanism before the intervention."
         />
         <DecisionRouter items={START_HERE} />
       </section>
@@ -478,18 +518,45 @@ export default function SleepGuideIndex() {
 
       <section className="mb-12">
         <HubSectionHeading
-          eyebrow="Sleep science"
-          title="Understand the measurements and upstream variables"
-          sub="Onset, maintenance, study design, wearables, substances, OTC drugs, light, temperature, meal timing, sound, relaxation, exercise, naps, shift work, wake transitions and the difference between insomnia and simply not getting enough sleep."
+          eyebrow="Core sleep science"
+          title="Understand what the studies are actually measuring"
+          sub="Onset, maintenance, subjective versus objective sleep, trackers, post-waking grogginess and the difference between insomnia and insufficient sleep."
         />
-        <GuideCardGrid cards={SLEEP_SCIENCE} />
+        <GuideCardGrid cards={CORE_SLEEP_SCIENCE} />
+      </section>
+
+      <section className="mb-12">
+        <HubSectionHeading
+          eyebrow="Circadian & schedule"
+          title="When clock timing matters more than sedation"
+          sub="Delayed sleep phase, shift work, light, melatonin timing, regularity, catch-up sleep, naps, exercise and meal timing."
+        />
+        <GuideCardGrid cards={CIRCADIAN_AND_SCHEDULE} />
+      </section>
+
+      <section className="mb-12">
+        <HubSectionHeading
+          eyebrow="Environment & non-drug tools"
+          title="Change the bedroom before adding another compound"
+          sub="Darkness, sound, temperature, warm bathing, music, weighted blankets and mindfulness — with the limits of each intervention kept visible."
+        />
+        <GuideCardGrid cards={ENVIRONMENT_AND_NON_DRUG} />
+      </section>
+
+      <section className="mb-12">
+        <HubSectionHeading
+          eyebrow="Substances & OTC"
+          title="Sedation, stimulation and sleep are not the same thing"
+          sub="Caffeine, alcohol, cannabis, nicotine and OTC antihistamines can all change sleep — often differently from how they feel in the moment."
+        />
+        <GuideCardGrid cards={SUBSTANCES_AND_OTC} />
       </section>
 
       <section className="mb-12">
         <HubSectionHeading
           eyebrow="Check the bottleneck"
           title="When another supplement may be the wrong next move"
-          sub="Persistent insomnia, abnormal breathing and restless legs each have evidence pathways that a larger sleep stack can miss."
+          sub="Persistent insomnia, abnormal breathing, viral airway hacks and restless legs each have evidence pathways that a larger sleep stack can miss."
         />
         <GuideCardGrid cards={WHEN_SUPPLEMENTS_ARE_NOT_THE_MAIN_QUESTION} />
       </section>
@@ -514,8 +581,8 @@ export default function SleepGuideIndex() {
           <span className="font-bold">A note on matching the tool to the problem.</span> Supplements are
           most useful to evaluate in the context of the actual sleep issue. L-theanine, magnesium,
           ashwagandha, and melatonin have different evidence, safety considerations, and plausible
-          roles — they are not interchangeable. None replaces consistent sleep habits or care for a
-          diagnosed sleep disorder. Review the{' '}
+          roles — they are not interchangeable. None replaces consistent sleep opportunity or care for
+          a diagnosed sleep disorder. Review the{' '}
           <Link href="/info/supplement-safety-checklist/" className="font-semibold text-brand-800 underline">
             supplement safety checklist
           </Link>{' '}
@@ -550,7 +617,7 @@ export default function SleepGuideIndex() {
       </section>
 
       <section>
-        <HubSectionHeading eyebrow="Full library" title="All sleep guides" />
+        <HubSectionHeading eyebrow="Full library" title="All supplement guide pages" />
         <ul className="grid gap-x-6 gap-y-2 sm:grid-cols-2">
           {ALL_GUIDES.map((g) => (
             <li key={g.slug}>
