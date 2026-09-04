@@ -2,7 +2,7 @@
 
 import type { ReactNode } from 'react'
 import Link from 'next/link'
-import { trackSleepNextActionClick, type SleepNextAction } from '@/lib/sleep-next-actions-analytics'
+import { trackSleepNextActionClick, type SleepNextAction } from '@/lib/analytics'
 
 export default function SleepResearchNextActionLink({
   href,
