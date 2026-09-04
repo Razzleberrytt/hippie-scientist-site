@@ -235,7 +235,7 @@ Activating medications can also change nighttime sleep and create secondary slee
 
 Medication effects therefore belong in the workup before a rare disorder is assumed.
 
-See [Medications and Sleep](/articles/medications-and-sleep/).
+See [Medications and Sleep](/articles/medications-and-sleep-effects/).
 
 ## Sleep paralysis is not enough to diagnose narcolepsy
 

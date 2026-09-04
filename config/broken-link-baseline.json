@@ -1,9 +1,6 @@
 {
   "note": "Internal link targets that do not resolve. A ratchet: new targets fail, existing ones are tolerated until someone decides where they should point. Regenerate with: node scripts/ci/validate-internal-links.mjs --update-baseline",
   "targets": [
-    "/articles/medications-and-sleep/",
-    "/articles/nasal-obstruction-and-sleep-apnea/",
-    "/articles/shift-work-sleep/",
     "/compounds/dmt/",
     "/compounds/harmaline/",
     "/compounds/harmine/"
