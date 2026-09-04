@@ -162,6 +162,16 @@ const RESEARCH_ARTICLES: GuideCard[] = [
     desc: 'What the 2024 meta-analysis actually found, including outcomes that did not improve.',
   },
   {
+    href: '/articles/lavender-for-sleep/',
+    title: 'Lavender for Sleep',
+    desc: 'The 2026 meta-analysis of 11 randomized trials, with aromatherapy, measurement and formulation limits preserved.',
+  },
+  {
+    href: '/articles/passionflower-for-sleep/',
+    title: 'Passionflower for Sleep',
+    desc: 'Direct insomnia PSG evidence, the older tea trial and the newer standardized-extract RCT separated by endpoint and formulation.',
+  },
+  {
     href: '/articles/l-tryptophan-for-sleep/',
     title: 'L-Tryptophan for Sleep',
     desc: 'Why the modern synthesis points more toward wake-after-sleep-onset than a blanket sleep-latency claim.',
@@ -223,6 +233,11 @@ const SLEEP_SCIENCE: GuideCard[] = [
     href: '/articles/morning-light-and-sleep-timing/',
     title: 'Morning Light and Sleep Timing',
     desc: 'Circadian phase shifting, recent insomnia meta-analyses, and why the clock time of light exposure changes its effect.',
+  },
+  {
+    href: '/articles/melatonin-timing-vs-dose/',
+    title: 'Melatonin Timing vs Dose',
+    desc: 'The 2024 dose-response meta-analysis and 2026 review-of-reviews explain why clock time, indication and formulation matter alongside milligrams.',
   },
   {
     href: '/articles/blue-light-screens-and-sleep/',
