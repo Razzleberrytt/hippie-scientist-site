@@ -13,6 +13,7 @@ function hubSource() {
 }
 
 const REQUIRED_RESEARCH_ARTICLES = [
+  'sleep-interventions-evidence-matrix',
   'saffron-for-sleep',
   'tart-cherry-for-sleep',
   'chamomile-for-sleep',
@@ -32,6 +33,7 @@ const REQUIRED_RESEARCH_ARTICLES = [
   'sleep-trackers-accuracy',
   'sleep-inertia-grogginess-after-waking',
   'insomnia-vs-sleep-deprivation',
+  'night-owl-chronotype-vs-delayed-sleep-phase',
   'delayed-sleep-wake-phase-vs-insomnia',
   'shift-work-sleep-disorder',
   'morning-light-and-sleep-timing',
@@ -54,6 +56,9 @@ const REQUIRED_RESEARCH_ARTICLES = [
   'cannabis-cannabinoids-and-sleep',
   'nicotine-vaping-and-sleep',
   'otc-antihistamines-for-sleep',
+  'menopause-and-sleep',
+  'pregnancy-postpartum-and-sleep',
+  'chronic-pain-and-sleep',
   'cbt-i-vs-sleep-supplements',
   'sleep-apnea-vs-insomnia',
   'mouth-taping-for-sleep',
@@ -78,8 +83,10 @@ describe('sleep research cluster integrity', () => {
     expect(hub).toContain('Circadian & schedule')
     expect(hub).toContain('Environment & non-drug tools')
     expect(hub).toContain('Substances & OTC')
+    expect(hub).toContain('Life stages & comorbidity')
     expect(hub).toContain('Check the bottleneck')
     expect(hub).toContain('Start with the actual sleep problem, not the product')
+    expect(hub).toContain('/articles/sleep-interventions-evidence-matrix/')
   })
 
   it('keeps research articles publication-ready rather than placeholder shells', () => {
@@ -101,6 +108,7 @@ describe('sleep research cluster integrity', () => {
     const rls = read('content/articles/restless-legs-iron-and-sleep.md').replace(/\s+/g, ' ')
     const mouthTaping = read('content/articles/mouth-taping-for-sleep.md').replace(/\s+/g, ' ')
     const delayed = read('content/articles/delayed-sleep-wake-phase-vs-insomnia.md').replace(/\s+/g, ' ')
+    const chronotype = read('content/articles/night-owl-chronotype-vs-delayed-sleep-phase.md').replace(/\s+/g, ' ')
 
     expect(cbt).toMatch(/CBT-I is the evidence benchmark/i)
     expect(cbt).toMatch(/sleep hygiene alone is not equivalent to CBT-I/i)
@@ -110,6 +118,7 @@ describe('sleep research cluster integrity', () => {
     expect(mouthTaping).toMatch(/not.*universal sleep hack|universal sleep hack.*not/i)
     expect(delayed).toMatch(/sleep.*normal.*later schedule|later schedule.*normal/i)
     expect(delayed).toMatch(/clock|circadian/i)
+    expect(chronotype).toMatch(/not automatically a sleep disorder|not a diagnosis/i)
   })
 
   it('does not restore the corrected tryptophan sleep-latency overclaim', () => {
@@ -164,6 +173,19 @@ describe('sleep research cluster integrity', () => {
     expect(inertia).toMatch(/caffeine|bright light/i)
   })
 
+  it('keeps life-stage and comorbidity pages from collapsing distinct sleep problems into one treatment', () => {
+    const menopause = read('content/articles/menopause-and-sleep.md').replace(/\s+/g, ' ')
+    const pregnancy = read('content/articles/pregnancy-postpartum-and-sleep.md').replace(/\s+/g, ' ')
+    const pain = read('content/articles/chronic-pain-and-sleep.md').replace(/\s+/g, ' ')
+
+    expect(menopause).toMatch(/hot flash|vasomotor/i)
+    expect(menopause).toMatch(/CBT-I|sleep apnea|restless legs/i)
+    expect(pregnancy).toMatch(/sleep deprivation.*not automatically insomnia|not automatically insomnia/i)
+    expect(pregnancy).toMatch(/pregnancy.*safety|breastfeeding|lactation/i)
+    expect(pain).toMatch(/bidirectional|feedback loop/i)
+    expect(pain).toMatch(/insomnia.*improve.*pain|sleep.*improve.*pain/i)
+  })
+
   it('keeps legacy dream and sedative posts free of the removed DIY dosing and stacking recipes', () => {
     const mugwort = read('content/blog/mugwort-dreaming-tradition.md').replace(/\s+/g, ' ')
     const blueLotus = read('content/blog/blue-lotus-aporphines.md').replace(/\s+/g, ' ')
@@ -185,11 +207,14 @@ describe('sleep research cluster integrity', () => {
     const trackers = read('content/articles/sleep-trackers-accuracy.md').replace(/\s+/g, ' ')
     const cooling = read('content/articles/sleep-temperature-and-cooling.md').replace(/\s+/g, ' ')
     const mealTiming = read('content/articles/time-restricted-eating-and-sleep.md').replace(/\s+/g, ' ')
+    const matrix = read('content/articles/sleep-interventions-evidence-matrix.md').replace(/\s+/g, ' ')
 
     expect(formulations).toMatch(/not interchangeable/i)
     expect(subjective).toMatch(/answer different questions|not interchangeable/i)
     expect(trackers).toMatch(/do not replace.*clinical|should not be used.*diagnos/i)
     expect(cooling).toMatch(/does not make every.*cooling.*proven|no significant differences.*cooling/i)
     expect(mealTiming).toMatch(/controlled-trial analyses.*no significant|controlled evidence.*not established/i)
+    expect(matrix).toMatch(/Best-supported role/i)
+    expect(matrix).toMatch(/Biggest limitation/i)
   })
 })
