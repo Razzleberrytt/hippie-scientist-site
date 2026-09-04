@@ -383,6 +383,24 @@ const SUBSTANCES_AND_OTC: GuideCard[] = [
   },
 ]
 
+const LIFE_STAGES_AND_COMORBIDITY: GuideCard[] = [
+  {
+    href: '/articles/menopause-and-sleep/',
+    title: 'Menopause and Sleep',
+    desc: 'Hot flashes, chronic insomnia, CBT-I, hormone-therapy sleep effects, sleep apnea and restless legs need different treatment logic.',
+  },
+  {
+    href: '/articles/pregnancy-postpartum-and-sleep/',
+    title: 'Pregnancy & Postpartum Sleep',
+    desc: 'Pregnancy-specific CBT-I, sleep-disorder screening, postpartum sleep opportunity and stricter supplement-safety boundaries.',
+  },
+  {
+    href: '/articles/chronic-pain-and-sleep/',
+    title: 'Chronic Pain and Sleep',
+    desc: 'Sleep and pain can reinforce each other, while treating insomnia does not automatically produce a large reduction in pain intensity.',
+  },
+]
+
 const WHEN_SUPPLEMENTS_ARE_NOT_THE_MAIN_QUESTION: GuideCard[] = [
   {
     href: '/articles/cbt-i-vs-sleep-supplements/',
@@ -461,6 +479,7 @@ export default function SleepGuideIndex() {
       ...CIRCADIAN_AND_SCHEDULE.map((g) => ({ name: g.title, url: g.href })),
       ...ENVIRONMENT_AND_NON_DRUG.map((g) => ({ name: g.title, url: g.href })),
       ...SUBSTANCES_AND_OTC.map((g) => ({ name: g.title, url: g.href })),
+      ...LIFE_STAGES_AND_COMORBIDITY.map((g) => ({ name: g.title, url: g.href })),
       ...WHEN_SUPPLEMENTS_ARE_NOT_THE_MAIN_QUESTION.map((g) => ({ name: g.title, url: g.href })),
     ],
   })
@@ -550,6 +569,15 @@ export default function SleepGuideIndex() {
           sub="Caffeine, alcohol, cannabis, nicotine and OTC antihistamines can all change sleep — often differently from how they feel in the moment."
         />
         <GuideCardGrid cards={SUBSTANCES_AND_OTC} />
+      </section>
+
+      <section className="mb-12">
+        <HubSectionHeading
+          eyebrow="Life stages & comorbidity"
+          title="When the sleep problem changes with the person"
+          sub="Menopause, pregnancy and postpartum sleep, and chronic pain each change the evidence hierarchy, safety boundaries, or underlying bottleneck."
+        />
+        <GuideCardGrid cards={LIFE_STAGES_AND_COMORBIDITY} />
       </section>
 
       <section className="mb-12">
