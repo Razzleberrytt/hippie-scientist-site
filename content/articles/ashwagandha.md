@@ -98,9 +98,10 @@ references:
     doi: "10.1089/acm.2017.0183"
     url: "https://pubmed.ncbi.nlm.nih.gov/28829155/"
   - title: "Ashwagandha (Withania somnifera)-Associated Liver Injury: A Scoping Review of Clinical Characteristics and Safety Considerations"
-    authors: "Review authors as indexed in PubMed"
+    authors: "McIntyre D, Nguyen P, Kim Y, Meyer B, Salloum M"
     year: "2026"
     pmid: "42367407"
+    doi: "10.7759/cureus.109764"
     url: "https://pubmed.ncbi.nlm.nih.gov/42367407/"
   - title: "Safety of 8-Week Administration With Ashwagandha Root Extract in Adults With Stress and Anxiety"
     authors: "Pakhale K, Salve J, Ademola J, Parraca J, Langade D"
@@ -236,7 +237,7 @@ Ashwagandha, magnesium, L-theanine and rhodiola each have separate research lite
 
 The cleanest evidence rule is the same one used across the sleep cluster: **separate ingredient evidence does not transfer automatically to the stack.**
 
-For a concrete example, see [L-Theanine vs Magnesium for Calm and Sleep](/comparisons/l-theanine-vs-magnesium/) and [Why Sleep Supplement Formulations Are Not Interchangeable](/articles/sleep-supplement-formulations/).
+For a concrete example, see [L-Theanine vs Magnesium for Calm and Sleep](/guides/compare/l-theanine-vs-magnesium/) and [Why Sleep Supplement Formulations Are Not Interchangeable](/articles/sleep-supplement-formulations/).
 
 ## Cycling: no proven on/off schedule
 
