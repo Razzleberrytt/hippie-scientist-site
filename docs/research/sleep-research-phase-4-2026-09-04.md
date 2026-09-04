@@ -6,26 +6,20 @@ Date: 2026-09-04
 
 Continue widening the sleep authority graph beyond supplement selection by adding high-value diagnostic boundaries, circadian distinctions, airway-adjunct evidence, medication effects, parasomnia differentiation, and central-hypersomnolence context.
 
-All Phase 4 work is being developed on a branch rather than written directly to `main`, preserving the repository's governed PR → controller → deploy lifecycle.
+All Phase 4 work is developed on a branch rather than written directly to `main`, preserving the governed PR → autonomous controller → deploy lifecycle.
 
-## Implemented on this branch
+## Parallel coverage intentionally excluded
 
-### 1. Sleep paralysis
-Canonical target: `/articles/sleep-paralysis/`
+### Sleep paralysis — merged independently
+Canonical route: `/articles/sleep-paralysis/`
 
-Evidence anchors:
-- PMID 38368058 — recurrent isolated sleep paralysis review (2024)
-- PMID 40919623 — pathogenesis, manifestations and treatment review (2025)
-- PMID 39184697 — mechanisms/management review (2024)
+Sleep paralysis was independently researched and merged through PR #5199 while Phase 4 was being staged. The duplicate Phase 4 draft was deleted rather than competing with the now-established canonical page.
 
-Editorial boundary:
-- REM atonia persisting into wakefulness explains paralysis.
-- Isolated episodes are usually benign.
-- Hallucination-like experiences do not establish psychosis or an external event.
-- Sleep paralysis alone does not diagnose narcolepsy.
-- Severe daytime sleepiness, sleep attacks or cataplexy change the diagnostic context.
+This is the duplicate-control policy working as intended: search not only current `main`, but also active/recent parallel PRs before publication.
 
-### 2. Advanced sleep phase versus early waking
+## Staged on this branch
+
+### 1. Advanced sleep phase versus early waking
 Canonical target: `/articles/advanced-sleep-phase-vs-early-waking/`
 
 Evidence anchors:
@@ -40,7 +34,7 @@ Editorial boundary:
 - Early waking can also reflect insomnia, OSA, mood, nocturia, pain, medication or environment.
 - Light is direction- and phase-dependent; generic morning-light advice can be wrong for an already advanced clock.
 
-### 3. Sleep bruxism and OSA
+### 2. Sleep bruxism and OSA
 Canonical target: `/articles/sleep-bruxism-and-sleep-apnea/`
 
 Evidence anchors:
@@ -51,11 +45,11 @@ Evidence anchors:
 
 Editorial boundary:
 - Teeth grinding is not an OSA diagnostic shortcut.
-- Preserve the disagreement between recent reviews rather than flattening it.
+- Preserve disagreement between recent reviews rather than flattening it.
 - Self-report, tooth wear, EMG and PSG are not interchangeable bruxism measures.
 - Night guards can protect teeth without treating airway obstruction.
 
-### 4. Nasal obstruction and OSA
+### 3. Nasal obstruction and OSA
 Canonical target: `/articles/nasal-obstruction-and-sleep-apnea/`
 
 Evidence anchors:
@@ -68,7 +62,7 @@ Editorial boundary:
 - Isolated nasal surgery usually does not improve AHI enough to qualify as primary OSA treatment.
 - Better nasal breathing is therefore commonly an adjunctive success, not proof of OSA cure.
 
-### 5. Medications and sleep
+### 4. Medications and sleep
 Canonical target: `/articles/medications-and-sleep/`
 
 Evidence anchors:
@@ -82,10 +76,10 @@ Editorial boundary:
 - Medication effects are drug-specific and can move sleep in opposite directions.
 - Disease effects and medication effects can be confounded.
 - Sedation is not automatically restorative sleep.
-- Medication timing can matter, but prescription dose/timing/stopping should be reviewed with a prescriber or pharmacist rather than improvised.
-- Do not build a sedative/stimulant stack to cancel medication side effects before identifying the source.
+- Prescription dose/timing/stopping changes belong with a prescriber or pharmacist rather than DIY experimentation.
+- Do not build sedative/stimulant stacks to cancel side effects before identifying the source.
 
-### 6. Nightmares, sleep terrors and RBD
+### 5. Nightmares, sleep terrors and RBD
 Canonical target: `/articles/nightmares-sleep-terrors-and-rbd/`
 
 Evidence anchors:
@@ -102,8 +96,9 @@ Editorial boundary:
 - RBD: REM dream enactment caused by abnormal loss of REM atonia.
 - Adult NREM parasomnias can be complex and injurious; they are not exclusively pediatric.
 - Violent, injurious, stereotyped or unusual adult-onset episodes require a broader differential including seizure and sleep-disordered breathing.
+- This comparison page remains distinct from the PTSD/nightmare review already merged in parallel because it answers a parasomnia-differentiation intent rather than a trauma-treatment intent.
 
-### 7. Hypersomnolence versus insufficient sleep
+### 6. Hypersomnolence versus insufficient sleep
 Canonical target: `/articles/hypersomnolence-vs-insufficient-sleep/`
 
 Evidence anchors:
@@ -120,30 +115,43 @@ Editorial boundary:
 - Actigraphy and sleep logs help establish whether chronic restriction or circadian irregularity is contaminating the workup.
 - Stimulant response does not diagnose the cause of sleepiness.
 
+## Collision audit
+
+Recent PR search on 2026-09-04 found no competing PR for the six staged intents:
+- advanced sleep phase / early waking;
+- sleep bruxism and OSA;
+- nasal obstruction and OSA;
+- medication-related sleep effects;
+- nightmares versus sleep terrors versus RBD;
+- hypersomnolence versus insufficient sleep.
+
+Re-run this audit immediately before opening the Phase 4 PR because parallel workers are moving quickly.
+
 ## Dependency on Phase 3
 
-Several Phase 4 pages intentionally cross-link to Phase 3 pages currently being validated in PR #5188:
+Several Phase 4 pages intentionally cross-link to Phase 3 routes now being recut through PR #5201:
 - `/articles/sleep-debt-and-recovery/`
 - `/articles/daytime-sleepiness-vs-fatigue/`
 - `/articles/rem-sleep-behavior-disorder-red-flags/`
 
-Phase 4 should not be opened as a production PR until Phase 3 has merged (or the Phase 4 branch has been refreshed onto a base containing those routes), because publication should not knowingly create transient broken internal links.
+Phase 4 should not publish until those routes exist on `main`, or until the branch is refreshed onto a base that contains them.
 
 ## Integration after Phase 4 research merges
 
-A separate integration pass should update the freshest versions of:
+A separate fresh-main integration pass should update:
 - `app/guides/sleep/page.tsx`
 - `content/articles/sleep-interventions-evidence-matrix.md`
 - `app/__tests__/sleep-research-cluster-integrity.test.ts`
 
-Do not bundle a stale full-hub rewrite into the research PR. The hub is being modified by parallel sleep workers, so integration should be rebased from the latest `main` after research pages exist.
+Do not overwrite these shared files from a stale research branch. Parallel sleep workers are actively modifying the hub and integration layer.
 
 ## Remaining high-value gaps
 
 Screen before publication:
 - medication-specific deep dives only where search intent justifies them;
-- pediatric sleep only if age-specific safety and evidence can be kept clearly separate;
-- sleep and cardiometabolic disease only where causality versus observational association can be handled carefully;
-- trauma/PTSD sleep content only if nightmare, insomnia, OSA, and trauma-associated sleep-disorder boundaries can be kept distinct.
+- pediatric sleep only if age-specific safety/evidence can stay clearly separate;
+- sleep and cardiometabolic disease only where causality versus observational association is handled explicitly.
 
-Priority remains diagnostic clarity and high-volume myth correction over low-certainty supplement proliferation.
+PTSD/trauma sleep is no longer a remaining gap; that lane was covered in parallel on `main`.
+
+Priority remains diagnostic clarity, evidence reconciliation and high-volume myth correction over low-certainty supplement proliferation.
