@@ -159,6 +159,11 @@ export function normalizeDoi(value: unknown): string | undefined {
     .trim() || undefined
 }
 
+/**
+ * Normalize article references onto the same source identity/URL primitives used
+ * by the evidence-study system. Ordinal `n` is the durable page anchor; PMID,
+ * DOI, URL, and title feed a separate stable research-source identity.
+ */
 export function normalizeArticleReferences(
   references: readonly ArticleReferenceInput[],
 ): NormalizedArticleReference[] {
@@ -190,6 +195,11 @@ export function normalizeArticleReferences(
   })
 }
 
+/**
+ * Build conservative citation JSON-LD from known identifiers. Free-form author
+ * strings remain visible in the source ledger but are not promoted into fake
+ * structured Person/Organization nodes.
+ */
 export function buildArticleReferenceSchema(ref: NormalizedArticleReference) {
   const identifiers = [
     ref.pmid ? { '@type': 'PropertyValue', propertyID: 'PMID', value: ref.pmid } : null,
@@ -207,6 +217,14 @@ export function buildArticleReferenceSchema(ref: NormalizedArticleReference) {
   }
 }
 
+/**
+ * Build a 2–4 sentence extractive summary from authored article metadata.
+ * Scientific claims come only from the authored description/takeaways; any
+ * fallback sentence describes verifiable page metadata rather than efficacy.
+ * When authored metadata contains a recognizable limitation/caveat sentence,
+ * keep one in the extract so answer engines cannot lift a conclusion while
+ * silently dropping its qualification.
+ */
 export function buildCitationReadySummary({
   description,
   keyTakeaways = [],
