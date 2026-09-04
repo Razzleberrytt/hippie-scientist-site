@@ -67,13 +67,18 @@ async function main() {
   ]
 
   const results = await runAgentQueue(tasks)
+  const failed = results.filter(result => result?.status === 'failed').length
 
   logInfo('agent queue complete', {
-    completed: results.length,
+    completed: results.length - failed,
+    failed,
+    total: results.length,
   })
+
+  if (failed > 0) process.exitCode = 1
 }
 
 main().catch(error => {
-  logError('agent run failed', error)
-  process.exit(0)
+  logError('agent run failed before queue isolation could continue', error)
+  process.exitCode = 1
 })
