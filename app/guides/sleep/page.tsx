@@ -470,6 +470,11 @@ const LIFE_STAGES_AND_COMORBIDITY: GuideCard[] = [
     desc: 'CBT-I can improve insomnia and depressive outcomes, but insomnia, hypersomnia and depression-specific treatment remain distinct clinical questions.',
   },
   {
+    href: '/articles/tinnitus-and-sleep/',
+    title: 'Tinnitus and Sleep',
+    desc: 'Tinnitus can amplify insomnia, but loudness, distress and insomnia severity are distinct—and insomnia-focused CBT-I has direct randomized evidence.',
+  },
+  {
     href: '/articles/sleep-in-older-adults/',
     title: 'Sleep in Older Adults',
     desc: 'Normal aging changes sleep, but persistent insomnia, sleep apnea, restless legs and medication effects still need their own evidence pathways.',
@@ -660,7 +665,7 @@ export default function SleepGuideIndex() {
         <HubSectionHeading
           eyebrow="Life stages & comorbidity"
           title="When the sleep problem changes with the person"
-          sub="Adolescence, menopause, pregnancy and postpartum sleep, chronic pain, migraine, anxiety, depression, and older-adult sleep each change the evidence hierarchy, safety boundaries, or underlying bottleneck."
+          sub="Adolescence, menopause, pregnancy and postpartum sleep, chronic pain, migraine, anxiety, depression, tinnitus, and older-adult sleep each change the evidence hierarchy, safety boundaries, or underlying bottleneck."
         />
         <GuideCardGrid cards={LIFE_STAGES_AND_COMORBIDITY} />
       </section>
