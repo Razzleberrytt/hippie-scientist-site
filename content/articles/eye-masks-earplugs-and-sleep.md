@@ -185,7 +185,7 @@ Daytime sleep occurs when ambient light is naturally high.
 
 For shift workers, blackout curtains and eye masks can reduce unwanted daytime light in the sleep environment.
 
-That is particularly relevant because shift-work sleep is already occurring at a biologically difficult time. See [Shift Work and Sleep](/articles/shift-work-sleep/) for the broader circadian context.
+That is particularly relevant because shift-work sleep is already occurring at a biologically difficult time. See [Shift Work and Sleep](/articles/shift-work-sleep-disorder/) for the broader circadian context.
 
 Again, darkness helps control the environment; it does not fully erase circadian misalignment.
 
