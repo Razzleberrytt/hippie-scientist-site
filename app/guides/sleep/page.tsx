@@ -455,6 +455,11 @@ const LIFE_STAGES_AND_COMORBIDITY: GuideCard[] = [
     desc: 'Sleep and pain can reinforce each other, while treating insomnia does not automatically produce a large reduction in pain intensity.',
   },
   {
+    href: '/articles/migraine-and-sleep/',
+    title: 'Migraine and Sleep',
+    desc: 'Migraine and sleep problems can reinforce each other, but subjective complaints, objective sleep changes, insomnia and sleep apnea remain distinct questions.',
+  },
+  {
     href: '/articles/sleep-in-older-adults/',
     title: 'Sleep in Older Adults',
     desc: 'Normal aging changes sleep, but persistent insomnia, sleep apnea, restless legs and medication effects still need their own evidence pathways.',
@@ -645,7 +650,7 @@ export default function SleepGuideIndex() {
         <HubSectionHeading
           eyebrow="Life stages & comorbidity"
           title="When the sleep problem changes with the person"
-          sub="Adolescence, menopause, pregnancy and postpartum sleep, chronic pain, and older-adult sleep each change the evidence hierarchy, safety boundaries, or underlying bottleneck."
+          sub="Adolescence, menopause, pregnancy and postpartum sleep, chronic pain, migraine, and older-adult sleep each change the evidence hierarchy, safety boundaries, or underlying bottleneck."
         />
         <GuideCardGrid cards={LIFE_STAGES_AND_COMORBIDITY} />
       </section>
