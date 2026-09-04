@@ -1,139 +1,159 @@
-# L-Theanine vs Magnesium: Calm Focus, Anxiety, and Sleep
+# L-Theanine vs Magnesium for Calm and Sleep: What the Evidence Actually Supports
 
 **Cluster:** Anxiety/Stress + Sleep + Cognition  
-**Search intent:** People optimizing for calm focus or sleep who aren't sure which to use; also people stacking  
-**Evidence grade:** L-Theanine for calm focus — B | Magnesium for anxiety/calm — B-C  
-**Verdict:** L-theanine is the better acute calm-focus tool. Magnesium is the better systemic baseline support. They work through overlapping but complementary mechanisms and stack well — particularly for sleep. The choice depends more on what you're optimizing for than on which compound is "better."
+**Search intent:** People comparing L-theanine and magnesium for calm, sleep, or a possible combination  
+**Evidence position:** L-theanine has newer meta-analytic evidence for small subjective sleep benefits; magnesium has mixed-to-limited sleep evidence with a small positive 2025 bisglycinate RCT. **Direct evidence for the L-theanine + magnesium combination is not established.**
 
-**Related guides:** [Full L-theanine evidence guide](/guides/herbs/l-theanine/) · [L-theanine for anxiety](/guides/anxiety/l-theanine-for-anxiety/) · [L-theanine for sleep](/guides/sleep/l-theanine-for-sleep) · [Magnesium for sleep](/guides/magnesium-for-sleep/)
-
----
-
-## Mechanism
-
-### L-Theanine
-- Structural analog of glutamate and GABA
-- Inhibits excitatory glutamate receptors (AMPA, kainate, NMDA) at moderate doses
-- Increases GABA levels
-- Promotes alpha wave activity on EEG (associated with relaxed alertness, not sedation)
-- Cross-inhibits caffeine's excitatory mechanism at adenosine and glutamate receptors
-- Onset: 30–60 minutes | Duration: ~3–5 hours
-- Does not cause sedation; promotes calm without drowsiness at typical doses
-
-### Magnesium
-- Mg²⁺ is an endogenous voltage-dependent blocker of the NMDA receptor ion channel
-- Acts as a physiological brake on glutamate overactivation — similar direction to L-theanine at glutamate receptors, different mechanism
-- Co-factor for GABA synthesis and receptor function
-- Modulates HPA axis — magnesium depletion elevates cortisol; repletion supports stress-axis normalization
-- Required for melatonin synthesis in the pineal gland
-- Systemic mineral: involved in 300+ enzymatic reactions
-- Onset: variable (hours to days of consistent dosing for systemic repletion effects)
-
-### Mechanistic overlap and differentiation
-Both compounds modulate glutamate and promote GABA. The difference is mechanism depth:
-- L-theanine acts acutely and specifically at glutamate receptor sites
-- Magnesium works as a systemic ion that maintains the neurological environment in which glutamate and GABA signaling operates
-
-Think of magnesium as the tuning of the instrument and L-theanine as a specific note played on that instrument.
+**Related guides:** [L-theanine for sleep](/guides/sleep/l-theanine-for-sleep/) · [Magnesium for sleep](/guides/sleep/magnesium-for-sleep/) · [Magnesium types for sleep](/guides/sleep/magnesium-types-for-sleep/) · [Sleep Interventions Evidence Matrix](/articles/sleep-interventions-evidence-matrix/)
 
 ---
 
-## Evidence
+## Bottom line
 
-### L-Theanine
+L-theanine and magnesium are not interchangeable, and the current evidence does **not** justify calling their combination a proven sleep stack.
 
-**Calm focus:**
-- Nobre et al. 2008 (Asia Pac J Clin Nutr, PMID: 18296328): L-theanine at 250mg produced significant increases in alpha-wave activity (relaxed alertness) within 45 minutes. Alpha activity correlated with reduced mental arousal without sedation.
-- Owen et al. 2008 (Nutr Neurosci, PMID: 18681988): L-theanine + caffeine combo improved speed and accuracy of attention-switching tasks vs placebo and caffeine alone. Reduced headache and tiredness vs caffeine alone.
-- Ritsner et al. 2011 (Clin Schizophr Relat Psychoses): L-theanine 400mg/day for 8 weeks reduced anxiety and positive symptom severity in schizophrenia (higher-dose, clinical context).
-- **Evidence rating for acute calm/focus: B** — Consistent mechanism, replicated alpha-wave findings, L-theanine+caffeine combo has solid short-term RCT support
+- **L-theanine:** a 2025 systematic review and meta-analysis of 19 articles (897 participants; 18 studies meta-analyzed) found small improvements in **subjective** sleep-onset latency, daytime dysfunction, and overall subjective sleep quality. The authors also emphasized the shortage of trials using pure L-theanine and said the optimal dose and duration remain uncertain.[1]
+- **Magnesium:** the broader literature remains heterogeneous. A 2024 systematic review described the sleep evidence as suggestive but inconsistent, while a 2025 randomized trial of magnesium bisglycinate in 155 adults with self-reported poor sleep found only a **small** improvement in Insomnia Severity Index scores versus placebo after four weeks; objective sleep was not measured.[3,4]
+- **Together:** separate positive studies of two ingredients do not establish synergy, superior efficacy, or a universally useful bedtime combination.
 
-**Sleep:**
-- Combined with caffeine for daytime performance (primary evidence base); sleep-specific evidence thinner
-- Tends to reduce time to sleep onset in anxious populations
-
-### Magnesium
-
-**Anxiety/stress:**
-- Boyle et al. 2017 (Nutrients, PMID: 28445426): Systematic review and meta-analysis. "Evidence suggesting a beneficial effect of magnesium on subjective anxiety in anxiety-vulnerable samples is consistent and demonstrated across multiple study designs." Evidence quality rated as "poor to medium."
-- Tarleton et al. 2017 (PLoS ONE): Magnesium chloride 248mg/day for 6 weeks significantly reduced PHQ-9 depression and GAD-7 anxiety scores vs control. Notably, no baseline magnesium levels required — effect seen without screening for deficiency.
-
-**Sleep:**
-- Abbasi et al. 2012 (J Res Med Sci, PMID: 23853635): Magnesium 500mg/day improved multiple insomnia parameters in elderly population.
-- **Evidence rating for magnesium anxiety/sleep: B-C** — Mixed evidence quality; strongest effects in deficient or vulnerable populations; mechanism is credible
+If the main problem is persistent insomnia, the higher-value question is usually **what is disrupting sleep** rather than which two supplements to stack. See [CBT-I vs Sleep Supplements](/articles/cbt-i-vs-sleep-supplements/) and [Insomnia vs Sleep Deprivation](/articles/insomnia-vs-sleep-deprivation/).
 
 ---
 
-## Dosing
+## Evidence snapshot
 
-### L-Theanine
-- Calm-focus dose: 100–200mg (sufficient for alpha-wave effects and anxiety reduction)
-- With caffeine: 200mg L-theanine per ~100mg caffeine is a commonly studied ratio
-- Sleep: 100–400mg 30–60 min before bed
-- Maximum studied safely: 400mg/day in clinical trials
-- No tolerance or dependency noted
-
-### Magnesium
-- Anxiety/calm baseline: 200–400mg elemental magnesium (glycinate form recommended for bioavailability)
-- Sleep: 200–400mg elemental 30–60 min before bed
-- Upper supplemental limit: 350mg/day per NIH (above this, GI effects increase)
-- Best taken consistently over weeks for systemic effects; not primarily an acute compound
-
----
-
-## Safety
-
-### L-Theanine
-- Excellent safety profile; GRAS status
-- No significant drug interactions at typical doses
-- Possible mild additive sedation with benzodiazepines or other GABAergic medications
-- Avoid high doses alongside hypnotics
-- No contraindications for pregnancy documented in human trials (insufficient data; conservative avoidance is reasonable)
-
-### Magnesium
-- **Kidney disease: avoid supplementation without medical guidance** — magnesium is renally cleared; hypermagnesemia risk in CKD
-- Interacts with: antibiotics (quinolones, tetracyclines), bisphosphonates, levothyroxine — space by 2+ hours
-- GI effects (loose stools) at higher doses; glycinate form minimizes this
-- IV magnesium has significant drug interaction profile; oral supplementation is lower risk but review is warranted
-
----
-
-## Which to use for each goal
-
-| Goal | Best primary choice | Notes |
+| Question | L-Theanine | Magnesium |
 |---|---|---|
-| Acute calm focus (daytime) | L-Theanine | Faster onset, no sedation, pairs with caffeine |
-| Pre-work calm without caffeine | L-Theanine | Alpha wave support without stimulation |
-| Chronic stress / anxiety baseline | Magnesium | Systemic repletion; slower but foundational |
-| Sleep onset | L-Theanine | Faster onset advantage |
-| Sleep quality / depth | Magnesium | Co-factor for melatonin; NMDA and GABA support |
-| Both (stack) | L-Theanine + Magnesium | Complementary, not redundant |
+| Best-supported sleep signal | Small improvements in some subjective sleep outcomes in a 2025 meta-analysis | Mixed evidence overall; one 2025 bisglycinate RCT found a small ISI benefit |
+| Objective sleep architecture | Not established as a reliable effect | Not established by the 2025 bisglycinate trial; objective sleep was not measured |
+| Same-night sedative effect | Not established as a conventional sedative | Not established as a conventional sedative |
+| Best formulation | No single sleep formulation established | Evidence is formulation-specific; one positive bisglycinate trial does not prove glycinate is categorically best |
+| Proven combination benefit | No — direct L-theanine + magnesium sleep evidence is insufficient | No — separate ingredient evidence does not prove synergy |
 
 ---
 
-## Stacking guidance
+## What changed in the newer L-theanine evidence?
 
-### Sleep stack (recommended combination)
-Magnesium glycinate 200–300mg + L-theanine 100–200mg, 30–60 min before bed. This is one of the most evidence-supported natural sleep stacks:
-- Theanine handles sleep onset (alpha wave, acute glutamate modulation)
-- Magnesium handles sleep architecture (NMDA regulation, melatonin co-factor, muscle relaxation)
+Older summaries often treated L-theanine's sleep evidence as mostly indirect. That is now too pessimistic, but the newer evidence still needs calibration.
 
-### Calm focus stack
-L-theanine 200mg + caffeine 100mg (morning). Magnesium is less useful in the active focus stack — it may blunt alertness if dosed too high in the morning. Better to take magnesium in the evening.
+The 2025 *Sleep Medicine Reviews* meta-analysis included 19 articles and 897 participants. It reported statistically significant but generally modest improvements in subjective sleep-onset latency, daytime dysfunction, and overall subjective sleep-quality scores.[1]
 
-### Anxiety baseline protocol
-Morning: consistent diet + lifestyle support. Evening: magnesium glycinate 200–300mg. PRN (as needed): L-theanine 100–200mg for acute stress events or presentations.
+That does **not** establish that L-theanine reliably increases deep sleep, normalizes REM sleep, or treats chronic insomnia. The review specifically noted the lack of studies using pure L-theanine and called for better work on dose, duration, healthy populations, and clinical populations.[1]
 
-### Do not stack with
-- Both L-theanine and magnesium alongside benzodiazepines without clinician guidance — additive GABAergic effects
-- High-dose magnesium alongside multiple other supplements on an empty stomach — GI tolerance issues
+A separate 2026 systematic review of 13 standalone L-theanine trials (550 participants) described favorable sleep-related signals across a broad range of exposures, but several authors were affiliated with British American Tobacco. That does not invalidate the review, but it is relevant context when weighing its more confident dosing conclusions.[2]
+
+**Practical interpretation:** L-theanine now has a credible sleep signal, especially for subjective sleep outcomes, but it should not be rewritten as a proven fast-acting insomnia treatment or a guaranteed sleep-onset tool.
 
 ---
 
-## Citations
-1. Nobre AC et al. L-theanine, a natural constituent in tea, and its effect on mental state. Asia Pac J Clin Nutr. 2008;17 Suppl 1:167-8. PMID: 18296328
-2. Owen GN et al. The combined effects of L-theanine and caffeine on cognitive performance and mood. Nutr Neurosci. 2008;11(4):193-8. PMID: 18681988
-3. Boyle NB et al. The Effects of Magnesium Supplementation on Subjective Anxiety and Stress—A Systematic Review. Nutrients. 2017;9(5):429. PMID: 28445426
-4. Tarleton EK et al. Role of magnesium supplementation in the treatment of depression: A randomized clinical trial. PLoS ONE. 2017. PMID: 28654669
-5. Abbasi B et al. The effect of magnesium supplementation on primary insomnia in elderly. J Res Med Sci. 2012;17(12):1161-9. PMID: 23853635
-6. Ritsner MS et al. L-theanine relieves positive, activation, and anxiety symptoms in patients with schizophrenia and schizoaffective disorder. Clin Schizophr Relat Psychoses. 2011;5(4):222-8. PMID: 22374256
+## What does the newer magnesium evidence show?
+
+Magnesium is biologically important, and deficiency can matter. That is different from proving that supplemental magnesium is a broadly effective sleep treatment in magnesium-replete adults.
+
+A 2024 systematic review of magnesium supplementation for anxiety and sleep found a generally favorable but heterogeneous literature, with differences in populations, formulations, doses, and outcome measures limiting broad conclusions.[3]
+
+The most useful newer sleep trial is a 2025 randomized, double-blind, placebo-controlled study of **155 adults** reporting poor sleep. Participants received a magnesium bisglycinate preparation providing **250 mg elemental magnesium daily** or placebo for four weeks. Insomnia Severity Index scores improved slightly more with magnesium, but the between-group effect was small (**Cohen's d = 0.2**) and objective sleep was not measured.[4]
+
+That trial supports the **studied preparation in the studied population**. It does not establish that:
+
+- magnesium glycinate is the universal best magnesium form for sleep;
+- all adults should take magnesium before bed;
+- magnesium reliably increases deep sleep or improves sleep architecture;
+- a specific 30–60-minute timing window is necessary; or
+- higher doses produce better sleep.
+
+For form-specific evidence, see [Magnesium Types for Sleep](/guides/sleep/magnesium-types-for-sleep/).
+
+---
+
+## Mechanism: useful context, not proof of efficacy
+
+Both compounds are often marketed through neurotransmitter language. Mechanistic plausibility can help explain why a trial result is believable, but it cannot substitute for a clinical endpoint.
+
+### L-Theanine
+L-theanine has been studied for effects on attention, relaxation, and neurophysiological measures. Claims that it simply "raises GABA" or directly behaves like a sedative flatten a much more complicated evidence base.
+
+### Magnesium
+Magnesium participates in neuronal excitability, NMDA-receptor physiology, muscle function, and many enzymatic processes. Those roles make magnesium biologically relevant to sleep, but they do **not** prove that extra magnesium will improve sleep when intake/status is already adequate.
+
+**Key rule:** mechanism ≠ magnitude of clinical benefit.
+
+---
+
+## Dosing: study exposures are not universal prescriptions
+
+The old version of this comparison gave fixed bedtime protocols. The evidence does not support that level of precision.
+
+### L-Theanine
+Trials and reviews use varied doses, formulations, populations, and treatment durations. The 2025 meta-analysis specifically concluded that more research is needed to determine an adequate dose and duration for sleep.[1] A later 2026 review proposed a narrower adult range from its included standalone trials, but that conclusion should be interpreted alongside the review's industry affiliations and the limited clinical-insomnia evidence.[2]
+
+### Magnesium
+The positive 2025 bisglycinate RCT used a preparation providing 250 mg elemental magnesium daily for four weeks.[4] That is a description of one trial, **not** a universal bedtime target.
+
+The U.S. adult tolerable upper intake level for magnesium from **supplements and medications** is 350 mg/day, excluding magnesium naturally present in food. Higher therapeutic amounts may be used for specific indications under clinical supervision; the UL is a safety threshold for unsupervised supplemental intake, not a sleep dose.
+
+---
+
+## Which one fits which question?
+
+| Situation | More relevant evidence question |
+|---|---|
+| Evening cognitive arousal or subjective sleep difficulty | L-theanine has a newer meta-analytic subjective-sleep signal, but effect sizes are modest and insomnia-specific evidence remains limited |
+| Low magnesium intake or possible deficiency | Correcting inadequate magnesium status is more biologically compelling than assuming extra magnesium is a sedative |
+| Persistent chronic insomnia | Neither supplement should displace CBT-I or evaluation for the actual sleep bottleneck |
+| Snoring, gasping, witnessed apneas, marked daytime sleepiness | Supplement comparison is the wrong problem; evaluate sleep-disordered breathing |
+| Restless legs symptoms | Check the RLS/iron pathway rather than blindly adding magnesium |
+| Circadian delay / sleeping well only on a late schedule | Timing/light/circadian tools are more relevant than a calming stack |
+
+---
+
+## What about combining L-theanine and magnesium?
+
+There is a reasonable-sounding marketing story: one ingredient is framed as calming and the other as mineral support. But **complementary narratives do not equal demonstrated synergy**.
+
+To establish that the combination is better than either ingredient alone, a useful trial would need arms that directly compare:
+
+1. L-theanine alone;
+2. magnesium alone;
+3. the combination; and
+4. placebo,
+
+with clearly defined sleep endpoints and a specified formulation. The current sleep evidence base does not provide that level of proof.
+
+If someone chooses to experiment with supplements despite that uncertainty, changing one variable at a time is easier to interpret than starting a multi-ingredient stack. Medication use, kidney disease, pregnancy, and other clinical factors can also change the safety question.
+
+---
+
+## Safety boundaries
+
+### L-Theanine
+Human trials generally report good short-term tolerability, but interaction data are not complete. Extra caution is reasonable when combining any calming supplement with prescription sedatives or when alertness is safety-critical.
+
+### Magnesium
+Magnesium supplements can cause gastrointestinal effects, and impaired kidney function can increase the risk of magnesium accumulation. Magnesium can also interfere with absorption of some medicines, including certain antibiotics, bisphosphonates, and levothyroxine, so medication-specific spacing instructions matter.
+
+This is another reason a universal "take both 30–60 minutes before bed" rule is inappropriate.
+
+---
+
+## Decision summary
+
+**Choose the evidence question before the ingredient.**
+
+- L-theanine has the clearer recent evidence for **small subjective sleep improvements**.
+- Magnesium has a plausible role when intake/status is inadequate and a small positive newer bisglycinate trial, but the overall sleep literature remains heterogeneous.
+- Neither has established evidence for reliably increasing deep sleep or normalizing sleep architecture.
+- The L-theanine + magnesium combination has **not** been shown to be superior to either ingredient alone.
+- Persistent insomnia, circadian disorders, sleep apnea, restless legs, medication effects, pain, and mood conditions can all make a supplement comparison the wrong first question.
+
+For the broader hierarchy, use the [Sleep Interventions Evidence Matrix](/articles/sleep-interventions-evidence-matrix/).
+
+---
+
+## References
+
+1. Bulman A, D'Cunha NM, Marx W, Turner M, McKune A, Naumovski N. The effects of L-theanine consumption on sleep outcomes: a systematic review and meta-analysis. *Sleep Med Rev.* 2025;81:102076. PMID: 40056718. https://pubmed.ncbi.nlm.nih.gov/40056718/
+2. Cotter J, Caddick CE, Harper JL, Ebajemito JK. Examining the effect of L-theanine on sleep: a systematic review of dietary supplementation trials. *Nutr Neurosci.* 2026;29(2):224-238. PMID: 41176609. https://pubmed.ncbi.nlm.nih.gov/41176609/
+3. Rawji A, Peltier MR, Mourtzanakis K, et al. Examining the Effects of Supplemental Magnesium on Self-Reported Anxiety and Sleep Quality: A Systematic Review. *Cureus.* 2024;16(4):e59317. PMID: 38817505. https://pubmed.ncbi.nlm.nih.gov/38817505/
+4. Magnesium Bisglycinate Supplementation in Healthy Adults Reporting Poor Sleep: A Randomized, Placebo-Controlled Trial. 2025. PMID: 40918053. https://pubmed.ncbi.nlm.nih.gov/40918053/
+5. Mah J, Pitre T. Oral magnesium supplementation for insomnia in older adults: a systematic review and meta-analysis. *BMC Complement Med Ther.* 2021. PMID: 33865376. https://pubmed.ncbi.nlm.nih.gov/33865376/
