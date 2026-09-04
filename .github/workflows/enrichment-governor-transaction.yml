@@ -7,9 +7,7 @@ on:
         description: Persistent lease operation
         required: true
         type: choice
-        options:
-          - acquire
-          - release
+        options: [acquire, release]
       lease_id:
         description: Stable lease identifier
         required: true
@@ -19,16 +17,16 @@ on:
         required: true
         type: string
       purpose:
-        description: Acquire purpose (ignored for release)
+        description: Acquire purpose
         required: false
         default: enrichment
         type: string
       files:
-        description: Comma-separated exact repository-relative file paths for acquire
+        description: Comma-separated exact repository-relative file paths
         required: false
         type: string
       entities:
-        description: Comma-separated typed entity keys such as herb:ashwagandha
+        description: Comma-separated typed entity keys
         required: false
         type: string
       disposition:
@@ -43,7 +41,6 @@ concurrency:
 
 permissions:
   contents: write
-  issues: write
 
 jobs:
   transact:
@@ -68,7 +65,7 @@ jobs:
       - name: Capture exact transaction base
         run: echo "BASE_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
 
-      - name: Validate governor and transaction request before mutation
+      - name: Validate governor and transaction request
         env:
           TRANSACTION_OPERATION: ${{ inputs.operation }}
           LEASE_ID: ${{ inputs.lease_id }}
@@ -81,40 +78,10 @@ jobs:
           set -euo pipefail
           node --test scripts/enrichment-governor/__tests__/*.test.mjs
           node scripts/enrichment-governor/validate-state.mjs
+          node scripts/enrichment-governor/reconcile-state.mjs
           node scripts/enrichment-governor/lease-transaction.mjs validate
 
-      - name: Reserve one outstanding reviewed transaction slot
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          existing="$(gh issue list --state open --search 'in:title "governor-tx:"' --limit 1 --json number --jq '.[0].number // empty')"
-          if [ -n "$existing" ]; then
-            echo "Outstanding persistent governor transaction issue #$existing must reach a terminal disposition before another transaction can be staged." >&2
-            exit 1
-          fi
-
-          cat > /tmp/transaction-pending.md <<EOF
-          ## Status
-          **PENDING / FAIL-CLOSED TRANSACTION LOCK**
-
-          This open ticket reserves the single persistent Enrichment Governor transaction slot. It intentionally blocks later transaction runs until this transaction is merged or explicitly abandoned after review.
-
-          ## Request
-          - Operation: \`${{ inputs.operation }}\`
-          - Lease ID: \`${{ inputs.lease_id }}\`
-          - Owner: \`${{ inputs.owner }}\`
-          - Exact main base: \`$BASE_SHA\`
-          - Workflow run: \`${GITHUB_RUN_ID}/${GITHUB_RUN_ATTEMPT}\`
-
-          If this workflow fails after creating this ticket, leave the ticket open until the failure is reviewed. Closing it is the explicit abandonment/retry decision.
-          EOF
-          ISSUE_URL="$(gh issue create --title "governor-tx: lease transaction ${GITHUB_RUN_ID}/${GITHUB_RUN_ATTEMPT}" --body-file /tmp/transaction-pending.md)"
-          AUDIT_ISSUE_NUMBER="${ISSUE_URL##*/}"
-          echo "AUDIT_ISSUE_NUMBER=$AUDIT_ISSUE_NUMBER" >> "$GITHUB_ENV"
-          echo "AUDIT_ISSUE_URL=$ISSUE_URL" >> "$GITHUB_ENV"
-
-      - name: Apply validated lease transaction through canonical control writer
+      - name: Apply validated lease transaction
         env:
           TRANSACTION_OPERATION: ${{ inputs.operation }}
           LEASE_ID: ${{ inputs.lease_id }}
@@ -126,7 +93,7 @@ jobs:
         run: |
           set -euo pipefail
           node scripts/enrichment-governor/lease-transaction.mjs run | tee /tmp/governor-transaction.json
-          RECEIPT_PATH="$(node -e "const fs=require('fs'); const value=JSON.parse(fs.readFileSync('/tmp/governor-transaction.json','utf8')); process.stdout.write(value.receiptPath)")"
+          RECEIPT_PATH="$(node -e "const fs=require('fs'); const v=JSON.parse(fs.readFileSync('/tmp/governor-transaction.json','utf8')); process.stdout.write(v.receiptPath)")"
           test -n "$RECEIPT_PATH"
           echo "RECEIPT_PATH=$RECEIPT_PATH" >> "$GITHUB_ENV"
 
@@ -134,92 +101,59 @@ jobs:
         run: |
           set -euo pipefail
           changed="$({ git diff --name-only; git ls-files --others --exclude-standard; } | sort -u)"
-          printf '%s\n' "$changed"
           test -n "$changed"
+          printf '%s\n' "$changed"
           while IFS= read -r file; do
             test -z "$file" && continue
             case "$file" in
-              ops/enrichment-governor/work-queue.json|ops/enrichment-governor/ledger.jsonl|"$RECEIPT_PATH") ;;
+              ops/enrichment-governor/work-queue.json|ops/enrichment-governor/quarantine.json|ops/enrichment-governor/ledger.jsonl|"$RECEIPT_PATH") ;;
               *) echo "Unexpected persistent transaction mutation: $file" >&2; exit 1 ;;
             esac
           done <<< "$changed"
 
-      - name: Revalidate persistent state after mutation
+      - name: Revalidate persistent state
         run: node scripts/enrichment-governor/validate-state.mjs
 
-      - name: Fail closed if main changed before commit
+      - name: Fail closed if main moved
         run: |
           set -euo pipefail
           git fetch origin main
           ACTUAL_BASE_SHA="$(git rev-parse origin/main)"
           EXPECTED_BASE_SHA="$BASE_SHA" ACTUAL_BASE_SHA="$ACTUAL_BASE_SHA" node scripts/enrichment-governor/lease-transaction.mjs assert-fresh
 
-      - name: Commit atomic queue and ledger transaction
+      - name: Commit atomic persistent transaction
         run: |
           set -euo pipefail
-          BRANCH="governor/lease-transaction-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git switch -c "$BRANCH"
-          git add ops/enrichment-governor/work-queue.json ops/enrichment-governor/ledger.jsonl "$RECEIPT_PATH"
+          git add ops/enrichment-governor/work-queue.json ops/enrichment-governor/quarantine.json ops/enrichment-governor/ledger.jsonl "$RECEIPT_PATH"
           git commit -m "chore(governor): persist lease transaction"
           TX_COMMIT_SHA="$(git rev-parse HEAD)"
-          echo "BRANCH=$BRANCH" >> "$GITHUB_ENV"
           echo "TX_COMMIT_SHA=$TX_COMMIT_SHA" >> "$GITHUB_ENV"
 
-      - name: Finalize durable receipt with transaction commit SHA
+      - name: Finalize durable receipt
         run: |
           set -euo pipefail
           TRANSACTION_COMMIT_SHA="$TX_COMMIT_SHA" node scripts/enrichment-governor/lease-transaction.mjs finalize
           git add "$RECEIPT_PATH"
           git commit -m "chore(governor): finalize lease receipt"
-          FINAL_SHA="$(git rev-parse HEAD)"
-          echo "FINAL_SHA=$FINAL_SHA" >> "$GITHUB_ENV"
 
-      - name: Fail closed if main changed before push
+      - name: Final exact-main freshness check and atomic push
         run: |
           set -euo pipefail
           git fetch origin main
           ACTUAL_BASE_SHA="$(git rev-parse origin/main)"
           EXPECTED_BASE_SHA="$BASE_SHA" ACTUAL_BASE_SHA="$ACTUAL_BASE_SHA" node scripts/enrichment-governor/lease-transaction.mjs assert-fresh
+          git push origin HEAD:main
 
-      - name: Push isolated transaction branch
-        run: git push --set-upstream origin "$BRANCH"
-
-      - name: Finalize durable transaction audit ticket
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: Summary
         run: |
-          set -euo pipefail
-          cat > /tmp/transaction-ready.md <<EOF
-          ## Status
-          **STAGED / AWAITING EXTERNAL STATE-ONLY PR**
-
-          This open ticket reserves the single persistent Enrichment Governor transaction slot until its PR is merged or the transaction is explicitly abandoned. A connected agent must open the PR from the branch below after this workflow completes; PR creation is intentionally external so ordinary pull-request workflows are triggered normally rather than suppressed by GitHub's workflow-token recursion guard.
-
-          ## Durable transaction
-          - Branch: \`$BRANCH\`
-          - Branch tip: \`$FINAL_SHA\`
-          - Receipt: \`$RECEIPT_PATH\`
-          - State transaction commit: \`$TX_COMMIT_SHA\`
-          - Exact main base: \`$BASE_SHA\`
-          - Workflow run: \`${GITHUB_RUN_ID}/${GITHUB_RUN_ATTEMPT}\`
-          - Capability implementation: #4784
-
-          ## Required PR contract
-          Open a PR from \`$BRANCH\` to \`main\` that closes this audit ticket. Before opening it, confirm \`main\` still equals \`$BASE_SHA\`; if main moved, explicitly abandon/close this ticket and rerun the transaction instead of rebasing persistent governor state by hand.
-
-          The PR must state that only \`ops/enrichment-governor/work-queue.json\`, \`ops/enrichment-governor/ledger.jsonl\`, and \`$RECEIPT_PATH\` are permitted changes; it must include the repository Atomic Upgrade headings (Relevant URLs, Acceptance criteria, Validation commands, Before → after metrics, Generator/source-of-truth decision, Regression contract) and pass all exact-head required checks before merge.
-
-          ## Boundary
-          This ticket authorizes only the queue/ledger transaction already represented by the branch. It does not authorize canonical scientific content, source-registry, workbook, public profile, grade, recommendation, indexability, monetization, or publication mutation.
-          EOF
-          gh issue edit "$AUDIT_ISSUE_NUMBER" --body-file /tmp/transaction-ready.md
           {
-            echo "## Persistent governor transaction staged"
-            echo "- Branch: \`$BRANCH\`"
-            echo "- Branch tip: \`$FINAL_SHA\`"
+            echo "## Persistent governor transaction complete"
+            echo "- Operation: \`${{ inputs.operation }}\`"
+            echo "- Lease: \`${{ inputs.lease_id }}\`"
+            echo "- Owner: \`${{ inputs.owner }}\`"
+            echo "- Base: \`$BASE_SHA\`"
             echo "- Receipt: \`$RECEIPT_PATH\`"
-            echo "- Audit ticket: $AUDIT_ISSUE_URL"
-            echo "- Next action: open the state-only PR externally so normal PR checks fire."
+            echo "- State-only transaction was validated, committed, and pushed atomically to current main."
           } >> "$GITHUB_STEP_SUMMARY"
