@@ -3,6 +3,7 @@ import { pathToFileURL } from 'node:url'
 
 const HOLD_LABELS = new Set(['hold-merge', 'do-not-merge', 'manual-merge'])
 const SHA_RE = /^[0-9a-f]{40}$/i
+const WORKFLOW_CONTROL_PATH = /^\.github\/workflows\//u
 
 function requiredEnv(name) {
   const value = process.env[name]?.trim()
@@ -26,6 +27,10 @@ export function isSameRepoMainPr(pr, repository) {
     pr.base?.ref === 'main' &&
     pr.head?.repo?.full_name === repository
   )
+}
+
+export function canAutoRefreshPromotionPr(changedFiles = []) {
+  return !changedFiles.some(file => WORKFLOW_CONTROL_PATH.test(String(file || '')))
 }
 
 function compareCandidateOrder(a, b) {
@@ -73,14 +78,24 @@ async function github(path, token) {
   return response.json()
 }
 
-async function listOpenMainPulls(repository, token) {
+async function listAll(path, token) {
   const rows = []
   for (let page = 1; ; page += 1) {
-    const pageRows = await github(`/repos/${repository}/pulls?state=open&base=main&sort=created&direction=asc&per_page=100&page=${page}`, token)
-    if (!Array.isArray(pageRows)) throw new Error('GitHub open-PR response was not an array')
+    const joiner = path.includes('?') ? '&' : '?'
+    const pageRows = await github(`${path}${joiner}per_page=100&page=${page}`, token)
+    if (!Array.isArray(pageRows)) throw new Error(`GitHub list response was not an array for ${path}`)
     rows.push(...pageRows)
     if (pageRows.length < 100) return rows
   }
+}
+
+async function listOpenMainPulls(repository, token) {
+  return listAll(`/repos/${repository}/pulls?state=open&base=main&sort=created&direction=asc`, token)
+}
+
+async function changedFilesForPr(repository, prNumber, token) {
+  const rows = await listAll(`/repos/${repository}/pulls/${prNumber}/files`, token)
+  return rows.map(row => row?.filename).filter(Boolean)
 }
 
 async function currentMainSha(repository, token) {
@@ -90,10 +105,14 @@ async function currentMainSha(repository, token) {
   return sha
 }
 
-async function containsExactMain(repository, mainSha, headSha, token) {
-  if (!SHA_RE.test(String(headSha || ''))) return false
+async function relationshipToMain(repository, mainSha, headSha, token) {
+  if (!SHA_RE.test(String(headSha || ''))) return { exact: false, behindBy: null }
   const comparison = await github(`/repos/${repository}/compare/${mainSha}...${headSha}`, token)
-  return Number(comparison?.behind_by || 0) === 0 && comparison?.merge_base_commit?.sha === mainSha
+  const behindBy = Number(comparison?.behind_by || 0)
+  return {
+    exact: behindBy === 0 && comparison?.merge_base_commit?.sha === mainSha,
+    behindBy,
+  }
 }
 
 function appendOutputs(entries) {
@@ -121,11 +140,26 @@ export async function buildAdmissionPlan({ repository, token }) {
   const mainSha = await currentMainSha(repository, token)
 
   let candidate = null
+  let refreshCandidate = null
+  const cleanRestageNumbers = []
+
   if (!plan.active) {
     for (const pr of plan.draftCandidates) {
-      if (await containsExactMain(repository, mainSha, pr.head?.sha, token)) {
+      const relationship = await relationshipToMain(repository, mainSha, pr.head?.sha, token)
+      if (relationship.exact) {
         candidate = pr
         break
+      }
+
+      const changedFiles = await changedFilesForPr(repository, pr.number, token)
+      if (!canAutoRefreshPromotionPr(changedFiles)) {
+        cleanRestageNumbers.push(pr.number)
+        continue
+      }
+
+      if (!refreshCandidate) {
+        const detail = await github(`/repos/${repository}/pulls/${pr.number}`, token)
+        if (detail?.mergeable !== false) refreshCandidate = detail
       }
     }
   }
@@ -134,6 +168,8 @@ export async function buildAdmissionPlan({ repository, token }) {
     ...plan,
     mainSha,
     candidate,
+    refreshCandidate: candidate ? null : refreshCandidate,
+    cleanRestageNumbers,
   }
 }
 
@@ -155,6 +191,9 @@ async function main() {
       active_pr_number: plan.active?.number || '',
       candidate_pr_number: plan.candidate?.number || '',
       candidate_head_sha: plan.candidate?.head?.sha || '',
+      refresh_pr_number: plan.refreshCandidate?.number || '',
+      refresh_head_sha: plan.refreshCandidate?.head?.sha || '',
+      clean_restage_numbers: plan.cleanRestageNumbers.join(','),
       main_sha: plan.mainSha,
     })
     process.stdout.write(`${JSON.stringify({
@@ -162,6 +201,9 @@ async function main() {
       activePrNumber: plan.active?.number || null,
       candidatePrNumber: plan.candidate?.number || null,
       candidateHeadSha: plan.candidate?.head?.sha || null,
+      refreshPrNumber: plan.refreshCandidate?.number || null,
+      refreshHeadSha: plan.refreshCandidate?.head?.sha || null,
+      cleanRestageNumbers: plan.cleanRestageNumbers,
       mainSha: plan.mainSha,
     }, null, 2)}\n`)
     return
