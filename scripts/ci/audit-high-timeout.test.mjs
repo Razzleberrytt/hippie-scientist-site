@@ -5,12 +5,14 @@ import { describe, expect, it } from 'vitest'
 const source = fs.readFileSync(path.join(process.cwd(), 'scripts/ci/audit-high-with-allowlist.mjs'), 'utf8')
 
 describe('high-severity audit network bound', () => {
-  it('bounds the retry sequence and still fails closed when no valid report arrives', () => {
+  it('bounds the retry sequence without pre-splitting away a slow valid response', () => {
     expect(source).toContain("process.env.NPM_AUDIT_TIMEOUT_MS || 120_000")
     expect(source).toContain("process.env.NPM_AUDIT_MAX_ATTEMPTS || '2'")
     expect(source).toContain('Math.min(3, Math.max(1')
-    expect(source).toContain('Math.floor(auditTimeoutMs / auditMaxAttempts)')
+    expect(source).toContain('const auditStartedAtMs = Date.now()')
+    expect(source).toContain('const remainingBudgetMs = auditTimeoutMs - elapsedMs')
     expect(source).toContain('timeout: auditAttemptTimeoutMs')
+    expect(source).not.toContain('Math.floor(auditTimeoutMs / auditMaxAttempts)')
     expect(source).toContain("killSignal: 'SIGTERM'")
     expect(source).toContain("auditRun.error.code === 'ETIMEDOUT'")
     expect(source).toContain('transient audit transport/report failure')
