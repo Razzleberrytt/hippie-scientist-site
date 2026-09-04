@@ -310,6 +310,16 @@ const SLEEP_SCIENCE: GuideCard[] = [
     desc: 'Sleep pressure, nap timing, cognitive benefits and the very different logic of shift-work napping.',
   },
   {
+    href: '/articles/shift-work-sleep-disorder/',
+    title: 'Shift Work Sleep Disorder',
+    desc: 'The 2025–2026 AASM guidance on naps, light, caffeine, melatonin, meal timing and why fixed versus rotating nights require different strategies.',
+  },
+  {
+    href: '/articles/sleep-inertia-grogginess-after-waking/',
+    title: 'Sleep Inertia After Waking',
+    desc: 'Why post-waking grogginess is a measurable performance state, why short naps do not guarantee avoiding it, and what caffeine or light can realistically do.',
+  },
+  {
     href: '/articles/white-noise-and-sleep/',
     title: 'White Noise and Sleep',
     desc: 'A newer positive RCT meta-analysis updates—but does not erase—the older very-low-certainty review.',
@@ -470,7 +480,7 @@ export default function SleepGuideIndex() {
         <HubSectionHeading
           eyebrow="Sleep science"
           title="Understand the measurements and upstream variables"
-          sub="Onset, maintenance, study design, wearables, substances, OTC drugs, light, temperature, meal timing, sound, relaxation, exercise, naps and the difference between insomnia and simply not getting enough sleep."
+          sub="Onset, maintenance, study design, wearables, substances, OTC drugs, light, temperature, meal timing, sound, relaxation, exercise, naps, shift work, wake transitions and the difference between insomnia and simply not getting enough sleep."
         />
         <GuideCardGrid cards={SLEEP_SCIENCE} />
       </section>
