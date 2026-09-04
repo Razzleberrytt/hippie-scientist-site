@@ -236,7 +236,7 @@ Nasal blockage can make PAP harder to tolerate and can influence sleep-disordere
 
 Treating nasal obstruction may improve comfort or PAP adherence, but it should not be assumed to cure pharyngeal airway collapse by itself.
 
-See [Nasal Obstruction and Sleep Apnea](/articles/nasal-obstruction-and-sleep-apnea/).
+See [Nasal Obstruction, Snoring and Sleep Apnea](/articles/nasal-obstruction-snoring-and-sleep-apnea/).
 
 ## What the evidence does not support
 
@@ -280,4 +280,4 @@ The most evidence-faithful summary is:
 - [Sleep Apnea vs Insomnia](/articles/sleep-apnea-vs-insomnia/)
 - [Sleep Apnea in Women](/articles/sleep-apnea-in-women/)
 - [Sleep Position: OSA and Reflux](/articles/sleep-position-osa-and-reflux/)
-- [Nasal Obstruction and Sleep Apnea](/articles/nasal-obstruction-and-sleep-apnea/)
+- [Nasal Obstruction, Snoring and Sleep Apnea](/articles/nasal-obstruction-snoring-and-sleep-apnea/)
