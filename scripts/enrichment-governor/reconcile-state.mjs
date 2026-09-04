@@ -1,3 +1,4 @@
+import { pathToFileURL } from 'node:url'
 import { contract } from './governor.mjs'
 import { reconcileQueueWithQuarantine } from './queue-resilience.mjs'
 import { appendJsonl, atomicJson, loadJsonStrict, statePath, withWriterLock } from './state-io.mjs'
@@ -31,7 +32,7 @@ export function reconcilePersistentGovernorState({ now = Date.now(), write = tru
   })
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const dryRun = process.argv.includes('--dry-run')
   const result = reconcilePersistentGovernorState({ write: !dryRun })
   process.stdout.write(`${JSON.stringify(result, null, 2)}\n`)
