@@ -119,6 +119,16 @@ const BEST_FIRST: GuideCard[] = [
     desc: 'The evidence-graded supplement overview — start here if your question is specifically about supplements.',
   },
   {
+    href: '/guides/sleep/best-natural-sleep-aids-that-work/',
+    title: 'Best Natural Sleep Aids That Work',
+    desc: 'Evidence-ranked across melatonin, magnesium, L-theanine, valerian, passionflower, ashwagandha and glycine, with clinical guideline context and 20+ sources.',
+  },
+  {
+    href: '/guides/sleep/best-herbs-for-sleep/',
+    title: 'Best Herbs for Sleep',
+    desc: 'What human evidence actually supports for ashwagandha, passionflower, valerian, chamomile and lavender — including directness and safety limits.',
+  },
+  {
     href: '/articles/cbt-i-vs-sleep-supplements/',
     title: 'CBT-I vs Sleep Supplements',
     desc: 'The evidence hierarchy for chronic insomnia before you add another bedtime product.',
@@ -165,6 +175,21 @@ const COMPARISONS: GuideCard[] = [
     href: '/guides/sleep/magnesium-types-for-sleep/',
     title: 'Magnesium Types for Sleep',
     desc: 'Glycinate vs citrate vs threonate vs oxide, ranked for sleep.',
+  },
+  {
+    href: '/guides/sleep/best-magnesium-for-sleep/',
+    title: 'Best Magnesium for Sleep',
+    desc: 'Which magnesium to try first, judged on elemental dose and tolerability rather than marketing.',
+  },
+  {
+    href: '/guides/sleep/rhodiola-sleep-stack/',
+    title: 'Rhodiola + Magnesium for Sleep',
+    desc: 'No direct combination trial exists — what the indirect rhodiola evidence and mixed magnesium evidence can and cannot support.',
+  },
+  {
+    href: '/guides/sleep/sleep-stack-magnesium-melatonin/',
+    title: 'Magnesium + Melatonin Stack',
+    desc: 'Pairing a relaxation-oriented mineral with a timing signal, and why testing one at a time comes first.',
   },
 ]
 

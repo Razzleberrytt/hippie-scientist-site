@@ -30,6 +30,7 @@ const HEADINGS: Heading[] = [
   { id: 'decision', text: 'Choose by sleep problem', level: 2 },
   { id: 'buying', text: 'What to look for when buying magnesium', level: 2 },
   { id: 'safety', text: 'Safety and when neither fits', level: 2 },
+  { id: 'faq', text: 'Frequently asked questions', level: 2 },
   { id: 'bottom-line', text: 'Bottom line', level: 2 },
 ]
 
@@ -43,6 +44,43 @@ const MAGNESIUM_VS_MELATONIN_REFS = [
     n: 2,
     text: 'Ferracioli-Oda E, et al. (2013). Melatonin for sleep. PLoS ONE, 8(5): e63773.',
     url: 'https://pubmed.ncbi.nlm.nih.gov/23691095/',
+  },
+]
+
+// Every answer restates a claim this page already makes and sources; none
+// introduces evidence the guide does not carry. Deliberately conditional where
+// the page is conditional — magnesium is presented as a targeted trial, not a
+// sedative, and neither option is offered as a general insomnia fix.
+const FAQS = [
+  {
+    question: 'Should I take magnesium or melatonin for sleep?',
+    answer:
+      'They solve different problems. Melatonin is mainly a timing signal, so it fits a shifted clock — jet lag, shift work, or becoming sleepy later than the bedtime you need. Magnesium is a conditional relaxation option that is more plausible when dietary intake is low, deficiency risk exists, or physical tension overlaps with poor sleep. Match the supplement to the bottleneck rather than picking the more popular product.',
+  },
+  {
+    question: 'Does magnesium actually help you sleep?',
+    answer:
+      'Treat it as a targeted trial rather than a guaranteed sedative. A sleep benefit is most plausible when low dietary intake, deficiency risk, or physical tension is part of the picture. It is not established as a general-purpose fix for every kind of insomnia, and choosing it when the real bottleneck is circadian timing is unlikely to help.',
+  },
+  {
+    question: 'Can I take magnesium and melatonin together?',
+    answer:
+      'Do not start both at once. Testing one ingredient first is what lets you identify whether it helped, whether it caused side effects, and the lowest useful dose. Starting two products together makes it impossible to attribute either the benefit or the problem.',
+  },
+  {
+    question: 'Which form of magnesium is best for sleep?',
+    answer:
+      'Check the elemental magnesium amount rather than the weight of the full compound. Glycinate or bisglycinate is often selected for tolerability, while oxide is more likely to cause gastrointestinal effects. Prefer a clearly labeled single-ingredient product over a proprietary sleep blend that hides how much of each ingredient it contains.',
+  },
+  {
+    question: 'When is neither magnesium nor melatonin the right answer?',
+    answer:
+      'When the underlying cause is something a supplement does not address: breathing disruption, pain, restless legs, medication effects, heavy caffeine use, or alcohol-related sleep fragmentation. Loud snoring, breathing pauses, persistent daytime sleepiness, or chronic insomnia warrant clinical evaluation rather than another product.',
+  },
+  {
+    question: 'What are the side effects of magnesium and melatonin?',
+    answer:
+      'Supplemental magnesium can cause diarrhea or cramping, may affect absorption of some medicines, and requires extra caution with impaired kidney function. Melatonin can cause next-day drowsiness and may interact with anticoagulants, sedatives, anticonvulsants, immunosuppressants, and other medicines. Review both against your current medications before starting either.',
   },
 ]
 
@@ -66,7 +104,8 @@ export default function MagnesiumVsMelatoninGuidePage() {
         headline="Magnesium vs Melatonin for Sleep: Which Fits Your Problem?"
         description="Evidence-based comparison of magnesium and melatonin for sleep timing, relaxation, safety, and product selection."
         datePublished="2026-06-14"
-        dateModified="2026-07-16"
+        dateModified="2026-09-04"
+        faqs={FAQS}
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Guides', href: '/guides' },
@@ -230,6 +269,18 @@ export default function MagnesiumVsMelatoninGuidePage() {
             <p><strong>Magnesium:</strong> supplemental forms can cause diarrhea or cramping, may affect absorption of some medicines, and require extra caution with impaired kidney function.</p>
             <p><strong>Melatonin:</strong> can cause next-day drowsiness and may interact with anticoagulants, sedatives, anticonvulsants, immunosuppressants, and other medicines.</p>
             <p><strong>Do not use stacking as the default:</strong> starting two products together makes it harder to tell which one helped or caused side effects.</p>
+          </div>
+        </section>
+
+        <section id="faq" className="scroll-mt-20 space-y-4">
+          <h2 className="text-2xl font-semibold text-ink">Frequently asked questions</h2>
+          <div className="space-y-3">
+            {FAQS.map((faq) => (
+              <details key={faq.question} className="card-premium p-5">
+                <summary className="cursor-pointer font-semibold text-ink">{faq.question}</summary>
+                <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
+              </details>
+            ))}
           </div>
         </section>
 
