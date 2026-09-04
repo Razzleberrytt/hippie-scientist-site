@@ -40,6 +40,12 @@ function compareCandidateOrder(a, b) {
   return Number(a?.number || 0) - Number(b?.number || 0)
 }
 
+function eligibleDraftCandidates(pulls, repository) {
+  return pulls
+    .filter(pr => isSameRepoMainPr(pr, repository) && pr.draft === true && !isHeldPromotionPr(pr))
+    .sort(compareCandidateOrder)
+}
+
 export function planPromotionState({ pulls = [], repository }) {
   const scoped = pulls
     .filter(pr => isSameRepoMainPr(pr, repository))
@@ -51,9 +57,7 @@ export function planPromotionState({ pulls = [], repository }) {
   stage.push(...active.slice(1))
 
   const stagedNumbers = [...new Set(stage.map(pr => Number(pr.number)).filter(Number.isInteger))].sort((a, b) => a - b)
-  const draftCandidates = keeper
-    ? []
-    : scoped.filter(pr => pr.draft === true && !isHeldPromotionPr(pr))
+  const draftCandidates = keeper ? [] : eligibleDraftCandidates(pulls, repository)
 
   return {
     active: keeper,
@@ -139,37 +143,52 @@ export async function buildAdmissionPlan({ repository, token }) {
   const plan = planPromotionState({ pulls, repository })
   const mainSha = await currentMainSha(repository, token)
 
+  let active = plan.active
+  const stageNumbers = [...plan.stageNumbers]
+  const cleanRestageNumbers = []
   let candidate = null
   let refreshCandidate = null
-  const cleanRestageNumbers = []
 
-  if (!plan.active) {
-    for (const pr of plan.draftCandidates) {
-      const relationship = await relationshipToMain(repository, mainSha, pr.head?.sha, token)
-      if (relationship.exact) {
-        candidate = pr
-        break
-      }
-
-      const changedFiles = await changedFilesForPr(repository, pr.number, token)
+  if (active) {
+    const relationship = await relationshipToMain(repository, mainSha, active.head?.sha, token)
+    if (!relationship.exact) {
+      const changedFiles = await changedFilesForPr(repository, active.number, token)
       if (!canAutoRefreshPromotionPr(changedFiles)) {
-        cleanRestageNumbers.push(pr.number)
-        continue
+        stageNumbers.push(active.number)
+        cleanRestageNumbers.push(active.number)
+        active = null
       }
+    }
+  }
 
-      if (!refreshCandidate) {
-        const detail = await github(`/repos/${repository}/pulls/${pr.number}`, token)
-        if (detail?.mergeable !== false) refreshCandidate = detail
-      }
+  const drafts = active ? [] : eligibleDraftCandidates(pulls, repository)
+  for (const pr of drafts) {
+    const relationship = await relationshipToMain(repository, mainSha, pr.head?.sha, token)
+    if (relationship.exact) {
+      candidate = pr
+      break
+    }
+
+    const changedFiles = await changedFilesForPr(repository, pr.number, token)
+    if (!canAutoRefreshPromotionPr(changedFiles)) {
+      cleanRestageNumbers.push(pr.number)
+      continue
+    }
+
+    if (!refreshCandidate) {
+      const detail = await github(`/repos/${repository}/pulls/${pr.number}`, token)
+      if (detail?.mergeable !== false) refreshCandidate = detail
     }
   }
 
   return {
     ...plan,
+    active,
+    stageNumbers: [...new Set(stageNumbers)].sort((a, b) => a - b),
     mainSha,
     candidate,
     refreshCandidate: candidate ? null : refreshCandidate,
-    cleanRestageNumbers,
+    cleanRestageNumbers: [...new Set(cleanRestageNumbers)].sort((a, b) => a - b),
   }
 }
 
