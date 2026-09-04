@@ -26,7 +26,6 @@ export const metadata: Metadata = {
   }),
 }
 
-// Decision-first routing: match the reason you can't sleep to the right first guide.
 const START_HERE: IntentRoute[] = [
   {
     problem: 'Racing thoughts at bedtime',
@@ -162,9 +161,51 @@ const RESEARCH_ARTICLES: GuideCard[] = [
     title: 'Chamomile for Sleep',
     desc: 'What the 2024 meta-analysis actually found, including outcomes that did not improve.',
   },
+  {
+    href: '/articles/l-tryptophan-for-sleep/',
+    title: 'L-Tryptophan for Sleep',
+    desc: 'Why the modern synthesis points more toward wake-after-sleep-onset than a blanket sleep-latency claim.',
+  },
+  {
+    href: '/articles/5-htp-for-sleep/',
+    title: '5-HTP for Sleep',
+    desc: 'A small 2024 older-adult RCT, very limited insomnia evidence, and the serotonergic safety context.',
+  },
 ]
 
-// Full library — kept, but secondary to the decision sections above.
+const SLEEP_SCIENCE: GuideCard[] = [
+  {
+    href: '/articles/sleep-onset-vs-sleep-maintenance/',
+    title: 'Sleep Onset vs Sleep Maintenance',
+    desc: 'SOL, WASO, total sleep time and sleep efficiency — learn which endpoint a study actually changed.',
+  },
+  {
+    href: '/articles/subjective-vs-objective-sleep/',
+    title: 'Subjective vs Objective Sleep',
+    desc: 'Why insomnia can feel severe even when polysomnography or wearable changes look smaller.',
+  },
+  {
+    href: '/articles/sleep-trackers-accuracy/',
+    title: 'How Accurate Are Sleep Trackers?',
+    desc: 'The 2025–2026 evidence on wearables, actigraphy, sleep stages and systematic measurement bias.',
+  },
+  {
+    href: '/articles/sleep-regularity-health/',
+    title: 'Sleep Regularity',
+    desc: 'Why day-to-day timing stability is emerging as a sleep-health dimension separate from duration.',
+  },
+  {
+    href: '/articles/caffeine-and-sleep-timing/',
+    title: 'Caffeine and Sleep Timing',
+    desc: 'Dose × timing evidence, including newer controlled trials and meta-analyses of sleep disruption.',
+  },
+  {
+    href: '/articles/insomnia-vs-sleep-deprivation/',
+    title: 'Insomnia vs Sleep Deprivation',
+    desc: 'Same tired feeling, different bottleneck: adequate sleep opportunity is the key distinction.',
+  },
+]
+
 const ALL_GUIDES = [
   { slug: 'best-supplements-for-sleep', title: 'Best Supplements for Sleep' },
   { slug: 'best-natural-sleep-aids-that-work', title: 'Best Natural Sleep Aids That Work' },
@@ -194,6 +235,8 @@ const DEPTH_LINKS = [
   { href: '/compounds/l-theanine-sleep/', title: 'L-Theanine for Sleep', kind: 'Compound profile' },
   { href: '/compounds/glycine-sleep/', title: 'Glycine for Sleep', kind: 'Compound profile' },
   { href: '/compounds/magnesium-glycinate/', title: 'Magnesium Glycinate', kind: 'Compound profile' },
+  { href: '/compounds/tryptophan/', title: 'Tryptophan', kind: 'Compound profile' },
+  { href: '/compounds/5-htp/', title: '5-HTP', kind: 'Compound profile' },
   { href: '/herbs/ashwagandha/', title: 'Ashwagandha', kind: 'Herb profile' },
   { href: '/herbs/valerian/', title: 'Valerian', kind: 'Herb profile' },
   { href: '/herbs/passiflora-incarnata/', title: 'Passionflower', kind: 'Herb profile' },
@@ -210,8 +253,12 @@ export default function SleepGuideIndex() {
       { name: 'Guides', url: `${SITE_URL}/guides/` },
       { name: 'Sleep', url: `${SITE_URL}/guides/sleep/` },
     ],
-    itemListName: 'Sleep Supplement Guides',
-    items: ALL_GUIDES.map((g) => ({ name: g.title, url: `/guides/sleep/${g.slug}/` })),
+    itemListName: 'Sleep Supplement Guides and Research',
+    items: [
+      ...ALL_GUIDES.map((g) => ({ name: g.title, url: `/guides/sleep/${g.slug}/` })),
+      ...RESEARCH_ARTICLES.map((g) => ({ name: g.title, url: g.href })),
+      ...SLEEP_SCIENCE.map((g) => ({ name: g.title, url: g.href })),
+    ],
   })
 
   return (
@@ -225,7 +272,6 @@ export default function SleepGuideIndex() {
         <span className="font-medium text-ink">Sleep</span>
       </nav>
 
-      {/* Hero */}
       <header className="mb-10">
         <h1 className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">Sleep Supplement Guides</h1>
         <p className="mt-3 max-w-2xl text-lg leading-8 text-muted">
@@ -234,7 +280,6 @@ export default function SleepGuideIndex() {
         </p>
       </header>
 
-      {/* Start Here — decision routing */}
       <section className="mb-12">
         <HubSectionHeading
           eyebrow="Start here"
@@ -244,13 +289,11 @@ export default function SleepGuideIndex() {
         <DecisionRouter items={START_HERE} />
       </section>
 
-      {/* Best first pages */}
       <section className="mb-12">
         <HubSectionHeading eyebrow="Best first reads" title="If you only read a few" />
         <GuideCardGrid cards={BEST_FIRST} />
       </section>
 
-      {/* Comparison guides */}
       <section className="mb-12">
         <HubSectionHeading
           eyebrow="Comparisons"
@@ -260,17 +303,24 @@ export default function SleepGuideIndex() {
         <GuideCardGrid cards={COMPARISONS} />
       </section>
 
-      {/* New research articles */}
       <section className="mb-12">
         <HubSectionHeading
-          eyebrow="New research"
+          eyebrow="Ingredient research"
           title="Evidence reviews beyond the usual shortlist"
-          sub="Recent systematic reviews, randomized trials, and null findings kept in the same frame."
+          sub="Systematic reviews, randomized trials, null findings and safety limits kept in the same frame."
         />
         <GuideCardGrid cards={RESEARCH_ARTICLES} />
       </section>
 
-      {/* ADHD sleep */}
+      <section className="mb-12">
+        <HubSectionHeading
+          eyebrow="Sleep science"
+          title="Understand the measurements before judging an intervention"
+          sub="Onset, maintenance, wearables, regularity, caffeine and the difference between insomnia and simply not getting enough sleep."
+        />
+        <GuideCardGrid cards={SLEEP_SCIENCE} />
+      </section>
+
       <section className="mb-12">
         <HubSectionHeading eyebrow="ADHD & sleep" title="ADHD-related sleep problems" />
         <div className="flex flex-wrap gap-3">
@@ -286,7 +336,6 @@ export default function SleepGuideIndex() {
         </div>
       </section>
 
-      {/* Editorial note */}
       <section className="mb-12 rounded-xl border-l-4 border-brand-700/40 bg-brand-50/60 p-5 dark:bg-[var(--surface-subtle)]">
         <p className="text-sm leading-7 text-ink dark:text-[var(--text-secondary)]">
           <span className="font-bold">A note on matching the tool to the problem.</span> Supplements are
@@ -327,7 +376,6 @@ export default function SleepGuideIndex() {
         </div>
       </section>
 
-      {/* All guides — secondary */}
       <section>
         <HubSectionHeading eyebrow="Full library" title="All sleep guides" />
         <ul className="grid gap-x-6 gap-y-2 sm:grid-cols-2">
