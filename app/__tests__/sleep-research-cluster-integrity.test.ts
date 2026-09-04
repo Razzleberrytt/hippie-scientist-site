@@ -27,6 +27,8 @@ const REQUIRED_RESEARCH_ARTICLES = [
   'vitamin-d-and-sleep',
   'hops-for-sleep',
   'sleep-supplement-formulations',
+  'how-much-sleep-do-adults-need',
+  '90-minute-sleep-cycle-myth',
   'sleep-onset-vs-sleep-maintenance',
   'subjective-vs-objective-sleep',
   'why-sleep-studies-disagree',
@@ -35,6 +37,7 @@ const REQUIRED_RESEARCH_ARTICLES = [
   'insomnia-vs-sleep-deprivation',
   'night-owl-chronotype-vs-delayed-sleep-phase',
   'delayed-sleep-wake-phase-vs-insomnia',
+  'jet-lag-light-melatonin-and-sleep',
   'shift-work-sleep-disorder',
   'teen-sleep-and-school-start-times',
   'morning-light-and-sleep-timing',
@@ -67,6 +70,8 @@ const REQUIRED_RESEARCH_ARTICLES = [
   'sleep-in-older-adults',
   'cbt-i-vs-sleep-supplements',
   'sleep-apnea-vs-insomnia',
+  'snoring-vs-sleep-apnea',
+  'nocturia-and-sleep',
   'mouth-taping-for-sleep',
   'restless-legs-iron-and-sleep',
 ]
@@ -128,6 +133,46 @@ describe('sleep research cluster integrity', () => {
     expect(chronotype).toMatch(/not automatically a sleep disorder|not a diagnosis/i)
   })
 
+  it('keeps adult sleep duration and sleep-cycle myths calibrated', () => {
+    const duration = read('content/articles/how-much-sleep-do-adults-need.md').replace(/\s+/g, ' ')
+    const cycles = read('content/articles/90-minute-sleep-cycle-myth.md').replace(/\s+/g, ' ')
+
+    expect(duration).toMatch(/7 or more hours/i)
+    expect(duration).toMatch(/not.*exactly eight|not exactly eight/i)
+    expect(duration).toMatch(/more than nine hours.*appropriate|recovery from sleep debt|recovery.*illness/i)
+    expect(cycles).toMatch(/6,?064/i)
+    expect(cycles).toMatch(/median.*96 minutes|96 minutes.*median/i)
+    expect(cycles).toMatch(/large.*variability|substantial variation/i)
+    expect(cycles).toMatch(/first cycle.*shorter|shorter.*first cycle/i)
+    expect(cycles).not.toMatch(/every sleep cycle is 90 minutes/i)
+  })
+
+  it('keeps jet lag tied to direction and circadian timing rather than generic sedation', () => {
+    const jetLag = read('content/articles/jet-lag-light-melatonin-and-sleep.md').replace(/\s+/g, ' ')
+
+    expect(jetLag).toMatch(/eastward/i)
+    expect(jetLag).toMatch(/westward/i)
+    expect(jetLag).toMatch(/1\.5 hours per day westward|1\.5 hours\/day westward/i)
+    expect(jetLag).toMatch(/1 hour per day eastward|1 hr\/day eastward/i)
+    expect(jetLag).toMatch(/timed light|light-dark scheduling/i)
+    expect(jetLag).toMatch(/melatonin.*timing|timing.*melatonin/i)
+    expect(jetLag).toMatch(/short trips|home-base/i)
+  })
+
+  it('keeps snoring, apnea and nocturia in distinct diagnostic lanes', () => {
+    const snoring = read('content/articles/snoring-vs-sleep-apnea.md').replace(/\s+/g, ' ')
+    const nocturia = read('content/articles/nocturia-and-sleep.md').replace(/\s+/g, ' ')
+
+    expect(snoring).toMatch(/Snoring is a clue.*Sleep apnea is a diagnosis|Snoring is a symptom.*OSA is a diagnosis/i)
+    expect(snoring).toMatch(/objective.*testing|polysomnography|home sleep apnea testing/i)
+    expect(snoring).toMatch(/negative.*home.*polysomnography|home.*negative.*polysomnography/i)
+    expect(snoring).toMatch(/questionnaires.*not.*diagnos|wearables.*not.*diagnos|apps.*not.*diagnos/i)
+    expect(nocturia).toMatch(/bladder may not be what woke you|wakes for another reason|already awake/i)
+    expect(nocturia).toMatch(/sleep apnea/i)
+    expect(nocturia).toMatch(/CPAP/i)
+    expect(nocturia).toMatch(/bladder diary|frequency-volume/i)
+  })
+
   it('does not restore the corrected tryptophan sleep-latency overclaim', () => {
     const payload = read('public/data/compounds-detail/tryptophan.json')
 
@@ -163,6 +208,7 @@ describe('sleep research cluster integrity', () => {
 
     expect(noise).toMatch(/2020.*very low|very low quality/i)
     expect(noise).toMatch(/2025.*meta-analysis/i)
+    expect(noise).toMatch(/pink noise.*REM|REM.*pink noise/i)
     expect(blankets).toMatch(/actigraphy.*not statistically significant|not statistically significant.*actigraphy/i)
     expect(bath).toMatch(/1–2 hours|1-2 hours/i)
     expect(music).toMatch(/subjective sleep quality/i)
