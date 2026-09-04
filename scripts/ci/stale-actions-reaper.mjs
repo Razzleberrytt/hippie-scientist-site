@@ -4,6 +4,7 @@ import { pathToFileURL } from 'node:url'
 
 const API_ROOT = process.env.GITHUB_API_URL || 'https://api.github.com'
 const DEFAULT_THRESHOLD_HOURS = 6
+const DELETE_MIN_AGE_MS = 14 * 24 * 60 * 60 * 1000
 const ELIGIBLE_EVENTS = new Set(['pull_request'])
 const ELIGIBLE_STATUSES = new Set(['queued', 'in_progress'])
 const REAPER_WORKFLOW_NAME = 'Stale Actions reaper'
@@ -33,7 +34,9 @@ async function github(pathname, { method = 'GET' } = {}) {
       'User-Agent': 'hippie-scientist-stale-actions-reaper',
     },
   })
-  if (response.status === 409 && method === 'POST') return { conflict: true }
+  if (response.status === 409 && (method === 'POST' || method === 'DELETE')) {
+    return { conflict: true, status: 409 }
+  }
   if (!response.ok) {
     const text = await response.text()
     throw new Error(`${method} ${pathname} failed (${response.status}): ${text.slice(0, 1000)}`)
@@ -131,7 +134,7 @@ function receiptRow(run, decision, thresholdMs) {
 export async function cancelRunWithFallback({ repo, runId, request = github, classifyOptions }) {
   const normal = await request(`/repos/${repo}/actions/runs/${runId}/cancel`, { method: 'POST' })
   if (!normal.conflict) {
-    return { cancelled: true, mode: 'cancel' }
+    return { cancelled: true, deleted: false, unresolved: false, mode: 'cancel' }
   }
 
   const liveRun = await request(`/repos/${repo}/actions/runs/${runId}`)
@@ -139,6 +142,8 @@ export async function cancelRunWithFallback({ repo, runId, request = github, cla
   if (!liveDecision.cancel) {
     return {
       cancelled: false,
+      deleted: false,
+      unresolved: false,
       mode: null,
       liveRun,
       liveDecision,
@@ -148,15 +153,89 @@ export async function cancelRunWithFallback({ repo, runId, request = github, cla
 
   const forced = await request(`/repos/${repo}/actions/runs/${runId}/force-cancel`, { method: 'POST' })
   if (!forced.conflict) {
-    return { cancelled: true, mode: 'force-cancel', liveRun, liveDecision }
+    return {
+      cancelled: true,
+      deleted: false,
+      unresolved: false,
+      mode: 'force-cancel',
+      liveRun,
+      liveDecision,
+    }
   }
 
-  return {
-    cancelled: false,
-    mode: 'force-cancel',
-    liveRun,
-    liveDecision,
-    reason: 'force-cancel-conflict',
+  let deleteRun
+  try {
+    deleteRun = await request(`/repos/${repo}/actions/runs/${runId}`)
+  } catch (error) {
+    return {
+      cancelled: false,
+      deleted: false,
+      unresolved: true,
+      mode: 'force-cancel',
+      liveRun,
+      liveDecision,
+      reason: 'delete-recheck-failed',
+      error: error?.message || String(error),
+    }
+  }
+
+  const deleteDecision = classifyRun(deleteRun, classifyOptions)
+  if (!deleteDecision.cancel) {
+    return {
+      cancelled: false,
+      deleted: false,
+      unresolved: false,
+      mode: null,
+      liveRun: deleteRun,
+      liveDecision: deleteDecision,
+      reason: 'became-ineligible-before-delete',
+    }
+  }
+
+  if ((deleteDecision.ageMs || 0) < DELETE_MIN_AGE_MS) {
+    return {
+      cancelled: false,
+      deleted: false,
+      unresolved: true,
+      mode: 'force-cancel',
+      liveRun: deleteRun,
+      liveDecision: deleteDecision,
+      reason: 'force-cancel-conflict-delete-too-young',
+    }
+  }
+
+  try {
+    const deleted = await request(`/repos/${repo}/actions/runs/${runId}`, { method: 'DELETE' })
+    if (!deleted.conflict) {
+      return {
+        cancelled: false,
+        deleted: true,
+        unresolved: false,
+        mode: 'delete-run',
+        liveRun: deleteRun,
+        liveDecision: deleteDecision,
+      }
+    }
+    return {
+      cancelled: false,
+      deleted: false,
+      unresolved: true,
+      mode: 'delete-run',
+      liveRun: deleteRun,
+      liveDecision: deleteDecision,
+      reason: 'delete-run-conflict',
+    }
+  } catch (error) {
+    return {
+      cancelled: false,
+      deleted: false,
+      unresolved: true,
+      mode: 'delete-run',
+      liveRun: deleteRun,
+      liveDecision: deleteDecision,
+      reason: 'delete-run-failed',
+      error: error?.message || String(error),
+    }
   }
 }
 
@@ -186,11 +265,14 @@ async function main() {
     repository: repo,
     dryRun,
     thresholdHours,
+    deleteMinAgeHours: DELETE_MIN_AGE_MS / 3_600_000,
     currentRunId: currentRunId || null,
     selected: [],
     retained: [],
     cancelled: [],
+    deleted: [],
     raced: [],
+    unresolved: [],
   }
 
   for (const { run, decision } of classified) {
@@ -222,16 +304,25 @@ async function main() {
       })
       const finalRun = result.liveRun || liveRun
       const finalDecision = result.liveDecision || liveDecision
+      const row = {
+        ...receiptRow(finalRun, finalDecision, thresholdMs),
+        resolutionMode: result.mode,
+      }
+      if (result.error) row.error = result.error
+
       if (result.cancelled) {
-        receipt.cancelled.push({
-          ...receiptRow(finalRun, finalDecision, thresholdMs),
-          cancellationMode: result.mode,
+        receipt.cancelled.push(row)
+      } else if (result.deleted) {
+        receipt.deleted.push(row)
+      } else if (result.unresolved) {
+        receipt.unresolved.push({
+          ...row,
+          reason: result.reason || 'provider-refused-resolution',
         })
       } else {
         receipt.raced.push({
-          ...receiptRow(finalRun, finalDecision, thresholdMs),
-          reason: result.reason || 'cancellation-not-accepted',
-          cancellationMode: result.mode,
+          ...row,
+          reason: result.reason || 'became-ineligible-during-resolution',
         })
       }
     }
@@ -242,9 +333,19 @@ async function main() {
   const outputPath = path.join(outputDir, 'stale-actions-reaper-receipt.json')
   fs.writeFileSync(outputPath, `${JSON.stringify(receipt, null, 2)}\n`, 'utf8')
 
-  console.log(`Stale Actions reaper: selected=${receipt.selected.length} cancelled=${receipt.cancelled.length} retained=${receipt.retained.length} raced=${receipt.raced.length} dryRun=${dryRun}`)
+  console.log(`Stale Actions reaper: selected=${receipt.selected.length} cancelled=${receipt.cancelled.length} deleted=${receipt.deleted.length} retained=${receipt.retained.length} raced=${receipt.raced.length} unresolved=${receipt.unresolved.length} dryRun=${dryRun}`)
   for (const row of receipt.cancelled) {
-    console.log(`Cancelled run ${row.runId} ${row.workflow} ${row.headRef || ''} mode=${row.cancellationMode} ${row.reason}`)
+    console.log(`Cancelled run ${row.runId} ${row.workflow} ${row.headRef || ''} mode=${row.resolutionMode} ${row.reason}`)
+  }
+  for (const row of receipt.deleted) {
+    console.log(`Deleted ancient run ${row.runId} ${row.workflow} ${row.headRef || ''} mode=${row.resolutionMode} ${row.reason}`)
+  }
+  if (receipt.unresolved.length > 0) {
+    console.error(`Stale Actions reaper unresolved=${receipt.unresolved.length}; failing closed`)
+    for (const row of receipt.unresolved) {
+      console.error(`Unresolved run ${row.runId} ${row.workflow} mode=${row.resolutionMode || 'none'} reason=${row.reason}`)
+    }
+    process.exitCode = 1
   }
 }
 
