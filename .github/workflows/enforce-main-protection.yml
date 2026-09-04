@@ -6,6 +6,8 @@ on:
       - '.github/workflows/enforce-main-protection.yml'
       - 'scripts/ci/main-protection-enforcer.test.mjs'
       - 'docs/ci/main-branch-protection.md'
+  issue_comment:
+    types: [created]
   workflow_dispatch:
     inputs:
       confirmation:
@@ -22,6 +24,7 @@ concurrency:
 
 jobs:
   contract:
+    if: github.event_name != 'issue_comment'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -34,20 +37,43 @@ jobs:
         run: npx vitest run scripts/ci/main-protection-enforcer.test.mjs
 
   enforce:
-    if: github.event_name == 'workflow_dispatch' && github.actor == github.repository_owner
+    if: >-
+      github.actor == github.repository_owner &&
+      (
+        github.event_name == 'workflow_dispatch' ||
+        (
+          github.event_name == 'issue_comment' &&
+          github.event.issue.pull_request == null &&
+          github.event.comment.body == '/protect-main PROTECT MAIN'
+        )
+      )
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ secrets.REPO_ADMIN_TOKEN }}
       REPO: ${{ github.repository }}
+      EVENT_NAME: ${{ github.event_name }}
+      DISPATCH_CONFIRMATION: ${{ inputs.confirmation }}
+      COMMENT_BODY: ${{ github.event.comment.body }}
     steps:
       - name: Fail closed unless explicitly confirmed
         shell: bash
         run: |
           set -euo pipefail
-          if [[ "${{ inputs.confirmation }}" != "PROTECT MAIN" ]]; then
-            echo "::error title=Explicit confirmation required::Dispatch again with confirmation exactly: PROTECT MAIN"
+          if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
+            if [[ "$DISPATCH_CONFIRMATION" != "PROTECT MAIN" ]]; then
+              echo "::error title=Explicit confirmation required::Dispatch again with confirmation exactly: PROTECT MAIN"
+              exit 1
+            fi
+          elif [[ "$EVENT_NAME" == "issue_comment" ]]; then
+            if [[ "$COMMENT_BODY" != "/protect-main PROTECT MAIN" ]]; then
+              echo "::error title=Explicit confirmation required::Use the exact owner-only issue command: /protect-main PROTECT MAIN"
+              exit 1
+            fi
+          else
+            echo "::error title=Unsupported trigger::Protection enforcement may run only from workflow_dispatch or the exact owner-only issue command."
             exit 1
           fi
+
           if [[ -z "${GH_TOKEN:-}" ]]; then
             echo "::error title=Admin token missing::Repository secret REPO_ADMIN_TOKEN is required. Use a fine-grained token with repository Administration: write permission (or an equivalently scoped classic token)."
             exit 1
