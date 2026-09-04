@@ -3,6 +3,8 @@ export type ArticleCitationOverride = {
   keyTakeaways?: string[]
   citationQuestions?: string[]
   canonicalConcepts?: string[]
+  decisionRows?: Array<{ label: string; value: string }>
+  faqAnswers?: Array<{ question: string; answer: string }>
 }
 
 export type CitationRelationshipTarget = {
@@ -44,6 +46,17 @@ export const articleCitationOverrides: Record<string, ArticleCitationOverride> =
       'vigilance',
       'executive function',
     ],
+    decisionRows: [
+      { label: 'Best-supported conclusion', value: 'Recovery sleep helps, but different outcomes recover on different timelines.' },
+      { label: 'What one good night can do', value: 'Reduce sleepiness and improve some performance measures after acute sleep loss.' },
+      { label: 'What it cannot guarantee', value: 'Full reversal of chronic restriction across attention, memory, mood, metabolism, and safety-sensitive performance.' },
+      { label: 'Highest-value move', value: 'Restore adequate, regular sleep opportunity instead of relying on repeated catch-up cycles.' },
+    ],
+    faqAnswers: [
+      { question: 'Can you fully repay sleep debt?', answer: 'Recovery sleep can reverse part of the impact of sleep loss, but the evidence does not support a universal hour-for-hour repayment rule. Different functions recover at different rates.' },
+      { question: 'Does one good night fix a week of poor sleep?', answer: 'It can make someone feel substantially better, but chronic restriction can leave residual deficits after a single recovery night.' },
+      { question: 'Does weekend catch-up sleep work?', answer: 'It can provide short-term relief, but it does not reliably erase the effects of chronic insufficient sleep and large schedule shifts can add social jet lag.' },
+    ],
   },
   'daytime-sleepiness-vs-fatigue': {
     relatedSlugs: [
@@ -61,6 +74,17 @@ export const articleCitationOverrides: Record<string, ArticleCitationOverride> =
       'driving impairment',
       'sleep-disordered breathing',
     ],
+    decisionRows: [
+      { label: 'Sleepiness', value: 'An increased tendency to fall asleep, especially in passive situations.' },
+      { label: 'Fatigue', value: 'Low energy, exhaustion, heaviness, or reduced capacity without necessarily being able to sleep.' },
+      { label: 'Higher-urgency clue', value: 'Unintentional dozing, microsleeps, or fighting sleep while driving or operating equipment.' },
+      { label: 'Next question', value: 'Check sleep opportunity, OSA risk, circadian timing, medications, and persistent hypersomnolence rather than treating “tired” as one diagnosis.' },
+    ],
+    faqAnswers: [
+      { question: 'What is the difference between sleepiness and fatigue?', answer: 'Sleepiness is the propensity to fall asleep. Fatigue is a broader sense of depletion or exhaustion. They can coexist, but they point to different diagnostic pathways.' },
+      { question: 'Can sleep apnea cause fatigue without obvious sleepiness?', answer: 'Yes. Some people with OSA emphasize fatigue, brain fog, poor sleep quality, or low energy rather than frequent daytime dozing.' },
+      { question: 'What are microsleeps?', answer: 'Microsleeps are very brief involuntary sleep intrusions during wakefulness. They can create attention lapses and are especially important in driving and other safety-sensitive settings.' },
+    ],
   },
   'sleep-bruxism-and-sleep-apnea': {
     relatedSlugs: [
@@ -77,6 +101,17 @@ export const articleCitationOverrides: Record<string, ArticleCitationOverride> =
       'polysomnography',
       'dental sleep medicine',
       'autonomic arousal',
+    ],
+    decisionRows: [
+      { label: 'Grinding alone', value: 'Weak evidence for OSA and not a diagnostic shortcut.' },
+      { label: 'Association evidence', value: 'Mixed: recent reviews disagree on the strength of overlap and causality remains unresolved.' },
+      { label: 'Dental treatment', value: 'A night guard can address dental consequences but does not establish or treat airway obstruction.' },
+      { label: 'OSA workup trigger', value: 'Snoring, witnessed apneas, gasping, hypertension, and marked daytime sleepiness matter more than grinding alone.' },
+    ],
+    faqAnswers: [
+      { question: 'Does teeth grinding mean sleep apnea?', answer: 'No. Sleep bruxism can coexist with OSA, but grinding by itself is not a reliable diagnostic sign of airway obstruction.' },
+      { question: 'Does treating sleep apnea stop teeth grinding?', answer: 'Not reliably enough to make that a universal expectation. Bruxism and OSA should be assessed and followed as separate outcomes.' },
+      { question: 'Does a night guard treat sleep apnea?', answer: 'A conventional dental night guard can protect teeth, but it is not the same as an evidence-based mandibular advancement device used to treat selected OSA patients.' },
     ],
   },
   'hypersomnolence-vs-insufficient-sleep': {
@@ -96,6 +131,17 @@ export const articleCitationOverrides: Record<string, ArticleCitationOverride> =
       'insufficient sleep',
       'orexin',
     ],
+    decisionRows: [
+      { label: 'First exclusion', value: 'Chronic insufficient sleep, circadian mismatch, sedating medications, and sleep fragmentation such as OSA.' },
+      { label: 'Narcolepsy clue', value: 'Persistent sleepiness with REM-intrusion features; cataplexy strongly shifts concern toward narcolepsy type 1.' },
+      { label: 'Idiopathic hypersomnia clue', value: 'Long or unrefreshing sleep, severe sleep inertia, long naps, and persistent sleepiness despite adequate sleep opportunity.' },
+      { label: 'Testing caveat', value: 'MSLT results depend on adequate prior sleep and clinical context; a short mean latency does not identify the cause by itself.' },
+    ],
+    faqAnswers: [
+      { question: 'How is idiopathic hypersomnia different from being sleep deprived?', answer: 'Idiopathic hypersomnia requires persistent pathological sleepiness despite adequate sleep opportunity, while insufficient sleep can produce the same symptom because the person is simply not obtaining enough sleep.' },
+      { question: 'Can not getting enough sleep cause an abnormal MSLT?', answer: 'Yes. Inadequate sleep before testing can shorten daytime sleep latency and make the MSLT look more pathologically sleepy.' },
+      { question: 'What does the MSLT measure?', answer: 'The Multiple Sleep Latency Test measures how quickly someone falls asleep during repeated daytime nap opportunities and whether sleep-onset REM periods occur.' },
+    ],
   },
   'sleep-apnea-in-women': {
     relatedSlugs: [
@@ -112,6 +158,17 @@ export const articleCitationOverrides: Record<string, ArticleCitationOverride> =
       'home sleep apnea testing',
       'polysomnography',
       'OSA screening',
+    ],
+    decisionRows: [
+      { label: 'Why cases can be missed', value: 'Women may present with insomnia, fatigue, mood symptoms, or poor sleep quality instead of the classic loud-snoring-plus-sleepiness stereotype.' },
+      { label: 'Stage pattern', value: 'Respiratory burden can be more concentrated in REM sleep in some women, which a whole-night average can flatten.' },
+      { label: 'Life-stage modifier', value: 'OSA risk rises after menopause, but menopause is a risk factor rather than a diagnosis.' },
+      { label: 'Diagnostic boundary', value: 'Symptoms and screening tools guide suspicion; objective sleep testing remains the diagnostic boundary.' },
+    ],
+    faqAnswers: [
+      { question: 'Can women have sleep apnea without loud snoring?', answer: 'Yes. Snoring remains an important clue, but women with OSA may also present with insomnia, fatigue, mood symptoms, or poor sleep quality.' },
+      { question: 'Does menopause increase sleep apnea risk?', answer: 'Risk rises across reproductive aging and after menopause, but menopause alone does not diagnose OSA.' },
+      { question: 'Can a home sleep apnea test miss OSA in women?', answer: 'It can understate some mild, stage-specific, or otherwise discordant presentations, especially when the device does not measure sleep stages directly. A negative home test should be interpreted in clinical context.' },
     ],
   },
   'cpap-vs-oral-appliance-for-sleep-apnea': {
@@ -130,6 +187,17 @@ export const articleCitationOverrides: Record<string, ArticleCitationOverride> =
       'treatment adherence',
       'residual apnea-hypopnea index',
     ],
+    decisionRows: [
+      { label: 'Stronger AHI/oxygen effect', value: 'CPAP on average.' },
+      { label: 'Legitimate alternative', value: 'A custom titratable mandibular advancement device, especially in mild-to-moderate OSA or when PAP is poorly tolerated.' },
+      { label: 'Key oral-appliance tradeoff', value: 'Long-term dental and bite changes require ongoing dental follow-up.' },
+      { label: 'How to judge success', value: 'Actual use plus objective control of residual OSA, not comfort or snoring reduction alone.' },
+    ],
+    faqAnswers: [
+      { question: 'Is CPAP better than an oral appliance for sleep apnea?', answer: 'CPAP is generally more effective at reducing AHI and oxygen desaturation. A custom oral appliance can still be an effective real-world treatment for selected patients.' },
+      { question: 'Can an oral appliance replace CPAP?', answer: 'Sometimes, particularly in mild-to-moderate OSA or when PAP is poorly tolerated, but treatment choice should be individualized and effectiveness should be objectively reassessed.' },
+      { question: 'Are store-bought anti-snoring mouthpieces equivalent to a custom MAD?', answer: 'No. Clinical evidence and guideline recommendations apply primarily to custom-fitted, titratable oral appliances rather than generic over-the-counter mouthpieces.' },
+    ],
   },
   'home-sleep-apnea-test-vs-polysomnography': {
     relatedSlugs: [
@@ -147,6 +215,17 @@ export const articleCitationOverrides: Record<string, ArticleCitationOverride> =
       'night-to-night variability',
       'REM sleep',
       'sleep staging',
+    ],
+    decisionRows: [
+      { label: 'HSAT is best suited for', value: 'Selected uncomplicated adults with meaningful suspicion for moderate-to-severe OSA.' },
+      { label: 'PSG adds', value: 'Direct sleep staging, cortical arousals, broader physiologic channels, and evaluation of more complex sleep disorders.' },
+      { label: 'Common HSAT limitation', value: 'Recording time can exceed true sleep time and dilute the respiratory event index.' },
+      { label: 'Negative home test', value: 'Does not always close the case when the study is inconclusive, technically poor, borderline, or discordant with strong clinical suspicion.' },
+    ],
+    faqAnswers: [
+      { question: 'Is a home sleep apnea test as accurate as polysomnography?', answer: 'HSAT is a valid diagnostic pathway in selected adults, but PSG measures more physiology and directly identifies sleep stages and arousals, so the tests are not interchangeable in every clinical situation.' },
+      { question: 'Why can home sleep apnea testing underestimate severity?', answer: 'Many systems use recording time rather than EEG-confirmed sleep time and may not identify REM or cortical arousals directly, which can dilute or hide some patterns.' },
+      { question: 'What if a home sleep apnea test is negative but symptoms continue?', answer: 'When clinical suspicion remains high, a negative, inconclusive, or technically inadequate home test can warrant in-lab polysomnography or additional evaluation.' },
     ],
   },
   'corynoxine-b-opioid-addiction-evidence-review': {
