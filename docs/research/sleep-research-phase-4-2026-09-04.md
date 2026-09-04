@@ -15,6 +15,13 @@ Canonical route: `/articles/sleep-paralysis/`
 
 Sleep paralysis was independently researched and merged through PR #5199 while Phase 4 was being staged. The duplicate Phase 4 draft was deleted rather than competing with the now-established canonical page.
 
+### REM sleep behavior disorder — merged independently
+Canonical route: `/articles/rem-sleep-behavior-disorder/`
+
+PR #5202 independently merged the canonical RBD review, covering diagnosis, polysomnography, injury prevention, treatment guidance and neurologic/synucleinopathy context. Phase 4 therefore treats that page as an established dependency rather than creating another RBD core review.
+
+The parasomnia comparison page now links to this canonical route.
+
 This is the duplicate-control policy working as intended: search not only current `main`, but also active/recent parallel PRs before publication.
 
 ## Staged on this branch
@@ -96,7 +103,7 @@ Editorial boundary:
 - RBD: REM dream enactment caused by abnormal loss of REM atonia.
 - Adult NREM parasomnias can be complex and injurious; they are not exclusively pediatric.
 - Violent, injurious, stereotyped or unusual adult-onset episodes require a broader differential including seizure and sleep-disordered breathing.
-- This comparison page remains distinct from the PTSD/nightmare review already merged in parallel because it answers a parasomnia-differentiation intent rather than a trauma-treatment intent.
+- This comparison page remains distinct from both the canonical RBD core review and the PTSD/nightmare review because it answers a cross-parasomnia differentiation intent.
 
 ### 6. Hypersomnolence versus insufficient sleep
 Canonical target: `/articles/hypersomnolence-vs-insufficient-sleep/`
@@ -129,12 +136,13 @@ Re-run this audit immediately before opening the Phase 4 PR because parallel wor
 
 ## Dependency on Phase 3
 
-Several Phase 4 pages intentionally cross-link to Phase 3 routes now being recut through PR #5201:
+Two Phase 4 pages intentionally cross-link to routes still being recut through PR #5201:
 - `/articles/sleep-debt-and-recovery/`
 - `/articles/daytime-sleepiness-vs-fatigue/`
-- `/articles/rem-sleep-behavior-disorder-red-flags/`
 
-Phase 4 should not publish until those routes exist on `main`, or until the branch is refreshed onto a base that contains them.
+The RBD dependency is already satisfied on `main` by PR #5202 at `/articles/rem-sleep-behavior-disorder/`.
+
+Phase 4 should not publish until the two Phase 3 routes exist on `main`, or until the branch is refreshed onto a base that contains them.
 
 ## Integration after Phase 4 research merges
 
