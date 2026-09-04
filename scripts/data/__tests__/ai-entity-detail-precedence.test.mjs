@@ -100,4 +100,18 @@ describe('AI entity canonical detail precedence', () => {
     expect(entityNode?.description).not.toMatch(/human clinical trial data is essentially absent/i)
     expect(evidenceNode?.description).not.toMatch(/pending a July 2026 PCAC review/i)
   })
+
+  it('keeps the committed tryptophan AI entity synchronized with the corrected sleep endpoint', () => {
+    const detail = JSON.parse(fs.readFileSync('public/data/compounds-detail/tryptophan.json', 'utf8'))
+    const artifact = JSON.parse(fs.readFileSync('public/data/ai-entities/compound/tryptophan.json', 'utf8'))
+    const entityNode = artifact['@graph'].find((node) => node['@id']?.endsWith('/#entity'))
+    const evidenceNode = artifact['@graph'].find((node) => node['@id']?.endsWith('/#evidence-data'))
+    const serialized = JSON.stringify(artifact)
+
+    expect(detail.summary).toMatch(/wake after sleep onset|WASO/i)
+    expect(entityNode?.description).toBe(detail.summary)
+    expect(evidenceNode?.description).toBe(detail.summary)
+    expect(serialized).not.toMatch(/moderate evidence for modest sleep latency reduction/i)
+    expect(serialized).not.toMatch(/500[–-]2,000 mg before bed/i)
+  })
 })
