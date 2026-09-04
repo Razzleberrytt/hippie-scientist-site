@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 7
     permissions:
-      contents: read
+      contents: write
       pull-requests: write
     steps:
       - name: Check out trusted default branch
@@ -79,6 +79,41 @@ jobs:
             gh pr ready "$number" --undo --repo "$GITHUB_REPOSITORY"
             echo "Returned PR #$number to draft staging."
           done
+
+      - name: Refresh one safe stale draft onto current main
+        if: steps.plan.outputs.candidate_pr_number == '' && steps.plan.outputs.refresh_pr_number != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ steps.plan.outputs.refresh_pr_number }}
+          EXPECTED_HEAD_SHA: ${{ steps.plan.outputs.refresh_head_sha }}
+          EXPECTED_MAIN_SHA: ${{ steps.plan.outputs.main_sha }}
+        run: |
+          set -euo pipefail
+          current_main="$(gh api "repos/$GITHUB_REPOSITORY/branches/main" --jq '.commit.sha')"
+          pr_json="$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER")"
+          current_head="$(jq -r '.head.sha' <<<"$pr_json")"
+          current_draft="$(jq -r '.draft' <<<"$pr_json")"
+          if [ "$current_main" != "$EXPECTED_MAIN_SHA" ] || \
+             [ "$current_head" != "$EXPECTED_HEAD_SHA" ] || \
+             [ "$current_draft" != "true" ]; then
+            echo "Staged refresh candidate changed before update; leaving it for the next reconciliation."
+            exit 0
+          fi
+
+          gh api \
+            --method PUT \
+            -H 'Accept: application/vnd.github+json' \
+            "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER/update-branch" \
+            -f "expected_head_sha=$EXPECTED_HEAD_SHA"
+          echo "Requested one safe draft refresh for PR #$PR_NUMBER; its synchronize event will re-evaluate admission."
+
+      - name: Report workflow-control drafts that require clean restage
+        if: steps.plan.outputs.clean_restage_numbers != ''
+        env:
+          CLEAN_RESTAGE_NUMBERS: ${{ steps.plan.outputs.clean_restage_numbers }}
+        run: |
+          echo "### Clean-restage queue" >> "$GITHUB_STEP_SUMMARY"
+          echo "Workflow-changing staged PRs are never bot-updated. Clean restage required: $CLEAN_RESTAGE_NUMBERS" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Admit next exact-main draft
         if: steps.plan.outputs.candidate_pr_number != ''
