@@ -6,6 +6,8 @@ on:
       - 'agent/lib/runtime-resilience.js'
       - 'agent/lib/runtime-resilience.test.js'
       - 'agent/lib/metadata-harvester.js'
+      - 'agent/lib/queue.js'
+      - 'agent/run-agent.js'
       - 'agent/orchestrator/run-orchestrator.js'
       - '.github/workflows/swarm-runtime-resilience.yml'
   push:
@@ -14,6 +16,8 @@ on:
       - 'agent/lib/runtime-resilience.js'
       - 'agent/lib/runtime-resilience.test.js'
       - 'agent/lib/metadata-harvester.js'
+      - 'agent/lib/queue.js'
+      - 'agent/run-agent.js'
       - 'agent/orchestrator/run-orchestrator.js'
       - '.github/workflows/swarm-runtime-resilience.yml'
   workflow_dispatch:
@@ -38,6 +42,10 @@ jobs:
         run: node --check agent/lib/runtime-resilience.js
       - name: Syntax check metadata harvester
         run: node --check agent/lib/metadata-harvester.js
+      - name: Syntax check queue
+        run: node --check agent/lib/queue.js
+      - name: Syntax check agent runner
+        run: node --check agent/run-agent.js
       - name: Syntax check orchestrator
         run: node --check agent/orchestrator/run-orchestrator.js
       - name: Prove no-blocker invariants
