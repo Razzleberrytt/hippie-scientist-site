@@ -1,45 +1,59 @@
 {
   "modelVersion": "enrichment-semantic-attestation-v1",
   "entries": [
+    {"submissionId":"sub_e-propionate-acute-energy-surrogate","promotionStatus":"promoted"},
+    {"submissionId":"sub_e-propionate-counterregulatory-signal","promotionStatus":"promoted"},
+    {"submissionId":"sub_e-propionate-ipe-weight-null","promotionStatus":"promoted"},
+    {"submissionId":"sub_e-propionate-form-delivery-firewall","promotionStatus":"promoted"},
+    {"submissionId":"sub_f-b6-pms-quality-limited-benefit","promotionStatus":"promoted"},
+    {"submissionId":"sub_f-b6-pms-recent-review-bias-limit","promotionStatus":"promoted"},
+    {"submissionId":"sub_f-b6-80mg-comparator-pilot","promotionStatus":"promoted"},
+    {"submissionId":"sub_f-b6-high-dose-anxiety-experimental","promotionStatus":"promoted"},
+    {"submissionId":"sub_f-b6-neuropathy-safety-systematic-review","promotionStatus":"promoted"},
+    {"submissionId":"sub_f-b6-prolonged-high-dose-neuropathy-warning","promotionStatus":"not_promoted"},
     {
-      "submissionId": "sub_e-propionate-acute-energy-surrogate",
-      "promotionStatus": "promoted"
+      "submissionId":"sub_session-c-egcg-usp-hepatotoxicity-20260830",
+      "attestation":{
+        "reviewer":"enrichment-adjudicator","reviewedAt":"2026-09-05T00:12:00.000Z","confidence":"high",
+        "entity":{"status":"matched","reason":"PMID 32140423 directly reviews hepatotoxicity attributed to green-tea extracts and catechin exposure, matching the EGCG safety workpack.","evidenceRefs":["src_pubmed-32140423"]},
+        "preparation":{"status":"matched","reason":"The finding preserves concentrated green-tea-extract/catechin exposure and fasting bolus conditions rather than treating brewed tea, extracts, and isolated EGCG as interchangeable.","evidenceRefs":["src_pubmed-32140423"]},
+        "population":{"status":"matched","reason":"Human case reports and human pharmacokinetic data are used for safety interpretation; the finding does not generalize preclinical findings into incidence estimates.","evidenceRefs":["src_pubmed-32140423"]},
+        "endpoint":{"status":"matched","reason":"Hepatocellular injury reports, catechin bioavailability, fasting exposure, and product-composition variability are the source-relevant safety endpoints.","evidenceRefs":["src_pubmed-32140423"]},
+        "conclusion":{"status":"matched","reason":"The staged conclusion correctly treats fasting/bolus exposure and product variability as risk modifiers without inventing a universal toxic dose.","evidenceRefs":["src_pubmed-32140423"]}
+      }
     },
     {
-      "submissionId": "sub_e-propionate-counterregulatory-signal",
-      "promotionStatus": "promoted"
+      "submissionId":"sub_session-c-egcg-rct-liver-safety-20260830",
+      "attestation":{
+        "reviewer":"enrichment-adjudicator","reviewedAt":"2026-09-05T00:12:00.000Z","confidence":"high",
+        "entity":{"status":"matched","reason":"PMID 27188915 is a systematic review of randomized green-tea-extract trials directly relevant to controlled human liver-safety evidence.","evidenceRefs":["src_pubmed-27188915"]},
+        "preparation":{"status":"matched","reason":"The finding keeps heterogeneous green-tea-extract preparations distinct and does not convert the pooled review into isolated-EGCG certainty.","evidenceRefs":["src_pubmed-27188915"]},
+        "population":{"status":"matched","reason":"The source synthesizes randomized human trials and the finding keeps rare-event inference limited to those trial populations and durations.","evidenceRefs":["src_pubmed-27188915"]},
+        "endpoint":{"status":"matched","reason":"Liver-related adverse events are preserved separately from serious clinical liver injury, including the seven-versus-one sparse-event signal.","evidenceRefs":["src_pubmed-27188915"]},
+        "conclusion":{"status":"matched","reason":"The staged conclusion preserves both the uncommon-event finding and the imprecision, so absence of serious events is not misread as proof of broad safety.","evidenceRefs":["src_pubmed-27188915"]}
+      }
     },
     {
-      "submissionId": "sub_e-propionate-ipe-weight-null",
-      "promotionStatus": "promoted"
+      "submissionId":"sub_session-c-egcg-formulation-threshold-review-20260830",
+      "attestation":{
+        "reviewer":"enrichment-adjudicator","reviewedAt":"2026-09-05T00:12:00.000Z","confidence":"high",
+        "entity":{"status":"matched","reason":"The 2018 systematic safety review directly concerns green-tea catechins/EGCG exposure and hepatic adverse events.","evidenceRefs":["src_doi-10-1016-j-yrtph-2018-03-019"]},
+        "preparation":{"status":"matched","reason":"Solid-bolus, beverage/food, catechin mixture, and fasting contexts remain explicitly separated; derived intake values are not collapsed into one universal threshold.","evidenceRefs":["src_doi-10-1016-j-yrtph-2018-03-019"]},
+        "population":{"status":"matched","reason":"Human intervention evidence is interpreted alongside toxicology without presenting animal toxicity as human incidence.","evidenceRefs":["src_doi-10-1016-j-yrtph-2018-03-019"]},
+        "endpoint":{"status":"matched","reason":"The finding matches formulation-dependent hepatic adverse-event patterns and pharmacokinetic exposure conditions discussed by the review.","evidenceRefs":["src_doi-10-1016-j-yrtph-2018-03-019"]},
+        "conclusion":{"status":"matched","reason":"The source supports context-specific intake interpretation only; the staged finding correctly refuses to present the review's derived values as a universal consumer safety cutoff.","evidenceRefs":["src_doi-10-1016-j-yrtph-2018-03-019"]}
+      }
     },
     {
-      "submissionId": "sub_e-propionate-form-delivery-firewall",
-      "promotionStatus": "promoted"
-    },
-    {
-      "submissionId": "sub_f-b6-pms-quality-limited-benefit",
-      "promotionStatus": "promoted"
-    },
-    {
-      "submissionId": "sub_f-b6-pms-recent-review-bias-limit",
-      "promotionStatus": "promoted"
-    },
-    {
-      "submissionId": "sub_f-b6-80mg-comparator-pilot",
-      "promotionStatus": "promoted"
-    },
-    {
-      "submissionId": "sub_f-b6-high-dose-anxiety-experimental",
-      "promotionStatus": "promoted"
-    },
-    {
-      "submissionId": "sub_f-b6-neuropathy-safety-systematic-review",
-      "promotionStatus": "promoted"
-    },
-    {
-      "submissionId": "sub_f-b6-prolonged-high-dose-neuropathy-warning",
-      "promotionStatus": "not_promoted"
+      "submissionId":"sub_session-c-egcg-public-zero-receipt-threshold-gap-20260830",
+      "attestation":{
+        "reviewer":"enrichment-adjudicator","reviewedAt":"2026-09-05T00:12:00.000Z","confidence":"high",
+        "entity":{"status":"matched","reason":"The repository conflict is anchored to PMID 32140423 because the public EGCG safety wording invokes the same hepatotoxicity/fasting domain without canonical receipts.","evidenceRefs":["src_pubmed-32140423"]},
+        "preparation":{"status":"matched","reason":"The finding explicitly requires future wording to distinguish isolated EGCG, concentrated extract, catechin mixtures, and brewed tea.","evidenceRefs":["src_pubmed-32140423"]},
+        "population":{"status":"matched","reason":"No population efficacy claim is made; the proposition is a provenance defect affecting how human safety evidence is represented publicly.","evidenceRefs":["src_pubmed-32140423"]},
+        "endpoint":{"status":"matched","reason":"The endpoint is reconstructability of published liver-safety claims from canonical evidence receipts, not a new clinical outcome.","evidenceRefs":["src_pubmed-32140423"]},
+        "conclusion":{"status":"matched","reason":"The staged conclusion appropriately blocks unsupported threshold language until governed source/claim reconstruction occurs.","evidenceRefs":["src_pubmed-32140423"]}
+      }
     }
   ]
 }
