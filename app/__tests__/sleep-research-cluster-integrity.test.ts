@@ -108,9 +108,9 @@ describe('sleep research cluster integrity', () => {
     const mealTiming = read('content/articles/time-restricted-eating-and-sleep.md').replace(/\s+/g, ' ')
 
     expect(formulations).toMatch(/not interchangeable/i)
-    expect(subjective).toMatch(/subjective and objective sleep are different measurement domains/i)
-    expect(trackers).toMatch(/not.*diagnos/i)
-    expect(cooling).toMatch(/cooling.*does not|does not.*cooling/i)
-    expect(mealTiming).toMatch(/controlled.*do not|do not.*controlled/i)
+    expect(subjective).toMatch(/answer different questions|not interchangeable/i)
+    expect(trackers).toMatch(/do not replace.*clinical|should not be used.*diagnos/i)
+    expect(cooling).toMatch(/does not make every.*cooling.*proven|no significant differences.*cooling/i)
+    expect(mealTiming).toMatch(/controlled-trial analyses.*no significant|controlled evidence.*not established/i)
   })
 })
