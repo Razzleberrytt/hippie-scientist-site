@@ -14,7 +14,7 @@ on:
         type: string
 
 concurrency:
-  group: ci-${{ github.ref }}
+  group: ci-v2-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
@@ -112,8 +112,22 @@ jobs:
         run: npm run audit:high
 
       - name: Generate raw npm audit JSON
-        if: always()
-        run: npm audit --json > npm-audit.after.json || true
+        if: ${{ always() && !cancelled() }}
+        env:
+          NPM_CONFIG_FETCH_TIMEOUT: '60000'
+          NPM_CONFIG_FETCH_RETRIES: '1'
+        run: |
+          set +e
+          timeout --signal=TERM --kill-after=10s 110s npm audit --json > npm-audit.after.json
+          audit_status=$?
+          set -e
+          if [ "$audit_status" -eq 124 ] || [ "$audit_status" -eq 137 ]; then
+            printf '%s\n' '{"error":"npm audit artifact timed out","timedOut":true}' > npm-audit.after.json
+            echo "Raw npm audit artifact timed out after 110 seconds; security gate result is unaffected."
+          elif [ "$audit_status" -ne 0 ]; then
+            echo "Raw npm audit artifact exited with status $audit_status; security gate result is unaffected."
+          fi
+          exit 0
 
       - name: Upload audit artifact
         if: always() && hashFiles('npm-audit.after.json') != ''
