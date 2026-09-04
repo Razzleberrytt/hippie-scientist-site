@@ -80,6 +80,31 @@ test('transient failures retry with a ceiling and eventually recover', async () 
   assert.equal(attempts, 3)
 })
 
+test('retry honors upstream delay hints without exceeding the local ceiling', async () => {
+  let attempts = 0
+  const delays = []
+
+  const value = await retryWithBackoff(async () => {
+    attempts += 1
+    if (attempts === 1) {
+      const error = new Error('rate limited')
+      error.status = 429
+      error.retryAfterMs = 50
+      throw error
+    }
+    return 'ok'
+  }, {
+    attempts: 2,
+    baseDelayMs: 1,
+    maxDelayMs: 3,
+    onRetry: ({ delay }) => delays.push(delay),
+  })
+
+  assert.equal(value, 'ok')
+  assert.equal(attempts, 2)
+  assert.deepEqual(delays, [3])
+})
+
 test('circuit breaker opens after repeated failures and allows a half-open probe after cooldown', () => {
   const breaker = new CircuitBreaker({ failureThreshold: 2, cooldownMs: 100 })
 
