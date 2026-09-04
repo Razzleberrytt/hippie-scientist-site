@@ -128,9 +128,36 @@ function receiptRow(run, decision, thresholdMs) {
   }
 }
 
-async function cancelRun(repo, runId) {
-  const result = await github(`/repos/${repo}/actions/runs/${runId}/cancel`, { method: 'POST' })
-  return !result.conflict
+export async function cancelRunWithFallback({ repo, runId, request = github, classifyOptions }) {
+  const normal = await request(`/repos/${repo}/actions/runs/${runId}/cancel`, { method: 'POST' })
+  if (!normal.conflict) {
+    return { cancelled: true, mode: 'cancel' }
+  }
+
+  const liveRun = await request(`/repos/${repo}/actions/runs/${runId}`)
+  const liveDecision = classifyRun(liveRun, classifyOptions)
+  if (!liveDecision.cancel) {
+    return {
+      cancelled: false,
+      mode: null,
+      liveRun,
+      liveDecision,
+      reason: 'became-ineligible-before-force-cancel',
+    }
+  }
+
+  const forced = await request(`/repos/${repo}/actions/runs/${runId}/force-cancel`, { method: 'POST' })
+  if (!forced.conflict) {
+    return { cancelled: true, mode: 'force-cancel', liveRun, liveDecision }
+  }
+
+  return {
+    cancelled: false,
+    mode: 'force-cancel',
+    liveRun,
+    liveDecision,
+    reason: 'force-cancel-conflict',
+  }
 }
 
 async function main() {
@@ -176,19 +203,37 @@ async function main() {
     const freshActivePrHeadShas = await listOpenPrHeadShas(repo)
     for (const selected of receipt.selected) {
       const liveRun = await github(`/repos/${repo}/actions/runs/${selected.runId}`)
-      const liveDecision = classifyRun(liveRun, {
+      const classifyOptions = {
         nowMs: Date.now(),
         thresholdMs,
         activePrHeadShas: freshActivePrHeadShas,
         currentRunId,
-      })
+      }
+      const liveDecision = classifyRun(liveRun, classifyOptions)
       if (!liveDecision.cancel) {
         receipt.raced.push(receiptRow(liveRun, liveDecision, thresholdMs))
         continue
       }
-      const cancelled = await cancelRun(repo, liveRun.id)
-      if (cancelled) receipt.cancelled.push(receiptRow(liveRun, liveDecision, thresholdMs))
-      else receipt.raced.push({ ...receiptRow(liveRun, liveDecision, thresholdMs), reason: 'run-completed-before-cancel' })
+
+      const result = await cancelRunWithFallback({
+        repo,
+        runId: liveRun.id,
+        classifyOptions,
+      })
+      const finalRun = result.liveRun || liveRun
+      const finalDecision = result.liveDecision || liveDecision
+      if (result.cancelled) {
+        receipt.cancelled.push({
+          ...receiptRow(finalRun, finalDecision, thresholdMs),
+          cancellationMode: result.mode,
+        })
+      } else {
+        receipt.raced.push({
+          ...receiptRow(finalRun, finalDecision, thresholdMs),
+          reason: result.reason || 'cancellation-not-accepted',
+          cancellationMode: result.mode,
+        })
+      }
     }
   }
 
@@ -199,7 +244,7 @@ async function main() {
 
   console.log(`Stale Actions reaper: selected=${receipt.selected.length} cancelled=${receipt.cancelled.length} retained=${receipt.retained.length} raced=${receipt.raced.length} dryRun=${dryRun}`)
   for (const row of receipt.cancelled) {
-    console.log(`Cancelled run ${row.runId} ${row.workflow} ${row.headRef || ''} ${row.reason}`)
+    console.log(`Cancelled run ${row.runId} ${row.workflow} ${row.headRef || ''} mode=${row.cancellationMode} ${row.reason}`)
   }
 }
 
