@@ -10,6 +10,11 @@ on:
       - 'agent/lib/queue.js'
       - 'agent/run-agent.js'
       - 'agent/orchestrator/run-orchestrator.js'
+      - 'scripts/enrichment-governor/queue-resilience.mjs'
+      - 'scripts/enrichment-governor/control.mjs'
+      - 'scripts/enrichment-governor/postmortem.mjs'
+      - 'scripts/enrichment-governor/daily.mjs'
+      - 'scripts/enrichment-governor/__tests__/queue-resilience.test.mjs'
       - '.github/workflows/swarm-runtime-resilience.yml'
   push:
     branches: [main]
@@ -21,6 +26,11 @@ on:
       - 'agent/lib/queue.js'
       - 'agent/run-agent.js'
       - 'agent/orchestrator/run-orchestrator.js'
+      - 'scripts/enrichment-governor/queue-resilience.mjs'
+      - 'scripts/enrichment-governor/control.mjs'
+      - 'scripts/enrichment-governor/postmortem.mjs'
+      - 'scripts/enrichment-governor/daily.mjs'
+      - 'scripts/enrichment-governor/__tests__/queue-resilience.test.mjs'
       - '.github/workflows/swarm-runtime-resilience.yml'
   workflow_dispatch:
 
@@ -52,5 +62,15 @@ jobs:
         run: node --check agent/run-agent.js
       - name: Syntax check orchestrator
         run: node --check agent/orchestrator/run-orchestrator.js
-      - name: Prove no-blocker invariants
+      - name: Syntax check governor queue resilience
+        run: node --check scripts/enrichment-governor/queue-resilience.mjs
+      - name: Syntax check governor control
+        run: node --check scripts/enrichment-governor/control.mjs
+      - name: Syntax check governor postmortem
+        run: node --check scripts/enrichment-governor/postmortem.mjs
+      - name: Syntax check governor daily maintenance
+        run: node --check scripts/enrichment-governor/daily.mjs
+      - name: Prove agent no-blocker invariants
         run: node --test agent/lib/runtime-resilience.test.js
+      - name: Prove governor no-blocker invariants
+        run: node --test scripts/enrichment-governor/__tests__/queue-resilience.test.mjs
