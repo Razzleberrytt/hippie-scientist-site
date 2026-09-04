@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import SleepResearchNextActions from '@/components/SleepResearchNextActions'
-import { SITE_URL, buildTwitterMetadata } from '@/lib/seo'
+import { SITE_URL, buildTwitterMetadata, faqPageJsonLd } from '@/lib/seo'
+import JsonLd from '@/components/seo/JsonLd'
 
 const path = '/guides/sleep/apigenin-for-sleep/'
 
@@ -50,6 +51,42 @@ const verdictRows = [
     question: 'Should it be stacked immediately?',
     answer: 'No',
     note: 'Start with one variable. Stacking apigenin with melatonin, magnesium, valerian, or sedatives makes response hard to interpret.',
+  },
+]
+
+// Drawn from this page's own verdict rows and section bodies. The guide's core
+// argument is that chamomile evidence does not transfer to isolated apigenin, so
+// the FAQ keeps that separation rather than smoothing it into a recommendation.
+const faqs = [
+  {
+    question: 'Is apigenin proven to help with insomnia?',
+    answer:
+      'No. The evidence is not strong enough to frame isolated apigenin as an insomnia treatment. Chamomile has small human studies and reviews around sleep quality, but results are mixed, and isolated apigenin has even less direct sleep-specific human evidence. The honest ceiling is possible relaxation support, not proven sleep architecture optimization.',
+  },
+  {
+    question: 'Does chamomile research prove apigenin works?',
+    answer:
+      'No. Chamomile contains multiple compounds, and apigenin may be part of the story without being the whole extract. A chamomile tea or extract study does not automatically validate a standalone apigenin capsule. Treating the two as interchangeable is the most common mistake on this topic.',
+  },
+  {
+    question: 'What is a proven apigenin dose for sleep?',
+    answer:
+      'There is not one. Direct dose-response evidence for isolated apigenin sleep use is not mature, so this guide avoids implying a universally proven sleep dose. Labels also vary: some products use standalone apigenin while others sell chamomile extracts or blends, and those are not interchangeable without knowing extract standardization and serving size.',
+  },
+  {
+    question: 'Can I stack apigenin with melatonin or magnesium?',
+    answer:
+      'Not as a first step. Start with one variable — stacking apigenin with melatonin, magnesium, valerian or sedatives makes any response hard to interpret. The main practical safety issue is not that apigenin is uniquely risky, but that sleep users often combine it with several calming products, alcohol, antihistamines, benzodiazepines or other sedating substances.',
+  },
+  {
+    question: 'Who should be cautious with apigenin or chamomile products?',
+    answer:
+      'Chamomile-related products may matter for people with allergies to plants in the Asteraceae family. Pregnancy, breastfeeding, liver concerns, anticoagulant use and complex medication regimens all deserve individualized guidance before experimenting.',
+  },
+  {
+    question: 'What should I consider before apigenin?',
+    answer:
+      'Match the tool to the problem. If the issue is sleep timing, melatonin is more targeted. If it is body tension or low magnesium intake, magnesium glycinate is a cleaner first experiment. If it is mental arousal, L-theanine has a more practical calm-use history. Apigenin fits best as a low-confidence, trend-driven option rather than a first choice.',
   },
 ]
 
@@ -103,8 +140,11 @@ const references = [
 ]
 
 export default function Page() {
+  const faqLd = faqPageJsonLd({ pagePath: path, questions: faqs })
+
   return (
     <main className="mx-auto max-w-4xl px-4 pb-24 pt-8 sm:px-6 lg:px-8">
+      {faqLd ? <JsonLd schema={faqLd} /> : null}
       <nav className="mb-6 text-xs text-muted" aria-label="Breadcrumb">
         <Link href="/guides/" className="hover:text-ink">Guides</Link>
         <span className="mx-1.5">/</span>
@@ -184,6 +224,18 @@ export default function Page() {
             <Link href="/guides/sleep/best-supplements-for-sleep/" className="text-brand-800 hover:underline dark:text-[var(--text-primary)]">Best sleep supplements →</Link>
             <Link href="/guides/sleep/l-theanine-for-sleep/" className="text-brand-800 hover:underline dark:text-[var(--text-primary)]">L-theanine for sleep →</Link>
             <Link href="/guides/sleep/magnesium-for-sleep/" className="text-brand-800 hover:underline dark:text-[var(--text-primary)]">Magnesium for sleep →</Link>
+          </div>
+        </section>
+
+        <section id="faq" className="card-premium scroll-mt-20 p-6 sm:p-8">
+          <h2 className="text-xl font-semibold text-ink dark:text-[var(--text-primary)]">Frequently asked questions</h2>
+          <div className="mt-4 space-y-3">
+            {faqs.map((faq) => (
+              <details key={faq.question} className="rounded-xl border border-brand-900/10 bg-brand-50/30 p-4 dark:border-white/10 dark:bg-[var(--surface-subtle)]">
+                <summary className="cursor-pointer font-semibold text-ink dark:text-[var(--text-primary)]">{faq.question}</summary>
+                <p className="mt-2 text-sm leading-7 text-muted dark:text-[var(--text-secondary)]">{faq.answer}</p>
+              </details>
+            ))}
           </div>
         </section>
 

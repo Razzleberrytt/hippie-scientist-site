@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { buildPageMetadata } from '../../../../lib/seo'
+import { buildPageMetadata, faqPageJsonLd } from '../../../../lib/seo'
+import JsonLd from '@/components/seo/JsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
@@ -22,7 +23,45 @@ const HEADINGS: Heading[] = [
   { id: 'magnesium', text: 'What Magnesium Evidence Shows', level: 2 },
   { id: 'combination', text: 'What We Know About the Combination', level: 2 },
   { id: 'safety', text: 'Safety and Decision Context', level: 2 },
+  { id: 'faq', text: 'Frequently Asked Questions', level: 2 },
   { id: 'bottom-line', text: 'Bottom Line', level: 2 },
+]
+
+// Answers restate this page's existing sourced positions only. The page's whole
+// argument is that the combination is untested, so the FAQ has to say that too —
+// writing reassuring answers here would contradict the guide and overstate the
+// evidence it deliberately declines to claim.
+const FAQS = [
+  {
+    question: 'Does taking rhodiola with magnesium improve sleep?',
+    answer:
+      'No randomized trial identified for this review tested rhodiola plus magnesium as a sleep combination. The two have separate human research literatures, but pairing two separately studied ingredients does not create combination evidence. It is best described as an untested combination rather than a validated sleep stack.',
+  },
+  {
+    question: 'Is rhodiola a sleep aid?',
+    answer:
+      'Rhodiola research centres on fatigue, stress, mood and performance rather than primary sleep treatment. A systematic review found substantial heterogeneity and methodological limitations across fatigue studies, and one randomized placebo-controlled trial in shift-working nursing students did not improve its primary fatigue outcome. Sleep is indirect or exploratory context for rhodiola, not an established indication.',
+  },
+  {
+    question: 'How strong is the magnesium evidence for insomnia?',
+    answer:
+      'Better than rhodiola, but not strong enough to be a universal protocol. A 2021 systematic review found only three randomized trials in 151 older adults with insomnia; sleep-onset latency improved in the pooled estimate, but the trials carried moderate-to-high risk of bias and evidence quality was rated low to very low. A 2025 trial in 155 adults with self-reported poor sleep found a statistically significant but small improvement over four weeks.',
+  },
+  {
+    question: 'Is there a recommended timing or dosing schedule for the combination?',
+    answer:
+      'No. A required morning or evening schedule, a universal three- or four-week trial period, and predictable week-by-week changes are all unestablished for this pair. The literature also contains reports of insomnia or alerting effects with rhodiola in some users, which argues against any universal timing rule.',
+  },
+  {
+    question: 'What are the safety considerations?',
+    answer:
+      'Magnesium supplements can cause diarrhea, nausea and abdominal cramping at higher supplemental intakes, and risk from excess is greater with impaired kidney function; it can also interact with medication classes including certain antibiotics and bisphosphonates. Rhodiola safety and interaction evidence is less complete than many commercial claims suggest, and products differ in extract composition. Check safety at the ingredient and medication level rather than inferring it from the word "adaptogen".',
+  },
+  {
+    question: 'Should I use this combination for persistent insomnia?',
+    answer:
+      'If sleep problems are persistent, severe, or accompanied by another medical or psychiatric condition, a supplement combination is not a substitute for evaluating the cause. Until direct combination research exists, claims about synergy, required timing, dosing protocols or predictable long-term benefit are not supportable.',
+  },
 ]
 
 const REFS = [
@@ -61,8 +100,11 @@ const REFS = [
 export default function RhodiolaSleepStackGuidePage() {
   const toc = <TableOfContents headings={HEADINGS} />
 
+  const faqLd = faqPageJsonLd({ pagePath: `/guides/sleep/${SLUG}/`, questions: FAQS })
+
   return (
     <ArticleLayout toc={toc} zone="supplement">
+      {faqLd ? <JsonLd schema={faqLd} /> : null}
       <div className="space-y-8">
         <AuthorityBreadcrumbs
           items={[
@@ -191,6 +233,18 @@ export default function RhodiolaSleepStackGuidePage() {
           <Link href="/safety-checker/" className="inline-flex text-sm font-bold text-brand-800 hover:underline">
             Check mapped interactions and cautions →
           </Link>
+        </section>
+
+        <section id="faq" className="scroll-mt-20 space-y-4">
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">Frequently Asked Questions</h2>
+          <div className="space-y-3">
+            {FAQS.map((faq) => (
+              <details key={faq.question} className="card-premium p-5">
+                <summary className="cursor-pointer font-semibold text-ink">{faq.question}</summary>
+                <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
         </section>
 
         <section id="bottom-line" className="card-premium scroll-mt-20 p-6 space-y-4">
