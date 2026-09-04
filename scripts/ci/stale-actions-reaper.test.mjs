@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { classifyRun, selectRunsForCancellation } from './stale-actions-reaper.mjs'
+import { cancelRunWithFallback, classifyRun, selectRunsForCancellation } from './stale-actions-reaper.mjs'
 
 const NOW = Date.parse('2026-09-03T23:30:00Z')
 const THRESHOLD = 6 * 60 * 60 * 1000
@@ -90,5 +90,53 @@ describe('stale Actions reaper selection', () => {
       cancel: false,
       reason: 'younger-than-threshold',
     })
+  })
+})
+
+describe('stale Actions reaper cancellation fallback', () => {
+  it('uses normal cancellation when GitHub accepts it', async () => {
+    const calls = []
+    const request = async (pathname, requestOptions = {}) => {
+      calls.push([pathname, requestOptions.method || 'GET'])
+      return {}
+    }
+
+    const result = await cancelRunWithFallback({ repo: 'owner/repo', runId: 100, request, classifyOptions: options })
+    expect(result).toMatchObject({ cancelled: true, mode: 'cancel' })
+    expect(calls).toEqual([['/repos/owner/repo/actions/runs/100/cancel', 'POST']])
+  })
+
+  it('force-cancels a still-eligible stale orphan after normal cancel returns 409', async () => {
+    const calls = []
+    const request = async (pathname, requestOptions = {}) => {
+      calls.push([pathname, requestOptions.method || 'GET'])
+      if (pathname.endsWith('/force-cancel')) return {}
+      if (pathname.endsWith('/cancel')) return { conflict: true }
+      return run({ id: 100 })
+    }
+
+    const result = await cancelRunWithFallback({ repo: 'owner/repo', runId: 100, request, classifyOptions: options })
+    expect(result).toMatchObject({ cancelled: true, mode: 'force-cancel' })
+    expect(calls).toEqual([
+      ['/repos/owner/repo/actions/runs/100/cancel', 'POST'],
+      ['/repos/owner/repo/actions/runs/100', 'GET'],
+      ['/repos/owner/repo/actions/runs/100/force-cancel', 'POST'],
+    ])
+  })
+
+  it('refuses force-cancel if the fresh recheck becomes protected', async () => {
+    const calls = []
+    const request = async (pathname, requestOptions = {}) => {
+      calls.push([pathname, requestOptions.method || 'GET'])
+      if (pathname.endsWith('/cancel')) return { conflict: true }
+      return run({ id: 100, head_branch: 'main' })
+    }
+
+    const result = await cancelRunWithFallback({ repo: 'owner/repo', runId: 100, request, classifyOptions: options })
+    expect(result).toMatchObject({ cancelled: false, mode: null, reason: 'became-ineligible-before-force-cancel' })
+    expect(calls).toEqual([
+      ['/repos/owner/repo/actions/runs/100/cancel', 'POST'],
+      ['/repos/owner/repo/actions/runs/100', 'GET'],
+    ])
   })
 })
