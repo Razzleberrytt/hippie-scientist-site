@@ -144,7 +144,7 @@ describe('sleep research cluster integrity', () => {
     expect(cycles).toMatch(/median.*96 minutes|96 minutes.*median/i)
     expect(cycles).toMatch(/large.*variability|substantial variation/i)
     expect(cycles).toMatch(/first cycle.*shorter|shorter.*first cycle/i)
-    expect(cycles).not.toMatch(/every sleep cycle is 90 minutes/i)
+    expect(cycles).toMatch(/not.*fixed.*90-minute|90-minute.*not.*fixed|not.*universal.*90-minute|sleep cycles are real.*not a 90-minute timer/i)
   })
 
   it('keeps jet lag tied to direction and circadian timing rather than generic sedation', () => {
