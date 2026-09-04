@@ -18,8 +18,13 @@ const REQUIRED_RESEARCH_ARTICLES = [
   'chamomile-for-sleep',
   'lavender-for-sleep',
   'passionflower-for-sleep',
+  'lemon-balm-for-sleep',
   'l-tryptophan-for-sleep',
   '5-htp-for-sleep',
+  'oral-gaba-for-sleep',
+  'omega-3-and-sleep',
+  'vitamin-d-and-sleep',
+  'hops-for-sleep',
   'sleep-supplement-formulations',
   'sleep-onset-vs-sleep-maintenance',
   'subjective-vs-objective-sleep',
@@ -29,6 +34,8 @@ const REQUIRED_RESEARCH_ARTICLES = [
   'weekend-catch-up-sleep',
   'caffeine-and-sleep-timing',
   'alcohol-and-sleep',
+  'cannabis-cannabinoids-and-sleep',
+  'nicotine-vaping-and-sleep',
   'morning-light-and-sleep-timing',
   'melatonin-timing-vs-dose',
   'blue-light-screens-and-sleep',
@@ -83,6 +90,21 @@ describe('sleep research cluster integrity', () => {
 
     expect(payload).not.toMatch(/moderate evidence for modest sleep latency reduction/i)
     expect(payload).toMatch(/wake after sleep onset|WASO/i)
+  })
+
+  it('keeps mixed-evidence ingredient verdicts mixed instead of silently upgrading them', () => {
+    const gaba = read('content/articles/oral-gaba-for-sleep.md').replace(/\s+/g, ' ')
+    const omega3 = read('content/articles/omega-3-and-sleep.md').replace(/\s+/g, ' ')
+    const vitaminD = read('content/articles/vitamin-d-and-sleep.md').replace(/\s+/g, ' ')
+    const hops = read('content/articles/hops-for-sleep.md').replace(/\s+/g, ' ')
+    const lemonBalm = read('content/articles/lemon-balm-for-sleep.md').replace(/\s+/g, ' ')
+
+    expect(gaba).toMatch(/very limited evidence for sleep|sleep evidence remains very limited/i)
+    expect(omega3).toMatch(/2020.*no significant adult|earlier.*no significant adult/i)
+    expect(omega3).toMatch(/sleep efficiency.*subjective sleep quality/i)
+    expect(vitaminD).toMatch(/sleep quantity.*sleep disorders.*uncertain|effects on sleep quantity.*uncertain/i)
+    expect(hops).toMatch(/combination.*not.*standalone|cannot.*standalone hops/i)
+    expect(lemonBalm).toMatch(/formulation-specific|product-specific/i)
   })
 
   it('keeps legacy dream and sedative posts free of the removed DIY dosing and stacking recipes', () => {
