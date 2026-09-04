@@ -161,4 +161,107 @@ describe('stale Actions reaper cancellation fallback', () => {
       ['/repos/owner/repo/actions/runs/100', 'GET'],
     ])
   })
+
+  it('deletes an ancient still-eligible orphan only after both cancel paths conflict and a second fresh recheck passes', async () => {
+    const calls = []
+    const ancientRun = run({
+      id: 100,
+      head_branch: 'seo/mental-health-pages',
+      head_sha: ZOMBIE_SHA,
+      created_at: ZOMBIE_CREATED,
+    })
+    const request = async (pathname, requestOptions = {}) => {
+      const method = requestOptions.method || 'GET'
+      calls.push([pathname, method])
+      if (pathname.endsWith('/cancel')) return { conflict: true }
+      if (pathname.endsWith('/force-cancel')) return { conflict: true }
+      if (method === 'DELETE') return {}
+      return ancientRun
+    }
+
+    const result = await cancelRunWithFallback({
+      repo: 'owner/repo',
+      runId: 100,
+      request,
+      classifyOptions: options,
+    })
+
+    expect(result).toMatchObject({ cancelled: true, mode: 'delete-run' })
+    expect(calls).toEqual([
+      ['/repos/owner/repo/actions/runs/100/cancel', 'POST'],
+      ['/repos/owner/repo/actions/runs/100', 'GET'],
+      ['/repos/owner/repo/actions/runs/100/force-cancel', 'POST'],
+      ['/repos/owner/repo/actions/runs/100', 'GET'],
+      ['/repos/owner/repo/actions/runs/100', 'DELETE'],
+    ])
+  })
+
+  it('refuses delete-run if the second fresh recheck becomes protected', async () => {
+    const calls = []
+    let getCount = 0
+    const request = async (pathname, requestOptions = {}) => {
+      const method = requestOptions.method || 'GET'
+      calls.push([pathname, method])
+      if (pathname.endsWith('/cancel')) return { conflict: true }
+      if (pathname.endsWith('/force-cancel')) return { conflict: true }
+      if (method === 'GET') {
+        getCount += 1
+        if (getCount === 1) {
+          return run({ id: 100, created_at: ZOMBIE_CREATED })
+        }
+        return run({ id: 100, created_at: ZOMBIE_CREATED, head_branch: 'main' })
+      }
+      throw new Error(`unexpected ${method} ${pathname}`)
+    }
+
+    const result = await cancelRunWithFallback({
+      repo: 'owner/repo',
+      runId: 100,
+      request,
+      classifyOptions: options,
+    })
+
+    expect(result).toMatchObject({
+      cancelled: false,
+      mode: 'force-cancel',
+      reason: 'became-ineligible-before-delete-run',
+    })
+    expect(calls).toEqual([
+      ['/repos/owner/repo/actions/runs/100/cancel', 'POST'],
+      ['/repos/owner/repo/actions/runs/100', 'GET'],
+      ['/repos/owner/repo/actions/runs/100/force-cancel', 'POST'],
+      ['/repos/owner/repo/actions/runs/100', 'GET'],
+    ])
+  })
+
+  it('refuses delete-run for a stale candidate that is younger than GitHub\'s two-week deletion minimum', async () => {
+    const calls = []
+    const request = async (pathname, requestOptions = {}) => {
+      const method = requestOptions.method || 'GET'
+      calls.push([pathname, method])
+      if (pathname.endsWith('/cancel')) return { conflict: true }
+      if (pathname.endsWith('/force-cancel')) return { conflict: true }
+      if (method === 'GET') return run({ id: 100 })
+      throw new Error(`unexpected ${method} ${pathname}`)
+    }
+
+    const result = await cancelRunWithFallback({
+      repo: 'owner/repo',
+      runId: 100,
+      request,
+      classifyOptions: options,
+    })
+
+    expect(result).toMatchObject({
+      cancelled: false,
+      mode: 'force-cancel',
+      reason: 'younger-than-delete-run-minimum',
+    })
+    expect(calls).toEqual([
+      ['/repos/owner/repo/actions/runs/100/cancel', 'POST'],
+      ['/repos/owner/repo/actions/runs/100', 'GET'],
+      ['/repos/owner/repo/actions/runs/100/force-cancel', 'POST'],
+      ['/repos/owner/repo/actions/runs/100', 'GET'],
+    ])
+  })
 })
