@@ -245,6 +245,16 @@ const SLEEP_SCIENCE: GuideCard[] = [
     desc: 'Mechanism is real, intervention evidence is mixed, and bedtime screens affect sleep through more than wavelength alone.',
   },
   {
+    href: '/articles/sleep-temperature-and-cooling/',
+    title: 'Sleep Temperature and Cooling',
+    desc: 'Heat reliably matters, but randomized cooling-bedding evidence does not support assuming every cooling product improves sleep.',
+  },
+  {
+    href: '/articles/time-restricted-eating-and-sleep/',
+    title: 'Time-Restricted Eating and Sleep',
+    desc: 'Recent meta-analyses disagree in informative ways: controlled trials do not establish a dependable sleep benefit from fasting windows.',
+  },
+  {
     href: '/articles/exercise-timing-and-sleep/',
     title: 'Exercise Timing and Sleep',
     desc: 'The 2026 morning-vs-evening review: flexible timing, with intensity and proximity to bed as the bigger variables.',
@@ -390,7 +400,7 @@ export default function SleepGuideIndex() {
         <HubSectionHeading
           eyebrow="Sleep science"
           title="Understand the measurements and upstream variables"
-          sub="Onset, maintenance, study design, wearables, regularity, catch-up sleep, caffeine, alcohol, light, exercise, naps and the difference between insomnia and simply not getting enough sleep."
+          sub="Onset, maintenance, study design, wearables, regularity, catch-up sleep, caffeine, alcohol, light, temperature, meal timing, exercise, naps and the difference between insomnia and simply not getting enough sleep."
         />
         <GuideCardGrid cards={SLEEP_SCIENCE} />
       </section>
