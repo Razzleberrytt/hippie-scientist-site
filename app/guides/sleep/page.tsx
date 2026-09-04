@@ -172,6 +172,11 @@ const RESEARCH_ARTICLES: GuideCard[] = [
     desc: 'Direct insomnia PSG evidence, the older tea trial and the newer standardized-extract RCT separated by endpoint and formulation.',
   },
   {
+    href: '/articles/lemon-balm-for-sleep/',
+    title: 'Lemon Balm for Sleep',
+    desc: 'Newer standardized-extract RCTs look promising, while combination trials and formulation differences keep the verdict cautious.',
+  },
+  {
     href: '/articles/l-tryptophan-for-sleep/',
     title: 'L-Tryptophan for Sleep',
     desc: 'Why the modern synthesis points more toward wake-after-sleep-onset than a blanket sleep-latency claim.',
@@ -180,6 +185,26 @@ const RESEARCH_ARTICLES: GuideCard[] = [
     href: '/articles/5-htp-for-sleep/',
     title: '5-HTP for Sleep',
     desc: 'A small 2024 older-adult RCT, very limited insomnia evidence, and the serotonergic safety context.',
+  },
+  {
+    href: '/articles/oral-gaba-for-sleep/',
+    title: 'Oral GABA for Sleep',
+    desc: 'The systematic review still calls the sleep evidence very limited; newer small RCTs add signals without settling efficacy.',
+  },
+  {
+    href: '/articles/omega-3-and-sleep/',
+    title: 'Omega-3 and Sleep',
+    desc: 'A newer positive RCT meta-analysis versus an earlier adult-null synthesis, separated by endpoint instead of flattened into one claim.',
+  },
+  {
+    href: '/articles/vitamin-d-and-sleep/',
+    title: 'Vitamin D and Sleep',
+    desc: 'Meta-analytic sleep-quality signals with uncertain effects on sleep quantity and disorders — a nutrient-status question, not a sedative.',
+  },
+  {
+    href: '/articles/hops-for-sleep/',
+    title: 'Hops for Sleep',
+    desc: 'Mostly valerian+hops combination evidence, including a small 2025 feasibility RCT that cannot establish a standalone hops effect.',
   },
   {
     href: '/articles/sleep-supplement-formulations/',
