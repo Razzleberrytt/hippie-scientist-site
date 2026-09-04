@@ -54,7 +54,7 @@ describe('sleep circadian and schedule upgrades', () => {
         }),
         expect.objectContaining({
           label: 'Circadian tools',
-          value: expect.stringMatching(/not.*generic bedtime sedative rule/i),
+          value: expect.stringMatching(/neither.*generic bedtime sedative rule/i),
         }),
       ]),
     )
@@ -110,7 +110,7 @@ describe('sleep circadian and schedule upgrades', () => {
       expect.arrayContaining([
         expect.objectContaining({
           label: 'Nap-rule boundary',
-          value: expect.stringMatching(/20- to 30-minute rule.*not.*guarantee/i),
+          value: expect.stringMatching(/20- to 30-minute rule.*context-dependent.*guarantee/i),
         }),
         expect.objectContaining({
           label: 'Countermeasure boundary',
