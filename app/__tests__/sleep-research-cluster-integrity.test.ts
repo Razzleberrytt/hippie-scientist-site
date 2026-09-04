@@ -59,6 +59,8 @@ const REQUIRED_RESEARCH_ARTICLES = [
   'menopause-and-sleep',
   'pregnancy-postpartum-and-sleep',
   'chronic-pain-and-sleep',
+  'sleep-in-older-adults',
+  'teen-adolescent-sleep',
   'cbt-i-vs-sleep-supplements',
   'sleep-apnea-vs-insomnia',
   'mouth-taping-for-sleep',
@@ -177,6 +179,8 @@ describe('sleep research cluster integrity', () => {
     const menopause = read('content/articles/menopause-and-sleep.md').replace(/\s+/g, ' ')
     const pregnancy = read('content/articles/pregnancy-postpartum-and-sleep.md').replace(/\s+/g, ' ')
     const pain = read('content/articles/chronic-pain-and-sleep.md').replace(/\s+/g, ' ')
+    const olderAdults = read('content/articles/sleep-in-older-adults.md').replace(/\s+/g, ' ')
+    const adolescents = read('content/articles/teen-adolescent-sleep.md').replace(/\s+/g, ' ')
 
     expect(menopause).toMatch(/hot flash|vasomotor/i)
     expect(menopause).toMatch(/CBT-I|sleep apnea|restless legs/i)
@@ -184,6 +188,10 @@ describe('sleep research cluster integrity', () => {
     expect(pregnancy).toMatch(/pregnancy.*safety|breastfeeding|lactation/i)
     expect(pain).toMatch(/bidirectional|feedback loop/i)
     expect(pain).toMatch(/insomnia.*improve.*pain|sleep.*improve.*pain/i)
+    expect(olderAdults).toMatch(/normal aging|age-related change/i)
+    expect(olderAdults).toMatch(/CBT-I|sleep apnea|polypharmacy/i)
+    expect(adolescents).toMatch(/not automatically a sleep disorder|night owl.*not automatically/i)
+    expect(adolescents).toMatch(/insufficient sleep.*insomnia|sleep opportunity.*insomnia/i)
   })
 
   it('keeps legacy dream and sedative posts free of the removed DIY dosing and stacking recipes', () => {
