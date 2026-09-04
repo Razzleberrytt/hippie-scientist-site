@@ -15,6 +15,7 @@ This phase turns the sleep section from a supplement-focused cluster into a broa
 - Subjective versus objective sleep measurement.
 - Why sleep studies disagree.
 - Wearable sleep-tracker accuracy.
+- Sleep debt and recovery dynamics: different outcomes recover at different rates after restriction.
 
 ### Circadian and schedule
 - Night-owl chronotype versus delayed sleep-wake phase disorder.
@@ -40,7 +41,10 @@ This phase turns the sleep section from a supplement-focused cluster into a broa
 - Sleep apnea versus insomnia.
 - Restless legs and iron evaluation.
 - Nocturia and sleep.
+- Daytime sleepiness versus fatigue, including microsleep and hypersomnolence boundaries.
+- REM sleep behavior disorder and dream-enactment red flags.
 - Chronic pain and sleep.
+- Migraine and sleep (merged in parallel through PR #5187).
 - Menopause and sleep.
 - Pregnancy/postpartum sleep.
 - Older-adult sleep.
@@ -101,16 +105,23 @@ This preserves both goals:
 - rapid autonomous content/research iteration; and
 - a deployable, provenance-checked production branch.
 
+## Governed continuation implemented on this PR
+
+The recovery PR also adds three high-value evidence pages without writing directly to `main`:
+- `sleep-debt-and-recovery`;
+- `daytime-sleepiness-vs-fatigue`;
+- `rem-sleep-behavior-disorder-red-flags`.
+
+These intentionally expand the diagnostic/science layer rather than adding more low-certainty supplement content.
+
 ## Next research targets
 
 High-value remaining candidates should be screened for duplication and evidence quality before publication. Likely next topics include:
 - hypersomnia versus insufficient sleep;
-- morning grogginess versus excessive daytime sleepiness;
-- sleep debt and recovery limits;
-- parasomnias / REM behavior red flags;
 - bruxism and sleep;
 - nasal obstruction and sleep-disordered breathing;
-- sleep and headache/migraine;
-- medication-induced insomnia or sleepiness.
+- medication-induced insomnia or sleepiness;
+- sleep paralysis and nightmare/parasomnia differentiation;
+- circadian advanced sleep phase / early-morning waking.
 
 Prioritize topics that expand diagnostic decision coverage or correct common high-volume sleep myths before adding more low-certainty supplement pages.
