@@ -5,37 +5,32 @@
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
-**Immediate work:** Only tickets present in [CURRENT_SPRINT.md](CURRENT_SPRINT.md) may be started. Closed/completed work must be removed from active sections on the next control-plane sync.
+**Immediate work:** Only tickets present in [CURRENT_SPRINT.md](CURRENT_SPRINT.md) may be started. Closed/completed work must never occupy actionable state.
 
 ## Scoring and gates
 
 `Score = (Business Impact × User Value × Traffic Potential × Strategic Leverage × Confidence) / Effort`
 
-Business impact, user value, traffic potential, strategic leverage, and effort use 1–5. Confidence is 0.50, 0.75, or 1.00. Higher is better; effort is the denominator. Dependencies and evidence/safety/provenance/disclosure/accessibility/security/release gates override numeric score.
+Business Impact, User Value, Traffic Potential, Strategic Leverage, and Effort use 1–5. Confidence is 0.50, 0.75, or 1.00. Higher is better; Effort is the denominator. Dependencies and evidence/safety/provenance/disclosure/accessibility/security/release gates override numeric score.
 
-The formula remains singular. **Strategic Leverage explicitly includes dependency-unlock value**: shared infrastructure, recurring throughput unlocked, and the number/importance of otherwise blocked high-value items may raise that existing input. **Confidence is freshness-sensitive**: when a ranked item's score depends on external demand, production state, analytics, platform behavior, or an unresolved technical assumption, the item must carry a current `last_verified` date/scope before promotion. Stale assumptions lower Confidence or force revalidation; they do not receive a hidden bonus or a second score. Safety, scientific correctness, production incidents, accessibility blockers, and other hard gates are never weakened by freshness mechanics.
+The formula remains singular. Strategic Leverage may include dependency-unlock value. Confidence is freshness-sensitive. Fresh page-level AI citation telemetry may update existing **Traffic Potential**, **Strategic Leverage**, or **Confidence** inputs when the relationship to a candidate is explicit and the snapshot is current.
 
-Fresh page-level AI citation telemetry may update the existing **Traffic Potential**, **Strategic Leverage**, or **Confidence** inputs when the relationship to a ticket is explicit and the snapshot is current. Citations are evidence of answer-engine reuse, not traffic, ranking, conversion, revenue, or causal lift. `config/ai-citation-swarm-priorities.json` is the current derived signal snapshot; `docs/AI-CITATION-GROWTH-LOOP.md` defines its use. No hidden citation multiplier or second score is permitted.
+Citation counts are evidence of answer-engine reuse, **not** traffic, ranking, conversion, revenue, or causal lift. `config/ai-citation-swarm-priorities.json` is the current derived signal snapshot; `docs/AI-CITATION-GROWTH-LOOP.md` defines its use. No hidden citation multiplier or second backlog score is permitted.
 
-Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conversion, and **A** Authority/Content, with one active ticket per workstream. **O** Operations remains a classification, not a fourth normal workstream. The Evidence → Distribution surfaces—**L1 rendering/media infrastructure, L2 factual/provenance, L3 opportunity/measurement, L4 presentation/experiments, L5 lifecycle/publishing**—describe ownership, not permission for concurrent Revenue/Conversion tickets.
+Normal implementation workstreams are Discovery/SEO, Revenue/Conversion, and Authority/Content, with one active ticket per workstream and a total WIP cap of three. Operations remains a classification, not a fourth normal workstream.
 
 ### Backlog hygiene rules
 
-- GitHub issue/PR state outranks stale prose in this file.
-- A merged/closed item may remain only in a completed/history section, never in `Now`.
-- An open PR that already owns a problem outranks creating a duplicate ticket.
-- The normal sprint WIP cap is three implementation tickets. If an urgent control/incident repair temporarily causes overflow, the exception must be explicit and **admission freezes until active WIP falls below the cap**; temporary overflow never silently raises the permanent limit.
-- External-access blockers stay explicit; they do not become fake PASS states and do not freeze unrelated legal work.
-- Externally contingent ranked work must expose a current `last_verified` scope/date before promotion. Stale evidence lowers Confidence or requires revalidation.
-- Strategic Leverage may reflect dependency-unlock value; no separate unlock score is permitted.
-- Fresh AI citation evidence may strengthen existing score inputs but never bypass Ready/dependency/canonical/scientific/safety/provenance/accessibility/release gates.
-- For discretionary citation-driven selection, target roughly 65% citation-adjacent capacity while preserving a 35% exploration floor; this is a portfolio rule, not a scoring formula.
-- High-citation winners should receive additive/reversible changes by default; broad identity/route/answer-structure changes require migration/rollback and fresh-measurement proof.
-- Before promoting an experiment, check the durable experiment-learning history from merged #4414. A materially equivalent prior test requires an explicit changed assumption/retest condition.
-- Observed attributable outcomes may update Business Impact, Traffic Potential, Strategic Leverage, or Confidence; they do not create a second scoring formula.
-- Scale decisions should prefer **marginal qualified outcome per incremental resource** over gross output when the required observations exist. Missing effort/cost/outcome data remains `Unknown`, never invented.
-- Safety/scientific correctness, publication integrity, production incidents, security, accessibility blockers, and crawl/indexing regressions may override numeric ordering.
-- No broad auto-publishing is authorized until factual fidelity, attribution, lifecycle receipts, rollback, measurement quality, and channel-policy checks are proven.
+- GitHub issue/PR state outranks stale prose.
+- An open PR that owns an issue must be recorded with its active issue in the control tables.
+- A merged/closed item may remain only in completed/history sections.
+- Fresh AI citation evidence may strengthen existing score inputs but cannot bypass Ready/dependency/canonical/scientific/safety/provenance/accessibility/release gates.
+- For discretionary citation-driven selection, target roughly **65% citation-adjacent capacity** while preserving a **35% exploration floor**. This is a portfolio rule, not a scoring formula.
+- High-citation winners default to additive/reversible changes; identity, canonical, route, or broad answer-structure changes require migration/rollback and a fresh-measurement plan.
+- Safety/scientific correctness, publication integrity, production incidents, security, accessibility blockers, and crawl/indexing regressions override numeric ordering.
+- Before repeating an equivalent experiment, check the durable experiment-learning history and name the changed assumption/retest condition.
+- Missing cost, analytics, traffic, revenue, conversion, or attributable-outcome observations remain `Unknown`.
+- No broad auto-publishing is authorized by citation success alone.
 
 ## Milestone projection
 
@@ -51,118 +46,94 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Fresh GitHub reconciliation on 2026-09-04 shows **1/3 normal implementation workstreams occupied**:
+Fresh reconciliation shows **1/3 normal implementation workstreams occupied**:
 
-| Ticket | Title | Lane | Status |
-|---|---|---|---|
-| #5206 | Capitalize on Bing AI citation winners and wire signals into swarm priority | D / L3 | In progress on `ths/ai-citation-growth-loop-2026-09-04` | Fresh Page Stats export: 16,204 citations across 91 URLs; top two pages contribute 53.17%. Integrate derived signals, winner protection, cluster execution rules, and swarm coordination without creating a second score or weakening gates. |
+| Ticket | Title | Lane | Status | Current proof boundary |
+|---|---|---|---|---|
+| #5206 / PR #5210 | Capitalize on Bing AI citation winners and wire signals into swarm priority | D / L3 | In progress | 2026-09-04 Page Stats export: 16,204 citations across 91 URLs; top two pages contribute 53.17%. Integrate derived signals, winner protection, cluster execution, and bounded citation-aware scheduling without creating a second score or weakening gates. |
 
-- **R — free:** #5076 is Ready next for the bounded post-answer sleep-research next-action path; implementation must preserve answer-first evidence/safety ordering, newsletter privacy/tag semantics, accessibility, scientific/recommendation boundaries, and Lane-3 destination ownership.
-- **A — free:** #5021 / PR #5028 completed and deployed the governed Vitamin B6 evidence/safety closure with five promoted findings plus one governed non-promotion; it no longer occupies the active or ready queue.
-- **D — occupied:** #5206 owns the fresh AI-citation activation pass. PR #5084 already provides winner identity-protection infrastructure; the 2026-09-04 page-level telemetry resolves the prior data gap.
+- **D — occupied:** #5206 / PR #5210 owns the citation activation pass.
+- **R — free:** #5076 is completed/retired and is not a queue candidate.
+- **A — free:** no new Authority/Content ticket is promoted solely to fill capacity.
 
-Research-only enrichment staging remains separate from canonical implementation/promotion WIP. Completed Vitamin B6, AI-citation protection, and newsletter CTA repair work is retired below rather than recycled into the actionable queue. No stale item is admitted merely because a normal workstream is free.
+Research-only enrichment staging remains separate from canonical implementation/promotion WIP.
 
 ## Next — ordered dependency queue
 
-Start the highest legal item only when a real WIP slot exists. Do not bypass a dependency merely because a lower-level implementation is easy. An item assigned to a currently occupied workstream waits for that workstream to release its slot.
+No additional normal implementation ticket is currently promoted. Revalidate current GitHub state, exact-main overlap, evidence freshness, collision risk, and the 65/35 citation portfolio before promoting another item.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| #5076 | Add reusable post-answer sleep research next-action path | R conversion / L4 | Ready next | P2 conversion/retention | — | — | Open issue revalidated 2026-09-04; Revenue/Conversion free; fresh Page Stats telemetry now strongly supports sleep demand/authority, but #5206 owns winner-protection and canonical-intent boundaries; re-fetch exact main, lane overlap, and Lane-3 destination ownership before mutation | One reusable claim-neutral component; integrate only 2–3 representative sleep guides after direct answer + evidence/safety boundary; canonical sleep-hub + newsletter-interest actions; preserve privacy/tag/accessibility/scientific/recommendation contracts; focused component/page-order/mobile/a11y regressions; exact-head gates green; verify live placement after deploy; business outcomes remain `Unknown` until observed |
-| DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous reconciliation maintenance | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
+| DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous reconciliation maintenance | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every actionable issue is current; stale closed work never occupies `Now` or `Next`; open owning PRs are recorded with active issues. |
+
+## Citation-backed opportunity map
+
+The current derived snapshot establishes the following strategic order. This is opportunity evidence, not automatic implementation authority.
+
+| Order | Opportunity | Evidence | Backlog treatment |
+|---:|---|---|---|
+| 1 | Defend natural-sleep-aids winner | 5,424 citations | Higher change bar; preserve identity/direct-answer/evidence/safety structure; prefer additive work |
+| 2 | Defend supplements-for-stress winner | 3,192 citations | Higher change bar; expand adjacent stress/anxiety evidence and post-answer paths |
+| 3 | Expand Sleep cluster | 7,235 citations / 16 cited URLs | Prioritize non-duplicate, scientifically eligible adjacency and internal-link coherence |
+| 4 | Expand Stress/Anxiety cluster | 5,164 citations / 10 cited URLs | Prioritize evidence/safety depth, comparisons, and coherent cluster ownership |
+| 5 | Audit sleep intent/canonical overlap | Multiple cited near-overlapping routes | Resolve intent/canonical/redirect/sitemap/internal-link ownership before creating more similar pages |
+| 6 | Strengthen ADHD canonical hub | 341 citations across 19 URLs | Use broad spoke citation footprint to test hub consolidation rather than producing another disconnected wave |
+| 7 | Protect commercial-adjacent trust winners | Mushroom coffee 472; supplement-quality 444 | Add transparent downstream journeys only after answer/evidence/safety content |
+| 8 | Expand proven herb/compound spokes | Valerian 827; kava 417; rhodiola 122; L-theanine ADHD 101 | Prefer evidence/safety/comparison adjacency under normal scientific gates |
+
+The coordinator should use `config/ai-citation-swarm-priorities.json` during workpack selection and refresh it from a new page-level export rather than treating the 2026-09-04 snapshot as permanent truth.
 
 ## Blocked — important but not startable
 
 | ID | Title | WS | Status | Score | Blocker / next legal action |
 |---|---|---|---|---:|---|
-| REV-001 / #4280 | Verify production analytics and governed funnel events | R | Blocked external access | 400.0 | Authorized production environment + GA4/Ahrefs receipt evidence; code readiness already merged, but production receipt remains Unknown |
-| SEO-004 | Import aligned 28-day GSC opportunity baseline | D | Blocked external access | 375.0 | Search Console/service-account access or dated export |
-| REV-002 | Establish aligned funnel/revenue baseline | R | Blocked external access | 375.0 | REV-001 plus GA4/GSC/Amazon/Mailchimp data; partial source-level observations may still be recorded honestly |
-| REV-003 | Select one flagship commercial decision page | R | Blocked | 375.0 | SEO-004 + REV-002 aligned data |
+| REV-001 / #4280 | Verify production analytics and governed funnel events | R | Blocked external access | 400.0 | Obtain authorized production analytics receipt; code readiness alone is not observation proof |
+| SEO-004 | Import aligned 28-day GSC opportunity baseline | D | Blocked external access | 375.0 | Supply authorized Search Console access/export with exact dates |
+| REV-002 | Establish aligned funnel/revenue baseline | R | Blocked external access | 375.0 | Reconcile GA4/GSC/Amazon/Mailchimp once source access exists |
+| REV-003 | Select one flagship commercial decision page | R | Blocked | 375.0 | Requires aligned SEO/revenue baseline rather than citation data alone |
 | SEO-002 | Recover reviewed flagship profile source roles | D | Blocked review dependency | 117.2 | Review existing source-role work before duplicating; never force indexability |
-| AUTH-003 | Upgrade selected flagship decision page | A | Blocked | 117.2 | REV-003/REV-004 + evidence review |
-| REV-004 | Validate flagship disclosure/destinations | R | Blocked | 67.5 | REV-003 selected page |
-| AUTH-002 | Strengthen links to selected flagship | A | Blocked | 54.0 | REV-003 selected page |
-| #4782 | Canonical bicarbonate → sodium-bicarbonate migration | A/O canonical | Blocked on real governor lease | — | After #4963 is merged, use the owner-authorized bridge to acquire and merge a valid state-only lease transaction before canonical owner migration |
-| #4783 | Resolve duplicate CoQ10 generated-data owners | A/O canonical | Blocked on real governor lease | — | After #4963 is merged, use the owner-authorized bridge to acquire and merge a valid state-only lease transaction before canonical owner/data migration |
-| #4014 | Enforce `main` branch protection/ruleset | O | Blocked external settings | — | Authorized repository settings action; documentation alone is not enforcement |
-| #4341 | Resolve recurring Cloudflare production deployment failure class | O | Blocked external logs | — | Inspect Cloudflare production logs/failed deployment class, then repair only if repository/config root cause is proven |
+| AUTH-003 | Upgrade selected flagship decision page | A | Blocked | 117.2 | Requires selected flagship plus evidence review |
+| REV-004 | Validate flagship disclosure/destinations | R | Blocked | 67.5 | Requires selected flagship |
+| AUTH-002 | Strengthen links to selected flagship | A | Blocked | 54.0 | Requires selected flagship |
+| #4782 | Canonical bicarbonate → sodium-bicarbonate migration | A/O canonical | Blocked on real governor lease | — | Acquire and merge valid owner-authorized lease transaction before canonical migration |
+| #4783 | Resolve duplicate CoQ10 generated-data owners | A/O canonical | Blocked on real governor lease | — | Acquire and merge valid owner-authorized lease transaction before canonical owner/data migration |
+| #4014 | Enforce `main` branch protection/ruleset | O | Blocked external settings | — | Apply/verify with authorized repository-settings access |
+| #4341 | Resolve recurring Cloudflare production deployment failure class | O | Blocked external logs | — | Inspect provider deployment logs and repair only a proven deterministic repository/config root cause |
 
 ## Later — only after dependency proof
 
 | ID | Title | WS | Status | Dependency / stop rule |
 |---|---|---|---|---|
-| DIST-VIDEO-001 | Deterministic 30-second vertical-video renderer | R/L1 | Planned | Accessible motion contract #4717/#4718 is merged; final encoding/rendering still requires a separately admitted provenance-bound implementation and factual narration remains governed |
-| DIST-GEN-001 | Optional generative B-roll adapter | R/L1/L4 | Planned | Generated media remains visual-only and non-authoritative; no need to implement before measurable distribution MVP |
-| ENGINE-001 | Codify repeatable decision-page qualification/proof | A | Planned | Requires M2 flagship result; avoid template-driven filler |
-| CLUSTER-001 | Expand one validated authority cluster | A | Planned | Fresh Bing AI citation evidence now validates sleep and stress/anxiety demand/authority, but broad cluster scaling still requires a repeatable page engine, non-duplicate intent map, and positive marginal qualified outcomes rather than citation count alone |
+| DIST-VIDEO-001 | Deterministic 30-second vertical-video renderer | R/L1 | Planned | Requires separately admitted provenance-bound implementation |
+| DIST-GEN-001 | Optional generative B-roll adapter | R/L1/L4 | Planned | Generated media remains visual-only/non-authoritative; no need before measurable distribution MVP |
+| ENGINE-001 | Codify repeatable decision-page qualification/proof | A | Planned | Requires M2 flagship result; avoid template filler |
+| CLUSTER-001 | Expand one validated authority cluster | A | Planned | Fresh citation data validates demand/authority for Sleep and Stress/Anxiety, but broad scaling still requires non-duplicate intent ownership and positive marginal qualified outcomes |
 | AUTO-001 | Automate publication-governance anomaly reporting | O | Planned | Stable truth and known baselines first |
-| EMAIL-001 | Validate/optimize email conversion journey | R | Planned | REV-001/002 + Mailchimp access |
-| PARTNER-001 | Evidence-safe partnership policy/pilot | R | Planned | Proven decision/growth economics; independence/disclosure safeguards |
+| EMAIL-001 | Validate/optimize email conversion journey | R | Planned | Requires attributable analytics/Mailchimp access |
+| PARTNER-001 | Evidence-safe partnership policy/pilot | R | Planned | Requires proven economics and disclosure/independence safeguards |
 
-## Recently completed / retired from active queue
+## Recently completed / retired from actionable state
 
-These are capability proofs, not claims of business impact.
+These are capability proofs, not business-impact claims.
 
 | Item | Verified disposition |
 |---|---|
-| #5031 / PR #5090 | Merged as `7b110d7a19c51e08de3d3b112ac36e96824bfd27`; explicit newsletter capture titles remove the duplicated `research` trust defect while preserving provider, tag, privacy, analytics and scientific boundaries. Exact-main deployment verification completed. Conversion lift remains `Unknown` until attributable observations exist. |
-| #5021 / PR #5028 | Merged as `27613f9fba936c78cb024d1381811d2b2da159c9`; five Vitamin B6 findings were governed promoted and one was governed non-promoted, neuropathy dose/duration boundaries were retained, generic dose placeholders removed, recommendation/monetization/indexing stayed fail-closed, and exact-main production deployment verification completed. No traffic, conversion, ranking, or revenue outcome is inferred. |
-| PR #5084 | Merged as `70ba137cbfec444557ad8c8b7ff0656f35651b61`; AI-citation asset-identity protection is on main. The fresh page-level telemetry it was waiting for was supplied on 2026-09-04 and is now owned by #5206. No incremental citation, traffic, or revenue gain is inferred from the protection merge itself. |
-| #4992 / PR #5016 / PR #5020 | Propionate closure merged as `523ba9323dd3506e51f2d1aaab53b6d0a2e49aa5`; post-merge Session E bootstrap proved all four staged findings terminal and promoted with 0 pending; verified lease release merged as `4461ac4c59aa48bafca85125f86e4a37e6ee4610`. No generic efficacy, consumer-dose, indexing, monetization, traffic, analytics, or business outcome is inferred. |
-| #4260 / PR #4999 | Merged as `754828d80ff0895b40091227d8aa1549a0f1521b`; registered PMID 41789242 / DOI 10.1097/MS9.0000000000004549, added one short-term healthy-adult adverse-effect record preserving the diarrhea estimate and null findings, regenerated governed output, and added an exact no-overclaim regression. All exact-head scientific, build, release, and control checks passed; PR #5001 released the verified lease. No efficacy, general dose, broad or long-term safety, traffic, analytics, or business outcome is inferred. |
-| #4266 / PR #4972 | Merged as `8aba655daae2aba8d07cd2ba6f32ed52f8f3b498`; registered PMID 41943502 / DOI 10.1002/ptr.70315, added three formulation- and population-bounded KSM-66 safety records, regenerated governed output, and added an exact no-overclaim regression. All required exact-head checks passed, and PR #4976 released the governed lease; no efficacy, general-dose, traffic, analytics, or business outcome is inferred. |
-| #4949 / #4951 / PR #4952 | Merged as `0c667ca7bd9bf49279594e7df79a806cb4c1237a`; restored caffeine/L-theanine comparison discovery, added canonical `/evidence/` and `/info/` sitemap/redirect alignment, preserved historical audit exports with tombstones, and passed exact-head plus post-merge release/deploy checks. No traffic, ranking, indexing, analytics, or revenue outcome is inferred. |
-| #4731 / PR #4947 | Merged as `6e32a773d908495f08fa297fc51da1cea6fb2659`; scoped unbound dose-unit, onset/duration, and comparative-efficacy label bypasses are closed with focused regressions. The separate Discovery/SEO incident exposed afterward is retired above. |
-| #4730 / PR #4858 | Merged as `44b019fa1f67ead0538076944224243a098dbfde`; stale published or paused-but-live assets preserve the governed withdrawal/receipt path while stale non-live assets remain terminal-invalid. |
-| #4784 / PR #4813 | Merged as `1e8fae58a3499c9f6a79b4338e636244620ec629`; persistent least-privilege governor transactions are implemented. Main's queue has no active lease, so downstream canonical work remains gated. |
-| #4732 / PR #4734 | Merged as `4d26d1cfacb5fb577f9216b7fa116e006e7b0a0d`; bounded Metricool adapter capability exists, while provider configuration/credentials, live scheduling, publication confirmation, and outcomes remain externally gated or Unknown. |
-| AUTH-001 / #4800 / PR #4803 | Current content-audit diagnostic run `33316024891` completed successfully and explicitly printed `AUTH_DUPLICATE_COUNT=0`; PR #4803 closed unmerged because its only change was a temporary diagnostic workflow; historical four-pair finding retired. |
-| SEO-003 / #4795 / PR #4796 | Exact-current Schema and Media Governance run `33315511238` passed shared schema regressions, static export, structured-data completeness, first-party identity/safety policy, and media checks. PR #4796 closed unmerged because its only change was diagnostic; historical 38-identity blocker retired. |
-| #4719 / PR #4720 | Merged as 90e2be7233f460919e3341f1aefd0053b1867df2 — governed export receipts bind/restore producer public/data and build-manifest state; all three exact-head consumers passed |
-| #4717 / PR #4718 | Merged as 97c877513da12137ba666451fff5f6c4f691c483 — accessible vertical-video motion contract with fail-closed primitives and zero-motion fallback; no live publication or completed encoder implied |
-| #4715 / PR #4716 | Merged as f06b1d400b465c3997121e2af49b7d3eafc3b503 — first provenance-bound carousel pilot completes dry-run scheduling only; observed dates/value remain null/Unknown |
-| #4651 / PR #4673 | Merged as 058326df0f27685072047c465a7b86729bb51b2d — six append-only Session F research fragments; zero canonical/public scientific mutations |
-| PR #4631 | Merged as 13d80681e32ff95a919651f1d0a4068fc972edee — research boundaries staged for the later completed #4266 / PR #4972 review and promotion |
-| #4227 / PR #4523 | Merged as 9f1a4fe26e7a6caab56de07c5a0f25b2f39c6f15 — exact-head governed static-export reuse; removed from `Next` |
-| #4415 / PR #4492 | Merged as 23dc2485720ff6b31043413b2b9295c4886944cb — comparable, explicitly guarded, exposure-bound economics; 42 focused and 2,866 total tests plus real production build/output/SEO passed; actual efficiency observations remain Unknown |
-| #4414 / PR #4490 | Merged as 2e67f9e55f4d96dc7d82a683a829a29b4e2298f1 — durable experiment-learning capability; no longer queued; populated history/producer adoption still requires evidence |
-| #4477 / PR #4478 | Merged as 2b25ae9beed63afe1e6c045491828e3f096037e4 — creative template catalog; no longer active |
-| PR #4491 | Merged as d726f81bc5ababbb024b86782da2e94fbc15989e — governed safety-line preservation; no longer active |
-| #4407 / PR #4484 | Merged as 6fba155c6f241af7cee38981c413bde710d56c1b — attributable outcome ingestion; final-head checks passed; real performance observations remain unverified |
-| #4413 / PR #4469 | Merged as d0936fbe7d41c84c753a8374f2a7b25047322339 — freshness/unlock-aware prioritization; retired from active ownership |
-| #4476 / PR #4475 | Merged as 65605fd2f4e9cfd85af63c14bd2a583471551bf2 — canonical evidence-grade binding; retired from active ownership |
-| #4482 / PR #4481 | Research draft staging merged as d6934eacff95b4b9dc1c3c5be2f0c8a91e9bc4a1; not scientific-promotion approval or resolution of its recorded registry blocker |
-| PR #4457 | Completed/merged as 95ec9ba285f06c947f2844a2f81abce031b9e437 — complete canonical safety-warning preservation; removed from `Now` |
-| #4412 / PR #4446 | Completed/merged as 96a07976dee22cf7b91c337c820cc83ff7e6b860 — machine reconciliation is on main; removed from `Now` |
-| #4463 | Completed/merged as f300e0e8f3ef8b9a485f0cbd8c0993725bd425b1 — trust-safe thumbnail variants are on main; removed from `Now` |
-| #4460 | Completed/merged as 48bebb81e35c4bd605dedbfc15156cabeb915b06 — duplicate-angle suppression is on main; removed from `Now` |
-| #4406 | Completed — governed ready → publish → measured lifecycle merged; removed from `Next` |
-| #4439 / PR #4440 | Completed/merged — canonical claim/source binding; removed from `Now` |
-| PR #4448 | Closed unmerged — provenance-bound vertical MP4 implementation preserved for later legal reuse and does not occupy active WIP |
-| #4447 / PR #4445 | Merged as 692d85d1a496188b4bc48113f8f64b5e94c82098 — opening hook trust contract; no longer active |
-| #4410 / PR #4411 | Merged — changed-file-relevant merge gates; temporary overflow exception retired |
-| PRs #4388, #4401, #4405 | Merged — renderer, factual receipts, and lossless presentation; implementation no longer active |
-| PR #4408 / #4409 | Merged/closed — roadmap, sprint, and master backlog synchronized to exact GitHub state on 2026-08-27 |
-| REV-005 / PR #4358 | Merged — governed media-pack contract established |
-| PR #4371 | Merged — canonical research-distribution builder emits validated media packs |
-| PR #4381 | Merged — claim-safe downstream factual-copy lint |
-| PR #4382 | Merged — deterministic governed opportunity-selection MVP |
-| PR #4384 | Merged — first governed Ashwagandha research object |
-| PR #4387 | Merged — lossless governed-copy pagination |
-| PR #4391 | Merged — deterministic attribution/discoverability metadata |
-| PR #4394 | Merged — feedback-aware opportunity guardrails |
-| PR #4395 | Merged — formulation/duration study context preserved when canonically owned |
-| PR #4397 | Merged — trust-preserving creative experiment identity/immutability contract |
-| PR #4399 | Merged — positive performance reward requires ≥250 measured views |
-| PR #4402 | Merged — roadmap optimized for measured scaling and bounded early distribution pilots |
-| #4238 | Closed/completed — normalized source-registry baseline/provenance continuation no longer active |
-| #4182 | Closed/completed — five herb/compound identity correction no longer active |
-| AUTH-004 / PR #4145 | Merged — canonical visual refinement across Herbs/Compounds browse surfaces |
-| SEO-005 / PR #4331 | Merged — Bing AI citation incident monitor; real export remains an operator input |
-| I18N-001 / PR #4332 | Merged — Japanese/Korean core locale expansion with detailed profiles still fail-closed |
+| #5076 / PR #5136 | Completed. The reusable claim-neutral `SleepResearchNextActions` surface exists on main; PR #5136 completed the second representative guide integration and closed #5076. Attributable conversion lift remains `Unknown`. |
+| #5031 / PR #5090 | Completed newsletter CTA trust-defect repair; conversion lift remains `Unknown` until attributable observation exists. |
+| #5021 / PR #5028 | Completed governed Vitamin B6 evidence/safety closure; no traffic/conversion/revenue result is inferred. |
+| PR #5084 | Completed AI-citation asset-identity protection; the fresh 2026-09-04 telemetry now supplies its intended winner input. |
+| #4415 / PR #4492 | Marginal-resource economics capability merged; real efficiency observations remain `Unknown`. |
+| #4414 / PR #4490 | Durable experiment-learning capability merged; actual producer history remains evidence-bound. |
+| #4413 / PR #4469 | Freshness/unlock-aware prioritization merged; no second score authorized. |
+| #4412 / PR #4446 | Machine reconciliation merged; control docs must still track exact GitHub state. |
+| #4407 / PR #4484 | Attributable outcome ingestion capability merged; real observed performance remains unverified. |
+| #4406 | Governed ready → publish → measured lifecycle capability completed. |
+| #4410 / PR #4411 | Changed-file-relevant merge gates merged; temporary overflow exception retired. |
+| REV-005 / PR #4358 | Governed media-pack contract merged. |
+| SEO-005 / PR #4331 | Bing AI citation incident monitor merged; authenticated export remains an operator input. |
+
+Detailed historical merge provenance remains in repository history and `docs/SWARM-UPDATES.md`. This file intentionally keeps the actionable ranking surface compact so stale completed work cannot masquerade as queue state.
 
 ## Legacy backlog disposition
 
-Historical `backlog/`, `ops/backlog/`, old sprint tickets, and old open issues are discovery inputs, not execution queues. Revalidate the underlying problem against current `main`, current production, current analytics, current AI-citation snapshot when relevant, current experiment history where applicable, and current PR overlap before promoting anything here. A large backlog is useful only if the top is trustworthy.
+Historical backlog files, old sprint tickets, old issue lists, and generated reports are discovery inputs, not execution queues. Revalidate the underlying problem against current `main`, current production, current analytics, the current citation snapshot when relevant, current experiment history, and current PR overlap before promoting anything here.
