@@ -13,10 +13,33 @@ function readJson(file, fallback = null) {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')) } catch { return fallback }
 }
 
+function portfolioSelect(ranked, limit, policy = {}) {
+  if (!Number.isInteger(limit) || limit <= 0 || ranked.length <= limit) return ranked
+  const citationTargetPct = Math.max(0, Math.min(100, Number(policy.citationAdjacentTargetPct ?? 65)))
+  const explorationFloorPct = Math.max(0, Math.min(100, Number(policy.explorationFloorPct ?? 35)))
+  const cited = ranked.filter(item => Number(item.aiCitationPriority ?? 0) > 0)
+  const exploration = ranked.filter(item => Number(item.aiCitationPriority ?? 0) <= 0)
+
+  const minExploration = Math.min(exploration.length, Math.ceil(limit * explorationFloorPct / 100))
+  const maxCitationByTarget = Math.floor(limit * citationTargetPct / 100)
+  const citationCount = Math.min(cited.length, Math.max(0, Math.min(maxCitationByTarget, limit - minExploration)))
+  const selected = [...cited.slice(0, citationCount), ...exploration.slice(0, minExploration)]
+  const selectedIds = new Set(selected.map(item => item.workpackId))
+
+  for (const item of ranked) {
+    if (selected.length >= limit) break
+    if (selectedIds.has(item.workpackId)) continue
+    selected.push(item)
+    selectedIds.add(item.workpackId)
+  }
+  return selected.sort((a,b) => b.roi.score - a.roi.score || a.workpackId.localeCompare(b.workpackId))
+}
+
 const inputFile = process.argv[2] ? path.resolve(process.argv[2]) : null
 const shard = Number(process.argv[3] ?? 0)
+const limit = Number(process.argv[4] ?? 0)
 if (!inputFile) {
-  console.error('Usage: citation-aware-schedule.mjs <workpacks.json> <shard>')
+  console.error('Usage: citation-aware-schedule.mjs <workpacks.json> <shard> [limit]')
   process.exit(2)
 }
 
@@ -38,6 +61,10 @@ if (!Number.isInteger(shard) || shard < 0 || shard >= shardCount) {
   console.error(`[citation-aware-schedule] shard must be 0..${shardCount - 1}`)
   process.exit(2)
 }
+if (!Number.isFinite(limit) || limit < 0) {
+  console.error('[citation-aware-schedule] optional limit must be a non-negative number')
+  process.exit(2)
+}
 
 const ownerResolver = createCanonicalOwnerResolver({ root: ROOT })
 const ranked = scheduleShard(
@@ -48,6 +75,7 @@ const ranked = scheduleShard(
   ownerResolver.resolveWorkpack,
   { aiCitationManifest: signals },
 )
+const selected = portfolioSelect(ranked, Math.floor(limit), signals.capacityPolicy)
 
 const summary = {
   snapshotLabel: signals.snapshotLabel ?? null,
@@ -55,10 +83,12 @@ const summary = {
   capacityPolicy: signals.capacityPolicy ?? null,
   shard,
   shardCount,
-  workpacks: ranked.length,
-  directlyDefended: ranked.filter(item => item.aiCitationDefend === true).length,
-  citationAdjacent: ranked.filter(item => Number(item.aiCitationPriority ?? 0) > 0).length,
+  availableWorkpacks: ranked.length,
+  selectedWorkpacks: selected.length,
+  directlyDefended: selected.filter(item => item.aiCitationDefend === true).length,
+  citationAdjacent: selected.filter(item => Number(item.aiCitationPriority ?? 0) > 0).length,
+  exploration: selected.filter(item => Number(item.aiCitationPriority ?? 0) <= 0).length,
 }
 
-console.error(`[citation-aware-schedule] snapshot=${summary.snapshotLabel ?? 'unknown'} shard=${shard}/${shardCount} workpacks=${ranked.length} citation-adjacent=${summary.citationAdjacent}`)
-console.log(JSON.stringify({ summary, workpacks: ranked }, null, 2))
+console.error(`[citation-aware-schedule] snapshot=${summary.snapshotLabel ?? 'unknown'} shard=${shard}/${shardCount} selected=${selected.length}/${ranked.length} citation-adjacent=${summary.citationAdjacent} exploration=${summary.exploration}`)
+console.log(JSON.stringify({ summary, workpacks: selected }, null, 2))
