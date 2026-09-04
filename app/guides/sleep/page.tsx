@@ -265,6 +265,11 @@ const SLEEP_SCIENCE: GuideCard[] = [
     desc: 'Vaping associations, smoking-cessation withdrawal and why temporary quit-related insomnia does not mean nicotine improves sleep.',
   },
   {
+    href: '/articles/otc-antihistamines-for-sleep/',
+    title: 'OTC Antihistamines for Sleep',
+    desc: 'Why diphenhydramine and doxylamine sedation is not the same as a strong chronic-insomnia treatment, with anticholinergic and next-day tradeoffs.',
+  },
+  {
     href: '/articles/morning-light-and-sleep-timing/',
     title: 'Morning Light and Sleep Timing',
     desc: 'Circadian phase shifting, recent insomnia meta-analyses, and why the clock time of light exposure changes its effect.',
@@ -285,6 +290,11 @@ const SLEEP_SCIENCE: GuideCard[] = [
     desc: 'Heat reliably matters, but randomized cooling-bedding evidence does not support assuming every cooling product improves sleep.',
   },
   {
+    href: '/articles/warm-bath-shower-before-bed/',
+    title: 'Warm Bath or Shower Before Bed',
+    desc: 'A meta-analytic sleep-onset signal that complements—not contradicts—cool-bedroom thermoregulation evidence.',
+  },
+  {
     href: '/articles/time-restricted-eating-and-sleep/',
     title: 'Time-Restricted Eating and Sleep',
     desc: 'Recent meta-analyses disagree in informative ways: controlled trials do not establish a dependable sleep benefit from fasting windows.',
@@ -298,6 +308,26 @@ const SLEEP_SCIENCE: GuideCard[] = [
     href: '/articles/naps-and-nighttime-sleep/',
     title: 'Naps and Nighttime Sleep',
     desc: 'Sleep pressure, nap timing, cognitive benefits and the very different logic of shift-work napping.',
+  },
+  {
+    href: '/articles/white-noise-and-sleep/',
+    title: 'White Noise and Sleep',
+    desc: 'A newer positive RCT meta-analysis updates—but does not erase—the older very-low-certainty review.',
+  },
+  {
+    href: '/articles/music-for-sleep/',
+    title: 'Music for Sleep',
+    desc: 'Moderate Cochrane evidence for subjective sleep quality, with much weaker objective sleep changes and no proven magic frequency.',
+  },
+  {
+    href: '/articles/weighted-blankets-for-sleep/',
+    title: 'Weighted Blankets for Sleep',
+    desc: 'Promising adult insomnia data, weaker objective findings and pooled estimates that remain sensitive to study selection.',
+  },
+  {
+    href: '/articles/mindfulness-for-insomnia/',
+    title: 'Mindfulness for Insomnia',
+    desc: 'Why improvement versus waitlist is not the same as an advantage over active controls or full CBT-I.',
   },
   {
     href: '/articles/insomnia-vs-sleep-deprivation/',
@@ -316,6 +346,11 @@ const WHEN_SUPPLEMENTS_ARE_NOT_THE_MAIN_QUESTION: GuideCard[] = [
     href: '/articles/sleep-apnea-vs-insomnia/',
     title: 'Sleep Apnea vs Insomnia',
     desc: 'COMISA can combine insomnia with obstructive sleep apnea, and sedation does not treat airway obstruction.',
+  },
+  {
+    href: '/articles/mouth-taping-for-sleep/',
+    title: 'Mouth Taping for Sleep',
+    desc: 'A viral sleep hack with narrow evidence, important nasal-obstruction safety limits, and a very different role in selected CPAP users.',
   },
   {
     href: '/articles/restless-legs-iron-and-sleep/',
@@ -435,7 +470,7 @@ export default function SleepGuideIndex() {
         <HubSectionHeading
           eyebrow="Sleep science"
           title="Understand the measurements and upstream variables"
-          sub="Onset, maintenance, study design, wearables, regularity, catch-up sleep, caffeine, alcohol, cannabis, nicotine, light, temperature, meal timing, exercise, naps and the difference between insomnia and simply not getting enough sleep."
+          sub="Onset, maintenance, study design, wearables, substances, OTC drugs, light, temperature, meal timing, sound, relaxation, exercise, naps and the difference between insomnia and simply not getting enough sleep."
         />
         <GuideCardGrid cards={SLEEP_SCIENCE} />
       </section>
