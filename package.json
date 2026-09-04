@@ -195,6 +195,7 @@
     "validate:safety-visibility": "node scripts/ci/validate-safety-visibility.mjs",
     "validate:security-headers": "node scripts/ci/validate-security-headers.mjs",
     "validate:hub-child-coverage": "node scripts/ci/validate-hub-child-coverage.mjs",
+    "report:faq-coverage": "tsx scripts/ci/report-faq-coverage.ts",
     "validate:canonical-host": "node scripts/validators/validate-canonical-host.mjs",
     "validate:fonts": "node scripts/validators/validate-no-google-font-build-dependency.mjs",
     "validate:pagefind-body": "node scripts/validators/validate-pagefind-body.mjs",

@@ -7,6 +7,31 @@ import { afterEach, describe, expect, it } from 'vitest'
 const auditScript = path.join(process.cwd(), 'scripts/ci/audit-high-with-allowlist.mjs')
 const tempDirs = []
 
+/**
+ * Build the child environment with case-insensitive overrides.
+ *
+ * `{ ...process.env, npm_execpath: fake }` is not enough on Windows. Environment
+ * variable names there are case-insensitive, so if the inherited environment
+ * already carries the key under a different case, the spread keeps that entry and
+ * the override becomes a second, colliding key — the original wins and the child
+ * receives the real npm path.
+ *
+ * The failure mode is quiet and misleading: the fake npm never runs, the counter
+ * stays at 0, and the audit script shells out to real `npm audit` instead. Every
+ * assertion in this file then measures the real registry rather than the fixture.
+ */
+function childEnv(overrides) {
+  const env = { ...process.env }
+  for (const key of Object.keys(overrides)) {
+    const lower = key.toLowerCase()
+    for (const existing of Object.keys(env)) {
+      if (existing !== key && existing.toLowerCase() === lower) delete env[existing]
+    }
+    env[key] = overrides[key]
+  }
+  return env
+}
+
 function runAuditFixture(mode) {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'audit-high-retry-'))
   tempDirs.push(tempDir)
@@ -65,14 +90,13 @@ console.log(JSON.stringify(clean))
   const result = spawnSync(process.execPath, [auditScript], {
     cwd: process.cwd(),
     encoding: 'utf8',
-    env: {
-      ...process.env,
+    env: childEnv({
       npm_execpath: fakeNpmPath,
       FAKE_AUDIT_COUNTER: counterPath,
       FAKE_AUDIT_MODE: mode,
       NPM_AUDIT_MAX_ATTEMPTS: '2',
       NPM_AUDIT_TIMEOUT_MS: '30000',
-    },
+    }),
   })
 
   const count = fs.existsSync(counterPath) ? Number(fs.readFileSync(counterPath, 'utf8')) : 0
