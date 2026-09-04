@@ -16,12 +16,19 @@ const RECENT_SLEEP_SLUGS = [
 ]
 
 describe('recent sleep citation graph', () => {
-  it('keeps curated relationships and canonical concepts for every upgraded page', () => {
+  it('keeps curated relationships, concepts, decision rows, and FAQs for every upgraded page', () => {
     for (const slug of RECENT_SLEEP_SLUGS) {
       const override = articleCitationOverrides[slug]
       expect(override, `missing citation override for ${slug}`).toBeDefined()
       expect(override.relatedSlugs?.length, `${slug} needs curated related pages`).toBeGreaterThanOrEqual(4)
       expect(override.canonicalConcepts?.length, `${slug} needs canonical concepts`).toBeGreaterThanOrEqual(5)
+      expect(override.decisionRows?.length, `${slug} needs a decision snapshot`).toBeGreaterThanOrEqual(4)
+      expect(override.faqAnswers?.length, `${slug} needs visible FAQ answers`).toBeGreaterThanOrEqual(3)
+
+      for (const faq of override.faqAnswers ?? []) {
+        expect(faq.question.trim().length, `${slug} FAQ needs a question`).toBeGreaterThan(12)
+        expect(faq.answer.trim().length, `${slug} FAQ needs a substantive answer`).toBeGreaterThan(60)
+      }
     }
   })
 
