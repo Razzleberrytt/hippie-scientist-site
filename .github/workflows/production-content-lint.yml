@@ -40,7 +40,7 @@ permissions:
 
 jobs:
   production-content-lint:
-    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository || github.actor == 'dependabot[bot]'
+    if: (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository || github.actor == 'dependabot[bot]') && (inputs.producer_sha == '' || github.sha == inputs.producer_sha)
     runs-on: ubuntu-latest
     steps:
       - name: Reject stale producer dispatch

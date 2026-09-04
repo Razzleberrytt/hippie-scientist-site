@@ -39,7 +39,10 @@ describe('governed static export workflow topology', () => {
     it(`${name} registers on PRs but performs heavy work only in dispatched/fallback runs`, () => {
       const workflow = read(path)
       expect(workflow).toContain('pull_request:')
-      expect(workflow).toContain("if: github.event_name != 'pull_request'")
+      expect(workflow).toContain("github.event_name != 'pull_request'")
+      expect(workflow).toContain("(inputs.producer_sha == '' || github.sha == inputs.producer_sha)")
+      expect(workflow).toContain('Reject stale producer dispatch')
+      expect(workflow).toContain('Producer dispatch is stale: workflow head=$GITHUB_SHA producer=$PRODUCER_SHA')
       expect(workflow).toContain('Download governed static export')
       expect(workflow).toContain('Verify governed static export receipt')
       expect(workflow).toContain('steps.governed-verify.outcome != \'success\'')
