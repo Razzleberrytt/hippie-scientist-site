@@ -55,6 +55,33 @@
       "rationale": "@content-collections/mdx is build tooling for static MDX/content generation. Its high finding includes the same esbuild advisory chain covered by esbuild-build-tooling-only-2026-06, plus moderate mdx-bundler/uuid findings that are not enforced by audit:high. It is not shipped to users in the static export, and npm reports no fixAvailable for this package. Interim allowlist until content-collections can consume patched transitive dependencies."
     },
     {
+      "id": "toml-mdx-frontmatter-unreachable-2026-09",
+      "package": "toml",
+      "severity": "high",
+      "expiresOn": "2026-09-13",
+      "advisoryUrls": [
+        "https://github.com/advisories/GHSA-82x6-q7mm-w9cf"
+      ],
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20content-collections%2Fmdx-bundler%20to%20drop%20the%20vulnerable%20toml%20parser",
+      "rationale": "toml (GHSA-82x6-q7mm-w9cf uncontrolled recursion, plus a prototype-pollution advisory via __proto__ key-path desynchronization) is reached only as @content-collections/mdx -> mdx-bundler -> remark-mdx-frontmatter -> toml. @content-collections/mdx is a devDependency used to generate static content-collection artifacts before typecheck/build; it is not shipped in the static export. More specifically, the vulnerable parser is never invoked: remark-mdx-frontmatter only parses TOML when a document opens with +++ delimiters, and every MDX/MD file in content/ uses YAML frontmatter (---). A repo-wide search finds zero TOML frontmatter blocks, so no input reaches the toml parser at all, and the only possible input would be repository-authored content rather than user data. npm reports fixAvailable:false across the chain. Interim allowlist aligned with the existing content-collections expiry so the whole chain is reviewed together."
+    },
+    {
+      "id": "remark-mdx-frontmatter-build-tooling-only-2026-09",
+      "package": "remark-mdx-frontmatter",
+      "severity": "high",
+      "expiresOn": "2026-09-13",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20content-collections%2Fmdx-bundler%20to%20drop%20the%20vulnerable%20toml%20parser",
+      "rationale": "remark-mdx-frontmatter is flagged only because it depends on the vulnerable toml parser (see toml-mdx-frontmatter-unreachable-2026-09). It is transitive build tooling under @content-collections/mdx, a devDependency, and is not shipped in the static export. Its TOML code path is unreachable here because all content/ frontmatter is YAML. npm reports no fixAvailable. Interim allowlist tied to the toml follow-up."
+    },
+    {
+      "id": "mdx-bundler-build-tooling-only-2026-09",
+      "package": "mdx-bundler",
+      "severity": "high",
+      "expiresOn": "2026-09-13",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20content-collections%2Fmdx-bundler%20to%20drop%20the%20vulnerable%20toml%20parser",
+      "rationale": "mdx-bundler is flagged only because it transitively depends on remark-mdx-frontmatter -> toml (see toml-mdx-frontmatter-unreachable-2026-09). It is build tooling under @content-collections/mdx, a devDependency, and is not shipped in the static export. The mdx-bundler/uuid findings already noted in content-collections-mdx-build-tooling-only-2026-06 were moderate; this rule covers the chain now that the toml advisories are rated high. npm reports no fixAvailable. Interim allowlist tied to the toml follow-up."
+    },
+    {
       "id": "content-collections-next-build-tooling-only-2026-06",
       "package": "@content-collections/next",
       "severity": "high",
