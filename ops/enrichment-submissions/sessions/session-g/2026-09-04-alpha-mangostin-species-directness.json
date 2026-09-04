@@ -1,0 +1,49 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "G",
+  "shard": 6,
+  "batchId": "session-g-20260904-alpha-mangostin",
+  "createdAt": "2026-09-04T13:20:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_g-alpha-mangostin-rat-pk-classification",
+      "authoringPackId": "ap_g_alpha_mangostin_pubmed_21254395",
+      "workpackId": "wp_compound_alpha_mangostin",
+      "entityType": "compound",
+      "entitySlug": "alpha-mangostin",
+      "sourceId": "src_pubmed-21254395",
+      "topicType": "conflict_note",
+      "claimType": "evidence_conflict",
+      "evidenceClass": "preclinical-mechanistic",
+      "findingTextShort": "PMID 21254395 is a rat pharmacokinetic study and cannot contribute human-observational evidence for alpha-mangostin.",
+      "findingTextNormalized": "PMID 21254395 measured alpha-mangostin pharmacokinetics in rats after intravenous and oral administration. It explicitly reports rat plasma data and very low oral bioavailability in that animal model. The record therefore belongs to preclinical evidence, not human observational or human clinical evidence, and cannot support an isolated alpha-mangostin human efficacy, human dose, or broad human-safety claim.",
+      "strengthLabel": "strong",
+      "populationContext": "Rats receiving intravenous or oral alpha-mangostin",
+      "usageContext": "Evidence-class and species correction for isolated alpha-mangostin",
+      "uncertaintyNote": "Animal pharmacokinetics can inform mechanistic plausibility and research design but do not establish human clinical outcomes or dosing.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "needs_review",
+      "active": true
+    },
+    {
+      "submissionId": "sub_g-alpha-mangostin-mangosteen-juice-exposure",
+      "authoringPackId": "ap_g_alpha_mangostin_pubmed_22399525",
+      "workpackId": "wp_compound_alpha_mangostin",
+      "entityType": "compound",
+      "entitySlug": "alpha-mangostin",
+      "sourceId": "src_pubmed-22399525",
+      "topicType": "population_specific_note",
+      "claimType": "population_note",
+      "evidenceClass": "human-observational",
+      "findingTextShort": "Healthy adults absorbed alpha-mangostin after mangosteen juice, but this is constituent-exposure evidence rather than isolated-compound efficacy.",
+      "findingTextNormalized": "PMID 22399525 studied ten healthy adults after ingestion of a mangosteen juice containing multiple xanthones, with alpha-mangostin representing the largest measured xanthone fraction. Free and conjugated xanthones were detected in serum and urine, demonstrating human exposure to alpha-mangostin from a food matrix. Because the intervention was a multi-xanthone mangosteen product rather than isolated alpha-mangostin, the study does not establish standalone alpha-mangostin efficacy, a purified-compound regimen, or a general safety conclusion.",
+      "strengthLabel": "moderate",
+      "populationContext": "Ten healthy adults consuming a multi-xanthone mangosteen juice with a high-fat breakfast",
+      "usageContext": "Human constituent exposure from a mangosteen food matrix, not isolated alpha-mangostin intervention",
+      "uncertaintyNote": "Marked interindividual pharmacokinetic variation and the multi-constituent food matrix limit inference to isolated alpha-mangostin products.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "needs_review",
+      "active": true
+    }
+  ]
+}
