@@ -3,7 +3,6 @@ import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 
 const ROOT = process.cwd()
-const HUB = path.join(ROOT, 'app/guides/sleep/page.tsx')
 
 function read(relativePath: string) {
   return fs.readFileSync(path.join(ROOT, relativePath), 'utf8')
@@ -33,6 +32,8 @@ const REQUIRED_RESEARCH_ARTICLES = [
   'morning-light-and-sleep-timing',
   'melatonin-timing-vs-dose',
   'blue-light-screens-and-sleep',
+  'sleep-temperature-and-cooling',
+  'time-restricted-eating-and-sleep',
   'exercise-timing-and-sleep',
   'naps-and-nighttime-sleep',
   'insomnia-vs-sleep-deprivation',
@@ -103,9 +104,13 @@ describe('sleep research cluster integrity', () => {
     const formulations = read('content/articles/sleep-supplement-formulations.md').replace(/\s+/g, ' ')
     const subjective = read('content/articles/subjective-vs-objective-sleep.md').replace(/\s+/g, ' ')
     const trackers = read('content/articles/sleep-trackers-accuracy.md').replace(/\s+/g, ' ')
+    const cooling = read('content/articles/sleep-temperature-and-cooling.md').replace(/\s+/g, ' ')
+    const mealTiming = read('content/articles/time-restricted-eating-and-sleep.md').replace(/\s+/g, ' ')
 
     expect(formulations).toMatch(/not interchangeable/i)
     expect(subjective).toMatch(/subjective and objective sleep are different measurement domains/i)
     expect(trackers).toMatch(/not.*diagnos/i)
+    expect(cooling).toMatch(/cooling.*does not|does not.*cooling/i)
+    expect(mealTiming).toMatch(/controlled.*do not|do not.*controlled/i)
   })
 })
