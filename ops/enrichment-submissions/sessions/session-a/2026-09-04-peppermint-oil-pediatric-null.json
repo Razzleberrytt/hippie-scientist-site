@@ -1,0 +1,50 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "A",
+  "shard": 0,
+  "batchId": "session-a-20260904-peppermint-pediatric-null",
+  "createdAt": "2026-09-04T13:20:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_a-peppermint-pediatric-ibs-null",
+      "authoringPackId": "ap_a_peppermint_pubmed_41610933",
+      "workpackId": "wp_compound_peppermint_oil",
+      "entityType": "compound",
+      "entitySlug": "peppermint-oil",
+      "sourceId": "src_pubmed-41610933",
+      "topicType": "unsupported_or_unclear_use",
+      "claimType": "efficacy_null_or_mixed",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A 2026 pediatric RCT found peppermint-oil capsules were not superior to placebo for IBS or FAP-NOS treatment success.",
+      "findingTextNormalized": "PMID 41610933 randomized 228 participants aged 8 to 18 years with irritable bowel syndrome or functional abdominal pain-not otherwise specified across 13 Dutch hospitals. After 8 weeks, enteric-coated peppermint-oil capsules were not superior to placebo for the primary treatment-success endpoint, and adequate symptom relief was also comparable between groups. This pediatric null result must remain distinct from adult IBS evidence and from trials using other formulations or dosing schedules.",
+      "strengthLabel": "moderate",
+      "populationContext": "Children and adolescents aged 8 to 18 years with IBS or FAP-NOS treated across 13 Dutch hospitals",
+      "usageContext": "Pediatric gastrointestinal symptom treatment; not an adult IBS efficacy estimate",
+      "uncertaintyNote": "The result applies to the studied pediatric population, enteric-coated formulation, dose schedule and eight-week treatment period; it does not negate all adult or formulation-specific peppermint-oil evidence.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "needs_review",
+      "active": true
+    },
+    {
+      "submissionId": "sub_a-peppermint-pediatric-safety-scope",
+      "authoringPackId": "ap_a_peppermint_pubmed_41610933",
+      "workpackId": "wp_compound_peppermint_oil",
+      "entityType": "compound",
+      "entitySlug": "peppermint-oil",
+      "sourceId": "src_pubmed-41610933",
+      "topicType": "pediatric_note",
+      "claimType": "population_note",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "Adverse events in the pediatric peppermint-oil trial were mild and infrequent, providing only an eight-week safety ceiling.",
+      "findingTextNormalized": "In PMID 41610933, adverse events were reported as mild and infrequent during the eight-week pediatric randomized trial. That observation is useful short-term tolerability context but must not be generalized into long-term pediatric safety, safety in younger children, safety across all peppermint-oil preparations, or absence of rare adverse effects.",
+      "strengthLabel": "limited",
+      "populationContext": "Children and adolescents aged 8 to 18 years enrolled in the randomized trial",
+      "usageContext": "Short-duration pediatric tolerability context",
+      "safetyContext": "Mild and infrequent trial adverse events do not establish long-term or rare-event safety.",
+      "uncertaintyNote": "Eight weeks of trial observation is an upper boundary for this safety inference; formulation, age, dose and duration remain material.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "needs_review",
+      "active": true
+    }
+  ]
+}
