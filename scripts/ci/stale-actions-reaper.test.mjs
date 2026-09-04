@@ -1,3 +1,5 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { cancelRunWithFallback, classifyRun, selectRunsForCancellation } from './stale-actions-reaper.mjs'
 
@@ -108,7 +110,7 @@ describe('stale Actions reaper cancellation fallback', () => {
       classifyOptions: options,
     })
 
-    expect(result).toMatchObject({ cancelled: true, mode: 'cancel' })
+    expect(result).toMatchObject({ cancelled: true, deleted: false, unresolved: false, mode: 'cancel' })
     expect(calls).toEqual([['/repos/owner/repo/actions/runs/100/cancel', 'POST']])
   })
 
@@ -128,7 +130,7 @@ describe('stale Actions reaper cancellation fallback', () => {
       classifyOptions: options,
     })
 
-    expect(result).toMatchObject({ cancelled: true, mode: 'force-cancel' })
+    expect(result).toMatchObject({ cancelled: true, deleted: false, unresolved: false, mode: 'force-cancel' })
     expect(calls).toEqual([
       ['/repos/owner/repo/actions/runs/100/cancel', 'POST'],
       ['/repos/owner/repo/actions/runs/100', 'GET'],
@@ -153,6 +155,8 @@ describe('stale Actions reaper cancellation fallback', () => {
 
     expect(result).toMatchObject({
       cancelled: false,
+      deleted: false,
+      unresolved: false,
       mode: null,
       reason: 'became-ineligible-before-force-cancel',
     })
@@ -160,5 +164,125 @@ describe('stale Actions reaper cancellation fallback', () => {
       ['/repos/owner/repo/actions/runs/100/cancel', 'POST'],
       ['/repos/owner/repo/actions/runs/100', 'GET'],
     ])
+  })
+
+  it('deletes an ancient eligible orphan after both cancellation endpoints return 409', async () => {
+    const calls = []
+    const request = async (pathname, requestOptions = {}) => {
+      const method = requestOptions.method || 'GET'
+      calls.push([pathname, method])
+      if (method === 'DELETE') return {}
+      if (pathname.endsWith('/force-cancel') || pathname.endsWith('/cancel')) return { conflict: true }
+      return run({ id: 100, created_at: ZOMBIE_CREATED })
+    }
+
+    const result = await cancelRunWithFallback({
+      repo: 'owner/repo',
+      runId: 100,
+      request,
+      classifyOptions: options,
+    })
+
+    expect(result).toMatchObject({
+      cancelled: false,
+      deleted: true,
+      unresolved: false,
+      mode: 'delete-run',
+    })
+    expect(calls).toEqual([
+      ['/repos/owner/repo/actions/runs/100/cancel', 'POST'],
+      ['/repos/owner/repo/actions/runs/100', 'GET'],
+      ['/repos/owner/repo/actions/runs/100/force-cancel', 'POST'],
+      ['/repos/owner/repo/actions/runs/100', 'GET'],
+      ['/repos/owner/repo/actions/runs/100', 'DELETE'],
+    ])
+  })
+
+  it('refuses deletion if the second fresh recheck becomes protected', async () => {
+    const calls = []
+    let getCount = 0
+    const request = async (pathname, requestOptions = {}) => {
+      const method = requestOptions.method || 'GET'
+      calls.push([pathname, method])
+      if (pathname.endsWith('/force-cancel') || pathname.endsWith('/cancel')) return { conflict: true }
+      if (method === 'GET') {
+        getCount += 1
+        if (getCount === 2) return run({ id: 100, head_branch: 'main', created_at: ZOMBIE_CREATED })
+      }
+      return run({ id: 100, created_at: ZOMBIE_CREATED })
+    }
+
+    const result = await cancelRunWithFallback({
+      repo: 'owner/repo',
+      runId: 100,
+      request,
+      classifyOptions: options,
+    })
+
+    expect(result).toMatchObject({
+      cancelled: false,
+      deleted: false,
+      unresolved: false,
+      mode: null,
+      reason: 'became-ineligible-before-delete',
+    })
+    expect(calls.some(([, method]) => method === 'DELETE')).toBe(false)
+  })
+
+  it('fails closed rather than deleting an eligible run younger than fourteen days', async () => {
+    const calls = []
+    const request = async (pathname, requestOptions = {}) => {
+      const method = requestOptions.method || 'GET'
+      calls.push([pathname, method])
+      if (pathname.endsWith('/force-cancel') || pathname.endsWith('/cancel')) return { conflict: true }
+      return run({ id: 100, created_at: '2026-09-03T10:00:00Z' })
+    }
+
+    const result = await cancelRunWithFallback({
+      repo: 'owner/repo',
+      runId: 100,
+      request,
+      classifyOptions: options,
+    })
+
+    expect(result).toMatchObject({
+      cancelled: false,
+      deleted: false,
+      unresolved: true,
+      mode: 'force-cancel',
+      reason: 'force-cancel-conflict-delete-too-young',
+    })
+    expect(calls.some(([, method]) => method === 'DELETE')).toBe(false)
+  })
+
+  it('reports a provider conflict on deletion as unresolved', async () => {
+    const request = async (pathname, requestOptions = {}) => {
+      const method = requestOptions.method || 'GET'
+      if (method === 'DELETE') return { conflict: true }
+      if (pathname.endsWith('/force-cancel') || pathname.endsWith('/cancel')) return { conflict: true }
+      return run({ id: 100, created_at: ZOMBIE_CREATED })
+    }
+
+    const result = await cancelRunWithFallback({
+      repo: 'owner/repo',
+      runId: 100,
+      request,
+      classifyOptions: options,
+    })
+
+    expect(result).toMatchObject({
+      cancelled: false,
+      deleted: false,
+      unresolved: true,
+      mode: 'delete-run',
+      reason: 'delete-run-conflict',
+    })
+  })
+
+  it('locks unresolved production outcomes to a failing reaper exit code', () => {
+    const source = fs.readFileSync(path.join(process.cwd(), 'scripts/ci/stale-actions-reaper.mjs'), 'utf8')
+    expect(source).toContain('if (receipt.unresolved.length > 0)')
+    expect(source).toContain('process.exitCode = 1')
+    expect(source).toContain('deleteMinAgeHours: DELETE_MIN_AGE_MS / 3_600_000')
   })
 })
