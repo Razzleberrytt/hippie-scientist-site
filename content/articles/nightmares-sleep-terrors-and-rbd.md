@@ -215,7 +215,7 @@ RBD is therefore not merely “a vivid nightmare with movement.”
 
 It is a disorder involving abnormal REM motor control.
 
-See [REM Sleep Behavior Disorder: Red Flags](/articles/rem-sleep-behavior-disorder-red-flags/).
+See [REM Sleep Behavior Disorder](/articles/rem-sleep-behavior-disorder/).
 
 ## Why RBD has a different neurologic significance
 
@@ -330,7 +330,7 @@ The more violent, injurious, recurrent or adult-onset the behavior becomes, the 
 
 ## Related reading
 
-- [REM Sleep Behavior Disorder: Red Flags](/articles/rem-sleep-behavior-disorder-red-flags/)
+- [REM Sleep Behavior Disorder](/articles/rem-sleep-behavior-disorder/)
 - [Sleep Paralysis](/articles/sleep-paralysis/)
 - [Sleep Apnea vs Insomnia](/articles/sleep-apnea-vs-insomnia/)
 - [Sleep Debt and Recovery](/articles/sleep-debt-and-recovery/)
