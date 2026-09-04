@@ -7,7 +7,14 @@ on:
       - '.github/workflows/check.yml'
       - 'scripts/ci/owner-control-plane-bridge.mjs'
       - 'scripts/ci/owner-control-plane-bridge.contract.mjs'
+      - 'scripts/ci/promotion-admission.mjs'
+      - 'scripts/ci/promotion-admission.test.mjs'
       - 'scripts/enrichment-governor/lease-transaction.mjs'
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review, converted_to_draft, closed, labeled, unlabeled]
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
   issue_comment:
     types: [created]
 
@@ -28,7 +35,87 @@ jobs:
         with:
           node-version: 22
       - name: Validate owner control-plane bridge contract
-        run: node --test scripts/ci/owner-control-plane-bridge.contract.mjs
+        run: |
+          node --test scripts/ci/owner-control-plane-bridge.contract.mjs
+          node --test scripts/ci/promotion-admission.test.mjs
+
+  promotion_admission:
+    if: >-
+      github.event_name == 'pull_request_target' ||
+      github.event_name == 'schedule' ||
+      github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Check out trusted default branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Plan globally serialized promotion
+        id: plan
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/ci/promotion-admission.mjs admit-next
+
+      - name: Return held or duplicate ready PRs to staging
+        if: steps.plan.outputs.stage_numbers != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          STAGE_NUMBERS: ${{ steps.plan.outputs.stage_numbers }}
+        run: |
+          set -euo pipefail
+          IFS=',' read -ra numbers <<<"$STAGE_NUMBERS"
+          for number in "${numbers[@]}"; do
+            test -n "$number" || continue
+            gh pr ready "$number" --undo --repo "$GITHUB_REPOSITORY"
+            echo "Returned PR #$number to draft staging."
+          done
+
+      - name: Admit next exact-main draft
+        if: steps.plan.outputs.candidate_pr_number != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ steps.plan.outputs.candidate_pr_number }}
+          EXPECTED_HEAD_SHA: ${{ steps.plan.outputs.candidate_head_sha }}
+          EXPECTED_MAIN_SHA: ${{ steps.plan.outputs.main_sha }}
+        run: |
+          set -euo pipefail
+          current_main="$(gh api "repos/$GITHUB_REPOSITORY/branches/main" --jq '.commit.sha')"
+          current_head="$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER" --jq '.head.sha')"
+          current_draft="$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER" --jq '.draft')"
+          if [ "$current_main" != "$EXPECTED_MAIN_SHA" ] || \
+             [ "$current_head" != "$EXPECTED_HEAD_SHA" ] || \
+             [ "$current_draft" != "true" ]; then
+            echo "Promotion candidate changed before admission; leaving it staged for the next reconciliation." >&2
+            exit 0
+          fi
+
+          gh pr ready "$PR_NUMBER" --repo "$GITHUB_REPOSITORY"
+
+          actual_main="$(gh api "repos/$GITHUB_REPOSITORY/branches/main" --jq '.commit.sha')"
+          actual_head="$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER" --jq '.head.sha')"
+          actual_draft="$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER" --jq '.draft')"
+          actual_state="$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER" --jq '.state')"
+          if [ "$actual_main" != "$EXPECTED_MAIN_SHA" ] || \
+             [ "$actual_head" != "$EXPECTED_HEAD_SHA" ] || \
+             [ "$actual_draft" != "false" ] || \
+             [ "$actual_state" != "open" ]; then
+            if [ "$actual_state" = "open" ] && [ "$actual_draft" = "false" ]; then
+              gh pr ready "$PR_NUMBER" --undo --repo "$GITHUB_REPOSITORY" || true
+            fi
+            echo "Promotion admission became stale; restored draft state when possible." >&2
+            exit 1
+          fi
+          echo "Admitted PR #$PR_NUMBER as the single exact-main promotion candidate."
 
   governor:
     if: >-
@@ -132,7 +219,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 7
     permissions:
-      actions: write
+      actions: read
       contents: read
       pull-requests: write
     steps:
@@ -145,6 +232,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+
+      - name: Assert global promotion token is free
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/ci/promotion-admission.mjs assert-token-free
 
       - name: Validate exact PR readiness transition
         id: validate
@@ -185,29 +277,7 @@ jobs:
             exit 1
           fi
 
-      - name: Dispatch exact-head recovery validation
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PR_NUMBER: ${{ steps.validate.outputs.pr_number }}
-          HEAD_REF: ${{ steps.validate.outputs.head_ref }}
-          BASE_REF: ${{ steps.validate.outputs.base_ref }}
+      - name: Native ready event owns exact-head validation
         run: |
-          set -euo pipefail
-          gh workflow run ci.yml \
-            --repo "$GITHUB_REPOSITORY" \
-            --ref "$HEAD_REF" \
-            -f "recovery_pr_number=$PR_NUMBER"
-          gh workflow run check.yml \
-            --repo "$GITHUB_REPOSITORY" \
-            --ref "$HEAD_REF" \
-            -f "recovery_pr_number=$PR_NUMBER"
-          gh workflow run atomic-upgrade-gate.yml \
-            --repo "$GITHUB_REPOSITORY" \
-            --ref "$HEAD_REF" \
-            -f "recovery_pr_number=$PR_NUMBER" \
-            -f "recovery_base_ref=$BASE_REF"
-          gh workflow run build-quality-regression.yml \
-            --repo "$GITHUB_REPOSITORY" \
-            --ref "$HEAD_REF" \
-            -f "recovery_pr_number=$PR_NUMBER" \
-            -f "recovery_base_ref=$BASE_REF"
+          echo "The ready_for_review event is the single validation trigger."
+          echo "No duplicate workflow_dispatch fan-out is emitted by the owner bridge."
