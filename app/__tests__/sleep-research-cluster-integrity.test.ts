@@ -30,38 +30,38 @@ const REQUIRED_RESEARCH_ARTICLES = [
   'subjective-vs-objective-sleep',
   'why-sleep-studies-disagree',
   'sleep-trackers-accuracy',
+  'sleep-inertia-grogginess-after-waking',
+  'insomnia-vs-sleep-deprivation',
+  'delayed-sleep-wake-phase-vs-insomnia',
+  'shift-work-sleep-disorder',
+  'morning-light-and-sleep-timing',
+  'melatonin-timing-vs-dose',
+  'blue-light-screens-and-sleep',
   'sleep-regularity-health',
   'weekend-catch-up-sleep',
+  'naps-and-nighttime-sleep',
+  'exercise-timing-and-sleep',
+  'time-restricted-eating-and-sleep',
+  'eye-masks-earplugs-and-sleep',
+  'sleep-temperature-and-cooling',
+  'warm-bath-shower-before-bed',
+  'white-noise-and-sleep',
+  'music-for-sleep',
+  'weighted-blankets-for-sleep',
+  'mindfulness-for-insomnia',
   'caffeine-and-sleep-timing',
   'alcohol-and-sleep',
   'cannabis-cannabinoids-and-sleep',
   'nicotine-vaping-and-sleep',
   'otc-antihistamines-for-sleep',
-  'morning-light-and-sleep-timing',
-  'melatonin-timing-vs-dose',
-  'blue-light-screens-and-sleep',
-  'sleep-temperature-and-cooling',
-  'warm-bath-shower-before-bed',
-  'time-restricted-eating-and-sleep',
-  'exercise-timing-and-sleep',
-  'naps-and-nighttime-sleep',
-  'white-noise-and-sleep',
-  'music-for-sleep',
-  'weighted-blankets-for-sleep',
-  'mindfulness-for-insomnia',
-  'insomnia-vs-sleep-deprivation',
   'cbt-i-vs-sleep-supplements',
   'sleep-apnea-vs-insomnia',
   'mouth-taping-for-sleep',
   'restless-legs-iron-and-sleep',
 ]
 
-const REQUIRED_ARTICLES_WITHOUT_HUB_LINK_YET = [
-  'sleep-inertia-grogginess-after-waking',
-]
-
 describe('sleep research cluster integrity', () => {
-  it('keeps every canonical hub research article present and linked from the sleep hub', () => {
+  it('keeps every canonical sleep research article present and linked from the sleep hub', () => {
     const hub = hubSource()
 
     for (const slug of REQUIRED_RESEARCH_ARTICLES) {
@@ -71,14 +71,19 @@ describe('sleep research cluster integrity', () => {
     }
   })
 
-  it('keeps newly landed sleep research present while integration catches up', () => {
-    for (const slug of REQUIRED_ARTICLES_WITHOUT_HUB_LINK_YET) {
-      expect(fs.existsSync(path.join(ROOT, 'content/articles', `${slug}.md`)), `missing ${slug}`).toBe(true)
-    }
+  it('keeps the hub separated into evidence-oriented decision layers', () => {
+    const hub = hubSource()
+
+    expect(hub).toContain('Core sleep science')
+    expect(hub).toContain('Circadian & schedule')
+    expect(hub).toContain('Environment & non-drug tools')
+    expect(hub).toContain('Substances & OTC')
+    expect(hub).toContain('Check the bottleneck')
+    expect(hub).toContain('Start with the actual sleep problem, not the product')
   })
 
   it('keeps research articles publication-ready rather than placeholder shells', () => {
-    for (const slug of [...REQUIRED_RESEARCH_ARTICLES, ...REQUIRED_ARTICLES_WITHOUT_HUB_LINK_YET]) {
+    for (const slug of REQUIRED_RESEARCH_ARTICLES) {
       const article = read(`content/articles/${slug}.md`)
       const normalized = article.replace(/\s+/g, ' ')
 
@@ -95,6 +100,7 @@ describe('sleep research cluster integrity', () => {
     const apnea = read('content/articles/sleep-apnea-vs-insomnia.md').replace(/\s+/g, ' ')
     const rls = read('content/articles/restless-legs-iron-and-sleep.md').replace(/\s+/g, ' ')
     const mouthTaping = read('content/articles/mouth-taping-for-sleep.md').replace(/\s+/g, ' ')
+    const delayed = read('content/articles/delayed-sleep-wake-phase-vs-insomnia.md').replace(/\s+/g, ' ')
 
     expect(cbt).toMatch(/CBT-I is the evidence benchmark/i)
     expect(cbt).toMatch(/sleep hygiene alone is not equivalent to CBT-I/i)
@@ -102,6 +108,8 @@ describe('sleep research cluster integrity', () => {
     expect(rls).toMatch(/Iron is not just another sleep ingredient/i)
     expect(rls).toMatch(/testing first/i)
     expect(mouthTaping).toMatch(/not.*universal sleep hack|universal sleep hack.*not/i)
+    expect(delayed).toMatch(/sleep.*normal.*later schedule|later schedule.*normal/i)
+    expect(delayed).toMatch(/clock|circadian/i)
   })
 
   it('does not restore the corrected tryptophan sleep-latency overclaim', () => {
@@ -126,12 +134,13 @@ describe('sleep research cluster integrity', () => {
     expect(lemonBalm).toMatch(/formulation-specific|product-specific/i)
   })
 
-  it('keeps non-drug interventions tied to their actual endpoints and comparators', () => {
+  it('keeps non-drug interventions tied to their actual endpoints and settings', () => {
     const noise = read('content/articles/white-noise-and-sleep.md').replace(/\s+/g, ' ')
     const blankets = read('content/articles/weighted-blankets-for-sleep.md').replace(/\s+/g, ' ')
     const bath = read('content/articles/warm-bath-shower-before-bed.md').replace(/\s+/g, ' ')
     const music = read('content/articles/music-for-sleep.md').replace(/\s+/g, ' ')
     const mindfulness = read('content/articles/mindfulness-for-insomnia.md').replace(/\s+/g, ' ')
+    const sensory = read('content/articles/eye-masks-earplugs-and-sleep.md').replace(/\s+/g, ' ')
 
     expect(noise).toMatch(/2020.*very low|very low quality/i)
     expect(noise).toMatch(/2025.*meta-analysis/i)
@@ -141,6 +150,18 @@ describe('sleep research cluster integrity', () => {
     expect(music).toMatch(/objective.*did not|did not.*objective/i)
     expect(mindfulness).toMatch(/waitlist/i)
     expect(mindfulness).toMatch(/active control|CBT-I/i)
+    expect(sensory).toMatch(/ICU|intensive-care/i)
+    expect(sensory).toMatch(/earplugs alone.*less|less consistent|no significant/i)
+  })
+
+  it('keeps shift-work and wake-transition safety visible', () => {
+    const shiftWork = read('content/articles/shift-work-sleep-disorder.md').replace(/\s+/g, ' ')
+    const inertia = read('content/articles/sleep-inertia-grogginess-after-waking.md').replace(/\s+/g, ' ')
+
+    expect(shiftWork).toMatch(/sleep inertia/i)
+    expect(shiftWork).toMatch(/driv|safety-sensitive/i)
+    expect(inertia).toMatch(/performance|reaction time|cognitive/i)
+    expect(inertia).toMatch(/caffeine|bright light/i)
   })
 
   it('keeps legacy dream and sedative posts free of the removed DIY dosing and stacking recipes', () => {
