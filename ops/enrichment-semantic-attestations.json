@@ -40,6 +40,138 @@
     {
       "submissionId": "sub_f-b6-prolonged-high-dose-neuropathy-warning",
       "promotionStatus": "not_promoted"
+    },
+    {
+      "submissionId": "sub_session-c-american-skullcap-wogonin-quarantine-20260829",
+      "attestation": {
+        "reviewer": "enrichment-adjudicator",
+        "reviewedAt": "2026-09-04T20:12:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "PMID 40205009 studies isolated wogonin rather than a Scutellaria lateriflora human preparation, exactly matching the staged identity firewall.",
+          "evidenceRefs": ["src_doi-10-1038-s41401-025-01547-1"]
+        },
+        "preparation": {
+          "status": "matched",
+          "reason": "The finding preserves isolated-wogonin dosing and does not inherit that intervention into American Skullcap products or extracts.",
+          "evidenceRefs": ["src_doi-10-1038-s41401-025-01547-1"]
+        },
+        "population": {
+          "status": "matched",
+          "reason": "The source uses septic-cardiomyopathy mouse and cardiomyocyte models, and the finding explicitly keeps it preclinical rather than human evidence.",
+          "evidenceRefs": ["src_doi-10-1038-s41401-025-01547-1"]
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "Cardiac dysfunction and ferroptosis endpoints are preserved as unrelated to sleep or anxiety efficacy for American Skullcap.",
+          "evidenceRefs": ["src_doi-10-1038-s41401-025-01547-1"]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "The staged conclusion correctly treats the paper as a non-transferable mechanistic source and makes no clinical skullcap efficacy claim.",
+          "evidenceRefs": ["src_doi-10-1038-s41401-025-01547-1"]
+        }
+      }
+    },
+    {
+      "submissionId": "sub_session-c-american-skullcap-insomnia-rct-20260829",
+      "attestation": {
+        "reviewer": "enrichment-adjudicator",
+        "reviewedAt": "2026-09-04T20:12:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "PMID 40362800 directly studies a Scutellaria lateriflora extract-based food supplement in adults with primary insomnia.",
+          "evidenceRefs": ["src_doi-10-3390-nu17091491"]
+        },
+        "preparation": {
+          "status": "matched",
+          "reason": "The staged finding preserves the chemically characterized extract-based supplement, 400 mg/day regimen, and 56-day treatment periods.",
+          "evidenceRefs": ["src_doi-10-3390-nu17091491"]
+        },
+        "population": {
+          "status": "matched",
+          "reason": "The source enrolled 66 adults aged 18 to 70 with mild-to-moderate primary insomnia, matching the staged population boundary.",
+          "evidenceRefs": ["src_doi-10-3390-nu17091491"]
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "The source directly measured PSQI as the primary outcome plus sleep-wake secondary measures described in the finding.",
+          "evidenceRefs": ["src_doi-10-3390-nu17091491"]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "The finding preserves the reported sleep improvements while limiting safety to the modest single trial and avoiding generic product claims.",
+          "evidenceRefs": ["src_doi-10-3390-nu17091491"]
+        }
+      }
+    },
+    {
+      "submissionId": "sub_session-c-american-skullcap-anxiety-mixed-20260829",
+      "attestation": {
+        "reviewer": "enrichment-adjudicator",
+        "reviewedAt": "2026-09-04T20:12:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "PMID 23878109 directly studies Scutellaria lateriflora in a placebo-controlled crossover trial of healthy volunteers.",
+          "evidenceRefs": ["src_doi-10-1002-ptr-5044"]
+        },
+        "preparation": {
+          "status": "matched",
+          "reason": "The finding preserves the studied Scutellaria lateriflora regimen of 350 mg three times daily for two weeks.",
+          "evidenceRefs": ["src_doi-10-1002-ptr-5044"]
+        },
+        "population": {
+          "status": "matched",
+          "reason": "The source studied 43 generally low-anxiety healthy volunteers rather than patients with an anxiety disorder, which the finding preserves.",
+          "evidenceRefs": ["src_doi-10-1002-ptr-5044"]
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "The finding separately preserves the null Beck Anxiety Inventory result and the favorable Total Mood Disturbance signal.",
+          "evidenceRefs": ["src_doi-10-1002-ptr-5044"]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "The source's mixed direction, carryover effect, baseline imbalance, and low baseline anxiety are retained without converting mood change into anxiety-treatment efficacy.",
+          "evidenceRefs": ["src_doi-10-1002-ptr-5044"]
+        }
+      }
+    },
+    {
+      "submissionId": "sub_session-c-american-skullcap-early-anxiety-signal-20260829",
+      "attestation": {
+        "reviewer": "enrichment-adjudicator",
+        "reviewedAt": "2026-09-04T20:12:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "PMID 12652886 directly identifies Scutellaria lateriflora as the herbal intervention in a double-blind placebo-controlled study.",
+          "evidenceRefs": ["src_pubmed-12652886"]
+        },
+        "preparation": {
+          "status": "matched",
+          "reason": "The finding deliberately does not invent regimen details absent from the PubMed abstract and keeps the intervention at oral plant-preparation level.",
+          "evidenceRefs": ["src_pubmed-12652886"]
+        },
+        "population": {
+          "status": "matched",
+          "reason": "The source is a healthy-volunteer clinical trial rather than an anxiety-disorder treatment trial, and that boundary is explicit.",
+          "evidenceRefs": ["src_pubmed-12652886"]
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "The abstract reports anxiolytic effects in healthy subjects, matching the preliminary anxiety signal without effect-size inflation.",
+          "evidenceRefs": ["src_pubmed-12652886"]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "The finding preserves the positive historical signal while downgrading certainty for sparse reporting and avoiding a generic anxiety-treatment recommendation.",
+          "evidenceRefs": ["src_pubmed-12652886"]
+        }
+      }
     }
   ]
 }
