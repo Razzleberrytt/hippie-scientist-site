@@ -9,6 +9,7 @@ import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 import References from '@/components/References'
+import SleepResearchNextActions from '@/components/SleepResearchNextActions'
 import ComparisonVerdict from '@/components/editorial/ComparisonVerdict'
 
 const CANONICAL_PATH = '/guides/sleep/magnesium-vs-melatonin/'
@@ -233,6 +234,8 @@ export default function MagnesiumVsMelatoninGuidePage() {
         </section>
 
         <References refs={MAGNESIUM_VS_MELATONIN_REFS} />
+
+        <SleepResearchNextActions />
 
         <section id="bottom-line" className="scroll-mt-20 rounded-2xl border border-brand-900/10 bg-white/90 p-6">
           <h2 className="mb-3 text-xl font-semibold text-ink">Bottom line</h2>
