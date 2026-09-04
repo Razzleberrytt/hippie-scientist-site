@@ -188,7 +188,7 @@ export const articleCitationOverrides: Record<string, ArticleCitationOverride> =
       'residual apnea-hypopnea index',
     ],
     decisionRows: [
-      { label: 'Stronger AHI/oxygen effect', value: 'CPAP on average.' },
+      { label: 'Stronger AHI/oxygen effect', value: 'CPAP on average: randomized comparisons favour it for apnea-hypopnea index reduction and minimum overnight oxygen saturation, while symptom scores have not differed significantly between the two.' },
       { label: 'Legitimate alternative', value: 'A custom titratable mandibular advancement device, especially in mild-to-moderate OSA or when PAP is poorly tolerated.' },
       { label: 'Key oral-appliance tradeoff', value: 'Long-term dental and bite changes require ongoing dental follow-up.' },
       { label: 'How to judge success', value: 'Actual use plus objective control of residual OSA, not comfort or snoring reduction alone.' },

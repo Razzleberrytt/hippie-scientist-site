@@ -26,12 +26,12 @@ function assertDecisionMetadata(slug: string, override: typeof sleepCitationOver
 
   for (const row of override.decisionRows ?? []) {
     expect(row.label.trim().length, `${slug} decision row needs a label`).toBeGreaterThan(2)
-    expect(row.value.trim().length, `${slug} decision row needs a nontrivial value`).toBeGreaterThan(10)
+    expect(row.value.trim().length, `${slug} decision row needs a substantive value`).toBeGreaterThan(40)
   }
 
   for (const faq of override.faqAnswers ?? []) {
-    expect(faq.question.trim().length, `${slug} FAQ needs a question`).toBeGreaterThan(8)
-    expect(faq.answer.trim().length, `${slug} FAQ needs a substantive answer`).toBeGreaterThan(30)
+    expect(faq.question.trim().length, `${slug} FAQ needs a question`).toBeGreaterThan(12)
+    expect(faq.answer.trim().length, `${slug} FAQ needs a substantive answer`).toBeGreaterThan(60)
   }
 
   expect(
