@@ -35,6 +35,15 @@ export function isTransientError(error) {
   return status === 408 || status === 425 || status === 429 || status >= 500
 }
 
+function retryDelay(error, attempt, baseDelayMs, maxDelayMs) {
+  const backoff = baseDelayMs * (2 ** (attempt - 1))
+  const hinted = Number(error?.retryAfterMs)
+  const requested = Number.isFinite(hinted) && hinted > 0
+    ? Math.max(backoff, hinted)
+    : backoff
+  return Math.min(maxDelayMs, requested)
+}
+
 export async function retryWithBackoff(task, {
   attempts = 3,
   baseDelayMs = 250,
@@ -52,7 +61,7 @@ export async function retryWithBackoff(task, {
       lastError = error
       if (attempt >= totalAttempts || !shouldRetry(error)) throw error
 
-      const delay = Math.min(maxDelayMs, baseDelayMs * (2 ** (attempt - 1)))
+      const delay = retryDelay(error, attempt, baseDelayMs, maxDelayMs)
       try {
         await onRetry({ attempt, delay, error })
       } catch {
