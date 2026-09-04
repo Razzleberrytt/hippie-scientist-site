@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url'
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const allowlistPath = path.join(repoRoot, 'security', 'audit-allowlist.json')
 const allowlistFragmentsDir = path.join(repoRoot, 'security', 'audit-allowlist.d')
+const auditTimeoutMs = Math.max(30_000, Number(process.env.NPM_AUDIT_TIMEOUT_MS || 120_000))
 
 function readRules(filePath) {
   const payload = JSON.parse(fs.readFileSync(filePath, 'utf8'))
@@ -54,9 +55,17 @@ const npmInvocation = getNpmInvocation()
 const auditRun = spawnSync(npmInvocation.command, npmInvocation.args, {
   cwd: repoRoot,
   encoding: 'utf8',
+  timeout: auditTimeoutMs,
+  killSignal: 'SIGTERM',
+  env: {
+    ...process.env,
+    NPM_CONFIG_FETCH_TIMEOUT: process.env.NPM_CONFIG_FETCH_TIMEOUT || '60000',
+    NPM_CONFIG_FETCH_RETRIES: process.env.NPM_CONFIG_FETCH_RETRIES || '1',
+  },
 })
 if (auditRun.error) {
-  console.error(`[audit:high] FAIL: unable to run ${npmInvocation.label}`)
+  const timedOut = auditRun.error.code === 'ETIMEDOUT'
+  console.error(`[audit:high] FAIL: unable to run ${npmInvocation.label}${timedOut ? ` within ${auditTimeoutMs}ms` : ''}`)
   console.error(auditRun.error.message)
   process.exit(1)
 }
