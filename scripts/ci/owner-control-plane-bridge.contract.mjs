@@ -155,15 +155,31 @@ test('ready transition requires the head to contain exact current main', () => {
   )
 })
 
-test('workflow is owner-only, serialized, main-trusted, and dispatches the governed free-plan connector preparation path', () => {
+test('workflow is owner-only, serialized, main-trusted, and uses one native ready validation fan-out', () => {
   const workflow = fs.readFileSync(path.join(repoRoot, '.github', 'workflows', 'owner-control-plane-bridge.yml'), 'utf8')
   const connectorWorkflow = fs.readFileSync(path.join(repoRoot, '.github', 'workflows', 'metricool-connector-publication.yml'), 'utf8')
   assert.match(workflow, /issue_comment:/)
+  assert.match(workflow, /pull_request_target:/)
+  assert.match(workflow, /schedule:/)
+  assert.match(workflow, /cron:\s*'55 \* \* \* \*'/)
   assert.match(workflow, /github\.event\.comment\.user\.login == github\.repository_owner/)
   assert.match(workflow, /group:\s*owner-control-plane-bridge-global/)
-  assert.match(workflow, /actions:\s*write/)
+  assert.match(workflow, /contents:\s*write/)
   assert.match(workflow, /pull-requests:\s*write/)
   assert.match(workflow, /ref:\s*main/)
+  assert.match(workflow, /promotion-admission\.mjs admit-next/)
+  assert.match(workflow, /promotion-admission\.mjs assert-token-free/)
+  assert.match(workflow, /Refresh one safe stale draft onto current main/)
+  assert.match(workflow, /pulls\/\$PR_NUMBER\/update-branch/)
+  assert.match(workflow, /Workflow-changing staged PRs are never bot-updated/)
+  assert.match(workflow, /gh pr ready/)
+  assert.match(workflow, /Verify transition preserved exact head and current main/)
+  assert.match(workflow, /gh pr ready "\$PR_NUMBER" --undo/)
+  assert.doesNotMatch(workflow, /gh workflow run ci\.yml/)
+  assert.doesNotMatch(workflow, /gh workflow run check\.yml/)
+  assert.doesNotMatch(workflow, /gh workflow run atomic-upgrade-gate\.yml/)
+  assert.doesNotMatch(workflow, /gh workflow run build-quality-regression\.yml/)
+  assert.match(workflow, /ready_for_review event is the single validation trigger/)
   assert.match(workflow, /gh workflow run enrichment-governor-transaction\.yml/)
   assert.match(workflow, /startsWith\(github\.event\.comment\.body, '\/publish-metricool '\)/)
   assert.match(workflow, /gh workflow run metricool-connector-publication\.yml/)
@@ -175,14 +191,14 @@ test('workflow is owner-only, serialized, main-trusted, and dispatches the gover
   assert.match(connectorWorkflow, /Provider call: not performed by GitHub Actions/)
   assert.doesNotMatch(connectorWorkflow, /METRICOOL_USER_TOKEN/)
   assert.doesNotMatch(connectorWorkflow, /X-Mc-Auth/)
-  assert.match(workflow, /gh pr ready/)
-  assert.match(workflow, /Verify transition preserved exact head and current main/)
-  assert.match(workflow, /gh pr ready "\$PR_NUMBER" --undo/)
-  assert.match(workflow, /gh workflow run ci\.yml/)
-  assert.match(workflow, /gh workflow run check\.yml/)
-  assert.match(workflow, /gh workflow run atomic-upgrade-gate\.yml/)
-  assert.match(workflow, /gh workflow run build-quality-regression\.yml/)
-  assert.doesNotMatch(workflow, /pull_request_target:/)
+})
+
+test('heavy producer gates skip draft PR events but remain available for recovery dispatch', () => {
+  for (const workflowName of ['atomic-upgrade-gate.yml', 'build-quality-regression.yml']) {
+    const workflow = fs.readFileSync(path.join(repoRoot, '.github', 'workflows', workflowName), 'utf8')
+    assert.match(workflow, /github\.event_name != 'pull_request' \|\| github\.event\.pull_request\.draft == false/)
+    assert.match(workflow, /workflow_dispatch:/)
+  }
 })
 
 test('site health workflow binds recovery dispatch to the current PR head', () => {
