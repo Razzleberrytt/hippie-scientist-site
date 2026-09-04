@@ -26,7 +26,7 @@ const BOILERPLATE_PATTERNS = [
 const DUMMY_REFERENCE_PATTERNS = [
   /placeholder/i,
   /example/i,
-  /sample/i,
+  /\bsample\s+(?:reference|citation)s?\b/i,
   /\bpubmed\b\s*$/i,
   /\bnih\b\s*$/i,
   /\bcochrane\b\s*$/i,
