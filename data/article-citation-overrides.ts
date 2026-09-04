@@ -28,6 +28,127 @@ export const citationRelationshipTargets: Record<string, CitationRelationshipTar
 }
 
 export const articleCitationOverrides: Record<string, ArticleCitationOverride> = {
+  'sleep-debt-and-recovery': {
+    relatedSlugs: [
+      'how-much-sleep-do-adults-need',
+      'weekend-catch-up-sleep',
+      'daytime-sleepiness-vs-fatigue',
+      'insomnia-vs-sleep-deprivation',
+      'sleep-inertia-grogginess-after-waking',
+    ],
+    canonicalConcepts: [
+      'sleep debt',
+      'recovery sleep',
+      'sleep restriction',
+      'weekend catch-up sleep',
+      'vigilance',
+      'executive function',
+    ],
+  },
+  'daytime-sleepiness-vs-fatigue': {
+    relatedSlugs: [
+      'hypersomnolence-vs-insufficient-sleep',
+      'sleep-debt-and-recovery',
+      'snoring-vs-sleep-apnea',
+      'home-sleep-apnea-test-vs-polysomnography',
+      'medications-and-sleep',
+    ],
+    canonicalConcepts: [
+      'excessive daytime sleepiness',
+      'fatigue',
+      'microsleep',
+      'sleep propensity',
+      'driving impairment',
+      'sleep-disordered breathing',
+    ],
+  },
+  'sleep-bruxism-and-sleep-apnea': {
+    relatedSlugs: [
+      'snoring-vs-sleep-apnea',
+      'sleep-apnea-vs-insomnia',
+      'cpap-vs-oral-appliance-for-sleep-apnea',
+      'home-sleep-apnea-test-vs-polysomnography',
+      'why-sleep-studies-disagree',
+    ],
+    canonicalConcepts: [
+      'sleep bruxism',
+      'obstructive sleep apnea',
+      'rhythmic masticatory muscle activity',
+      'polysomnography',
+      'dental sleep medicine',
+      'autonomic arousal',
+    ],
+  },
+  'hypersomnolence-vs-insufficient-sleep': {
+    relatedSlugs: [
+      'daytime-sleepiness-vs-fatigue',
+      'sleep-debt-and-recovery',
+      'how-much-sleep-do-adults-need',
+      'snoring-vs-sleep-apnea',
+      'sleep-paralysis',
+    ],
+    canonicalConcepts: [
+      'central disorders of hypersomnolence',
+      'narcolepsy',
+      'idiopathic hypersomnia',
+      'multiple sleep latency test',
+      'actigraphy',
+      'insufficient sleep',
+      'orexin',
+    ],
+  },
+  'sleep-apnea-in-women': {
+    relatedSlugs: [
+      'home-sleep-apnea-test-vs-polysomnography',
+      'snoring-vs-sleep-apnea',
+      'sleep-apnea-vs-insomnia',
+      'menopause-and-sleep',
+      'daytime-sleepiness-vs-fatigue',
+    ],
+    canonicalConcepts: [
+      'obstructive sleep apnea in women',
+      'REM-predominant obstructive sleep apnea',
+      'menopause',
+      'home sleep apnea testing',
+      'polysomnography',
+      'OSA screening',
+    ],
+  },
+  'cpap-vs-oral-appliance-for-sleep-apnea': {
+    relatedSlugs: [
+      'home-sleep-apnea-test-vs-polysomnography',
+      'snoring-vs-sleep-apnea',
+      'sleep-position-osa-and-reflux',
+      'nasal-obstruction-and-sleep-apnea',
+      'sleep-apnea-in-women',
+    ],
+    canonicalConcepts: [
+      'continuous positive airway pressure',
+      'mandibular advancement device',
+      'oral appliance therapy',
+      'obstructive sleep apnea treatment',
+      'treatment adherence',
+      'residual apnea-hypopnea index',
+    ],
+  },
+  'home-sleep-apnea-test-vs-polysomnography': {
+    relatedSlugs: [
+      'sleep-apnea-in-women',
+      'snoring-vs-sleep-apnea',
+      'sleep-apnea-vs-insomnia',
+      'cpap-vs-oral-appliance-for-sleep-apnea',
+      'sleep-trackers-accuracy',
+    ],
+    canonicalConcepts: [
+      'home sleep apnea testing',
+      'polysomnography',
+      'respiratory event index',
+      'apnea-hypopnea index',
+      'night-to-night variability',
+      'REM sleep',
+      'sleep staging',
+    ],
+  },
   'corynoxine-b-opioid-addiction-evidence-review': {
     relatedSlugs: [
       'mitragynine',
