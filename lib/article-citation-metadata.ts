@@ -3,9 +3,9 @@ import {
   citationRelationshipTargets,
 } from '@/data/article-citation-overrides'
 import {
-  sleepBatch2CitationOverrides,
+  sleepCitationOverrides,
   sleepRelationshipSlugAliases,
-} from '@/data/article-citation-overrides-sleep-batch2'
+} from '@/data/article-citation-overrides-sleep'
 import { evidenceSourceUrl, evidenceStudyId } from '@/lib/evidence-study'
 
 export type ArticleRelationshipRecord = {
@@ -74,7 +74,7 @@ function isRelatedArticle(
 
 function getOverride(slug: string | undefined) {
   if (!slug) return undefined
-  return sleepBatch2CitationOverrides[slug] ?? articleCitationOverrides[slug]
+  return sleepCitationOverrides[slug] ?? articleCitationOverrides[slug]
 }
 
 function canonicalRelationshipSlug(slug: string) {
