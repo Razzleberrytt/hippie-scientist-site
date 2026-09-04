@@ -1,0 +1,44 @@
+name: Swarm Runtime Resilience
+
+on:
+  pull_request:
+    paths:
+      - 'agent/lib/runtime-resilience.js'
+      - 'agent/lib/runtime-resilience.test.js'
+      - 'agent/lib/metadata-harvester.js'
+      - 'agent/orchestrator/run-orchestrator.js'
+      - '.github/workflows/swarm-runtime-resilience.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'agent/lib/runtime-resilience.js'
+      - 'agent/lib/runtime-resilience.test.js'
+      - 'agent/lib/metadata-harvester.js'
+      - 'agent/orchestrator/run-orchestrator.js'
+      - '.github/workflows/swarm-runtime-resilience.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: swarm-runtime-resilience-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  no-blocker-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Syntax check resilience runtime
+        run: node --check agent/lib/runtime-resilience.js
+      - name: Syntax check metadata harvester
+        run: node --check agent/lib/metadata-harvester.js
+      - name: Syntax check orchestrator
+        run: node --check agent/orchestrator/run-orchestrator.js
+      - name: Prove no-blocker invariants
+        run: node --test agent/lib/runtime-resilience.test.js
