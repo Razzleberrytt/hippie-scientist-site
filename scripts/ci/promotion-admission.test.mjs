@@ -6,6 +6,7 @@ import {
   isHeldPromotionPr,
   isSameRepoMainPr,
   planPromotionState,
+  shouldStageStalePromotion,
 } from './promotion-admission.mjs'
 
 const repo = 'Razzleberrytt/hippie-scientist-site'
@@ -54,6 +55,12 @@ test('workflow-control PRs require clean restage instead of automatic refresh', 
     canAutoRefreshPromotionPr(['content/articles/example.mdx', '.github/workflows/check.yml']),
     false,
   )
+})
+
+test('stale active promotions always release the global token', () => {
+  assert.equal(shouldStageStalePromotion({ exact: true }), false)
+  assert.equal(shouldStageStalePromotion({ exact: false }), true)
+  assert.equal(shouldStageStalePromotion({}), true)
 })
 
 test('one existing non-draft PR keeps the promotion token and other ready PRs are staged', () => {
