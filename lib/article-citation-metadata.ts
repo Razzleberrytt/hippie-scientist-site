@@ -2,6 +2,10 @@ import {
   articleCitationOverrides,
   citationRelationshipTargets,
 } from '@/data/article-citation-overrides'
+import {
+  sleepBatch2CitationOverrides,
+  sleepRelationshipSlugAliases,
+} from '@/data/article-citation-overrides-sleep-batch2'
 import { evidenceSourceUrl, evidenceStudyId } from '@/lib/evidence-study'
 
 export type ArticleRelationshipRecord = {
@@ -69,7 +73,12 @@ function isRelatedArticle(
 }
 
 function getOverride(slug: string | undefined) {
-  return slug ? articleCitationOverrides[slug] : undefined
+  if (!slug) return undefined
+  return sleepBatch2CitationOverrides[slug] ?? articleCitationOverrides[slug]
+}
+
+function canonicalRelationshipSlug(slug: string) {
+  return sleepRelationshipSlugAliases[slug] ?? slug
 }
 
 function categoryFallbacks(
@@ -266,7 +275,7 @@ export function resolveRelatedArticles(
       ? current.relatedSlugs
       : getOverride(current.slug)?.relatedSlugs ?? []
   const curated = relatedSlugs
-    .map((slug) => bySlug.get(slug))
+    .map((slug) => bySlug.get(canonicalRelationshipSlug(slug)))
     .filter((article): article is ArticleRelationshipRecord =>
       isRelatedArticle(article, current.slug)
     )
