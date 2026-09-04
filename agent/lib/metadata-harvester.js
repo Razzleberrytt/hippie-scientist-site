@@ -43,6 +43,17 @@ function saveCache(slug, source, data) {
   fs.writeFileSync(fileURL(slug, source), JSON.stringify(data, null, 2))
 }
 
+function parseRetryAfterMs(value, now = Date.now()) {
+  if (!value) return 0
+
+  const seconds = Number(value)
+  if (Number.isFinite(seconds) && seconds > 0) return seconds * 1000
+
+  const timestamp = Date.parse(value)
+  if (!Number.isFinite(timestamp)) return 0
+  return Math.max(0, timestamp - now)
+}
+
 async function fetchJson(url) {
   return retryWithBackoff(async () => {
     const response = await fetch(url, {
@@ -53,6 +64,7 @@ async function fetchJson(url) {
     if (!response.ok) {
       const error = new Error(`Metadata request failed (${response.status}) for ${url.hostname}`)
       error.status = response.status
+      error.retryAfterMs = parseRetryAfterMs(response.headers.get('retry-after'))
       throw error
     }
 
