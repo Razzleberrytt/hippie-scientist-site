@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - '.github/workflows/enforce-main-protection.yml'
+      - '.github/workflows/check.yml'
       - 'scripts/ci/main-protection-enforcer.test.mjs'
       - 'docs/ci/main-branch-protection.md'
   issue_comment:
@@ -87,12 +88,15 @@ jobs:
           {
             "required_status_checks": {
               "strict": true,
-              "contexts": [
-                "CI",
-                "Site Health Check",
-                "Atomic upgrade gate",
-                "Production Content Lint",
-                "Build quality regression"
+              "contexts": [],
+              "checks": [
+                {"context": "Validation, tests, and data", "app_id": 15368},
+                {"context": "Production build, output, and SEO", "app_id": 15368},
+                {"context": "Site Health Check", "app_id": 15368},
+                {"context": "Atomic issue and measurement contract", "app_id": 15368},
+                {"context": "Full release suite for generator changes", "app_id": 15368},
+                {"context": "production-content-lint", "app_id": 15368},
+                {"context": "Compare generated quality with base", "app_id": 15368}
               ]
             },
             "enforce_admins": true,
@@ -139,13 +143,16 @@ jobs:
             "repos/$REPO/branches/main/protection" \
             > "$RUNNER_TEMP/main-live-protection.json"
 
+          jq -e '.required_status_checks.strict == true' "$RUNNER_TEMP/main-live-protection.json" >/dev/null
           for check in \
-            "CI" \
+            "Validation, tests, and data" \
+            "Production build, output, and SEO" \
             "Site Health Check" \
-            "Atomic upgrade gate" \
-            "Production Content Lint" \
-            "Build quality regression"; do
-            jq -e --arg check "$check" '.required_status_checks.contexts | index($check) != null' \
+            "Atomic issue and measurement contract" \
+            "Full release suite for generator changes" \
+            "production-content-lint" \
+            "Compare generated quality with base"; do
+            jq -e --arg check "$check" '[.required_status_checks.checks[] | select(.context == $check and .app_id == 15368)] | length == 1' \
               "$RUNNER_TEMP/main-live-protection.json" >/dev/null
           done
 
