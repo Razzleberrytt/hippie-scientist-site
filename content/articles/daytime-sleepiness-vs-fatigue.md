@@ -186,7 +186,7 @@ Jet lag can create the same mismatch temporarily.
 
 In those cases, the problem is not necessarily insufficient motivation or poor sleep hygiene. The circadian system is promoting sleep at the wrong clock time for the person's obligations.
 
-See [Shift Work Sleep Disorder](/articles/shift-work-sleep-disorder/) and [Jet Lag](/articles/jet-lag-light-melatonin-and-sleep-timing/).
+See [Shift Work Sleep Disorder](/articles/shift-work-sleep-disorder/) and [Jet Lag](/articles/jet-lag-light-melatonin-and-sleep/).
 
 ## Medications and substances belong in the differential
 
