@@ -58,10 +58,10 @@ const START_HERE: IntentRoute[] = [
     href: '/articles/shift-work-sleep-disorder/',
   },
   {
-    problem: 'Light or noise keeps waking you',
+    problem: 'Light, noise, heat or stuffy air keeps disrupting sleep',
     why: 'Environmental control can be a cleaner first experiment than adding another supplement.',
-    cta: 'Eye Masks & Earplugs',
-    href: '/articles/eye-masks-earplugs-and-sleep/',
+    cta: 'Sleep Environment Guide',
+    href: '/articles/sleep-environment-evidence-guide/',
   },
   {
     problem: 'Not sure which magnesium to buy',
@@ -109,9 +109,14 @@ const START_HERE: IntentRoute[] = [
 
 const BEST_FIRST: GuideCard[] = [
   {
+    href: '/articles/sleep-interventions-evidence-matrix/',
+    title: 'Sleep Interventions Evidence Matrix',
+    desc: 'Compare supplements, CBT-I, circadian tools, environmental interventions, substances and red flags in one decision-first map.',
+  },
+  {
     href: '/guides/sleep/best-supplements-for-sleep/',
     title: 'Best Supplements for Sleep',
-    desc: 'The evidence-graded supplement overview — start here if you are not sure what you need.',
+    desc: 'The evidence-graded supplement overview — start here if your question is specifically about supplements.',
   },
   {
     href: '/articles/cbt-i-vs-sleep-supplements/',
@@ -233,6 +238,21 @@ const RESEARCH_ARTICLES: GuideCard[] = [
 
 const CORE_SLEEP_SCIENCE: GuideCard[] = [
   {
+    href: '/articles/sleep-interventions-evidence-matrix/',
+    title: 'Sleep Interventions Evidence Matrix',
+    desc: 'A fast map of evidence position, best-supported role, main signal and biggest limitation across the sleep cluster.',
+  },
+  {
+    href: '/articles/how-much-sleep-do-adults-need/',
+    title: 'How Much Sleep Do Adults Need?',
+    desc: 'Why the consensus says 7 or more hours regularly — not exactly eight hours for every adult.',
+  },
+  {
+    href: '/articles/90-minute-sleep-cycle-myth/',
+    title: 'The 90-Minute Sleep Cycle Myth',
+    desc: 'Sleep cycles are real, but 6,064 PSG-recorded cycles show why exact 90-minute alarm math is false precision.',
+  },
+  {
     href: '/articles/sleep-onset-vs-sleep-maintenance/',
     title: 'Sleep Onset vs Sleep Maintenance',
     desc: 'SOL, WASO, total sleep time and sleep efficiency — learn which endpoint a study actually changed.',
@@ -266,14 +286,29 @@ const CORE_SLEEP_SCIENCE: GuideCard[] = [
 
 const CIRCADIAN_AND_SCHEDULE: GuideCard[] = [
   {
+    href: '/articles/night-owl-chronotype-vs-delayed-sleep-phase/',
+    title: 'Night Owl vs Delayed Sleep Phase Disorder',
+    desc: 'A late chronotype is not automatically a disorder; impairment and schedule conflict are what change the interpretation.',
+  },
+  {
     href: '/articles/delayed-sleep-wake-phase-vs-insomnia/',
     title: 'Delayed Sleep Phase vs Insomnia',
     desc: 'When sleep is relatively normal on a later schedule, the biological clock may be a better target than stronger sedation.',
   },
   {
+    href: '/articles/jet-lag-light-melatonin-and-sleep/',
+    title: 'Jet Lag: Light, Melatonin and Sleep Timing',
+    desc: 'East versus west, timed light and darkness, melatonin, travel fatigue and why full adaptation is not always the goal on short trips.',
+  },
+  {
     href: '/articles/shift-work-sleep-disorder/',
     title: 'Shift Work Sleep Disorder',
     desc: 'The 2025–2026 guidance on naps, light, caffeine, melatonin, meal timing and fixed versus rotating nights.',
+  },
+  {
+    href: '/articles/teen-sleep-and-school-start-times/',
+    title: 'Teen Sleep and School Start Times',
+    desc: 'The 2026 meta-analysis and randomized school-delay evidence on sleep duration, social jet lag and why later starts do not treat every teen sleep problem.',
   },
   {
     href: '/articles/morning-light-and-sleep-timing/',
@@ -319,9 +354,19 @@ const CIRCADIAN_AND_SCHEDULE: GuideCard[] = [
 
 const ENVIRONMENT_AND_NON_DRUG: GuideCard[] = [
   {
+    href: '/articles/sleep-environment-evidence-guide/',
+    title: 'Sleep Environment Evidence Guide',
+    desc: 'A decision-first map for light, noise, heat, ventilation, air quality and sleep position before adding another compound.',
+  },
+  {
     href: '/articles/eye-masks-earplugs-and-sleep/',
     title: 'Eye Masks, Earplugs, and Sleep',
     desc: 'The strongest evidence comes from bright, noisy clinical environments; eye masks and combined use outperform earplugs alone more consistently.',
+  },
+  {
+    href: '/articles/bedroom-air-quality-ventilation-and-sleep/',
+    title: 'Bedroom Air Quality and Sleep',
+    desc: 'Small controlled studies suggest a ventilation signal, while CO₂ remains partly a marker of occupancy and air exchange rather than a universal sleep threshold.',
   },
   {
     href: '/articles/sleep-temperature-and-cooling/',
@@ -335,8 +380,8 @@ const ENVIRONMENT_AND_NON_DRUG: GuideCard[] = [
   },
   {
     href: '/articles/white-noise-and-sleep/',
-    title: 'White Noise and Sleep',
-    desc: 'A newer positive RCT meta-analysis updates—but does not erase—the older very-low-certainty review.',
+    title: 'White Noise, Pink Noise and Sleep',
+    desc: 'The newer white-noise RCT signal, older uncertainty, and 2026 PSG evidence that continuous pink noise can reduce REM sleep.',
   },
   {
     href: '/articles/music-for-sleep/',
@@ -352,6 +397,11 @@ const ENVIRONMENT_AND_NON_DRUG: GuideCard[] = [
     href: '/articles/mindfulness-for-insomnia/',
     title: 'Mindfulness for Insomnia',
     desc: 'Why improvement versus waitlist is not the same as an advantage over active controls or full CBT-I.',
+  },
+  {
+    href: '/articles/sleep-position-osa-and-reflux/',
+    title: 'Sleep Position: OSA and Reflux',
+    desc: 'No universal best side: nonsupine sleep can help positional OSA, while left-side sleeping has direct evidence for nocturnal reflux.',
   },
 ]
 
@@ -383,6 +433,54 @@ const SUBSTANCES_AND_OTC: GuideCard[] = [
   },
 ]
 
+const LIFE_STAGES_AND_COMORBIDITY: GuideCard[] = [
+  {
+    href: '/articles/teen-adolescent-sleep/',
+    title: 'Teen and Adolescent Sleep',
+    desc: 'Circadian delay, school schedules, adolescent insomnia, CBT-I, light and melatonin belong in one age-specific evidence framework.',
+  },
+  {
+    href: '/articles/menopause-and-sleep/',
+    title: 'Menopause and Sleep',
+    desc: 'Hot flashes, chronic insomnia, CBT-I, hormone-therapy sleep effects, sleep apnea and restless legs need different treatment logic.',
+  },
+  {
+    href: '/articles/pregnancy-postpartum-and-sleep/',
+    title: 'Pregnancy & Postpartum Sleep',
+    desc: 'Pregnancy-specific CBT-I, sleep-disorder screening, postpartum sleep opportunity and stricter supplement-safety boundaries.',
+  },
+  {
+    href: '/articles/chronic-pain-and-sleep/',
+    title: 'Chronic Pain and Sleep',
+    desc: 'Sleep and pain can reinforce each other, while treating insomnia does not automatically produce a large reduction in pain intensity.',
+  },
+  {
+    href: '/articles/migraine-and-sleep/',
+    title: 'Migraine and Sleep',
+    desc: 'Migraine and sleep problems can reinforce each other, but subjective complaints, objective sleep changes, insomnia and sleep apnea remain distinct questions.',
+  },
+  {
+    href: '/articles/anxiety-and-sleep/',
+    title: 'Anxiety and Sleep',
+    desc: 'Anxiety and insomnia can reinforce each other, while CBT-I treats the sleep disorder more strongly than it treats anxiety itself.',
+  },
+  {
+    href: '/articles/depression-and-sleep/',
+    title: 'Depression and Sleep',
+    desc: 'CBT-I can improve insomnia and depressive outcomes, but insomnia, hypersomnia and depression-specific treatment remain distinct clinical questions.',
+  },
+  {
+    href: '/articles/tinnitus-and-sleep/',
+    title: 'Tinnitus and Sleep',
+    desc: 'Tinnitus can amplify insomnia, but loudness, distress and insomnia severity are distinct—and insomnia-focused CBT-I has direct randomized evidence.',
+  },
+  {
+    href: '/articles/sleep-in-older-adults/',
+    title: 'Sleep in Older Adults',
+    desc: 'Normal aging changes sleep, but persistent insomnia, sleep apnea, restless legs and medication effects still need their own evidence pathways.',
+  },
+]
+
 const WHEN_SUPPLEMENTS_ARE_NOT_THE_MAIN_QUESTION: GuideCard[] = [
   {
     href: '/articles/cbt-i-vs-sleep-supplements/',
@@ -393,6 +491,16 @@ const WHEN_SUPPLEMENTS_ARE_NOT_THE_MAIN_QUESTION: GuideCard[] = [
     href: '/articles/sleep-apnea-vs-insomnia/',
     title: 'Sleep Apnea vs Insomnia',
     desc: 'COMISA can combine insomnia with obstructive sleep apnea, and sedation does not treat airway obstruction.',
+  },
+  {
+    href: '/articles/snoring-vs-sleep-apnea/',
+    title: 'Snoring vs Sleep Apnea',
+    desc: 'Snoring is a symptom, OSA is a diagnosis: apps and questionnaires can flag risk but objective testing controls the diagnostic claim.',
+  },
+  {
+    href: '/articles/nocturia-and-sleep/',
+    title: 'Nocturia and Sleep',
+    desc: 'Why waking to urinate can reflect urine production, bladder storage, insomnia, sleep apnea, or simply being awake for another reason.',
   },
   {
     href: '/articles/mouth-taping-for-sleep/',
@@ -461,6 +569,7 @@ export default function SleepGuideIndex() {
       ...CIRCADIAN_AND_SCHEDULE.map((g) => ({ name: g.title, url: g.href })),
       ...ENVIRONMENT_AND_NON_DRUG.map((g) => ({ name: g.title, url: g.href })),
       ...SUBSTANCES_AND_OTC.map((g) => ({ name: g.title, url: g.href })),
+      ...LIFE_STAGES_AND_COMORBIDITY.map((g) => ({ name: g.title, url: g.href })),
       ...WHEN_SUPPLEMENTS_ARE_NOT_THE_MAIN_QUESTION.map((g) => ({ name: g.title, url: g.href })),
     ],
   })
@@ -520,7 +629,7 @@ export default function SleepGuideIndex() {
         <HubSectionHeading
           eyebrow="Core sleep science"
           title="Understand what the studies are actually measuring"
-          sub="Onset, maintenance, subjective versus objective sleep, trackers, post-waking grogginess and the difference between insomnia and insufficient sleep."
+          sub="Sleep duration, cycles, onset, maintenance, subjective versus objective sleep, trackers, post-waking grogginess and the difference between insomnia and insufficient sleep."
         />
         <GuideCardGrid cards={CORE_SLEEP_SCIENCE} />
       </section>
@@ -529,7 +638,7 @@ export default function SleepGuideIndex() {
         <HubSectionHeading
           eyebrow="Circadian & schedule"
           title="When clock timing matters more than sedation"
-          sub="Delayed sleep phase, shift work, light, melatonin timing, regularity, catch-up sleep, naps, exercise and meal timing."
+          sub="Chronotype, jet lag, adolescent school schedules, delayed sleep phase, shift work, light, melatonin timing, regularity, catch-up sleep, naps, exercise and meal timing."
         />
         <GuideCardGrid cards={CIRCADIAN_AND_SCHEDULE} />
       </section>
@@ -538,7 +647,7 @@ export default function SleepGuideIndex() {
         <HubSectionHeading
           eyebrow="Environment & non-drug tools"
           title="Change the bedroom before adding another compound"
-          sub="Darkness, sound, temperature, warm bathing, music, weighted blankets and mindfulness — with the limits of each intervention kept visible."
+          sub="Light, sound, temperature, ventilation, position, warm bathing, music, weighted blankets and mindfulness — with the limits of each intervention kept visible."
         />
         <GuideCardGrid cards={ENVIRONMENT_AND_NON_DRUG} />
       </section>
@@ -554,9 +663,18 @@ export default function SleepGuideIndex() {
 
       <section className="mb-12">
         <HubSectionHeading
+          eyebrow="Life stages & comorbidity"
+          title="When the sleep problem changes with the person"
+          sub="Adolescence, menopause, pregnancy and postpartum sleep, chronic pain, migraine, anxiety, depression, tinnitus, and older-adult sleep each change the evidence hierarchy, safety boundaries, or underlying bottleneck."
+        />
+        <GuideCardGrid cards={LIFE_STAGES_AND_COMORBIDITY} />
+      </section>
+
+      <section className="mb-12">
+        <HubSectionHeading
           eyebrow="Check the bottleneck"
           title="When another supplement may be the wrong next move"
-          sub="Persistent insomnia, abnormal breathing, viral airway hacks and restless legs each have evidence pathways that a larger sleep stack can miss."
+          sub="Persistent insomnia, snoring or breathing risk, nocturia, viral airway hacks and restless legs each have evidence pathways that a larger sleep stack can miss."
         />
         <GuideCardGrid cards={WHEN_SUPPLEMENTS_ARE_NOT_THE_MAIN_QUESTION} />
       </section>
