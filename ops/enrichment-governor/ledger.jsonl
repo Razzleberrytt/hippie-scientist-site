@@ -8,3 +8,4 @@
 {"event":"lease_acquired","at":"2026-09-01T23:48:55.758Z","leaseId":"lease-4992-propionate-closure","owner":"site-swarm-integration","files":[],"entities":["compound:propionate"],"expiresAt":"2026-09-02T01:18:55.731Z"}
 {"event":"lease_released","at":"2026-09-02T00:22:34.173Z","leaseId":"lease-4992-propionate-closure","owner":"site-swarm-integration","existed":true,"disposition":"verified"}
 {"event":"lease_acquired","at":"2026-09-02T00:43:33.761Z","leaseId":"lease-5021-vitamin-b6-closure","owner":"site-swarm-integration","files":[],"entities":["compound:vitamin-b6"],"expiresAt":"2026-09-02T02:13:33.760Z"}
+{"event":"governor_state_reconciled","at":"2026-09-04T19:17:53.000Z","prunedExpiredLeases":1,"quarantinedQueuedItems":0,"quarantinedBatchedItems":0,"activeQuarantineCases":0}
