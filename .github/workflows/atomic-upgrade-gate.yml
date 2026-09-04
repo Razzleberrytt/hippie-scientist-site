@@ -24,6 +24,7 @@ permissions:
 
 jobs:
   atomic-contract:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     name: Atomic issue and measurement contract
     runs-on: ubuntu-latest
     steps:
@@ -64,6 +65,7 @@ jobs:
           NODE
 
   generator-release-quality:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     name: Full release suite for generator changes
     runs-on: ubuntu-latest
     timeout-minutes: 45
