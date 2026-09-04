@@ -40,6 +40,105 @@
     {
       "submissionId": "sub_f-b6-prolonged-high-dose-neuropathy-warning",
       "promotionStatus": "not_promoted"
+    },
+    {
+      "submissionId": "sub_e-propionate-ms-snfl-biomarker-signal",
+      "attestation": {
+        "reviewer": "enrichment-adjudicator",
+        "reviewedAt": "2026-09-04T14:35:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "PMID 42402345 studies propionic acid as the exact intervention represented by the staged propionate proposition.",
+          "evidenceRefs": ["src_pubmed-42402345"]
+        },
+        "preparation": {
+          "status": "matched",
+          "reason": "The finding preserves oral propionic acid 500 mg twice daily as add-on therapy and explicitly excludes salts, endogenous propionate, mixed-SCFA delivery, and inulin-propionate ester.",
+          "evidenceRefs": ["src_pubmed-42402345"]
+        },
+        "population": {
+          "status": "matched",
+          "reason": "The staged population matches adults with clinically stable multiple sclerosis receiving background disease-modifying management in the phase 2b trial.",
+          "evidenceRefs": ["src_pubmed-42402345"]
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "The proposition identifies serum neurofilament light chain as the primary biomarker endpoint and does not relabel it as a patient-important clinical outcome.",
+          "evidenceRefs": ["src_pubmed-42402345"]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "The finding preserves the statistically significant sNfL signal while explicitly withholding relapse, disability, cognition, quality-of-life, long-term neuroprotection, and generic supplement claims.",
+          "evidenceRefs": ["src_pubmed-42402345"]
+        }
+      }
+    },
+    {
+      "submissionId": "sub_e-propionate-ms-secondary-outcome-ceiling",
+      "attestation": {
+        "reviewer": "enrichment-adjudicator",
+        "reviewedAt": "2026-09-04T14:35:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "PMID 42402345 studies propionic acid, matching the exact entity named by the staged secondary-outcome proposition.",
+          "evidenceRefs": ["src_pubmed-42402345"]
+        },
+        "preparation": {
+          "status": "matched",
+          "reason": "The proposition remains specific to oral propionic acid 500 mg twice daily for 90 days as add-on therapy and does not inherit evidence across other propionate forms or routes.",
+          "evidenceRefs": ["src_pubmed-42402345"]
+        },
+        "population": {
+          "status": "matched",
+          "reason": "The population is the same clinically stable multiple-sclerosis cohort studied in the randomized phase 2b trial, with no healthy-user generalization.",
+          "evidenceRefs": ["src_pubmed-42402345"]
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "The finding correctly separates secondary physical, cognitive, fatigue, and quality-of-life outcomes from the positive primary sNfL biomarker endpoint.",
+          "evidenceRefs": ["src_pubmed-42402345"]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "The staged conclusion preserves that motor fatigue was described only as a trend and does not convert the biomarker result into broad confirmed functional or clinical benefit.",
+          "evidenceRefs": ["src_pubmed-42402345"]
+        }
+      }
+    },
+    {
+      "submissionId": "sub_e-propionate-ms-shortterm-safety-ceiling",
+      "attestation": {
+        "reviewer": "enrichment-adjudicator",
+        "reviewedAt": "2026-09-04T14:35:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "The trial intervention is propionic acid, matching the exact entity governed by the staged short-term tolerability proposition.",
+          "evidenceRefs": ["src_pubmed-42402345"]
+        },
+        "preparation": {
+          "status": "matched",
+          "reason": "The safety statement is explicitly limited to the studied oral propionic-acid regimen and does not assume equivalence with salts, food-preservative exposure, endogenous propionate, or other delivery forms.",
+          "evidenceRefs": ["src_pubmed-42402345"]
+        },
+        "population": {
+          "status": "matched",
+          "reason": "The proposition is restricted to adults with clinically stable multiple sclerosis followed for 90 days in the randomized add-on trial.",
+          "evidenceRefs": ["src_pubmed-42402345"]
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "The source directly reports study tolerability and serious adverse events related to study medication, matching the safety endpoint summarized by the finding.",
+          "evidenceRefs": ["src_pubmed-42402345"]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "The finding correctly treats no study-drug-related serious adverse events over 90 days as short-term tolerability context rather than long-term or all-population safety assurance.",
+          "evidenceRefs": ["src_pubmed-42402345"]
+        }
+      }
     }
   ]
 }
