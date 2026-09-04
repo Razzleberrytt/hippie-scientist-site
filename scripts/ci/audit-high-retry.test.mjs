@@ -99,7 +99,7 @@ describe('high-severity audit transport retry', () => {
     const { result, count } = runAuditFixture('always-transient')
     expect(result.status).toBe(1)
     expect(count).toBe(2)
-    expect(result.stderr).toContain('unable to obtain valid npm audit JSON after 2 attempt(s)')
+    expect(result.stderr).toContain('unable to obtain valid npm audit JSON after at most 2 attempt(s)')
   })
 
   it('never treats an npm JSON error payload as a clean audit report', () => {
