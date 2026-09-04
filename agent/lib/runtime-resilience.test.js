@@ -8,6 +8,7 @@ import {
   withTimeout,
 } from './runtime-resilience.js'
 import { harvestMetadataBatch } from './metadata-harvester.js'
+import { runAgentQueue } from './queue.js'
 
 test('worker pool releases a failed item and continues processing remaining work', async () => {
   const visited = []
@@ -55,6 +56,29 @@ test('timeout converts a hung task into a bounded failure', async () => {
     () => withTimeout(() => new Promise(() => {}), 15, 'hung-fixture'),
     error => error?.code === 'TASK_TIMEOUT' && /hung-fixture/.test(error.message)
   )
+})
+
+test('sequential agent queue times out a hung item and releases the next task', async () => {
+  const visited = []
+  const results = await runAgentQueue([
+    async () => {
+      visited.push('hung')
+      return new Promise(() => {})
+    },
+    async () => {
+      visited.push('next')
+      return { status: 'complete', value: 42 }
+    },
+  ], {
+    concurrency: 1,
+    timeoutMs: 15,
+  })
+
+  assert.deepEqual(visited, ['hung', 'next'])
+  assert.equal(results[0].status, 'failed')
+  assert.equal(results[0].code, 'TASK_TIMEOUT')
+  assert.equal(results[1].status, 'complete')
+  assert.equal(results[1].value, 42)
 })
 
 test('transient failures retry with a ceiling and eventually recover', async () => {
