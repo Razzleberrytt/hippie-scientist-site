@@ -146,6 +146,24 @@ const COMPARISONS: GuideCard[] = [
   },
 ]
 
+const RESEARCH_ARTICLES: GuideCard[] = [
+  {
+    href: '/articles/saffron-for-sleep/',
+    title: 'Saffron for Sleep',
+    desc: 'Meta-analyses, randomized trials, and the newer 2025 moderate-insomnia study — with effect-size limits intact.',
+  },
+  {
+    href: '/articles/tart-cherry-for-sleep/',
+    title: 'Tart Cherry for Sleep',
+    desc: 'The 2025 systematic review, small positive insomnia pilots, and recent null trials compared side by side.',
+  },
+  {
+    href: '/articles/chamomile-for-sleep/',
+    title: 'Chamomile for Sleep',
+    desc: 'What the 2024 meta-analysis actually found, including outcomes that did not improve.',
+  },
+]
+
 // Full library — kept, but secondary to the decision sections above.
 const ALL_GUIDES = [
   { slug: 'best-supplements-for-sleep', title: 'Best Supplements for Sleep' },
@@ -240,6 +258,16 @@ export default function SleepGuideIndex() {
           sub="These make a clear call instead of saying “both may help.”"
         />
         <GuideCardGrid cards={COMPARISONS} />
+      </section>
+
+      {/* New research articles */}
+      <section className="mb-12">
+        <HubSectionHeading
+          eyebrow="New research"
+          title="Evidence reviews beyond the usual shortlist"
+          sub="Recent systematic reviews, randomized trials, and null findings kept in the same frame."
+        />
+        <GuideCardGrid cards={RESEARCH_ARTICLES} />
       </section>
 
       {/* ADHD sleep */}
