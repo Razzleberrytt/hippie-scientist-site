@@ -162,6 +162,16 @@ const RESEARCH_ARTICLES: GuideCard[] = [
     desc: 'What the 2024 meta-analysis actually found, including outcomes that did not improve.',
   },
   {
+    href: '/articles/lavender-for-sleep/',
+    title: 'Lavender for Sleep',
+    desc: 'The 2026 meta-analysis of 11 randomized trials, with aromatherapy, measurement and formulation limits preserved.',
+  },
+  {
+    href: '/articles/passionflower-for-sleep/',
+    title: 'Passionflower for Sleep',
+    desc: 'Direct insomnia PSG evidence, the older tea trial and the newer standardized-extract RCT separated by endpoint and formulation.',
+  },
+  {
     href: '/articles/l-tryptophan-for-sleep/',
     title: 'L-Tryptophan for Sleep',
     desc: 'Why the modern synthesis points more toward wake-after-sleep-onset than a blanket sleep-latency claim.',
@@ -205,6 +215,11 @@ const SLEEP_SCIENCE: GuideCard[] = [
     desc: 'Why day-to-day timing stability is emerging as a sleep-health dimension separate from duration.',
   },
   {
+    href: '/articles/weekend-catch-up-sleep/',
+    title: 'Weekend Catch-Up Sleep',
+    desc: 'Partial recovery versus social jet lag: why sleeping in can help without fully erasing chronic sleep debt.',
+  },
+  {
     href: '/articles/caffeine-and-sleep-timing/',
     title: 'Caffeine and Sleep Timing',
     desc: 'Dose × timing evidence, including newer controlled trials and meta-analyses of sleep disruption.',
@@ -220,6 +235,16 @@ const SLEEP_SCIENCE: GuideCard[] = [
     desc: 'Circadian phase shifting, recent insomnia meta-analyses, and why the clock time of light exposure changes its effect.',
   },
   {
+    href: '/articles/melatonin-timing-vs-dose/',
+    title: 'Melatonin Timing vs Dose',
+    desc: 'The 2024 dose-response meta-analysis and 2026 review-of-reviews explain why clock time, indication and formulation matter alongside milligrams.',
+  },
+  {
+    href: '/articles/blue-light-screens-and-sleep/',
+    title: 'Blue Light, Screens and Sleep',
+    desc: 'Mechanism is real, intervention evidence is mixed, and bedtime screens affect sleep through more than wavelength alone.',
+  },
+  {
     href: '/articles/exercise-timing-and-sleep/',
     title: 'Exercise Timing and Sleep',
     desc: 'The 2026 morning-vs-evening review: flexible timing, with intensity and proximity to bed as the bigger variables.',
@@ -233,6 +258,24 @@ const SLEEP_SCIENCE: GuideCard[] = [
     href: '/articles/insomnia-vs-sleep-deprivation/',
     title: 'Insomnia vs Sleep Deprivation',
     desc: 'Same tired feeling, different bottleneck: adequate sleep opportunity is the key distinction.',
+  },
+]
+
+const WHEN_SUPPLEMENTS_ARE_NOT_THE_MAIN_QUESTION: GuideCard[] = [
+  {
+    href: '/articles/cbt-i-vs-sleep-supplements/',
+    title: 'CBT-I vs Sleep Supplements',
+    desc: 'For chronic insomnia, CBT-I is the evidence benchmark; supplements answer narrower questions.',
+  },
+  {
+    href: '/articles/sleep-apnea-vs-insomnia/',
+    title: 'Sleep Apnea vs Insomnia',
+    desc: 'COMISA can combine insomnia with obstructive sleep apnea, and sedation does not treat airway obstruction.',
+  },
+  {
+    href: '/articles/restless-legs-iron-and-sleep/',
+    title: 'Restless Legs, Iron and Sleep',
+    desc: 'Why RLS can masquerade as insomnia and why AASM guidance centers ferritin and transferrin saturation rather than blind iron use.',
   },
 ]
 
@@ -288,6 +331,7 @@ export default function SleepGuideIndex() {
       ...ALL_GUIDES.map((g) => ({ name: g.title, url: `/guides/sleep/${g.slug}/` })),
       ...RESEARCH_ARTICLES.map((g) => ({ name: g.title, url: g.href })),
       ...SLEEP_SCIENCE.map((g) => ({ name: g.title, url: g.href })),
+      ...WHEN_SUPPLEMENTS_ARE_NOT_THE_MAIN_QUESTION.map((g) => ({ name: g.title, url: g.href })),
     ],
   })
 
@@ -346,9 +390,18 @@ export default function SleepGuideIndex() {
         <HubSectionHeading
           eyebrow="Sleep science"
           title="Understand the measurements and upstream variables"
-          sub="Onset, maintenance, study design, wearables, regularity, caffeine, alcohol, light, exercise, naps and the difference between insomnia and simply not getting enough sleep."
+          sub="Onset, maintenance, study design, wearables, regularity, catch-up sleep, caffeine, alcohol, light, exercise, naps and the difference between insomnia and simply not getting enough sleep."
         />
         <GuideCardGrid cards={SLEEP_SCIENCE} />
+      </section>
+
+      <section className="mb-12">
+        <HubSectionHeading
+          eyebrow="Check the bottleneck"
+          title="When another supplement may be the wrong next move"
+          sub="Persistent insomnia, abnormal breathing and restless legs each have evidence pathways that a larger sleep stack can miss."
+        />
+        <GuideCardGrid cards={WHEN_SUPPLEMENTS_ARE_NOT_THE_MAIN_QUESTION} />
       </section>
 
       <section className="mb-12">

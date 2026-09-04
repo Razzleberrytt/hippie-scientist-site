@@ -2,9 +2,9 @@
 
 ## Status
 
-**Expansion pass: implemented.**
+**Expansion pass: implemented and extended.**
 
-The sleep cluster was expanded from a supplement-heavy guide set into a broader evidence system covering ingredient efficacy, sleep endpoints, measurement methods, circadian timing, upstream disruptors, behavior, formulation directness, and research-method interpretation.
+The sleep cluster was expanded from a supplement-heavy guide set into a broader evidence system covering ingredient efficacy, sleep endpoints, measurement methods, circadian timing, upstream disruptors, behavior, formulation directness, research-method interpretation, and disorder-level decision boundaries.
 
 The goal is not to publish the largest possible list of sleep aids. The goal is to make every sleep claim answer:
 
@@ -135,6 +135,14 @@ Anchored to the 2025 systematic review of 59 studies (PMID 41259946) and 2024 ol
 
 **Guardrail:** Most evidence is observational; association is not proof of causation.
 
+### Weekend catch-up sleep
+
+**Route:** `/articles/weekend-catch-up-sleep/`
+
+Anchors include the 2025 review of sleep-debt repayment (PMID 41148489), the 2025 depression meta-analysis (PMID 40021063), the homeostasis-vs-social-jet-lag review (PMID 40412461), and population data showing that napping/catch-up sleep do not fully compensate for chronic short sleep (PMID 32866843).
+
+**Position:** Extra sleep can provide partial short-term recovery, but weekend catch-up sleep is not a complete reset and large timing shifts can add circadian misalignment.
+
 ### Insomnia vs sleep deprivation
 
 **Route:** `/articles/insomnia-vs-sleep-deprivation/`
@@ -171,6 +179,16 @@ Anchors include recent insomnia light-therapy syntheses (PMIDs 39733392 and 3700
 
 Core principle: morning light generally advances circadian timing while evening light generally delays it; the intervention must match the timing problem.
 
+### Blue light, screens and sleep
+
+**Route:** `/articles/blue-light-screens-and-sleep/`
+
+Anchors include the 2025 blue-blocking-glasses actigraphy meta-analysis (PMID 41341515), the broader short-wavelength-light intervention review (PMID 37192881), the Cochrane spectacle-lens review (PMID 37593770), and a randomized healthy-adult trial showing subjective changes without objective actigraphy improvement (PMID 33707105).
+
+**Position:** The circadian mechanism is real, but screen effects are not only a wavelength problem. Brightness, timing, duration, content, arousal, and delayed bedtime also matter.
+
+**Guardrail:** Do not turn “blue light affects circadian biology” into “all blue light is bad.” Morning light can be useful for phase timing.
+
 ### Exercise timing and sleep
 
 **Route:** `/articles/exercise-timing-and-sleep/`
@@ -187,6 +205,36 @@ Anchors include day-level actigraphy data (PMID 35195690), population timing dat
 
 Core position: naps are context-dependent tools. Long/late naps can reduce nighttime sleep pressure, while strategic naps can improve cognition or manage shift-work sleepiness.
 
+## New disorder / decision-boundary pages
+
+### CBT-I vs sleep supplements
+
+**Route:** `/articles/cbt-i-vs-sleep-supplements/`
+
+Anchored to the AASM behavioral-treatment guideline (PMID 33164742), ACP chronic-insomnia guideline (PMID 27136449), and the 2026 AASM combination-treatment guideline (PMID 41975142).
+
+**Position:** CBT-I is the evidence benchmark for chronic insomnia. Sleep hygiene alone is not CBT-I, and supplements should be framed as narrower tools rather than a replacement for first-line insomnia treatment.
+
+The 2026 AASM guideline adds an important hierarchy: CBT-I plus insomnia medication is suggested over medication alone, but combination treatment is suggested **against** over CBT-I alone.
+
+### Sleep apnea vs insomnia / COMISA
+
+**Route:** `/articles/sleep-apnea-vs-insomnia/`
+
+Anchors include the 2026 COMISA treatment network meta-analysis (PMID 42107468), the 2026 physiopathology systematic review/meta-analysis (PMID 41863735), and the 2025 clinical review (PMID 40258387).
+
+**Position:** Insomnia and obstructive sleep apnea can coexist. Sedation, melatonin, magnesium, or herbs do not treat airway obstruction. COMISA may require both OSA-specific treatment and insomnia-specific treatment rather than forcing all symptoms into one bucket.
+
+### Restless legs, iron and sleep
+
+**Route:** `/articles/restless-legs-iron-and-sleep/`
+
+Anchored to the current AASM RLS/periodic-limb-movement guideline (PMID 39324694).
+
+**Position:** RLS can present as difficulty falling asleep, but the evidence pathway is disorder-specific. AASM guidance centers ferritin and transferrin saturation in clinically significant RLS.
+
+**Guardrail:** Iron is not a generic sleep supplement. Do not recommend blind iron use from a symptom match; laboratory context matters and RLS-specific iron thresholds differ from general-population deficiency rules.
+
 ## Hub integration
 
 `/guides/sleep/` now has distinct layers for:
@@ -194,11 +242,12 @@ Core position: naps are context-dependent tools. Long/late naps can reduce night
 1. **Decision-first guides** — route by the actual sleep problem.
 2. **Comparisons** — direct buyer/decision questions.
 3. **Ingredient research** — saffron, tart cherry, chamomile, tryptophan, 5-HTP, and formulation directness.
-4. **Sleep science** — endpoints, study methodology, measurement, wearables, regularity, caffeine, alcohol, light, exercise, naps, and insomnia-vs-insufficient-sleep.
-5. **ADHD & sleep** — separate timing/stimulant context.
-6. **Depth profiles** — herb/compound records.
+4. **Sleep science** — endpoints, study methodology, measurement, wearables, regularity, catch-up sleep, caffeine, alcohol, light/screens, exercise, naps, and insomnia-vs-insufficient-sleep.
+5. **Check the bottleneck** — CBT-I, sleep apnea/COMISA, and restless legs/iron when another supplement may be the wrong next move.
+6. **ADHD & sleep** — separate timing/stimulant context.
+7. **Depth profiles** — herb/compound records.
 
-The hub schema graph includes both the ingredient research and sleep-science article sets so the new pages are not orphaned.
+The hub schema graph includes the ingredient research, sleep-science, and bottleneck article sets so the new pages are not orphaned.
 
 ## Evidence-discipline standard for future sleep work
 
@@ -214,6 +263,7 @@ Every future sleep article should preserve:
 8. **Safety** — preserve medication, sedative, serotonergic, pregnancy, kidney/liver, and disorder-specific context.
 9. **Null outcomes** — do not bury major measures that failed to improve.
 10. **Highest-level synthesis** — recent systematic reviews/meta-analyses should anchor the verdict when available.
+11. **Disorder boundary** — do not let a supplement ranking substitute for evaluation of a plausible sleep disorder.
 
 ## Remaining high-ROI gaps after this pass
 
@@ -221,12 +271,13 @@ The cluster is now broad enough that the next work should prioritize **integrati
 
 Best remaining opportunities:
 
-- contextual links from flagship ranking pages into the new depth articles;
+- contextual links from flagship ranking pages into the new CBT-I / COMISA / RLS decision pages;
 - refresh existing melatonin pages around dose **versus timing** without creating redundant URLs;
-- audit older blog posts for unsupported dose language and formulation overreach;
+- audit older blog posts for unsupported dose language, formulation overreach, and sleep-disorder claims;
+- clean unresolved sleep/ADHD research TODOs in internal source drafts where evidence has already been verified elsewhere;
 - promote vetted enrichment findings into currently noindex compound/herb records where provenance requirements are satisfied;
 - monitor 2026+ systematic reviews and RCTs for changes that materially alter existing evidence grades.
 
 ## Strategic outcome
 
-The sleep cluster now has a defensible research moat: it can explain not only **which option has evidence**, but **what kind of evidence it is, what part of sleep changed, whether the measurement was subjective or objective, why studies can disagree, whether the formulation matches, and whether an upstream behavior is a more likely bottleneck than another bedtime supplement**.
+The sleep cluster now has a defensible research moat: it can explain not only **which option has evidence**, but **what kind of evidence it is, what part of sleep changed, whether the measurement was subjective or objective, why studies can disagree, whether the formulation matches, whether an upstream behavior is a more likely bottleneck than another bedtime supplement, and when the sleep complaint belongs in a disorder-specific evidence pathway instead of a supplement stack**.
