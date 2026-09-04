@@ -419,6 +419,11 @@ const LIFE_STAGES_AND_COMORBIDITY: GuideCard[] = [
     title: 'Sleep in Older Adults',
     desc: 'Normal aging changes sleep, but persistent insomnia, sleep apnea, restless legs and medication effects still need their own evidence pathways.',
   },
+  {
+    href: '/articles/teen-adolescent-sleep/',
+    title: 'Teen & Adolescent Sleep',
+    desc: 'Pubertal circadian delay, school timing, insufficient sleep, insomnia and CBT-I require different logic rather than one generic bedtime rule.',
+  },
 ]
 
 const WHEN_SUPPLEMENTS_ARE_NOT_THE_MAIN_QUESTION: GuideCard[] = [
@@ -595,7 +600,7 @@ export default function SleepGuideIndex() {
         <HubSectionHeading
           eyebrow="Life stages & comorbidity"
           title="When the sleep problem changes with the person"
-          sub="Menopause, pregnancy and postpartum sleep, chronic pain, and older-adult sleep each change the evidence hierarchy, safety boundaries, or underlying bottleneck."
+          sub="Adolescence, menopause, pregnancy and postpartum sleep, chronic pain, and older-adult sleep each change the evidence hierarchy, safety boundaries, or underlying bottleneck."
         />
         <GuideCardGrid cards={LIFE_STAGES_AND_COMORBIDITY} />
       </section>
