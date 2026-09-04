@@ -12,6 +12,16 @@ export type ArticleRelationshipRecord = {
   relatedSlugs?: string[]
 }
 
+export type ArticleDecisionRow = {
+  label: string
+  value: string
+}
+
+export type ArticleFaqAnswer = {
+  question: string
+  answer: string
+}
+
 export type ArticleCitationMetadata = {
   slug?: string
   keyTakeaways?: string[]
@@ -191,10 +201,6 @@ export function buildArticleReferenceSchema(ref: NormalizedArticleReference) {
     '@type': 'ScholarlyArticle',
     ...(ref.url ? { '@id': ref.url } : {}),
     name: ref.title,
-    // Schema policy requires a headline on every Article-shaped node, including
-    // the cited works nested under an article's citation list. A cited study's
-    // headline is its title, so this states it rather than leaving consumers to
-    // infer it from name alone.
     headline: ref.title,
     ...(ref.year ? { datePublished: String(ref.year) } : {}),
     ...(identifiers.length ? { identifier: identifiers } : {}),
@@ -287,5 +293,7 @@ export function normalizeCitationMetadata(metadata: ArticleCitationMetadata) {
       metadata.canonicalConcepts !== undefined
         ? metadata.canonicalConcepts
         : override?.canonicalConcepts ?? [],
+    decisionRows: override?.decisionRows ?? [],
+    faqAnswers: override?.faqAnswers ?? [],
   }
 }
