@@ -481,6 +481,39 @@ const LIFE_STAGES_AND_COMORBIDITY: GuideCard[] = [
   },
 ]
 
+const PARASOMNIAS_AND_HYPERSOMNOLENCE: GuideCard[] = [
+  {
+    href: '/articles/ptsd-nightmares-and-sleep/',
+    title: 'PTSD, Nightmares and Sleep',
+    desc: 'CBT-I, imagery rehearsal, trauma-focused therapy and prazosin answer different sleep and PTSD targets rather than one generic nightmare problem.',
+  },
+  {
+    href: '/articles/sleep-paralysis/',
+    title: 'Sleep Paralysis',
+    desc: 'REM atonia can persist into waking awareness; hallucinations, prevalence uncertainty and narcolepsy clues need careful separation.',
+  },
+  {
+    href: '/articles/sleepwalking-nrem-parasomnias/',
+    title: 'Sleepwalking & NREM Parasomnias',
+    desc: 'Incomplete NREM arousal, sleep-deprivation triggers, safety and limited treatment evidence are distinct from REM dream enactment.',
+  },
+  {
+    href: '/articles/rem-sleep-behavior-disorder/',
+    title: 'REM Sleep Behavior Disorder',
+    desc: 'True RBD requires REM-without-atonia evidence, prioritizes injury prevention and carries neurologic significance only after proper diagnosis.',
+  },
+  {
+    href: '/articles/narcolepsy-excessive-daytime-sleepiness/',
+    title: 'Narcolepsy & Excessive Daytime Sleepiness',
+    desc: 'Cataplexy, REM intrusions, PSG/MSLT testing and orexin biology separate narcolepsy from ordinary tiredness or sleep deprivation.',
+  },
+  {
+    href: '/articles/idiopathic-hypersomnia-vs-narcolepsy/',
+    title: 'Idiopathic Hypersomnia vs Narcolepsy',
+    desc: 'Long sleep, severe sleep inertia and the unstable IH-vs-NT2 MSLT boundary create a genuine diagnostic gray zone.',
+  },
+]
+
 const WHEN_SUPPLEMENTS_ARE_NOT_THE_MAIN_QUESTION: GuideCard[] = [
   {
     href: '/articles/cbt-i-vs-sleep-supplements/',
@@ -520,7 +553,7 @@ const ALL_GUIDES = [
   { slug: 'magnesium-for-sleep', title: 'Magnesium for Sleep' },
   { slug: 'best-magnesium-for-sleep', title: 'Best Magnesium for Sleep' },
   { slug: 'magnesium-types-for-sleep', title: 'Magnesium Types for Sleep' },
-  { slug: 'magnesium-glycinate-vs-l-threonate-for-sleep', title: 'Magnesium Glycinate vs L-Threonate for Sleep' },
+  { slug: 'magnesium-glycinate-vs-l-threonate-for-sleep', title: 'Magnesium Glycinate vs L-Threonate' },
   { slug: 'glycine-for-sleep', title: 'Glycine for Sleep' },
   { slug: 'apigenin-for-sleep', title: 'Apigenin for Sleep' },
   { slug: 'l-theanine-for-sleep', title: 'L-Theanine for Sleep' },
@@ -570,6 +603,7 @@ export default function SleepGuideIndex() {
       ...ENVIRONMENT_AND_NON_DRUG.map((g) => ({ name: g.title, url: g.href })),
       ...SUBSTANCES_AND_OTC.map((g) => ({ name: g.title, url: g.href })),
       ...LIFE_STAGES_AND_COMORBIDITY.map((g) => ({ name: g.title, url: g.href })),
+      ...PARASOMNIAS_AND_HYPERSOMNOLENCE.map((g) => ({ name: g.title, url: g.href })),
       ...WHEN_SUPPLEMENTS_ARE_NOT_THE_MAIN_QUESTION.map((g) => ({ name: g.title, url: g.href })),
     ],
   })
@@ -668,6 +702,15 @@ export default function SleepGuideIndex() {
           sub="Adolescence, menopause, pregnancy and postpartum sleep, chronic pain, migraine, anxiety, depression, tinnitus, and older-adult sleep each change the evidence hierarchy, safety boundaries, or underlying bottleneck."
         />
         <GuideCardGrid cards={LIFE_STAGES_AND_COMORBIDITY} />
+      </section>
+
+      <section className="mb-12">
+        <HubSectionHeading
+          eyebrow="Parasomnias & hypersomnolence"
+          title="When the problem is abnormal sleep behavior or irresistible sleepiness"
+          sub="Nightmares, paralysis, sleepwalking, REM dream enactment, narcolepsy and idiopathic hypersomnia require diagnosis-specific logic—not stronger sedation."
+        />
+        <GuideCardGrid cards={PARASOMNIAS_AND_HYPERSOMNOLENCE} />
       </section>
 
       <section className="mb-12">
