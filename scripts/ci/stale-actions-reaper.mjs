@@ -4,6 +4,7 @@ import { pathToFileURL } from 'node:url'
 
 const API_ROOT = process.env.GITHUB_API_URL || 'https://api.github.com'
 const DEFAULT_THRESHOLD_HOURS = 6
+const DELETE_FALLBACK_MIN_AGE_MS = 14 * 24 * 60 * 60 * 1000
 const ELIGIBLE_EVENTS = new Set(['pull_request'])
 const ELIGIBLE_STATUSES = new Set(['queued', 'in_progress'])
 const REAPER_WORKFLOW_NAME = 'Stale Actions reaper'
@@ -33,7 +34,8 @@ async function github(pathname, { method = 'GET' } = {}) {
       'User-Agent': 'hippie-scientist-stale-actions-reaper',
     },
   })
-  if (response.status === 409 && method === 'POST') return { conflict: true }
+  if (response.status === 409 && (method === 'POST' || method === 'DELETE')) return { conflict: true }
+  if (response.status === 404 && method === 'DELETE') return { notFound: true }
   if (!response.ok) {
     const text = await response.text()
     throw new Error(`${method} ${pathname} failed (${response.status}): ${text.slice(0, 1000)}`)
@@ -151,12 +153,51 @@ export async function cancelRunWithFallback({ repo, runId, request = github, cla
     return { cancelled: true, mode: 'force-cancel', liveRun, liveDecision }
   }
 
+  // GitHub can leave ancient workflow-run records in a state where both normal
+  // cancellation and force-cancellation return 409. Deletion is the final
+  // fallback only for runs GitHub itself permits deleting (older than 14 days),
+  // and only after a second fresh protection recheck.
+  const deleteCandidate = await request(`/repos/${repo}/actions/runs/${runId}`)
+  const deleteDecision = classifyRun(deleteCandidate, classifyOptions)
+  if (!deleteDecision.cancel) {
+    return {
+      cancelled: false,
+      mode: 'force-cancel',
+      liveRun: deleteCandidate,
+      liveDecision: deleteDecision,
+      reason: 'became-ineligible-before-delete-run',
+    }
+  }
+  if ((deleteDecision.ageMs || 0) < DELETE_FALLBACK_MIN_AGE_MS) {
+    return {
+      cancelled: false,
+      mode: 'force-cancel',
+      liveRun: deleteCandidate,
+      liveDecision: deleteDecision,
+      reason: 'younger-than-delete-run-minimum',
+    }
+  }
+
+  const deleted = await request(`/repos/${repo}/actions/runs/${runId}`, { method: 'DELETE' })
+  if (deleted.notFound) {
+    return {
+      cancelled: true,
+      mode: 'delete-run',
+      liveRun: deleteCandidate,
+      liveDecision: deleteDecision,
+      reason: 'already-absent-before-delete-run',
+    }
+  }
+  if (!deleted.conflict) {
+    return { cancelled: true, mode: 'delete-run', liveRun: deleteCandidate, liveDecision: deleteDecision }
+  }
+
   return {
     cancelled: false,
-    mode: 'force-cancel',
-    liveRun,
-    liveDecision,
-    reason: 'force-cancel-conflict',
+    mode: 'delete-run',
+    liveRun: deleteCandidate,
+    liveDecision: deleteDecision,
+    reason: 'delete-run-conflict',
   }
 }
 
@@ -226,6 +267,7 @@ async function main() {
         receipt.cancelled.push({
           ...receiptRow(finalRun, finalDecision, thresholdMs),
           cancellationMode: result.mode,
+          ...(result.reason ? { cleanupReason: result.reason } : {}),
         })
       } else {
         receipt.raced.push({
@@ -244,7 +286,7 @@ async function main() {
 
   console.log(`Stale Actions reaper: selected=${receipt.selected.length} cancelled=${receipt.cancelled.length} retained=${receipt.retained.length} raced=${receipt.raced.length} dryRun=${dryRun}`)
   for (const row of receipt.cancelled) {
-    console.log(`Cancelled run ${row.runId} ${row.workflow} ${row.headRef || ''} mode=${row.cancellationMode} ${row.reason}`)
+    console.log(`Cleaned run ${row.runId} ${row.workflow} ${row.headRef || ''} mode=${row.cancellationMode} ${row.reason}`)
   }
 }
 
