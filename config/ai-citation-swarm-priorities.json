@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "snapshotLabel": "2026-09-04",
+  "source": "Derived from a user-supplied Bing Webmaster Tools AI Page Stats export; raw authenticated export is intentionally not committed.",
+  "measurementBoundary": "Citation counts are evidence of AI reuse, not traffic, ranking, conversion, revenue, or causal lift.",
+  "totals": {
+    "citations": 16204,
+    "citedUrls": 91,
+    "topTwoCitationSharePct": 53.17
+  },
+  "capacityPolicy": {
+    "citationAdjacentTargetPct": 65,
+    "explorationFloorPct": 35,
+    "rule": "Use citation-adjacent work as a strong ROI signal while preserving safety, scientific correctness, governance, blocker, and freshness gates. The target is a coordinator allocation goal, not permission to bypass the authoritative sprint/WIP system."
+  },
+  "clusters": [
+    { "name": "sleep", "citations": 7235, "citedUrls": 16, "sharePct": 44.65, "priority": 5 },
+    { "name": "stress-anxiety", "citations": 5164, "citedUrls": 10, "sharePct": 31.87, "priority": 5 },
+    { "name": "general-supplements", "citations": 939, "citedUrls": 18, "sharePct": 5.79, "priority": 3 },
+    { "name": "adaptogens-nootropics", "citations": 817, "citedUrls": 7, "sharePct": 5.04, "priority": 4 },
+    { "name": "evidence-safety-trust", "citations": 796, "citedUrls": 4, "sharePct": 4.91, "priority": 4 },
+    { "name": "psychoactives-emerging", "citations": 623, "citedUrls": 5, "sharePct": 3.84, "priority": 2 },
+    { "name": "adhd-focus", "citations": 341, "citedUrls": 19, "sharePct": 2.10, "priority": 4, "reason": "Broad citation breadth with low density makes consolidation and hub strengthening a high-upside test." },
+    { "name": "mental-health", "citations": 231, "citedUrls": 6, "sharePct": 1.43, "priority": 2 },
+    { "name": "other", "citations": 58, "citedUrls": 6, "sharePct": 0.36, "priority": 1 }
+  ],
+  "defendUrls": [
+    { "url": "/guides/sleep/best-natural-sleep-aids-that-work/", "citations": 5424, "priority": 5 },
+    { "url": "/guides/best/supplements-for-stress/", "citations": 3192, "priority": 5 },
+    { "url": "/articles/valerian-root/", "citations": 827, "priority": 5 },
+    { "url": "/guides/anxiety/best-herbs-for-anxiety/", "citations": 685, "priority": 5 },
+    { "url": "/articles/mushroom-coffee-benefits-review/", "citations": 472, "priority": 4 },
+    { "url": "/articles/how-to-choose-supplement-quality/", "citations": 444, "priority": 4 },
+    { "url": "/articles/kava/", "citations": 417, "priority": 4 },
+    { "url": "/guides/anxiety/best-supplements-for-overthinking/", "citations": 397, "priority": 4 },
+    { "url": "/guides/sleep/best-herbs-for-sleep/", "citations": 385, "priority": 4 },
+    { "url": "/articles/2c-b-effects/", "citations": 319, "priority": 3 },
+    { "url": "/guides/anxiety/best-adaptogens-for-stress/", "citations": 282, "priority": 4 },
+    { "url": "/guides/other/supplement-stacking-safety/", "citations": 219, "priority": 4 },
+    { "url": "/guides/sleep/best-supplements-for-sleep/", "citations": 212, "priority": 4 },
+    { "url": "/articles/lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide/", "citations": 189, "priority": 3 },
+    { "url": "/articles/7-hydroxymitragynine/", "citations": 176, "priority": 2 },
+    { "url": "/guides/mental-health/antisocial-personality-disorder/", "citations": 146, "priority": 2 },
+    { "url": "/guides/other/nmn-supplements/", "citations": 138, "priority": 3 },
+    { "url": "/articles/state-of-supplement-evidence-2026/", "citations": 126, "priority": 4 },
+    { "url": "/articles/rhodiola-rosea/", "citations": 122, "priority": 3 },
+    { "url": "/guides/other/magnesium-types-guide/", "citations": 121, "priority": 3 },
+    { "url": "/guides/sleep/glycine-for-sleep/", "citations": 115, "priority": 3 },
+    { "url": "/guides/adhd/l-theanine-for-adhd/", "citations": 101, "priority": 4 }
+  ],
+  "entityBoosts": {
+    "valerian": { "priority": 5, "reason": "Valerian-root article has 827 citations and anchors the winning sleep cluster." },
+    "valerian-root": { "priority": 5, "reason": "Direct high-citation page signal." },
+    "kava": { "priority": 4, "reason": "Kava article has 417 citations inside the stress/anxiety cluster." },
+    "rhodiola": { "priority": 4, "reason": "Direct article citation signal plus adaptogen-cluster strength." },
+    "rhodiola-rosea": { "priority": 4, "reason": "Direct high-citation article signal." },
+    "lions-mane": { "priority": 3, "reason": "Direct cited article signal and nootropic adjacency." },
+    "glycine": { "priority": 4, "reason": "Direct cited sleep-guide signal." },
+    "l-theanine": { "priority": 4, "reason": "Direct ADHD-guide citation signal plus multiple cited L-theanine URLs in the export." },
+    "magnesium": { "priority": 4, "reason": "Magnesium guide citation signal plus sleep-cluster adjacency." },
+    "nmn": { "priority": 3, "reason": "Direct cited guide signal." },
+    "7-hydroxymitragynine": { "priority": 2, "reason": "Direct cited article signal; safety/provenance gates remain dominant." },
+    "2c-b": { "priority": 2, "reason": "Direct cited article signal; safety/provenance gates remain dominant." }
+  },
+  "executionOrder": [
+    "Protect and minimally perturb the two dominant winner pages.",
+    "Expand sleep and stress/anxiety clusters around proven cited answer patterns.",
+    "Audit overlapping sleep-supplement and duplicate-intent URLs before creating more adjacent pages.",
+    "Strengthen one canonical ADHD hub using the unusually broad 19-URL citation footprint.",
+    "Add careful downstream conversion paths to commercial-adjacent trust/review winners without weakening answer-first evidence.",
+    "Replicate proven answer/evidence/safety structures to adjacent eligible pages and measure citation spread over time."
+  ],
+  "guardrails": [
+    "Never treat citation counts as revenue or traffic.",
+    "Never let citation priority bypass a hard scientific, safety, provenance, canonical-owner, review, accessibility, or release block.",
+    "Do not destructively rewrite high-citation passages without a migration/rollback reason and fresh measurement plan.",
+    "Keep at least 35 percent of discretionary discovery capacity for exploration so the system can discover new clusters.",
+    "Refresh this manifest from a fresh page-level export rather than carrying stale winner assumptions indefinitely."
+  ]
+}
