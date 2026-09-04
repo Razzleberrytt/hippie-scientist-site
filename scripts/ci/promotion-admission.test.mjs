@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import test from 'node:test'
 
 import {
+  canAutoRefreshPromotionPr,
   isHeldPromotionPr,
   isSameRepoMainPr,
   planPromotionState,
@@ -43,6 +44,16 @@ test('promotion scope is open same-repository PRs targeting main', () => {
   assert.equal(isSameRepoMainPr(pr(2, { repository: 'someone/fork' }), repo), false)
   assert.equal(isSameRepoMainPr(pr(3, { base: 'release' }), repo), false)
   assert.equal(isSameRepoMainPr(pr(4, { state: 'closed' }), repo), false)
+})
+
+test('workflow-control PRs require clean restage instead of automatic refresh', () => {
+  assert.equal(canAutoRefreshPromotionPr(['content/articles/example.mdx']), true)
+  assert.equal(canAutoRefreshPromotionPr(['scripts/ci/promotion-admission.mjs']), true)
+  assert.equal(canAutoRefreshPromotionPr(['.github/workflows/ci.yml']), false)
+  assert.equal(
+    canAutoRefreshPromotionPr(['content/articles/example.mdx', '.github/workflows/check.yml']),
+    false,
+  )
 })
 
 test('one existing non-draft PR keeps the promotion token and other ready PRs are staged', () => {
