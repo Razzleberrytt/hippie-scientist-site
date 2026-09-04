@@ -173,7 +173,40 @@ export function scoreOrphan(item = {}) {
   return { score: Object.values(components).reduce((a,b) => a + b, 0), components }
 }
 
+export function aiCitationSignalForWorkpack(workpack = {}, manifest = {}) {
+  const slug = normalizeSignalKey(workpack.entitySlug)
+  const pathSignal = normalizeSignalPath(workpack.url ?? workpack.pageUrl ?? workpack.surfaceId)
+  const entitySignal = slug ? manifest?.entityBoosts?.[slug] : null
+  const directSignal = pathSignal
+    ? (manifest?.defendUrls ?? []).find(row => normalizeSignalPath(row?.url) === pathSignal)
+    : null
+  const priority = Math.max(
+    clamp(entitySignal?.priority ?? 0, 0, 5),
+    clamp(directSignal?.priority ?? 0, 0, 5),
+  )
+  return {
+    priority,
+    defend: Boolean(directSignal),
+    citations: Number.isFinite(Number(directSignal?.citations)) ? Number(directSignal.citations) : null,
+    reason: directSignal ? 'direct_cited_url' : entitySignal ? 'citation_adjacent_entity' : null,
+    snapshotLabel: manifest?.snapshotLabel ?? null,
+  }
+}
+
+export function applyAiCitationSignal(workpack = {}, manifest = {}) {
+  const signal = aiCitationSignalForWorkpack(workpack, manifest)
+  return {
+    ...workpack,
+    aiCitationPriority: signal.priority,
+    aiCitationDefend: signal.defend,
+    aiCitationCount: signal.citations,
+    aiCitationReason: signal.reason,
+    aiCitationSnapshotLabel: signal.snapshotLabel,
+  }
+}
+
 export function scoreWorkpack(workpack = {}) {
+  const citationEligible = workpack.blocked !== true && workpack.hardBlocked !== true
   const components = {
     safetyRisk: clamp(workpack.safetyRisk ?? 0, 0, 5) * 8,
     evidenceGap: clamp(workpack.evidenceGap ?? 0, 0, 5) * 6,
@@ -181,19 +214,22 @@ export function scoreWorkpack(workpack = {}) {
     sourceAvailability: clamp(workpack.sourceAvailability ?? 0, 0, 5) * 3,
     expectedYield: clamp(workpack.expectedYield ?? 0, 0, 5) * 5,
     contradictionOpportunity: workpack.seekContradictions === true ? 8 : 0,
+    aiCitationOpportunity: citationEligible ? clamp(workpack.aiCitationPriority ?? 0, 0, 5) * 3 : 0,
+    aiCitationDefense: citationEligible && workpack.aiCitationDefend === true ? 6 : 0,
     adjudicationPenalty: workpack.automatedAdjudicationPending === true ? -2 : 0,
     stalePenalty: workpack.blocked === true || workpack.hardBlocked === true ? -100 : 0,
   }
   return { score: Object.values(components).reduce((a,b) => a + b, 0), components }
 }
 
-export function scheduleShard(workpacks = [], shard, shardCount, shardOf, resolveWorkpack) {
+export function scheduleShard(workpacks = [], shard, shardCount, shardOf, resolveWorkpack, { aiCitationManifest = null } = {}) {
   if (typeof resolveWorkpack !== 'function') {
     throw new Error('canonical_owner_resolution_required: scheduleShard requires a canonical workpack resolver')
   }
   return workpacks
     .map(workpack => resolveWorkpack(workpack))
     .filter(w => shardOf(w.workpackId, shardCount) === shard)
+    .map(w => aiCitationManifest ? applyAiCitationSignal(w, aiCitationManifest) : w)
     .map(w => ({ ...w, roi: scoreWorkpack(w) }))
     .sort((a,b) => b.roi.score - a.roi.score || a.workpackId.localeCompare(b.workpackId))
 }
@@ -261,6 +297,18 @@ function targetKey(submission = {}) {
   return submission.entityType === 'surface'
     ? `surface:${submission.surfaceId ?? ''}`
     : `${submission.entityType ?? 'entity'}:${submission.entitySlug ?? ''}`
+}
+function normalizeSignalKey(value) { return String(value ?? '').trim().toLowerCase().replaceAll('_', '-') }
+function normalizeSignalPath(value) {
+  if (!value) return ''
+  try {
+    const pathname = String(value).startsWith('http') ? new URL(String(value)).pathname : String(value)
+    const clean = pathname.split('?')[0].split('#')[0]
+    if (!clean.startsWith('/')) return ''
+    return clean === '/' ? '/' : clean.endsWith('/') ? clean : `${clean}/`
+  } catch {
+    return ''
+  }
 }
 function clamp(value, min, max) { return Math.max(min, Math.min(max, Number(value) || 0)) }
 function round(value) { return Math.round(value * 1000) / 1000 }
