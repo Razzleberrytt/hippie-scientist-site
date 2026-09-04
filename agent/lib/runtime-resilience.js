@@ -53,7 +53,11 @@ export async function retryWithBackoff(task, {
       if (attempt >= totalAttempts || !shouldRetry(error)) throw error
 
       const delay = Math.min(maxDelayMs, baseDelayMs * (2 ** (attempt - 1)))
-      onRetry({ attempt, delay, error })
+      try {
+        await onRetry({ attempt, delay, error })
+      } catch {
+        // Observability must never become a throughput dependency.
+      }
       await sleep(delay)
     }
   }
@@ -126,7 +130,11 @@ export async function runWorkerPool(items, worker, {
           ok: false,
           error: normalized,
         }
-        await onItemError({ item, index, error: normalized })
+        try {
+          await onItemError({ item, index, error: normalized })
+        } catch {
+          // Logging/telemetry failures are quarantined from worker execution.
+        }
       }
     }
   }
