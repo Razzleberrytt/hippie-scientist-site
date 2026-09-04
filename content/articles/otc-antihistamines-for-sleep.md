@@ -1,7 +1,7 @@
 ---
 slug: otc-antihistamines-for-sleep
 title: "Diphenhydramine and Doxylamine for Sleep: What OTC 'PM' Products Actually Do"
-description: "Evidence review of diphenhydramine and doxylamine for sleep, including chronic-insomnia guidance, newer trial syntheses, tolerance, next-day effects and anticholinergic safety."
+description: "Evidence review of diphenhydramine and doxylamine for sleep, including chronic-insomnia guidance, newer trial syntheses, rapid tolerance, next-day effects and anticholinergic safety."
 date: '2026-09-04'
 updatedAt: '2026-09-04'
 author: Will
@@ -12,7 +12,7 @@ keyTakeaways:
   - "Sedating first-generation antihistamines can make people sleepy, but sedation is not the same as strong evidence for chronic insomnia treatment."
   - "AASM guidance suggests against diphenhydramine for chronic sleep-onset or sleep-maintenance insomnia because the evidence base is weak."
   - "Doxylamine has some randomized evidence for acute insomnia, but the evidence is much thinner than its widespread OTC use might imply."
-  - "Anticholinergic effects, next-day impairment and older-adult risk are major reasons not to treat OTC 'PM' products as harmless nightly sleep aids."
+  - "Tolerance to diphenhydramine sedation can develop within days, while anticholinergic effects and next-day impairment remain important tradeoffs."
 citationQuestions:
   - "Does Benadryl help you sleep?"
   - "Is doxylamine better than diphenhydramine for sleep?"
@@ -51,9 +51,19 @@ references:
     year: "2023"
     pmid: "37139824"
     url: "https://pubmed.ncbi.nlm.nih.gov/37139824/"
+  - title: "Tolerance to daytime sedative effects of H1 antihistamines"
+    authors: "Richardson GS, Roehrs TA, Rosenthal L, et al."
+    year: "2002"
+    pmid: "12352276"
+    url: "https://pubmed.ncbi.nlm.nih.gov/12352276/"
+  - title: "Next-day residual sedative effect after nighttime administration of an over-the-counter antihistamine sleep aid, diphenhydramine"
+    authors: "Double-blind placebo-controlled PET crossover study"
+    year: "2011"
+    pmid: "21105284"
+    url: "https://pubmed.ncbi.nlm.nih.gov/21105284/"
 ---
 
-> **Bottom line:** Diphenhydramine and doxylamine can cause sedation, which is why they appear in so many OTC “PM” products. But the evidence for using first-generation antihistamines as a dependable long-term insomnia treatment is much weaker than their shelf presence suggests. Chronic-insomnia guidance specifically recommends against diphenhydramine, while doxylamine has some acute efficacy evidence but still carries the same basic anticholinergic and next-day-sedation concerns.[1-5]
+> **Bottom line:** Diphenhydramine and doxylamine can cause sedation, which is why they appear in so many OTC “PM” products. But the evidence for using first-generation antihistamines as a dependable long-term insomnia treatment is much weaker than their shelf presence suggests. Chronic-insomnia guidance specifically recommends against diphenhydramine, while doxylamine has some acute efficacy evidence but still carries the same basic anticholinergic and next-day-sedation concerns.[1-7]
 
 ## Why antihistamines make you sleepy
 
@@ -121,13 +131,19 @@ That can miss several important outcomes.
 
 A person may fall asleep more quickly but wake groggy, have impaired alertness, or feel cognitively dulled the next morning. A strong subjective sedative effect can therefore coexist with a poor overall tradeoff.
 
+A double-blind PET crossover study provides unusually direct evidence for that concern: after a nighttime 50 mg diphenhydramine dose, substantial brain H1-receptor occupancy was still measurable the following morning.[7] That does not mean every user will feel equally impaired, but it confirms that central antihistamine activity can persist well beyond bedtime.
+
 This is one reason the sleep cluster separates **sleep onset** from **next-day function** instead of treating “felt sleepy” as the entire endpoint.
 
 ## Tolerance changes the long-term question
 
 Sedating antihistamines are often used repeatedly because the first few nights feel effective.
 
-With repeated exposure, people can experience diminished sedative response. Even when the exact degree of tolerance varies, this creates a basic problem for chronic use: the effect that made the product attractive may not remain stable.
+Tolerance is not just theoretical. In a randomized double-blind crossover study, healthy adults received diphenhydramine 50 mg twice daily for four days. Objective and subjective sleepiness were clearly higher than placebo initially, but by day four the sedative effect was no longer distinguishable from placebo; psychomotor impairment showed the same rapid adaptation pattern.[6]
+
+That study evaluated daytime sedation rather than bedtime insomnia treatment, so it should **not** be converted into an exact rule that “Benadryl stops working after three nights.” It does, however, show that central tolerance to diphenhydramine sedation can develop remarkably quickly.
+
+This creates a basic problem for chronic use: the effect that made the product attractive may not remain stable.
 
 Escalating use in response to reduced sedation increases exposure to anticholinergic and next-day effects without proving that sleep quality is improving.
 
@@ -198,7 +214,7 @@ Diphenhydramine and doxylamine are pharmacologically active sedatives, not fake 
 
 For diphenhydramine, AASM guidance suggests against use for chronic sleep-onset or sleep-maintenance insomnia.[1] Doxylamine has some acute randomized evidence, but its evidence base is comparatively thin and long-term benefit is not established.[2-4]
 
-The biggest practical limits are **next-day impairment, anticholinergic effects, tolerance and older-adult risk**.[5]
+The biggest practical limits are **rapid tolerance, next-day impairment, anticholinergic effects and older-adult risk**.[5-7]
 
 The most defensible verdict is: **possible short-term sedation, weak support as a chronic insomnia strategy, and a safety profile that deserves much more respect than the OTC label implies**.
 
