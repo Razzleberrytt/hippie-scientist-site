@@ -38,6 +38,8 @@ node scripts/enrichment-pipeline/citation-aware-schedule.mjs <workpacks.json> <s
 
 When `limit` is supplied, the scheduler applies the checked-in portfolio policy: approximately 65% citation-adjacent selection while preserving at least a 35% exploration floor when enough uncited work exists. Scientific, safety, provenance, canonical-owner, hard-block, WIP, accessibility, and release gates remain unchanged.
 
+The scheduler emits the signal snapshot label, measurement boundary, shard, selected-workpack count, direct-winner count, and citation-adjacent count in its summary so a selection run can be audited without exposing the raw authenticated export.
+
 Refresh the derived signal manifest from a new Page export rather than carrying winner assumptions indefinitely. Preserve the snapshot date and measurement boundary so later comparisons remain auditable.
 
 ## Freshness
