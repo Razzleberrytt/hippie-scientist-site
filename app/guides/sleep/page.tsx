@@ -243,6 +243,16 @@ const CORE_SLEEP_SCIENCE: GuideCard[] = [
     desc: 'A fast map of evidence position, best-supported role, main signal and biggest limitation across the sleep cluster.',
   },
   {
+    href: '/articles/how-much-sleep-do-adults-need/',
+    title: 'How Much Sleep Do Adults Need?',
+    desc: 'Why the consensus says 7 or more hours regularly — not exactly eight hours for every adult.',
+  },
+  {
+    href: '/articles/90-minute-sleep-cycle-myth/',
+    title: 'The 90-Minute Sleep Cycle Myth',
+    desc: 'Sleep cycles are real, but 6,064 PSG-recorded cycles show why exact 90-minute alarm math is false precision.',
+  },
+  {
     href: '/articles/sleep-onset-vs-sleep-maintenance/',
     title: 'Sleep Onset vs Sleep Maintenance',
     desc: 'SOL, WASO, total sleep time and sleep efficiency — learn which endpoint a study actually changed.',
@@ -284,6 +294,11 @@ const CIRCADIAN_AND_SCHEDULE: GuideCard[] = [
     href: '/articles/delayed-sleep-wake-phase-vs-insomnia/',
     title: 'Delayed Sleep Phase vs Insomnia',
     desc: 'When sleep is relatively normal on a later schedule, the biological clock may be a better target than stronger sedation.',
+  },
+  {
+    href: '/articles/jet-lag-light-melatonin-and-sleep/',
+    title: 'Jet Lag: Light, Melatonin and Sleep Timing',
+    desc: 'East versus west, timed light and darkness, melatonin, travel fatigue and why full adaptation is not always the goal on short trips.',
   },
   {
     href: '/articles/shift-work-sleep-disorder/',
@@ -365,8 +380,8 @@ const ENVIRONMENT_AND_NON_DRUG: GuideCard[] = [
   },
   {
     href: '/articles/white-noise-and-sleep/',
-    title: 'White Noise and Sleep',
-    desc: 'A newer positive RCT meta-analysis updates—but does not erase—the older very-low-certainty review.',
+    title: 'White Noise, Pink Noise and Sleep',
+    desc: 'The newer white-noise RCT signal, older uncertainty, and 2026 PSG evidence that continuous pink noise can reduce REM sleep.',
   },
   {
     href: '/articles/music-for-sleep/',
@@ -456,6 +471,16 @@ const WHEN_SUPPLEMENTS_ARE_NOT_THE_MAIN_QUESTION: GuideCard[] = [
     href: '/articles/sleep-apnea-vs-insomnia/',
     title: 'Sleep Apnea vs Insomnia',
     desc: 'COMISA can combine insomnia with obstructive sleep apnea, and sedation does not treat airway obstruction.',
+  },
+  {
+    href: '/articles/snoring-vs-sleep-apnea/',
+    title: 'Snoring vs Sleep Apnea',
+    desc: 'Snoring is a symptom, OSA is a diagnosis: apps and questionnaires can flag risk but objective testing controls the diagnostic claim.',
+  },
+  {
+    href: '/articles/nocturia-and-sleep/',
+    title: 'Nocturia and Sleep',
+    desc: 'Why waking to urinate can reflect urine production, bladder storage, insomnia, sleep apnea, or simply being awake for another reason.',
   },
   {
     href: '/articles/mouth-taping-for-sleep/',
@@ -584,7 +609,7 @@ export default function SleepGuideIndex() {
         <HubSectionHeading
           eyebrow="Core sleep science"
           title="Understand what the studies are actually measuring"
-          sub="Evidence mapping, onset, maintenance, subjective versus objective sleep, trackers, post-waking grogginess and the difference between insomnia and insufficient sleep."
+          sub="Sleep duration, cycles, onset, maintenance, subjective versus objective sleep, trackers, post-waking grogginess and the difference between insomnia and insufficient sleep."
         />
         <GuideCardGrid cards={CORE_SLEEP_SCIENCE} />
       </section>
@@ -593,7 +618,7 @@ export default function SleepGuideIndex() {
         <HubSectionHeading
           eyebrow="Circadian & schedule"
           title="When clock timing matters more than sedation"
-          sub="Chronotype, adolescent school schedules, delayed sleep phase, shift work, light, melatonin timing, regularity, catch-up sleep, naps, exercise and meal timing."
+          sub="Chronotype, jet lag, adolescent school schedules, delayed sleep phase, shift work, light, melatonin timing, regularity, catch-up sleep, naps, exercise and meal timing."
         />
         <GuideCardGrid cards={CIRCADIAN_AND_SCHEDULE} />
       </section>
@@ -629,7 +654,7 @@ export default function SleepGuideIndex() {
         <HubSectionHeading
           eyebrow="Check the bottleneck"
           title="When another supplement may be the wrong next move"
-          sub="Persistent insomnia, abnormal breathing, viral airway hacks and restless legs each have evidence pathways that a larger sleep stack can miss."
+          sub="Persistent insomnia, snoring or breathing risk, nocturia, viral airway hacks and restless legs each have evidence pathways that a larger sleep stack can miss."
         />
         <GuideCardGrid cards={WHEN_SUPPLEMENTS_ARE_NOT_THE_MAIN_QUESTION} />
       </section>
