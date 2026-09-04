@@ -176,7 +176,6 @@ A short mean sleep latency tells us that the person fell asleep rapidly under st
 This is one of the most important newer findings for public understanding.
 
 A 2024 study analyzed **580 consecutive patients** undergoing overnight polysomnography followed by MSLT.[5]
-
 The laboratory changed its protocol so some patients were allowed to sleep ad libitum rather than being awakened at a fixed time.
 
 Patients allowed the longer sleep opportunity had, on average:[5]
@@ -235,7 +234,7 @@ Activating medications can also change nighttime sleep and create secondary slee
 
 Medication effects therefore belong in the workup before a rare disorder is assumed.
 
-See [Medications and Sleep](/articles/medications-and-sleep/).
+See [Medications and Sleep](/articles/medications-and-sleep-effects/).
 
 ## Sleep paralysis is not enough to diagnose narcolepsy
 

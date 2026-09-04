@@ -369,4 +369,4 @@ The most useful rule is:
 - [Sleep Apnea vs Insomnia](/articles/sleep-apnea-vs-insomnia/)
 - [Sleep Apnea in Women](/articles/sleep-apnea-in-women/)
 - [CPAP vs Oral Appliance for Sleep Apnea](/articles/cpap-vs-oral-appliance-for-sleep-apnea/)
-- [Nasal Obstruction and Sleep Apnea](/articles/nasal-obstruction-and-sleep-apnea/)
+- [Nasal Obstruction and Sleep Apnea](/articles/nasal-obstruction-snoring-and-sleep-apnea/)
