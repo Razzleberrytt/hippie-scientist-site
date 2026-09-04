@@ -488,14 +488,29 @@ const PARASOMNIAS_AND_HYPERSOMNOLENCE: GuideCard[] = [
     desc: 'CBT-I, imagery rehearsal, trauma-focused therapy and prazosin answer different sleep and PTSD targets rather than one generic nightmare problem.',
   },
   {
+    href: '/articles/night-terrors-vs-nightmares/',
+    title: 'Night Terrors vs Nightmares',
+    desc: 'NREM sleep terrors usually involve partial arousal, intense autonomic fear and limited recall; remembered nightmares follow a different evidence and treatment pathway.',
+  },
+  {
     href: '/articles/sleep-paralysis/',
     title: 'Sleep Paralysis',
     desc: 'REM atonia can persist into waking awareness; hallucinations, prevalence uncertainty and narcolepsy clues need careful separation.',
   },
   {
+    href: '/articles/exploding-head-syndrome/',
+    title: 'Exploding Head Syndrome',
+    desc: 'A typically painless sleep-transition sensory event that can be frightening but is usually benign; mechanism and treatment evidence remain limited.',
+  },
+  {
     href: '/articles/sleepwalking-nrem-parasomnias/',
     title: 'Sleepwalking & NREM Parasomnias',
     desc: 'Incomplete NREM arousal, sleep-deprivation triggers, safety and limited treatment evidence are distinct from REM dream enactment.',
+  },
+  {
+    href: '/articles/sleep-related-eating-disorder/',
+    title: 'Sleep-Related Eating Disorder',
+    desc: 'Partial-arousal eating with impaired awareness or amnesia is distinct from night eating syndrome; safety, medication triggers and comorbid sleep disorders matter.',
   },
   {
     href: '/articles/rem-sleep-behavior-disorder/',
