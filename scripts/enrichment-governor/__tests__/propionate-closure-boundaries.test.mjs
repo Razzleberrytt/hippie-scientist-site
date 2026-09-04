@@ -71,9 +71,10 @@ test('Propionate closure registers exact source identities and calibrated canoni
 // any promoted findings at all — so staging further research legitimately reopens it.
 // Asserting `completed === true` conflated "these four stayed promoted" with "nobody
 // may study propionate again", and broke the moment the MS-biomarker submissions were
-// staged in #4990. Promoting those newer findings is a governance act: it needs
-// src_pubmed-42402345 registered and attested by a person, and until that happens the
-// pipeline is right to hold them.
+// staged in #4990. Promoting those newer findings remains a governance act: it needs
+// src_pubmed-42402345 admitted through source governance plus a complete automated
+// `enrichment-adjudicator` evidence receipt. Until both are present, the pipeline is
+// right to hold them rather than asking the repository owner to adjudicate the science.
 test('Propionate Session E promotions stay terminal as later research is staged', () => {
   const bySubmission = new Map(attestations.entries.map(item => [item.submissionId, item]))
   for (const submissionId of SUBMISSION_IDS) {
