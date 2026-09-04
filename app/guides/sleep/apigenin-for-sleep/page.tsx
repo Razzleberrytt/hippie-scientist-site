@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
+import SleepResearchNextActions from '@/components/SleepResearchNextActions'
 import { SITE_URL, buildTwitterMetadata } from '@/lib/seo'
 
 const path = '/guides/sleep/apigenin-for-sleep/'
@@ -204,6 +205,8 @@ export default function Page() {
             ))}
           </ul>
         </section>
+
+        <SleepResearchNextActions />
       </article>
     </main>
   )
