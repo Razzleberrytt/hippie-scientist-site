@@ -216,7 +216,7 @@ This puts **sleep opportunity first** and cycle theory second.
 
 Current evidence does not support claims that:
 
-- every sleep cycle is 90 minutes;
+- a universal fixed 90-minute duration applies to every sleep cycle;
 - a person's cycles are the same length all night;
 - waking every 90 minutes aligns with cycle boundaries;
 - 7.5 hours is biologically superior to 8 hours because it equals five cycles;
