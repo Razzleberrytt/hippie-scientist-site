@@ -54,6 +54,11 @@ references:
     year: "2025"
     pmid: "41820035"
     url: "https://pubmed.ncbi.nlm.nih.gov/41820035/"
+  - title: "Comparative efficacy of sleep positional therapy, oral appliance therapy, and CPAP in obstructive sleep apnea: a meta-analysis of mean changes in key outcomes"
+    authors: "Gao Y, Zhu S, Li W, Lai Y"
+    year: "2025"
+    pmid: "39963428"
+    url: "https://pubmed.ncbi.nlm.nih.gov/39963428/"
 ---
 
 > **Bottom line:** CPAP usually wins if the question is, “Which treatment lowers breathing events and oxygen desaturation more?” A custom mandibular advancement oral appliance can still be an effective OSA treatment, particularly in mild-to-moderate disease or when PAP is not tolerated well. The useful comparison is therefore not **powerful machine versus weak mouthguard**. It is **physiological efficacy, actual nightly use, anatomy, disease severity, side effects, and follow-up testing** considered together.[1-5]
@@ -219,7 +224,7 @@ Likewise, a comfortable oral appliance is not automatically proof that it contro
 
 For people whose OSA is strongly position-dependent, positional therapy can be part of the decision tree.
 
-A 2025 meta-analysis comparing positional therapy with CPAP and oral appliances found positional therapy was generally less effective than CPAP for overall AHI and oxygenation, although it can be useful in selected positional OSA.[1]
+A 2025 meta-analysis comparing positional therapy with CPAP and oral appliances found positional therapy was generally less effective than CPAP for overall AHI and oxygenation, although it can be useful in selected positional OSA.[6]
 
 See [Sleep Position: OSA and Reflux](/articles/sleep-position-osa-and-reflux/) for the position-specific evidence.
 
