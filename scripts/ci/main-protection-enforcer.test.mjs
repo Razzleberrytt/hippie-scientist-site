@@ -2,6 +2,17 @@ import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 
 const workflow = readFileSync('.github/workflows/enforce-main-protection.yml', 'utf8')
+const siteHealthWorkflow = readFileSync('.github/workflows/check.yml', 'utf8')
+
+const requiredChecks = [
+  'Validation, tests, and data',
+  'Production build, output, and SEO',
+  'Site Health Check',
+  'Atomic issue and measurement contract',
+  'Full release suite for generator changes',
+  'production-content-lint',
+  'Compare generated quality with base',
+]
 
 describe('main protection enforcer contract', () => {
   it('never grants the ordinary GITHUB_TOKEN administrative write permission', () => {
@@ -17,17 +28,33 @@ describe('main protection enforcer contract', () => {
     expect(workflow).toContain('if [[ -z "${GH_TOKEN:-}" ]]')
   })
 
-  it('enforces the documented universal required checks without scoped conditional checks', () => {
-    for (const check of [
-      'CI',
-      'Site Health Check',
-      'Atomic upgrade gate',
-      'Production Content Lint',
-      'Build quality regression',
-    ]) {
-      expect(workflow).toContain(`"${check}"`)
+  it('requires real GitHub Actions check contexts instead of workflow display titles', () => {
+    expect(workflow).toContain('"contexts": []')
+    for (const check of requiredChecks) {
+      expect(workflow).toContain(`{"context": "${check}", "app_id": 15368}`)
     }
 
+    for (const staleWorkflowTitle of [
+      '"CI",',
+      '"Atomic upgrade gate",',
+      '"Production Content Lint",',
+      '"Build quality regression"',
+    ]) {
+      expect(workflow).not.toContain(staleWorkflowTitle)
+    }
+  })
+
+  it('gives Site Health a unique emitted check context', () => {
+    expect(siteHealthWorkflow).toMatch(/jobs:\n  check:\n    name: Site Health Check/)
+  })
+
+  it('pins every required check to the GitHub Actions app', () => {
+    expect(workflow.match(/"app_id": 15368/g)).toHaveLength(requiredChecks.length)
+    expect(workflow).toContain('.required_status_checks.checks[]')
+    expect(workflow).toContain('.context == $check and .app_id == 15368')
+  })
+
+  it('does not statically require path-scoped or non-universal workflows', () => {
     for (const scopedCheck of [
       'Build Check',
       'Lighthouse CI',
@@ -50,6 +77,7 @@ describe('main protection enforcer contract', () => {
   it('verifies live GitHub state after applying protection', () => {
     expect(workflow).toContain('repos/$REPO/branches/main/protection')
     expect(workflow).toContain("jq -e '.protected == true'")
+    expect(workflow).toContain("jq -e '.required_status_checks.strict == true'")
     expect(workflow).toContain("jq -e '.enforce_admins.enabled == true'")
     expect(workflow).toContain("jq -e '.required_pull_request_reviews != null'")
   })
