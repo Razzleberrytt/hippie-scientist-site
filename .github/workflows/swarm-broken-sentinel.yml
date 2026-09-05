@@ -1,0 +1,124 @@
+name: 🚨 BROKEN!!!!! Swarm Sentinel
+
+on:
+  schedule:
+    - cron: '7,37 * * * *'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+  issues: write
+
+concurrency:
+  group: swarm-broken-sentinel
+  cancel-in-progress: true
+
+jobs:
+  sentinel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: ${{ github.repository }}
+      ALERT_TITLE: '🚨 BROKEN!!!!! SITE SWARM NEEDS ATTENTION'
+    steps:
+      - name: Inspect swarm health
+        id: health
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          now_epoch=$(date -u +%s)
+          heartbeat_cutoff=$((now_epoch - 45*60))
+          failure_cutoff=$((now_epoch - 120*60))
+          reasons=()
+
+          runs_json=$(gh api "repos/$REPO/actions/runs?per_page=100")
+
+          latest_controller=$(printf '%s' "$runs_json" | jq -c '[.workflow_runs[] | select(.name == "Autonomous merge controller" and .event == "schedule")] | sort_by(.created_at) | last // empty')
+          if [ -z "$latest_controller" ]; then
+            reasons+=("No scheduled Autonomous merge controller run is visible.")
+          else
+            created_at=$(printf '%s' "$latest_controller" | jq -r '.created_at')
+            created_epoch=$(date -u -d "$created_at" +%s)
+            conclusion=$(printf '%s' "$latest_controller" | jq -r '.conclusion // "in_progress"')
+            url=$(printf '%s' "$latest_controller" | jq -r '.html_url')
+            if [ "$created_epoch" -lt "$heartbeat_cutoff" ]; then
+              reasons+=("Autonomous merge heartbeat is stale (>45 minutes): $url")
+            fi
+            case "$conclusion" in
+              failure|timed_out|action_required|startup_failure)
+                reasons+=("Latest Autonomous merge controller run is $conclusion: $url")
+                ;;
+            esac
+          fi
+
+          while IFS=$'\t' read -r name conclusion created_at url; do
+            [ -z "${name:-}" ] && continue
+            created_epoch=$(date -u -d "$created_at" +%s)
+            [ "$created_epoch" -lt "$failure_cutoff" ] && continue
+            case "$conclusion" in
+              failure|timed_out|action_required|startup_failure)
+                case "$name" in
+                  *[Ss]warm*|*Enrichment*|*Citation*|*Search*Console*|*Deploy*Cloudflare*|*Autonomous*merge*)
+                    reasons+=("Critical workflow failed: $name ($conclusion) — $url")
+                    ;;
+                esac
+                ;;
+            esac
+          done < <(printf '%s' "$runs_json" | jq -r '.workflow_runs[] | [.name, (.conclusion // "in_progress"), .created_at, .html_url] | @tsv')
+
+          if [ ${#reasons[@]} -eq 0 ]; then
+            echo 'broken=false' >> "$GITHUB_OUTPUT"
+            echo '## ✅ Swarm sentinel: healthy' >> "$GITHUB_STEP_SUMMARY"
+            echo '- No intervention condition detected.' >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          printf '%s\n' "${reasons[@]}" > "$RUNNER_TEMP/swarm-broken-reasons.txt"
+          echo 'broken=true' >> "$GITHUB_OUTPUT"
+          {
+            echo '## 🚨 BROKEN!!!!!'
+            echo
+            printf -- '- %s\n' "${reasons[@]}"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Open or refresh BROKEN!!!!! issue
+        if: steps.health.outputs.broken == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          body_file="$RUNNER_TEMP/swarm-broken-body.md"
+          {
+            echo '# 🚨 BROKEN!!!!!'
+            echo
+            echo '**The site swarm needs human attention.**'
+            echo
+            echo 'Detected:'
+            sed 's/^/- /' "$RUNNER_TEMP/swarm-broken-reasons.txt"
+            echo
+            echo "Sentinel run: $GITHUB_SERVER_URL/$REPO/actions/runs/$GITHUB_RUN_ID"
+            echo
+            echo 'Do not spend time re-reading the whole swarm plan. Start with the failing workflow/run above, repair the deterministic blocker, then re-run the sentinel.'
+          } > "$body_file"
+
+          issue_number=$(gh issue list --repo "$REPO" --state open --search "in:title $ALERT_TITLE" --json number,title --jq ".[] | select(.title == \"$ALERT_TITLE\") | .number" | head -1)
+
+          if [ -n "$issue_number" ]; then
+            gh issue edit "$issue_number" --repo "$REPO" --body-file "$body_file" --add-assignee "${GITHUB_REPOSITORY_OWNER}"
+            gh issue comment "$issue_number" --repo "$REPO" --body "🚨 BROKEN!!!!! Sentinel still detects an intervention condition. See updated issue body and run: $GITHUB_SERVER_URL/$REPO/actions/runs/$GITHUB_RUN_ID"
+          else
+            gh issue create --repo "$REPO" --title "$ALERT_TITLE" --body-file "$body_file" --assignee "${GITHUB_REPOSITORY_OWNER}"
+          fi
+
+      - name: Close BROKEN!!!!! issue on recovery
+        if: steps.health.outputs.broken == 'false'
+        shell: bash
+        run: |
+          set -euo pipefail
+          issue_number=$(gh issue list --repo "$REPO" --state open --search "in:title $ALERT_TITLE" --json number,title --jq ".[] | select(.title == \"$ALERT_TITLE\") | .number" | head -1)
+          if [ -n "$issue_number" ]; then
+            gh issue comment "$issue_number" --repo "$REPO" --body "✅ RECOVERED — the swarm sentinel no longer detects the intervention condition. Closing automatically."
+            gh issue close "$issue_number" --repo "$REPO" --reason completed
+          fi
