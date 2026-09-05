@@ -7,7 +7,7 @@ const ACTIONS = [
     description: 'Explore the sleep research hub and compare evidence-first guides.',
   },
   {
-    href: '/info/newsletter/#research-interests',
+    href: '/info/newsletter/?interest=sleep#research-interests',
     label: 'Follow sleep research',
     description: 'Choose Sleep as a research interest for evidence-focused updates.',
   },
