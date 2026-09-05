@@ -48,9 +48,25 @@ function readHtml(routePath) {
   return fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : null
 }
 
+function metaContent(html, metaName) {
+  const tags = html.match(/<meta\b[^>]*>/gi) ?? []
+
+  for (const tag of tags) {
+    const attributes = new Map()
+    for (const match of tag.matchAll(/([:\w-]+)\s*=\s*(["'])(.*?)\2/g)) {
+      attributes.set(match[1].toLowerCase(), match[3])
+    }
+
+    if ((attributes.get('name') ?? '').toLowerCase() === metaName.toLowerCase()) {
+      return attributes.get('content') ?? ''
+    }
+  }
+
+  return ''
+}
+
 function isIndexable(html) {
-  const robots = html.match(/<meta name="robots" content="([^"]*)"/)?.[1] ?? ''
-  return !/noindex/i.test(robots)
+  return !/\bnoindex\b/i.test(metaContent(html, 'robots'))
 }
 
 function main() {
