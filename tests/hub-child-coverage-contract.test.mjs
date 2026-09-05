@@ -27,6 +27,7 @@ function makeFixture({
   adhdNoindex = false,
   adhdInSitemap = true,
   adhdRobotsTag,
+  adhdLinkTag,
 } = {}) {
   const root = mkdtempSync(join(tmpdir(), 'hub-child-coverage-'));
   fixtures.push(root);
@@ -41,10 +42,11 @@ function makeFixture({
     `<html><head>${robotsTag}</head><body></body></html>`,
   );
 
+  const defaultLinkTag = `<a href="${child}/">Focus stack</a>`;
   writeRoute(
     root,
     '/guides/adhd',
-    `<html><body>${adhdLinked ? `<a href="${child}/">Focus stack</a>` : ''}</body></html>`,
+    `<html><body>${adhdLinked ? (adhdLinkTag ?? defaultLinkTag) : ''}</body></html>`,
   );
 
   const sitemapEntries = governedHubs.map((route) => `https://example.test${route}/`);
@@ -83,8 +85,25 @@ describe('hub child coverage contract', () => {
     expect(result.stdout).toContain('[hub-child-coverage] PASS:');
   });
 
+  it('recognizes canonical ADHD child hrefs regardless of quote style or attribute order', () => {
+    const result = runValidator(makeFixture({
+      adhdLinkTag: "<a class='guide-card' data-kind='child' href='/guides/adhd/focus-stack/'>Focus stack</a>",
+    }));
+
+    expect(result.status).toBe(0);
+  });
+
   it('fails closed when an indexable, sitemapped ADHD child is stranded', () => {
     const result = runValidator(makeFixture({ adhdLinked: false }));
+
+    expect(result.status).toBe(1);
+    expect(result.stderr).toContain('/guides/adhd/focus-stack/ — indexable and in the sitemap, but not linked from /guides/adhd/');
+  });
+
+  it('does not accept loose prefix matches as canonical child links', () => {
+    const result = runValidator(makeFixture({
+      adhdLinkTag: '<a href="/guides/adhd/focus-stack/extra/">Wrong target</a>',
+    }));
 
     expect(result.status).toBe(1);
     expect(result.stderr).toContain('/guides/adhd/focus-stack/ — indexable and in the sitemap, but not linked from /guides/adhd/');
