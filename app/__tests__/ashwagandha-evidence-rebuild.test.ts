@@ -35,7 +35,7 @@ describe('ashwagandha evidence rebuild', () => {
   it('keeps formulation, mechanism, dose, and combination boundaries explicit', () => {
     const text = source()
 
-    expect(text).toMatch(/study context, not a personal instruction/i)
+    expect(text).toMatch(/study context\*{0,2},\s*not a personal instruction/i)
     expect(text).toMatch(/formulation equivalence has to be demonstrated, not assumed/i)
     expect(text).toMatch(/separate ingredient evidence does not transfer automatically to the stack/i)
     expect(text).toMatch(/mechanism language is one of the easiest places to overstate supplements/i)
