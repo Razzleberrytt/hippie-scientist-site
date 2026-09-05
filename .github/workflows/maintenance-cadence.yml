@@ -31,6 +31,7 @@ jobs:
           cache: npm
 
       - name: Install dependencies
+        id: dependencies
         run: npm ci
 
       - name: Restore prior AI telemetry history
@@ -72,31 +73,31 @@ jobs:
           npm run seo:audit-sitemap
 
       - name: Citation-health check
-        if: always()
+        if: ${{ always() && steps.dependencies.outcome == 'success' }}
         run: npm run evidence:check
 
       - name: Search Console opportunity report
-        if: always()
+        if: ${{ always() && steps.dependencies.outcome == 'success' }}
         run: npm run seo:opportunities
 
       - name: AI citation-readiness topology
-        if: always()
+        if: ${{ always() && steps.dependencies.outcome == 'success' }}
         run: npx tsx scripts/ci/audit-ai-citation-topology.ts
 
       - name: AI citation telemetry
-        if: always()
+        if: ${{ always() && steps.dependencies.outcome == 'success' }}
         run: node scripts/seo/ai-citation-tracker.mjs --label=$(date -u +%F)
 
       - name: AI source-gap and competitor citation audit
-        if: always()
+        if: ${{ always() && steps.dependencies.outcome == 'success' }}
         run: node scripts/seo/ai-source-gap-audit.mjs --label=$(date -u +%F)
 
       - name: AI SEO action priority
-        if: always()
+        if: ${{ always() && steps.dependencies.outcome == 'success' }}
         run: node scripts/seo/ai-opportunity-priority.mjs
 
       - name: Upload weekly reports
-        if: always()
+        if: ${{ always() && steps.dependencies.outcome == 'success' }}
         uses: actions/upload-artifact@v4
         with:
           name: weekly-maintenance-${{ github.run_id }}

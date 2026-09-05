@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 const workflow = readFileSync('.github/workflows/maintenance-cadence.yml', 'utf8');
 
-const alwaysRunSteps = [
+const resilientObservabilitySteps = [
   'Citation-health check',
   'Search Console opportunity report',
   'AI citation-readiness topology',
@@ -25,10 +25,18 @@ function stepBlock(stepName) {
 }
 
 describe('weekly maintenance observability execution', () => {
-  it.each(alwaysRunSteps)('%s still runs after an earlier quality failure', (stepName) => {
-    const escaped = stepName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    expect(workflow).toMatch(new RegExp(`- name: ${escaped}\\n\\s+if: always\\(\\)`));
+  it('gives dependency installation a stable outcome id', () => {
+    expect(stepBlock('Install dependencies')).toMatch(/id: dependencies/);
   });
+
+  it.each(resilientObservabilitySteps)(
+    '%s survives quality failures but not a broken dependency substrate',
+    (stepName) => {
+      const block = stepBlock(stepName);
+      expect(block).toContain("if: ${{ always() && steps.dependencies.outcome == 'success' }}");
+      expect(block).not.toContain('continue-on-error');
+    },
+  );
 
   it.each(failClosedQualitySteps)('%s remains fail-closed', (stepName, requiredCommands) => {
     const block = stepBlock(stepName);
