@@ -1,0 +1,40 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "C",
+  "shard": 2,
+  "batchId": "egcg-efsa-safety-boundary-20260905",
+  "createdAt": "2026-09-05T00:12:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-c-egcg-efsa-800mg-boundary-20260905",
+      "authoringPackId": "ap_bp_wp_compound_epigallocatechin_gallate_egcg_src_pubmed_32625874",
+      "workpackId": "wp_compound_epigallocatechin_gallate_egcg",
+      "entityType": "compound",
+      "entitySlug": "epigallocatechin-gallate-egcg",
+      "sourceId": "src_pubmed-32625874",
+      "topicType": "adverse_effect",
+      "claimType": "safety_risk",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "EFSA found a human liver-enzyme signal at supplemental EGCG intakes of 800 mg/day or above, while explicitly declining to identify a safe supplemental dose below that level.",
+      "findingTextNormalized": "PMID 32625874, EFSA's scientific opinion on green-tea catechins, concluded that traditional green-tea infusions are generally considered safe at reported European intake levels but that intervention trials show statistically significant serum-transaminase increases at supplemental EGCG intakes of 800 mg/day or above. Crucially, the absence of a demonstrated liver-injury signal below 800 mg/day did not allow EFSA to identify a safe supplemental dose. This is a formulation- and exposure-specific safety boundary, not a universal threshold proving doses below 800 mg/day are safe.",
+      "strengthLabel": "moderate",
+      "populationContext": "Adult human exposure evidence synthesized by EFSA, including intervention trials and dietary-intake context.",
+      "usageContext": "Green-tea catechin food supplements versus traditional infusions; not an efficacy or consumer-dosing recommendation.",
+      "safetyContext": "Preserve supplement-versus-infusion, EGCG amount, exposure pattern, rare idiosyncratic injury, and the inability to establish a safe supplemental dose.",
+      "uncertaintyNote": "The 800 mg/day value marks where a trial-level transaminase signal was observed; it is not a no-risk cutoff. Product composition and individual susceptibility remain relevant.",
+      "semanticAttestation": {
+        "reviewer": "enrichment-adjudicator",
+        "reviewedAt": "2026-09-05T00:12:00.000Z",
+        "confidence": "high",
+        "entity": {"status": "matched", "reason": "PMID 32625874 directly evaluates green-tea catechins with EGCG as the principal catechin safety exposure.", "evidenceRefs": ["src_pubmed-32625874"]},
+        "preparation": {"status": "matched", "reason": "The finding preserves the source's distinction between traditional infusions and concentrated supplemental catechin/EGCG exposure.", "evidenceRefs": ["src_pubmed-32625874"]},
+        "population": {"status": "matched", "reason": "The opinion synthesizes adult human dietary exposure and intervention-trial evidence, matching the stated population context.", "evidenceRefs": ["src_pubmed-32625874"]},
+        "endpoint": {"status": "matched", "reason": "The relevant clinical safety endpoint is increased serum transaminases/liver-injury concern at supplemental EGCG exposure, not efficacy.", "evidenceRefs": ["src_pubmed-32625874"]},
+        "conclusion": {"status": "matched", "reason": "The finding preserves both parts of EFSA's conclusion: concern at 800 mg/day or above and inability to establish a safe supplemental dose below that value.", "evidenceRefs": ["src_pubmed-32625874"]}
+      },
+      "reviewStatus": "ready_for_review",
+      "editorialStatus": "needs_review",
+      "active": true
+    }
+  ]
+}
