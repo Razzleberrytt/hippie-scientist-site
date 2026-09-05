@@ -40,10 +40,22 @@ const START_HERE: IntentRoute[] = [
     href: '/guides/sleep/magnesium-for-sleep/',
   },
   {
-    problem: 'Waking up tired after short or light sleep',
-    why: 'Glycine is a sleep-quality experiment, not a knockout sedative.',
-    cta: 'Glycine for Sleep',
-    href: '/guides/sleep/glycine-for-sleep/',
+    problem: 'You sleep enough but still wake unrefreshed',
+    why: 'Adequate duration does not guarantee restorative sleep. Check fragmentation, timing, breathing, movement, substances, medications and daytime sleepiness before jumping to a supplement.',
+    cta: 'Why Am I Still Tired After 8 Hours?',
+    href: '/articles/non-restorative-sleep/',
+  },
+  {
+    problem: 'You have enough time to sleep, but insomnia keeps repeating',
+    why: 'Separate sleep-onset, sleep-maintenance, circadian, breathing, movement and medication pathways before escalating sleep aids.',
+    cta: 'Insomnia Evidence Guide',
+    href: '/articles/insomnia-evidence-guide/',
+  },
+  {
+    problem: 'You keep waking around 3 AM',
+    why: 'Repeated nighttime waking is a sleep-maintenance pattern with several possible causes; the clock time itself is not a diagnosis.',
+    cta: 'Why Do I Wake Up at 3 AM?',
+    href: '/articles/why-do-i-wake-up-at-3am/',
   },
   {
     problem: 'You sleep fine — but only very late',
@@ -112,6 +124,11 @@ const BEST_FIRST: GuideCard[] = [
     href: '/articles/sleep-interventions-evidence-matrix/',
     title: 'Sleep Interventions Evidence Matrix',
     desc: 'Compare supplements, CBT-I, circadian tools, environmental interventions, substances and red flags in one decision-first map.',
+  },
+  {
+    href: '/articles/insomnia-evidence-guide/',
+    title: 'Insomnia Evidence Guide',
+    desc: 'A problem-first map for sleep-onset, sleep-maintenance, circadian, breathing, movement, medication and treatment questions.',
   },
   {
     href: '/guides/sleep/best-supplements-for-sleep/',
@@ -283,6 +300,16 @@ const CORE_SLEEP_SCIENCE: GuideCard[] = [
     desc: 'SOL, WASO, total sleep time and sleep efficiency — learn which endpoint a study actually changed.',
   },
   {
+    href: '/articles/non-restorative-sleep/',
+    title: 'Non-Restorative Sleep',
+    desc: 'Why adequate sleep duration can still leave you unrefreshed, and which fragmentation, timing, breathing, movement and daytime-sleepiness pathways matter next.',
+  },
+  {
+    href: '/articles/why-do-i-wake-up-at-3am/',
+    title: 'Why Do I Wake Up at 3 AM?',
+    desc: 'A sleep-maintenance decision map for repeated nighttime waking without pretending the clock time identifies one cause.',
+  },
+  {
     href: '/articles/subjective-vs-objective-sleep/',
     title: 'Subjective vs Objective Sleep',
     desc: 'Why insomnia can feel severe even when polysomnography or wearable changes look smaller.',
@@ -382,6 +409,11 @@ const ENVIRONMENT_AND_NON_DRUG: GuideCard[] = [
     href: '/articles/sleep-environment-evidence-guide/',
     title: 'Sleep Environment Evidence Guide',
     desc: 'A decision-first map for light, noise, heat, ventilation, air quality and sleep position before adding another compound.',
+  },
+  {
+    href: '/articles/exercise-for-insomnia/',
+    title: 'Exercise for Insomnia',
+    desc: 'Meta-analytic evidence on exercise as an insomnia intervention overall — a different question from whether morning or evening exercise is better.',
   },
   {
     href: '/articles/eye-masks-earplugs-and-sleep/',
@@ -541,9 +573,19 @@ const PARASOMNIAS_AND_HYPERSOMNOLENCE: GuideCard[] = [
 
 const WHEN_SUPPLEMENTS_ARE_NOT_THE_MAIN_QUESTION: GuideCard[] = [
   {
+    href: '/articles/insomnia-evidence-guide/',
+    title: 'Insomnia Evidence Guide',
+    desc: 'Start with the insomnia pattern and likely bottleneck before choosing a product or escalating a sleep stack.',
+  },
+  {
     href: '/articles/cbt-i-vs-sleep-supplements/',
     title: 'CBT-I vs Sleep Supplements',
     desc: 'For chronic insomnia, CBT-I is the evidence benchmark; supplements answer narrower questions.',
+  },
+  {
+    href: '/articles/sleep-hygiene-vs-cbt-i/',
+    title: 'Sleep Hygiene vs CBT-I',
+    desc: 'General sleep habits can help, but sleep hygiene alone is not equivalent to structured CBT-I for chronic insomnia.',
   },
   {
     href: '/articles/sleep-apnea-vs-insomnia/',
@@ -688,7 +730,7 @@ export default function SleepGuideIndex() {
         <HubSectionHeading
           eyebrow="Core sleep science"
           title="Understand what the studies are actually measuring"
-          sub="Sleep duration, cycles, onset, maintenance, subjective versus objective sleep, trackers, post-waking grogginess and the difference between insomnia and insufficient sleep."
+          sub="Sleep duration, cycles, onset, maintenance, restorative quality, repeated awakenings, subjective versus objective sleep, trackers, post-waking grogginess and the difference between insomnia and insufficient sleep."
         />
         <GuideCardGrid cards={CORE_SLEEP_SCIENCE} />
       </section>
@@ -705,8 +747,8 @@ export default function SleepGuideIndex() {
       <section className="mb-12">
         <HubSectionHeading
           eyebrow="Environment & non-drug tools"
-          title="Change the bedroom before adding another compound"
-          sub="Light, sound, temperature, ventilation, position, warm bathing, music, weighted blankets and mindfulness — with the limits of each intervention kept visible."
+          title="Change the system before adding another compound"
+          sub="Exercise, light, sound, temperature, ventilation, position, warm bathing, music, weighted blankets and mindfulness — with the limits of each intervention kept visible."
         />
         <GuideCardGrid cards={ENVIRONMENT_AND_NON_DRUG} />
       </section>
@@ -742,7 +784,7 @@ export default function SleepGuideIndex() {
         <HubSectionHeading
           eyebrow="Check the bottleneck"
           title="When another supplement may be the wrong next move"
-          sub="Persistent insomnia, snoring or breathing risk, nocturia, viral airway hacks and restless legs each have evidence pathways that a larger sleep stack can miss."
+          sub="Persistent insomnia, generic sleep-hygiene advice, snoring or breathing risk, nocturia, viral airway hacks and restless legs each have evidence pathways that a larger sleep stack can miss."
         />
         <GuideCardGrid cards={WHEN_SUPPLEMENTS_ARE_NOT_THE_MAIN_QUESTION} />
       </section>
