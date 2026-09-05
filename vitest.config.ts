@@ -1,8 +1,39 @@
 import { defineConfig } from 'vitest/config'
 import { transformWithOxc, type Plugin } from 'vite'
+import fs from 'node:fs'
 import path from 'path'
 
 const ROOT = import.meta.dirname
+const NODE_TEST_IGNORED_DIRS = new Set([
+  'node_modules', '.next', 'out', 'dist', 'coverage', '.git', '.build-cache', '.content-collections',
+])
+const NODE_TEST_CANDIDATE_EXTS = new Set(['.mjs', '.js', '.ts'])
+// Keep this rule intentionally identical to scripts/run-node-tests.mjs: only a
+// real top-level import of node:test transfers ownership to the native runner.
+const NODE_TEST_IMPORT = /^import\s[^\n]*\sfrom\s+['"]node:test['"]/m
+
+function collectNativeNodeTestSuites(dir = ROOT, out: string[] = []): string[] {
+  let entries: fs.Dirent[]
+  try {
+    entries = fs.readdirSync(dir, { withFileTypes: true })
+  } catch {
+    return out
+  }
+
+  for (const entry of entries) {
+    if (NODE_TEST_IGNORED_DIRS.has(entry.name)) continue
+    const full = path.join(dir, entry.name)
+    if (entry.isDirectory()) {
+      collectNativeNodeTestSuites(full, out)
+      continue
+    }
+    if (!NODE_TEST_CANDIDATE_EXTS.has(path.extname(entry.name))) continue
+    if (!NODE_TEST_IMPORT.test(fs.readFileSync(full, 'utf8'))) continue
+    out.push(path.relative(ROOT, full).split(path.sep).join('/'))
+  }
+
+  return out
+}
 
 function workspaceAliasPlugin(): Plugin {
   return {
@@ -60,18 +91,16 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: './vitest.setup.ts',
-    // Native node:test suites are executed by `npm run test:node` and focused
-    // owning workflows. Letting Vitest discover them makes Vite try to bundle
-    // the prefix-only node:test builtin instead of exercising the native runner.
+    // Native node:test suites are owned by `npm run test:node`. Discover their
+    // exact paths with the same anchored import rule as that runner so a new
+    // suite in any directory cannot be accidentally bundled by Vitest.
     exclude: [
       '**/node_modules/**',
       '**/dist/**',
       '**/.next/**',
       '**/.claude/**',
       '**/out/**',
-      'agent/lib/runtime-resilience.test.js',
-      'scripts/enrichment-governor/__tests__/**',
-      'scripts/content/__tests__/**',
+      ...collectNativeNodeTestSuites(),
     ],
     maxWorkers: '50%',
     testTimeout: 15000,
