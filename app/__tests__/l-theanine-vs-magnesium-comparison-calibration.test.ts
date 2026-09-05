@@ -32,11 +32,12 @@ describe('L-theanine vs magnesium sleep comparison calibration', () => {
 
   it('keeps formulation, endpoint, and dosing caveats explicit', () => {
     const text = source()
+    const semanticText = text.replace(/\*\*/g, '')
 
     expect(text).toMatch(/subjective sleep outcomes/i)
     expect(text).toMatch(/objective sleep was not measured/i)
     expect(text).toMatch(/does not prove glycinate is categorically best/i)
-    expect(text).toMatch(/not a universal bedtime target/i)
+    expect(semanticText).toMatch(/not a universal bedtime target/i)
     expect(text).toMatch(/mechanism ≠ magnitude of clinical benefit/i)
   })
 })
