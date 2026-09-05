@@ -22,17 +22,23 @@ function writeRoute(root, route, html) {
   writeFileSync(join(dir, 'index.html'), html);
 }
 
-function makeFixture({ adhdLinked = true, adhdNoindex = false, adhdInSitemap = true } = {}) {
+function makeFixture({
+  adhdLinked = true,
+  adhdNoindex = false,
+  adhdInSitemap = true,
+  adhdRobotsTag,
+} = {}) {
   const root = mkdtempSync(join(tmpdir(), 'hub-child-coverage-'));
   fixtures.push(root);
 
   for (const hub of governedHubs) writeRoute(root, hub, '<html><body></body></html>');
 
   const child = '/guides/adhd/focus-stack';
+  const robotsTag = adhdRobotsTag ?? (adhdNoindex ? '<meta name="robots" content="noindex">' : '');
   writeRoute(
     root,
     child,
-    `<html><head>${adhdNoindex ? '<meta name="robots" content="noindex">' : ''}</head><body></body></html>`,
+    `<html><head>${robotsTag}</head><body></body></html>`,
   );
 
   writeRoute(
@@ -90,5 +96,14 @@ describe('hub child coverage contract', () => {
 
     expect(noindex.status).toBe(0);
     expect(notSitemapped.status).toBe(0);
+  });
+
+  it('recognizes noindex regardless of robots-meta attribute order and quote style', () => {
+    const reversedSingleQuoted = runValidator(makeFixture({
+      adhdLinked: false,
+      adhdRobotsTag: "<meta content='NOINDEX,follow' name='robots'>",
+    }));
+
+    expect(reversedSingleQuoted.status).toBe(0);
   });
 });
