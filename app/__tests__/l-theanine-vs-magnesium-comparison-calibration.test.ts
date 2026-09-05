@@ -9,6 +9,10 @@ function source() {
   return fs.readFileSync(SOURCE, 'utf8')
 }
 
+function semanticSource() {
+  return source().replace(/\*\*/g, '')
+}
+
 describe('L-theanine vs magnesium sleep comparison calibration', () => {
   it('keeps the current evidence hierarchy and direct-combination uncertainty visible', () => {
     const text = source()
@@ -31,7 +35,7 @@ describe('L-theanine vs magnesium sleep comparison calibration', () => {
   })
 
   it('keeps formulation, endpoint, and dosing caveats explicit', () => {
-    const text = source()
+    const text = semanticSource()
 
     expect(text).toMatch(/subjective sleep outcomes/i)
     expect(text).toMatch(/objective sleep was not measured/i)
