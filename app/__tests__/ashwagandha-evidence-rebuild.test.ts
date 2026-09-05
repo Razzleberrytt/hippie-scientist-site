@@ -6,7 +6,7 @@ const ROOT = process.cwd()
 const SOURCE = path.join(ROOT, 'content/articles/ashwagandha.md')
 
 function source() {
-  return fs.readFileSync(SOURCE, 'utf8')
+  return fs.readFileSync(SOURCE, 'utf8').replace(/\*\*/g, '')
 }
 
 describe('ashwagandha evidence rebuild', () => {

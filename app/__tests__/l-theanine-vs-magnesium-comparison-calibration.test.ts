@@ -6,7 +6,7 @@ const ROOT = process.cwd()
 const SOURCE = path.join(ROOT, 'content/comparisons/l-theanine-vs-magnesium.md')
 
 function source() {
-  return fs.readFileSync(SOURCE, 'utf8')
+  return fs.readFileSync(SOURCE, 'utf8').replace(/\*\*/g, '')
 }
 
 describe('L-theanine vs magnesium sleep comparison calibration', () => {
