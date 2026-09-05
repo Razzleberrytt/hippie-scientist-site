@@ -9,6 +9,10 @@ function source() {
   return fs.readFileSync(SOURCE, 'utf8')
 }
 
+function semanticSource() {
+  return source().replace(/\*\*/g, '')
+}
+
 describe('ashwagandha evidence rebuild', () => {
   it('uses current meta-analytic sleep, stress, and safety evidence', () => {
     const text = source()
@@ -33,7 +37,7 @@ describe('ashwagandha evidence rebuild', () => {
   })
 
   it('keeps formulation, mechanism, dose, and combination boundaries explicit', () => {
-    const text = source()
+    const text = semanticSource()
 
     expect(text).toMatch(/study context, not a personal instruction/i)
     expect(text).toMatch(/formulation equivalence has to be demonstrated, not assumed/i)
