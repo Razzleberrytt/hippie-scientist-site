@@ -3,6 +3,11 @@
   "snapshotLabel": "2026-09-04",
   "source": "Derived from a user-supplied Bing Webmaster Tools AI Page Stats export; raw authenticated export is intentionally not committed.",
   "measurementBoundary": "Citation counts are evidence of AI reuse, not traffic, ranking, conversion, revenue, or causal lift.",
+  "freshnessPolicy": {
+    "maxAgeDays": 14,
+    "staleBehavior": "citation-neutral",
+    "rule": "Citation demand signals may steer scheduling only while the dated snapshot is fresh. Missing, unparsable, future-dated, invalid, or expired signals fail closed to citation-neutral scheduling and never block unrelated scientific, safety, or governance work."
+  },
   "totals": {
     "citations": 16204,
     "citedUrls": 91,
