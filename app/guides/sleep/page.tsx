@@ -46,6 +46,12 @@ const START_HERE: IntentRoute[] = [
     href: '/guides/sleep/glycine-for-sleep/',
   },
   {
+    problem: 'You sleep enough but still wake up unrefreshed',
+    why: 'Enough time in bed can still hide sleep-quality, breathing, movement, circadian, medication, pain, mood or hypersomnolence problems.',
+    cta: 'Why 8 Hours Can Still Feel Unrefreshing',
+    href: '/articles/non-restorative-sleep/',
+  },
+  {
     problem: 'You sleep fine — but only very late',
     why: 'If sleep becomes normal on a later schedule, circadian delay may fit better than generic insomnia.',
     cta: 'Delayed Sleep Phase vs Insomnia',
@@ -271,6 +277,11 @@ const CORE_SLEEP_SCIENCE: GuideCard[] = [
     href: '/articles/how-much-sleep-do-adults-need/',
     title: 'How Much Sleep Do Adults Need?',
     desc: 'Why the consensus says 7 or more hours regularly — not exactly eight hours for every adult.',
+  },
+  {
+    href: '/articles/non-restorative-sleep/',
+    title: 'Why 8 Hours Can Still Feel Unrefreshing',
+    desc: 'A differential for enough time in bed but persistent unrefreshing sleep, including breathing, insomnia, circadian, movement, medication, pain, mood and hypersomnolence causes.',
   },
   {
     href: '/articles/90-minute-sleep-cycle-myth/',
