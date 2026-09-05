@@ -39,7 +39,7 @@ export default function NewsletterInterestSignup() {
               type='button'
               onClick={() => setSelected(option)}
               aria-pressed={active}
-              className={`rounded-2xl border p-4 text-left transition ${
+              className={`min-h-11 rounded-2xl border p-4 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2 ${
                 active
                   ? 'border-brand-700/30 bg-brand-50 shadow-sm'
                   : 'border-brand-900/10 bg-white hover:border-brand-700/20 hover:bg-brand-50/40'
