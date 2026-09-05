@@ -3,7 +3,7 @@ slug: sleep-interventions-evidence-matrix
 title: "Sleep Interventions Evidence Matrix: Supplements, Habits, Circadian Tools, and Red Flags"
 description: "A decision-first evidence matrix comparing sleep science, supplements, CBT-I, circadian tools, environment, substances, life stages, and sleep-disorder red flags by strongest human outcome and biggest limitation."
 date: '2026-09-04'
-updatedAt: '2026-09-04'
+updatedAt: '2026-09-05'
 author: Will
 category: Sleep
 evidence_grade: Evidence Map
@@ -105,6 +105,7 @@ The most useful columns are:
 | [How much sleep do adults need?](/articles/how-much-sleep-do-adults-need/) | **Strong consensus against chronic short sleep** | Healthy adults should regularly obtain **7 or more hours** | 7+ is not “exactly 8 for everyone”; individual need varies and long sleep can reflect recovery or illness |
 | [Are sleep cycles exactly 90 minutes?](/articles/90-minute-sleep-cycle-myth/) | **Strong against a fixed 90-minute rule** | NREM-REM cycling is real; 6,064 PSG cycles had a median of 96 minutes with large variability | Do not sacrifice total sleep to make bedtime math divisible by 90 |
 | [Sleep onset vs maintenance](/articles/sleep-onset-vs-sleep-maintenance/) | **Strong measurement framework** | SOL, WASO, TST and efficiency answer different questions | One improved endpoint does not mean “sleep improved” in every domain |
+| [Non-restorative sleep](/articles/non-restorative-sleep/) | **Evidence-based symptom framework** | Adequate duration does not guarantee restorative sleep; continuity, timing, breathing, movement, substances, medications and hypersomnolence can matter | “I slept eight hours” does not identify the cause of waking unrefreshed |
 | [Subjective vs objective sleep](/articles/subjective-vs-objective-sleep/) | **Strong measurement distinction** | Questionnaires, actigraphy and PSG measure overlapping but different domains | Neither subjective nor objective sleep should automatically invalidate the other |
 | [Sleep inertia](/articles/sleep-inertia-grogginess-after-waking/) | **Moderate performance evidence** | Grogginess after waking can measurably impair cognition and reaction time | There is no universal nap length or instant countermeasure that eliminates it |
 | [Sleep trackers](/articles/sleep-trackers-accuracy/) | **Useful for trends; limited diagnostically** | Wearables can track approximate patterns | Consumer stage estimates are not PSG and should not diagnose disorders |
@@ -113,7 +114,10 @@ The most useful columns are:
 
 | Intervention / problem | Evidence position | Best-supported role | Main signal | Biggest limitation |
 |---|---|---|---|---|
+| [Insomnia Evidence Guide](/articles/insomnia-evidence-guide/) | **Guideline-aligned decision framework** | Separate chronic insomnia patterns from circadian, breathing, movement, substance and medication pathways before escalating sleep aids | CBT-I hierarchy plus sleep-onset versus maintenance differentiation | A decision framework does not diagnose the cause of an individual sleep complaint |
 | [CBT-I](/articles/cbt-i-vs-sleep-supplements/) | **Strong for chronic insomnia** | First-line chronic insomnia treatment | Insomnia symptoms and sleep-related functioning | Access and adherence vary; sleep hygiene alone is not CBT-I |
+| [Sleep hygiene vs CBT-I](/articles/sleep-hygiene-vs-cbt-i/) | **Strong evidence hierarchy** | Separate general sleep-hygiene advice from structured insomnia treatment | Sleep hygiene can help habits, but CBT-I has stronger evidence for chronic insomnia | Better habits are not evidence-equivalent to a full CBT-I protocol |
+| [Repeated 3 AM waking](/articles/why-do-i-wake-up-at-3am/) | **Symptom/differential framework** | Route repeated nighttime or early-morning awakenings by mechanism | Sleep-maintenance pattern, timing, breathing, movement, substances and comorbidity clues | The clock time itself is not a diagnosis and does not reveal one universal cause |
 | [Sleep apnea evaluation/treatment](/articles/sleep-apnea-vs-insomnia/) | **Strong when OSA is present** | Treat airway obstruction and fragmentation | Respiratory events, symptoms and disease-specific outcomes | Sedation and supplements do not correct airway collapse |
 | [Snoring vs sleep apnea](/articles/snoring-vs-sleep-apnea/) | **Strong diagnostic boundary** | Separate primary snoring from suspected OSA | Objective testing when risk is meaningful | Sound apps, questionnaires and wearables cannot independently diagnose or exclude OSA |
 | [Restless legs + iron evaluation](/articles/restless-legs-iron-and-sleep/) | **Guideline-supported in RLS** | Identify iron-related and RLS-specific pathways | RLS symptom management | Iron is not a generic sleep aid; ferritin/transferrin context matters |
@@ -134,7 +138,7 @@ The most useful columns are:
 | [Sleep regularity](/articles/sleep-regularity-health/) | **Strong observational signal** | Stabilize day-to-day sleep timing | Health and sleep associations | Most long-term evidence is observational, not causal |
 | [Weekend catch-up sleep](/articles/weekend-catch-up-sleep/) | **Partial-recovery evidence** | Recover some acute sleep loss | Fatigue/mood/cognitive recovery | Does not fully erase chronic sleep debt; large shifts add social jet lag |
 | [Naps](/articles/naps-and-nighttime-sleep/) | **Context-dependent** | Acute alertness / shift work | Cognition and sleepiness | Long/late naps can reduce nighttime sleep pressure; sleep inertia matters |
-| [Exercise timing](/articles/exercise-timing-and-sleep/) | **Moderate exercise benefit; timing nuance** | General sleep support | Broad sleep-quality benefit | No universal morning advantage; late intense exercise may differ |
+| [Exercise timing](/articles/exercise-timing-and-sleep/) | **Moderate exercise benefit; timing nuance** | Decide when exercise fits around sleep | Broad sleep-quality benefit with timing/intensity nuance | This answers time-of-day questions, not whether exercise is an effective insomnia intervention overall |
 | [Time-restricted eating](/articles/time-restricted-eating-and-sleep/) | **Limited / inconsistent** | Chrononutrition research question | Mixed within-group sleep changes | Controlled trials do not establish a dependable sleep benefit |
 
 ## Environmental and non-drug tools
@@ -142,6 +146,7 @@ The most useful columns are:
 | Intervention | Evidence position | Best-supported role | Main signal | Biggest limitation |
 |---|---|---|---|---|
 | [Sleep environment guide](/articles/sleep-environment-evidence-guide/) | **Evidence map** | Match light, noise, heat, air or position to the actual room problem | Problem-removal framework | A perfect “biohacked” bedroom does not treat non-environmental insomnia |
+| [Exercise for insomnia](/articles/exercise-for-insomnia/) | **Moderate / meta-analytic insomnia evidence** | Non-drug adjunct for insomnia symptoms and sleep quality | Pooled subjective and some objective sleep improvements across exercise trials | Heterogeneous exercise modes, doses and populations do not establish one universal protocol; this is distinct from exercise-timing research |
 | [Bedroom ventilation / CO₂](/articles/bedroom-air-quality-ventilation-and-sleep/) | **Limited to promising** | Improve poor bedroom air exchange | Small controlled-study sleep signals | CO₂ is often a ventilation/occupancy marker; no universal sleep threshold is established |
 | [Warm bath or shower](/articles/warm-bath-shower-before-bed/) | **Moderate for sleep onset** | Pre-sleep thermoregulation | Shorter sleep-onset latency; better efficiency/quality | Whole-body heating evidence does not transfer to every heat ritual |
 | [Bedroom temperature / cooling](/articles/sleep-temperature-and-cooling/) | **Strong heat-disruption signal; weak product signal** | Avoid excess thermal load | Hot environments worsen sleep | Cooling-bedding trials do not show a universal product benefit |
