@@ -1,0 +1,50 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "C",
+  "shard": 2,
+  "batchId": "session-c-20260905-oatstraw-acute-dose-conflict",
+  "createdAt": "2026-09-05T01:14:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_c-oatstraw-neuravena-stroop-nonmonotonic-dose",
+      "authoringPackId": "ap_c_oatstraw_pubmed_21711204",
+      "workpackId": "wp_herb_oatstraw",
+      "entityType": "herb",
+      "entitySlug": "oatstraw",
+      "sourceId": "src_pubmed-21711204",
+      "topicType": "population_specific_note",
+      "claimType": "efficacy_signal",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "An acute Neuravena crossover trial reported a Stroop-task signal at 1600 mg but not 2400 mg, arguing against a simple more-is-better dose claim.",
+      "findingTextNormalized": "PMID 21711204 / DOI 10.1089/acm.2010.0450 studied single doses of 0, 1600 and 2400 mg Neuravena oat-herb extract in older volunteers with below-average cognitive performance using a randomized double-blind crossover design. Fewer errors occurred in the color-naming component of the Stroop task after 1600 mg versus placebo or 2400 mg, while resting blood pressure was unaffected. The signal is acute, task-specific and non-monotonic across the tested doses; it cannot support a generic oatstraw cognition claim, a chronic-benefit claim, or a conclusion that higher doses work better.",
+      "strengthLabel": "limited",
+      "populationContext": "Older volunteers with below-average cognitive performance in an acute randomized crossover study",
+      "usageContext": "Single-dose proprietary Neuravena oat-herb extract; not generic oatstraw, milky-oat tincture or food oats",
+      "safetyContext": "Resting blood pressure was unaffected in this acute study; this does not establish broader or long-term safety.",
+      "uncertaintyNote": "Small study, selected task outcome, acute exposure and a non-monotonic tested-dose pattern limit generalization.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "needs_review",
+      "active": true
+    },
+    {
+      "submissionId": "sub_c-oatstraw-neuravena-erp-small-industry-study",
+      "authoringPackId": "ap_c_oatstraw_pubmed_34658781",
+      "workpackId": "wp_herb_oatstraw",
+      "entityType": "herb",
+      "entitySlug": "oatstraw",
+      "sourceId": "src_pubmed-34658781",
+      "topicType": "conflict_note",
+      "claimType": "efficacy_signal",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A 20-participant acute 800 mg Neuravena study reported faster task performance and ERP changes, but its small sample and manufacturer employment materially constrain certainty.",
+      "findingTextNormalized": "PMID 34658781 / DOI 10.3389/fnins.2021.748188 randomized 20 healthy participants to acute 800 mg Neuravena or placebo and measured behavioral performance plus event-related EEG potentials during flanker and oddball tasks. The active group showed faster performance without accuracy loss and changes in N2, ERN and P3a/P3b components, while the placebo group did not show the same neurophysiological changes. This is a small acute proprietary-extract study, not evidence that generic oatstraw treats cognitive impairment. Several authors were employed by Frutarom entities associated with the product, so that conflict provenance must remain visible.",
+      "strengthLabel": "limited",
+      "populationContext": "Twenty healthy participants in an acute randomized placebo-controlled neurophysiology study",
+      "usageContext": "Single 800 mg dose of proprietary Neuravena green-oat herb extract",
+      "uncertaintyNote": "Very small sample, acute laboratory outcomes, proprietary preparation and manufacturer-employment conflicts limit certainty and external validity.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "needs_review",
+      "active": true
+    }
+  ]
+}
