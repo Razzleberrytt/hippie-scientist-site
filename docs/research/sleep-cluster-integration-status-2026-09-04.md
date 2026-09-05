@@ -10,6 +10,8 @@ The scientific article bodies remain the source of truth for claims, study detai
 
 - Last sleep-upgrade merge before consolidation: `0a2ce029d8b65a3976681898b77adb91e4b6a2e0`
 - Final consolidation branch base: `d80f04c6ddfae791d31588bf488ba05121a36b2c`
+- 2026-09-05 non-restorative-sleep merge: `f2429c8ff4c85fa4aeb55d0ab1562623ea0fc0e4`
+- 2026-09-05 insomnia-authority merge: `bee9f6616293cc1cfd68930f4e62a79dabab8ab8`
 - Public sleep hub: `/guides/sleep/`
 - Public cross-intervention map: `/articles/sleep-interventions-evidence-matrix/`
 - Shared article citation resolver: `lib/article-citation-metadata.ts`
@@ -80,14 +82,50 @@ Upgraded adolescent sleep, menopause, pregnancy/postpartum, older-adult sleep, c
 
 Upgraded PTSD/nightmares, NREM parasomnias, narcolepsy, idiopathic hypersomnia vs narcolepsy, nocturia, eye masks/earplugs, and bedroom ventilation/CO2. The emphasis is diagnostic separation, testing limits, and avoiding hospital-to-home or marker-to-cause overgeneralization.
 
+## 2026-09-05 problem-first authority expansion
+
+Two additive sleep-authority merges expanded problem-first coverage without creating new duplicate-intent routes.
+
+### Non-restorative sleep — PR #5347
+
+Added `/articles/non-restorative-sleep/` as the canonical symptom router for people who report adequate sleep duration but still wake unrefreshed. It separates duration from continuity, timing, breathing, movement, substances, medications, comorbidity and hypersomnolence instead of routing that intent directly to a supplement.
+
+### Insomnia authority pages — PR #5343
+
+Added four canonical pages:
+
+- `/articles/insomnia-evidence-guide/` — unified insomnia decision framework;
+- `/articles/sleep-hygiene-vs-cbt-i/` — general sleep habits versus structured insomnia treatment;
+- `/articles/exercise-for-insomnia/` — exercise efficacy as an insomnia intervention;
+- `/articles/why-do-i-wake-up-at-3am/` — sleep-maintenance / early-morning-awakening differential router.
+
+Four drafted pages were deliberately removed before merge because canonical routes already existed for sleep apnea versus insomnia, RLS/iron, blue light/screens and delayed sleep phase versus insomnia. That anti-cannibalization decision is part of the sleep-cluster contract, not discarded work to recreate later.
+
+### Public orchestration — issue #5350
+
+The 2026-09-05 integration pass wires these pages into the public sleep hub and Sleep Interventions Evidence Matrix. The goal is discovery and decision routing, not additional raw page count.
+
+The structured citation registries were inspected during this pass and are **intentionally not expanded automatically**. The verified **67-page structured-coverage floor remains unchanged** until any new page is explicitly given the full registry contract: curated relationships, canonical concepts, Decision snapshot rows, visible FAQs and regression coverage. Public discoverability must not be confused with structured-registry enrollment.
+
+The exercise routes also remain intentionally distinct:
+
+- `/articles/exercise-for-insomnia/` answers whether exercise can improve insomnia-related outcomes;
+- `/articles/exercise-timing-and-sleep/` answers when exercise timing or proximity to bedtime may matter.
+
+Neither route should be collapsed into the other.
+
 ## Public integration audit
 
-The public sleep hub already follows a decision-first architecture and does not need indiscriminate deep-link expansion.
+The public sleep hub follows a decision-first architecture and should not receive indiscriminate deep-link expansion.
 
-High-value entry points already include:
+High-value entry points include:
 
 - Sleep Interventions Evidence Matrix;
+- Insomnia Evidence Guide;
+- Non-Restorative Sleep;
 - CBT-I vs Sleep Supplements;
+- Sleep Hygiene vs CBT-I;
+- Why Do I Wake Up at 3 AM?;
 - Insomnia vs Sleep Deprivation;
 - Melatonin Timing vs Dose;
 - Why Sleep Studies Disagree;
@@ -102,11 +140,14 @@ The commercial Best Supplements for Sleep guide already routes readers toward th
 The cluster should continue to preserve these distinctions:
 
 - sedation is not the same endpoint as restorative sleep;
+- adequate duration is not proof of restorative sleep;
 - subjective improvement is not objective normalization;
 - one improved endpoint is not generic “better sleep”;
+- sleep hygiene is not equivalent to CBT-I;
+- exercise efficacy for insomnia is not the same question as exercise timing;
 - a positive formulation does not validate every product in an ingredient class;
 - an association is not automatically causal;
-- a symptom such as snoring, nocturia, fatigue, grinding, or morning headache is not a diagnosis;
+- a symptom such as snoring, nocturia, fatigue, grinding, waking at 3 AM, or morning headache is not a diagnosis;
 - chronotype preference is not automatically a circadian disorder;
 - objective sleep tests have indication-specific blind spots and confounders;
 - improving insomnia can improve a comorbid condition without replacing condition-specific treatment;
@@ -115,23 +156,26 @@ The cluster should continue to preserve these distinctions:
 
 ## Highest-ROI next work
 
-With structured coverage established, future sleep work should prioritize integration and evidence maintenance over raw page count:
+With structured coverage established and the 2026-09-05 problem-first authority pages integrated, future sleep work should prioritize integration and evidence maintenance over raw page count:
 
 1. keep the Sleep Interventions Evidence Matrix current as major reviews or guidelines change;
 2. refresh high-authority flagship guide evidence dates and citations when newer syntheses materially change rankings;
 3. audit generated/served data for stale claims that bypass Markdown articles;
 4. add contextual links only where the user intent naturally benefits from a deeper evidence page;
 5. preserve canonical routes and consolidate duplicate intents before publication;
-6. run periodic collision/orphan checks as autonomous research workers add new sleep pages; and
-7. update the master scientific dossier when evidence conclusions change, rather than using this integration ledger as a substitute for research notes.
+6. run periodic collision/orphan checks as autonomous research workers add new sleep pages;
+7. enroll new pages in the structured citation registry only when the full decision-coverage contract is satisfied; and
+8. update the master scientific dossier when evidence conclusions change, rather than using this integration ledger as a substitute for research notes.
 
 ## Completion definition
 
 This consolidation pass is complete when:
 
-- the 67-page coverage floor is regression-protected;
+- the 67-page structured coverage floor remains regression-protected;
 - modular and root sleep registries remain non-overlapping;
 - every covered slug maps to a canonical article file;
 - the hub keeps the evidence matrix and non-supplement decision routes visible;
+- the 2026-09-05 authority pages are discoverable without creating duplicate canonical intents;
+- exercise efficacy and exercise timing remain separate routes;
 - no new scientific claim is introduced merely to improve extraction/SEO; and
 - future expansion can add new modular registries without modifying the shared resolver for each batch.
