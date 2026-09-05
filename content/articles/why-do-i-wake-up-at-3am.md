@@ -204,7 +204,7 @@ Once the mechanism is clearer, the treatment choice becomes much less random.
 
 - [Insomnia Evidence Guide](/articles/insomnia-evidence-guide/)
 - [Sleep Onset vs Sleep Maintenance](/articles/sleep-onset-vs-sleep-maintenance/)
-- [Insomnia vs Sleep Apnea](/articles/insomnia-vs-sleep-apnea/)
-- [Restless Legs and Insomnia](/articles/restless-legs-and-insomnia/)
+- [Sleep Apnea vs Insomnia](/articles/sleep-apnea-vs-insomnia/)
+- [Restless Legs, Iron, and Sleep](/articles/restless-legs-iron-and-sleep/)
 - [Alcohol and Sleep](/articles/alcohol-and-sleep/)
 - [Caffeine and Sleep Timing](/articles/caffeine-and-sleep-timing/)
