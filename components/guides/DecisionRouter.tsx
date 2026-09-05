@@ -91,7 +91,7 @@ export function DecisionRouter({ items }: { items: IntentRoute[] }) {
           <Link
             key={item.href + item.problem}
             href={item.href}
-            className="group flex h-full flex-col rounded-2xl border border-brand-900/10 bg-white p-5 shadow-[0_1px_2px_rgba(13,23,18,0.06)] transition-all hover:-translate-y-0.5 hover:border-brand-700/30 hover:shadow-md dark:border-white/10 dark:bg-[var(--surface-card)]"
+            className="group flex h-full flex-col rounded-2xl border border-brand-900/10 bg-white p-5 shadow-[0_1px_2px_rgba(13,23,18,0.06)] transition-all hover:-translate-y-0.5 hover:border-brand-700/30 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2 dark:border-white/10 dark:bg-[var(--surface-card)]"
           >
             <span className="text-[0.7rem] font-bold uppercase tracking-wider text-brand-700">
               If your problem is
