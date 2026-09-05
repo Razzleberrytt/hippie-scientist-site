@@ -48,21 +48,37 @@ function readHtml(routePath) {
   return fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : null
 }
 
+function quotedAttributes(tag) {
+  const attributes = new Map()
+  for (const match of tag.matchAll(/([:\w-]+)\s*=\s*(["'])(.*?)\2/g)) {
+    attributes.set(match[1].toLowerCase(), match[3])
+  }
+  return attributes
+}
+
 function metaContent(html, metaName) {
   const tags = html.match(/<meta\b[^>]*>/gi) ?? []
 
   for (const tag of tags) {
-    const attributes = new Map()
-    for (const match of tag.matchAll(/([:\w-]+)\s*=\s*(["'])(.*?)\2/g)) {
-      attributes.set(match[1].toLowerCase(), match[3])
-    }
-
+    const attributes = quotedAttributes(tag)
     if ((attributes.get('name') ?? '').toLowerCase() === metaName.toLowerCase()) {
       return attributes.get('content') ?? ''
     }
   }
 
   return ''
+}
+
+function linkedTargets(html) {
+  const targets = new Set()
+  const tags = html.match(/<a\b[^>]*>/gi) ?? []
+
+  for (const tag of tags) {
+    const href = quotedAttributes(tag).get('href')
+    if (href) targets.add(href)
+  }
+
+  return targets
 }
 
 function isIndexable(html) {
@@ -87,6 +103,7 @@ function main() {
       failures.push(`${hub} — hub page is missing from out/`)
       continue
     }
+    const hubLinks = linkedTargets(hubHtml)
 
     const hubDir = path.join(OUT, hub.replace(/^\//, ''))
     const children = fs.readdirSync(hubDir, { withFileTypes: true })
@@ -102,7 +119,7 @@ function main() {
       if (!sitemap.includes(`${route}/`)) continue
 
       checked += 1
-      if (!hubHtml.includes(`href="${route}/"`)) failures.push(`${route}/ — indexable and in the sitemap, but not linked from ${hub}/`)
+      if (!hubLinks.has(`${route}/`)) failures.push(`${route}/ — indexable and in the sitemap, but not linked from ${hub}/`)
     }
   }
 
