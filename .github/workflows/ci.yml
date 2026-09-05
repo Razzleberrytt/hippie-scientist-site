@@ -71,10 +71,10 @@ jobs:
       - name: Run typecheck
         run: npm run typecheck
 
-      - name: Run tests (vitest + a11y gate)
+      - name: Run tests (Vitest + a11y + native node:test)
         run: |
           set -o pipefail
-          npm run test 2>&1 | tee vitest.log
+          npm run test:all 2>&1 | tee vitest.log
 
       - name: Upload Vitest log
         if: always() && hashFiles('vitest.log') != ''
@@ -141,7 +141,7 @@ jobs:
         run: |
           echo "## CI validation/test lane" >> "$GITHUB_STEP_SUMMARY"
           echo "- Runs independently of the production build lane to shorten the critical path." >> "$GITHUB_STEP_SUMMARY"
-          echo "- Coverage: lint, typecheck, Vitest/a11y, canonical data, workbook parity, runtime trust, and security audit." >> "$GITHUB_STEP_SUMMARY"
+          echo "- Coverage: lint, typecheck, Vitest/a11y, native node:test suites, canonical data, workbook parity, runtime trust, and security audit." >> "$GITHUB_STEP_SUMMARY"
           echo "- Status: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
 
   build-verification:
@@ -318,11 +318,29 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           HEAD_REF: ${{ steps.context.outputs.head_ref }}
+          BASE_REF: ${{ steps.context.outputs.base_ref }}
           SOURCE_SHA: ${{ steps.context.outputs.source_sha }}
           BASE_SHA: ${{ steps.context.outputs.base_sha }}
           PR_NUMBER: ${{ steps.context.outputs.pr_number }}
         run: |
           set -euo pipefail
+
+          pr_json="$(gh api "repos/${{ github.repository }}/pulls/$PR_NUMBER")"
+          live_state="$(jq -r '.state' <<<"$pr_json")"
+          live_draft="$(jq -r '.draft' <<<"$pr_json")"
+          live_head="$(jq -r '.head.sha' <<<"$pr_json")"
+          live_base_ref="$(jq -r '.base.ref' <<<"$pr_json")"
+          current_base_sha="$(gh api "repos/${{ github.repository }}/branches/$BASE_REF" --jq '.commit.sha')"
+          if [ "$live_state" != "open" ] || \
+             [ "$live_draft" != "false" ] || \
+             [ "$live_head" != "$SOURCE_SHA" ] || \
+             [ "$live_base_ref" != "$BASE_REF" ] || \
+             [ "$current_base_sha" != "$BASE_SHA" ]; then
+            echo "Skipping governed consumer fan-out: producer PR authorization changed while CI was running."
+            echo "state=$live_state draft=$live_draft head=$live_head base=$live_base_ref current_base=$current_base_sha validated_base=$BASE_SHA"
+            exit 0
+          fi
+
           dispatch_epoch="$(date -u +%s)"
           payload="$(jq -nc \
             --arg ref "$HEAD_REF" \
@@ -381,6 +399,7 @@ jobs:
           echo "- Exact source SHA: ${{ steps.context.outputs.source_sha || github.sha }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Exact base SHA: ${{ steps.context.outputs.base_sha || github.sha }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Governed static export is hash-bound to source/base/lockfile/output and fans out only after this build succeeds." >> "$GITHUB_STEP_SUMMARY"
+          echo "- Consumer dispatch revalidates live PR authorization and current base immediately before downstream fan-out." >> "$GITHUB_STEP_SUMMARY"
           echo "- Consumer dispatch registration is proven before CI can finish; the autonomous merge controller then waits for exact-head consumer completion." >> "$GITHUB_STEP_SUMMARY"
           echo "- Build Check, Lighthouse, and Production Content Lint reuse that artifact; artifact miss/mismatch falls back to a complete build." >> "$GITHUB_STEP_SUMMARY"
           echo "- Unprivileged fork/Dependabot PRs self-build consumer audits rather than attempting a forbidden workflow dispatch." >> "$GITHUB_STEP_SUMMARY"
