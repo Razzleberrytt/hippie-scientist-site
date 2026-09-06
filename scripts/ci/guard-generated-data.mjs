@@ -12,6 +12,7 @@
  */
 
 import { execSync, spawnSync } from 'node:child_process'
+import fs from 'node:fs'
 import process from 'node:process'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -162,7 +163,7 @@ function hasPrefixInList(files, prefixes) {
   return files.some((file) => prefixes.some((prefix) => file === prefix || file.startsWith(prefix)))
 }
 
-export function classifyGeneratedDataGuard(changed) {
+export function classifyGeneratedDataGuard(changed, { governedOutputMatchesLedger = false } = {}) {
   const dataFiles = changed.filter(
     (file) =>
       file.startsWith('public/data/') &&
@@ -174,14 +175,42 @@ export function classifyGeneratedDataGuard(changed) {
   const governedOutputs = dataFiles.filter((file) => GOVERNED_ENRICHMENT_OUTPUT_FILES.has(file))
   const ordinaryOutputs = dataFiles.filter((file) => !GOVERNED_ENRICHMENT_OUTPUT_FILES.has(file))
   const ordinarySourceTouched = hasPrefixInList(changed, SOURCE_PATHS)
-  const governedSourceTouched = changed.some((file) => GOVERNED_ENRICHMENT_SOURCE_FILES.has(file))
 
   return {
     dataFiles,
     governedOutputs,
     ordinaryOutputs,
     blockedOrdinary: ordinaryOutputs.length > 0 && !ordinarySourceTouched,
-    blockedGoverned: governedOutputs.length > 0 && !governedSourceTouched,
+    // The governed artifact is a pure function of the normalized ledger, so the
+    // real invariant is equality with that rollup — not "some declared source
+    // also changed". The old proxy let PR #5375 write 593 fabricated lines into
+    // this output while satisfying the guard purely by touching
+    // source-registry.json, publishing 5 entity rows with no ledger backing.
+    // Equality blocks that and still permits a repair that converges the output.
+    blockedGoverned: governedOutputs.length > 0 && !governedOutputMatchesLedger,
+  }
+}
+
+const GOVERNED_OUTPUT_PATH = 'public/data/enrichment-governed.json'
+
+/**
+ * True only when the committed governed artifact is byte-equivalent to the rollup
+ * recomputed from the canonical normalized ledger. Fails closed on any error so a
+ * malformed ledger blocks rather than waves the output through.
+ */
+async function governedOutputMatchesLedger() {
+  try {
+    const lib = await import('../enrichment/normalize-enrichment-lib.mjs')
+    const entries = lib.parseNormalizedInput(lib.INPUT_PATH_DEFAULT)
+    const { normalizedEntries, issues, sourceById } = lib.validateAndNormalizeEntries(entries, {
+      includeNearDuplicateCheck: true,
+    })
+    if (issues.length > 0) return false
+    const expected = JSON.parse(JSON.stringify(lib.rollupToResearchEnrichment(normalizedEntries, sourceById)))
+    const actual = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, GOVERNED_OUTPUT_PATH), 'utf8'))
+    return JSON.stringify(actual) === JSON.stringify(expected)
+  } catch {
+    return false
   }
 }
 
@@ -190,31 +219,45 @@ function selfTest() {
     'public/data/enrichment-normalized.jsonl',
     'public/data/source-registry.json',
     'public/data/enrichment-governed.json',
-  ])
+  ], { governedOutputMatchesLedger: true })
   if (governed.blockedGoverned || governed.blockedOrdinary) throw new Error('governed enrichment transaction must be allowed')
+
+  // The #5375 shape: output edited, a declared source touched, but the result does
+  // not match the ledger rollup. The old source-touched proxy allowed this.
+  const fabricated = classifyGeneratedDataGuard([
+    'public/data/source-registry.json',
+    'public/data/enrichment-governed.json',
+  ], { governedOutputMatchesLedger: false })
+  if (!fabricated.blockedGoverned) throw new Error('governed output that does not match the ledger rollup must be blocked')
+
+  // A repair that converges the output to the rollup is allowed with no source change.
+  const repair = classifyGeneratedDataGuard(['public/data/enrichment-governed.json'], { governedOutputMatchesLedger: true })
+  if (repair.blockedGoverned) throw new Error('governed output repair that matches the ledger rollup must be allowed')
   if (governed.dataFiles.length !== 1 || governed.dataFiles[0] !== 'public/data/enrichment-governed.json') {
     throw new Error('source registry must remain a canonical input')
   }
 
-  const orphan = classifyGeneratedDataGuard(['public/data/enrichment-governed.json'])
+  const orphan = classifyGeneratedDataGuard(['public/data/enrichment-governed.json'], { governedOutputMatchesLedger: false })
   if (!orphan.blockedGoverned) throw new Error('orphan governed output edit must remain blocked')
 
   const unrelated = classifyGeneratedDataGuard([
     'public/data/enrichment-normalized.jsonl',
     'public/data/unrelated-generated.json',
-  ])
+  ], { governedOutputMatchesLedger: true })
   if (!unrelated.blockedOrdinary) throw new Error('governed source changes must not exempt unrelated outputs')
 
   console.log('[guard-generated-data] SELF-TEST PASS')
 }
 
-function main() {
+async function main() {
   selfTest()
   if (process.argv.includes('--self-test')) process.exit(0)
 
   const base = getBaseRef()
   const changed = getChangedFiles(base)
-  const { dataFiles, governedOutputs, ordinaryOutputs, blockedOrdinary, blockedGoverned } = classifyGeneratedDataGuard(changed)
+  const matchesLedger = changed.includes(GOVERNED_OUTPUT_PATH) ? await governedOutputMatchesLedger() : false
+  const { dataFiles, governedOutputs, ordinaryOutputs, blockedOrdinary, blockedGoverned } =
+    classifyGeneratedDataGuard(changed, { governedOutputMatchesLedger: matchesLedger })
 
   if (dataFiles.length === 0) {
     console.log('[guard-generated-data] No generated public/data JSON changes in this diff. OK.')
@@ -227,12 +270,16 @@ function main() {
       ...(blockedGoverned ? governedOutputs : []),
     ]
     console.error('[guard-generated-data] BLOCKED: generated data changed without its recognized source/build change.')
+    if (blockedGoverned) {
+      console.error('  (governed enrichment output does not match the rollup recomputed from public/data/enrichment-normalized.jsonl;')
+      console.error('   regenerate with `node scripts/enrichment/generate-governed-enrichment.mjs` instead of editing the artifact)')
+    }
     blockedFiles.forEach((file) => console.error(`  - ${file}`))
     process.exit(1)
   }
 
   if (governedOutputs.length > 0) {
-    console.log(`[guard-generated-data] ${governedOutputs.length} governed enrichment output file(s) changed with canonical governed source input(s). OK.`)
+    console.log(`[guard-generated-data] ${governedOutputs.length} governed enrichment output file(s) changed and match the canonical ledger rollup. OK.`)
   }
   if (ordinaryOutputs.length > 0) {
     console.log(`[guard-generated-data] ${ordinaryOutputs.length} ordinary public/data file(s) changed, accompanied by source/build changes. OK.`)
@@ -242,4 +289,4 @@ function main() {
 
 const thisFile = path.resolve(fileURLToPath(import.meta.url))
 const invokedFile = process.argv[1] ? path.resolve(process.argv[1]) : null
-if (invokedFile === thisFile) main()
+if (invokedFile === thisFile) await main()
