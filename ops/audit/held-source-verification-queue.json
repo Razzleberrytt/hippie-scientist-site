@@ -1,0 +1,2922 @@
+{
+  "modelVersion": "held-source-verification-queue-v2",
+  "counts": {
+    "heldProfiles": 387,
+    "heldProfilesWithAnySourceSignals": 65,
+    "registeredWithAnySourceSignals": 25,
+    "unregisteredCandidates": 40,
+    "claimLaneCandidates": 19,
+    "detailLaneCandidates": 32,
+    "detailOnlyCandidates": 21,
+    "candidatesWithValidPmid": 29,
+    "candidatesWithValidDoi": 29,
+    "candidatesWithDiscoveryOrAiUrl": 2,
+    "candidatesWithPlaceholderSignals": 6
+  },
+  "candidates": [
+    {
+      "slug": "allicin",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 0,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "Garlic trials."
+        ],
+        "sourceUrlClasses": [
+          "placeholder_or_non_url"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim"
+      ]
+    },
+    {
+      "slug": "alpha-lipoic-acid",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "commercial_ready",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "12874400"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/12874400/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "12874400"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1212/01.wnl.0000073987.79060.4b"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/12874400/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "artemisia-dracunculus",
+      "entityType": "herb",
+      "detailDir": "herbs-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "top50_authority_patched",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 0,
+      "detailSourceCount": 3,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "21942448",
+          "33927629",
+          "38068651"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1021/jf202277w",
+          "10.3389/fphar.2021.653993",
+          "10.3390/plants12234017"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/21942448/",
+          "https://pubmed.ncbi.nlm.nih.gov/33927629/",
+          "https://pubmed.ncbi.nlm.nih.gov/38068651/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "detail"
+      ]
+    },
+    {
+      "slug": "black-cohosh",
+      "entityType": "herb",
+      "detailDir": "herbs-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "partial",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 0,
+      "detailSourceCount": 3,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "37192826"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1097/GME.0000000000002196"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://ods.od.nih.gov/factsheets/BlackCohosh-HealthProfessional/",
+          "https://pubmed.ncbi.nlm.nih.gov/37192826/",
+          "https://www.ncbi.nlm.nih.gov/books/NBK547990/"
+        ],
+        "sourceUrlClasses": [
+          "other_http_source",
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "detail"
+      ]
+    },
+    {
+      "slug": "blue-lotus",
+      "entityType": "herb",
+      "detailDir": "herbs-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "partial",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 0,
+      "detailSourceCount": 3,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "34345890",
+          "38285776",
+          "41052496"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1016/j.plaphy.2025.110583",
+          "10.1093/milmed/usab328",
+          "10.31557/APJCP.2024.25.1.123"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/34345890/",
+          "https://pubmed.ncbi.nlm.nih.gov/38285776/",
+          "https://pubmed.ncbi.nlm.nih.gov/41052496/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "detail"
+      ]
+    },
+    {
+      "slug": "capsicum-frutescens",
+      "entityType": "herb",
+      "detailDir": "herbs-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "needs_review",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 3,
+      "detailSourceCount": 3,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://consensus.app/papers/capsaicin-a-potential-treatment-to-improve-thornton-mills/bb3af088d00b5315aaf398cbe7741512/?utm_source=chatgpt",
+          "https://consensus.app/papers/estimation-of-dietary-capsaicinoid-exposure-in-korea-and-kwon/c060344aae1a57aa8b0a5ace9318fa73/?utm_source=chatgpt",
+          "https://consensus.app/papers/spicy-food-and-chili-peppers-and-multiple-health-outcomes-ao-huang/3c578e8dc02759e09f8fe1f74f33f490/?utm_source=chatgpt"
+        ],
+        "sourceUrlClasses": [
+          "discovery_or_ai_tool"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "34371974",
+          "36111960"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1002/mnfr.202200167",
+          "10.3390/nu13072461"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://consensus.app/papers/capsaicin-a-potential-treatment-to-improve-thornton-mills/bb3af088d00b5315aaf398cbe7741512/?utm_source=chatgpt",
+          "https://pubmed.ncbi.nlm.nih.gov/34371974/",
+          "https://pubmed.ncbi.nlm.nih.gov/36111960/"
+        ],
+        "sourceUrlClasses": [
+          "discovery_or_ai_tool",
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "cat-s-claw",
+      "entityType": "herb",
+      "detailDir": "herbs-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "partial",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 0,
+      "detailSourceCount": 3,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "17210508",
+          "31643645",
+          "33917843"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1016/j.ctcp.2006.10.003",
+          "10.3390/biom11040543"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/17210508/",
+          "https://pubmed.ncbi.nlm.nih.gov/31643645/",
+          "https://pubmed.ncbi.nlm.nih.gov/33917843/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "detail"
+      ]
+    },
+    {
+      "slug": "chaga",
+      "entityType": "herb",
+      "detailDir": "herbs-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "partial",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 0,
+      "detailSourceCount": 3,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "37513265",
+          "38116085",
+          "38813471"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1080/21501203.2023.2260408",
+          "10.3389/fphar.2023.1273786",
+          "10.3390/molecules28145393"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/37513265/",
+          "https://pubmed.ncbi.nlm.nih.gov/38116085/",
+          "https://pubmed.ncbi.nlm.nih.gov/38813471/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "detail"
+      ]
+    },
+    {
+      "slug": "chondroitin",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "commercial_ready",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "17470980"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/17470980/ | https://pubmed.ncbi.nlm.nih.gov/20068243/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "17470980"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1088/0967-3334/28/5/001"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/17470980/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "d-mannose",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 3,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2817488 | https://pmc.ncbi.nlm.nih.gov/articles/PMC11002776/ | https://pmc.ncbi.nlm.nih.gov/articles/PMC12471090/"
+        ],
+        "sourceUrlClasses": [
+          "other_http_source"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2817488",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC11002776/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC12471090/"
+        ],
+        "sourceUrlClasses": [
+          "other_http_source"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "damiana",
+      "entityType": "herb",
+      "detailDir": "herbs-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "partial",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 0,
+      "detailSourceCount": 3,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "30823394",
+          "35684259",
+          "40125913"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1080/19390211.2025.2480582",
+          "10.3390/molecules24050855",
+          "10.3390/plants11111486"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/30823394/",
+          "https://pubmed.ncbi.nlm.nih.gov/35684259/",
+          "https://pubmed.ncbi.nlm.nih.gov/40125913/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "detail"
+      ]
+    },
+    {
+      "slug": "digestive-enzymes",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 0,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "source_pending_review"
+        ],
+        "sourceUrlClasses": [
+          "placeholder_or_non_url"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim"
+      ]
+    },
+    {
+      "slug": "eschscholzia-californica",
+      "entityType": "herb",
+      "detailDir": "herbs-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "top50_authority_patched",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 0,
+      "detailSourceCount": 3,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "36938015",
+          "37172085",
+          "37673017"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1016/j.biopha.2023.115420",
+          "10.1126/sciadv.adh1455",
+          "10.3389/fpls.2023.1084358"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/36938015/",
+          "https://pubmed.ncbi.nlm.nih.gov/37172085/",
+          "https://pubmed.ncbi.nlm.nih.gov/37673017/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "detail"
+      ]
+    },
+    {
+      "slug": "evening-primrose",
+      "entityType": "herb",
+      "detailDir": "herbs-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "partial",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 0,
+      "detailSourceCount": 3,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "29403626",
+          "30000954",
+          "34946512"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.19082/5826",
+          "10.3390/molecules26247421"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/29403626/",
+          "https://pubmed.ncbi.nlm.nih.gov/30000954/",
+          "https://pubmed.ncbi.nlm.nih.gov/34946512/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "detail"
+      ]
+    },
+    {
+      "slug": "gaba",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "41554764"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/41554764/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "41554764"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1038/s41598-025-27861-6"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/41554764/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "ganoderma-lucidum",
+      "entityType": "herb",
+      "detailDir": "herbs-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "top50_authority_patched",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 0,
+      "detailSourceCount": 3,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "29141563",
+          "34411377",
+          "36671409"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1002/ptr.7215",
+          "10.2174/1871520617666171113121246",
+          "10.3390/biom13010024"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/29141563/",
+          "https://pubmed.ncbi.nlm.nih.gov/34411377/",
+          "https://pubmed.ncbi.nlm.nih.gov/36671409/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "detail"
+      ]
+    },
+    {
+      "slug": "ginsenoside-rg1",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7993717/"
+        ],
+        "sourceUrlClasses": [
+          "other_http_source"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7993717/"
+        ],
+        "sourceUrlClasses": [
+          "other_http_source"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "goldenseal",
+      "entityType": "herb",
+      "detailDir": "herbs-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "partial",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 0,
+      "detailSourceCount": 3,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "27671811",
+          "28762712",
+          "33242239"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1007/978-3-319-41334-1_2"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/27671811/",
+          "https://pubmed.ncbi.nlm.nih.gov/28762712/",
+          "https://pubmed.ncbi.nlm.nih.gov/33242239/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "detail"
+      ]
+    },
+    {
+      "slug": "guarana",
+      "entityType": "herb",
+      "detailDir": "herbs-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "partial",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 0,
+      "detailSourceCount": 3,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "33802176",
+          "34755935",
+          "36862943"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1080/15502783.2023.2171314",
+          "10.1111/1541-4337.12862",
+          "10.3390/brainsci11030355"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/33802176/",
+          "https://pubmed.ncbi.nlm.nih.gov/34755935/",
+          "https://pubmed.ncbi.nlm.nih.gov/36862943/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "detail"
+      ]
+    },
+    {
+      "slug": "hawthorn-extract",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 2,
+      "detailSourceCount": 2,
+      "claimSignals": {
+        "validPmids": [
+          "17470176",
+          "19789403"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/17470176/",
+          "https://pubmed.ncbi.nlm.nih.gov/19789403/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "17470176",
+          "19789403"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1093/eurjhf/hfp116",
+          "10.1111/j.1442-2042.2007.01576.x"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/17470176/",
+          "https://pubmed.ncbi.nlm.nih.gov/19789403/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "hesperidin",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "32353900"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/32353900/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "32353900"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1111/nph.16632"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/32353900/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "kanna",
+      "entityType": "herb",
+      "detailDir": "herbs-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "partial",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 0,
+      "detailSourceCount": 3,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "25240931",
+          "27939420",
+          "33924742"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1007/s00216-014-8109-9",
+          "10.1016/j.jep.2016.12.004",
+          "10.3390/molecules26092557"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/25240931/",
+          "https://pubmed.ncbi.nlm.nih.gov/27939420/",
+          "https://pubmed.ncbi.nlm.nih.gov/33924742/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "detail"
+      ]
+    },
+    {
+      "slug": "krill-oil",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 0,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "PubMed krill RCTs."
+        ],
+        "sourceUrlClasses": [
+          "placeholder_or_non_url"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim"
+      ]
+    },
+    {
+      "slug": "lions-mane",
+      "entityType": "herb",
+      "detailDir": "herbs-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "partial",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 4,
+      "claimSignals": {
+        "validPmids": [
+          "18844328"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/18844328/ | https://pubmed.ncbi.nlm.nih.gov/38004235/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "18844328",
+          "33917843",
+          "37958943",
+          "40284172"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1002/ptr.2634",
+          "10.3390/biom11040543",
+          "10.3390/ijms242115960",
+          "10.3390/nu17081307"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/18844328/",
+          "https://pubmed.ncbi.nlm.nih.gov/33917843/",
+          "https://pubmed.ncbi.nlm.nih.gov/37958943/",
+          "https://pubmed.ncbi.nlm.nih.gov/40284172/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "marshmallow-root",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 0,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "source_pending_review"
+        ],
+        "sourceUrlClasses": [
+          "placeholder_or_non_url"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim"
+      ]
+    },
+    {
+      "slug": "muira-puama",
+      "entityType": "herb",
+      "detailDir": "herbs-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "partial",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 0,
+      "detailSourceCount": 3,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "10919969",
+          "29551532",
+          "39845379"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1016/j.niox.2018.03.010",
+          "10.1093/ajcn/72.2.624S",
+          "10.1093/sexmed/qfaf001"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/10919969/",
+          "https://pubmed.ncbi.nlm.nih.gov/29551532/",
+          "https://pubmed.ncbi.nlm.nih.gov/39845379/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "detail"
+      ]
+    },
+    {
+      "slug": "nettle-root",
+      "entityType": "herb",
+      "detailDir": "herbs-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "partial",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 0,
+      "detailSourceCount": 3,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "17509841",
+          "31163183",
+          "34885733"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1016/j.pbiomolbio.2019.05.008",
+          "10.1016/j.phymed.2007.03.014",
+          "10.3390/molecules26237141"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/17509841/",
+          "https://pubmed.ncbi.nlm.nih.gov/31163183/",
+          "https://pubmed.ncbi.nlm.nih.gov/34885733/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "detail"
+      ]
+    },
+    {
+      "slug": "policosanol",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 0,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/17452504/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim"
+      ]
+    },
+    {
+      "slug": "potassium",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "commercial_ready",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 0,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://ods.od.nih.gov/factsheets/Potassium-HealthProfessional/"
+        ],
+        "sourceUrlClasses": [
+          "other_http_source"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim"
+      ]
+    },
+    {
+      "slug": "raspberry-ketones",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 0,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "source_pending_review"
+        ],
+        "sourceUrlClasses": [
+          "placeholder_or_non_url"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim"
+      ]
+    },
+    {
+      "slug": "red-yeast-rice",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "27282571"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://www.nccih.nih.gov/health/red-yeast-rice | https://pubmed.ncbi.nlm.nih.gov/27282571/"
+        ],
+        "sourceUrlClasses": [
+          "other_http_source"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "27282571"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1016/j.bcmd.2016.04.002"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/27282571/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "salvia-miltiorrhiza",
+      "entityType": "herb",
+      "detailDir": "herbs-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "minimal",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 0,
+      "detailSourceCount": 3,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "10675182",
+          "29698387",
+          "36650621"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1016/S0140-6736(99)06457-0",
+          "10.1038/aps.2017.193",
+          "10.2174/1389200224666230116113240"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/10675182/",
+          "https://pubmed.ncbi.nlm.nih.gov/29698387/",
+          "https://pubmed.ncbi.nlm.nih.gov/36650621/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "detail"
+      ]
+    },
+    {
+      "slug": "scutellaria-lateriflora",
+      "entityType": "herb",
+      "detailDir": "herbs-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "top50_authority_patched",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 0,
+      "detailSourceCount": 3,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "34307603",
+          "38495279",
+          "40205009"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1038/s41401-025-01547-1",
+          "10.12998/wjcc.v9.i20.5490",
+          "10.4254/wjh.v16.i2.120"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/34307603/",
+          "https://pubmed.ncbi.nlm.nih.gov/38495279/",
+          "https://pubmed.ncbi.nlm.nih.gov/40205009/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "detail"
+      ]
+    },
+    {
+      "slug": "slippery-elm",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 0,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "source_pending_review"
+        ],
+        "sourceUrlClasses": [
+          "placeholder_or_non_url"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim"
+      ]
+    },
+    {
+      "slug": "st-johns-wort",
+      "entityType": "herb",
+      "detailDir": "herbs-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "partial",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 0,
+      "detailSourceCount": 3,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "10675182",
+          "30000829",
+          "35294606"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1007/s00210-022-02229-z",
+          "10.1016/S0140-6736(99)06457-0"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/10675182/",
+          "https://pubmed.ncbi.nlm.nih.gov/30000829/",
+          "https://pubmed.ncbi.nlm.nih.gov/35294606/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "detail"
+      ]
+    },
+    {
+      "slug": "terminalia-arjuna",
+      "entityType": "herb",
+      "detailDir": "herbs-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "minimal",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 0,
+      "detailSourceCount": 3,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "33174095",
+          "36933876",
+          "37814683"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1007/s13659-020-00281-x",
+          "10.1016/j.jep.2023.116352",
+          "10.6026/97320630019184"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/33174095/",
+          "https://pubmed.ncbi.nlm.nih.gov/36933876/",
+          "https://pubmed.ncbi.nlm.nih.gov/37814683/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "detail"
+      ]
+    },
+    {
+      "slug": "theanine",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "commercial_ready",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 8,
+      "detailSourceCount": 6,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://consensus.app/papers/a-randomized-tripleblind-placebocontrolled-crossover-evans-mcdonald/d3b94ebb1cb75700884a46cc775e9bda/?utm_source=chatgpt",
+          "https://consensus.app/papers/effects-of-tea-camellia-sinensis-or-its-bioactive-payne-aceves-martins/939e00c0c8a153ea8489e05d78184f5d/?utm_source=chatgpt",
+          "https://consensus.app/papers/examining-the-effect-of-ltheanine-on-sleep-a-systematic-cotter-caddick/fc34d2ccf3715609a856171a6e3821d9/?utm_source=chatgpt",
+          "https://consensus.app/papers/safety-and-efficacy-of-alphawave-ltheanine-moulin-crowley/483ed255c48e5a30a5f3714f3c3082fe/?utm_source=chatgpt",
+          "https://consensus.app/papers/the-effects-of-ltheanine-consumption-on-sleep-outcomes-a-bulman-cunha/f04f46df5cfa5ac490eed2104e55ae78/?utm_source=chatgpt",
+          "https://consensus.app/papers/the-effects-of-ltheanine-supplementation-on-the-outcomes-moshfeghinia-sanaei/d80025c23e0a5a76bc2db097fde335bf/?utm_source=chatgpt"
+        ],
+        "sourceUrlClasses": [
+          "discovery_or_ai_tool"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://consensus.app/papers/a-randomized-tripleblind-placebocontrolled-crossover-evans-mcdonald/d3b94ebb1cb75700884a46cc775e9bda/?utm_source=chatgpt",
+          "https://consensus.app/papers/effects-of-tea-camellia-sinensis-or-its-bioactive-payne-aceves-martins/939e00c0c8a153ea8489e05d78184f5d/?utm_source=chatgpt",
+          "https://consensus.app/papers/examining-the-effect-of-ltheanine-on-sleep-a-systematic-cotter-caddick/fc34d2ccf3715609a856171a6e3821d9/?utm_source=chatgpt",
+          "https://consensus.app/papers/safety-and-efficacy-of-alphawave-ltheanine-moulin-crowley/483ed255c48e5a30a5f3714f3c3082fe/?utm_source=chatgpt",
+          "https://consensus.app/papers/the-effects-of-ltheanine-consumption-on-sleep-outcomes-a-bulman-cunha/f04f46df5cfa5ac490eed2104e55ae78/?utm_source=chatgpt",
+          "https://consensus.app/papers/the-effects-of-ltheanine-supplementation-on-the-outcomes-moshfeghinia-sanaei/d80025c23e0a5a76bc2db097fde335bf/?utm_source=chatgpt"
+        ],
+        "sourceUrlClasses": [
+          "discovery_or_ai_tool"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "turkey-tail",
+      "entityType": "herb",
+      "detailDir": "herbs-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "partial",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 0,
+      "detailSourceCount": 3,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "28267306",
+          "36995535",
+          "37513265"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1007/s11912-023-01408-2",
+          "10.3390/molecules28145393"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/28267306/",
+          "https://pubmed.ncbi.nlm.nih.gov/36995535/",
+          "https://pubmed.ncbi.nlm.nih.gov/37513265/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "detail"
+      ]
+    },
+    {
+      "slug": "vitamin-b6",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 0,
+      "detailSourceCount": 5,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "10334745",
+          "31928364",
+          "35851507",
+          "37447150",
+          "38684926"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1002/hup.2852",
+          "10.1089/acm.2019.0305",
+          "10.1093/nutrit/nuae043",
+          "10.1136/bmj.318.7195.1375",
+          "10.3390/nu15132823"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/10334745/",
+          "https://pubmed.ncbi.nlm.nih.gov/31928364/",
+          "https://pubmed.ncbi.nlm.nih.gov/35851507/",
+          "https://pubmed.ncbi.nlm.nih.gov/37447150/",
+          "https://pubmed.ncbi.nlm.nih.gov/38684926/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "detail"
+      ]
+    },
+    {
+      "slug": "yohimbe",
+      "entityType": "herb",
+      "detailDir": "herbs-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "partial",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 0,
+      "detailSourceCount": 3,
+      "claimSignals": {
+        "validPmids": [],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [],
+        "sourceUrlClasses": [],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "10675182",
+          "31447414",
+          "31644013"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1016/S0140-6736(99)06457-0",
+          "10.1016/j.sxmr.2019.07.001"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/10675182/",
+          "https://pubmed.ncbi.nlm.nih.gov/31447414/",
+          "https://pubmed.ncbi.nlm.nih.gov/31644013/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "detail"
+      ]
+    }
+  ],
+  "registeredWithSignals": [
+    {
+      "slug": "23-epi-26-deoxyactein",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "20032972"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/20032972/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "20032972"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1038/clpt.2009.251"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/20032972/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "andrographolide",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "commercial_ready",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "15095142"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/15095142/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "15095142"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1055/s-2004-818938"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/15095142/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "arabinoxylan",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "commercial_ready",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "29456638"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/29456638/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "29456638"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.3892/etm.2018.5713"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/29456638/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "banaba-leaf-extract",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "34726501"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/34726501/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "34726501"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1089/jmf.2021.0039"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/34726501/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "beta-glucans",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "commercial_ready",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "30198828"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/30198828/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "30198828"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1080/07315724.2018.1478339"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/30198828/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "beta-sitosterol",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "commercial_ready",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "9313662"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/9313662/ | https://pubmed.ncbi.nlm.nih.gov/2423337/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "9313662"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/9313662/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "boron",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "21129941"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/21129941/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "21129941"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1016/j.jtemb.2010.10.001"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/21129941/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "bromelain",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "commercial_ready",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "17121765"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/17121765/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "17121765"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1093/qjmed/hcl118"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/17121765/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "capsaicin",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "commercial_ready",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "24941673"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/24941673/ | https://pubmed.ncbi.nlm.nih.gov/20973322/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "24941673"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1007/978-3-0348-0828-6_11"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/24941673/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "chromium",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 2,
+      "detailSourceCount": 2,
+      "claimSignals": {
+        "validPmids": [
+          "12612144",
+          "15208835"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://ods.od.nih.gov/factsheets/Chromium-HealthProfessional/ | https://pubmed.ncbi.nlm.nih.gov/15208835/",
+          "https://pubmed.ncbi.nlm.nih.gov/12612144/"
+        ],
+        "sourceUrlClasses": [
+          "other_http_source",
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "12612144",
+          "15208835"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1093/jn/133.3.727"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/12612144/",
+          "https://pubmed.ncbi.nlm.nih.gov/15208835/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "chromium-picolinate",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "15208835"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://ods.od.nih.gov/factsheets/Chromium-HealthProfessional/ | https://pubmed.ncbi.nlm.nih.gov/15208835/"
+        ],
+        "sourceUrlClasses": [
+          "other_http_source"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "15208835"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/15208835/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "citrulline-malate",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "commercial_ready",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "39408204"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/39408204/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "39408204"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.3390/nu16193235"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/39408204/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "dihydrokavain",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "12494336"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/12494336/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "12494336"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1055/s-2002-36338"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/12494336/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "fadogia-agrestis",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 2,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "16281088"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/16281088/",
+          "source_pending_review"
+        ],
+        "sourceUrlClasses": [
+          "placeholder_or_non_url",
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "16281088"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1111/j.1745-7262.2005.00052.x"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/16281088/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "folate",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "15671130"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/15671130/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "15671130"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1177/0269881105048899"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/15671130/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "glucomannan",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "commercial_ready",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 2,
+      "detailSourceCount": 2,
+      "claimSignals": {
+        "validPmids": [
+          "18842808",
+          "24533610"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/18842808/ | https://pubmed.ncbi.nlm.nih.gov/23433643/",
+          "https://pubmed.ncbi.nlm.nih.gov/24533610/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "18842808",
+          "24533610"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1080/07315724.2014.870013",
+          "10.1093/ajcn/88.4.1167"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/18842808/",
+          "https://pubmed.ncbi.nlm.nih.gov/24533610/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "hyaluronic-acid",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "32650511"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/32650511/ | https://pubmed.ncbi.nlm.nih.gov/32047830/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "32650511"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.3390/diseases8030026"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/32650511/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "kava",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "12131602"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/12131602/ | https://pubmed.ncbi.nlm.nih.gov/23348842/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "12131602"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1097/00004850-200207000-00005"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/12131602/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "nattokinase",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "research_only",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "18971533"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/18971533/ | https://pubmed.ncbi.nlm.nih.gov/28763875/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "18971533"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1291/hypres.31.1583"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/18971533/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "passionflower-extract",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "commercial_ready",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "31714321"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/31714321/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "31714321"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1097/YIC.0000000000000291"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/31714321/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "plant-sterols",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "commercial_ready",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "24780090"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/24780090/ | https://www.efsa.europa.eu/en/efsajournal/pub/1175"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "24780090"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1017/S0007114514000750"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/24780090/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "saccharomyces-boulardii",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "commercial_ready",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 2,
+      "detailSourceCount": 2,
+      "claimSignals": {
+        "validPmids": [
+          "20458757"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC2868213/",
+          "https://pubmed.ncbi.nlm.nih.gov/20458757/"
+        ],
+        "sourceUrlClasses": [
+          "other_http_source",
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "20458757"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.3748/wjg.v16.i18.2202"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC2868213/",
+          "https://pubmed.ncbi.nlm.nih.gov/20458757/"
+        ],
+        "sourceUrlClasses": [
+          "other_http_source",
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "shilajit",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "commercial_ready",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "26395129"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/26395129/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "26395129"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1111/and.12482"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/26395129/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "zeaxanthin",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "commercial_ready",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 1,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "23644932"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://www.nei.nih.gov/research/clinical-trials/age-related-eye-disease-studies-aredsareds2 | https://pubmed.ncbi.nlm.nih.gov/23644932/"
+        ],
+        "sourceUrlClasses": [
+          "other_http_source"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "23644932"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1001/jama.2013.4997"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/23644932/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    },
+    {
+      "slug": "zinc",
+      "entityType": "compound",
+      "detailDir": "compounds-detail",
+      "indexabilityStatus": "NOINDEX",
+      "profileStatus": "commercial_ready",
+      "runtimeExportDecision": "hidden_until_grounded",
+      "claimCountWithSourceSignals": 2,
+      "detailSourceCount": 1,
+      "claimSignals": {
+        "validPmids": [
+          "15496046"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/15496046/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "detailSignals": {
+        "validPmids": [
+          "15496046"
+        ],
+        "invalidPmidSignals": [],
+        "validDois": [
+          "10.1331/1544-3191.44.5.594.hulisz"
+        ],
+        "invalidDoiSignals": [],
+        "sourceUrls": [
+          "https://pubmed.ncbi.nlm.nih.gov/15496046/"
+        ],
+        "sourceUrlClasses": [
+          "pubmed_or_ncbi"
+        ],
+        "citationOnlyNotes": []
+      },
+      "provenanceLanes": [
+        "claim",
+        "detail"
+      ]
+    }
+  ]
+}

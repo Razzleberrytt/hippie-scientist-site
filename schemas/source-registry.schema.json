@@ -104,6 +104,31 @@
       "reviewer": { "type": "string", "minLength": 1 },
       "reviewedAt": { "type": "string", "format": "date-time" },
       "notes": { "type": "string" },
+      "editorialAdjudication": {
+        "description": "A machine-enforced hold. While present and uncleared, submissions in scope may not become rollup-eligible on this source, no matter what their reviewStatus says. Clearing requires BOTH clearedBy and clearedAt. Omit topicTypes and claimTypes to hold every claim built on the source; list either to scope the hold, in which case a submission matching any listed topicType OR claimType is held.",
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["reason"],
+        "properties": {
+          "reason": { "type": "string", "minLength": 1 },
+          "topicTypes": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 },
+            "uniqueItems": true
+          },
+          "claimTypes": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 },
+            "uniqueItems": true
+          },
+          "clearedBy": { "type": "string", "minLength": 1 },
+          "clearedAt": { "type": "string", "format": "date-time" }
+        },
+        "dependentRequired": {
+          "clearedBy": ["clearedAt"],
+          "clearedAt": ["clearedBy"]
+        }
+      },
       "active": { "type": "boolean" }
     }
   }

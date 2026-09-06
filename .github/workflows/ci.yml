@@ -76,6 +76,17 @@ jobs:
           set -o pipefail
           npm run test 2>&1 | tee vitest.log
 
+      # `npm run test` is vitest only, and vitest.config.ts excludes every
+      # node:test suite because Vite bundles the prefix-only builtin instead of
+      # handing the file to the intended runner. Until this step existed, those
+      # suites ran only in a handful of path-filtered workflows, so a guard could
+      # be added, excluded from vitest, referenced by no workflow, and be green
+      # everywhere while asserting nothing — which is how a broken governor test
+      # reached main. Discovery is by content, so new suites are covered here
+      # automatically.
+      - name: Run native node:test suites
+        run: npm run test:node
+
       - name: Upload Vitest log
         if: always() && hashFiles('vitest.log') != ''
         uses: actions/upload-artifact@v7
