@@ -59,7 +59,16 @@ test('baseline registry preserves current and historical identities without conf
   const baseline = readJson('data-sources/enrichment-source-registry-baseline.json')
   const registryById = new Map(registry.map(row => [row.sourceId, row]))
 
-  assert.equal(baseline.length, 9)
+  // Ratchet against unintended baseline growth. Moved 9 -> 18 when nine
+  // DOI-verified enrichment sources were admitted after owner approval; six
+  // further candidates were rejected as fabricated (see
+  // ops/audit/fabricated-source-quarantine-2026-09-06.json).
+  assert.equal(baseline.length, 18)
+  // Every baseline row must actually reach the registry, which is the invariant
+  // the bare count only proxies for.
+  for (const row of baseline) {
+    assert.ok(registryById.has(row.sourceId), `baseline source ${row.sourceId} missing from registry`)
+  }
   const historical = registryById.get('src_fda-epidiolex-label-2021')
   assert.ok(historical)
   assert.equal(historical.active, false)
