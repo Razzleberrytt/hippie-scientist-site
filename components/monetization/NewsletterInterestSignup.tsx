@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { EmailCaptureBox } from './EmailCaptureBox'
 import type { EmailCaptureGoal } from '@/content/emailCapture'
 
@@ -21,6 +21,13 @@ const INTEREST_OPTIONS: readonly InterestOption[] = [
 
 export default function NewsletterInterestSignup() {
   const [selected, setSelected] = useState<InterestOption>(INTEREST_OPTIONS[4])
+
+  useEffect(() => {
+    const interest = new URLSearchParams(window.location.search).get('interest')
+    if (interest !== 'sleep') return
+    const sleepOption = INTEREST_OPTIONS.find((option) => option.goal === 'sleep')
+    if (sleepOption) setSelected(sleepOption)
+  }, [])
 
   return (
     <section id='research-interests' className='scroll-mt-24 rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8'>

@@ -3,11 +3,18 @@ import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 
 const source = fs.readFileSync(path.join(process.cwd(), 'components', 'SleepResearchNextActions.tsx'), 'utf8')
+const newsletter = fs.readFileSync(path.join(process.cwd(), 'components', 'monetization', 'NewsletterInterestSignup.tsx'), 'utf8')
 
 describe('SleepResearchNextActions contract', () => {
   it('keeps canonical research and newsletter destinations', () => {
     expect(source).toContain("href: '/guides/sleep/'")
-    expect(source).toContain("href: '/info/newsletter/#research-interests'")
+    expect(source).toContain("href: '/info/newsletter/?interest=sleep#research-interests'")
+  })
+
+  it('preserves the explicit sleep-interest handoff into newsletter signup', () => {
+    expect(newsletter).toContain("new URLSearchParams(window.location.search).get('interest')")
+    expect(newsletter).toContain("if (interest !== 'sleep') return")
+    expect(newsletter).toContain("setSelected(sleepOption)")
   })
 
   it('preserves labelled section semantics and visible keyboard focus', () => {
