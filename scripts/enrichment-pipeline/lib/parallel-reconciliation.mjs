@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { pathToFileURL } from 'node:url'
 import Ajv2020 from 'ajv/dist/2020.js'
 import addFormats from 'ajv-formats'
 import { createCanonicalOwnerResolver } from './canonical-owner.mjs'
@@ -32,7 +33,12 @@ export function reconcileParallelSubmissions({ root = process.cwd() } = {}) {
   const sessions = new Map((manifest.sessions ?? []).map(s => [s.sessionId, s]))
   const sources = new Map(registry.map(s => [s.sourceId, s]))
   const ajv = new Ajv2020({ allErrors: true, strict: true, strictRequired: true }); addFormats(ajv); ajv.addSchema(schema)
-  const validateSubmission = ajv.compile(schema); const validateFragment = ajv.compile(fragmentSchema)
+  // enrichment-submission.schema.json describes the whole array, so compiling it
+  // and calling it per submission fails every row with "data must be array".
+  // Resolve the item subschema through the registered $id so $defs still resolve.
+  const validateSubmission = ajv.getSchema(`${schema.$id}#/items`)
+  if (!validateSubmission) throw new Error('enrichment-submission schema is missing an items subschema')
+  const validateFragment = ajv.compile(fragmentSchema)
   const resolver = createCanonicalOwnerResolver({ root })
   const candidates = [], blocked = [], errors = [], ids = new Map(), fps = new Map()
 
@@ -90,7 +96,7 @@ export function reconcileParallelSubmissions({ root = process.cwd() } = {}) {
     candidates, blocked, errors }
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const result = reconcileParallelSubmissions()
   const arg = process.argv.find(x => x.startsWith('--output='))
   const output = path.resolve(process.cwd(), arg?.slice(9) ?? 'ops/reports/enrichment-parallel-reconciliation.json')
