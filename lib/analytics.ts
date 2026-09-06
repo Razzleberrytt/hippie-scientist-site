@@ -17,7 +17,8 @@ type Gtag = (
     | 'navigation_click'
     | 'page_view'
     | 'profile_feedback'
-    | 'research_suggestion',
+    | 'research_suggestion'
+    | 'sleep_next_action_click',
   params: Record<string, string | number | boolean | undefined>,
 ) => void
 
@@ -52,6 +53,8 @@ export type ResearchSuggestionParams = {
   suggestionValue: string
   pagePath?: string
 }
+
+export type SleepNextAction = 'research-hub' | 'newsletter-interest'
 
 function getGtag(): Gtag | null {
   if (!canTrackAnalytics()) return null
@@ -213,6 +216,22 @@ export function trackResearchSuggestion(params: ResearchSuggestionParams): boole
     return true
   } catch {
     return false
+  }
+}
+
+export function trackSleepNextActionClick(params: {
+  action: SleepNextAction
+  destination: string
+  sourcePath?: string
+}): void {
+  try {
+    getGtag()?.('event', 'sleep_next_action_click', {
+      action: params.action,
+      destination: params.destination,
+      source_path: getCurrentPagePath(params.sourcePath),
+    })
+  } catch {
+    // Analytics must never block navigation.
   }
 }
 
