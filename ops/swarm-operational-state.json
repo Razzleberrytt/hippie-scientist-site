@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "updatedAt": "2026-09-05T18:00:00Z",
+  "lanes": {
+    "lane1": null,
+    "lane2": null,
+    "lane3": null,
+    "lane4": null,
+    "lane5": null
+  },
+  "activeWork": [],
+  "scoreboard": {
+    "shipped": 0,
+    "validated": 0,
+    "staged": 0,
+    "blocked": 0,
+    "noProgress": 0
+  }
+}
