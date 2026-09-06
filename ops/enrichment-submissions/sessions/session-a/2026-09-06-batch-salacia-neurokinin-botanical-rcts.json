@@ -1,0 +1,49 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "A",
+  "shard": 0,
+  "batchId": "session-a-20260906-salacia-neurokinin-botanical-rcts",
+  "createdAt": "2026-09-06T14:45:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-a-salacia-reticulata-fat-mass-rct-20260906",
+      "authoringPackId": "ap_bp_wp_salacia_reticulata_fat_mass_src_pmid_42187323",
+      "workpackId": "wp_salacia_reticulata_fat_mass",
+      "entityType": "herb",
+      "entitySlug": "salacia-reticulata",
+      "sourceId": "src_pubmed-42187323",
+      "topicType": "clinical_efficacy",
+      "claimType": "efficacy_signal_with_uncertainty",
+      "evidenceClass": "randomized-controlled-trial",
+      "findingTextShort": "A 12-week randomized trial of standardized Salacia reticulata extract found a modest reduction in DXA total fat mass, but the second coprimary body-fat-percentage endpoint was null, so the clinical evidence remains preliminary.",
+      "findingTextNormalized": "PMID 42187323 reports a 12-week randomized, double-blind, placebo-controlled trial of a standardized Salacia reticulata extract in adults with overweight and/or obesity. The modified intention-to-treat analysis included 66 extract and 67 placebo participants. Total body fat mass favored the extract by an adjusted between-group difference of -482.30 g (95% CI -907.05 to -57.54; P=.0158), while body-fat percentage did not differ significantly (-0.30 percentage points, 95% CI -0.73 to 0.12; P=.1453). Several secondary regional fat measures were directionally favorable. The authors characterize the mixed coprimary findings as preliminary and note retrospective trial registration. This source supports only a modest, formulation-specific body-composition signal over 12 weeks and must not be converted into a generic weight-loss or obesity-treatment claim.",
+      "strengthLabel": "limited",
+      "populationContext": "Adults with overweight and/or obesity; 66 standardized-extract and 67 placebo participants in the modified intention-to-treat analysis.",
+      "usageContext": "Exact standardized Salacia reticulata extract only. Preserve 12-week duration, DXA measurement, overweight/obesity population, and the distinction between total fat mass and the null body-fat-percentage coprimary endpoint.",
+      "uncertaintyNote": "Mixed coprimary findings and retrospective registration materially limit inference. Do not generalize to other Salacia species, leaves/root-bark preparations, biscuits, combination products, or acute glycemic studies. Studied dosing is not consumer-dose guidance.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    },
+    {
+      "submissionId": "sub_session-a-botanical-neurokinin-menopause-rct-20260906",
+      "authoringPackId": "ap_bp_wp_botanical_neurokinin_menopause_src_pmid_42284819",
+      "workpackId": "wp_botanical_neurokinin_menopause",
+      "entityType": "compound",
+      "entitySlug": "botanical-neurokinin-inhibitor-formulation",
+      "sourceId": "src_pubmed-42284819",
+      "topicType": "clinical_efficacy",
+      "claimType": "product_specific_efficacy_signal",
+      "evidenceClass": "randomized-controlled-trial",
+      "findingTextShort": "A 12-week placebo-controlled trial of a patented multi-ingredient botanical neurokinin formulation reduced menopausal hot-flash frequency and interference, while global menopause quality of life and sleep were null.",
+      "findingTextNormalized": "PMID 42284819 reports a randomized, double-blind, placebo-controlled 12-week trial of a patented multi-ingredient botanical neurokinin inhibitor formulation in menopausal women experiencing at least five moderate-to-severe hot flashes daily. Seventy-four participants were randomized and 68 completed. The formulation reduced daily vasomotor-symptom frequency by 2.2 hot flashes per day more than placebo (P=.003), corresponding to a reported 47.7% relative decrease, and improved the Hot Flash Related Daily Interference Scale (P=.037) across its subscales. Global Menopause-Specific Quality of Life and Pittsburgh Sleep Quality Index outcomes were not significantly different. No serum estradiol or liver-function abnormalities were detected in the assessed subgroup, and adverse events did not differ between groups. The intervention is a finished multi-ingredient botanical formulation, so efficacy and safety must remain product-level and cannot be inherited by constituent plants or generic botanical neurokinin interventions. The publication reports consulting relationships with Bonafide Health for several authors and one Bonafide employee author; this provenance must remain attached to the evidence.",
+      "strengthLabel": "limited",
+      "populationContext": "Menopausal women with at least five moderate-to-severe hot flashes daily; 74 randomized and 68 completers; 12-week trial.",
+      "usageContext": "Finished patented multi-ingredient botanical formulation only. Preserve vasomotor-symptom frequency and interference as the positive endpoints and MENQOL/PSQI as null endpoints.",
+      "uncertaintyNote": "Do not propagate this product-level result to individual botanicals, generic neurokinin herbs, menopause as a whole, or sleep. Preserve sponsor/author conflict-of-interest provenance and the short 12-week duration. Absence of a between-group adverse-event signal is not proof of long-term safety.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}
