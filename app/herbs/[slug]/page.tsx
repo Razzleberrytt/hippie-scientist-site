@@ -884,14 +884,10 @@ export default async function HerbDetailPage({ params }: PageProps) {
       {mechanisms.length > 0 && (
         <details id="mechanisms" className="hs-disclosure scroll-mt-24">
           <summary>
-            <span>Mechanisms &amp; biological pathways</span>
+            <span>Mechanisms &amp; biological pathways (preclinical)</span>
             <span aria-hidden="true" className="hs-disclosure__marker">▼</span>
           </summary>
           <div className="space-y-3">
-            <p className="text-xs leading-5 text-muted">
-              <span className="font-semibold text-ink">Preclinical pathways.</span>{' '}
-              Proposed mechanisms from in vitro and animal research; these do not confirm clinical outcomes in humans.
-            </p>
             <ul className="hs-chips">
               {mechanisms.map(m => (
                 <li key={m}><span className="hs-chip">{m}</span></li>

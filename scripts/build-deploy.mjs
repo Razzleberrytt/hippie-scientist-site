@@ -257,13 +257,13 @@ const steps = [
     outputs: ['out/**/*.html'],
     cacheable: false,
   },
-  {
-    name: 'inject-content-depth-support',
-    cmd: 'node scripts/seo/inject-content-depth-support.mjs',
-    inputs: ['out/**/*.html', 'scripts/seo/inject-content-depth-support.mjs'],
-    outputs: ['out/**/*.html'],
-    cacheable: false,
-  },
+  // inject-content-depth-support is intentionally NOT in the pipeline.
+  // It injected an identical "How to interpret X" block into every herb and
+  // compound page, varying only ${pageName}/${summary}. That made ~307 profiles
+  // near-duplicates of each other: mean pairwise 5-gram similarity reached 0.450
+  // for /herbs/ and 0.274 for /compounds/, against 0.041 for hand-written
+  // /articles/. Google declined to index 45% of herbs and 85% of compounds while
+  // indexing 96-98% of editorial pages. Re-enabling it will re-flatten the corpus.
   {
     name: 'validate-structured-data-regressions',
     cmd: 'node scripts/ci/validate-structured-data-regressions.mjs',
