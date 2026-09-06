@@ -172,6 +172,39 @@
           "evidenceRefs": ["src_pubmed-12652886"]
         }
       }
+    },
+    {
+      "submissionId": "sub_wave1-luteolin-research-gap-human-safety-coverage",
+      "attestation": {
+        "reviewer": "enrichment-adjudicator",
+        "reviewedAt": "2026-09-06T14:30:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "PMID 29801717 reviews luteolin itself rather than a luteolin-containing botanical extract, so the compound entity is the correct owner.",
+          "evidenceRefs": ["src_pubmed-29801717"]
+        },
+        "preparation": {
+          "status": "matched",
+          "reason": "The finding asserts no preparation or dose. The source's single human result concerns a multi-ingredient formulation containing luteolin, and the uncertainty note fences that off from isolated-luteolin evidence.",
+          "evidenceRefs": ["src_pubmed-29801717"]
+        },
+        "population": {
+          "status": "matched",
+          "reason": "No population is asserted. The finding states that population-specific human risk coverage is missing, which is the absence of a population claim rather than a generalization to one.",
+          "evidenceRefs": ["src_pubmed-29801717"]
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "No efficacy or safety endpoint is claimed. The finding is scoped to evidence coverage, so no surrogate or mechanistic outcome is promoted to a clinical one.",
+          "evidenceRefs": ["src_pubmed-29801717"]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "The source concludes that much work remains to ensure the safety, quality and efficacy of luteolin before human therapeutic use. The finding restates that gap without converting the review's preclinical signal into human evidence.",
+          "evidenceRefs": ["src_pubmed-29801717"]
+        }
+      }
     }
   ]
 }

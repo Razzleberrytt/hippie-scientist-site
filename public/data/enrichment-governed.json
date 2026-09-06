@@ -282,7 +282,7 @@
     "entityType": "compound",
     "entitySlug": "luteolin",
     "researchEnrichment": {
-      "evidenceSummary": "8 approved normalized findings across 7 topic types.",
+      "evidenceSummary": "9 approved normalized findings across 8 topic types.",
       "evidenceTier": "tier-1-strong",
       "evidenceClassesPresent": [
         "human-clinical",
@@ -388,7 +388,16 @@
           "conflictNote": "Preclinical signaling depth is greater than current human outcomes evidence depth."
         }
       ],
-      "researchGaps": [],
+      "researchGaps": [
+        {
+          "claim": "Current luteolin evidence is predominantly preclinical, leaving controlled human safety, interaction, and population-specific risk coverage as unresolved governance-critical gaps.",
+          "evidenceClass": "preclinical-mechanistic",
+          "sourceRefIds": [
+            "src_pubmed-29801717"
+          ],
+          "uncertaintyNote": "Evidence base is preclinical and cannot support definitive safety conclusions. The source review also notes a clinical trial of a multi-ingredient formulation containing luteolin; that result belongs to the studied combination and must not be read as isolated-luteolin human efficacy or safety evidence."
+        }
+      ],
       "safetyProfile": {
         "safetyEntries": [
           {
@@ -544,6 +553,30 @@
           "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
         },
         "population_specific_note": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "preclinical-mechanistic"
+            ],
+            "studyDesignWeight": 2,
+            "humanRelevance": "preclinical-proxy",
+            "directnessToClaim": "indirect",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-b",
+            "recencyWeight": 1,
+            "editorialConfidence": "low",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 7
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited.",
+            "No direct human evidence was identified for this topic."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "research_gap": {
           "evidenceLabel": "mixed_or_uncertain",
           "grading": {
             "evidenceClass": [
