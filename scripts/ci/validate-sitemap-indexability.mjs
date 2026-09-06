@@ -1,20 +1,11 @@
 #!/usr/bin/env node
 /**
- * THS-178 — sitemap.xml must not advertise a page that renders `noindex`.
+ * Sitemap integrity gate: sitemap.xml must never advertise a page that renders
+ * `noindex` or lacks a built page.
  *
- * The sitemap and the page both decide indexability through
- * `shouldIndexRoute()`, but they feed it records loaded by different paths:
- * `app/sitemap.ts` uses its own data load, while the profile templates use the
- * runtime metadata cache. When those two records differ the two answers differ,
- * and the result is a URL Google is told to crawl attached to a page telling it
- * to go away.
- *
- * 75 URLs are in that state today. Removing them from the sitemap and fixing
- * the divergent record load are different jobs, and the second is the real one;
- * this measures the gap so it cannot silently grow while that work is pending.
- *
- * Checked against built HTML rather than source, because the contradiction only
- * exists after rendering — a source scan is exactly what misses it.
+ * This check runs against built HTML because sitemap generation and rendered
+ * metadata can drift even when their source-level policy looks consistent.
+ * Zero contradictory or noindexed sitemap entries are allowed in production.
  *
  * Usage: node scripts/ci/validate-sitemap-indexability.mjs [--max <n>]
  */
@@ -27,13 +18,8 @@ const OUT_DIR = path.join(ROOT, 'out')
 const SITEMAP = path.join(OUT_DIR, 'sitemap.xml')
 const REPORT_PATH = path.join(ROOT, 'ops', 'reports', 'sitemap-indexability.json')
 
-/**
- * Remaining known offenders. Both are comparison pages that call `notFound()`
- * at render time while their static metadata still declares `index, follow`,
- * so they emit two contradictory robots tags. That is a different defect from
- * the governance mismatch this number used to cover, which is now fixed.
- */
-const BASELINE_MAX = 2
+// Production invariant: every sitemap URL must render an indexable built page.
+const BASELINE_MAX = 0
 
 const args = process.argv.slice(2)
 const maxIndex = args.indexOf('--max')
@@ -122,7 +108,7 @@ function main() {
     process.exit(1)
   }
 
-  console.log('\nNo growth in noindexed sitemap entries.')
+  console.log('\nSitemap indexability is clean: every advertised URL renders indexable HTML.')
 }
 
 main()
