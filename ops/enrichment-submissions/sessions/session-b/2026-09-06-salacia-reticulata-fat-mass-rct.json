@@ -1,0 +1,29 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "B",
+  "shard": 1,
+  "batchId": "session-b-20260906-salacia-reticulata-fat-mass-rct",
+  "createdAt": "2026-09-06T14:45:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-a-salacia-reticulata-fat-mass-rct-20260906",
+      "authoringPackId": "ap_bp_wp_herb_salacia_reticulata_src_pubmed_42187323",
+      "workpackId": "wp_herb_salacia_reticulata",
+      "entityType": "herb",
+      "entitySlug": "salacia-reticulata",
+      "sourceId": "src_pubmed-42187323",
+      "topicType": "supported_use",
+      "claimType": "efficacy_signal",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A 12-week randomized trial of standardized Salacia reticulata extract found a modest reduction in DXA total fat mass, but the second coprimary body-fat-percentage endpoint was null, so the clinical evidence remains preliminary.",
+      "findingTextNormalized": "PMID 42187323 reports a 12-week randomized, double-blind, placebo-controlled trial of a standardized Salacia reticulata extract in adults with overweight and/or obesity. The modified intention-to-treat analysis included 66 extract and 67 placebo participants. Total body fat mass favored the extract by an adjusted between-group difference of -482.30 g (95% CI -907.05 to -57.54; P=.0158), while body-fat percentage did not differ significantly (-0.30 percentage points, 95% CI -0.73 to 0.12; P=.1453). Several secondary regional fat measures were directionally favorable. The authors characterize the mixed coprimary findings as preliminary and note retrospective trial registration. This source supports only a modest, formulation-specific body-composition signal over 12 weeks and must not be converted into a generic weight-loss or obesity-treatment claim.",
+      "strengthLabel": "limited",
+      "populationContext": "Adults with overweight and/or obesity; 66 standardized-extract and 67 placebo participants in the modified intention-to-treat analysis.",
+      "usageContext": "Exact standardized Salacia reticulata extract only. Preserve 12-week duration, DXA measurement, overweight/obesity population, and the distinction between total fat mass and the null body-fat-percentage coprimary endpoint.",
+      "uncertaintyNote": "Mixed coprimary findings and retrospective registration materially limit inference. Do not generalize to other Salacia species, leaves/root-bark preparations, biscuits, combination products, or acute glycemic studies. Studied dosing is not consumer-dose guidance. The trial's author list includes R&D staff of Daehan Chemtech Co., Ltd. and RnBS Corp.; this industry sponsorship must remain attached to the finding.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}
