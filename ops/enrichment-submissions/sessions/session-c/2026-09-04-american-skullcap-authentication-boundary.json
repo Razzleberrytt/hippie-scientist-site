@@ -1,0 +1,59 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "C",
+  "shard": 2,
+  "batchId": "american-skullcap-authentication-boundary-20260904",
+  "createdAt": "2026-09-04T20:12:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-c-american-skullcap-germander-authentication-20260904",
+      "authoringPackId": "ap_bp_wp_herb_scutellaria_lateriflora_src_pubmed_21773734",
+      "workpackId": "wp_herb_scutellaria_lateriflora",
+      "entityType": "herb",
+      "entitySlug": "scutellaria-lateriflora",
+      "sourceId": "src_pubmed-21773734",
+      "topicType": "conflict_note",
+      "claimType": "evidence_conflict",
+      "evidenceClass": "preclinical-mechanistic",
+      "findingTextShort": "Commercial American Skullcap products have a documented adulteration/contamination provenance risk from hepatotoxic germander species.",
+      "findingTextNormalized": "PMID 21773734 developed a mass-spectrometric authentication method for Scutellaria lateriflora dietary supplements because American Skullcap products had been reported as occasionally adulterated or contaminated with Teucrium canadense and/or Teucrium chamaedrys. Those germander species contain hepatotoxic diterpenes. This supports a product-identity and contamination safety boundary, not a claim that authenticated Scutellaria lateriflora itself is proven hepatotoxic.",
+      "strengthLabel": "moderate",
+      "usageContext": "Analytical authentication and commercial-product provenance; not a therapeutic efficacy study.",
+      "safetyContext": "Potential hepatotoxicity in this source is tied to germander adulteration/contamination, so safety language must preserve product identity rather than attributing germander toxicity directly to authenticated American Skullcap.",
+      "uncertaintyNote": "The study documents the rationale and analytical discrimination problem rather than estimating modern contamination prevalence or clinical liver-injury incidence. It cannot establish the safety of all authenticated products.",
+      "semanticAttestation": {
+        "reviewer": "enrichment-adjudicator",
+        "reviewedAt": "2026-09-04T20:12:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "The source directly concerns Scutellaria lateriflora-based dietary supplements and their distinction from Teucrium adulterants.",
+          "evidenceRefs": ["src_pubmed-21773734"]
+        },
+        "preparation": {
+          "status": "matched",
+          "reason": "The proposition is explicitly limited to commercial product authentication and contamination rather than pure herb pharmacology.",
+          "evidenceRefs": ["src_pubmed-21773734"]
+        },
+        "population": {
+          "status": "not_applicable",
+          "reason": "This is an analytical product-authentication study rather than a human or animal therapeutic intervention.",
+          "evidenceRefs": []
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "The source directly evaluates analytical differentiation of American Skullcap products from germander contamination/adulteration.",
+          "evidenceRefs": ["src_pubmed-21773734"]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "The finding preserves the source boundary that germander contamination creates hepatotoxic risk without labeling authenticated skullcap as hepatotoxic.",
+          "evidenceRefs": ["src_pubmed-21773734"]
+        }
+      },
+      "reviewStatus": "ready_for_review",
+      "editorialStatus": "needs_review",
+      "active": true
+    }
+  ]
+}
