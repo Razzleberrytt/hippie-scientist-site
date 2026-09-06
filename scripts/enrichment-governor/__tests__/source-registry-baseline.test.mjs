@@ -62,13 +62,32 @@ test('baseline registry preserves current and historical identities without conf
   // Ratchet against unintended baseline growth. Moved 9 -> 18 when nine
   // DOI-verified enrichment sources were admitted after owner approval; six
   // further candidates were rejected as fabricated (see
-  // ops/audit/fabricated-source-quarantine-2026-09-06.json).
+  // ops/audit/fabricated-source-quarantine-*.json).
   assert.equal(baseline.length, 18)
-  // Every baseline row must actually reach the registry, which is the invariant
-  // the bare count only proxies for.
-  for (const row of baseline) {
-    assert.ok(registryById.has(row.sourceId), `baseline source ${row.sourceId} missing from registry`)
+
+  // A bare count is a weak ratchet: swapping one baseline row for a quarantined
+  // source keeps length at 18 and passes. Assert what the count only proxies for
+  // — that nothing the audit trail quarantined can reach the seed. This runs in
+  // the Enrichment Governor workflow, which triggers on the baseline and registry
+  // paths, so a substitution fails on the PR that attempts it.
+  const quarantinedIds = new Set()
+  const quarantinedDois = new Set()
+  for (const name of fs.readdirSync(path.join(ROOT, 'ops', 'audit'))) {
+    if (!name.startsWith('fabricated-source-quarantine-') || !name.endsWith('.json')) continue
+    for (const entry of readJson(`ops/audit/${name}`).fabricated) {
+      quarantinedIds.add(entry.sourceId)
+      quarantinedDois.add(entry.doi.toLowerCase())
+    }
   }
+  assert.ok(quarantinedIds.size > 0, 'quarantine records must be discoverable from the baseline guard')
+  for (const row of baseline) {
+    assert.ok(!quarantinedIds.has(row.sourceId), `quarantined source ${row.sourceId} must never enter the baseline`)
+    assert.ok(
+      !quarantinedDois.has(String(row.doi ?? '').toLowerCase()),
+      `quarantined DOI ${row.doi} must never enter the baseline`,
+    )
+  }
+
   const historical = registryById.get('src_fda-epidiolex-label-2021')
   assert.ok(historical)
   assert.equal(historical.active, false)

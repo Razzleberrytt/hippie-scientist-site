@@ -275,7 +275,7 @@
     "language": "en",
     "publicationStatus": "published",
     "reviewer": "owner-approved-doi-verification",
-    "reviewedAt": "2026-09-06T15:30:00.000Z",
+    "reviewedAt": "2026-09-06T17:50:00.000Z",
     "active": true
   },
   {
@@ -299,11 +299,20 @@
     "evidenceClass": "human-clinical",
     "studyDesign": "meta-analysis",
     "reliabilityTier": "tier-c",
-    "notes": "Viscum album is mistletoe, so the entity link is exact. HIGH-STAKES: admission makes this citable, it does NOT promote a mistletoe cancer-survival efficacy claim. Iscador survival meta-analyses are a contested, industry-adjacent literature, hence tier-c. Any supported_use or efficacy_signal built on this source needs separate human editorial adjudication.",
+    "notes": "Viscum album is mistletoe, so the entity link is exact. HIGH-STAKES: admission makes this citable, it does NOT promote a mistletoe cancer-survival efficacy claim. Iscador survival meta-analyses are a contested, industry-adjacent literature, hence tier-c. Any supported_use or efficacy_signal built on this source needs separate human editorial adjudication, enforced by editorialAdjudication rather than by this note.",
     "language": "en",
     "publicationStatus": "published",
     "reviewer": "owner-approved-doi-verification",
-    "reviewedAt": "2026-09-06T15:30:00.000Z",
+    "reviewedAt": "2026-09-06T17:50:00.000Z",
+    "editorialAdjudication": {
+      "reason": "Cancer-survival efficacy from a contested, industry-adjacent Iscador literature is a YMYL editorial decision. Admitting the source made it citable; it does not authorize a mistletoe survival efficacy claim.",
+      "topicTypes": [
+        "supported_use"
+      ],
+      "claimTypes": [
+        "efficacy_signal"
+      ]
+    },
     "active": true
   },
   {
@@ -330,7 +339,7 @@
     "language": "en",
     "publicationStatus": "published",
     "reviewer": "owner-approved-doi-verification",
-    "reviewedAt": "2026-09-06T15:30:00.000Z",
+    "reviewedAt": "2026-09-06T17:50:00.000Z",
     "active": true
   },
   {
@@ -355,7 +364,7 @@
     "language": "en",
     "publicationStatus": "published",
     "reviewer": "owner-approved-doi-verification",
-    "reviewedAt": "2026-09-06T15:30:00.000Z",
+    "reviewedAt": "2026-09-06T17:50:00.000Z",
     "active": true
   },
   {
@@ -379,7 +388,7 @@
     "language": "en",
     "publicationStatus": "published",
     "reviewer": "owner-approved-doi-verification",
-    "reviewedAt": "2026-09-06T15:30:00.000Z",
+    "reviewedAt": "2026-09-06T17:50:00.000Z",
     "active": true
   },
   {
@@ -407,7 +416,7 @@
     "language": "en",
     "publicationStatus": "published",
     "reviewer": "owner-approved-doi-verification",
-    "reviewedAt": "2026-09-06T15:30:00.000Z",
+    "reviewedAt": "2026-09-06T17:50:00.000Z",
     "active": true
   },
   {
@@ -436,7 +445,7 @@
     "language": "en",
     "publicationStatus": "published",
     "reviewer": "owner-approved-doi-verification",
-    "reviewedAt": "2026-09-06T15:30:00.000Z",
+    "reviewedAt": "2026-09-06T17:50:00.000Z",
     "active": true
   },
   {
@@ -464,7 +473,7 @@
     "language": "en",
     "publicationStatus": "published",
     "reviewer": "owner-approved-doi-verification",
-    "reviewedAt": "2026-09-06T15:30:00.000Z",
+    "reviewedAt": "2026-09-06T17:50:00.000Z",
     "active": true
   },
   {
@@ -490,7 +499,7 @@
     "language": "en",
     "publicationStatus": "published",
     "reviewer": "owner-approved-doi-verification",
-    "reviewedAt": "2026-09-06T15:30:00.000Z",
+    "reviewedAt": "2026-09-06T17:50:00.000Z",
     "active": true
   }
 ]

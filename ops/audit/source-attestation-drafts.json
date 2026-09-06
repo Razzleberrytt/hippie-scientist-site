@@ -1,0 +1,3903 @@
+{
+  "summary": {
+    "generatedFrom": "NCBI E-utilities esummary via ops/cache/pubmed-metadata.json",
+    "networkResolution": false,
+    "heldProfiles": 387,
+    "candidates": 40,
+    "drafts": 70,
+    "designResolvedFromPubmed": 9,
+    "designNeedsReviewer": 60,
+    "flaggedNonResearch": 1,
+    "recoveredFromPmcId": 3,
+    "alreadyClaimed": 5,
+    "missingFromCache": 0,
+    "candidatesWithoutIdentifier": 9,
+    "candidatesWithUnresolvedPmcIds": 0
+  },
+  "networkNote": null,
+  "drafts": [
+    {
+      "draft": {
+        "sourceId": "src_pmid-10675182",
+        "title": "Herb-drug interactions",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Fugh-Berman A"
+        ],
+        "publicationYear": 2000,
+        "citationText": "Fugh-Berman A. Herb-drug interactions. Lancet. 2000;355:134-8.",
+        "doi": "10.1016/S0140-6736(99)06457-0",
+        "pmid": "10675182",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/10675182/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "salvia-miltiorrhiza",
+        "st-johns-wort",
+        "yohimbe"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-33917843",
+        "title": "Neuroprotective Herbs for the Management of Alzheimer's Disease",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Gregory J",
+          "Vengalasetti YV",
+          "Bredesen DE",
+          "Rao RV"
+        ],
+        "publicationYear": 2021,
+        "citationText": "Gregory J, Vengalasetti YV, Bredesen DE, Rao RV. Neuroprotective Herbs for the Management of Alzheimer's Disease. Biomolecules. 2021;11.",
+        "doi": "10.3390/biom11040543",
+        "pmid": "33917843",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/33917843/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "cat-s-claw",
+        "lions-mane"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-37513265",
+        "title": "Medicinal Mushrooms: Their Bioactive Components, Nutritional Value and Application in Functional Food Production-A Review",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Łysakowska P",
+          "Sobota A",
+          "Wirkijowska A"
+        ],
+        "publicationYear": 2023,
+        "citationText": "Łysakowska P, Sobota A, Wirkijowska A. Medicinal Mushrooms: Their Bioactive Components, Nutritional Value and Application in Functional Food Production-A Review. Molecules. 2023;28.",
+        "doi": "10.3390/molecules28145393",
+        "pmid": "37513265",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/37513265/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "chaga",
+        "turkey-tail"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-10919969",
+        "title": "Selected herbals and human exercise performance",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Bucci LR"
+        ],
+        "publicationYear": 2000,
+        "citationText": "Bucci LR. Selected herbals and human exercise performance. Am J Clin Nutr. 2000;72:624S-36S.",
+        "doi": "10.1093/ajcn/72.2.624S",
+        "pmid": "10919969",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/10919969/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "muira-puama"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-12874400",
+        "title": "Abeta1-42 promotes cholinergic sprouting in patients with AD and Lewy body variant of AD",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Masliah E",
+          "Alford M",
+          "Adame A",
+          "Rockenstein E",
+          "Galasko D",
+          "Salmon D",
+          "Hansen LA",
+          "Thal LJ"
+        ],
+        "publicationYear": 2003,
+        "citationText": "Masliah E, Alford M, Adame A, Rockenstein E, Galasko D, Salmon D, et al. Abeta1-42 promotes cholinergic sprouting in patients with AD and Lewy body variant of AD. Neurology. 2003;61:206-11.",
+        "doi": "10.1212/01.wnl.0000073987.79060.4b",
+        "pmid": "12874400",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/12874400/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "alpha-lipoic-acid"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Comparative Study",
+        "Journal Article",
+        "Research Support, U.S. Gov't, P.H.S."
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-17210508",
+        "title": "Cat's claw: an Amazonian vine decreases inflammation in osteoarthritis",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Hardin SR"
+        ],
+        "publicationYear": 2007,
+        "citationText": "Hardin SR. Cat's claw: an Amazonian vine decreases inflammation in osteoarthritis. Complement Ther Clin Pract. 2007;13:25-8.",
+        "doi": "10.1016/j.ctcp.2006.10.003",
+        "pmid": "17210508",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/17210508/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "cat-s-claw"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-17470176",
+        "title": "Hematospermia associated with congenital arteriovenous malformation of internal iliac vessels",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Suzuki K",
+          "Nishimi D",
+          "Morioka H",
+          "Takanami M"
+        ],
+        "publicationYear": 2007,
+        "citationText": "Suzuki K, Nishimi D, Morioka H, Takanami M. Hematospermia associated with congenital arteriovenous malformation of internal iliac vessels. Int J Urol. 2007;14:370-2.",
+        "doi": "10.1111/j.1442-2042.2007.01576.x",
+        "pmid": "17470176",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/17470176/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "hawthorn-extract"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-17470980",
+        "title": "Esophageal temperature monitoring during radiofrequency catheter ablation: experimental study based on an agar phantom model",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Rodríguez I",
+          "Lequerica JL",
+          "Berjano EJ",
+          "Herrero M",
+          "Hornero F"
+        ],
+        "publicationYear": 2007,
+        "citationText": "Rodríguez I, Lequerica JL, Berjano EJ, Herrero M, Hornero F. Esophageal temperature monitoring during radiofrequency catheter ablation: experimental study based on an agar phantom model. Physiol Meas. 2007;28:453-63.",
+        "doi": "10.1088/0967-3334/28/5/001",
+        "pmid": "17470980",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/17470980/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "chondroitin"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-17509841",
+        "title": "A comprehensive review on the stinging nettle effect and efficacy profiles. Part II: urticae radix",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Chrubasik JE",
+          "Roufogalis BD",
+          "Wagner H",
+          "Chrubasik S"
+        ],
+        "publicationYear": 2007,
+        "citationText": "Chrubasik JE, Roufogalis BD, Wagner H, Chrubasik S. A comprehensive review on the stinging nettle effect and efficacy profiles. Part II: urticae radix. Phytomedicine. 2007;14:568-79.",
+        "doi": "10.1016/j.phymed.2007.03.014",
+        "pmid": "17509841",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/17509841/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "nettle-root"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-18844328",
+        "title": "Improving effects of the mushroom Yamabushitake (Hericium erinaceus) on mild cognitive impairment: a double-blind placebo-controlled clinical trial",
+        "sourceType": "journal-article",
+        "sourceClass": "randomized-human-trial",
+        "evidenceClass": "human-clinical",
+        "studyDesign": "randomized-controlled-trial",
+        "authors": [
+          "Mori K",
+          "Inatomi S",
+          "Ouchi K",
+          "Azumi Y",
+          "Tuchida T"
+        ],
+        "publicationYear": 2009,
+        "citationText": "Mori K, Inatomi S, Ouchi K, Azumi Y, Tuchida T. Improving effects of the mushroom Yamabushitake (Hericium erinaceus) on mild cognitive impairment: a double-blind placebo-controlled clinical trial. Phytother Res. 2009;23:367-72.",
+        "doi": "10.1002/ptr.2634",
+        "pmid": "18844328",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/18844328/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "lions-mane"
+      ],
+      "designBasis": "Randomized Controlled Trial",
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-19789403",
+        "title": "Hawthorn Extract Randomized Blinded Chronic Heart Failure (HERB CHF) trial",
+        "sourceType": "journal-article",
+        "sourceClass": "randomized-human-trial",
+        "evidenceClass": "human-clinical",
+        "studyDesign": "randomized-controlled-trial",
+        "authors": [
+          "Zick SM",
+          "Vautaw BM",
+          "Gillespie B",
+          "Aaronson KD"
+        ],
+        "publicationYear": 2009,
+        "citationText": "Zick SM, Vautaw BM, Gillespie B, Aaronson KD. Hawthorn Extract Randomized Blinded Chronic Heart Failure (HERB CHF) trial. Eur J Heart Fail. 2009;11:990-9.",
+        "doi": "10.1093/eurjhf/hfp116",
+        "pmid": "19789403",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/19789403/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "hawthorn-extract"
+      ],
+      "designBasis": "Randomized Controlled Trial",
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, N.I.H., Extramural"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-21942448",
+        "title": "Artemisia dracunculus L. (tarragon): a critical review of its traditional use, chemical composition, pharmacology, and safety",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Obolskiy D",
+          "Pischel I",
+          "Feistel B",
+          "Glotov N",
+          "Heinrich M"
+        ],
+        "publicationYear": 2011,
+        "citationText": "Obolskiy D, Pischel I, Feistel B, Glotov N, Heinrich M. Artemisia dracunculus L. (tarragon): a critical review of its traditional use, chemical composition, pharmacology, and safety. J Agric Food Chem. 2011;59:11367-84.",
+        "doi": "10.1021/jf202277w",
+        "pmid": "21942448",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/21942448/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "artemisia-dracunculus"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-25240931",
+        "title": "GC-MS, LC-MS(n), LC-high resolution-MS(n), and NMR studies on the metabolism and toxicological detection of mesembrine and mesembrenone, the main alkaloids of the legal high \"Kanna\" isolated from Sceletium tortuosum",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Meyer GM",
+          "Wink CS",
+          "Zapp J",
+          "Maurer HH"
+        ],
+        "publicationYear": 2015,
+        "citationText": "Meyer GM, Wink CS, Zapp J, Maurer HH. GC-MS, LC-MS(n), LC-high resolution-MS(n), and NMR studies on the metabolism and toxicological detection of mesembrine and mesembrenone, the main alkaloids of the legal high \"Kanna\" isolated from Sceletium tortuosum. Anal Bioanal Chem. 2015;407:761-78.",
+        "doi": "10.1007/s00216-014-8109-9",
+        "pmid": "25240931",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/25240931/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "kanna"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-27282571",
+        "title": "Molecular characterization of six new cases of red blood cell hexokinase deficiency yields four novel mutations in HK1",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Koralkova P",
+          "Mojzikova R",
+          "van Oirschot B",
+          "Macartney C",
+          "Timr P",
+          "Vives Corrons JL",
+          "Striezencova Laluhova Z",
+          "Lejhancova K",
+          "Divoky V",
+          "van Wijk R"
+        ],
+        "publicationYear": 2016,
+        "citationText": "Koralkova P, Mojzikova R, van Oirschot B, Macartney C, Timr P, Vives Corrons JL, et al. Molecular characterization of six new cases of red blood cell hexokinase deficiency yields four novel mutations in HK1. Blood Cells Mol Dis. 2016;59:71-6.",
+        "doi": "10.1016/j.bcmd.2016.04.002",
+        "pmid": "27282571",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/27282571/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "red-yeast-rice"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-27671811",
+        "title": "Berberine and Its Role in Chronic Disease",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Cicero AF",
+          "Baggioni A"
+        ],
+        "publicationYear": 2016,
+        "citationText": "Cicero AF, Baggioni A. Berberine and Its Role in Chronic Disease. Adv Exp Med Biol. 2016;928:27-45.",
+        "doi": "10.1007/978-3-319-41334-1_2",
+        "pmid": "27671811",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/27671811/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "goldenseal"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-27939420",
+        "title": "Mesembrine alkaloids: Review of their occurrence, chemistry, and pharmacology",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Krstenansky JL"
+        ],
+        "publicationYear": 2017,
+        "citationText": "Krstenansky JL. Mesembrine alkaloids: Review of their occurrence, chemistry, and pharmacology. J Ethnopharmacol. 2017;195:10-19.",
+        "doi": "10.1016/j.jep.2016.12.004",
+        "pmid": "27939420",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/27939420/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "kanna"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-28267306",
+        "title": "Medicinal Mushrooms (PDQ®): Patient Version",
+        "sourceType": null,
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [],
+        "publicationYear": 2024,
+        "citationText": null,
+        "doi": null,
+        "pmid": "28267306",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/28267306/",
+        "language": "en",
+        "publicationStatus": null,
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "turkey-tail"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceType",
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "publicationYear",
+        "canonicalUrl"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-28762712",
+        "title": "Common Herbal Dietary Supplement-Drug Interactions",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Asher GN",
+          "Corbett AH",
+          "Hawke RL"
+        ],
+        "publicationYear": 2017,
+        "citationText": "Asher GN, Corbett AH, Hawke RL. Common Herbal Dietary Supplement-Drug Interactions. Am Fam Physician. 2017;96:101-107.",
+        "doi": null,
+        "pmid": "28762712",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/28762712/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "goldenseal"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-29141563",
+        "title": "Ganoderma lucidum Polysaccharides as An Anti-cancer Agent",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Sohretoglu D",
+          "Huang S"
+        ],
+        "publicationYear": 2018,
+        "citationText": "Sohretoglu D, Huang S. Ganoderma lucidum Polysaccharides as An Anti-cancer Agent. Anticancer Agents Med Chem. 2018;18:667-674.",
+        "doi": "10.2174/1871520617666171113121246",
+        "pmid": "29141563",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/29141563/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "ganoderma-lucidum"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, N.I.H., Extramural",
+        "Research Support, Non-U.S. Gov't",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-29403626",
+        "title": "A review of effective herbal medicines in controlling menopausal symptoms",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Kargozar R",
+          "Azizi H",
+          "Salari R"
+        ],
+        "publicationYear": 2017,
+        "citationText": "Kargozar R, Azizi H, Salari R. A review of effective herbal medicines in controlling menopausal symptoms. Electron Physician. 2017;9:5826-5833.",
+        "doi": "10.19082/5826",
+        "pmid": "29403626",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/29403626/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "evening-primrose"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-29551532",
+        "title": "Effect of ginger, Paullinia cupana, muira puama and l- citrulline, singly or in combination, on modulation of the inducible nitric oxide- NO-cGMP pathway in rat penile smooth muscle cells",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Ferrini MG",
+          "Garcia E",
+          "Abraham A",
+          "Artaza JN",
+          "Nguyen S",
+          "Rajfer J"
+        ],
+        "publicationYear": 2018,
+        "citationText": "Ferrini MG, Garcia E, Abraham A, Artaza JN, Nguyen S, Rajfer J. Effect of ginger, Paullinia cupana, muira puama and l- citrulline, singly or in combination, on modulation of the inducible nitric oxide- NO-cGMP pathway in rat penile smooth muscle cells. Nitric Oxide. 2018;76:81-86.",
+        "doi": "10.1016/j.niox.2018.03.010",
+        "pmid": "29551532",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/29551532/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "muira-puama"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, N.I.H., Extramural",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-29698387",
+        "title": "Salvia miltiorrhizaBurge (Danshen): a golden herbal medicine in cardiovascular therapeutics",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Li ZM",
+          "Xu SW",
+          "Liu PQ"
+        ],
+        "publicationYear": 2018,
+        "citationText": "Li ZM, Xu SW, Liu PQ. Salvia miltiorrhizaBurge (Danshen): a golden herbal medicine in cardiovascular therapeutics. Acta Pharmacol Sin. 2018;39:802-824.",
+        "doi": "10.1038/aps.2017.193",
+        "pmid": "29698387",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/29698387/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "salvia-miltiorrhiza"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-30000829",
+        "title": "St. John's Wort",
+        "sourceType": null,
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [],
+        "publicationYear": 2025,
+        "citationText": null,
+        "doi": null,
+        "pmid": "30000829",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/30000829/",
+        "language": "en",
+        "publicationStatus": null,
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "st-johns-wort"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceType",
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "publicationYear",
+        "canonicalUrl"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-30000954",
+        "title": "Evening Primrose",
+        "sourceType": null,
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [],
+        "publicationYear": 2021,
+        "citationText": null,
+        "doi": null,
+        "pmid": "30000954",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/30000954/",
+        "language": "en",
+        "publicationStatus": null,
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "evening-primrose"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceType",
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "publicationYear",
+        "canonicalUrl"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-30823394",
+        "title": "Cytotoxic Properties of Damiana (Turnera diffusa) Extracts and Constituents and A Validated Quantitative UHPLC-DAD Assay",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Willer J",
+          "Jöhrer K",
+          "Greil R",
+          "Zidorn C",
+          "Çiçek SS"
+        ],
+        "publicationYear": 2019,
+        "citationText": "Willer J, Jöhrer K, Greil R, Zidorn C, Çiçek SS. Cytotoxic Properties of Damiana (Turnera diffusa) Extracts and Constituents and A Validated Quantitative UHPLC-DAD Assay. Molecules. 2019;24.",
+        "doi": "10.3390/molecules24050855",
+        "pmid": "30823394",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/30823394/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "damiana"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-31163183",
+        "title": "Screening of pharmacological uses of Urtica dioica and others benefits",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Dhouibi R",
+          "Affes H",
+          "Ben Salem M",
+          "Hammami S",
+          "Sahnoun Z",
+          "Zeghal KM",
+          "Ksouda K"
+        ],
+        "publicationYear": 2020,
+        "citationText": "Dhouibi R, Affes H, Ben Salem M, Hammami S, Sahnoun Z, Zeghal KM, et al. Screening of pharmacological uses of Urtica dioica and others benefits. Prog Biophys Mol Biol. 2020;150:67-77.",
+        "doi": "10.1016/j.pbiomolbio.2019.05.008",
+        "pmid": "31163183",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/31163183/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "nettle-root"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-31447414",
+        "title": "Sexual Performance Anxiety",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Pyke RE"
+        ],
+        "publicationYear": 2020,
+        "citationText": "Pyke RE. Sexual Performance Anxiety. Sex Med Rev. 2020;8:183-190.",
+        "doi": "10.1016/j.sxmr.2019.07.001",
+        "pmid": "31447414",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/31447414/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "yohimbe"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-31643645",
+        "title": "Cat's Claw",
+        "sourceType": null,
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [],
+        "publicationYear": 2019,
+        "citationText": null,
+        "doi": null,
+        "pmid": "31643645",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/31643645/",
+        "language": "en",
+        "publicationStatus": null,
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "cat-s-claw"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceType",
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "publicationYear",
+        "canonicalUrl"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-31644013",
+        "title": "Yohimbine",
+        "sourceType": null,
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [],
+        "publicationYear": 2020,
+        "citationText": null,
+        "doi": null,
+        "pmid": "31644013",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/31644013/",
+        "language": "en",
+        "publicationStatus": null,
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "yohimbe"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceType",
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "publicationYear",
+        "canonicalUrl"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-32353900",
+        "title": "Short-range regulatory chromatin loops in plants",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Gagliardi D",
+          "Manavella PA"
+        ],
+        "publicationYear": 2020,
+        "citationText": "Gagliardi D, Manavella PA. Short-range regulatory chromatin loops in plants. New Phytol. 2020;228:466-471.",
+        "doi": "10.1111/nph.16632",
+        "pmid": "32353900",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/32353900/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "hesperidin"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-33174095",
+        "title": "Plants Used as Antihypertensive",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Verma T",
+          "Sinha M",
+          "Bansal N",
+          "Yadav SR",
+          "Shah K",
+          "Chauhan NS"
+        ],
+        "publicationYear": 2021,
+        "citationText": "Verma T, Sinha M, Bansal N, Yadav SR, Shah K, Chauhan NS. Plants Used as Antihypertensive. Nat Prod Bioprospect. 2021;11:155-184.",
+        "doi": "10.1007/s13659-020-00281-x",
+        "pmid": "33174095",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/33174095/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "terminalia-arjuna"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-33242239",
+        "title": "Berberine",
+        "sourceType": null,
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [],
+        "publicationYear": 2020,
+        "citationText": null,
+        "doi": null,
+        "pmid": "33242239",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/33242239/",
+        "language": "en",
+        "publicationStatus": null,
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "goldenseal"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceType",
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "publicationYear",
+        "canonicalUrl"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-33686024",
+        "title": "Preclinical systematic review of ginsenoside Rg1 for cognitive impairment in Alzheimer's disease",
+        "sourceType": "systematic-review",
+        "sourceClass": "systematic-review-meta-analysis",
+        "evidenceClass": null,
+        "studyDesign": "systematic-review",
+        "authors": [
+          "Liang HY",
+          "Zhang PP",
+          "Zhang XL",
+          "Zheng YY",
+          "Huang YR",
+          "Zheng GQ",
+          "Lin Y"
+        ],
+        "publicationYear": 2021,
+        "citationText": "Liang HY, Zhang PP, Zhang XL, Zheng YY, Huang YR, Zheng GQ, et al. Preclinical systematic review of ginsenoside Rg1 for cognitive impairment in Alzheimer's disease. Aging (Albany NY). 2021;13:7549-7569.",
+        "doi": "10.18632/aging.202619",
+        "pmid": "33686024",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/33686024/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "ginsenoside-rg1"
+      ],
+      "designBasis": "Systematic Review",
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't",
+        "Systematic Review"
+      ],
+      "resolvedFromPmcId": "PMC7993717",
+      "requiresJudgment": [
+        "evidenceClass",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-33802176",
+        "title": "The Use and Impact of Cognitive Enhancers among University Students: A Systematic Review",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Sharif S",
+          "Guirguis A",
+          "Fergus S",
+          "Schifano F"
+        ],
+        "publicationYear": 2021,
+        "citationText": "Sharif S, Guirguis A, Fergus S, Schifano F. The Use and Impact of Cognitive Enhancers among University Students: A Systematic Review. Brain Sci. 2021;11.",
+        "doi": "10.3390/brainsci11030355",
+        "pmid": "33802176",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/33802176/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "guarana"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-33924742",
+        "title": "A Chewable Cure \"Kanna\": Biological and Pharmaceutical Properties of Sceletium tortuosum",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Manganyi MC",
+          "Bezuidenhout CC",
+          "Regnier T",
+          "Ateba CN"
+        ],
+        "publicationYear": 2021,
+        "citationText": "Manganyi MC, Bezuidenhout CC, Regnier T, Ateba CN. A Chewable Cure \"Kanna\": Biological and Pharmaceutical Properties of Sceletium tortuosum. Molecules. 2021;26.",
+        "doi": "10.3390/molecules26092557",
+        "pmid": "33924742",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/33924742/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "kanna"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-33927629",
+        "title": "Artemisia dracunculus (Tarragon): A Review of Its Traditional Uses, Phytochemistry and Pharmacology",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Ekiert H",
+          "Świątkowska J",
+          "Knut E",
+          "Klin P",
+          "Rzepiela A",
+          "Tomczyk M",
+          "Szopa A"
+        ],
+        "publicationYear": 2021,
+        "citationText": "Ekiert H, Świątkowska J, Knut E, Klin P, Rzepiela A, Tomczyk M, et al. Artemisia dracunculus (Tarragon): A Review of Its Traditional Uses, Phytochemistry and Pharmacology. Front Pharmacol. 2021;12:653993.",
+        "doi": "10.3389/fphar.2021.653993",
+        "pmid": "33927629",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/33927629/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "artemisia-dracunculus"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-34307603",
+        "title": "Herb-induced liver injury: Systematic review and meta-analysis",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Ballotin VR",
+          "Bigarella LG",
+          "Brandão ABM",
+          "Balbinot RA",
+          "Balbinot SS",
+          "Soldera J"
+        ],
+        "publicationYear": 2021,
+        "citationText": "Ballotin VR, Bigarella LG, Brandão ABM, Balbinot RA, Balbinot SS, Soldera J. Herb-induced liver injury: Systematic review and meta-analysis. World J Clin Cases. 2021;9:5490-5513.",
+        "doi": "10.12998/wjcc.v9.i20.5490",
+        "pmid": "34307603",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/34307603/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "scutellaria-lateriflora"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-34345890",
+        "title": "Toxicity From Blue Lotus (Nymphaea caerulea) After Ingestion or Inhalation: A Case Series",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Schimpf M",
+          "Ulmer T",
+          "Hiller H",
+          "Barbuto AF"
+        ],
+        "publicationYear": 2023,
+        "citationText": "Schimpf M, Ulmer T, Hiller H, Barbuto AF. Toxicity From Blue Lotus (Nymphaea caerulea) After Ingestion or Inhalation: A Case Series. Mil Med. 2023;188.",
+        "doi": "10.1093/milmed/usab328",
+        "pmid": "34345890",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/34345890/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "blue-lotus"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-34371974",
+        "title": "Estimation of Dietary Capsaicinoid Exposure in Korea and Assessment of Its Health Effects",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Kwon Y"
+        ],
+        "publicationYear": 2021,
+        "citationText": "Kwon Y. Estimation of Dietary Capsaicinoid Exposure in Korea and Assessment of Its Health Effects. Nutrients. 2021;13.",
+        "doi": "10.3390/nu13072461",
+        "pmid": "34371974",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/34371974/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "capsicum-frutescens"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-34411377",
+        "title": "Ganoderma lucidum (Reishi) an edible mushroom; a comprehensive and critical review of its nutritional, cosmeceutical, mycochemical, pharmacological, clinical, and toxicological properties",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Ahmad R",
+          "Riaz M",
+          "Khan A",
+          "Aljamea A",
+          "Algheryafi M",
+          "Sewaket D",
+          "Alqathama A"
+        ],
+        "publicationYear": 2021,
+        "citationText": "Ahmad R, Riaz M, Khan A, Aljamea A, Algheryafi M, Sewaket D, et al. Ganoderma lucidum (Reishi) an edible mushroom; a comprehensive and critical review of its nutritional, cosmeceutical, mycochemical, pharmacological, clinical, and toxicological properties. Phytother Res. 2021;35:6030-6062.",
+        "doi": "10.1002/ptr.7215",
+        "pmid": "34411377",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/34411377/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "ganoderma-lucidum"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-34755935",
+        "title": "Effects of the consumption of guarana on human health: A narrative review",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Torres EAFS",
+          "Pinaffi-Langley ACDC",
+          "Figueira MS",
+          "Cordeiro KS",
+          "Negrão LD",
+          "Soares MJ",
+          "da Silva CP",
+          "Alfino MCZ",
+          "Sampaio GR",
+          "de Camargo AC"
+        ],
+        "publicationYear": 2022,
+        "citationText": "Torres EAFS, Pinaffi-Langley ACDC, Figueira MS, Cordeiro KS, Negrão LD, Soares MJ, et al. Effects of the consumption of guarana on human health: A narrative review. Compr Rev Food Sci Food Saf. 2022;21:272-295.",
+        "doi": "10.1111/1541-4337.12862",
+        "pmid": "34755935",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/34755935/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "guarana"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-34885733",
+        "title": "Treatment of Benign Prostatic Hyperplasia by Natural Drugs",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Csikós E",
+          "Horváth A",
+          "Ács K",
+          "Papp N",
+          "Balázs VL",
+          "Dolenc MS",
+          "Kenda M",
+          "Kočevar Glavač N",
+          "Nagy M",
+          "Protti M",
+          "Mercolini L",
+          "Horváth G",
+          "Farkas Á",
+          "On Behalf Of The Oemonom"
+        ],
+        "publicationYear": 2021,
+        "citationText": "Csikós E, Horváth A, Ács K, Papp N, Balázs VL, Dolenc MS, et al. Treatment of Benign Prostatic Hyperplasia by Natural Drugs. Molecules. 2021;26.",
+        "doi": "10.3390/molecules26237141",
+        "pmid": "34885733",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/34885733/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "nettle-root"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-34946512",
+        "title": "Herbal Products Used in Menopause and for Gynecological Disorders",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Kenda M",
+          "Glavač NK",
+          "Nagy M",
+          "Sollner Dolenc M",
+          "On Behalf Of The Oemonom"
+        ],
+        "publicationYear": 2021,
+        "citationText": "Kenda M, Glavač NK, Nagy M, Sollner Dolenc M, On Behalf Of The Oemonom. Herbal Products Used in Menopause and for Gynecological Disorders. Molecules. 2021;26.",
+        "doi": "10.3390/molecules26247421",
+        "pmid": "34946512",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/34946512/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "evening-primrose"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-35294606",
+        "title": "St. John's wort (Hypericum perforatum) and depression: what happens to the neurotransmitter systems?",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Kholghi G",
+          "Arjmandi-Rad S",
+          "Zarrindast MR",
+          "Vaseghi S"
+        ],
+        "publicationYear": 2022,
+        "citationText": "Kholghi G, Arjmandi-Rad S, Zarrindast MR, Vaseghi S. St. John's wort (Hypericum perforatum) and depression: what happens to the neurotransmitter systems?. Naunyn Schmiedebergs Arch Pharmacol. 2022;395:629-642.",
+        "doi": "10.1007/s00210-022-02229-z",
+        "pmid": "35294606",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/35294606/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "st-johns-wort"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-35684259",
+        "title": "Antiphotoaging Effects of Damiana (Turnera diffusa) Leaves Extract via Regulation AP-1 and Nrf2/ARE Signaling Pathways",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Kim M",
+          "Ha LK",
+          "Oh S",
+          "Fang M",
+          "Zheng S",
+          "Bellere AD",
+          "Jeong J",
+          "Yi TH"
+        ],
+        "publicationYear": 2022,
+        "citationText": "Kim M, Ha LK, Oh S, Fang M, Zheng S, Bellere AD, et al. Antiphotoaging Effects of Damiana (Turnera diffusa) Leaves Extract via Regulation AP-1 and Nrf2/ARE Signaling Pathways. Plants (Basel). 2022;11.",
+        "doi": "10.3390/plants11111486",
+        "pmid": "35684259",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/35684259/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "damiana"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-36111960",
+        "title": "Spicy Food and Chili Peppers and Multiple Health Outcomes: Umbrella Review",
+        "sourceType": "systematic-review",
+        "sourceClass": "systematic-review-meta-analysis",
+        "evidenceClass": null,
+        "studyDesign": "systematic-review",
+        "authors": [
+          "Ao Z",
+          "Huang Z",
+          "Liu H"
+        ],
+        "publicationYear": 2022,
+        "citationText": "Ao Z, Huang Z, Liu H. Spicy Food and Chili Peppers and Multiple Health Outcomes: Umbrella Review. Mol Nutr Food Res. 2022;66:e2200167.",
+        "doi": "10.1002/mnfr.202200167",
+        "pmid": "36111960",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/36111960/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "capsicum-frutescens"
+      ],
+      "designBasis": "Systematic Review",
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't",
+        "Systematic Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "evidenceClass",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-36650621",
+        "title": "Herb-Drug Interactions and Their Impact on Pharmacokinetics: An Update",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Cheng W",
+          "Xia K",
+          "Wu S",
+          "Li Y"
+        ],
+        "publicationYear": 2023,
+        "citationText": "Cheng W, Xia K, Wu S, Li Y. Herb-Drug Interactions and Their Impact on Pharmacokinetics: An Update. Curr Drug Metab. 2023;24:28-69.",
+        "doi": "10.2174/1389200224666230116113240",
+        "pmid": "36650621",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/36650621/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "salvia-miltiorrhiza"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Review",
+        "Journal Article"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-36671409",
+        "title": "A Review of Ganoderma Triterpenoids and Their Bioactivities",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Galappaththi MCA",
+          "Patabendige NM",
+          "Premarathne BM",
+          "Hapuarachchi KK",
+          "Tibpromma S",
+          "Dai DQ",
+          "Suwannarach N",
+          "Rapior S",
+          "Karunarathna SC"
+        ],
+        "publicationYear": 2022,
+        "citationText": "Galappaththi MCA, Patabendige NM, Premarathne BM, Hapuarachchi KK, Tibpromma S, Dai DQ, et al. A Review of Ganoderma Triterpenoids and Their Bioactivities. Biomolecules. 2022;13.",
+        "doi": "10.3390/biom13010024",
+        "pmid": "36671409",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/36671409/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "ganoderma-lucidum"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-36862943",
+        "title": "International society of sports nutrition position stand: energy drinks and energy shots",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Jagim AR",
+          "Harty PS",
+          "Tinsley GM",
+          "Kerksick CM",
+          "Gonzalez AM",
+          "Kreider RB",
+          "Arent SM",
+          "Jager R",
+          "Smith-Ryan AE",
+          "Stout JR",
+          "Campbell BI",
+          "VanDusseldorp T",
+          "Antonio J"
+        ],
+        "publicationYear": 2023,
+        "citationText": "Jagim AR, Harty PS, Tinsley GM, Kerksick CM, Gonzalez AM, Kreider RB, et al. International society of sports nutrition position stand: energy drinks and energy shots. J Int Soc Sports Nutr. 2023;20:2171314.",
+        "doi": "10.1080/15502783.2023.2171314",
+        "pmid": "36862943",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/36862943/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "guarana"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Review",
+        "Journal Article"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-36933876",
+        "title": "Therapeutic potential and industrial applications of Terminalia arjuna bark",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Kumar V",
+          "Sharma N",
+          "Saini R",
+          "Mall S",
+          "Zengin G",
+          "Sourirajan A",
+          "Khosla PK",
+          "Dev K",
+          "El-Shazly M"
+        ],
+        "publicationYear": 2023,
+        "citationText": "Kumar V, Sharma N, Saini R, Mall S, Zengin G, Sourirajan A, et al. Therapeutic potential and industrial applications of Terminalia arjuna bark. J Ethnopharmacol. 2023;310:116352.",
+        "doi": "10.1016/j.jep.2023.116352",
+        "pmid": "36933876",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/36933876/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "terminalia-arjuna"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-36938015",
+        "title": "California poppy (Eschscholzia californica), the Papaveraceae golden girl model organism for evodevo and specialized metabolism",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Becker A",
+          "Yamada Y",
+          "Sato F"
+        ],
+        "publicationYear": 2023,
+        "citationText": "Becker A, Yamada Y, Sato F. California poppy (Eschscholzia californica), the Papaveraceae golden girl model organism for evodevo and specialized metabolism. Front Plant Sci. 2023;14:1084358.",
+        "doi": "10.3389/fpls.2023.1084358",
+        "pmid": "36938015",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/36938015/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "eschscholzia-californica"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-36995535",
+        "title": "Medicinal Mushroom Supplements in Cancer: A Systematic Review of Clinical Studies",
+        "sourceType": "systematic-review",
+        "sourceClass": "systematic-review-meta-analysis",
+        "evidenceClass": null,
+        "studyDesign": "systematic-review",
+        "authors": [
+          "Narayanan S",
+          "de Mores AR",
+          "Cohen L",
+          "Anwar MM",
+          "Lazar F",
+          "Hicklen R",
+          "Lopez G",
+          "Yang P",
+          "Bruera E"
+        ],
+        "publicationYear": 2023,
+        "citationText": "Narayanan S, de Mores AR, Cohen L, Anwar MM, Lazar F, Hicklen R, et al. Medicinal Mushroom Supplements in Cancer: A Systematic Review of Clinical Studies. Curr Oncol Rep. 2023;25:569-587.",
+        "doi": "10.1007/s11912-023-01408-2",
+        "pmid": "36995535",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/36995535/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "turkey-tail"
+      ],
+      "designBasis": "Systematic Review",
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Systematic Review",
+        "Journal Article"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "evidenceClass",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-37172085",
+        "title": "Electromagnetic fields disrupt the pollination service by honeybees",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Molina-Montenegro MA",
+          "Acuña-Rodríguez IS",
+          "Ballesteros GI",
+          "Baldelomar M",
+          "Torres-Díaz C",
+          "Broitman BR",
+          "Vázquez DP"
+        ],
+        "publicationYear": 2023,
+        "citationText": "Molina-Montenegro MA, Acuña-Rodríguez IS, Ballesteros GI, Baldelomar M, Torres-Díaz C, Broitman BR, et al. Electromagnetic fields disrupt the pollination service by honeybees. Sci Adv. 2023;9:eadh1455.",
+        "doi": "10.1126/sciadv.adh1455",
+        "pmid": "37172085",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/37172085/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "eschscholzia-californica"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-37192826",
+        "title": "Black cohosh extracts in women with menopausal symptoms: an updated pairwise meta-analysis",
+        "sourceType": "meta-analysis",
+        "sourceClass": "systematic-review-meta-analysis",
+        "evidenceClass": null,
+        "studyDesign": "meta-analysis",
+        "authors": [
+          "Sadahiro R",
+          "Matsuoka LN",
+          "Zeng BS",
+          "Chen KH",
+          "Zeng BY",
+          "Wang HY",
+          "Chu CS",
+          "Stubbs B",
+          "Su KP",
+          "Tu YK",
+          "Wu YC",
+          "Lin PY",
+          "Chen TY",
+          "Chen YW",
+          "Suen MW",
+          "Hopwood M",
+          "Yang WC",
+          "Sun CK",
+          "Cheng YS",
+          "Shiue YL",
+          "Hung CM",
+          "Matsuoka YJ",
+          "Tseng PT"
+        ],
+        "publicationYear": 2023,
+        "citationText": "Sadahiro R, Matsuoka LN, Zeng BS, Chen KH, Zeng BY, Wang HY, et al. Black cohosh extracts in women with menopausal symptoms: an updated pairwise meta-analysis. Menopause. 2023;30:766-773.",
+        "doi": "10.1097/GME.0000000000002196",
+        "pmid": "37192826",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/37192826/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "black-cohosh"
+      ],
+      "designBasis": "Meta-Analysis",
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Meta-Analysis",
+        "Journal Article"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "evidenceClass",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-37673017",
+        "title": "Alkaloids in commercial preparations of California poppy - Quantification, intestinal permeability and microbiota interactions",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Chauveau A",
+          "Geirnaert A",
+          "Babst A",
+          "Treyer A",
+          "Lacroix C",
+          "Hamburger M",
+          "Potterat O"
+        ],
+        "publicationYear": 2023,
+        "citationText": "Chauveau A, Geirnaert A, Babst A, Treyer A, Lacroix C, Hamburger M, et al. Alkaloids in commercial preparations of California poppy - Quantification, intestinal permeability and microbiota interactions. Biomed Pharmacother. 2023;166:115420.",
+        "doi": "10.1016/j.biopha.2023.115420",
+        "pmid": "37673017",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/37673017/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "eschscholzia-californica"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-37814683",
+        "title": "Antimicrobial and anti-inflammatory activity of Terminalia arjuna",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "R V",
+          "N A",
+          "S R",
+          "Mahendra J"
+        ],
+        "publicationYear": 2023,
+        "citationText": "R V, N A, S R, Mahendra J. Antimicrobial and anti-inflammatory activity of Terminalia arjuna. Bioinformation. 2023;19:184-189.",
+        "doi": "10.6026/97320630019184",
+        "pmid": "37814683",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/37814683/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "terminalia-arjuna"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-37958943",
+        "title": "Neurotrophic and Neuroprotective Effects of Hericium erinaceus",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Szućko-Kociuba I",
+          "Trzeciak-Ryczek A",
+          "Kupnicka P",
+          "Chlubek D"
+        ],
+        "publicationYear": 2023,
+        "citationText": "Szućko-Kociuba I, Trzeciak-Ryczek A, Kupnicka P, Chlubek D. Neurotrophic and Neuroprotective Effects of Hericium erinaceus. Int J Mol Sci. 2023;24.",
+        "doi": "10.3390/ijms242115960",
+        "pmid": "37958943",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/37958943/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "lions-mane"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-38068651",
+        "title": "Unraveling the Potential of Organic Oregano and Tarragon Essential Oils: Profiling Composition, FT-IR and Bioactivities",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Vârban D",
+          "Zăhan M",
+          "Crișan I",
+          "Pop CR",
+          "Gál E",
+          "Ștefan R",
+          "Rotar AM",
+          "Muscă AS",
+          "Meseșan ȘD",
+          "Horga V",
+          "Ladoși I",
+          "Olar L",
+          "Stoie A",
+          "Vârban R"
+        ],
+        "publicationYear": 2023,
+        "citationText": "Vârban D, Zăhan M, Crișan I, Pop CR, Gál E, Ștefan R, et al. Unraveling the Potential of Organic Oregano and Tarragon Essential Oils: Profiling Composition, FT-IR and Bioactivities. Plants (Basel). 2023;12.",
+        "doi": "10.3390/plants12234017",
+        "pmid": "38068651",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/38068651/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "artemisia-dracunculus"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-38116085",
+        "title": "Chaga mushroom: a super-fungus with countless facets and untapped potential",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Fordjour E",
+          "Manful CF",
+          "Javed R",
+          "Galagedara LW",
+          "Cuss CW",
+          "Cheema M",
+          "Thomas R"
+        ],
+        "publicationYear": 2023,
+        "citationText": "Fordjour E, Manful CF, Javed R, Galagedara LW, Cuss CW, Cheema M, et al. Chaga mushroom: a super-fungus with countless facets and untapped potential. Front Pharmacol. 2023;14:1273786.",
+        "doi": "10.3389/fphar.2023.1273786",
+        "pmid": "38116085",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/38116085/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "chaga"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-38285776",
+        "title": "The Apoptotic Property of Nymphaea Caerulea Flower Extract on Acute Myeloid Leukaemia Cell Line, THP-1",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Chatterjee D",
+          "Singh B",
+          "Paira K",
+          "Das S"
+        ],
+        "publicationYear": 2024,
+        "citationText": "Chatterjee D, Singh B, Paira K, Das S. The Apoptotic Property of Nymphaea Caerulea Flower Extract on Acute Myeloid Leukaemia Cell Line, THP-1. Asian Pac J Cancer Prev. 2024;25:123-137.",
+        "doi": "10.31557/APJCP.2024.25.1.123",
+        "pmid": "38285776",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/38285776/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "blue-lotus"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-38495279",
+        "title": "Insights into skullcap herb-induced liver injury",
+        "sourceType": null,
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Soldera J"
+        ],
+        "publicationYear": 2024,
+        "citationText": "Soldera J. Insights into skullcap herb-induced liver injury. World J Hepatol. 2024;16:120-122.",
+        "doi": "10.4254/wjh.v16.i2.120",
+        "pmid": "38495279",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/38495279/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "scutellaria-lateriflora"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [
+        "Editorial"
+      ],
+      "publicationTypes": [
+        "Editorial"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceType",
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-38587819",
+        "title": "d-Mannose for Prevention of Recurrent Urinary Tract Infection Among Women: A Randomized Clinical Trial",
+        "sourceType": "journal-article",
+        "sourceClass": "randomized-human-trial",
+        "evidenceClass": "human-clinical",
+        "studyDesign": "randomized-controlled-trial",
+        "authors": [
+          "Hayward G",
+          "Mort S",
+          "Hay AD",
+          "Moore M",
+          "Thomas NPB",
+          "Cook J",
+          "Robinson J",
+          "Williams N",
+          "Maeder N",
+          "Edeson R",
+          "Franssen M",
+          "Grabey J",
+          "Glogowska M",
+          "Yang Y",
+          "Allen J",
+          "Butler CC"
+        ],
+        "publicationYear": 2024,
+        "citationText": "Hayward G, Mort S, Hay AD, Moore M, Thomas NPB, Cook J, et al. d-Mannose for Prevention of Recurrent Urinary Tract Infection Among Women: A Randomized Clinical Trial. JAMA Intern Med. 2024;184:619-628.",
+        "doi": "10.1001/jamainternmed.2024.0264",
+        "pmid": "38587819",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/38587819/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "d-mannose"
+      ],
+      "designBasis": "Randomized Controlled Trial",
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "resolvedFromPmcId": "PMC11002776",
+      "requiresJudgment": [
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-38813471",
+        "title": "Therapeutic properties of Inonotus obliquus (Chaga mushroom): A review",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Ern PTY",
+          "Quan TY",
+          "Yee FS",
+          "Yin ACY"
+        ],
+        "publicationYear": 2023,
+        "citationText": "Ern PTY, Quan TY, Yee FS, Yin ACY. Therapeutic properties of Inonotus obliquus (Chaga mushroom): A review. Mycology. 2023;15:144-161.",
+        "doi": "10.1080/21501203.2023.2260408",
+        "pmid": "38813471",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/38813471/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "chaga"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-39845379",
+        "title": "Nutraceutical and low energy shockwave treatments improved sexual function recovery in a rat pelvic neurovascular injury model",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Crisostomo-Wynne TC",
+          "Hertz AM",
+          "Ferrini MG",
+          "Brand TC",
+          "Salgar SK"
+        ],
+        "publicationYear": 2025,
+        "citationText": "Crisostomo-Wynne TC, Hertz AM, Ferrini MG, Brand TC, Salgar SK. Nutraceutical and low energy shockwave treatments improved sexual function recovery in a rat pelvic neurovascular injury model. Sex Med. 2025;12:qfaf001.",
+        "doi": "10.1093/sexmed/qfaf001",
+        "pmid": "39845379",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/39845379/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "muira-puama"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-40125913",
+        "title": "Damiana (Turnera diffusa) Reduces Adipocyte Cell Differentiation and Ameliorates Myocyte Glucose Uptake",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Chae HS",
+          "Ahmed NH",
+          "Dale OR",
+          "Avula B",
+          "Khan IA",
+          "Khan SI"
+        ],
+        "publicationYear": 2025,
+        "citationText": "Chae HS, Ahmed NH, Dale OR, Avula B, Khan IA, Khan SI. Damiana (Turnera diffusa) Reduces Adipocyte Cell Differentiation and Ameliorates Myocyte Glucose Uptake. J Diet Suppl. 2025;22:401-416.",
+        "doi": "10.1080/19390211.2025.2480582",
+        "pmid": "40125913",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/40125913/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "damiana"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-40205009",
+        "title": "Wogonin attenuates septic cardiomyopathy by suppressing ALOX15-mediated ferroptosis",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Ye H",
+          "Wu L",
+          "Liu YM",
+          "Zhang JX",
+          "Hu HT",
+          "Dong ML",
+          "Ren J"
+        ],
+        "publicationYear": 2025,
+        "citationText": "Ye H, Wu L, Liu YM, Zhang JX, Hu HT, Dong ML, et al. Wogonin attenuates septic cardiomyopathy by suppressing ALOX15-mediated ferroptosis. Acta Pharmacol Sin. 2025;46:2407-2422.",
+        "doi": "10.1038/s41401-025-01547-1",
+        "pmid": "40205009",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/40205009/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "scutellaria-lateriflora"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-40284172",
+        "title": "Lion's Mane Mushroom (Hericium erinaceus): A Neuroprotective Fungus with Antioxidant, Anti-Inflammatory, and Antimicrobial Potential-A Narrative Review",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Contato AG",
+          "Conte-Junior CA"
+        ],
+        "publicationYear": 2025,
+        "citationText": "Contato AG, Conte-Junior CA. Lion's Mane Mushroom (Hericium erinaceus): A Neuroprotective Fungus with Antioxidant, Anti-Inflammatory, and Antimicrobial Potential-A Narrative Review. Nutrients. 2025;17.",
+        "doi": "10.3390/nu17081307",
+        "pmid": "40284172",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/40284172/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "lions-mane"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-41004704",
+        "title": "Efficacy of D-mannose as prophylaxis of recurrent urinary tract infection: a systematic review and meta-analysis of randomized controlled trials",
+        "sourceType": "meta-analysis",
+        "sourceClass": "systematic-review-meta-analysis",
+        "evidenceClass": null,
+        "studyDesign": "meta-analysis",
+        "authors": [
+          "Vargas CEF",
+          "Mutarelli A",
+          "Menegardo LG",
+          "Silva AKBD",
+          "Vieira PRB",
+          "Luz JD",
+          "Felix N",
+          "Pinto LCS"
+        ],
+        "publicationYear": 2025,
+        "citationText": "Vargas CEF, Mutarelli A, Menegardo LG, Silva AKBD, Vieira PRB, Luz JD, et al. Efficacy of D-mannose as prophylaxis of recurrent urinary tract infection: a systematic review and meta-analysis of randomized controlled trials. J Bras Nefrol. 2025;47:e20250169.",
+        "doi": "10.1590/2175-8239-JBN-2025-0169en",
+        "pmid": "41004704",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/41004704/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "d-mannose"
+      ],
+      "designBasis": "Meta-Analysis",
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Systematic Review",
+        "Meta-Analysis"
+      ],
+      "resolvedFromPmcId": "PMC12471090",
+      "requiresJudgment": [
+        "evidenceClass",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-41052496",
+        "title": "Integrated breeding strategies for blue lotus based on petal pH, anthocyanin profiling, and gene expression analysis",
+        "sourceType": "journal-article",
+        "sourceClass": null,
+        "evidenceClass": null,
+        "studyDesign": null,
+        "authors": [
+          "Liu Q",
+          "Li H",
+          "Zhang H",
+          "Zhao Y",
+          "Shao W",
+          "Kong Y",
+          "Tu L",
+          "Liu F",
+          "Fu N",
+          "Tian D",
+          "Zhang D"
+        ],
+        "publicationYear": 2025,
+        "citationText": "Liu Q, Li H, Zhang H, Zhao Y, Shao W, Kong Y, et al. Integrated breeding strategies for blue lotus based on petal pH, anthocyanin profiling, and gene expression analysis. Plant Physiol Biochem. 2025;229:110583.",
+        "doi": "10.1016/j.plaphy.2025.110583",
+        "pmid": "41052496",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/41052496/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "blue-lotus"
+      ],
+      "designBasis": null,
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "sourceClass",
+        "evidenceClass",
+        "studyDesign",
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    },
+    {
+      "draft": {
+        "sourceId": "src_pmid-41554764",
+        "title": "Lactiplantibacillus plantarum Lp815 improves sleep and increases urinary GABA in a randomized, double-blind, placebo-controlled study of sleep disturbance",
+        "sourceType": "journal-article",
+        "sourceClass": "randomized-human-trial",
+        "evidenceClass": "human-clinical",
+        "studyDesign": "randomized-controlled-trial",
+        "authors": [
+          "Grant AD",
+          "Erfe MCB",
+          "Delebecque CJ",
+          "Keller D",
+          "Zimmerman NP",
+          "Kazaryan A",
+          "Oliver PL",
+          "Moos J",
+          "Luna V",
+          "Craft N"
+        ],
+        "publicationYear": 2026,
+        "citationText": "Grant AD, Erfe MCB, Delebecque CJ, Keller D, Zimmerman NP, Kazaryan A, et al. Lactiplantibacillus plantarum Lp815 improves sleep and increases urinary GABA in a randomized, double-blind, placebo-controlled study of sleep disturbance. Sci Rep. 2026;16:644.",
+        "doi": "10.1038/s41598-025-27861-6",
+        "pmid": "41554764",
+        "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/41554764/",
+        "language": "en",
+        "publicationStatus": "published",
+        "active": false,
+        "reliabilityTier": null,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "unblocks": [
+        "gaba"
+      ],
+      "designBasis": "Randomized Controlled Trial",
+      "nonResearchTypes": [],
+      "publicationTypes": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "resolvedFromPmcId": null,
+      "requiresJudgment": [
+        "reliabilityTier",
+        "reviewer",
+        "reviewedAt"
+      ],
+      "prefilled": [
+        "title",
+        "authors",
+        "publicationYear",
+        "doi",
+        "canonicalUrl",
+        "citationText"
+      ]
+    }
+  ],
+  "alreadyClaimed": [
+    {
+      "pmid": "10334745",
+      "sourceId": "src_pubmed-10334745",
+      "unblocks": [
+        "vitamin-b6"
+      ]
+    },
+    {
+      "pmid": "31928364",
+      "sourceId": "src_pubmed-31928364",
+      "unblocks": [
+        "vitamin-b6"
+      ]
+    },
+    {
+      "pmid": "35851507",
+      "sourceId": "src_pubmed-35851507",
+      "unblocks": [
+        "vitamin-b6"
+      ]
+    },
+    {
+      "pmid": "37447150",
+      "sourceId": "src_pubmed-37447150",
+      "unblocks": [
+        "vitamin-b6"
+      ]
+    },
+    {
+      "pmid": "38684926",
+      "sourceId": "src_pubmed-38684926",
+      "unblocks": [
+        "vitamin-b6"
+      ]
+    }
+  ],
+  "missingFromCache": [],
+  "candidatesWithoutIdentifier": [
+    {
+      "slug": "allicin",
+      "entityType": "compound",
+      "unusedDois": [],
+      "unresolvedPmcIds": [],
+      "signals": [
+        "Garlic trials."
+      ]
+    },
+    {
+      "slug": "digestive-enzymes",
+      "entityType": "compound",
+      "unusedDois": [],
+      "unresolvedPmcIds": [],
+      "signals": [
+        "source_pending_review"
+      ]
+    },
+    {
+      "slug": "krill-oil",
+      "entityType": "compound",
+      "unusedDois": [],
+      "unresolvedPmcIds": [],
+      "signals": [
+        "PubMed krill RCTs."
+      ]
+    },
+    {
+      "slug": "marshmallow-root",
+      "entityType": "compound",
+      "unusedDois": [],
+      "unresolvedPmcIds": [],
+      "signals": [
+        "source_pending_review"
+      ]
+    },
+    {
+      "slug": "policosanol",
+      "entityType": "compound",
+      "unusedDois": [],
+      "unresolvedPmcIds": [],
+      "signals": [
+        "https://pubmed.ncbi.nlm.nih.gov/17452504/"
+      ]
+    },
+    {
+      "slug": "potassium",
+      "entityType": "compound",
+      "unusedDois": [],
+      "unresolvedPmcIds": [],
+      "signals": [
+        "https://ods.od.nih.gov/factsheets/Potassium-HealthProfessional/"
+      ]
+    },
+    {
+      "slug": "raspberry-ketones",
+      "entityType": "compound",
+      "unusedDois": [],
+      "unresolvedPmcIds": [],
+      "signals": [
+        "source_pending_review"
+      ]
+    },
+    {
+      "slug": "slippery-elm",
+      "entityType": "compound",
+      "unusedDois": [],
+      "unresolvedPmcIds": [],
+      "signals": [
+        "source_pending_review"
+      ]
+    },
+    {
+      "slug": "theanine",
+      "entityType": "compound",
+      "unusedDois": [],
+      "unresolvedPmcIds": [],
+      "signals": [
+        "https://consensus.app/papers/a-randomized-tripleblind-placebocontrolled-crossover-evans-mcdonald/d3b94ebb1cb75700884a46cc775e9bda/?utm_source=chatgpt",
+        "https://consensus.app/papers/effects-of-tea-camellia-sinensis-or-its-bioactive-payne-aceves-martins/939e00c0c8a153ea8489e05d78184f5d/?utm_source=chatgpt",
+        "https://consensus.app/papers/examining-the-effect-of-ltheanine-on-sleep-a-systematic-cotter-caddick/fc34d2ccf3715609a856171a6e3821d9/?utm_source=chatgpt"
+      ]
+    }
+  ]
+}

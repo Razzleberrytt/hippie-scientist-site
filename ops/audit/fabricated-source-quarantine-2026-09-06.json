@@ -11,7 +11,8 @@
       "pubmed": null,
       "claimedEntity": "herb:henbane",
       "blockedSubmissions": 2,
-      "structuralNote": "Taylor & Francis DOIs use numeric journal codes (e.g. 10.1080/15569543.YYYY.NNNNN), never a journal abbreviation."
+      "structuralNote": "Taylor & Francis DOIs use numeric journal codes (e.g. 10.1080/15569543.YYYY.NNNNN), never a journal abbreviation.",
+      "reason": "doi-handle-unregistered"
     },
     {
       "sourceId": "src_doi-10-1002-ptrr-2023-4419",
@@ -20,7 +21,8 @@
       "pubmed": null,
       "claimedEntity": "herb:mandrake-root",
       "blockedSubmissions": 1,
-      "structuralNote": "Wiley Phytotherapy Research is 10.1002/ptr.NNNN with no year segment; 'ptrr' is not a Wiley journal code."
+      "structuralNote": "Wiley Phytotherapy Research is 10.1002/ptr.NNNN with no year segment; 'ptrr' is not a Wiley journal code.",
+      "reason": "doi-handle-unregistered"
     },
     {
       "sourceId": "src_doi-10-1016-j-molnpharm-2025-07-004",
@@ -29,7 +31,8 @@
       "pubmed": null,
       "claimedEntity": "compound:cbd",
       "blockedSubmissions": 1,
-      "structuralNote": "Molecular Pharmaceutics is an ACS title (10.1021/acs.molpharmaceut.*), not an Elsevier j.* code."
+      "structuralNote": "Molecular Pharmaceutics is an ACS title (10.1021/acs.molpharmaceut.*), not an Elsevier j.* code.",
+      "reason": "doi-handle-unregistered"
     },
     {
       "sourceId": "src_doi-10-3389-nprev-2024-220103",
@@ -38,7 +41,8 @@
       "pubmed": null,
       "claimedEntity": "compound:luteolin",
       "blockedSubmissions": 1,
-      "structuralNote": "Frontiers DOIs are 10.3389/fXXXX.YYYY.NNNNNN; 'nprev' is not a Frontiers journal code."
+      "structuralNote": "Frontiers DOIs are 10.3389/fXXXX.YYYY.NNNNNN; 'nprev' is not a Frontiers journal code.",
+      "reason": "doi-handle-unregistered"
     },
     {
       "sourceId": "src_doi-10-1186-cpr-2024-11820",
@@ -47,7 +51,8 @@
       "pubmed": null,
       "claimedEntity": "compound:cbd",
       "blockedSubmissions": 2,
-      "structuralNote": "BMC DOIs are 10.1186/sNNNNN-YY-NNNNN-N; 'cpr.YYYY.NNNNN' is not a BMC pattern."
+      "structuralNote": "BMC DOIs are 10.1186/sNNNNN-YY-NNNNN-N; 'cpr.YYYY.NNNNN' is not a BMC pattern.",
+      "reason": "doi-handle-unregistered"
     },
     {
       "sourceId": "src_doi-10-1016-j-mnp-2023-11-204",
@@ -56,73 +61,134 @@
       "pubmed": null,
       "claimedEntity": "compound:luteolin",
       "blockedSubmissions": 2,
-      "structuralNote": "No Elsevier journal uses the 'j.mnp' code."
+      "structuralNote": "No Elsevier journal uses the 'j.mnp' code.",
+      "reason": "doi-handle-unregistered"
     }
   ],
-  "verifiedRealButNotAdmitted": [
+  "admissionRequirement": "Admission requires a human to assign reliabilityTier and record reviewer/reviewedAt per schemas/source-registry.schema.json. Verification that a DOI exists is necessary but not sufficient. Where admitting a source would also clear the last automated gate on a high-stakes claim, the registry row additionally carries an editorialAdjudication hold, which rollupSourceEligibilityError enforces.",
+  "amendedAt": "2026-09-06T18:30:00.000Z",
+  "amendmentNote": "Amended after commit 7ef8d71e6 admitted the nine verified sources. The section previously named verifiedRealButNotAdmitted asserted they were withheld, which stopped being true 35 minutes after this file was written.",
+  "retracted": [
+    {
+      "pmid": "39437887",
+      "reason": "retracted-publication",
+      "entity": "herb:garlic",
+      "note": "Aged-garlic blood-pressure meta-analysis, retracted. Must not back canonical efficacy."
+    },
+    {
+      "pmid": "42527229",
+      "reason": "retraction-notice",
+      "entity": "herb:garlic",
+      "note": "The retraction notice for PMID 39437887. A notice is not evidence and must not be cited as support."
+    }
+  ],
+  "verifiedReal": [
     {
       "doi": "10.1007/s13659-022-00357-w",
       "pmid": "36109439",
       "title": "Beauty of the beast: anticholinergic tropane alkaloids in therapeutics",
       "entity": "herb:mandrake-root",
-      "note": "Real and entity-aligned. Submission claims human-clinical; the article is a therapeutics review, so evidence class needs human adjudication before admission."
+      "verificationNote": "Real and entity-aligned. Submission claims human-clinical; the article is a therapeutics review, so evidence class needs human adjudication before admission.",
+      "admitted": true,
+      "sourceId": "src_doi-10-1007-s13659-022-00357-w",
+      "admittedIn": "7ef8d71e6",
+      "editorialAdjudication": null
     },
     {
       "doi": "10.1159/000505202",
       "pmid": null,
       "title": "Systematic Review and Meta-Analysis on the Survival of Cancer Patients Treated with a Fermented Viscum album L. Extract (Iscador)",
       "entity": "herb:mistletoe",
-      "note": "Real and entity-aligned (Viscum album = mistletoe). HIGH-STAKES: a supported_use/efficacy_signal for cancer survival is a YMYL editorial decision and must not be admitted mechanically. Design is systematic review / meta-analysis and must be recorded as such."
+      "verificationNote": "Real and entity-aligned (Viscum album = mistletoe). HIGH-STAKES: a supported_use/efficacy_signal for cancer survival is a YMYL editorial decision and must not be admitted mechanically. Design is systematic review / meta-analysis and must be recorded as such.",
+      "admitted": true,
+      "sourceId": "src_doi-10-1159-000505202",
+      "admittedIn": "7ef8d71e6",
+      "editorialAdjudication": {
+        "reason": "Cancer-survival efficacy from a contested, industry-adjacent Iscador literature is a YMYL editorial decision. Admitting the source made it citable; it does not authorize a mistletoe survival efficacy claim.",
+        "topicTypes": [
+          "supported_use"
+        ],
+        "claimTypes": [
+          "efficacy_signal"
+        ]
+      }
     },
     {
       "doi": "10.1016/j.jphotobiol.2016.04.028",
       "pmid": null,
       "title": "Microclimatic variation in UV perception and related disparity in tropane and quinolizidine alkaloid composition of Atropa acuminata, Lupinus polyphyllus and Hyoscyamus niger",
       "entity": "herb:henbane",
-      "note": "Real and entity-aligned (Hyoscyamus niger = henbane). Claimed preclinical-mechanistic is correct."
+      "verificationNote": "Real and entity-aligned (Hyoscyamus niger = henbane). Claimed preclinical-mechanistic is correct.",
+      "admitted": true,
+      "sourceId": "src_doi-10-1016-j-jphotobiol-2016-04-028",
+      "admittedIn": "7ef8d71e6",
+      "editorialAdjudication": null
     },
     {
       "doi": "10.1080/00275514.2025.2483634",
       "pmid": "40261263",
       "title": "(Mycologia 2025)",
       "entity": "herb:ipomoea-tricolor-heavenly-blue",
-      "note": "Real, PubMed-indexed. Claimed preclinical-mechanistic."
+      "verificationNote": "Real, PubMed-indexed. Claimed preclinical-mechanistic.",
+      "admitted": true,
+      "sourceId": "src_doi-10-1080-00275514-2025-2483634",
+      "admittedIn": "7ef8d71e6",
+      "editorialAdjudication": null
     },
     {
       "doi": "10.1055/a-0577-8049",
       "pmid": null,
       "title": "Ergot Alkaloids and their Hallucinogenic Potential in Morning Glories",
       "entity": "herb:rivea-corymbosa",
-      "note": "Real and entity-aligned (Rivea corymbosa is a morning glory). Claimed preclinical-mechanistic is correct."
+      "verificationNote": "Real and entity-aligned (Rivea corymbosa is a morning glory). Claimed preclinical-mechanistic is correct.",
+      "admitted": true,
+      "sourceId": "src_doi-10-1055-a-0577-8049",
+      "admittedIn": "7ef8d71e6",
+      "editorialAdjudication": null
     },
     {
       "doi": "10.1021/acs.orglett.6c00670",
       "pmid": null,
       "title": "Jatropodagines A and B: Lathyrane Diterpenoid Dimers from Jatropha podagrica",
       "entity": "herb:jatropha-podagrica",
-      "note": "Real and entity-aligned. Claimed preclinical-mechanistic is correct."
+      "verificationNote": "Real and entity-aligned. Claimed preclinical-mechanistic is correct.",
+      "admitted": true,
+      "sourceId": "src_doi-10-1021-acs-orglett-6c00670",
+      "admittedIn": "7ef8d71e6",
+      "editorialAdjudication": null
     },
     {
       "doi": "10.1016/j.sjbs.2019.10.002",
       "pmid": "31889855",
       "title": "(Saudi J Biol Sci 2019)",
       "entity": "herb:iresine-herbstii",
-      "note": "Real, PubMed-indexed. Claimed preclinical-mechanistic."
+      "verificationNote": "Real, PubMed-indexed. Claimed preclinical-mechanistic.",
+      "admitted": true,
+      "sourceId": "src_doi-10-1016-j-sjbs-2019-10-002",
+      "admittedIn": "7ef8d71e6",
+      "editorialAdjudication": null
     },
     {
       "doi": "10.1002/jemt.23847",
       "pmid": null,
       "title": "Chemo-taxonomic and biological potential of Pedicularis groenlandica Retz.",
       "entity": "herb:pedicularis-groenlandica",
-      "note": "Real and entity-aligned. Claimed preclinical-mechanistic is correct."
+      "verificationNote": "Real and entity-aligned. Claimed preclinical-mechanistic is correct.",
+      "admitted": true,
+      "sourceId": "src_doi-10-1002-jemt-23847",
+      "admittedIn": "7ef8d71e6",
+      "editorialAdjudication": null
     },
     {
       "doi": "10.3390/ijms27062899",
       "pmid": "41898755",
       "title": "(Int J Mol Sci 2026)",
       "entity": "compound:cbd",
-      "note": "Real, PubMed-indexed. Claimed preclinical-mechanistic."
+      "verificationNote": "Real, PubMed-indexed. Claimed preclinical-mechanistic.",
+      "admitted": true,
+      "sourceId": "src_doi-10-3390-ijms27062899",
+      "admittedIn": "7ef8d71e6",
+      "editorialAdjudication": null
     }
-  ],
-  "admissionRequirement": "Admission still requires a human to assign reliabilityTier and record reviewer/reviewedAt per schemas/source-registry.schema.json. Verification that a DOI exists is necessary but not sufficient."
+  ]
 }

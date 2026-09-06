@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-29T19:17:24.282Z",
+  "generatedAt": "2026-09-06T21:50:16.958Z",
   "input": "data\\distribution\\research-objects.json",
   "count": 1,
   "opportunities": [
@@ -9,11 +9,11 @@
       "destinationUrl": "https://thehippiescientist.net/herbs/ashwagandha/",
       "eligible": true,
       "evidenceGrade": "B",
-      "lastVerified": "2026-08-27",
+      "lastVerified": "2026-08-29",
       "signals": {
         "evidenceStrength": 8,
         "freshness": 10,
-        "freshnessDays": 2,
+        "freshnessDays": 8,
         "socialSuitability": 9,
         "informationUniqueness": 8,
         "claimRisk": 2
