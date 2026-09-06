@@ -72,6 +72,10 @@ export default defineConfig({
       'agent/lib/runtime-resilience.test.js',
       'scripts/enrichment-governor/__tests__/**',
       'scripts/content/__tests__/**',
+      // node:test suite — vitest collects it, finds no vitest suite, and fails the
+      // file. It passes 4/4 under `npm run test:node`, which discovers it by its
+      // real top-level `import ... from 'node:test'`.
+      'scripts/ci/swarm-operational-ledger.test.mjs',
     ],
     maxWorkers: '50%',
     testTimeout: 15000,
