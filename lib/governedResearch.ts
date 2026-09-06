@@ -1,29 +1,92 @@
 import governedRollup from '../public/data/enrichment-governed.json'
-import enrichmentOverlay from '../public/data/enrichment-governed-overlay-2026-09-05.json'
 import sourceRegistry from '../public/data/source-registry.json'
-import sourceRegistryOverlay from '../public/data/source-registry-enrichment-overlay-2026-09-05.json'
 import { buildPublishSafeEnrichmentSummary } from './enrichmentDiscovery'
-import type { EvidenceJudgment, EvidenceLabel, EditorialStatus, ResearchEnrichment, ResearchSourceRef } from '@/types/researchEnrichment'
+import type {
+  EvidenceJudgment,
+  EvidenceLabel,
+  EditorialStatus,
+  ResearchEnrichment,
+  ResearchSourceRef,
+} from '@/types/researchEnrichment'
 
 export type GovernedEntityType = 'herb' | 'compound'
 
-type RollupEntry = { entityType: GovernedEntityType; entitySlug: string; researchEnrichment: Omit<ResearchEnrichment, 'sourceRefs'> & { sourceRegistryIds?: string[] } }
-type GovernedRollupPayload = { items?: RollupEntry[] }
-type SourceRegistryEntry = { sourceId: string; sourceType: string; sourceClass: string; title: string; publicationYear?: number; canonicalUrl?: string; citationText?: string; evidenceClass?: ResearchSourceRef['evidenceClass']; reviewer?: string; active?: boolean }
-
-const PUBLISHABLE_EDITORIAL_STATUSES = new Set<EditorialStatus>(['approved', 'published'])
-const EVIDENCE_LABEL_META: Record<EvidenceLabel, { title: string; tone: string; className: string }> = {
-  stronger_human_support: { title: 'Stronger human support', tone: 'Human clinical evidence is stronger, but still not universal for every outcome.', className: 'border-emerald-300/40 bg-emerald-500/10 text-emerald-100' },
-  limited_human_support: { title: 'Limited human support', tone: 'Some human evidence exists, but effect certainty remains limited.', className: 'border-cyan-300/40 bg-cyan-500/10 text-cyan-100' },
-  observational_only: { title: 'Observational only', tone: 'Findings are observational and do not establish causality on their own.', className: 'border-sky-300/40 bg-sky-500/10 text-sky-100' },
-  preclinical_only: { title: 'Preclinical only', tone: 'Evidence is preclinical and should not be interpreted as proven clinical efficacy.', className: 'border-violet-300/40 bg-violet-500/10 text-violet-100' },
-  traditional_use_only: { title: 'Traditional use only', tone: 'Use context is traditional; modern clinical confirmation is limited.', className: 'border-amber-300/40 bg-amber-500/10 text-amber-100' },
-  mixed_or_uncertain: { title: 'Mixed or uncertain', tone: 'Signals are mixed and should be read with uncertainty.', className: 'border-yellow-300/40 bg-yellow-500/10 text-yellow-100' },
-  conflicting_evidence: { title: 'Conflicting evidence', tone: 'Evidence conflicts across sources or contexts.', className: 'border-rose-300/40 bg-rose-500/10 text-rose-100' },
-  insufficient_evidence: { title: 'Insufficient evidence', tone: 'Current evidence is insufficient for reliable efficacy conclusions.', className: 'border-white/25 bg-white/5 text-white/85' },
+type RollupEntry = {
+  entityType: GovernedEntityType
+  entitySlug: string
+  researchEnrichment: Omit<ResearchEnrichment, 'sourceRefs'> & {
+    sourceRegistryIds?: string[]
+  }
 }
 
-const sourceRegistryById = new Map(([...(sourceRegistry as SourceRegistryEntry[]), ...(sourceRegistryOverlay as SourceRegistryEntry[])].map(entry => [entry.sourceId, entry])))
+type GovernedRollupPayload = {
+  items?: RollupEntry[]
+}
+
+type SourceRegistryEntry = {
+  sourceId: string
+  sourceType: string
+  sourceClass: string
+  title: string
+  publicationYear?: number
+  canonicalUrl?: string
+  citationText?: string
+  evidenceClass?: ResearchSourceRef['evidenceClass']
+  reviewer?: string
+  active?: boolean
+}
+
+const PUBLISHABLE_EDITORIAL_STATUSES = new Set<EditorialStatus>(['approved', 'published'])
+
+const EVIDENCE_LABEL_META: Record<
+  EvidenceLabel,
+  { title: string; tone: string; className: string }
+> = {
+  stronger_human_support: {
+    title: 'Stronger human support',
+    tone: 'Human clinical evidence is stronger, but still not universal for every outcome.',
+    className: 'border-emerald-300/40 bg-emerald-500/10 text-emerald-100',
+  },
+  limited_human_support: {
+    title: 'Limited human support',
+    tone: 'Some human evidence exists, but effect certainty remains limited.',
+    className: 'border-cyan-300/40 bg-cyan-500/10 text-cyan-100',
+  },
+  observational_only: {
+    title: 'Observational only',
+    tone: 'Findings are observational and do not establish causality on their own.',
+    className: 'border-sky-300/40 bg-sky-500/10 text-sky-100',
+  },
+  preclinical_only: {
+    title: 'Preclinical only',
+    tone: 'Evidence is preclinical and should not be interpreted as proven clinical efficacy.',
+    className: 'border-violet-300/40 bg-violet-500/10 text-violet-100',
+  },
+  traditional_use_only: {
+    title: 'Traditional use only',
+    tone: 'Use context is traditional; modern clinical confirmation is limited.',
+    className: 'border-amber-300/40 bg-amber-500/10 text-amber-100',
+  },
+  mixed_or_uncertain: {
+    title: 'Mixed or uncertain',
+    tone: 'Signals are mixed and should be read with uncertainty.',
+    className: 'border-yellow-300/40 bg-yellow-500/10 text-yellow-100',
+  },
+  conflicting_evidence: {
+    title: 'Conflicting evidence',
+    tone: 'Evidence conflicts across sources or contexts.',
+    className: 'border-rose-300/40 bg-rose-500/10 text-rose-100',
+  },
+  insufficient_evidence: {
+    title: 'Insufficient evidence',
+    tone: 'Current evidence is insufficient for reliable efficacy conclusions.',
+    className: 'border-white/25 bg-white/5 text-white/85',
+  },
+}
+
+const sourceRegistryById = new Map(
+  (sourceRegistry as SourceRegistryEntry[]).map(entry => [entry.sourceId, entry]),
+)
 
 function toSourceType(sourceType: string): ResearchSourceRef['sourceType'] {
   if (sourceType.includes('regulatory')) return 'regulatory'
@@ -38,23 +101,78 @@ function toSourceType(sourceType: string): ResearchSourceRef['sourceType'] {
 
 function toSourceRefs(sourceIds: string[] | undefined): ResearchSourceRef[] {
   if (!Array.isArray(sourceIds)) return []
-  return sourceIds.map(sourceId => {
-    const source = sourceRegistryById.get(sourceId)
-    if (!source?.active || !source.title || !source.evidenceClass) return null
-    return { sourceId, sourceType: toSourceType(source.sourceClass || source.sourceType || ''), title: source.title, evidenceClass: source.evidenceClass, reviewer: source.reviewer || 'editorial-team', extractConfidence: 'high', ...(source.publicationYear ? { publicationYear: source.publicationYear } : {}), ...(source.canonicalUrl ? { url: source.canonicalUrl } : {}), ...(source.citationText ? { notes: source.citationText } : {}) }
-  }).filter((source): source is ResearchSourceRef => source !== null)
+  const refs: Array<ResearchSourceRef | null> = sourceIds
+    .map(sourceId => {
+      const source = sourceRegistryById.get(sourceId)
+      if (!source?.active || !source.title || !source.evidenceClass) return null
+      return {
+        sourceId,
+        sourceType: toSourceType(source.sourceClass || source.sourceType || ''),
+        title: source.title,
+        evidenceClass: source.evidenceClass,
+        reviewer: source.reviewer || 'editorial-team',
+        extractConfidence: 'high',
+        ...(source.publicationYear ? { publicationYear: source.publicationYear } : {}),
+        ...(source.canonicalUrl ? { url: source.canonicalUrl } : {}),
+        ...(source.citationText ? { notes: source.citationText } : {}),
+      }
+    })
+  return refs.filter((source): source is ResearchSourceRef => source !== null)
 }
 
 export function isPublishableGovernedEnrichment(enrichment: ResearchEnrichment | null | undefined) {
-  return !!enrichment && PUBLISHABLE_EDITORIAL_STATUSES.has(enrichment.editorialStatus) && !!enrichment.editorialReadiness?.publishable
+  if (!enrichment) return false
+  if (!PUBLISHABLE_EDITORIAL_STATUSES.has(enrichment.editorialStatus)) return false
+  if (!enrichment.editorialReadiness?.publishable) return false
+  return true
 }
 
-const governedRollupItems = Array.isArray(governedRollup) ? (governedRollup as RollupEntry[]) : ((governedRollup as GovernedRollupPayload)?.items ?? [])
-const overlayItems = enrichmentOverlay as RollupEntry[]
-const rollupMap = new Map([...governedRollupItems, ...overlayItems].map(entry => [`${entry.entityType}:${entry.entitySlug}`, { ...entry.researchEnrichment, sourceRefs: toSourceRefs(entry.researchEnrichment.sourceRegistryIds) } as ResearchEnrichment]))
+const governedRollupItems = Array.isArray(governedRollup)
+  ? (governedRollup as RollupEntry[])
+  : ((governedRollup as GovernedRollupPayload)?.items ?? [])
 
-export function getGovernedResearchEnrichment(entityType: GovernedEntityType, entitySlug: string): ResearchEnrichment | null { return rollupMap.get(`${entityType}:${entitySlug}`) || null }
-export function getGovernedEnrichmentSummary(entityType: GovernedEntityType, entitySlug: string) { const enrichment = getGovernedResearchEnrichment(entityType, entitySlug); return enrichment ? buildPublishSafeEnrichmentSummary(enrichment) : null }
-export function getEvidenceLabelMeta(label: EvidenceLabel) { return EVIDENCE_LABEL_META[label] }
-export function getTopicJudgment(enrichment: ResearchEnrichment, topicType: string): EvidenceJudgment { return enrichment.topicEvidenceJudgments[topicType] || enrichment.pageEvidenceJudgment }
-export function getPublishableGovernedEntries() { return Array.from(rollupMap.entries()).map(([key, researchEnrichment]) => { const [entityType, entitySlug] = key.split(':') as [GovernedEntityType, string]; return { entityType, entitySlug, researchEnrichment } }).sort((a, b) => `${a.entityType}:${a.entitySlug}`.localeCompare(`${b.entityType}:${b.entitySlug}`)) }
+const rollupMap = new Map(
+  governedRollupItems.map(entry => {
+    const researchEnrichment = {
+      ...entry.researchEnrichment,
+      sourceRefs: toSourceRefs(entry.researchEnrichment.sourceRegistryIds),
+    } as ResearchEnrichment
+    return [`${entry.entityType}:${entry.entitySlug}`, researchEnrichment]
+  }),
+)
+
+export function getGovernedResearchEnrichment(
+  entityType: GovernedEntityType,
+  entitySlug: string,
+): ResearchEnrichment | null {
+  const enrichment = rollupMap.get(`${entityType}:${entitySlug}`)
+  if (!enrichment) return null
+  return enrichment
+}
+
+export function getGovernedEnrichmentSummary(entityType: GovernedEntityType, entitySlug: string) {
+  const enrichment = getGovernedResearchEnrichment(entityType, entitySlug)
+  return enrichment ? buildPublishSafeEnrichmentSummary(enrichment) : null
+}
+
+export function getEvidenceLabelMeta(label: EvidenceLabel) {
+  return EVIDENCE_LABEL_META[label]
+}
+
+export function getTopicJudgment(
+  enrichment: ResearchEnrichment,
+  topicType: string,
+): EvidenceJudgment {
+  return enrichment.topicEvidenceJudgments[topicType] || enrichment.pageEvidenceJudgment
+}
+
+export function getPublishableGovernedEntries() {
+  return Array.from(rollupMap.entries())
+    .map(([key, researchEnrichment]) => {
+      const [entityType, entitySlug] = key.split(':') as [GovernedEntityType, string]
+      return { entityType, entitySlug, researchEnrichment }
+    })
+    .sort((a, b) =>
+      `${a.entityType}:${a.entitySlug}`.localeCompare(`${b.entityType}:${b.entitySlug}`),
+    )
+}
