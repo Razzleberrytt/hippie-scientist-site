@@ -47,7 +47,23 @@ describe('ShowMeTheStudies default evidence snapshot', () => {
     expect(screen.getAllByText(/2 human trials/i).length).toBeGreaterThan(0)
     expect(screen.getByText(/approximate participant total is 200/i)).toBeTruthy()
     expect(screen.getByText(/1 supports the conclusion, 0 are mixed, 1 contradict it/i)).toBeTruthy()
-    expect(screen.getByText(/Confidence: not separately assigned/i)).toBeTruthy()
+  })
+
+  // Generic placeholder prose used to render on every profile that lacked a value.
+  // Repeated verbatim across ~300 pages it made the corpus read as near-duplicate
+  // content, so an absent value now omits its sentence instead of filling it.
+  it('omits the evidence-grade line when neither grade nor confidence is supplied', () => {
+    render(<ShowMeTheStudies citations={citations} />)
+
+    expect(screen.queryByText(/Confidence: not separately assigned/i)).toBeNull()
+    expect(screen.queryByText(/see the profile grade above/i)).toBeNull()
+  })
+
+  it('renders the evidence-grade line from real per-profile values', () => {
+    render(<ShowMeTheStudies citations={citations} evidenceGrade="Moderate" confidence="moderate" />)
+
+    expect(screen.getByText(/Profile-wide evidence grade: Moderate/i)).toBeTruthy()
+    expect(screen.getByText(/Confidence: moderate/i)).toBeTruthy()
   })
 
   it('does not invent directional consistency when relationships are unclassified', () => {
@@ -60,8 +76,9 @@ describe('ShowMeTheStudies default evidence snapshot', () => {
       },
     ]} />)
 
-    expect(screen.getByText(/source-to-conclusion relationships are not classified/i)).toBeTruthy()
-    expect(screen.getAllByText(/consistency is not yet classifiable/i).length).toBeGreaterThan(0)
+    // Stays silent rather than asserting unclassifiable consistency in boilerplate.
+    expect(screen.queryByText(/source-to-conclusion relationships are not classified/i)).toBeNull()
+    expect(screen.queryByText(/consistency is not yet classifiable/i)).toBeNull()
     expect(screen.queryByText(/0 supporting, 0 mixed, 0 contradicting/i)).toBeNull()
   })
 
@@ -70,10 +87,21 @@ describe('ShowMeTheStudies default evidence snapshot', () => {
     expect(screen.getByText(/should not automatically be generalized to every product/i)).toBeTruthy()
   })
 
-  it('always states what evidence could change the conclusion', () => {
-    render(<ShowMeTheStudies citations={citations} />)
+  it('states what evidence could change the conclusion when the profile supplies it', () => {
+    render(
+      <ShowMeTheStudies
+        citations={citations}
+        whatWouldChangeConclusion="A replication in adults over 60 using the same standardized extract would materially change this."
+      />,
+    )
     expect(screen.getByText('What would change our conclusion?')).toBeTruthy()
-    expect(screen.getByText(/larger, well-controlled human trials/i)).toBeTruthy()
+    expect(screen.getByText(/replication in adults over 60/i)).toBeTruthy()
+  })
+
+  it('omits the conclusion-change panel rather than filling it with generic prose', () => {
+    render(<ShowMeTheStudies citations={citations} />)
+    expect(screen.queryByText('What would change our conclusion?')).toBeNull()
+    expect(screen.queryByText(/larger, well-controlled human trials/i)).toBeNull()
   })
 
   it('surfaces disagreement explicitly instead of averaging it away', () => {

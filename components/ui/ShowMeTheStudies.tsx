@@ -295,14 +295,21 @@ export default function ShowMeTheStudies({
           ? `${metrics.background} additional source relationship${metrics.background === 1 ? ' is' : 's are'} background or not directionally classified.`
           : '',
       ].filter(Boolean).join(' ')
-    : 'Source-to-conclusion relationships are not classified in this structured set, so consistency is not yet classifiable.'
+    : ''
+  // Only emit sentences carrying per-profile numbers. Generic "not computable"
+  // fallbacks used to render on every profile, which made ~300 pages read as
+  // near-duplicates to crawlers; an absent value now omits its sentence instead.
   const evidenceSnapshot = conclusion || [
     `This table contains ${metrics.totalStudies} structured source${metrics.totalStudies === 1 ? '' : 's'}, including ${metrics.humanStudies} human evidence source${metrics.humanStudies === 1 ? '' : 's'}; ${metrics.humanTrials} ${metrics.humanTrials === 1 ? 'is a human trial' : 'are human trials'}.`,
     metrics.studiesWithParticipantCounts > 0
       ? `Across ${metrics.studiesWithParticipantCounts} human evidence source${metrics.studiesWithParticipantCounts === 1 ? '' : 's'} with a reported sample size, the approximate participant total is ${metrics.approximateParticipants.toLocaleString()}; overlapping publications may include some of the same people.`
-      : 'A reliable participant total cannot be calculated because sample size is not consistently structured in the cited sources.',
+      : '',
     relationshipSummary,
-  ].join(' ')
+  ].filter(Boolean).join(' ')
+  const evidenceGradeLine = [
+    evidenceGrade ? `Profile-wide evidence grade: ${evidenceGrade}` : '',
+    confidence ? `Confidence: ${confidence}` : '',
+  ].filter(Boolean).join(' · ')
   const hasDisagreement = metrics.mixed > 0 || metrics.contradicting > 0 || metrics.noClearEffect > 0
 
   return (
@@ -338,25 +345,27 @@ export default function ShowMeTheStudies({
 
       <div className="grid gap-4 border-t border-[color:var(--hs-hairline)] p-4 md:grid-cols-2 md:gap-6">
         <div>
-          <p className="hs-label">What the evidence actually shows</p>
-          <p className="mt-2 text-sm leading-6 text-ink">{evidenceSnapshot}</p>
+          {evidenceSnapshot ? (
+            <>
+              <p className="hs-label">What the evidence actually shows</p>
+              <p className="mt-2 text-sm leading-6 text-ink">{evidenceSnapshot}</p>
+            </>
+          ) : null}
           {namedExtracts.length > 0 ? (
             <p className="mt-2 text-xs leading-5 text-amber-900 dark:text-amber-100">
               <strong>Form limitation:</strong> Some findings concern named preparations ({namedExtracts.slice(0, 3).join(', ')}{namedExtracts.length > 3 ? ', …' : ''}); those results should not automatically be generalized to every product sold under the ingredient name.
             </p>
           ) : null}
-          <p className="mt-2 text-xs font-semibold text-ink">
-            {evidenceGrade ? `Profile-wide evidence grade: ${evidenceGrade}` : 'Profile-wide evidence grade: see the profile grade above'}
-            {' · '}
-            {confidence ? `Confidence: ${confidence}` : 'Confidence: not separately assigned'}
-          </p>
+          {evidenceGradeLine ? (
+            <p className="mt-2 text-xs font-semibold text-ink">{evidenceGradeLine}</p>
+          ) : null}
         </div>
-        <div className="border-t border-[color:var(--hs-hairline)] pt-4 md:border-t-0 md:border-l md:pl-6 md:pt-0">
-          <p className="hs-label">What would change our conclusion?</p>
-          <p className="mt-2 text-sm leading-6 text-muted">
-            {whatWouldChangeConclusion || 'Larger, well-controlled human trials using comparable populations, doses, preparations, and clinically meaningful outcomes could materially strengthen or weaken this conclusion. Replication in a different population or a high-quality synthesis resolving current disagreement could also materially change confidence.'}
-          </p>
-        </div>
+        {whatWouldChangeConclusion ? (
+          <div className="border-t border-[color:var(--hs-hairline)] pt-4 md:border-t-0 md:border-l md:pl-6 md:pt-0">
+            <p className="hs-label">What would change our conclusion?</p>
+            <p className="mt-2 text-sm leading-6 text-muted">{whatWouldChangeConclusion}</p>
+          </div>
+        ) : null}
       </div>
 
       {hasDisagreement ? (
