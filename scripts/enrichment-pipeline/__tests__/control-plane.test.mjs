@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
-  admissionDecision, automatedAdjudicationDecision, computeSessionYield, contradictionPriority,
+  admissionDecision, aiCitationSignalForWorkpack, applyAiCitationSignal,
+  automatedAdjudicationDecision, computeSessionYield, contradictionPriority,
   promotionBlockerDisposition, promotionDecision, routeSubmission, semanticAttestationEvidenceReceipt,
   semanticAttestationStatus, scoreOrphan, scoreWorkpack,
 } from '../lib/control-plane.mjs'
@@ -18,6 +19,17 @@ const verified = {
 
 const source = {
   sourceId: 'src_test', active: true, publicationStatus: 'published', evidenceClass: 'human-clinical',
+}
+
+const citationManifest = {
+  snapshotLabel: '2026-09-04',
+  defendUrls: [
+    { url: '/guides/sleep/best-natural-sleep-aids-that-work/', citations: 5424, priority: 5 },
+  ],
+  entityBoosts: {
+    valerian: { priority: 5, reason: 'high-citation sleep adjacency' },
+    kava: { priority: 4, reason: 'high-citation anxiety adjacency' },
+  },
 }
 
 function base(overrides = {}) {
@@ -132,6 +144,40 @@ describe('enrichment control plane', () => {
     const high = scoreOrphan({ published: true, safetyRelevant: true, humanEvidence: true, trafficScore: 5, fanoutCount: 3 })
     const low = scoreOrphan({ published: false, safetyRelevant: false, humanEvidence: false })
     expect(high.score).toBeGreaterThan(low.score)
+  })
+
+  it('maps direct winner URLs and citation-adjacent entities into bounded swarm signals', () => {
+    expect(aiCitationSignalForWorkpack({ pageUrl: 'https://thehippiescientist.net/guides/sleep/best-natural-sleep-aids-that-work' }, citationManifest)).toEqual({
+      priority: 5,
+      defend: true,
+      citations: 5424,
+      reason: 'direct_cited_url',
+      snapshotLabel: '2026-09-04',
+    })
+    expect(aiCitationSignalForWorkpack({ entitySlug: 'Valerian' }, citationManifest)).toMatchObject({
+      priority: 5,
+      defend: false,
+      reason: 'citation_adjacent_entity',
+    })
+    expect(aiCitationSignalForWorkpack({ entitySlug: 'uncited-test' }, citationManifest).priority).toBe(0)
+  })
+
+  it('adds citation opportunity to eligible workpack ROI without letting blocked work receive the boost', () => {
+    const cited = applyAiCitationSignal({ entitySlug: 'kava', evidenceGap: 2 }, citationManifest)
+    const plain = { entitySlug: 'uncited-test', evidenceGap: 2 }
+    const blocked = { ...cited, hardBlocked: true }
+    expect(scoreWorkpack(cited).components.aiCitationOpportunity).toBe(12)
+    expect(scoreWorkpack(cited).score).toBeGreaterThan(scoreWorkpack(plain).score)
+    expect(scoreWorkpack(blocked).components.aiCitationOpportunity).toBe(0)
+    expect(scoreWorkpack(blocked).components.aiCitationDefense).toBe(0)
+  })
+
+  it('adds a bounded defense premium for a directly cited winner', () => {
+    const winner = applyAiCitationSignal({ pageUrl: '/guides/sleep/best-natural-sleep-aids-that-work/', evidenceGap: 1 }, citationManifest)
+    const roi = scoreWorkpack(winner)
+    expect(winner.aiCitationCount).toBe(5424)
+    expect(roi.components.aiCitationOpportunity).toBe(15)
+    expect(roi.components.aiCitationDefense).toBe(6)
   })
 
   it('separates automated-adjudication latency from a true hard workpack block', () => {

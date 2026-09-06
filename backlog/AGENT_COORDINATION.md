@@ -8,14 +8,14 @@ Use a small set of persistent specialty lanes rather than manually assigning all
 
 | Lane | Primary responsibility |
 |---|---|
-| Coordinator | Queue health, dependencies, ownership, collision prevention, reprioritization, blocker triage |
+| Coordinator | Queue health, dependencies, ownership, collision prevention, reprioritization, blocker triage, fresh demand-signal allocation |
 | Design | Visual system, layouts, typography, responsive UX, UI polish |
 | Engineering | Components, architecture, data plumbing, performance, build/runtime systems |
-| Evidence | Evidence grades, study quality, claim support, citations, methodology |
-| Safety | Interactions, contraindications, warnings, safety presentation and validation |
-| SEO | Metadata, schema, internal linking, crawl/indexation, search architecture |
+| Evidence | Evidence grades, study quality, claim support, citations, methodology; prioritize citation-adjacent evidence gaps when scientifically eligible |
+| Safety | Interactions, contraindications, warnings, safety presentation and validation; safety gates always outrank demand signals |
+| SEO | Metadata, schema, internal linking, crawl/indexation, search architecture, AI-citation winner protection and cluster expansion |
 | QA | Automated tests, visual regression, accessibility, release verification |
-| Growth | Conversion, email capture, affiliate UX, analytics, distribution experiments |
+| Growth | Conversion, email capture, affiliate UX, analytics, distribution experiments; monetize citation winners only downstream of answer/evidence/safety |
 
 The master backlog already contains an `Agent Role` / specialty assignment for each ticket. That field defines the lane. `backlog/status.csv` records the live human/agent owner.
 
@@ -26,12 +26,28 @@ The coordinator normally does not implement feature tickets. It manages flow.
 Before agents begin a work cycle, the coordinator should:
 
 1. Materialize the backlog with `python backlog/materialize_backlog.py`.
-2. Identify the highest-priority `Ready` tickets with satisfied dependencies.
-3. Exclude tickets that overlap active work on the same foundational component, data model, route family, or migration.
-4. Allow each specialist to claim the highest-priority eligible ticket in its lane.
-5. Keep the number of simultaneous foundational edits small.
-6. Re-rank later work when analytics, Search Console, revenue, incidents, or completed dependencies materially change expected ROI.
-7. Triage `Blocked` tickets and either resolve the dependency, create a prerequisite ticket, or leave the item blocked with a clear reason.
+2. Read `config/ai-citation-swarm-priorities.json` when present and fresh; treat it as a bounded first-party demand/authority input, never as traffic or revenue proof.
+3. Identify the highest-priority `Ready` tickets with satisfied dependencies.
+4. Exclude tickets that overlap active work on the same foundational component, data model, route family, citation winner, cluster hub, or migration.
+5. Allow each specialist to claim the highest-priority eligible ticket in its lane.
+6. Keep the number of simultaneous foundational edits small.
+7. Re-rank later work when analytics, Search Console, fresh AI-citation telemetry, revenue, incidents, or completed dependencies materially change expected ROI.
+8. Triage `Blocked` tickets and either resolve the dependency, create a prerequisite ticket, or leave the item blocked with a clear reason.
+
+## AI citation feedback loop
+
+Fresh page-level AI citation telemetry is an allowed prioritization input under the existing backlog formula and WIP system. The current operating standard is [`docs/AI-CITATION-GROWTH-LOOP.md`](../docs/AI-CITATION-GROWTH-LOOP.md), with the latest derived non-raw signals in `config/ai-citation-swarm-priorities.json`.
+
+For discretionary Discovery/SEO and research-enrichment selection, target roughly:
+
+- **65% citation-adjacent capacity** for protecting proven winners, filling adjacent evidence/safety gaps, strengthening cited clusters and hubs, fixing canonical/intent overlap, and improving bounded post-answer journeys;
+- **35% exploration floor** for uncited topics, new research, emerging demand, safety gaps, and novel opportunities.
+
+This is a portfolio allocation target, not a second score formula. It never overrides the three-workstream WIP cap, dependencies, canonical ownership, scientific review, safety, accessibility, release gates, or hard blockers.
+
+Citation signals may update the existing scoring inputs—especially Traffic Potential, Strategic Leverage, and Confidence—when the snapshot is fresh and the connection to the ticket is explicit. Do not add a hidden citation multiplier to backlog scores.
+
+When a page is a high-citation winner, prefer additive/reversible work. A broad rewrite, route change, title/H1/canonical change, or consolidation requires a documented intent, migration/rollback boundary, and fresh measurement plan.
 
 ## Claim protocol
 
@@ -64,8 +80,9 @@ Each specialist uses this order:
 2. `Ready` status only.
 3. Dependencies satisfied.
 4. Highest priority first: P0, then P1, P2, P3.
-5. Within the same priority, prefer higher expected ROI and lower collision risk.
-6. Never select a ticket already owned by another active agent.
+5. Within the same priority, prefer higher expected ROI and lower collision risk; fresh page-level AI citation evidence may strengthen the existing ROI case when the ticket is directly citation-adjacent.
+6. Preserve the 35% exploration floor over rolling discretionary work rather than allowing winner-chasing to consume all discovery capacity.
+7. Never select a ticket already owned by another active agent.
 
 Do not execute ticket IDs sequentially merely because they are numbered sequentially.
 
@@ -87,6 +104,7 @@ Do not run parallel implementation tickets that both materially modify the same:
 - safety/interactions model;
 - global routing or metadata layer;
 - schema/indexation infrastructure;
+- high-citation winner or canonical cluster hub;
 - migration;
 - CI/build configuration;
 - generated dataset source.
@@ -191,6 +209,8 @@ Do not silently take over another agent's active branch.
 - Mutable execution state: `backlog/status.csv`
 - Generated readable view: `backlog/master_backlog.csv` via `python backlog/materialize_backlog.py`
 - Optional human XLSX dashboard: generated separately when needed; it is not the repository execution authority
+- AI citation execution standard: `docs/AI-CITATION-GROWTH-LOOP.md`
+- Derived citation swarm signals: `config/ai-citation-swarm-priorities.json`
 - Execution rules: `BACKLOG_IMPLEMENTATION_PLAYBOOK.md`
 - One-command launcher: `BEGIN_BACKLOG_PROCESS.md`
 - Multi-agent ownership rules: this file
