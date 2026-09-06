@@ -1,0 +1,71 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "C",
+  "shard": 2,
+  "batchId": "iodine-cognition-thyroid-boundaries-20260905",
+  "createdAt": "2026-09-05T02:18:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-c-iodine-prenatal-rct-review-20260905",
+      "authoringPackId": "ap_bp_wp_compound_iodine_src_pubmed_24025628",
+      "workpackId": "wp_compound_iodine",
+      "entityType": "compound",
+      "entitySlug": "iodine",
+      "sourceId": "src_pubmed-24025628",
+      "topicType": "conflict_note",
+      "claimType": "efficacy_null_or_mixed",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A systematic review of prenatal/periconceptional iodine RCTs found insufficient quality evidence for childhood cognitive or growth benefit outside severe deficiency, with inconsistent thyroid-function effects.",
+      "findingTextNormalized": "PMID 24025628 systematically reviewed randomized iodine supplementation trials during pregnancy or the periconceptional period. In severe iodine-deficiency settings supplementation reduced cretinism risk, but the review did not find consistent improvements in childhood intelligence, gross development, growth, or pregnancy outcomes; only some motor outcomes improved, and maternal/child thyroid-function effects were inconsistent. The review therefore supports a deficiency-context boundary and uncertainty framing rather than a general prenatal cognitive-enhancement claim.",
+      "strengthLabel": "moderate",
+      "populationContext": "Pregnant or periconceptional populations across iodine-deficiency settings represented in randomized trials.",
+      "usageContext": "Prenatal/periconceptional iodine supplementation evidence; not a consumer dosing recommendation.",
+      "safetyContext": "Maternal and child thyroid-function effects were inconsistent across included trials and should remain visible.",
+      "uncertaintyNote": "Only two included trials reported child growth/development clinical outcomes, and evidence quality for mild-to-moderate deficiency settings was limited.",
+      "semanticAttestation": {
+        "reviewer": "enrichment-adjudicator",
+        "reviewedAt": "2026-09-05T02:18:00.000Z",
+        "confidence": "high",
+        "entity": {"status": "matched", "reason": "PMID 24025628 directly reviews randomized iodine supplementation during pregnancy/periconception.", "evidenceRefs": ["src_pubmed-24025628"]},
+        "preparation": {"status": "matched", "reason": "The finding remains supplementation-context specific and does not generalize across iodine forms or dietary exposure patterns.", "evidenceRefs": ["src_pubmed-24025628"]},
+        "population": {"status": "matched", "reason": "The finding explicitly preserves pregnancy/periconception and iodine-deficiency-setting boundaries.", "evidenceRefs": ["src_pubmed-24025628"]},
+        "endpoint": {"status": "matched", "reason": "Child cognition, development, growth, pregnancy outcomes, and thyroid-function effects match the review endpoints.", "evidenceRefs": ["src_pubmed-24025628"]},
+        "conclusion": {"status": "matched", "reason": "The conclusion preserves severe-deficiency benefit while retaining the lack of quality evidence for broader cognitive benefit and inconsistent thyroid effects.", "evidenceRefs": ["src_pubmed-24025628"]}
+      },
+      "reviewStatus": "ready_for_review",
+      "editorialStatus": "needs_review",
+      "active": true
+    },
+    {
+      "submissionId": "sub_session-c-iodine-upper-intake-thyroid-signal-20260905",
+      "authoringPackId": "ap_bp_wp_compound_iodine_src_pubmed_22205314",
+      "workpackId": "wp_compound_iodine",
+      "entityType": "compound",
+      "entitySlug": "iodine",
+      "sourceId": "src_pubmed-22205314",
+      "topicType": "adverse_effect",
+      "claimType": "safety_risk",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A 4-week randomized dose-ranging trial in euthyroid Chinese adults observed subclinical hypothyroidism beginning in the 400-microgram supplemental group, corresponding to roughly 800 micrograms/day total iodine intake in that study context.",
+      "findingTextNormalized": "PMID 22205314 randomized 256 euthyroid Chinese adults to supplemental iodine doses from 0 to 2000 micrograms/day for four weeks. TSH rose across iodine-supplemented groups, and subclinical hypothyroidism appeared in 5% of the 400-microgram supplement group and 15-47% of groups receiving 500-2000 micrograms/day; dietary plus salt iodine meant the 400-microgram supplement corresponded to roughly 800 micrograms/day total intake in this population. This is a short-duration, population-specific thyroid-safety signal and must not be converted into a universal upper-intake cutoff.",
+      "strengthLabel": "moderate",
+      "populationContext": "Euthyroid Chinese adults in a four-week randomized double-blind trial.",
+      "usageContext": "Dose-ranging thyroid-safety evidence; not an individualized intake recommendation.",
+      "safetyContext": "Preserve total-versus-supplemental intake, baseline iodine exposure, thyroid status, four-week duration, and population specificity.",
+      "uncertaintyNote": "The study authors cautioned against total intake above approximately 800 micrograms/day in their study context and called for further research; this does not establish a universal safe or unsafe threshold.",
+      "semanticAttestation": {
+        "reviewer": "enrichment-adjudicator",
+        "reviewedAt": "2026-09-05T02:18:00.000Z",
+        "confidence": "high",
+        "entity": {"status": "matched", "reason": "PMID 22205314 directly tests escalating iodine supplementation and thyroid outcomes.", "evidenceRefs": ["src_pubmed-22205314"]},
+        "preparation": {"status": "matched", "reason": "The finding distinguishes supplemental iodine dose from total daily iodine intake including diet and iodized salt.", "evidenceRefs": ["src_pubmed-22205314"]},
+        "population": {"status": "matched", "reason": "The conclusion remains limited to euthyroid Chinese adults studied over four weeks.", "evidenceRefs": ["src_pubmed-22205314"]},
+        "endpoint": {"status": "matched", "reason": "TSH changes, thyroid volume, and subclinical hypothyroidism are the trial's relevant safety endpoints.", "evidenceRefs": ["src_pubmed-22205314"]},
+        "conclusion": {"status": "matched", "reason": "The finding retains the observed thyroid-risk signal while explicitly rejecting a universal cutoff inference.", "evidenceRefs": ["src_pubmed-22205314"]}
+      },
+      "reviewStatus": "ready_for_review",
+      "editorialStatus": "needs_review",
+      "active": true
+    }
+  ]
+}
