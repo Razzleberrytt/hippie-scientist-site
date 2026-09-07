@@ -1,18 +1,46 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-05T18:00:00Z",
+  "updatedAt": "2026-09-07T22:02:00Z",
   "lanes": {
-    "lane1": null,
+    "lane1": {
+      "lane": "lane1",
+      "outcome": "STAGED",
+      "canonicalWorkItem": "PR #5396 / issue #5321",
+      "rootBlocker": "Governed promotion slot is occupied; PR #5396 remains draft-only.",
+      "fallbackUsed": "Fresh review of issue #5337, current main, recent issues, and PR #5396.",
+      "lastMaterialChange": "Recorded verified Lane 1 state and refreshed the operational scoreboard from current repository state.",
+      "nextAction": "Recheck exact-head validation and governed admission; do not promote draft work directly.",
+      "recordedAt": "2026-09-07T22:02:00Z"
+    },
     "lane2": null,
     "lane3": null,
     "lane4": null,
     "lane5": null
   },
-  "activeWork": [],
+  "activeWork": [
+    {
+      "canonicalKey": "issue:5397",
+      "lane": "lane2",
+      "target": "Governed Batch 21 promotion",
+      "state": "open",
+      "dependency": "Independent source admission, dedupe, and release gates",
+      "lastMaterialChange": "Batch 21 staging closed; canonical promotion remains open.",
+      "nextAction": "Continue governed promotion only with verified evidence and release gates."
+    },
+    {
+      "canonicalKey": "pr:5396",
+      "lane": "lane4",
+      "target": "ADHD hub child coverage guard",
+      "state": "draft",
+      "dependency": "Governed admission and exact-head validation",
+      "lastMaterialChange": "One-file validator guard staged and preview deployment succeeded.",
+      "nextAction": "Keep draft-only until normal controller promotes after fresh validation."
+    }
+  ],
   "scoreboard": {
     "shipped": 0,
     "validated": 0,
-    "staged": 0,
+    "staged": 1,
     "blocked": 0,
     "noProgress": 0
   }
