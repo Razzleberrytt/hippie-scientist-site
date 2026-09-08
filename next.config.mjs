@@ -29,6 +29,13 @@ const nextConfig = {
   // See plan for 2026-06-05 Phase 2 note.
   outputFileTracingRoot: process.cwd(),
   experimental: {
+    // Inline the generated CSS into the initial HTML so first-load visitors do
+    // not wait on render-blocking stylesheet requests before the first paint.
+    // This is particularly useful here because the site is a static export and
+    // the global Tailwind/CSS surface is shared across the initial route shell.
+    // Navigation loads can still use normal stylesheet links to avoid repeatedly
+    // duplicating cached CSS.
+    inlineCss: true,
     // Limit static-generation workers to 2 to avoid OOM on memory-constrained build hosts.
     cpus: 2,
   },
