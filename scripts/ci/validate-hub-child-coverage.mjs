@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * validate:hub-child-coverage — every indexable, sitemapped page under a hub must
- * be linked from that hub.
+ * be linked from that hub page itself.
  *
  * `/guides/compare/` is built from a hand-curated FEATURED_CATEGORIES list in
  * app/guides/compare/page.tsx while the comparison pages themselves are added
@@ -35,7 +35,7 @@ const OUT = path.join(ROOT, 'out')
 // Stress", both indexable and self-canonical. Linking them from the section list
 // would entrench that overlap; consolidating or canonicalizing them is an
 // editorial call. Tracked in #5078.
-const HUBS = ['/guides/compare', '/learn', '/evidence/evidence-report', '/guides/sleep']
+const HUBS = ['/guides/compare', '/learn', '/evidence/evidence-report', '/guides/sleep', '/guides/adhd']
 
 function readHtml(routePath) {
   const file = path.join(OUT, routePath.replace(/^\//, ''), 'index.html')
