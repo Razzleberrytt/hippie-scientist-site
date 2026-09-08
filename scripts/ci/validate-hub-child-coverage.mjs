@@ -35,7 +35,11 @@ const OUT = path.join(ROOT, 'out')
 // Stress", both indexable and self-canonical. Linking them from the section list
 // would entrench that overlap; consolidating or canonicalizing them is an
 // editorial call. Tracked in #5078.
-const HUBS = ['/guides/compare', '/learn', '/evidence/evidence-report', '/guides/sleep']
+//
+// /guides/adhd is included because its child guides are part of the hub's explicit
+// full-library/ItemList contract. Any indexable child already in the sitemap must
+// remain discoverable from that hub or the build should fail closed.
+const HUBS = ['/guides/compare', '/learn', '/evidence/evidence-report', '/guides/sleep', '/guides/adhd']
 
 function readHtml(routePath) {
   const file = path.join(OUT, routePath.replace(/^\//, ''), 'index.html')
