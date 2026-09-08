@@ -33,6 +33,12 @@ export const JAPANESE_LANGUAGE = 'ja'
 export const KOREAN_LOCALE = 'ko'
 export const KOREAN_OG_LOCALE = 'ko_KR'
 export const KOREAN_LANGUAGE = 'ko'
+export const HINDI_LOCALE = 'hi'
+export const HINDI_OG_LOCALE = 'hi_IN'
+export const HINDI_LANGUAGE = 'hi'
+export const INDONESIAN_LOCALE = 'id'
+export const INDONESIAN_OG_LOCALE = 'id_ID'
+export const INDONESIAN_LANGUAGE = 'id'
 
 export const SUPPORTED_LOCALES = [
   DEFAULT_LOCALE,
@@ -45,6 +51,8 @@ export const SUPPORTED_LOCALES = [
   POLISH_LOCALE,
   JAPANESE_LOCALE,
   KOREAN_LOCALE,
+  HINDI_LOCALE,
+  INDONESIAN_LOCALE,
 ] as const
 export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number]
 export type TranslationLocale = Exclude<SupportedLocale, typeof DEFAULT_LOCALE>
@@ -73,6 +81,8 @@ export const LOCALE_CONFIG: Record<SupportedLocale, LocaleConfig> = {
   [POLISH_LOCALE]: { language: POLISH_LANGUAGE, openGraphLocale: POLISH_OG_LOCALE, region: 'PL', textDirection: 'ltr', pathPrefix: '/pl/', shortLabel: 'PL', languageLabel: 'Polski' },
   [JAPANESE_LOCALE]: { language: JAPANESE_LANGUAGE, openGraphLocale: JAPANESE_OG_LOCALE, region: 'JP', textDirection: 'ltr', pathPrefix: '/ja/', shortLabel: 'JA', languageLabel: '日本語' },
   [KOREAN_LOCALE]: { language: KOREAN_LANGUAGE, openGraphLocale: KOREAN_OG_LOCALE, region: 'KR', textDirection: 'ltr', pathPrefix: '/ko/', shortLabel: 'KO', languageLabel: '한국어' },
+  [HINDI_LOCALE]: { language: HINDI_LANGUAGE, openGraphLocale: HINDI_OG_LOCALE, region: 'IN', textDirection: 'ltr', pathPrefix: '/hi/', shortLabel: 'HI', languageLabel: 'हिन्दी' },
+  [INDONESIAN_LOCALE]: { language: INDONESIAN_LANGUAGE, openGraphLocale: INDONESIAN_OG_LOCALE, region: 'ID', textDirection: 'ltr', pathPrefix: '/id/', shortLabel: 'ID', languageLabel: 'Bahasa Indonesia' },
 }
 
 export const CORE_LOCALIZED_ENGLISH_ROUTES = [
@@ -89,18 +99,18 @@ export const CORE_LOCALIZED_ENGLISH_ROUTES = [
 ] as const
 
 export const LOCALIZED_ROUTES: readonly LocalizedRoute[] = [
-  { english: '/', translations: { [SPANISH_LOCALE]: '/es/', [PORTUGUESE_LOCALE]: '/pt/', [FRENCH_LOCALE]: '/fr/', [GERMAN_LOCALE]: '/de/', [ITALIAN_LOCALE]: '/it/', [DUTCH_LOCALE]: '/nl/', [POLISH_LOCALE]: '/pl/', [JAPANESE_LOCALE]: '/ja/', [KOREAN_LOCALE]: '/ko/' } },
-  { english: '/herbs/', translations: { [SPANISH_LOCALE]: '/es/hierbas/', [PORTUGUESE_LOCALE]: '/pt/ervas/', [FRENCH_LOCALE]: '/fr/plantes/', [GERMAN_LOCALE]: '/de/kraeuter/', [ITALIAN_LOCALE]: '/it/erbe/', [DUTCH_LOCALE]: '/nl/kruiden/', [POLISH_LOCALE]: '/pl/ziola/', [JAPANESE_LOCALE]: '/ja/herbs/', [KOREAN_LOCALE]: '/ko/herbs/' } },
+  { english: '/', translations: { [SPANISH_LOCALE]: '/es/', [PORTUGUESE_LOCALE]: '/pt/', [FRENCH_LOCALE]: '/fr/', [GERMAN_LOCALE]: '/de/', [ITALIAN_LOCALE]: '/it/', [DUTCH_LOCALE]: '/nl/', [POLISH_LOCALE]: '/pl/', [JAPANESE_LOCALE]: '/ja/', [KOREAN_LOCALE]: '/ko/', [HINDI_LOCALE]: '/hi/', [INDONESIAN_LOCALE]: '/id/' } },
+  { english: '/herbs/', translations: { [SPANISH_LOCALE]: '/es/hierbas/', [PORTUGUESE_LOCALE]: '/pt/ervas/', [FRENCH_LOCALE]: '/fr/plantes/', [GERMAN_LOCALE]: '/de/kraeuter/', [ITALIAN_LOCALE]: '/it/erbe/', [DUTCH_LOCALE]: '/nl/kruiden/', [POLISH_LOCALE]: '/pl/ziola/', [JAPANESE_LOCALE]: '/ja/herbs/', [KOREAN_LOCALE]: '/ko/herbs/', [HINDI_LOCALE]: '/hi/herbs/', [INDONESIAN_LOCALE]: '/id/herbs/' } },
   { english: '/herbs/ashwagandha/', translations: { [SPANISH_LOCALE]: '/es/hierbas/ashwagandha/', [PORTUGUESE_LOCALE]: '/pt/ervas/ashwagandha/', [FRENCH_LOCALE]: '/fr/plantes/ashwagandha/', [GERMAN_LOCALE]: '/de/kraeuter/ashwagandha/' } },
-  { english: '/compounds/', translations: { [SPANISH_LOCALE]: '/es/compuestos/', [PORTUGUESE_LOCALE]: '/pt/compostos/', [FRENCH_LOCALE]: '/fr/composes/', [GERMAN_LOCALE]: '/de/wirkstoffe/', [ITALIAN_LOCALE]: '/it/composti/', [DUTCH_LOCALE]: '/nl/stoffen/', [POLISH_LOCALE]: '/pl/skladniki/', [JAPANESE_LOCALE]: '/ja/compounds/', [KOREAN_LOCALE]: '/ko/compounds/' } },
+  { english: '/compounds/', translations: { [SPANISH_LOCALE]: '/es/compuestos/', [PORTUGUESE_LOCALE]: '/pt/compostos/', [FRENCH_LOCALE]: '/fr/composes/', [GERMAN_LOCALE]: '/de/wirkstoffe/', [ITALIAN_LOCALE]: '/it/composti/', [DUTCH_LOCALE]: '/nl/stoffen/', [POLISH_LOCALE]: '/pl/skladniki/', [JAPANESE_LOCALE]: '/ja/compounds/', [KOREAN_LOCALE]: '/ko/compounds/', [HINDI_LOCALE]: '/hi/compounds/', [INDONESIAN_LOCALE]: '/id/compounds/' } },
   { english: '/compounds/l-theanine/', translations: { [SPANISH_LOCALE]: '/es/compuestos/l-theanine/', [PORTUGUESE_LOCALE]: '/pt/compostos/l-theanine/', [FRENCH_LOCALE]: '/fr/composes/l-theanine/', [GERMAN_LOCALE]: '/de/wirkstoffe/l-theanine/' } },
-  { english: '/goals/', translations: { [SPANISH_LOCALE]: '/es/objetivos/', [PORTUGUESE_LOCALE]: '/pt/objetivos/', [FRENCH_LOCALE]: '/fr/objectifs/', [GERMAN_LOCALE]: '/de/ziele/', [ITALIAN_LOCALE]: '/it/obiettivi/', [DUTCH_LOCALE]: '/nl/doelen/', [POLISH_LOCALE]: '/pl/cele/', [JAPANESE_LOCALE]: '/ja/goals/', [KOREAN_LOCALE]: '/ko/goals/' } },
-  { english: '/goals/sleep/', translations: { [SPANISH_LOCALE]: '/es/objetivos/sueno/', [PORTUGUESE_LOCALE]: '/pt/objetivos/sono/', [FRENCH_LOCALE]: '/fr/objectifs/sommeil/', [GERMAN_LOCALE]: '/de/ziele/schlaf/', [ITALIAN_LOCALE]: '/it/obiettivi/sonno/', [DUTCH_LOCALE]: '/nl/doelen/slaap/', [POLISH_LOCALE]: '/pl/cele/sen/', [JAPANESE_LOCALE]: '/ja/goals/sleep/', [KOREAN_LOCALE]: '/ko/goals/sleep/' } },
-  { english: '/goals/stress/', translations: { [SPANISH_LOCALE]: '/es/objetivos/estres/', [PORTUGUESE_LOCALE]: '/pt/objetivos/estresse/', [FRENCH_LOCALE]: '/fr/objectifs/stress/', [GERMAN_LOCALE]: '/de/ziele/stress/', [ITALIAN_LOCALE]: '/it/obiettivi/stress/', [DUTCH_LOCALE]: '/nl/doelen/stress/', [POLISH_LOCALE]: '/pl/cele/stres/', [JAPANESE_LOCALE]: '/ja/goals/stress/', [KOREAN_LOCALE]: '/ko/goals/stress/' } },
-  { english: '/goals/anxiety/', translations: { [SPANISH_LOCALE]: '/es/objetivos/ansiedad/', [PORTUGUESE_LOCALE]: '/pt/objetivos/ansiedade/', [FRENCH_LOCALE]: '/fr/objectifs/anxiete/', [GERMAN_LOCALE]: '/de/ziele/angst/', [ITALIAN_LOCALE]: '/it/obiettivi/ansia/', [DUTCH_LOCALE]: '/nl/doelen/angst/', [POLISH_LOCALE]: '/pl/cele/lek/', [JAPANESE_LOCALE]: '/ja/goals/anxiety/', [KOREAN_LOCALE]: '/ko/goals/anxiety/' } },
-  { english: '/goals/focus/', translations: { [SPANISH_LOCALE]: '/es/objetivos/concentracion/', [PORTUGUESE_LOCALE]: '/pt/objetivos/foco/', [FRENCH_LOCALE]: '/fr/objectifs/concentration/', [GERMAN_LOCALE]: '/de/ziele/fokus/', [ITALIAN_LOCALE]: '/it/obiettivi/concentrazione/', [DUTCH_LOCALE]: '/nl/doelen/focus/', [POLISH_LOCALE]: '/pl/cele/koncentracja/', [JAPANESE_LOCALE]: '/ja/goals/focus/', [KOREAN_LOCALE]: '/ko/goals/focus/' } },
-  { english: '/info/methodology/', translations: { [SPANISH_LOCALE]: '/es/metodologia/', [PORTUGUESE_LOCALE]: '/pt/metodologia/', [FRENCH_LOCALE]: '/fr/methodologie/', [GERMAN_LOCALE]: '/de/methodik/', [ITALIAN_LOCALE]: '/it/metodologia/', [DUTCH_LOCALE]: '/nl/methodologie/', [POLISH_LOCALE]: '/pl/metodologia/', [JAPANESE_LOCALE]: '/ja/methodology/', [KOREAN_LOCALE]: '/ko/methodology/' } },
-  { english: '/safety-checker/', translations: { [SPANISH_LOCALE]: '/es/seguridad/', [PORTUGUESE_LOCALE]: '/pt/seguranca/', [FRENCH_LOCALE]: '/fr/securite/', [GERMAN_LOCALE]: '/de/sicherheit/', [ITALIAN_LOCALE]: '/it/sicurezza/', [DUTCH_LOCALE]: '/nl/veiligheid/', [POLISH_LOCALE]: '/pl/bezpieczenstwo/', [JAPANESE_LOCALE]: '/ja/safety/', [KOREAN_LOCALE]: '/ko/safety/' } },
+  { english: '/goals/', translations: { [SPANISH_LOCALE]: '/es/objetivos/', [PORTUGUESE_LOCALE]: '/pt/objetivos/', [FRENCH_LOCALE]: '/fr/objectifs/', [GERMAN_LOCALE]: '/de/ziele/', [ITALIAN_LOCALE]: '/it/obiettivi/', [DUTCH_LOCALE]: '/nl/doelen/', [POLISH_LOCALE]: '/pl/cele/', [JAPANESE_LOCALE]: '/ja/goals/', [KOREAN_LOCALE]: '/ko/goals/', [HINDI_LOCALE]: '/hi/goals/', [INDONESIAN_LOCALE]: '/id/goals/' } },
+  { english: '/goals/sleep/', translations: { [SPANISH_LOCALE]: '/es/objetivos/sueno/', [PORTUGUESE_LOCALE]: '/pt/objetivos/sono/', [FRENCH_LOCALE]: '/fr/objectifs/sommeil/', [GERMAN_LOCALE]: '/de/ziele/schlaf/', [ITALIAN_LOCALE]: '/it/obiettivi/sonno/', [DUTCH_LOCALE]: '/nl/doelen/slaap/', [POLISH_LOCALE]: '/pl/cele/sen/', [JAPANESE_LOCALE]: '/ja/goals/sleep/', [KOREAN_LOCALE]: '/ko/goals/sleep/', [HINDI_LOCALE]: '/hi/goals/sleep/', [INDONESIAN_LOCALE]: '/id/goals/sleep/' } },
+  { english: '/goals/stress/', translations: { [SPANISH_LOCALE]: '/es/objetivos/estres/', [PORTUGUESE_LOCALE]: '/pt/objetivos/estresse/', [FRENCH_LOCALE]: '/fr/objectifs/stress/', [GERMAN_LOCALE]: '/de/ziele/stress/', [ITALIAN_LOCALE]: '/it/obiettivi/stress/', [DUTCH_LOCALE]: '/nl/doelen/stress/', [POLISH_LOCALE]: '/pl/cele/stres/', [JAPANESE_LOCALE]: '/ja/goals/stress/', [KOREAN_LOCALE]: '/ko/goals/stress/', [HINDI_LOCALE]: '/hi/goals/stress/', [INDONESIAN_LOCALE]: '/id/goals/stress/' } },
+  { english: '/goals/anxiety/', translations: { [SPANISH_LOCALE]: '/es/objetivos/ansiedad/', [PORTUGUESE_LOCALE]: '/pt/objetivos/ansiedad/', [FRENCH_LOCALE]: '/fr/objectifs/anxiete/', [GERMAN_LOCALE]: '/de/ziele/angst/', [ITALIAN_LOCALE]: '/it/obiettivi/ansia/', [DUTCH_LOCALE]: '/nl/doelen/angst/', [POLISH_LOCALE]: '/pl/cele/lek/', [JAPANESE_LOCALE]: '/ja/goals/anxiety/', [KOREAN_LOCALE]: '/ko/goals/anxiety/', [HINDI_LOCALE]: '/hi/goals/anxiety/', [INDONESIAN_LOCALE]: '/id/goals/anxiety/' } },
+  { english: '/goals/focus/', translations: { [SPANISH_LOCALE]: '/es/objetivos/concentracion/', [PORTUGUESE_LOCALE]: '/pt/objetivos/foco/', [FRENCH_LOCALE]: '/fr/objectifs/concentration/', [GERMAN_LOCALE]: '/de/ziele/fokus/', [ITALIAN_LOCALE]: '/it/obiettivi/concentrazione/', [DUTCH_LOCALE]: '/nl/doelen/focus/', [POLISH_LOCALE]: '/pl/cele/koncentracja/', [JAPANESE_LOCALE]: '/ja/goals/focus/', [KOREAN_LOCALE]: '/ko/goals/focus/', [HINDI_LOCALE]: '/hi/goals/focus/', [INDONESIAN_LOCALE]: '/id/goals/focus/' } },
+  { english: '/info/methodology/', translations: { [SPANISH_LOCALE]: '/es/metodologia/', [PORTUGUESE_LOCALE]: '/pt/metodologia/', [FRENCH_LOCALE]: '/fr/methodologie/', [GERMAN_LOCALE]: '/de/methodik/', [ITALIAN_LOCALE]: '/it/metodologia/', [DUTCH_LOCALE]: '/nl/methodologie/', [POLISH_LOCALE]: '/pl/metodologia/', [JAPANESE_LOCALE]: '/ja/methodology/', [KOREAN_LOCALE]: '/ko/methodology/', [HINDI_LOCALE]: '/hi/methodology/', [INDONESIAN_LOCALE]: '/id/methodology/' } },
+  { english: '/safety-checker/', translations: { [SPANISH_LOCALE]: '/es/seguridad/', [PORTUGUESE_LOCALE]: '/pt/seguranca/', [FRENCH_LOCALE]: '/fr/securite/', [GERMAN_LOCALE]: '/de/sicherheit/', [ITALIAN_LOCALE]: '/it/sicurezza/', [DUTCH_LOCALE]: '/nl/veiligheid/', [POLISH_LOCALE]: '/pl/bezpieczenstwo/', [JAPANESE_LOCALE]: '/ja/safety/', [KOREAN_LOCALE]: '/ko/safety/', [HINDI_LOCALE]: '/hi/safety/', [INDONESIAN_LOCALE]: '/id/safety/' } },
 ] as const
 
 export const LOCALIZED_ROUTE_PAIRS: readonly LocalizedRoutePair[] = LOCALIZED_ROUTES.filter((route) => route.translations[SPANISH_LOCALE]).map((route) => ({ english: route.english, spanish: route.translations[SPANISH_LOCALE] as string }))
@@ -135,14 +145,9 @@ function findLocalizedRoute(path = '/'): LocalizedRoute | undefined {
   return LOCALIZED_ROUTES.find((candidate) => normalizeInternationalPath(candidate.english) === normalized || Object.values(candidate.translations).some((localizedPath) => localizedPath && normalizeInternationalPath(localizedPath) === normalized))
 }
 
-/** True when `path` is a translation this site actually publishes. */
 export function isPublishedTranslationPath(path = '/'): boolean {
   const normalized = normalizeInternationalPath(path)
-  return LOCALIZED_ROUTES.some((route) =>
-    Object.values(route.translations).some(
-      (translated) => translated && normalizeInternationalPath(translated) === normalized,
-    ),
-  )
+  return LOCALIZED_ROUTES.some((route) => Object.values(route.translations).some((translated) => translated && normalizeInternationalPath(translated) === normalized))
 }
 
 export function getLocalizedRoute(path = '/', locale: SupportedLocale): string | null {
@@ -162,7 +167,6 @@ export function getCurrentLocaleAlternates(path = '/'): LocaleAlternate[] {
     const url = buildDefaultLocaleUrl(path)
     return [{ locale: DEFAULT_LOCALE, url }, { locale: 'x-default', url }]
   }
-
   const englishUrl = buildLocaleUrl(route.english)
   const alternates: LocaleAlternate[] = [{ locale: DEFAULT_LOCALE, url: englishUrl }]
   for (const locale of SUPPORTED_LOCALES) {
