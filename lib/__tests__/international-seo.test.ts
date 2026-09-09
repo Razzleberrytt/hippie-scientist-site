@@ -3,6 +3,8 @@ import {
   DEFAULT_LOCALE,
   DEFAULT_LANGUAGE,
   DEFAULT_REGION,
+  HINDI_LOCALE,
+  INDONESIAN_LOCALE,
   LOCALIZED_ROUTE_PAIRS,
   LOCALIZED_ROUTES,
   LOCALE_TEXT_DIRECTION,
@@ -24,7 +26,9 @@ describe('international SEO helpers', () => {
     expect(DEFAULT_REGION).toBe('US')
     expect(LOCALE_TEXT_DIRECTION).toBe('ltr')
     expect(SPANISH_LOCALE).toBe('es')
-    expect(SUPPORTED_LOCALES).toEqual(['en-US', 'es', 'pt-BR', 'fr', 'de', 'it', 'nl', 'pl', 'ja', 'ko'])
+    expect(HINDI_LOCALE).toBe('hi')
+    expect(INDONESIAN_LOCALE).toBe('id')
+    expect(SUPPORTED_LOCALES).toEqual(['en-US', 'es', 'pt-BR', 'fr', 'de', 'it', 'nl', 'pl', 'ja', 'ko', 'hi', 'id'])
   })
 
   it('normalizes paths for locale alternates without query strings', () => {
@@ -37,6 +41,8 @@ describe('international SEO helpers', () => {
     expect(getLocaleFromPathname('/pt')).toBe('pt-BR')
     expect(getLocaleFromPathname('/ja/goals/sleep/')).toBe('ja')
     expect(getLocaleFromPathname('/ko/safety/')).toBe('ko')
+    expect(getLocaleFromPathname('/hi/goals/sleep/')).toBe('hi')
+    expect(getLocaleFromPathname('/id/goals/sleep/')).toBe('id')
     expect(getLocaleFromPathname('/herbs/ashwagandha/')).toBe('en-US')
   })
 
@@ -52,6 +58,8 @@ describe('international SEO helpers', () => {
       { locale: 'pl', url: 'https://thehippiescientist.net/pl/ziola/' },
       { locale: 'ja', url: 'https://thehippiescientist.net/ja/herbs/' },
       { locale: 'ko', url: 'https://thehippiescientist.net/ko/herbs/' },
+      { locale: 'hi', url: 'https://thehippiescientist.net/hi/herbs/' },
+      { locale: 'id', url: 'https://thehippiescientist.net/id/herbs/' },
       { locale: 'x-default', url: 'https://thehippiescientist.net/herbs/' },
     ])
 
@@ -74,6 +82,8 @@ describe('international SEO helpers', () => {
     expect(getLocalizedRoute('/goals/anxiety/', 'pl')).toBe('/pl/cele/lek/')
     expect(getLocalizedRoute('/goals/focus/', 'ja')).toBe('/ja/goals/focus/')
     expect(getLocalizedRoute('/ko/goals/sleep/', 'en-US')).toBe('/goals/sleep/')
+    expect(getLocalizedRoute('/hi/goals/sleep/', 'en-US')).toBe('/goals/sleep/')
+    expect(getLocalizedRoute('/id/goals/sleep/', 'en-US')).toBe('/goals/sleep/')
     expect(getLocalizedRoute('/herbs/ashwagandha/', 'it')).toBeNull()
     expect(getLocalizedRoute('/compounds/l-theanine/', 'ja')).toBeNull()
     expect(getLocalizedRoute('/herbs/ashwagandha/', 'ko')).toBeNull()
@@ -92,6 +102,8 @@ describe('international SEO helpers', () => {
     expect(getLocaleMetadata('/pl/', 'pl').openGraphLocale).toBe('pl_PL')
     expect(getLocaleMetadata('/ja/', 'ja').openGraphLocale).toBe('ja_JP')
     expect(getLocaleMetadata('/ko/', 'ko').openGraphLocale).toBe('ko_KR')
+    expect(getLocaleMetadata('/hi/', 'hi').openGraphLocale).toBe('hi_IN')
+    expect(getLocaleMetadata('/id/', 'id').openGraphLocale).toBe('id_ID')
   })
 
   it('keeps every published translation indexable, in every locale', () => {
