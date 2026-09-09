@@ -1,18 +1,44 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-05T18:00:00Z",
+  "updatedAt": "2026-09-09T15:57:43Z",
   "lanes": {
-    "lane1": null,
+    "lane1": {
+      "outcome": "STAGED",
+      "workItem": "PR #5407",
+      "rootBlocker": "No published exact-head status checks are visible for the current PR head.",
+      "fallbackUsed": "Fresh review of issue #5337, current main, recent issues, PR metadata, and combined commit status.",
+      "lastMaterialChange": "Verified PR #5407 is open, non-draft, mergeable, and includes the locale-registry repair; no status checks are published yet.",
+      "nextAction": "Recheck provider validation and exact-head results before any governed promotion."
+    },
     "lane2": null,
     "lane3": null,
     "lane4": null,
     "lane5": null
   },
-  "activeWork": [],
+  "activeWork": [
+    {
+      "lane": "lane1",
+      "workItem": "PR #5407",
+      "target": "Expand core locale compatibility to Hindi and Indonesian",
+      "state": "STAGED",
+      "dependency": "Exact-head validation and governed promotion",
+      "lastMaterialChange": "Locale registries repaired and PR remains mergeable.",
+      "nextAction": "Verify published exact-head checks before promotion."
+    },
+    {
+      "lane": "lane2",
+      "workItem": "Issue #5397",
+      "target": "Promote Batch 21 evidence receipts",
+      "state": "OPEN",
+      "dependency": "Source admission, dedupe, evidence review, artifact regeneration, release gates",
+      "lastMaterialChange": "Canonical promotion surface remains open and governed separately from research staging.",
+      "nextAction": "Continue governed promotion checks; do not auto-promote staging receipts."
+    }
+  ],
   "scoreboard": {
     "shipped": 0,
     "validated": 0,
-    "staged": 0,
+    "staged": 1,
     "blocked": 0,
     "noProgress": 0
   }
