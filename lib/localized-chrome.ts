@@ -12,6 +12,8 @@ import {
   POLISH_LOCALE,
   PORTUGUESE_LOCALE,
   SPANISH_LOCALE,
+  CHINESE_LOCALE,
+  TURKISH_LOCALE,
   getLocaleFromPathname as detectLocaleFromPathname,
   type SupportedLocale,
 } from './international-seo'
@@ -74,6 +76,12 @@ export const LOCALIZED_CHROME: Record<SupportedLocale, LocalizedChromeConfig> = 
   },
   [INDONESIAN_LOCALE]: {
     ...baseChrome(INDONESIAN_LOCALE), navAriaLabel: 'Navigasi utama', sectionsAriaLabel: 'Bagian Bahasa Indonesia', languagesAriaLabel: 'Bahasa', equivalentPageLabel: 'halaman setara', scrollTopLabel: 'Kembali ke atas', links: [{ href: '/id/herbs/', label: 'Herbal' }, { href: '/id/compounds/', label: 'Senyawa' }, { href: '/id/goals/', label: 'Tujuan' }, { href: '/id/methodology/', label: 'Metodologi' }, { href: '/id/safety/', label: 'Keamanan' }], footerDescription: 'Referensi edukasi berbasis bukti untuk meneliti herbal, suplemen, dan senyawa dengan keamanan serta ketidakpastian yang selalu terlihat.', footerAriaLabel: 'Tautan footer', footerDisclaimer: 'Informasi edukasi, bukan nasihat medis. Untuk keputusan kesehatan pribadi, konsultasikan dengan tenaga kesehatan yang berkualifikasi.', skipLabel: 'Lewati ke konten utama',
+  },
+  [CHINESE_LOCALE]: {
+    ...baseChrome(CHINESE_LOCALE), navAriaLabel: '主导航', sectionsAriaLabel: '网站栏目', languagesAriaLabel: '语言', equivalentPageLabel: '对应页面', scrollTopLabel: '返回顶部', links: [{ href: '/zh/herbs/', label: '草药' }, { href: '/zh/compounds/', label: '化合物' }, { href: '/zh/mubiao/', label: '目标' }, { href: '/zh/methodology/', label: '评估方法' }, { href: '/zh/safety/', label: '安全性' }], footerDescription: '基于证据的草药、补充剂和化合物教育参考，始终清楚呈现安全性与不确定性。', footerAriaLabel: '页脚链接', footerDisclaimer: '教育信息，不构成医疗建议。个人健康决定请咨询合格的医疗专业人士。', skipLabel: '跳转到主要内容',
+  },
+  [TURKISH_LOCALE]: {
+    ...baseChrome(TURKISH_LOCALE), navAriaLabel: 'Ana navigasyon', sectionsAriaLabel: 'Site bölümleri', languagesAriaLabel: 'Diller', equivalentPageLabel: 'eşdeğer sayfa', scrollTopLabel: 'Yukarı dön', links: [{ href: '/tr/bitkiler/', label: 'Bitkiler' }, { href: '/tr/bilesikler/', label: 'Bileşikler' }, { href: '/tr/hedefler/', label: 'Hedefler' }, { href: '/tr/metodoloji/', label: 'Metodoloji' }, { href: '/tr/guvenlik/', label: 'Güvenlik' }], footerDescription: 'Bitkileri, takviyeleri ve bileşikleri araştırmak için kanıta dayalı eğitim kaynağı; güvenlik ve belirsizlik her zaman görünür.', footerAriaLabel: 'Alt bilgi bağlantıları', footerDisclaimer: 'Eğitim amaçlı bilgidir, tıbbi tavsiye değildir. Kişisel sağlık kararları için nitelikli bir sağlık uzmanına danışın.', skipLabel: 'Ana içeriğe geç',
   },
 }
 
