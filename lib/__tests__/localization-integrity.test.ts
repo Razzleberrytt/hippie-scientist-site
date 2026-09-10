@@ -5,11 +5,14 @@ import { FRENCH_PAGES } from '../french-content'
 import { GERMAN_PAGES } from '../german-content'
 import { DUTCH_PAGES, ITALIAN_PAGES, POLISH_PAGES } from '../expanded-language-content'
 import { JAPANESE_PAGES, KOREAN_PAGES } from '../asian-language-content'
+import { HINDI_PAGES, INDONESIAN_PAGES } from '../hi-id-language-content'
 import {
   DEFAULT_LOCALE,
   DUTCH_LOCALE,
   FRENCH_LOCALE,
   GERMAN_LOCALE,
+  HINDI_LOCALE,
+  INDONESIAN_LOCALE,
   ITALIAN_LOCALE,
   JAPANESE_LOCALE,
   KOREAN_LOCALE,
@@ -40,6 +43,8 @@ const PACKS: Record<TranslationLocale, readonly LocalizedPageData[]> = {
   [POLISH_LOCALE]: Object.values(POLISH_PAGES),
   [JAPANESE_LOCALE]: Object.values(JAPANESE_PAGES),
   [KOREAN_LOCALE]: Object.values(KOREAN_PAGES),
+  [HINDI_LOCALE]: Object.values(HINDI_PAGES),
+  [INDONESIAN_LOCALE]: Object.values(INDONESIAN_PAGES),
 }
 
 function pageLinks(page: LocalizedPageData): string[] {
@@ -68,11 +73,6 @@ function compoundProfileTranslations(locale: TranslationLocale) {
   return COMPOUND_PROFILE_TRANSLATIONS[locale as ProfileTranslationLocale]
 }
 
-/**
- * Everything this locale actually publishes. Some locales intentionally ship
- * core editorial pages before claim-level scientific profile translations.
- * Hreflang must therefore match real artifacts rather than assumed parity.
- */
 function publishedPaths(locale: TranslationLocale) {
   const core = PACKS[locale].map((page) => normalizeInternationalPath(page.path))
   const profiles = herbProfileTranslations(locale).map((profile) => normalizeInternationalPath(profile.path))
