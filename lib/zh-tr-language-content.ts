@@ -52,9 +52,13 @@ const pageCopy = {
   },
 } as const
 
-const routeFor = (locale: 'zh-CN' | 'tr', key: string) => key === 'sleep' || key === 'stress' || key === 'anxiety' || key === 'focus'
-  ? `${packs[locale].prefix}/goals/${key}/`
-  : `${packs[locale].prefix}/${key}/`
+const routeFor = (locale: 'zh-CN' | 'tr', key: string) => {
+  if (locale === 'zh-CN' && ['sleep', 'stress', 'anxiety', 'focus'].includes(key)) return `${packs[locale].prefix}/mubiao/${key === 'sleep' ? 'shuimian' : key === 'stress' ? 'yali' : key === 'anxiety' ? 'jiaolv' : 'zhuanzhu'}/`
+  if (locale === 'zh-CN' && key === 'goals') return `${packs[locale].prefix}/mubiao/`
+  return key === 'sleep' || key === 'stress' || key === 'anxiety' || key === 'focus'
+    ? `${packs[locale].prefix}/goals/${key}/`
+    : `${packs[locale].prefix}/${key}/`
+}
 
 function buildPages(locale: 'zh-CN' | 'tr') {
   const copy = pageCopy[locale]
@@ -62,7 +66,7 @@ function buildPages(locale: 'zh-CN' | 'tr') {
   const make = (key: keyof typeof copy, path: string): LocalizedPageData => {
     const [title, description] = copy[key]
     const links = key === 'goals'
-      ? ['sleep', 'stress', 'anxiety', 'focus'].map((k) => ({ href: `${pack.prefix}/goals/${k}/`, label: copy[k as keyof typeof copy][0] }))
+      ? ['sleep', 'stress', 'anxiety', 'focus'].map((k) => ({ href: routeFor(locale, k), label: copy[k as keyof typeof copy][0] }))
       : []
     const howToRead = locale === 'zh-CN'
       ? '从人体研究结果开始，而不是只看流行说法。研究剂量不是个人建议；同时考虑安全性与不确定性。'
@@ -75,7 +79,7 @@ function buildPages(locale: 'zh-CN' | 'tr') {
       description,
       intro: description,
       sections: [{ title: locale === 'zh-CN' ? '如何阅读这些信息' : 'Nasıl okumalı', body: howToRead, links }],
-      primaryCta: { href: `${pack.prefix}/goals/`, label: chooseGoal },
+      primaryCta: { href: routeFor(locale, 'goals'), label: chooseGoal },
       secondaryCta: { href: '/', label: pack.english },
     }
   }
@@ -99,12 +103,12 @@ export const CHINESE_PAGES = buildPages('zh-CN')
 export const TURKISH_PAGES = buildPages('tr')
 
 export const CHINESE_ROUTE_KEYS = {
-  herbs: 'herbs', compounds: 'compounds', goals: 'goals', 'goals/sleep': 'sleep', 'goals/stress': 'stress',
-  'goals/anxiety': 'anxiety', 'goals/focus': 'focus', methodology: 'methodology', safety: 'safety',
+  herbs: 'herbs', compounds: 'compounds', mubiao: 'goals', 'mubiao/shuimian': 'sleep', 'mubiao/yali': 'stress',
+  'mubiao/jiaolv': 'anxiety', 'mubiao/zhuanzhu': 'focus', methodology: 'methodology', safety: 'safety',
 } as const
 export const TURKISH_ROUTE_KEYS = {
-  herbs: 'herbs', compounds: 'compounds', goals: 'goals', 'goals/sleep': 'sleep', 'goals/stress': 'stress',
-  'goals/anxiety': 'anxiety', 'goals/focus': 'focus', methodology: 'methodology', safety: 'safety',
+  bitkiler: 'herbs', bilesikler: 'compounds', hedefler: 'goals', 'hedefler/uyku': 'sleep', 'hedefler/stres': 'stress',
+  'hedefler/kaygi': 'anxiety', 'hedefler/odak': 'focus', metodoloji: 'methodology', guvenlik: 'safety',
 } as const
 
 export function buildChinesePageMetadata(page: LocalizedPageData) { return buildLocalizedPageMetadata(page, { openGraphLocale: CHINESE_OG_LOCALE }) }
