@@ -45,22 +45,27 @@ export const CHINESE_LANGUAGE = 'zh'
 export const TURKISH_LOCALE = 'tr'
 export const TURKISH_OG_LOCALE = 'tr_TR'
 export const TURKISH_LANGUAGE = 'tr'
+export const ARABIC_LOCALE = 'ar'
+export const ARABIC_OG_LOCALE = 'ar_SA'
+export const ARABIC_LANGUAGE = 'ar'
+export const RUSSIAN_LOCALE = 'ru'
+export const RUSSIAN_OG_LOCALE = 'ru_RU'
+export const RUSSIAN_LANGUAGE = 'ru'
+export const VIETNAMESE_LOCALE = 'vi'
+export const VIETNAMESE_OG_LOCALE = 'vi_VN'
+export const VIETNAMESE_LANGUAGE = 'vi'
+export const THAI_LOCALE = 'th'
+export const THAI_OG_LOCALE = 'th_TH'
+export const THAI_LANGUAGE = 'th'
+export const SWEDISH_LOCALE = 'sv'
+export const SWEDISH_OG_LOCALE = 'sv_SE'
+export const SWEDISH_LANGUAGE = 'sv'
 
 export const SUPPORTED_LOCALES = [
-  DEFAULT_LOCALE,
-  SPANISH_LOCALE,
-  PORTUGUESE_LOCALE,
-  FRENCH_LOCALE,
-  GERMAN_LOCALE,
-  ITALIAN_LOCALE,
-  DUTCH_LOCALE,
-  POLISH_LOCALE,
-  JAPANESE_LOCALE,
-  KOREAN_LOCALE,
-  HINDI_LOCALE,
-  INDONESIAN_LOCALE,
-  CHINESE_LOCALE,
-  TURKISH_LOCALE,
+  DEFAULT_LOCALE, SPANISH_LOCALE, PORTUGUESE_LOCALE, FRENCH_LOCALE, GERMAN_LOCALE,
+  ITALIAN_LOCALE, DUTCH_LOCALE, POLISH_LOCALE, JAPANESE_LOCALE, KOREAN_LOCALE,
+  HINDI_LOCALE, INDONESIAN_LOCALE, CHINESE_LOCALE, TURKISH_LOCALE,
+  ARABIC_LOCALE, RUSSIAN_LOCALE, VIETNAMESE_LOCALE, THAI_LOCALE, SWEDISH_LOCALE,
 ] as const
 export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number]
 export type TranslationLocale = Exclude<SupportedLocale, typeof DEFAULT_LOCALE>
@@ -93,34 +98,31 @@ export const LOCALE_CONFIG: Record<SupportedLocale, LocaleConfig> = {
   [INDONESIAN_LOCALE]: { language: INDONESIAN_LANGUAGE, openGraphLocale: INDONESIAN_OG_LOCALE, region: 'ID', textDirection: 'ltr', pathPrefix: '/id/', shortLabel: 'ID', languageLabel: 'Bahasa Indonesia' },
   [CHINESE_LOCALE]: { language: CHINESE_LANGUAGE, openGraphLocale: CHINESE_OG_LOCALE, region: 'CN', textDirection: 'ltr', pathPrefix: '/zh/', shortLabel: 'ZH', languageLabel: '简体中文' },
   [TURKISH_LOCALE]: { language: TURKISH_LANGUAGE, openGraphLocale: TURKISH_OG_LOCALE, region: 'TR', textDirection: 'ltr', pathPrefix: '/tr/', shortLabel: 'TR', languageLabel: 'Türkçe' },
+  [ARABIC_LOCALE]: { language: ARABIC_LANGUAGE, openGraphLocale: ARABIC_OG_LOCALE, region: 'SA', textDirection: 'rtl', pathPrefix: '/ar/', shortLabel: 'AR', languageLabel: 'العربية' },
+  [RUSSIAN_LOCALE]: { language: RUSSIAN_LANGUAGE, openGraphLocale: RUSSIAN_OG_LOCALE, region: 'RU', textDirection: 'ltr', pathPrefix: '/ru/', shortLabel: 'RU', languageLabel: 'Русский' },
+  [VIETNAMESE_LOCALE]: { language: VIETNAMESE_LANGUAGE, openGraphLocale: VIETNAMESE_OG_LOCALE, region: 'VN', textDirection: 'ltr', pathPrefix: '/vi/', shortLabel: 'VI', languageLabel: 'Tiếng Việt' },
+  [THAI_LOCALE]: { language: THAI_LANGUAGE, openGraphLocale: THAI_OG_LOCALE, region: 'TH', textDirection: 'ltr', pathPrefix: '/th/', shortLabel: 'TH', languageLabel: 'ไทย' },
+  [SWEDISH_LOCALE]: { language: SWEDISH_LANGUAGE, openGraphLocale: SWEDISH_OG_LOCALE, region: 'SE', textDirection: 'ltr', pathPrefix: '/sv/', shortLabel: 'SV', languageLabel: 'Svenska' },
 }
 
 export const CORE_LOCALIZED_ENGLISH_ROUTES = [
-  '/',
-  '/herbs/',
-  '/compounds/',
-  '/goals/',
-  '/goals/sleep/',
-  '/goals/stress/',
-  '/goals/anxiety/',
-  '/goals/focus/',
-  '/info/methodology/',
-  '/safety-checker/',
+  '/', '/herbs/', '/compounds/', '/goals/', '/goals/sleep/', '/goals/stress/',
+  '/goals/anxiety/', '/goals/focus/', '/info/methodology/', '/safety-checker/',
 ] as const
 
 export const LOCALIZED_ROUTES: readonly LocalizedRoute[] = [
-  { english: '/', translations: { [SPANISH_LOCALE]: '/es/', [PORTUGUESE_LOCALE]: '/pt/', [FRENCH_LOCALE]: '/fr/', [GERMAN_LOCALE]: '/de/', [ITALIAN_LOCALE]: '/it/', [DUTCH_LOCALE]: '/nl/', [POLISH_LOCALE]: '/pl/', [JAPANESE_LOCALE]: '/ja/', [KOREAN_LOCALE]: '/ko/', [HINDI_LOCALE]: '/hi/', [INDONESIAN_LOCALE]: '/id/', [CHINESE_LOCALE]: '/zh/', [TURKISH_LOCALE]: '/tr/' } },
-  { english: '/herbs/', translations: { [SPANISH_LOCALE]: '/es/hierbas/', [PORTUGUESE_LOCALE]: '/pt/ervas/', [FRENCH_LOCALE]: '/fr/plantes/', [GERMAN_LOCALE]: '/de/kraeuter/', [ITALIAN_LOCALE]: '/it/erbe/', [DUTCH_LOCALE]: '/nl/kruiden/', [POLISH_LOCALE]: '/pl/ziola/', [JAPANESE_LOCALE]: '/ja/herbs/', [KOREAN_LOCALE]: '/ko/herbs/', [HINDI_LOCALE]: '/hi/herbs/', [INDONESIAN_LOCALE]: '/id/herbs/', [CHINESE_LOCALE]: '/zh/herbs/', [TURKISH_LOCALE]: '/tr/bitkiler/' } },
+  { english: '/', translations: { [SPANISH_LOCALE]: '/es/', [PORTUGUESE_LOCALE]: '/pt/', [FRENCH_LOCALE]: '/fr/', [GERMAN_LOCALE]: '/de/', [ITALIAN_LOCALE]: '/it/', [DUTCH_LOCALE]: '/nl/', [POLISH_LOCALE]: '/pl/', [JAPANESE_LOCALE]: '/ja/', [KOREAN_LOCALE]: '/ko/', [HINDI_LOCALE]: '/hi/', [INDONESIAN_LOCALE]: '/id/', [CHINESE_LOCALE]: '/zh/', [TURKISH_LOCALE]: '/tr/', [ARABIC_LOCALE]: '/ar/', [RUSSIAN_LOCALE]: '/ru/', [VIETNAMESE_LOCALE]: '/vi/', [THAI_LOCALE]: '/th/', [SWEDISH_LOCALE]: '/sv/' } },
+  { english: '/herbs/', translations: { [SPANISH_LOCALE]: '/es/hierbas/', [PORTUGUESE_LOCALE]: '/pt/ervas/', [FRENCH_LOCALE]: '/fr/plantes/', [GERMAN_LOCALE]: '/de/kraeuter/', [ITALIAN_LOCALE]: '/it/erbe/', [DUTCH_LOCALE]: '/nl/kruiden/', [POLISH_LOCALE]: '/pl/ziola/', [JAPANESE_LOCALE]: '/ja/herbs/', [KOREAN_LOCALE]: '/ko/herbs/', [HINDI_LOCALE]: '/hi/herbs/', [INDONESIAN_LOCALE]: '/id/herbs/', [CHINESE_LOCALE]: '/zh/herbs/', [TURKISH_LOCALE]: '/tr/bitkiler/', [ARABIC_LOCALE]: '/ar/herbs/', [RUSSIAN_LOCALE]: '/ru/travy/', [VIETNAMESE_LOCALE]: '/vi/thao-duoc/', [THAI_LOCALE]: '/th/herbs/', [SWEDISH_LOCALE]: '/sv/orter/' } },
   { english: '/herbs/ashwagandha/', translations: { [SPANISH_LOCALE]: '/es/hierbas/ashwagandha/', [PORTUGUESE_LOCALE]: '/pt/ervas/ashwagandha/', [FRENCH_LOCALE]: '/fr/plantes/ashwagandha/', [GERMAN_LOCALE]: '/de/kraeuter/ashwagandha/' } },
-  { english: '/compounds/', translations: { [SPANISH_LOCALE]: '/es/compuestos/', [PORTUGUESE_LOCALE]: '/pt/compostos/', [FRENCH_LOCALE]: '/fr/composes/', [GERMAN_LOCALE]: '/de/wirkstoffe/', [ITALIAN_LOCALE]: '/it/composti/', [DUTCH_LOCALE]: '/nl/stoffen/', [POLISH_LOCALE]: '/pl/skladniki/', [JAPANESE_LOCALE]: '/ja/compounds/', [KOREAN_LOCALE]: '/ko/compounds/', [HINDI_LOCALE]: '/hi/compounds/', [INDONESIAN_LOCALE]: '/id/compounds/', [CHINESE_LOCALE]: '/zh/compounds/', [TURKISH_LOCALE]: '/tr/bilesikler/' } },
+  { english: '/compounds/', translations: { [SPANISH_LOCALE]: '/es/compuestos/', [PORTUGUESE_LOCALE]: '/pt/compostos/', [FRENCH_LOCALE]: '/fr/composes/', [GERMAN_LOCALE]: '/de/wirkstoffe/', [ITALIAN_LOCALE]: '/it/composti/', [DUTCH_LOCALE]: '/nl/stoffen/', [POLISH_LOCALE]: '/pl/skladniki/', [JAPANESE_LOCALE]: '/ja/compounds/', [KOREAN_LOCALE]: '/ko/compounds/', [HINDI_LOCALE]: '/hi/compounds/', [INDONESIAN_LOCALE]: '/id/compounds/', [CHINESE_LOCALE]: '/zh/compounds/', [TURKISH_LOCALE]: '/tr/bilesikler/', [ARABIC_LOCALE]: '/ar/compounds/', [RUSSIAN_LOCALE]: '/ru/veshchestva/', [VIETNAMESE_LOCALE]: '/vi/hop-chat/', [THAI_LOCALE]: '/th/compounds/', [SWEDISH_LOCALE]: '/sv/amnen/' } },
   { english: '/compounds/l-theanine/', translations: { [SPANISH_LOCALE]: '/es/compuestos/l-theanine/', [PORTUGUESE_LOCALE]: '/pt/compostos/l-theanine/', [FRENCH_LOCALE]: '/fr/composes/l-theanine/', [GERMAN_LOCALE]: '/de/wirkstoffe/l-theanine/' } },
-  { english: '/goals/', translations: { [SPANISH_LOCALE]: '/es/objetivos/', [PORTUGUESE_LOCALE]: '/pt/objetivos/', [FRENCH_LOCALE]: '/fr/objectifs/', [GERMAN_LOCALE]: '/de/ziele/', [ITALIAN_LOCALE]: '/it/obiettivi/', [DUTCH_LOCALE]: '/nl/doelen/', [POLISH_LOCALE]: '/pl/cele/', [JAPANESE_LOCALE]: '/ja/goals/', [KOREAN_LOCALE]: '/ko/goals/', [HINDI_LOCALE]: '/hi/goals/', [INDONESIAN_LOCALE]: '/id/goals/', [CHINESE_LOCALE]: '/zh/mubiao/', [TURKISH_LOCALE]: '/tr/hedefler/' } },
-  { english: '/goals/sleep/', translations: { [SPANISH_LOCALE]: '/es/objetivos/sueno/', [PORTUGUESE_LOCALE]: '/pt/objetivos/sono/', [FRENCH_LOCALE]: '/fr/objectifs/sommeil/', [GERMAN_LOCALE]: '/de/ziele/schlaf/', [ITALIAN_LOCALE]: '/it/obiettivi/sonno/', [DUTCH_LOCALE]: '/nl/doelen/slaap/', [POLISH_LOCALE]: '/pl/cele/sen/', [JAPANESE_LOCALE]: '/ja/goals/sleep/', [KOREAN_LOCALE]: '/ko/goals/sleep/', [HINDI_LOCALE]: '/hi/goals/sleep/', [INDONESIAN_LOCALE]: '/id/goals/sleep/', [CHINESE_LOCALE]: '/zh/mubiao/shuimian/', [TURKISH_LOCALE]: '/tr/hedefler/uyku/' } },
-  { english: '/goals/stress/', translations: { [SPANISH_LOCALE]: '/es/objetivos/estres/', [PORTUGUESE_LOCALE]: '/pt/objetivos/estresse/', [FRENCH_LOCALE]: '/fr/objectifs/stress/', [GERMAN_LOCALE]: '/de/ziele/stress/', [ITALIAN_LOCALE]: '/it/obiettivi/stress/', [DUTCH_LOCALE]: '/nl/doelen/stress/', [POLISH_LOCALE]: '/pl/cele/stres/', [JAPANESE_LOCALE]: '/ja/goals/stress/', [KOREAN_LOCALE]: '/ko/goals/stress/', [HINDI_LOCALE]: '/hi/goals/stress/', [INDONESIAN_LOCALE]: '/id/goals/stress/', [CHINESE_LOCALE]: '/zh/mubiao/yali/', [TURKISH_LOCALE]: '/tr/hedefler/stres/' } },
-  { english: '/goals/anxiety/', translations: { [SPANISH_LOCALE]: '/es/objetivos/ansiedad/', [PORTUGUESE_LOCALE]: '/pt/objetivos/ansiedade/', [FRENCH_LOCALE]: '/fr/objectifs/anxiete/', [GERMAN_LOCALE]: '/de/ziele/angst/', [ITALIAN_LOCALE]: '/it/obiettivi/ansia/', [DUTCH_LOCALE]: '/nl/doelen/angst/', [POLISH_LOCALE]: '/pl/cele/lek/', [JAPANESE_LOCALE]: '/ja/goals/anxiety/', [KOREAN_LOCALE]: '/ko/goals/anxiety/', [HINDI_LOCALE]: '/hi/goals/anxiety/', [INDONESIAN_LOCALE]: '/id/goals/anxiety/', [CHINESE_LOCALE]: '/zh/mubiao/jiaolv/', [TURKISH_LOCALE]: '/tr/hedefler/kaygi/' } },
-  { english: '/goals/focus/', translations: { [SPANISH_LOCALE]: '/es/objetivos/concentracion/', [PORTUGUESE_LOCALE]: '/pt/objetivos/foco/', [FRENCH_LOCALE]: '/fr/objectifs/concentration/', [GERMAN_LOCALE]: '/de/ziele/fokus/', [ITALIAN_LOCALE]: '/it/obiettivi/concentrazione/', [DUTCH_LOCALE]: '/nl/doelen/focus/', [POLISH_LOCALE]: '/pl/cele/koncentracja/', [JAPANESE_LOCALE]: '/ja/goals/focus/', [KOREAN_LOCALE]: '/ko/goals/focus/', [HINDI_LOCALE]: '/hi/goals/focus/', [INDONESIAN_LOCALE]: '/id/goals/focus/', [CHINESE_LOCALE]: '/zh/mubiao/zhuanzhu/', [TURKISH_LOCALE]: '/tr/hedefler/odak/' } },
-  { english: '/info/methodology/', translations: { [SPANISH_LOCALE]: '/es/metodologia/', [PORTUGUESE_LOCALE]: '/pt/metodologia/', [FRENCH_LOCALE]: '/fr/methodologie/', [GERMAN_LOCALE]: '/de/methodik/', [ITALIAN_LOCALE]: '/it/metodologia/', [DUTCH_LOCALE]: '/nl/methodologie/', [POLISH_LOCALE]: '/pl/metodologia/', [JAPANESE_LOCALE]: '/ja/methodology/', [KOREAN_LOCALE]: '/ko/methodology/', [HINDI_LOCALE]: '/hi/methodology/', [INDONESIAN_LOCALE]: '/id/methodology/', [CHINESE_LOCALE]: '/zh/methodology/', [TURKISH_LOCALE]: '/tr/metodoloji/' } },
-  { english: '/safety-checker/', translations: { [SPANISH_LOCALE]: '/es/seguridad/', [PORTUGUESE_LOCALE]: '/pt/seguranca/', [FRENCH_LOCALE]: '/fr/securite/', [GERMAN_LOCALE]: '/de/sicherheit/', [ITALIAN_LOCALE]: '/it/sicurezza/', [DUTCH_LOCALE]: '/nl/veiligheid/', [POLISH_LOCALE]: '/pl/bezpieczenstwo/', [JAPANESE_LOCALE]: '/ja/safety/', [KOREAN_LOCALE]: '/ko/safety/', [HINDI_LOCALE]: '/hi/safety/', [INDONESIAN_LOCALE]: '/id/safety/', [CHINESE_LOCALE]: '/zh/safety/', [TURKISH_LOCALE]: '/tr/guvenlik/' } },
+  { english: '/goals/', translations: { [SPANISH_LOCALE]: '/es/objetivos/', [PORTUGUESE_LOCALE]: '/pt/objetivos/', [FRENCH_LOCALE]: '/fr/objectifs/', [GERMAN_LOCALE]: '/de/ziele/', [ITALIAN_LOCALE]: '/it/obiettivi/', [DUTCH_LOCALE]: '/nl/doelen/', [POLISH_LOCALE]: '/pl/cele/', [JAPANESE_LOCALE]: '/ja/goals/', [KOREAN_LOCALE]: '/ko/goals/', [HINDI_LOCALE]: '/hi/goals/', [INDONESIAN_LOCALE]: '/id/goals/', [CHINESE_LOCALE]: '/zh/mubiao/', [TURKISH_LOCALE]: '/tr/hedefler/', [ARABIC_LOCALE]: '/ar/ahdaf/', [RUSSIAN_LOCALE]: '/ru/celi/', [VIETNAMESE_LOCALE]: '/vi/muc-tieu/', [THAI_LOCALE]: '/th/goals/', [SWEDISH_LOCALE]: '/sv/mal/' } },
+  { english: '/goals/sleep/', translations: { [SPANISH_LOCALE]: '/es/objetivos/sueno/', [PORTUGUESE_LOCALE]: '/pt/objetivos/sono/', [FRENCH_LOCALE]: '/fr/objectifs/sommeil/', [GERMAN_LOCALE]: '/de/ziele/schlaf/', [ITALIAN_LOCALE]: '/it/obiettivi/sonno/', [DUTCH_LOCALE]: '/nl/doelen/slaap/', [POLISH_LOCALE]: '/pl/cele/sen/', [JAPANESE_LOCALE]: '/ja/goals/sleep/', [KOREAN_LOCALE]: '/ko/goals/sleep/', [HINDI_LOCALE]: '/hi/goals/sleep/', [INDONESIAN_LOCALE]: '/id/goals/sleep/', [CHINESE_LOCALE]: '/zh/mubiao/shuimian/', [TURKISH_LOCALE]: '/tr/hedefler/uyku/', [ARABIC_LOCALE]: '/ar/ahdaf/nom/', [RUSSIAN_LOCALE]: '/ru/celi/son/', [VIETNAMESE_LOCALE]: '/vi/muc-tieu/ngu/', [THAI_LOCALE]: '/th/goals/sleep/', [SWEDISH_LOCALE]: '/sv/mal/somn/' } },
+  { english: '/goals/stress/', translations: { [SPANISH_LOCALE]: '/es/objetivos/estres/', [PORTUGUESE_LOCALE]: '/pt/objetivos/estresse/', [FRENCH_LOCALE]: '/fr/objectifs/stress/', [GERMAN_LOCALE]: '/de/ziele/stress/', [ITALIAN_LOCALE]: '/it/obiettivi/stress/', [DUTCH_LOCALE]: '/nl/doelen/stress/', [POLISH_LOCALE]: '/pl/cele/stres/', [JAPANESE_LOCALE]: '/ja/goals/stress/', [KOREAN_LOCALE]: '/ko/goals/stress/', [HINDI_LOCALE]: '/hi/goals/stress/', [INDONESIAN_LOCALE]: '/id/goals/stress/', [CHINESE_LOCALE]: '/zh/mubiao/yali/', [TURKISH_LOCALE]: '/tr/hedefler/stres/', [ARABIC_LOCALE]: '/ar/ahdaf/daght/', [RUSSIAN_LOCALE]: '/ru/celi/stress/', [VIETNAMESE_LOCALE]: '/vi/muc-tieu/cang-thang/', [THAI_LOCALE]: '/th/goals/stress/', [SWEDISH_LOCALE]: '/sv/mal/stress/' } },
+  { english: '/goals/anxiety/', translations: { [SPANISH_LOCALE]: '/es/objetivos/ansiedad/', [PORTUGUESE_LOCALE]: '/pt/objetivos/ansiedade/', [FRENCH_LOCALE]: '/fr/objectifs/anxiete/', [GERMAN_LOCALE]: '/de/ziele/angst/', [ITALIAN_LOCALE]: '/it/obiettivi/ansia/', [DUTCH_LOCALE]: '/nl/doelen/angst/', [POLISH_LOCALE]: '/pl/cele/lek/', [JAPANESE_LOCALE]: '/ja/goals/anxiety/', [KOREAN_LOCALE]: '/ko/goals/anxiety/', [HINDI_LOCALE]: '/hi/goals/anxiety/', [INDONESIAN_LOCALE]: '/id/goals/anxiety/', [CHINESE_LOCALE]: '/zh/mubiao/jiaolv/', [TURKISH_LOCALE]: '/tr/hedefler/kaygi/', [ARABIC_LOCALE]: '/ar/ahdaf/qalaq/', [RUSSIAN_LOCALE]: '/ru/celi/trevoga/', [VIETNAMESE_LOCALE]: '/vi/muc-tieu/lo-au/', [THAI_LOCALE]: '/th/goals/anxiety/', [SWEDISH_LOCALE]: '/sv/mal/oro/' } },
+  { english: '/goals/focus/', translations: { [SPANISH_LOCALE]: '/es/objetivos/concentracion/', [PORTUGUESE_LOCALE]: '/pt/objetivos/foco/', [FRENCH_LOCALE]: '/fr/objectifs/concentration/', [GERMAN_LOCALE]: '/de/ziele/fokus/', [ITALIAN_LOCALE]: '/it/obiettivi/concentrazione/', [DUTCH_LOCALE]: '/nl/doelen/focus/', [POLISH_LOCALE]: '/pl/cele/koncentracja/', [JAPANESE_LOCALE]: '/ja/goals/focus/', [KOREAN_LOCALE]: '/ko/goals/focus/', [HINDI_LOCALE]: '/hi/goals/focus/', [INDONESIAN_LOCALE]: '/id/goals/focus/', [CHINESE_LOCALE]: '/zh/mubiao/zhuanzhu/', [TURKISH_LOCALE]: '/tr/hedefler/odak/', [ARABIC_LOCALE]: '/ar/ahdaf/tarkiz/', [RUSSIAN_LOCALE]: '/ru/celi/fokus/', [VIETNAMESE_LOCALE]: '/vi/muc-tieu/tap-trung/', [THAI_LOCALE]: '/th/goals/focus/', [SWEDISH_LOCALE]: '/sv/mal/fokus/' } },
+  { english: '/info/methodology/', translations: { [SPANISH_LOCALE]: '/es/metodologia/', [PORTUGUESE_LOCALE]: '/pt/metodologia/', [FRENCH_LOCALE]: '/fr/methodologie/', [GERMAN_LOCALE]: '/de/methodik/', [ITALIAN_LOCALE]: '/it/metodologia/', [DUTCH_LOCALE]: '/nl/methodologie/', [POLISH_LOCALE]: '/pl/metodologia/', [JAPANESE_LOCALE]: '/ja/methodology/', [KOREAN_LOCALE]: '/ko/methodology/', [HINDI_LOCALE]: '/hi/methodology/', [INDONESIAN_LOCALE]: '/id/methodology/', [CHINESE_LOCALE]: '/zh/methodology/', [TURKISH_LOCALE]: '/tr/metodoloji/', [ARABIC_LOCALE]: '/ar/manhaj/', [RUSSIAN_LOCALE]: '/ru/metodologiya/', [VIETNAMESE_LOCALE]: '/vi/phuong-phap/', [THAI_LOCALE]: '/th/methodology/', [SWEDISH_LOCALE]: '/sv/metodik/' } },
+  { english: '/safety-checker/', translations: { [SPANISH_LOCALE]: '/es/seguridad/', [PORTUGUESE_LOCALE]: '/pt/seguranca/', [FRENCH_LOCALE]: '/fr/securite/', [GERMAN_LOCALE]: '/de/sicherheit/', [ITALIAN_LOCALE]: '/it/sicurezza/', [DUTCH_LOCALE]: '/nl/veiligheid/', [POLISH_LOCALE]: '/pl/bezpieczenstwo/', [JAPANESE_LOCALE]: '/ja/safety/', [KOREAN_LOCALE]: '/ko/safety/', [HINDI_LOCALE]: '/hi/safety/', [INDONESIAN_LOCALE]: '/id/safety/', [CHINESE_LOCALE]: '/zh/safety/', [TURKISH_LOCALE]: '/tr/guvenlik/', [ARABIC_LOCALE]: '/ar/salama/', [RUSSIAN_LOCALE]: '/ru/bezopasnost/', [VIETNAMESE_LOCALE]: '/vi/an-toan/', [THAI_LOCALE]: '/th/safety/', [SWEDISH_LOCALE]: '/sv/sakerhet/' } },
 ] as const
 
 export const LOCALIZED_ROUTE_PAIRS: readonly LocalizedRoutePair[] = LOCALIZED_ROUTES.filter((route) => route.translations[SPANISH_LOCALE]).map((route) => ({ english: route.english, spanish: route.translations[SPANISH_LOCALE] as string }))
