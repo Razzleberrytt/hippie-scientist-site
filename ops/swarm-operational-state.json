@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-09T15:57:43Z",
+  "updatedAt": "2026-09-10T09:59:55Z",
   "lanes": {
     "lane1": {
       "outcome": "STAGED",
-      "workItem": "PR #5407",
-      "rootBlocker": "No published exact-head status checks are visible for the current PR head.",
-      "fallbackUsed": "Fresh review of issue #5337, current main, recent issues, PR metadata, and combined commit status.",
-      "lastMaterialChange": "Verified PR #5407 is open, non-draft, mergeable, and includes the locale-registry repair; no status checks are published yet.",
-      "nextAction": "Recheck provider validation and exact-head results before any governed promotion."
+      "workItem": "PR #5410",
+      "rootBlocker": "Exact-head validation and governed promotion evidence are still not published for the open operational-memory update.",
+      "fallbackUsed": "Fresh review of issue #5337, current main metadata, open issues, PR #5410 metadata/comments, and preview deployment evidence.",
+      "lastMaterialChange": "Verified PR #5410 remains open and mergeable; its preview deployment succeeded, while main has newer shipped changes than the PR base.",
+      "nextAction": "Recheck exact-head required validation and canonical admission evidence; do not merge or promote without verified gates."
     },
     "lane2": null,
     "lane3": null,
@@ -18,12 +18,12 @@
   "activeWork": [
     {
       "lane": "lane1",
-      "workItem": "PR #5407",
-      "target": "Expand core locale compatibility to Hindi and Indonesian",
+      "workItem": "PR #5410",
+      "target": "Record verified Lane 1 heartbeat and active work",
       "state": "STAGED",
       "dependency": "Exact-head validation and governed promotion",
-      "lastMaterialChange": "Locale registries repaired and PR remains mergeable.",
-      "nextAction": "Verify published exact-head checks before promotion."
+      "lastMaterialChange": "Preview deployment succeeded for the current PR head; the PR is still open and mergeable.",
+      "nextAction": "Verify current-head checks and canonical controller admission before promotion."
     },
     {
       "lane": "lane2",
