@@ -19,4 +19,8 @@ export const DARK_MODE_COPY: Record<SupportedLocale, DarkModeCopy> = {
   pl: { toLight: 'Przełącz na tryb jasny', toDark: 'Przełącz na tryb ciemny', systemSuffix: ' (zgodnie z ustawieniem systemu)', light: 'Jasny', dark: 'Ciemny' },
   ja: { toLight: 'ライトモードに切り替える', toDark: 'ダークモードに切り替える', systemSuffix: '（システム設定に従っています）', light: 'ライト', dark: 'ダーク' },
   ko: { toLight: '라이트 모드로 전환', toDark: '다크 모드로 전환', systemSuffix: ' (시스템 설정을 따르는 중)', light: '라이트', dark: '다크' },
+  hi: { toLight: 'लाइट मोड पर जाएँ', toDark: 'डार्क मोड पर जाएँ', systemSuffix: ' (सिस्टम सेटिंग का अनुसरण)', light: 'लाइट', dark: 'डार्क' },
+  id: { toLight: 'Beralih ke mode terang', toDark: 'Beralih ke mode gelap', systemSuffix: ' (mengikuti sistem)', light: 'Terang', dark: 'Gelap' },
+  'zh-CN': { toLight: '切换到浅色模式', toDark: '切换到深色模式', systemSuffix: '（跟随系统设置）', light: '浅色', dark: '深色' },
+  tr: { toLight: 'Açık moda geç', toDark: 'Koyu moda geç', systemSuffix: ' (sistem ayarını izliyor)', light: 'Açık', dark: 'Koyu' },
 }
