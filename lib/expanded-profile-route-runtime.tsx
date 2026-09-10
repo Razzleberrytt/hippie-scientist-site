@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import LocalizedResearchProfilePage from '@/components/localization/LocalizedResearchProfilePage'
+import ExpandedProfileLanguageLinks from '@/components/localization/ExpandedProfileLanguageLinks'
 import { buildPageMetadata } from './seo'
 import { canonicalProfileClaimRevision, loadCanonicalLocalizedProfile, profileTranslationCoverage } from './localized-profile'
 import { EXPANDED_ASHWAGANDHA, EXPANDED_PROFILE_UI, type ExpandedProfileLocale } from './expanded-profile-translations'
@@ -75,13 +76,16 @@ export function createExpandedHerbProfileRoute(config: {
     if (!profileTranslationCoverage(canonical, translation).complete) notFound()
 
     return (
-      <LocalizedResearchProfilePage
-        canonical={canonical}
-        translation={translation}
-        ui={EXPANDED_PROFILE_UI[config.locale]}
-        lang={config.lang}
-        libraryHref={config.libraryHref}
-      />
+      <>
+        <ExpandedProfileLanguageLinks current={config.locale} />
+        <LocalizedResearchProfilePage
+          canonical={canonical}
+          translation={translation}
+          ui={EXPANDED_PROFILE_UI[config.locale]}
+          lang={config.lang}
+          libraryHref={config.libraryHref}
+        />
+      </>
     )
   }
 
