@@ -53,11 +53,12 @@ const pageCopy = {
 } as const
 
 const routeFor = (locale: 'zh-CN' | 'tr', key: string) => {
-  if (locale === 'zh-CN' && ['sleep', 'stress', 'anxiety', 'focus'].includes(key)) return `${packs[locale].prefix}/mubiao/${key === 'sleep' ? 'shuimian' : key === 'stress' ? 'yali' : key === 'anxiety' ? 'jiaolv' : 'zhuanzhu'}/`
-  if (locale === 'zh-CN' && key === 'goals') return `${packs[locale].prefix}/mubiao/`
-  return key === 'sleep' || key === 'stress' || key === 'anxiety' || key === 'focus'
-    ? `${packs[locale].prefix}/goals/${key}/`
-    : `${packs[locale].prefix}/${key}/`
+  if (locale === 'zh-CN') {
+    const zh: Record<string, string> = { herbs: 'herbs', compounds: 'compounds', goals: 'mubiao', sleep: 'mubiao/shuimian', stress: 'mubiao/yali', anxiety: 'mubiao/jiaolv', focus: 'mubiao/zhuanzhu', methodology: 'methodology', safety: 'safety' }
+    return `${packs[locale].prefix}/${zh[key]}/`
+  }
+  const tr: Record<string, string> = { herbs: 'bitkiler', compounds: 'bilesikler', goals: 'hedefler', sleep: 'hedefler/uyku', stress: 'hedefler/stres', anxiety: 'hedefler/kaygi', focus: 'hedefler/odak', methodology: 'metodoloji', safety: 'guvenlik' }
+  return `${packs[locale].prefix}/${tr[key]}/`
 }
 
 function buildPages(locale: 'zh-CN' | 'tr') {
