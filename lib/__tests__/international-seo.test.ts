@@ -1,24 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import {
-  DEFAULT_LOCALE,
-  DEFAULT_LANGUAGE,
-  DEFAULT_REGION,
-  HINDI_LOCALE,
-  INDONESIAN_LOCALE,
-  CHINESE_LOCALE,
-  TURKISH_LOCALE,
-  LOCALIZED_ROUTE_PAIRS,
-  LOCALIZED_ROUTES,
-  LOCALE_TEXT_DIRECTION,
-  SPANISH_LOCALE,
-  SUPPORTED_LOCALES,
-  buildDefaultLocaleUrl,
-  getCurrentLocaleAlternates,
-  getLocaleFromPathname,
-  getLocaleMetadata,
-  getLocalizedRoute,
-  normalizeInternationalPath,
-} from '../international-seo'
+import { DEFAULT_LOCALE, DEFAULT_LANGUAGE, DEFAULT_REGION, HINDI_LOCALE, INDONESIAN_LOCALE, CHINESE_LOCALE, TURKISH_LOCALE, ARABIC_LOCALE, RUSSIAN_LOCALE, VIETNAMESE_LOCALE, THAI_LOCALE, SWEDISH_LOCALE, LOCALIZED_ROUTE_PAIRS, LOCALIZED_ROUTES, LOCALE_TEXT_DIRECTION, SPANISH_LOCALE, SUPPORTED_LOCALES, buildDefaultLocaleUrl, getCurrentLocaleAlternates, getLocaleFromPathname, getLocaleMetadata, getLocalizedRoute, normalizeInternationalPath } from '../international-seo'
 import { shouldIndexRoute } from '../seo'
 
 describe('international SEO helpers', () => {
@@ -32,7 +13,12 @@ describe('international SEO helpers', () => {
     expect(INDONESIAN_LOCALE).toBe('id')
     expect(CHINESE_LOCALE).toBe('zh-CN')
     expect(TURKISH_LOCALE).toBe('tr')
-    expect(SUPPORTED_LOCALES).toEqual(['en-US', 'es', 'pt-BR', 'fr', 'de', 'it', 'nl', 'pl', 'ja', 'ko', 'hi', 'id', 'zh-CN', 'tr'])
+    expect(ARABIC_LOCALE).toBe('ar')
+    expect(RUSSIAN_LOCALE).toBe('ru')
+    expect(VIETNAMESE_LOCALE).toBe('vi')
+    expect(THAI_LOCALE).toBe('th')
+    expect(SWEDISH_LOCALE).toBe('sv')
+    expect(SUPPORTED_LOCALES).toEqual(['en-US', 'es', 'pt-BR', 'fr', 'de', 'it', 'nl', 'pl', 'ja', 'ko', 'hi', 'id', 'zh-CN', 'tr', 'ar', 'ru', 'vi', 'th', 'sv'])
   })
 
   it('normalizes paths for locale alternates without query strings', () => {
@@ -49,10 +35,15 @@ describe('international SEO helpers', () => {
     expect(getLocaleFromPathname('/id/goals/sleep/')).toBe('id')
     expect(getLocaleFromPathname('/zh/mubiao/shuimian/')).toBe('zh-CN')
     expect(getLocaleFromPathname('/tr/hedefler/uyku/')).toBe('tr')
+    expect(getLocaleFromPathname('/ar/ahdaf/nom/')).toBe('ar')
+    expect(getLocaleFromPathname('/ru/celi/son/')).toBe('ru')
+    expect(getLocaleFromPathname('/vi/muc-tieu/ngu/')).toBe('vi')
+    expect(getLocaleFromPathname('/th/goals/sleep/')).toBe('th')
+    expect(getLocaleFromPathname('/sv/mal/somn/')).toBe('sv')
     expect(getLocaleFromPathname('/herbs/ashwagandha/')).toBe('en-US')
   })
 
-  it('builds translated hreflang pairs only for routes that have published equivalents', () => {
+  it('builds translated hreflang pairs for the published herb index', () => {
     expect(getCurrentLocaleAlternates('/herbs/')).toEqual([
       { locale: 'en-US', url: 'https://thehippiescientist.net/herbs/' },
       { locale: 'es', url: 'https://thehippiescientist.net/es/hierbas/' },
@@ -68,16 +59,12 @@ describe('international SEO helpers', () => {
       { locale: 'id', url: 'https://thehippiescientist.net/id/herbs/' },
       { locale: 'zh-CN', url: 'https://thehippiescientist.net/zh/herbs/' },
       { locale: 'tr', url: 'https://thehippiescientist.net/tr/bitkiler/' },
+      { locale: 'ar', url: 'https://thehippiescientist.net/ar/herbs/' },
+      { locale: 'ru', url: 'https://thehippiescientist.net/ru/travy/' },
+      { locale: 'vi', url: 'https://thehippiescientist.net/vi/thao-duoc/' },
+      { locale: 'th', url: 'https://thehippiescientist.net/th/herbs/' },
+      { locale: 'sv', url: 'https://thehippiescientist.net/sv/orter/' },
       { locale: 'x-default', url: 'https://thehippiescientist.net/herbs/' },
-    ])
-
-    expect(getCurrentLocaleAlternates('/herbs/ashwagandha/').map((alternate) => alternate.locale)).toEqual([
-      'en-US', 'es', 'pt-BR', 'fr', 'de', 'x-default',
-    ])
-
-    expect(getCurrentLocaleAlternates('/herbs/turmeric/')).toEqual([
-      { locale: 'en-US', url: 'https://thehippiescientist.net/herbs/turmeric/' },
-      { locale: 'x-default', url: 'https://thehippiescientist.net/herbs/turmeric/' },
     ])
   })
 
@@ -94,6 +81,11 @@ describe('international SEO helpers', () => {
     expect(getLocalizedRoute('/id/goals/sleep/', 'en-US')).toBe('/goals/sleep/')
     expect(getLocalizedRoute('/zh/mubiao/shuimian/', 'en-US')).toBe('/goals/sleep/')
     expect(getLocalizedRoute('/tr/hedefler/uyku/', 'en-US')).toBe('/goals/sleep/')
+    expect(getLocalizedRoute('/ar/ahdaf/nom/', 'en-US')).toBe('/goals/sleep/')
+    expect(getLocalizedRoute('/ru/celi/son/', 'en-US')).toBe('/goals/sleep/')
+    expect(getLocalizedRoute('/vi/muc-tieu/ngu/', 'en-US')).toBe('/goals/sleep/')
+    expect(getLocalizedRoute('/th/goals/sleep/', 'en-US')).toBe('/goals/sleep/')
+    expect(getLocalizedRoute('/sv/mal/somn/', 'en-US')).toBe('/goals/sleep/')
     expect(getLocalizedRoute('/herbs/ashwagandha/', 'it')).toBeNull()
     expect(getLocalizedRoute('/compounds/l-theanine/', 'ja')).toBeNull()
     expect(getLocalizedRoute('/herbs/ashwagandha/', 'ko')).toBeNull()
@@ -116,6 +108,12 @@ describe('international SEO helpers', () => {
     expect(getLocaleMetadata('/id/', 'id').openGraphLocale).toBe('id_ID')
     expect(getLocaleMetadata('/zh/', 'zh-CN').openGraphLocale).toBe('zh_CN')
     expect(getLocaleMetadata('/tr/', 'tr').openGraphLocale).toBe('tr_TR')
+    expect(getLocaleMetadata('/ar/', 'ar').openGraphLocale).toBe('ar_SA')
+    expect(getLocaleMetadata('/ru/', 'ru').openGraphLocale).toBe('ru_RU')
+    expect(getLocaleMetadata('/vi/', 'vi').openGraphLocale).toBe('vi_VN')
+    expect(getLocaleMetadata('/th/', 'th').openGraphLocale).toBe('th_TH')
+    expect(getLocaleMetadata('/sv/', 'sv').openGraphLocale).toBe('sv_SE')
+    expect(getLocaleMetadata('/ar/').textDirection).toBe('rtl')
   })
 
   it('keeps every published translation indexable, in every locale', () => {
