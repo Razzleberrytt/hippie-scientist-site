@@ -17,16 +17,35 @@ const PATHS = {
 
 export default function ExpandedProfileLanguageLinks({ current }: { current: ExpandedProfileLocale }) {
   return (
-    <nav aria-label='Available profile languages' className='mx-auto flex max-w-5xl flex-wrap gap-2 px-5 pt-6 sm:px-8 lg:px-10'>
-      {Object.entries(PATHS).map(([locale, href]) => {
-        const label = LOCALE_CONFIG[locale as keyof typeof LOCALE_CONFIG]
-        const active = locale === current
-        return active ? (
-          <span key={locale} aria-current='page' title={label.languageLabel} className='rounded-full border border-[var(--border-strong)] bg-[var(--surface-subtle)] px-3 py-1.5 text-xs font-bold text-[var(--text-primary)]'>{label.shortLabel}</span>
-        ) : (
-          <Link key={locale} href={href} hrefLang={locale} title={label.languageLabel} className='rounded-full border border-[var(--border-soft)] px-3 py-1.5 text-xs font-semibold text-[var(--text-secondary)] transition hover:border-[var(--border-strong)] hover:text-[var(--text-primary)]'>{label.shortLabel}</Link>
-        )
-      })}
+    <nav aria-label='Available profile languages' className='mx-auto max-w-5xl px-5 pt-6 sm:px-8 lg:px-10'>
+      <ul className='flex flex-wrap gap-2' role='list'>
+        {Object.entries(PATHS).map(([locale, href]) => {
+          const label = LOCALE_CONFIG[locale as keyof typeof LOCALE_CONFIG]
+          const active = locale === current
+          return (
+            <li key={locale}>
+              {active ? (
+                <span
+                  aria-current='page'
+                  title={label.languageLabel}
+                  className='inline-flex min-h-11 items-center rounded-full border border-[var(--border-strong)] bg-[var(--surface-subtle)] px-3 py-2 text-xs font-bold text-[var(--text-primary)]'
+                >
+                  {label.shortLabel}
+                </span>
+              ) : (
+                <Link
+                  href={href}
+                  hrefLang={locale}
+                  title={label.languageLabel}
+                  className='inline-flex min-h-11 items-center rounded-full border border-[var(--border-soft)] px-3 py-2 text-xs font-semibold text-[var(--text-secondary)] transition hover:border-[var(--border-strong)] hover:text-[var(--text-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface-page)]'
+                >
+                  {label.shortLabel}
+                </Link>
+              )}
+            </li>
+          )
+        })}
+      </ul>
     </nav>
   )
 }
