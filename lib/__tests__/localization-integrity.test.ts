@@ -7,7 +7,9 @@ import { DUTCH_PAGES, ITALIAN_PAGES, POLISH_PAGES } from '../expanded-language-c
 import { JAPANESE_PAGES, KOREAN_PAGES } from '../asian-language-content'
 import { HINDI_PAGES, INDONESIAN_PAGES } from '../hi-id-language-content'
 import { ARABIC_PAGES, RUSSIAN_PAGES, VIETNAMESE_PAGES, THAI_PAGES, SWEDISH_PAGES } from '../global-language-content'
+import { CHINESE_PAGES, TURKISH_PAGES } from '../zh-tr-language-content'
 import {
+  CHINESE_LOCALE,
   DEFAULT_LOCALE,
   DUTCH_LOCALE,
   FRENCH_LOCALE,
@@ -21,6 +23,7 @@ import {
   POLISH_LOCALE,
   PORTUGUESE_LOCALE,
   SPANISH_LOCALE,
+  TURKISH_LOCALE,
   ARABIC_LOCALE,
   RUSSIAN_LOCALE,
   VIETNAMESE_LOCALE,
@@ -51,6 +54,8 @@ const PACKS: Record<TranslationLocale, readonly LocalizedPageData[]> = {
   [KOREAN_LOCALE]: Object.values(KOREAN_PAGES),
   [HINDI_LOCALE]: Object.values(HINDI_PAGES),
   [INDONESIAN_LOCALE]: Object.values(INDONESIAN_PAGES),
+  [CHINESE_LOCALE]: Object.values(CHINESE_PAGES),
+  [TURKISH_LOCALE]: Object.values(TURKISH_PAGES),
   [ARABIC_LOCALE]: Object.values(ARABIC_PAGES),
   [RUSSIAN_LOCALE]: Object.values(RUSSIAN_PAGES),
   [VIETNAMESE_LOCALE]: Object.values(VIETNAMESE_PAGES),
