@@ -6,6 +6,7 @@ on:
       - fix/audit-high-js-yaml-sharp
     paths:
       - package.json
+      - package-lock.json
       - .github/workflows/remediate-audit-lockfile.yml
   workflow_dispatch:
 
@@ -43,4 +44,4 @@ jobs:
           git commit -m 'chore(security): refresh lockfile from package manifest'
           git push origin HEAD:fix/audit-high-js-yaml-sharp
 
-      # Triggered from a real branch push so npm, not hand-editing, remains the lockfile source of truth.
+      # npm remains the lockfile source of truth; the action only performs a real npm regeneration.
