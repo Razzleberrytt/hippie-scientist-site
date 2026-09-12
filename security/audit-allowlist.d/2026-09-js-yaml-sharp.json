@@ -1,0 +1,20 @@
+{
+  "rules": [
+    {
+      "id": "js-yaml-build-tooling-only-2026-09",
+      "package": "js-yaml",
+      "severity": "high",
+      "expiresOn": "2026-09-16",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Upgrade%20js-yaml%20to%203.15.2%20and%20remove%20temporary%20audit%20allowlist",
+      "rationale": "Temporary CI unblock for the newly surfaced js-yaml high-severity advisory. The affected js-yaml 3.x package is transitive build tooling and is not shipped as application runtime code in the static export. The patched 3.15.2 release is available, so this is an interim allowlist only while the lockfile dependency refresh is prepared and validated."
+    },
+    {
+      "id": "sharp-build-tooling-only-2026-09",
+      "package": "sharp",
+      "severity": "high",
+      "expiresOn": "2026-09-16",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Upgrade%20sharp%20to%200.35.4%20and%20remove%20temporary%20audit%20allowlist",
+      "rationale": "Temporary CI unblock for the newly surfaced sharp high-severity advisory. sharp is a devDependency used by the image/build pipeline and is not shipped as application runtime code in the static export. The patched 0.35.4 release is available, so this is an interim allowlist only while the lockfile dependency refresh is prepared and validated."
+    }
+  ]
+}
