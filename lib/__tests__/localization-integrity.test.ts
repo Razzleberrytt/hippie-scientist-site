@@ -6,6 +6,7 @@ import { GERMAN_PAGES } from '../german-content'
 import { DUTCH_PAGES, ITALIAN_PAGES, POLISH_PAGES } from '../expanded-language-content'
 import { JAPANESE_PAGES, KOREAN_PAGES } from '../asian-language-content'
 import { HINDI_PAGES, INDONESIAN_PAGES } from '../hi-id-language-content'
+import { ARABIC_PAGES, RUSSIAN_PAGES, VIETNAMESE_PAGES, THAI_PAGES, SWEDISH_PAGES } from '../global-language-content'
 import {
   DEFAULT_LOCALE,
   DUTCH_LOCALE,
@@ -20,6 +21,11 @@ import {
   POLISH_LOCALE,
   PORTUGUESE_LOCALE,
   SPANISH_LOCALE,
+  ARABIC_LOCALE,
+  RUSSIAN_LOCALE,
+  VIETNAMESE_LOCALE,
+  THAI_LOCALE,
+  SWEDISH_LOCALE,
   getCurrentLocaleAlternates,
   getLocalePathPrefix,
   getLocalizedRoute,
@@ -45,6 +51,11 @@ const PACKS: Record<TranslationLocale, readonly LocalizedPageData[]> = {
   [KOREAN_LOCALE]: Object.values(KOREAN_PAGES),
   [HINDI_LOCALE]: Object.values(HINDI_PAGES),
   [INDONESIAN_LOCALE]: Object.values(INDONESIAN_PAGES),
+  [ARABIC_LOCALE]: Object.values(ARABIC_PAGES),
+  [RUSSIAN_LOCALE]: Object.values(RUSSIAN_PAGES),
+  [VIETNAMESE_LOCALE]: Object.values(VIETNAMESE_PAGES),
+  [THAI_LOCALE]: Object.values(THAI_PAGES),
+  [SWEDISH_LOCALE]: Object.values(SWEDISH_PAGES),
 }
 
 function pageLinks(page: LocalizedPageData): string[] {

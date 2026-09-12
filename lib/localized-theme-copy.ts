@@ -23,4 +23,9 @@ export const DARK_MODE_COPY: Record<SupportedLocale, DarkModeCopy> = {
   id: { toLight: 'Beralih ke mode terang', toDark: 'Beralih ke mode gelap', systemSuffix: ' (mengikuti sistem)', light: 'Terang', dark: 'Gelap' },
   'zh-CN': { toLight: '切换到浅色模式', toDark: '切换到深色模式', systemSuffix: '（跟随系统设置）', light: '浅色', dark: '深色' },
   tr: { toLight: 'Açık moda geç', toDark: 'Koyu moda geç', systemSuffix: ' (sistem ayarını izliyor)', light: 'Açık', dark: 'Koyu' },
+  ar: { toLight: 'التبديل إلى الوضع الفاتح', toDark: 'التبديل إلى الوضع الداكن', systemSuffix: ' (يتبع إعدادات النظام حاليًا)', light: 'فاتح', dark: 'داكن' },
+  ru: { toLight: 'Переключить на светлую тему', toDark: 'Переключить на тёмную тему', systemSuffix: ' (сейчас используется настройка системы)', light: 'Светлая', dark: 'Тёмная' },
+  vi: { toLight: 'Chuyển sang chế độ sáng', toDark: 'Chuyển sang chế độ tối', systemSuffix: ' (hiện đang theo cài đặt hệ thống)', light: 'Sáng', dark: 'Tối' },
+  th: { toLight: 'เปลี่ยนเป็นโหมดสว่าง', toDark: 'เปลี่ยนเป็นโหมดมืด', systemSuffix: ' (กำลังใช้การตั้งค่าระบบ)', light: 'สว่าง', dark: 'มืด' },
+  sv: { toLight: 'Byt till ljust läge', toDark: 'Byt till mörkt läge', systemSuffix: ' (följer systemets inställning)', light: 'Ljust', dark: 'Mörkt' },
 }
