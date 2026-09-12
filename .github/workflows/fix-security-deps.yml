@@ -1,0 +1,53 @@
+name: Fix security dependencies
+
+on:
+  push:
+    branches:
+      - fix/security-deps-from-main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  remediate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/security-deps-from-main
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Patch dependency manifest and regenerate lockfile
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const p = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+          p.devDependencies = p.devDependencies || {};
+          p.devDependencies.sharp = '0.35.4';
+          p.overrides = p.overrides || {};
+          p.overrides['js-yaml@3.x'] = '3.15.2';
+          delete p.overrides.sharp;
+          fs.writeFileSync('package.json', JSON.stringify(p, null, 2) + '\n');
+          NODE
+          npm install --package-lock-only --ignore-scripts --no-audit --fund=false
+
+      - name: Validate dependency graph
+        run: npm install --ignore-scripts --no-audit --fund=false
+
+      - name: Commit remediation
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add package.json package-lock.json
+          if git diff --cached --quiet; then
+            echo 'No dependency changes required.'
+            exit 0
+          fi
+          git commit -m 'fix(security): remediate js-yaml and sharp dependencies'
+          git push origin HEAD:fix/security-deps-from-main
