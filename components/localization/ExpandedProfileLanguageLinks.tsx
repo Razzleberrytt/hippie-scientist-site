@@ -18,7 +18,7 @@ const PATHS = {
 export default function ExpandedProfileLanguageLinks({ current }: { current: ExpandedProfileLocale }) {
   return (
     <nav aria-label='Available profile languages' className='mx-auto max-w-5xl px-5 pt-6 sm:px-8 lg:px-10'>
-      <ul className='flex flex-wrap gap-2' role='list'>
+      <ul className='flex flex-wrap gap-2'>
         {Object.entries(PATHS).map(([locale, href]) => {
           const label = LOCALE_CONFIG[locale as keyof typeof LOCALE_CONFIG]
           const active = locale === current
