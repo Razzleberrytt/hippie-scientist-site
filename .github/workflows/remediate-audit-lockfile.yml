@@ -42,3 +42,5 @@ jobs:
           git add package-lock.json
           git commit -m 'chore(security): refresh lockfile from package manifest'
           git push origin HEAD:fix/audit-high-js-yaml-sharp
+
+      # Triggered from a real branch push so npm, not hand-editing, remains the lockfile source of truth.
