@@ -70,12 +70,10 @@ for (const filePath of filesToCheck) {
   totalPages++
   const relPath = path.relative(buildDir, filePath).replace(/\\/g, '/')
 
-  // Read only the first 8KB — enough for <head> checks, avoids slow reads on huge pages
-  const fd = fs.openSync(filePath, 'r')
-  const buf = Buffer.alloc(8192)
-  const bytesRead = fs.readSync(fd, buf, 0, 8192, 0)
-  fs.closeSync(fd)
-  const content = buf.slice(0, bytesRead).toString('utf8')
+  // Metadata can be emitted later in Next.js static HTML than the first few
+  // kilobytes (especially on data-heavy routes). Read the complete document so
+  // this gate validates the actual exported head rather than a truncated prefix.
+  const content = fs.readFileSync(filePath, 'utf8')
 
   const pageErrors = []
 
