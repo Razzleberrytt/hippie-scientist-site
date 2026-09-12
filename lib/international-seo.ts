@@ -190,7 +190,7 @@ export function getCurrentLocaleAlternates(path = '/'): LocaleAlternate[] {
   return alternates
 }
 
-export function getLocaleMetadata(path = '/', locale: SupportedLocale = DEFAULT_LOCALE) {
+export function getLocaleMetadata(path = '/', locale: SupportedLocale = getLocaleFromPathname(path)) {
   const config = LOCALE_CONFIG[locale]
   return { language: config.language, locale, openGraphLocale: config.openGraphLocale, region: config.region, textDirection: config.textDirection, alternates: getCurrentLocaleAlternates(path) }
 }
