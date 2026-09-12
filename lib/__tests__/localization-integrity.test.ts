@@ -33,7 +33,9 @@ import { COMPOUND_PROFILE_TRANSLATIONS } from '../compound-profile-translations'
 import { PROFILE_TRANSLATIONS, type ProfileTranslationLocale } from '../profile-translations'
 import { SPANISH_PAGES } from '../spanish-content'
 
-const PACKS: Record<TranslationLocale, readonly LocalizedPageData[]> = {
+// Only locales with substantive page packs belong in this content-integrity fixture.
+// Other supported locales have global-language route shells and are covered by their own route/runtime checks.
+const PACKS: Partial<Record<TranslationLocale, readonly LocalizedPageData[]>> = {
   [SPANISH_LOCALE]: Object.values(SPANISH_PAGES),
   [PORTUGUESE_LOCALE]: Object.values(PORTUGUESE_PAGES),
   [FRENCH_LOCALE]: Object.values(FRENCH_PAGES),
@@ -74,7 +76,7 @@ function compoundProfileTranslations(locale: TranslationLocale) {
 }
 
 function publishedPaths(locale: TranslationLocale) {
-  const core = PACKS[locale].map((page) => normalizeInternationalPath(page.path))
+  const core = (PACKS[locale] ?? []).map((page) => normalizeInternationalPath(page.path))
   const profiles = herbProfileTranslations(locale).map((profile) => normalizeInternationalPath(profile.path))
   const compounds = compoundProfileTranslations(locale).map((profile) => normalizeInternationalPath(profile.path))
 
