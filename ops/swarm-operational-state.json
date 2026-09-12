@@ -1,18 +1,35 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-05T18:00:00Z",
+  "updatedAt": "2026-09-12T20:47:34Z",
   "lanes": {
     "lane1": null,
     "lane2": null,
     "lane3": null,
     "lane4": null,
-    "lane5": null
+    "lane5": {
+      "outcome": "VALIDATED",
+      "canonicalWorkItem": "PR #5423 / PR #5418 / PR #5416",
+      "rootBlocker": "Durable shipped-history reconciliation is still pending; no safe direct merge bypass.",
+      "fallbackUsed": "Verified main commit history, recent PR state, operational ledger, and live-site reachability.",
+      "lastMaterialChange": "Main contains the dependency remediation, localization integrity, accessibility, and mitragynine evidence upgrades.",
+      "nextAction": "Let the governed controller consume the reconciliation PR, then independently confirm production parity and durable ledger publication."
+    }
   },
-  "activeWork": [],
+  "activeWork": [
+    {
+      "owner": "Lane 5",
+      "canonicalWorkItem": "lane5/reconcile-shipping-20260912-run11",
+      "target": "docs/SWARM-UPDATES.md and ops/swarm-operational-state.json",
+      "state": "STAGED",
+      "dependency": "Canonical autonomous merge controller",
+      "lastMaterialChange": "Prepared idempotent reconciliation for verified merged PRs only.",
+      "nextAction": "Controller review and exact-head validation."
+    }
+  ],
   "scoreboard": {
-    "shipped": 0,
-    "validated": 0,
-    "staged": 0,
+    "shipped": 3,
+    "validated": 1,
+    "staged": 1,
     "blocked": 0,
     "noProgress": 0
   }
