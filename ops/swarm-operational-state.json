@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-10T09:59:55Z",
+  "updatedAt": "2026-09-12T00:08:00Z",
   "lanes": {
     "lane1": {
       "outcome": "STAGED",
       "workItem": "PR #5410",
-      "rootBlocker": "Exact-head validation and governed promotion evidence are still not published for the open operational-memory update.",
-      "fallbackUsed": "Fresh review of issue #5337, current main metadata, open issues, PR #5410 metadata/comments, and preview deployment evidence.",
-      "lastMaterialChange": "Verified PR #5410 remains open and mergeable; its preview deployment succeeded, while main has newer shipped changes than the PR base.",
-      "nextAction": "Recheck exact-head required validation and canonical admission evidence; do not merge or promote without verified gates."
+      "rootBlocker": "Exact-head validation evidence is missing from the current PR head; preserve fail-safe until required checks publish.",
+      "fallbackUsed": "Fresh exact-head review of PR #5410 and its required validation state.",
+      "lastMaterialChange": "Refreshed the operational-memory artifact on the existing PR branch to trigger a fresh validation cycle.",
+      "nextAction": "Verify fresh exact-head checks and governed admission; promote only after required gates are published and passing."
     },
     "lane2": null,
     "lane3": null,
@@ -22,7 +22,7 @@
       "target": "Record verified Lane 1 heartbeat and active work",
       "state": "STAGED",
       "dependency": "Exact-head validation and governed promotion",
-      "lastMaterialChange": "Preview deployment succeeded for the current PR head; the PR is still open and mergeable.",
+      "lastMaterialChange": "Refreshed the operational-memory artifact on the current PR branch to force a fresh validation cycle without bypassing gates.",
       "nextAction": "Verify current-head checks and canonical controller admission before promotion."
     },
     {
