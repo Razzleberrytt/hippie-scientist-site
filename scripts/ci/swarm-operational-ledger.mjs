@@ -1,42 +1,88 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-
 export const OUTCOMES = new Set(['SHIPPED', 'VALIDATED', 'STAGED', 'BLOCKED', 'NO_PROGRESS'])
-export const LANES = new Set(['lane1', 'lane2', 'lane3', 'lane4', 'lane5'])
-
+/**
+ * These are implementation-capacity workstreams, not specialty roles.
+ *
+ * Hard WIP cap: one active implementation item per workstream, three total.
+ * Specialty roles such as Design, Engineering, Evidence, Safety, SEO, QA,
+ * and Growth remain assignment/reviewer metadata and do not consume
+ * additional implementation-capacity slots.
+ */
+export const LANES = new Set([
+  'discovery-seo',
+  'revenue-conversion',
+  'authority-content',
+])
+export const STATE_VERSION = 2
 export function validateState(state) {
-  if (!state || state.version !== 1) throw new Error('unsupported swarm operational state version')
-  if (!state.lanes || typeof state.lanes !== 'object') throw new Error('lanes object is required')
+  if (!state || state.version !== STATE_VERSION) {
+    throw new Error('unsupported swarm operational state version')
+  }
+  if (!state.lanes || typeof state.lanes !== 'object') {
+    throw new Error('lanes object is required')
+  }
   for (const lane of LANES) {
     if (!(lane in state.lanes)) throw new Error(`missing ${lane}`)
     const record = state.lanes[lane]
     if (record !== null) validateOutcome(record, lane)
   }
-  if (!Array.isArray(state.activeWork)) throw new Error('activeWork must be an array')
+  if (!Array.isArray(state.activeWork)) {
+    throw new Error('activeWork must be an array')
+  }
+  if (state.activeWork.length > LANES.size) {
+    throw new Error(`workstream WIP cap exceeded: maximum ${LANES.size} active work items`)
+  }
   const keys = new Set()
+  const activeLanes = new Set()
   for (const item of state.activeWork) {
-    if (!item || typeof item.canonicalKey !== 'string' || item.canonicalKey.length === 0) {
+    if (
+      !item ||
+      typeof item.canonicalKey !== 'string' ||
+      item.canonicalKey.length === 0
+    ) {
       throw new Error('active work requires canonicalKey')
     }
-    if (keys.has(item.canonicalKey)) throw new Error(`duplicate active work: ${item.canonicalKey}`)
+    if (keys.has(item.canonicalKey)) {
+      throw new Error(`duplicate active work: ${item.canonicalKey}`)
+    }
+    if (!LANES.has(item.lane)) {
+      throw new Error(`invalid active-work lane: ${item.lane}`)
+    }
+    if (activeLanes.has(item.lane)) {
+      throw new Error(`multiple active work items in workstream: ${item.lane}`)
+    }
     keys.add(item.canonicalKey)
-    if (!LANES.has(item.lane)) throw new Error(`invalid active-work lane: ${item.lane}`)
+    activeLanes.add(item.lane)
   }
   return true
 }
-
 function validateOutcome(record, lane) {
   if (record.lane !== lane) throw new Error(`lane mismatch for ${lane}`)
   if (!OUTCOMES.has(record.outcome)) throw new Error(`invalid outcome for ${lane}`)
-  for (const field of ['canonicalWorkItem', 'rootBlocker', 'fallbackUsed', 'lastMaterialChange', 'nextAction', 'recordedAt']) {
-    if (typeof record[field] !== 'string') throw new Error(`missing ${field} for ${lane}`)
+  for (const field of [
+    'canonicalWorkItem',
+    'rootBlocker',
+    'fallbackUsed',
+    'lastMaterialChange',
+    'nextAction',
+    'recordedAt',
+  ]) {
+    if (typeof record[field] !== 'string') {
+      throw new Error(`missing ${field} for ${lane}`)
+    }
   }
 }
-
 export function deriveScoreboard(state) {
   validateState(state)
-  const score = { shipped: 0, validated: 0, staged: 0, blocked: 0, noProgress: 0 }
+  const score = {
+    shipped: 0,
+    validated: 0,
+    staged: 0,
+    blocked: 0,
+    noProgress: 0,
+  }
   for (const record of Object.values(state.lanes)) {
     if (!record) continue
     if (record.outcome === 'SHIPPED') score.shipped++
@@ -47,10 +93,11 @@ export function deriveScoreboard(state) {
   }
   return score
 }
-
 export function recordOutcome(state, lane, record) {
   validateState(state)
-  if (!LANES.has(lane)) throw new Error(`invalid lane: ${lane}`)
+  if (!LANES.has(lane)) {
+    throw new Error(`invalid lane: ${lane}`)
+  }
   const next = structuredClone(state)
   next.lanes[lane] = { ...record, lane }
   validateOutcome(next.lanes[lane], lane)
@@ -58,16 +105,20 @@ export function recordOutcome(state, lane, record) {
   next.scoreboard = deriveScoreboard(next)
   return next
 }
-
 const here = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.resolve(here, '..', '..')
-const defaultStatePath = path.join(repoRoot, 'ops', 'swarm-operational-state.json')
-
+const defaultStatePath = path.join(
+  repoRoot,
+  'ops',
+  'swarm-operational-state.json',
+)
 function readState(file = defaultStatePath) {
   return JSON.parse(fs.readFileSync(file, 'utf8'))
 }
-
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+if (
+  process.argv[1] &&
+  fileURLToPath(import.meta.url) === path.resolve(process.argv[1])
+) {
   const command = process.argv[2] ?? 'validate'
   const state = readState()
   if (command === 'validate') {
