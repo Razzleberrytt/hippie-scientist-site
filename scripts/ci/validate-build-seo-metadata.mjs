@@ -70,17 +70,16 @@ for (const filePath of filesToCheck) {
   totalPages++
   const relPath = path.relative(buildDir, filePath).replace(/\\/g, '/')
 
-  // Read only the first 8KB — enough for <head> checks, avoids slow reads on huge pages
-  const fd = fs.openSync(filePath, 'r')
-  const buf = Buffer.alloc(8192)
-  const bytesRead = fs.readSync(fd, buf, 0, 8192, 0)
-  fs.closeSync(fd)
-  const content = buf.slice(0, bytesRead).toString('utf8')
+  // Read through </head> so valid metadata is not missed when the generated
+  // document head is larger than the previous fixed 8KB prefix.
+  const content = fs.readFileSync(filePath, 'utf8')
+  const headEnd = content.search(/<\/head\s*>/i)
+  const headContent = headEnd >= 0 ? content.slice(0, headEnd + 7) : content
 
   const pageErrors = []
 
   // 1. Verify title
-  const titleMatch = content.match(/<title>(.*?)<\/title>/i)
+  const titleMatch = headContent.match(/<title(?:\s[^>]*)?>(.*?)<\/title>/i)
   if (!titleMatch) {
     pageErrors.push('Missing <title> tag')
   } else if (!titleMatch[1].trim()) {
@@ -89,8 +88,8 @@ for (const filePath of filesToCheck) {
 
   // 2. Verify meta description
   const metaDescMatch =
-    content.match(/<meta\s+[^>]*name=["']description["']\s+[^>]*content=["']([^"']*)['"]/i) ||
-    content.match(/<meta\s+[^>]*content=["']([^"']*)['"]\s+[^>]*name=["']description["']/i)
+    headContent.match(/<meta\s+[^>]*name=["']description["'][^>]*content=["']([^"']*)['"]/i) ||
+    headContent.match(/<meta\s+[^>]*content=["']([^"']*)['"][^>]*name=["']description["']/i)
   if (!metaDescMatch) {
     pageErrors.push('Missing <meta name="description"> tag')
   } else if (!metaDescMatch[1].trim()) {
@@ -98,43 +97,46 @@ for (const filePath of filesToCheck) {
   }
 
   // 3. Verify viewport meta tag
-  const viewportMatch = content.match(/<meta\s+[^>]*name=["']viewport["']/i)
+  const viewportMatch = headContent.match(/<meta\s+[^>]*name=["']viewport["']/i)
   if (!viewportMatch) {
     pageErrors.push('Missing <meta name="viewport"> tag')
   }
 
   // 4. Verify Open Graph tags (P0 requirement)
-  const ogTitle = content.match(/<meta\s+[^>]*property=["']og:title["']\s+[^>]*content=["']([^"']*)['"]/i) ||
-                  content.match(/<meta\s+[^>]*content=["']([^"']*)['"]\s+[^>]*property=["']og:title["']/i)
+  const ogTitle = headContent.match(/<meta\s+[^>]*property=["']og:title["'][^>]*content=["']([^"']*)['"]/i) ||
+                  headContent.match(/<meta\s+[^>]*content=["']([^"']*)['"][^>]*property=["']og:title["']/i)
   if (!ogTitle || !ogTitle[1].trim()) pageErrors.push('Missing or empty og:title')
 
-  const ogDesc = content.match(/<meta\s+[^>]*property=["']og:description["']\s+[^>]*content=["']([^"']*)['"]/i) ||
-                 content.match(/<meta\s+[^>]*content=["']([^"']*)['"]\s+[^>]*property=["']og:description["']/i)
+  const ogDesc = headContent.match(/<meta\s+[^>]*property=["']og:description["'][^>]*content=["']([^"']*)['"]/i) ||
+                 headContent.match(/<meta\s+[^>]*content=["']([^"']*)['"][^>]*property=["']og:description["']/i)
   if (!ogDesc || !ogDesc[1].trim()) pageErrors.push('Missing or empty og:description')
 
-  const ogImage = content.match(/<meta\s+[^>]*property=["']og:image["']\s+[^>]*content=["']([^"']*)['"]/i) ||
-                  content.match(/<meta\s+[^>]*content=["']([^"']*)['"]\s+[^>]*property=["']og:image["']/i)
+  const ogImage = headContent.match(/<meta\s+[^>]*property=["']og:image["'][^>]*content=["']([^"']*)['"]/i) ||
+                  headContent.match(/<meta\s+[^>]*content=["']([^"']*)['"][^>]*property=["']og:image["']/i)
   if (!ogImage || !ogImage[1].trim()) pageErrors.push('Missing or empty og:image')
 
-  const ogType = content.match(/<meta\s+[^>]*property=["']og:type["']\s+[^>]*content=["']([^"']*)['"]/i)
+  const ogType = headContent.match(/<meta\s+[^>]*property=["']og:type["'][^>]*content=["']([^"']*)['"]/i)
   if (!ogType || !ogType[1].trim()) pageErrors.push('Missing or empty og:type')
 
   // 5. Verify Twitter Card tags (P0 requirement)
-  const twCard = content.match(/<meta\s+[^>]*name=["']twitter:card["']\s+[^>]*content=["']([^"']*)['"]/i) ||
-                 content.match(/<meta\s+[^>]*content=["']([^"']*)['"]\s+[^>]*name=["']twitter:card["']/i)
+  const twCard = headContent.match(/<meta\s+[^>]*name=["']twitter:card["'][^>]*content=["']([^"']*)['"]/i) ||
+                 headContent.match(/<meta\s+[^>]*content=["']([^"']*)['"][^>]*name=["']twitter:card["']/i)
   if (!twCard || !twCard[1].trim()) pageErrors.push('Missing or empty twitter:card')
 
-  const twSite = content.match(/<meta\s+[^>]*name=["']twitter:site["']\s+[^>]*content=["']([^"']*)['"]/i) ||
-                 content.match(/<meta\s+[^>]*content=["']([^"']*)['"]\s+[^>]*name=["']twitter:site["']/i)
+  const twSite = headContent.match(/<meta\s+[^>]*name=["']twitter:site["'][^>]*content=["']([^"']*)['"]/i) ||
+                 headContent.match(/<meta\s+[^>]*content=["']([^"']*)['"][^>]*name=["']twitter:site["']/i)
   if (!twSite || !twSite[1].trim()) pageErrors.push('Missing or empty twitter:site')
 
-  const twTitle = content.match(/<meta\s+[^>]*name=["']twitter:title["']\s+[^>]*content=["']([^"']*)['"]/i)
+  const twTitle = headContent.match(/<meta\s+[^>]*name=["']twitter:title["'][^>]*content=["']([^"']*)['"]/i) ||
+                  headContent.match(/<meta\s+[^>]*content=["']([^"']*)['"][^>]*name=["']twitter:title["']/i)
   if (!twTitle || !twTitle[1].trim()) pageErrors.push('Missing or empty twitter:title')
 
-  const twDesc = content.match(/<meta\s+[^>]*name=["']twitter:description["']\s+[^>]*content=["']([^"']*)['"]/i)
+  const twDesc = headContent.match(/<meta\s+[^>]*name=["']twitter:description["'][^>]*content=["']([^"']*)['"]/i) ||
+                 headContent.match(/<meta\s+[^>]*content=["']([^"']*)['"][^>]*name=["']twitter:description["']/i)
   if (!twDesc || !twDesc[1].trim()) pageErrors.push('Missing or empty twitter:description')
 
-  const twImage = content.match(/<meta\s+[^>]*name=["']twitter:image["']\s+[^>]*content=["']([^"']*)['"]/i)
+  const twImage = headContent.match(/<meta\s+[^>]*name=["']twitter:image["'][^>]*content=["']([^"']*)['"]/i) ||
+                  headContent.match(/<meta\s+[^>]*content=["']([^"']*)['"][^>]*name=["']twitter:image["']/i)
   if (!twImage || !twImage[1].trim()) pageErrors.push('Missing or empty twitter:image')
 
   if (pageErrors.length > 0) {
