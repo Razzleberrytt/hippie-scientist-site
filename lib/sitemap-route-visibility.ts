@@ -40,6 +40,13 @@ const NOINDEX_PATTERNS = [
 ]
 
 /**
+ * Retired route families that must never re-enter the sitemap through a stale
+ * data source or a broad route-manifest pass. The public stack payload and
+ * `/stacks/:slug` route are retired; graph stack data is a separate concern.
+ */
+const RETIRED_SITEMAP_PREFIXES = ['/stacks/']
+
+/**
  * SEO entry pages declare the URL they consolidate into as a `CANONICAL_PATH`
  * const (see `app/seo-entry-pages.tsx`). Most point at themselves; the ones that
  * do not are duplicates kept only for their inbound links.
@@ -162,6 +169,7 @@ export function declaresSelfCanonicalIndexable(
   index: Map<string, DeclaredRouteVisibility>,
 ): boolean {
   const normalized = normalizeVisibilityRoute(route)
+  if (RETIRED_SITEMAP_PREFIXES.some((prefix) => normalized.startsWith(prefix))) return false
   const declared = index.get(normalized)
   if (!declared) return false
   if (!declared.indexable) return false
@@ -178,6 +186,7 @@ export function declaresSitemapIneligible(
   index: Map<string, DeclaredRouteVisibility>,
 ): boolean {
   const normalized = normalizeVisibilityRoute(route)
+  if (RETIRED_SITEMAP_PREFIXES.some((prefix) => normalized.startsWith(prefix))) return true
   const declared = index.get(normalized)
   if (!declared) return false
   if (!declared.indexable) return true
