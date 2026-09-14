@@ -46,6 +46,15 @@ export const DOCS_ONLY_PATTERNS = [
 ]
 
 /**
+ * Candidate syntax for ordinary hand-authored App Router page files. Structural
+ * route checks in `isLeafPagePath` narrow this further so shared/dynamic route
+ * implementations cannot accidentally enter the fast path.
+ */
+export const LEAF_PAGE_PATTERNS = [
+  /^app\/.+\/page\.(?:tsx|ts|jsx|js|mdx)$/,
+]
+
+/**
  * @param {string} file
  * @returns {boolean}
  */
@@ -59,18 +68,47 @@ export function isReleaseSensitivePath(file) {
   return Boolean(normalized) && RELEASE_SENSITIVE_PATTERNS.some((pattern) => pattern.test(normalized))
 }
 
+export function isLeafPagePath(file) {
+  const normalized = String(file || '').trim().replaceAll('\\', '/')
+  if (!normalized || !LEAF_PAGE_PATTERNS.some((pattern) => pattern.test(normalized))) return false
+
+  const routeSegments = normalized.split('/').slice(1, -1)
+  const urlSegments = []
+
+  for (const segment of routeSegments) {
+    // Pure route groups do not add a URL segment. They are safe only when the
+    // page still has at least two concrete URL segments below app/; this keeps
+    // app/(marketing)/page.tsx (the root route) out of the fast path.
+    if (/^\([^/]+\)$/.test(segment)) continue
+
+    // Dynamic/catch-all segments can render many URLs from one page file.
+    // Parallel, intercepting, and private folders can also have non-leaf
+    // routing semantics. Fail closed for every one of those shapes.
+    if (segment.includes('[') || segment.includes(']')) return false
+    if (segment.startsWith('@') || segment.startsWith('(') || segment.startsWith('_')) return false
+
+    urlSegments.push(segment)
+  }
+
+  // Keep category/index hubs (for example app/guides/page.tsx) on the full
+  // path. The optimization is intentionally for deep, static editorial leaves.
+  return urlSegments.length >= 2
+}
+
 export function classifyReleaseImpact(files) {
   const normalizedFiles = Array.from(new Set(
     files.map((file) => String(file || '').trim().replaceAll('\\', '/')).filter(Boolean),
   ))
   const sensitiveFiles = normalizedFiles.filter(isReleaseSensitivePath)
-  // An empty diff is never docs-only: with nothing to inspect, the safe answer
-  // is to run the full suite rather than skip it.
+  // Empty diffs never take a fast path: with nothing to inspect, fail closed
+  // and run the exhaustive suite.
   const docsOnly = normalizedFiles.length > 0 && normalizedFiles.every(isDocsOnlyPath)
+  const leafPageOnly = normalizedFiles.length > 0 && normalizedFiles.every(isLeafPagePath)
   return {
     releaseSensitive: sensitiveFiles.length > 0,
     sensitiveFiles,
     docsOnly,
+    leafPageOnly,
     files: normalizedFiles,
   }
 }
@@ -85,12 +123,14 @@ function main() {
   for (const file of result.sensitiveFiles) console.log(`[release-impact] sensitive: ${file}`)
   console.log(`[release-impact] release_sensitive=${result.releaseSensitive}`)
   console.log(`[release-impact] docs_only=${result.docsOnly}`)
+  console.log(`[release-impact] leaf_page_only=${result.leafPageOnly}`)
 
   if (outputArg) {
     const outputPath = outputArg.slice('--github-output='.length)
     if (!outputPath) throw new Error('--github-output requires a file path')
     fs.appendFileSync(outputPath, `release_sensitive=${result.releaseSensitive}\n`)
     fs.appendFileSync(outputPath, `docs_only=${result.docsOnly}\n`)
+    fs.appendFileSync(outputPath, `leaf_page_only=${result.leafPageOnly}\n`)
   }
 }
 

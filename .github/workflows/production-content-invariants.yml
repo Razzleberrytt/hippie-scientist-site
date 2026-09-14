@@ -85,7 +85,7 @@ jobs:
         run: npm ci
 
       - name: Exercise every invariant with deterministic fixtures
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.leaf_page_only != 'true'
         run: |
           node scripts/ci/test-production-content-invariants.mjs
           node scripts/ci/test-runtime-source-registry-audit.mjs
@@ -94,24 +94,28 @@ jobs:
       # workbook output skips post-processing, citation quarantine, governance
       # overlay, and PubMed enrichment, which falsely demoted valid profiles.
       - name: Build canonical governed runtime data
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.leaf_page_only != 'true'
         run: npm run data:build
 
       - name: Prepare explicit evidence provenance
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.leaf_page_only != 'true'
         run: node scripts/data/prepare-production-evidence-provenance.mjs --data-dir=public/data
 
       - name: Scrub internal language and demote unsafe profiles
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.leaf_page_only != 'true'
         run: node scripts/data/enforce-production-content-invariants.mjs --data-dir=public/data --refresh-derived
 
       - name: Validate the post-enforcement profile corpus
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.leaf_page_only != 'true'
         run: node scripts/ci/validate-production-content-invariants.mjs --data-dir=public/data
 
       - name: Validate post-enforcement indexability budget
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.leaf_page_only != 'true'
         run: node scripts/ci/validate-production-indexability-budget.mjs --data-dir=public/data
+
+      - name: Reuse committed governed data for leaf page
+        if: steps.impact.outputs.leaf_page_only == 'true'
+        run: echo 'Leaf-page-only change; reuse committed governed data corpus. Data-source invariants remain unchanged from main while final HTML audits still run below.'
 
       - name: Build production static HTML from governed data
         if: steps.impact.outputs.docs_only != 'true'
@@ -152,6 +156,7 @@ jobs:
           echo '## Production content invariants' >> "$GITHUB_STEP_SUMMARY"
           echo '- A-grade criteria, human-source, safety-source, dose-source, citation resolution, placeholders, canonical duplicates, scientific names and internal-development language are covered.' >> "$GITHUB_STEP_SUMMARY"
           echo '- The workflow evaluates the same governed runtime corpus as production deployment; raw workbook output is never treated as the final publication contract.' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Leaf-page-only PRs reuse the already-governed committed corpus but still build and audit final HTML; any data, content-pipeline, shared, or generator change falls back to full invariant enforcement.' >> "$GITHUB_STEP_SUMMARY"
           echo '- Explicit claim-to-source provenance is normalized before enforcement; unsupported numeric dosage is suppressed rather than allowed to create a false page-level indexability failure.' >> "$GITHUB_STEP_SUMMARY"
           echo '- Canonical-looking runtime source references are audited against the source registry, including fallback claim source-reference aliases.' >> "$GITHUB_STEP_SUMMARY"
           if [ -f reports/production-invariant-enforcement.json ]; then
