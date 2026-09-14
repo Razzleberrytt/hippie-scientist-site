@@ -187,7 +187,9 @@ export default function SaffronForAdhdPage() {
         <section id="direct-evidence" className="scroll-mt-20 space-y-5">
           <div>
             <p className="eyebrow-label">Study-level evidence</p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">The direct ADHD literature is small enough to inspect study by study</h2>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+              The direct ADHD literature is small enough to inspect study by study
+            </h2>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-muted sm:text-base">
               That is an advantage for interpretation. Instead of hiding behind a broad “studies show” claim,
               each major piece of direct evidence can be evaluated by design, sample, comparator, outcome, and
@@ -196,10 +198,17 @@ export default function SaffronForAdhdPage() {
           </div>
           <ResponsiveTable label="Direct saffron ADHD evidence by study design, population, intervention, finding, and limitation">
             <table className="min-w-[1180px] w-full text-left text-sm">
+              <caption className="sr-only">
+                Direct saffron ADHD evidence by study design, population, intervention, main finding, and limitation
+              </caption>
               <thead className="bg-brand-50/80">
                 <tr className="border-b border-brand-900/10">
                   {['Study', 'Design', 'Population', 'Intervention', 'Main signal', 'Why confidence stays limited'].map((heading) => (
-                    <th key={heading} className="px-4 py-3 text-xs font-bold uppercase tracking-[0.12em] text-brand-900">
+                    <th
+                      key={heading}
+                      scope="col"
+                      className="px-4 py-3 text-xs font-bold uppercase tracking-[0.12em] text-brand-900"
+                    >
                       {heading}
                     </th>
                   ))}
@@ -209,7 +218,10 @@ export default function SaffronForAdhdPage() {
                 {EVIDENCE_ROWS.map((row) => (
                   <tr key={row[0]} className="align-top">
                     {row.map((cell, index) => (
-                      <td key={`${row[0]}-${index}`} className={`px-4 py-4 leading-6 ${index === 0 ? 'font-semibold text-ink' : 'text-muted'}`}>
+                      <td
+                        key={`${row[0]}-${index}`}
+                        className={`px-4 py-4 leading-6 ${index === 0 ? 'font-semibold text-ink' : 'text-muted'}`}
+                      >
                         {cell}
                       </td>
                     ))}
@@ -223,7 +235,9 @@ export default function SaffronForAdhdPage() {
         <section id="methylphenidate" className="scroll-mt-20 space-y-5">
           <div>
             <p className="eyebrow-label">The headline that needs calibration</p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">“No significant difference” does not mean “proven equally effective”</h2>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+              “No significant difference” does not mean “proven equally effective”
+            </h2>
           </div>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
@@ -246,13 +260,16 @@ export default function SaffronForAdhdPage() {
           <p className="text-sm leading-7 text-muted sm:text-base">
             The 2022 naturalistic study is useful supporting context but weaker for causal comparison because
             treatment assignment was not randomized or blinded. It also disclosed commercial relationships
-            relevant to the saffron product. That does not invalidate the study; it is simply part of the evidence provenance readers deserve to see.
+            relevant to the saffron product. That does not invalidate the study; it is simply part of the evidence
+            provenance readers deserve to see.
           </p>
         </section>
 
         <section id="sleep" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
           <p className="eyebrow-label">ADHD × sleep overlap</p>
-          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">The sleep angle is plausible, but direct ADHD-sleep evidence is thin</h2>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+            The sleep angle is plausible, but direct ADHD-sleep evidence is thin
+          </h2>
           <p className="mt-3 text-sm leading-7 text-muted sm:text-base">
             The 2022 naturalistic ADHD study reported a pronounced within-group decrease in time to fall asleep
             in the saffron arm, but the between-group comparison was not statistically significant. That is a
@@ -261,14 +278,24 @@ export default function SaffronForAdhdPage() {
           <p className="mt-3 text-sm leading-7 text-muted sm:text-base">
             Broader saffron sleep trials can answer a different question: whether standardized saffron extracts
             influence sleep outcomes in non-ADHD populations. Keep that evidence separate rather than importing
-            it into an ADHD claim. See the <Link href="/articles/saffron-for-sleep/" className="font-semibold text-brand-700 hover:underline">saffron sleep evidence review</Link> and the <Link href="/guides/adhd/sleep-and-adhd/" className="font-semibold text-brand-700 hover:underline">sleep and ADHD guide</Link> for those two evidence streams.
+            it into an ADHD claim. See the{' '}
+            <Link href="/articles/saffron-for-sleep/" className="font-semibold text-brand-700 hover:underline">
+              saffron sleep evidence review
+            </Link>{' '}
+            and the{' '}
+            <Link href="/guides/adhd/sleep-and-adhd/" className="font-semibold text-brand-700 hover:underline">
+              sleep and ADHD guide
+            </Link>{' '}
+            for those two evidence streams.
           </p>
         </section>
 
         <section id="dose-form" className="scroll-mt-20 space-y-5">
           <div>
             <p className="eyebrow-label">Formulation matters</p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">A milligram number is not a universal saffron prescription</h2>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+              A milligram number is not a universal saffron prescription
+            </h2>
           </div>
           <div className="space-y-4 text-sm leading-7 text-muted sm:text-base">
             <p>
@@ -288,15 +315,37 @@ export default function SaffronForAdhdPage() {
         <section id="claim-check" className="scroll-mt-20 space-y-5">
           <div>
             <p className="eyebrow-label">Claim check</p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">Five saffron-for-ADHD claims graded against the evidence</h2>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+              Five saffron-for-ADHD claims graded against the evidence
+            </h2>
           </div>
           <div className="grid gap-4 md:grid-cols-2">
             {[
-              ['“Saffron has direct ADHD research.”', 'Supported', 'Yes. Unlike many nootropics, saffron has direct pediatric ADHD studies. The problem is quantity and replication, not complete absence of evidence.'],
-              ['“Saffron is proven equal to methylphenidate.”', 'Overstated', 'The small 2019 pilot did not detect a difference. That is weaker than a properly powered equivalence or non-inferiority demonstration.'],
-              ['“Saffron treats ADHD-related insomnia.”', 'Unproven', 'A sleep signal appeared in one non-randomized ADHD study, but the between-group result was not significant and broader sleep trials are not ADHD-specific.'],
-              ['“30 mg is the correct ADHD dose.”', 'Unsupported as a universal rule', 'Thirty milligrams appears in study protocols, but extract identity, age, body size, standardization, and safety context matter.'],
-              ['“Natural means it is safer than medication.”', 'Unsupported shortcut', 'Small trials reported acceptable short-term tolerability, but the database is far too small to compare uncommon or long-term harms confidently.'],
+              [
+                '“Saffron has direct ADHD research.”',
+                'Supported',
+                'Yes. Unlike many nootropics, saffron has direct pediatric ADHD studies. The problem is quantity and replication, not complete absence of evidence.',
+              ],
+              [
+                '“Saffron is proven equal to methylphenidate.”',
+                'Overstated',
+                'The small 2019 pilot did not detect a difference. That is weaker than a properly powered equivalence or non-inferiority demonstration.',
+              ],
+              [
+                '“Saffron treats ADHD-related insomnia.”',
+                'Unproven',
+                'A sleep signal appeared in one non-randomized ADHD study, but the between-group result was not significant and broader sleep trials are not ADHD-specific.',
+              ],
+              [
+                '“30 mg is the correct ADHD dose.”',
+                'Unsupported as a universal rule',
+                'Thirty milligrams appears in study protocols, but extract identity, age, body size, standardization, and safety context matter.',
+              ],
+              [
+                '“Natural means it is safer than medication.”',
+                'Unsupported shortcut',
+                'Small trials reported acceptable short-term tolerability, but the database is far too small to compare uncommon or long-term harms confidently.',
+              ],
             ].map(([claim, verdict, explanation]) => (
               <div key={claim} className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
                 <p className="text-xs font-bold uppercase tracking-[0.12em] text-brand-700">{verdict}</p>
@@ -309,7 +358,9 @@ export default function SaffronForAdhdPage() {
 
         <section id="safety" className="scroll-mt-20 rounded-[1.65rem] border border-amber-200 bg-amber-50/60 p-6 shadow-sm sm:p-8">
           <p className="eyebrow-label">Safety boundary</p>
-          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">Small short trials cannot establish long-term pediatric safety</h2>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+            Small short trials cannot establish long-term pediatric safety
+          </h2>
           <div className="mt-4 space-y-3 text-sm leading-7 text-muted sm:text-base">
             <p>
               The ADHD trials did not reveal a major short-term safety signal, but their samples and durations
@@ -318,11 +369,13 @@ export default function SaffronForAdhdPage() {
             <p>
               Do not use the ADHD pilot data as evidence that saffron can be freely combined with stimulant or
               non-stimulant prescriptions, antidepressants, or other serotonergic products. Direct interaction
-              evidence in ADHD populations is limited. Children, pregnancy, complex medication lists, bipolar-spectrum histories, and significant medical conditions deserve individualized review.
+              evidence in ADHD populations is limited. Children, pregnancy, complex medication lists,
+              bipolar-spectrum histories, and significant medical conditions deserve individualized review.
             </p>
             <p>
               The evidence hierarchy remains important: established ADHD treatments have much larger efficacy
-              and safety databases. Saffron is an interesting research candidate and possible adjunct—not a reason to stop prescribed treatment independently.
+              and safety databases. Saffron is an interesting research candidate and possible adjunct—not a reason
+              to stop prescribed treatment independently.
             </p>
           </div>
         </section>
