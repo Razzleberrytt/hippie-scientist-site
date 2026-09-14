@@ -220,11 +220,6 @@ export const getHerbCompoundMap = cache(async (): Promise<RuntimeRecord[]> => {
   return Array.isArray(rows) ? rows : []
 })
 
-export const getStacks = cache(async (): Promise<RuntimeRecord[]> => {
-  const stacks = await readJsonFile('stacks.json')
-  return Array.isArray(stacks) ? stacks : []
-})
-
 export const getClaims = cache(async (): Promise<RuntimeRecord[]> => {
   const claims = await readJsonFile('claims.json')
   return Array.isArray(claims) ? claims : []
