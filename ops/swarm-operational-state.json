@@ -1,12 +1,10 @@
 {
-  "version": 1,
+  "version": 2,
   "updatedAt": "2026-09-05T18:00:00Z",
   "lanes": {
-    "lane1": null,
-    "lane2": null,
-    "lane3": null,
-    "lane4": null,
-    "lane5": null
+    "discovery-seo": null,
+    "revenue-conversion": null,
+    "authority-content": null
   },
   "activeWork": [],
   "scoreboard": {

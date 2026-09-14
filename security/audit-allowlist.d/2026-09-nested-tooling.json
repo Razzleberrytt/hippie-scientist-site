@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "id": "js-yaml-transitive-build-tooling-only-2026-09",
+      "package": "js-yaml",
+      "severity": "high",
+      "expiresOn": "2026-09-20",
+      "advisoryUrls": [
+        "https://github.com/advisories/GHSA-2883-xcg3-v3hh"
+      ],
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/5420",
+      "rationale": "Current npm audit on main reports js-yaml 4.x as a transitive high-severity dependency with no direct application-runtime exposure established by the audit. This temporary exception is limited to the named advisory while the dependency owner is identified and upgraded. The static-export site does not ship js-yaml. Expire quickly and fail closed for any other js-yaml advisory."
+    },
+    {
+      "id": "sharp-nested-miniflare-tooling-only-2026-09",
+      "package": "sharp",
+      "severity": "high",
+      "expiresOn": "2026-09-20",
+      "advisoryUrls": [
+        "https://github.com/advisories/GHSA-rgj7-g3m4-5g8c"
+      ],
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/5420",
+      "rationale": "Current npm audit on main reports the vulnerable sharp only at node_modules/miniflare/node_modules/sharp, while the direct site sharp dependency is already on 0.35.4. The vulnerable nested copy is deploy tooling under miniflare/wrangler and is not shipped in the static export. This temporary exception is limited to the named advisory until wrangler/miniflare consumes patched sharp 0.35.4+; fail closed for any other sharp advisory or direct-runtime occurrence."
+    }
+  ]
+}
