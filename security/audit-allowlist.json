@@ -18,8 +18,8 @@
       "id": "wrangler-deploy-tooling-only-2026-06",
       "package": "wrangler",
       "severity": "high",
-      "expiresOn": "2026-09-13",
-      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20esbuild%2Fwrangler%20to%20resolve%20high-severity%20advisories",
+      "expiresOn": "2026-09-20",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/5420",
       "rationale": "wrangler is flagged only because it transitively depends on a vulnerable esbuild version (see esbuild-build-tooling-only-2026-06). wrangler is Cloudflare deploy tooling used exclusively in trusted CI/local contexts, not shipped to users (static export). The npm-offered fix downgrades wrangler to 3.6.0 (breaking) and would regress the deploy pipeline. Interim allowlist tied to the esbuild follow-up."
     },
     {
@@ -93,8 +93,8 @@
       "id": "miniflare-deploy-tooling-only-2026-06",
       "package": "miniflare",
       "severity": "high",
-      "expiresOn": "2026-09-13",
-      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20wrangler%2Fminiflare%20to%20resolve%20high-severity%20advisories",
+      "expiresOn": "2026-09-20",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/5420",
       "rationale": "miniflare is Cloudflare's local Workers simulator, pulled transitively by wrangler and used only in trusted CI/local contexts for deploy/test tooling. It is flagged because it depends on a vulnerable ws version (GHSA-96hv-2xvq-fx4p, see ws-deploy-tooling-only-2026-06). The npm-offered fix downgrades wrangler to 3.6.0 (breaking) and would regress the Cloudflare Pages deploy pipeline. miniflare is never shipped to users in the static export. Interim allowlist tied to the wrangler follow-up."
     },
     {
