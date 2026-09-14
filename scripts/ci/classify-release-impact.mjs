@@ -46,6 +46,18 @@ export const DOCS_ONLY_PATTERNS = [
 ]
 
 /**
+ * A deliberately narrow fast path for ordinary hand-authored route leaves.
+ *
+ * Root pages, layouts, route handlers, metadata generators, shared libraries,
+ * data, package/config files, and generators are excluded. The signal is true
+ * only when every changed file is a nested App Router `page.*` file, so any
+ * shared/runtime change immediately falls back to the exhaustive lanes.
+ */
+export const LEAF_PAGE_PATTERNS = [
+  /^app\/.+\/page\.(?:tsx|ts|jsx|js|mdx)$/,
+]
+
+/**
  * @param {string} file
  * @returns {boolean}
  */
@@ -59,18 +71,25 @@ export function isReleaseSensitivePath(file) {
   return Boolean(normalized) && RELEASE_SENSITIVE_PATTERNS.some((pattern) => pattern.test(normalized))
 }
 
+export function isLeafPagePath(file) {
+  const normalized = String(file || '').trim().replaceAll('\\', '/')
+  return Boolean(normalized) && LEAF_PAGE_PATTERNS.some((pattern) => pattern.test(normalized))
+}
+
 export function classifyReleaseImpact(files) {
   const normalizedFiles = Array.from(new Set(
     files.map((file) => String(file || '').trim().replaceAll('\\', '/')).filter(Boolean),
   ))
   const sensitiveFiles = normalizedFiles.filter(isReleaseSensitivePath)
-  // An empty diff is never docs-only: with nothing to inspect, the safe answer
-  // is to run the full suite rather than skip it.
+  // Empty diffs never take a fast path: with nothing to inspect, fail closed
+  // and run the exhaustive suite.
   const docsOnly = normalizedFiles.length > 0 && normalizedFiles.every(isDocsOnlyPath)
+  const leafPageOnly = normalizedFiles.length > 0 && normalizedFiles.every(isLeafPagePath)
   return {
     releaseSensitive: sensitiveFiles.length > 0,
     sensitiveFiles,
     docsOnly,
+    leafPageOnly,
     files: normalizedFiles,
   }
 }
@@ -85,12 +104,14 @@ function main() {
   for (const file of result.sensitiveFiles) console.log(`[release-impact] sensitive: ${file}`)
   console.log(`[release-impact] release_sensitive=${result.releaseSensitive}`)
   console.log(`[release-impact] docs_only=${result.docsOnly}`)
+  console.log(`[release-impact] leaf_page_only=${result.leafPageOnly}`)
 
   if (outputArg) {
     const outputPath = outputArg.slice('--github-output='.length)
     if (!outputPath) throw new Error('--github-output requires a file path')
     fs.appendFileSync(outputPath, `release_sensitive=${result.releaseSensitive}\n`)
     fs.appendFileSync(outputPath, `docs_only=${result.docsOnly}\n`)
+    fs.appendFileSync(outputPath, `leaf_page_only=${result.leafPageOnly}\n`)
   }
 }
 
