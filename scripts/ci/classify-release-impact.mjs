@@ -46,12 +46,9 @@ export const DOCS_ONLY_PATTERNS = [
 ]
 
 /**
- * A deliberately narrow fast path for ordinary hand-authored route leaves.
- *
- * Root pages, layouts, route handlers, metadata generators, shared libraries,
- * data, package/config files, and generators are excluded. The signal is true
- * only when every changed file is a nested App Router `page.*` file, so any
- * shared/runtime change immediately falls back to the exhaustive lanes.
+ * Candidate syntax for ordinary hand-authored App Router page files. Structural
+ * route checks in `isLeafPagePath` narrow this further so shared/dynamic route
+ * implementations cannot accidentally enter the fast path.
  */
 export const LEAF_PAGE_PATTERNS = [
   /^app\/.+\/page\.(?:tsx|ts|jsx|js|mdx)$/,
@@ -73,7 +70,29 @@ export function isReleaseSensitivePath(file) {
 
 export function isLeafPagePath(file) {
   const normalized = String(file || '').trim().replaceAll('\\', '/')
-  return Boolean(normalized) && LEAF_PAGE_PATTERNS.some((pattern) => pattern.test(normalized))
+  if (!normalized || !LEAF_PAGE_PATTERNS.some((pattern) => pattern.test(normalized))) return false
+
+  const routeSegments = normalized.split('/').slice(1, -1)
+  const urlSegments = []
+
+  for (const segment of routeSegments) {
+    // Pure route groups do not add a URL segment. They are safe only when the
+    // page still has at least two concrete URL segments below app/; this keeps
+    // app/(marketing)/page.tsx (the root route) out of the fast path.
+    if (/^\([^/]+\)$/.test(segment)) continue
+
+    // Dynamic/catch-all segments can render many URLs from one page file.
+    // Parallel, intercepting, and private folders can also have non-leaf
+    // routing semantics. Fail closed for every one of those shapes.
+    if (segment.includes('[') || segment.includes(']')) return false
+    if (segment.startsWith('@') || segment.startsWith('(') || segment.startsWith('_')) return false
+
+    urlSegments.push(segment)
+  }
+
+  // Keep category/index hubs (for example app/guides/page.tsx) on the full
+  // path. The optimization is intentionally for deep, static editorial leaves.
+  return urlSegments.length >= 2
 }
 
 export function classifyReleaseImpact(files) {
