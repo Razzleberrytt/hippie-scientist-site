@@ -92,6 +92,14 @@ describe('leaf-page-only classification', () => {
 
   it.each([
     'app/page.tsx',
+    'app/(marketing)/page.tsx',
+    'app/guides/page.tsx',
+    'app/articles/[slug]/page.tsx',
+    'app/articles/[...slug]/page.tsx',
+    'app/articles/[[...slug]]/page.tsx',
+    'app/@modal/example/page.tsx',
+    'app/(.)preview/page.tsx',
+    'app/_private/example/page.tsx',
     'app/guides/adhd/layout.tsx',
     'app/guides/adhd/route.ts',
     'app/guides/adhd/generateStaticParams.ts',
@@ -103,7 +111,7 @@ describe('leaf-page-only classification', () => {
     expect(isLeafPagePath(file)).toBe(false)
   })
 
-  it('is true only when every changed file is a nested page leaf', () => {
+  it('is true only when every changed file is a deep static page leaf', () => {
     expect(classifyReleaseImpact([
       'app/guides/adhd/saffron-for-adhd/page.tsx',
       'app/guides/sleep/l-theanine/page.tsx',
@@ -111,6 +119,10 @@ describe('leaf-page-only classification', () => {
     expect(classifyReleaseImpact([
       'app/guides/adhd/saffron-for-adhd/page.tsx',
       'components/articles/ArticleLayout.tsx',
+    ]).leafPageOnly).toBe(false)
+    expect(classifyReleaseImpact([
+      'app/guides/adhd/saffron-for-adhd/page.tsx',
+      'app/articles/[slug]/page.tsx',
     ]).leafPageOnly).toBe(false)
   })
 
