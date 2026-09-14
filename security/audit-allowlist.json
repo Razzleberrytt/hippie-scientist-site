@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-03",
+  "generatedAt": "2026-09-14",
   "rules": [
     {
       "id": "esbuild-build-tooling-only-2026-06",
@@ -18,8 +18,8 @@
       "id": "wrangler-deploy-tooling-only-2026-06",
       "package": "wrangler",
       "severity": "high",
-      "expiresOn": "2026-09-13",
-      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20esbuild%2Fwrangler%20to%20resolve%20high-severity%20advisories",
+      "expiresOn": "2026-09-20",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/5420",
       "rationale": "wrangler is flagged only because it transitively depends on a vulnerable esbuild version (see esbuild-build-tooling-only-2026-06). wrangler is Cloudflare deploy tooling used exclusively in trusted CI/local contexts, not shipped to users (static export). The npm-offered fix downgrades wrangler to 3.6.0 (breaking) and would regress the deploy pipeline. Interim allowlist tied to the esbuild follow-up."
     },
     {
@@ -50,35 +50,35 @@
       "id": "content-collections-mdx-build-tooling-only-2026-06",
       "package": "@content-collections/mdx",
       "severity": "high",
-      "expiresOn": "2026-09-13",
-      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20content-collections%2Fesbuild%20to%20resolve%20high-severity%20advisories",
+      "expiresOn": "2026-09-21",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/5456",
       "rationale": "@content-collections/mdx is build tooling for static MDX/content generation. Its high finding includes the same esbuild advisory chain covered by esbuild-build-tooling-only-2026-06, plus moderate mdx-bundler/uuid findings that are not enforced by audit:high. It is not shipped to users in the static export, and npm reports no fixAvailable for this package. Interim allowlist until content-collections can consume patched transitive dependencies."
     },
     {
       "id": "toml-mdx-frontmatter-unreachable-2026-09",
       "package": "toml",
       "severity": "high",
-      "expiresOn": "2026-09-13",
+      "expiresOn": "2026-09-21",
       "advisoryUrls": [
         "https://github.com/advisories/GHSA-82x6-q7mm-w9cf"
       ],
-      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20content-collections%2Fmdx-bundler%20to%20drop%20the%20vulnerable%20toml%20parser",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/5456",
       "rationale": "toml (GHSA-82x6-q7mm-w9cf uncontrolled recursion, plus a prototype-pollution advisory via __proto__ key-path desynchronization) is reached only as @content-collections/mdx -> mdx-bundler -> remark-mdx-frontmatter -> toml. @content-collections/mdx is a devDependency used to generate static content-collection artifacts before typecheck/build; it is not shipped in the static export. More specifically, the vulnerable parser is never invoked: remark-mdx-frontmatter only parses TOML when a document opens with +++ delimiters, and every MDX/MD file in content/ uses YAML frontmatter (---). A repo-wide search finds zero TOML frontmatter blocks, so no input reaches the toml parser at all, and the only possible input would be repository-authored content rather than user data. npm reports fixAvailable:false across the chain. Interim allowlist aligned with the existing content-collections expiry so the whole chain is reviewed together."
     },
     {
       "id": "remark-mdx-frontmatter-build-tooling-only-2026-09",
       "package": "remark-mdx-frontmatter",
       "severity": "high",
-      "expiresOn": "2026-09-13",
-      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20content-collections%2Fmdx-bundler%20to%20drop%20the%20vulnerable%20toml%20parser",
+      "expiresOn": "2026-09-21",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/5456",
       "rationale": "remark-mdx-frontmatter is flagged only because it depends on the vulnerable toml parser (see toml-mdx-frontmatter-unreachable-2026-09). It is transitive build tooling under @content-collections/mdx, a devDependency, and is not shipped in the static export. Its TOML code path is unreachable here because all content/ frontmatter is YAML. npm reports no fixAvailable. Interim allowlist tied to the toml follow-up."
     },
     {
       "id": "mdx-bundler-build-tooling-only-2026-09",
       "package": "mdx-bundler",
       "severity": "high",
-      "expiresOn": "2026-09-13",
-      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20content-collections%2Fmdx-bundler%20to%20drop%20the%20vulnerable%20toml%20parser",
+      "expiresOn": "2026-09-21",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/5456",
       "rationale": "mdx-bundler is flagged only because it transitively depends on remark-mdx-frontmatter -> toml (see toml-mdx-frontmatter-unreachable-2026-09). It is build tooling under @content-collections/mdx, a devDependency, and is not shipped in the static export. The mdx-bundler/uuid findings already noted in content-collections-mdx-build-tooling-only-2026-06 were moderate; this rule covers the chain now that the toml advisories are rated high. npm reports no fixAvailable. Interim allowlist tied to the toml follow-up."
     },
     {
@@ -93,8 +93,8 @@
       "id": "miniflare-deploy-tooling-only-2026-06",
       "package": "miniflare",
       "severity": "high",
-      "expiresOn": "2026-09-13",
-      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20wrangler%2Fminiflare%20to%20resolve%20high-severity%20advisories",
+      "expiresOn": "2026-09-20",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/5420",
       "rationale": "miniflare is Cloudflare's local Workers simulator, pulled transitively by wrangler and used only in trusted CI/local contexts for deploy/test tooling. It is flagged because it depends on a vulnerable ws version (GHSA-96hv-2xvq-fx4p, see ws-deploy-tooling-only-2026-06). The npm-offered fix downgrades wrangler to 3.6.0 (breaking) and would regress the Cloudflare Pages deploy pipeline. miniflare is never shipped to users in the static export. Interim allowlist tied to the wrangler follow-up."
     },
     {
@@ -159,12 +159,12 @@
       "id": "toml-content-collections-build-only-2026-09",
       "package": "toml",
       "severity": "high",
-      "expiresOn": "2026-09-13",
+      "expiresOn": "2026-09-21",
       "advisoryUrls": [
         "https://github.com/advisories/GHSA-82x6-q7mm-w9cf",
         "https://github.com/advisories/GHSA-v5mp-jgw5-2x6j"
       ],
-      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/5108",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/5456",
       "rationale": "npm currently reports toml 3.0.0 through @content-collections/mdx -> mdx-bundler -> remark-mdx-frontmatter, whose package pins toml ^3.0.0; npm reports fixAvailable=false for the affected parent chain. The parser is used only during trusted static content/MDX generation from repository-owned source files and is not shipped in the static export or exposed to user-supplied runtime TOML. This exception is limited to the two named TOML advisories and expires quickly while upstream compatibility with a patched TOML major is evaluated. Any other high/critical TOML advisory remains fail-closed."
     },
     {
