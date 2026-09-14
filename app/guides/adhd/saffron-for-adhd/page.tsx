@@ -1,11 +1,10 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 import StructuredData from '@/components/StructuredData'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import { SITE_URL } from '@/lib/navigation-config'
-import { buildTwitterMetadata } from '@/lib/seo'
+import { buildPageMetadata } from '@/lib/seo'
 
 const PATH = '/guides/adhd/saffron-for-adhd'
 const PAGE_URL = `${SITE_URL}${PATH}`
@@ -13,18 +12,12 @@ const TITLE = 'Saffron for ADHD: What the Human Trials Actually Show'
 const DESCRIPTION =
   'Evidence-first review of saffron for ADHD: the small direct trial base, methylphenidate comparisons, sleep signals, study-dose context, safety, and why the evidence is still preliminary.'
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: `${PATH}/` },
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-    url: `${PATH}/`,
-    type: 'article',
-  },
-  twitter: buildTwitterMetadata({ title: TITLE, description: DESCRIPTION }),
-}
+  path: `${PATH}/`,
+  openGraphType: 'article',
+})
 
 const HEADINGS: Heading[] = [
   { id: 'verdict', text: 'Quick verdict', level: 2 },
