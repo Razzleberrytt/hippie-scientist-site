@@ -51,6 +51,18 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Classify release impact
+        id: impact
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          git fetch origin "$BASE_REF"
+          changed="$(git diff --name-only "origin/$BASE_REF"...HEAD)"
+          printf '%s\n' "$changed"
+          printf '%s\n' "$changed" | node scripts/ci/classify-release-impact.mjs --github-output="$GITHUB_OUTPUT"
       - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
@@ -73,9 +85,14 @@ jobs:
       - name: Enforce schema safety and truthfulness policy
         run: node scripts/ci/audit-schema-policy.mjs
       - name: Generate review-only research graphics
+        if: github.event_name != 'pull_request' || steps.impact.outputs.leaf_page_only != 'true'
         run: node scripts/media/build-research-graphics.mjs
       - name: Validate graphic promotion registry
+        if: github.event_name != 'pull_request' || steps.impact.outputs.leaf_page_only != 'true'
         run: node scripts/media/promote-reviewed-research-graphics.mjs --check
+      - name: Leaf-page media fast path
+        if: github.event_name == 'pull_request' && steps.impact.outputs.leaf_page_only == 'true'
+        run: echo 'Leaf-page-only change; schema validation remains full, while unrelated research-graphics generation/promotion checks are skipped.'
       - name: Upload reports and graphics for review
         if: always()
         uses: actions/upload-artifact@v7
@@ -85,4 +102,5 @@ jobs:
             reports/schema-policy.json
             ops/reports/structured-data-completeness.json
             artifacts/research-graphics/
+          if-no-files-found: ignore
           retention-days: 30
