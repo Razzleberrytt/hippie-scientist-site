@@ -1,5 +1,4 @@
-import assert from 'node:assert/strict'
-import { describe, it } from 'node:test'
+import { describe, expect, it } from 'vitest'
 
 import { extractAnchorHrefs } from './lib/extract-anchor-hrefs.mjs'
 
@@ -11,7 +10,7 @@ describe('internal navigation href extraction', () => {
       '<a href=\'/goals/sleep?ref=home\'>Sleep</a>',
     ].join('')
 
-    assert.deepEqual(extractAnchorHrefs(html), [
+    expect(extractAnchorHrefs(html)).toEqual([
       '/compounds/creatine',
       '/goals/sleep?ref=home',
     ])
