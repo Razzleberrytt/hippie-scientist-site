@@ -1,6 +1,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
+import { extractAnchorHrefs } from './lib/extract-anchor-hrefs.mjs'
+
 const outDir = path.resolve('out')
 
 if (!fs.existsSync(outDir)) {
@@ -88,17 +90,17 @@ const checkedLinks = new Map()
 /** target route -> files linking to it, so a new break names its source. */
 const brokenTargets = new Map()
 
-const hrefRegex = /href=["']([^"']*)["']/g
-
 for (const file of htmlFiles) {
   const relativeFile = path.relative(outDir, file)
   const content = fs.readFileSync(file, 'utf8')
   
-  let match
   const fileLinks = new Set()
-  
-  while ((match = hrefRegex.exec(content)) !== null) {
-    const rawHref = match[1]
+
+  // This is a navigation audit, so only inspect anchor hrefs. Scanning every
+  // `href` also reads Next.js stylesheet/preload metadata; in serialized RSC
+  // payloads that can present several CSS assets as one space-delimited value
+  // and manufacture broken "routes" that no user can navigate to.
+  for (const rawHref of extractAnchorHrefs(content)) {
     
     if (
       rawHref.startsWith('http://') ||
