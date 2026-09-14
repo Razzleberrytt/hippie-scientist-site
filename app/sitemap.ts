@@ -511,7 +511,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const routeManifest = readJsonArray<SitemapSourceItem & { route?: string; segment?: string }>('public/data/runtime-manifests/route-manifest.json');
   const goalsJson = readJsonArray<SitemapSourceItem>('public/data/goals.json');
   const goalsData = goalsJson.length > 0 ? goalsJson : readTsGoalSlugs('data/goals.ts');
-  const stacksData = readJsonArray<SitemapSourceItem>('public/data/stacks.json');
   const guidesData = readMdxRecords('content/guides');
   const educationMdx = readMdxRecords('content/learn');
   const npsMdx = readMdxRecords('novel-psychoactive-substances');
@@ -719,11 +718,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     addRoute(`/goals/${goal.slug}`, 'monthly', 0.7, undefined, goal);
   });
 
-  stacksData.forEach((stack) => {
-    if (!stack.slug) return;
-
-    addRoute(`/stacks/${stack.slug}`, 'monthly', 0.65, undefined, stack);
-  });
 
   const guideSlugs = new Set<string>();
 
