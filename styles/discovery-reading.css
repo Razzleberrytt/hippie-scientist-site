@@ -13,6 +13,7 @@
 
 .discovery-link-card:hover {
   transform: none;
+  translate: none;
   border-color: var(--hs-gold);
   background: var(--surface-subtle);
   box-shadow: none;
@@ -102,5 +103,6 @@
   .discovery-link-row * {
     transition: none !important;
     transform: none !important;
+    translate: none !important;
   }
 }

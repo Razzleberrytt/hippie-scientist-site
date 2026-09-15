@@ -4,8 +4,32 @@ import { GuideCardGrid } from '../guides/GuideCardGrid'
 import { DecisionRouter } from '../guides/DecisionRouter'
 import { HubSectionHeading } from '../guides/HubSectionHeading'
 import ArticleLayout from '../articles/ArticleLayout'
+import { readFileSync } from 'node:fs'
+import postcss from 'postcss'
 
 describe('shared discovery and reading contracts', () => {
+  it('bounds desktop navigation and suppresses both CSS motion mechanisms', () => {
+    const css = postcss.parse(readFileSync('styles/discovery-reading.css', 'utf8'))
+    const declarations = (selector: string, media: string) => {
+      const result: Record<string, string> = {}
+      css.walkAtRules('media', rule => {
+        if (rule.params !== media) return
+        rule.walkRules(selector, style => style.walkDecls(decl => { result[decl.prop] = decl.value }))
+      })
+      return result
+    }
+    expect(declarations('.reading-shell-toc', '(min-width: 1024px)')).toMatchObject({
+      'max-height': 'calc(100dvh - 7rem)', 'overflow-y': 'auto',
+    })
+    css.walkAtRules('media', rule => {
+      if (rule.params !== '(prefers-reduced-motion: reduce)') return
+      const motion: Record<string, string> = {}
+      rule.walkDecls(decl => { motion[decl.prop] = decl.value })
+      expect(motion).toMatchObject({ transition: 'none', transform: 'none', translate: 'none' })
+    })
+    expect(css.toString()).toContain('(prefers-reduced-motion: reduce)')
+  })
+
   it('keeps full decision context and canonical destinations in keyboard links', () => {
     const desc = 'Limited evidence; medication interactions require review before combining products.'
     render(<GuideCardGrid cards={[{ href: '/guides/compare/test/', title: 'Compare evidence', desc }]} />)
