@@ -2,10 +2,10 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-09-03
+**Updated:** 2026-09-15
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub reconciliation at `7b110d7a19c51e08de3d3b112ac36e96824bfd27` on 2026-09-03 records 0/3 normal implementation workstreams occupied. #5031 / PR #5090 completed and deployed the newsletter-interest CTA repair and no longer occupies Revenue/Conversion. #5021 / PR #5028 completed and deployed the governed Vitamin B6 closure with five promoted findings plus one governed non-promotion. PR #5084 merged the AI-citation asset-identity protection infrastructure and does not occupy normal WIP. Authority/Content, Revenue/Conversion, and Discovery/SEO are free. #5076 is now the first Ready-next Revenue/Conversion candidate: a bounded, claim-neutral post-answer sleep-research next-action path that preserves answer-first evidence and safety ordering. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP.
+**Current admission:** Live GitHub reconciliation at `9da227de2c7738b35ab3baabbd061a1cee9d4582` on 2026-09-15 records 1/3 normal implementation workstreams occupied. Revenue/Conversion is occupied by #5502 / PR #5504 for the user-requested homepage mobile consistency repair. #5076 completed on 2026-09-04 with the canonical `SleepResearchNextActions` component and three authorized representative integrations; stale fourth-integration PR #5430 is closed. Authority/Content and Discovery/SEO are free. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,12 +49,13 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — observed implementation WIP 0/3
+## Active / in review — observed implementation WIP 1/3
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
+| Revenue/Conversion | #5502 / PR #5504 | Lane 4 | In review | Unify homepage phone surfaces and hierarchy; keep light-surface links forest, scope brass actions to dark panels, preserve 44px targets and desktop behavior. |
 
-- **Revenue/Conversion:** free. #5076 is Ready next for a reusable post-answer sleep research next-action path; implementation must remain claim-neutral, preserve answer/evidence/safety ordering, retain newsletter privacy/tag semantics, and avoid product-ranking or unsupported recommendation language.
+- **Revenue/Conversion:** occupied by #5502 / PR #5504; exact-main mobile presentation repair with accessibility contrast regression coverage.
 - **Authority/Content:** free after #5021 / PR #5028 completed the governed Vitamin B6 evidence/safety closure and post-merge verification.
 - **Discovery/SEO:** free after PR #5084 merged AI-citation asset-identity protection. Fresh page-level citation telemetry is still required before any winner ledger can be populated.
 
@@ -68,9 +69,9 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 | Order | Candidate | Workstream | Admission state | Proof required before implementation |
 |---:|---|---|---|---|
-| 1 | #5076 | Revenue/Conversion | Ready next | Re-fetch exact main and lane overlap; coordinate the canonical sleep-hub destination with Lane 3; implement one reusable claim-neutral `SleepResearchNextActions`-class component on 2–3 representative sleep guides only after direct answer + evidence/safety content; preserve newsletter privacy/tag semantics and scientific/recommendation boundaries; add focused component, page-order, mobile and a11y regressions; pass exact-head required gates; verify live placement after deploy; keep conversion outcomes `Unknown` until observed. |
+| — | None | — | No candidate admitted | Reconcile fresh GitHub state after #5502 completes; do not recycle completed #5076 or stale PR #5430. |
 
-Authority/Content and Discovery/SEO are free. No stale item is promoted merely to fill a slot; any future admission still requires current evidence and this queue.
+Revenue/Conversion is occupied by #5502. Authority/Content and Discovery/SEO are free. No stale item is promoted merely to fill a slot; any future admission still requires current evidence and this queue.
 
 ## Control hardening — merged implementation, observed use still gated
 
