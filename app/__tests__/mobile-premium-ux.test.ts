@@ -34,6 +34,9 @@ describe('mobile premium UX regression contract', () => {
     expect(visual).toContain('.hs-evidence-panel,\n  .hs-method-section')
     expect(visual).toContain('.hs-principles article {\n    gap: 0.75rem;\n    border: 0;')
     expect(visual).toContain('.hs-method-actions .hs-text-link {\n    width: 100%;\n    min-height: 2.75rem;')
+    expect(visual).toContain('.hs-home .hs-text-link {\n    color: var(--home-forest);')
+    expect(visual).not.toContain('.hs-home .hs-text-link {\n    color: var(--home-gold);')
+    expect(visual).toContain('color: var(--home-mobile-action);')
   })
 
   it('renders shared comparison data as option-first cards on phones', () => {
