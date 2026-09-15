@@ -46,6 +46,7 @@ describe('sleep hub parasomnia discovery', () => {
 
     expect(hub).toContain('/articles/narcolepsy-excessive-daytime-sleepiness/')
     expect(hub).toMatch(/not a reason to build a supplement stack/i)
+    expect(hub).toMatch(/often with partial or complete amnesia/i)
     expect(hub).toMatch(/medication triggers and treatment limits matter/i)
   })
 })
