@@ -17,7 +17,7 @@ describe('mobile premium UX regression contract', () => {
     expect(text).toContain("className='hs-evidence-panel'")
     expect(text).toContain("className='hs-home-browse-link hs-hero-primary-link'")
     expect(text).toContain("className='hs-goal-nav'")
-    expect(text).toContain("placeholder='Search herbs, compounds, topics'")
+    expect(text).toContain("placeholder='Search herbs, compounds, or questions'")
     expect(page).toContain("import '@/styles/homepage-mobile-refinement.css'")
     expect(structure).toContain('@media (max-width: 767px)')
     expect(structure).toContain('display: contents;')
