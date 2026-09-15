@@ -123,7 +123,7 @@ export default async function HomepageV2() {
               <form className='hs-home-search' action='/search/' method='get' role='search'>
                 <Search aria-hidden='true' strokeWidth={1.75} />
                 <label className='sr-only' htmlFor='homepage-search'>
-                  Search herbs, compounds, or topics
+                  Search herbs, compounds, or questions
                 </label>
                 <input
                   id='homepage-search'
@@ -134,7 +134,7 @@ export default async function HomepageV2() {
                   autoCorrect='off'
                   spellCheck={false}
                   enterKeyHint='search'
-                  placeholder='Search herbs, compounds, topics'
+                  placeholder='Search herbs, compounds, or questions'
                 />
                 <button type='submit' aria-label='Search the research library'>
                   <ArrowRight aria-hidden='true' />
