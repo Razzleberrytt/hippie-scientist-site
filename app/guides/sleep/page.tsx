@@ -572,7 +572,7 @@ const PARASOMNIAS_AND_HYPERSOMNOLENCE: GuideCard[] = [
   {
     href: '/articles/sleep-related-eating-disorder/',
     title: 'Sleep-Related Eating Disorder',
-    desc: 'Partial-awareness eating with amnesia and safety risks differs from night eating syndrome; medication triggers and treatment limits matter.',
+    desc: 'Partial-awareness eating, often with partial or complete amnesia, differs from night eating syndrome; safety risks, medication triggers and treatment limits matter.',
   },
   {
     href: '/articles/narcolepsy-excessive-daytime-sleepiness/',
