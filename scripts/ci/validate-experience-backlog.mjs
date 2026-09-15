@@ -22,7 +22,8 @@ function includesAll(source, values) {
 }
 
 function classTokenCount(source, token, tag = '[A-Za-z][A-Za-z0-9.-]*') {
-  const pattern = new RegExp(`<${tag}\\b[^>]*className=['"][^'"]*(?:^|\\s)${token}(?:\\s|$)[^'"]*['"]`, 'gm')
+  const escapedToken = token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  const pattern = new RegExp(`<${tag}\\b[^>]*className=['"][^'"]*\\b${escapedToken}\\b[^'"]*['"]`, 'g')
   return (source.match(pattern) || []).length
 }
 
