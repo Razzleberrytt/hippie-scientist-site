@@ -11,6 +11,7 @@ import { exportCanonicalCitationsToRuntime } from './canonical/citation-export.m
 import { buildAiEntityArtifacts } from './ai-entity-artifacts.mjs'
 import { reconcileValidatedClusterMemberGovernance } from './cluster-member-governance-policy.mjs'
 import { reconcileDeliberateGovernanceHolds } from './governance-hold-policy.mjs'
+import { applyEnrichmentRuntimeOverrides } from './apply-enrichment-runtime-overrides.mjs'
 
 const DATA_DIR_ARG = process.argv.find((arg) => arg.startsWith('--data-dir='))
 const DATA_DIR = DATA_DIR_ARG
@@ -276,6 +277,14 @@ async function main() {
       { stdio: 'inherit' },
     )
     pubmedTimer.finish()
+
+    // Canonical runtime overrides are a governed source layer for narrow,
+    // source-backed corrections that must survive workbook regeneration. Apply
+    // them at the final mutation boundary so downstream summaries, routes, SEO,
+    // and static export all consume the same reproducible safety state.
+    const runtimeOverrideTimer = createStageTimer('enrichment-runtime-overrides')
+    const runtimeOverrideReport = await applyEnrichmentRuntimeOverrides({ dataDir: DATA_DIR })
+    runtimeOverrideTimer.finish({ corrected: runtimeOverrideReport.touched.length })
   }
 
   const herbs = await readJson(path.join(DATA_DIR, 'herbs.json'))
