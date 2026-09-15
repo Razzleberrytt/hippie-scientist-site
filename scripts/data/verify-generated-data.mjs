@@ -29,6 +29,13 @@ const GENERATED_OUTPUT_FILES = [
   'public/data/build-report.json',
 ]
 
+// These files live under public/data for runtime consumption but are canonical
+// source inputs, not generated artifacts. A clean generated-data verification
+// must preserve them while rebuilding the generated outputs around them.
+const CANONICAL_PUBLIC_DATA_INPUTS = [
+  'source-registry.json',
+]
+
 const COPY_EXCLUDED_DIRS = new Set([
   '.git',
   '.next',
@@ -97,6 +104,28 @@ function readComparable(file) {
   return `${JSON.stringify(normalizeForComparison(JSON.parse(text)), null, 2)}\n`
 }
 
+function resetGeneratedData(tmpRepo) {
+  const dataDir = path.join(tmpRepo, 'public/data')
+  const preserved = new Map()
+
+  for (const relativePath of CANONICAL_PUBLIC_DATA_INPUTS) {
+    const sourcePath = path.join(dataDir, relativePath)
+    if (!fs.existsSync(sourcePath)) {
+      throw new Error(`[data:verify] Canonical public data input is missing: public/data/${relativePath}`)
+    }
+    preserved.set(relativePath, fs.readFileSync(sourcePath))
+  }
+
+  fs.rmSync(dataDir, { recursive: true, force: true })
+  fs.mkdirSync(dataDir, { recursive: true })
+
+  for (const [relativePath, contents] of preserved.entries()) {
+    const targetPath = path.join(dataDir, relativePath)
+    fs.mkdirSync(path.dirname(targetPath), { recursive: true })
+    fs.writeFileSync(targetPath, contents)
+  }
+}
+
 function createTempRepo(label) {
   const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), `hippie-scientist-data-verify-${label}-`))
   const tmpRepo = path.join(tmpRoot, 'repo')
@@ -105,7 +134,7 @@ function createTempRepo(label) {
     filter: shouldCopy,
   })
   linkInstalledDependencies(tmpRepo)
-  fs.rmSync(path.join(tmpRepo, 'public/data'), { recursive: true, force: true })
+  resetGeneratedData(tmpRepo)
   return tmpRepo
 }
 
