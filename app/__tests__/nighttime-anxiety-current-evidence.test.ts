@@ -29,6 +29,9 @@ describe('nighttime stress and anxiety evidence calibration', () => {
     const text = source()
 
     expect(text).toMatch(/Racing thoughts, sleep onset, sleep maintenance, and circadian timing are different questions/i)
+    expect(text).toMatch(/repeated or prolonged waking after sleep begins/i)
+    expect(text).toMatch(/difficulty returning to sleep/i)
+    expect(text).toMatch(/Brief awakenings can be normal/i)
     expect(text).toMatch(/one does not prove the others or identify a supplement/i)
     expect(text).toContain('/articles/sleep-onset-vs-sleep-maintenance/')
     expect(text).toContain('/articles/why-do-i-wake-up-at-3am/')
