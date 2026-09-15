@@ -10,7 +10,9 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
+  actions: write
   contents: write
+  pull-requests: write
 
 jobs:
   reconcile:
@@ -33,7 +35,9 @@ jobs:
           node scripts/enrichment-governor/validate-state.mjs
           node scripts/enrichment-governor/reconcile-state.mjs
           node scripts/enrichment-governor/validate-state.mjs
-      - name: Persist reconciliation when needed
+      - name: Persist reconciliation through protected PR governance
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           if git diff --quiet; then exit 0; fi
@@ -43,4 +47,17 @@ jobs:
           git commit -m 'chore(governor): reconcile coordination state'
           git fetch origin main
           if [ "$(git rev-parse HEAD^)" != "$(git rev-parse origin/main)" ]; then exit 0; fi
-          git push origin HEAD:main
+
+          BRANCH="governor/maintenance-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          git checkout -b "$BRANCH"
+          git push origin "HEAD:$BRANCH"
+
+          PR_URL="$(gh pr create --repo "$GITHUB_REPOSITORY" --base main --head "$BRANCH" \
+            --title "chore(governor): reconcile coordination state" \
+            --body "Automated state-only reconciliation from workflow run ${GITHUB_RUN_ID}/${GITHUB_RUN_ATTEMPT}. The exact current-main check passed before publication. Scientific, provenance, safety, publication, and repository protection gates remain unchanged.")"
+          PR_NUMBER="${PR_URL##*/}"
+
+          gh workflow run ci.yml --repo "$GITHUB_REPOSITORY" --ref "$BRANCH" -f "recovery_pr_number=$PR_NUMBER"
+          gh workflow run check.yml --repo "$GITHUB_REPOSITORY" --ref "$BRANCH" -f "recovery_pr_number=$PR_NUMBER"
+          gh workflow run atomic-upgrade-gate.yml --repo "$GITHUB_REPOSITORY" --ref "$BRANCH" -f "recovery_pr_number=$PR_NUMBER" -f "recovery_base_ref=main"
+          gh workflow run build-quality-regression.yml --repo "$GITHUB_REPOSITORY" --ref "$BRANCH" -f "recovery_pr_number=$PR_NUMBER" -f "recovery_base_ref=main"
