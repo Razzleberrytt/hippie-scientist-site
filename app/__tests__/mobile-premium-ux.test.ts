@@ -28,6 +28,35 @@ describe('mobile premium UX regression contract', () => {
     expect(text).toContain('className="hidden sm:block"')
   })
 
+  it('keeps the interactive compare center card-first on phones', () => {
+    const text = source('components/compare-table-client.tsx')
+    const cardsIndex = text.indexOf('data-mobile-compare-center="true"')
+    const desktopMatrixIndex = text.indexOf('<ResponsiveTable', cardsIndex)
+
+    expect(cardsIndex).toBeGreaterThan(-1)
+    expect(desktopMatrixIndex).toBeGreaterThan(cardsIndex)
+    expect(text).toContain('className="grid gap-3 md:hidden"')
+    expect(text).toContain('className="hidden rounded-[1.65rem] bg-white md:block')
+  })
+
+  it('renders goal evidence summaries as readable cards before the desktop table', () => {
+    const text = source('components/goals/GoalContentDepth.tsx')
+    const cardsIndex = text.indexOf("data-mobile-goal-evidence='true'")
+    const desktopTableIndex = text.indexOf("className='mt-6 hidden overflow-x-auto sm:block'", cardsIndex)
+
+    expect(cardsIndex).toBeGreaterThan(-1)
+    expect(desktopTableIndex).toBeGreaterThan(cardsIndex)
+  })
+
+  it('keeps essential safety notes visible instead of requiring a horizontal swipe', () => {
+    const text = source('components/SafetyBox.tsx')
+
+    expect(text).toContain('data-mobile-safety-stack')
+    expect(text).toContain("'grid gap-3 sm:grid-cols-2'")
+    expect(text).not.toContain('Swipe or scroll sideways')
+    expect(text).not.toContain('snap-mandatory')
+  })
+
   it('keeps the shared scientific verdict answer-first', () => {
     const text = source('components/editorial/ScientificVerdictCard.tsx')
     const bottomLineIndex = text.indexOf('data-mobile-answer-first="true"')
@@ -46,5 +75,15 @@ describe('mobile premium UX regression contract', () => {
     expect(text).toContain("/safety|interaction/i")
     expect(text).toContain("data-mobile-quick-jumps='true'")
     expect(text).toContain("top-[4.35rem]")
+  })
+
+  it('keeps long-form mobile rhythm compact without shrinking body copy', () => {
+    const text = source('styles/foundation-readability.css')
+
+    expect(text).toContain('font-size: clamp(2.05rem, 10.5vw, 2.85rem);')
+    expect(text).toContain('.content-prose h2 {')
+    expect(text).toContain('margin-top: 2.1rem;')
+    expect(text).toContain('.section-spacing,')
+    expect(text).toContain('row-gap: 2rem;')
   })
 })
