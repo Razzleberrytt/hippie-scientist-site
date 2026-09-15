@@ -32,23 +32,17 @@ interface Props {
 }
 
 export default function SafetyBox({ notes, heading }: Props) {
-  const isRail = notes.length > 1
+  const hasMultipleNotes = notes.length > 1
 
   return (
     <div className="space-y-3">
       {heading && (
         <h2 className="text-xl font-bold text-ink">{heading}</h2>
       )}
-      {isRail ? (
-        <p className="text-[11px] font-semibold text-muted">Swipe or scroll sideways for every safety note.</p>
-      ) : null}
       <div
-        className={
-          isRail
-            ? 'flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain pb-3 pr-1 [scrollbar-gutter:stable]'
-            : 'space-y-3'
-        }
-        aria-label={isRail ? 'Safety and caution notes' : undefined}
+        className={hasMultipleNotes ? 'grid gap-3 sm:grid-cols-2' : 'space-y-3'}
+        aria-label={hasMultipleNotes ? 'Safety and caution notes' : undefined}
+        data-mobile-safety-stack={hasMultipleNotes ? 'true' : undefined}
       >
         {notes.map((note, i) => {
           const style = SEVERITY_STYLES[note.severity]
@@ -56,9 +50,7 @@ export default function SafetyBox({ notes, heading }: Props) {
             <div
               key={`${note.severity}-${i}`}
               className={`rounded-xl border p-4 text-sm leading-6 ${style.bg} ${style.border} ${style.text} ${
-                isRail
-                  ? 'min-w-[86%] snap-start sm:min-w-[20rem] sm:max-w-[22rem] max-h-52 overflow-y-auto overscroll-contain'
-                  : ''
+                hasMultipleNotes ? 'h-full' : ''
               }`}
             >
               <strong className="font-semibold">{style.label}: </strong>
