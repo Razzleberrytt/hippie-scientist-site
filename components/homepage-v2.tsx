@@ -117,14 +117,13 @@ export default async function HomepageV2() {
                 Better answers start with better <em>evidence.</em>
               </h1>
               <p className='hs-home-lede'>
-                Research herbs and compounds through human evidence, safety, dose, and context —
-                with the uncertainty left intact.
+                Evidence, safety, dose, and context for herbs and supplements — with uncertainty left intact.
               </p>
 
               <form className='hs-home-search' action='/search/' method='get' role='search'>
                 <Search aria-hidden='true' strokeWidth={1.75} />
                 <label className='sr-only' htmlFor='homepage-search'>
-                  Search herbs, compounds, or questions
+                  Search herbs, compounds, or topics
                 </label>
                 <input
                   id='homepage-search'
@@ -135,7 +134,7 @@ export default async function HomepageV2() {
                   autoCorrect='off'
                   spellCheck={false}
                   enterKeyHint='search'
-                  placeholder='Search herbs, compounds, or questions'
+                  placeholder='Search herbs, compounds, topics'
                 />
                 <button type='submit' aria-label='Search the research library'>
                   <ArrowRight aria-hidden='true' />
@@ -143,7 +142,7 @@ export default async function HomepageV2() {
               </form>
 
               <a className='hs-home-browse-link hs-hero-primary-link' href='#browse-by-goal'>
-                Browse by health goal <ArrowRight aria-hidden='true' />
+                Browse health goals <ArrowRight aria-hidden='true' />
               </a>
             </div>
 
