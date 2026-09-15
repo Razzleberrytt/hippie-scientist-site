@@ -50,10 +50,10 @@ Live GitHub reconciliation at `99038cb887e9142594fbc8a4227a0ac405cff820` on 2026
 
 | Ticket | Title | Lane | Status |
 |---|---|---|---|
-| #5237 | Integrate parasomnia reviews into the canonical Sleep hub | R / L4 | Building on exact current main; navigation and generated ItemList inclusion only |
+| #5237 / PR #5513 | Integrate parasomnia reviews into the canonical Sleep hub | R / L4 | Building on exact current main; navigation and generated ItemList inclusion only |
 | #5026 / PR #5511 | Close methyl-eugenol hazard workpack | A / L2 | In review on exact current main; governed safety closure |
 
-- **R — active:** #5237 adds three established parasomnia reviews to the canonical Sleep hub with evidence-bounded card copy and regression coverage.
+- **R — active:** #5237 / PR #5513 adds three established parasomnia reviews to the canonical Sleep hub with evidence-bounded card copy and regression coverage.
 - **A — active:** #5026 / PR #5511 closes the governed methyl-eugenol hazard workpack while keeping recommendation and monetization fail closed.
 - **D — free:** #4532 / PR #5510 merged as `99038cb887e9142594fbc8a4227a0ac405cff820` and no longer occupies WIP.
 
