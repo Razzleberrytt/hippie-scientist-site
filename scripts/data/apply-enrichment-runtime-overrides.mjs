@@ -33,6 +33,7 @@ function applyEntry(record, entry, sourceMap) {
 
   record.summary = entry.summary
   record.description = entry.description
+  record.safety = entry.safetyNotes
   record.safetyNotes = entry.safetyNotes
   record.evidenceLevel = entry.evidenceLevel
   record.evidence_tier = entry.evidenceLevel
