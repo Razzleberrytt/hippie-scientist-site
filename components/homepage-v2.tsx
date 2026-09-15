@@ -68,13 +68,24 @@ export default async function HomepageV2() {
   return (
     <div className='hs-home'>
       <div className='hs-home-shell'>
-        <section className='hs-index-hero' aria-labelledby='home-title'>
+        <section
+          className='hs-index-hero max-md:!pb-5 max-md:!pt-7'
+          aria-labelledby='home-title'
+        >
           <p className='hs-home-eyebrow'>Evidence-based supplement guidance</p>
-          <h1 id='home-title' className='hs-home-title'>
+          <h1
+            id='home-title'
+            className='hs-home-title max-md:!mt-3 max-md:!text-[clamp(2.55rem,11vw,3.4rem)] max-md:!leading-[0.98]'
+          >
             Better answers start with better <em>evidence.</em>
           </h1>
 
-          <form className='hs-home-search' action='/search/' method='get' role='search'>
+          <form
+            className='hs-home-search max-md:!mt-4 max-md:!min-h-[3.35rem]'
+            action='/search/'
+            method='get'
+            role='search'
+          >
             <Search aria-hidden='true' strokeWidth={1.75} />
             <label className='sr-only' htmlFor='homepage-search'>
               Search herbs, compounds, or questions
@@ -95,17 +106,21 @@ export default async function HomepageV2() {
             </button>
           </form>
 
-          <a className='hs-home-browse-link' href='#browse-by-goal'>
+          <a className='hs-home-browse-link max-md:hidden' href='#browse-by-goal'>
             Or browse by health goal
           </a>
 
-          <nav id='browse-by-goal' className='hs-goal-nav' aria-label='Browse by health goal'>
+          <nav
+            id='browse-by-goal'
+            className='hs-goal-nav max-md:!mt-3'
+            aria-label='Browse by health goal'
+          >
             {goals.map((goal) => {
               const Icon = goal.icon
 
               return (
-                <Link key={goal.slug} href={goal.href} className='hs-goal-link'>
-                  <span className='hs-goal-icon'>
+                <Link key={goal.slug} href={goal.href} className='hs-goal-link max-md:!min-h-[4.35rem]'>
+                  <span className='hs-goal-icon max-md:!h-10 max-md:!w-10'>
                     <Icon aria-hidden='true' strokeWidth={1.65} />
                   </span>
                   <span>{goal.label}</span>
@@ -114,7 +129,10 @@ export default async function HomepageV2() {
             })}
           </nav>
 
-          <dl className='hs-home-stats' aria-label='Research library size'>
+          <dl
+            className='hs-home-stats max-md:!mt-3 max-md:!py-2 max-md:[&_dd]:!text-[1.35rem] max-md:[&_dt]:!mt-1 max-md:[&_dt]:!text-[0.54rem]'
+            aria-label='Research library size'
+          >
             {stats.map((stat) => (
               <div key={stat.label}>
                 <dt>{stat.label}</dt>
@@ -127,7 +145,9 @@ export default async function HomepageV2() {
         <section className='hs-decision-section' aria-labelledby='decision-title'>
           <div className='hs-section-intro'>
             <p className='hs-home-eyebrow'>Make a decision</p>
-            <h2 id='decision-title'>Compare before you choose.</h2>
+            <h2 id='decision-title' className='max-md:!text-[2.25rem] max-md:!leading-[1.02]'>
+              Compare before you choose.
+            </h2>
             <p>
               Side-by-side guides for when the real question is which option fits your situation.
             </p>
@@ -138,13 +158,17 @@ export default async function HomepageV2() {
 
           <div className='hs-comparison-list'>
             {comparisons.map((comparison, index) => (
-              <Link key={comparison.href} href={comparison.href} className='hs-comparison-row'>
-                <span className='hs-comparison-index' aria-hidden='true'>
+              <Link
+                key={comparison.href}
+                href={comparison.href}
+                className='hs-comparison-row max-md:!grid-cols-[minmax(0,1fr)_auto] max-md:!min-h-[4.75rem]'
+              >
+                <span className='hs-comparison-index max-md:hidden' aria-hidden='true'>
                   {String(index + 1).padStart(2, '0')}
                 </span>
                 <span className='hs-comparison-copy'>
                   <strong>{comparison.label}</strong>
-                  <small>{comparison.context}</small>
+                  <small className='max-md:!text-[0.82rem]'>{comparison.context}</small>
                 </span>
                 <ArrowRight aria-hidden='true' />
               </Link>
@@ -155,7 +179,9 @@ export default async function HomepageV2() {
         <section className='hs-method-section' aria-labelledby='method-title'>
           <div className='hs-method-intro'>
             <p className='hs-home-eyebrow'>How the site works</p>
-            <h2 id='method-title'>Evidence first. Safety always.</h2>
+            <h2 id='method-title' className='max-md:!text-[2.25rem] max-md:!leading-[1.02]'>
+              Evidence first. Safety always.
+            </h2>
             <p>
               Every profile follows the same evidence hierarchy, so you can see how much weight a
               claim actually carries before making a decision.
