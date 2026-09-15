@@ -7,18 +7,28 @@ function source(relativePath: string): string {
 }
 
 describe('mobile premium UX regression contract', () => {
-  it('keeps the flagship homepage deliberate and compact on mobile', () => {
+  it('keeps the flagship homepage compact, useful, and restrained on mobile', () => {
     const text = source('components/homepage-v2.tsx')
     const structure = source('styles/homepage-structure.css')
-    const visual = source('styles/homepage-premium-final.css')
+    const visual = source('styles/homepage-mobile-refinement.css')
+    const page = source('app/page.tsx')
 
     expect(text).toContain("className='hs-hero-main'")
     expect(text).toContain("className='hs-evidence-panel'")
     expect(text).toContain("className='hs-home-browse-link hs-hero-primary-link'")
     expect(text).toContain("className='hs-goal-nav'")
+    expect(text).toContain("placeholder='Search herbs, compounds, or questions'")
+    expect(page).toContain("import '@/styles/homepage-mobile-refinement.css'")
     expect(structure).toContain('@media (max-width: 767px)')
+    expect(structure).toContain('display: contents;')
+    expect(structure).toContain('order: 2;')
+    expect(structure).toContain('order: 3;')
     expect(structure).toContain('grid-template-columns: repeat(2, minmax(0, 1fr))')
-    expect(visual).toContain('@media (max-width: 767px)')
+    expect(visual).toContain('font-size: clamp(2.25rem, 10.2vw, 2.72rem);')
+    expect(visual).toContain('.hs-home-title em::after')
+    expect(visual).toContain('background: transparent;')
+    expect(visual).toContain('min-width: 2.75rem;')
+    expect(visual).toContain('min-height: 2.75rem;')
   })
 
   it('renders shared comparison data as option-first cards on phones', () => {

@@ -206,12 +206,37 @@
 }
 
 @media (max-width: 767px) {
+  .hs-home-shell {
+    --home-shell-padding: 1rem;
+  }
+
   .hs-index-hero {
-    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.1rem 0 0;
   }
 
   .hs-hero-main {
-    gap: 1.75rem;
+    display: contents;
+  }
+
+  .hs-hero-copy {
+    order: 1;
+  }
+
+  .hs-goal-block {
+    order: 2;
+    margin-top: 1.65rem;
+  }
+
+  .hs-evidence-panel {
+    order: 3;
+    margin-top: 1.25rem;
+  }
+
+  .hs-home-stats {
+    order: 4;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .hs-hero-actions {
@@ -219,22 +244,15 @@
     flex-direction: column;
   }
 
-  .hs-goal-block {
-    margin-top: 2rem;
-  }
-
   .hs-goal-block-heading {
     align-items: flex-start;
-    flex-direction: column;
-    gap: 0.75rem;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
   }
 
   .hs-goal-nav {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .hs-home-stats {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .hs-method-actions {
@@ -249,12 +267,17 @@
   }
 
   .hs-index-hero {
-    padding: 1.25rem;
+    padding-top: 0.9rem;
   }
 
   .hs-home-search button {
-    width: 2.65rem;
-    height: 2.65rem;
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .hs-goal-block-heading {
+    flex-direction: column;
+    gap: 0.55rem;
   }
 
   .hs-comparison-row {
