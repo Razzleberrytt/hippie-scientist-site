@@ -114,7 +114,7 @@ export default async function HomepageV2() {
             <div className='hs-hero-copy'>
               <p className='hs-home-eyebrow'>Evidence-based supplement guidance</p>
               <h1 id='home-title' className='hs-home-title'>
-                Better decisions start with better <em>evidence.</em>
+                Better answers start with better <em>evidence.</em>
               </h1>
               <p className='hs-home-lede'>
                 Research herbs and compounds through human evidence, safety, dose, and context —
@@ -142,14 +142,9 @@ export default async function HomepageV2() {
                 </button>
               </form>
 
-              <div className='hs-hero-actions'>
-                <Link href='/herbs/' className='hs-hero-primary-link'>
-                  Browse the research library <ArrowRight aria-hidden='true' />
-                </Link>
-                <Link href='/info/methodology/' className='hs-hero-secondary-link'>
-                  See how evidence is graded
-                </Link>
-              </div>
+              <a className='hs-home-browse-link hs-hero-primary-link' href='#browse-by-goal'>
+                Browse by health goal <ArrowRight aria-hidden='true' />
+              </a>
             </div>
 
             <aside className='hs-evidence-panel' aria-label='How The Hippie Scientist evaluates evidence'>
