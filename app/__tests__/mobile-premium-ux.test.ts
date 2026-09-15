@@ -7,7 +7,7 @@ function source(relativePath: string): string {
 }
 
 describe('mobile premium UX regression contract', () => {
-  it('keeps the flagship homepage compact, useful, and restrained on mobile', () => {
+  it('keeps the flagship homepage compact, useful, restrained, and visually consistent on mobile', () => {
     const text = source('components/homepage-v2.tsx')
     const structure = source('styles/homepage-structure.css')
     const visual = source('styles/homepage-mobile-refinement.css')
@@ -29,6 +29,14 @@ describe('mobile premium UX regression contract', () => {
     expect(visual).toContain('background: transparent;')
     expect(visual).toContain('min-width: 2.75rem;')
     expect(visual).toContain('min-height: 2.75rem;')
+    expect(visual).toContain('--home-mobile-panel-radius: 1.05rem;')
+    expect(visual).toContain('--home-mobile-card-radius: 0.95rem;')
+    expect(visual).toContain('.hs-evidence-panel,\n  .hs-method-section')
+    expect(visual).toContain('.hs-principles article {\n    gap: 0.75rem;\n    border: 0;')
+    expect(visual).toContain('.hs-method-actions .hs-text-link {\n    width: 100%;\n    min-height: 2.75rem;')
+    expect(visual).toContain('.hs-home .hs-text-link {\n    color: var(--home-forest);')
+    expect(visual).not.toContain('.hs-home .hs-text-link {\n    color: var(--home-gold);')
+    expect(visual).toContain('color: var(--home-mobile-action);')
   })
 
   it('renders shared comparison data as option-first cards on phones', () => {
