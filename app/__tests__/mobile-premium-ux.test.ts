@@ -26,17 +26,35 @@ describe('mobile premium UX regression contract', () => {
     expect(structure).toContain('grid-template-columns: repeat(2, minmax(0, 1fr))')
     expect(visual).toContain('font-size: clamp(2.25rem, 10.2vw, 2.72rem);')
     expect(visual).toContain('.hs-home-title em::after')
-    expect(visual).toContain('background: transparent;')
     expect(visual).toContain('min-width: 2.75rem;')
     expect(visual).toContain('min-height: 2.75rem;')
-    expect(visual).toContain('--home-mobile-panel-radius: 1.05rem;')
-    expect(visual).toContain('--home-mobile-card-radius: 0.95rem;')
-    expect(visual).toContain('.hs-evidence-panel,\n  .hs-method-section')
-    expect(visual).toContain('.hs-principles article {\n    gap: 0.75rem;\n    border: 0;')
-    expect(visual).toContain('.hs-method-actions .hs-text-link {\n    width: 100%;\n    min-height: 2.75rem;')
+
+    // Shared phone geometry stays intentionally quieter than desktop.
+    expect(visual).toContain('--home-mobile-panel-radius: 0.95rem;')
+    expect(visual).toContain('--home-mobile-card-radius: 0.85rem;')
+    expect(visual).toContain('.hs-goal-copy small {\n    display: none;')
+
+    // Research Lens is the single dark explanatory anchor on phones.
+    expect(visual).toContain('.hs-evidence-signal {\n    grid-template-columns: auto minmax(0, 1fr);')
+    expect(visual).toContain('.hs-evidence-signal-index {\n    display: none;')
+
+    // Comparison content is an editorial list rather than another stack of cards.
+    expect(visual).toContain('.hs-comparison-list {\n    gap: 0;\n    border-top: 1px solid var(--home-line);')
+    expect(visual).toContain('.hs-comparison-row {\n    min-height: 0;')
+    expect(visual).toContain('border-radius: 0;')
+
+    // The lower methodology block cannot become a second dark hero or repeat Research Lens cards.
+    expect(visual).toContain('.hs-method-section {\n    gap: 0;')
+    expect(visual).toContain('.hs-method-actions > a:first-child {\n    display: none;')
+    expect(visual).toContain('.hs-principles {\n    display: none;')
+
+    // Route-owned bottom spacing must not stack with main/footer spacing.
+    expect(visual).toContain('body:has(.hs-home) #main-content {\n    padding-bottom: 0;')
+    expect(visual).toContain('body:has(.hs-home) .editorial-footer {\n    margin-top: 0;')
+    expect(visual).toContain('padding-bottom: 0;')
+
     expect(visual).toContain('.hs-home .hs-text-link {\n    color: var(--home-forest);')
     expect(visual).not.toContain('.hs-home .hs-text-link {\n    color: var(--home-gold);')
-    expect(visual).toContain('color: var(--home-mobile-action);')
   })
 
   it('renders shared comparison data as option-first cards on phones', () => {
