@@ -91,7 +91,7 @@ export function ComparisonTable({
             key={`${header}-${colIndex}`}
             className="overflow-hidden rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] shadow-[0_12px_30px_-24px_rgba(29,29,31,0.38)] dark:border-white/10"
           >
-            <div className="flex min-h-12 items-center justify-between gap-3 border-b border-brand-900/10 bg-brand-50/55 px-4 py-3 dark:border-white/10 dark:bg-[var(--surface-subtle)]">
+            <div className="flex min-h-12 items-center justify-between gap-3 border-b border-brand-900/10 bg-brand-50/50 px-4 py-3 dark:border-white/10 dark:bg-[var(--surface-subtle)]">
               <h4 className="text-base font-bold leading-5 text-ink">{header || `Option ${colIndex + 1}`}</h4>
               <span className="shrink-0 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-muted">
                 {colIndex + 1} of {valueHeaders.length}
