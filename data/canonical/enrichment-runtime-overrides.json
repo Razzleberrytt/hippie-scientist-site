@@ -28,6 +28,30 @@
       "requiresHumanReview": true,
       "dosage": "",
       "typicalDosage": ""
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "methyl-eugenol",
+      "sourceIds": [
+        "src_iarc-v134-methyleugenol-2024"
+      ],
+      "summary": "Phenylpropanoid found in aromatic plants that IARC classifies as probably carcinogenic to humans (Group 2A).",
+      "description": "Methyl eugenol is a naturally occurring flavour and fragrance compound. IARC classifies it as probably carcinogenic to humans (Group 2A) from sufficient experimental-animal and strong mechanistic evidence, while evidence regarding cancer in humans remains inadequate. That hazard classification does not quantify risk for every dose, route, or exposure matrix.",
+      "safetyNotes": "IARC classifies methyleugenol as probably carcinogenic to humans (Group 2A). Direct human cancer evidence is inadequate, and the classification does not provide one risk estimate for every exposure. Natural background, food, consumer-product, essential-oil, and concentrated isolated exposures are not interchangeable; avoid presenting concentrated methyleugenol as a wellness ingredient.",
+      "evidenceLevel": "Regulatory Hazard Evidence",
+      "evidenceGrade": "c",
+      "reviewStatus": "sourced_pending_review",
+      "medicalRisk": "high",
+      "governanceReason": "iarc_group_2a_hazard_fail_closed",
+      "indexabilityStatus": "NOINDEX",
+      "robots": "noindex,follow",
+      "sitemapIncluded": false,
+      "recommendationAllowed": false,
+      "monetizationAllowed": false,
+      "indexingAllowed": false,
+      "requiresHumanReview": true,
+      "dosage": "",
+      "typicalDosage": ""
     }
   ]
 }
