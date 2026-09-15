@@ -1,3 +1,4 @@
+import '@/styles/discovery-reading.css'
 import type { ReactNode } from 'react'
 
 /**
@@ -20,7 +21,7 @@ export function HubSectionHeading({
   sub?: ReactNode
 }) {
   return (
-    <div className="mb-5">
+    <div className="discovery-section-heading mb-5">
       <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">{eyebrow}</p>
       <h2 className="mt-1 text-2xl font-bold tracking-tight text-ink">{title}</h2>
       {sub ? <p className="mt-1.5 text-sm leading-6 text-muted">{sub}</p> : null}
