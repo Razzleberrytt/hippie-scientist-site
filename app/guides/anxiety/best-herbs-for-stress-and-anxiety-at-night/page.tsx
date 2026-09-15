@@ -226,8 +226,9 @@ export default function Page() {
           <p className="eyebrow-label">Match the actual sleep pattern</p>
           <h2 className="text-2xl font-semibold text-ink">Racing thoughts, sleep onset, sleep maintenance, and circadian timing are different questions</h2>
           <p className="text-sm leading-7 text-muted">
-            Stress can make it harder to fall asleep, but waking after sleep begins is a maintenance problem,
-            and feeling sleepy at the wrong clock time can be a circadian-timing problem. These patterns can
+            Stress can make it harder to fall asleep, but repeated or prolonged waking after sleep begins—or
+            difficulty returning to sleep—is a maintenance problem. Brief awakenings can be normal. Feeling
+            sleepy at the wrong clock time can instead be a circadian-timing problem. These patterns can
             overlap; one does not prove the others or identify a supplement.
           </p>
           <div className="grid gap-3 sm:grid-cols-2">
