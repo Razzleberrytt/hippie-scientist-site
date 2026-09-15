@@ -8,7 +8,7 @@
     {
       "submissionId": "sub_session-a-mdd-nutraceutical-nma-quality-20260906",
       "authoringPackId": "ap_bp_wp_nutraceutical_mdd_src_pmid_42680855",
-      "workpackId": "wp_nutraceutical_mdd",
+      "workpackId": "wp_compound_nutraceuticals_phytoceuticals_mdd",
       "entityType": "compound",
       "entitySlug": "nutraceuticals-phytoceuticals-mdd",
       "sourceId": "src_pmid-42680855",
@@ -28,7 +28,7 @@
     {
       "submissionId": "sub_session-a-pediatric-probiotic-asthma-tsa-20260906",
       "authoringPackId": "ap_bp_wp_probiotics_pediatric_asthma_src_pmid_41561940",
-      "workpackId": "wp_probiotics_pediatric_asthma",
+      "workpackId": "wp_compound_probiotics_pediatric_asthma",
       "entityType": "compound",
       "entitySlug": "probiotics-pediatric-asthma",
       "sourceId": "src_pmid-41561940",
@@ -48,7 +48,7 @@
     {
       "submissionId": "sub_session-a-pediatric-fapd-probiotic-clinical-threshold-20260906",
       "authoringPackId": "ap_bp_wp_probiotics_pediatric_fapd_src_pmid_42477222",
-      "workpackId": "wp_probiotics_pediatric_fapd",
+      "workpackId": "wp_compound_probiotics_pediatric_functional_abdominal_pain",
       "entityType": "compound",
       "entitySlug": "probiotics-pediatric-functional-abdominal-pain",
       "sourceId": "src_pmid-42477222",
@@ -68,7 +68,7 @@
     {
       "submissionId": "sub_session-a-probiotic-knee-oa-strain-signals-20260906",
       "authoringPackId": "ap_bp_wp_probiotics_knee_oa_src_pmid_42383034",
-      "workpackId": "wp_probiotics_knee_oa",
+      "workpackId": "wp_compound_probiotics_knee_osteoarthritis",
       "entityType": "compound",
       "entitySlug": "probiotics-knee-osteoarthritis",
       "sourceId": "src_pmid-42383034",
@@ -88,7 +88,7 @@
     {
       "submissionId": "sub_session-a-medicinal-edible-seeds-harms-20260906",
       "authoringPackId": "ap_bp_wp_seed_safety_src_pmid_41322721",
-      "workpackId": "wp_seed_safety",
+      "workpackId": "wp_herb_medicinal_edible_seeds_safety",
       "entityType": "herb",
       "entitySlug": "medicinal-edible-seeds-safety",
       "sourceId": "src_pmid-41322721",
