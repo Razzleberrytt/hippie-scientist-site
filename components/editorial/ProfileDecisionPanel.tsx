@@ -15,7 +15,7 @@ export function ProfileDecisionPanel({
   if (!verdict && !runtimeSummary && continueReading.length === 0) return null
 
   return (
-    <div className="space-y-4">
+    <div className="profile-decision-panel space-y-4">
       {verdict ? (
         <ScientificVerdictCard
           id="decision-summary"
@@ -36,7 +36,7 @@ export function ProfileDecisionPanel({
         <section
           id="decision-summary"
           aria-labelledby="runtime-summary-heading"
-          className="not-prose rounded-2xl border border-[color:var(--hs-hairline-strong)] bg-[color:var(--surface-card)] p-4 sm:p-5"
+          className="profile-at-a-glance not-prose rounded-2xl border border-[color:var(--hs-hairline-strong)] bg-[color:var(--surface-card)] p-4 sm:p-5"
         >
           <div className="flex flex-wrap items-baseline justify-between gap-2">
             <h2 id="runtime-summary-heading" className="text-base font-bold text-[color:var(--tone-ink)]">
@@ -79,7 +79,7 @@ export function ProfileDecisionPanel({
       ) : null}
 
       {verdict?.primaryGuide || (verdict?.comparisons && verdict.comparisons.length > 0) || continueReading.length > 0 ? (
-        <section aria-label="Where to go next" className="not-prose">
+        <section aria-label="Where to go next" className="profile-next-steps not-prose">
           <details className="group border-y border-[color:var(--hs-hairline-strong)] !bg-transparent !p-0 !shadow-none">
             <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 py-3 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] [&::-webkit-details-marker]:hidden">
               <span className="text-xs font-bold uppercase tracking-[0.14em] text-[color:var(--tone-ink)]">
