@@ -4,6 +4,7 @@ import { buildPageMetadata } from '../lib/seo'
 import '@/styles/homepage-structure.css'
 import '@/styles/homepage-premium-final.css'
 import '@/styles/homepage-mobile-refinement.css'
+import '@/styles/homepage-mobile-cohesion.css'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'The Hippie Scientist: Evidence & Safety for Supplements',
