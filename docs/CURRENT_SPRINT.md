@@ -2,7 +2,7 @@
 
 ## User-directed visual continuation — #5488
 
-In review (2026-09-14): shared guide/goal discovery, comparison navigation and ArticleLayout consistency after #5485. Explicit user priority; presentation-only scope, with regression, responsive/theme and production-build validation required. Existing scientific workstreams and external measurement blockers remain unchanged. Impact is unmeasured.
+In review (2026-09-15): shared guide/goal discovery, comparison navigation and ArticleLayout consistency after #5485. Explicit user priority; presentation-only scope, with regression, responsive/theme and production-build validation required. Existing scientific workstreams and external measurement blockers remain unchanged. Impact is unmeasured.
 
 
 **Status:** Authoritative immediate execution queue
@@ -10,7 +10,7 @@ In review (2026-09-14): shared guide/goal discovery, comparison navigation and A
 **Updated:** 2026-09-03
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub reconciliation at `7b110d7a19c51e08de3d3b112ac36e96824bfd27` on 2026-09-03 records 0/3 normal implementation workstreams occupied. #5031 / PR #5090 completed and deployed the newsletter-interest CTA repair and no longer occupies Revenue/Conversion. #5021 / PR #5028 completed and deployed the governed Vitamin B6 closure with five promoted findings plus one governed non-promotion. PR #5084 merged the AI-citation asset-identity protection infrastructure and does not occupy normal WIP. Authority/Content, Revenue/Conversion, and Discovery/SEO are free. #5076 is now the first Ready-next Revenue/Conversion candidate: a bounded, claim-neutral post-answer sleep-research next-action path that preserves answer-first evidence and safety ordering. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP.
+**Current admission:** Live GitHub reconciliation at `7b110d7a19c51e08de3d3b112ac36e96824bfd27` on 2026-09-03 records 0/3 normal implementation workstreams occupied. #5031 / PR #5090 completed and deployed the newsletter-interest CTA repair and no longer occupies Revenue/Conversion. #5021 / PR #5028 completed and deployed the governed Vitamin B6 closure with five promoted findings plus one governed non-promotion. PR #5084 merged the AI-citation asset-identity protection infrastructure and does not occupy normal WIP. Authority/Content, Revenue/Conversion, and Discovery/SEO are free. #5076 is closed (verified 2026-09-15); PR #5430 tracks follow-up work on a bounded, claim-neutral post-answer sleep-research next-action path that preserves answer-first evidence and safety ordering. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -59,7 +59,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
 
-- **Revenue/Conversion:** free. #5076 is Ready next for a reusable post-answer sleep research next-action path; implementation must remain claim-neutral, preserve answer/evidence/safety ordering, retain newsletter privacy/tag semantics, and avoid product-ranking or unsupported recommendation language.
+- **Revenue/Conversion:** follow-up PR #5430 remains open; revalidate ownership before further admission. #5076 is closed; PR #5430 tracks follow-up work on a reusable post-answer sleep research next-action path; implementation must remain claim-neutral, preserve answer/evidence/safety ordering, retain newsletter privacy/tag semantics, and avoid product-ranking or unsupported recommendation language.
 - **Authority/Content:** free after #5021 / PR #5028 completed the governed Vitamin B6 evidence/safety closure and post-merge verification.
 - **Discovery/SEO:** free after PR #5084 merged AI-citation asset-identity protection. Fresh page-level citation telemetry is still required before any winner ledger can be populated.
 
@@ -73,7 +73,6 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 | Order | Candidate | Workstream | Admission state | Proof required before implementation |
 |---:|---|---|---|---|
-| 1 | #5076 | Revenue/Conversion | Ready next | Re-fetch exact main and lane overlap; coordinate the canonical sleep-hub destination with Lane 3; implement one reusable claim-neutral `SleepResearchNextActions`-class component on 2–3 representative sleep guides only after direct answer + evidence/safety content; preserve newsletter privacy/tag semantics and scientific/recommendation boundaries; add focused component, page-order, mobile and a11y regressions; pass exact-head required gates; verify live placement after deploy; keep conversion outcomes `Unknown` until observed. |
 
 Authority/Content and Discovery/SEO are free. No stale item is promoted merely to fill a slot; any future admission still requires current evidence and this queue.
 
@@ -100,7 +99,7 @@ Authority/Content and Discovery/SEO are free. No stale item is promoted merely t
 
 Promote only after checking overlap, current exact-main state, source freshness, and the canonical governor/lease/provenance contract.
 
-No fallback ticket is currently promoted. #5076 is explicitly admitted under `Ready next` above and must still pass its fresh collision/dependency check before Lane 4 source mutation.
+No fallback ticket is currently promoted. Closed #5076 is retired from the queue; open follow-up PR #5430 is not a fresh admission candidate.
 
 ## Sprint exit conditions
 

@@ -2,7 +2,7 @@
 
 ## User-directed visual continuation — #5488
 
-In review (2026-09-14): shared guide/goal discovery, comparison navigation and ArticleLayout consistency after #5485. Explicit user priority; presentation-only scope, with regression, responsive/theme and production-build validation required. Existing scientific workstreams and external measurement blockers remain unchanged. Impact is unmeasured.
+In review (2026-09-15): shared guide/goal discovery, comparison navigation and ArticleLayout consistency after #5485. Explicit user priority; presentation-only scope, with regression, responsive/theme and production-build validation required. Existing scientific workstreams and external measurement blockers remain unchanged. Impact is unmeasured.
 
 
 **Status:** Authoritative ranked backlog
@@ -56,7 +56,7 @@ Live GitHub reconciliation at `7b110d7a19c51e08de3d3b112ac36e96824bfd27` on 2026
 | Ticket | Title | Lane | Status |
 |---|---|---|---|
 
-- **R — free:** #5076 is Ready next for the bounded post-answer sleep-research next-action path; implementation must preserve answer-first evidence/safety ordering, newsletter privacy/tag semantics, accessibility, scientific/recommendation boundaries, and Lane-3 destination ownership.
+- **R — free:** #5076 is closed; PR #5430 tracks follow-up work on the bounded post-answer sleep-research next-action path; implementation must preserve answer-first evidence/safety ordering, newsletter privacy/tag semantics, accessibility, scientific/recommendation boundaries, and Lane-3 destination ownership.
 - **A — free:** #5021 / PR #5028 completed and deployed the governed Vitamin B6 evidence/safety closure with five promoted findings plus one governed non-promotion; it no longer occupies the active or ready queue.
 - **D — free:** PR #5084 merged AI-citation asset-identity protection. Fresh page-level citation telemetry is still required before any winner ledger can be populated; the protection infrastructure itself does not occupy normal WIP.
 
@@ -68,7 +68,6 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| #5076 | Add reusable post-answer sleep research next-action path | R conversion / L4 | Ready next | P2 conversion/retention | — | — | Open issue revalidated 2026-09-03 after #5031 closed; Revenue/Conversion free; bootstrap sleep AI-demand signal remains partial until fresher canonical telemetry; re-fetch exact main, lane overlap, and Lane-3 destination ownership before mutation | One reusable claim-neutral component; integrate only 2–3 representative sleep guides after direct answer + evidence/safety boundary; canonical sleep-hub + newsletter-interest actions; preserve privacy/tag/accessibility/scientific/recommendation contracts; focused component/page-order/mobile/a11y regressions; exact-head gates green; verify live placement after deploy; business outcomes remain `Unknown` until observed |
 | DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous reconciliation maintenance | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
 
 ## Blocked — important but not startable

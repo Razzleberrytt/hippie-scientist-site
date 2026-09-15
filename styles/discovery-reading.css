@@ -101,8 +101,8 @@
   .discovery-link-card *,
   .discovery-link-row,
   .discovery-link-row * {
-    transition: none !important;
-    transform: none !important;
-    translate: none !important;
+    transition: none;
+    transform: none;
+    translate: none;
   }
 }

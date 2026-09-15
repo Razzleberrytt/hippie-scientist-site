@@ -28,6 +28,7 @@ describe('shared discovery and reading contracts', () => {
       expect(motion).toMatchObject({ transition: 'none', transform: 'none', translate: 'none' })
     })
     expect(css.toString()).toContain('(prefers-reduced-motion: reduce)')
+    css.walkDecls(decl => { expect(decl.important).toBeFalsy() })
   })
 
   it('keeps full decision context and canonical destinations in keyboard links', () => {
