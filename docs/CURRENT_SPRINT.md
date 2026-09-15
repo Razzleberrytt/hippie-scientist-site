@@ -1,5 +1,10 @@
 # Current Sprint
 
+## User-directed visual continuation — #5488
+
+In review (2026-09-14): shared guide/goal discovery, comparison navigation and ArticleLayout consistency after #5485. Explicit user priority; presentation-only scope, with regression, responsive/theme and production-build validation required. Existing scientific workstreams and external measurement blockers remain unchanged. Impact is unmeasured.
+
+
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
 **Updated:** 2026-09-03
