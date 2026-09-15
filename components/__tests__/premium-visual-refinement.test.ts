@@ -42,7 +42,7 @@ describe('premium visual refinement contracts', () => {
   })
 
   it('keeps comparison rows visibly indexed without adding screen-reader noise', () => {
-    expect(homepage).toContain("className='hs-comparison-index' aria-hidden='true'")
+    expect(homepage).toMatch(/className='[^']*\bhs-comparison-index\b[^']*' aria-hidden='true'/)
     expect(homepage).toContain("String(index + 1).padStart(2, '0')")
     expect(homeVisual).toContain('.hs-comparison-index')
   })
