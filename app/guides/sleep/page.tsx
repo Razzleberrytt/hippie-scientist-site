@@ -560,6 +560,21 @@ const PARASOMNIAS_AND_HYPERSOMNOLENCE: GuideCard[] = [
     desc: 'True RBD requires REM-without-atonia evidence, prioritizes injury prevention and carries neurologic significance only after proper diagnosis.',
   },
   {
+    href: '/articles/night-terrors-vs-nightmares/',
+    title: 'Night Terrors vs Nightmares',
+    desc: 'NREM arousal with confusion and little recall differs from a remembered nightmare—and the management pathways are not interchangeable.',
+  },
+  {
+    href: '/articles/exploding-head-syndrome/',
+    title: 'Exploding Head Syndrome',
+    desc: 'A usually painless, benign sleep-transition sensory event with limited treatment evidence—not a reason to build a supplement stack.',
+  },
+  {
+    href: '/articles/sleep-related-eating-disorder/',
+    title: 'Sleep-Related Eating Disorder',
+    desc: 'Partial-awareness eating with amnesia and safety risks differs from night eating syndrome; medication triggers and treatment limits matter.',
+  },
+  {
     href: '/articles/narcolepsy-excessive-daytime-sleepiness/',
     title: 'Narcolepsy & Excessive Daytime Sleepiness',
     desc: 'Cataplexy, REM intrusions, PSG/MSLT testing and orexin biology separate narcolepsy from ordinary tiredness or sleep deprivation.',
