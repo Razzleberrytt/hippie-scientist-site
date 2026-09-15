@@ -87,7 +87,7 @@ export default function Footer() {
               <a className={footerLinkClass} href='https://www.youtube.com/@TheHippieSci' target='_blank' rel='noopener noreferrer'>YouTube</a>
             </div>
 
-            <div className='mt-7 border-l border-[color:var(--hs-hairline-strong)] pl-4'>
+            <div data-footer-new-here='true' className='mt-7 border-l border-[color:var(--hs-hairline-strong)] pl-4'>
               <p className='editorial-eyebrow text-[0.68rem] font-bold uppercase'>New here?</p>
               <p className='mt-2 text-sm leading-6 text-[color:var(--hs-body)]'>
                 Choose a goal, look up an ingredient, or check safety first.
