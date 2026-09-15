@@ -102,7 +102,7 @@ export function ScientificVerdictCard({
           <div
             data-claim="true"
             data-mobile-answer-first="true"
-            className="rounded-xl border border-brand-900/10 bg-brand-50/45 p-3.5 dark:border-white/10 dark:bg-[var(--surface-subtle)]"
+            className="rounded-xl border border-brand-900/10 bg-brand-50/50 p-3.5 dark:border-white/10 dark:bg-[var(--surface-subtle)]"
           >
             <p className="text-[0.64rem] font-extrabold uppercase tracking-[0.14em] text-brand-700 dark:text-[var(--accent-teal)]">
               Bottom line
@@ -119,7 +119,7 @@ export function ScientificVerdictCard({
               <div
                 key={stat.label}
                 data-evidence={stat.evidence ? 'true' : undefined}
-                className={`rounded-xl border border-brand-900/8 bg-[var(--surface-card)] p-2.5 dark:border-white/10 ${stat.evidence ? 'col-span-2 sm:col-span-1' : ''}`}
+                className={`rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-2.5 dark:border-white/10 ${stat.evidence ? 'col-span-2 sm:col-span-1' : ''}`}
               >
                 <dt className="text-[0.62rem] font-bold uppercase tracking-[0.1em] text-muted sm:text-[0.7rem] sm:tracking-wider">{stat.label}</dt>
                 <dd className="mt-1 text-sm font-semibold leading-5 text-ink">{stat.value}</dd>
