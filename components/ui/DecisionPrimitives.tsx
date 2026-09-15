@@ -145,7 +145,7 @@ export function DecisionProfileCard({
   return (
     <Link
       href={href}
-      className="card-premium group flex h-full flex-col p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40"
+      className="decision-profile-card card-premium group flex h-full flex-col p-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40"
     >
       <div className="flex flex-1 flex-col">
         <div className="flex min-w-0 flex-wrap items-start justify-between gap-3">
