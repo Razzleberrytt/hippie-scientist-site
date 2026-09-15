@@ -27,6 +27,7 @@ export default function ScrollToTopButton() {
   return (
     <button
       type="button"
+      data-scroll-to-top-button='true'
       onClick={scrollToTop}
       /* Docked into the corner rather than floating over the reading column:
          a smaller footprint, quieter chrome styling, and a z-index below the
