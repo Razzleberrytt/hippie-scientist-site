@@ -135,12 +135,13 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
   {
     slug: 'iron-ferritin-and-adhd',
     source: 'docs/content/focus-cluster/iron-ferritin-and-adhd.md',
-    title: 'Iron/Ferritin and ADHD: Low Ferritin, Dopamine, Sleep, and Supplementation',
-    seoTitle: 'Iron, Ferritin and ADHD: Labs, Sleep and Safety',
-    description: 'Review iron, ferritin, and ADHD associations, including restless sleep, testing context, evidence limits, supplementation risks, and why iron should not be used without evaluation.',
+    title: 'Iron/Ferritin and ADHD: Status, Treatment Evidence, Sleep, and Safety',
+    seoTitle: 'Iron, Ferritin and ADHD: Evidence, Labs and Safety',
+    description: 'Evidence-first review of iron and ferritin in ADHD: lower ferritin associations, supplementation trials, brain-iron imaging, restless legs context, and safety limits.',
     category: 'Nutrient Deficiencies',
     tags: ['Focus', 'ADHD', 'Nutrient Deficiencies', 'Supplement Evidence'],
     date: '2026-06-11',
+    updatedAt: '2026-09-14',
     readingTime: '12 min read',
   },
   {
@@ -294,7 +295,7 @@ export const focusAdhdArticleSummaries = focusAdhdArticles.map((article) => ({
 
 const sectionValue = (raw: string, heading: string) => {
   const escaped = heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-  const match = raw.match(new RegExp(`##\\s+(?:\\d+\\.\\s*)?${escaped}\\s*\\n+([\\s\\S]*?)(?=\\n##\\s|$)`, 'i'))
+  const match = raw.match(new RegExp(`##\\s+(?:\\d+\\.\\s*)?${escaped}\\s*\n+([\\s\\S]*?)(?=\n##\\s|$)`, 'i'))
   return match?.[1]?.trim()
 }
 

@@ -7,13 +7,18 @@ function source(relativePath: string): string {
 }
 
 describe('mobile premium UX regression contract', () => {
-  it('keeps the homepage first screen intentionally compact on mobile', () => {
+  it('keeps the flagship homepage deliberate and compact on mobile', () => {
     const text = source('components/homepage-v2.tsx')
+    const structure = source('styles/homepage-structure.css')
+    const visual = source('styles/homepage-premium-final.css')
 
-    expect(text).toContain('max-md:!text-[clamp(2.55rem,11vw,3.4rem)]')
-    expect(text).toContain('hs-home-browse-link max-md:hidden')
-    expect(text).toContain('max-md:!min-h-[4.35rem]')
-    expect(text).toContain('max-md:[&_dd]:!text-[1.35rem]')
+    expect(text).toContain("className='hs-hero-main'")
+    expect(text).toContain("className='hs-evidence-panel'")
+    expect(text).toContain("className='hs-home-browse-link hs-hero-primary-link'")
+    expect(text).toContain("className='hs-goal-nav'")
+    expect(structure).toContain('@media (max-width: 767px)')
+    expect(structure).toContain('grid-template-columns: repeat(2, minmax(0, 1fr))')
+    expect(visual).toContain('@media (max-width: 767px)')
   })
 
   it('renders shared comparison data as option-first cards on phones', () => {
