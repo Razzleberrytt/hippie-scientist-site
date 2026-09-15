@@ -123,13 +123,45 @@ canvas {
   }
 
   .heading-premium {
-    font-size: clamp(2.2rem, 12vw, 3.15rem);
-    line-height: 1.02;
-    max-width: min(100%, 14ch);
+    font-size: clamp(2.05rem, 10.5vw, 2.85rem);
+    line-height: 1.05;
+    max-width: min(100%, 15ch);
   }
 
   .hero-shell {
     border-radius: 1.6rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .content-prose {
+    line-height: 1.72;
+  }
+
+  .content-prose > * + * {
+    margin-top: 1rem;
+  }
+
+  .content-prose h2 {
+    margin-top: 2.1rem;
+    margin-bottom: 0.65rem;
+    line-height: 1.16;
+  }
+
+  .content-prose h3,
+  .content-prose h4 {
+    margin-top: 1.75rem;
+    margin-bottom: 0.55rem;
+    line-height: 1.2;
+  }
+
+  .section-spacing,
+  .detail-stack {
+    row-gap: 2rem;
+  }
+
+  .card-spacing {
+    padding: 1rem;
   }
 }
 

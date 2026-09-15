@@ -1,0 +1,284 @@
+/* Route-scoped premium treatment for /research.
+ * The page remains source-first and content-complete; this layer only improves
+ * hierarchy, material depth, scanning, and interaction affordance. */
+
+.research-route-theme {
+  --research-rule: color-mix(in srgb, var(--hs-gold) 30%, var(--border-soft));
+  --research-panel: color-mix(in srgb, var(--surface-card) 94%, var(--surface-subtle));
+  --research-panel-quiet: color-mix(in srgb, var(--surface-subtle) 78%, var(--surface-card));
+}
+
+.research-route-theme main {
+  position: relative;
+  isolation: isolate;
+}
+
+.research-route-theme main > section:first-child {
+  position: relative;
+  overflow: hidden;
+  border-color: var(--research-rule);
+  background:
+    radial-gradient(circle at 88% 18%, color-mix(in srgb, var(--hs-gold) 13%, transparent) 0 9rem, transparent 9.2rem),
+    linear-gradient(135deg, color-mix(in srgb, var(--surface-card-strong) 84%, transparent), transparent 64%),
+    var(--surface-card);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 52%, transparent),
+    0 26px 64px -48px rgba(25, 40, 31, 0.48);
+}
+
+.research-route-theme main > section:first-child::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: min(14rem, 42%);
+  height: 3px;
+  background: linear-gradient(90deg, var(--hs-gold), color-mix(in srgb, var(--hs-gold) 18%, transparent));
+}
+
+.research-route-theme main > section:first-child > * {
+  position: relative;
+  z-index: 1;
+}
+
+.research-route-theme main > section:first-child h1 {
+  max-width: 16ch;
+  font-size: clamp(2.65rem, 6vw, 4.85rem);
+  font-weight: 650;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.research-route-theme main > section:first-child p.text-lg {
+  max-width: 62ch;
+  color: var(--text-secondary);
+}
+
+.research-route-theme main > section:first-child a {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.research-route-theme section:has(#source-first-heading) {
+  border-color: var(--research-rule);
+  border-left: 3px solid color-mix(in srgb, var(--hs-gold) 64%, var(--hs-forest));
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--hs-gold) 7%, transparent), transparent 42%),
+    var(--research-panel-quiet);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 40%, transparent);
+}
+
+.research-route-theme main > section[aria-labelledby]:not(:first-child) {
+  scroll-margin-top: 6rem;
+}
+
+.research-route-theme main > section[aria-labelledby]:not(:first-child):not(:has(#source-first-heading)) {
+  border-top: 1px solid var(--border-soft);
+  padding-top: 2.1rem;
+}
+
+.research-route-theme article {
+  position: relative;
+  overflow: hidden;
+  border-color: var(--border-soft);
+  border-radius: 1.3rem;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-card-strong) 46%, transparent), transparent 7rem),
+    var(--research-panel);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 40%, transparent),
+    0 18px 42px -38px rgba(25, 40, 31, 0.42);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.research-route-theme article::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--hs-gold) 72%, var(--hs-forest)), transparent 72%);
+  opacity: 0.72;
+}
+
+.research-route-theme article:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--hs-gold) 38%, var(--border-soft));
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 46%, transparent),
+    0 24px 50px -38px rgba(25, 40, 31, 0.52);
+}
+
+.research-route-theme article h3 {
+  letter-spacing: -0.015em;
+}
+
+.research-route-theme article > a {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  border-top: 1px solid var(--border-soft);
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  text-decoration: none;
+}
+
+.research-route-theme section:has(#evidence-strongest-heading) > div,
+.research-route-theme section:has(#evidence-strongest-heading) > aside,
+.research-route-theme section:has(#external-databases-heading),
+.research-route-theme section:has(#library-context-heading) {
+  border-color: var(--border-soft);
+  border-radius: 1.45rem;
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 42%, transparent),
+    0 18px 44px -40px rgba(25, 40, 31, 0.38);
+}
+
+.research-route-theme section:has(#evidence-strongest-heading) > div {
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--surface-card-strong) 55%, transparent), transparent 58%),
+    var(--surface-card);
+}
+
+.research-route-theme section:has(#evidence-strongest-heading) > aside {
+  border-left: 3px solid color-mix(in srgb, var(--hs-gold) 62%, var(--hs-forest));
+  background: var(--research-panel-quiet);
+}
+
+.research-route-theme section:has(#evidence-strongest-heading) a {
+  min-height: 3.4rem;
+  position: relative;
+  overflow: hidden;
+  border-color: var(--border-soft);
+  background: color-mix(in srgb, var(--surface-card) 82%, var(--surface-subtle));
+}
+
+.research-route-theme section:has(#evidence-strongest-heading) a:hover {
+  border-color: color-mix(in srgb, var(--hs-gold) 42%, var(--border-soft));
+  background: var(--surface-card);
+}
+
+.research-route-theme section:has(#research-tools-heading) .card-premium {
+  position: relative;
+  overflow: hidden;
+  min-height: 12.5rem;
+  border-radius: 1.35rem;
+  border-color: var(--border-soft);
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--surface-card-strong) 60%, transparent), transparent 68%),
+    var(--surface-card);
+}
+
+.research-route-theme section:has(#research-tools-heading) .card-premium::after {
+  content: '→';
+  position: absolute;
+  right: 1.35rem;
+  bottom: 1.2rem;
+  color: color-mix(in srgb, var(--hs-gold) 78%, var(--text-primary));
+  font-size: 1.1rem;
+}
+
+.research-route-theme section:has(#research-tools-heading) .card-premium > span:last-child {
+  padding-right: 2rem;
+}
+
+.research-route-theme section:has(#external-databases-heading) {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-card-strong) 40%, transparent), transparent 8rem),
+    var(--surface-card);
+}
+
+.research-route-theme section:has(#external-databases-heading) a {
+  min-height: 5rem;
+  border-color: var(--border-soft);
+  background: color-mix(in srgb, var(--surface-subtle) 70%, transparent);
+}
+
+.research-route-theme section:has(#library-context-heading) {
+  border-color: var(--research-rule);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--hs-gold) 6%, transparent), transparent 48%),
+    var(--research-panel-quiet);
+}
+
+.research-route-theme section:has(#library-context-heading) .grid > div {
+  border: 1px solid var(--border-soft);
+  background: var(--surface-card);
+  box-shadow: none;
+}
+
+.research-route-theme section:has(#library-context-heading) .grid > div p:first-child {
+  font-family: var(--font-display);
+  font-weight: 650;
+  letter-spacing: -0.035em;
+}
+
+html.dark .research-route-theme main > section:first-child,
+html.dark .research-route-theme article,
+html.dark .research-route-theme section:has(#evidence-strongest-heading) > div,
+html.dark .research-route-theme section:has(#external-databases-heading) {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 22px 48px -36px rgba(0, 0, 0, 0.72);
+}
+
+@media (max-width: 767px) {
+  .research-route-theme main {
+    row-gap: 2.25rem;
+    padding-top: 1.25rem;
+  }
+
+  .research-route-theme main > section:first-child {
+    border-radius: 1.45rem;
+    padding: 1.4rem;
+  }
+
+  .research-route-theme main > section:first-child h1 {
+    max-width: none;
+    font-size: clamp(2.35rem, 11.5vw, 3.35rem);
+    line-height: 1;
+  }
+
+  .research-route-theme main > section:first-child p.text-lg {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .research-route-theme main > section:first-child .flex.flex-wrap.gap-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .research-route-theme main > section:first-child a {
+    width: 100%;
+    min-height: 3rem;
+  }
+
+  .research-route-theme main > section[aria-labelledby]:not(:first-child):not(:has(#source-first-heading)) {
+    padding-top: 1.6rem;
+  }
+
+  .research-route-theme article {
+    border-radius: 1.1rem;
+    padding: 1rem;
+  }
+
+  .research-route-theme article:hover {
+    transform: none;
+  }
+
+  .research-route-theme section:has(#research-tools-heading) .card-premium {
+    min-height: auto;
+    padding: 1.1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .research-route-theme article {
+    transition: none;
+  }
+
+  .research-route-theme article:hover {
+    transform: none;
+  }
+}

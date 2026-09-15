@@ -1,0 +1,144 @@
+/* Phone-only cohesion pass for the homepage.
+ * Keeps the desktop art direction intact while making Research Lens read as
+ * part of the same editorial page as Goals, credibility stats, and Compare. */
+
+@media (max-width: 767px) {
+  /* The dark Research Lens card was visually isolated between otherwise light
+   * editorial sections. On phones, treat it as a section rather than a card. */
+  .hs-evidence-panel {
+    overflow: visible;
+    margin-top: 0.15rem;
+    border: 0;
+    border-top: 1px solid var(--home-line);
+    border-radius: 0;
+    padding: 1.1rem 0 0.85rem;
+    color: var(--home-body);
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .dark .hs-evidence-panel {
+    border-color: var(--home-line);
+    color: var(--home-body);
+    background: transparent;
+  }
+
+  .hs-evidence-panel::after {
+    display: none;
+  }
+
+  .hs-evidence-panel-heading {
+    align-items: flex-start;
+    gap: 0.62rem;
+  }
+
+  .hs-evidence-seal {
+    width: 2rem;
+    height: 2rem;
+    flex: 0 0 2rem;
+    border-color: var(--home-mobile-surface-border);
+    color: var(--home-forest);
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .dark .hs-evidence-seal {
+    border-color: var(--home-mobile-surface-border);
+    color: var(--home-gold);
+    background: transparent;
+  }
+
+  .hs-evidence-seal svg {
+    width: 0.95rem;
+    height: 0.95rem;
+  }
+
+  .hs-evidence-panel-heading p {
+    color: var(--home-gold);
+  }
+
+  .hs-evidence-panel h2 {
+    margin-top: 0.14rem;
+    color: var(--home-ink);
+    font-size: 1.3rem;
+    font-weight: 610;
+    letter-spacing: -0.035em;
+    line-height: 1.04;
+  }
+
+  .hs-evidence-panel-intro {
+    max-width: 40rem;
+    margin-top: 0.66rem;
+    color: var(--home-body);
+    font-size: 0.72rem;
+    line-height: 1.47;
+  }
+
+  .hs-evidence-signals {
+    margin-top: 0.72rem;
+    border-top: 1px solid var(--home-line);
+  }
+
+  .hs-evidence-signal {
+    gap: 0.58rem;
+    border-top: 0;
+    border-bottom: 1px solid var(--home-line);
+    padding-block: 0.68rem;
+    background: transparent;
+  }
+
+  .hs-evidence-signal-icon {
+    width: 1.8rem;
+    height: 1.8rem;
+    border-color: var(--home-mobile-surface-border);
+    color: var(--home-forest);
+    background: transparent;
+  }
+
+  .dark .hs-evidence-signal-icon {
+    border-color: var(--home-mobile-surface-border);
+    color: var(--home-gold);
+    background: transparent;
+  }
+
+  .hs-evidence-signal strong {
+    color: var(--home-ink);
+    font-size: 0.85rem;
+  }
+
+  .hs-evidence-signal small {
+    color: var(--home-body);
+    font-size: 0.61rem;
+    line-height: 1.4;
+  }
+
+  .hs-evidence-panel-link {
+    min-height: 2.75rem;
+    margin-top: 0.12rem;
+    align-items: center;
+    color: var(--home-forest);
+    font-size: 0.68rem;
+    font-weight: 760;
+    text-decoration: none;
+  }
+
+  .dark .hs-evidence-panel-link {
+    color: var(--home-gold);
+  }
+
+  .hs-evidence-panel-link:hover {
+    color: var(--home-gold);
+  }
+
+  /* Let credibility stats continue directly from Research Lens rather than
+   * appearing as a separate object below a dark card. */
+  .hs-home-stats {
+    margin-top: 0;
+    border-top: 1px solid var(--home-line);
+  }
+
+  /* Reduce the visual pause before the next decision section. */
+  .hs-decision-section {
+    padding-top: 1.65rem;
+  }
+}

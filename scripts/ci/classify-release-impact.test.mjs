@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { classifyReleaseImpact, isDocsOnlyPath, isReleaseSensitivePath } from './classify-release-impact.mjs'
+import { classifyReleaseImpact, isDocsOnlyPath, isLeafPagePath, isReleaseSensitivePath } from './classify-release-impact.mjs'
 
 describe('release impact classification', () => {
   it.each([
@@ -75,8 +75,59 @@ describe('release impact classification', () => {
       releaseSensitive: true,
       sensitiveFiles: ['public/data/herbs.json'],
       docsOnly: false,
+      leafPageOnly: false,
       files: ['components/Header.tsx', 'public/data/herbs.json'],
     })
+  })
+})
+
+describe('leaf-page-only classification', () => {
+  it.each([
+    'app/guides/adhd/saffron-for-adhd/page.tsx',
+    'app/articles/example/page.ts',
+    'app/(research)/sleep/melatonin/page.mdx',
+  ])('treats %s as a leaf page', (file) => {
+    expect(isLeafPagePath(file)).toBe(true)
+  })
+
+  it.each([
+    'app/page.tsx',
+    'app/(marketing)/page.tsx',
+    'app/guides/page.tsx',
+    'app/articles/[slug]/page.tsx',
+    'app/articles/[...slug]/page.tsx',
+    'app/articles/[[...slug]]/page.tsx',
+    'app/@modal/example/page.tsx',
+    'app/(.)preview/page.tsx',
+    'app/_private/example/page.tsx',
+    'app/guides/adhd/layout.tsx',
+    'app/guides/adhd/route.ts',
+    'app/guides/adhd/generateStaticParams.ts',
+    'components/articles/ArticleLayout.tsx',
+    'lib/seo.ts',
+    'public/data/herbs.json',
+    'package-lock.json',
+  ])('does not treat %s as a leaf page', (file) => {
+    expect(isLeafPagePath(file)).toBe(false)
+  })
+
+  it('is true only when every changed file is a deep static page leaf', () => {
+    expect(classifyReleaseImpact([
+      'app/guides/adhd/saffron-for-adhd/page.tsx',
+      'app/guides/sleep/l-theanine/page.tsx',
+    ]).leafPageOnly).toBe(true)
+    expect(classifyReleaseImpact([
+      'app/guides/adhd/saffron-for-adhd/page.tsx',
+      'components/articles/ArticleLayout.tsx',
+    ]).leafPageOnly).toBe(false)
+    expect(classifyReleaseImpact([
+      'app/guides/adhd/saffron-for-adhd/page.tsx',
+      'app/articles/[slug]/page.tsx',
+    ]).leafPageOnly).toBe(false)
+  })
+
+  it('fails closed for an empty diff', () => {
+    expect(classifyReleaseImpact([]).leafPageOnly).toBe(false)
   })
 })
 
@@ -121,6 +172,19 @@ describe('workflow release-impact contract', () => {
       expect(yaml, workflow).toContain('fetch-depth: 0')
     }
   })
+
+  it('uses the leaf-page fast path only to remove duplicate exhaustive suites', () => {
+    const siteHealth = fs.readFileSync(path.join(process.cwd(), '.github/workflows/check.yml'), 'utf8')
+    const atomic = fs.readFileSync(path.join(process.cwd(), '.github/workflows/atomic-upgrade-gate.yml'), 'utf8')
+    const invariants = fs.readFileSync(path.join(process.cwd(), '.github/workflows/production-content-invariants.yml'), 'utf8')
+
+    expect(siteHealth).toContain("steps.impact.outputs.leaf_page_only != 'true'")
+    expect(siteHealth).toContain('Leaf-page-only change; CI production build/output/SEO remains authoritative')
+    expect(atomic).toContain("steps.impact.outputs.leaf_page_only != 'true'")
+    expect(atomic).toContain('Leaf-page-only change; skip duplicate full release suite')
+    expect(invariants).toContain("steps.impact.outputs.leaf_page_only != 'true'")
+    expect(invariants).toContain('Leaf-page-only change; reuse committed governed data corpus')
+  })
 })
 
 describe('docs-only classification', () => {
@@ -153,6 +217,7 @@ describe('docs-only classification', () => {
     ])
     expect(result.docsOnly).toBe(true)
     expect(result.releaseSensitive).toBe(false)
+    expect(result.leafPageOnly).toBe(false)
   })
 
   it('is not docs-only when a single source file rides along', () => {
@@ -165,7 +230,7 @@ describe('docs-only classification', () => {
   })
 })
 
-describe('CLI writes both signals to $GITHUB_OUTPUT', () => {
+describe('CLI writes all signals to $GITHUB_OUTPUT', () => {
   function run(files) {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'release-impact-'))
     const outputPath = path.join(dir, 'github-output')
@@ -186,6 +251,7 @@ describe('CLI writes both signals to $GITHUB_OUTPUT', () => {
     expect(run(['docs/a.md', 'ops/reports/b.json'])).toEqual({
       release_sensitive: 'false',
       docs_only: 'true',
+      leaf_page_only: 'false',
     })
   })
 
@@ -193,6 +259,7 @@ describe('CLI writes both signals to $GITHUB_OUTPUT', () => {
     expect(run(['docs/a.md', 'components/Navigation.tsx'])).toEqual({
       release_sensitive: 'false',
       docs_only: 'false',
+      leaf_page_only: 'false',
     })
   })
 
@@ -200,6 +267,15 @@ describe('CLI writes both signals to $GITHUB_OUTPUT', () => {
     expect(run(['public/data/herbs.json'])).toEqual({
       release_sensitive: 'true',
       docs_only: 'false',
+      leaf_page_only: 'false',
+    })
+  })
+
+  it('reports leaf_page_only=true for an isolated research page', () => {
+    expect(run(['app/guides/adhd/saffron-for-adhd/page.tsx'])).toEqual({
+      release_sensitive: 'true',
+      docs_only: 'false',
+      leaf_page_only: 'true',
     })
   })
 })

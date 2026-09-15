@@ -1,3 +1,4 @@
+import '@/styles/discovery-reading.css'
 import type { ReactNode } from 'react'
 import KeyDetailsBox from './KeyDetailsBox'
 import RelatedArticles from './RelatedArticles'
@@ -25,7 +26,7 @@ export default function ArticleLayout({
 }: ArticleLayoutProps) {
   return (
     <div
-      className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10"
+      className="reading-shell mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10"
       data-zone={zone}
     >
       {toc && (
@@ -51,7 +52,7 @@ export default function ArticleLayout({
         </div>
         {toc && (
           <aside aria-label="Page navigation" className="hidden lg:block">
-            <div className="sticky top-20 border-l border-[color:var(--hs-hairline)] py-1 pl-4">
+            <div className="reading-shell-toc sticky top-20 border-l border-[color:var(--hs-hairline)] py-1 pl-4">
               {toc}
             </div>
           </aside>

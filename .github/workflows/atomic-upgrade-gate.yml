@@ -85,19 +85,23 @@ jobs:
           printf '%s\n' "$changed" | node scripts/ci/classify-release-impact.mjs --github-output="$GITHUB_OUTPUT"
 
       - name: Set up Node.js
-        if: steps.impact.outputs.release_sensitive == 'true'
+        if: steps.impact.outputs.release_sensitive == 'true' && steps.impact.outputs.leaf_page_only != 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
       - name: Install dependencies
-        if: steps.impact.outputs.release_sensitive == 'true'
+        if: steps.impact.outputs.release_sensitive == 'true' && steps.impact.outputs.leaf_page_only != 'true'
         run: npm ci
 
       - name: Run complete release-quality suite
-        if: steps.impact.outputs.release_sensitive == 'true'
+        if: steps.impact.outputs.release_sensitive == 'true' && steps.impact.outputs.leaf_page_only != 'true'
         run: npm run validate:release
+
+      - name: Leaf page fast path
+        if: steps.impact.outputs.leaf_page_only == 'true'
+        run: echo 'Leaf-page-only change; skip duplicate full release suite. Standard CI still runs lint, typecheck, tests, production build/output/SEO, and scoped page governance.'
 
       - name: No release-sensitive change
         if: steps.impact.outputs.release_sensitive != 'true'

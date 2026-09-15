@@ -2,30 +2,41 @@
  * in homepage-premium-final.css so layout changes remain easy to review. */
 
 .hs-home-shell {
-  --home-shell-padding: clamp(1.25rem, 4vw, 2.5rem);
-  width: min(100%, 72rem);
+  --home-shell-padding: clamp(1.1rem, 4vw, 2.75rem);
+  width: min(100%, 76rem);
   margin-inline: auto;
   padding-inline: var(--home-shell-padding);
 }
 
 .hs-index-hero {
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  padding: clamp(2.25rem, 5vw, 4.5rem);
+}
+
+.hs-hero-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(20rem, 0.92fr);
   align-items: center;
-  padding-block: clamp(4rem, 6vw, 5rem) clamp(3.5rem, 6vw, 4.5rem);
-  text-align: center;
+  gap: clamp(2.5rem, 6vw, 5.25rem);
+}
+
+.hs-hero-copy,
+.hs-evidence-panel,
+.hs-comparison-list,
+.hs-principles {
+  min-width: 0;
 }
 
 .hs-home-search {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  width: min(100%, 48rem);
+  width: min(100%, 43rem);
 }
 
 .hs-home-search > svg {
-  width: 1.55rem;
-  height: 1.55rem;
+  width: 1.35rem;
+  height: 1.35rem;
 }
 
 .hs-home-search input {
@@ -35,30 +46,73 @@
 
 .hs-home-search button {
   display: inline-grid;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 2.85rem;
+  height: 2.85rem;
   place-items: center;
 }
 
 .hs-home-search button svg {
-  width: 1.15rem;
-  height: 1.15rem;
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.hs-hero-actions,
+.hs-method-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.hs-evidence-panel-heading,
+.hs-evidence-signal,
+.hs-goal-block-heading,
+.hs-goal-link-top,
+.hs-comparison-row,
+.hs-principles article {
+  display: flex;
+  align-items: center;
+}
+
+.hs-evidence-signals {
+  display: grid;
+}
+
+.hs-evidence-signal > span:last-child,
+.hs-goal-copy,
+.hs-comparison-copy {
+  min-width: 0;
+}
+
+.hs-goal-block {
+  margin-top: clamp(3rem, 7vw, 5rem);
+}
+
+.hs-goal-block-heading {
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 .hs-goal-nav {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  width: min(100%, 48rem);
 }
 
 .hs-goal-link {
   display: flex;
   min-width: 0;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.hs-goal-icon {
+.hs-goal-link-top {
+  justify-content: space-between;
+}
+
+.hs-goal-icon,
+.hs-comparison-action,
+.hs-principle-icon,
+.hs-evidence-seal,
+.hs-evidence-signal-icon {
   display: inline-grid;
   flex: 0 0 auto;
   place-items: center;
@@ -69,133 +123,164 @@
   height: 1.35rem;
 }
 
+.hs-goal-arrow {
+  width: 1rem;
+  height: 1rem;
+}
+
 .hs-home-stats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  width: min(100%, 48rem);
 }
 
 .hs-decision-section,
 .hs-method-section {
   display: grid;
-  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+  gap: clamp(2.5rem, 7vw, 5.5rem);
 }
 
 .hs-decision-section {
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
 }
 
-.hs-method-section {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-}
-
-.hs-comparison-list,
-.hs-principles {
-  min-width: 0;
+.hs-comparison-list {
+  display: grid;
+  gap: 1rem;
 }
 
 .hs-comparison-row {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
-  min-height: 5.5rem;
   align-items: center;
-  gap: 1rem;
 }
 
-.hs-comparison-index {
-  min-width: 2rem;
+.hs-comparison-action {
+  width: 2.65rem;
+  height: 2.65rem;
 }
 
-.hs-comparison-copy {
-  min-width: 0;
+.hs-comparison-action svg {
+  width: 1rem;
+  height: 1rem;
 }
 
-.hs-comparison-row small {
-  display: block;
-}
-
-.hs-comparison-row > svg {
-  width: 1.05rem;
-  height: 1.05rem;
-  flex: 0 0 auto;
+.hs-method-section {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
 }
 
 .hs-principles {
   display: grid;
-  gap: 0;
-}
-
-.hs-principles article {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
   gap: 1rem;
 }
 
-.hs-principles article > svg {
-  width: 1.45rem;
-  height: 1.45rem;
+.hs-principles article {
+  align-items: flex-start;
 }
 
-.hs-method-actions {
-  display: flex;
-  flex-wrap: wrap;
+.hs-principle-icon {
+  width: 3.15rem;
+  height: 3.15rem;
 }
 
-@media (max-width: 767px) {
-  .hs-index-hero {
-    align-items: stretch;
-    padding-block: 2.35rem 1.75rem;
-    text-align: left;
-  }
+.hs-principle-icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
 
-  .hs-home-browse-link,
-  .hs-goal-nav,
-  .hs-home-stats {
-    align-self: center;
-  }
-
-  /* Four choices read much better as a balanced decision matrix than a cramped
-   * four-across rail on narrow screens. */
-  .hs-goal-nav {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .hs-goal-link {
-    flex-direction: row;
-    justify-content: flex-start;
-  }
-
+@media (max-width: 1023px) {
+  .hs-hero-main,
   .hs-decision-section,
   .hs-method-section {
     grid-template-columns: 1fr;
   }
 
-  .hs-decision-section {
-    gap: 2rem;
+  .hs-evidence-panel {
+    max-width: none;
   }
 
+  .hs-decision-section,
   .hs-method-section {
-    gap: 2.25rem;
+    gap: 2.5rem;
   }
 }
 
-@media (max-width: 480px) {
-  .hs-comparison-row {
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    gap: 0.75rem;
-  }
-
-  .hs-comparison-index {
-    min-width: 1.55rem;
-  }
-}
-
-@media (max-width: 390px) {
+@media (max-width: 767px) {
   .hs-home-shell {
     --home-shell-padding: 1rem;
   }
 
-  .hs-goal-link {
-    font-size: 0.88rem;
+  .hs-index-hero {
+    display: flex;
+    flex-direction: column;
+    padding: 1.1rem 0 0;
+  }
+
+  .hs-hero-main {
+    display: contents;
+  }
+
+  .hs-hero-copy {
+    order: 1;
+  }
+
+  .hs-goal-block {
+    order: 2;
+    margin-top: 1.65rem;
+  }
+
+  .hs-evidence-panel {
+    order: 3;
+    margin-top: 1.25rem;
+  }
+
+  .hs-home-stats {
+    order: 4;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hs-hero-actions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .hs-goal-block-heading {
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .hs-goal-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hs-method-actions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .hs-home-shell {
+    --home-shell-padding: 0.9rem;
+  }
+
+  .hs-index-hero {
+    padding-top: 0.9rem;
+  }
+
+  .hs-home-search button {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .hs-goal-block-heading {
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .hs-comparison-row {
+    grid-template-columns: auto minmax(0, 1fr) auto;
   }
 }

@@ -1,0 +1,579 @@
+/* Mobile homepage refinement.
+ * Phone layout favors hierarchy and scanning over decorative card density.
+ * Desktop art direction remains owned by homepage-premium-final.css. */
+
+@media (max-width: 767px) {
+  body:has(.hs-home) .site-primary-nav > div > div {
+    height: 4rem;
+  }
+
+  body:has(.hs-home) .site-primary-nav a[aria-label='The Hippie Scientist home'] {
+    gap: 0.55rem;
+    font-size: 0.98rem;
+  }
+
+  body:has(.hs-home) .site-primary-nav .editorial-icon-disc {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  body:has(.hs-home) .site-primary-nav .editorial-icon-disc svg {
+    width: 1.35rem;
+    height: 1.35rem;
+  }
+
+  body:has(.hs-home) .site-primary-nav button {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    border-radius: 0.8rem;
+    box-shadow: none;
+  }
+
+  /* Remove the three stacked sources of whitespace before the global footer. */
+  body:has(.hs-home) #main-content {
+    padding-bottom: 0;
+  }
+
+  body:has(.hs-home) .editorial-footer {
+    margin-top: 0;
+  }
+
+  /* Homepage already has dense in-flow navigation; keep floating/repeated chrome out of the phone viewport. */
+  body:has(.hs-home) [data-scroll-to-top-button='true'],
+  body:has(.hs-home) [data-footer-new-here='true'] {
+    display: none;
+  }
+
+  .hs-home {
+    --home-mobile-panel-radius: 0.95rem;
+    --home-mobile-card-radius: 0.85rem;
+    --home-mobile-control-radius: 0.72rem;
+    --home-mobile-surface-border: color-mix(in srgb, var(--home-forest) 12%, var(--home-line));
+    --home-mobile-surface: color-mix(in srgb, var(--home-panel) 46%, transparent);
+    --home-mobile-dark-border: color-mix(in srgb, var(--home-gold) 14%, rgba(255, 255, 255, 0.1));
+    --home-mobile-dark-surface: #131817;
+    --home-mobile-dark-line: rgba(255, 255, 255, 0.09);
+    --home-mobile-dark-title: #f5efe3;
+    --home-mobile-dark-body: rgba(240, 235, 224, 0.61);
+    --home-mobile-action: #e0c795;
+    padding-top: 0;
+    padding-bottom: 0;
+    background:
+      radial-gradient(circle at 88% 7%, color-mix(in srgb, var(--home-gold) 3%, transparent), transparent 18rem),
+      var(--home-bg);
+  }
+
+  /* Hero: no card around the entire first screen. */
+  .hs-index-hero {
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .dark .hs-index-hero {
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .hs-index-hero::before,
+  .hs-index-hero::after {
+    display: none;
+  }
+
+  .hs-home-eyebrow {
+    gap: 0;
+    font-size: 0.57rem;
+    letter-spacing: 0.14em;
+  }
+
+  .hs-home-eyebrow::before {
+    display: none;
+  }
+
+  .hs-home-title {
+    max-width: 13.2ch;
+    margin-top: 0.72rem;
+    font-size: clamp(2.25rem, 10.2vw, 2.72rem);
+    letter-spacing: -0.045em;
+    line-height: 0.98;
+  }
+
+  .hs-home-title em::after {
+    display: none;
+  }
+
+  .hs-home-lede {
+    max-width: 35rem;
+    margin-top: 0.85rem;
+    font-size: 0.9rem;
+    line-height: 1.52;
+  }
+
+  .hs-home-search {
+    min-height: 3.4rem;
+    margin-top: 1rem;
+    border-color: color-mix(in srgb, var(--home-forest) 28%, var(--home-line-strong));
+    border-radius: var(--home-mobile-card-radius);
+    padding: 0.26rem 0.28rem 0.26rem 0.75rem;
+    background: var(--home-mobile-surface);
+    box-shadow: none;
+  }
+
+  .dark .hs-home-search {
+    background: rgba(255, 255, 255, 0.025);
+    box-shadow: none;
+  }
+
+  .hs-home-search:focus-within {
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--home-gold) 13%, transparent);
+    transform: none;
+  }
+
+  .hs-home-search > svg {
+    width: 1.12rem;
+    height: 1.12rem;
+    opacity: 0.78;
+  }
+
+  .hs-home-search input {
+    padding: 0.6rem 0.52rem;
+    font-size: 0.89rem;
+  }
+
+  .hs-home-search button {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: var(--home-mobile-control-radius);
+    color: #111516;
+    background: var(--home-gold);
+    box-shadow: none;
+  }
+
+  .dark .hs-home-search button {
+    color: #111516;
+    background: var(--home-gold);
+  }
+
+  .hs-home-search button:hover {
+    transform: none;
+    background: var(--home-gold);
+    box-shadow: none;
+  }
+
+  .hs-home-browse-link.hs-hero-primary-link {
+    min-height: 2.75rem;
+    margin-top: 0.45rem;
+    border: 0;
+    border-radius: 0;
+    padding: 0.55rem 0;
+    color: var(--home-forest);
+    background: transparent;
+    box-shadow: none;
+    font-size: 0.75rem;
+    font-weight: 760;
+  }
+
+  .dark .hs-home-browse-link.hs-hero-primary-link {
+    border-color: transparent;
+    color: var(--home-gold);
+    background: transparent;
+  }
+
+  .hs-home-browse-link.hs-hero-primary-link:hover {
+    transform: none;
+    border-color: transparent;
+    color: var(--home-gold);
+    background: transparent;
+  }
+
+  .hs-home .hs-text-link {
+    color: var(--home-forest);
+    text-decoration: none;
+  }
+
+  .hs-home .hs-text-link:hover {
+    color: color-mix(in srgb, var(--home-forest) 82%, black);
+    text-decoration: none;
+  }
+
+  /* Goal chooser: keep the useful 2x2 matrix, remove the mini-article feel. */
+  .hs-goal-block {
+    border-top: 1px solid var(--home-line);
+    padding-top: 1.25rem;
+  }
+
+  .hs-goal-block-heading h2 {
+    max-width: 17ch;
+    margin-top: 0.42rem;
+    font-size: 1.58rem;
+    letter-spacing: -0.035em;
+    line-height: 1.03;
+  }
+
+  .hs-goal-block-heading > .hs-text-link {
+    flex: 0 0 auto;
+    min-height: 2.75rem;
+    align-items: center;
+    padding-top: 0;
+    font-size: 0.69rem;
+  }
+
+  .hs-goal-nav {
+    gap: 0.5rem;
+    overflow: visible;
+    margin-top: 0.85rem;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .hs-goal-link {
+    min-height: 5.7rem;
+    border: 1px solid var(--home-mobile-surface-border);
+    border-radius: var(--home-mobile-card-radius);
+    padding: 0.72rem;
+    background: var(--home-mobile-surface);
+    box-shadow: none;
+  }
+
+  .dark .hs-goal-link {
+    background: rgba(255, 255, 255, 0.022);
+    box-shadow: none;
+  }
+
+  .hs-goal-link:nth-child(even),
+  .hs-goal-link:nth-child(n + 3) {
+    border-left: 1px solid var(--home-mobile-surface-border);
+    border-top: 1px solid var(--home-mobile-surface-border);
+  }
+
+  .hs-goal-link:hover {
+    transform: none;
+    border-color: color-mix(in srgb, var(--home-gold) 30%, var(--home-line));
+    background-color: color-mix(in srgb, var(--home-sage) 42%, var(--home-bg));
+    box-shadow: none;
+  }
+
+  .hs-goal-icon {
+    width: 2rem;
+    height: 2rem;
+    border-color: var(--home-mobile-surface-border);
+    background: transparent;
+  }
+
+  .hs-goal-icon svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .hs-goal-arrow {
+    display: none;
+  }
+
+  .hs-goal-copy strong {
+    margin-top: 0.48rem;
+    font-size: 0.98rem;
+  }
+
+  .hs-goal-copy small {
+    display: none;
+  }
+
+  /* Research Lens is the one intentional dark anchor on the phone homepage. */
+  .hs-evidence-panel {
+    overflow: hidden;
+    border: 1px solid var(--home-mobile-dark-border);
+    border-radius: var(--home-mobile-panel-radius);
+    padding: 0.92rem;
+    background:
+      linear-gradient(155deg, rgba(255, 255, 255, 0.018), transparent),
+      var(--home-mobile-dark-surface);
+    box-shadow: none;
+  }
+
+  .hs-evidence-panel::after {
+    display: none;
+  }
+
+  .hs-evidence-panel-heading {
+    gap: 0.65rem;
+  }
+
+  .hs-evidence-seal {
+    width: 2.2rem;
+    height: 2.2rem;
+    box-shadow: none;
+  }
+
+  .hs-evidence-seal svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .hs-evidence-panel-heading p {
+    color: #d4b77e;
+    font-size: 0.54rem;
+    letter-spacing: 0.14em;
+  }
+
+  .hs-evidence-panel h2 {
+    margin-top: 0.14rem;
+    color: var(--home-mobile-dark-title);
+    font-size: 1.28rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+  }
+
+  .hs-evidence-panel-intro {
+    margin-top: 0.68rem;
+    color: var(--home-mobile-dark-body);
+    font-size: 0.69rem;
+    line-height: 1.45;
+  }
+
+  .hs-evidence-signals {
+    margin-top: 0.62rem;
+  }
+
+  .hs-evidence-signal {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.58rem;
+    padding-block: 0.58rem;
+  }
+
+  .hs-evidence-signal-index {
+    display: none;
+  }
+
+  .hs-evidence-signal-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .hs-evidence-signal-icon svg {
+    width: 0.82rem;
+    height: 0.82rem;
+  }
+
+  .hs-evidence-signal strong {
+    font-size: 0.84rem;
+  }
+
+  .hs-evidence-signal small {
+    margin-top: 0.12rem;
+    font-size: 0.6rem;
+    line-height: 1.36;
+  }
+
+  .hs-evidence-panel-link {
+    min-height: 2.75rem;
+    margin-top: 0.3rem;
+    align-items: center;
+    color: var(--home-mobile-action);
+    font-size: 0.67rem;
+    text-decoration: none;
+  }
+
+  /* Credibility numbers become a quiet ledger, not another card. */
+  .hs-home-stats {
+    margin-top: 0.6rem;
+    border: 0;
+    border-top: 1px solid var(--home-line);
+    border-bottom: 1px solid var(--home-line);
+    border-radius: 0;
+    background: transparent;
+    backdrop-filter: none;
+  }
+
+  .hs-home-stats > div {
+    padding: 0.68rem 0.45rem;
+  }
+
+  .hs-home-stats dd {
+    font-size: 1.18rem;
+  }
+
+  .hs-home-stats dt {
+    margin-top: 0.24rem;
+    font-size: 0.43rem;
+    letter-spacing: 0.055em;
+  }
+
+  /* Comparison becomes an editorial list instead of three more large cards. */
+  .hs-decision-section {
+    gap: 1.35rem;
+    padding-block: 2.15rem;
+  }
+
+  .hs-section-intro h2 {
+    max-width: 15ch;
+    margin-top: 0.5rem;
+    font-size: 1.78rem;
+    letter-spacing: -0.04em;
+    line-height: 1.02;
+  }
+
+  .hs-section-intro > p:not(.hs-home-eyebrow) {
+    margin-top: 0.65rem;
+    font-size: 0.79rem;
+    line-height: 1.5;
+  }
+
+  .hs-section-intro .hs-text-link {
+    min-height: 2.75rem;
+    margin-top: 0.35rem;
+    align-items: center;
+    font-size: 0.72rem;
+  }
+
+  .hs-comparison-list {
+    gap: 0;
+    border-top: 1px solid var(--home-line);
+  }
+
+  .hs-comparison-row {
+    min-height: 0;
+    gap: 0.62rem;
+    border: 0;
+    border-bottom: 1px solid var(--home-line);
+    border-radius: 0;
+    padding: 0.95rem 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .dark .hs-comparison-row {
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .hs-comparison-row:hover {
+    transform: none;
+    border-color: var(--home-line);
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .hs-comparison-index {
+    display: none;
+  }
+
+  .hs-comparison-copy strong {
+    font-size: 0.96rem;
+    line-height: 1.16;
+  }
+
+  .hs-comparison-copy small {
+    margin-top: 0.22rem;
+    font-size: 0.64rem;
+    line-height: 1.4;
+  }
+
+  .hs-comparison-action {
+    width: 1.8rem;
+    height: 1.8rem;
+    border: 0;
+    background: transparent;
+  }
+
+  .hs-comparison-action svg {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+
+  /* Research Standard is supporting navigation on phones, not a second dark hero. */
+  .hs-method-section {
+    gap: 0;
+    overflow: visible;
+    margin-inline: 0;
+    border: 0;
+    border-top: 1px solid var(--home-line);
+    border-radius: 0;
+    padding: 1.85rem 0 0;
+    color: var(--home-body);
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .hs-method-section::after {
+    display: none;
+  }
+
+  .hs-method-section .hs-home-eyebrow {
+    color: var(--home-gold);
+  }
+
+  .hs-method-intro h2 {
+    max-width: 15ch;
+    margin-top: 0.45rem;
+    color: var(--home-ink);
+    font-size: 1.62rem;
+    font-weight: 610;
+    letter-spacing: -0.04em;
+    line-height: 1.02;
+  }
+
+  .hs-method-intro > p:not(.hs-home-eyebrow) {
+    margin-top: 0.62rem;
+    color: var(--home-body);
+    font-size: 0.76rem;
+    line-height: 1.5;
+  }
+
+  .hs-method-actions {
+    display: grid;
+    width: 100%;
+    margin-top: 0.75rem;
+    border-top: 1px solid var(--home-line);
+  }
+
+  /* Methodology is already linked from Research Lens directly above. */
+  .hs-method-actions > a:first-child {
+    display: none;
+  }
+
+  .hs-method-actions .hs-text-link {
+    width: 100%;
+    min-height: 2.75rem;
+    justify-content: space-between;
+    margin-top: 0;
+    border-bottom: 1px solid var(--home-line);
+    color: var(--home-forest);
+    font-size: 0.69rem;
+    text-decoration: none;
+  }
+
+  .hs-method-actions .hs-text-link:hover {
+    color: var(--home-gold);
+    text-decoration: none;
+  }
+
+  /* These repeat the same two ideas already made explicit in Research Lens. */
+  .hs-principles {
+    display: none;
+  }
+}
+
+@media (max-width: 390px) {
+  .hs-home-title {
+    max-width: 13.5ch;
+    font-size: 2.2rem;
+  }
+
+  .hs-home-search input {
+    font-size: 0.84rem;
+  }
+
+  .hs-goal-link {
+    min-height: 5.4rem;
+    padding: 0.68rem;
+  }
+
+  .hs-goal-copy strong {
+    font-size: 0.94rem;
+  }
+}

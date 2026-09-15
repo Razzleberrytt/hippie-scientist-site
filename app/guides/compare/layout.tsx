@@ -1,3 +1,4 @@
+import '@/styles/discovery-reading.css'
 import type { ReactNode } from 'react'
 import CompareHubAnalytics from '@/components/compare/CompareHubAnalytics'
 

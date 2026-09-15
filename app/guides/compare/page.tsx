@@ -277,7 +277,7 @@ export default async function ComparePage() {
             <Link
               key={path.href}
               href={path.href}
-              className="group grid gap-2 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-4 sm:grid-cols-[3rem_8rem_minmax(0,1fr)_auto] sm:items-center sm:gap-4"
+              className="discovery-link-row group grid gap-2 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-4 sm:grid-cols-[3rem_8rem_minmax(0,1fr)_auto] sm:items-center sm:gap-4"
             >
               <span className="font-display text-sm tabular-nums text-[color:var(--hs-gold)]">
                 {String(index + 1).padStart(2, '0')}
@@ -313,7 +313,7 @@ export default async function ComparePage() {
                   <li key={pair.slug}>
                     <Link
                       href={`/guides/compare/${pair.slug}/`}
-                      className="group flex min-h-12 items-start justify-between gap-4 py-3 text-sm font-semibold text-[color:var(--hs-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2"
+                      className="discovery-link-row group flex min-h-12 items-start justify-between gap-4 py-3 text-sm font-semibold text-[color:var(--hs-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2"
                     >
                       <span>
                         <span className="block text-pretty leading-6 group-hover:text-[color:var(--tone-ink)]">{pair.label}</span>

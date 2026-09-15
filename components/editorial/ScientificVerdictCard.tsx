@@ -92,14 +92,56 @@ export function ScientificVerdictCard({
       aria-label="Scientific verdict"
       className={`not-prose my-6 scroll-mt-24 overflow-hidden rounded-2xl border-2 border-brand-900/15 bg-white shadow-md ring-1 ring-brand-900/5 dark:border-white/12 dark:bg-[var(--surface-card)] ${className}`}
     >
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-brand-900/10 bg-brand-50/60 px-5 py-3 dark:border-white/10 dark:bg-[var(--surface-subtle)]">
-        <span className="text-xs font-bold uppercase tracking-[0.16em] text-brand-700">{title}</span>
-        <span className={`rounded-full border px-3 py-1 text-sm font-bold ${badgeStyle}`}>{badgeLabel ?? recommendation}</span>
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-brand-900/10 bg-brand-50/60 px-4 py-2.5 sm:gap-3 sm:px-5 sm:py-3 dark:border-white/10 dark:bg-[var(--surface-subtle)]">
+        <span className="text-[0.66rem] font-bold uppercase tracking-[0.14em] text-brand-700 sm:text-xs sm:tracking-[0.16em]">{title}</span>
+        <span className={`rounded-full border px-2.5 py-1 text-xs font-bold sm:px-3 sm:text-sm ${badgeStyle}`}>{badgeLabel ?? recommendation}</span>
       </div>
 
-      <div className="px-5 py-4">
+      <div className="px-4 py-4 sm:px-5">
+        {(bottomLine || children) && (
+          <div
+            data-claim="true"
+            data-mobile-answer-first="true"
+            className="rounded-xl border border-brand-900/10 bg-brand-50/50 p-3.5 dark:border-white/10 dark:bg-[var(--surface-subtle)]"
+          >
+            <p className="text-[0.64rem] font-extrabold uppercase tracking-[0.14em] text-brand-700 dark:text-[var(--accent-teal)]">
+              Bottom line
+            </p>
+            <div className="mt-1.5 text-[0.95rem] font-medium leading-6 text-ink sm:text-base sm:leading-7">
+              {bottomLine ?? children}
+            </div>
+          </div>
+        )}
+
+        {stats.length > 0 && (
+          <dl className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                data-evidence={stat.evidence ? 'true' : undefined}
+                className={`rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-2.5 dark:border-white/10 ${stat.evidence ? 'col-span-2 sm:col-span-1' : ''}`}
+              >
+                <dt className="text-[0.62rem] font-bold uppercase tracking-[0.1em] text-muted sm:text-[0.7rem] sm:tracking-wider">{stat.label}</dt>
+                <dd className="mt-1 text-sm font-semibold leading-5 text-ink">{stat.value}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
+
+        {safetyNote ? (
+          <p data-safety-context="true" className="mt-3 rounded-xl border border-amber-500/30 bg-amber-50/70 px-3 py-2.5 text-sm leading-6 text-amber-900 dark:border-amber-400/25 dark:bg-amber-900/25 dark:text-amber-100">
+            <span className="font-bold">Safety: </span>{safetyNote}
+          </p>
+        ) : null}
+
+        {evidenceNote ? (
+          <p data-evidence="true" className="mt-3 text-sm leading-6 text-muted">
+            <span className="font-semibold text-ink">On the evidence: </span>{evidenceNote}
+          </p>
+        ) : null}
+
         {(best.length > 0 || not.length > 0) && (
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="mt-4 grid gap-4 border-t border-brand-900/10 pt-4 sm:grid-cols-2 dark:border-white/10">
             {best.length > 0 && (
               <div>
                 <p className="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">Best for</p>
@@ -128,35 +170,6 @@ export function ScientificVerdictCard({
             )}
           </div>
         )}
-
-        {stats.length > 0 && (
-          <dl className="mt-4 grid gap-3 border-t border-brand-900/10 pt-4 sm:grid-cols-3 dark:border-white/10">
-            {stats.map((stat) => (
-              <div key={stat.label} data-evidence={stat.evidence ? 'true' : undefined}>
-                <dt className="text-[0.7rem] font-bold uppercase tracking-wider text-muted">{stat.label}</dt>
-                <dd className="mt-0.5 text-sm font-semibold text-ink">{stat.value}</dd>
-              </div>
-            ))}
-          </dl>
-        )}
-
-        {(bottomLine || children) && (
-          <div data-claim="true" className="mt-4 border-t border-brand-900/10 pt-4 text-sm leading-7 text-ink dark:border-white/10">
-            <span className="font-bold">Bottom line: </span>{bottomLine ?? children}
-          </div>
-        )}
-
-        {safetyNote ? (
-          <p data-safety-context="true" className="mt-3 rounded-lg border border-amber-500/30 bg-amber-50/70 px-3 py-2 text-sm leading-6 text-amber-900 dark:border-amber-400/25 dark:bg-amber-900/25 dark:text-amber-100">
-            <span className="font-bold">Safety: </span>{safetyNote}
-          </p>
-        ) : null}
-
-        {evidenceNote ? (
-          <p data-evidence="true" className="mt-3 text-sm leading-6 text-muted">
-            <span className="font-semibold text-ink">On the evidence: </span>{evidenceNote}
-          </p>
-        ) : null}
 
         {betterAlternative ? (
           <p className="mt-4 border-t border-brand-900/10 pt-4 text-sm leading-6 dark:border-white/10">

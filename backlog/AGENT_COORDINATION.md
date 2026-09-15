@@ -2,11 +2,37 @@
 
 This file defines how specialist agents share The Hippie Scientist backlog without duplicating work or creating avoidable merge conflicts.
 
-## Team model
+## Capacity model
 
-Use a small set of persistent specialty lanes rather than manually assigning all 1,000 tickets one by one.
+The swarm has exactly **three implementation workstreams**.
 
-| Lane | Primary responsibility |
+| Workstream | Purpose |
+|---|---|
+| Discovery / SEO | Search discovery, information architecture, crawl/indexation, AI citation protection, discovery opportunities |
+| Revenue / Conversion | Conversion, affiliate UX, email capture, analytics, distribution and monetization experiments |
+| Authority / Content | Evidence, research enrichment, safety, canonical content quality and scientific authority |
+
+These three workstreams are the **implementation-capacity model**.
+
+### Hard WIP rule
+
+- Maximum **3 active implementation items** total.
+- Maximum **1 active implementation item per workstream**.
+- There is no fourth implementation slot.
+- There is no fifth implementation slot.
+- A specialty role does not create additional implementation capacity.
+
+This distinction is intentional:
+
+- **Workstreams** determine how many implementation items can run simultaneously.
+- **Specialty roles** determine expertise, ownership, review, or supporting responsibility.
+- **Coordinator** is orchestration and does not consume an implementation slot.
+
+## Specialty roles
+
+Use persistent specialty roles for expertise rather than treating each specialty as an additional implementation lane.
+
+| Role | Primary responsibility |
 |---|---|
 | Coordinator | Queue health, dependencies, ownership, collision prevention, reprioritization, blocker triage, fresh demand-signal allocation |
 | Design | Visual system, layouts, typography, responsive UX, UI polish |
@@ -17,7 +43,9 @@ Use a small set of persistent specialty lanes rather than manually assigning all
 | QA | Automated tests, visual regression, accessibility, release verification |
 | Growth | Conversion, email capture, affiliate UX, analytics, distribution experiments; monetize citation winners only downstream of answer/evidence/safety |
 
-The master backlog already contains an `Agent Role` / specialty assignment for each ticket. That field defines the lane. `backlog/status.csv` records the live human/agent owner.
+The master backlog already contains an `Agent Role` / specialty assignment for each ticket. That field defines the required expertise or ownership dimension. It does **not** create another implementation slot. `backlog/status.csv` records the live human/agent owner.
+
+A single implementation workstream may involve multiple specialty roles, but it still consumes only one implementation slot and has exactly one implementation owner.
 
 ## Coordinator responsibilities
 
@@ -29,10 +57,11 @@ Before agents begin a work cycle, the coordinator should:
 2. Read `config/ai-citation-swarm-priorities.json` when present and fresh; treat it as a bounded first-party demand/authority input, never as traffic or revenue proof.
 3. Identify the highest-priority `Ready` tickets with satisfied dependencies.
 4. Exclude tickets that overlap active work on the same foundational component, data model, route family, citation winner, cluster hub, or migration.
-5. Allow each specialist to claim the highest-priority eligible ticket in its lane.
-6. Keep the number of simultaneous foundational edits small.
-7. Re-rank later work when analytics, Search Console, fresh AI-citation telemetry, revenue, incidents, or completed dependencies materially change expected ROI.
-8. Triage `Blocked` tickets and either resolve the dependency, create a prerequisite ticket, or leave the item blocked with a clear reason.
+5. Fill only the available implementation workstream slots.
+6. Allow the appropriate specialist to claim the highest-priority eligible ticket within each available workstream.
+7. Keep the number of simultaneous foundational edits small.
+8. Re-rank later work when analytics, Search Console, fresh AI-citation telemetry, revenue, incidents, or completed dependencies materially change expected ROI.
+9. Triage `Blocked` tickets and either resolve the dependency, create a prerequisite ticket, or leave the item blocked with a clear reason.
 
 ## AI citation feedback loop
 
@@ -68,151 +97,3 @@ Example:
 
 ```csv
 THS-0042,In Progress,design-agent,2026-08-16T21:15:00-04:00,ths/THS-0042-herb-card,,,
-```
-
-After changing `status.csv`, commit or otherwise publish the claim before substantive implementation begins. An agent that sees an existing active owner must not start the same ticket.
-
-## Ticket selection rule
-
-Each specialist uses this order:
-
-1. Its own specialty lane.
-2. `Ready` status only.
-3. Dependencies satisfied.
-4. Highest priority first: P0, then P1, P2, P3.
-5. Within the same priority, prefer higher expected ROI and lower collision risk; fresh page-level AI citation evidence may strengthen the existing ROI case when the ticket is directly citation-adjacent.
-6. Preserve the 35% exploration floor over rolling discretionary work rather than allowing winner-chasing to consume all discovery capacity.
-7. Never select a ticket already owned by another active agent.
-
-Do not execute ticket IDs sequentially merely because they are numbered sequentially.
-
-## One-owner rule
-
-Every active ticket has exactly one implementation owner.
-
-Other agents may review or supply evidence, but they do not independently edit the same ticket scope unless the owner explicitly hands it off.
-
-For coupled cross-specialty work, choose one owner and record reviewers or supporting work in `Proof / Notes` rather than creating competing implementations.
-
-## Collision rules
-
-Do not run parallel implementation tickets that both materially modify the same:
-
-- shared design-system primitive;
-- canonical herb or compound template;
-- evidence-grade model;
-- safety/interactions model;
-- global routing or metadata layer;
-- schema/indexation infrastructure;
-- high-citation winner or canonical cluster hub;
-- migration;
-- CI/build configuration;
-- generated dataset source.
-
-The coordinator may serialize related tickets even when both are technically `Ready`.
-
-## Recommended starting concurrency
-
-Start with roughly four implementation lanes active at once:
-
-- Design
-- Engineering
-- Evidence/Safety
-- SEO/QA
-
-Growth work can run when it does not depend on unfinished measurement or foundational UX work.
-
-Increase concurrency only after the claim/merge process is proving stable.
-
-## Branch conventions
-
-Single ticket:
-
-`ths/THS-####-short-description`
-
-Tightly coupled micro-batch:
-
-`ths/THS-####-####-short-description`
-
-A branch belongs to one active implementation owner. Do not have multiple agents force-push the same working branch.
-
-## State transitions
-
-Normal lifecycle:
-
-`Ready → In Progress → In Review → Done`
-
-Exceptional lifecycle:
-
-`Ready → In Progress → Blocked`
-
-A ticket may return from `Blocked` to `Ready` only when its recorded blocker is resolved.
-
-When moving to `In Review`, retain Owner/Claimed At/Branch and record the PR.
-
-When moving to `Done`, record:
-
-- final PR or commit;
-- tests/QA proof;
-- meaningful before/after evidence where applicable;
-- any follow-up ticket IDs created.
-
-## Blocker protocol
-
-A `Blocked` status requires the `Blocker` column to explain the actual reason.
-
-Good examples:
-
-- `Depends on THS-0120 canonical evidence enum migration.`
-- `Conflicts with active THS-0031 navigation refactor owned by design-agent.`
-- `Safety conclusion requires editorial review; current sources disagree.`
-
-Bad examples:
-
-- `Hard`
-- `Didn't work`
-- `Need help`
-
-## Merge protocol
-
-Before merge:
-
-1. Sync/rebase with the target branch.
-2. Re-check that no other merged ticket invalidated the acceptance criteria.
-3. Run all applicable tests and QA gates.
-4. Verify the PR contains only the intended ticket(s) plus necessary supporting changes.
-5. Update the ticket to `In Review` with the PR reference.
-
-After successful merge/deploy where applicable:
-
-1. Set `Status=Done`.
-2. Record final PR/commit.
-3. Record proof.
-4. Clear `Blocker`.
-5. Sync before claiming another ticket.
-
-## Stale claim recovery
-
-A coordinator may release a stale claim only after confirming no active implementation is still using the branch.
-
-When releasing a claim:
-
-- set the ticket back to `Ready` if safe;
-- clear `Owner`, `Claimed At`, and `Branch`;
-- retain a short note explaining why the claim was released.
-
-Do not silently take over another agent's active branch.
-
-## Source of truth
-
-- Immutable ticket definitions: `backlog/master_backlog.csv.xz.b64`
-- Mutable execution state: `backlog/status.csv`
-- Generated readable view: `backlog/master_backlog.csv` via `python backlog/materialize_backlog.py`
-- Optional human XLSX dashboard: generated separately when needed; it is not the repository execution authority
-- AI citation execution standard: `docs/AI-CITATION-GROWTH-LOOP.md`
-- Derived citation swarm signals: `config/ai-citation-swarm-priorities.json`
-- Execution rules: `BACKLOG_IMPLEMENTATION_PLAYBOOK.md`
-- One-command launcher: `BEGIN_BACKLOG_PROCESS.md`
-- Multi-agent ownership rules: this file
-
-Agents update `status.csv`; they do not edit the compressed ticket-definition seed.

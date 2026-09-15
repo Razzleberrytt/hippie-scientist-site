@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-09-03
+**Updated:** 2026-09-15
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
@@ -46,16 +46,17 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Live GitHub reconciliation at `7b110d7a19c51e08de3d3b112ac36e96824bfd27` on 2026-09-03 shows **0/3 normal implementation workstreams occupied**:
+Live GitHub reconciliation at `90bf695bd4c7f1e006159078d26afd4869149cdd` on 2026-09-15 shows **1/3 normal implementation workstreams occupied**:
 
 | Ticket | Title | Lane | Status |
 |---|---|---|---|
+| #5488 / PR #5507 | Rebase guide discovery and long-form navigation polish | R / L4 | In review on exact current main; shared presentation-only consistency pass |
 
-- **R — free:** #5076 is Ready next for the bounded post-answer sleep-research next-action path; implementation must preserve answer-first evidence/safety ordering, newsletter privacy/tag semantics, accessibility, scientific/recommendation boundaries, and Lane-3 destination ownership.
+- **R — active:** #5488 / PR #5507 owns the exact-current shared guide-discovery and reading-navigation polish. It restores the validated #5488 implementation on top of merged #5506, keeps full goal comparison context visible, unifies card/row interaction treatment, and bounds desktop article navigation without changing scientific copy, routes, metadata, analytics, or public data. PR #5491 is superseded and must not advance concurrently. #5505 / PR #5506 is merged; Cloudflare run #7308 is still in progress, so its production receipt remains pending rather than assumed.
 - **A — free:** #5021 / PR #5028 completed and deployed the governed Vitamin B6 evidence/safety closure with five promoted findings plus one governed non-promotion; it no longer occupies the active or ready queue.
 - **D — free:** PR #5084 merged AI-citation asset-identity protection. Fresh page-level citation telemetry is still required before any winner ledger can be populated; the protection infrastructure itself does not occupy normal WIP.
 
-Research-only enrichment staging remains separate from canonical implementation/promotion WIP. Completed Vitamin B6, AI-citation protection, and newsletter CTA repair work is retired below rather than recycled into the actionable queue. No stale item is admitted merely because a normal workstream is free.
+Research-only enrichment staging remains separate from canonical implementation/promotion WIP. Completed Vitamin B6, AI-citation protection, newsletter CTA repair, #5502 homepage hierarchy work, and merged #5505 homepage chrome work are retired below rather than recycled into the actionable queue. No stale item is admitted merely because a normal workstream is free.
 
 ## Next — ordered dependency queue
 
@@ -63,7 +64,7 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| #5076 | Add reusable post-answer sleep research next-action path | R conversion / L4 | Ready next | P2 conversion/retention | — | — | Open issue revalidated 2026-09-03 after #5031 closed; Revenue/Conversion free; bootstrap sleep AI-demand signal remains partial until fresher canonical telemetry; re-fetch exact main, lane overlap, and Lane-3 destination ownership before mutation | One reusable claim-neutral component; integrate only 2–3 representative sleep guides after direct answer + evidence/safety boundary; canonical sleep-hub + newsletter-interest actions; preserve privacy/tag/accessibility/scientific/recommendation contracts; focused component/page-order/mobile/a11y regressions; exact-head gates green; verify live placement after deploy; business outcomes remain `Unknown` until observed |
+| #5076 | Add reusable post-answer sleep research next-action path | R conversion / L4 | Completed 2026-09-04; retired from actionable queue | — | — | Canonical component plus three representative integrations are on `main`; stale fourth-integration PR #5430 closed | Outcomes remain `Unknown`; any further page integration requires a fresh admitted ticket |
 | DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous reconciliation maintenance | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
 
 ## Blocked — important but not startable
@@ -101,6 +102,8 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
+| #5505 / PR #5506 | Merged as `90bf695bd4c7f1e006159078d26afd4869149cdd`; phone-homepage-only polish removes the floating scroll-to-top control, decorative goal arrows, comparison numbering, and repeated footer onboarding while preserving global/desktop behavior. Cloudflare production run #7308 is still in progress, so no production receipt is claimed yet. Traffic, engagement, conversion, ranking, and revenue effects remain `Unknown`. |
+| #5502 / PR #5504 | Merged and production-deployed as `99dd55269206e983c9d34bece0f358a9f932f270`; phone homepage hierarchy now uses one dark research anchor, compact goals, flattened comparison navigation, a supporting Research Standard section, and corrected footer spacing. Exact production receipt passed. Traffic, engagement, conversion, ranking, and revenue effects remain `Unknown`. |
 | #5031 / PR #5090 | Merged as `7b110d7a19c51e08de3d3b112ac36e96824bfd27`; explicit newsletter capture titles remove the duplicated `research` trust defect while preserving provider, tag, privacy, analytics and scientific boundaries. Exact-main deployment verification completed. Conversion lift remains `Unknown` until attributable observations exist. |
 | #5021 / PR #5028 | Merged as `27613f9fba936c78cb024d1381811d2b2da159c9`; five Vitamin B6 findings were governed promoted and one was governed non-promoted, neuropathy dose/duration boundaries were retained, generic dose placeholders removed, recommendation/monetization/indexing stayed fail-closed, and exact-main production deployment verification completed. No traffic, conversion, ranking, or revenue outcome is inferred. |
 | PR #5084 | Merged as `70ba137cbfec444557ad8c8b7ff0656f35651b61`; AI-citation asset-identity protection is on main. The ledger intentionally remains awaiting fresh page-level telemetry rather than inventing winner URLs from partial query exports. No incremental citation, traffic, or revenue gain is inferred. |

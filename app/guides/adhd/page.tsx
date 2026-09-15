@@ -34,6 +34,7 @@ const GUIDES = [
   { slug: 'magnesium-for-adhd', title: 'Magnesium for ADHD', desc: 'How magnesium affects dopamine, focus, and hyperactivity.' },
   { slug: 'omega-3-and-adhd', title: 'Omega-3 and ADHD', desc: 'EPA and DHA fatty acids for attention and impulse control.' },
   { slug: 'l-theanine-for-adhd', title: 'L-Theanine for ADHD', desc: 'Calm focus without sedation — L-theanine\'s role in ADHD.' },
+  { slug: 'saffron-for-adhd', title: 'Saffron for ADHD', desc: 'What the small clinical literature supports — and what it does not establish — for ADHD symptoms.' },
   { slug: 'iron-ferritin-and-adhd', title: 'Iron, Ferritin, and ADHD', desc: 'The link between low iron and ADHD symptoms — when to test and supplement.' },
   { slug: 'zinc-and-adhd', title: 'Zinc and ADHD', desc: 'Zinc\'s role in dopamine regulation and ADHD symptom management.' },
   { slug: 'vitamin-d-and-adhd', title: 'Vitamin D and ADHD', desc: 'Vitamin D deficiency and its relationship to attention and mood.' },

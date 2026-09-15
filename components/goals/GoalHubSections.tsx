@@ -1,3 +1,4 @@
+import '@/styles/discovery-reading.css'
 import Link from 'next/link'
 import type { GoalHubLink } from '../../lib/goal-hub-links'
 import { getGoalIngredientCandidates } from '../../lib/goal-hub-links'
@@ -57,7 +58,7 @@ export default async function GoalHubSections({
               <li key={link.href}>
                 <Link
                   href={toCanonicalHref(link.href)}
-                  className='block h-full rounded-2xl border border-brand-900/10 bg-white/70 p-4 transition hover:border-brand-700/20 hover:bg-white hover:shadow-sm dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10'
+                  className='discovery-link-card block h-full rounded-2xl border border-brand-900/10 bg-white/70 p-4 transition hover:border-brand-700/20 hover:bg-white hover:shadow-sm dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10'
                 >
                   <span className='font-semibold text-brand-800 dark:text-brand-100'>{link.label} →</span>
                   {link.note ? <span className='mt-2 block text-xs leading-relaxed text-muted'>{link.note}</span> : null}
@@ -78,11 +79,11 @@ export default async function GoalHubSections({
               <li key={link.href}>
                 <Link
                   href={toCanonicalHref(link.href)}
-                  className='block rounded-2xl border border-brand-900/10 bg-white/70 p-4 transition hover:border-brand-700/20 hover:bg-white hover:shadow-sm dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10'
+                  className='discovery-link-card block rounded-2xl border border-brand-900/10 bg-white/70 p-4 transition hover:border-brand-700/20 hover:bg-white hover:shadow-sm dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10'
                 >
                   <span className='font-semibold text-brand-800 dark:text-brand-100'>{link.label}</span>
                   {link.note ? (
-                    <span className='mt-2 block line-clamp-2 text-xs leading-relaxed text-muted'>
+                    <span className='mt-2 block text-xs leading-relaxed text-muted'>
                       {link.note}
                     </span>
                   ) : null}

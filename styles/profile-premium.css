@@ -1,0 +1,244 @@
+/* Premium monograph treatment for herb and compound profile routes.
+ * Route layouts scope this layer so the editorial primitives remain reusable
+ * elsewhere. Scientific/safety colors keep their semantic ownership. */
+
+.profile-route-theme {
+  --profile-premium-rule: color-mix(in srgb, var(--hs-gold) 30%, var(--border-soft));
+  --profile-premium-panel: color-mix(in srgb, var(--surface-card) 94%, var(--surface-subtle));
+}
+
+.profile-route-theme .hs-masthead {
+  position: relative;
+  overflow: hidden;
+  border-color: var(--profile-premium-rule);
+  border-radius: 1.75rem;
+  background:
+    radial-gradient(circle at 92% 16%, color-mix(in srgb, var(--hs-gold) 12%, transparent) 0 7.5rem, transparent 7.7rem),
+    linear-gradient(138deg, color-mix(in srgb, var(--surface-card-strong) 82%, transparent), transparent 62%),
+    var(--surface-card);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 48%, transparent),
+    0 28px 64px -48px rgba(25, 40, 31, 0.5);
+}
+
+.profile-route-theme .hs-masthead::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: min(13rem, 46%);
+  height: 3px;
+  background: linear-gradient(90deg, var(--hs-gold), color-mix(in srgb, var(--hs-gold) 14%, transparent));
+}
+
+.profile-route-theme .hs-masthead > header {
+  position: relative;
+  z-index: 1;
+}
+
+.profile-route-theme .hs-masthead h1 {
+  max-width: 15ch;
+  font-family: var(--font-display);
+  font-size: clamp(2.55rem, 5vw, 4.2rem);
+  font-weight: 650;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.profile-route-theme .hs-masthead h1 + p {
+  color: color-mix(in srgb, var(--text-secondary) 88%, var(--hs-gold-ink));
+}
+
+.profile-route-theme .hs-masthead .hs-defs {
+  margin-top: 1rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--surface-subtle) 58%, transparent);
+  padding: 0.15rem 0.9rem;
+}
+
+.profile-route-theme .hs-masthead .hs-defs > div:last-child {
+  border-bottom: 0;
+}
+
+.profile-route-theme .profile-decision-panel {
+  position: relative;
+}
+
+.profile-route-theme .profile-decision-panel::before {
+  content: 'Decision layer';
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--hs-gold-ink);
+  font-size: 0.66rem;
+  font-weight: 780;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+html.dark .profile-route-theme .profile-decision-panel::before {
+  color: var(--hs-gold-bright);
+}
+
+.profile-route-theme .profile-decision-panel > [id='decision-summary'] {
+  border-color: var(--profile-premium-rule);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 42%, transparent),
+    0 20px 46px -40px rgba(25, 40, 31, 0.42);
+}
+
+.profile-route-theme .profile-at-a-glance {
+  border-radius: 1.35rem;
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--surface-card-strong) 54%, transparent), transparent 68%),
+    var(--profile-premium-panel);
+}
+
+.profile-route-theme .profile-at-a-glance dl {
+  gap: 0;
+  overflow: hidden;
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.profile-route-theme .profile-at-a-glance dl > div {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0.8rem 0.9rem;
+}
+
+.profile-route-theme .profile-at-a-glance dl > div + div {
+  border-top: 1px solid var(--border-soft);
+}
+
+.profile-route-theme .profile-next-steps {
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--surface-subtle) 48%, transparent);
+}
+
+.profile-route-theme .profile-next-steps > details {
+  padding-inline: 0.85rem;
+}
+
+.profile-route-theme #evidence,
+.profile-route-theme #quick-stats,
+.profile-route-theme #dosing {
+  border-color: var(--border-soft);
+  border-radius: 1.35rem;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-card-strong) 38%, transparent), transparent 8rem),
+    var(--surface-card);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 38%, transparent),
+    0 18px 42px -38px rgba(25, 40, 31, 0.38);
+}
+
+.profile-route-theme #evidence {
+  border-top: 2px solid color-mix(in srgb, var(--hs-gold) 64%, var(--hs-forest));
+}
+
+.profile-route-theme #safety {
+  border-radius: 1.35rem;
+  box-shadow: 0 18px 42px -40px rgba(91, 57, 16, 0.34);
+}
+
+.profile-route-theme #evidence > div:first-child,
+.profile-route-theme #safety > div:first-child {
+  max-width: 60ch;
+}
+
+.profile-route-theme #evidence h2,
+.profile-route-theme #safety h2,
+.profile-route-theme #quick-stats h2,
+.profile-route-theme #dosing h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2.2vw, 1.9rem);
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+
+.profile-route-theme .hs-disclosure {
+  border-top-color: color-mix(in srgb, var(--hs-gold) 20%, var(--hs-hairline));
+}
+
+.profile-route-theme .hs-disclosure > summary {
+  min-height: 3rem;
+}
+
+.profile-route-theme .hs-linklist a,
+.profile-route-theme .profile-next-steps a {
+  text-underline-offset: 0.2em;
+}
+
+html.dark .profile-route-theme .hs-masthead,
+html.dark .profile-route-theme #evidence,
+html.dark .profile-route-theme #quick-stats,
+html.dark .profile-route-theme #dosing,
+html.dark .profile-route-theme .profile-decision-panel > [id='decision-summary'] {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 24px 52px -38px rgba(0, 0, 0, 0.72);
+}
+
+@media (min-width: 640px) {
+  .profile-route-theme .profile-at-a-glance dl > div + div {
+    border-top: 0;
+    border-left: 1px solid var(--border-soft);
+  }
+}
+
+@media (max-width: 767px) {
+  .profile-route-theme .hs-masthead {
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .profile-route-theme .hs-masthead::before {
+    position: static;
+    display: block;
+    width: 3.5rem;
+    height: 2px;
+    margin-bottom: 0.9rem;
+  }
+
+  .profile-route-theme .hs-masthead h1 {
+    max-width: none;
+    font-size: clamp(2.4rem, 11.2vw, 3.35rem);
+    line-height: 1;
+  }
+
+  .profile-route-theme .hs-masthead .hs-defs {
+    margin-top: 0.85rem;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+  }
+
+  .profile-route-theme .profile-decision-panel::before {
+    margin-top: 0.25rem;
+  }
+
+  .profile-route-theme #evidence,
+  .profile-route-theme #quick-stats,
+  .profile-route-theme #dosing,
+  .profile-route-theme #safety {
+    border-radius: 1.05rem;
+  }
+
+  .profile-route-theme .profile-next-steps {
+    border-radius: 0.85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-route-theme * {
+    scroll-behavior: auto;
+  }
+}
