@@ -7,6 +7,7 @@
   "submissions": [
     {
       "submissionId": "sub_session-c-kava-aqueous-hepatitis-cases-20260905",
+      "authoringPackId": "ap_bp_wp_compound_kava_src_pubmed_12923378",
       "workpackId": "wp_compound_kava",
       "entityType": "compound",
       "entitySlug": "kava",
@@ -27,6 +28,7 @@
     },
     {
       "submissionId": "sub_session-c-kava-severe-hepatitis-series-20260905",
+      "authoringPackId": "ap_bp_wp_compound_kava_src_doi_10_1016_s0168_8278_03_00175_2",
       "workpackId": "wp_compound_kava",
       "entityType": "compound",
       "entitySlug": "kava",
@@ -47,6 +49,7 @@
     },
     {
       "submissionId": "sub_session-c-kava-cioms-causality-disagreement-20260905",
+      "authoringPackId": "ap_bp_wp_compound_kava_src_doi_10_1111_j_1365_2710_2009_01131_x",
       "workpackId": "wp_compound_kava",
       "entityType": "compound",
       "entitySlug": "kava",
@@ -67,6 +70,7 @@
     },
     {
       "submissionId": "sub_session-c-kava-aqueous-solvent-boundary-20260905",
+      "authoringPackId": "ap_bp_wp_compound_kava_src_doi_10_1016_j_jep_2009_03_038",
       "workpackId": "wp_compound_kava",
       "entityType": "compound",
       "entitySlug": "kava",
@@ -87,13 +91,14 @@
     },
     {
       "submissionId": "sub_session-c-kava-flavokawain-apap-preclinical-20260905",
+      "authoringPackId": "ap_bp_wp_compound_kava_src_doi_10_1021_tx5003194",
       "workpackId": "wp_compound_kava",
       "entityType": "compound",
       "entitySlug": "kava",
       "sourceId": "src_doi-10-1021-tx5003194",
-      "topicType": "interaction_note",
-      "claimType": "mechanistic_or_preclinical_safety",
-      "evidenceClass": "preclinical",
+      "topicType": "interaction",
+      "claimType": "mechanistic_signal",
+      "evidenceClass": "preclinical-mechanistic",
       "findingTextShort": "Flavokawain/APAP mouse findings are mechanistic interaction evidence, not a proven human acetaminophen interaction.",
       "findingTextNormalized": "PMID 25185080 found that flavokawains A and B potentiated acetaminophen-induced hepatotoxicity in C57BL/6 mice, whereas dihydromethysticin did not in the tested model. This supports a constituent-specific preclinical interaction hypothesis and product-composition concern, but it cannot be converted into a quantified human interaction, clinical contraindication, or proof that all Kava products behave identically.",
       "strengthLabel": "limited",
