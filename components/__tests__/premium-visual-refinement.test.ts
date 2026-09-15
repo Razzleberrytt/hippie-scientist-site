@@ -34,6 +34,15 @@ describe('premium visual refinement contracts', () => {
     expect(chrome).toContain("a[aria-label^='The Hippie Scientist'] .editorial-icon-disc")
   })
 
+  it('keeps the homepage hero as an unmistakable flagship composition', () => {
+    expect(homeStructure).toContain('.hs-hero-main')
+    expect(homeStructure).toContain('grid-template-columns: minmax(0, 1.08fr) minmax(20rem, 0.92fr)')
+    expect(homepage).toContain("className='hs-evidence-panel'")
+    expect(homepage).toContain("className='hs-goal-block'")
+    expect(homeVisual).toContain('.hs-evidence-panel')
+    expect(homeVisual).toContain('.hs-index-hero')
+  })
+
   it('renders the homepage goal chooser as a balanced mobile decision matrix', () => {
     expect(homeStructure).toContain('@media (max-width: 767px)')
     expect(homeStructure).toContain('grid-template-columns: repeat(2, minmax(0, 1fr))')
