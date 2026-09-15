@@ -5,7 +5,7 @@
 **Updated:** 2026-09-15
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub reconciliation at `9da227de2c7738b35ab3baabbd061a1cee9d4582` on 2026-09-15 records 1/3 normal implementation workstreams occupied. Revenue/Conversion is occupied by #5502 / PR #5504 for the user-requested homepage mobile consistency repair. #5076 completed on 2026-09-04 with the canonical `SleepResearchNextActions` component and three authorized representative integrations; stale fourth-integration PR #5430 is closed. Authority/Content and Discovery/SEO are free. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP.
+**Current admission:** Live GitHub reconciliation at `99dd55269206e983c9d34bece0f358a9f932f270` on 2026-09-15 records 1/3 normal implementation workstreams occupied. Revenue/Conversion is occupied by #5505 / PR #5506 for the owner-directed phone-homepage chrome polish that follows the deployed #5502 / PR #5504 hierarchy cleanup. #5502 / PR #5504 merged and deployed successfully as `99dd55269206e983c9d34bece0f358a9f932f270` and no longer occupies WIP. #5076 completed on 2026-09-04 with the canonical `SleepResearchNextActions` component and three authorized representative integrations; stale fourth-integration PR #5430 is closed. Open PR #5491 is not admitted by this exact queue and must wait/rebase before any further Revenue/Conversion ownership is claimed. Authority/Content and Discovery/SEO are free. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -53,9 +53,9 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| Revenue/Conversion | #5502 / PR #5504 | Lane 4 | In review | Unify homepage phone surfaces and hierarchy; keep light-surface links forest, scope brass actions to dark panels, preserve 44px targets and desktop behavior. |
+| Revenue/Conversion | #5505 / PR #5506 | Lane 4 | In review | Remove remaining phone-homepage chrome clutter: floating scroll-top overlap, redundant goal arrows/comparison numbers, and repeated footer onboarding while preserving global behavior elsewhere. |
 
-- **Revenue/Conversion:** occupied by #5502 / PR #5504; exact-main mobile presentation repair with accessibility contrast regression coverage.
+- **Revenue/Conversion:** occupied by #5505 / PR #5506. #5502 / PR #5504 is merged, production-deployed, and retired below. PR #5491 remains open but is not admitted by this exact queue; do not advance it concurrently in Revenue/Conversion.
 - **Authority/Content:** free after #5021 / PR #5028 completed the governed Vitamin B6 evidence/safety closure and post-merge verification.
 - **Discovery/SEO:** free after PR #5084 merged AI-citation asset-identity protection. Fresh page-level citation telemetry is still required before any winner ledger can be populated.
 
@@ -69,9 +69,9 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 | Order | Candidate | Workstream | Admission state | Proof required before implementation |
 |---:|---|---|---|---|
-| — | None | — | No candidate admitted | Reconcile fresh GitHub state after #5502 completes; do not recycle completed #5076 or stale PR #5430. |
+| — | None | — | No candidate admitted | Reconcile fresh GitHub state after #5505 completes; do not recycle completed #5076, stale PR #5430, or unadmitted PR #5491 into active Revenue/Conversion work. |
 
-Revenue/Conversion is occupied by #5502. Authority/Content and Discovery/SEO are free. No stale item is promoted merely to fill a slot; any future admission still requires current evidence and this queue.
+Revenue/Conversion is occupied by #5505. Authority/Content and Discovery/SEO are free. No stale item is promoted merely to fill a slot; any future admission still requires current evidence and this queue.
 
 ## Control hardening — merged implementation, observed use still gated
 
@@ -89,14 +89,14 @@ Revenue/Conversion is occupied by #5502. Authority/Content and Discovery/SEO are
 | REV-001 / #4280 | Production analytics receipt | Code readiness merged; production GA4/Ahrefs configuration/event receipt remains Unknown | Obtain authorized environment/property/network/DebugView evidence without exposing secrets |
 | SEO-004 | 28-day GSC baseline | No authorized fixed-window export in repo | Supply authorized Search Console access/export and record exact dates |
 | REV-002 | Aligned funnel/revenue baseline | Cross-source baseline incomplete | Reconcile GA4/GSC/Amazon/Mailchimp once source access exists; partial source-level observations remain explicitly partial |
-| #4014 | `main` branch protection/ruleset | GitHub currently reports provider-side protection disabled | Apply/verify required settings with authorized repository-settings access; enforcement code alone does not close this incident |
+| #4014 | `main` branch protection/ruleset | GitHub currently reports provider-side protection disabled | Apply/verify required settings with authorized repository-settings access; documentation alone is not enforcement |
 | #4341 | Recurring Cloudflare production failure class | Repository-side checks do not expose root-cause logs | Inspect failed production deployment logs; repair only if a deterministic repository/config cause is identified |
 
 ## Additional fallback work when every named candidate above is blocked
 
 Promote only after checking overlap, current exact-main state, source freshness, and the canonical governor/lease/provenance contract.
 
-No fallback ticket is currently promoted. #5076 is explicitly admitted under `Ready next` above and must still pass its fresh collision/dependency check before Lane 4 source mutation.
+No fallback ticket is currently promoted. #5076 is completed and retired; PR #5491 is open but unadmitted and cannot consume the active Revenue/Conversion slot owned by #5505 / PR #5506.
 
 ## Sprint exit conditions
 
@@ -117,6 +117,7 @@ The sprint exits only when all of the following are true or have a precise exter
 
 ## Recently retired from this sprint
 
+- **#5502 / PR #5504:** merged and production-deployed as `99dd55269206e983c9d34bece0f358a9f932f270`; phone homepage hierarchy now uses one dark research anchor, compact goals, flattened comparison navigation, a supporting Research Standard section, and corrected footer spacing. Exact production receipt verified. Traffic, engagement, conversion, and revenue effects remain `Unknown`.
 - **#5031 / PR #5090:** merged as `7b110d7a19c51e08de3d3b112ac36e96824bfd27`; explicit newsletter capture titles remove the duplicated `research` trust defect while preserving provider, tag, privacy, analytics and scientific boundaries. Exact-main deployment verification completed. Conversion lift remains `Unknown` until attributable observations exist.
 - **#5021 / PR #5028:** merged as `27613f9fba936c78cb024d1381811d2b2da159c9`; five Vitamin B6 findings were governed promoted and one was governed non-promoted, with neuropathy dose/duration boundaries retained, generic dose placeholders removed, recommendation/monetization/indexing fail-closed, and post-merge deployment verification completed. This is scientific-governance throughput, not traffic or revenue proof.
 - **PR #5084:** merged as `70ba137cbfec444557ad8c8b7ff0656f35651b61`; AI-citation asset-identity protection is on main. The ledger intentionally remains awaiting fresh page-level telemetry rather than inventing winner URLs from partial query exports.

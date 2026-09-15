@@ -38,6 +38,12 @@
     margin-top: 0;
   }
 
+  /* Homepage already has dense in-flow navigation; keep floating/repeated chrome out of the phone viewport. */
+  body:has(.hs-home) [data-scroll-to-top-button='true'],
+  body:has(.hs-home) [data-footer-new-here='true'] {
+    display: none;
+  }
+
   .hs-home {
     --home-mobile-panel-radius: 0.95rem;
     --home-mobile-card-radius: 0.85rem;
@@ -264,9 +270,7 @@
   }
 
   .hs-goal-arrow {
-    width: 0.82rem;
-    height: 0.82rem;
-    opacity: 0.62;
+    display: none;
   }
 
   .hs-goal-copy strong {
@@ -455,8 +459,7 @@
   }
 
   .hs-comparison-index {
-    padding-top: 0.16rem;
-    font-size: 0.54rem;
+    display: none;
   }
 
   .hs-comparison-copy strong {
