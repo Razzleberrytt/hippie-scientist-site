@@ -2,8 +2,8 @@
   "id": "methyl-eugenol",
   "slug": "methyl-eugenol",
   "name": "methyl eugenol",
-  "summary": "Phenylpropanoid present in aromatic herbs with sensory and neuroactive effects.",
-  "description": "Methyl eugenol is a phenylpropanoid with bioactivity in aromatic compounds; it may influence sensory and neuroactive signaling, but human relevance is unclear.",
+  "summary": "Phenylpropanoid found in aromatic plants that IARC classifies as probably carcinogenic to humans (Group 2A).",
+  "description": "Methyl eugenol is a naturally occurring flavour and fragrance compound. IARC classifies it as probably carcinogenic to humans (Group 2A) from sufficient experimental-animal and strong mechanistic evidence, while evidence regarding cancer in humans remains inadequate. That hazard classification does not quantify risk for every dose, route, or exposure matrix.",
   "compoundClass": "",
   "mechanisms": [
     "Neurotransmitter Signaling Modulation",
@@ -17,18 +17,18 @@
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
+  "safetyNotes": "IARC classifies methyleugenol as probably carcinogenic to humans (Group 2A). Direct human cancer evidence is inadequate, and the classification does not provide one risk estimate for every exposure. Natural background, food, consumer-product, essential-oil, and concentrated isolated exposures are not interchangeable; avoid presenting concentrated methyleugenol as a wellness ingredient.",
   "evidenceLevel": "",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
     "legalRisk": "none",
-    "medicalRisk": "low",
-    "monetizationAllowed": true,
+    "medicalRisk": "high",
+    "monetizationAllowed": false,
     "indexingAllowed": false,
-    "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": ""
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "IARC Group 2A carcinogenic-hazard classification requires safety-first handling; no consumer recommendation or monetization is permitted."
   },
   "evidence": {
     "reviewStatus": "needs_review",
@@ -42,6 +42,6 @@
   "indexability_reasons": [
     "noindex-decision:hidden_until_grounded"
   ],
-  "dosage": "softgel or liquid oil",
-  "typical_dosage": "softgel or liquid oil"
+  "dosage": "",
+  "typical_dosage": ""
 }

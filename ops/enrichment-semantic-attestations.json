@@ -205,6 +205,74 @@
           "evidenceRefs": ["src_pubmed-29801717"]
         }
       }
+    },
+    {
+      "submissionId": "sub_d-methyl-eugenol-iarc-group2a",
+      "promotionStatus": "promoted",
+      "attestation": {
+        "reviewer": "site-swarm-evidence",
+        "reviewedAt": "2026-09-15T17:20:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "IARC Volume 134 evaluates methyleugenol as the exact chemical entity named by the staged finding.",
+          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+        },
+        "preparation": {
+          "status": "not_applicable",
+          "reason": "The proposition is a carcinogenic-hazard classification for methyleugenol itself, not a preparation-specific clinical efficacy claim.",
+          "evidenceRefs": []
+        },
+        "population": {
+          "status": "matched",
+          "reason": "The finding preserves IARC's integrated animal, mechanistic, and inadequate-human-evidence basis without claiming direct human epidemiologic causality.",
+          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "The endpoint is carcinogenic hazard identification and its evidence basis, not a dose-specific quantitative risk estimate.",
+          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "Group 2A remains paired with sufficient animal evidence, strong mechanistic evidence, and inadequate evidence regarding cancer in humans.",
+          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+        }
+      }
+    },
+    {
+      "submissionId": "sub_d-methyl-eugenol-exposure-context-firewall",
+      "promotionStatus": "promoted",
+      "attestation": {
+        "reviewer": "site-swarm-evidence",
+        "reviewedAt": "2026-09-15T17:20:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "The IARC monograph discusses methyleugenol occurrence and exposure, matching the exact compound governed by this proposition.",
+          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+        },
+        "preparation": {
+          "status": "matched",
+          "reason": "The finding separates natural occurrence, food, consumer-product, essential-oil, and concentrated isolated-product exposure contexts.",
+          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+        },
+        "population": {
+          "status": "matched",
+          "reason": "IARC identifies ubiquitous general-population exposure through food and personal-care products without equating all exposure levels or matrices.",
+          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "The proposition governs exposure interpretation and does not invent a clinical endpoint, incidence estimate, or consumer dose.",
+          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "The finding prevents background exposure from being treated as quantitatively interchangeable with concentrated isolated exposure while avoiding unsupported risk quantification.",
+          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+        }
+      }
     }
   ]
 }
