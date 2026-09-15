@@ -100,7 +100,7 @@
       "evidenceClass": "human-clinical",
       "findingTextShort": "A 15-person arthritis pilot found no significant valerian-placebo differences on diary or actigraphy sleep outcomes after 600 mg for five nights.",
       "findingTextNormalized": "A randomized placebo-controlled feasibility study assigned 15 people with arthritis and mild sleep disturbance to 600 mg valerian or placebo for five nights. Diary and wrist-actigraphy sleep outcomes showed no significant between-group differences. The study was explicitly underpowered for efficacy and therefore cannot establish ineffectiveness, but it adds a clinically distinct objective/subjective null that reinforces the need to avoid universal sleep-benefit claims.",
-      "strengthLabel": "very_limited",
+      "strengthLabel": "limited",
       "populationContext": "Fifteen adults with arthritis and mild sleep disturbance.",
       "usageContext": "600 mg valerian nightly for five nights.",
       "uncertaintyNote": "This was a feasibility pilot with a very small sample and short duration. It is evidence of uncertainty/null observation in this context, not proof of no effect.",
