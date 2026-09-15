@@ -46,15 +46,16 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Live GitHub reconciliation at `90bf695bd4c7f1e006159078d26afd4869149cdd` on 2026-09-15 shows **1/3 normal implementation workstreams occupied**:
+Live GitHub reconciliation at `99038cb887e9142594fbc8a4227a0ac405cff820` on 2026-09-15 shows **2/3 normal implementation workstreams occupied**:
 
 | Ticket | Title | Lane | Status |
 |---|---|---|---|
-| #5488 / PR #5507 | Rebase guide discovery and long-form navigation polish | R / L4 | In review on exact current main; shared presentation-only consistency pass |
+| #5237 / PR #5513 | Integrate parasomnia reviews into the canonical Sleep hub | R / L4 | Building on exact current main; navigation and generated ItemList inclusion only |
+| #5026 / PR #5511 | Close methyl-eugenol hazard workpack | A / L2 | In review on exact current main; governed safety closure |
 
-- **R — active:** #5488 / PR #5507 owns the exact-current shared guide-discovery and reading-navigation polish. It restores the validated #5488 implementation on top of merged #5506, keeps full goal comparison context visible, unifies card/row interaction treatment, and bounds desktop article navigation without changing scientific copy, routes, metadata, analytics, or public data. PR #5491 is superseded and must not advance concurrently. #5505 / PR #5506 is merged; Cloudflare run #7308 is still in progress, so its production receipt remains pending rather than assumed.
-- **A — free:** #5021 / PR #5028 completed and deployed the governed Vitamin B6 evidence/safety closure with five promoted findings plus one governed non-promotion; it no longer occupies the active or ready queue.
-- **D — free:** PR #5084 merged AI-citation asset-identity protection. Fresh page-level citation telemetry is still required before any winner ledger can be populated; the protection infrastructure itself does not occupy normal WIP.
+- **R — active:** #5237 / PR #5513 adds three established parasomnia reviews to the canonical Sleep hub with evidence-bounded card copy and regression coverage.
+- **A — active:** #5026 / PR #5511 closes the governed methyl-eugenol hazard workpack while keeping recommendation and monetization fail closed.
+- **D — free:** #4532 / PR #5510 merged as `99038cb887e9142594fbc8a4227a0ac405cff820` and no longer occupies WIP.
 
 Research-only enrichment staging remains separate from canonical implementation/promotion WIP. Completed Vitamin B6, AI-citation protection, newsletter CTA repair, #5502 homepage hierarchy work, and merged #5505 homepage chrome work are retired below rather than recycled into the actionable queue. No stale item is admitted merely because a normal workstream is free.
 

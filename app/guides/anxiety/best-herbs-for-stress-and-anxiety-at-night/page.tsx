@@ -12,7 +12,7 @@ import EmailCapture from '@/components/EmailCapture'
 import { buildTwitterMetadata } from '@/lib/seo'
 
 const PAGE_URL = `${SITE_URL}/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night`
-const DATE = '2026-08-11'
+const DATE = '2026-09-15'
 
 export const metadata: Metadata = {
   title: 'Best Herbs for Stress and Anxiety at Night: Evidence & Safety',
@@ -64,6 +64,7 @@ const FAQS = [
 const HEADINGS: Heading[] = [
   { id: 'bottom-line', text: 'Bottom line', level: 2 },
   { id: 'bigger-question', text: 'Nighttime anxiety or chronic insomnia?', level: 2 },
+  { id: 'sleep-pattern', text: 'Match the sleep pattern', level: 2 },
   { id: 'evidence', text: 'Evidence by ingredient', level: 2 },
   { id: 'routine', text: 'What to prioritize tonight', level: 2 },
   { id: 'safety', text: 'Safety and interactions', level: 2 },
@@ -218,6 +219,31 @@ export default function Page() {
                 anxiety-care question rather than a search for the strongest nighttime supplement.
               </p>
             </div>
+          </div>
+        </section>
+
+        <section id="sleep-pattern" className="scroll-mt-20 space-y-4">
+          <p className="eyebrow-label">Match the actual sleep pattern</p>
+          <h2 className="text-2xl font-semibold text-ink">Racing thoughts, sleep onset, sleep maintenance, and circadian timing are different questions</h2>
+          <p className="text-sm leading-7 text-muted">
+            Stress can make it harder to fall asleep, but repeated or prolonged waking after sleep begins—or
+            difficulty returning to sleep—is a maintenance problem. Brief awakenings can be normal. Feeling
+            sleepy at the wrong clock time can instead be a circadian-timing problem. These patterns can
+            overlap; one does not prove the others or identify a supplement.
+          </p>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <Link href="/articles/sleep-onset-vs-sleep-maintenance/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">
+              Trouble falling asleep or staying asleep? Compare the endpoints →
+            </Link>
+            <Link href="/articles/why-do-i-wake-up-at-3am/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">
+              Repeated middle-of-the-night waking →
+            </Link>
+            <Link href="/articles/delayed-sleep-wake-phase-vs-insomnia/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">
+              A consistently late sleep schedule or circadian mismatch →
+            </Link>
+            <Link href="/articles/insomnia-evidence-guide/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">
+              Persistent or impairing insomnia →
+            </Link>
           </div>
         </section>
 
