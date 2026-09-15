@@ -21,6 +21,11 @@ function includesAll(source, values) {
   return values.every((value) => source.includes(value))
 }
 
+function classTokenCount(source, token, tag = '[A-Za-z][A-Za-z0-9.-]*') {
+  const pattern = new RegExp(`<${tag}\\b[^>]*className=['"][^'"]*(?:^|\\s)${token}(?:\\s|$)[^'"]*['"]`, 'gm')
+  return (source.match(pattern) || []).length
+}
+
 const failures = []
 const results = []
 
@@ -40,11 +45,11 @@ invariant('THS-001', 'homepage is routed through the focused V2 experience', () 
   page.includes("import HomepageV2 from '@/components/homepage-v2'") && page.includes('return <HomepageV2 />'),
 )
 invariant('THS-001', 'homepage hero has a clear promise and no more than two primary hero actions', () => {
-  const searchActions = homepage.match(/<form className='hs-home-search'/g) || []
-  const browseActions = homepage.match(/className='hs-home-browse-link'/g) || []
+  const searchActions = classTokenCount(homepage, 'hs-home-search', 'form')
+  const browseActions = classTokenCount(homepage, 'hs-home-browse-link', 'a')
   return homepage.includes('Better answers start with better') &&
-    searchActions.length === 1 &&
-    browseActions.length === 1
+    searchActions === 1 &&
+    browseActions === 1
 })
 invariant('THS-001', 'homepage scientific search protects mobile ingredient terms from keyboard rewriting', () =>
   includesAll(homepage, [
