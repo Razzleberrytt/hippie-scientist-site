@@ -46,15 +46,15 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Live GitHub reconciliation at `90bf695bd4c7f1e006159078d26afd4869149cdd` on 2026-09-15 shows **1/3 normal implementation workstreams occupied**:
+Live GitHub reconciliation at `3d06be39cd2f53c11c2d9f576f9e466933ee9a20` on 2026-09-15 shows **1/3 normal implementation workstreams occupied**:
 
 | Ticket | Title | Lane | Status |
 |---|---|---|---|
-| #5488 / PR #5507 | Rebase guide discovery and long-form navigation polish | R / L4 | In review on exact current main; shared presentation-only consistency pass |
+| #4532 / PR #5510 | Expand nighttime-stress sleep-intent bridge | D / L3 | In review on exact current main; evidence-neutral internal-link and intent-clarity pass |
 
-- **R — active:** #5488 / PR #5507 owns the exact-current shared guide-discovery and reading-navigation polish. It restores the validated #5488 implementation on top of merged #5506, keeps full goal comparison context visible, unifies card/row interaction treatment, and bounds desktop article navigation without changing scientific copy, routes, metadata, analytics, or public data. PR #5491 is superseded and must not advance concurrently. #5505 / PR #5506 is merged; Cloudflare run #7308 is still in progress, so its production receipt remains pending rather than assumed.
+- **R — free:** #5488 / PR #5507 and #5508 / PR #5509 are merged; their bounded presentation work no longer occupies WIP.
 - **A — free:** #5021 / PR #5028 completed and deployed the governed Vitamin B6 evidence/safety closure with five promoted findings plus one governed non-promotion; it no longer occupies the active or ready queue.
-- **D — free:** PR #5084 merged AI-citation asset-identity protection. Fresh page-level citation telemetry is still required before any winner ledger can be populated; the protection infrastructure itself does not occupy normal WIP.
+- **D — active:** #4532 / PR #5510 connects the established nighttime-stress guide to four canonical sleep-intent endpoints while preserving its H1, canonical, six-source ledger, safety language, and efficacy boundaries.
 
 Research-only enrichment staging remains separate from canonical implementation/promotion WIP. Completed Vitamin B6, AI-citation protection, newsletter CTA repair, #5502 homepage hierarchy work, and merged #5505 homepage chrome work are retired below rather than recycled into the actionable queue. No stale item is admitted merely because a normal workstream is free.
 

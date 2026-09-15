@@ -22,7 +22,21 @@ describe('nighttime stress and anxiety evidence calibration', () => {
     expect(text).toContain('new-guideline-supports-behavioral-psychological-treatments-for-insomnia')
     expect(text).toContain('31 randomized trials and 1,168 participants')
     expect(text).toContain('nine randomized placebo-controlled trials and 558 participants')
-    expect(text).toContain("const DATE = '2026-08-11'")
+    expect(text).toContain("const DATE = '2026-09-15'")
+  })
+
+  it('routes distinct sleep intents without treating them as one supplement problem', () => {
+    const text = source()
+
+    expect(text).toMatch(/Racing thoughts, sleep onset, sleep maintenance, and circadian timing are different questions/i)
+    expect(text).toMatch(/repeated or prolonged waking after sleep begins/i)
+    expect(text).toMatch(/difficulty returning to sleep/i)
+    expect(text).toMatch(/Brief awakenings can be normal/i)
+    expect(text).toMatch(/one does not prove the others or identify a supplement/i)
+    expect(text).toContain('/articles/sleep-onset-vs-sleep-maintenance/')
+    expect(text).toContain('/articles/why-do-i-wake-up-at-3am/')
+    expect(text).toContain('/articles/delayed-sleep-wake-phase-vs-insomnia/')
+    expect(text).toContain('/articles/insomnia-evidence-guide/')
   })
 
   it('does not restore the old rapid-onset or treatment-like supplement claims', () => {
