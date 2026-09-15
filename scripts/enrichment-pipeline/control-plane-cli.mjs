@@ -11,6 +11,7 @@ import {
 
 const ROOT = process.cwd()
 const FRAGMENT_ROOT = path.join(ROOT, 'ops', 'enrichment-submissions', 'sessions')
+const LEGACY_SUBMISSIONS = path.join(ROOT, 'ops', 'enrichment-submissions.json')
 const SOURCE_REGISTRY = path.join(ROOT, 'public', 'data', 'source-registry.json')
 const SOURCE_INTAKE_QUEUE = path.join(ROOT, 'ops', 'reports', 'source-intake-queue.json')
 const MANIFEST = path.join(ROOT, 'ops', 'research-sessions', 'session-manifest.json')
@@ -53,6 +54,12 @@ function safetyMentionsSource(record, sourceId) {
 
 const attestationDocument = readJson(ATTESTATIONS, { entries: [] })
 const attestationBySubmission = new Map((attestationDocument.entries ?? []).map(entry => [entry.submissionId, entry]))
+const legacySubmissionDocument = readJson(LEGACY_SUBMISSIONS, [])
+const legacySubmissionIds = new Set(
+  (Array.isArray(legacySubmissionDocument) ? legacySubmissionDocument : [])
+    .map(submission => submission?.submissionId)
+    .filter(Boolean),
+)
 const quarantineDocument = readJson(IDENTITY_QUARANTINE, { entries: [] })
 const quarantinedSourceIds = new Set((quarantineDocument.entries ?? []).flatMap(entry => [entry.sourceId, entry.candidateSourceId]).filter(Boolean))
 
@@ -266,7 +273,8 @@ if (command === 'report' || command === 'validate') {
     const unsafe = promotion.filter(item => item.eligible && (item.semantic !== 'verified' || item.route === 'source_quarantine'))
     const ids = (attestationDocument.entries ?? []).map(entry => entry.submissionId)
     const duplicateAttestations = ids.filter((id, index, all) => all.indexOf(id) !== index)
-    const unknownAttestations = [...attestationBySubmission.keys()].filter(id => !submissions.some(s => s.submissionId === id))
+    const knownSubmissionIds = new Set([...submissions.map(s => s.submissionId), ...legacySubmissionIds])
+    const unknownAttestations = [...attestationBySubmission.keys()].filter(id => !knownSubmissionIds.has(id))
     const errors = []
     if (unsafe.length) errors.push({ unsafePromotion: unsafe })
     if (duplicateAttestations.length) errors.push({ duplicateAttestations: [...new Set(duplicateAttestations)] })

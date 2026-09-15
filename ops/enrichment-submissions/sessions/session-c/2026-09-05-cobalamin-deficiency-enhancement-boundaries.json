@@ -84,25 +84,6 @@
       "reviewStatus": "draft_submission",
       "editorialStatus": "draft",
       "active": true
-    },
-    {
-      "submissionId": "sub_session-c-cobalamin-zero-source-form-owner-gap-20260905",
-      "authoringPackId": "ap_bp_wp_compound_cobalamin_repo_runtime_20260905",
-      "workpackId": "wp_compound_cobalamin",
-      "entityType": "compound",
-      "entitySlug": "cobalamin",
-      "sourceId": "src_repo-cobalamin-runtime-20260905",
-      "topicType": "conflict_note",
-      "claimType": "evidence_conflict",
-      "evidenceClass": "repository-provenance",
-      "findingTextShort": "The live Cobalamin profile states deficiency-treatment outcomes with zero receipts, generic form-only dosage text, and no explicit form-owner boundary.",
-      "findingTextNormalized": "The current NOINDEX Cobalamin profile states that B12 corrects deficiency and prevents deficiency-related anemia and neuropathy while exposing sourceCount zero and no claim map. Its dosage fields contain only `capsule or softgel`, which is a product form rather than a regimen. Generic cobalamin also coexists with separate form-specific owners such as methylcobalamin, so evidence and dosing must not be silently shared across forms without an explicit ontology rule.",
-      "strengthLabel": "strong",
-      "usageContext": "Repository evidence-receipt, dosage-template, and entity-form boundary finding.",
-      "uncertaintyNote": "This record does not propose a consumer dose or absorb the separate methylcobalamin workpack. Keep NOINDEX until governed reconciliation.",
-      "reviewStatus": "draft_submission",
-      "editorialStatus": "draft",
-      "active": true
     }
   ]
 }

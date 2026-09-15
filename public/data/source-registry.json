@@ -1074,5 +1074,27 @@
     "reviewedAt": "2026-09-05T00:00:00.000Z",
     "notes": "Canonicalized from the governed enrichment promotion wave after schema and provenance review.",
     "active": true
+  },
+  {
+    "sourceId": "src_iarc-v134-methyleugenol-2024",
+    "title": "IARC Monographs Volume 134: Aspartame, Methyleugenol, and Isoeugenol",
+    "shortTitle": "IARC Volume 134 methyleugenol evaluation",
+    "sourceType": "regulatory-guidance",
+    "sourceClass": "regulatory-agency-monograph-guidance",
+    "organization": "International Agency for Research on Cancer",
+    "publicationYear": 2024,
+    "citationText": "International Agency for Research on Cancer. IARC Monographs on the Identification of Carcinogenic Hazards to Humans, Volume 134: Aspartame, Methyleugenol, and Isoeugenol. Lyon: IARC; 2024.",
+    "monographId": "IARC Monographs Volume 134",
+    "canonicalUrl": "https://monographs.iarc.who.int/news-events/volume-134-aspartame-methyleugenol-and-isoeugenol/",
+    "accessDate": "2026-09-15",
+    "language": "en",
+    "evidenceClass": "regulatory-monograph",
+    "studyDesign": "regulatory-guidance",
+    "publicationStatus": "published",
+    "reliabilityTier": "tier-a",
+    "reviewer": "site-swarm-evidence",
+    "reviewedAt": "2026-09-15T17:20:00.000Z",
+    "notes": "Exact methyleugenol identity. IARC classifies methyleugenol as probably carcinogenic to humans (Group 2A) based on sufficient experimental-animal evidence and strong mechanistic evidence, while evidence regarding cancer in humans is inadequate. Hazard identification is not a universal quantitative risk estimate, and natural/background, food, consumer-product, essential-oil, and concentrated isolated exposures are not interchangeable.",
+    "active": true
   }
 ]

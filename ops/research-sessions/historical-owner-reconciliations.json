@@ -160,6 +160,76 @@
       "disposition": "historical_foreign_owner",
       "reason": "Current canonical authority resolves historical Valeriana officinalis profile identity to Valerian. Preserve the committed Session C fragment as provenance while using canonical Valerian identity for shard ownership and finding dedupe.",
       "submissionIds": ["sub_session-c-valerian-umbrella-insomnia-null-20260830", "sub_session-c-valerian-standardized-extract-rct-20260830", "sub_session-c-valerian-mechanism-outcome-boundary-20260830", "sub_session-c-valerian-cyp-pk-limited-20260830"]
+    },
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-a/2026-09-06-batch-pediatric-safety-quality.json",
+      "submitted": { "workpackId": "wp_compound_nutraceuticals_phytoceuticals_mdd", "entityType": "compound", "entitySlug": "nutraceuticals-phytoceuticals-mdd" },
+      "canonical": null,
+      "historicalSessionId": "A",
+      "historicalShard": 0,
+      "disposition": "historical_unresolved_owner",
+      "reason": "This draft cross-cutting nutraceutical MDD synthesis has no canonical compound profile owner. Preserve the Session A staging provenance and block promotion until an explicit canonical owner is created or assigned.",
+      "submissionIds": ["sub_session-a-mdd-nutraceutical-nma-quality-20260906"]
+    },
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-a/2026-09-06-batch-pediatric-safety-quality.json",
+      "submitted": { "workpackId": "wp_compound_probiotics_pediatric_asthma", "entityType": "compound", "entitySlug": "probiotics-pediatric-asthma" },
+      "canonical": null,
+      "historicalSessionId": "A",
+      "historicalShard": 0,
+      "disposition": "historical_unresolved_owner",
+      "reason": "This pediatric probiotic asthma synthesis has no canonical compound profile owner. Preserve the Session A staging provenance and block promotion until ownership is explicitly resolved.",
+      "submissionIds": ["sub_session-a-pediatric-probiotic-asthma-tsa-20260906"]
+    },
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-a/2026-09-06-batch-pediatric-safety-quality.json",
+      "submitted": { "workpackId": "wp_compound_probiotics_pediatric_functional_abdominal_pain", "entityType": "compound", "entitySlug": "probiotics-pediatric-functional-abdominal-pain" },
+      "canonical": null,
+      "historicalSessionId": "A",
+      "historicalShard": 0,
+      "disposition": "historical_unresolved_owner",
+      "reason": "This pediatric functional-abdominal-pain probiotic synthesis has no canonical compound profile owner. Preserve the Session A staging provenance and block promotion until ownership is explicitly resolved.",
+      "submissionIds": ["sub_session-a-pediatric-fapd-probiotic-clinical-threshold-20260906"]
+    },
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-a/2026-09-06-batch-pediatric-safety-quality.json",
+      "submitted": { "workpackId": "wp_compound_probiotics_knee_osteoarthritis", "entityType": "compound", "entitySlug": "probiotics-knee-osteoarthritis" },
+      "canonical": null,
+      "historicalSessionId": "A",
+      "historicalShard": 0,
+      "disposition": "historical_unresolved_owner",
+      "reason": "This strain-specific probiotic knee-osteoarthritis synthesis has no canonical compound profile owner. Preserve the Session A staging provenance and block promotion until ownership is explicitly resolved.",
+      "submissionIds": ["sub_session-a-probiotic-knee-oa-strain-signals-20260906"]
+    },
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-a/2026-09-06-batch-pediatric-safety-quality.json",
+      "submitted": { "workpackId": "wp_herb_medicinal_edible_seeds_safety", "entityType": "herb", "entitySlug": "medicinal-edible-seeds-safety" },
+      "canonical": null,
+      "historicalSessionId": "A",
+      "historicalShard": 0,
+      "disposition": "historical_unresolved_owner",
+      "reason": "This cross-cutting medicinal/edible seed safety synthesis has no single canonical herb profile owner. Preserve the Session A staging provenance and block promotion until findings are resolved to explicit seed owners.",
+      "submissionIds": ["sub_session-a-medicinal-edible-seeds-harms-20260906"]
+    },
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-c/2026-09-05-kava-hepatotoxicity-causality-boundaries.json",
+      "submitted": { "workpackId": "wp_compound_kava", "entityType": "compound", "entitySlug": "kava" },
+      "canonical": { "workpackId": "wp_herb_kava", "entityType": "herb", "entitySlug": "kava", "shard": 5 },
+      "historicalSessionId": "C",
+      "historicalShard": 2,
+      "disposition": "historical_foreign_owner",
+      "reason": "Current canonical authority resolves the historical compound Kava identity to the herb Kava owner. Preserve the committed Session C fragment as provenance while using canonical herb ownership and shard 5 for dedupe and promotion decisions.",
+      "submissionIds": ["sub_session-c-kava-aqueous-hepatitis-cases-20260905", "sub_session-c-kava-severe-hepatitis-series-20260905", "sub_session-c-kava-cioms-causality-disagreement-20260905", "sub_session-c-kava-aqueous-solvent-boundary-20260905", "sub_session-c-kava-flavokawain-apap-preclinical-20260905"]
+    },
+    {
+      "fragmentPath": "ops/enrichment-submissions/sessions/session-c/2026-09-05-valerian-population-conflict-boundaries.json",
+      "submitted": { "workpackId": "wp_herb_valeriana_officinalis", "entityType": "herb", "entitySlug": "valeriana-officinalis" },
+      "canonical": { "workpackId": "wp_herb_valerian", "entityType": "herb", "entitySlug": "valerian", "shard": 3 },
+      "historicalSessionId": "C",
+      "historicalShard": 2,
+      "disposition": "historical_foreign_owner",
+      "reason": "Current canonical authority resolves historical Valeriana officinalis identity to the Valerian profile. Preserve the Session C fragment as provenance while using canonical Valerian ownership and shard 3 for dedupe and promotion decisions.",
+      "submissionIds": ["sub_session-c-valerian-older-women-null-20260905", "sub_session-c-valerian-cancer-psqi-null-20260905", "sub_session-c-valerian-postmenopause-positive-20260905", "sub_session-c-valerian-post-cabg-positive-20260905", "sub_session-c-valerian-arthritis-pilot-null-20260905"]
     }
   ]
 }
