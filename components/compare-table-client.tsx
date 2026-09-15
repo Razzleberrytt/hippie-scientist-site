@@ -122,10 +122,10 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
   ]
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5 sm:space-y-6">
       {/* Interactive Selection Dashboard */}
-      <div className="card-premium space-y-6 bg-white/95 p-6">
-        <div className="grid gap-6 md:grid-cols-2">
+      <div className="card-premium space-y-4 bg-white/95 p-4 sm:space-y-6 sm:p-6">
+        <div className="grid gap-4 md:grid-cols-2 md:gap-6">
           {/* Compound Search Input */}
           <div className="relative space-y-2">
             <label htmlFor="compound-search" className="text-sm font-semibold text-ink">
@@ -201,7 +201,7 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
               {selectedCompounds.map((c) => (
                 <span
                   key={c.slug}
-                  className="inline-flex items-center gap-1.5 rounded-full border-2 border-brand-900 bg-brand-700 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-md"
+                  className="inline-flex min-h-11 items-center gap-1.5 rounded-full border-2 border-brand-900 bg-brand-700 pl-3.5 pr-1 text-xs font-bold uppercase tracking-wider text-white shadow-md"
                 >
                   <span>{c.name || c.slug}</span>
                   <button
@@ -254,44 +254,82 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
 
       {/* Comparison Results */}
       {selectedCompounds.length >= 2 ? (
-        <ResponsiveTable
-          label="Comparison matrix of selected compounds"
-          hint="This comparison table scrolls horizontally on small screens. The first column lists metrics, and each following column represents a selected compound."
-          className="rounded-[1.65rem] bg-white dark:bg-[var(--surface-card-strong)]"
-        >
-          <table className="min-w-[720px] w-full border-collapse text-left text-sm">
-            <caption>Selected compound comparison by metric</caption>
-            <thead>
-              <tr className="border-b border-brand-900/10 bg-brand-950/[0.01]">
-                <th scope="col" className="w-1/4 p-4 text-xs font-bold uppercase tracking-wider text-ink">Metric</th>
-                {selectedCompounds.map(c => (
-                  <th scope="col" key={c.slug} className="p-4 text-base font-semibold text-ink">
-                    <Link
-                      href={`/compounds/${c.slug}`}
-                      className="font-bold text-brand-800 underline decoration-brand-700/25 underline-offset-4 hover:text-brand-700 hover:decoration-brand-700/60"
-                    >
-                      {c.name || c.slug}
-                    </Link>
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map(([label, render]) => (
-                <tr key={label} className="border-b border-brand-900/5 align-top last:border-0">
-                  <th scope="row" className="w-1/4 bg-brand-950/[0.005] p-4 font-medium text-ink">{label}</th>
+        <>
+          <div
+            className="grid gap-3 md:hidden"
+            role="group"
+            aria-label="Comparison cards for selected compounds"
+            data-mobile-compare-center="true"
+          >
+            {selectedCompounds.map((c, index) => (
+              <section
+                key={c.slug}
+                className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-[0_12px_30px_-24px_rgba(29,29,31,0.38)] dark:border-white/10 dark:bg-[var(--surface-card-strong)]"
+              >
+                <div className="flex min-h-12 items-center justify-between gap-3 border-b border-brand-900/10 bg-brand-50/60 px-4 py-3 dark:border-white/10 dark:bg-[var(--surface-subtle)]">
+                  <Link
+                    href={`/compounds/${c.slug}`}
+                    className="text-base font-bold text-brand-800 underline decoration-brand-700/25 underline-offset-4 hover:text-brand-700 hover:decoration-brand-700/60 dark:text-[var(--text-primary)]"
+                  >
+                    {c.name || c.slug}
+                  </Link>
+                  <span className="shrink-0 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-muted">
+                    {index + 1} of {selectedCompounds.length}
+                  </span>
+                </div>
+                <dl className="divide-y divide-brand-900/5 px-4 dark:divide-white/10">
+                  {rows.map(([label, render]) => (
+                    <div key={`${c.slug}-${label}-mobile`} className="grid gap-1 py-3">
+                      <dt className="text-[0.66rem] font-bold uppercase tracking-[0.1em] text-brand-700 dark:text-[var(--accent-teal)]">
+                        {label}
+                      </dt>
+                      <dd className="text-sm leading-6 text-muted">{render(c)}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </section>
+            ))}
+          </div>
+
+          <ResponsiveTable
+            label="Comparison matrix of selected compounds"
+            hint="The first column lists metrics, and each following column represents a selected compound."
+            className="hidden rounded-[1.65rem] bg-white md:block dark:bg-[var(--surface-card-strong)]"
+          >
+            <table className="min-w-[720px] w-full border-collapse text-left text-sm">
+              <caption>Selected compound comparison by metric</caption>
+              <thead>
+                <tr className="border-b border-brand-900/10 bg-brand-950/[0.01]">
+                  <th scope="col" className="w-1/4 p-4 text-xs font-bold uppercase tracking-wider text-ink">Metric</th>
                   {selectedCompounds.map(c => (
-                    <td key={`${c.slug}-${label}`} className="p-4 text-muted">
-                      {render(c)}
-                    </td>
+                    <th scope="col" key={c.slug} className="p-4 text-base font-semibold text-ink">
+                      <Link
+                        href={`/compounds/${c.slug}`}
+                        className="font-bold text-brand-800 underline decoration-brand-700/25 underline-offset-4 hover:text-brand-700 hover:decoration-brand-700/60"
+                      >
+                        {c.name || c.slug}
+                      </Link>
+                    </th>
                   ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </ResponsiveTable>
+              </thead>
+              <tbody>
+                {rows.map(([label, render]) => (
+                  <tr key={label} className="border-b border-brand-900/5 align-top last:border-0">
+                    <th scope="row" className="w-1/4 bg-brand-950/[0.005] p-4 font-medium text-ink">{label}</th>
+                    {selectedCompounds.map(c => (
+                      <td key={`${c.slug}-${label}`} className="p-4 text-muted">
+                        {render(c)}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </ResponsiveTable>
+        </>
       ) : (
-        <div className="card-premium space-y-4 p-10 text-center">
+        <div className="card-premium space-y-4 p-6 text-center sm:p-10">
           <p className="text-lg font-medium text-ink">
             Compare compounds side-by-side.
           </p>
@@ -305,7 +343,7 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
                 setSelectedSlugs(['caffeine', 'l-theanine'])
                 updateUrl(['caffeine', 'l-theanine'])
               }}
-              className="button-secondary px-4 py-2 text-xs"
+              className="button-secondary min-h-11 px-4 py-2 text-xs"
             >
               Compare Caffeine vs L-Theanine
             </button>
@@ -315,7 +353,7 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
                 setSelectedSlugs(['ashwagandha', 'rhodiola'])
                 updateUrl(['ashwagandha', 'rhodiola'])
               }}
-              className="button-secondary px-4 py-2 text-xs"
+              className="button-secondary min-h-11 px-4 py-2 text-xs"
             >
               Compare Ashwagandha vs Rhodiola
             </button>
