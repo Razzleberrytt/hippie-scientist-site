@@ -5,7 +5,7 @@
 **Updated:** 2026-09-15
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub reconciliation at `99038cb887e9142594fbc8a4227a0ac405cff820` on 2026-09-15 records 2/3 normal implementation workstreams occupied. Revenue/Conversion is occupied by #5237 for canonical Sleep-hub parasomnia discovery, and Authority/Content is occupied by #5026 / PR #5511 for governed methyl-eugenol safety closure. #4532 / PR #5510 merged as `99038cb887e9142594fbc8a4227a0ac405cff820` and no longer occupies Discovery/SEO. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP.
+**Current admission:** Live GitHub reconciliation at `99038cb887e9142594fbc8a4227a0ac405cff820` on 2026-09-15 records 2/3 normal implementation workstreams occupied. Revenue/Conversion is occupied by #5237 / PR #5513 for canonical Sleep-hub parasomnia discovery, and Authority/Content is occupied by #5026 / PR #5511 for governed methyl-eugenol safety closure. #4532 / PR #5510 merged as `99038cb887e9142594fbc8a4227a0ac405cff820` and no longer occupies Discovery/SEO. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -53,10 +53,10 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| Revenue/Conversion | #5237 | Lane 4 | Building | Add the three established parasomnia reviews to the canonical Sleep hub and its generated ItemList with evidence-bounded card copy and focused regression coverage. |
+| Revenue/Conversion | #5237 / PR #5513 | Lane 4 | Building | Add the three established parasomnia reviews to the canonical Sleep hub and its generated ItemList with evidence-bounded card copy and focused regression coverage. |
 | Authority/Content | #5026 / PR #5511 | Lane 2 | In review | Close the governed methyl-eugenol hazard workpack without weakening exposure, recommendation, or monetization boundaries. |
 
-- **Revenue/Conversion:** occupied by #5237 on exact current main; canonical hub navigation and schema inclusion only.
+- **Revenue/Conversion:** occupied by #5237 / PR #5513 on exact current main; canonical hub navigation and schema inclusion only.
 - **Authority/Content:** occupied by #5026 / PR #5511 on exact current main.
 - **Discovery/SEO:** free after #4532 / PR #5510 merged as `99038cb887e9142594fbc8a4227a0ac405cff820`.
 
@@ -72,7 +72,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 |---:|---|---|---|---|
 | — | None | — | No candidate admitted | Reconcile fresh GitHub state after #5488 completes; do not recycle completed #5076, stale PR #5430, or superseded PR #5491 into active Revenue/Conversion work. |
 
-Revenue/Conversion is occupied by #5237, Authority/Content is occupied by #5026 / PR #5511, and Discovery/SEO is free. No stale item is promoted merely to fill a slot; any future admission still requires current evidence and this queue.
+Revenue/Conversion is occupied by #5237 / PR #5513, Authority/Content is occupied by #5026 / PR #5511, and Discovery/SEO is free. No stale item is promoted merely to fill a slot; any future admission still requires current evidence and this queue.
 
 ## Control hardening — merged implementation, observed use still gated
 
@@ -97,7 +97,7 @@ Revenue/Conversion is occupied by #5237, Authority/Content is occupied by #5026 
 
 Promote only after checking overlap, current exact-main state, source freshness, and the canonical governor/lease/provenance contract.
 
-No fallback ticket is currently promoted. #5076 and #4532 / PR #5510 are completed and retired. #5237 owns Revenue/Conversion and #5026 / PR #5511 owns Authority/Content.
+No fallback ticket is currently promoted. #5076 and #4532 / PR #5510 are completed and retired. #5237 / PR #5513 owns Revenue/Conversion and #5026 / PR #5511 owns Authority/Content.
 
 ## Sprint exit conditions
 
