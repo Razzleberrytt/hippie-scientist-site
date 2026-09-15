@@ -5,7 +5,7 @@
 **Updated:** 2026-09-15
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub reconciliation at `3d06be39cd2f53c11c2d9f576f9e466933ee9a20` on 2026-09-15 records 1/3 normal implementation workstreams occupied. Discovery/SEO is occupied by #4532 / PR #5510 for an evidence-neutral nighttime-stress sleep-intent bridge. #5488 / PR #5507 and #5508 / PR #5509 are merged and no longer occupy Revenue/Conversion. Authority/Content and Revenue/Conversion are free. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP.
+**Current admission:** Live GitHub reconciliation at `99038cb887e9142594fbc8a4227a0ac405cff820` on 2026-09-15 records 2/3 normal implementation workstreams occupied. Revenue/Conversion is occupied by #5237 / PR #5513 for canonical Sleep-hub parasomnia discovery, and Authority/Content is occupied by #5026 / PR #5511 for governed methyl-eugenol safety closure. #4532 / PR #5510 merged as `99038cb887e9142594fbc8a4227a0ac405cff820` and no longer occupies Discovery/SEO. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,15 +49,16 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — observed implementation WIP 1/3
+## Active / in review — observed implementation WIP 2/3
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| Discovery/SEO | #4532 / PR #5510 | Lane 3 | In review | Connect the established nighttime-stress guide to canonical onset/maintenance, 3 AM waking, circadian-vs-insomnia, and insomnia-evidence routes without new efficacy claims. |
+| Revenue/Conversion | #5237 / PR #5513 | Lane 4 | Building | Add the three established parasomnia reviews to the canonical Sleep hub and its generated ItemList with evidence-bounded card copy and focused regression coverage. |
+| Authority/Content | #5026 / PR #5511 | Lane 2 | In review | Close the governed methyl-eugenol hazard workpack without weakening exposure, recommendation, or monetization boundaries. |
 
-- **Revenue/Conversion:** free after #5488 / PR #5507 and #5508 / PR #5509 merged their bounded presentation passes.
-- **Authority/Content:** free after #5021 / PR #5028 completed the governed Vitamin B6 evidence/safety closure and post-merge verification.
-- **Discovery/SEO:** occupied by #4532 / PR #5510 on exact current main; evidence-neutral intent clarification and canonical internal links only.
+- **Revenue/Conversion:** occupied by #5237 / PR #5513 on exact current main; canonical hub navigation and schema inclusion only.
+- **Authority/Content:** occupied by #5026 / PR #5511 on exact current main.
+- **Discovery/SEO:** free after #4532 / PR #5510 merged as `99038cb887e9142594fbc8a4227a0ac405cff820`.
 
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
 
@@ -71,7 +72,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 |---:|---|---|---|---|
 | — | None | — | No candidate admitted | Reconcile fresh GitHub state after #5488 completes; do not recycle completed #5076, stale PR #5430, or superseded PR #5491 into active Revenue/Conversion work. |
 
-Discovery/SEO is occupied by #4532. Authority/Content and Revenue/Conversion are free. No stale item is promoted merely to fill a slot; any future admission still requires current evidence and this queue.
+Revenue/Conversion is occupied by #5237 / PR #5513, Authority/Content is occupied by #5026 / PR #5511, and Discovery/SEO is free. No stale item is promoted merely to fill a slot; any future admission still requires current evidence and this queue.
 
 ## Control hardening — merged implementation, observed use still gated
 
@@ -96,7 +97,7 @@ Discovery/SEO is occupied by #4532. Authority/Content and Revenue/Conversion are
 
 Promote only after checking overlap, current exact-main state, source freshness, and the canonical governor/lease/provenance contract.
 
-No fallback ticket is currently promoted. #5076 is completed and retired. #4532 / PR #5510 owns the active Discovery/SEO slot; merged presentation work does not consume another slot.
+No fallback ticket is currently promoted. #5076 and #4532 / PR #5510 are completed and retired. #5237 / PR #5513 owns Revenue/Conversion and #5026 / PR #5511 owns Authority/Content.
 
 ## Sprint exit conditions
 

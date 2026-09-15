@@ -46,15 +46,16 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Live GitHub reconciliation at `3d06be39cd2f53c11c2d9f576f9e466933ee9a20` on 2026-09-15 shows **1/3 normal implementation workstreams occupied**:
+Live GitHub reconciliation at `99038cb887e9142594fbc8a4227a0ac405cff820` on 2026-09-15 shows **2/3 normal implementation workstreams occupied**:
 
 | Ticket | Title | Lane | Status |
 |---|---|---|---|
-| #4532 / PR #5510 | Expand nighttime-stress sleep-intent bridge | D / L3 | In review on exact current main; evidence-neutral internal-link and intent-clarity pass |
+| #5237 / PR #5513 | Integrate parasomnia reviews into the canonical Sleep hub | R / L4 | Building on exact current main; navigation and generated ItemList inclusion only |
+| #5026 / PR #5511 | Close methyl-eugenol hazard workpack | A / L2 | In review on exact current main; governed safety closure |
 
-- **R — free:** #5488 / PR #5507 and #5508 / PR #5509 are merged; their bounded presentation work no longer occupies WIP.
-- **A — free:** #5021 / PR #5028 completed and deployed the governed Vitamin B6 evidence/safety closure with five promoted findings plus one governed non-promotion; it no longer occupies the active or ready queue.
-- **D — active:** #4532 / PR #5510 connects the established nighttime-stress guide to four canonical sleep-intent endpoints while preserving its H1, canonical, six-source ledger, safety language, and efficacy boundaries.
+- **R — active:** #5237 / PR #5513 adds three established parasomnia reviews to the canonical Sleep hub with evidence-bounded card copy and regression coverage.
+- **A — active:** #5026 / PR #5511 closes the governed methyl-eugenol hazard workpack while keeping recommendation and monetization fail closed.
+- **D — free:** #4532 / PR #5510 merged as `99038cb887e9142594fbc8a4227a0ac405cff820` and no longer occupies WIP.
 
 Research-only enrichment staging remains separate from canonical implementation/promotion WIP. Completed Vitamin B6, AI-citation protection, newsletter CTA repair, #5502 homepage hierarchy work, and merged #5505 homepage chrome work are retired below rather than recycled into the actionable queue. No stale item is admitted merely because a normal workstream is free.
 
