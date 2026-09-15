@@ -109,7 +109,7 @@ export default function ProfileTOC({ items, variant = 'all' }: { items: TocItem[
                     key={id}
                     href={`#${id}`}
                     aria-current={isActive ? 'location' : undefined}
-                    className={`inline-flex min-h-10 shrink-0 items-center rounded-xl border px-3 text-xs font-bold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] ${
+                    className={`inline-flex min-h-11 shrink-0 items-center rounded-xl border px-3 text-xs font-bold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] ${
                       isActive
                         ? 'border-[color:var(--hs-gold)] bg-[color:color-mix(in_srgb,var(--hs-gold)_10%,var(--hs-surface))] text-[color:var(--tone-ink)]'
                         : 'border-[color:var(--hs-hairline)] bg-[color:var(--hs-surface)] text-[color:var(--hs-body)]'
@@ -126,7 +126,7 @@ export default function ProfileTOC({ items, variant = 'all' }: { items: TocItem[
               aria-expanded={mobileOpen}
               aria-label={`${mobileOpen ? 'Hide' : 'Show'} all page sections. Current section: ${activeLabel}`}
               onClick={() => setMobileOpen((open) => !open)}
-              className='grid min-h-10 min-w-10 shrink-0 place-items-center rounded-xl border border-[color:var(--hs-hairline-strong)] bg-[color:var(--hs-surface)] text-[color:var(--hs-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[color:var(--hs-gold)]'
+              className='grid min-h-11 min-w-11 shrink-0 place-items-center rounded-xl border border-[color:var(--hs-hairline-strong)] bg-[color:var(--hs-surface)] text-[color:var(--hs-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[color:var(--hs-gold)]'
             >
               <svg
                 aria-hidden='true'
