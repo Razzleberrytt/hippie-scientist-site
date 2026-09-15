@@ -1,0 +1,108 @@
+/* Shared discovery and reading chrome. Deliberately excludes evidence badges,
+ * safety callouts, article body colors and product-ranking semantics. */
+.discovery-link-card {
+  min-width: 0;
+  min-height: 44px;
+  border-color: var(--border-soft);
+  border-radius: 1rem;
+  background: var(--surface-card);
+  box-shadow: none;
+  overflow-wrap: anywhere;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+
+.discovery-link-card:hover {
+  transform: none;
+  translate: none;
+  border-color: var(--hs-gold);
+  background: var(--surface-subtle);
+  box-shadow: none;
+}
+
+.discovery-link-card > h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.discovery-section-heading {
+  border-top: 1px solid var(--border-soft);
+  padding-top: 1.25rem;
+}
+
+.discovery-section-heading > h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.discovery-link-row {
+  min-width: 0;
+  min-height: 44px;
+  overflow-wrap: anywhere;
+}
+
+.discovery-link-row:hover {
+  background: var(--surface-subtle);
+}
+
+.discovery-link-card:focus-visible,
+.discovery-link-row:focus-visible,
+.reading-shell-toc a:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 3px;
+}
+
+.reading-shell .article-body > h1,
+.reading-shell .article-body > header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+.reading-shell .article-body > h2 {
+  border-top: 1px solid var(--border-soft);
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.2;
+}
+
+.reading-shell .article-body :is(h2, h3)[id] {
+  scroll-margin-top: 7rem;
+}
+
+.reading-shell-toc a {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 1024px) {
+  .reading-shell-toc {
+    max-height: calc(100dvh - 7rem);
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    padding-right: 0.5rem;
+    border-color: var(--border-soft);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .discovery-link-card,
+  .discovery-link-card *,
+  .discovery-link-row,
+  .discovery-link-row * {
+    transition: none;
+    transform: none;
+    translate: none;
+  }
+}
