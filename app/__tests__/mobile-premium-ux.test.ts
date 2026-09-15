@@ -12,6 +12,8 @@ describe('mobile premium UX regression contract', () => {
     const structure = source('styles/homepage-structure.css')
     const visual = source('styles/homepage-mobile-refinement.css')
     const page = source('app/page.tsx')
+    const scrollTop = source('components/ScrollToTopButton.tsx')
+    const footer = source('components/Footer.tsx')
 
     expect(text).toContain("className='hs-hero-main'")
     expect(text).toContain("className='hs-evidence-panel'")
@@ -33,6 +35,7 @@ describe('mobile premium UX regression contract', () => {
     expect(visual).toContain('--home-mobile-panel-radius: 0.95rem;')
     expect(visual).toContain('--home-mobile-card-radius: 0.85rem;')
     expect(visual).toContain('.hs-goal-copy small {\n    display: none;')
+    expect(visual).toContain('.hs-goal-arrow {\n    display: none;')
 
     // Research Lens is the single dark explanatory anchor on phones.
     expect(visual).toContain('.hs-evidence-signal {\n    grid-template-columns: auto minmax(0, 1fr);')
@@ -42,6 +45,7 @@ describe('mobile premium UX regression contract', () => {
     expect(visual).toContain('.hs-comparison-list {\n    gap: 0;\n    border-top: 1px solid var(--home-line);')
     expect(visual).toContain('.hs-comparison-row {\n    min-height: 0;')
     expect(visual).toContain('border-radius: 0;')
+    expect(visual).toContain('.hs-comparison-index {\n    display: none;')
 
     // The lower methodology block cannot become a second dark hero or repeat Research Lens cards.
     expect(visual).toContain('.hs-method-section {\n    gap: 0;')
@@ -52,6 +56,12 @@ describe('mobile premium UX regression contract', () => {
     expect(visual).toContain('body:has(.hs-home) #main-content {\n    padding-bottom: 0;')
     expect(visual).toContain('body:has(.hs-home) .editorial-footer {\n    margin-top: 0;')
     expect(visual).toContain('padding-bottom: 0;')
+
+    // Repeated/floating global chrome stays available elsewhere but is suppressed on the phone homepage.
+    expect(scrollTop).toContain("data-scroll-to-top-button='true'")
+    expect(footer).toContain("data-footer-new-here='true'")
+    expect(visual).toContain("body:has(.hs-home) [data-scroll-to-top-button='true'],")
+    expect(visual).toContain("body:has(.hs-home) [data-footer-new-here='true'] {\n    display: none;")
 
     expect(visual).toContain('.hs-home .hs-text-link {\n    color: var(--home-forest);')
     expect(visual).not.toContain('.hs-home .hs-text-link {\n    color: var(--home-gold);')
