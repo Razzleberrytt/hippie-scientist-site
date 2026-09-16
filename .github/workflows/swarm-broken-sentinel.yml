@@ -67,7 +67,10 @@ jobs:
                 esac
                 ;;
             esac
-          done < <(printf '%s' "$runs_json" | jq -r '.workflow_runs[] | [.name, (.conclusion // "in_progress"), .created_at, .html_url] | @tsv')
+          # A recovered workflow may leave an earlier zero-job/action_required run inside
+          # the two-hour window. Evaluate only the latest run for each workflow name so
+          # superseded failures cannot reopen a resolved incident.
+          done < <(printf '%s' "$runs_json" | jq -r '[.workflow_runs[]] | sort_by(.name, .created_at) | group_by(.name) | map(last)[] | [.name, (.conclusion // "in_progress"), .created_at, .html_url] | @tsv')
 
           if [ ${#reasons[@]} -eq 0 ]; then
             echo 'broken=false' >> "$GITHUB_OUTPUT"
