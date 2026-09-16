@@ -67,7 +67,18 @@ jobs:
                 esac
                 ;;
             esac
-          done < <(printf '%s' "$runs_json" | jq -r '.workflow_runs[] | [.name, (.conclusion // "in_progress"), .created_at, .html_url] | @tsv')
+          # Keep the latest decisive result for each workflow/exact-head lineage.
+          # Pending, skipped, or cancelled retries do not clear a prior failure; only a
+          # completed same-head success can supersede it.
+          done < <(printf '%s' "$runs_json" | jq -r '
+            [.workflow_runs[]
+              | select(.status == "completed")
+              | select(.conclusion == "success" or .conclusion == "failure" or .conclusion == "timed_out" or .conclusion == "action_required" or .conclusion == "startup_failure")]
+            | sort_by(.workflow_id, (.head_sha // .head_branch // ""), .created_at)
+            | group_by(.workflow_id, (.head_sha // .head_branch // ""))
+            | map(last)[]
+            | [.name, .conclusion, .created_at, .html_url]
+            | @tsv')
 
           if [ ${#reasons[@]} -eq 0 ]; then
             echo 'broken=false' >> "$GITHUB_OUTPUT"
