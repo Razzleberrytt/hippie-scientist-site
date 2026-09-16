@@ -67,6 +67,22 @@ describe('mobile premium UX regression contract', () => {
     expect(visual).not.toContain('.hs-home .hs-text-link {\n    color: var(--home-gold);')
   })
 
+  it('keeps the privacy choice visible without covering page actions', () => {
+    const banner = source('components/ConsentBanner.tsx')
+    const layout = source('app/layout.tsx')
+    const headerEnd = layout.indexOf('</header>')
+    const consentMount = layout.indexOf('<ConsentBanner />')
+    const mainStart = layout.indexOf('<main')
+
+    expect(banner).toContain("data-consent-banner='true'")
+    expect(banner).toContain("className='relative z-[100]")
+    expect(banner).not.toContain("className='fixed ")
+    expect(headerEnd).toBeGreaterThan(-1)
+    expect(consentMount).toBeGreaterThan(headerEnd)
+    expect(mainStart).toBeGreaterThan(consentMount)
+    expect(layout.lastIndexOf('<ConsentBanner />')).toBe(consentMount)
+  })
+
   it('renders shared comparison data as option-first cards on phones', () => {
     const text = source('components/ComparisonTable.tsx')
     const cardsIndex = text.indexOf('data-mobile-comparison-cards="true"')
