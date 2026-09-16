@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  actions: read
+  actions: write
   contents: read
   issues: write
 
@@ -33,18 +33,27 @@ jobs:
           heartbeat_cutoff=$((now_epoch - 45*60))
           failure_cutoff=$((now_epoch - 120*60))
           reasons=()
+          controller_stale=false
 
           runs_json=$(gh api "repos/$REPO/actions/runs?per_page=100")
 
-          latest_controller=$(printf '%s' "$runs_json" | jq -c '[.workflow_runs[] | select(.name == "Autonomous merge controller" and .event == "schedule")] | sort_by(.created_at) | last // empty')
+          latest_controller=$(printf '%s' "$runs_json" | jq -c '[.workflow_runs[] | select(
+            .name == "Autonomous merge controller" and
+            (
+              .event == "schedule" or
+              (.event == "workflow_dispatch" and .head_branch == "main" and .status == "completed" and .conclusion == "success")
+            )
+          )] | sort_by(.created_at) | last // empty')
           if [ -z "$latest_controller" ]; then
-            reasons+=("No scheduled Autonomous merge controller run is visible.")
+            controller_stale=true
+            reasons+=("No scheduled or recovery-dispatched Autonomous merge controller run is visible.")
           else
             created_at=$(printf '%s' "$latest_controller" | jq -r '.created_at')
             created_epoch=$(date -u -d "$created_at" +%s)
             conclusion=$(printf '%s' "$latest_controller" | jq -r '.conclusion // "in_progress"')
             url=$(printf '%s' "$latest_controller" | jq -r '.html_url')
             if [ "$created_epoch" -lt "$heartbeat_cutoff" ]; then
+              controller_stale=true
               reasons+=("Autonomous merge heartbeat is stale (>45 minutes): $url")
             fi
             case "$conclusion" in
@@ -80,6 +89,8 @@ jobs:
             | [.name, .conclusion, .created_at, .html_url]
             | @tsv')
 
+          echo "controller_stale=$controller_stale" >> "$GITHUB_OUTPUT"
+
           if [ ${#reasons[@]} -eq 0 ]; then
             echo 'broken=false' >> "$GITHUB_OUTPUT"
             echo '## ✅ Swarm sentinel: healthy' >> "$GITHUB_STEP_SUMMARY"
@@ -95,8 +106,21 @@ jobs:
             printf -- '- %s\n' "${reasons[@]}"
           } >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Recover stale Autonomous merge heartbeat
+        if: steps.health.outputs.controller_stale == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api --method POST "repos/$REPO/actions/workflows/autonomous-merge-controller.yml/dispatches" -f ref=main
+          {
+            echo '## Controller recovery dispatched'
+            echo
+            echo '- Dispatched the existing trusted controller on `main`.'
+            echo '- The next sentinel cycle will treat a completed recovery dispatch as a valid heartbeat.'
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Open or refresh BROKEN!!!!! issue
-        if: steps.health.outputs.broken == 'true'
+        if: always() && steps.health.outputs.broken == 'true'
         shell: bash
         run: |
           set -euo pipefail
