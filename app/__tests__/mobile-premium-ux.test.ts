@@ -75,7 +75,11 @@ describe('mobile premium UX regression contract', () => {
     const mainStart = layout.indexOf('<main')
 
     expect(banner).toContain("data-consent-banner='true'")
+    expect(banner).toContain('useState(true)')
+    expect(banner).toContain('min-h-5')
     expect(banner).toContain("className='relative z-[100]")
+    expect(layout).toContain("localStorage.getItem('consent.v1')")
+    expect(layout).toContain("data-consent-pending='false'")
     expect(banner).not.toContain("className='fixed ")
     expect(headerEnd).toBeGreaterThan(-1)
     expect(consentMount).toBeGreaterThan(headerEnd)
