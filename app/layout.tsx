@@ -139,6 +139,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <LocalizedNavigation />
             </DarkModeProvider>
           </header>
+          <ConsentBanner />
           <EnglishOnly>
             <Breadcrumbs />
             <CommercialIntentBridge />
@@ -167,7 +168,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </EnglishOnly>
           <ClickTracker />
           <EmailReturnAttribution />
-          <ConsentBanner />
         </div>
       </body>
     </html>
