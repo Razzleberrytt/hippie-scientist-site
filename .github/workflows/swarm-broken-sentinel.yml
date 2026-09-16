@@ -37,7 +37,13 @@ jobs:
 
           runs_json=$(gh api "repos/$REPO/actions/runs?per_page=100")
 
-          latest_controller=$(printf '%s' "$runs_json" | jq -c '[.workflow_runs[] | select(.name == "Autonomous merge controller" and (.event == "schedule" or .event == "workflow_dispatch"))] | sort_by(.created_at) | last // empty')
+          latest_controller=$(printf '%s' "$runs_json" | jq -c '[.workflow_runs[] | select(
+            .name == "Autonomous merge controller" and
+            (
+              .event == "schedule" or
+              (.event == "workflow_dispatch" and .head_branch == "main" and .status == "completed" and .conclusion == "success")
+            )
+          )] | sort_by(.created_at) | last // empty')
           if [ -z "$latest_controller" ]; then
             controller_stale=true
             reasons+=("No scheduled or recovery-dispatched Autonomous merge controller run is visible.")
@@ -114,7 +120,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Open or refresh BROKEN!!!!! issue
-        if: steps.health.outputs.broken == 'true'
+        if: always() && steps.health.outputs.broken == 'true'
         shell: bash
         run: |
           set -euo pipefail
