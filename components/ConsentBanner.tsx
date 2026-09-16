@@ -5,10 +5,12 @@ import { Link } from '../lib/router-compat'
 import { getConsent, setConsent, initConsentDefault, getSystemNoTracking } from '@/lib/consent'
 
 export default function ConsentBanner() {
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(true)
+  const [dnt, setDnt] = useState(false)
 
   useEffect(() => {
     initConsentDefault()
+    setDnt(getSystemNoTracking())
     const consent = getConsent()
     setShow(consent === null)
 
@@ -22,8 +24,6 @@ export default function ConsentBanner() {
   }, [])
 
   if (!show) return null
-
-  const dnt = getSystemNoTracking()
 
   return (
     <div data-consent-banner='true' className='relative z-[100] px-3 pb-3 pt-3 md:px-4 md:pb-4 md:pt-4'>
@@ -40,9 +40,12 @@ export default function ConsentBanner() {
               Read our privacy policy
             </Link>
             .
-            {dnt && (
-              <span className='mt-1 block text-amber-300'>DNT/GPC detected: tracking stays off.</span>
-            )}
+            <span
+              className={`mt-1 block min-h-5 text-amber-300 ${dnt ? '' : 'invisible'}`}
+              aria-hidden={!dnt}
+            >
+              DNT/GPC detected: tracking stays off.
+            </span>
           </p>
           <div className='flex shrink-0 flex-wrap items-center justify-end gap-2'>
             <button
@@ -57,7 +60,7 @@ export default function ConsentBanner() {
             </button>
             <button
               type='button'
-              className='inline-flex min-h-11 flex-1 items-center justify-center rounded-lg border border-[#d5ad6c]/50 bg-[#fffaf3] px-4 text-sm font-bold text-[#302c39] transition-colors hover:bg-[#f2e9dd] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d5ad6c] focus-visible:ring-offset-2 focus-visible:ring-offset-[#302c39] sm:flex-none'
+              className='inline-flex min-h-11 min-w-[12rem] flex-1 items-center justify-center rounded-lg border border-[#d5ad6c]/50 bg-[#fffaf3] px-4 text-sm font-bold text-[#302c39] transition-colors hover:bg-[#f2e9dd] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d5ad6c] focus-visible:ring-offset-2 focus-visible:ring-offset-[#302c39] sm:flex-none'
               onClick={() => {
                 setConsent(dnt ? 'denied' : 'granted')
                 setShow(false)
