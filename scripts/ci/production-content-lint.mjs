@@ -2,6 +2,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { spawnSync } from 'node:child_process'
+import { normalizeH1ForUniqueness } from './production-content-lint-normalization.mjs'
 
 const root = process.cwd()
 const reportDir = path.join(root, 'public', 'data', 'reports')
@@ -104,7 +105,7 @@ function auditH1Uniqueness() {
     if (values.length === 0) missing.push(route)
     if (values.length > 1) multiple.push({ route, h1s: values })
     if (values.length === 1) {
-      const normalized = values[0].toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
+      const normalized = normalizeH1ForUniqueness(values[0])
       if (normalized) groups.set(normalized, [...(groups.get(normalized) || []), { route, h1: values[0] }])
     }
   }
