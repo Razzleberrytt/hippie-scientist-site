@@ -175,10 +175,8 @@ export default function SleepAndAdhdPage() {
           <p className="eyebrow-label">ADHD sleep evidence atlas</p>
           <h1 className="mt-3 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-5xl">Sleep and ADHD: Stop Treating Every Sleep Problem as the Same Problem</h1>
           <p className="mt-4 max-w-3xl text-base leading-7 text-muted">“ADHD sleep problems” can mean several different things: behavioral insomnia, a delayed body clock, stimulant-related sleep delay, restless legs, sleep-disordered breathing, or fragmented sleep. Those patterns have different evidence and different next questions. Use the decision map below to identify the pattern before jumping to an intervention.</p>
-          <div className="mt-5 flex flex-wrap gap-3 text-xs font-semibold">
+          <div className="mt-5 text-xs font-semibold">
             <Link href="#next-step" className="text-brand-700 hover:underline">Find your sleep pattern →</Link>
-            <Link href="/guides/adhd/melatonin-for-adhd-sleep/" className="text-brand-700 hover:underline">Melatonin for ADHD sleep →</Link>
-            <Link href="/guides/adhd/iron-ferritin-and-adhd/" className="text-brand-700 hover:underline">Iron, ferritin, and ADHD →</Link>
           </div>
         </section>
 
