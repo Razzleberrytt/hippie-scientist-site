@@ -1,4 +1,5 @@
 name: Enrichment Governor
+# Recovery-only PRs may touch this file to force exact-head governor validation after unretryable zero-job bot starts.
 
 on:
   pull_request:
