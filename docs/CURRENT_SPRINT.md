@@ -5,7 +5,7 @@
 **Updated:** 2026-09-16
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub reconciliation at `97011edde822eb6bdf6a4a2b418ee8af44178f94` on 2026-09-16 records 1/3 normal implementation workstreams occupied. Revenue/Conversion is occupied by #5540 for the Sleep + ADHD decision-routing upgrade. The previously listed #5237 / PR #5513 and #5026 / PR #5511 are merged or closed and no longer occupy WIP. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP.
+**Current admission:** Live GitHub reconciliation at `97011edde822eb6bdf6a4a2b418ee8af44178f94` on 2026-09-16 records 1/3 normal implementation workstreams occupied. Revenue/Conversion is occupied by #5540 / PR #5544 for the Sleep + ADHD decision-routing upgrade. The previously listed #5237 / PR #5513 and #5026 / PR #5511 are merged or closed and no longer occupy WIP. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -53,9 +53,9 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| Revenue/Conversion | #5540 | Lane 4 | In review | Upgrade the canonical Sleep + ADHD guide with pattern-first decision routing, explicit breathing red-flag evaluation, and contextual melatonin/iron evidence links without turning it into a supplement recommendation page. |
+| Revenue/Conversion | #5540 / PR #5544 | Lane 4 | In review | Upgrade the canonical Sleep + ADHD guide with pattern-first decision routing, explicit breathing red-flag evaluation, and contextual melatonin/iron evidence links without turning it into a supplement recommendation page. |
 
-- **Revenue/Conversion:** occupied by #5540 on an exact-current-main restage.
+- **Revenue/Conversion:** occupied by #5540 / PR #5544 on an exact-current-main restage.
 - **Authority/Content:** free after fresh GitHub reconciliation.
 - **Discovery/SEO:** free after fresh GitHub reconciliation.
 
@@ -71,7 +71,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 |---:|---|---|---|---|
 | — | None | — | No candidate admitted | Reconcile fresh GitHub state after #5488 completes; do not recycle completed #5076, stale PR #5430, or superseded PR #5491 into active Revenue/Conversion work. |
 
-Revenue/Conversion is occupied by #5540. Authority/Content and Discovery/SEO are free. No stale item is promoted merely to fill a slot; any future admission still requires current evidence and this queue.
+Revenue/Conversion is occupied by #5540 / PR #5544. Authority/Content and Discovery/SEO are free. No stale item is promoted merely to fill a slot; any future admission still requires current evidence and this queue.
 
 ## Control hardening — merged implementation, observed use still gated
 
@@ -96,7 +96,7 @@ Revenue/Conversion is occupied by #5540. Authority/Content and Discovery/SEO are
 
 Promote only after checking overlap, current exact-main state, source freshness, and the canonical governor/lease/provenance contract.
 
-No fallback ticket is currently promoted. #5076, #4532 / PR #5510, #5237 / PR #5513, and #5026 / PR #5511 are completed or retired. #5540 owns Revenue/Conversion.
+No fallback ticket is currently promoted. #5076, #4532 / PR #5510, #5237 / PR #5513, and #5026 / PR #5511 are completed or retired. #5540 / PR #5544 owns Revenue/Conversion.
 
 ## Sprint exit conditions
 
