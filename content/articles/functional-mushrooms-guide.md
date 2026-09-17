@@ -3,7 +3,7 @@ slug: functional-mushrooms-guide
 title: "Functional Mushrooms Guide: Reishi, Cordyceps, Chaga & Turkey Tail"
 description: "Evidence-based comparison of reishi, cordyceps, chaga, and turkey tail mushrooms. Covers benefits, mechanisms, dosage, quality markers, and how to choose supplements."
 date: '2026-06-30'
-updatedAt: '2026-09-17'
+updatedAt: '2026-07-05'
 author: Will
 category: Cognitive health
 keywords:
@@ -119,8 +119,6 @@ A woody conk that grows on birch trees, with the highest ORAC (antioxidant) scor
 | **Beta-glucan content** | Tested and disclosed (>20% is quality) | "Polysaccharides" without beta-glucan specification |
 | **Extraction method** | Hot water (beta-glucans) + alcohol (triterpenes) for Reishi and Chaga | Single extraction for triterpene-containing mushrooms |
 | **Third-party testing** | Heavy metals, contaminants, identity verified | No testing — mushrooms bioaccumulate heavy metals |
-
-For a worked example of why formulation detail matters, see the [Mushroom Coffee evidence review](/articles/mushroom-coffee-benefits-review/), which separates coffee/caffeine effects from mushroom-specific evidence and explains why extract-level findings do not automatically transfer to finished beverage blends.
 
 ---
 
