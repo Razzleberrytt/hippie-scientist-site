@@ -116,6 +116,13 @@ export default function LionsManePage() {
         <p className="text-lg leading-8 text-muted">
           Lion&apos;s mane (<em>Hericium erinaceus</em>) has compelling neurobiology and a small human cognition literature. The problem is translation: cell and animal findings about NGF, erinacines, and hericenones are often turned into strong claims about retail powders, healthy-young-adult focus, “brain repair,” and fruiting-body superiority that human trials have not established.
         </p>
+        <div className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4 text-sm leading-7 text-muted">
+          <strong className="text-ink">Looking for the broader article-format evidence review?</strong>{' '}
+          The cited Lion&apos;s Mane evidence review keeps the study-by-study human findings, dose/form context, mechanisms, and limitations together in one reference page.{' '}
+          <Link href="/articles/lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide/" className="font-bold text-brand-800 hover:underline">
+            Open the full Lion&apos;s Mane evidence review →
+          </Link>
+        </div>
         <figure className="mt-6">
           <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
             <Image src="/images/guides/lions-mane.jpg" alt="Lion's mane mushroom on dark wood" width={1536} height={1024} priority className="h-auto w-full" />
