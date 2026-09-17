@@ -5,7 +5,7 @@
 **Updated:** 2026-09-17
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub reconciliation at `f6852fab06859c420783a2ed057cddfe9d82140d` on 2026-09-17 records 1/3 normal implementation workstreams occupied. Authority/Content is occupied by #5081 / PR #5554 for the governed Sage human-evidence and SAGE-718 identity closure. #5296 / PR #5552 and #5540 / PR #5544 are merged and no longer occupy Discovery/SEO or Revenue/Conversion. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP.
+**Current admission:** Live GitHub reconciliation at `f6852fab06859c420783a2ed057cddfe9d82140d` on 2026-09-17 records 1/3 normal implementation workstreams occupied. Authority/Content is occupied by #5081 for the governed Sage human-evidence and SAGE-718 identity closure. #5296 / PR #5552 and #5540 / PR #5544 are merged and no longer occupy Discovery/SEO or Revenue/Conversion. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -53,10 +53,10 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| Authority/Content | #5081 / PR #5554 | Lane 2 | Building | Close the Sage/SAGE-718 entity-resolution defect through the canonical governor; preserve human-study formulation, population, endpoint, null-result, safety, and dosing boundaries. |
+| Authority/Content | #5081 | Lane 2 | Building | Close the Sage/SAGE-718 entity-resolution defect through the canonical governor; preserve human-study formulation, population, endpoint, null-result, safety, and dosing boundaries. |
 
 - **Revenue/Conversion:** free after #5540 / PR #5544 merged.
-- **Authority/Content:** occupied by #5081 / PR #5554; a fresh exact-main governor lease is required before canonical evidence mutation.
+- **Authority/Content:** occupied by #5081; a fresh exact-main governor lease is required before canonical evidence mutation.
 - **Discovery/SEO:** free after #5296 / PR #5552 merged.
 
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
@@ -71,7 +71,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 |---:|---|---|---|---|
 | — | None | — | No candidate admitted | Reconcile fresh GitHub state after #5488 completes; do not recycle completed #5076, stale PR #5430, or superseded PR #5491 into active Revenue/Conversion work. |
 
-Authority/Content is occupied by #5081 / PR #5554. Discovery/SEO and Revenue/Conversion are free. No stale item is promoted merely to fill a slot; any future admission still requires current evidence and this queue.
+Authority/Content is occupied by #5081. Discovery/SEO and Revenue/Conversion are free. No stale item is promoted merely to fill a slot; any future admission still requires current evidence and this queue.
 
 ## Control hardening — merged implementation, observed use still gated
 
@@ -96,7 +96,7 @@ Authority/Content is occupied by #5081 / PR #5554. Discovery/SEO and Revenue/Con
 
 Promote only after checking overlap, current exact-main state, source freshness, and the canonical governor/lease/provenance contract.
 
-No fallback ticket is currently promoted. #5076, #4532 / PR #5510, #5237 / PR #5513, #5026 / PR #5511, #5296 / PR #5552, and #5540 / PR #5544 are completed or retired. #5081 / PR #5554 owns Authority/Content.
+No fallback ticket is currently promoted. #5076, #4532 / PR #5510, #5237 / PR #5513, #5026 / PR #5511, #5296 / PR #5552, and #5540 / PR #5544 are completed or retired. #5081 owns Authority/Content.
 
 ## Sprint exit conditions
 
