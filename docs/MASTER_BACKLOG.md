@@ -50,7 +50,7 @@ Live GitHub reconciliation at `f6852fab06859c420783a2ed057cddfe9d82140d` on 2026
 
 | Ticket | Title | Lane | Status |
 |---|---|---|---|
-| #5081 / PR #5556 | Close Sage human evidence and SAGE-718 identity contamination | A / L2 | Pending; no current governor lease, so acquire and merge a fresh non-overlapping lease before implementation |
+| — | No active implementation ticket | — | Observed WIP 0/3 |
 
 - **R — free:** #5540 / PR #5544 is merged.
 - **A — free:** #5081 / PR #5556 is the next candidate but does not occupy Authority/Content until a fresh non-overlapping governor lease exists.
@@ -79,6 +79,7 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 | AUTH-003 | Upgrade selected flagship decision page | A | Blocked | 117.2 | REV-003/REV-004 + evidence review |
 | REV-004 | Validate flagship disclosure/destinations | R | Blocked | 67.5 | REV-003 selected page |
 | AUTH-002 | Strengthen links to selected flagship | A | Blocked | 54.0 | REV-003 selected page |
+| #5081 / PR #5556 | Close Sage human evidence and SAGE-718 identity contamination | A/L2 | Blocked on fresh governor lease | — | Acquire and merge a fresh non-overlapping state-only governor lease, then move the ticket into `Now` before scientific implementation |
 | #4782 | Canonical bicarbonate → sodium-bicarbonate migration | A/O canonical | Blocked on real governor lease | — | After #4963 is merged, use the owner-authorized bridge to acquire and merge a valid state-only lease transaction before canonical owner migration |
 | #4783 | Resolve duplicate CoQ10 generated-data owners | A/O canonical | Blocked on real governor lease | — | After #4963 is merged, use the owner-authorized bridge to acquire and merge a valid state-only lease transaction before canonical owner/data migration |
 | #4014 | Enforce `main` branch protection/ruleset | O | Blocked external settings | — | Authorized repository settings action; documentation alone is not enforcement |
