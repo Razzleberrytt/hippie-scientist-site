@@ -8,18 +8,18 @@ import { buildTwitterMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Evidence Library — Supplements, Science & Mental Health',
-  description: 'One evidence library for guides, articles, and explainers covering ADHD, sleep, anxiety, focus, mental health, herbs, supplements, and research literacy.',
+  description: 'One evidence library for guides, articles, and explainers covering ADHD, sleep, anxiety, focus, mental health, substance use, harm reduction, herbs, supplements, and research literacy.',
   alternates: { canonical: `${SITE_URL}/guides/` },
   openGraph: {
     title: 'Evidence Library — The Hippie Scientist',
-    description: 'Browse citation-rich guides, mental health explainers, supplement comparisons, and science foundations in one organized library.',
+    description: 'Browse citation-rich guides, mental health explainers, substance-use and harm-reduction research, supplement comparisons, and science foundations in one organized library.',
     url: `${SITE_URL}/guides/`,
     type: 'website',
     images: ['/og-default.jpg'],
   },
   twitter: buildTwitterMetadata({
     title: 'Evidence Library — The Hippie Scientist',
-    description: 'Browse citation-rich guides, mental health explainers, supplement comparisons, and science foundations in one organized library.',
+    description: 'Browse citation-rich guides, mental health explainers, substance-use and harm-reduction research, supplement comparisons, and science foundations in one organized library.',
   }),
 }
 
@@ -28,6 +28,11 @@ const SECTIONS = [
     title: 'Mental Health',
     href: '/guides/mental-health/',
     desc: 'OCD, BPD, and every named DSM-5-TR personality disorder — citation-rich guides covering diagnosis, differential diagnosis, treatment, safety, and stigma.',
+  },
+  {
+    title: 'Substance Use & Harm Reduction',
+    href: '/guides/substance-use/',
+    desc: 'Dependence, withdrawal, overdose risk, kratom-derived opioids, tianeptine, emerging psychoactives, and harm-reduction evidence — with uncertainty kept explicit.',
   },
   {
     title: 'ADHD',
@@ -112,6 +117,30 @@ export default function LibraryHub() {
         secondaryHref="/safety-checker/"
         secondaryCta="Check interaction risk"
       />
+
+      <section className="grid gap-4 md:grid-cols-2" aria-label="Featured evidence hubs">
+        <Link href="/guides/sleep/best-natural-sleep-aids-that-work/" className="card-premium group p-6">
+          <p className="eyebrow-label">High-signal evidence guide</p>
+          <h2 className="mt-3 text-2xl font-semibold tracking-tight text-ink">Best Natural Sleep Aids That Work</h2>
+          <p className="mt-3 text-sm leading-6 text-muted">
+            A 22-source clinical ledger that separates chronic-insomnia treatment from supplement evidence and ranks melatonin, L-theanine, magnesium, ashwagandha, valerian, passionflower, and glycine conservatively.
+          </p>
+          <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand-700">
+            Read the sleep evidence guide <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+          </span>
+        </Link>
+
+        <Link href="/guides/substance-use/" className="card-premium group p-6">
+          <p className="eyebrow-label">New evidence cluster</p>
+          <h2 className="mt-3 text-2xl font-semibold tracking-tight text-ink">Substance Use, Dependence & Harm Reduction</h2>
+          <p className="mt-3 text-sm leading-6 text-muted">
+            One hub for mitragynine, 7-OH, MGM-15, mitragynine pseudoindoxyl, corynoxine B, tianeptine, withdrawal evidence, novel psychoactives, and risk-reduction research.
+          </p>
+          <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand-700">
+            Explore the substance-use evidence hub <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+          </span>
+        </Link>
+      </section>
 
       <section aria-labelledby="evidence-library-sections">
         <div className="max-w-3xl">
