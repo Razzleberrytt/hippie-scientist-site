@@ -193,7 +193,7 @@ export default function Page() {
         headline="Best Natural Sleep Aids That Work: Evidence & Safety"
         description="Evidence-ranked guide to natural sleep aids including melatonin, magnesium, L-theanine, valerian, passionflower, ashwagandha and glycine, with clinical guideline context."
         datePublished="2026-06-18"
-        dateModified="2026-08-22"
+        dateModified="2026-09-17"
         faqs={FAQS}
         breadcrumbs={[
           { label: 'Home', href: '/' },
@@ -212,7 +212,7 @@ export default function Page() {
           <p className="mt-2 text-xs text-muted">
             Written and edited by{' '}
             <Link href="/info/author/" rel="author" className="font-medium text-brand-700 hover:underline">Willie B. Randolph III</Link>
-            {' '}· Last updated August 22, 2026
+            {' '}· Last reviewed September 17, 2026
           </p>
           <p className="detail-reading mt-4 text-muted">
             The phrase <em>natural sleep aid</em> covers everything from circadian hormones to minerals,
@@ -286,6 +286,14 @@ export default function Page() {
             This table is intentionally conservative. “Evidence” reflects human sleep outcomes and guideline context — not
             mechanism, traditional use, popularity or how sedating a product feels. Reviews of complementary insomnia
             guidance consistently find that evidence quality varies widely across natural products.<Cite n={7} /><Cite n={8} />
+          </p>
+          <p className="text-sm text-muted">
+            <strong className="text-ink">How this ranking is built:</strong> human clinical outcomes and guideline context
+            carry more weight than mechanism, traditional use, popularity, or perceived sedation. Evidence certainty,
+            population fit, preparation match, and clinically meaningful outcomes are considered together.{' '}
+            <Link href="/info/methodology/" className="font-semibold text-brand-700 hover:underline">
+              Read the evidence-ranking methodology →
+            </Link>
           </p>
           <div className="overflow-x-auto rounded-2xl border border-brand-900/10">
             <table className="min-w-[760px] w-full text-left text-sm">
