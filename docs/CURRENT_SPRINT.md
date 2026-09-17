@@ -69,7 +69,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 | Order | Candidate | Workstream | Admission state | Proof required before implementation |
 |---:|---|---|---|---|
-| — | None | — | No candidate admitted | Reconcile fresh GitHub state after #5488 completes; do not recycle completed #5076, stale PR #5430, or superseded PR #5491 into active Revenue/Conversion work. |
+| 1 | #5081 | Authority/Content / L2 | Blocked — fresh governor lease required | Acquire and merge a non-overlapping lease bound to exact current main before any canonical Sage evidence mutation. |
 
 Authority/Content, Revenue/Conversion, and Discovery/SEO are free. #5081 / PR #5556 is the next Authority/Content candidate but remains blocked pending a fresh non-overlapping governor lease. No stale item is promoted merely to fill a slot; any future admission still requires current evidence and this queue.
 
