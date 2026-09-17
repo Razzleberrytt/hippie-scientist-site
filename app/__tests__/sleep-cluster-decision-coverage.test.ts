@@ -7,6 +7,13 @@ import { sleepCitationOverrides } from '@/data/article-citation-overrides-sleep'
 
 const ROOT = process.cwd()
 
+const PLACEHOLDER_DECISION_VALUE = /^(?:tbd|n\/?a|none|unknown|todo|to be determined|[-–—_.]{2,})$/i
+
+function isMeaningfulDecisionValue(value: string) {
+  const trimmed = value.trim()
+  return trimmed.length > 0 && !PLACEHOLDER_DECISION_VALUE.test(trimmed)
+}
+
 const ROOT_REGISTRY_SLEEP_SLUGS = [
   'sleep-debt-and-recovery',
   'daytime-sleepiness-vs-fatigue',
@@ -26,7 +33,7 @@ function assertDecisionMetadata(slug: string, override: typeof sleepCitationOver
 
   for (const row of override.decisionRows ?? []) {
     expect(row.label.trim().length, `${slug} decision row needs a label`).toBeGreaterThan(2)
-    expect(row.value.trim().length, `${slug} decision row needs a value`).toBeGreaterThan(2)
+    expect(isMeaningfulDecisionValue(row.value), `${slug} decision row needs a meaningful value`).toBe(true)
   }
 
   for (const faq of override.faqAnswers ?? []) {
@@ -44,6 +51,10 @@ function assertDecisionMetadata(slug: string, override: typeof sleepCitationOver
 }
 
 describe('sleep cluster decision coverage', () => {
+  it.each(['TBD', 'N/A', '---', 'unknown'])('rejects placeholder decision values: %s', (value) => {
+    expect(isMeaningfulDecisionValue(value)).toBe(false)
+  })
+
   it('keeps at least 60 modular sleep overrides plus the seven earlier root-registry pages', () => {
     const modularSlugs = Object.keys(sleepCitationOverrides)
 
