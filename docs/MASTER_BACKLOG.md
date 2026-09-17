@@ -46,17 +46,17 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Live GitHub reconciliation at `486b427f7d89f51f0c2ccde8937bf7c432799334` on 2026-09-17 shows **1/3 normal implementation workstreams occupied**:
+Live GitHub reconciliation at `f6852fab06859c420783a2ed057cddfe9d82140d` on 2026-09-17 shows **1/3 normal implementation workstreams occupied**:
 
 | Ticket | Title | Lane | Status |
 |---|---|---|---|
-| #5296 / PR #5552 | Repair sleep decision-value coverage contract | D / L3-L4 | Building on exact current main; preserve the 67-page and semantic coverage contracts |
+| #5081 / PR #5554 | Close Sage human evidence and SAGE-718 identity contamination | A / L2 | Building; canonical evidence mutation requires a fresh exact-main governor lease after admission merges |
 
 - **R — free:** #5540 / PR #5544 is merged.
-- **A — free:** the previously listed #5026 / PR #5511 is no longer open.
-- **D — active:** #5296 / PR #5552 removes only the arbitrary decision-value prose-length threshold while keeping coverage and semantic assertions.
+- **A — active:** #5081 / PR #5554 owns the Sage provenance closure; recommendation, monetization, indexing, and consumer-dose claims remain fail-closed.
+- **D — free:** #5296 / PR #5552 is merged.
 
-Research-only enrichment staging remains separate from canonical implementation/promotion WIP. Completed Vitamin B6, AI-citation protection, newsletter CTA repair, #5502 homepage hierarchy work, and merged #5505 homepage chrome work are retired below rather than recycled into the actionable queue. No stale item is admitted merely because a normal workstream is free.
+Research-only enrichment staging remains separate from canonical implementation/promotion WIP. Completed Vitamin B6, AI-citation protection, newsletter CTA repair, #5296 sleep-contract repair, #5502 homepage hierarchy work, and merged #5505 homepage chrome work are retired below rather than recycled into the actionable queue. No stale item is admitted merely because a normal workstream is free.
 
 ## Next — ordered dependency queue
 
@@ -102,6 +102,7 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
+| #5296 / PR #5552 | Merged as `f6852fab06859c420783a2ed057cddfe9d82140d`; the sleep decision contract accepts concise legitimate values while explicitly rejecting empty and placeholder values, preserving the 67-page coverage floor and all semantic/canonical routing checks. No scientific finding, evidence grade, indexability decision, or public recommendation changed. |
 | #5505 / PR #5506 | Merged as `90bf695bd4c7f1e006159078d26afd4869149cdd`; phone-homepage-only polish removes the floating scroll-to-top control, decorative goal arrows, comparison numbering, and repeated footer onboarding while preserving global/desktop behavior. Cloudflare production run #7308 is still in progress, so no production receipt is claimed yet. Traffic, engagement, conversion, ranking, and revenue effects remain `Unknown`. |
 | #5502 / PR #5504 | Merged and production-deployed as `99dd55269206e983c9d34bece0f358a9f932f270`; phone homepage hierarchy now uses one dark research anchor, compact goals, flattened comparison navigation, a supporting Research Standard section, and corrected footer spacing. Exact production receipt passed. Traffic, engagement, conversion, ranking, and revenue effects remain `Unknown`. |
 | #5031 / PR #5090 | Merged as `7b110d7a19c51e08de3d3b112ac36e96824bfd27`; explicit newsletter capture titles remove the duplicated `research` trust defect while preserving provider, tag, privacy, analytics and scientific boundaries. Exact-main deployment verification completed. Conversion lift remains `Unknown` until attributable observations exist. |
