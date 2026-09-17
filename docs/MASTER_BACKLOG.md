@@ -50,10 +50,10 @@ Live GitHub reconciliation at `f6852fab06859c420783a2ed057cddfe9d82140d` on 2026
 
 | Ticket | Title | Lane | Status |
 |---|---|---|---|
-| #5081 / PR #5554 | Close Sage human evidence and SAGE-718 identity contamination | A / L2 | Building; canonical evidence mutation requires a fresh exact-main governor lease after admission merges |
+| #5081 | Close Sage human evidence and SAGE-718 identity contamination | A / L2 | Building; canonical evidence mutation requires a fresh exact-main governor lease after admission merges |
 
 - **R — free:** #5540 / PR #5544 is merged.
-- **A — active:** #5081 / PR #5554 owns the Sage provenance closure; recommendation, monetization, indexing, and consumer-dose claims remain fail-closed.
+- **A — active:** #5081 owns the Sage provenance closure; recommendation, monetization, indexing, and consumer-dose claims remain fail-closed.
 - **D — free:** #5296 / PR #5552 is merged.
 
 Research-only enrichment staging remains separate from canonical implementation/promotion WIP. Completed Vitamin B6, AI-citation protection, newsletter CTA repair, #5296 sleep-contract repair, #5502 homepage hierarchy work, and merged #5505 homepage chrome work are retired below rather than recycled into the actionable queue. No stale item is admitted merely because a normal workstream is free.
