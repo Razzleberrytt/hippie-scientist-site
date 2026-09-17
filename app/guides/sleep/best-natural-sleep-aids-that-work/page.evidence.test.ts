@@ -46,7 +46,7 @@ describe('natural sleep aids evidence discipline', () => {
   })
 
   it('marks the current evidence update in structured data and visible copy', () => {
-    expect(source).toContain('dateModified="2026-08-22"')
-    expect(source).toContain('Last updated August 22, 2026')
+    expect(source).toContain('dateModified="2026-09-17"')
+    expect(source).toContain('Last reviewed September 17, 2026')
   })
 })
