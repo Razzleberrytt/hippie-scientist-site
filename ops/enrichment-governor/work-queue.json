@@ -1,20 +1,8 @@
 {
   "version": 1,
-  "leases": [
-    {
-      "id": "lease-5081-sage-closure-v8",
-      "owner": "site-swarm-lane-2",
-      "purpose": "Close Sage human evidence and SAGE-718 identity contamination from exact current main d9c517f36a088b879fb2adb41f4bafa3c877a9d7 after expired v7 reconciliation",
-      "files": [],
-      "entities": [
-        "herb:sage"
-      ],
-      "acquiredAt": "2026-09-16T23:12:31.062Z",
-      "expiresAt": "2026-09-17T00:42:31.062Z"
-    }
-  ],
+  "leases": [],
   "queued": [],
   "batched": [],
   "blocked": [],
-  "updatedAt": "2026-09-16T23:12:31.062Z"
+  "updatedAt": "2026-09-17T03:17:47.808Z"
 }
