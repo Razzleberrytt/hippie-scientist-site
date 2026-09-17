@@ -46,15 +46,15 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Live GitHub reconciliation at `486b427f7d89f51f0c2ccde8937bf7c432799334` on 2026-09-17 shows **1/3 normal implementation workstreams occupied**:
+Live GitHub reconciliation at `f6852fab06859c420783a2ed057cddfe9d82140d` on 2026-09-17 shows **0/3 normal implementation workstreams occupied**:
 
 | Ticket | Title | Lane | Status |
 |---|---|---|---|
-| #5296 / PR #5552 | Repair sleep decision-value coverage contract | D / L3-L4 | Building on exact current main; preserve the 67-page and semantic coverage contracts |
+| — | No active implementation ticket | — | Observed WIP 0/3 |
 
 - **R — free:** #5540 / PR #5544 is merged.
-- **A — free:** the previously listed #5026 / PR #5511 is no longer open.
-- **D — active:** #5296 / PR #5552 removes only the arbitrary decision-value prose-length threshold while keeping coverage and semantic assertions.
+- **A — free:** #5081 / PR #5556 is the next candidate but does not occupy Authority/Content until a fresh non-overlapping governor lease exists.
+- **D — free:** #5296 / PR #5552 is merged.
 
 Research-only enrichment staging remains separate from canonical implementation/promotion WIP. Completed Vitamin B6, AI-citation protection, newsletter CTA repair, #5502 homepage hierarchy work, and merged #5505 homepage chrome work are retired below rather than recycled into the actionable queue. No stale item is admitted merely because a normal workstream is free.
 
@@ -65,6 +65,7 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
 | #5076 | Add reusable post-answer sleep research next-action path | R conversion / L4 | Completed 2026-09-04; retired from actionable queue | — | — | Canonical component plus three representative integrations are on `main`; stale fourth-integration PR #5430 closed | Outcomes remain `Unknown`; any further page integration requires a fresh admitted ticket |
+| #5081 | Close Sage human evidence and SAGE-718 identity contamination | A / L2 | Blocked — fresh governor lease required | P1 | — | — | Exact current main + no overlapping lease | Acquire and merge a non-overlapping governor lease before canonical evidence mutation; preserve formulation, population, endpoint, null-result, safety, and dosing boundaries |
 | DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous reconciliation maintenance | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
 
 ## Blocked — important but not startable
@@ -79,6 +80,7 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 | AUTH-003 | Upgrade selected flagship decision page | A | Blocked | 117.2 | REV-003/REV-004 + evidence review |
 | REV-004 | Validate flagship disclosure/destinations | R | Blocked | 67.5 | REV-003 selected page |
 | AUTH-002 | Strengthen links to selected flagship | A | Blocked | 54.0 | REV-003 selected page |
+| #5081 / PR #5556 | Close Sage human evidence and SAGE-718 identity contamination | A/L2 | Blocked on fresh governor lease | — | Acquire and merge a fresh non-overlapping state-only governor lease, then move the ticket into `Now` before scientific implementation |
 | #4782 | Canonical bicarbonate → sodium-bicarbonate migration | A/O canonical | Blocked on real governor lease | — | After #4963 is merged, use the owner-authorized bridge to acquire and merge a valid state-only lease transaction before canonical owner migration |
 | #4783 | Resolve duplicate CoQ10 generated-data owners | A/O canonical | Blocked on real governor lease | — | After #4963 is merged, use the owner-authorized bridge to acquire and merge a valid state-only lease transaction before canonical owner/data migration |
 | #4014 | Enforce `main` branch protection/ruleset | O | Blocked external settings | — | Authorized repository settings action; documentation alone is not enforcement |
