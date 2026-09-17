@@ -5,7 +5,7 @@
 **Updated:** 2026-09-17
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub reconciliation at `486b427f7d89f51f0c2ccde8937bf7c432799334` on 2026-09-17 records 1/3 normal implementation workstreams occupied. Discovery/SEO is occupied by #5296 / PR #5552 for the remaining sleep-cluster decision-value contract repair. #5540 / PR #5544 is merged and no longer occupies Revenue/Conversion. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP.
+**Current admission:** Live GitHub reconciliation at `f6852fab06859c420783a2ed057cddfe9d82140d` on 2026-09-17 records 1/3 normal implementation workstreams occupied. Authority/Content is occupied by #5081 / PR #5554 for the governed Sage human-evidence and SAGE-718 identity closure. #5296 / PR #5552 and #5540 / PR #5544 are merged and no longer occupy Discovery/SEO or Revenue/Conversion. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -53,11 +53,11 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| Discovery/SEO | #5296 / PR #5552 | Lane 3/4 | Building | Remove the arbitrary 40-character sleep decision-value threshold while preserving the 67-page coverage floor, required labels, curated relationships, canonical concepts, FAQ substance, canonical files, and hub routing. |
+| Authority/Content | #5081 / PR #5554 | Lane 2 | Building | Close the Sage/SAGE-718 entity-resolution defect through the canonical governor; preserve human-study formulation, population, endpoint, null-result, safety, and dosing boundaries. |
 
 - **Revenue/Conversion:** free after #5540 / PR #5544 merged.
-- **Authority/Content:** free after fresh GitHub reconciliation.
-- **Discovery/SEO:** occupied by #5296 / PR #5552 on exact current main.
+- **Authority/Content:** occupied by #5081 / PR #5554; a fresh exact-main governor lease is required before canonical evidence mutation.
+- **Discovery/SEO:** free after #5296 / PR #5552 merged.
 
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
 
@@ -71,7 +71,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 |---:|---|---|---|---|
 | — | None | — | No candidate admitted | Reconcile fresh GitHub state after #5488 completes; do not recycle completed #5076, stale PR #5430, or superseded PR #5491 into active Revenue/Conversion work. |
 
-Discovery/SEO is occupied by #5296 / PR #5552. Revenue/Conversion and Authority/Content are free. No stale item is promoted merely to fill a slot; any future admission still requires current evidence and this queue.
+Authority/Content is occupied by #5081 / PR #5554. Discovery/SEO and Revenue/Conversion are free. No stale item is promoted merely to fill a slot; any future admission still requires current evidence and this queue.
 
 ## Control hardening — merged implementation, observed use still gated
 
@@ -96,7 +96,7 @@ Discovery/SEO is occupied by #5296 / PR #5552. Revenue/Conversion and Authority/
 
 Promote only after checking overlap, current exact-main state, source freshness, and the canonical governor/lease/provenance contract.
 
-No fallback ticket is currently promoted. #5076, #4532 / PR #5510, #5237 / PR #5513, #5026 / PR #5511, and #5540 / PR #5544 are completed or retired. #5296 / PR #5552 owns Discovery/SEO.
+No fallback ticket is currently promoted. #5076, #4532 / PR #5510, #5237 / PR #5513, #5026 / PR #5511, #5296 / PR #5552, and #5540 / PR #5544 are completed or retired. #5081 / PR #5554 owns Authority/Content.
 
 ## Sprint exit conditions
 
@@ -117,6 +117,7 @@ The sprint exits only when all of the following are true or have a precise exter
 
 ## Recently retired from this sprint
 
+- **#5296 / PR #5552:** merged as `f6852fab06859c420783a2ed057cddfe9d82140d`; the sleep decision contract now accepts concise legitimate values while explicitly rejecting empty and placeholder values, preserving the 67-page coverage floor, curated relationships, concepts, FAQs, canonical files, and hub routing. No scientific finding, evidence grade, indexability decision, or public recommendation changed.
 - **#5505 / PR #5506:** merged as `90bf695bd4c7f1e006159078d26afd4869149cdd`; phone-homepage-only polish removes the floating scroll-to-top control, decorative goal arrows, comparison numbering, and repeated footer onboarding while preserving global/desktop behavior. Production run #7308 is still in progress, so no production receipt is claimed yet. Traffic, engagement, conversion, and revenue effects remain `Unknown`.
 - **#5502 / PR #5504:** merged and production-deployed as `99dd55269206e983c9d34bece0f358a9f932f270`; phone homepage hierarchy now uses one dark research anchor, compact goals, flattened comparison navigation, a supporting Research Standard section, and corrected footer spacing. Exact production receipt verified. Traffic, engagement, conversion, and revenue effects remain `Unknown`.
 - **#5031 / PR #5090:** merged as `7b110d7a19c51e08de3d3b112ac36e96824bfd27`; explicit newsletter capture titles remove the duplicated `research` trust defect while preserving provider, tag, privacy, analytics and scientific boundaries. Exact-main deployment verification completed. Conversion lift remains `Unknown` until attributable observations exist.
