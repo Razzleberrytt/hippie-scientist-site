@@ -50,11 +50,11 @@ Live GitHub reconciliation at `486b427f7d89f51f0c2ccde8937bf7c432799334` on 2026
 
 | Ticket | Title | Lane | Status |
 |---|---|---|---|
-| #5296 / PR pending | Repair sleep decision-value coverage contract | D / L3-L4 | Building on exact current main; preserve the 67-page and semantic coverage contracts |
+| #5296 / PR #5552 | Repair sleep decision-value coverage contract | D / L3-L4 | Building on exact current main; preserve the 67-page and semantic coverage contracts |
 
 - **R — free:** #5540 / PR #5544 is merged.
 - **A — free:** the previously listed #5026 / PR #5511 is no longer open.
-- **D — active:** #5296 / PR pending removes only the arbitrary decision-value prose-length threshold while keeping coverage and semantic assertions.
+- **D — active:** #5296 / PR #5552 removes only the arbitrary decision-value prose-length threshold while keeping coverage and semantic assertions.
 
 Research-only enrichment staging remains separate from canonical implementation/promotion WIP. Completed Vitamin B6, AI-citation protection, newsletter CTA repair, #5502 homepage hierarchy work, and merged #5505 homepage chrome work are retired below rather than recycled into the actionable queue. No stale item is admitted merely because a normal workstream is free.
 
