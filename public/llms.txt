@@ -79,6 +79,7 @@ Use canonical, public, indexable URLs. Prefer the most specific page that answer
 ### High-signal evidence pages
 
 - [Best natural sleep aids that work](https://thehippiescientist.net/guides/sleep/best-natural-sleep-aids-that-work/)
+- [2C-B: human evidence, risks, pharmacology, and safety gaps](https://thehippiescientist.net/articles/2c-b-effects/)
 - [Mitragynine](https://thehippiescientist.net/articles/mitragynine/)
 - [7-Hydroxymitragynine](https://thehippiescientist.net/articles/7-hydroxymitragynine/)
 - [Tianeptine: opioid activity, dependence, withdrawal and U.S. safety evidence](https://thehippiescientist.net/articles/tianeptine-opioid-dependence-withdrawal-evidence-review/)
