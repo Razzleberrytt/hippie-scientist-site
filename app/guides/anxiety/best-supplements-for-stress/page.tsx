@@ -13,7 +13,7 @@ import References from '@/components/References'
 import { buildTwitterMetadata } from '@/lib/seo'
 
 const PAGE_URL = `${SITE_URL}/guides/best/supplements-for-stress`
-const DATE = '2026-08-22'
+const DATE = '2026-09-17'
 
 export const metadata: Metadata = {
   title: 'Best Supplements for Stress: Evidence-Ranked Guide (2026)',
@@ -144,7 +144,7 @@ export default function BestSupplementsForStressPage() {
         <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
           <p className="eyebrow-label">Stress evidence guide · 18-source clinical ledger</p>
           <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Best Supplements for Stress: What the Evidence Actually Supports</h1>
-          <p className="mt-2 text-xs text-muted">Last evidence review August 22, 2026</p>
+          <p className="mt-2 text-xs text-muted">Last evidence review September 17, 2026</p>
           <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
             “Stress” is a broad word. Trials measure perceived stress, anxiety symptoms, fatigue, cortisol, sleep and performance under load — outcomes that are related but not interchangeable. This guide ranks supplements by how directly the human evidence matches <em>stress</em>, and it includes negative studies so a popular ingredient does not rise simply because positive trials are easier to quote.
           </p>
@@ -172,6 +172,14 @@ export default function BestSupplementsForStressPage() {
         <section id="ranking" className="scroll-mt-20 space-y-4">
           <p className="eyebrow-label">Directness before hype</p>
           <h2 className="text-2xl font-semibold text-ink">Evidence-ranked stress supplement comparison</h2>
+          <p className="text-sm leading-7 text-muted">
+            <strong className="text-ink">How this ranking is built:</strong> direct human stress outcomes carry more weight
+            than adjacent anxiety or sleep outcomes, mechanistic plausibility, popularity, or how noticeable an ingredient
+            feels. Evidence certainty, population fit, preparation match, negative trials, and safety are considered together.{' '}
+            <Link href="/info/methodology/" className="font-semibold text-brand-700 hover:underline">
+              Read the evidence-ranking methodology →
+            </Link>
+          </p>
           <div className="overflow-x-auto rounded-[1.65rem] border border-brand-900/10 bg-white shadow-sm">
             <table className="min-w-[940px] w-full text-sm">
               <thead className="border-b border-brand-900/10 bg-brand-50/50"><tr><th className="p-4 text-left font-semibold text-ink">Option</th><th className="p-4 text-left font-semibold text-ink">Direct human evidence</th><th className="p-4 text-left font-semibold text-ink">Main limitation</th><th className="p-4 text-left font-semibold text-ink">Verdict</th></tr></thead>
