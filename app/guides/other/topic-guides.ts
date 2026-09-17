@@ -44,7 +44,7 @@ export const TOPIC_GUIDE_GROUPS: TopicGuideGroup[] = [
       { href: '/guides/other/creatine-brain-health/', title: 'Creatine for Brain Health', desc: 'Look beyond sports use to cognition, fatigue, and sleep-deprivation research.' },
       { href: '/guides/other/functional-mushrooms-guide/', title: 'Functional Mushrooms Compared', desc: 'Compare lion’s mane, reishi, cordyceps, and other mushroom categories.' },
       { href: '/guides/other/greens-powders/', title: 'Greens Powders', desc: 'Assess nutrient-filling evidence and the limits of broad wellness claims.' },
-      { href: '/articles/lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide/', title: 'Lion’s Mane Mushroom', desc: 'Read the full evidence review on cognition, mood, mechanisms, study-dose context, and key limitations.' },
+      { href: '/guides/other/lions-mane-guide/', title: 'Lion’s Mane Mushroom', desc: 'Review cognition, mood, mechanism, dosing, and evidence limitations.' },
       { href: '/guides/other/prebiotics/', title: 'Prebiotics', desc: 'Compare supplemental fibers with food sources and goal-specific evidence.' },
       { href: '/guides/other/probiotic-strains-guide/', title: 'Probiotic Strains', desc: 'Choose by strain and use case instead of relying on CFU count alone.' },
     ],
