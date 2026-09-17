@@ -182,6 +182,8 @@ For herbs, useful details can include the **Latin binomial, plant part, extract 
 
 For mushroom products, beta-glucan testing, species identity, fruiting-body versus mycelium composition, extraction method and substrate information can all be useful depending on the product and the claim. There is **no universal beta-glucan percentage or “dual-extracted” label that by itself proves clinical quality or effectiveness**. The right question is whether the measured composition and preparation match the evidence being cited.
 
+The [Mushroom Coffee evidence review](/articles/mushroom-coffee-benefits-review/) is a concrete example of this evidence-matching problem: caffeine effects, mushroom-species evidence, extract form, disclosed amounts, and the finished beverage are separate layers and should not be treated as interchangeable.
+
 ## Buying Online: Verify the Product, Not Just the Platform
 
 There is no defensible rule that every supplement from one large marketplace is unsafe or that buying directly from a manufacturer automatically makes a product safe.
