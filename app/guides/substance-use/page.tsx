@@ -1,26 +1,38 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import JsonLd from '@/components/seo/JsonLd'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import { SITE_URL } from '@/lib/navigation-config'
-import { buildTwitterMetadata } from '@/lib/seo'
+import {
+  breadcrumbJsonLd,
+  buildTwitterMetadata,
+  canonicalUrl,
+  collectionPageJsonLd,
+  itemListJsonLd,
+} from '@/lib/seo'
+
+const HUB_PATH = '/guides/substance-use'
+const HUB_TITLE = 'Substance Use, Dependence & Harm Reduction — Evidence Hub'
+const HUB_DESCRIPTION =
+  'Evidence-based guides on dependence, withdrawal, overdose risk, kratom-derived opioids, tianeptine, novel psychoactive substances, and harm-reduction research.'
+const REVIEW_DATE = '2026-09-17'
 
 export const metadata: Metadata = {
-  title: 'Substance Use, Dependence & Harm Reduction — Evidence Hub',
-  description:
-    'Evidence-based guides on dependence, withdrawal, overdose risk, kratom-derived opioids, tianeptine, novel psychoactive substances, and harm-reduction research.',
-  alternates: { canonical: `${SITE_URL}/guides/substance-use/` },
+  title: HUB_TITLE,
+  description: HUB_DESCRIPTION,
+  alternates: { canonical: `${SITE_URL}${HUB_PATH}/` },
   openGraph: {
-    title: 'Substance Use, Dependence & Harm Reduction — Evidence Hub',
+    title: HUB_TITLE,
     description:
-      'Research-first coverage of dependence, withdrawal, overdose risk, emerging opioids, kratom alkaloids, tianeptine, and harm reduction.',
-    url: `${SITE_URL}/guides/substance-use/`,
+      'Research-first coverage of dependence, withdrawal, overdose risk, emerging opioids, kratom alkaloids, tianeptine, psychedelics, and harm reduction.',
+    url: `${SITE_URL}${HUB_PATH}/`,
     type: 'website',
     images: ['/og-default.jpg'],
   },
   twitter: buildTwitterMetadata({
-    title: 'Substance Use, Dependence & Harm Reduction — Evidence Hub',
+    title: HUB_TITLE,
     description:
-      'Research-first coverage of dependence, withdrawal, overdose risk, emerging opioids, kratom alkaloids, tianeptine, and harm reduction.',
+      'Research-first coverage of dependence, withdrawal, overdose risk, emerging opioids, kratom alkaloids, tianeptine, psychedelics, and harm reduction.',
   }),
 }
 
@@ -83,7 +95,12 @@ const DEPENDENCE = [
   },
 ]
 
-const NOVEL = [
+const EMERGING = [
+  {
+    href: '/articles/2c-b-effects/',
+    title: '2C-B: Human Evidence, Risks & Pharmacology',
+    desc: 'Controlled human studies, toxicology, product-identity uncertainty, and severe-case evidence without dosing or use-optimization instructions.',
+  },
   {
     href: '/novel-psychoactive-substances/',
     title: 'Novel Psychoactive Substances',
@@ -101,6 +118,8 @@ const NOVEL = [
   },
 ]
 
+const HUB_ITEMS = [...START_HERE, ...KRATOM_CLUSTER, ...DEPENDENCE, ...EMERGING]
+
 function Card({ href, title, desc }: { href: string; title: string; desc: string }) {
   return (
     <Link href={href} className="card-premium group flex h-full flex-col p-5 sm:p-6">
@@ -112,8 +131,39 @@ function Card({ href, title, desc }: { href: string; title: string; desc: string
 }
 
 export default function SubstanceUseHub() {
+  const hubUrl = canonicalUrl(HUB_PATH)
+  const breadcrumbId = `${hubUrl}#breadcrumb`
+  const itemListId = `${hubUrl}#evidence-list`
+  const collectionId = `${hubUrl}#collection`
+  const breadcrumbLd = breadcrumbJsonLd([
+    { name: 'Evidence Library', url: canonicalUrl('/guides') },
+    { name: 'Substance Use & Harm Reduction', url: hubUrl },
+  ], { id: breadcrumbId })
+  const itemListLd = itemListJsonLd({
+    id: itemListId,
+    name: 'Substance Use, Dependence & Harm Reduction Evidence Resources',
+    path: HUB_PATH,
+    items: HUB_ITEMS.map((item) => ({ name: item.title, url: item.href })),
+  })
+  const collectionLd = {
+    ...collectionPageJsonLd({
+      title: HUB_TITLE,
+      description: HUB_DESCRIPTION,
+      path: HUB_PATH,
+      itemListId,
+      breadcrumbId,
+    }),
+    '@id': collectionId,
+    inLanguage: 'en-US',
+    dateModified: REVIEW_DATE,
+  }
+
   return (
     <div className="mx-auto max-w-6xl space-y-10 px-4 pb-24 pt-6 sm:px-6">
+      <JsonLd schema={collectionLd} />
+      <JsonLd schema={itemListLd} />
+      <JsonLd schema={breadcrumbLd} />
+
       <Breadcrumbs
         items={[
           { href: '/', label: 'Home' },
@@ -183,13 +233,13 @@ export default function SubstanceUseHub() {
       <section className="space-y-4">
         <div className="max-w-3xl">
           <p className="eyebrow-label">Research frontier</p>
-          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink">Novel and poorly characterized substances</h2>
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink">Psychedelics, novel and poorly characterized substances</h2>
           <p className="mt-3 text-muted">
-            These pages are most useful when the market is moving faster than the clinical literature. A thin evidence base is shown as a limitation, not filled with confident guesses.
+            This collection separates compounds with controlled human evidence, such as 2C-B, from substances whose markets are moving faster than the clinical literature. Thin evidence is shown as a limitation rather than filled with confident guesses.
           </p>
         </div>
-        <div className="grid gap-4 md:grid-cols-3">
-          {NOVEL.map((item) => <Card key={item.href} {...item} />)}
+        <div className="grid gap-4 md:grid-cols-2">
+          {EMERGING.map((item) => <Card key={item.href} {...item} />)}
         </div>
       </section>
 
@@ -199,7 +249,7 @@ export default function SubstanceUseHub() {
         <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
             ['Pharmacology', 'What receptors or pathways does the compound affect, and at what concentration?'],
-            ['Exposure', 'Do real human doses and blood levels reach the range implied by laboratory assays?'],
+            ['Exposure', 'Do real human exposures and blood levels reach the range implied by laboratory assays?'],
             ['Dependence', 'Are tolerance, withdrawal, compulsive use, or loss of control documented in humans?'],
             ['Treatment', 'Is there actual clinical evidence for managing toxicity or withdrawal, rather than an anecdote repeated as a protocol?'],
           ].map(([title, text]) => (
