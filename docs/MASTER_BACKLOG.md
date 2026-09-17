@@ -65,6 +65,7 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
 | #5076 | Add reusable post-answer sleep research next-action path | R conversion / L4 | Completed 2026-09-04; retired from actionable queue | — | — | Canonical component plus three representative integrations are on `main`; stale fourth-integration PR #5430 closed | Outcomes remain `Unknown`; any further page integration requires a fresh admitted ticket |
+| #5081 | Close Sage human evidence and SAGE-718 identity contamination | A / L2 | Blocked — fresh governor lease required | P1 | — | — | Exact current main + no overlapping lease | Acquire and merge a non-overlapping governor lease before canonical evidence mutation; preserve formulation, population, endpoint, null-result, safety, and dosing boundaries |
 | DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous reconciliation maintenance | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
 
 ## Blocked — important but not startable
