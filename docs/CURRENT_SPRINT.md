@@ -5,7 +5,7 @@
 **Updated:** 2026-09-18
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub reconciliation at `136bd04173a2790be0a175b26c5dd4b884b16958` on 2026-09-18 records **3/3 normal implementation workstreams occupied**: #5610 owns Discovery/SEO, #5611 owns Revenue/Conversion, and #5612 owns Authority/Content. #5609 is closed after #5618 merged the controller/sentinel repair; #5608 is merged and retired. No P0 admission freeze remains.
+**Current admission:** Post-merge control target based on live GitHub reconciliation at `73a8f0a6edcc2ad1eb93410d47f478ed94e96b40` on 2026-09-18: #5611 and #5612 are closed via merged PRs #5622 and #5624; #5610 is implementation-complete in PR #5619 and retires when this branch lands. Resulting normal implementation WIP is **0/3**. No P0 admission freeze remains.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,21 +49,24 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — observed implementation WIP 3/3
+## Active / in review — post-merge implementation WIP 0/3
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| Discovery / SEO | #5610 | Razzleberrytt / swarm | Admitted / ready for implementation | Defend intent separation across cited magnesium sleep/general routes without disturbing refreshed citation-winning answer structures. |
-| Revenue / Conversion | #5611 | Razzleberrytt / swarm | Admitted / ready for implementation | Add one trust-preserving post-answer path to the cited protein powder guide, keeping answer/evidence/safety and disclosure ahead of any commercial next action. |
-| Authority / Content | #5612 | Razzleberrytt / swarm | Admitted / ready for implementation | Refresh valerian evidence/safety while protecting citation-winning identity, preparation/population boundaries, contradictions, interactions, pregnancy and long-term uncertainty. |
+| — | None | — | — | No normal implementation ticket remains active after #5619 lands. |
 
-- **Discovery/SEO:** occupied by #5610.
-- **Revenue/Conversion:** occupied by #5611.
-- **Authority/Content:** occupied by #5612. #5081 remains separately blocked pending a fresh non-overlapping governor lease.
+- **Discovery/SEO:** #5610 implementation completed by PR #5619; retire on this merge.
+- **Revenue/Conversion:** #5611 completed by merged PR #5622.
+- **Authority/Content:** #5612 completed by merged PR #5624. #5081 remains separately blocked pending a fresh non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
-- **Recently retired:** #5608 merged and released Authority/Content before #5612 admission.
 
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
+
+### Recently completed refill cycle
+
+- **#5610 / PR #5619 — Discovery/SEO:** reciprocal magnesium general-vs-sleep intent routing plus sleep-shortlist handoff; completion becomes authoritative when this PR merges.
+- **#5611 / PR #5622 — Revenue/Conversion:** merged; one trust-preserving protein post-answer action on the shared next-action shell.
+- **#5612 / PR #5624 — Authority/Content:** merged; valerian evidence/safety refresh preserving monotherapy, null-outcome, preparation and safety boundaries.
 
 ## Ready next — strict dependency order
 
