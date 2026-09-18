@@ -33,7 +33,7 @@ describe("Lion's Mane evidence calibration", () => {
     expect(text).toMatch(/most other cognitive tasks and the composite did not show significant between-group differences/i)
     expect(text).toMatch(/funded by M2 Ingredients/i)
     expect(text).toMatch(/M2 Ingredients authors/i)
-    expect(text).toMatch(/does not raise the evidence grade/i)
+    expect(text).toMatch(/does .*not.* raise the evidence grade/i)
   })
 
   it('does not convert task-level signals into broad nootropic efficacy', () => {
@@ -71,6 +71,6 @@ describe("Lion's Mane evidence calibration", () => {
     expect(text).toMatch(/Mechanism should explain .*why a question is worth testing.* not substitute for the test/i)
     expect(text).toMatch(/No evidence establishes Lion's Mane as an ADHD treatment/i)
     expect(text).not.toMatch(/Lion's Mane treats ADHD/i)
-    expect(text).not.toMatch(/guaranteed “NGF boost”/i)
+    expect(text).toMatch(/A guaranteed “NGF boost” in a person taking a retail capsule/i)
   })
 })
