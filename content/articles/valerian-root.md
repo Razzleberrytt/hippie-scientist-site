@@ -185,9 +185,9 @@ This is the kind of result that makes valerian worth studying better—not the k
 
 ### 2025 update: a valerian–hops feasibility trial does not answer the valerian-alone question
 
-A 2025 randomized double-blind feasibility trial tested **Ze 91019, a fixed valerian–hops combination**, in 40 people with occasional sleep problems for 21 days. Exploratory analyses found about 22 minutes more nightly sleep versus placebo, and the product was reported as well tolerated. ([PubMed](https://pubmed.ncbi.nlm.nih.gov/40462685/))
+A 2025 randomized double-blind feasibility trial tested **Ze 91019, a fixed valerian–hops combination**, in 40 people with occasional sleep problems for 21 days. Exploratory **Fitbit-derived sleep-duration estimates** averaged about 22 minutes more nightly sleep versus placebo. The daytime cognitive and psychological outcomes assessed in the trial did **not** differ significantly between groups, and the product was reported as well tolerated. ([PubMed](https://pubmed.ncbi.nlm.nih.gov/40462685/))
 
-That result should **not** be counted as a positive valerian-monotherapy trial. Hops is an active co-ingredient, the study was explicitly framed as a feasibility trial, and the product was funded by Max Zeller Söhne AG, with company-affiliated authors. It is useful combination-specific evidence, but it does not change the class-wide valerian verdict or justify inferring that valerian alone produced the effect.
+That result should **not** be counted as a positive valerian-monotherapy trial. The favorable sleep-duration result was wearable-derived rather than a polysomnographic endpoint, the daytime cognitive/psychological domains were null, hops is an active co-ingredient, and the study was explicitly framed as a feasibility trial. The product was funded by Max Zeller Söhne AG, with company-affiliated authors. It is useful combination-specific evidence, but it does not change the class-wide valerian verdict or justify inferring that valerian alone produced the effect.
 
 ---
 
@@ -400,7 +400,7 @@ The best current top-level synthesis says **no demonstrated insomnia-treatment e
 
 Yes. A randomized placebo-controlled trial of one standardized valerian extract reported improvements in subjective sleep quality, actigraphy measures and some polysomnography outcomes. That is encouraging product-specific evidence, but it does not erase the larger heterogeneous literature. ([PubMed](https://pubmed.ncbi.nlm.nih.gov/37899385/))
 
-A 2025 feasibility trial also reported longer sleep with a fixed valerian–hops product, but that combination study cannot establish valerian-alone efficacy and does not change the monotherapy evidence grade. ([PubMed](https://pubmed.ncbi.nlm.nih.gov/40462685/))
+A 2025 feasibility trial also reported longer **Fitbit-estimated** sleep duration with a fixed valerian–hops product, while the assessed daytime cognitive and psychological outcomes were not significantly different from placebo. That combination study cannot establish valerian-alone efficacy and does not change the monotherapy evidence grade. ([PubMed](https://pubmed.ncbi.nlm.nih.gov/40462685/))
 
 ### How long does valerian take to work?
 
