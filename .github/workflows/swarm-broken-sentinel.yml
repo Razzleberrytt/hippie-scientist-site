@@ -126,28 +126,28 @@ jobs:
           recovery_url=''
           recovery_conclusion=''
           for _ in $(seq 1 24); do
-            run_json="$(gh api "repos/$REPO/actions/runs?per_page=100" | jq -c --arg started "$dispatch_started_at" '
+            runs_json="$(gh api "repos/$REPO/actions/runs?per_page=100" | jq -c --arg started "$dispatch_started_at" '
               [.workflow_runs[] | select(
                 .name == "Autonomous merge controller" and
-                .event == "workflow_dispatch" and
+                (.event == "workflow_dispatch" or .event == "workflow_run") and
                 .head_branch == "main" and
                 .created_at >= $started
               )]
               | sort_by(.created_at)
-              | last // empty
             ')"
 
+            success_json="$(printf '%s' "$runs_json" | jq -c '[.[] | select(.status == "completed" and .conclusion == "success")] | last // empty')"
+            if [ -n "$success_json" ]; then
+              recovery_url="$(printf '%s' "$success_json" | jq -r '.html_url')"
+              recovery_conclusion='success'
+              recovered=true
+              break
+            fi
+
+            run_json="$(printf '%s' "$runs_json" | jq -c 'last // empty')"
             if [ -n "$run_json" ]; then
               recovery_url="$(printf '%s' "$run_json" | jq -r '.html_url')"
-              status="$(printf '%s' "$run_json" | jq -r '.status')"
               recovery_conclusion="$(printf '%s' "$run_json" | jq -r '.conclusion // ""')"
-
-              if [ "$status" = 'completed' ]; then
-                if [ "$recovery_conclusion" = 'success' ]; then
-                  recovered=true
-                fi
-                break
-              fi
             fi
 
             sleep 5
