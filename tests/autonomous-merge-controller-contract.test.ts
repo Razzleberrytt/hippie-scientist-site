@@ -162,6 +162,7 @@ describe('autonomous merge controller contract', () => {
       'Production Content Lint',
       'Build Check',
       'Lighthouse CI',
+      'Research Distribution',
     ]) {
       expect(workflow).toContain(`- ${producer}`)
     }
