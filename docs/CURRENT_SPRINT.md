@@ -53,7 +53,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| — | None | — | — | No normal implementation ticket remains active after #5619 lands. |
+| — | None | — | — | No normal implementation ticket remains active after #5625 lands. |
 
 - **Discovery/SEO:** #5610 implementation completed by PR #5625; retire on this merge.
 - **Revenue/Conversion:** #5611 completed by merged PR #5622.
