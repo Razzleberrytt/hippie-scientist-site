@@ -13,7 +13,7 @@ import References from '@/components/References'
 import { buildTwitterMetadata } from '@/lib/seo'
 
 const PAGE_URL = `${SITE_URL}/guides/best/supplements-for-stress`
-const DATE = '2026-08-22'
+const DATE = '2026-09-17'
 
 export const metadata: Metadata = {
   title: 'Best Supplements for Stress: Evidence-Ranked Guide (2026)',
@@ -144,7 +144,7 @@ export default function BestSupplementsForStressPage() {
         <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
           <p className="eyebrow-label">Stress evidence guide · 18-source clinical ledger</p>
           <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Best Supplements for Stress: What the Evidence Actually Supports</h1>
-          <p className="mt-2 text-xs text-muted">Last evidence review August 22, 2026</p>
+          <p className="mt-2 text-xs text-muted">Last evidence review September 17, 2026</p>
           <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
             “Stress” is a broad word. Trials measure perceived stress, anxiety symptoms, fatigue, cortisol, sleep and performance under load — outcomes that are related but not interchangeable. This guide ranks supplements by how directly the human evidence matches <em>stress</em>, and it includes negative studies so a popular ingredient does not rise simply because positive trials are easier to quote.
           </p>
@@ -183,6 +183,14 @@ export default function BestSupplementsForStressPage() {
               </tbody>
             </table>
           </div>
+          <p className="text-sm leading-7 text-muted">
+            <strong className="text-ink">How this ranking is built:</strong> direct human stress outcomes carry more weight
+            than mechanism, popularity, or adjacent anxiety/sleep findings. Evidence quality, preparation match, population,
+            duration, negative studies, and safety all affect the ordering.{' '}
+            <Link href="/info/methodology/" className="font-semibold text-brand-700 hover:underline">
+              Read the evidence-ranking methodology →
+            </Link>
+          </p>
         </section>
 
         <section id="ashwagandha" className="scroll-mt-20 card-premium p-6 space-y-3">
