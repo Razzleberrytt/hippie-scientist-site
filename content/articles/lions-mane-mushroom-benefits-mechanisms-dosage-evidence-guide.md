@@ -3,7 +3,7 @@ slug: lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide
 title: "Lion's Mane Mushroom: Cognition, Mood, Dose & Evidence — 2026 Review"
 description: "Evidence-first 2026 review of Lion's Mane (Hericium erinaceus): small human cognition trials, newer null and mixed findings in healthy adults, product-form directness, preclinical NGF mechanisms, dosing uncertainty, and safety limits."
 date: '2026-06-08'
-updatedAt: '2026-08-15'
+updatedAt: '2026-09-18'
 author: Will
 category: Cognitive health
 evidence_grade: mixed-human-evidence
@@ -36,6 +36,16 @@ references:
     pmcid: "PMC12434001"
     doi: "10.3389/fnut.2025.1641246"
     url: "https://pubmed.ncbi.nlm.nih.gov/40959699/"
+  - title: "Bioactive constituents of Hericium erinaceus: extraction strategies, health benefits and food applications"
+    authors: "Gurung V, Sagar NA, Rani N"
+    year: "2026"
+    doi: "10.3389/fntpr.2026.1872464"
+    url: "https://www.frontiersin.org/journals/natural-products/articles/10.3389/fntpr.2026.1872464/full"
+  - title: "A randomized, double-blind, placebo-controlled study evaluating the impact of Hericium erinaceus (Lion's Mane) on cognitive performance and subjective wellbeing"
+    authors: "Daoust J, Farrar S, Grant AD, et al."
+    year: "2026"
+    doi: "10.64898/2026.04.13.26350781"
+    url: "https://www.medrxiv.org/content/10.64898/2026.04.13.26350781v1"
   - title: "Acute effects of a standardised extract of Hericium erinaceus on cognition and mood in healthy younger adults: a double-blind randomised placebo-controlled study"
     authors: "Surendran G, Saye J, Mohd Jalil SB, et al."
     year: "2025"
@@ -122,13 +132,20 @@ That result complements a 2023 pilot in 41 healthy adults ages 18–45. In that 
 
 A 2025 systematic review broadened the evidence map but also shows why citation counts can be misleading. It included **five randomized controlled trials**, three pilot clinical trials, a cohort, a case report, and **15 laboratory studies**. Clinical and preclinical findings were discussed together, so mechanistic volume should not be mistaken for a large human efficacy literature. [PubMed 40959699](https://pubmed.ncbi.nlm.nih.gov/40959699/) · [DOI 10.3389/fnut.2025.1641246](https://doi.org/10.3389/fnut.2025.1641246)
 
+A 2026 peer-reviewed review of Lion's Mane bioactives, extraction methods, health evidence, and food applications reinforces the same boundary rather than upgrading the efficacy verdict: **human trials remain limited, preparations are heterogeneous, and much of the mechanistic evidence is still preclinical**. It also notes that human safety evidence for use at one year or longer, pregnancy/lactation, and medication interactions remains inadequate. [DOI 10.3389/fntpr.2026.1872464](https://doi.org/10.3389/fntpr.2026.1872464)
+
+A larger 2026 randomized double-blind placebo-controlled study is also available as a **preprint and has not been peer reviewed**. It analyzed 109 adults ages 40–75 with self-reported cognitive difficulty after eight weeks of 2 g/day combined fruiting-body and mycelial biomass. One visual-attention/working-memory task improved over time versus placebo, and subjective sleep quality, morning restedness, and mood improved faster, but **most other cognitive tasks and the composite did not show significant between-group differences**. The study was funded by **M2 Ingredients**, and M2 Ingredients authors were involved, so it is best treated as emerging, product-specific evidence—not as grounds to raise the evidence grade or claim broad nootropic efficacy. [medRxiv preprint](https://www.medrxiv.org/content/10.64898/2026.04.13.26350781v1) · [DOI 10.64898/2026.04.13.26350781](https://doi.org/10.64898/2026.04.13.26350781)
+
 ### Updated interpretation
 
 - **Older/cognitively impaired populations:** encouraging small trials, but limited replication and product heterogeneity.
 - **Healthy younger adults:** no convincing broad cognitive-enhancement effect; some task-specific signals remain worth studying.
+- **2026 preprint:** a larger but non-peer-reviewed, industry-funded trial adds one task-level signal and subjective-wellbeing signals while leaving most cognitive outcomes/composite null; it does **not** raise the evidence grade.
 - **Mood/stress:** preliminary rather than established.
 - **Mechanisms:** useful for plausibility, not a substitute for human outcomes.
 - **Retail products:** a result from one fruiting-body powder, extract, or enriched mycelium cannot be assumed to apply to another.
+
+For how this review weights human outcomes, preparation match, null findings, conflicts, and preclinical evidence, see the [evidence methodology](/info/methodology/).
 
 ---
 
@@ -226,6 +243,7 @@ There is no validated personal dose that can be derived by averaging the publish
 | Mori 2009 | 3 g/day dried fruiting-body powder | Describes that trial only; not equivalent to 3 g of a concentrated extract |
 | Docherty 2023 | 1.8 g/day fruiting-body material | Useful for matching that pilot; not an established optimal daily dose |
 | Surendran 2025 | 3 g acute dose of 10:1 fruiting-body extract | High concentration still did not produce a broad acute cognitive effect |
+| Daoust 2026 preprint | 2 g/day combined fruiting-body + mycelial biomass for 8 weeks | Emerging product-specific evidence; not peer reviewed and not a universal dose |
 | Li 2020 | Specialized erinacine-A-enriched mycelia | Cannot be converted directly into an equivalent dose of ordinary fruiting-body powder |
 
 ### What is not established
@@ -261,6 +279,8 @@ This page no longer assigns a universal “best form,” because the clinical ev
 The available human trials are small, so absence of frequent serious events should not be read as proof of comprehensive long-term safety.
 
 The 2025 systematic review described reported side effects such as stomach discomfort, headache, and allergic reactions while also emphasizing a generally favorable profile in the available literature. [PubMed 40959699](https://pubmed.ncbi.nlm.nih.gov/40959699/)
+
+A 2026 peer-reviewed review similarly describes the short human safety record as generally reassuring while emphasizing that evidence remains inadequate for **one year or longer of use, pregnancy or lactation, and medication interactions**. That is a reason to preserve uncertainty rather than infer long-term safety from short trials. [DOI 10.3389/fntpr.2026.1872464](https://doi.org/10.3389/fntpr.2026.1872464)
 
 The older MCI trial reported limited gastrointestinal symptoms and did not identify a liver-safety signal in the small sample. A LiverTox review also notes the lack of a clear published Lion's Mane hepatotoxicity signal to date, while appropriately treating the human experience as limited. [PubMed 38289992](https://pubmed.ncbi.nlm.nih.gov/38289992/)
 
@@ -345,6 +365,8 @@ Direct combination evidence is sparse. Mechanistic complementarity is not the sa
 - Small randomized human cognition trials in older/cognitively impaired populations.
 - Newer randomized studies in healthy younger adults that help define what Lion's Mane does **not** reliably do.
 - A 2025 systematic review mapping the small clinical literature alongside extensive preclinical work.
+- A 2026 peer-reviewed review reinforcing preparation heterogeneity, limited human evidence, and unresolved long-term safety.
+- A larger 2026 randomized preprint that is useful as emerging evidence only because it is not peer reviewed and is industry-funded.
 
 **Main limitations:**
 - Small samples.
