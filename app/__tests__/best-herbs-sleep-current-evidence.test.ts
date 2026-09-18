@@ -13,14 +13,20 @@ describe('best herbs for sleep evidence calibration', () => {
     const text = source()
 
     expect(text).toContain("const DATE = '2026-06-09'")
-    expect(text).toContain("const UPDATED_DATE = '2026-08-12'")
+    expect(text).toContain("const UPDATED_DATE = '2026-09-17'")
     expect(text).toContain('34559859')
     expect(text).toContain('38359657')
     expect(text).toContain('31714321')
     expect(text).toContain('31006899')
+    expect(text).toContain('39106912')
+    expect(text).toContain('38646244')
+    expect(text).toContain('40374153')
     expect(text).toMatch(/5 placebo-controlled RCTs \/ 400 adults/i)
     expect(text).toMatch(/110 adults with DSM-5 insomnia/i)
+    expect(text).toMatch(/65 participants with stress and insomnia/i)
+    expect(text).toMatch(/10 studies \/ 772 participants/i)
     expect(text).toMatch(/8 systematic reviews/i)
+    expect(text).toContain('href="/info/methodology/"')
   })
 
   it('does not restore rankings, fastest-choice promises, or bedtime dose protocols', () => {
@@ -48,6 +54,9 @@ describe('best herbs for sleep evidence calibration', () => {
     expect(text).toMatch(/Lavender \/ aromatherapy.*Indirect for an oral-herb claim/i)
     expect(text).toMatch(/no evidence of efficacy for treating insomnia/i)
     expect(text).toMatch(/no conclusive clinical-trial evidence that chamomile helps insomnia/i)
+    expect(text).toMatch(/I² 88\.4%/i)
+    expect(text).toMatch(/sleep duration, sleep efficiency, and daytime-function/i)
+    expect(text).toMatch(/two authors.*JK Botanicals/i)
   })
 
   it('does not misclassify magnesium or L-theanine as herbs', () => {
@@ -78,6 +87,7 @@ describe('best herbs for sleep evidence calibration', () => {
     expect(text).toMatch(/drowsiness, dizziness, or confusion/i)
     expect(text).toMatch(/anesthesia interactions/i)
     expect(text).toMatch(/ragweed or related plants/i)
+    expect(text).toMatch(/pregnancy and lactation safety data insufficient/i)
     expect(text).toMatch(/CBT-I.*first-line, evidence-based treatment for chronic insomnia/i)
     expect(text).toMatch(/loud snoring\/gasping, dangerous daytime sleepiness/i)
   })
