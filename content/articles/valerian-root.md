@@ -1,9 +1,9 @@
 ---
 slug: valerian-root
 title: "Valerian Root for Sleep: Does It Work? Evidence Review (2026)"
-description: "Does valerian root actually help sleep or insomnia? A 15-source evidence review covering the 2024 umbrella review, a newer positive RCT, older meta-analyses, dose uncertainty, safety, interactions and how valerian compares with real insomnia treatment."
+description: "Does valerian root actually help sleep or insomnia? An 18-source evidence review covering the 2024 umbrella review, preparation-specific trials, newer combination evidence, dose uncertainty, current safety guidance, interactions and how valerian compares with real insomnia treatment."
 date: '2026-06-06'
-updatedAt: '2026-08-22'
+updatedAt: '2026-09-18'
 author: Will
 category: Anxiety & Sleep
 keywords:
@@ -103,6 +103,21 @@ references:
     pmid: "33164742"
     doi: "10.5664/jcsm.8986"
     url: "https://pubmed.ncbi.nlm.nih.gov/33164742/"
+  - title: "Effects of a Valerian-Hops Extract Combination (Ze 91019) on Sleep Duration and Daytime Cognitive and Psychological Parameters in Occasional Insomnia: A Randomized Controlled Feasibility Trial"
+    authors: "Schicktanz N, Gerhards C, Schlitt T, et al."
+    year: "2025"
+    pmid: "40462685"
+    pmcid: "PMC12134488"
+    doi: "10.1002/brb3.70600"
+    url: "https://pubmed.ncbi.nlm.nih.gov/40462685/"
+  - title: "Valerian: Usefulness and Safety"
+    authors: "National Center for Complementary and Integrative Health"
+    year: "2026"
+    url: "https://www.nccih.nih.gov/health/valerian"
+  - title: "Valerianae radix - herbal medicinal product"
+    authors: "European Medicines Agency"
+    year: "2026"
+    url: "https://www.ema.europa.eu/en/medicines/herbal/valerianae-radix"
 ---
 
 > **Evidence verdict:** Valerian root is **not an established treatment for insomnia**. The highest-level current synthesis—a 2024 umbrella review—found no demonstrated insomnia-treatment efficacy, although some older reviews and trials suggest a possible **subjective sleep-quality** benefit. A newer randomized trial of one standardized extract reported both subjective and objective improvements, but a positive product-specific study does not overturn the broader heterogeneous evidence base. The fairest conclusion is **promising signals for certain preparations, low confidence in a class-wide insomnia effect**.
@@ -167,6 +182,12 @@ But four boundaries matter:
 4. **The umbrella review still summarizes a much broader evidence base.** Newer product-specific evidence is a reason for further replication, not a reason to erase older negative and null results.
 
 This is the kind of result that makes valerian worth studying better—not the kind that justifies a universal “take X mg before bed” rule.
+
+### 2025 update: a valerian–hops feasibility trial does not answer the valerian-alone question
+
+A 2025 randomized double-blind feasibility trial tested **Ze 91019, a fixed valerian–hops combination**, in 40 people with occasional sleep problems for 21 days. Exploratory analyses found about 22 minutes more nightly sleep versus placebo, and the product was reported as well tolerated. ([PubMed](https://pubmed.ncbi.nlm.nih.gov/40462685/))
+
+That result should **not** be counted as a positive valerian-monotherapy trial. Hops is an active co-ingredient, the study was explicitly framed as a feasibility trial, and the product was funded by Max Zeller Söhne AG, with company-affiliated authors. It is useful combination-specific evidence, but it does not change the class-wide valerian verdict or justify inferring that valerian alone produced the effect.
 
 ---
 
@@ -285,6 +306,10 @@ A premium evidence page should not use a mechanism diagram to outrank controlled
 
 Short-term valerian trials and systematic reviews generally describe a relatively favorable safety profile, but that is not the same as proving indefinite nightly use is risk-free. The 2024 umbrella review described overall safety reporting as favorable while emphasizing the limitations of the underlying literature. ([PubMed](https://pubmed.ncbi.nlm.nih.gov/38359657/))
 
+Current NCCIH guidance similarly describes valerian as generally safe for short-term use by most adults while stating that **long-term safety is unknown**. It also notes reported headache, gastrointestinal upset, mental dullness/excitability, possible withdrawal symptoms after chronic use, and very rare liver-injury reports—most often involving multi-herb products rather than valerian alone. ([NCCIH](https://www.nccih.nih.gov/health/valerian))
+
+European regulatory guidance for valerian-root medicinal products adds a different, product-regulatory boundary: it advises against use during pregnancy or breastfeeding, in children under 12, and before driving or operating machinery because of possible impairment. Those instructions apply to regulated valerian-root medicines assessed under the EU monograph, not automatically to every retail supplement worldwide. ([EMA](https://www.ema.europa.eu/en/medicines/herbal/valerianae-radix))
+
 ### The old CYP3A4 warning was too strong
 
 A controlled pharmacokinetic study gave 12 healthy volunteers valerian nightly for 14 days and tested CYP2D6 and CYP3A4 probe substrates. It found no significant CYP2D6 effect and only minimal CYP3A4 changes; the authors concluded clinically important CYP2D6/CYP3A4 interactions were unlikely at the studied exposure. ([PubMed](https://pubmed.ncbi.nlm.nih.gov/15328251/))
@@ -296,7 +321,8 @@ That does not prove valerian has **no** interactions. It means “major CYP3A4 i
 - Combining valerian with alcohol, prescription sedatives, sedating antihistamines or other calming supplements may plausibly increase sedation or impairment; direct combination evidence is limited.
 - Herbal composition can vary substantially between products.
 - Long-term nightly safety is less well characterized than short-term tolerability.
-- Pregnancy and breastfeeding safety data are limited.
+- Rare liver-injury reports exist, but many involve multi-herb products, so causality and valerian-specific risk are difficult to isolate.
+- Pregnancy and breastfeeding safety data are limited; EU medicinal-product guidance advises against use during pregnancy or breastfeeding.
 - Medication-specific interaction questions should be checked against the actual drug and actual valerian product rather than a generic internet interaction list.
 
 ---
@@ -372,7 +398,9 @@ The best current top-level synthesis says **no demonstrated insomnia-treatment e
 
 ### Is there any newer positive evidence?
 
-Yes. A randomized placebo-controlled trial of one standardized extract reported improvements in subjective sleep quality, actigraphy measures and some polysomnography outcomes. That is encouraging product-specific evidence, but it does not erase the larger heterogeneous literature. ([PubMed](https://pubmed.ncbi.nlm.nih.gov/37899385/))
+Yes. A randomized placebo-controlled trial of one standardized valerian extract reported improvements in subjective sleep quality, actigraphy measures and some polysomnography outcomes. That is encouraging product-specific evidence, but it does not erase the larger heterogeneous literature. ([PubMed](https://pubmed.ncbi.nlm.nih.gov/37899385/))
+
+A 2025 feasibility trial also reported longer sleep with a fixed valerian–hops product, but that combination study cannot establish valerian-alone efficacy and does not change the monotherapy evidence grade. ([PubMed](https://pubmed.ncbi.nlm.nih.gov/40462685/))
 
 ### How long does valerian take to work?
 
