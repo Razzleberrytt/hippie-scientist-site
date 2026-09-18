@@ -8,6 +8,7 @@ import LegacyGuideFAQ from '@/components/LegacyGuideFAQ'
 import LegacyGuideQuickAnswer from '@/components/LegacyGuideQuickAnswer'
 import References from '@/components/References'
 import EmailCapture from '../../../../components/EmailCapture'
+import ResearchNextActions from '@/components/ResearchNextActions'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Whey vs Casein vs Plant Protein: What Actually Differs? (2026)',
@@ -252,7 +253,20 @@ export default function ProteinPowderPage() {
         <References refs={PROTEIN_REFS} />
       </div>
 
-      <EmailCapture headline="Get evidence reviews like this" description="Nutrition and supplement claims separated from marketing shortcuts." ctaLabel="Get the evidence" location="guide-protein" />
+      <ResearchNextActions
+        headingId="protein-research-next-action-heading"
+        title="Follow the evidence, not the protein-powder hype"
+        description="You have the comparison and safety context. The next step is optional: get future nutrition and supplement evidence reviews by email."
+      >
+        <div className="sm:col-span-2">
+          <EmailCapture
+            headline="Get evidence reviews like this"
+            description="Nutrition and supplement claims separated from marketing shortcuts."
+            ctaLabel="Get the evidence"
+            location="guide-protein"
+          />
+        </div>
+      </ResearchNextActions>
       <div className="flex items-center justify-between border-t border-brand-900/10 pt-4">
         <Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link>
         <Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link>
