@@ -11,11 +11,19 @@ function source() {
 describe('best sleep supplements evidence calibration', () => {
   it('anchors the broad guide to current direct evidence', () => {
     const text = source()
-    for (const pmid of ['34559859', '40056718', '33865376', '40918053', '38359657', '31714321']) {
+    for (const pmid of ['34559859', '40056718', '33865376', '40918053', '42661485', '38359657', '31714321']) {
       expect(text).toContain(pmid)
     }
     expect(text).toMatch(/datePublished="2026-06-16"/)
-    expect(text).toMatch(/dateModified="2026-08-\d{2}"|UPDATED_DATE.*2026-08-/i)
+    expect(text).toMatch(/UPDATED_DATE\s*=\s*'2026-09-17'/i)
+  })
+
+  it('keeps review provenance and methodology visible', () => {
+    const text = source()
+    expect(text).toContain('19-source evidence ledger')
+    expect(text).toContain('Last evidence review September 17, 2026')
+    expect(text).toContain('/info/methodology/')
+    expect(text).toMatch(/direct human evidence, effect size, formulation match, safety/i)
   })
 
   it('keeps extract, population, comparator and duration directness visible', () => {
@@ -26,11 +34,16 @@ describe('best sleep supplements evidence calibration', () => {
     expect(text).toMatch(/extract/i)
   })
 
-  it('keeps magnesium trial limitations visible', () => {
+  it('keeps current magnesium evidence and preparation-specific limitations visible', () => {
     const text = source()
     expect(text).toContain('33865376')
-    expect(text).toMatch(/magnesium/i)
-    expect(text).toMatch(/limited|low|small|modest|not significant/i)
+    expect(text).toContain('40918053')
+    expect(text).toContain('42661485')
+    expect(text).toMatch(/12 randomized trials/i)
+    expect(text).toMatch(/low to very-low|low to very low/i)
+    expect(text).toMatch(/does not support oral magnesium as a routine treatment for insomnia/i)
+    expect(text).toMatch(/bisglycinate/i)
+    expect(text).toMatch(/Cohen d=0\.2/i)
   })
 
   it('does not restore symptom-to-supplement winner cards or fixed-dose selectors', () => {

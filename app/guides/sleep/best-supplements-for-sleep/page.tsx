@@ -13,7 +13,7 @@ import DecisionToProductEndpoint from '@/components/monetization/DecisionToProdu
 import { buildTwitterMetadata } from '@/lib/seo'
 
 const PAGE_URL = `${SITE_URL}/guides/sleep/best-supplements-for-sleep`
-const UPDATED_DATE = '2026-08-22'
+const UPDATED_DATE = '2026-09-17'
 
 export const metadata: Metadata = {
   title: 'Best Supplements for Sleep: Evidence-Ranked Shortlist',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Best Supplements for Sleep: Evidence-Ranked Shortlist',
     description:
-      'A decision-focused comparison of the best-studied sleep supplements, with 18 clinical sources, safety context and clear reasons not to overrank weak evidence.',
+      'A decision-focused comparison of the best-studied sleep supplements, with 19 clinical sources, safety context and clear reasons not to overrank weak evidence.',
     url: '/guides/sleep/best-supplements-for-sleep/',
     type: 'article',
     images: ['/images/guides/best-supplements-for-sleep.jpg'],
@@ -61,6 +61,7 @@ const REFS = [
   { n: 16, title: 'Effects of Passiflora incarnata on polysomnographic sleep parameters in subjects with insomnia disorder', text: 'Double-blind randomized placebo-controlled study in 110 adults.', year: 2020, pmid: '31714321', doi: '10.1097/YIC.0000000000000291', url: 'https://pubmed.ncbi.nlm.nih.gov/31714321/' },
   { n: 17, title: 'Passionflower: Usefulness and Safety', text: 'National Center for Complementary and Integrative Health. Current safety overview.', year: 2026, url: 'https://www.nccih.nih.gov/health/passionflower' },
   { n: 18, title: 'Over-the-counter products for insomnia in adults: A scoping review of randomised controlled trials', text: 'Scoping review of 51 randomized trials.', year: 2025, pmid: '40054227', url: 'https://pubmed.ncbi.nlm.nih.gov/40054227/' },
+  { n: 19, title: 'Magnesium Supplementation for Sleep in Adults: A Systematic Review of Randomized Controlled Trials', text: 'Lopresti AL, Smith SJ, Drummond PD. J Diet Suppl. 2026;23(5):553-581. Twelve randomized trials in the main sleep/insomnia/poor-sleep synthesis.', year: 2026, pmid: '42661485', doi: '10.1080/19390211.2026.2719670', url: 'https://pubmed.ncbi.nlm.nih.gov/42661485/' },
 ]
 
 const HEADINGS: Heading[] = [
@@ -137,17 +138,22 @@ export default function BestSupplementsForSleepPage() {
       <ArticleLayout toc={toc} zone="supplement">
         <div className="space-y-12">
           <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
-            <p className="eyebrow-label">Decision guide · 18-source evidence ledger</p>
+            <p className="eyebrow-label">Decision guide · 19-source evidence ledger</p>
             <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Best Supplements for Sleep: An Evidence-Ranked Shortlist</h1>
             <p className="mt-2 text-xs text-muted">
               Written and edited by{' '}
               <Link href="/info/author/" rel="author" className="font-medium text-brand-700 hover:underline">Willie B. Randolph III</Link>{' '}
-              · Last evidence review August 22, 2026
+              · Last evidence review September 17, 2026
             </p>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
               This is the decision page, not the encyclopedia. It compares the six most commonly considered sleep supplements
               by <strong className="text-ink">directness of human evidence, effect size, formulation match and safety</strong>.
               “Best” here means “most defensible for a clearly defined question,” not “strongest sedative.”
+            </p>
+            <p className="mt-3 max-w-3xl text-xs leading-6 text-muted">
+              Rankings weigh direct human evidence, effect size, formulation match, safety and relevance to the sleep question. See the{' '}
+              <Link href="/info/methodology/" className="font-semibold text-brand-700 hover:underline">research methodology</Link>{' '}
+              for the site-wide evidence framework.
             </p>
             <div className="mt-5 rounded-xl border border-brand-900/10 bg-brand-50/50 p-4 text-sm leading-6 text-muted">
               Want the broader catalog including glycine, chamomile, tryptophan and tart cherry? Use the{' '}
@@ -171,7 +177,7 @@ export default function BestSupplementsForSleepPage() {
                 <strong className="text-ink"> L-theanine</strong> has promising recent evidence for several subjective sleep outcomes, but clinical-insomnia evidence remains limited.<Cite n={8} /><Cite n={9} />
               </p>
               <p>
-                <strong className="text-ink">Magnesium</strong> remains low-certainty overall, despite a 2025 bisglycinate trial with a statistically significant but small effect on insomnia severity.<Cite n={10} /><Cite n={11} />
+                <strong className="text-ink">Magnesium</strong> remains low-certainty overall: a 2026 systematic review of 12 randomized trials found inconsistent results and did not support routine oral magnesium treatment for insomnia, while a 2025 bisglycinate trial remains a small preparation-specific signal.<Cite n={19} /><Cite n={11} />
                 <strong className="text-ink"> Ashwagandha</strong> has a small positive pooled sleep signal.<Cite n={13} />
                 <strong className="text-ink"> Valerian</strong> has no demonstrated efficacy for insomnia in a 2024 umbrella review,<Cite n={15} /> while <strong className="text-ink">passionflower</strong> has preliminary randomized evidence.<Cite n={16} />
               </p>
@@ -190,7 +196,7 @@ export default function BestSupplementsForSleepPage() {
                 <tbody className="divide-y divide-brand-900/5">
                   <tr className="align-top"><td className="py-4 pr-4 font-semibold text-ink">Melatonin</td><td className="py-4 pr-4 text-muted">Best-defined circadian role; multiple reviews.</td><td className="py-4 pr-4 text-muted">Chronic-insomnia evidence is not strong enough for a blanket recommendation; timing and disorder matter.</td><td className="py-4 text-muted">Best-defined use case</td></tr>
                   <tr className="align-top"><td className="py-4 pr-4 font-semibold text-ink">L-theanine</td><td className="py-4 pr-4 text-muted">Recent systematic reviews show small sleep-quality signals.</td><td className="py-4 pr-4 text-muted">Dose, duration, pure-product evidence and clinical-insomnia efficacy remain unsettled.</td><td className="py-4 text-muted">Most promising newer signal</td></tr>
-                  <tr className="align-top"><td className="py-4 pr-4 font-semibold text-ink">Magnesium</td><td className="py-4 pr-4 text-muted">Biologically plausible; older RCTs plus a newer bisglycinate trial.</td><td className="py-4 pr-4 text-muted">Overall certainty remains low; newer trial effect was small and objective sleep was not measured.</td><td className="py-4 text-muted">Plausible, overmarketed</td></tr>
+                  <tr className="align-top"><td className="py-4 pr-4 font-semibold text-ink">Magnesium</td><td className="py-4 pr-4 text-muted">Biologically plausible; randomized evidence includes a modest 2025 bisglycinate signal.</td><td className="py-4 pr-4 text-muted">A 2026 systematic review found inconsistent results and low to very-low certainty; routine insomnia treatment was not supported.</td><td className="py-4 text-muted">Plausible, overmarketed</td></tr>
                   <tr className="align-top"><td className="py-4 pr-4 font-semibold text-ink">Ashwagandha</td><td className="py-4 pr-4 text-muted">Five-trial meta-analysis found a small overall sleep benefit.</td><td className="py-4 pr-4 text-muted">Small heterogeneous evidence base; extracts vary; long-term safety is uncertain.</td><td className="py-4 text-muted">Useful signal, more caveats</td></tr>
                   <tr className="align-top"><td className="py-4 pr-4 font-semibold text-ink">Valerian</td><td className="py-4 pr-4 text-muted">Large historical use and review literature.</td><td className="py-4 pr-4 text-muted">Umbrella review found no demonstrated insomnia efficacy despite subjective signals.</td><td className="py-4 text-muted">Not evidence-leading</td></tr>
                   <tr className="align-top"><td className="py-4 pr-4 font-semibold text-ink">Passionflower</td><td className="py-4 pr-4 text-muted">Randomized insomnia trial found a total-sleep-time signal.</td><td className="py-4 pr-4 text-muted">Small evidence base; several outcomes were not different from placebo; pregnancy warning.</td><td className="py-4 text-muted">Preliminary</td></tr>
@@ -214,11 +220,12 @@ export default function BestSupplementsForSleepPage() {
           </section>
 
           <section id="magnesium" className="scroll-mt-20 card-premium p-6 space-y-3">
-            <h2 className="text-2xl font-semibold text-ink">3. Magnesium — better evidence than before, still not a universal winner</h2>
-            <p className="text-sm leading-7 text-muted">A 2021 systematic review found only three randomized trials in 151 older adults, with low to very-low certainty despite a pooled sleep-onset-latency signal.<Cite n={10} /> A 2025 randomized trial then tested 250 mg elemental magnesium as bisglycinate in 155 adults with self-reported poor sleep. Insomnia Severity Index scores improved more than placebo, but the effect was small (Cohen d=0.2), a separate sleep-quality measure was not significantly different, and objective sleep was not measured.<Cite n={11} /></p>
+            <h2 className="text-2xl font-semibold text-ink">3. Magnesium — newer evidence, still not a universal winner</h2>
+            <p className="text-sm leading-7 text-muted">A 2026 systematic review searched the literature through June 1, 2026 and included 12 randomized trials in its main synthesis of sleep, insomnia or poor sleep. Populations, formulations, treatment durations and outcome measures varied substantially; findings were inconsistent and certainty was low to very low. The authors concluded that current evidence does not support oral magnesium as a routine treatment for insomnia.<Cite n={19} /> An earlier 2021 review of three randomized trials in 151 older adults reached a similarly low-certainty evidence boundary.<Cite n={10} /></p>
+            <p className="text-sm leading-7 text-muted">Within that uncertain class-level evidence, a 2025 randomized trial tested 250 mg elemental magnesium as bisglycinate in 155 adults with self-reported poor sleep. Insomnia Severity Index scores improved more than placebo, but the effect was small (Cohen d=0.2), a separate sleep-quality measure was not significantly different, and objective sleep was not measured.<Cite n={11} /></p>
             <p className="text-sm leading-7 text-muted">The 2025 trial also deserves transparency: one coauthor led a contract research organization receiving nutraceutical-company research funding and honoraria; the study supplement was manufactured by Biogena.<Cite n={11} /></p>
             <p className="text-sm leading-7 text-muted">Safety matters too: NIH notes GI effects from supplemental magnesium and greater toxicity risk with impaired kidney function.<Cite n={12} /></p>
-            <p className="text-sm font-semibold text-ink">Decision: plausible option, especially where low magnesium intake is relevant, but “magnesium glycinate is the best sleep supplement” remains too strong.</p>
+            <p className="text-sm font-semibold text-ink">Decision: a plausible preparation-specific signal exists, especially where low magnesium intake may be relevant, but current evidence does not support magnesium as a routine insomnia treatment or a universal “best” sleep supplement.</p>
           </section>
 
           <section id="ashwagandha" className="scroll-mt-20 card-premium p-6 space-y-3">
