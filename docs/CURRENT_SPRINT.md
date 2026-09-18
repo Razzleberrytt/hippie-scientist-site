@@ -2,10 +2,10 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-09-17
+**Updated:** 2026-09-18
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub reconciliation at `f6852fab06859c420783a2ed057cddfe9d82140d` on 2026-09-17 records 0/3 normal implementation workstreams occupied. #5081 / PR #5556 is pending a fresh non-overlapping governor lease before it may become active; it does not currently occupy Authority/Content. #5296 / PR #5552 and #5540 / PR #5544 are merged and no longer occupy Discovery/SEO or Revenue/Conversion. Research-only enrichment PRs remain non-canonical staging and do not consume normal implementation WIP.
+**Current admission:** Live GitHub reconciliation at `10feb1d730f5dd5bb94b90b863426293da849056` on 2026-09-18 records **1/3 normal implementation workstreams occupied**: #5608 owns Authority/Content. Issue #5609 is a P0 control incident reporting the autonomous merge heartbeat stale >45 minutes, so **new normal admissions are frozen** until that deterministic blocker is repaired or the incident is explicitly cleared. Discovery/SEO and Revenue/Conversion otherwise have capacity.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,17 +49,26 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — observed implementation WIP 0/3
+## Active / in review — observed implementation WIP 1/3
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| — | None | — | — | No implementation ticket currently holds a governed workstream slot. |
+| Authority / Content | #5608 | Razzleberrytt / swarm | Open / in review | Refresh current Lion's Mane evidence while preserving mixed-evidence, conflict, dose, mechanism, ADHD and safety boundaries. |
 
-- **Revenue/Conversion:** free after #5540 / PR #5544 merged.
-- **Authority/Content:** free; #5081 / PR #5556 remains pending until a fresh non-overlapping governor lease exists.
-- **Discovery/SEO:** free after #5296 / PR #5552 merged.
+- **Revenue/Conversion:** capacity exists, but no new admission until #5609 clears; #5611 is next.
+- **Authority/Content:** occupied by #5608; #5612 waits. #5081 remains blocked pending a fresh non-overlapping governor lease.
+- **Discovery/SEO:** capacity exists, but no new admission until #5609 clears; #5610 is next.
 
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
+
+
+## P0 control incident — admission freeze
+
+- **#5609 — autonomous merge heartbeat stale >45 minutes.**
+- This is a control-plane incident, not a fourth normal workstream.
+- Repair the deterministic workflow/controller blocker and re-run/reconcile the sentinel before admitting #5610 or #5611.
+- Existing #5608 may continue through its already-open review/CI path; do not open competing Authority work.
+- Do not reinterpret “heartbeat stale” as “no backlog available”: the durable refill inventory is now `docs/SWARM_BACKLOG.md`.
 
 ## Ready next — strict dependency order
 
@@ -69,6 +78,11 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 | Order | Candidate | Workstream | Admission state | Proof required before implementation |
 |---:|---|---|---|---|
+| 1 | #5609 | Control incident | **Open — repair first** | Identify/fix the deterministic merge-heartbeat/controller blocker, re-run the sentinel, and explicitly clear the incident before new normal admissions. |
+| 2 | #5610 | Discovery/SEO | Ready immediately after #5609 clears | Reconcile current main/open PRs; prove no overlapping magnesium intent/canonical work; preserve recently refreshed sleep-winner copy and all release gates. |
+| 3 | #5611 | Revenue/Conversion | Ready immediately after #5609 clears | Reuse the existing post-answer component/system; prove the protein guide keeps answer/evidence/safety before any next action; mobile/a11y/disclosure gates green. |
+| 4 | #5612 | Authority/Content | Wait for #5608 to merge/close and lane to release | Reconcile recent valerian work; use current human/safety evidence; protect citation-winning identity and evidence-grade rules. |
+
 | 1 | #5081 | Authority/Content / L2 | Blocked — fresh governor lease required | Acquire and merge a non-overlapping lease bound to exact current main before any canonical Sage evidence mutation. |
 
 Authority/Content, Revenue/Conversion, and Discovery/SEO are free. #5081 / PR #5556 is the next Authority/Content candidate but remains blocked pending a fresh non-overlapping governor lease. No stale item is promoted merely to fill a slot; any future admission still requires current evidence and this queue.
