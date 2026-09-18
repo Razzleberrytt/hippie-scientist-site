@@ -46,22 +46,25 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Post-merge control target based on live GitHub reconciliation at `73a8f0a6edcc2ad1eb93410d47f478ed94e96b40` on 2026-09-18: **0/3 normal implementation workstreams occupied** after #5625 lands.
+Live GitHub reconciliation at `ae7859052585455d2dd8ce50d4f6cfb252cc0bf2` on 2026-09-18 shows **3/3 normal implementation workstreams occupied**.
 
-| Ticket | Title | Lane | Status | Priority | Score |
-|---|---|---|---|---|---:|
-| — | No active normal implementation ticket | — | — | — | — |
+| Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score |
+|---|---|---|---|---|---|---:|
+| #5629 | Resolve overlapping Kava article vs herb-guide reader jobs | D / SEO | Admitted / active queue | P1 | 5/5/4/5/1.0/3 | 166.7 |
+| #5630 | Simplify Best Herbs for Anxiety to one post-answer action | R / conversion | Admitted / active queue | P1 | 4/4/4/4/1.0/2 | 128.0 |
+| #5631 | Refresh supplement stacking interaction evidence for 2026 | A / evidence | Admitted / active queue | P1 | 5/5/3/5/1.0/3 | 125.0 |
 
-- **D — free after this merge:** #5610 / #5625 completed.
-- **R — free:** #5611 / #5622 completed.
-- **A — free:** #5612 / #5624 completed. #5081 remains separately blocked on a fresh non-overlapping governor lease.
+- **D — occupied by #5629:** no overlapping Kava discovery/canonical admission until it merges/closes.
+- **R — occupied by #5630:** no overlapping anxiety-herbs post-answer admission until it merges/closes.
+- **A — occupied by #5631:** no overlapping stacking-safety evidence admission until it merges/closes. #5081 remains separately blocked on a fresh non-overlapping governor lease.
+- **Previous refill cycle:** #5610/#5625, #5611/#5622 and #5612/#5624 are complete/retired.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
 
 Research-only enrichment staging remains separate from canonical implementation/promotion WIP. The durable candidate feeder is `docs/SWARM_BACKLOG.md`; it does not itself grant execution authority.
 
 ## Next — ordered dependency queue
 
-After #5625 merges, all three normal workstreams are available. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate into each lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. Citation-adjacent work keeps the 65/35 discretionary allocation unless a P0, scientific-safety, canonical, or governance hard gate overrides it.
+All three normal workstreams are occupied. When one releases, reconcile current GitHub state and promote the highest legal non-overlapping candidate from `docs/SWARM_BACKLOG.md` using the single master scoring formula. Citation-adjacent work keeps the 65/35 discretionary allocation unless a P0, scientific-safety, canonical, or governance hard gate overrides it.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
