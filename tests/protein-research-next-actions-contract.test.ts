@@ -22,8 +22,10 @@ describe('protein powder post-answer research path', () => {
   })
 
   it('uses claim-neutral educational destinations rather than a commercial product path', () => {
-    expect(source).toContain('href="/info/methodology/"')
     expect(source).toContain('href="/articles/how-to-choose-supplement-quality/"')
+    expect(source).not.toContain('href="/info/methodology/"')
+    expect(source).toContain('One next step: evaluate the product itself')
+    expect(source).toContain('columns={1}')
     expect(source).toContain('The protein answer comes first.')
     expect(source).not.toMatch(/amazon|affiliate|buy now|shop now/i)
   })
