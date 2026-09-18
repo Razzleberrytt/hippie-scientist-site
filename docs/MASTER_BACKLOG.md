@@ -46,15 +46,15 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Post-merge control target based on live GitHub reconciliation at `73a8f0a6edcc2ad1eb93410d47f478ed94e96b40` on 2026-09-18: **0/3 normal implementation workstreams occupied** after #5619 lands. #5611 / PR #5622 and #5612 / PR #5624 are already merged/closed; #5610 is implementation-complete in #5619 and retires with this merge.
+Post-merge control target based on live GitHub reconciliation at `73a8f0a6edcc2ad1eb93410d47f478ed94e96b40` on 2026-09-18: **0/3 normal implementation workstreams occupied** after #5625 lands. #5611 / PR #5622 and #5612 / PR #5624 are already merged/closed; #5610 is implementation-complete in #5625 and retires with this merge.
 
 | Ticket | Title | Lane | Status | Priority | Score |
 |---|---|---|---|---|---:|
-| #5610 / PR #5619 | Defend magnesium intent separation across cited sleep/general guides | D / SEO | Completed implementation — retires on this merge | P1 | 187.5 |
+| #5610 / PR #5625 | Defend magnesium intent separation across cited sleep/general guides | D / SEO | Completed implementation — retires on this merge | P1 | 187.5 |
 | #5611 / PR #5622 | Add trust-preserving post-answer path to cited protein powder guide | R / conversion | Completed / merged | P1 | 150.0 |
 | #5612 / PR #5624 | Refresh valerian evidence and safety while protecting citation winner | A / evidence | Completed / merged | P1 | 125.0 |
 
-- **D — free after this merge:** #5610 / #5619 completed.
+- **D — free after this merge:** #5610 / #5625 completed.
 - **R — free:** #5611 / #5622 completed.
 - **A — free:** #5612 / #5624 completed. #5081 remains separately blocked on a fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
@@ -63,7 +63,7 @@ Research-only enrichment staging remains separate from canonical implementation/
 
 ## Next — ordered dependency queue
 
-All three normal workstreams are occupied. When one releases, reconcile current GitHub state and promote the highest legal non-overlapping candidate from `docs/SWARM_BACKLOG.md` using the single master scoring formula. Citation-adjacent work keeps the 65/35 discretionary allocation unless a P0, scientific-safety, canonical, or governance hard gate overrides it.
+After #5625 merges, all three normal workstreams are available. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate into each lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. Citation-adjacent work keeps the 65/35 discretionary allocation unless a P0, scientific-safety, canonical, or governance hard gate overrides it.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
