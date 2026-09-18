@@ -46,13 +46,11 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Post-merge control target based on live GitHub reconciliation at `73a8f0a6edcc2ad1eb93410d47f478ed94e96b40` on 2026-09-18: **0/3 normal implementation workstreams occupied** after #5625 lands. #5611 / PR #5622 and #5612 / PR #5624 are already merged/closed; #5610 is implementation-complete in #5625 and retires with this merge.
+Post-merge control target based on live GitHub reconciliation at `73a8f0a6edcc2ad1eb93410d47f478ed94e96b40` on 2026-09-18: **0/3 normal implementation workstreams occupied** after #5625 lands.
 
 | Ticket | Title | Lane | Status | Priority | Score |
 |---|---|---|---|---|---:|
-| #5610 / PR #5625 | Defend magnesium intent separation across cited sleep/general guides | D / SEO | Completed implementation — retires on this merge | P1 | 187.5 |
-| #5611 / PR #5622 | Add trust-preserving post-answer path to cited protein powder guide | R / conversion | Completed / merged | P1 | 150.0 |
-| #5612 / PR #5624 | Refresh valerian evidence and safety while protecting citation winner | A / evidence | Completed / merged | P1 | 125.0 |
+| — | No active normal implementation ticket | — | — | — | — |
 
 - **D — free after this merge:** #5610 / #5625 completed.
 - **R — free:** #5611 / #5622 completed.
@@ -107,6 +105,9 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
+| #5610 / PR #5625 | Magnesium general-vs-sleep intent separation is implementation-complete; reciprocal routing and the sleep-shortlist handoff land with this merge. Citation, ranking, traffic, and revenue outcomes remain `Unknown`. |
+| #5611 / PR #5622 | Merged; protein guide now uses one trust-preserving post-answer action on the shared next-action shell. Conversion impact remains `Unknown`. |
+| #5612 / PR #5624 | Merged; valerian evidence/safety refresh preserves monotherapy vs combination evidence, null daytime outcomes, preparation boundaries, and long-term-safety uncertainty. No efficacy upgrade is inferred. |
 | #5505 / PR #5506 | Merged as `90bf695bd4c7f1e006159078d26afd4869149cdd`; phone-homepage-only polish removes the floating scroll-to-top control, decorative goal arrows, comparison numbering, and repeated footer onboarding while preserving global/desktop behavior. Cloudflare production run #7308 is still in progress, so no production receipt is claimed yet. Traffic, engagement, conversion, ranking, and revenue effects remain `Unknown`. |
 | #5502 / PR #5504 | Merged and production-deployed as `99dd55269206e983c9d34bece0f358a9f932f270`; phone homepage hierarchy now uses one dark research anchor, compact goals, flattened comparison navigation, a supporting Research Standard section, and corrected footer spacing. Exact production receipt passed. Traffic, engagement, conversion, ranking, and revenue effects remain `Unknown`. |
 | #5031 / PR #5090 | Merged as `7b110d7a19c51e08de3d3b112ac36e96824bfd27`; explicit newsletter capture titles remove the duplicated `research` trust defect while preserving provider, tag, privacy, analytics and scientific boundaries. Exact-main deployment verification completed. Conversion lift remains `Unknown` until attributable observations exist. |
