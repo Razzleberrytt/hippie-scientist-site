@@ -20,7 +20,7 @@ const TITLE = 'Best Herbs for Sleep: What Human Evidence Supports in 2026'
 const DESCRIPTION =
   'Evidence-first guide to ashwagandha, passionflower, valerian, chamomile, and lavender-related sleep evidence, with directness, safety limits, and chronic-insomnia guidance.'
 const DATE = '2026-06-09'
-const UPDATED_DATE = '2026-08-12'
+const UPDATED_DATE = '2026-09-17'
 const AUTHOR = 'Will'
 const READING_TIME = '11 min read'
 
@@ -63,6 +63,21 @@ const SOURCES = [
     note: 'Review of randomized and quasi-randomized trials across anxiety, sleep quality, and insomnia outcomes. NCCIH still concludes that clinical evidence is not conclusive for insomnia.',
   },
   {
+    label: 'Chamomile sleep systematic review and meta-analysis (2024)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/39106912/',
+    note: 'Ten studies / 772 participants. The pooled PSQI signal favored chamomile, but heterogeneity was very high (I² 88.4%). Sleep duration, sleep efficiency, and daytime-function outcomes were not consistently improved, and objective sleep evidence remained limited.',
+  },
+  {
+    label: 'Standardized passionflower extract randomized trial (2024)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/38646244/',
+    note: 'Sixty-five participants with stress and insomnia were randomized to a standardized Passiflora incarnata extract or placebo for 30 days. Total sleep time improved, but the study was small and product-specific; two authors listed affiliations with JK Botanicals.',
+  },
+  {
+    label: 'Chamomile adverse-events systematic review (2025)',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/40374153/',
+    note: 'Across 72 trials and 11 case reports, most reported adverse events were minor, while published case reports included allergic reactions. The review found insufficient safety data for pregnancy and lactation.',
+  },
+  {
     label: 'NCCIH: Ashwagandha usefulness and safety',
     href: 'https://www.nccih.nih.gov/health/ashwagandha',
     note: 'Some preparations may help insomnia or stress, but long-term safety is not established. Pregnancy/breastfeeding, thyroid, autoimmune, liver, surgery, and medication-interaction cautions apply.',
@@ -83,7 +98,7 @@ const FAQS = [
   {
     question: 'Which sleep herb works fastest?',
     answer:
-      'The evidence reviewed here does not establish a reliable same-night winner. Ashwagandha trials generally used repeated dosing over weeks, the passionflower insomnia trial lasted two weeks, and valerian/chamomile evidence is too inconsistent to support a dependable onset promise.',
+      'The evidence reviewed here does not establish a reliable same-night winner. Ashwagandha trials generally used repeated dosing over weeks, the passionflower trials studied two- to four-week periods rather than same-night rescue use, and valerian/chamomile evidence is too inconsistent to support a dependable onset promise.',
   },
   {
     question: 'Does valerian work for insomnia?',
@@ -93,7 +108,7 @@ const FAQS = [
   {
     question: 'Does passionflower help insomnia?',
     answer:
-      'One 110-person randomized placebo-controlled trial in adults with DSM-5 insomnia found a greater increase in total sleep time after two weeks, while several other sleep outcomes did not differ between groups. That is a preliminary signal, not proof of broad insomnia efficacy.',
+      'Two small randomized trials using specific passionflower extracts now provide preliminary signals. A 110-person DSM-5 insomnia trial found greater total sleep time after two weeks while several other outcomes did not differ; a newer 65-person stress-and-insomnia trial reported a 30-day total-sleep-time signal with a standardized extract. The newer study was product-specific and included authors affiliated with JK Botanicals, so these findings do not establish broad passionflower efficacy.',
   },
   {
     question: 'Can sleep herbs be combined?',
@@ -169,10 +184,10 @@ export default function BestHerbsForSleepPage() {
           <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">There is no evidence-based “first herb” for every sleep problem</h2>
           <div className="mt-3 space-y-3 text-[1.01rem] leading-[1.85] text-muted">
             <p>
-              <strong>Ashwagandha</strong> has a small pooled sleep signal from five placebo-controlled trials, but the evidence is preparation-specific and multi-week. <strong>Passionflower</strong> has one useful but preliminary insomnia trial. Those findings are more direct than tradition alone, but neither supports a same-night winner rule.
+              <strong>Ashwagandha</strong> has a small pooled sleep signal from five placebo-controlled trials, but the evidence is preparation-specific and multi-week. <strong>Passionflower</strong> now has two small randomized signals using specific extracts: the existing 110-person DSM-5 insomnia trial and a newer 65-person stress-and-insomnia trial. The newer study is product-specific and includes authors affiliated with the botanical company, so neither trial supports a same-night winner rule or broad class-wide efficacy.
             </p>
             <p>
-              <strong>Valerian</strong> and <strong>chamomile</strong> remain weaker than their popularity suggests. A 2024 valerian umbrella review found no evidence of efficacy for treating insomnia, and NCCIH says chamomile evidence is not conclusive. Lavender-related aromatherapy research is a different intervention from taking an oral lavender supplement.
+              <strong>Valerian</strong> and <strong>chamomile</strong> remain weaker than their popularity suggests. A 2024 valerian umbrella review found no evidence of efficacy for treating insomnia. A newer chamomile meta-analysis found a pooled sleep-quality signal, but heterogeneity was very high (I² 88.4%) and sleep duration, sleep efficiency, and daytime functioning did not consistently improve. Lavender-related aromatherapy research is a different intervention from taking an oral lavender supplement.
             </p>
           </div>
         </section>
@@ -197,8 +212,8 @@ export default function BestHerbsForSleepPage() {
                 </tr>
                 <tr className="align-top">
                   <td className="py-4 pr-4 font-semibold text-ink">Passionflower</td>
-                  <td className="py-4 pr-4 text-muted">110 adults with DSM-5 insomnia, passionflower extract vs placebo for 2 weeks; total sleep time improved between groups.</td>
-                  <td className="py-4 pr-4 text-muted">Several other sleep outcomes did not differ between groups; one short trial cannot establish broad efficacy.</td>
+                  <td className="py-4 pr-4 text-muted">Two small randomized trials using specific passionflower extracts: 110 adults with DSM-5 insomnia for 2 weeks, plus 65 participants with stress and insomnia in a 30-day standardized-extract trial.</td>
+                  <td className="py-4 pr-4 text-muted">Product-specific evidence remains preliminary; several outcomes were null in the 2020 trial, and two authors in the 2024 study listed affiliations with JK Botanicals.</td>
                   <td className="py-4 text-muted">Preliminary.</td>
                 </tr>
                 <tr className="align-top">
@@ -209,8 +224,8 @@ export default function BestHerbsForSleepPage() {
                 </tr>
                 <tr className="align-top">
                   <td className="py-4 pr-4 font-semibold text-ink">Chamomile</td>
-                  <td className="py-4 pr-4 text-muted">Human trials and reviews exist across sleep quality and insomnia-related outcomes.</td>
-                  <td className="py-4 pr-4 text-muted">NCCIH says there is no conclusive clinical-trial evidence that chamomile helps insomnia.</td>
+                  <td className="py-4 pr-4 text-muted">2024 meta-analysis: 10 studies / 772 participants; pooled PSQI scores favored chamomile.</td>
+                  <td className="py-4 pr-4 text-muted">Heterogeneity was very high (I² 88.4%); sleep duration, sleep efficiency, and daytime-function findings did not consistently improve, and there is still no conclusive clinical-trial evidence that chamomile helps insomnia.</td>
                   <td className="py-4 text-muted">Inconclusive.</td>
                 </tr>
                 <tr className="align-top">
@@ -222,6 +237,14 @@ export default function BestHerbsForSleepPage() {
               </tbody>
             </table>
           </ResponsiveTable>
+          <p className="mt-4 text-sm leading-7 text-muted">
+            <strong className="text-ink">How to read this comparison:</strong> direct human sleep outcomes carry more
+            weight than mechanisms, traditional use, or popularity. Preparation match, population, duration, outcome type,
+            study quality, and heterogeneity can all limit how far a result should generalize.{' '}
+            <Link href="/info/methodology/" className="font-semibold text-brand-700 hover:underline">
+              Read the evidence methodology →
+            </Link>
+          </p>
         </section>
 
         <section className="space-y-5">
@@ -235,7 +258,7 @@ export default function BestHerbsForSleepPage() {
           <EvidenceSummaryCard
             title="Passionflower"
             evidenceLevel="Limited"
-            humanEvidence="A 110-person randomized placebo-controlled trial in adults with DSM-5 insomnia studied passionflower extract for two weeks. Total sleep time improved versus placebo, while several other sleep outcomes did not differ between groups."
+            humanEvidence="Two small randomized trials provide product-specific signals. A 110-person DSM-5 insomnia trial found a two-week total-sleep-time benefit while several other outcomes did not differ; a 2024 trial in 65 participants with stress and insomnia reported a 30-day total-sleep-time signal with a standardized extract. Two authors in the newer study listed affiliations with JK Botanicals."
             mechanisticEvidence="Sedative or GABA-related mechanisms are hypotheses; they do not establish clinical insomnia efficacy or justify combining passionflower with other sedating products."
             safetyProfile="NCCIH lists drowsiness, dizziness, and confusion; pregnancy and perioperative cautions apply because of uterine and nervous-system concerns."
           />
@@ -249,9 +272,9 @@ export default function BestHerbsForSleepPage() {
           <EvidenceSummaryCard
             title="Chamomile"
             evidenceLevel="Limited"
-            humanEvidence="Trials and pooled reviews exist, but NCCIH still describes the clinical evidence for insomnia as inconclusive."
+            humanEvidence="A 2024 meta-analysis included 10 studies / 772 participants and found a pooled PSQI improvement, but heterogeneity was very high (I² 88.4%). Sleep duration, sleep efficiency, and daytime-function findings did not consistently improve, so this does not establish chamomile as an insomnia treatment."
             mechanisticEvidence="Apigenin-related receptor hypotheses are not equivalent to demonstrated insomnia treatment efficacy."
-            safetyProfile="Chamomile can trigger allergic reactions, especially in people sensitive to ragweed or related plants. Product form and dose also vary substantially."
+            safetyProfile="Chamomile can trigger allergic reactions, especially in people sensitive to ragweed or related plants. A 2025 systematic safety review also found insufficient pregnancy and lactation safety data; product form and dose vary substantially."
           />
         </section>
 
@@ -276,7 +299,7 @@ export default function BestHerbsForSleepPage() {
             <ul className="ml-5 list-disc space-y-2">
               <li><strong>Ashwagandha:</strong> avoid during pregnancy/breastfeeding and review thyroid, autoimmune, liver, surgery, and medication issues before use.</li>
               <li><strong>Passionflower:</strong> may cause drowsiness, dizziness, or confusion; avoid during pregnancy and discuss perioperative use because of anesthesia interactions.</li>
-              <li><strong>Chamomile:</strong> allergy risk is higher in people sensitive to ragweed or related plants.</li>
+              <li><strong>Chamomile:</strong> allergy risk is higher in people sensitive to ragweed or related plants; a 2025 systematic review found pregnancy and lactation safety data insufficient.</li>
               <li><strong>Valerian and other sedating herbs:</strong> long-term safety is uncertain; stacking sedating products increases complexity and may increase impairment.</li>
               <li><strong>Persistent symptoms:</strong> loud snoring/gasping, dangerous daytime sleepiness, restless-legs symptoms, severe mood symptoms, or chronic insomnia warrant evaluation rather than escalating herbs.</li>
             </ul>
