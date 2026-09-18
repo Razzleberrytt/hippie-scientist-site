@@ -145,13 +145,27 @@ describe('autonomous merge controller contract', () => {
     expect(controller).not.toContain("TRANSIENT_CONCLUSIONS = new Set(['failure'")
   })
 
-  it('continues without chat through a single-shot monitor and scheduled fallback sweep', () => {
+  it('continues without chat through a single-shot monitor and event-driven plus scheduled fallback sweep', () => {
     const workflow = read('.github/workflows/autonomous-merge-controller.yml')
     const controller = read('scripts/ci/autonomous-merge-controller.mjs')
     const monitor = read('scripts/ci/autonomous-merge-monitor.mjs')
     const monitorJob = workflow.match(/ {2}merge-controller:\n([\s\S]*?)\n {2}merge-commit:/)?.[1] || ''
 
     expect(workflow).toContain("cron: '*/10 * * * *'")
+    expect(workflow).toContain('workflow_run:')
+    expect(workflow).toContain('types: [completed]')
+    for (const producer of [
+      'CI',
+      'Site Health Check',
+      'Atomic upgrade gate',
+      'Build quality regression',
+      'Production Content Lint',
+      'Build Check',
+      'Lighthouse CI',
+    ]) {
+      expect(workflow).toContain(`- ${producer}`)
+    }
+    expect(workflow).toContain("github.event_name == 'workflow_run'")
     expect(monitorJob).toContain('timeout-minutes: 5')
     expect(monitorJob).not.toContain('MERGE_MAX_WAIT_MINUTES')
     expect(monitorJob).not.toContain("CHECK_ONLY: 'true'")
