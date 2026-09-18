@@ -55,6 +55,15 @@ export default function MagnesiumTypesPage() {
         <p>There is <strong>no proven universal “best” magnesium form</strong>. Direct human comparisons show magnesium oxide can be poorly absorbed and that more soluble preparations such as citrate perform better [1,2]. Magnesium bisglycinate now has a placebo-controlled sleep trial showing a small benefit [4], while magnesium L-threonate has emerging product-specific human cognition data alongside earlier animal work [3,5]. For most consumers, the practical priorities are adequate total magnesium, a tolerable form, transparent elemental-magnesium labeling, and an outcome that has actually been studied.</p>
       </LegacyGuideQuickAnswer>
 
+      <aside className="max-w-4xl rounded-2xl border border-brand-900/10 bg-brand-50/50 p-5 text-sm leading-7 text-muted">
+        <strong className="text-ink">Looking specifically at sleep?</strong>{' '}
+        This guide compares magnesium forms broadly by absorption and form-specific human evidence. For the separate sleep-form reader job, see{' '}
+        <Link href="/guides/sleep/magnesium-types-for-sleep/" className="font-semibold text-brand-800 hover:underline">
+          Magnesium Types for Sleep
+        </Link>
+        , which keeps sleep outcomes distinct from general bioavailability comparisons.
+      </aside>
+
       <section id="magnesium-form-evidence" data-answer-engine-table="true" className="card-premium scroll-mt-24 p-6 space-y-4 max-w-4xl">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Magnesium forms: evidence at a glance</h2>
         <div className="overflow-x-auto"><table className="min-w-[820px] text-sm"><caption className="sr-only">Magnesium forms compared by direct evidence, evidence strength, and practical interpretation</caption><thead><tr className="border-b"><th scope="col" className="text-left py-3 pr-4">Form</th><th scope="col" className="text-left py-3 pr-4">Direct evidence represented here</th><th scope="col" className="text-left py-3 pr-4">Confidence</th><th scope="col" className="text-left py-3">Practical interpretation</th></tr></thead><tbody className="text-muted">
