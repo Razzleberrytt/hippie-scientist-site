@@ -24,7 +24,7 @@ For same-repository, non-draft PRs the event-driven monitor performs one read-on
 - `Production Content Lint`
 - `Build quality regression`
 
-It also inspects every other check already triggered for that exact head and will not mark the PR merge-ready while any of those checks are pending or failing. Required workflow runs must identify the current base SHA, not merely the current head SHA.
+It also inspects every other authoritative check already triggered for that exact head and will not mark the PR merge-ready while any of those checks are pending or failing. The sole explicit exception is the optional Cloudflare Pages PR-preview check emitted by the `cloudflare-workers-and-pages` GitHub App: that preview is not the canonical deployment gate and may remain pending or fail independently after the repository-owned exact-head build has passed. Unknown third-party checks remain fail-closed. Required workflow runs must identify the current base SHA, not merely the current head SHA.
 
 Fork PRs, merge conflicts, moved heads, drafts, and explicit `hold-merge`, `do-not-merge`, or `manual-merge` labels fail closed or stop automatic ownership. The event-driven monitor is deliberately read-only: when a branch is behind `main`, or its workflow/check evidence targets a stale base, it defers rather than mutating the PR. Branch refresh, workflow recovery, and revalidation are owned by the globally serialized fallback/merge controller.
 
