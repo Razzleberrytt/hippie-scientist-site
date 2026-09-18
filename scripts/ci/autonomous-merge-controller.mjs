@@ -123,6 +123,10 @@ function isControllerCheck(check, controllerRunId) {
   return Boolean(controllerRunId && String(check.details_url || '').includes(`/actions/runs/${controllerRunId}`))
 }
 
+function isOptionalCloudflarePreviewCheck(check) {
+  return check?.app?.slug === 'cloudflare-workers-and-pages' && check?.name === 'Cloudflare Pages'
+}
+
 function labelNames(pr) {
   return new Set((pr.labels || []).map((label) => typeof label === 'string' ? label : label.name).filter(Boolean))
 }
@@ -387,7 +391,10 @@ export function evaluateReadiness({ pr, workflowRuns, checkRuns, expectedHeadSha
   }
 
   const relevantChecks = newestBy(
-    checkRuns.filter((check) => !isControllerCheck(check, controllerRunId)),
+    checkRuns.filter((check) =>
+      !isControllerCheck(check, controllerRunId) &&
+      !isOptionalCloudflarePreviewCheck(check)
+    ),
     (check) => `${check.app?.slug || 'unknown'}:${check.name}`,
     checkScore,
   )
