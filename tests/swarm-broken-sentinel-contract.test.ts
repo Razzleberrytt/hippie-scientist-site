@@ -24,13 +24,14 @@ describe('swarm broken sentinel recovery contract', () => {
     expect(text).toContain('.created_at >= $started')
     expect(text).toContain("if [ \"$recovery_conclusion\" = 'success' ]")
     expect(text).toContain('echo "recovered=$recovered" >> "$GITHUB_OUTPUT"')
-    expect(text).toContain("steps.health.outputs.broken == 'true' && steps.recovery.outputs.recovered != 'true'")
+    expect(text).toContain('echo "other_broken=$other_broken" >> "$GITHUB_OUTPUT"')
+    expect(text).toContain("steps.health.outputs.broken == 'true' && (steps.health.outputs.other_broken == 'true' || steps.recovery.outputs.recovered != 'true')")
   })
 
   it('suppresses or closes the emergency issue when recovery succeeds in the same sentinel run', () => {
     const text = workflow()
 
-    expect(text).toContain("steps.recovery.outputs.recovered == 'true'")
+    expect(text).toContain("steps.health.outputs.other_broken != 'true' && steps.recovery.outputs.recovered == 'true'")
     expect(text).toContain('No BROKEN issue is needed for this transient scheduler miss.')
     expect(text).toContain('verified a successful trusted controller recovery in this same run')
   })
@@ -42,5 +43,6 @@ describe('swarm broken sentinel recovery contract', () => {
     expect(text).toContain('recovery did not complete successfully')
     expect(text).toContain('no recovery run became visible before timeout')
     expect(text).toContain('Open or refresh BROKEN!!!!! issue')
+    expect(text).toContain('*) other_broken=true ;;')
   })
 })
