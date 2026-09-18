@@ -19,13 +19,22 @@ describe('swarm broken sentinel recovery contract', () => {
   it('verifies the recovery workflow result before surfacing a BROKEN issue', () => {
     const text = workflow()
 
-    expect(text).toContain('.event == "workflow_dispatch"')
+    expect(text).toContain('(.event == "workflow_dispatch" or .event == "workflow_run")')
     expect(text).toContain('.head_branch == "main"')
     expect(text).toContain('.created_at >= $started')
-    expect(text).toContain("if [ \"$recovery_conclusion\" = 'success' ]")
+    expect(text).toContain('select(.status == "completed" and .conclusion == "success")')
     expect(text).toContain('echo "recovered=$recovered" >> "$GITHUB_OUTPUT"')
     expect(text).toContain('echo "other_broken=$other_broken" >> "$GITHUB_OUTPUT"')
     expect(text).toContain("steps.health.outputs.broken == 'true' && (steps.health.outputs.other_broken == 'true' || steps.recovery.outputs.recovered != 'true')")
+  })
+
+  it('accepts a successful workflow-run successor when concurrency cancels the manual recovery dispatch', () => {
+    const text = workflow()
+
+    expect(text).toContain('(.event == "workflow_dispatch" or .event == "workflow_run")')
+    expect(text).toContain('success_json=')
+    expect(text).toContain('select(.status == "completed" and .conclusion == "success")')
+    expect(text).not.toContain("if [ \"$status\" = 'completed' ]; then")
   })
 
   it('suppresses or closes the emergency issue when recovery succeeds in the same sentinel run', () => {
