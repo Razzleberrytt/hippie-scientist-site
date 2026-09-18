@@ -8,11 +8,13 @@ export default function ResearchNextActions({
   title,
   description,
   children,
+  columns = 2,
 }: {
   headingId: string
   title: string
   description: string
   children: ReactNode
+  columns?: 1 | 2
 }) {
   return (
     <section
@@ -25,7 +27,7 @@ export default function ResearchNextActions({
       <p className="mt-2 max-w-2xl text-sm leading-6 text-muted dark:text-[var(--text-secondary)]">
         {description}
       </p>
-      <div className="mt-4 grid gap-3 sm:grid-cols-2">
+      <div className={`mt-4 grid gap-3 ${columns === 2 ? 'sm:grid-cols-2' : ''}`}>
         {children}
       </div>
     </section>
