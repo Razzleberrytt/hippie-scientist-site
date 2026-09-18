@@ -5,7 +5,7 @@
 **Updated:** 2026-09-18
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Live GitHub reconciliation at `10feb1d730f5dd5bb94b90b863426293da849056` on 2026-09-18 records **1/3 normal implementation workstreams occupied**: #5608 owns Authority/Content. Issue #5609 is a P0 control incident reporting the autonomous merge heartbeat stale >45 minutes, so **new normal admissions are frozen** until that deterministic blocker is repaired or the incident is explicitly cleared. Discovery/SEO and Revenue/Conversion otherwise have capacity.
+**Current admission:** Live GitHub reconciliation at `136bd04173a2790be0a175b26c5dd4b884b16958` on 2026-09-18 records **3/3 normal implementation workstreams occupied**: #5610 owns Discovery/SEO, #5611 owns Revenue/Conversion, and #5612 owns Authority/Content. #5609 is closed after #5618 merged the controller/sentinel repair; #5608 is merged and retired. No P0 admission freeze remains.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,43 +49,31 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — observed implementation WIP 1/3
+## Active / in review — observed implementation WIP 3/3
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| Authority / Content | #5608 | Razzleberrytt / swarm | Open / in review | Refresh current Lion's Mane evidence while preserving mixed-evidence, conflict, dose, mechanism, ADHD and safety boundaries. |
+| Discovery / SEO | #5610 | Razzleberrytt / swarm | Admitted / ready for implementation | Defend intent separation across cited magnesium sleep/general routes without disturbing refreshed citation-winning answer structures. |
+| Revenue / Conversion | #5611 | Razzleberrytt / swarm | Admitted / ready for implementation | Add one trust-preserving post-answer path to the cited protein powder guide, keeping answer/evidence/safety and disclosure ahead of any commercial next action. |
+| Authority / Content | #5612 | Razzleberrytt / swarm | Admitted / ready for implementation | Refresh valerian evidence/safety while protecting citation-winning identity, preparation/population boundaries, contradictions, interactions, pregnancy and long-term uncertainty. |
 
-- **Revenue/Conversion:** capacity exists, but no new admission until #5609 clears; #5611 is next.
-- **Authority/Content:** occupied by #5608; #5612 waits. #5081 remains blocked pending a fresh non-overlapping governor lease.
-- **Discovery/SEO:** capacity exists, but no new admission until #5609 clears; #5610 is next.
+- **Discovery/SEO:** occupied by #5610.
+- **Revenue/Conversion:** occupied by #5611.
+- **Authority/Content:** occupied by #5612. #5081 remains separately blocked pending a fresh non-overlapping governor lease.
+- **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
+- **Recently retired:** #5608 merged and released Authority/Content before #5612 admission.
 
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
 
-
-## P0 control incident — admission freeze
-
-- **#5609 — autonomous merge heartbeat stale >45 minutes.**
-- This is a control-plane incident, not a fourth normal workstream.
-- Repair the deterministic workflow/controller blocker and re-run/reconcile the sentinel before admitting #5610 or #5611.
-- Existing #5608 may continue through its already-open review/CI path; do not open competing Authority work.
-- Do not reinterpret “heartbeat stale” as “no backlog available”: the durable refill inventory is now `docs/SWARM_BACKLOG.md`.
-
 ## Ready next — strict dependency order
 
-**A free slot exists only when the candidate's dependencies and lane ownership are current and no higher-risk incident overrides admission. A Ready-next item assigned to an occupied workstream must wait for that workstream's active ticket to merge/close.**
+**No additional normal implementation ticket may be admitted while all three workstreams are occupied.** When a lane releases, reconcile current GitHub state first, then promote the highest legal non-overlapping candidate from `docs/SWARM_BACKLOG.md` using the single master scoring formula and the 65/35 citation-adjacent/exploration policy. P0/scientific/canonical/governance incidents still override normal scoring.
 
-### Next legal admission candidates
+### Blocked or deferred candidates
 
-| Order | Candidate | Workstream | Admission state | Proof required before implementation |
-|---:|---|---|---|---|
-| 1 | #5609 | Control incident | **Open — repair first** | Identify/fix the deterministic merge-heartbeat/controller blocker, re-run the sentinel, and explicitly clear the incident before new normal admissions. |
-| 2 | #5610 | Discovery/SEO | Ready immediately after #5609 clears | Reconcile current main/open PRs; prove no overlapping magnesium intent/canonical work; preserve recently refreshed sleep-winner copy and all release gates. |
-| 3 | #5611 | Revenue/Conversion | Ready immediately after #5609 clears | Reuse the existing post-answer component/system; prove the protein guide keeps answer/evidence/safety before any next action; mobile/a11y/disclosure gates green. |
-| 4 | #5612 | Authority/Content | Wait for #5608 to merge/close and lane to release | Reconcile recent valerian work; use current human/safety evidence; protect citation-winning identity and evidence-grade rules. |
-
-| 1 | #5081 | Authority/Content / L2 | Blocked — fresh governor lease required | Acquire and merge a non-overlapping lease bound to exact current main before any canonical Sage evidence mutation. |
-
-Authority/Content, Revenue/Conversion, and Discovery/SEO are free. #5081 / PR #5556 is the next Authority/Content candidate but remains blocked pending a fresh non-overlapping governor lease. No stale item is promoted merely to fill a slot; any future admission still requires current evidence and this queue.
+| Candidate | Workstream | Admission state | Proof required before implementation |
+|---|---|---|---|
+| #5081 | Authority/Content / L2 | Blocked — fresh governor lease required | Acquire and merge a non-overlapping lease bound to exact current main before any canonical Sage evidence mutation; it also cannot displace active #5612. |
 
 ## Control hardening — merged implementation, observed use still gated
 
