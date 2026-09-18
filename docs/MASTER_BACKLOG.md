@@ -51,7 +51,7 @@ Live GitHub reconciliation at `136bd04173a2790be0a175b26c5dd4b884b16958` on 2026
 | Ticket | Title | Lane | Status | Priority | Score |
 |---|---|---|---|---|---:|
 | #5610 | Defend magnesium intent separation across cited sleep/general guides | D / SEO | Admitted / active queue | P1 | 187.5 |
-| #5611 | Add trust-preserving post-answer path to cited protein powder guide | R / conversion | Admitted / active queue | P1 | 150.0 |
+| #5611 | Add trust-preserving post-answer path to cited protein powder guide | R / conversion | Open / in review — PR #5622 | P1 | 150.0 |
 | #5612 | Refresh valerian evidence and safety while protecting citation winner | A / evidence | Admitted / active queue | P1 | 125.0 |
 
 - **D — occupied by #5610:** no overlapping Discovery admission until it merges/closes.
