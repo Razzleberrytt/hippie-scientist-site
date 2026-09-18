@@ -42,6 +42,10 @@ function check(name, status = 'completed', conclusion = 'success', id = 1) {
   return { id, name, status, conclusion, app: { slug: 'github-actions' } }
 }
 
+function externalCheck(name, appSlug, status = 'completed', conclusion = 'success', id = 1000) {
+  return { id, name, status, conclusion, app: { slug: appSlug } }
+}
+
 const mediumCore = [
   run('CI'),
   run('Atomic upgrade gate'),
@@ -360,4 +364,62 @@ describe('risk-tiered autonomous merge controller', () => {
     })
     expect(verdict.action).toBe('wait')
   })
+
+  it('does not let the optional Cloudflare Pages PR preview hold a high-risk merge hostage', () => {
+    for (const [status, conclusion] of [
+      ['in_progress', null],
+      ['completed', 'failure'],
+    ]) {
+      const verdict = evaluateReadiness({
+        pr,
+        workflowRuns: highRequired,
+        checkRuns: [
+          check('Validation, tests, and data', 'completed', 'success', 10),
+          check('Production build, output, and SEO', 'completed', 'success', 11),
+          externalCheck('Cloudflare Pages', 'cloudflare-workers-and-pages', status, conclusion, 12),
+        ],
+        expectedHeadSha: headSha,
+        currentBaseSha: baseSha,
+        controllerRunId: 'controller',
+        riskTier: 'high',
+        changedFiles: ['.github/workflows/autonomous-merge-controller.yml'],
+      })
+      expect(verdict.action).toBe('merge')
+    }
+  })
+
+  it('keeps unknown third-party checks fail-closed for high-risk changes', () => {
+    const pending = evaluateReadiness({
+      pr,
+      workflowRuns: highRequired,
+      checkRuns: [
+        check('Validation, tests, and data', 'completed', 'success', 10),
+        externalCheck('Vendor Security Gate', 'unknown-security-app', 'in_progress', null, 20),
+      ],
+      expectedHeadSha: headSha,
+      currentBaseSha: baseSha,
+      controllerRunId: 'controller',
+      riskTier: 'high',
+      changedFiles: ['.github/workflows/autonomous-merge-controller.yml'],
+    })
+    expect(pending.action).toBe('wait')
+    expect(pending.reason).toContain('high-risk checks pending')
+
+    const failed = evaluateReadiness({
+      pr,
+      workflowRuns: highRequired,
+      checkRuns: [
+        check('Validation, tests, and data', 'completed', 'success', 10),
+        externalCheck('Vendor Security Gate', 'unknown-security-app', 'completed', 'failure', 21),
+      ],
+      expectedHeadSha: headSha,
+      currentBaseSha: baseSha,
+      controllerRunId: 'controller',
+      riskTier: 'high',
+      changedFiles: ['.github/workflows/autonomous-merge-controller.yml'],
+    })
+    expect(failed.action).toBe('failed')
+    expect(failed.reason).toContain('known check failure')
+  })
+
 })
