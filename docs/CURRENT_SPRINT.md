@@ -5,7 +5,7 @@
 **Updated:** 2026-09-18
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Post-merge control target based on live GitHub reconciliation at `73a8f0a6edcc2ad1eb93410d47f478ed94e96b40` on 2026-09-18: #5611 and #5612 are closed via merged PRs #5622 and #5624; #5610 is implementation-complete in PR #5625 and retires when this branch lands. Resulting normal implementation WIP is **0/3**. No P0 admission freeze remains.
+**Current admission:** Live GitHub reconciliation at `ae7859052585455d2dd8ce50d4f6cfb252cc0bf2` on 2026-09-18 records **3/3 normal implementation workstreams occupied**: #5629 owns Discovery/SEO, #5630 owns Revenue/Conversion, and #5631 owns Authority/Content. The previous #5610/#5611/#5612 refill cycle is merged/closed. No P0 admission freeze remains.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,28 +49,31 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — post-merge implementation WIP 0/3
+## Active / in review — implementation WIP 3/3
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| — | None | — | — | No normal implementation ticket remains active after #5625 lands. |
+| Discovery / SEO | #5629 | Razzleberrytt / swarm | Admitted / ready for implementation | Resolve overlapping Kava reader jobs across the 585-citation article, herb guide and legacy redirects without broad-rewriting the citation winner. |
+| Revenue / Conversion | #5630 | Razzleberrytt / swarm | Admitted / ready for implementation | Simplify the 888-citation Best Herbs for Anxiety post-answer journey from two competing email CTAs to one trust-preserving action after references. |
+| Authority / Content | #5631 | Razzleberrytt / swarm | Admitted / ready for implementation | Refresh the 219-citation Supplement Stacking Safety interaction evidence layer while preserving documented-vs-mechanistic-vs-unknown distinctions. |
 
-- **Discovery/SEO:** #5610 implementation completed by PR #5625; retire on this merge.
-- **Revenue/Conversion:** #5611 completed by merged PR #5622.
-- **Authority/Content:** #5612 completed by merged PR #5624. #5081 remains separately blocked pending a fresh non-overlapping governor lease.
-- **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
+- **Discovery/SEO:** occupied by #5629.
+- **Revenue/Conversion:** occupied by #5630.
+- **Authority/Content:** occupied by #5631. #5081 remains separately blocked pending a fresh non-overlapping governor lease.
+- **Previous refill cycle:** #5610 / #5625, #5611 / #5622 and #5612 / #5624 are merged/closed and no longer consume WIP.
+- **Resolved control incident:** #5609 remains closed after #5618.
 
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
 
-### Recently completed refill cycle
+### Admission rationale
 
-- **#5610 / PR #5625 — Discovery/SEO:** reciprocal magnesium general-vs-sleep intent routing plus sleep-shortlist handoff; completion becomes authoritative when this PR merges.
-- **#5611 / PR #5622 — Revenue/Conversion:** merged; one trust-preserving protein post-answer action on the shared next-action shell.
-- **#5612 / PR #5624 — Authority/Content:** merged; valerian evidence/safety refresh preserving monotherapy, null-outcome, preparation and safety boundaries.
+- **#5629 — Discovery/SEO:** high-confidence route-ownership defect: `/articles/kava/` and `/guides/herbs/kava/` currently overlap heavily in title, anxiety RCTs, liver-risk coverage and preparation framing; legacy Kava redirects add another ownership layer. Preserve the cited article unless consolidation proof is deterministic and rollback-safe.
+- **#5630 — Revenue/Conversion:** the anxiety-herbs winner already has strong evidence/safety ordering but ends with two competing peer email CTAs. The fix is downstream and reversible; measured conversion remains `Unknown`.
+- **#5631 — Authority/Content:** the stacking-safety guide has current agency guidance but its peer-reviewed interaction backbone still leans on 2005/2009 literature. A current evidence audit has high safety/trust leverage and must not become stack or medication advice.
 
 ## Ready next — strict dependency order
 
-After #5625 merges, all three normal workstreams are available. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate into each lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula and the 65/35 citation-adjacent/exploration policy. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
+No additional normal implementation ticket may be admitted while all three workstreams are occupied. When a lane releases, reconcile current GitHub state first, then promote the highest legal non-overlapping candidate from `docs/SWARM_BACKLOG.md` using the single master scoring formula and the 65/35 citation-adjacent/exploration policy. P0/scientific/canonical/governance incidents still override normal scoring.
 
 ### Blocked or deferred candidates
 
