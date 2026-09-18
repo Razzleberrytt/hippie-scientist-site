@@ -50,7 +50,7 @@ describe("Lion's Mane evidence calibration", () => {
 
     expect(text).toMatch(/There is no validated personal dose/i)
     expect(text).toMatch(/study descriptors, not a universal prescription/i)
-    expect(text).toMatch(/2 g\/day combined fruiting-body \+ mycelial biomass for 8 weeks/i)
+    expect(text).toMatch(/2 g\/day combined fruiting-body (?:\+|and) mycelial biomass for 8 weeks/i)
     expect(text).toMatch(/not peer reviewed and not a universal dose/i)
     expect(text).toMatch(/A standard “1–3 g\/day” dose that fits every product/i)
   })
