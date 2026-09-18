@@ -48,11 +48,11 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 Live GitHub reconciliation at `ae7859052585455d2dd8ce50d4f6cfb252cc0bf2` on 2026-09-18 shows **3/3 normal implementation workstreams occupied**.
 
-| Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score |
-|---|---|---|---|---|---|---:|
-| #5629 | Resolve overlapping Kava article vs herb-guide reader jobs | D / SEO | Admitted / active queue | P1 | 5/5/4/5/1.0/3 | 166.7 |
-| #5630 | Simplify Best Herbs for Anxiety to one post-answer action | R / conversion | Admitted / active queue | P1 | 4/4/4/4/1.0/2 | 128.0 |
-| #5631 | Refresh supplement stacking interaction evidence for 2026 | A / evidence | Admitted / active queue | P1 | 5/5/3/5/1.0/3 | 125.0 |
+| Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | last_verified / scope |
+|---|---|---|---|---|---|---:|---|
+| #5629 | Resolve overlapping Kava article vs herb-guide reader jobs | D / SEO | Admitted / active queue | P1 | 5/5/4/5/1.0/3 | 166.7 | 2026-09-18 — exact current-main route/canonical/redirect ownership inspected across `/articles/kava/`, `/guides/herbs/kava/`, canonical `/herbs/kava/`, and legacy redirects; open-PR ownership checked; Sep. 17 citation manifest signal retained as grounding telemetry only. |
+| #5630 | Simplify Best Herbs for Anxiety to one post-answer action | R / conversion | Admitted / active queue | P1 | 4/4/4/4/1.0/2 | 128.0 | 2026-09-18 — exact current-main page inspected: post-answer area contains both `EmailCapture` and `NewsletterCtaBlock`; revenue tracking consent gate verified; open-PR ownership checked; Sep. 17 citation signal retained as grounding telemetry, not conversion proof. |
+| #5631 | Refresh supplement stacking interaction evidence for 2026 | A / evidence | Admitted / active queue | P1 | 5/5/3/5/1.0/3 | 125.0 | 2026-09-18 — exact current-main 7-source ledger inspected (current FDA/NCCIH plus 2005/2009 peer-reviewed anchors); fresh literature scan identified newer 2019/2022/2025 interaction reviews for directness audit; open-PR ownership checked; Sep. 17 citation signal retained as grounding telemetry only. |
 
 - **D — occupied by #5629:** no overlapping Kava discovery/canonical admission until it merges/closes.
 - **R — occupied by #5630:** no overlapping anxiety-herbs post-answer admission until it merges/closes.
