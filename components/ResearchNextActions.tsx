@@ -1,0 +1,35 @@
+import type { ReactNode } from 'react'
+
+export const researchNextActionClassName =
+  'flex min-h-11 flex-col justify-center rounded-xl border border-brand-900/10 bg-white px-4 py-3 transition hover:border-brand-700/30 hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2 dark:border-white/10 dark:bg-[var(--surface-card)]'
+
+export default function ResearchNextActions({
+  headingId,
+  title,
+  description,
+  children,
+  columns = 2,
+}: {
+  headingId: string
+  title: string
+  description: string
+  children: ReactNode
+  columns?: 1 | 2
+}) {
+  return (
+    <section
+      className="rounded-2xl border border-brand-900/10 bg-brand-50/30 p-5 sm:p-6"
+      aria-labelledby={headingId}
+    >
+      <h2 id={headingId} className="text-xl font-semibold text-ink dark:text-[var(--text-primary)]">
+        {title}
+      </h2>
+      <p className="mt-2 max-w-2xl text-sm leading-6 text-muted dark:text-[var(--text-secondary)]">
+        {description}
+      </p>
+      <div className={`mt-4 grid gap-3 ${columns === 2 ? 'sm:grid-cols-2' : ''}`}>
+        {children}
+      </div>
+    </section>
+  )
+}

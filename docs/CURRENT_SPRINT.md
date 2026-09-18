@@ -54,7 +54,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
 | Discovery / SEO | #5610 | Razzleberrytt / swarm | Admitted / ready for implementation | Defend intent separation across cited magnesium sleep/general routes without disturbing refreshed citation-winning answer structures. |
-| Revenue / Conversion | #5611 | Razzleberrytt / swarm | Admitted / ready for implementation | Add one trust-preserving post-answer path to the cited protein powder guide, keeping answer/evidence/safety and disclosure ahead of any commercial next action. |
+| Revenue / Conversion | #5611 | Razzleberrytt / swarm | Open / in review — PR #5622 | Add one trust-preserving post-answer path to the cited protein powder guide, keeping answer/evidence/safety ahead of the single non-commercial next action. |
 | Authority / Content | #5612 | Razzleberrytt / swarm | Admitted / ready for implementation | Refresh valerian evidence/safety while protecting citation-winning identity, preparation/population boundaries, contradictions, interactions, pregnancy and long-term uncertainty. |
 
 - **Discovery/SEO:** occupied by #5610.

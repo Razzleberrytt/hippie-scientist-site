@@ -8,6 +8,7 @@ import LegacyGuideFAQ from '@/components/LegacyGuideFAQ'
 import LegacyGuideQuickAnswer from '@/components/LegacyGuideQuickAnswer'
 import References from '@/components/References'
 import EmailCapture from '../../../../components/EmailCapture'
+import ResearchNextActions, { researchNextActionClassName } from '@/components/ResearchNextActions'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Whey vs Casein vs Plant Protein: What Actually Differs? (2026)',
@@ -251,6 +252,18 @@ export default function ProteinPowderPage() {
       <div id="references" className="scroll-mt-24">
         <References refs={PROTEIN_REFS} />
       </div>
+
+      <ResearchNextActions
+        headingId="protein-research-next-actions-heading"
+        title="One next step: evaluate the product itself"
+        description="The protein answer comes first. If you are comparing products, use the quality checklist before treating a label, seal or price as evidence."
+        columns={1}
+      >
+        <Link href="/articles/how-to-choose-supplement-quality/" className={researchNextActionClassName}>
+          <span className="font-semibold text-brand-800 dark:text-[var(--text-primary)]">Evaluate supplement quality</span>
+          <span className="mt-1 text-sm leading-5 text-muted dark:text-[var(--text-secondary)]">Use testing, label, certification and red-flag criteria without treating a quality seal as proof of efficacy.</span>
+        </Link>
+      </ResearchNextActions>
 
       <EmailCapture headline="Get evidence reviews like this" description="Nutrition and supplement claims separated from marketing shortcuts." ctaLabel="Get the evidence" location="guide-protein" />
       <div className="flex items-center justify-between border-t border-brand-900/10 pt-4">
