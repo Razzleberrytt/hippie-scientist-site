@@ -31,7 +31,7 @@ describe("Lion's Mane evidence calibration", () => {
     expect(text).toMatch(/preprint and has not been peer reviewed/i)
     expect(text).toMatch(/109 adults ages 40–75/i)
     expect(text).toMatch(/most other cognitive tasks and the composite did not show significant between-group differences/i)
-    expect(text).toMatch(/funded by M2 Ingredients/i)
+    expect(text).toMatch(/funded by\s+\*\*M2 Ingredients\*\*/i)
     expect(text).toMatch(/M2 Ingredients authors/i)
     expect(text).toMatch(/does .*not.* raise the evidence grade/i)
   })
@@ -62,7 +62,7 @@ describe("Lion's Mane evidence calibration", () => {
     expect(text).toMatch(/pregnancy or lactation/i)
     expect(text).toMatch(/medication interactions/i)
     expect(text).toMatch(/mushroom allergy/i)
-    expect(text).toMatch(/does not label those combinations as proven safe or proven harmful/i)
+    expect(text).toMatch(/does\s+\*\*not\*\*\s+label those combinations as proven safe or proven harmful/i)
   })
 
   it('keeps mechanism and ADHD claims bounded', () => {
