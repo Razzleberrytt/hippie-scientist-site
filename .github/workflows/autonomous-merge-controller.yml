@@ -12,6 +12,7 @@ on:
       - Production Content Lint
       - Build Check
       - Lighthouse CI
+      - Research Distribution
     types: [completed]
   schedule:
     - cron: '*/10 * * * *'
