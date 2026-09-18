@@ -55,6 +55,17 @@ export default function MagnesiumTypesPage() {
         <p>There is <strong>no proven universal “best” magnesium form</strong>. Direct human comparisons show magnesium oxide can be poorly absorbed and that more soluble preparations such as citrate perform better [1,2]. Magnesium bisglycinate now has a placebo-controlled sleep trial showing a small benefit [4], while magnesium L-threonate has emerging product-specific human cognition data alongside earlier animal work [3,5]. For most consumers, the practical priorities are adequate total magnesium, a tolerable form, transparent elemental-magnesium labeling, and an outcome that has actually been studied.</p>
       </LegacyGuideQuickAnswer>
 
+      <section className="card-premium max-w-4xl space-y-3 p-6" aria-labelledby="sleep-specific-magnesium-heading">
+        <p className="eyebrow-label">Intent boundary</p>
+        <h2 id="sleep-specific-magnesium-heading" className="text-2xl font-semibold tracking-tight text-ink">Looking specifically for magnesium forms for sleep?</h2>
+        <p className="text-sm leading-7 text-muted">
+          This page compares magnesium forms across absorption and multiple human outcomes. For the narrower question of glycinate, L-threonate, citrate and oxide specifically for sleep, use the dedicated sleep-form evidence guide; it keeps placebo efficacy, bioavailability and head-to-head superiority as separate questions.
+        </p>
+        <Link href="/guides/sleep/magnesium-types-for-sleep/" className="inline-flex min-h-11 items-center rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-brand-800 transition hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2">
+          Compare magnesium forms for sleep →
+        </Link>
+      </section>
+
       <section id="magnesium-form-evidence" data-answer-engine-table="true" className="card-premium scroll-mt-24 p-6 space-y-4 max-w-4xl">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Magnesium forms: evidence at a glance</h2>
         <div className="overflow-x-auto"><table className="min-w-[820px] text-sm"><caption className="sr-only">Magnesium forms compared by direct evidence, evidence strength, and practical interpretation</caption><thead><tr className="border-b"><th scope="col" className="text-left py-3 pr-4">Form</th><th scope="col" className="text-left py-3 pr-4">Direct evidence represented here</th><th scope="col" className="text-left py-3 pr-4">Confidence</th><th scope="col" className="text-left py-3">Practical interpretation</th></tr></thead><tbody className="text-muted">
