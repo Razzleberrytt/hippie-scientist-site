@@ -34,6 +34,7 @@ jobs:
           failure_cutoff=$((now_epoch - 120*60))
           reasons=()
           controller_stale=false
+          other_broken=false
 
           runs_json=$(gh api "repos/$REPO/actions/runs?per_page=100")
 
@@ -72,6 +73,10 @@ jobs:
                 case "$name" in
                   *[Ss]warm*|*Enrichment*|*Citation*|*Search*Console*|*Deploy*Cloudflare*|*Autonomous*merge*)
                     reasons+=("Critical workflow failed: $name ($conclusion) — $url")
+                    case "$name" in
+                      *Autonomous*merge*) ;;
+                      *) other_broken=true ;;
+                    esac
                     ;;
                 esac
                 ;;
@@ -90,6 +95,7 @@ jobs:
             | @tsv')
 
           echo "controller_stale=$controller_stale" >> "$GITHUB_OUTPUT"
+          echo "other_broken=$other_broken" >> "$GITHUB_OUTPUT"
 
           if [ ${#reasons[@]} -eq 0 ]; then
             echo 'broken=false' >> "$GITHUB_OUTPUT"
@@ -106,21 +112,81 @@ jobs:
             printf -- '- %s\n' "${reasons[@]}"
           } >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Recover stale Autonomous merge heartbeat
+      - name: Recover and verify stale Autonomous merge heartbeat
+        id: recovery
         if: steps.health.outputs.controller_stale == 'true'
         shell: bash
         run: |
           set -euo pipefail
+
+          dispatch_started_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           gh api --method POST "repos/$REPO/actions/workflows/autonomous-merge-controller.yml/dispatches" -f ref=main
-          {
-            echo '## Controller recovery dispatched'
-            echo
-            echo '- Dispatched the existing trusted controller on `main`.'
-            echo '- The next sentinel cycle will treat a completed recovery dispatch as a valid heartbeat.'
-          } >> "$GITHUB_STEP_SUMMARY"
+
+          recovered=false
+          recovery_url=''
+          recovery_conclusion=''
+          for _ in $(seq 1 24); do
+            run_json="$(gh api "repos/$REPO/actions/runs?per_page=100" | jq -c --arg started "$dispatch_started_at" '
+              [.workflow_runs[] | select(
+                .name == "Autonomous merge controller" and
+                .event == "workflow_dispatch" and
+                .head_branch == "main" and
+                .created_at >= $started
+              )]
+              | sort_by(.created_at)
+              | last // empty
+            ')"
+
+            if [ -n "$run_json" ]; then
+              recovery_url="$(printf '%s' "$run_json" | jq -r '.html_url')"
+              status="$(printf '%s' "$run_json" | jq -r '.status')"
+              recovery_conclusion="$(printf '%s' "$run_json" | jq -r '.conclusion // ""')"
+
+              if [ "$status" = 'completed' ]; then
+                if [ "$recovery_conclusion" = 'success' ]; then
+                  recovered=true
+                fi
+                break
+              fi
+            fi
+
+            sleep 5
+          done
+
+          echo "recovered=$recovered" >> "$GITHUB_OUTPUT"
+          echo "recovery_url=$recovery_url" >> "$GITHUB_OUTPUT"
+
+          if [ "$recovered" = 'true' ]; then
+            {
+              echo '## ✅ Controller heartbeat self-recovered'
+              echo
+              echo '- The scheduled fallback heartbeat was stale, so the sentinel dispatched the trusted controller on `main`.'
+              echo "- Recovery completed successfully in the same sentinel run: $recovery_url"
+              echo '- No BROKEN issue is needed for this transient scheduler miss.'
+            } >> "$GITHUB_STEP_SUMMARY"
+          else
+            {
+              echo '## 🚨 Controller recovery did not become healthy'
+              echo
+              if [ -n "$recovery_url" ]; then
+                echo "- Recovery run: $recovery_url"
+                echo "- Conclusion: ${recovery_conclusion:-not completed before sentinel timeout}"
+              else
+                echo '- No recovery workflow run became visible before the sentinel timeout.'
+              fi
+            } >> "$GITHUB_STEP_SUMMARY"
+
+            {
+              if [ -n "$recovery_url" ]; then
+                echo "Autonomous merge heartbeat recovery did not complete successfully: $recovery_url"
+              else
+                echo 'Autonomous merge heartbeat recovery was dispatched but no recovery run became visible before timeout.'
+              fi
+            } >> "$RUNNER_TEMP/swarm-broken-reasons.txt"
+          fi
 
       - name: Open or refresh BROKEN!!!!! issue
-        if: always() && steps.health.outputs.broken == 'true'
+        if: always() && steps.health.outputs.broken == 'true' && (steps.health.outputs.other_broken == 'true' || steps.recovery.outputs.recovered != 'true')
         shell: bash
         run: |
           set -euo pipefail
@@ -148,12 +214,17 @@ jobs:
           fi
 
       - name: Close BROKEN!!!!! issue on recovery
-        if: steps.health.outputs.broken == 'false'
+        if: always() && (steps.health.outputs.broken == 'false' || (steps.health.outputs.other_broken != 'true' && steps.recovery.outputs.recovered == 'true'))
         shell: bash
         run: |
           set -euo pipefail
           issue_number=$(gh issue list --repo "$REPO" --state open --search "in:title $ALERT_TITLE" --json number,title --jq ".[] | select(.title == \"$ALERT_TITLE\") | .number" | head -1)
           if [ -n "$issue_number" ]; then
-            gh issue comment "$issue_number" --repo "$REPO" --body "✅ RECOVERED — the swarm sentinel no longer detects the intervention condition. Closing automatically."
+            if [ "${{ steps.recovery.outputs.recovered }}" = 'true' ]; then
+              recovery_url="${{ steps.recovery.outputs.recovery_url }}"
+              gh issue comment "$issue_number" --repo "$REPO" --body "✅ RECOVERED — the sentinel verified a successful trusted controller recovery in this same run: ${recovery_url:-$GITHUB_SERVER_URL/$REPO/actions/runs/$GITHUB_RUN_ID}. Closing automatically."
+            else
+              gh issue comment "$issue_number" --repo "$REPO" --body "✅ RECOVERED — the swarm sentinel no longer detects the intervention condition. Closing automatically."
+            fi
             gh issue close "$issue_number" --repo "$REPO" --reason completed
           fi
