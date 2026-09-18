@@ -255,13 +255,10 @@ export default function ProteinPowderPage() {
 
       <ResearchNextActions
         headingId="protein-research-next-actions-heading"
-        title="Continue with the same evidence standard"
-        description="The protein answer comes first. From here, review how we grade evidence or use the supplement-quality checklist before comparing products."
+        title="One next step: evaluate the product itself"
+        description="The protein answer comes first. If you are comparing products, use the quality checklist before treating a label, seal or price as evidence."
+        columns={1}
       >
-        <Link href="/info/methodology/" className={researchNextActionClassName}>
-          <span className="font-semibold text-brand-800 dark:text-[var(--text-primary)]">See how we evaluate evidence</span>
-          <span className="mt-1 text-sm leading-5 text-muted dark:text-[var(--text-secondary)]">Review the methodology behind evidence grades, uncertainty, conflicts and source selection.</span>
-        </Link>
         <Link href="/articles/how-to-choose-supplement-quality/" className={researchNextActionClassName}>
           <span className="font-semibold text-brand-800 dark:text-[var(--text-primary)]">Evaluate supplement quality</span>
           <span className="mt-1 text-sm leading-5 text-muted dark:text-[var(--text-secondary)]">Use testing, label, certification and red-flag criteria without treating a quality seal as proof of efficacy.</span>
