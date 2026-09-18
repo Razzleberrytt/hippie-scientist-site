@@ -34,6 +34,7 @@ jobs:
           failure_cutoff=$((now_epoch - 120*60))
           reasons=()
           controller_stale=false
+          other_broken=false
 
           runs_json=$(gh api "repos/$REPO/actions/runs?per_page=100")
 
@@ -72,6 +73,10 @@ jobs:
                 case "$name" in
                   *[Ss]warm*|*Enrichment*|*Citation*|*Search*Console*|*Deploy*Cloudflare*|*Autonomous*merge*)
                     reasons+=("Critical workflow failed: $name ($conclusion) — $url")
+                    case "$name" in
+                      *Autonomous*merge*) ;;
+                      *) other_broken=true ;;
+                    esac
                     ;;
                 esac
                 ;;
@@ -90,6 +95,7 @@ jobs:
             | @tsv')
 
           echo "controller_stale=$controller_stale" >> "$GITHUB_OUTPUT"
+          echo "other_broken=$other_broken" >> "$GITHUB_OUTPUT"
 
           if [ ${#reasons[@]} -eq 0 ]; then
             echo 'broken=false' >> "$GITHUB_OUTPUT"
@@ -180,7 +186,7 @@ jobs:
           fi
 
       - name: Open or refresh BROKEN!!!!! issue
-        if: always() && steps.health.outputs.broken == 'true' && steps.recovery.outputs.recovered != 'true'
+        if: always() && steps.health.outputs.broken == 'true' && (steps.health.outputs.other_broken == 'true' || steps.recovery.outputs.recovered != 'true')
         shell: bash
         run: |
           set -euo pipefail
@@ -208,7 +214,7 @@ jobs:
           fi
 
       - name: Close BROKEN!!!!! issue on recovery
-        if: always() && (steps.health.outputs.broken == 'false' || steps.recovery.outputs.recovered == 'true')
+        if: always() && (steps.health.outputs.broken == 'false' || (steps.health.outputs.other_broken != 'true' && steps.recovery.outputs.recovered == 'true'))
         shell: bash
         run: |
           set -euo pipefail
