@@ -98,7 +98,7 @@ const FAQS = [
   {
     question: 'Which sleep herb works fastest?',
     answer:
-      'The evidence reviewed here does not establish a reliable same-night winner. Ashwagandha trials generally used repeated dosing over weeks, the passionflower insomnia trial lasted two weeks, and valerian/chamomile evidence is too inconsistent to support a dependable onset promise.',
+      'The evidence reviewed here does not establish a reliable same-night winner. Ashwagandha trials generally used repeated dosing over weeks, the passionflower trials studied two- to four-week periods rather than same-night rescue use, and valerian/chamomile evidence is too inconsistent to support a dependable onset promise.',
   },
   {
     question: 'Does valerian work for insomnia?',
@@ -108,7 +108,7 @@ const FAQS = [
   {
     question: 'Does passionflower help insomnia?',
     answer:
-      'One 110-person randomized placebo-controlled trial in adults with DSM-5 insomnia found a greater increase in total sleep time after two weeks, while several other sleep outcomes did not differ between groups. That is a preliminary signal, not proof of broad insomnia efficacy.',
+      'Two small randomized trials using specific passionflower extracts now provide preliminary signals. A 110-person DSM-5 insomnia trial found greater total sleep time after two weeks while several other outcomes did not differ; a newer 65-person stress-and-insomnia trial reported a 30-day total-sleep-time signal with a standardized extract. The newer study was product-specific and included authors affiliated with JK Botanicals, so these findings do not establish broad passionflower efficacy.',
   },
   {
     question: 'Can sleep herbs be combined?',
@@ -225,7 +225,7 @@ export default function BestHerbsForSleepPage() {
                 <tr className="align-top">
                   <td className="py-4 pr-4 font-semibold text-ink">Chamomile</td>
                   <td className="py-4 pr-4 text-muted">2024 meta-analysis: 10 studies / 772 participants; pooled PSQI scores favored chamomile.</td>
-                  <td className="py-4 pr-4 text-muted">Heterogeneity was very high (I² 88.4%); sleep duration, sleep efficiency, and daytime-function findings did not consistently improve, and objective evidence remains limited.</td>
+                  <td className="py-4 pr-4 text-muted">Heterogeneity was very high (I² 88.4%); sleep duration, sleep efficiency, and daytime-function findings did not consistently improve, and there is still no conclusive clinical-trial evidence that chamomile helps insomnia.</td>
                   <td className="py-4 text-muted">Inconclusive.</td>
                 </tr>
                 <tr className="align-top">
