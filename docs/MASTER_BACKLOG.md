@@ -46,17 +46,17 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Live GitHub reconciliation at `136bd04173a2790be0a175b26c5dd4b884b16958` on 2026-09-18 shows **3/3 normal implementation workstreams occupied**. #5609 is closed after #5618 merged the controller/sentinel repair, and #5608 is merged/retired.
+Post-merge control target based on live GitHub reconciliation at `73a8f0a6edcc2ad1eb93410d47f478ed94e96b40` on 2026-09-18: **0/3 normal implementation workstreams occupied** after #5619 lands. #5611 / PR #5622 and #5612 / PR #5624 are already merged/closed; #5610 is implementation-complete in #5619 and retires with this merge.
 
 | Ticket | Title | Lane | Status | Priority | Score |
 |---|---|---|---|---|---:|
-| #5610 | Defend magnesium intent separation across cited sleep/general guides | D / SEO | Admitted / active queue | P1 | 187.5 |
-| #5611 | Add trust-preserving post-answer path to cited protein powder guide | R / conversion | Admitted / active queue | P1 | 150.0 |
-| #5612 | Refresh valerian evidence and safety while protecting citation winner | A / evidence | Admitted / active queue | P1 | 125.0 |
+| #5610 / PR #5619 | Defend magnesium intent separation across cited sleep/general guides | D / SEO | Completed implementation — retires on this merge | P1 | 187.5 |
+| #5611 / PR #5622 | Add trust-preserving post-answer path to cited protein powder guide | R / conversion | Completed / merged | P1 | 150.0 |
+| #5612 / PR #5624 | Refresh valerian evidence and safety while protecting citation winner | A / evidence | Completed / merged | P1 | 125.0 |
 
-- **D — occupied by #5610:** no overlapping Discovery admission until it merges/closes.
-- **R — occupied by #5611:** no overlapping Revenue admission until it merges/closes.
-- **A — occupied by #5612:** no overlapping Authority admission until it merges/closes. #5081 remains separately blocked on a fresh non-overlapping governor lease.
+- **D — free after this merge:** #5610 / #5619 completed.
+- **R — free:** #5611 / #5622 completed.
+- **A — free:** #5612 / #5624 completed. #5081 remains separately blocked on a fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
 
 Research-only enrichment staging remains separate from canonical implementation/promotion WIP. The durable candidate feeder is `docs/SWARM_BACKLOG.md`; it does not itself grant execution authority.
