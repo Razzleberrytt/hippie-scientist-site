@@ -296,6 +296,7 @@ export default function BestSupplementsForSleepPage() {
             <Link href="/guides/sleep/best-natural-sleep-aids-that-work/" className="rounded-xl border border-brand-900/10 bg-white p-4 text-sm font-semibold text-brand-700 hover:underline">Natural sleep aids flagship →</Link>
             <Link href="/guides/sleep/glycine-for-sleep/" className="rounded-xl border border-brand-900/10 bg-white p-4 text-sm font-semibold text-brand-700 hover:underline">Glycine for sleep →</Link>
             <Link href="/guides/sleep/magnesium-for-sleep/" className="rounded-xl border border-brand-900/10 bg-white p-4 text-sm font-semibold text-brand-700 hover:underline">Magnesium for sleep →</Link>
+            <Link href="/guides/sleep/magnesium-types-for-sleep/" className="rounded-xl border border-brand-900/10 bg-white p-4 text-sm font-semibold text-brand-700 hover:underline">Compare magnesium forms for sleep →</Link>
           </section>
 
           <EmailCapture headline="Get future sleep research notes by email" description="Evidence-first supplement updates, safety context, and new guide announcements." location="best-supplements-for-sleep" />
