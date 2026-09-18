@@ -10,6 +10,7 @@ const WORKFLOW_CONTROL_PATH = /^\.github\/workflows\//u
 
 const FAST_REQUIRED_WORKFLOWS = []
 const MEDIUM_CORE_REQUIRED_WORKFLOWS = [
+  'CI',
   'Atomic upgrade gate',
   'Build quality regression',
 ]

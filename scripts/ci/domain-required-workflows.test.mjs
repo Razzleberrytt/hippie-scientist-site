@@ -7,6 +7,7 @@ import { requiredWorkflowsFor } from './autonomous-merge-controller.mjs'
 describe('changed-file workflow reachability', () => {
   it('keeps lib runtime changes behind both site and production-content gates', () => {
     expect(requiredWorkflowsFor('medium', ['lib/analytics.ts'])).toEqual([
+      'CI',
       'Atomic upgrade gate',
       'Build quality regression',
       'Site Health Check',

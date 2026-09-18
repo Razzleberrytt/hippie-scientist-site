@@ -43,12 +43,12 @@ function check(name, status = 'completed', conclusion = 'success', id = 1) {
 }
 
 const mediumCore = [
+  run('CI'),
   run('Atomic upgrade gate'),
   run('Build quality regression'),
 ]
 
 const highRequired = [
-  run('CI'),
   ...mediumCore,
   run('Site Health Check'),
   run('Production Content Lint'),
@@ -87,8 +87,9 @@ describe('risk-tiered autonomous merge controller', () => {
     expect(requiredChecksFor('low')).toEqual(['Validation, tests, and data'])
   })
 
-  it('requires targeted distribution workflows for a medium renderer but not the whole CI workflow', () => {
+  it('requires CI plus targeted distribution workflows for a medium renderer', () => {
     expect(requiredWorkflowsFor('medium', ['scripts/distribution/render-carousel-svg.mjs'])).toEqual([
+      'CI',
       'Atomic upgrade gate',
       'Build quality regression',
       'Research Distribution',
@@ -96,8 +97,9 @@ describe('risk-tiered autonomous merge controller', () => {
     expect(requiredChecksFor('medium')).toEqual(['Validation, tests, and data'])
   })
 
-  it('requires site and production-content gates for medium public-site changes', () => {
+  it('requires CI, site health, and production-content gates for medium public-site changes', () => {
     expect(requiredWorkflowsFor('medium', ['src/components/SearchBox.tsx'])).toEqual([
+      'CI',
       'Atomic upgrade gate',
       'Build quality regression',
       'Site Health Check',
@@ -122,13 +124,14 @@ describe('risk-tiered autonomous merge controller', () => {
     expect(verdict.action).toBe('merge')
   })
 
-  it('lets a medium renderer merge after validation while CI production build and content lint remain pending', () => {
+  it('waits for medium-risk CI producer completion before merge', () => {
     const verdict = evaluateReadiness({
       pr,
       workflowRuns: [
-        ...mediumCore,
-        run('Research Distribution'),
         run('CI', 'in_progress', null),
+        run('Atomic upgrade gate'),
+        run('Build quality regression'),
+        run('Research Distribution'),
         run('Site Health Check', 'in_progress', null),
         run('Production Content Lint', 'in_progress', null),
         run('Lighthouse CI', 'in_progress', null),
@@ -142,6 +145,47 @@ describe('risk-tiered autonomous merge controller', () => {
       controllerRunId: 'controller',
       riskTier: 'medium',
       changedFiles: ['scripts/distribution/render-carousel-svg.mjs'],
+    })
+    expect(verdict.action).toBe('wait')
+    expect(verdict.reason).toContain('CI')
+  })
+
+  it('waits for the CI producer before merging a medium public-site change', () => {
+    const verdict = evaluateReadiness({
+      pr,
+      workflowRuns: [
+        run('CI', 'in_progress', null),
+        run('Atomic upgrade gate'),
+        run('Build quality regression'),
+        run('Site Health Check'),
+        run('Production Content Lint'),
+      ],
+      checkRuns: [check('Validation, tests, and data')],
+      expectedHeadSha: headSha,
+      currentBaseSha: baseSha,
+      controllerRunId: 'controller',
+      riskTier: 'medium',
+      changedFiles: ['src/components/SearchBox.tsx'],
+    })
+    expect(verdict.action).toBe('wait')
+    expect(verdict.reason).toContain('CI')
+  })
+
+  it('allows a medium public-site merge after CI and targeted gates are terminal-green', () => {
+    const verdict = evaluateReadiness({
+      pr,
+      workflowRuns: [
+        ...mediumCore,
+        run('Site Health Check'),
+        run('Production Content Lint'),
+        run('Lighthouse CI', 'in_progress', null),
+      ],
+      checkRuns: [check('Validation, tests, and data')],
+      expectedHeadSha: headSha,
+      currentBaseSha: baseSha,
+      controllerRunId: 'controller',
+      riskTier: 'medium',
+      changedFiles: ['src/components/SearchBox.tsx'],
     })
     expect(verdict.action).toBe('merge')
   })
@@ -226,7 +270,7 @@ describe('risk-tiered autonomous merge controller', () => {
   it('waits for the validation job on medium risk even when targeted workflows are green', () => {
     const verdict = evaluateReadiness({
       pr,
-      workflowRuns: [...mediumCore, run('Research Distribution'), run('CI', 'in_progress', null)],
+      workflowRuns: [...mediumCore, run('Research Distribution')],
       checkRuns: [check('Validation, tests, and data', 'in_progress', null, 10)],
       expectedHeadSha: headSha,
       currentBaseSha: baseSha,
