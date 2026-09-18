@@ -1,11 +1,11 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-09-17
+**Updated:** 2026-09-18
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
-**Immediate work:** Only tickets present in [CURRENT_SPRINT.md](CURRENT_SPRINT.md) may be started. Closed/completed work must be removed from active sections on the next control-plane sync.
+**Immediate work:** Only tickets present in [CURRENT_SPRINT.md](CURRENT_SPRINT.md) may be started. Closed/completed work must be removed from active sections on the next control-plane sync. The deep candidate feeder is [SWARM_BACKLOG.md](SWARM_BACKLOG.md); candidates there are not executable until revalidated and promoted here and into the sprint.
 
 ## Scoring and gates
 
@@ -46,15 +46,16 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Live GitHub reconciliation at `f6852fab06859c420783a2ed057cddfe9d82140d` on 2026-09-17 shows **0/3 normal implementation workstreams occupied**:
+Live GitHub reconciliation at `10feb1d730f5dd5bb94b90b863426293da849056` on 2026-09-18 shows **1/3 normal implementation workstreams occupied**, with one separate P0 control incident:
 
 | Ticket | Title | Lane | Status |
 |---|---|---|---|
-| — | No active implementation ticket | — | Observed WIP 0/3 |
+| #5608 | Refresh evidence on cited Lion's Mane review | A | Open / in review — occupies Authority/Content |
 
-- **R — free:** #5540 / PR #5544 is merged.
-- **A — free:** #5081 / PR #5556 is the next candidate but does not occupy Authority/Content until a fresh non-overlapping governor lease exists.
-- **D — free:** #5296 / PR #5552 is merged.
+- **R — free but admission-frozen by #5609:** #5611 is the next ranked Revenue candidate after the control incident clears.
+- **A — occupied:** #5608 owns Authority/Content; #5612 waits behind it. #5081 remains separately blocked on a fresh non-overlapping governor lease.
+- **D — free but admission-frozen by #5609:** #5610 is the next ranked Discovery candidate after the control incident clears.
+- **P0 control incident:** #5609 reports an autonomous merge heartbeat stale >45 minutes. New normal admissions stay frozen until the deterministic blocker is repaired or the incident is explicitly cleared.
 
 Research-only enrichment staging remains separate from canonical implementation/promotion WIP. Completed Vitamin B6, AI-citation protection, newsletter CTA repair, #5502 homepage hierarchy work, and merged #5505 homepage chrome work are retired below rather than recycled into the actionable queue. No stale item is admitted merely because a normal workstream is free.
 
@@ -64,6 +65,10 @@ Start the highest legal item only when a real WIP slot exists. Do not bypass a d
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
+| #5610 | Defend magnesium intent separation across cited sleep/general guides | D / SEO | Ready after #5609 clears | P1 | 5/5/5/4/0.75/2 | 187.5 | Fresh 2026-09-17 citation snapshot; no overlapping open PR | Distinct reader jobs; canonical/robots/sitemap/schema/internal links agree; preserve recently refreshed sleep-winner answer structure; regress any proven defect |
+| #5611 | Add trust-preserving post-answer path to cited protein powder guide | R / conversion | Ready after #5609 clears | P1 | 5/5/4/4/0.75/2 | 150.0 | Reuse existing post-answer architecture; no external metric required to implement | One downstream next action only after answer/evidence/safety; disclosure before commercial links; mobile/a11y/consent gates green; outcome remains Unknown |
+| #5612 | Refresh valerian evidence and safety while protecting citation winner | A / evidence | Waiting for #5608 to release A | P1 | 5/5/5/4/0.75/3 | 125.0 | 988-citation winner; verify newest human/safety evidence; no same-route active work | Preserve route/title/direct-answer identity; capture contradictions, preparation/population and safety boundaries; evidence grade changes only under canonical rules |
+
 | #5076 | Add reusable post-answer sleep research next-action path | R conversion / L4 | Completed 2026-09-04; retired from actionable queue | — | — | Canonical component plus three representative integrations are on `main`; stale fourth-integration PR #5430 closed | Outcomes remain `Unknown`; any further page integration requires a fresh admitted ticket |
 | #5081 | Close Sage human evidence and SAGE-718 identity contamination | A / L2 | Blocked — fresh governor lease required | P1 | — | — | Exact current main + no overlapping lease | Acquire and merge a non-overlapping governor lease before canonical evidence mutation; preserve formulation, population, endpoint, null-result, safety, and dosing boundaries |
 | DOC-002 | Continuously triage open issues against authoritative queue | O | Continuous reconciliation maintenance | P2 | 3/3/2/5/1/2 | 45.0 | Current GitHub state | Every open issue is current, duplicate, superseded, blocked, historical, or queued; stale closed work never occupies `Now` |
