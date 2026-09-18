@@ -256,6 +256,7 @@ export default function MagnesiumTypesForSleepPage() {
           <Link href="/guides/sleep/magnesium-for-sleep/" className="rounded-xl border border-brand-900/10 bg-white p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Magnesium for Sleep →</Link>
           <Link href="/guides/sleep/magnesium-glycinate-vs-l-threonate-for-sleep/" className="rounded-xl border border-brand-900/10 bg-white p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Glycinate vs L-Threonate →</Link>
           <Link href="/guides/sleep/best-supplements-for-sleep/" className="rounded-xl border border-brand-900/10 bg-white p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Sleep Supplements →</Link>
+          <Link href="/guides/other/magnesium-types-guide/" className="rounded-xl border border-brand-900/10 bg-white p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">General Magnesium Types Guide →</Link>
           <Link href="/guides/sleep/" className="rounded-xl border border-brand-900/10 bg-white p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Sleep Evidence Hub →</Link>
         </nav>
       </div>
