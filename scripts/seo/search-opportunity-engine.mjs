@@ -49,6 +49,8 @@ const flag = (name, fallback) => {
 
 const INPUT_DIR = path.resolve(ROOT, String(flag('dir', 'data-sources/search-console')))
 const TOP_N = Number(flag('top', 25))
+const OBSERVED_START = String(flag('observed-start', '')).trim()
+const OBSERVED_END = String(flag('observed-end', '')).trim()
 const JSON_PATH = path.join(REPORTS_DIR, 'search-opportunities.json')
 const MD_PATH = path.join(REPORTS_DIR, 'search-opportunities.md')
 
@@ -109,6 +111,7 @@ const COLUMN_ALIASES = {
   impressions: ['impressions', 'impression'],
   ctr: ['ctr', 'click through rate', 'site ctr'],
   position: ['position', 'average position', 'avg. position', 'avg position'],
+  date: ['date', 'day'],
 }
 
 function mapHeader(header) {
@@ -157,10 +160,72 @@ function loadExports(dir) {
         impressions,
         ctr: index.ctr !== undefined ? toCtrFraction(cells[index.ctr]) : 0,
         position: index.position !== undefined ? toNumber(cells[index.position]) : 0,
+        date: index.date !== undefined ? cells[index.date]?.trim() ?? '' : '',
       })
     }
   }
   return rows
+}
+
+function validDate(value) {
+  if (!value) return null
+  const parsed = Date.parse(value)
+  if (!Number.isFinite(parsed)) return null
+  return new Date(parsed).toISOString().slice(0, 10)
+}
+
+function loadObservationMetadata(dir, rows) {
+  const explicitStart = validDate(OBSERVED_START)
+  const explicitEnd = validDate(OBSERVED_END)
+  if (explicitEnd) {
+    return {
+      status: 'dated',
+      startDate: explicitStart,
+      endDate: explicitEnd,
+      source: 'cli',
+      fetchedAt: new Date().toISOString(),
+    }
+  }
+
+  const metadataPath = path.join(dir, 'fetch-metadata.json')
+  if (existsSync(metadataPath)) {
+    try {
+      const metadata = JSON.parse(readFileSync(metadataPath, 'utf8'))
+      const startDate = validDate(metadata.startDate)
+      const endDate = validDate(metadata.endDate)
+      if (endDate) {
+        return {
+          status: 'dated',
+          startDate,
+          endDate,
+          source: 'fetch-metadata.json',
+          fetchedAt: metadata.fetchedAt ?? null,
+          siteUrl: metadata.siteUrl ?? null,
+        }
+      }
+    } catch {
+      // Fall through to row-level dates.
+    }
+  }
+
+  const dates = rows.map((row) => validDate(row.date)).filter(Boolean).sort()
+  if (dates.length) {
+    return {
+      status: 'dated',
+      startDate: dates[0],
+      endDate: dates.at(-1),
+      source: 'csv-date-column',
+      fetchedAt: null,
+    }
+  }
+
+  return {
+    status: 'missing',
+    startDate: null,
+    endDate: null,
+    source: 'none',
+    fetchedAt: null,
+  }
 }
 
 /* --------------------------------------------------------- ctr modelling -- */
@@ -348,6 +413,7 @@ function buildQueryOpportunities(rows) {
 function main() {
   const rows = loadExports(INPUT_DIR)
   const knownUrls = loadKnownUrls()
+  const observation = loadObservationMetadata(INPUT_DIR, rows)
 
   if (!rows.length) {
     console.log('\nSearch opportunity engine')
@@ -371,6 +437,7 @@ function main() {
     generatedAt: new Date().toISOString(),
     inputDir: path.relative(ROOT, INPUT_DIR),
     rowsIngested: rows.length,
+    observation,
     totals: {
       clicks: rows.reduce((sum, r) => sum + r.clicks, 0),
       impressions: rows.reduce((sum, r) => sum + r.impressions, 0),
@@ -416,6 +483,7 @@ function renderMarkdown(report) {
     '',
     `Generated ${report.generatedAt} from ${report.rowsIngested} exported rows.`,
     `Totals: **${report.totals.clicks}** clicks / **${report.totals.impressions}** impressions.`,
+    `Observation window: **${report.observation?.startDate ?? 'unknown'} → ${report.observation?.endDate ?? 'unknown'}** (${report.observation?.source ?? 'none'}).`,
     '',
     `## Top ${report.topByImpressions.length} URLs by impressions`,
     '',
@@ -464,6 +532,7 @@ function printSummary(report) {
   console.log(`Ingested ${report.rowsIngested} rows from ${report.inputDir}/`)
   console.log(`Totals: ${report.totals.clicks} clicks · ${report.totals.impressions} impressions`)
   console.log(`Site-wide CTR: ${percent(report.totals.clicks, report.totals.impressions)}%`)
+  console.log(`Observation: ${report.observation?.startDate ?? 'unknown'}..${report.observation?.endDate ?? 'unknown'} (${report.observation?.source ?? 'none'})`)
 
   const sections = [
     ['Top URLs by impressions', report.topByImpressions],
