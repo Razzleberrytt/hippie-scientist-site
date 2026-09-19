@@ -8,6 +8,7 @@ import {
   CURATED_INDEXABLE_COMPOUND_SLUGS,
   CURATED_INDEXABLE_HERB_SLUGS,
   MONEY_ENTRY_ROUTES,
+  isCuratedIndexableHerbRouteSlug,
 } from './index-allowlist'
 
 import { TOTAL_PROFILE_COUNT } from '@/lib/profile-counts'
