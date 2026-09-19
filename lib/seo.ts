@@ -6,7 +6,6 @@ import { getCurrentLocaleAlternates, isPublishedTranslationPath } from './intern
 import {
   CORE_INDEXABLE_ROUTES,
   CURATED_INDEXABLE_COMPOUND_SLUGS,
-  CURATED_INDEXABLE_HERB_SLUGS,
   MONEY_ENTRY_ROUTES,
   isCuratedIndexableHerbRouteSlug,
 } from './index-allowlist'
