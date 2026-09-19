@@ -50,9 +50,9 @@ Current review state: **1/3 normal implementation workstreams occupied**. #5630 
 
 | Ticket | Title | Lane | Status | Priority | Score |
 |---|---|---|---|---|---:|
-| #5629 / PR #5650 | Resolve overlapping Kava article vs herb-guide reader jobs | D / SEO | Draft implementation | P1 | 187.5 |
+| #5629 / PR #5650 | Resolve overlapping Kava article vs herb-guide reader jobs | D / SEO | Implementation complete / full validation pending | P1 | 187.5 |
 
-- **D — occupied by #5629 / PR #5650:** admission/control-sync PR #5649 is merged; implementation is draft.
+- **D — occupied by #5629 / PR #5650:** implementation is complete and awaiting full exact-head validation.
 - **R — free:** #5630 / PR #5646 is merged and retired.
 - **A — free:** #5081 remains separately blocked on a fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
