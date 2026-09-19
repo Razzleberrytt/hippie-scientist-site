@@ -4,6 +4,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import {
   buildSearchGovernanceArtifact,
+  normalizeMetadataExperimentSource,
   renderSearchGovernanceMarkdown,
   type QueryIntentMap,
   type SearchOpportunityReport,
@@ -49,11 +50,7 @@ async function main(): Promise<void> {
     readJson<QueryIntentMap>(intentMapPath, {}),
     readJson<MetadataExperiment[] | { experiments?: MetadataExperiment[] }>(experimentsPath, []),
   ])
-  const experiments = Array.isArray(experimentSource)
-    ? experimentSource
-    : Array.isArray(experimentSource?.experiments)
-      ? experimentSource.experiments
-      : []
+  const experiments = normalizeMetadataExperimentSource(experimentSource)
 
   const report = buildSearchGovernanceArtifact({ current, previous, intentMap, experiments })
 
