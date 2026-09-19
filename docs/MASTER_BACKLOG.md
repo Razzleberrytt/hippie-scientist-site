@@ -46,13 +46,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Current review state: **1/3 normal implementation workstreams occupied** while #5638 / PR #5639 is open. #5637 / PR #5636 is merged and retired. The post-merge target returns to **0/3**.
+Current review state: **0/3 normal implementation workstreams occupied**. #5637 / PR #5636 and #5638 / PR #5639 are merged and retired.
 
 | Ticket | Title | Lane | Status | Priority | Score |
 |---|---|---|---|---|---:|
-| #5638 / PR #5639 | Protect canonical metadata experiments in search governance | D / Discovery-SEO | In review; retire on merge | P1 control | — |
+| — | No active normal implementation ticket | — | — | — | — |
 
-- **D — occupied until #5639 merges:** repair canonical experiment-ledger consumption so proposed/running/winning metadata cannot be overwritten by a competing CTR rewrite.
+- **D — free:** the citation→search→click control plane and canonical metadata-experiment protection are merged.
 - **R — free.**
 - **A — free:** #5081 remains separately blocked on a fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
@@ -61,7 +61,7 @@ Research-only enrichment staging remains separate from canonical implementation/
 
 ## Next — ordered dependency queue
 
-After #5639 merges, all three normal workstreams are available. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate into each lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
+All three normal workstreams are available. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate into each lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
@@ -105,6 +105,8 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
+| #5638 / PR #5639 | Merged; search governance now reads the canonical metadata experiment ledger and protects proposed/running/winner states from competing CTR rewrites. No ranking, CTR, traffic, conversion, or revenue lift is inferred. |
+| #5637 / PR #5636 | Merged; fresh dated page-level search opportunity is primary, citation-only holds are non-actionable, and AI citations remain a bounded authority/confidence overlay. No ranking, CTR, traffic, conversion, or revenue lift is inferred. |
 | #5610 / PR #5625 | Magnesium general-vs-sleep intent separation is implementation-complete; reciprocal routing and the sleep-shortlist handoff land with this merge. Citation, ranking, traffic, and revenue outcomes remain `Unknown`. |
 | #5611 / PR #5622 | Merged; protein guide now uses one trust-preserving post-answer action on the shared next-action shell. Conversion impact remains `Unknown`. |
 | #5612 / PR #5624 | Merged; valerian evidence/safety refresh preserves monotherapy vs combination evidence, null daytime outcomes, preparation boundaries, and long-term-safety uncertainty. No efficacy upgrade is inferred. |
