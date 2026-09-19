@@ -48,9 +48,9 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 Current review state: **1/3 normal implementation workstreams occupied**. #5629 / PR #5650 is merged and retired. #5647 is admitted in Revenue/Conversion for the Valerian Root post-answer action.
 
-| Ticket | Title | Lane | Status | Priority | Score |
-|---|---|---|---|---|---:|
-| #5647 | Add one trust-preserving post-answer action to Valerian Root review | R / Conversion | Admitted / ready for implementation | P1 | — |
+| Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
+|---|---|---|---|---|---|---:|---|
+| #5647 | Add one trust-preserving post-answer action to Valerian Root review | R / Conversion | Admitted / ready for implementation | P1 | 3/4/3/2/0.75/1 | 54.0 | last_verified 2026-09-19 on exact main `b002134`; deterministic no-CTA gap verified; external outcomes remain `Unknown` |
 
 - **D — free:** #5629 / PR #5650 is merged and retired.
 - **R — occupied by #5647:** no overlapping Revenue/Conversion admission until it merges or closes.
