@@ -8,6 +8,7 @@ import References from '@/components/References'
 import JsonLd from '@/components/seo/JsonLd'
 import ContentCards from '@/components/content/ContentCards'
 import WhatEvidenceShows from '@/components/evidence/WhatEvidenceShows'
+import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import { editorialReviewEvents } from '@/data/editorial/reviews'
 import { latestReviewForPage } from '@/lib/editorial-provenance'
 import {
@@ -336,6 +337,17 @@ export default async function ArticleMonographPage({ params }: PageProps) {
       {articleReferences.length > 0 ? (
         <div className="mt-8">
           <References refs={articleReferences} />
+        </div>
+      ) : null}
+
+      {page.slug === 'valerian-root' ? (
+        <div className="mt-8">
+          <NewsletterCtaBlock
+            title="Keep up with evidence-first sleep research"
+            description="Read short research notes on supplement evidence, safety, and how to interpret new sleep studies."
+            ctaLabel="Read the newsletter"
+            location="valerian-root-post-answer-newsletter"
+          />
         </div>
       ) : null}
 
