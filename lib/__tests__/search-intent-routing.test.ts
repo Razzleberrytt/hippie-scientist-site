@@ -117,6 +117,27 @@ describe('CTR and metadata experiments', () => {
     expect(canStartMetadataRewrite(ctr, experiments)).toBe(false)
   })
 
+  it('protects canonical proposed and winner experiment states', () => {
+    const canonical: MetadataExperiment[] = [
+      {
+        id: 'meta-proposed',
+        url: '/guides/sleep/glycine-for-sleep/',
+        createdAt: '2026-09-19T10:00:00.000Z',
+        status: 'proposed',
+      },
+      {
+        id: 'meta-winner',
+        url: '/guides/sleep/valerian-root/',
+        createdAt: '2026-09-18T10:00:00.000Z',
+        startedAt: '2026-09-18T12:00:00.000Z',
+        status: 'winner',
+      },
+    ]
+
+    expect(shouldPreserveMetadata(canonical, '/guides/sleep/glycine-for-sleep/')).toBe(true)
+    expect(shouldPreserveMetadata(canonical, '/guides/sleep/valerian-root/')).toBe(true)
+  })
+
   it('allows a new experiment only for a real underperformer with no protected winner', () => {
     const ctr = diagnoseCtr({ url: '/new-page/', impressions: 1000, clicks: 5, position: 4 })
     expect(canStartMetadataRewrite(ctr, experiments)).toBe(true)
