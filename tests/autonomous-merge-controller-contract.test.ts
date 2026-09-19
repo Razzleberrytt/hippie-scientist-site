@@ -18,6 +18,27 @@ describe('autonomous merge controller contract', () => {
     expect(workflow).not.toContain('github.event.pull_request.head.ref')
   })
 
+  it('keeps privileged consumer wake orchestration on the trusted default branch', () => {
+    const wake = read('.github/workflows/governed-consumer-wake.yml')
+    expect(wake).toContain('workflow_run:')
+    expect(wake).toContain('types: [completed]')
+    expect(wake).toContain("github.event.workflow_run.event == 'workflow_dispatch'")
+    expect(wake).toContain('actions: write')
+    expect(wake).toContain('commits/$HEAD_SHA/pulls')
+    expect(wake).toContain('gh workflow run autonomous-merge-controller.yml --ref main')
+
+    for (const workflowPath of [
+      '.github/workflows/build-check.yml',
+      '.github/workflows/lighthouse.yml',
+      '.github/workflows/production-content-lint.yml',
+    ]) {
+      const consumer = read(workflowPath)
+      expect(consumer).toContain('actions: read')
+      expect(consumer).not.toContain('actions: write')
+      expect(consumer).not.toContain('Wake autonomous merge controller')
+    }
+  })
+
   it('has only the permissions needed to inspect checks, retry transient actions, refresh/merge, and dispatch canonical recovery workflows', () => {
     const workflow = read('.github/workflows/autonomous-merge-controller.yml')
 
