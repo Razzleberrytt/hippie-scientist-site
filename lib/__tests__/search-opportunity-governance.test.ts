@@ -1,10 +1,38 @@
 import { describe, expect, it } from 'vitest'
 import {
   buildSearchGovernanceArtifact,
+  normalizeMetadataExperimentSource,
   renderSearchGovernanceMarkdown,
 } from '../search-opportunity-governance'
 
 describe('Search Console governance report', () => {
+  it('loads both the canonical ledger object and legacy experiment arrays', () => {
+    const canonical = normalizeMetadataExperimentSource({
+      version: 1,
+      experiments: [
+        {
+          id: 'meta-1',
+          url: '/guides/sleep/glycine-for-sleep/',
+          createdAt: '2026-09-19T10:00:00.000Z',
+          status: 'proposed',
+        },
+      ],
+    })
+    const legacy = normalizeMetadataExperimentSource([
+      {
+        id: 'legacy-1',
+        url: '/legacy/',
+        startedAt: '2026-09-18',
+        status: 'running',
+      },
+    ])
+
+    expect(canonical).toHaveLength(1)
+    expect(canonical[0].status).toBe('proposed')
+    expect(legacy).toHaveLength(1)
+    expect(normalizeMetadataExperimentSource({ version: 1 })).toEqual([])
+  })
+
   it('classifies intent, flags unambiguous wrong URLs, and tracks page-set stability', () => {
     const current = {
       generatedAt: '2026-08-15T00:00:00.000Z',

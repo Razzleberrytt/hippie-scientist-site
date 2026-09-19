@@ -37,6 +37,14 @@ export interface SearchOpportunityReport {
 
 export type QueryIntentMap = Record<string, string>
 
+export function normalizeMetadataExperimentSource(input: unknown): MetadataExperiment[] {
+  if (Array.isArray(input)) return input as MetadataExperiment[]
+  if (input && typeof input === 'object' && Array.isArray((input as { experiments?: unknown }).experiments)) {
+    return (input as { experiments: MetadataExperiment[] }).experiments
+  }
+  return []
+}
+
 export interface QueryGovernanceRow {
   query: string
   intent: QueryIntent

@@ -4,6 +4,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import {
   buildSearchGovernanceArtifact,
+  normalizeMetadataExperimentSource,
   renderSearchGovernanceMarkdown,
   type QueryIntentMap,
   type SearchOpportunityReport,
@@ -35,7 +36,7 @@ async function main(): Promise<void> {
   const previousArg = arg('previous')
   const previousPath = previousArg ? path.resolve(previousArg) : ''
   const intentMapPath = path.resolve(arg('intent-map', 'data-sources/search-console/query-intent-map.json'))
-  const experimentsPath = path.resolve(arg('experiments', 'ops/metadata-experiments.json'))
+  const experimentsPath = path.resolve(arg('experiments', 'data/seo/metadata-experiments.json'))
   const jsonPath = path.resolve(arg('out', 'ops/reports/search-governance.json'))
   const markdownPath = path.resolve(arg('markdown', 'ops/reports/search-governance.md'))
 
@@ -44,11 +45,12 @@ async function main(): Promise<void> {
     throw new Error('Search opportunity input must contain `pages` and `queries` arrays. Run the existing Search Console opportunity engine first.')
   }
 
-  const [previous, intentMap, experiments] = await Promise.all([
+  const [previous, intentMap, experimentSource] = await Promise.all([
     readJson<SearchOpportunityReport | undefined>(previousPath, undefined),
     readJson<QueryIntentMap>(intentMapPath, {}),
-    readJson<MetadataExperiment[]>(experimentsPath, []),
+    readJson<MetadataExperiment[] | { experiments?: MetadataExperiment[] }>(experimentsPath, []),
   ])
+  const experiments = normalizeMetadataExperimentSource(experimentSource)
 
   const report = buildSearchGovernanceArtifact({ current, previous, intentMap, experiments })
 
