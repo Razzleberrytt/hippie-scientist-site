@@ -27,16 +27,16 @@ export const RELEASE_SENSITIVE_PATTERNS = [
  * `components/` is not release-sensitive but must still run lint and tests.
  *
  * `docs_only` is the conservative complement. It is true only when *every*
- * changed file is documentation, an internal report, or a workbook patch
- * proposal — and a proposal is inert by construction, since
+ * changed file is documentation, an inert generated/internal report, or a
+ * workbook patch proposal — and a proposal is inert by construction, since
  * `apply-workbook-patch.mjs` refuses to write while a patch is in `proposal`
- * status.
+ * status. Operational inputs under ops/ intentionally stay on the full path.
  *
  * @type {RegExp[]}
  */
 export const DOCS_ONLY_PATTERNS = [
   /^docs\//,
-  /^ops\//,
+  /^ops\/(?:reports?|audits?|snapshots?)\//,
   /^data-sources\/workbook-patches\/[^/]+\.json$/,
   /^data-sources\/workbook-patches\/README\.md$/,
   /^\.github\/ISSUE_TEMPLATE\//,
@@ -76,22 +76,12 @@ export function isLeafPagePath(file) {
   const urlSegments = []
 
   for (const segment of routeSegments) {
-    // Pure route groups do not add a URL segment. They are safe only when the
-    // page still has at least two concrete URL segments below app/; this keeps
-    // app/(marketing)/page.tsx (the root route) out of the fast path.
     if (/^\([^/]+\)$/.test(segment)) continue
-
-    // Dynamic/catch-all segments can render many URLs from one page file.
-    // Parallel, intercepting, and private folders can also have non-leaf
-    // routing semantics. Fail closed for every one of those shapes.
     if (segment.includes('[') || segment.includes(']')) return false
     if (segment.startsWith('@') || segment.startsWith('(') || segment.startsWith('_')) return false
-
     urlSegments.push(segment)
   }
 
-  // Keep category/index hubs (for example app/guides/page.tsx) on the full
-  // path. The optimization is intentionally for deep, static editorial leaves.
   return urlSegments.length >= 2
 }
 
@@ -100,8 +90,6 @@ export function classifyReleaseImpact(files) {
     files.map((file) => String(file || '').trim().replaceAll('\\', '/')).filter(Boolean),
   ))
   const sensitiveFiles = normalizedFiles.filter(isReleaseSensitivePath)
-  // Empty diffs never take a fast path: with nothing to inspect, fail closed
-  // and run the exhaustive suite.
   const docsOnly = normalizedFiles.length > 0 && normalizedFiles.every(isDocsOnlyPath)
   const leafPageOnly = normalizedFiles.length > 0 && normalizedFiles.every(isLeafPagePath)
   return {
