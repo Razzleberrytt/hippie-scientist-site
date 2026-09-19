@@ -56,7 +56,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  actions: write
+  actions: read
   contents: read
 
 jobs:
@@ -244,15 +244,3 @@ jobs:
           echo "- Client-boundary source budget: warn at 18KB, fail at 45KB" >> "$GITHUB_STEP_SUMMARY"
           echo "- Missing/stale/tampered governed artifacts fall back to a complete build; no audit threshold is weakened." >> "$GITHUB_STEP_SUMMARY"
           echo "- Status: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Wake autonomous merge controller
-        if: always() && github.event_name == 'workflow_dispatch' && inputs.producer_pr_number != ''
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          if ! gh workflow run autonomous-merge-controller.yml --ref main \
-            -f pr_number="${{ inputs.producer_pr_number }}" \
-            -f expected_head_sha="${{ inputs.producer_sha }}"; then
-            echo "::notice title=Merge controller bootstrap::Trusted main predates targeted wake inputs; using one-time legacy wake fallback."
-            gh workflow run autonomous-merge-controller.yml --ref main
-          fi
