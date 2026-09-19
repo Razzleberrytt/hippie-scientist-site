@@ -16,7 +16,7 @@ import { DEPRECATED_COMPOUND_CANONICALS } from '../../lib/deprecated-compound-ca
 const ROOT = process.cwd()
 const DATA_DIR = resolveDataDir(process.argv)
 const OUT_DIR = path.join(DATA_DIR, 'runtime-maps')
-const DOCS_DIR = path.join(ROOT, 'docs')
+const DOCS_DIR = resolveDocsDir(process.argv)
 const MAX_GROUP_LINKS = 4
 const MIN_PAGE_LINKS = 2
 
@@ -52,6 +52,13 @@ function resolveDataDir(argv) {
   if (!flag) return path.join(ROOT, 'public', 'data')
   const value = flag.split('=').slice(1).join('=').trim()
   return value ? path.resolve(ROOT, value) : path.join(ROOT, 'public', 'data')
+}
+
+function resolveDocsDir(argv) {
+  const flag = argv.find((arg) => arg.startsWith('--docs-dir='))
+  if (!flag) return path.join(ROOT, 'docs')
+  const value = flag.split('=').slice(1).join('=').trim()
+  return value ? path.resolve(ROOT, value) : path.join(ROOT, 'docs')
 }
 
 function text(value) {
