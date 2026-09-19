@@ -78,6 +78,21 @@ describe('risk-tiered autonomous merge controller', () => {
     expect(source).not.toMatch(/page\s*<=\s*4/)
   })
 
+  it('uses targeted consumer wakeups that hand exact-head ownership to the polling controller', () => {
+    const controllerWorkflow = fs.readFileSync(path.join(process.cwd(), '.github/workflows/autonomous-merge-controller.yml'), 'utf8')
+    expect(controllerWorkflow).toContain('pr_number:')
+    expect(controllerWorkflow).toContain('expected_head_sha:')
+    expect(controllerWorkflow).toContain("SWEEP_OPEN_PRS: ${{ inputs.pr_number != '' && 'false' || 'true' }}")
+    expect(controllerWorkflow).toContain("MERGE_POLL_SECONDS: '5'")
+    expect(controllerWorkflow).toContain("MERGE_MAX_WAIT_MINUTES: '3'")
+
+    for (const workflow of ['build-check.yml', 'lighthouse.yml', 'production-content-lint.yml']) {
+      const source = fs.readFileSync(path.join(process.cwd(), '.github/workflows', workflow), 'utf8')
+      expect(source, workflow).toContain('-f pr_number="${{ inputs.producer_pr_number }}"')
+      expect(source, workflow).toContain('-f expected_head_sha="${{ inputs.producer_sha }}"')
+    }
+  })
+
   it('classifies test/docs-only changes as low risk', () => {
     expect(classifyRisk({ pr, changedFiles: ['docs/merge-policy.md', 'lib/__tests__/foo.test.ts'] })).toBe('low')
   })
