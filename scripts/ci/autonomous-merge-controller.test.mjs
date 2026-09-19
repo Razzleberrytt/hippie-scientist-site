@@ -90,6 +90,8 @@ describe('risk-tiered autonomous merge controller', () => {
       const source = fs.readFileSync(path.join(process.cwd(), '.github/workflows', workflow), 'utf8')
       expect(source, workflow).toContain('-f pr_number="${{ inputs.producer_pr_number }}"')
       expect(source, workflow).toContain('-f expected_head_sha="${{ inputs.producer_sha }}"')
+      expect(source, workflow).toContain('Trusted main predates targeted wake inputs; using one-time legacy wake fallback.')
+      expect(source, workflow).toContain('gh workflow run autonomous-merge-controller.yml --ref main')
     }
   })
 
