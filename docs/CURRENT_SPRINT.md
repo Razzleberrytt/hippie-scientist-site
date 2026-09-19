@@ -5,7 +5,7 @@
 **Updated:** 2026-09-19
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #5629 / PR #5650 is merged and retired. #5647 / PR #5657 is merged and retired. #5602 is admitted in Authority/Content for the Best Herbs for Anxiety evidence/provenance refresh. Normal implementation WIP is **1/3**. Discovery/SEO is free; Revenue/Conversion is free; #5081 remains separately blocked on a fresh non-overlapping governor lease. No P0 admission freeze remains.
+**Current admission:** #5629 / PR #5650 is merged and retired. #5647 / PR #5657 is merged and retired. #5602 / PR #5661 is in review in Authority/Content for the Best Herbs for Anxiety evidence/provenance refresh. Normal implementation WIP is **1/3**. Discovery/SEO is free; Revenue/Conversion is free; #5081 remains separately blocked on a fresh non-overlapping governor lease. No P0 admission freeze remains.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -53,11 +53,11 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| Authority / Content | #5602 | Razzleberrytt / swarm | Admitted / ready for implementation | Refresh the canonical Best Herbs for Anxiety guide with newer systematic evidence and methodology/provenance visibility while preserving ranking, negative-trial, preparation, funding, medication, pregnancy, liver-safety, and care-escalation boundaries unless the evidence independently requires a documented change. |
+| Authority / Content | #5602 / PR #5661 | Razzleberrytt / swarm | Open / in review | Refresh the canonical Best Herbs for Anxiety guide with newer systematic evidence and methodology/provenance visibility while preserving ranking, negative-trial, preparation, funding, medication, pregnancy, liver-safety, and care-escalation boundaries unless the evidence independently requires a documented change. |
 
 - **Discovery/SEO:** free; #5629 / PR #5650 is merged and retired.
 - **Revenue/Conversion:** free; #5647 / PR #5657 is merged and retired.
-- **Authority/Content:** occupied by #5602; #5081 remains separately blocked pending a fresh non-overlapping governor lease.
+- **Authority/Content:** occupied by #5602 / PR #5661; #5081 remains separately blocked pending a fresh non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
 - **Control maintenance:** #5642 is a docs-only feeder reconciliation so the durable candidate inventory cannot override the merged citation→search→click policy. It grants no normal implementation authority and consumes no D/R/A slot.
 
