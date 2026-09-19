@@ -47,7 +47,11 @@ const STACKING_SAFETY_REFS = [
   { n: 4, text: 'NCCIH. St. John’s Wort: Usefulness and Safety.', url: 'https://www.nccih.nih.gov/health/st-johns-wort' },
   { n: 5, text: 'NCCIH. Kava: Usefulness and Safety.', url: 'https://www.nccih.nih.gov/health/kava' },
   { n: 6, text: 'Izzo AA, Ernst E. Interactions between herbal medicines and prescribed drugs. Drugs. 2009;69(13):1777-1798.', url: 'https://pubmed.ncbi.nlm.nih.gov/19719333/' },
-  { n: 7, text: 'Boyer EW, Shannon M. The serotonin syndrome. N Engl J Med. 2005;352(11):1112-1120.', url: 'https://pubmed.ncbi.nlm.nih.gov/15784664/' },
+  { n: 7, text: 'Boyer EW, Shannon M. The serotonin syndrome. N Engl J Med. 2005;352(11):1112-1120. Historical clinical review retained for context.', url: 'https://pubmed.ncbi.nlm.nih.gov/15784664/' },
+  { n: 8, text: 'Gurley BJ. Clinically Relevant Herb-Drug Interactions: A 30-Year Historical Assessment. J Diet Suppl. 2025;22(1):78-104.', url: 'https://pubmed.ncbi.nlm.nih.gov/38504455/' },
+  { n: 9, text: 'Pharmacokinetic and Pharmacodynamic Interactions between Food or Herbal Products and Oral Anticoagulants: Evidence Review, Practical Recommendations, and Knowledge Gaps. 2024.', url: 'https://pubmed.ncbi.nlm.nih.gov/39288907/' },
+  { n: 10, text: 'Management of serotonin syndrome (toxicity). Br J Clin Pharmacol. 2024. Modern review of recognition, severity assessment, and management.', url: 'https://pubmed.ncbi.nlm.nih.gov/38926083/' },
+  { n: 11, text: 'Li Y, et al. A Critical Review of Cytochrome P450 Enzyme Inhibition by Herbal Phytochemicals: Implications for Drug Interaction Prediction and Herbal Safety. 2026.', url: 'https://pubmed.ncbi.nlm.nih.gov/42394195/' },
 ]
 
 export default function StackingSafetyPage() {
@@ -58,12 +62,13 @@ export default function StackingSafetyPage() {
         description="Evidence-first guide to screening supplement combinations for interactions and uncertainty."
         url="https://thehippiescientist.net/guides/other/supplement-stacking-safety"
         type="Article"
+        citationUrls={STACKING_SAFETY_REFS.map((ref) => ref.url)}
       />
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Combination Safety' }]} />
       <FAQSchema pagePath="/guides/other/supplement-stacking-safety/" questions={FAQS} />
 
       <section className="space-y-5 max-w-4xl">
-        <p className="eyebrow-label">Safety Review · 7 References</p>
+        <p className="eyebrow-label">Safety Review · 11 References · Reviewed September 19, 2026</p>
         <h1 className="text-5xl font-bold tracking-tight text-ink">Supplement Combination Safety: Screen the Risks Before the Stack</h1>
         <p className="text-lg leading-8 text-muted">
           A supplement combination is not automatically safer because every ingredient is sold over the counter or described as natural. FDA notes that problems can occur when supplements are combined with each other or with medicines, and many potential combinations have never been tested directly. The useful question is not “Is this stack safe?” in the abstract; it is “What interaction signals, evidence gaps, and person-specific risks apply to these exact ingredients?”
@@ -90,7 +95,7 @@ export default function StackingSafetyPage() {
           <p className="text-sm font-black uppercase tracking-wider text-red-800">1. Serotonergic overlap</p>
           <div className="mt-3 space-y-2 text-sm leading-7 text-red-900">
             <p>
-              St. John&apos;s wort has documented drug-interaction risk and can contribute to serious serotonin-related effects with some antidepressants [3,4]. Other serotonergic supplements or medicines may also create additive concerns, but mechanism alone does not prove the magnitude of a specific pairwise interaction.
+              St. John&apos;s wort has documented drug-interaction risk and can contribute to serious serotonin-related effects with some antidepressants [3,4,8]. A modern serotonin-toxicity review confirms that drug interactions can precipitate toxicity and that diagnosis is primarily clinical, but it does not establish a quantified risk for every unstudied supplement pair [10]. Other serotonergic supplements or medicines may create additive concerns, but mechanism alone does not prove the magnitude of a specific pairwise interaction.
             </p>
             <p><strong>Higher-priority review:</strong> antidepressants, MAO inhibitors, tramadol and other serotonergic medicines, plus supplements marketed for serotonin support.</p>
             <Link href={SEROTONERGIC_ATLAS_HREF} className="mt-3 inline-flex min-h-[44px] items-center rounded-full bg-red-800 px-5 text-sm font-bold text-white transition hover:bg-red-900">Compare serotonergic-risk botanicals →</Link>
@@ -119,7 +124,7 @@ export default function StackingSafetyPage() {
           <p className="text-sm font-black uppercase tracking-wider text-amber-800">4. Bleeding, glucose, or blood-pressure overlap</p>
           <div className="mt-3 space-y-2 text-sm leading-7 text-amber-900">
             <p>
-              FDA gives examples in which supplements and medicines can combine to increase bleeding risk or alter drug effects [2]. Similar additive concerns can arise when several products affect blood glucose or blood pressure. These are especially important when prescription anticoagulants, diabetes medicines, or antihypertensives are present.
+              FDA gives examples in which supplements and medicines can combine to increase bleeding risk or alter drug effects [2]. A 2024 evidence review of food/herbal interactions with oral anticoagulants found that randomized evidence is sparse and the available literature is limited by small samples, conflicting results, and heterogeneous herbal products [9]. That supports ingredient-specific screening rather than a blanket claim that every “blood-thinning” herb predictably increases bleeding. Similar additive concerns can arise when several products affect blood glucose or blood pressure, especially when prescription anticoagulants, diabetes medicines, or antihypertensives are present.
             </p>
           </div>
         </div>
@@ -128,7 +133,7 @@ export default function StackingSafetyPage() {
           <p className="text-sm font-black uppercase tracking-wider text-muted">5. Pharmacokinetic interactions</p>
           <div className="mt-3 space-y-2 text-sm leading-7 text-muted">
             <p>
-              Some supplements change drug metabolism or transport rather than simply adding the same effect. St. John&apos;s wort is a well-documented example: it can lower exposure to multiple medicines by inducing drug-metabolizing enzymes and transporters [2-4]. That means a stack can create risk even when its ingredients do not “feel” pharmacologically similar.
+              Some supplements change drug metabolism or transport rather than simply adding the same effect. St. John&apos;s wort remains a well-documented clinical example: it can lower exposure to multiple medicines by inducing drug-metabolizing enzymes and transporters [2-4,8]. A 2026 CYP450 review catalogs many additional herbal phytochemicals with enzyme effects, while also emphasizing that clinical interaction data remain scarce for many herbs [11]. That makes CYP activity a screening signal—not permission to convert an in-vitro inhibition finding into a proven human interaction.
             </p>
           </div>
         </div>
@@ -138,7 +143,7 @@ export default function StackingSafetyPage() {
         <h2 className="text-2xl font-semibold tracking-tight text-ink">What not to infer from missing evidence</h2>
         <div className="space-y-3 text-sm leading-7 text-muted">
           <p><strong>No interaction listed ≠ interaction ruled out.</strong> Many supplement-supplement combinations lack direct clinical testing.</p>
-          <p><strong>Same mechanism ≠ proven dangerous interaction.</strong> Mechanistic overlap is a screening signal, not proof of a clinically important interaction. It should prompt a closer evidence review rather than a fabricated certainty.</p>
+          <p><strong>Same mechanism ≠ proven dangerous interaction.</strong> Mechanistic overlap is a screening signal, not proof of a clinically important interaction. In-vitro CYP inhibition or induction should not be presented as a proven human interaction without supporting clinical evidence [11]. It should prompt a closer evidence review rather than a fabricated certainty.</p>
           <p><strong>“Common stack” ≠ validated stack.</strong> Popularity, anecdotal use, or simultaneous sale in a product bundle does not establish combination efficacy or safety.</p>
           <p><strong>A fixed waiting period ≠ clearance.</strong> There is no universal one-week, two-week, or four-week rule that proves one supplement has been assessed or cleared before another is added. Pharmacokinetics and delayed effects differ substantially.</p>
           <p><strong>Individual ingredient evidence ≠ combination evidence.</strong> Two separately studied ingredients do not automatically produce a studied or beneficial combination.</p>
@@ -160,7 +165,7 @@ export default function StackingSafetyPage() {
       <section className="card-premium p-6 space-y-4 max-w-4xl">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom line</h2>
         <p className="text-sm leading-7 text-muted">
-          Supplement-combination safety is an evidence and interaction-screening problem, not a recipe problem. Prioritize documented medication interactions and high-consequence physiologic overlap, mark mechanism-only concerns as uncertain, and do not convert popularity or a generic waiting period into a safety claim. When medication use or important health conditions are part of the picture, use a complete ingredient list for professional interaction review [1-5].
+          Supplement-combination safety is an evidence and interaction-screening problem, not a recipe problem. Prioritize documented medication interactions and high-consequence physiologic overlap, mark mechanism-only concerns as uncertain, and do not convert popularity or a generic waiting period into a safety claim. Recent interaction reviews reinforce both sides of that boundary: clinically important herb-drug interactions exist, but evidence quality and directness vary substantially by ingredient and medication [8,9,11]. When medication use or important health conditions are part of the picture, use a complete ingredient list for professional interaction review [1-5].
         </p>
         <Link href={SEROTONERGIC_ATLAS_HREF} className="inline-flex min-h-[44px] items-center rounded-full border border-brand-900/10 px-5 text-sm font-bold text-brand-800 transition hover:bg-brand-50">Compare serotonergic-risk botanicals →</Link>
       </section>
