@@ -53,9 +53,9 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| Discovery / SEO | #5629 / PR #5649 | Razzleberrytt / swarm | Open / in review | Resolve Kava article vs herb-guide reader-job overlap without broad-rewriting or redirecting the 585-citation article absent preservation proof. |
+| Discovery / SEO | #5629 / PR #5650 | Razzleberrytt / swarm | Implementation complete / full validation pending | Resolve Kava article vs herb-guide reader-job overlap without broad-rewriting or redirecting the 585-citation article absent preservation proof. |
 
-- **Discovery/SEO:** occupied by #5629 / PR #5649; no overlapping Discovery admission until it merges or closes.
+- **Discovery/SEO:** occupied by #5629 / PR #5650; implementation is complete and awaiting full exact-head validation.
 - **Revenue/Conversion:** free; #5630 / PR #5646 is merged and retired.
 - **Authority/Content:** free; #5081 remains separately blocked pending a fresh non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
@@ -75,7 +75,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 ## Ready next — strict dependency order
 
-Revenue/Conversion and Authority/Content are available; Discovery/SEO is occupied by #5629 / PR #5649. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
+Revenue/Conversion and Authority/Content are available; Discovery/SEO is occupied by #5629 / PR #5650. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
 
 ### Blocked or deferred candidates
 
