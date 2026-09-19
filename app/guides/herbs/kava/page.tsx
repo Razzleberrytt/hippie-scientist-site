@@ -196,6 +196,22 @@ export default function KavaGuidePage() {
           </p>
         </div>
 
+        <aside className="rounded-2xl border border-brand-900/10 bg-brand-50/30 p-5 text-sm leading-6 text-muted" aria-label="Choose the Kava research path">
+          <p className="font-semibold text-ink">Choose the Kava research path</p>
+          <p className="mt-2">
+            This page is the broad clinical-evidence and liver-risk guide. For the narrower question about
+            social anxiety and kava drinks versus studied extracts, read the{' '}
+            <Link href="/articles/kava/" className="font-semibold text-brand-700 hover:underline">
+              social-anxiety and kava-drink evidence article
+            </Link>
+            . For botanical identity, compounds, and profile-level context, use the{' '}
+            <Link href="/herbs/kava/" className="font-semibold text-brand-700 hover:underline">
+              Kava monograph
+            </Link>
+            .
+          </p>
+        </aside>
+
         <section id="bottom-line" className="scroll-mt-20 space-y-4">
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom Line</h2>
           <div className="overflow-x-auto rounded-2xl border border-brand-900/10 bg-white/90">
@@ -331,10 +347,10 @@ export default function KavaGuidePage() {
               <p className="mt-1 text-sm font-semibold text-ink">Kava Monograph</p>
               <p className="mt-1 text-xs leading-relaxed text-muted">Identity, compounds, evidence, and safety context.</p>
             </Link>
-            <Link href="/guides/anxiety/natural-anxiety-relief/" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
-              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Guide</p>
-              <p className="mt-1 text-sm font-semibold text-ink">Natural Anxiety Relief</p>
-              <p className="mt-1 text-xs leading-relaxed text-muted">Compare supportive options without treating supplements as medication substitutes.</p>
+            <Link href="/articles/kava/" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Focused evidence article</p>
+              <p className="mt-1 text-sm font-semibold text-ink">Kava Drinks &amp; Social Anxiety</p>
+              <p className="mt-1 text-xs leading-relaxed text-muted">The narrower evidence gap: social anxiety, beverages, and why extract trials do not transfer automatically.</p>
             </Link>
             <Link href="/guides/compare/kava-vs-alcohol/" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
               <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Comparison</p>

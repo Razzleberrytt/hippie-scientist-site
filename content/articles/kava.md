@@ -117,6 +117,8 @@ That directness gap matters. A positive trial of a standardized extract in GAD c
 
 NCCIH’s current summary is appropriately cautious: kava supplements **may** help anxiety symptoms, but they may require several weeks, and kava does **not appear helpful for symptoms of generalized anxiety disorder** based on the modern evidence base. [NCCIH](https://www.nccih.nih.gov/health/kava)
 
+> **Which Kava page is this?** This article answers the narrower question about **social anxiety and kava drinks versus studied extracts**. For the broader clinical-evidence and liver-risk overview, use the [Kava evidence and safety guide](/guides/herbs/kava/). For botanical identity, compounds, and profile-level context, use the [Kava monograph](/herbs/kava/).
+
 ---
 
 ## Evidence at a glance
@@ -445,6 +447,8 @@ That is a less marketable answer than “kava works in 30 minutes.” It is also
 
 ## Related Articles
 
+- [Kava Evidence & Safety Guide](/guides/herbs/kava/)
+- [Kava Monograph](/herbs/kava/)
 - [Best Herbs for Anxiety](/guides/anxiety/best-herbs-for-anxiety/)
 - [Best Adaptogens for Stress](/guides/anxiety/best-adaptogens-for-stress/)
 - [Valerian Root for Sleep](/articles/valerian-root/)

@@ -1,3 +1,5 @@
+import { getHerbSourceSlug } from './herb-canonical-source-aliases'
+
 export const CORE_INDEXABLE_ROUTES = [
   '/',
   '/info',
@@ -74,6 +76,12 @@ export const CURATED_INDEXABLE_HERB_SLUGS = [
   'turkey-tail',
   'quercetin',
 ] as const
+
+export function isCuratedIndexableHerbRouteSlug(slug: string): boolean {
+  const sourceSlug = getHerbSourceSlug(slug)
+  return (CURATED_INDEXABLE_HERB_SLUGS as readonly string[]).includes(slug) ||
+    (CURATED_INDEXABLE_HERB_SLUGS as readonly string[]).includes(sourceSlug)
+}
 
 // Canonical (current-data) slugs. Curated index-allowlisted compound slugs.
 // Must match the actual `slug` field on records in public/data/compounds.json.
