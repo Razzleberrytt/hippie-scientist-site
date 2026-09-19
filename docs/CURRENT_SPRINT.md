@@ -53,9 +53,9 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| Discovery / SEO | #5629 / PR #5650 | Razzleberrytt / swarm | Draft implementation | Resolve Kava article vs herb-guide reader-job overlap without broad-rewriting or redirecting the 585-citation article absent preservation proof. |
+| Discovery / SEO | #5629 / PR #5650 | Razzleberrytt / swarm | Implementation complete / full validation pending | Resolve Kava article vs herb-guide reader-job overlap without broad-rewriting or redirecting the 585-citation article absent preservation proof. |
 
-- **Discovery/SEO:** occupied by #5629 / PR #5650; admission/control-sync PR #5649 is merged and the implementation PR is draft.
+- **Discovery/SEO:** occupied by #5629 / PR #5650; implementation is complete and awaiting full exact-head validation.
 - **Revenue/Conversion:** free; #5630 / PR #5646 is merged and retired.
 - **Authority/Content:** free; #5081 remains separately blocked pending a fresh non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
