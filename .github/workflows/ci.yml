@@ -35,43 +35,70 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
+      - name: Classify validation impact
+        id: impact
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+        run: |
+          git fetch origin "$BASE_REF"
+          changed="$(git diff --name-only "origin/$BASE_REF"...HEAD)"
+          printf '%s\n' "$changed"
+          printf '%s\n' "$changed" | node scripts/ci/classify-release-impact.mjs --github-output="$GITHUB_OUTPUT"
+
+      - name: Docs-only validation fast path
+        if: steps.impact.outputs.docs_only == 'true'
+        run: echo "Docs-only PR; exhaustive app/data validation is delegated to the dedicated control/path-scoped workflows."
+
       - name: Setup Node from .nvmrc
+        if: steps.impact.outputs.docs_only != 'true'
         uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: npm
 
       - name: Show Node version
+        if: steps.impact.outputs.docs_only != 'true'
         run: node --version
 
       - name: Show npm version
+        if: steps.impact.outputs.docs_only != 'true'
         run: npm --version
 
       - name: Install dependencies
+        if: steps.impact.outputs.docs_only != 'true'
         run: npm ci --no-audit --fund=false
 
       - name: Verify package metadata is unchanged after install
+        if: steps.impact.outputs.docs_only != 'true'
         run: git diff --exit-code package-lock.json package.json
 
       - name: Verify Node engine
+        if: steps.impact.outputs.docs_only != 'true'
         run: npm run check:node
 
       - name: Validate workbook source
+        if: steps.impact.outputs.docs_only != 'true'
         run: npm run validate:workbook-source
 
       - name: Validate static export compatibility
+        if: steps.impact.outputs.docs_only != 'true'
         run: npm run validate:static-export
 
       - name: Generate route inventory
+        if: steps.impact.outputs.docs_only != 'true'
         run: npm run routes:inventory
 
       - name: Run lint
+        if: steps.impact.outputs.docs_only != 'true'
         run: npm run lint
 
       - name: Run typecheck
+        if: steps.impact.outputs.docs_only != 'true'
         run: npm run typecheck
 
       - name: Run tests (vitest + a11y gate)
+        if: steps.impact.outputs.docs_only != 'true'
         run: |
           set -o pipefail
           npm run test 2>&1 | tee vitest.log
@@ -85,10 +112,11 @@ jobs:
       # reached main. Discovery is by content, so new suites are covered here
       # automatically.
       - name: Run native node:test suites
+        if: steps.impact.outputs.docs_only != 'true'
         run: npm run test:node
 
       - name: Upload Vitest log
-        if: always() && hashFiles('vitest.log') != ''
+        if: always() && steps.impact.outputs.docs_only != 'true' && hashFiles('vitest.log') != ''
         uses: actions/upload-artifact@v7
         with:
           name: vitest-log-${{ github.event.pull_request.head.sha || github.sha }}
@@ -96,17 +124,19 @@ jobs:
           retention-days: 7
 
       - name: Validate canonical data system (schema, SQLite, graph, freshness)
+        if: steps.impact.outputs.docs_only != 'true'
         run: npm run data:ci
 
       - name: Generate Related Botanicals quality audit
+        if: steps.impact.outputs.docs_only != 'true'
         run: npx tsx scripts/audit-related-botanicals.ts
 
       - name: Add Related Botanicals audit summary
-        if: always() && hashFiles('reports/related-botanicals/related-botanicals-audit.md') != ''
+        if: always() && steps.impact.outputs.docs_only != 'true' && hashFiles('reports/related-botanicals/related-botanicals-audit.md') != ''
         run: cat reports/related-botanicals/related-botanicals-audit.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload Related Botanicals audit
-        if: always() && hashFiles('reports/related-botanicals/*') != ''
+        if: always() && steps.impact.outputs.docs_only != 'true' && hashFiles('reports/related-botanicals/*') != ''
         uses: actions/upload-artifact@v7
         with:
           name: related-botanicals-audit-${{ github.event.pull_request.head.sha || github.sha }}
@@ -114,16 +144,19 @@ jobs:
           retention-days: 30
 
       - name: Guard workbook source of truth
+        if: steps.impact.outputs.docs_only != 'true'
         run: npm run guard:source-of-truth
 
       - name: Audit cluster-member runtime trust
+        if: steps.impact.outputs.docs_only != 'true'
         run: npm run audit:cluster-member-trust:strict
 
       - name: Run security audit gate
+        if: steps.impact.outputs.docs_only != 'true'
         run: npm run audit:high
 
       - name: Generate raw npm audit JSON
-        if: ${{ always() && !cancelled() }}
+        if: ${{ always() && !cancelled() && steps.impact.outputs.docs_only != 'true' }}
         env:
           NPM_CONFIG_FETCH_TIMEOUT: '60000'
           NPM_CONFIG_FETCH_RETRIES: '1'
@@ -141,7 +174,7 @@ jobs:
           exit 0
 
       - name: Upload audit artifact
-        if: always() && hashFiles('npm-audit.after.json') != ''
+        if: always() && steps.impact.outputs.docs_only != 'true' && hashFiles('npm-audit.after.json') != ''
         uses: actions/upload-artifact@v7
         with:
           name: npm-audit-after-${{ github.event.pull_request.head.sha || github.sha }}
@@ -152,7 +185,12 @@ jobs:
         run: |
           echo "## CI validation/test lane" >> "$GITHUB_STEP_SUMMARY"
           echo "- Runs independently of the production build lane to shorten the critical path." >> "$GITHUB_STEP_SUMMARY"
-          echo "- Coverage: lint, typecheck, Vitest/a11y, canonical data, workbook parity, runtime trust, and security audit." >> "$GITHUB_STEP_SUMMARY"
+          echo "- Docs-only: ${{ steps.impact.outputs.docs_only || 'false' }}" >> "$GITHUB_STEP_SUMMARY"
+          if [ "${{ steps.impact.outputs.docs_only }}" = "true" ]; then
+            echo "- Fast path: exhaustive app/data validation skipped because every changed file is classified docs-only; dedicated path-scoped governance checks remain authoritative." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "- Coverage: lint, typecheck, Vitest/a11y, canonical data, workbook parity, runtime trust, and security audit." >> "$GITHUB_STEP_SUMMARY"
+          fi
           echo "- Status: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
 
   build-verification:

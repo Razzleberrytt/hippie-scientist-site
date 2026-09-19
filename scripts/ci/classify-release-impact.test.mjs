@@ -153,6 +153,31 @@ describe('workflow release-impact contract', () => {
     expect(yaml).toContain("steps.impact.outputs.docs_only != 'true'")
   })
 
+  it('skips exhaustive CI validation only when the shared classifier proves docs-only', () => {
+    const yaml = fs.readFileSync(path.join(process.cwd(), '.github/workflows/ci.yml'), 'utf8')
+
+    expect(yaml).toContain('name: Classify validation impact')
+    expect(yaml).toContain("if: github.event_name == 'pull_request'")
+    expect(yaml).toContain("if: steps.impact.outputs.docs_only == 'true'")
+    for (const command of [
+      'npm ci --no-audit --fund=false',
+      'npm run lint',
+      'npm run typecheck',
+      'npm run test 2>&1 | tee vitest.log',
+      'npm run test:node',
+      'npm run data:ci',
+      'npm run guard:source-of-truth',
+      'npm run audit:cluster-member-trust:strict',
+      'npm run audit:high',
+    ]) {
+      const index = yaml.indexOf(command)
+      expect(index, command).toBeGreaterThan(-1)
+      const window = yaml.slice(Math.max(0, index - 240), index)
+      expect(window, command).toContain("steps.impact.outputs.docs_only != 'true'")
+    }
+    expect(yaml).toContain('dedicated path-scoped governance checks remain authoritative')
+  })
+
   it('keeps production-content-lint as a governed artifact consumer with a full self-build fallback', () => {
     const yaml = fs.readFileSync(path.join(process.cwd(), '.github/workflows/production-content-lint.yml'), 'utf8')
     expect(yaml).toContain('governed-static-export-${{ inputs.producer_sha }}')
