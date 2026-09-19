@@ -5,7 +5,7 @@
 **Updated:** 2026-09-19
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #5637 / PR #5636 merged and retired. #5638 / PR #5639 now occupies the Discovery/SEO workstream to repair canonical metadata-experiment protection in the new search-conversion control plane. Revenue/Conversion and Authority/Content are free, with #5081 still separately blocked on a fresh non-overlapping governor lease. Post-merge normal implementation WIP returns to **0/3**. No P0 admission freeze remains.
+**Current admission:** #5637 / PR #5636 and #5638 / PR #5639 are merged and retired. Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are free, with #5081 still separately blocked on a fresh non-overlapping governor lease. No P0 admission freeze remains.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,13 +49,13 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 0/3
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| Discovery/SEO | #5638 / PR #5639 | seo-control | In review | Make search governance consume the canonical metadata experiment ledger and protect proposed/running/winning experiments from competing rewrites. |
+| — | None | — | — | No normal implementation ticket is active after #5639 merged. |
 
-- **Discovery/SEO:** #5638 / PR #5639 is the only active implementation item; it retires on merge.
+- **Discovery/SEO:** free; #5637 / PR #5636 and #5638 / PR #5639 are merged and retired.
 - **Revenue/Conversion:** free.
 - **Authority/Content:** free; #5081 remains separately blocked pending a fresh non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
@@ -64,6 +64,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 ### Recently completed refill cycle
 
+- **#5638 / PR #5639 — Discovery/SEO control:** merged; search governance now consumes the canonical metadata experiment ledger and protects proposed/running/winning metadata experiments from competing rewrites.
 - **#5637 / PR #5636 — Discovery/SEO control:** merged; fresh dated search opportunity is primary, citation-only holds are non-actionable, and AI citations remain a bounded authority/confidence overlay.
 - **#5610 / PR #5625 — Discovery/SEO:** reciprocal magnesium general-vs-sleep intent routing plus sleep-shortlist handoff; completion becomes authoritative when this PR merges.
 - **#5611 / PR #5622 — Revenue/Conversion:** merged; one trust-preserving protein post-answer action on the shared next-action shell.
@@ -71,7 +72,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 ## Ready next — strict dependency order
 
-After #5639 merges, all three normal workstreams are available. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate into each lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
+All three normal workstreams are available. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate into each lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
 
 ### Blocked or deferred candidates
 
