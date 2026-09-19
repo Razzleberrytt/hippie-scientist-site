@@ -50,9 +50,9 @@ Current review state: **1/3 normal implementation workstreams occupied**. #5630 
 
 | Ticket | Title | Lane | Status | Priority | Score |
 |---|---|---|---|---|---:|
-| #5629 / PR #5649 | Resolve overlapping Kava article vs herb-guide reader jobs | D / SEO | Open / in review | P1 | 187.5 |
+| #5629 | Resolve overlapping Kava article vs herb-guide reader jobs | D / SEO | Admitted / implementation pending | P1 | 187.5 |
 
-- **D — occupied by #5629 / PR #5649:** no overlapping Discovery/SEO admission until it merges or closes.
+- **D — occupied by #5629:** admission/control-sync PR #5649 is merged; implementation remains open.
 - **R — free:** #5630 / PR #5646 is merged and retired.
 - **A — free:** #5081 remains separately blocked on a fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
@@ -62,7 +62,7 @@ Research-only enrichment staging remains separate from canonical implementation/
 
 ## Next — ordered dependency queue
 
-Revenue/Conversion and Authority/Content are available; Discovery/SEO is occupied by #5629 / PR #5649. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
+Revenue/Conversion and Authority/Content are available; Discovery/SEO is occupied by #5629. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
