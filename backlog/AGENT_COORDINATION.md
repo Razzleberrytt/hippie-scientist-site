@@ -54,7 +54,7 @@ The coordinator normally does not implement feature tickets. It manages flow.
 Before agents begin a work cycle, the coordinator should:
 
 1. Materialize the backlog with `python backlog/materialize_backlog.py`.
-2. Read `config/ai-citation-swarm-priorities.json` when present and fresh; treat it as a bounded first-party demand/authority input, never as traffic or revenue proof.
+2. Read `config/search-conversion-priorities.json` plus `config/ai-citation-swarm-priorities.json` when present and fresh. Search impressions/clicks/CTR/position are the primary discovery signal; AI citations are a bounded authority/confidence overlay and never traffic or revenue proof.
 3. Identify the highest-priority `Ready` tickets with satisfied dependencies.
 4. Exclude tickets that overlap active work on the same foundational component, data model, route family, citation winner, cluster hub, or migration.
 5. Fill only the available implementation workstream slots.
@@ -77,6 +77,23 @@ This is a portfolio allocation target, not a second score formula. It never over
 Citation signals may update the existing scoring inputs—especially Traffic Potential, Strategic Leverage, and Confidence—when the snapshot is fresh and the connection to the ticket is explicit. Do not add a hidden citation multiplier to backlog scores.
 
 When a page is a high-citation winner, prefer additive/reversible work. A broad rewrite, route change, title/H1/canonical change, or consolidation requires a documented intent, migration/rollback boundary, and fresh measurement plan.
+
+
+## Search conversion feedback loop
+
+The current operating standard is [`docs/SEARCH-CONVERSION-LOOP.md`](../docs/SEARCH-CONVERSION-LOOP.md).
+
+When page-level search data is available, Discovery / SEO should rank work in this order:
+
+1. meaningful-impression pages with CTR below the expected curve for their observed position;
+2. pages in positions 4-15 with meaningful impressions;
+3. high-citation winners that also have measurable search upside;
+4. substantive evidence/content refreshes supported by observed query gaps;
+5. net-new pages only for a genuinely distinct intent after canonical and cannibalization checks.
+
+Pure citation growth does not earn additional discretionary capacity by itself. A citation-only winner with no measured search opportunity is normally a **defend / observe** asset, not a rewrite target.
+
+Run `npm run seo:conversion-priorities` after the ordinary search-opportunity report. The conversion report caps the citation-derived score boost at 35%, so citation authority can break ties or strengthen confidence but cannot manufacture a search opportunity.
 
 ## Claim protocol
 
