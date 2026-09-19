@@ -67,6 +67,43 @@ function aiSignalsActive(signals) {
   )
 }
 
+function searchFreshness(search, control) {
+  const maxAgeDays = Number(control?.searchFreshnessPolicy?.maxAgeDays ?? 10)
+  const endDate = search?.observation?.endDate ?? null
+  const age = ageDays(endDate)
+  const active = Boolean(
+    search &&
+    Array.isArray(search.pages) &&
+    search.pages.length > 0 &&
+    Number.isFinite(maxAgeDays) &&
+    maxAgeDays >= 0 &&
+    age !== null &&
+    age >= 0 &&
+    age <= maxAgeDays
+  )
+  return {
+    active,
+    endDate,
+    startDate: search?.observation?.startDate ?? null,
+    source: search?.observation?.source ?? 'none',
+    ageDays: age,
+    maxAgeDays,
+    reason: !search
+      ? 'search_report_missing'
+      : !Array.isArray(search.pages) || search.pages.length === 0
+        ? 'search_pages_missing'
+        : !endDate
+          ? 'search_observation_date_missing'
+          : age === null
+            ? 'search_observation_date_invalid'
+            : age < 0
+              ? 'search_observation_date_future'
+              : age > maxAgeDays
+                ? 'search_observation_stale'
+                : 'active',
+  }
+}
+
 function citationMap(signals) {
   const out = new Map()
   if (!aiSignalsActive(signals)) return out
@@ -91,6 +128,8 @@ function scoreRow(page, citation) {
   const rankUpside = Number(page.rankUpsideClicks ?? 0)
   const totalUpside = Number(page.totalUpsideClicks ?? 0)
   const citations = Number(citation?.citations ?? 0)
+
+  if (totalUpside <= 0) return 0
 
   // Search opportunity is the base. Citation authority can boost the score by
   // at most 35%; it can never create an opportunity when search upside is zero.
@@ -146,8 +185,9 @@ function buildReport() {
   const ai = readJson(AI_SIGNALS, null)
   const control = readJson(CONTROL, {})
   const citations = citationMap(ai)
+  const searchStatus = searchFreshness(search, control)
 
-  const pages = Array.isArray(search?.pages) ? search.pages : []
+  const pages = searchStatus.active && Array.isArray(search?.pages) ? search.pages : []
   const ranked = pages
     .map((page) => {
       const url = normalizePath(page.url)
@@ -179,7 +219,7 @@ function buildReport() {
       b.impressions - a.impressions
     )
 
-  const actionable = ranked.filter((row) => row.priorityScore > 0 && row.segment !== 'hold')
+  const actionable = ranked.filter((row) => row.priorityScore > 0 && !['hold', 'citation-defend-hold'].includes(row.segment))
   const citationConversion = actionable.filter((row) => row.citations > 0)
   const ctr = actionable.filter((row) => row.segment.endsWith('to-ctr'))
   const rank = actionable.filter((row) => row.segment.endsWith('to-rank'))
@@ -190,7 +230,9 @@ function buildReport() {
     mode: pages.length ? 'page-level-search-data' : 'waiting-for-page-level-search-data',
     measurementBoundary: control.measurementBoundary ??
       'AI citations and search metrics are separate observational surfaces; this report does not infer causal lift or revenue.',
-    currentDashboardSnapshot: control.currentDashboardSnapshot ?? null,
+    baselineSnapshotLabel: control.snapshotLabel ?? null,
+    baselineSnapshotSource: control.source ?? null,
+    baselineDashboardSnapshot: control.baselineDashboardSnapshot ?? control.currentDashboardSnapshot ?? null,
     rules: {
       primarySignal: 'measured search opportunity',
       citationBoostCapPct: 35,
@@ -201,6 +243,13 @@ function buildReport() {
     inputStatus: {
       searchOpportunityReportPresent: Boolean(search),
       searchRows: Number(search?.rowsIngested ?? 0),
+      searchObservationStart: searchStatus.startDate,
+      searchObservationEnd: searchStatus.endDate,
+      searchObservationSource: searchStatus.source,
+      searchFresh: searchStatus.active,
+      searchFreshnessReason: searchStatus.reason,
+      searchAgeDays: searchStatus.ageDays,
+      searchMaxAgeDays: searchStatus.maxAgeDays,
       aiCitationManifestPresent: Boolean(ai),
       aiCitationManifestActive: aiSignalsActive(ai),
       aiCitationSnapshot: ai?.snapshotLabel ?? null,
@@ -231,11 +280,12 @@ function table(rows) {
 }
 
 function renderMarkdown(report) {
-  const snap = report.currentDashboardSnapshot
+  const snap = report.baselineDashboardSnapshot
   const snapshotBlock = snap
     ? [
-        '## Current dashboard signal',
+        `## Baseline dashboard snapshot — ${report.baselineSnapshotLabel ?? 'date unknown'}`,
         '',
+        `- Source: ${report.baselineSnapshotSource ?? 'not supplied'}.`,
         `- Bing AI Performance: **${snap.aiPerformance?.citations30d ?? '—'}** citations / **${snap.aiPerformance?.avgCitedPages30d ?? '—'}** average cited pages over 30 days.`,
         `- Bing search: **${snap.searchPerformance?.impressions ?? '—'}** impressions / **${snap.searchPerformance?.clicks ?? '—'}** clicks / **${snap.searchPerformance?.ctrPct ?? '—'}%** CTR.`,
         `- Search window note: ${snap.searchPerformance?.windowNote ?? 'not supplied'}.`,
@@ -259,6 +309,7 @@ function renderMarkdown(report) {
     '- Do not create thin pages for query variants; check canonical intent and cannibalization first.',
     '',
     `Mode: **${report.mode}**.`,
+    `Search observation: **${report.inputStatus.searchObservationStart ?? 'unknown'} → ${report.inputStatus.searchObservationEnd ?? 'unknown'}**; freshness: **${report.inputStatus.searchFreshnessReason}**.`,
     `Actionable page-level candidates: **${report.summary.actionableCandidates}**.`,
     '',
     '## Citation → click candidates',
@@ -278,7 +329,7 @@ function renderMarkdown(report) {
     table(report.topSubstantiveUpgrades),
     '',
     report.mode === 'waiting-for-page-level-search-data'
-      ? '> Page-level Bing/Search Console export is still required before titles, snippets, ranking work, or specific URLs can be prioritized from observed search behavior.'
+      ? '> Fresh, dated page-level Bing/Search Console evidence is required before titles, snippets, ranking work, or specific URLs can be prioritized from observed search behavior.'
       : '',
     '',
   ].join('\n')
