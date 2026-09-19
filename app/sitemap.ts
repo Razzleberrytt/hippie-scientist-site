@@ -8,7 +8,12 @@ import { shouldIndexRoute, CANONICALIZED_AWAY_PROFILE_SLUGS } from '../lib/seo';
 import {
   CURATED_INDEXABLE_HERB_SLUGS,
   CURATED_INDEXABLE_COMPOUND_SLUGS,
+  isCuratedIndexableHerbRouteSlug,
 } from '../lib/index-allowlist';
+import {
+  HERB_CANONICAL_SOURCE_ALIASES,
+  isCanonicalHerbAliasRoute,
+} from '../lib/herb-canonical-source-aliases';
 import { learnPosts } from './learn/data';
 import { getAllFocusClusterArticles } from '@/lib/focus-cluster-markdown';
 import { getBuiltCompareSlugs } from '@/lib/compare-pages';
@@ -669,6 +674,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     addRoute(`/herbs/${herb.slug}`, 'monthly', 0.7, getSitemapLastModified(herb), herb);
   });
+
+  // Some public common-name herb routes are backed by deprecated Latin-name
+  // source records. Emit the public canonical alias instead of dropping the
+  // profile with its source slug.
+  for (const [aliasSlug, sourceSlug] of Object.entries(HERB_CANONICAL_SOURCE_ALIASES)) {
+    if (!isCanonicalHerbAliasRoute(aliasSlug)) continue;
+
+    const herb = herbsData.find((record) => String(record.slug || '').toLowerCase() === sourceSlug.toLowerCase());
+    if (!herb) continue;
+    if (CANONICALIZED_AWAY_PROFILE_SLUGS.has(aliasSlug.toLowerCase())) continue;
+
+    const isCurated = isCuratedIndexableHerbRouteSlug(aliasSlug);
+    if (!isCurated && herb.indexability_status !== 'PUBLISH') continue;
+
+    addRoute(
+      `/herbs/${aliasSlug}`,
+      'monthly',
+      0.7,
+      getSitemapLastModified(herb),
+      { ...herb, slug: aliasSlug },
+    );
+  }
 
   compoundsData.forEach((compound) => {
     if (!compound.slug) return;

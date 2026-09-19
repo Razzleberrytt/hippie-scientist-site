@@ -10,12 +10,13 @@ import path from 'node:path'
 // this step under tsx is what makes sharing it possible.
 import { getRuntimeVisibility } from '../../lib/runtime-visibility.ts'
 import { DEPRECATED_HERB_CANONICALS } from '../../lib/deprecated-herb-canonicals.ts'
+import { HERB_CANONICAL_SOURCE_ALIASES, isCanonicalHerbAliasRoute } from '../../lib/herb-canonical-source-aliases.ts'
 import { DEPRECATED_COMPOUND_CANONICALS } from '../../lib/deprecated-compound-canonicals.ts'
 
 const ROOT = process.cwd()
 const DATA_DIR = resolveDataDir(process.argv)
 const OUT_DIR = path.join(DATA_DIR, 'runtime-maps')
-const DOCS_DIR = path.join(ROOT, 'docs')
+const DOCS_DIR = resolveDocsDir(process.argv)
 const MAX_GROUP_LINKS = 4
 const MIN_PAGE_LINKS = 2
 
@@ -42,6 +43,8 @@ const SAFETY_ROUTES = [
 const EDITORIAL_LINK_BOOSTS = {
   '/herbs/ashwagandha': ['/goals/stress', '/goals/anxiety', '/herbs/rhodiola', '/compounds/magnesium'],
   '/compounds/l-theanine': ['/goals/anxiety', '/goals/sleep', '/compounds/caffeine', '/compounds/magnesium'],
+  '/herbs/kava': ['/guides/herbs/kava'],
+  '/guides/herbs/kava': ['/herbs/kava'],
 }
 
 function resolveDataDir(argv) {
@@ -49,6 +52,13 @@ function resolveDataDir(argv) {
   if (!flag) return path.join(ROOT, 'public', 'data')
   const value = flag.split('=').slice(1).join('=').trim()
   return value ? path.resolve(ROOT, value) : path.join(ROOT, 'public', 'data')
+}
+
+function resolveDocsDir(argv) {
+  const flag = argv.find((arg) => arg.startsWith('--docs-dir='))
+  if (!flag) return path.join(ROOT, 'docs')
+  const value = flag.split('=').slice(1).join('=').trim()
+  return value ? path.resolve(ROOT, value) : path.join(ROOT, 'docs')
 }
 
 function text(value) {
@@ -256,6 +266,51 @@ function entityRouteRecords(rows, kind, conditionMap = {}) {
         source: `${kind}-data`,
       })
     })
+}
+
+function canonicalHerbAliasRouteRecords(rows, conditionMap = {}) {
+  const bySlug = new Map(
+    (Array.isArray(rows) ? rows : [])
+      .filter((row) => row?.slug)
+      .map((row) => [slugify(row.slug), row]),
+  )
+
+  return Object.entries(HERB_CANONICAL_SOURCE_ALIASES)
+    .filter(([aliasSlug]) => isCanonicalHerbAliasRoute(aliasSlug))
+    .map(([aliasSlug, sourceSlug]) => {
+      const row = bySlug.get(slugify(sourceSlug))
+      if (!row || !getRuntimeVisibility(row).canRender) return null
+
+      const conditionEntries = Array.isArray(conditionMap[slugify(sourceSlug)])
+        ? conditionMap[slugify(sourceSlug)]
+        : []
+      const conditionSlugs = conditionEntries.map((entry) => entry.slug).filter(Boolean)
+      const conditionLabels = conditionEntries.map((entry) => entry.label).filter(Boolean)
+
+      return routeRecord({
+        route: `/herbs/${slugify(aliasSlug)}`,
+        type: 'herb',
+        title: row.name || row.displayName || row.title || aliasSlug,
+        description: row.meta_description || row.generated_description || row.summary || row.description || '',
+        signals: [
+          row.primary_effects,
+          row.effects,
+          row.best_for,
+          row.traditional_uses,
+          row.mechanisms,
+          row.pathways,
+          row.topic_clusters,
+          row.related_topics,
+          row.safety,
+          row.safetyNotes,
+          conditionSlugs,
+          conditionLabels,
+        ].flatMap(list),
+        goalSlugs: conditionSlugs,
+        source: 'herb-alias-data',
+      })
+    })
+    .filter(Boolean)
 }
 
 async function goalRouteRecords() {
@@ -582,6 +637,7 @@ async function main() {
   const records = dedupeRecords([
     ...staticRecords,
     ...entityRouteRecords(herbs, 'herb', conditionMap),
+    ...canonicalHerbAliasRouteRecords(herbs, conditionMap),
     ...entityRouteRecords(compounds, 'compound', conditionMap),
     ...goals,
     ...compareRecords,

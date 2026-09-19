@@ -5,7 +5,7 @@
 **Updated:** 2026-09-19
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #5630 / PR #5646 is merged and retired. #5629 is admitted in Discovery/SEO for the Kava route-ownership repair. Normal implementation WIP is **1/3**. Revenue/Conversion and Authority/Content are free, with #5081 still separately blocked on a fresh non-overlapping governor lease. No P0 admission freeze remains.
+**Current admission:** #5629 / PR #5650 is merged and retired. #5647 is admitted in Revenue/Conversion for the Valerian Root post-answer action. Normal implementation WIP is **1/3**. Discovery/SEO is free; Authority/Content is free with #5081 still separately blocked on a fresh non-overlapping governor lease. No P0 admission freeze remains.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -53,10 +53,10 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| Discovery / SEO | #5629 / PR #5649 | Razzleberrytt / swarm | Open / in review | Resolve Kava article vs herb-guide reader-job overlap without broad-rewriting or redirecting the 585-citation article absent preservation proof. |
+| Revenue / Conversion | #5647 | Razzleberrytt / swarm | Admitted / ready for implementation | Add exactly one trust-preserving post-answer newsletter/research action to the canonical Valerian Root review without changing its evidence, safety, FAQ, verdict, or medical guidance. |
 
-- **Discovery/SEO:** occupied by #5629 / PR #5649; no overlapping Discovery admission until it merges or closes.
-- **Revenue/Conversion:** free; #5630 / PR #5646 is merged and retired.
+- **Discovery/SEO:** free; #5629 / PR #5650 is merged and retired.
+- **Revenue/Conversion:** occupied by #5647; no overlapping Revenue admission until it merges or closes.
 - **Authority/Content:** free; #5081 remains separately blocked pending a fresh non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
 - **Control maintenance:** #5642 is a docs-only feeder reconciliation so the durable candidate inventory cannot override the merged citation→search→click policy. It grants no normal implementation authority and consumes no D/R/A slot.
@@ -65,6 +65,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 ### Recently completed refill cycle
 
+- **#5629 / PR #5650 — Discovery/SEO:** merged; Kava article, broad herb guide, and depth monograph now have explicit distinct reader-job ownership, self-consistent canonical/sitemap/link-map routing, and unchanged evidence/safety conclusions; observed search/citation impact remains `Unknown`.
 - **#5630 / PR #5646 — Revenue/Conversion:** merged; Best Herbs for Anxiety now has one downstream newsletter action, with evidence/safety unchanged and conversion impact still `Unknown`.
 
 - **#5638 / PR #5639 — Discovery/SEO control:** merged; search governance now consumes the canonical metadata experiment ledger and protects proposed/running/winning metadata experiments from competing rewrites.
@@ -75,7 +76,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 ## Ready next — strict dependency order
 
-Revenue/Conversion and Authority/Content are available; Discovery/SEO is occupied by #5629 / PR #5649. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
+Discovery/SEO and Authority/Content are available; Revenue/Conversion is occupied by #5647. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
 
 ### Blocked or deferred candidates
 
