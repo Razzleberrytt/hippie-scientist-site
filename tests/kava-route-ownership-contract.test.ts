@@ -1,17 +1,20 @@
 import fs from 'node:fs'
+import os from 'node:os'
 import path from 'node:path'
-import { describe, expect, it } from 'vitest'
+import { execFileSync } from 'node:child_process'
+import { afterAll, describe, expect, it } from 'vitest'
+import { SITE_URL } from '../lib/site'
 
 const read = (...parts: string[]) => fs.readFileSync(path.join(process.cwd(), ...parts), 'utf8')
 
 const article = read('content', 'articles', 'kava.md')
 const guide = read('app', 'guides', 'herbs', 'kava', 'page.tsx')
-const articleTemplate = read('app', 'articles', '[slug]', 'page.tsx')
-const herbTemplate = read('app', 'herbs', '[slug]', 'page.tsx')
-const deprecatedHerbs = read('lib', 'deprecated-herb-canonicals.ts')
 const redirects = read('public', '_redirects')
-const linkEngine = read('scripts', 'data', 'build-internal-link-engine.mjs')
-const sitemap = read('app', 'sitemap.ts')
+
+const tempRoots: string[] = []
+afterAll(() => {
+  for (const root of tempRoots) fs.rmSync(root, { recursive: true, force: true })
+})
 
 describe('Kava route ownership contract', () => {
   it('keeps three distinct live reader jobs instead of consolidating the citation winner', () => {
@@ -26,13 +29,21 @@ describe('Kava route ownership contract', () => {
     expect(guide).toContain('href="/herbs/kava/"')
   })
 
-  it('keeps article, guide, and monograph canonical ownership self-directed', () => {
-    expect(articleTemplate).toContain('path: `/articles/${page.slug}/`')
-    expect(guide).toContain('path: ROUTE')
-    expect(guide).toContain('pageUrl={PAGE_URL}')
-    expect(herbTemplate).toContain("generateDetailMetadata({ ...herb, slug: aliasCanonicalSlug ?? canonicalSlug }, 'herb')")
-    expect(deprecatedHerbs).toContain("'piper-methysticum': 'kava'")
-    expect(deprecatedHerbs).not.toMatch(/^\s*['"]?kava['"]?\s*:/m)
+  it('generates a self-canonical Kava monograph from the alias-backed source record', async () => {
+    const { generateMetadata } = await import('../app/herbs/[slug]/page')
+    const metadata = await generateMetadata({ params: Promise.resolve({ slug: 'kava' }) })
+
+    expect(metadata.alternates?.canonical).toBe(`${SITE_URL}/herbs/kava/`)
+    expect(metadata.robots).not.toMatchObject({ index: false })
+  })
+
+  it('emits the exact canonical Kava monograph in the sitemap', async () => {
+    const sitemap = (await import('../app/sitemap')).default
+    const entries = await sitemap()
+    const urls = entries.map((entry) => entry.url)
+
+    expect(urls).toContain(`${SITE_URL}/herbs/kava/`)
+    expect(urls).not.toContain(`${SITE_URL}/herbs/piper-methysticum/`)
   })
 
   it('preserves the legacy guide redirect without redirecting either live Kava surface', () => {
@@ -42,17 +53,56 @@ describe('Kava route ownership contract', () => {
     expect(redirects).not.toMatch(/^\/herbs\/kava\/?\s+/m)
   })
 
-  it('routes the generated depth monograph toward the broad guide at the source of truth', () => {
-    expect(linkEngine).toContain("'/herbs/kava': ['/guides/herbs/kava']")
-    expect(linkEngine).toContain("'/guides/herbs/kava': ['/herbs/kava']")
-    expect(linkEngine).toContain('EDITORIAL_LINK_BOOSTS[source.route]')
-  })
+  it('generates a Kava monograph link-map record that routes to the broad guide', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'kava-link-map-'))
+    tempRoots.push(root)
+    const dataDir = path.join(root, 'data')
+    const docsDir = path.join(root, 'docs')
+    fs.mkdirSync(path.join(dataDir, 'runtime-maps'), { recursive: true })
 
-  it('keeps all three route families eligible for sitemap ownership checks', () => {
-    expect(sitemap).toContain('addRoute(`/herbs/${herb.slug}`')
-    expect(sitemap).toContain('addRoute(`/articles/${article.slug}`')
-    expect(sitemap).toContain("readAppGuidePageSlugs('app/guides')")
-    expect(sitemap).toContain('addRoute(`/guides/${guide.slug}`')
+    fs.writeFileSync(
+      path.join(dataDir, 'herbs-summary.json'),
+      JSON.stringify([
+        {
+          slug: 'piper-methysticum',
+          name: 'Kava',
+          indexability_status: 'PUBLISH',
+          primary_effects: ['anxiety'],
+          summary: 'Kava evidence and safety context.',
+        },
+      ]),
+    )
+    fs.writeFileSync(path.join(dataDir, 'compounds-summary.json'), '[]')
+    fs.writeFileSync(
+      path.join(dataDir, 'runtime-maps', 'entity-to-conditions.json'),
+      JSON.stringify({
+        'piper-methysticum': [{ slug: 'anxiety', label: 'Anxiety' }],
+      }),
+    )
+
+    const npx = process.platform === 'win32' ? 'npx.cmd' : 'npx'
+    execFileSync(
+      npx,
+      [
+        'tsx',
+        'scripts/data/build-internal-link-engine.mjs',
+        `--data-dir=${dataDir}`,
+        `--docs-dir=${docsDir}`,
+      ],
+      { cwd: process.cwd(), stdio: 'pipe' },
+    )
+
+    const map = JSON.parse(
+      fs.readFileSync(path.join(dataDir, 'runtime-maps', 'internal-link-map.json'), 'utf8'),
+    )
+    const kava = map['/herbs/kava']
+    expect(kava).toBeTruthy()
+
+    const hrefs = kava.groups.flatMap((group: { links: Array<{ href: string }> }) =>
+      group.links.map((link) => link.href),
+    )
+    expect(hrefs).toContain('/guides/herbs/kava')
+    expect(map['/herbs/piper-methysticum']).toBeUndefined()
   })
 
   it('does not rewrite the evidence or safety conclusion as part of discovery maintenance', () => {
