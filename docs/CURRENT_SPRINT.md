@@ -53,7 +53,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| Revenue / Conversion | #5630 | Razzleberrytt / swarm | Open / in review — PR #5646 | Simplify the 888-citation Best Herbs for Anxiety post-answer journey to one trust-preserving newsletter action while preserving evidence, safety, accessibility, and consent boundaries. |
+| Revenue / Conversion | #5630 / PR #5646 | Razzleberrytt / swarm | Open / in review | Simplify the 888-citation Best Herbs for Anxiety post-answer journey to one trust-preserving newsletter action while preserving evidence, safety, accessibility, and consent boundaries. |
 
 - **Discovery/SEO:** free; #5637 / PR #5636 and #5638 / PR #5639 are merged and retired.
 - **Revenue/Conversion:** occupied by #5630 / PR #5646; no overlapping Revenue admission until it merges or closes.
