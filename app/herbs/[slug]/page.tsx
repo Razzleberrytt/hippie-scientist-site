@@ -69,14 +69,8 @@ type PageProps = {
 
 import { getHerbSummaryIndex } from '../../../lib/runtime-summary-indexes'
 import { DEPRECATED_HERB_CANONICALS } from '@/lib/deprecated-herb-canonicals'
+import { HERB_CANONICAL_SOURCE_ALIASES, getHerbCanonicalRouteSlug, getHerbSourceSlug } from '@/lib/herb-canonical-source-aliases'
 import EmailCapture from '../../../components/EmailCapture'
-
-const HERB_CANONICAL_SOURCE_ALIASES: Record<string, string> = {
-  'lions-mane': 'hericium-erinaceus',
-  passionflower: 'passiflora-incarnata',
-  kava: 'piper-methysticum',
-  'ashwagandha-withania-somnifera': 'ashwagandha',
-}
 
 const HERB_META_DESCRIPTION_OVERRIDES: Record<string, string> = {
   'ashwagandha-withania-somnifera':
@@ -118,7 +112,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params
   const normalizedSlug = normalizeSlug(slug)
   const canonicalSlug = DEPRECATED_HERB_CANONICALS[normalizedSlug] || normalizedSlug
-  const sourceSlug = HERB_CANONICAL_SOURCE_ALIASES[canonicalSlug] || canonicalSlug
+  const sourceSlug = getHerbSourceSlug(canonicalSlug)
+  const routeCanonicalSlug = getHerbCanonicalRouteSlug(canonicalSlug)
   const herb = await getHerbMetadataRecord(sourceSlug)
 
   if (!herb) {
@@ -128,14 +123,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
   }
 
-  // If the slug is a HERB_CANONICAL_SOURCE_ALIASES key, the canonical URL is the
-  // data source slug (e.g. ashwagandha-withania-somnifera → ashwagandha).
-  const aliasCanonicalSlug = HERB_CANONICAL_SOURCE_ALIASES[canonicalSlug] ? sourceSlug : null
-
   const descriptionOverride =
     HERB_META_DESCRIPTION_OVERRIDES[normalizedSlug] || HERB_META_DESCRIPTION_OVERRIDES[canonicalSlug]
   const metadata = withMetadataDescriptionOverride(
-    generateDetailMetadata({ ...herb, slug: aliasCanonicalSlug ?? canonicalSlug }, 'herb'),
+    generateDetailMetadata({ ...herb, slug: routeCanonicalSlug }, 'herb'),
     descriptionOverride,
   )
 
@@ -153,14 +144,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     )
   }
 
-  if (aliasCanonicalSlug) {
-    const indexDecision = shouldIndexRoute(`/herbs/${aliasCanonicalSlug}`, { ...herb, slug: aliasCanonicalSlug })
-    // indexDecision is computed for the canonical target, not for the alias URL
-    // being served, so a redirected alias could still say index. Correct that.
+  if (routeCanonicalSlug !== canonicalSlug) {
+    const indexDecision = shouldIndexRoute(`/herbs/${routeCanonicalSlug}`, { ...herb, slug: routeCanonicalSlug })
+    // Some alias routes are true redirects (for example the long-form
+    // ashwagandha alias). Common-name aliases whose source row redirects back
+    // to the public route (for example kava) stay self-canonical instead.
     return withRedirectSourceMetadata(
       {
         ...metadata,
-        alternates: { canonical: `${SITE_URL}/herbs/${aliasCanonicalSlug}/` },
+        alternates: { canonical: `${SITE_URL}/herbs/${routeCanonicalSlug}/` },
         robots: { index: indexDecision.index, follow: true },
       },
       `/herbs/${normalizedSlug}/`,
