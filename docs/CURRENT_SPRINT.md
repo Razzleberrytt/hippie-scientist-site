@@ -5,7 +5,7 @@
 **Updated:** 2026-09-19
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #5629 / PR #5650 is merged and retired. #5647 is admitted in Revenue/Conversion for the Valerian Root post-answer action. Normal implementation WIP is **1/3**. Discovery/SEO is free; Authority/Content is free with #5081 still separately blocked on a fresh non-overlapping governor lease. No P0 admission freeze remains.
+**Current admission:** #5629 / PR #5650 is merged and retired. #5647 / PR #5657 is merged and retired. #5602 is admitted in Authority/Content for the Best Herbs for Anxiety evidence/provenance refresh. Normal implementation WIP is **1/3**. Discovery/SEO is free; Revenue/Conversion is free; #5081 remains separately blocked on a fresh non-overlapping governor lease. No P0 admission freeze remains.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -53,11 +53,11 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| Revenue / Conversion | #5647 | Razzleberrytt / swarm | Admitted / ready for implementation | Add exactly one trust-preserving post-answer newsletter/research action to the canonical Valerian Root review without changing its evidence, safety, FAQ, verdict, or medical guidance. |
+| Authority / Content | #5602 | Razzleberrytt / swarm | Admitted / ready for implementation | Refresh the canonical Best Herbs for Anxiety guide with newer systematic evidence and methodology/provenance visibility while preserving ranking, negative-trial, preparation, funding, medication, pregnancy, liver-safety, and care-escalation boundaries unless the evidence independently requires a documented change. |
 
 - **Discovery/SEO:** free; #5629 / PR #5650 is merged and retired.
-- **Revenue/Conversion:** occupied by #5647; no overlapping Revenue admission until it merges or closes.
-- **Authority/Content:** free; #5081 remains separately blocked pending a fresh non-overlapping governor lease.
+- **Revenue/Conversion:** free; #5647 / PR #5657 is merged and retired.
+- **Authority/Content:** occupied by #5602; #5081 remains separately blocked pending a fresh non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
 - **Control maintenance:** #5642 is a docs-only feeder reconciliation so the durable candidate inventory cannot override the merged citation→search→click policy. It grants no normal implementation authority and consumes no D/R/A slot.
 
@@ -65,6 +65,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 ### Recently completed refill cycle
 
+- **#5647 / PR #5657 — Revenue/Conversion:** merged; Valerian Root now has one downstream evidence-first newsletter action after the complete answer/FAQ/references journey, with the 18-source scientific content unchanged and observed conversion impact still `Unknown`.
 - **#5629 / PR #5650 — Discovery/SEO:** merged; Kava article, broad herb guide, and depth monograph now have explicit distinct reader-job ownership, self-consistent canonical/sitemap/link-map routing, and unchanged evidence/safety conclusions; observed search/citation impact remains `Unknown`.
 - **#5630 / PR #5646 — Revenue/Conversion:** merged; Best Herbs for Anxiety now has one downstream newsletter action, with evidence/safety unchanged and conversion impact still `Unknown`.
 
