@@ -46,13 +46,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Current review state: **1/3 normal implementation workstreams occupied** while #5637 / PR #5636 is open. The post-merge target returns to **0/3**.
+Current review state: **1/3 normal implementation workstreams occupied** while #5638 / PR #5639 is open. #5637 / PR #5636 is merged and retired. The post-merge target returns to **0/3**.
 
 | Ticket | Title | Lane | Status | Priority | Score |
 |---|---|---|---|---|---:|
-| #5637 / PR #5636 | Shift SEO control plane to citation→search→click conversion | D / Discovery-SEO | In review; retire on merge | P1 control | — |
+| #5638 / PR #5639 | Protect canonical metadata experiments in search governance | D / Discovery-SEO | In review; retire on merge | P1 control | — |
 
-- **D — occupied until #5636 merges:** fresh dated page-level search opportunity becomes primary; AI citations remain a bounded authority/confidence overlay.
+- **D — occupied until #5639 merges:** repair canonical experiment-ledger consumption so proposed/running/winning metadata cannot be overwritten by a competing CTR rewrite.
 - **R — free.**
 - **A — free:** #5081 remains separately blocked on a fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
@@ -61,7 +61,7 @@ Research-only enrichment staging remains separate from canonical implementation/
 
 ## Next — ordered dependency queue
 
-After #5636 merges, all three normal workstreams are available. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate into each lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
+After #5639 merges, all three normal workstreams are available. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate into each lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
