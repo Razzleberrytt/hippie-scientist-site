@@ -31,8 +31,10 @@ jobs:
           HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
         run: |
           set -euo pipefail
-          matches="$(gh api "repos/$GITHUB_REPOSITORY/commits/$HEAD_SHA/pulls" \
-            --jq '[.[] | select(.state == "open" and .head.repo.full_name == env.GITHUB_REPOSITORY and .head.sha == env.HEAD_SHA)]')"
+          candidates="$(gh api "repos/$GITHUB_REPOSITORY/commits/$HEAD_SHA/pulls")"
+          matches="$(jq --arg repo "$GITHUB_REPOSITORY" --arg sha "$HEAD_SHA" \
+            '[.[] | select(.state == "open" and .head.repo.full_name == $repo and .head.sha == $sha)]' \
+            <<<"$candidates")"
           count="$(jq 'length' <<<"$matches")"
           if [ "$count" -ne 1 ]; then
             echo "::notice title=Merge controller wake::Expected exactly one open same-repo PR for $HEAD_SHA; found $count. No privileged dispatch performed."
