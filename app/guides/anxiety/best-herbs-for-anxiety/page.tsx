@@ -6,7 +6,6 @@ import JsonLd from '@/components/seo/JsonLd'
 import { SITE_URL } from '@/lib/navigation-config'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
-import EmailCapture from '@/components/EmailCapture'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import References from '@/components/References'
 import { buildTwitterMetadata } from '@/lib/seo'
@@ -128,8 +127,7 @@ export default function BestHerbsForAnxietyPage() {
 
         <References refs={REFS} />
         <section id="faq" className="scroll-mt-20 space-y-4"><h2 className="text-2xl font-semibold text-ink">Frequently asked questions</h2><div className="space-y-3">{FAQS.map((faq) => <details key={faq.question} className="card-premium p-5"><summary className="cursor-pointer font-semibold text-ink">{faq.question}</summary><p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p></details>)}</div></section>
-        <EmailCapture location="best-herbs-for-anxiety" />
-        <NewsletterCtaBlock title="Get the evidence without the hype" description="Research updates on herbs, supplements and safety—written around what the human evidence actually supports." location="best-herbs-for-anxiety-newsletter" />
+        <NewsletterCtaBlock title="Get the evidence without the hype" description="Research updates on herbs, supplements and safety—written around what the human evidence actually supports." ctaLabel="Read the newsletter" location="best-herbs-for-anxiety-newsletter" />
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700"><Link href="/guides/best/supplements-for-stress/" className="hover:text-brand-800">Stress supplements →</Link><Link href="/guides/anxiety/best-adaptogens-for-stress/" className="hover:text-brand-800">Adaptogens for stress →</Link><Link href="/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/" className="hover:text-brand-800">Herbs at night →</Link><Link href="/guides/anxiety/" className="hover:text-brand-800">Anxiety hub →</Link></nav>
       </div>
     </ArticleLayout>
