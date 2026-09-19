@@ -56,6 +56,7 @@ Current review state: **0/3 normal implementation workstreams occupied**. #5637 
 - **R — free.**
 - **A — free:** #5081 remains separately blocked on a fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
+- **Control maintenance:** #5642 aligns the non-authoritative swarm feeder with the merged search-conversion policy; it is docs-only and does not consume a normal implementation workstream.
 
 Research-only enrichment staging remains separate from canonical implementation/promotion WIP. The durable candidate feeder is `docs/SWARM_BACKLOG.md`; it does not itself grant execution authority.
 

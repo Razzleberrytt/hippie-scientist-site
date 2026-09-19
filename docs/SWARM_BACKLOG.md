@@ -1,7 +1,7 @@
 # Site Swarm — Extensive Backlog Inventory
 
 **Status:** Durable candidate feeder; not direct execution authority  
-**Updated:** 2026-09-18  
+**Updated:** 2026-09-19  
 **Current citation snapshot:** 2026-09-17 — 29,591 Bing AI citations across 133 cited URLs  
 **Execution authority:** `docs/CURRENT_SPRINT.md` only  
 **Ranked feeder:** `docs/MASTER_BACKLOG.md`  
@@ -17,27 +17,31 @@ The legacy `backlog/master_backlog.csv.xz.b64` seed is corrupt and the historica
 
 1. P0 incidents/security/scientific-safety/indexation/release failures override ordinary queue order.
 2. Reconcile open PRs and current `main`; do not duplicate work already merged or in review.
-3. Preserve the 65% citation-adjacent / 35% exploration target for discretionary Discovery and Authority work.
-4. High-citation winners get additive/reversible changes by default. Broad route/title/H1/canonical rewrites require a documented defect, migration/rollback proof and fresh measurement plan.
-5. Citations are reuse/grounding telemetry only — never traffic, ranking, revenue, conversion, efficacy or causal proof.
-6. Same-route D/R/A candidates must not run concurrently when their edits overlap.
-7. Revenue work stays downstream of direct answer, evidence, limitations and safety.
-8. Missing external observations stay **Unknown**.
-9. A candidate becomes executable only after promotion into `docs/CURRENT_SPRINT.md`.
+3. For Discovery/SEO, **fresh dated page-level search opportunity is primary**. Rank meaningful-impression CTR underperformers first, then positions 4–15 with measurable upside, then substantive query-supported upgrades. Missing, stale, future-dated, or undated search observations fail closed.
+4. Fresh AI-citation telemetry is a bounded authority/confidence overlay only. Citation count cannot create an executable search opportunity when measured search upside is zero.
+5. The 65% citation-adjacent / 35% exploration target remains a portfolio constraint only inside otherwise eligible discretionary Discovery/Authority work; it never outranks measured search-conversion opportunity or a hard gate.
+6. High-citation winners get additive/reversible changes by default. Broad route/title/H1/canonical rewrites require a documented defect, migration/rollback proof and fresh measurement plan.
+7. If fresh page-level search data is unavailable, do **not** guess CTR/ranking targets from domain totals or citation counts. Only deterministic crawl/canonical/route defects proven independently may be promoted in Discovery/SEO.
+8. Citations are reuse/grounding telemetry only — never traffic, ranking, revenue, conversion, efficacy or causal proof.
+9. Same-route D/R/A candidates must not run concurrently when their edits overlap.
+10. Revenue work stays downstream of direct answer, evidence, limitations and safety.
+11. Missing external observations stay **Unknown**.
+12. A candidate becomes executable only after promotion into `docs/CURRENT_SPRINT.md`.
 
 ## Immediate promotion shortlist
 
-| Candidate | Workstream | State | Why now |
+The older #5608–#5612 refill cycle is completed/retired and must not be re-promoted from this feeder.
+
+| Candidate | Workstream | State | Promotion proof |
 |---|---|---|---|
-| #5609 | Control incident | **P0 open** | Autonomous merge heartbeat stale >45 minutes; clear before new normal admissions. |
-| #5608 | Authority / Content | **Active** | Lion's Mane evidence refresh already owns the Authority slot. |
-| #5610 | Discovery / SEO | Ready after #5609 clears | Protect magnesium intent separation across multiple cited routes without rewriting the refreshed sleep winner. |
-| #5611 | Revenue / Conversion | Ready after #5609 clears | Add a trust-preserving downstream path to a 426-citation commercial-intent guide using existing primitives. |
-| #5612 | Authority / Content | Wait for #5608 | Refresh the 988-citation valerian winner with current evidence/safety while preserving identity. |
+| Fresh search-conversion candidate | Discovery / SEO | Waiting on fresh dated page/query evidence | Use the citation→search→click report. A page must have measurable search upside; citation count alone is insufficient. |
+| Deterministic discovery defect | Discovery / SEO | Eligible only when independently proven | Crawl/canonical/robots/sitemap/internal-link/route-ownership defects may be promoted without CTR data only when current exact-main evidence proves the defect and the repair is bounded. |
+| Revalidated conversion candidate | Revenue / Conversion | Candidate feeder only | Use current funnel/CTA evidence and existing safety/disclosure boundaries; do not infer revenue opportunity from citations alone. |
+| Revalidated evidence/safety candidate | Authority / Content | Candidate feeder only | Use evidence freshness/safety sensitivity/current research availability; citation signal may affect confidence/priority but cannot replace scientific review. |
 
 ## Route-level winner program — 90 candidates
 
-Each cited route intentionally receives three different candidate jobs: **D** protects discovery/intent/canonical identity, **R** audits the post-answer journey, and **A** audits evidence/safety freshness. These are separate tickets, not permission to edit the same route in parallel.
+Each cited route intentionally receives three different candidate jobs: **D** protects discovery/intent/canonical identity, **R** audits the post-answer journey, and **A** audits evidence/safety freshness. These are separate tickets, not permission to edit the same route in parallel. Route-level citation counts are historical candidate context, not present-tense execution priority; any Discovery/SEO promotion from this table must pass the fresh search-opportunity rules above.
 
 | ID | WS | Priority | State | Page / signal | Candidate task |
 |---|---|---|---|---|---|
@@ -61,16 +65,16 @@ Each cited route intentionally receives three different candidate jobs: **D** pr
 | A-P006 | A | P1 | Cooldown: verify recent merge first | Best herbs for sleep — 1,032 citations | Audit current human evidence, contradictions, preparation/population boundaries and material safety for `/guides/sleep/best-herbs-for-sleep/`; change conclusions/grades only under canonical rules and add focused regressions for real defects. |
 | D-P007 | D | P1 | Candidate | Valerian root — 988 citations | Verify canonical/robots/sitemap/host/schema/internal-link identity and distinct reader job for `/articles/valerian-root/`; repair only deterministic discovery gaps and preserve winning answer/title intent. |
 | R-P007 | R | P1 | Candidate | Valerian root — 988 citations | Audit the post-answer journey on `/articles/valerian-root/`; after evidence/safety, provide at most one clear trust-preserving next action with disclosure before commercial links; reuse existing components. |
-| A-P007 | A | P1 | Candidate | Valerian root — 988 citations | Audit current human evidence, contradictions, preparation/population boundaries and material safety for `/articles/valerian-root/`; change conclusions/grades only under canonical rules and add focused regressions for real defects. |
+| A-P007 | A | P1 | Completed/retired — #5612 / PR #5624 | Valerian root — 988 citations | Evidence/safety refresh completed; do not re-promote this historical candidate without a new defect, materially new evidence, or a separately admitted follow-up. |
 | D-P008 | D | P1 | Candidate | Best herbs for anxiety — 888 citations | Verify canonical/robots/sitemap/host/schema/internal-link identity and distinct reader job for `/guides/anxiety/best-herbs-for-anxiety/`; repair only deterministic discovery gaps and preserve winning answer/title intent. |
 | R-P008 | R | P1 | Candidate | Best herbs for anxiety — 888 citations | Audit the post-answer journey on `/guides/anxiety/best-herbs-for-anxiety/`; after evidence/safety, provide at most one clear trust-preserving next action with disclosure before commercial links; reuse existing components. |
 | A-P008 | A | P1 | Candidate | Best herbs for anxiety — 888 citations | Audit current human evidence, contradictions, preparation/population boundaries and material safety for `/guides/anxiety/best-herbs-for-anxiety/`; change conclusions/grades only under canonical rules and add focused regressions for real defects. |
 | D-P009 | D | P1/P2 | Cooldown: verify recent merge first | Mushroom coffee review — 786 citations | Verify canonical/robots/sitemap/host/schema/internal-link identity and distinct reader job for `/articles/mushroom-coffee-benefits-review/`; repair only deterministic discovery gaps and preserve winning answer/title intent. |
 | R-P009 | R | P1/P2 | Cooldown: verify recent merge first | Mushroom coffee review — 786 citations | Audit the post-answer journey on `/articles/mushroom-coffee-benefits-review/`; after evidence/safety, provide at most one clear trust-preserving next action with disclosure before commercial links; reuse existing components. |
 | A-P009 | A | P1/P2 | Cooldown: verify recent merge first | Mushroom coffee review — 786 citations | Audit current human evidence, contradictions, preparation/population boundaries and material safety for `/articles/mushroom-coffee-benefits-review/`; change conclusions/grades only under canonical rules and add focused regressions for real defects. |
-| D-P010 | D | P1/P2 | Active/open PR | Lion's Mane evidence guide — 604 citations | Verify canonical/robots/sitemap/host/schema/internal-link identity and distinct reader job for `/articles/lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide/`; repair only deterministic discovery gaps and preserve winning answer/title intent. |
-| R-P010 | R | P1/P2 | Active/open PR | Lion's Mane evidence guide — 604 citations | Audit the post-answer journey on `/articles/lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide/`; after evidence/safety, provide at most one clear trust-preserving next action with disclosure before commercial links; reuse existing components. |
-| A-P010 | A | P1/P2 | Active/open PR | Lion's Mane evidence guide — 604 citations | Audit current human evidence, contradictions, preparation/population boundaries and material safety for `/articles/lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide/`; change conclusions/grades only under canonical rules and add focused regressions for real defects. |
+| D-P010 | D | P1/P2 | Candidate — revalidate; no active PR | Lion's Mane evidence guide — 604 citations | Verify canonical/robots/sitemap/host/schema/internal-link identity and distinct reader job for `/articles/lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide/`; promote only from fresh search opportunity or a current deterministic discovery defect. |
+| R-P010 | R | P1/P2 | Candidate — revalidate; no active PR | Lion's Mane evidence guide — 604 citations | Audit the post-answer journey only after revalidating current conversion state; preserve evidence/safety ordering and reuse existing components. |
+| A-P010 | A | P1/P2 | Completed/retired — Lion's Mane refresh cycle | Lion's Mane evidence guide — 604 citations | Evidence refresh completed; do not re-promote this historical candidate without materially new evidence or a separately admitted defect. |
 | D-P011 | D | P1/P2 | Candidate | Magnesium types for sleep — 595 citations | Verify canonical/robots/sitemap/host/schema/internal-link identity and distinct reader job for `/articles/magnesium-types-for-sleep/`; repair only deterministic discovery gaps and preserve winning answer/title intent. |
 | R-P011 | R | P1/P2 | Candidate | Magnesium types for sleep — 595 citations | Audit the post-answer journey on `/articles/magnesium-types-for-sleep/`; after evidence/safety, provide at most one clear trust-preserving next action with disclosure before commercial links; reuse existing components. |
 | A-P011 | A | P1/P2 | Candidate | Magnesium types for sleep — 595 citations | Audit current human evidence, contradictions, preparation/population boundaries and material safety for `/articles/magnesium-types-for-sleep/`; change conclusions/grades only under canonical rules and add focused regressions for real defects. |
@@ -84,7 +88,7 @@ Each cited route intentionally receives three different candidate jobs: **D** pr
 | R-P014 | R | P1/P2 | Candidate | Supplements for overthinking — 437 citations | Audit the post-answer journey on `/guides/anxiety/best-supplements-for-overthinking/`; after evidence/safety, provide at most one clear trust-preserving next action with disclosure before commercial links; reuse existing components. |
 | A-P014 | A | P1/P2 | Candidate | Supplements for overthinking — 437 citations | Audit current human evidence, contradictions, preparation/population boundaries and material safety for `/guides/anxiety/best-supplements-for-overthinking/`; change conclusions/grades only under canonical rules and add focused regressions for real defects. |
 | D-P015 | D | P1/P2 | Candidate | Protein powder guide — 426 citations | Verify canonical/robots/sitemap/host/schema/internal-link identity and distinct reader job for `/guides/other/protein-powder-guide/`; repair only deterministic discovery gaps and preserve winning answer/title intent. |
-| R-P015 | R | P1/P2 | Candidate | Protein powder guide — 426 citations | Audit the post-answer journey on `/guides/other/protein-powder-guide/`; after evidence/safety, provide at most one clear trust-preserving next action with disclosure before commercial links; reuse existing components. |
+| R-P015 | R | P1/P2 | Completed/retired — #5611 / PR #5622 | Protein powder guide — 426 citations | Post-answer conversion-path work completed; do not re-promote this historical candidate without a new measured funnel defect or separately admitted follow-up. |
 | A-P015 | A | P1/P2 | Candidate | Protein powder guide — 426 citations | Audit current human evidence, contradictions, preparation/population boundaries and material safety for `/guides/other/protein-powder-guide/`; change conclusions/grades only under canonical rules and add focused regressions for real defects. |
 | D-P016 | D | P1/P2 | Candidate | Anti-inflammatory supplements — 336 citations | Verify canonical/robots/sitemap/host/schema/internal-link identity and distinct reader job for `/guides/other/anti-inflammatory-supplements/`; repair only deterministic discovery gaps and preserve winning answer/title intent. |
 | R-P016 | R | P1/P2 | Candidate | Anti-inflammatory supplements — 336 citations | Audit the post-answer journey on `/guides/other/anti-inflammatory-supplements/`; after evidence/safety, provide at most one clear trust-preserving next action with disclosure before commercial links; reuse existing components. |
