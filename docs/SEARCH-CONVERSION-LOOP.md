@@ -42,9 +42,13 @@ Query | Page | Clicks | Impressions | CTR | Position
 
 ### 2. Build the search opportunity report
 
+Search evidence must carry an observation window. The automated GSC fetch writes `fetch-metadata.json` with `startDate` / `endDate`, which the opportunity engine carries forward automatically. For a manual Bing export, supply the dates shown for that export:
+
 ```bash
-npm run seo:bing-opportunities
+npm run seo:bing-opportunities -- --observed-start=2026-08-20 --observed-end=2026-09-18
 ```
+
+If the observation end is missing, invalid, future-dated, or older than the configured freshness window, the downstream conversion queue fails closed instead of treating the file as current.
 
 This writes:
 
@@ -66,7 +70,7 @@ ops/reports/search-conversion-priorities.json
 ops/reports/search-conversion-priorities.md
 ```
 
-The report keeps search opportunity primary. Fresh AI-citation telemetry can add at most a 35% boost and cannot create an opportunity when measured search upside is zero.
+The report keeps fresh, dated search opportunity primary. Fresh AI-citation telemetry can add at most a 35% boost and cannot create an opportunity when measured search upside is zero. A citation-only defend/hold page stays out of the actionable conversion queue.
 
 ## Swarm operating rule
 
