@@ -46,15 +46,15 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Current review state: **1/3 normal implementation workstreams occupied**. #5629 / PR #5650 and #5647 / PR #5657 are merged and retired. #5602 is admitted in Authority/Content for the Best Herbs for Anxiety evidence/provenance refresh.
+Current review state: **1/3 normal implementation workstreams occupied**. #5629 / PR #5650 and #5647 / PR #5657 are merged and retired. #5602 / PR #5661 is in review in Authority/Content for the Best Herbs for Anxiety evidence/provenance refresh.
 
 | Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #5602 | Refresh cited Best Herbs for Anxiety guide | A / Content | Admitted / ready for implementation | P1 | 3/5/2/3/0.90/2 | 40.5 | last_verified 2026-09-19 on exact main `0776a423`; PMID 41644067, PMID 40788541, and methodology link absent; review date still 2026-08-22; external outcomes remain `Unknown` |
+| #5602 / PR #5661 | Refresh cited Best Herbs for Anxiety guide | A / Content | Open / in review | P1 | 3/5/2/3/0.90/2 | 40.5 | last_verified 2026-09-19 on exact main `0776a423`; PMID 41644067, PMID 40788541, and methodology link absent; review date still 2026-08-22; external outcomes remain `Unknown` |
 
 - **D — free:** #5629 / PR #5650 is merged and retired.
 - **R — free:** #5647 / PR #5657 is merged and retired.
-- **A — occupied by #5602:** no overlapping Authority/Content admission until it merges or closes; #5081 remains separately blocked on a fresh non-overlapping governor lease.
+- **A — occupied by #5602 / PR #5661:** no overlapping Authority/Content admission until it merges or closes; #5081 remains separately blocked on a fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
 - **Control maintenance:** #5642 aligns the non-authoritative swarm feeder with the merged search-conversion policy; it is docs-only and does not consume a normal implementation workstream.
 
