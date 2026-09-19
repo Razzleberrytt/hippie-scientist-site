@@ -30,8 +30,8 @@ describe('Kava route ownership contract', () => {
   })
 
   it('generates a self-canonical Kava monograph from the alias-backed source record', async () => {
-    const { generateMetadata } = await import('../app/herbs/[slug]/page')
-    const metadata = await generateMetadata({ params: Promise.resolve({ slug: 'kava' }) })
+    const { generateHerbRouteMetadata } = await import('../lib/herb-route-metadata')
+    const metadata = await generateHerbRouteMetadata('kava')
 
     expect(metadata.alternates?.canonical).toBe(`${SITE_URL}/herbs/kava/`)
     expect(metadata.robots).not.toMatchObject({ index: false })
