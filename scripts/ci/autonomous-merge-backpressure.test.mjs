@@ -40,6 +40,11 @@ describe('autonomous merge backpressure contract', () => {
     expect(monitorJob).not.toContain('pull-requests: write')
   })
 
+  it('isolates targeted controller wakeups by PR before the serialized merge lock', () => {
+    expect(workflow).toContain("group: autonomous-merge-${{ github.event.pull_request.number || inputs.pr_number || 'fallback' }}")
+    expect(workflow).toContain('group: autonomous-merge-commit')
+  })
+
   it('retains serialized write-capable fallback and merge-time base revalidation', () => {
     expect(fallbackJob).toContain("PR_NUMBER: ${{ inputs.pr_number || '' }}")
     expect(fallbackJob).toContain("SWEEP_OPEN_PRS: ${{ inputs.pr_number != '' && 'false' || 'true' }}")
