@@ -46,15 +46,15 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Current review state: **1/3 normal implementation workstreams occupied**. #5629 / PR #5650 and #5647 / PR #5657 are merged and retired. #5602 / PR #5661 is in review in Authority/Content for the Best Herbs for Anxiety evidence/provenance refresh.
+Current review state: **1/3 normal implementation workstreams occupied**. #5629 / PR #5650, #5647 / PR #5657, and #5602 / PR #5661 are merged and retired. #5631 is admitted in Authority/Content for the 2026 supplement-stacking interaction-evidence refresh.
 
 | Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #5602 / PR #5661 | Refresh cited Best Herbs for Anxiety guide | A / Content | Open / in review | P1 | 3/5/2/3/0.90/2 | 40.5 | last_verified 2026-09-19 on exact main `0776a423`; PMID 41644067, PMID 40788541, and methodology link absent; review date still 2026-08-22; external outcomes remain `Unknown` |
+| #5631 | Refresh supplement-stacking interaction evidence for 2026 | A / Content | Admitted / ready for implementation | P1 safety-freshness override | 4/5/2/3/0.90/3 | 36.0 | last_verified 2026-09-19 on exact main `3e34a856`; current page still has 7 refs with 2009 + 2005 peer-reviewed backbone; fresh interaction/anticoagulant/serotonin/CYP reviews identified; external outcomes remain `Unknown` |
 
 - **D — free:** #5629 / PR #5650 is merged and retired.
 - **R — free:** #5647 / PR #5657 is merged and retired.
-- **A — occupied by #5602 / PR #5661:** no overlapping Authority/Content admission until it merges or closes; #5081 remains separately blocked on a fresh non-overlapping governor lease.
+- **A — occupied by #5631:** no overlapping Authority/Content admission until it merges or closes; #5081 remains separately blocked on a fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
 - **Control maintenance:** #5642 aligns the non-authoritative swarm feeder with the merged search-conversion policy; it is docs-only and does not consume a normal implementation workstream.
 
@@ -62,7 +62,7 @@ Research-only enrichment staging remains separate from canonical implementation/
 
 ## Next — ordered dependency queue
 
-Discovery/SEO and Revenue/Conversion are available; Authority/Content is occupied by #5602. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
+Discovery/SEO and Revenue/Conversion are available; Authority/Content is occupied by #5631. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
@@ -111,6 +111,7 @@ These are capability proofs, not claims of business impact.
 | #5637 / PR #5636 | Merged; fresh dated page-level search opportunity is primary, citation-only holds are non-actionable, and AI citations remain a bounded authority/confidence overlay. No ranking, CTR, traffic, conversion, or revenue lift is inferred. |
 | #5610 / PR #5625 | Magnesium general-vs-sleep intent separation is implementation-complete; reciprocal routing and the sleep-shortlist handoff land with this merge. Citation, ranking, traffic, and revenue outcomes remain `Unknown`. |
 | #5611 / PR #5622 | Merged; protein guide now uses one trust-preserving post-answer action on the shared next-action shell. Conversion impact remains `Unknown`. |
+| #5602 / PR #5661 | Merged; Best Herbs for Anxiety has a 22-source ledger, Sept. 19 review provenance, newer systematic evidence, and methodology visibility while preserving the established ranking and safety/negative-trial boundaries. External outcome impact remains `Unknown`. |
 | #5647 / PR #5657 | Merged; Valerian Root has one evidence-first post-answer newsletter action after the complete answer/FAQ/references journey, with the 18-source scientific content unchanged and conversion impact still `Unknown`. |
 | #5612 / PR #5624 | Merged; valerian evidence/safety refresh preserves monotherapy vs combination evidence, null daytime outcomes, preparation boundaries, and long-term-safety uncertainty. No efficacy upgrade is inferred. |
 | #5505 / PR #5506 | Merged as `90bf695bd4c7f1e006159078d26afd4869149cdd`; phone-homepage-only polish removes the floating scroll-to-top control, decorative goal arrows, comparison numbering, and repeated footer onboarding while preserving global/desktop behavior. Cloudflare production run #7308 is still in progress, so no production receipt is claimed yet. Traffic, engagement, conversion, ranking, and revenue effects remain `Unknown`. |
