@@ -4,7 +4,6 @@ import { CircleCheck } from 'lucide-react'
 import { notFound, redirect } from 'next/navigation'
 import type { Herb, RuntimeRecord } from '../../../types/content'
 import { getHerbBySlug } from '../../../lib/runtime-data'
-import { getHerbMetadataRecord } from '../../../lib/runtime-metadata-cache'
 import { getUnifiedRuntimeRecords } from '../../../lib/runtime-record-index'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeSlug } from '@/lib/slug-utils'
@@ -12,8 +11,7 @@ import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
 import { getBatchedRuntimeRecords } from '@/lib/related-runtime'
 import { getEntityConditionEntries, getRouteInternalLinkGroups, type RuntimeMapEntry } from '../../../lib/runtime-related-maps'
 import { getEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
-import { faqPageJsonLd, generateDetailMetadata, isMeaningfulFaqAnswer, shouldIndexRoute, SITE_URL } from '../../../lib/seo'
-import { withRedirectSourceMetadata } from '@/lib/redirect-source-metadata'
+import { faqPageJsonLd, isMeaningfulFaqAnswer, SITE_URL } from '../../../lib/seo'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import HerbSchemaGenerator from '../../../components/herb-profile/SchemaGenerator'
 import HerbCompoundLinks from '@/components/seo/HerbCompoundLinks'
@@ -69,28 +67,9 @@ type PageProps = {
 
 import { getHerbSummaryIndex } from '../../../lib/runtime-summary-indexes'
 import { DEPRECATED_HERB_CANONICALS } from '@/lib/deprecated-herb-canonicals'
-import { HERB_CANONICAL_SOURCE_ALIASES, getHerbCanonicalRouteSlug, getHerbSourceSlug } from '@/lib/herb-canonical-source-aliases'
+import { HERB_CANONICAL_SOURCE_ALIASES } from '@/lib/herb-canonical-source-aliases'
+import { generateHerbRouteMetadata } from '@/lib/herb-route-metadata'
 import EmailCapture from '../../../components/EmailCapture'
-
-const HERB_META_DESCRIPTION_OVERRIDES: Record<string, string> = {
-  'ashwagandha-withania-somnifera':
-    'Ashwagandha alias page for Withania somnifera with canonical safety, dosage, and evidence context pointing to the primary Ashwagandha profile.',
-  'milk-thistle':
-    'Milk thistle herb profile covering seed-focused use, liver-support context, antioxidant mechanisms, dosage, and safety considerations.',
-  'silybum-marianum':
-    'Silybum marianum herb profile covering silymarin antioxidant mechanisms, hepatocyte support context, dosage, and safety considerations.',
-}
-
-function withMetadataDescriptionOverride(metadata: Metadata, description?: string): Metadata {
-  if (!description) return metadata
-
-  return {
-    ...metadata,
-    description,
-    ...(metadata.openGraph ? { openGraph: { ...metadata.openGraph, description } } : {}),
-    ...(metadata.twitter ? { twitter: { ...metadata.twitter, description } } : {}),
-  }
-}
 
 export async function generateStaticParams() {
   const herbs = await getHerbSummaryIndex()
@@ -110,57 +89,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
-  const normalizedSlug = normalizeSlug(slug)
-  const canonicalSlug = DEPRECATED_HERB_CANONICALS[normalizedSlug] || normalizedSlug
-  const sourceSlug = getHerbSourceSlug(canonicalSlug)
-  const routeCanonicalSlug = getHerbCanonicalRouteSlug(canonicalSlug)
-  const herb = await getHerbMetadataRecord(sourceSlug)
-
-  if (!herb) {
-    return {
-      title: 'Herb Not Found',
-      robots: { index: false, follow: true },
-    }
-  }
-
-  const descriptionOverride =
-    HERB_META_DESCRIPTION_OVERRIDES[normalizedSlug] || HERB_META_DESCRIPTION_OVERRIDES[canonicalSlug]
-  const metadata = withMetadataDescriptionOverride(
-    generateDetailMetadata({ ...herb, slug: routeCanonicalSlug }, 'herb'),
-    descriptionOverride,
-  )
-
-  if (canonicalSlug !== normalizedSlug) {
-    const indexDecision = shouldIndexRoute(`/herbs/${canonicalSlug}`, { ...herb, slug: canonicalSlug })
-    // indexDecision is computed for the canonical target, not for the alias URL
-    // being served, so a redirected alias could still say index. Correct that.
-    return withRedirectSourceMetadata(
-      {
-        ...metadata,
-        alternates: { canonical: `${SITE_URL}/herbs/${canonicalSlug}/` },
-        robots: { index: indexDecision.index, follow: true },
-      },
-      `/herbs/${normalizedSlug}/`,
-    )
-  }
-
-  if (routeCanonicalSlug !== canonicalSlug) {
-    const indexDecision = shouldIndexRoute(`/herbs/${routeCanonicalSlug}`, { ...herb, slug: routeCanonicalSlug })
-    // Some alias routes are true redirects (for example the long-form
-    // ashwagandha alias). Common-name aliases whose source row redirects back
-    // to the public route (for example kava) stay self-canonical instead.
-    return withRedirectSourceMetadata(
-      {
-        ...metadata,
-        alternates: { canonical: `${SITE_URL}/herbs/${routeCanonicalSlug}/` },
-        robots: { index: indexDecision.index, follow: true },
-      },
-      `/herbs/${normalizedSlug}/`,
-    )
-  }
-
-  // A built page at a redirected URL must not present itself as canonical.
-  return withRedirectSourceMetadata(metadata, `/herbs/${normalizedSlug}/`)
+  return generateHerbRouteMetadata(slug)
 }
 
 function getEffects(herb: Herb) {
