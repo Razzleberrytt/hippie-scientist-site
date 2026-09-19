@@ -6,8 +6,8 @@ import { getCurrentLocaleAlternates, isPublishedTranslationPath } from './intern
 import {
   CORE_INDEXABLE_ROUTES,
   CURATED_INDEXABLE_COMPOUND_SLUGS,
-  CURATED_INDEXABLE_HERB_SLUGS,
   MONEY_ENTRY_ROUTES,
+  isCuratedIndexableHerbRouteSlug,
 } from './index-allowlist'
 
 import { TOTAL_PROFILE_COUNT } from '@/lib/profile-counts'
@@ -419,7 +419,7 @@ export function shouldIndexRoute(path: string, pageData?: Record<string, unknown
   let isCurated = false
   if (/^\/herbs\/[^/]+$/.test(normalizedPath)) {
     const slug = normalizedPath.split('/').pop() || ''
-    isCurated = (CURATED_INDEXABLE_HERB_SLUGS as readonly string[]).includes(slug)
+    isCurated = isCuratedIndexableHerbRouteSlug(slug)
   } else if (/^\/compounds\/[^/]+$/.test(normalizedPath)) {
     const slug = normalizedPath.split('/').pop() || ''
     isCurated = (CURATED_INDEXABLE_COMPOUND_SLUGS as readonly string[]).includes(slug)
@@ -460,7 +460,7 @@ export function shouldIndexRoute(path: string, pageData?: Record<string, unknown
   if (/^\/herbs\/[^/]+$/.test(normalizedPath)) {
     const slug = normalizedPath.split('/').pop() || ''
     // 1. Curated list is a priority index route and always overrides quality gate
-    const isCurated = (CURATED_INDEXABLE_HERB_SLUGS as readonly string[]).includes(slug)
+    const isCurated = isCuratedIndexableHerbRouteSlug(slug)
     if (isCurated) {
       return { index: true, follow: true, reason: 'curated-herb-allowlist', priority: 0.7 }
     }
