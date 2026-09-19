@@ -50,7 +50,7 @@ Current review state: **1/3 normal implementation workstreams occupied**. #5630 
 
 | Ticket | Title | Lane | Status | Priority | Score |
 |---|---|---|---|---|---:|
-| #5630 | Simplify Best Herbs for Anxiety to one post-answer action | R / conversion | Open / in review — PR #5646 | P1 | 150.0 |
+| #5630 / PR #5646 | Simplify Best Herbs for Anxiety to one post-answer action | R / conversion | Open / in review | P1 | 150.0 |
 
 - **D — free:** the citation→search→click control plane and canonical metadata-experiment protection are merged.
 - **R — occupied by #5630 / PR #5646:** no overlapping Revenue/Conversion admission until it merges or closes.
