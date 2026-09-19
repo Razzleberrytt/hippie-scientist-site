@@ -46,14 +46,14 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Current review state: **1/3 normal implementation workstreams occupied**. #5630 is admitted in Revenue/Conversion and open in review as PR #5646; #5637 / PR #5636 and #5638 / PR #5639 are merged and retired.
+Current review state: **1/3 normal implementation workstreams occupied**. #5630 / PR #5646 is merged and retired. #5629 is admitted in Discovery/SEO for the Kava route-ownership repair.
 
 | Ticket | Title | Lane | Status | Priority | Score |
 |---|---|---|---|---|---:|
-| #5630 / PR #5646 | Simplify Best Herbs for Anxiety to one post-answer action | R / conversion | Open / in review | P1 | 150.0 |
+| #5629 | Resolve overlapping Kava article vs herb-guide reader jobs | D / SEO | Admitted / active queue | P1 | 187.5 |
 
-- **D — free:** the citation→search→click control plane and canonical metadata-experiment protection are merged.
-- **R — occupied by #5630 / PR #5646:** no overlapping Revenue/Conversion admission until it merges or closes.
+- **D — occupied by #5629:** no overlapping Discovery/SEO admission until it merges or closes.
+- **R — free:** #5630 / PR #5646 is merged and retired.
 - **A — free:** #5081 remains separately blocked on a fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
 - **Control maintenance:** #5642 aligns the non-authoritative swarm feeder with the merged search-conversion policy; it is docs-only and does not consume a normal implementation workstream.
@@ -62,7 +62,7 @@ Research-only enrichment staging remains separate from canonical implementation/
 
 ## Next — ordered dependency queue
 
-Discovery/SEO and Authority/Content are available; Revenue/Conversion is occupied by #5630 / PR #5646. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
+Revenue/Conversion and Authority/Content are available; Discovery/SEO is occupied by #5629. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
@@ -106,6 +106,7 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
+| #5630 / PR #5646 | Merged; Best Herbs for Anxiety now uses one downstream newsletter action after evidence/safety. Conversion, traffic, ranking, and revenue impact remain `Unknown`. |
 | #5638 / PR #5639 | Merged; search governance now reads the canonical metadata experiment ledger and protects proposed/running/winner states from competing CTR rewrites. No ranking, CTR, traffic, conversion, or revenue lift is inferred. |
 | #5637 / PR #5636 | Merged; fresh dated page-level search opportunity is primary, citation-only holds are non-actionable, and AI citations remain a bounded authority/confidence overlay. No ranking, CTR, traffic, conversion, or revenue lift is inferred. |
 | #5610 / PR #5625 | Magnesium general-vs-sleep intent separation is implementation-complete; reciprocal routing and the sleep-shortlist handoff land with this merge. Citation, ranking, traffic, and revenue outcomes remain `Unknown`. |
