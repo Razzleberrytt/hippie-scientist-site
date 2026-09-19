@@ -42,6 +42,8 @@ const SAFETY_ROUTES = [
 const EDITORIAL_LINK_BOOSTS = {
   '/herbs/ashwagandha': ['/goals/stress', '/goals/anxiety', '/herbs/rhodiola', '/compounds/magnesium'],
   '/compounds/l-theanine': ['/goals/anxiety', '/goals/sleep', '/compounds/caffeine', '/compounds/magnesium'],
+  '/herbs/kava': ['/guides/herbs/kava'],
+  '/guides/herbs/kava': ['/herbs/kava'],
 }
 
 function resolveDataDir(argv) {
