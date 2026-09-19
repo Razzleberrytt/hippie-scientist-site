@@ -17,6 +17,15 @@ on:
   schedule:
     - cron: '*/10 * * * *'
   workflow_dispatch:
+    inputs:
+      pr_number:
+        description: PR number to reconcile after a governed consumer wake
+        required: false
+        type: string
+      expected_head_sha:
+        description: Exact PR head SHA the governed consumer validated
+        required: false
+        type: string
 
 concurrency:
   group: autonomous-merge-${{ github.event.pull_request.number || 'fallback' }}
@@ -157,7 +166,11 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GITHUB_REPOSITORY: ${{ github.repository }}
       CONTROLLER_RUN_ID: ${{ github.run_id }}
-      SWEEP_OPEN_PRS: 'true'
+      PR_NUMBER: ${{ inputs.pr_number || '' }}
+      EXPECTED_HEAD_SHA: ${{ inputs.expected_head_sha || '' }}
+      SWEEP_OPEN_PRS: ${{ inputs.pr_number != '' && 'false' || 'true' }}
+      MERGE_POLL_SECONDS: '5'
+      MERGE_MAX_WAIT_MINUTES: '3'
     steps:
       - name: Checkout trusted controller from main
         uses: actions/checkout@v7
