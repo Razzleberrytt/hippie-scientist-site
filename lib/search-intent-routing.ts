@@ -175,21 +175,26 @@ export function diagnoseCtr(observation: CtrObservation): CtrDiagnostic {
 export interface MetadataExperiment {
   id: string
   url: string
-  startedAt: string
-  titleBefore: string
-  titleAfter: string
+  startedAt?: string
+  createdAt?: string
+  titleBefore?: string
+  titleAfter?: string
   descriptionBefore?: string
   descriptionAfter?: string
-  baselineCtr: number
+  baselineCtr?: number
   resultCtr?: number
-  status: 'running' | 'won' | 'lost' | 'inconclusive'
+  status: 'proposed' | 'running' | 'winner' | 'closed' | 'won' | 'lost' | 'inconclusive'
+}
+
+function experimentTimestamp(experiment: MetadataExperiment): string {
+  return experiment.startedAt ?? experiment.createdAt ?? ''
 }
 
 export function shouldPreserveMetadata(experiments: MetadataExperiment[], url: string): boolean {
   const latest = [...experiments]
     .filter((experiment) => experiment.url === url)
-    .sort((a, b) => b.startedAt.localeCompare(a.startedAt))[0]
-  return latest?.status === 'won' || latest?.status === 'running'
+    .sort((a, b) => experimentTimestamp(b).localeCompare(experimentTimestamp(a)))[0]
+  return latest ? ['proposed', 'running', 'winner', 'won'].includes(latest.status) : false
 }
 
 export function canStartMetadataRewrite(
