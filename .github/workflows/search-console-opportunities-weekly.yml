@@ -46,6 +46,9 @@ jobs:
       - name: Rank search opportunities
         run: npm run seo:opportunities
 
+      - name: Build citation-to-click conversion queue
+        run: npm run seo:conversion-priorities
+
       - name: Feed observed search demand into governed distribution ranking
         run: |
           node scripts/distribution/build-search-opportunity-signals.mjs
@@ -66,6 +69,8 @@ jobs:
           path: |
             ops/reports/search-opportunities.json
             ops/reports/search-opportunities.md
+            ops/reports/search-conversion-priorities.json
+            ops/reports/search-conversion-priorities.md
             ops/reports/post-spam-cohorts.json
             ops/reports/post-spam-cohorts.md
             ops/reports/ai-visibility-anomaly.json
@@ -90,6 +95,12 @@ jobs:
             cat ops/reports/search-opportunities.md >> "$GITHUB_STEP_SUMMARY"
           else
             echo "- Search opportunity report was not generated; inspect the failed step above." >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ -f ops/reports/search-conversion-priorities.md ]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            cat ops/reports/search-conversion-priorities.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "- Search conversion report was not generated; inspect the failed step above." >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ -f artifacts/distribution/opportunity-selection.json ]; then
             echo "" >> "$GITHUB_STEP_SUMMARY"

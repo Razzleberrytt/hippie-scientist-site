@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "snapshotLabel": "2026-09-19",
+  "source": "User-supplied Bing Webmaster Tools dashboard screenshots captured 2026-09-19. These are aggregate dashboard readings, not page-level exports.",
+  "measurementBoundary": "AI citations and traditional search performance are separate observational surfaces. Citations are not clicks, rankings, revenue, conversions, or proof that a search change caused an outcome.",
+  "objective": "Convert proven answer-engine authority into qualified organic search impressions and clicks without sacrificing scientific, safety, canonical, accessibility, or provenance standards.",
+  "priorityOrder": [
+    "Pages with meaningful impressions and CTR materially below the expected curve at their observed position.",
+    "Pages in positions 4-15 with meaningful impressions, especially when they are already proven AI-citation assets.",
+    "High-citation pages with weak search exposure only when query-intent, internal-link, metadata, or content gaps are evidenced by page/query exports.",
+    "Net-new content only for a genuinely distinct query intent after cannibalization and canonical-owner checks.",
+    "Pure citation-count growth is secondary unless it also protects a winner or closes an evidence/safety gap."
+  ],
+  "guardrails": [
+    "Never use citation count alone to justify a title/H1/canonical rewrite.",
+    "Never let CTR optimization overstate efficacy, certainty, safety, dosage, or comparative superiority.",
+    "Preserve winning/running metadata experiments until their measurement window closes.",
+    "Prefer reversible metadata/internal-link experiments before broad content rewrites on proven citation winners.",
+    "Do not manufacture page-level conclusions from aggregate dashboard totals."
+  ],
+  "searchFreshnessPolicy": {
+    "maxAgeDays": 10,
+    "rule": "Page-level search observations must carry a dated observation end and be no more than 10 days old. Missing, invalid, future-dated, or stale search observations fail closed to a waiting state."
+  },
+  "baselineDashboardSnapshot": {
+    "aiPerformance": {
+      "window": "30D",
+      "citations30d": 23100,
+      "avgCitedPages30d": 49
+    },
+    "searchPerformance": {
+      "impressions": 7100,
+      "clicks": 58,
+      "ctrPct": 0.82,
+      "windowNote": "Aggregate dashboard screenshot; exact search date selector was not visible in the supplied image."
+    }
+  }
+}
