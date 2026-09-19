@@ -18,7 +18,7 @@ describe('best herbs for anxiety evidence calibration', () => {
     expect(text).toMatch(/ashwagandha/i)
     expect(text).toMatch(/passionflower/i)
     expect(text).toMatch(/kava/i)
-    expect(text).toMatch(/const DATE\s*=\s*['"]2026-08-\d{2}['"]/i)
+    expect(text).toMatch(/const DATE\s*=\s*['"]2026-09-19['"]/i)
     expect(text).toContain('dateModified={DATE}')
   })
 
