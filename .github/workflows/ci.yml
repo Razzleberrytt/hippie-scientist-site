@@ -156,8 +156,7 @@ jobs:
         run: npm run audit:high
 
       - name: Generate raw npm audit JSON
-        if: steps.impact.outputs.docs_only != 'true'
-        if: ${{ always() && !cancelled() }}
+        if: ${{ always() && !cancelled() && steps.impact.outputs.docs_only != 'true' }}
         env:
           NPM_CONFIG_FETCH_TIMEOUT: '60000'
           NPM_CONFIG_FETCH_RETRIES: '1'
