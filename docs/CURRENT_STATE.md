@@ -30,7 +30,7 @@
 
 **Verified:** Current generated profile JSON contains 359 claim-map records across 187 profiles. The citation export contains 849 studies in JSON, BibTeX, and RIS forms. The workbook safety audit read 293 herb and 588 compound rows; all rows had safety context, while 293 herb and 306 compound rows had structured flags or contraindication data. The audit also reported 51 deliberate abstentions where flags were left blank pending evidence.
 
-**Verified:** The build applies production publication invariants and uses `noindex` as a governance hold when evidence, summary, or safety contracts are not met. SEO-001's clean hosted invariant build on 2026-08-25 reconciled 846 profile pages: 558 emitted `noindex`; 285 were finally sitemap-eligible and all 285 were included (190 herbs and 95 compounds), with zero final governed-data/HTML/redirect/sitemap mismatches. Google index coverage remains Unknown.
+**Verified:** The build applies production publication invariants and uses `noindex` as a governance hold when evidence, summary, or safety contracts are not met. SEO-001's clean hosted invariant build on 2026-08-25 reconciled 846 profile pages: 558 emitted `noindex`; 285 were finally sitemap-eligible and all 285 were included (190 herbs and 95 compounds), with zero final governed-data/HTML/redirect/sitemap mismatches. A fresh operator-supplied GSC Page Indexing export downloaded 2026-09-20 reports 18 indexed URLs out of 4,601 Google-known URLs (0.39%), with chart data through 2026-09-13. This is an external lagged coverage snapshot, not the current sitemap population or proof that every excluded URL is a current defect.
 
 **Verified:** A separate evidence-engine data surface for sleep, stress, focus, and anxiety currently validates zero claims and zero safety notes. It exists but is not a populated evidence source.
 
@@ -114,7 +114,7 @@ Counts below use explicit definitions because source files, generated records, b
 | Localized sitemap URLs | 48 (12 each for de/es/fr/pt) | Live localized sitemap inventory | Live robots discovery of these sitemaps was not confirmed |
 | Total live main-sitemap URLs | 486 | Live `sitemap.xml`, 2026-08-21 | Sitemap membership is not Google index coverage |
 
-**Unknown:** Google-indexed page count, pages with impressions, pages with clicks, and unique canonical content-type totals across all route aliases require Search Console and an agreed canonical taxonomy.
+**Observed 2026-09-20:** GSC reports 18 indexed URLs; a 28-day Search Performance screenshot reports 13 impressions and 0 clicks. **Unknown:** page/query attribution, average position, unique canonical content-type totals across all aliases, and post-recovery recrawl outcome.
 
 ## Verified problems and risks
 
@@ -142,7 +142,7 @@ Counts below use explicit definitions because source files, generated records, b
 
 ### Unknown
 
-- Search impressions, clicks, CTR, average position, and actual Google index coverage.
+- Page/query-level Search Performance attribution, average position, and post-recovery Google recrawl/index-selection outcomes. Domain-level 28-day totals and Page Indexing coverage are now observed, but remain too coarse to select route-level CTR/ranking work.
 - Sessions, engagement, scroll depth, return visits, and decision-page engagement.
 - Affiliate clicks received by analytics, Amazon orders/revenue, RPM, and page-level conversion.
 - Email delivery and signup conversion.
