@@ -134,12 +134,21 @@ const REFS = [
     pmid: '27998379',
     url: 'https://pubmed.ncbi.nlm.nih.gov/27998379/',
   },
+  {
+    n: 12,
+    title: 'Glycine Bioavailability and Sleep-Related Outcomes Following Oral Glycine and Collagen Supplementation—A Scoping Review',
+    text: 'Fan Z, Nelson JM, Wallace TC. J Diet Suppl. 2026;23(5):602-622.',
+    year: 2026,
+    pmid: '42687500',
+    doi: '10.1080/19390211.2026.2726197',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/42687500/',
+  },
 ]
 
 const FAQS = [
   {
     q: 'Does glycine actually help sleep?',
-    a: 'Possibly, but confidence is low. Small crossover studies reported improvements in subjective sleep quality and selected objective measures after bedtime glycine, while a 2024 systematic review concluded that the sleep studies were small and at high risk of bias.',
+    a: 'Possibly, but confidence is low. Small crossover studies reported improvements in subjective sleep quality and selected objective measures after bedtime glycine. A 2024 systematic review judged the sleep studies small and at high risk of bias, and a 2026 scoping review still found only three supplemental-glycine sleep trials.',
   },
   {
     q: 'Is 3 grams of glycine the proven sleep dose?',
@@ -167,7 +176,7 @@ export default function Page() {
         headline="Glycine for Sleep: Does 3 g Actually Work? Evidence Review"
         description="Evidence-first review of glycine for sleep quality, sleep latency, next-day fatigue, dosing uncertainty, safety, and magnesium glycinate confusion."
         datePublished="2026-07-08"
-        dateModified="2026-08-22"
+        dateModified="2026-09-19"
         faqs={FAQS.map((faq) => ({ question: faq.q, answer: faq.a }))}
         breadcrumbs={[
           { label: 'Home', href: '/' },
@@ -187,16 +196,16 @@ export default function Page() {
 
       <article className="space-y-10">
         <header className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10 dark:border-white/10 dark:bg-[var(--surface-card)]">
-          <p className="eyebrow-label">Evidence review · 11-source clinical & mechanistic ledger</p>
+          <p className="eyebrow-label">Evidence review · 12-source clinical & mechanistic ledger</p>
           <h1 className="heading-premium mt-3 text-ink dark:text-[var(--text-primary)]">
             Glycine for Sleep: Does the 3 g Bedtime Dose Actually Work?
           </h1>
-          <p className="mt-2 text-xs text-muted">Last evidence review August 22, 2026</p>
+          <p className="mt-2 text-xs text-muted">Last evidence review September 19, 2026</p>
           <p className="mt-4 max-w-3xl text-base leading-8 text-muted dark:text-[var(--text-secondary)]">
             Glycine has a much smaller sleep evidence base than its online reputation suggests. A few small human studies using
             <strong className="text-ink"> 3 g before bedtime</strong> reported better subjective sleep, selected polysomnographic changes,
             and less next-day fatigue. But a 2024 systematic review judged the sleep evidence to be based on small studies with
-            a high risk of bias.<Cite n={1} /> The right conclusion is <strong className="text-ink">interesting, preliminary, and worth separating from hype</strong>.
+            a high risk of bias.<Cite n={1} /> A September 2026 scoping review searched through July 9, 2026 and still identified only three trials of supplemental glycine with sleep-related outcomes, which keeps the evidence pool notably small.<Cite n={12} /> The right conclusion is <strong className="text-ink">interesting, preliminary, and worth separating from hype</strong>.
           </p>
           <div className="mt-5 grid gap-3 sm:grid-cols-3">
             <div className="rounded-xl border border-brand-900/10 bg-brand-50/50 p-4">
@@ -234,6 +243,9 @@ export default function Page() {
               also include investigators affiliated with Ajinomoto, which had an active amino-acid research program.<Cite n={2} /><Cite n={3} /><Cite n={5} />
               That does not invalidate the findings, but it makes independent replication especially valuable.
             </p>
+            <p>
+              The September 2026 scoping review provides the clearest current evidence-count boundary: it found <strong className="text-ink">three supplemental-glycine sleep trials</strong>, and all three reported benefit on at least one sleep-related outcome.<Cite n={12} /> That is a useful positive signal, but it is not a new large glycine-alone trial program. The same review also included collagen and collagen-peptide studies; those outcomes cannot be reassigned to isolated glycine because glycine mediation was not directly tested.<Cite n={12} />
+            </p>
           </div>
         </section>
 
@@ -251,6 +263,12 @@ export default function Page() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-brand-900/10">
+                <tr className="align-top">
+                  <td className="p-3 font-semibold text-ink">2026 scoping review<Cite n={12} /></td>
+                  <td className="p-3 text-muted">Mapped only three supplemental-glycine sleep trials; each reported benefit on at least one sleep-related outcome.</td>
+                  <td className="p-3 text-muted">Does not add a large glycine-alone efficacy trial, and collagen-peptide outcomes cannot be attributed to glycine without direct mediation evidence.</td>
+                  <td className="p-3 text-muted">Current map; still limited</td>
+                </tr>
                 <tr className="align-top">
                   <td className="p-3 font-semibold text-ink">2024 systematic review<Cite n={1} /></td>
                   <td className="p-3 text-muted">Sleep improvement signal in healthy populations.</td>
@@ -407,7 +425,7 @@ export default function Page() {
           <p className="mt-2 text-sm leading-7 text-muted dark:text-[var(--text-secondary)]">
             <strong className="text-ink">Glycine is interesting, inexpensive, and under-proven.</strong> The 3 g bedtime studies are real, and they include both
             subjective and objective signals. But the human sleep literature is tiny, concentrated in a related research lineage, and rated high-risk-of-bias in the
-            recent systematic review. Treat 3 g as a <em>studied intervention</em>, not as a universal sleep prescription.
+            recent systematic review. The 2026 scoping review confirms that the direct supplemental-glycine sleep literature is still only three trials rather than a mature replication base.<Cite n={12} /> Treat 3 g as a <em>studied intervention</em>, not as a universal sleep prescription.
           </p>
         </section>
 
