@@ -32,14 +32,14 @@ The legacy `backlog/master_backlog.csv.xz.b64` seed is corrupt and the historica
 
 The older #5608–#5612 refill cycle is completed/retired and must not be re-promoted from this feeder.
 
-**Active promoted incident:** #5688 owns Discovery/SEO from the operator-supplied 2026-09-20 GSC Page Indexing export (18 indexed of 4,601 Google-known URLs; 1,231 crawled-not-indexed; 596 discovered-not-indexed). The implementation must reconcile this lagged/historical URL universe against current publication truth before changing crawl/indexability behavior. External recrawl/index outcomes remain `Unknown`.
+**Active promoted incident:** #5698 owns Authority/Content for one P0 source-integrity repair: quarantine and remove retracted omega-3 PMID 41461240 from the stress guide. #5688 / PR #5691 is merged and retired. This admission does not authorize unrelated enrichment promotion; #5081 remains blocked on its separate governor prerequisite.
 
 | Candidate | Workstream | State | Promotion proof |
 |---|---|---|---|
 | Fresh search-conversion candidate | Discovery / SEO | Waiting on fresh dated page/query evidence | Use the citation→search→click report. A page must have measurable search upside; citation count alone is insufficient. |
-| Deterministic discovery defect | Discovery / SEO | Occupied by #5688 until retired | #5688 is the admitted index-recovery incident; do not start a second D-lane ticket while it is active. Crawl/canonical/robots/sitemap/internal-link/route-ownership repairs remain bounded to defects proven against current exact-main truth. |
+| Deterministic discovery defect | Discovery / SEO | Candidate feeder only | #5688 / PR #5691 is merged and retired. New discovery work requires fresh proof and explicit promotion. |
 | Revalidated conversion candidate | Revenue / Conversion | Candidate feeder only | Use current funnel/CTA evidence and existing safety/disclosure boundaries; do not infer revenue opportunity from citations alone. |
-| Revalidated evidence/safety candidate | Authority / Content | Candidate feeder only | Use evidence freshness/safety sensitivity/current research availability; citation signal may affect confidence/priority but cannot replace scientific review. |
+| Revalidated evidence/safety candidate | Authority / Content | Occupied by #5698 | #5698 is the admitted P0 retraction repair. Do not start another Authority/Content implementation until it is merged/retired; #5081 remains separately blocked on a fresh governor lease. |
 
 ## Route-level winner program — 90 candidates
 
