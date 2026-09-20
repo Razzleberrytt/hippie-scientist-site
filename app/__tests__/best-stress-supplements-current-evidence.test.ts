@@ -19,9 +19,12 @@ describe('best stress supplements evidence calibration', () => {
     expect(text).toMatch(/rhodiola/i)
     expect(text).toMatch(/magnesium/i)
     expect(text).toMatch(/L-theanine/i)
-    expect(text).toContain("const DATE = '2026-09-17'")
-    expect(text).toContain('Last evidence review September 17, 2026')
+    expect(text).toContain("const DATE = '2026-09-20'")
+    expect(text).toContain('Last evidence review September 20, 2026')
     expect(text).toContain('href="/info/methodology/"')
+    expect(text).not.toContain('41461240')
+    expect(text).not.toContain('10.1016/j.jad.2025.121055')
+    expect(text).toMatch(/17 clinical sources|17-source clinical ledger/i)
   })
 
   it('does not restore treatment-like stress rankings or stack recipes', () => {
