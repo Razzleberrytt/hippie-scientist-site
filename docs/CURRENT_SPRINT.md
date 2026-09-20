@@ -5,7 +5,7 @@
 **Updated:** 2026-09-19
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #5665 / PR #5668 is in review in Authority/Content for the September 2026 glycine-sleep evidence refresh, and #5669 is admitted in Revenue/Conversion for one evidence-first post-answer action on Glycine for Sleep. Normal implementation WIP is **2/3**. Discovery/SEO is free; Revenue/Conversion is occupied by #5669; Authority/Content is occupied by #5665 / PR #5668; #5081 remains separately blocked on a fresh non-overlapping governor lease. No P0 admission freeze remains.
+**Current admission:** #5665 / PR #5668 is merged and retired after the September 2026 glycine-sleep evidence refresh. #5669 is admitted in Revenue/Conversion for one evidence-first post-answer action on Glycine for Sleep. Normal implementation WIP is **1/3**. Discovery/SEO and Authority/Content are free; Revenue/Conversion is occupied by #5669; #5081 remains separately blocked on a fresh non-overlapping governor lease. No P0 admission freeze remains.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,16 +49,15 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 2/3
+## Active / in review — implementation WIP 1/3
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| Authority / Content | #5665 / PR #5668 | Razzleberrytt / swarm | Open / in review | Refresh Glycine for Sleep with the September 2, 2026 scoping review (PMID 42687500), preserving the current cautious efficacy conclusion, isolated-glycine vs collagen directness, 3 g research-dose boundaries, safety uncertainty, and focused regressions. |
 | Revenue / Conversion | #5669 | Razzleberrytt / swarm | Admitted / ready for implementation | Add exactly one claim-neutral evidence-first newsletter action after the Glycine for Sleep verdict and before existing commercial sourcing examples, reusing NewsletterCtaBlock and preserving all scientific/safety content and affiliate disclosure boundaries. |
 
 - **Discovery/SEO:** free; #5629 / PR #5650 is merged and retired.
 - **Revenue/Conversion:** occupied by #5669; #5647 / PR #5657 is merged and retired.
-- **Authority/Content:** occupied by #5665 / PR #5668; #5081 remains separately blocked pending a fresh non-overlapping governor lease.
+- **Authority/Content:** free; #5665 / PR #5668 is merged and retired; #5081 remains separately blocked pending a fresh non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
 - **Control maintenance:** #5642 is a docs-only feeder reconciliation so the durable candidate inventory cannot override the merged citation→search→click policy. It grants no normal implementation authority and consumes no D/R/A slot.
 
@@ -66,6 +65,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 ### Recently completed refill cycle
 
+- **#5665 / PR #5668 — Authority/Content:** merged as `896292ff5eb6167e177455aae1a140f3a0390cd3`; Glycine for Sleep now has a 12-source ledger, Sept. 19 review provenance, the September 2026 scoping-review evidence ceiling of three supplemental-glycine sleep trials, and explicit collagen-directness regressions while preserving the cautious efficacy, 3 g research-dose, safety, and insomnia-treatment boundaries; observed search/conversion/revenue impact remains `Unknown`.
 - **#5631 / PR #5663 — Authority/Content:** merged as `8a499f987f834f19ec211c74638f4ab4741c6787`; supplement-stacking safety now uses refreshed clinically relevant interaction evidence with focused regressions while preserving documented-interaction vs plausible-mechanism vs unknown/unreported boundaries and avoiding stack recipes, timing hacks, or medication-changing advice; observed search/citation/conversion/revenue impact remains `Unknown`.
 - **#5602 / PR #5661 — Authority/Content:** merged; Best Herbs for Anxiety now has a 22-source ledger, Sept. 19 review provenance, newer systematic evidence, and methodology visibility while preserving ranking and safety/negative-trial boundaries; observed search/citation/conversion impact remains `Unknown`.
 - **#5647 / PR #5657 — Revenue/Conversion:** merged; Valerian Root now has one downstream evidence-first newsletter action after the complete answer/FAQ/references journey, with the 18-source scientific content unchanged and observed conversion impact still `Unknown`.
@@ -80,7 +80,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 ## Ready next — strict dependency order
 
-Discovery/SEO is available; Revenue/Conversion and Authority/Content are occupied by #5669 and #5665 / PR #5668 respectively. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
+Discovery/SEO and Authority/Content are available; Revenue/Conversion is occupied by #5669. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
 
 ### Blocked or deferred candidates
 
