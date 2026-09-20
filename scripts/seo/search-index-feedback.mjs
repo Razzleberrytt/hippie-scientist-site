@@ -14,7 +14,7 @@
  *   node scripts/seo/search-index-feedback.mjs
  */
 
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { loadPriorityConfig } from '../enrichment-pipeline/lib/priority.mjs'
@@ -24,6 +24,7 @@ const ROOT = path.resolve(path.dirname(__filename), '..', '..')
 const INPUT = path.join(ROOT, 'data-sources', 'search-index-observations.json')
 const SHADOW = path.join(ROOT, 'ops', 'reports', 'index-quality-shadow.json')
 const PUBLICATION_TRUTH = path.join(ROOT, 'reports', 'profile-publication-truth.json')
+const OUT = path.join(ROOT, 'out')
 const REPORTS_DIR = path.join(ROOT, 'ops', 'reports')
 const JSON_OUT = path.join(REPORTS_DIR, 'search-index-feedback.json')
 const MD_OUT = path.join(REPORTS_DIR, 'search-index-feedback.md')
@@ -64,6 +65,114 @@ export function crawlAgeDays(lastCrawled, observedAt) {
   const observed = Date.parse(String(observedAt ?? '').trim())
   if (!Number.isFinite(crawled) || !Number.isFinite(observed) || crawled > observed) return null
   return Math.floor((observed - crawled) / 86_400_000)
+}
+
+
+function normalizeRoute(raw) {
+  try {
+    const parsed = new URL(String(raw ?? ''), 'https://thehippiescientist.net')
+    const pathname = parsed.pathname.replace(/\/+/g, '/').replace(/\/+$/, '') || '/'
+    return pathname === '/' ? '/' : pathname + '/'
+  } catch {
+    return ''
+  }
+}
+
+function extractRobots(html) {
+  const match = html.match(/<meta\s+[^>]*name=["']robots["'][^>]*content=["']([^"']*)["'][^>]*>/i)
+    || html.match(/<meta\s+[^>]*content=["']([^"']*)["'][^>]*name=["']robots["'][^>]*>/i)
+  return String(match?.[1] || 'index,follow').toLowerCase()
+}
+
+function extractCanonicalRoute(html) {
+  const match = html.match(/<link\s+[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["'][^>]*>/i)
+    || html.match(/<link\s+[^>]*href=["']([^"']+)["'][^>]*rel=["']canonical["'][^>]*>/i)
+  return normalizeRoute(match?.[1] || '')
+}
+
+export function buildRouteTruth(outDir = OUT) {
+  if (!existsSync(outDir)) return {}
+
+  const sitemapPath = path.join(outDir, 'sitemap.xml')
+  const redirectsPath = path.join(outDir, '_redirects')
+  const sitemap = new Set()
+  if (existsSync(sitemapPath)) {
+    const xml = readFileSync(sitemapPath, 'utf8')
+    for (const match of xml.matchAll(/<loc>(.*?)<\/loc>/g)) {
+      const route = normalizeRoute(match[1])
+      if (route) sitemap.add(route)
+    }
+  }
+
+  const redirects = new Set()
+  if (existsSync(redirectsPath)) {
+    for (const line of readFileSync(redirectsPath, 'utf8').split(/\r?\n/)) {
+      const trimmed = line.trim()
+      if (!trimmed || trimmed.startsWith('#')) continue
+      const source = trimmed.split(/\s+/)[0]
+      const route = normalizeRoute(source)
+      if (route) redirects.add(route)
+    }
+  }
+
+  const truth = {}
+  const walk = (dir, rel = '') => {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      if (entry.name === '_next' || entry.name === 'pagefind') continue
+      const full = path.join(dir, entry.name)
+      const nextRel = rel ? path.join(rel, entry.name) : entry.name
+      if (entry.isDirectory()) {
+        walk(full, nextRel)
+        continue
+      }
+      if (entry.name !== 'index.html') continue
+      const route = normalizeRoute(rel ? '/' + rel.replaceAll(path.sep, '/') + '/' : '/')
+      const html = readFileSync(full, 'utf8')
+      const canonicalRoute = extractCanonicalRoute(html)
+      const robots = extractRobots(html)
+      truth[route] = {
+        exists: true,
+        redirectSource: redirects.has(route),
+        noindex: robots.split(',').map((token) => token.trim()).includes('noindex'),
+        canonicalRoute,
+        selfCanonical: canonicalRoute === route,
+        sitemapIncluded: sitemap.has(route),
+      }
+    }
+  }
+  walk(outDir)
+
+  for (const route of redirects) {
+    truth[route] = { ...(truth[route] || { exists: false }), redirectSource: true }
+  }
+  return truth
+}
+
+export function classifyPublicationState(observation, publicationTruth, routeTruth = {}) {
+  if (observation?.hasQuery) return 'QUERY_PARAMETER_VARIANT'
+  const route = normalizeRoute(observation?.url)
+  if (!route) return 'UNCLASSIFIED'
+
+  const profile = (publicationTruth?.profiles || []).find((row) => normalizeRoute(row?.route) === route)
+  if (profile) {
+    if (profile.redirectSource || profile.publicationReason === 'redirect-source') return 'REDIRECT_SOURCE'
+    if (profile.emittedNoindex) return 'INTENTIONAL_NOINDEX'
+    if (profile.canonicalMatches === false || String(profile.publicationReason || '').startsWith('canonicalized-to:')) {
+      return 'CANONICALIZED_AWAY'
+    }
+    if (profile.sitemapIncluded === true && profile.publicationReason === 'published') return 'CURRENT_PUBLISHED'
+    if (profile.parity === false || profile.publicationReason === 'indexable-html-missing-from-sitemap') {
+      return 'CURRENT_PUBLICATION_DEFECT'
+    }
+  }
+
+  const current = routeTruth?.[route]
+  if (current?.redirectSource) return 'REDIRECT_SOURCE'
+  if (!current?.exists) return 'HISTORICAL_OR_UNBUILT'
+  if (current.noindex) return 'INTENTIONAL_NOINDEX'
+  if (current.canonicalRoute && !current.selfCanonical) return 'CANONICALIZED_AWAY'
+  if (current.sitemapIncluded && current.selfCanonical) return 'CURRENT_PUBLISHED'
+  return 'CURRENT_PUBLICATION_DEFECT'
 }
 
 export function profileIdentity(rawUrl) {
@@ -166,7 +275,7 @@ function diagnose({ severity, status, shadow, hasQuery }) {
   return shadow === 'FAIL_SHADOW' ? 'SHADOW_WITH_CRAWL_SIGNAL' : 'MONITOR'
 }
 
-export function buildFeedbackReport({ input, shadowReport, publicationTruth, statusWeights, generatedAt }) {
+export function buildFeedbackReport({ input, shadowReport, publicationTruth, routeTruth = {}, statusWeights, generatedAt }) {
   const getShadow = shadowLookup(shadowReport, publicationTruth)
   const observations = latestActiveObservations(input, statusWeights).map((observation) => {
     const identity = observation.hasQuery ? null : profileIdentity(observation.url)
@@ -174,6 +283,7 @@ export function buildFeedbackReport({ input, shadowReport, publicationTruth, sta
     return {
       ...observation,
       profile: identity,
+      publicationState: classifyPublicationState(observation, publicationTruth, routeTruth),
       shadow,
       diagnosis: diagnose({ ...observation, shadow }),
     }
@@ -181,6 +291,10 @@ export function buildFeedbackReport({ input, shadowReport, publicationTruth, sta
 
   const count = (diagnosis) => observations.filter((row) => row.diagnosis === diagnosis).length
   const crawlAges = observations.map((row) => row.crawlAgeDays).filter((value) => Number.isInteger(value))
+  const publicationStates = observations.reduce((acc, row) => {
+    acc[row.publicationState] = (acc[row.publicationState] || 0) + 1
+    return acc
+  }, {})
   return {
     generatedAt,
     mode: 'observation-only',
@@ -204,6 +318,7 @@ export function buildFeedbackReport({ input, shadowReport, publicationTruth, sta
       crawlObservationsOlderThan30Days: crawlAges.filter((days) => days > 30).length,
       oldestCrawlAgeDays: crawlAges.length ? Math.max(...crawlAges) : null,
       newestCrawlAgeDays: crawlAges.length ? Math.min(...crawlAges) : null,
+      publicationStates,
     },
     observations,
   }
@@ -230,12 +345,12 @@ function renderMarkdown(report) {
     '',
     '## Reconciled observations',
     '',
-    '| Source URL | Normalized URL | Engine status | Last crawl (age) | Shadow | Diagnosis |',
-    '| --- | --- | --- | --- | --- | --- |',
+    '| Source URL | Normalized URL | Engine status | Last crawl (age) | Current publication | Shadow | Diagnosis |',
+    '| --- | --- | --- | --- | --- | --- | --- |',
   ]
   for (const row of report.observations) {
     const crawl = row.lastCrawled ? `${row.lastCrawled} (${row.crawlAgeDays ?? '?'}d)` : '—'
-    lines.push(`| ${row.rawUrl} | ${row.url} | ${row.engine}:${row.status} | ${crawl} | ${row.shadow} | ${row.diagnosis} |`)
+    lines.push(`| ${row.rawUrl} | ${row.url} | ${row.engine}:${row.status} | ${crawl} | ${row.publicationState} | ${row.shadow} | ${row.diagnosis} |`)
   }
   lines.push(
     '',
@@ -267,12 +382,14 @@ function main() {
     throw new Error('[search-index-feedback] missing reports/profile-publication-truth.json; run the production publication audit first')
   }
 
+  const routeTruth = buildRouteTruth()
   const config = loadPriorityConfig({ force: true })
   const statusWeights = config.signals.search_index_feedback?.status_weights || {}
   const report = buildFeedbackReport({
     input,
     shadowReport,
     publicationTruth,
+    routeTruth,
     statusWeights,
     generatedAt: new Date().toISOString(),
   })
