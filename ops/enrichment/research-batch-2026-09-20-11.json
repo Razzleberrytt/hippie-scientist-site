@@ -1,0 +1,258 @@
+{
+  "research_version": 1,
+  "batch_id": "research-batch-2026-09-20-11",
+  "status": "research-complete",
+  "scope": "Research-only staging. No canonical/public mutation.",
+  "entries": [
+    {
+      "id": "r25-201",
+      "entity": "collagen",
+      "topic": "knee_oa_meta_scope_2025",
+      "source": {
+        "pmid": "39212129",
+        "doi": "10.55563/clinexprheumatol/kflfr5"
+      },
+      "finding": "A 2025 systematic review and meta-analysis included 11 randomized controlled trials with 870 participants with knee osteoarthritis, with 451 assigned to collagen supplementation and 419 to placebo."
+    },
+    {
+      "id": "r25-202",
+      "entity": "collagen",
+      "topic": "knee_oa_function_2025",
+      "source": {
+        "pmid": "39212129",
+        "doi": "10.55563/clinexprheumatol/kflfr5"
+      },
+      "finding": "Collagen supplementation improved pooled knee-osteoarthritis function scores versus placebo (MD -6.46; 95% CI -9.52 to -3.40; p=0.00001), with substantial heterogeneity (I²=75%)."
+    },
+    {
+      "id": "r25-203",
+      "entity": "collagen",
+      "topic": "knee_oa_pain_2025",
+      "source": {
+        "pmid": "39212129",
+        "doi": "10.55563/clinexprheumatol/kflfr5"
+      },
+      "finding": "Collagen supplementation improved pooled pain scores versus placebo (MD -13.63; 95% CI -20.67 to -6.58; p=0.00001), with high heterogeneity (I²=88%)."
+    },
+    {
+      "id": "r25-204",
+      "entity": "collagen",
+      "topic": "knee_oa_heterogeneity_boundary_2025",
+      "source": {
+        "pmid": "39212129",
+        "doi": "10.55563/clinexprheumatol/kflfr5"
+      },
+      "finding": "The high I² values for both function and pain indicate substantial between-trial variability, so the pooled benefits should not be treated as uniform across collagen preparations, study populations, or trial designs."
+    },
+    {
+      "id": "r25-205",
+      "entity": "collagen",
+      "topic": "knee_oa_review_method_boundary_2025",
+      "source": {
+        "pmid": "39212129",
+        "doi": "10.55563/clinexprheumatol/kflfr5"
+      },
+      "finding": "The review searched MEDLINE, EMBASE, Web of Science, and Scopus through October 2023 and used the Cochrane Risk of Bias 2.0 tool; its conclusion was limited to symptomatic knee-osteoarthritis outcomes from oral collagen-based supplements."
+    },
+    {
+      "id": "r25-206",
+      "entity": "spirulina",
+      "topic": "blood_pressure_meta_2025",
+      "source": {
+        "pmid": "39529406",
+        "doi": "10.1002/ptr.8377"
+      },
+      "finding": "A 2025 GRADE-assessed systematic review and meta-analysis evaluated randomized controlled trials of spirulina supplementation in adults for systolic and diastolic blood pressure outcomes."
+    },
+    {
+      "id": "r25-207",
+      "entity": "spirulina",
+      "topic": "systolic_bp_2025",
+      "source": {
+        "pmid": "39529406",
+        "doi": "10.1002/ptr.8377"
+      },
+      "finding": "Spirulina supplementation reduced systolic blood pressure by a pooled WMD of -4.41 mmHg (95% CI -6.74 to -2.07), with moderate heterogeneity (I²=66.1%)."
+    },
+    {
+      "id": "r25-208",
+      "entity": "spirulina",
+      "topic": "diastolic_bp_2025",
+      "source": {
+        "pmid": "39529406",
+        "doi": "10.1002/ptr.8377"
+      },
+      "finding": "Spirulina supplementation reduced diastolic blood pressure by a pooled WMD of -2.84 mmHg (95% CI -4.65 to -1.03), with moderate heterogeneity (I²=62.3%)."
+    },
+    {
+      "id": "r25-209",
+      "entity": "spirulina",
+      "topic": "bp_subgroups_2025",
+      "source": {
+        "pmid": "39529406",
+        "doi": "10.1002/ptr.8377"
+      },
+      "finding": "Subgroup analyses continued to favor lower systolic and diastolic pressure in participants with elevated baseline blood pressure, hypertension, overweight, age over 50 years, and interventions lasting more than eight weeks."
+    },
+    {
+      "id": "r25-210",
+      "entity": "spirulina",
+      "topic": "bp_evidence_boundary_2025",
+      "source": {
+        "pmid": "39529406",
+        "doi": "10.1002/ptr.8377"
+      },
+      "finding": "GRADE rated the blood-pressure evidence as moderate quality; dose-response and meta-regression analyses were not significant because of limited study and participant numbers, and the authors called for additional high-quality randomized trials."
+    },
+    {
+      "id": "r25-211",
+      "entity": "alpha-lipoic-acid",
+      "topic": "dpn_meta_scope_2026",
+      "source": {
+        "pmid": "41619689",
+        "doi": "10.1016/j.dsx.2026.103374"
+      },
+      "finding": "A 2026 systematic review and meta-analysis included 15 studies of alpha-lipoic acid for diabetic polyneuropathy, with 12 studies contributing outcome data; 19 of 23 analyzed outcomes significantly favored alpha-lipoic acid at one or more doses."
+    },
+    {
+      "id": "r25-212",
+      "entity": "alpha-lipoic-acid",
+      "topic": "dpn_paresthesia_2026",
+      "source": {
+        "pmid": "41619689",
+        "doi": "10.1016/j.dsx.2026.103374"
+      },
+      "finding": "Alpha-lipoic acid improved Total Symptom Score paresthesia versus comparator with an SMD of -1.04 (95% CI -1.24 to -0.84; p<0.00001)."
+    },
+    {
+      "id": "r25-213",
+      "entity": "alpha-lipoic-acid",
+      "topic": "dpn_numbness_2026",
+      "source": {
+        "pmid": "41619689",
+        "doi": "10.1016/j.dsx.2026.103374"
+      },
+      "finding": "Alpha-lipoic acid produced a smaller but statistically significant improvement in Total Symptom Score numbness (SMD -0.23; 95% CI -0.44 to -0.01; p=0.04)."
+    },
+    {
+      "id": "r25-214",
+      "entity": "alpha-lipoic-acid",
+      "topic": "dpn_pain_2026",
+      "source": {
+        "pmid": "41619689",
+        "doi": "10.1016/j.dsx.2026.103374"
+      },
+      "finding": "Alpha-lipoic acid improved the Hamburg Pain Adjective List outcome with an SMD of -1.00 (95% CI -1.15 to -0.85; p<0.00001)."
+    },
+    {
+      "id": "r25-215",
+      "entity": "alpha-lipoic-acid",
+      "topic": "dpn_nulls_boundary_2026",
+      "source": {
+        "pmid": "41619689",
+        "doi": "10.1016/j.dsx.2026.103374"
+      },
+      "finding": "HbA1c, nitric oxide, sural sensory nerve action potential, and peroneal motor nerve conduction velocity did not significantly change; symptom improvements were especially evident around 600 mg/day, while effects on nerve conduction and long-term glycemic control remained inconclusive."
+    },
+    {
+      "id": "r25-216",
+      "entity": "boswellia-curcuma",
+      "topic": "knee_oa_network_meta_scope_2026",
+      "source": {
+        "pmid": "41082950",
+        "doi": "10.1016/j.ctim.2025.103256"
+      },
+      "finding": "A 2026 systematic review and network meta-analysis included 20 randomized controlled trials with 1,633 participants evaluating Curcuma longa, Boswellia serrata, or mixed formulations for knee osteoarthritis."
+    },
+    {
+      "id": "r25-217",
+      "entity": "boswellia-curcuma",
+      "topic": "curcuma_vas_2026",
+      "source": {
+        "pmid": "41082950",
+        "doi": "10.1016/j.ctim.2025.103256"
+      },
+      "finding": "Modified Curcuma longa formulations reduced visual-analog-scale pain versus placebo with an SMD of -2.82 (95% CI -5.30 to -0.33)."
+    },
+    {
+      "id": "r25-218",
+      "entity": "boswellia-curcuma",
+      "topic": "boswellia_womac_2026",
+      "source": {
+        "pmid": "41082950",
+        "doi": "10.1016/j.ctim.2025.103256"
+      },
+      "finding": "Modified Boswellia serrata formulations significantly improved WOMAC pain, stiffness, and knee-function outcomes compared with other intervention groups in the network meta-analysis."
+    },
+    {
+      "id": "r25-219",
+      "entity": "boswellia-curcuma",
+      "topic": "knee_oa_adverse_events_2026",
+      "source": {
+        "pmid": "41082950",
+        "doi": "10.1016/j.ctim.2025.103256"
+      },
+      "finding": "No statistically significant differences in adverse events were observed among the Curcuma, Boswellia, mixed-formulation, placebo, or comparator groups evaluated in the network."
+    },
+    {
+      "id": "r25-220",
+      "entity": "boswellia-curcuma",
+      "topic": "knee_oa_formulation_boundary_2026",
+      "source": {
+        "pmid": "41082950",
+        "doi": "10.1016/j.ctim.2025.103256"
+      },
+      "finding": "The authors concluded that Boswellia extract, especially modified formulations, improved joint function and that only modified Curcuma formulations showed notable pain reduction; benefits of combined Curcuma-Boswellia preparations remained insufficiently established."
+    },
+    {
+      "id": "r25-221",
+      "entity": "resveratrol",
+      "topic": "sirt1_meta_scope_2025",
+      "source": {
+        "pmid": "40158656",
+        "doi": "10.1016/j.jand.2025.03.011"
+      },
+      "finding": "A 2025 GRADE-assessed systematic review and dose-response meta-analysis included 11 randomized controlled trials evaluating resveratrol effects on human SIRT1 gene expression, protein expression, or serum levels."
+    },
+    {
+      "id": "r25-222",
+      "entity": "resveratrol",
+      "topic": "sirt1_gene_null_2025",
+      "source": {
+        "pmid": "40158656",
+        "doi": "10.1016/j.jand.2025.03.011"
+      },
+      "finding": "Resveratrol did not significantly change SIRT1 gene expression overall (SMD 0.05; 95% CI -0.24 to 0.344; p=0.73)."
+    },
+    {
+      "id": "r25-223",
+      "entity": "resveratrol",
+      "topic": "sirt1_protein_null_2025",
+      "source": {
+        "pmid": "40158656",
+        "doi": "10.1016/j.jand.2025.03.011"
+      },
+      "finding": "Resveratrol did not significantly change SIRT1 protein expression overall (SMD 0.30; 95% CI -0.15 to 0.77; p=0.18)."
+    },
+    {
+      "id": "r25-224",
+      "entity": "resveratrol",
+      "topic": "sirt1_serum_null_2025",
+      "source": {
+        "pmid": "40158656",
+        "doi": "10.1016/j.jand.2025.03.011"
+      },
+      "finding": "Resveratrol did not significantly change serum SIRT1 levels overall (MD -0.04; 95% CI -0.235 to 0.16; p=0.70)."
+    },
+    {
+      "id": "r25-225",
+      "entity": "resveratrol",
+      "topic": "sirt1_subgroup_boundary_2025",
+      "source": {
+        "pmid": "40158656",
+        "doi": "10.1016/j.jand.2025.03.011"
+      },
+      "finding": "Subgroup analyses suggested higher SIRT1 gene expression in trials shorter than 12 weeks and in blood-tissue measurements, and dose-response analyses suggested regimen dependence; these subgroup signals did not alter the null overall meta-analysis."
+    }
+  ]
+}
