@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { buildFeedbackReport, crawlAgeDays, normalizeObservationUrl, profileIdentity } from '../search-index-feedback.mjs'
+import { buildFeedbackReport, classifyPublicationState, crawlAgeDays, normalizeObservationUrl, profileIdentity } from '../search-index-feedback.mjs'
 
 const statusWeights = {
   content_quality: 1,
@@ -234,4 +234,74 @@ test('slash variants resolve to one latest observation identity', () => {
 
   expect(report.observations).toHaveLength(1)
   expect(report.observations[0]).toMatchObject({ status: 'indexed', diagnosis: 'INDEXED' })
+})
+
+
+test('classifies current publication state before acting on external index observations', () => {
+  const publicationTruth = {
+    profiles: [
+      {
+        route: '/herbs/published/',
+        publicationReason: 'published',
+        sitemapIncluded: true,
+        emittedNoindex: false,
+        canonicalMatches: true,
+        parity: true,
+      },
+      {
+        route: '/herbs/held/',
+        publicationReason: 'governance:insufficient grounding',
+        sitemapIncluded: false,
+        emittedNoindex: true,
+        canonicalMatches: true,
+        parity: true,
+      },
+      {
+        route: '/herbs/alias/',
+        publicationReason: 'redirect-source',
+        sitemapIncluded: false,
+        emittedNoindex: true,
+        redirectSource: true,
+        parity: true,
+      },
+    ],
+  }
+  const routeTruth = {
+    '/guides/current/': {
+      exists: true,
+      redirectSource: false,
+      noindex: false,
+      canonicalRoute: '/guides/current/',
+      selfCanonical: true,
+      sitemapIncluded: true,
+    },
+    '/old-guide/': { exists: false, redirectSource: true },
+    '/utility/': {
+      exists: true,
+      redirectSource: false,
+      noindex: true,
+      canonicalRoute: '/utility/',
+      selfCanonical: true,
+      sitemapIncluded: false,
+    },
+  }
+
+  const observation = (url, hasQuery = false) => ({ url, hasQuery })
+
+  expect(classifyPublicationState(observation('https://thehippiescientist.net/herbs/published/'), publicationTruth, routeTruth))
+    .toBe('CURRENT_PUBLISHED')
+  expect(classifyPublicationState(observation('https://thehippiescientist.net/herbs/held/'), publicationTruth, routeTruth))
+    .toBe('INTENTIONAL_NOINDEX')
+  expect(classifyPublicationState(observation('https://thehippiescientist.net/herbs/alias/'), publicationTruth, routeTruth))
+    .toBe('REDIRECT_SOURCE')
+  expect(classifyPublicationState(observation('https://thehippiescientist.net/guides/current/'), publicationTruth, routeTruth))
+    .toBe('CURRENT_PUBLISHED')
+  expect(classifyPublicationState(observation('https://thehippiescientist.net/old-guide/'), publicationTruth, routeTruth))
+    .toBe('REDIRECT_SOURCE')
+  expect(classifyPublicationState(observation('https://thehippiescientist.net/utility/'), publicationTruth, routeTruth))
+    .toBe('INTENTIONAL_NOINDEX')
+  expect(classifyPublicationState(observation('https://thehippiescientist.net/ghost/'), publicationTruth, routeTruth))
+    .toBe('HISTORICAL_OR_UNBUILT')
+  expect(classifyPublicationState(observation('https://thehippiescientist.net/compare/', true), publicationTruth, routeTruth))
+    .toBe('QUERY_PARAMETER_VARIANT')
 })
