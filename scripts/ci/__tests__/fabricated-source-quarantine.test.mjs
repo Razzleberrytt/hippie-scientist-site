@@ -91,23 +91,36 @@ test('no fabricated source reaches the ledger or the governed artifact', () => {
   }
 })
 
-test('known retracted evidence stays out of canonical enrichment', () => {
-  // Retracted PMIDs live in the quarantine records, not in this file. Hardcoding
-  // them here meant the guard restated governance instead of reading it, and a
-  // newly retracted source stayed uncovered until someone edited the test.
+test('known retracted evidence stays out of canonical enrichment by PMID or DOI', () => {
+  // Retracted identities live in quarantine rather than in this test. Check both
+  // PMID and DOI because the source registry permits DOI-only scientific rows.
   const retracted = allRetracted()
-  assert.ok(retracted.length > 0, 'quarantine records must carry the retracted PMIDs they withhold')
+  assert.ok(retracted.length > 0, 'quarantine records must carry the retracted identities they withhold')
 
-  const registry = fs.readFileSync(REGISTRY_PATH, 'utf8')
+  const registry = JSON.parse(fs.readFileSync(REGISTRY_PATH, 'utf8'))
+  const registryPmids = new Set(registry.map(source => String(source?.pmid ?? '')).filter(Boolean))
+  const registryDois = new Set(registry.map(source => String(source?.doi ?? '').toLowerCase()).filter(Boolean))
   const ledger = fs.readFileSync(LEDGER_PATH, 'utf8')
   const governed = fs.readFileSync(GOVERNED_PATH, 'utf8')
+  const ledgerLower = ledger.toLowerCase()
+  const governedLower = governed.toLowerCase()
 
   for (const entry of retracted) {
-    assert.ok(entry.pmid, `${entry.recordName}: each retracted entry needs a pmid`)
-    assert.ok(entry.reason, `${entry.recordName}: retracted PMID ${entry.pmid} needs a reason code`)
-    assert.ok(!registry.includes(entry.pmid), `retracted PMID ${entry.pmid} must not be in the source registry`)
-    assert.ok(!ledger.includes(entry.pmid), `retracted PMID ${entry.pmid} must not be in the normalized ledger`)
-    assert.ok(!governed.includes(entry.pmid), `retracted PMID ${entry.pmid} must not be in the governed artifact`)
+    assert.ok(entry.pmid || entry.doi, `${entry.recordName}: each retracted entry needs a PMID or DOI identity`)
+    assert.ok(entry.reason, `${entry.recordName}: retracted evidence needs a reason code`)
+
+    if (entry.pmid) {
+      assert.ok(!registryPmids.has(entry.pmid), `retracted PMID ${entry.pmid} must not be in the source registry`)
+      assert.ok(!ledger.includes(entry.pmid), `retracted PMID ${entry.pmid} must not be in the normalized ledger`)
+      assert.ok(!governed.includes(entry.pmid), `retracted PMID ${entry.pmid} must not be in the governed artifact`)
+    }
+
+    if (entry.doi) {
+      const doi = entry.doi.toLowerCase()
+      assert.ok(!registryDois.has(doi), `retracted DOI ${entry.doi} must not be in the source registry`)
+      assert.ok(!ledgerLower.includes(doi), `retracted DOI ${entry.doi} must not be in the normalized ledger`)
+      assert.ok(!governedLower.includes(doi), `retracted DOI ${entry.doi} must not be in the governed artifact`)
+    }
   }
 })
 

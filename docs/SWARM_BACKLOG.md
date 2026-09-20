@@ -32,14 +32,14 @@ The legacy `backlog/master_backlog.csv.xz.b64` seed is corrupt and the historica
 
 The older #5608–#5612 refill cycle is completed/retired and must not be re-promoted from this feeder.
 
-**Active promoted incident:** #5698 owns Authority/Content for one P0 source-integrity repair: quarantine and remove retracted omega-3 PMID 41461240 from the stress guide. #5688 / PR #5691 is merged and retired. This admission does not authorize unrelated enrichment promotion; #5081 remains blocked on its separate governor prerequisite.
+**Active promoted Authority/Content item:** #5703 owns the bounded cobalamin deficiency-vs-enhancement closure. #5698 / PR #5701 is merged and retired after quarantining retracted PMID 41461240 / DOI 10.1016/j.jad.2025.121055. #5705 is the required state-only cobalamin lease transaction and does not create another implementation slot. #5706, #5707, and #5708 remain staging-only and must not be promoted concurrently; #5081 remains blocked on its separate governor prerequisite.
 
 | Candidate | Workstream | State | Promotion proof |
 |---|---|---|---|
 | Fresh search-conversion candidate | Discovery / SEO | Waiting on fresh dated page/query evidence | Use the citation→search→click report. A page must have measurable search upside; citation count alone is insufficient. |
 | Deterministic discovery defect | Discovery / SEO | Candidate feeder only | #5688 / PR #5691 is merged and retired. New discovery work requires fresh proof and explicit promotion. |
 | Revalidated conversion candidate | Revenue / Conversion | Candidate feeder only | Use current funnel/CTA evidence and existing safety/disclosure boundaries; do not infer revenue opportunity from citations alone. |
-| Revalidated evidence/safety candidate | Authority / Content | Occupied by #5698 | #5698 is the admitted P0 retraction repair. Do not start another Authority/Content implementation until it is merged/retired; #5081 remains separately blocked on a fresh governor lease. |
+| Revalidated evidence/safety candidate | Authority / Content | Occupied by #5703 | #5703 is the admitted cobalamin closure. Do not start #5706, #5707, #5708, or another Authority/Content implementation concurrently. Canonical cobalamin mutation waits for #5705's exact-main governor lease; #5081 remains separately blocked on its own lease. |
 
 ## Route-level winner program — 90 candidates
 
