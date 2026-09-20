@@ -45,14 +45,14 @@ export function normalizeObservationUrl(raw) {
   try {
     const parsed = new URL(rawUrl, 'https://thehippiescientist.net')
     const pathname = parsed.pathname.replace(/\/+$/, '') || '/'
-    const url = \`https://thehippiescientist.net\${pathname}\${pathname === '/' ? '' : '/'}\`
+    const url = `https://thehippiescientist.net\${pathname}\${pathname === '/' ? '' : '/'}`
     const query = parsed.search || ''
     return {
       rawUrl,
       url,
       query,
       hasQuery: Boolean(query),
-      observationKey: \`\${url}\${query}\`,
+      observationKey: `\${url}\${query}`,
     }
   } catch {
     return { rawUrl, url: rawUrl, query: '', hasQuery: false, observationKey: rawUrl }
@@ -66,7 +66,7 @@ export function crawlAgeDays(lastCrawled, observedAt) {
   return Math.floor((observed - crawled) / 86_400_000)
 }
 
-export function profileIdentity(rawUrl) {export function profileIdentity(rawUrl) {
+export function profileIdentity(rawUrl) {
   try {
     const pathname = new URL(String(rawUrl ?? ''), 'https://thehippiescientist.net').pathname
     const match = pathname.match(/^\/(herbs|compounds)\/([^/]+)\/?$/i)
@@ -122,7 +122,7 @@ function latestActiveObservations(input, statusWeights) {
   return [...latest.values()].sort((a, b) => b.severity - a.severity || a.rawUrl.localeCompare(b.rawUrl))
 }
 
-function shadowLookup(shadowReport, publicationTruth) {function shadowLookup(shadowReport, publicationTruth) {
+function shadowLookup(shadowReport, publicationTruth) {
   const shadowByKey = new Map()
   for (const row of shadowReport?.failures || []) shadowByKey.set(`${row.kind}:${row.slug}`, 'FAIL_SHADOW')
   for (const row of shadowReport?.watch || []) shadowByKey.set(`${row.kind}:${row.slug}`, 'WATCH')
@@ -166,7 +166,7 @@ function diagnose({ severity, status, shadow, hasQuery }) {
   return shadow === 'FAIL_SHADOW' ? 'SHADOW_WITH_CRAWL_SIGNAL' : 'MONITOR'
 }
 
-export function buildFeedbackReportexport function buildFeedbackReport({ input, shadowReport, publicationTruth, statusWeights, generatedAt }) {
+export function buildFeedbackReport({ input, shadowReport, publicationTruth, statusWeights, generatedAt }) {
   const getShadow = shadowLookup(shadowReport, publicationTruth)
   const observations = latestActiveObservations(input, statusWeights).map((observation) => {
     const identity = observation.hasQuery ? null : profileIdentity(observation.url)
