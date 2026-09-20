@@ -46,13 +46,15 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Current review state: **0/3 normal implementation workstreams occupied**. #5629 / PR #5650, #5647 / PR #5657, #5602 / PR #5661, and #5631 / PR #5663 are merged and retired.
+Current review state: **1/3 normal implementation workstreams occupied**. #5665 is admitted in Authority/Content; #5629 / PR #5650, #5647 / PR #5657, #5602 / PR #5661, and #5631 / PR #5663 are merged and retired.
 
-No normal implementation ticket is currently active or in review.
+| Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
+|---|---|---|---|---|---|---:|---|
+| #5665 | Refresh glycine sleep evidence with September 2026 scoping review | A / Content | Admitted / ready for implementation | P2 freshness | 3/4/2/3/0.95/2 | 34.2 | last_verified 2026-09-19 on exact main `9edcc131`; page review provenance is 2026-08-22; PMID 42687500 published 2026-09-02 and maps only three supplemental-glycine sleep trials; collagen evidence must remain formulation-specific; external outcomes remain `Unknown` |
 
 - **D — free:** #5629 / PR #5650 is merged and retired.
 - **R — free:** #5647 / PR #5657 is merged and retired.
-- **A — free:** #5631 / PR #5663 is merged and retired; #5081 remains separately blocked on a fresh non-overlapping governor lease.
+- **A — occupied by #5665:** no overlapping Authority/Content admission until it merges or closes; #5081 remains separately blocked on a fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
 - **Control maintenance:** #5642 aligns the non-authoritative swarm feeder with the merged search-conversion policy; it is docs-only and does not consume a normal implementation workstream.
 
