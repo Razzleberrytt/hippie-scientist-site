@@ -5,7 +5,7 @@
 **Updated:** 2026-09-20
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #5688 is admitted as the sole Discovery/SEO implementation item from the operator-supplied 2026-09-20 GSC Page Indexing export. Normal implementation WIP is **1/3**. Revenue/Conversion and Authority/Content are free; #5081 remains separately blocked on a fresh non-overlapping governor lease. No P0 admission freeze remains.
+**Current admission:** #5688 is admitted via #5689 / PR #5690 as the sole Discovery/SEO implementation item from the operator-supplied 2026-09-20 GSC Page Indexing export. Normal implementation WIP is **1/3**. Revenue/Conversion and Authority/Content are free; #5081 remains separately blocked on a fresh non-overlapping governor lease. No P0 admission freeze remains.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
