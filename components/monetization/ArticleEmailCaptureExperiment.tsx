@@ -121,7 +121,16 @@ export default function ArticleEmailCaptureExperiment({
     })
   }, [isRenderable, location, variant])
 
-  if (!variant || !isRenderable) return null
+  const ownershipReservation = (
+    <span
+      hidden
+      aria-hidden='true'
+      data-email-capture-owner='page'
+      data-email-capture-reservation='article-experiment'
+    />
+  )
+
+  if (!variant || !isRenderable) return ownershipReservation
 
   const signup = (
     <NewsletterSignup
@@ -135,6 +144,19 @@ export default function ArticleEmailCaptureExperiment({
     />
   )
 
-  if (placement === 'inline' && inlineMount) return createPortal(signup, inlineMount)
-  return signup
+  if (placement === 'inline' && inlineMount) {
+    return (
+      <>
+        {ownershipReservation}
+        {createPortal(signup, inlineMount)}
+      </>
+    )
+  }
+
+  return (
+    <>
+      {ownershipReservation}
+      {signup}
+    </>
+  )
 }
