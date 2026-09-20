@@ -19,3 +19,4 @@
 {"event":"governor_state_reconciled","at":"2026-09-17T14:39:44.817Z","prunedExpiredLeases":1,"quarantinedQueuedItems":0,"quarantinedBatchedItems":0,"activeQuarantineCases":0}
 {"event":"lease_acquired","at":"2026-09-17T16:16:13.681Z","leaseId":"lease-5081-sage-closure-v12","owner":"site-swarm-lane-2","files":[],"entities":["herb:sage"],"expiresAt":"2026-09-17T17:46:13.681Z"}
 {"event":"governor_state_reconciled","at":"2026-09-18T17:28:19.747Z","prunedExpiredLeases":1,"quarantinedQueuedItems":0,"quarantinedBatchedItems":0,"activeQuarantineCases":0}
+{"event":"lease_acquired","at":"2026-09-20T17:59:55.614Z","leaseId":"lease-5703-cobalamin-closure","owner":"site-swarm-integration","files":[],"entities":["compound:cobalamin"],"expiresAt":"2026-09-20T19:29:55.613Z"}
