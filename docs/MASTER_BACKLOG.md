@@ -46,15 +46,15 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Current review state: **1/3 normal implementation workstreams occupied**. Discovery/SEO is owned by #5688 from the fresh 2026-09-20 GSC coverage export. #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, #5665 / PR #5668, #5629 / PR #5650, #5647 / PR #5657, #5602 / PR #5661, and #5631 / PR #5663 are merged and retired.
+Current review state: **1/3 normal implementation workstreams occupied**. #5688 / PR #5691 is merged and retired; Authority/Content is owned by #5698 for the retracted-source repair. #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, #5665 / PR #5668, #5629 / PR #5650, #5647 / PR #5657, #5602 / PR #5661, and #5631 / PR #5663 are merged and retired.
 
 | Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #5688 | Reconcile Sep 20 GSC index collapse against current crawl surface | D | Active | P1 index recovery | 5/5/5/5/1.00/3 | 208.3 | Operator-supplied 2026-09-20 GSC Page Indexing export; chart through 2026-09-13 |
+| #5698 | Quarantine retracted omega-3 PMID 41461240 from stress guide | A | Active | P0 source integrity | — | — | PubMed retraction notice PMID 42469048 surfaced 2026-09-20; retracted citation verified live on exact main |
 
-- **D — occupied:** #5688.
+- **D — free:** #5688 / PR #5691 is merged and retired.
 - **R — free:** #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
-- **A — free:** #5665 / PR #5668 is merged and retired; #5081 remains separately blocked on a fresh non-overlapping governor lease.
+- **A — occupied:** #5698 owns the retraction/source-integrity repair only; #5081 remains separately blocked on a fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
 - **Control maintenance:** #5642 aligns the non-authoritative swarm feeder with the merged search-conversion policy; it is docs-only and does not consume a normal implementation workstream.
 
@@ -62,7 +62,7 @@ Research-only enrichment staging remains separate from canonical implementation/
 
 ## Next — ordered dependency queue
 
-Revenue/Conversion and Authority/Content are available; Discovery/SEO is occupied by #5688. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
+Discovery/SEO and Revenue/Conversion are available; Authority/Content is occupied by #5698 until the retraction repair is merged/retired. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
