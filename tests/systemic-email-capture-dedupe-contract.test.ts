@@ -13,6 +13,7 @@ const layout = read('app/layout.tsx')
 const herbs = read('app/herbs/[slug]/page.tsx')
 const compounds = read('app/compounds/[slug]/page.tsx')
 const blog = read('components/blog/BlogPostPage.tsx')
+const articleExperiment = read('components/monetization/ArticleEmailCaptureExperiment.tsx')
 const glycinePolicy = read('lib/lead-magnets.ts')
 
 describe('systemic email-capture ownership contract', () => {
@@ -43,13 +44,18 @@ describe('systemic email-capture ownership contract', () => {
     expect(contextual).toContain("querySelector('[data-email-capture-owner=\"page\"]')")
     expect(contextual).toContain('ownershipCheck.pathname !== pathname')
     expect(contextual).toContain('ownershipCheck.hasPageOwnedCapture')
+    expect(contextual).toContain('new MutationObserver(scanOwnership)')
+    expect(contextual).toContain("attributeFilter: ['data-email-capture-owner']")
     expect(contextual).toContain('if (!ownershipCheck || ownershipCheck.pathname !== pathname || ownershipCheck.hasPageOwnedCapture) return null')
   })
 
-  it('protects shared templates that already own their signup', () => {
+  it('protects shared templates and delayed experiments that own signup', () => {
     expect(herbs).toContain('<EmailCapture')
     expect(compounds).toContain('<EmailCapture')
     expect(blog).toContain('<EmailCapture')
+    expect(articleExperiment).toContain("data-email-capture-owner='page'")
+    expect(articleExperiment).toContain("data-email-capture-reservation='article-experiment'")
+    expect(articleExperiment).toContain('if (!variant || !isRenderable) return ownershipReservation')
   })
 
   it('keeps explicit route policy compatible with the systemic rule', () => {
