@@ -173,7 +173,7 @@ Each cited route intentionally receives three different candidate jobs: **D** pr
 | R-S006 | P1 | Verify affiliate impression/click event deduplication under consent transitions; code presence is not production receipt. |
 | R-S007 | P1 | Create a no-pitch-before-evidence regression for best-of/comparison templates so commercial modules stay downstream of verdict, limitations and safety. |
 | R-S008 | P1 | Build a product-evaluation criteria module that links to supplement-quality methodology and can be reused without ranking by commission. |
-| R-S009 | P2 | Audit newsletter/research-update capture on citation winners for duplicate CTAs, mobile obstruction, accessible labeling and privacy copy. |
+| R-S009 | P1 systemic conversion quality | Promoted — #5675; score 64.0; last_verified 2026-09-19 on exact main `4e07e98a` | Prevent duplicate page-owned and global email captures by introducing shared capture ownership and fail-closed ContextualLeadMagnet suppression. Representative current duplication risk exists across dynamic herb/compound templates, blog posts, and many guides. Preserve routes without page-owned signup plus consent, analytics, accessibility, science, product, and affiliate behavior. External outcomes remain `Unknown`. |
 | R-S010 | P2 | Define a controlled CTA experiment contract that records baseline, changed assumption, exposure window, stop rule and Unknown outcomes without claiming lift prematurely. |
 | R-S011 | P2 | Add outbound-link destination-class reporting (methodology, internal comparison, retailer, newsletter) without collecting person-level data. |
 | R-S012 | P2 | Audit commercial journeys on protein, collagen, NMN, magnesium and other high-intent guides for one clear next step rather than stacked competing CTAs. |
