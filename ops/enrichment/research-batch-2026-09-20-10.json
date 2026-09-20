@@ -1,0 +1,258 @@
+{
+  "research_version": 1,
+  "batch_id": "research-batch-2026-09-20-10",
+  "status": "research-complete",
+  "scope": "Research-only staging. No canonical/public mutation.",
+  "entries": [
+    {
+      "id": "r25-176",
+      "entity": "pre-pro-synbiotics",
+      "topic": "mental_health_rct_meta_2026",
+      "source": {
+        "pmid": "42010690",
+        "doi": "10.1186/s12991-026-00661-6"
+      },
+      "finding": "A 2026 systematic review and meta-analysis included 70 randomized controlled trials of prebiotics, probiotics, or synbiotics for adult depressive or anxiety symptoms, with interventions lasting 2 to 24 weeks."
+    },
+    {
+      "id": "r25-177",
+      "entity": "pre-pro-synbiotics",
+      "topic": "depression_effect_2026",
+      "source": {
+        "pmid": "42010690",
+        "doi": "10.1186/s12991-026-00661-6"
+      },
+      "finding": "Pre-/pro-/synbiotic supplementation reduced depressive symptoms with a pooled SMD of -0.57 (95% CI -0.71 to -0.43; p<0.001), but heterogeneity was substantial (I²=83.0%)."
+    },
+    {
+      "id": "r25-178",
+      "entity": "pre-pro-synbiotics",
+      "topic": "anxiety_effect_2026",
+      "source": {
+        "pmid": "42010690",
+        "doi": "10.1186/s12991-026-00661-6"
+      },
+      "finding": "Pre-/pro-/synbiotic supplementation reduced anxiety symptoms with a pooled SMD of -0.43 (95% CI -0.59 to -0.28; p<0.001), with substantial heterogeneity (I²=80.5%)."
+    },
+    {
+      "id": "r25-179",
+      "entity": "pre-pro-synbiotics",
+      "topic": "intervention_subgroups_2026",
+      "source": {
+        "pmid": "42010690",
+        "doi": "10.1186/s12991-026-00661-6"
+      },
+      "finding": "For depression, probiotics and synbiotics showed significant pooled effects while prebiotics did not; for anxiety, all three intervention classes showed significant pooled effects, with synbiotics having the largest subgroup estimate."
+    },
+    {
+      "id": "r25-180",
+      "entity": "pre-pro-synbiotics",
+      "topic": "mental_health_boundary_2026",
+      "source": {
+        "pmid": "42010690",
+        "doi": "10.1186/s12991-026-00661-6"
+      },
+      "finding": "The review judged the evidence limited by substantial heterogeneity and overall moderate methodological quality and explicitly framed pre-/pro-/synbiotics as adjunctive options rather than replacements for standard evidence-based depression or anxiety treatments."
+    },
+    {
+      "id": "r25-181",
+      "entity": "probiotics",
+      "topic": "sleep_rct_meta_2026",
+      "source": {
+        "pmid": "42238098",
+        "doi": "10.3389/fpsyt.2026.1769331"
+      },
+      "finding": "An updated 2026 systematic review and meta-analysis included 39 randomized placebo-controlled trials with 4,094 participants evaluating probiotic supplementation and subjective or objective sleep outcomes."
+    },
+    {
+      "id": "r25-182",
+      "entity": "probiotics",
+      "topic": "psqi_global_2026",
+      "source": {
+        "pmid": "42238098",
+        "doi": "10.3389/fpsyt.2026.1769331"
+      },
+      "finding": "Probiotics improved global Pittsburgh Sleep Quality Index scores by a pooled MD of -0.71 (95% CI -1.23 to -0.20), but the certainty of evidence was rated very low."
+    },
+    {
+      "id": "r25-183",
+      "entity": "probiotics",
+      "topic": "sleep_subdomains_2026",
+      "source": {
+        "pmid": "42238098",
+        "doi": "10.3389/fpsyt.2026.1769331"
+      },
+      "finding": "Selected PSQI domains improved with probiotics, including daytime dysfunction (MD -0.08; 95% CI -0.11 to -0.05) and sleep time (MD 0.11; 95% CI 0.01 to 0.21), while other subdomains did not show consistent effects."
+    },
+    {
+      "id": "r25-184",
+      "entity": "probiotics",
+      "topic": "insomnia_severity_null_2026",
+      "source": {
+        "pmid": "42238098",
+        "doi": "10.3389/fpsyt.2026.1769331"
+      },
+      "finding": "Overall insomnia severity did not significantly improve (SMD 0.17; 95% CI -1.15 to 1.49); a sensitivity analysis excluding one influential study produced SMD -0.44 (95% CI -0.74 to -0.14) with low-certainty evidence."
+    },
+    {
+      "id": "r25-185",
+      "entity": "probiotics",
+      "topic": "objective_sleep_boundary_2026",
+      "source": {
+        "pmid": "42238098",
+        "doi": "10.3389/fpsyt.2026.1769331"
+      },
+      "finding": "Objective outcomes showed modest changes, including 13.82 additional minutes of total sleep time (95% CI 1.15 to 26.49) and 5.15 fewer minutes awake during the sleep period (95% CI 0.43 to 9.87); the authors noted generally low certainty and uncertain clinical meaningfulness."
+    },
+    {
+      "id": "r25-186",
+      "entity": "anthocyanins",
+      "topic": "cognition_rct_meta_2025",
+      "source": {
+        "pmid": "39875765",
+        "doi": "10.1007/s13668-024-00595-z"
+      },
+      "finding": "A 2025 systematic review identified 30 randomized controlled trials of anthocyanin intake and adult cognition or mood; 14 studies with 733 participants met criteria for meta-analysis."
+    },
+    {
+      "id": "r25-187",
+      "entity": "anthocyanins",
+      "topic": "working_memory_null_2025",
+      "source": {
+        "pmid": "39875765",
+        "doi": "10.1007/s13668-024-00595-z"
+      },
+      "finding": "Anthocyanin intake did not significantly improve working memory in pooled analysis (Hedges' g -0.183; 95% CI -0.407 to 0.041; p=0.110)."
+    },
+    {
+      "id": "r25-188",
+      "entity": "anthocyanins",
+      "topic": "verbal_learning_null_2025",
+      "source": {
+        "pmid": "39875765",
+        "doi": "10.1007/s13668-024-00595-z"
+      },
+      "finding": "Anthocyanin intake did not significantly improve verbal learning in pooled analysis (Hedges' g 0.054; 95% CI -0.215 to 0.324; p=0.69)."
+    },
+    {
+      "id": "r25-189",
+      "entity": "anthocyanins",
+      "topic": "immediate_memory_null_2025",
+      "source": {
+        "pmid": "39875765",
+        "doi": "10.1007/s13668-024-00595-z"
+      },
+      "finding": "Anthocyanin intake did not significantly improve immediate memory in pooled analysis (Hedges' g 0.196; 95% CI -0.242 to 0.633; p=0.38)."
+    },
+    {
+      "id": "r25-190",
+      "entity": "anthocyanins",
+      "topic": "cognition_mood_boundary_2025",
+      "source": {
+        "pmid": "39875765",
+        "doi": "10.1007/s13668-024-00595-z"
+      },
+      "finding": "Although qualitative synthesis reported improvements in several cognitive domains and 4 of 15 studies reported mood benefits, pooled effects for working memory, verbal learning, immediate memory, and delayed memory were not significant; heterogeneity was cited as an important limitation."
+    },
+    {
+      "id": "r25-191",
+      "entity": "zingiberaceae",
+      "topic": "cognition_rct_meta_2026",
+      "source": {
+        "pmid": "42199754",
+        "doi": "10.3389/fnut.2026.1834167"
+      },
+      "finding": "A 2026 systematic review included 18 randomized, double-blind, placebo-controlled trials of orally administered Zingiberaceae-derived interventions such as curcumin, turmeric, and ginger for adult cognitive outcomes."
+    },
+    {
+      "id": "r25-192",
+      "entity": "zingiberaceae",
+      "topic": "memory_effect_2026",
+      "source": {
+        "pmid": "42199754",
+        "doi": "10.3389/fnut.2026.1834167"
+      },
+      "finding": "Zingiberaceae-derived interventions improved pooled memory-related outcomes with an SMD of 0.57 (95% CI 0.13 to 1.02)."
+    },
+    {
+      "id": "r25-193",
+      "entity": "zingiberaceae",
+      "topic": "executive_processing_null_2026",
+      "source": {
+        "pmid": "42199754",
+        "doi": "10.3389/fnut.2026.1834167"
+      },
+      "finding": "No significant pooled effect was observed for executive function and processing speed in the Zingiberaceae cognition meta-analysis."
+    },
+    {
+      "id": "r25-194",
+      "entity": "zingiberaceae",
+      "topic": "global_attention_null_2026",
+      "source": {
+        "pmid": "42199754",
+        "doi": "10.3389/fnut.2026.1834167"
+      },
+      "finding": "No significant pooled effects were observed for global cognition or for attention/inhibitory-control outcomes."
+    },
+    {
+      "id": "r25-195",
+      "entity": "zingiberaceae",
+      "topic": "cognition_certainty_boundary_2026",
+      "source": {
+        "pmid": "42199754",
+        "doi": "10.3389/fnut.2026.1834167"
+      },
+      "finding": "The authors characterized the evidence as very uncertain because of substantial heterogeneity, limited study numbers, risk of bias in some trials, and variation in populations, formulations, and cognitive measures."
+    },
+    {
+      "id": "r25-196",
+      "entity": "ginger",
+      "topic": "migraine_rct_review_2026",
+      "source": {
+        "pmid": "42601183",
+        "doi": "10.1136/bmjebm-2025-114382"
+      },
+      "finding": "A 2026 systematic review and meta-analysis included eight randomized controlled trials with 594 participants evaluating ginger alone or as an adjunct for acute or preventive migraine treatment."
+    },
+    {
+      "id": "r25-197",
+      "entity": "ginger",
+      "topic": "acute_migraine_single_trial_2026",
+      "source": {
+        "pmid": "42601183",
+        "doi": "10.1136/bmjebm-2025-114382"
+      },
+      "finding": "For acute treatment, one 60-participant study of ginger plus ketoprofen versus placebo plus ketoprofen suggested lower headache severity at two hours (MD -1.27; 95% CI -1.46 to -1.08), but certainty was low."
+    },
+    {
+      "id": "r25-198",
+      "entity": "ginger",
+      "topic": "acute_migraine_uncertainty_2026",
+      "source": {
+        "pmid": "42601183",
+        "doi": "10.1136/bmjebm-2025-114382"
+      },
+      "finding": "Evidence was very uncertain for whether ginger plus feverfew versus placebo or ginger alone versus sumatriptan improved pain relief, pain-free response, or two-hour headache severity."
+    },
+    {
+      "id": "r25-199",
+      "entity": "ginger",
+      "topic": "migraine_prevention_2026",
+      "source": {
+        "pmid": "42601183",
+        "doi": "10.1136/bmjebm-2025-114382"
+      },
+      "finding": "For preventive treatment, ginger added to an active drug reduced headache pain severity at three months versus the same active drug with or without placebo (pooled MD -3.18; 95% CI -3.94 to -2.42; 2 studies, 183 participants), with low-certainty evidence."
+    },
+    {
+      "id": "r25-200",
+      "entity": "ginger",
+      "topic": "migraine_evidence_boundary_2026",
+      "source": {
+        "pmid": "42601183",
+        "doi": "10.1136/bmjebm-2025-114382"
+      },
+      "finding": "Across migraine outcomes, certainty ranged from low to very low; the review concluded that current evidence is too uncertain to establish ginger as effective for either acute or preventive migraine treatment."
+    }
+  ]
+}
