@@ -93,10 +93,24 @@ function extractCanonicalRoute(html) {
 export function buildRouteTruth(outDir = OUT) {
   if (!existsSync(outDir)) return {}
 
-  const sitemapPath = path.join(outDir, 'sitemap.xml')
+  const robotsPath = path.join(outDir, 'robots.txt')
   const redirectsPath = path.join(outDir, '_redirects')
   const sitemap = new Set()
-  if (existsSync(sitemapPath)) {
+  const sitemapFiles = new Set([path.join(outDir, 'sitemap.xml')])
+  if (existsSync(robotsPath)) {
+    for (const line of readFileSync(robotsPath, 'utf8').split(/\r?\n/)) {
+      const match = line.match(/^\s*Sitemap:\s*(\S+)/i)
+      if (!match) continue
+      try {
+        const pathname = new URL(match[1], 'https://thehippiescientist.net').pathname.replace(/^\/+/, '')
+        if (pathname) sitemapFiles.add(path.join(outDir, ...pathname.split('/')))
+      } catch {
+        // Ignore malformed advertised sitemap URLs; publication truth remains read-only.
+      }
+    }
+  }
+  for (const sitemapPath of sitemapFiles) {
+    if (!existsSync(sitemapPath)) continue
     const xml = readFileSync(sitemapPath, 'utf8')
     for (const match of xml.matchAll(/<loc>(.*?)<\/loc>/g)) {
       const route = normalizeRoute(match[1])
@@ -105,13 +119,25 @@ export function buildRouteTruth(outDir = OUT) {
   }
 
   const redirects = new Set()
+  const hostRedirects = new Map()
   if (existsSync(redirectsPath)) {
     for (const line of readFileSync(redirectsPath, 'utf8').split(/\r?\n/)) {
       const trimmed = line.trim()
       if (!trimmed || trimmed.startsWith('#')) continue
       const source = trimmed.split(/\s+/)[0]
       const route = normalizeRoute(source)
-      if (route) redirects.add(route)
+      if (!route) continue
+      if (/^https?:\/\//i.test(source)) {
+        try {
+          const host = new URL(source).host.toLowerCase()
+          if (!hostRedirects.has(route)) hostRedirects.set(route, new Set())
+          hostRedirects.get(route).add(host)
+        } catch {
+          // Malformed absolute redirects cannot safely classify a host-specific source.
+        }
+      } else {
+        redirects.add(route)
+      }
     }
   }
 
@@ -133,6 +159,7 @@ export function buildRouteTruth(outDir = OUT) {
       truth[route] = {
         exists: true,
         redirectSource: redirects.has(route),
+        redirectHosts: [...(hostRedirects.get(route) || [])],
         noindex: robots.split(',').map((token) => token.trim()).includes('noindex'),
         canonicalRoute,
         selfCanonical: canonicalRoute === route,
@@ -144,6 +171,9 @@ export function buildRouteTruth(outDir = OUT) {
 
   for (const route of redirects) {
     truth[route] = { ...(truth[route] || { exists: false }), redirectSource: true }
+  }
+  for (const [route, hosts] of hostRedirects) {
+    truth[route] = { ...(truth[route] || { exists: false }), redirectHosts: [...hosts] }
   }
   return truth
 }
@@ -167,7 +197,13 @@ export function classifyPublicationState(observation, publicationTruth, routeTru
   }
 
   const current = routeTruth?.[route]
-  if (current?.redirectSource) return 'REDIRECT_SOURCE'
+  let observationHost = ''
+  try {
+    observationHost = new URL(String(observation?.rawUrl || observation?.url || ''), 'https://thehippiescientist.net').host.toLowerCase()
+  } catch {
+    observationHost = ''
+  }
+  if (current?.redirectSource || (observationHost && current?.redirectHosts?.includes(observationHost))) return 'REDIRECT_SOURCE'
   if (!current?.exists) return 'HISTORICAL_OR_UNBUILT'
   if (current.noindex) return 'INTENTIONAL_NOINDEX'
   if (current.canonicalRoute && !current.selfCanonical) return 'CANONICALIZED_AWAY'
