@@ -46,23 +46,25 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Current review state: **1/3 normal implementation workstreams occupied**. #5688 / PR #5691 is merged and retired; Authority/Content is owned by #5698 for the retracted-source repair. #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, #5665 / PR #5668, #5629 / PR #5650, #5647 / PR #5657, #5602 / PR #5661, and #5631 / PR #5663 are merged and retired.
+Current review state: **1/3 normal implementation workstreams occupied**. #5698 / PR #5701 is merged and retired; Authority/Content is now owned by #5703 for the bounded cobalamin deficiency-vs-enhancement closure. #5705 is its exact-main state-only governor-lease prerequisite and does not consume a normal implementation workstream. #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, #5665 / PR #5668, #5629 / PR #5650, #5647 / PR #5657, #5602 / PR #5661, and #5631 / PR #5663 are merged and retired.
 
 | Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #5698 | Quarantine retracted omega-3 PMID 41461240 from stress guide | A | Active | P0 source integrity | — | — | PubMed retraction notice PMID 42469048 surfaced 2026-09-20; retracted citation verified live on exact main |
+| #5703 | Close cobalamin deficiency-vs-enhancement evidence with new 2024 null meta-analysis | A | Admitted — blocked on #5705 lease | P1 evidence governance | — | — | Five-source closure preflighted 2026-09-20; canonical mutation waits for exact-main governor transaction |
 
 - **D — free:** #5688 / PR #5691 is merged and retired.
 - **R — free:** #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
-- **A — occupied:** #5698 owns the retraction/source-integrity repair only; #5081 remains separately blocked on a fresh non-overlapping governor lease.
+- **A — occupied:** #5703 owns the bounded cobalamin closure. #5705 is its mandatory state-only lease prerequisite; #5081 remains separately blocked on its own fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
 - **Control maintenance:** #5642 aligns the non-authoritative swarm feeder with the merged search-conversion policy; it is docs-only and does not consume a normal implementation workstream.
 
 Research-only enrichment staging remains separate from canonical implementation/promotion WIP. The durable candidate feeder is `docs/SWARM_BACKLOG.md`; it does not itself grant execution authority.
 
+- **#5698 / PR #5701 — retired 2026-09-20:** merged as `1727c68cbb5dfc865e4be7c02af6e0fb7d867d75`; retracted PMID 41461240 / DOI 10.1016/j.jad.2025.121055 is quarantined against identifier re-entry and the stress-guide evidence path is repaired. All required exact-head gates passed; external search/conversion/revenue impact remains `Unknown`.
+
 ## Next — ordered dependency queue
 
-Discovery/SEO and Revenue/Conversion are available; Authority/Content is occupied by #5698 until the retraction repair is merged/retired. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
+Discovery/SEO and Revenue/Conversion are available; Authority/Content is occupied by #5703 until the cobalamin closure is terminally completed or explicitly retired. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|

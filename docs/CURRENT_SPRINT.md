@@ -5,7 +5,7 @@
 **Updated:** 2026-09-20
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #5688 / PR #5691 is merged and retired. #5698 is admitted as the sole Authority/Content implementation item to remove and quarantine retracted PMID 41461240 from the stress guide. Normal implementation WIP is **1/3**. Discovery/SEO and Revenue/Conversion are free; #5081 remains separately blocked on a fresh non-overlapping governor lease. No unrelated scientific promotion is authorized by this incident.
+**Current admission:** #5698 / PR #5701 is merged and retired after quarantining retracted PMID 41461240 and DOI 10.1016/j.jad.2025.121055 from the stress-guide evidence path. #5703 is now the sole Authority/Content implementation item for cobalamin deficiency-vs-enhancement closure. Normal implementation WIP is **1/3**. Discovery/SEO and Revenue/Conversion are free. #5705 is the required narrow cobalamin governor-lease transaction and does not consume a normal implementation lane; canonical cobalamin mutation remains forbidden until that lease PR merges. #5081 remains separately blocked on its own fresh non-overlapping governor lease.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -53,11 +53,11 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Lane | Ticket | Title | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| A | #5698 | Quarantine retracted omega-3 PMID 41461240 from stress guide | Active | P0 source integrity | — | PubMed retraction notice PMID 42469048 surfaced 2026-09-20; retracted citation verified live on exact main |
+| A | #5703 | Close cobalamin deficiency-vs-enhancement evidence with new 2024 null meta-analysis | Admitted — blocked on #5705 lease | P1 evidence governance | — | Five-source cobalamin closure preflighted 2026-09-20; canonical mutation waits for exact-main lease transaction |
 
 - **Discovery/SEO:** free; #5688 / PR #5691 is merged and retired.
 - **Revenue/Conversion:** free; #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
-- **Authority/Content:** occupied by #5698 for retraction/source-integrity repair only; #5081 remains separately blocked pending a fresh non-overlapping governor lease.
+- **Authority/Content:** occupied by #5703 for the bounded cobalamin closure. #5705 is its mandatory state-only lease prerequisite and grants no scientific authority until merged; #5081 remains separately blocked on its own non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
 - **Control maintenance:** #5642 is a docs-only feeder reconciliation so the durable candidate inventory cannot override the merged citation→search→click policy. It grants no normal implementation authority and consumes no D/R/A slot.
 
@@ -65,6 +65,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 ### Recently completed refill cycle
 
+- **#5698 / PR #5701 — Authority/Content P0:** merged as `1727c68cbb5dfc865e4be7c02af6e0fb7d867d75`; retracted PMID 41461240 / DOI 10.1016/j.jad.2025.121055 is quarantined against PMID- or DOI-only re-entry, stress-guide source usage was repaired, focused regressions were added, and exact-head CI/Site Health/Crawl/Technical SEO/Schema/Content Invariants/Atomic gates passed. This is source-integrity repair, not business-impact proof.
 - **#5681 / PR #5684 — Revenue/Conversion:** merged as `cc5c960aa00350c1eb64ee6cf4e6028c627bb289`; `AffiliateProductBox` now presents its affiliate disclosure before any product links, preserving existing page-level disclosures, product URLs/order/copy, click/impression tracking, rel attributes, and scientific content; exact-head CI/UI/schema/crawl/SEO/content/build gates passed; observed conversion/revenue impact remains `Unknown`.
 - **#5675 / PR #5678 — Revenue/Conversion:** merged as `53f7bbfc3013eb9d45e81c332756ef1857c3b22d`; newsletter/email signup surfaces now declare page-owned vs contextual-global ownership, the root ContextualLeadMagnet fails closed when main content owns signup, delayed article experiments reserve page ownership before hydration/portal placement, and a MutationObserver catches later ownership mounts; all exact-head CI/UI/accessibility/SEO/schema/crawl/content gates passed; observed signup/conversion/revenue impact remains `Unknown`.
 - **#5669 / PR #5672 — Revenue/Conversion:** merged as `b4474aba917784d1959f84a25ee28fcd138e9a0a`; Glycine for Sleep now has one page-owned evidence-first newsletter action after the verdict and before product sourcing, while the route-specific global ContextualLeadMagnet is suppressed to prevent a duplicate email path; the 12-source scientific ledger and affiliate disclosure boundary remain unchanged; observed conversion/revenue impact remains `Unknown`.
@@ -83,7 +84,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 ## Ready next — strict dependency order
 
-Discovery/SEO and Revenue/Conversion are available; Authority/Content is occupied by #5698 until the retraction repair is merged/retired. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
+Discovery/SEO and Revenue/Conversion are available; Authority/Content is occupied by #5703 until its cobalamin closure is terminally completed or explicitly retired. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
 
 ### Blocked or deferred candidates
 
