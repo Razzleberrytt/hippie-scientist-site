@@ -1,0 +1,258 @@
+{
+  "research_version": 1,
+  "batch_id": "research-batch-2026-09-20-08",
+  "status": "research-complete",
+  "scope": "Research-only staging. No canonical/public mutation.",
+  "entries": [
+    {
+      "id": "r25-126",
+      "entity": "vitamin-d",
+      "topic": "depression_meta_2026",
+      "source": {
+        "pmid": "41923913",
+        "doi": "10.3389/fnut.2026.1772451"
+      },
+      "finding": "A 2026 dose-response systematic review and meta-analysis included 15 randomized studies with 962 participants diagnosed with depression and evaluated vitamin D supplementation against placebo for depressive symptoms."
+    },
+    {
+      "id": "r25-127",
+      "entity": "vitamin-d",
+      "topic": "depression_effect_2026",
+      "source": {
+        "pmid": "41923913",
+        "doi": "10.3389/fnut.2026.1772451"
+      },
+      "finding": "Across the 15 studies, vitamin D supplementation improved depressive symptom scores versus placebo with a pooled SMD of -0.98 (95% CI -1.28 to -0.68; p<0.001)."
+    },
+    {
+      "id": "r25-128",
+      "entity": "vitamin-d",
+      "topic": "depression_heterogeneity_2026",
+      "source": {
+        "pmid": "41923913",
+        "doi": "10.3389/fnut.2026.1772451"
+      },
+      "finding": "The pooled vitamin D depression effect had high between-study heterogeneity (I²=79%; p<0.001), so the estimate should not be treated as a uniform effect across populations, regimens, or baseline vitamin D status."
+    },
+    {
+      "id": "r25-129",
+      "entity": "vitamin-d",
+      "topic": "pth_tnfa_2026",
+      "source": {
+        "pmid": "41923913",
+        "doi": "10.3389/fnut.2026.1772451"
+      },
+      "finding": "Secondary pooled outcomes showed reductions in serum PTH (MD -4.19 pg/mL; 95% CI -8.18 to -0.20) and TNF-α (MD -0.30 pg/mL; 95% CI -0.44 to -0.16) with vitamin D supplementation."
+    },
+    {
+      "id": "r25-130",
+      "entity": "vitamin-d",
+      "topic": "dose_response_and_nulls_2026",
+      "source": {
+        "pmid": "41923913",
+        "doi": "10.3389/fnut.2026.1772451"
+      },
+      "finding": "The dose-response analysis associated higher daily vitamin D doses up to about 5,000 IU/day with greater depressive-symptom reduction within the studied trials, while BMI, body weight, and IL-6 did not show significant pooled changes; this does not establish a universally optimal dose."
+    },
+    {
+      "id": "r25-131",
+      "entity": "coenzyme-q10",
+      "topic": "depression_meta_population_2026",
+      "source": {
+        "pmid": "41294251",
+        "doi": "10.1097/JCP.0000000000002112"
+      },
+      "finding": "A systematic review and meta-analysis included five randomized controlled trials with 474 participants; three trials involved depression with significant medical comorbidity and two involved primary depressive disorders."
+    },
+    {
+      "id": "r25-132",
+      "entity": "coenzyme-q10",
+      "topic": "depression_effect_2026",
+      "source": {
+        "pmid": "41294251",
+        "doi": "10.1097/JCP.0000000000002112"
+      },
+      "finding": "Coenzyme Q10 supplementation reduced depressive symptoms versus control with a pooled SMD of -0.68 (95% CI -1.02 to -0.33; p<0.01; I²=58%)."
+    },
+    {
+      "id": "r25-133",
+      "entity": "coenzyme-q10",
+      "topic": "depression_heterogeneity_2026",
+      "source": {
+        "pmid": "41294251",
+        "doi": "10.1097/JCP.0000000000002112"
+      },
+      "finding": "Sensitivity analysis indicated that much of the heterogeneity in the CoQ10 depression meta-analysis was driven by a single study, limiting confidence in a uniform effect across the diverse included clinical populations."
+    },
+    {
+      "id": "r25-134",
+      "entity": "coenzyme-q10",
+      "topic": "fatigue_null_2026",
+      "source": {
+        "pmid": "41294251",
+        "doi": "10.1097/JCP.0000000000002112"
+      },
+      "finding": "Coenzyme Q10 did not show a statistically significant pooled benefit for fatigue (SMD -0.33; 95% CI -1.38 to 0.72; p=0.54; I²=89%), and this outcome was based on only two trials."
+    },
+    {
+      "id": "r25-135",
+      "entity": "l-theanine",
+      "topic": "sleep_meta_2025",
+      "source": {
+        "pmid": "40056718",
+        "doi": "10.1016/j.smrv.2025.102076"
+      },
+      "finding": "A 2025 systematic review identified 19 randomized-trial articles involving 897 participants, with 18 studies contributing to meta-analysis of L-theanine and sleep outcomes."
+    },
+    {
+      "id": "r25-136",
+      "entity": "l-theanine",
+      "topic": "sleep_onset_latency_2025",
+      "source": {
+        "pmid": "40056718",
+        "doi": "10.1016/j.smrv.2025.102076"
+      },
+      "finding": "L-theanine produced a small statistically significant improvement in subjective sleep-onset latency (SMD 0.15; 95% CI 0.01 to 0.29; p=0.04; 10 studies)."
+    },
+    {
+      "id": "r25-137",
+      "entity": "l-theanine",
+      "topic": "daytime_dysfunction_2025",
+      "source": {
+        "pmid": "40056718",
+        "doi": "10.1016/j.smrv.2025.102076"
+      },
+      "finding": "L-theanine improved subjective daytime dysfunction in the sleep meta-analysis (SMD 0.33; 95% CI 0.16 to 0.49; p<0.001; 9 studies)."
+    },
+    {
+      "id": "r25-138",
+      "entity": "l-theanine",
+      "topic": "subjective_sleep_quality_2025",
+      "source": {
+        "pmid": "40056718",
+        "doi": "10.1016/j.smrv.2025.102076"
+      },
+      "finding": "Overall subjective sleep-quality scores improved with L-theanine (SMD 0.43; 95% CI 0.04 to 0.83; p=0.03; 12 studies)."
+    },
+    {
+      "id": "r25-139",
+      "entity": "l-theanine",
+      "topic": "sleep_evidence_boundary_2025",
+      "source": {
+        "pmid": "40056718",
+        "doi": "10.1016/j.smrv.2025.102076"
+      },
+      "finding": "The authors noted a lack of studies using pure L-theanine and insufficient evidence to determine an adequate dose and duration, so sleep findings should not be generalized across mixed formulations or treated as an established dosing recommendation."
+    },
+    {
+      "id": "r25-140",
+      "entity": "psyllium",
+      "topic": "lipids_meta_2025",
+      "source": {
+        "pmid": "41366295",
+        "doi": "10.1186/s12263-025-00786-5"
+      },
+      "finding": "A 2025 systematic review and dose-response meta-analysis included 41 randomized controlled trial articles with 2,049 adult participants evaluating psyllium and lipid outcomes."
+    },
+    {
+      "id": "r25-141",
+      "entity": "psyllium",
+      "topic": "total_cholesterol_2025",
+      "source": {
+        "pmid": "41366295",
+        "doi": "10.1186/s12263-025-00786-5"
+      },
+      "finding": "Psyllium reduced total cholesterol by a pooled weighted mean difference of -9.05 (95% CI -13.71 to -4.40; p<0.05) in the included adult trials."
+    },
+    {
+      "id": "r25-142",
+      "entity": "psyllium",
+      "topic": "ldl_cholesterol_2025",
+      "source": {
+        "pmid": "41366295",
+        "doi": "10.1186/s12263-025-00786-5"
+      },
+      "finding": "Psyllium reduced LDL cholesterol by a pooled weighted mean difference of -8.55 (95% CI -12.92 to -4.19; p<0.001)."
+    },
+    {
+      "id": "r25-143",
+      "entity": "psyllium",
+      "topic": "hdl_triglyceride_null_2025",
+      "source": {
+        "pmid": "41366295",
+        "doi": "10.1186/s12263-025-00786-5"
+      },
+      "finding": "Pooled changes in HDL cholesterol (WMD 0.57; 95% CI -0.88 to 2.04) and triglycerides (WMD -5.29; 95% CI -12.14 to 1.54) were not statistically significant."
+    },
+    {
+      "id": "r25-144",
+      "entity": "psyllium",
+      "topic": "lipid_heterogeneity_dose_boundary_2025",
+      "source": {
+        "pmid": "41366295",
+        "doi": "10.1186/s12263-025-00786-5"
+      },
+      "finding": "Heterogeneity was considerable for total cholesterol, HDL, LDL, and triglyceride estimates (I² roughly 78% to 89%), and dose and duration did not show a significant linear relationship with lipid outcomes."
+    },
+    {
+      "id": "r25-145",
+      "entity": "berberine",
+      "topic": "triglycerides_mets_2025",
+      "source": {
+        "pmid": "40740996",
+        "doi": "10.3389/fphar.2025.1572197"
+      },
+      "finding": "In randomized placebo-controlled trials of purified berberine for metabolic-syndrome components, triglycerides decreased by a pooled WMD of -0.367 mmol/L (95% CI -0.560 to -0.175; p<0.001)."
+    },
+    {
+      "id": "r25-146",
+      "entity": "berberine",
+      "topic": "fasting_glucose_mets_2025",
+      "source": {
+        "pmid": "40740996",
+        "doi": "10.3389/fphar.2025.1572197"
+      },
+      "finding": "Berberine reduced fasting plasma glucose by a pooled WMD of -0.515 mmol/L (95% CI -0.847 to -0.183; p=0.002) in the metabolic-syndrome meta-analysis."
+    },
+    {
+      "id": "r25-147",
+      "entity": "berberine",
+      "topic": "waist_circumference_mets_2025",
+      "source": {
+        "pmid": "40740996",
+        "doi": "10.3389/fphar.2025.1572197"
+      },
+      "finding": "Berberine reduced waist circumference by a pooled WMD of -3.270 cm (95% CI -4.818 to -1.722; p<0.001)."
+    },
+    {
+      "id": "r25-148",
+      "entity": "berberine",
+      "topic": "ldl_total_cholesterol_mets_2025",
+      "source": {
+        "pmid": "40740996",
+        "doi": "10.3389/fphar.2025.1572197"
+      },
+      "finding": "Secondary lipid outcomes favored berberine for LDL cholesterol (WMD -0.495 mmol/L; 95% CI -0.714 to -0.276) and total cholesterol (WMD -0.451 mmol/L; 95% CI -0.631 to -0.271), both p<0.001."
+    },
+    {
+      "id": "r25-149",
+      "entity": "berberine",
+      "topic": "hdl_blood_pressure_null_2025",
+      "source": {
+        "pmid": "40740996",
+        "doi": "10.3389/fphar.2025.1572197"
+      },
+      "finding": "The same placebo-controlled meta-analysis found no statistically significant pooled effect of berberine on HDL cholesterol, systolic blood pressure, or diastolic blood pressure, limiting broad cardiometabolic claims."
+    },
+    {
+      "id": "r25-150",
+      "entity": "berberine",
+      "topic": "safety_duration_boundary_2025",
+      "source": {
+        "pmid": "40740996",
+        "doi": "10.3389/fphar.2025.1572197"
+      },
+      "finding": "No significant difference in safety outcomes was observed between berberine and placebo; subgroup/meta-regression signals suggested short-term treatment (≤90 days) differed for some lipid outcomes, and more high-quality randomized trials were recommended."
+    }
+  ]
+}
