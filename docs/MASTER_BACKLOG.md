@@ -46,15 +46,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Current review state: **1/3 normal implementation workstreams occupied**. #5629 / PR #5650, #5647 / PR #5657, and #5602 / PR #5661 are merged and retired. #5631 / PR #5663 is in review in Authority/Content for the 2026 supplement-stacking interaction-evidence refresh.
+Current review state: **0/3 normal implementation workstreams occupied**. #5629 / PR #5650, #5647 / PR #5657, #5602 / PR #5661, and #5631 / PR #5663 are merged and retired.
 
-| Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
-|---|---|---|---|---|---|---:|---|
-| #5631 / PR #5663 | Refresh supplement-stacking interaction evidence for 2026 | A / Content | Open / in review | P1 safety-freshness override | 4/5/2/3/0.90/3 | 36.0 | last_verified 2026-09-19 on exact main `3e34a856`; current page still has 7 refs with 2009 + 2005 peer-reviewed backbone; fresh interaction/anticoagulant/serotonin/CYP reviews identified; external outcomes remain `Unknown` |
+No normal implementation ticket is currently active or in review.
 
 - **D — free:** #5629 / PR #5650 is merged and retired.
 - **R — free:** #5647 / PR #5657 is merged and retired.
-- **A — occupied by #5631 / PR #5663:** no overlapping Authority/Content admission until it merges or closes; #5081 remains separately blocked on a fresh non-overlapping governor lease.
+- **A — free:** #5631 / PR #5663 is merged and retired; #5081 remains separately blocked on a fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
 - **Control maintenance:** #5642 aligns the non-authoritative swarm feeder with the merged search-conversion policy; it is docs-only and does not consume a normal implementation workstream.
 
@@ -62,7 +60,7 @@ Research-only enrichment staging remains separate from canonical implementation/
 
 ## Next — ordered dependency queue
 
-Discovery/SEO and Revenue/Conversion are available; Authority/Content is occupied by #5631. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
+Discovery/SEO, Revenue/Conversion, and Authority/Content are available. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
