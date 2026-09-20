@@ -46,16 +46,16 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Current review state: **2/3 normal implementation workstreams occupied**. #5665 is admitted in Authority/Content and #5669 is admitted in Revenue/Conversion; #5629 / PR #5650, #5647 / PR #5657, #5602 / PR #5661, and #5631 / PR #5663 are merged and retired.
+Current review state: **2/3 normal implementation workstreams occupied**. #5665 / PR #5668 is in review in Authority/Content and #5669 is admitted in Revenue/Conversion; #5629 / PR #5650, #5647 / PR #5657, #5602 / PR #5661, and #5631 / PR #5663 are merged and retired.
 
 | Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #5665 | Refresh glycine sleep evidence with September 2026 scoping review | A / Content | Admitted / ready for implementation | P2 freshness | 3/4/2/3/0.95/2 | 34.2 | last_verified 2026-09-19 on exact main `9edcc131`; page review provenance is 2026-08-22; PMID 42687500 published 2026-09-02 and maps only three supplemental-glycine sleep trials; collagen evidence must remain formulation-specific; external outcomes remain `Unknown` |
+| #5665 / PR #5668 | Refresh glycine sleep evidence with September 2026 scoping review | A / Content | Open / in review | P2 freshness | 3/4/2/3/0.95/2 | 34.2 | last_verified 2026-09-19 on exact main `9edcc131`; page review provenance is 2026-08-22; PMID 42687500 published 2026-09-02 and maps only three supplemental-glycine sleep trials; collagen evidence must remain formulation-specific; external outcomes remain `Unknown` |
 | #5669 | Add one evidence-first post-answer action to Glycine for Sleep | R / Conversion | Admitted / ready for implementation | P2 conversion | 4/3/2/3/0.95/2 | 34.2 | last_verified 2026-09-19 on exact main `e0ef557c`; page has governed product sourcing/disclosure but no bounded non-commercial post-answer action; reuse NewsletterCtaBlock, not EmailCapture; external outcomes remain `Unknown` |
 
 - **D — free:** #5629 / PR #5650 is merged and retired.
 - **R — occupied by #5669:** no overlapping Revenue/Conversion admission until it merges or closes; #5647 / PR #5657 is merged and retired.
-- **A — occupied by #5665:** no overlapping Authority/Content admission until it merges or closes; #5081 remains separately blocked on a fresh non-overlapping governor lease.
+- **A — occupied by #5665 / PR #5668:** no overlapping Authority/Content admission until it merges or closes; #5081 remains separately blocked on a fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
 - **Control maintenance:** #5642 aligns the non-authoritative swarm feeder with the merged search-conversion policy; it is docs-only and does not consume a normal implementation workstream.
 
@@ -63,7 +63,7 @@ Research-only enrichment staging remains separate from canonical implementation/
 
 ## Next — ordered dependency queue
 
-Discovery/SEO is available; Revenue/Conversion and Authority/Content are occupied by #5669 and #5665 respectively. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
+Discovery/SEO is available; Revenue/Conversion and Authority/Content are occupied by #5669 and #5665 / PR #5668 respectively. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
