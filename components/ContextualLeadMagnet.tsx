@@ -22,10 +22,30 @@ export default function ContextualLeadMagnet() {
     }
 
     const main = document.getElementById('main-content')
-    const hasPageOwnedCapture = Boolean(
-      main?.querySelector('[data-email-capture-owner="page"]'),
-    )
-    setOwnershipCheck({ pathname, hasPageOwnedCapture })
+    if (!main) {
+      setOwnershipCheck({ pathname, hasPageOwnedCapture: false })
+      return
+    }
+
+    const scanOwnership = () => {
+      const hasPageOwnedCapture = Boolean(
+        main.querySelector('[data-email-capture-owner="page"]'),
+      )
+      setOwnershipCheck((current) => {
+        if (
+          current?.pathname === pathname &&
+          current.hasPageOwnedCapture === hasPageOwnedCapture
+        ) {
+          return current
+        }
+        return { pathname, hasPageOwnedCapture }
+      })
+    }
+
+    scanOwnership()
+    const observer = new MutationObserver(scanOwnership)
+    observer.observe(main, { childList: true, subtree: true, attributes: true, attributeFilter: ['data-email-capture-owner'] })
+    return () => observer.disconnect()
   }, [pathname, routeEligible])
 
   if (!routeEligible) return null
