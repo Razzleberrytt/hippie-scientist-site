@@ -88,7 +88,7 @@ export default function DeferredEmailCapture(props: DeferredEmailCaptureProps) {
     <div ref={containerRef} data-deferred-email-capture>
       {ready ? (
         <Suspense fallback={preview}>
-          <EmailCapture {...props} />
+          <EmailCapture {...props} captureOwner='contextual-global' />
         </Suspense>
       ) : preview}
     </div>

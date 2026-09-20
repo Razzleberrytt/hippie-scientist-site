@@ -33,6 +33,7 @@ type NewsletterSignupProps = {
   variant?: 'card' | 'inline' | 'footer' | 'compact' | 'editorial'
   className?: string
   experiment?: NewsletterExperiment
+  captureOwner?: 'page' | 'contextual-global'
 }
 
 const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim() || ''
@@ -68,6 +69,7 @@ export default function NewsletterSignup({
   variant = 'card',
   className = '',
   experiment,
+  captureOwner = 'page',
 }: NewsletterSignupProps) {
   const pathname = usePathname()
   const resolvedLocation =
@@ -190,7 +192,11 @@ export default function NewsletterSignup({
     : 'text-[color:var(--tone-ink)] hover:text-[color:var(--hs-ink)] hover:underline'
 
   return (
-    <section className={`${variantClasses[variant]} ${className}`} data-signup-location={resolvedLocation}>
+    <section
+      className={`${variantClasses[variant]} ${className}`}
+      data-signup-location={resolvedLocation}
+      data-email-capture-owner={captureOwner}
+    >
       <div className='grid gap-4 lg:grid-cols-[1fr_0.9fr] lg:items-center'>
         <div>
           <p className={`text-[0.7rem] font-bold uppercase tracking-[0.13em] ${accentTextClass}`}>

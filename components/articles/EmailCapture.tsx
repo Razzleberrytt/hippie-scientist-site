@@ -17,6 +17,7 @@ type EmailCaptureProps = {
   eyebrow?: string
   placement?: string
   disclaimer?: string
+  captureOwner?: 'page' | 'contextual-global'
 }
 
 type SubmitState = 'idle' | 'loading' | 'success' | 'error'
@@ -33,6 +34,7 @@ export default function EmailCapture({
   eyebrow = 'Free research resource',
   placement = 'article-inline',
   disclaimer = 'Educational content only. This resource does not replace individualized medical or medication guidance.',
+  captureOwner = 'page',
 }: EmailCaptureProps) {
   const titleId = useId()
   const emailId = useId()
@@ -117,7 +119,12 @@ export default function EmailCapture({
   const statusClassName = state === 'error' ? 'text-sm leading-6 text-red-700 dark:text-red-300' : 'text-sm leading-6 text-muted'
 
   return (
-    <aside className="my-6 border-t border-[color:var(--hs-hairline-strong)] pt-4 sm:rounded-[var(--hs-radius)] sm:border sm:bg-[color:var(--surface-card)] sm:p-5" aria-labelledby={titleId} data-lead-magnet={magnet}>
+    <aside
+      className="my-6 border-t border-[color:var(--hs-hairline-strong)] pt-4 sm:rounded-[var(--hs-radius)] sm:border sm:bg-[color:var(--surface-card)] sm:p-5"
+      aria-labelledby={titleId}
+      data-lead-magnet={magnet}
+      data-email-capture-owner={captureOwner}
+    >
       <div className="space-y-1.5">
         <p className="hs-label">{eyebrow}</p>
         <h2 id={titleId} className="font-display text-[1.15rem] font-semibold leading-snug tracking-tight text-ink sm:text-xl">
