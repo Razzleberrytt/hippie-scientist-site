@@ -5,7 +5,7 @@
 **Updated:** 2026-09-19
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #5629 / PR #5650, #5647 / PR #5657, #5602 / PR #5661, and #5631 / PR #5663 are merged and retired. Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are free; #5081 remains separately blocked on a fresh non-overlapping governor lease. No P0 admission freeze remains.
+**Current admission:** #5665 is admitted in Authority/Content for the September 2026 glycine-sleep evidence refresh. Normal implementation WIP is **1/3**. Discovery/SEO and Revenue/Conversion are free; Authority/Content is occupied by #5665; #5081 remains separately blocked on a fresh non-overlapping governor lease. No P0 admission freeze remains.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,13 +49,15 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 0/3
+## Active / in review — implementation WIP 1/3
 
-No normal implementation ticket is currently active or in review.
+| Workstream | Ticket | Owner | Status | Scope |
+|---|---|---|---|---|
+| Authority / Content | #5665 | Razzleberrytt / swarm | Admitted / ready for implementation | Refresh Glycine for Sleep with the September 2, 2026 scoping review (PMID 42687500), preserving the current cautious efficacy conclusion, isolated-glycine vs collagen directness, 3 g research-dose boundaries, safety uncertainty, and focused regressions. |
 
 - **Discovery/SEO:** free; #5629 / PR #5650 is merged and retired.
 - **Revenue/Conversion:** free; #5647 / PR #5657 is merged and retired.
-- **Authority/Content:** free; #5631 / PR #5663 is merged and retired; #5081 remains separately blocked pending a fresh non-overlapping governor lease.
+- **Authority/Content:** occupied by #5665; #5081 remains separately blocked pending a fresh non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
 - **Control maintenance:** #5642 is a docs-only feeder reconciliation so the durable candidate inventory cannot override the merged citation→search→click policy. It grants no normal implementation authority and consumes no D/R/A slot.
 
