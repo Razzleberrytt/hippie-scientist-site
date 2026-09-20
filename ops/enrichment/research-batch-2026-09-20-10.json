@@ -1,0 +1,258 @@
+{
+  "research_version": 1,
+  "batch_id": "research-batch-2026-09-20-10",
+  "status": "research-complete",
+  "scope": "Research-only staging. No canonical/public mutation.",
+  "entries": [
+    {
+      "id": "r25-176",
+      "entity": "taurine",
+      "topic": "cognition_rct_meta_2025",
+      "source": {
+        "pmid": "40320621",
+        "doi": "10.1080/09637486.2025.2499044"
+      },
+      "finding": "A 2025 systematic review and meta-analysis included seven randomized controlled trials comprising nine intervention comparisons and 402 participants, spanning cognitively impaired and non-impaired populations."
+    },
+    {
+      "id": "r25-177",
+      "entity": "taurine",
+      "topic": "cognition_overall_null_2025",
+      "source": {
+        "pmid": "40320621",
+        "doi": "10.1080/09637486.2025.2499044"
+      },
+      "finding": "Taurine administered alone or combined with exercise training did not produce a statistically significant pooled improvement in cognitive scores."
+    },
+    {
+      "id": "r25-178",
+      "entity": "taurine",
+      "topic": "drug_combination_overall_null_2025",
+      "source": {
+        "pmid": "40320621",
+        "doi": "10.1080/09637486.2025.2499044"
+      },
+      "finding": "Compared with therapeutic drugs alone, adding taurine did not produce a greater overall improvement in cognitive performance in the pooled analysis."
+    },
+    {
+      "id": "r25-179",
+      "entity": "taurine",
+      "topic": "mmse_subgroup_signal_2025",
+      "source": {
+        "pmid": "40320621",
+        "doi": "10.1080/09637486.2025.2499044"
+      },
+      "finding": "A subgroup analysis of taurine combined with therapeutic drugs reported an improvement in Mini-Mental State Examination scores (WMD 3.09; 95% CI 2.29 to 3.90), which should remain a subgroup-specific signal rather than a class-wide cognitive claim."
+    },
+    {
+      "id": "r25-180",
+      "entity": "taurine",
+      "topic": "cognition_evidence_boundary_2025",
+      "source": {
+        "pmid": "40320621",
+        "doi": "10.1080/09637486.2025.2499044"
+      },
+      "finding": "The review concluded that available randomized evidence was insufficient to support taurine supplementation as an effective cognitive enhancer."
+    },
+    {
+      "id": "r25-181",
+      "entity": "taurine",
+      "topic": "acute_exercise_meta_2025",
+      "source": {
+        "pmid": "40852891",
+        "doi": "10.1111/sms.70123"
+      },
+      "finding": "A 2025 systematic review and three-level meta-analysis included 23 randomized trials, 69 effect estimates, and 308 participants evaluating a single acute dose of taurine before exercise."
+    },
+    {
+      "id": "r25-182",
+      "entity": "taurine",
+      "topic": "acute_exercise_overall_2025",
+      "source": {
+        "pmid": "40852891",
+        "doi": "10.1111/sms.70123"
+      },
+      "finding": "Acute taurine ingestion was associated with a small-to-moderate improvement in overall exercise performance (Hedges g 0.25; 95% CI 0.10 to 0.39; I²=61%)."
+    },
+    {
+      "id": "r25-183",
+      "entity": "taurine",
+      "topic": "acute_exercise_modality_boundary_2025",
+      "source": {
+        "pmid": "40852891",
+        "doi": "10.1111/sms.70123"
+      },
+      "finding": "Moderator analyses suggested clearer signals for aerobic endurance, strength/power, and agility/coordination, while evidence for anaerobic capacity and muscular endurance remained inconsistent."
+    },
+    {
+      "id": "r25-184",
+      "entity": "taurine",
+      "topic": "acute_dose_timing_boundary_2025",
+      "source": {
+        "pmid": "40852891",
+        "doi": "10.1111/sms.70123"
+      },
+      "finding": "No significant dose-response relationship was detected across commonly studied single doses of 1 to 6 g; a possible benefit around one hour before exercise was not robust in sensitivity analyses."
+    },
+    {
+      "id": "r25-185",
+      "entity": "taurine",
+      "topic": "acute_exercise_certainty_2025",
+      "source": {
+        "pmid": "40852891",
+        "doi": "10.1111/sms.70123"
+      },
+      "finding": "Prediction intervals frequently included the null and several subgroup effects attenuated after influential-study removal; GRADE certainty was low to very low because of heterogeneity, imprecision, and risk of bias."
+    },
+    {
+      "id": "r25-186",
+      "entity": "alpha-lipoic-acid",
+      "topic": "cardiometabolic_meta_2025",
+      "source": {
+        "pmid": "41077538",
+        "doi": "10.1016/j.numecd.2025.104370"
+      },
+      "finding": "A systematic review and dose-response meta-analysis identified 63 randomized controlled trials evaluating alpha-lipoic acid supplementation across cardiometabolic risk factors."
+    },
+    {
+      "id": "r25-187",
+      "entity": "alpha-lipoic-acid",
+      "topic": "insulin_resistance_glycemia_2025",
+      "source": {
+        "pmid": "41077538",
+        "doi": "10.1016/j.numecd.2025.104370"
+      },
+      "finding": "Alpha-lipoic acid reduced HOMA-IR (WMD -0.74; 95% CI -1.17 to -0.31) and fasting blood glucose (WMD -5.28 mg/dL; 95% CI -7.21 to -3.35) versus control."
+    },
+    {
+      "id": "r25-188",
+      "entity": "alpha-lipoic-acid",
+      "topic": "anthropometric_effects_2025",
+      "source": {
+        "pmid": "41077538",
+        "doi": "10.1016/j.numecd.2025.104370"
+      },
+      "finding": "Pooled effects favored alpha-lipoic acid for waist circumference (WMD -1.10 cm), BMI (WMD -0.27 kg/m²), fat mass (WMD -1.42 kg), and body weight (WMD -0.64 kg), indicating statistically significant but generally modest anthropometric changes."
+    },
+    {
+      "id": "r25-189",
+      "entity": "alpha-lipoic-acid",
+      "topic": "hba1c_insulin_2025",
+      "source": {
+        "pmid": "41077538",
+        "doi": "10.1016/j.numecd.2025.104370"
+      },
+      "finding": "Alpha-lipoic acid reduced HbA1c (WMD -0.40 percentage points; 95% CI -0.66 to -0.14) and fasting insulin (WMD -1.70 mU/mL; 95% CI -2.88 to -0.53)."
+    },
+    {
+      "id": "r25-190",
+      "entity": "alpha-lipoic-acid",
+      "topic": "lipid_bp_null_boundary_2025",
+      "source": {
+        "pmid": "41077538",
+        "doi": "10.1016/j.numecd.2025.104370"
+      },
+      "finding": "Small reductions were reported for total cholesterol and triglycerides, while no substantial pooled effect was identified for LDL cholesterol, HDL cholesterol, or blood pressure; this limits broad cardiometabolic claims."
+    },
+    {
+      "id": "r25-191",
+      "entity": "collagen",
+      "topic": "skin_aging_meta_2025",
+      "source": {
+        "pmid": "40324552",
+        "doi": "10.1016/j.amjmed.2025.04.034"
+      },
+      "finding": "A 2025 systematic review and meta-analysis evaluated 23 randomized controlled trials involving 1,474 participants receiving collagen supplements for skin-aging outcomes."
+    },
+    {
+      "id": "r25-192",
+      "entity": "collagen",
+      "topic": "skin_overall_signal_2025",
+      "source": {
+        "pmid": "40324552",
+        "doi": "10.1016/j.amjmed.2025.04.034"
+      },
+      "finding": "When all 23 trials were pooled, collagen supplementation was associated with improvements in skin hydration, elasticity, and wrinkles."
+    },
+    {
+      "id": "r25-193",
+      "entity": "collagen",
+      "topic": "industry_funding_boundary_2025",
+      "source": {
+        "pmid": "40324552",
+        "doi": "10.1016/j.amjmed.2025.04.034"
+      },
+      "finding": "In subgroup analysis, trials without pharmaceutical-company funding showed no effect of collagen supplementation on skin hydration, elasticity, or wrinkles, while industry-funded trials did show significant effects."
+    },
+    {
+      "id": "r25-194",
+      "entity": "collagen",
+      "topic": "study_quality_boundary_2025",
+      "source": {
+        "pmid": "40324552",
+        "doi": "10.1016/j.amjmed.2025.04.034"
+      },
+      "finding": "High-quality trials showed no significant effect on hydration, elasticity, or wrinkles, whereas low-quality trials showed a significant improvement in elasticity."
+    },
+    {
+      "id": "r25-195",
+      "entity": "collagen",
+      "topic": "skin_evidence_bias_boundary_2025",
+      "source": {
+        "pmid": "40324552",
+        "doi": "10.1016/j.amjmed.2025.04.034"
+      },
+      "finding": "The contrast between overall pooled benefits and null findings in non-industry-funded and higher-quality studies indicates that funding source and trial quality materially affect interpretation of collagen skin-aging evidence."
+    },
+    {
+      "id": "r25-196",
+      "entity": "zinc",
+      "topic": "body_composition_meta_2026",
+      "source": {
+        "pmid": "41617950",
+        "doi": "10.1007/s12011-025-04965-8"
+      },
+      "finding": "A 2026 systematic review and meta-analysis synthesized 41 randomized controlled trials providing 44 effect sizes on zinc supplementation, anthropometric outcomes, body composition, and adipokines."
+    },
+    {
+      "id": "r25-197",
+      "entity": "zinc",
+      "topic": "body_weight_waist_2026",
+      "source": {
+        "pmid": "41617950",
+        "doi": "10.1007/s12011-025-04965-8"
+      },
+      "finding": "Zinc supplementation was associated with a small increase in body weight (WMD 0.68 kg; 95% CI 0.33 to 1.03) and a small reduction in waist circumference (WMD -1.03 cm; 95% CI -1.92 to -0.13)."
+    },
+    {
+      "id": "r25-198",
+      "entity": "zinc",
+      "topic": "body_composition_nulls_2026",
+      "source": {
+        "pmid": "41617950",
+        "doi": "10.1007/s12011-025-04965-8"
+      },
+      "finding": "There was no significant overall effect of zinc on BMI (WMD 0.02 kg/m²), fat mass (WMD -0.08 kg), or fat-free mass (WMD 0.41 kg)."
+    },
+    {
+      "id": "r25-199",
+      "entity": "zinc",
+      "topic": "adipokines_null_2026",
+      "source": {
+        "pmid": "41617950",
+        "doi": "10.1007/s12011-025-04965-8"
+      },
+      "finding": "Zinc supplementation did not significantly alter adiponectin (WMD 1.27 µg/mL) or leptin (WMD 1.82 ng/mL) in the pooled analysis."
+    },
+    {
+      "id": "r25-200",
+      "entity": "zinc",
+      "topic": "body_composition_clinical_boundary_2026",
+      "source": {
+        "pmid": "41617950",
+        "doi": "10.1007/s12011-025-04965-8"
+      },
+      "finding": "GRADE certainty ranged from low to very high across outcomes, but the strongest evidence corresponded to small changes in body weight and waist circumference that the authors judged not clinically significant."
+    }
+  ]
+}
