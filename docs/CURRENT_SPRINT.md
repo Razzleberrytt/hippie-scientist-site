@@ -5,7 +5,7 @@
 **Updated:** 2026-09-19
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #5675 is admitted in Revenue/Conversion for the systemic duplicate-email-capture fix. Normal implementation WIP is **1/3**. Discovery/SEO and Authority/Content are free; Revenue/Conversion is occupied by #5675; #5081 remains separately blocked on a fresh non-overlapping governor lease. No P0 admission freeze remains.
+**Current admission:** #5675 / PR #5678 is merged and retired after the systemic duplicate-email-capture fix. Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are free; #5081 remains separately blocked on a fresh non-overlapping governor lease. No P0 admission freeze remains.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,14 +49,12 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 0/3
 
-| Workstream | Ticket | Owner | Status | Scope |
-|---|---|---|---|---|
-| Revenue / Conversion | #5675 | Razzleberrytt / swarm | Admitted / ready for implementation | Prevent page-owned EmailCapture surfaces from also rendering the global ContextualLeadMagnet capture by introducing shared capture ownership and fail-closed global suppression; preserve routes without page-owned signup, consent/analytics/accessibility behavior, and all scientific/commercial boundaries. |
+No normal implementation ticket is currently active or in review.
 
 - **Discovery/SEO:** free; #5629 / PR #5650 is merged and retired.
-- **Revenue/Conversion:** occupied by #5675; #5669 / PR #5672 and #5647 / PR #5657 are merged and retired.
+- **Revenue/Conversion:** free; #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
 - **Authority/Content:** free; #5665 / PR #5668 is merged and retired; #5081 remains separately blocked pending a fresh non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
 - **Control maintenance:** #5642 is a docs-only feeder reconciliation so the durable candidate inventory cannot override the merged citation→search→click policy. It grants no normal implementation authority and consumes no D/R/A slot.
@@ -65,6 +63,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 ### Recently completed refill cycle
 
+- **#5675 / PR #5678 — Revenue/Conversion:** merged as `53f7bbfc3013eb9d45e81c332756ef1857c3b22d`; newsletter/email signup surfaces now declare page-owned vs contextual-global ownership, the root ContextualLeadMagnet fails closed when main content owns signup, delayed article experiments reserve page ownership before hydration/portal placement, and a MutationObserver catches later ownership mounts; all exact-head CI/UI/accessibility/SEO/schema/crawl/content gates passed; observed signup/conversion/revenue impact remains `Unknown`.
 - **#5669 / PR #5672 — Revenue/Conversion:** merged as `b4474aba917784d1959f84a25ee28fcd138e9a0a`; Glycine for Sleep now has one page-owned evidence-first newsletter action after the verdict and before product sourcing, while the route-specific global ContextualLeadMagnet is suppressed to prevent a duplicate email path; the 12-source scientific ledger and affiliate disclosure boundary remain unchanged; observed conversion/revenue impact remains `Unknown`.
 - **#5665 / PR #5668 — Authority/Content:** merged as `896292ff5eb6167e177455aae1a140f3a0390cd3`; Glycine for Sleep now has a 12-source ledger, Sept. 19 review provenance, the September 2026 scoping-review evidence ceiling of three supplemental-glycine sleep trials, and explicit collagen-directness regressions while preserving the cautious efficacy, 3 g research-dose, safety, and insomnia-treatment boundaries; observed search/conversion/revenue impact remains `Unknown`.
 - **#5631 / PR #5663 — Authority/Content:** merged as `8a499f987f834f19ec211c74638f4ab4741c6787`; supplement-stacking safety now uses refreshed clinically relevant interaction evidence with focused regressions while preserving documented-interaction vs plausible-mechanism vs unknown/unreported boundaries and avoiding stack recipes, timing hacks, or medication-changing advice; observed search/citation/conversion/revenue impact remains `Unknown`.
@@ -81,7 +80,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 ## Ready next — strict dependency order
 
-Discovery/SEO and Authority/Content are available; Revenue/Conversion is occupied by #5675. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
+Discovery/SEO, Revenue/Conversion, and Authority/Content are available. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
 
 ### Blocked or deferred candidates
 
