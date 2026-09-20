@@ -5,7 +5,7 @@
 **Updated:** 2026-09-19
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #5629 / PR #5650, #5647 / PR #5657, and #5602 / PR #5661 are merged and retired. #5631 / PR #5663 is in review in Authority/Content for the 2026 supplement-stacking interaction-evidence refresh. Normal implementation WIP is **1/3**. Discovery/SEO and Revenue/Conversion are free; #5081 remains separately blocked on a fresh non-overlapping governor lease. No P0 admission freeze remains.
+**Current admission:** #5629 / PR #5650, #5647 / PR #5657, #5602 / PR #5661, and #5631 / PR #5663 are merged and retired. Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are free; #5081 remains separately blocked on a fresh non-overlapping governor lease. No P0 admission freeze remains.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,15 +49,13 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 0/3
 
-| Workstream | Ticket | Owner | Status | Scope |
-|---|---|---|---|---|
-| Authority / Content | #5631 / PR #5663 | Razzleberrytt / swarm | Open / in review | Refresh the canonical supplement-stacking safety guide with current interaction evidence while preserving documented-interaction vs plausible-mechanism vs unknown/unreported boundaries and avoiding stack recipes, timing hacks, or medication-changing advice. |
+No normal implementation ticket is currently active or in review.
 
 - **Discovery/SEO:** free; #5629 / PR #5650 is merged and retired.
 - **Revenue/Conversion:** free; #5647 / PR #5657 is merged and retired.
-- **Authority/Content:** occupied by #5631 / PR #5663; #5081 remains separately blocked pending a fresh non-overlapping governor lease.
+- **Authority/Content:** free; #5631 / PR #5663 is merged and retired; #5081 remains separately blocked pending a fresh non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
 - **Control maintenance:** #5642 is a docs-only feeder reconciliation so the durable candidate inventory cannot override the merged citation→search→click policy. It grants no normal implementation authority and consumes no D/R/A slot.
 
@@ -65,6 +63,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 ### Recently completed refill cycle
 
+- **#5631 / PR #5663 — Authority/Content:** merged as `8a499f987f834f19ec211c74638f4ab4741c6787`; supplement-stacking safety now uses refreshed clinically relevant interaction evidence with focused regressions while preserving documented-interaction vs plausible-mechanism vs unknown/unreported boundaries and avoiding stack recipes, timing hacks, or medication-changing advice; observed search/citation/conversion/revenue impact remains `Unknown`.
 - **#5602 / PR #5661 — Authority/Content:** merged; Best Herbs for Anxiety now has a 22-source ledger, Sept. 19 review provenance, newer systematic evidence, and methodology visibility while preserving ranking and safety/negative-trial boundaries; observed search/citation/conversion impact remains `Unknown`.
 - **#5647 / PR #5657 — Revenue/Conversion:** merged; Valerian Root now has one downstream evidence-first newsletter action after the complete answer/FAQ/references journey, with the 18-source scientific content unchanged and observed conversion impact still `Unknown`.
 - **#5629 / PR #5650 — Discovery/SEO:** merged; Kava article, broad herb guide, and depth monograph now have explicit distinct reader-job ownership, self-consistent canonical/sitemap/link-map routing, and unchanged evidence/safety conclusions; observed search/citation impact remains `Unknown`.
@@ -78,7 +77,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 ## Ready next — strict dependency order
 
-Discovery/SEO and Revenue/Conversion are available; Authority/Content is occupied by #5631. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
+Discovery/SEO, Revenue/Conversion, and Authority/Content are available. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
 
 ### Blocked or deferred candidates
 
