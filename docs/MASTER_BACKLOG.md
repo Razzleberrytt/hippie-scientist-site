@@ -46,14 +46,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-Current review state: **1/3 normal implementation workstreams occupied**. #5669 is admitted in Revenue/Conversion; #5665 / PR #5668, #5629 / PR #5650, #5647 / PR #5657, #5602 / PR #5661, and #5631 / PR #5663 are merged and retired.
+Current review state: **0/3 normal implementation workstreams occupied**. #5669 / PR #5672, #5665 / PR #5668, #5629 / PR #5650, #5647 / PR #5657, #5602 / PR #5661, and #5631 / PR #5663 are merged and retired.
 
 | Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #5669 | Add one evidence-first post-answer action to Glycine for Sleep | R / Conversion | Admitted / ready for implementation | P2 conversion | 4/3/2/3/1.00/2 | 36.0 | last_verified 2026-09-19 after #5665 / PR #5668 merged, on exact main `896292ff`; page blob `4d25ec28` retains the completed Sept. 19 science refresh and still has governed product sourcing/disclosure but no bounded non-commercial post-answer action; same-route Authority work is retired; reuse NewsletterCtaBlock, not EmailCapture; external outcomes remain `Unknown` |
 
 - **D — free:** #5629 / PR #5650 is merged and retired.
-- **R — occupied by #5669:** no overlapping Revenue/Conversion admission until it merges or closes; #5647 / PR #5657 is merged and retired.
+- **R — free:** #5669 / PR #5672 and #5647 / PR #5657 are merged and retired.
 - **A — free:** #5665 / PR #5668 is merged and retired; #5081 remains separately blocked on a fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
 - **Control maintenance:** #5642 aligns the non-authoritative swarm feeder with the merged search-conversion policy; it is docs-only and does not consume a normal implementation workstream.
@@ -62,7 +61,7 @@ Research-only enrichment staging remains separate from canonical implementation/
 
 ## Next — ordered dependency queue
 
-Discovery/SEO and Authority/Content are available; Revenue/Conversion is occupied by #5669. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
+Discovery/SEO, Revenue/Conversion, and Authority/Content are available. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
@@ -114,6 +113,7 @@ These are capability proofs, not claims of business impact.
 | #5602 / PR #5661 | Merged; Best Herbs for Anxiety has a 22-source ledger, Sept. 19 review provenance, newer systematic evidence, and methodology visibility while preserving the established ranking and safety/negative-trial boundaries. External outcome impact remains `Unknown`. |
 | #5647 / PR #5657 | Merged; Valerian Root has one evidence-first post-answer newsletter action after the complete answer/FAQ/references journey, with the 18-source scientific content unchanged and conversion impact still `Unknown`. |
 | #5665 / PR #5668 | Merged; Glycine for Sleep now has a 12-source ledger, Sept. 19 review provenance, a current three-trial supplemental-glycine evidence ceiling from PMID 42687500, and explicit collagen-directness regressions while preserving efficacy/dose/safety/insomnia-treatment boundaries; external outcomes remain `Unknown`. |
+| #5669 / PR #5672 | Merged; Glycine for Sleep now has one page-owned evidence-first newsletter action after the verdict, with the route-specific global ContextualLeadMagnet suppressed to keep one total email conversion path; the 12-source science and affiliate disclosure boundary remain unchanged; external conversion/revenue outcomes remain `Unknown`. |
 | #5612 / PR #5624 | Merged; valerian evidence/safety refresh preserves monotherapy vs combination evidence, null daytime outcomes, preparation boundaries, and long-term-safety uncertainty. No efficacy upgrade is inferred. |
 | #5505 / PR #5506 | Merged as `90bf695bd4c7f1e006159078d26afd4869149cdd`; phone-homepage-only polish removes the floating scroll-to-top control, decorative goal arrows, comparison numbering, and repeated footer onboarding while preserving global/desktop behavior. Cloudflare production run #7308 is still in progress, so no production receipt is claimed yet. Traffic, engagement, conversion, ranking, and revenue effects remain `Unknown`. |
 | #5502 / PR #5504 | Merged and production-deployed as `99dd55269206e983c9d34bece0f358a9f932f270`; phone homepage hierarchy now uses one dark research anchor, compact goals, flattened comparison navigation, a supporting Research Standard section, and corrected footer spacing. Exact production receipt passed. Traffic, engagement, conversion, ranking, and revenue effects remain `Unknown`. |
