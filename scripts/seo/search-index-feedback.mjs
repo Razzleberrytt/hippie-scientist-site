@@ -45,14 +45,14 @@ export function normalizeObservationUrl(raw) {
   try {
     const parsed = new URL(rawUrl, 'https://thehippiescientist.net')
     const pathname = parsed.pathname.replace(/\/+$/, '') || '/'
-    const url = `https://thehippiescientist.net\${pathname}\${pathname === '/' ? '' : '/'}`
+    const url = `https://thehippiescientist.net${pathname}${pathname === '/' ? '' : '/'}`
     const query = parsed.search || ''
     return {
       rawUrl,
       url,
       query,
       hasQuery: Boolean(query),
-      observationKey: `\${url}\${query}`,
+      observationKey: `${url}${query}`,
     }
   } catch {
     return { rawUrl, url: rawUrl, query: '', hasQuery: false, observationKey: rawUrl }
