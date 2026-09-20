@@ -66,8 +66,8 @@
     }
   ],
   "admissionRequirement": "Admission requires a human to assign reliabilityTier and record reviewer/reviewedAt per schemas/source-registry.schema.json. Verification that a DOI exists is necessary but not sufficient. Where admitting a source would also clear the last automated gate on a high-stakes claim, the registry row additionally carries an editorialAdjudication hold, which rollupSourceEligibilityError enforces.",
-  "amendedAt": "2026-09-20T12:54:00.000Z",
-  "amendmentNote": "Amended 2026-09-20 to quarantine retracted omega-3 PMID 41461240 and its retraction notice PMID 42469048 after the retracted trial was found in a live public reference ledger.",
+  "amendedAt": "2026-09-20T13:14:00.000Z",
+  "amendmentNote": "Amended 2026-09-20 to quarantine retracted omega-3 PMID 41461240 by both PMID and DOI, record its retraction notice identifiers, and prevent DOI-only canonical re-entry.",
   "retracted": [
     {
       "pmid": "39437887",
@@ -85,13 +85,15 @@
       "pmid": "41461240",
       "reason": "retracted-publication",
       "entity": "compound:omega-3",
-      "note": "Randomized omega-3 psychological-distress trial formerly cited by the stress-supplements guide; retracted in 2026. Must not support canonical or public efficacy claims."
+      "note": "Randomized omega-3 psychological-distress trial formerly cited by the stress-supplements guide; retracted in 2026. Must not support canonical or public efficacy claims.",
+      "doi": "10.1016/j.jad.2025.121055"
     },
     {
       "pmid": "42469048",
       "reason": "retraction-notice",
       "entity": "compound:omega-3",
-      "note": "Formal retraction notice for PMID 41461240. Provenance/integrity record only; not therapeutic evidence."
+      "note": "Formal retraction notice for PMID 41461240. Provenance/integrity record only; not therapeutic evidence.",
+      "doi": "10.1016/j.jad.2026.122090"
     }
   ],
   "verifiedReal": [
