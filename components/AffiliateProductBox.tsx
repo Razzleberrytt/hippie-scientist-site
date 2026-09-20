@@ -1,6 +1,5 @@
 'use client'
 
-import AffiliateDisclosure from './AffiliateDisclosure'
 import RevenueImpressionTracker from './RevenueImpressionTracker'
 import { affiliateRationaleForDisplay } from '../lib/affiliate-copy'
 import { trackRevenueEvent } from '../lib/revenue-tracking'
@@ -34,7 +33,10 @@ export default function AffiliateProductBox({ slug, products, heading = 'Product
   return (
     <section className="space-y-4">
       <h2 className="text-xl font-bold text-ink">{heading}</h2>
-      <AffiliateDisclosure variant="compact" />
+      <p className="text-xs text-muted">
+        Affiliate disclosure: as an Amazon Associate we earn a small commission on qualifying
+        purchases at no extra cost to you.
+      </p>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {visible.map((product) => {
           const displayTitle = product.title || product.name || 'Supplement option'
