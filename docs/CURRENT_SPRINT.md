@@ -51,7 +51,9 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 ## Active / in review — implementation WIP 1/3
 
-- **#5688 — Discovery/SEO, P1 index recovery, score 208.3:** reconcile the 2026-09-20 GSC coverage collapse against current publication truth; preserve crawl-age/URL-variant evidence; repair only deterministic current-main crawl/canonical/sitemap defects. External recrawl/index outcomes remain `Unknown`.
+| Lane | Ticket | Title | Status | Priority | Score | Freshness |
+|---|---|---|---|---|---:|---|
+| D | #5688 | Reconcile Sep 20 GSC index collapse against current crawl surface | Active | P1 index recovery | 208.3 | Operator-supplied 2026-09-20 GSC Page Indexing export; chart through 2026-09-13 |
 
 - **Discovery/SEO:** occupied by #5688.
 - **Revenue/Conversion:** free; #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
