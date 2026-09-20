@@ -28,22 +28,45 @@ const REPORTS_DIR = path.join(ROOT, 'ops', 'reports')
 const JSON_OUT = path.join(REPORTS_DIR, 'search-index-feedback.json')
 const MD_OUT = path.join(REPORTS_DIR, 'search-index-feedback.md')
 
+
+const DIAGNOSTIC_ONLY_STATUS_WEIGHTS = Object.freeze({
+  crawled_but_not_in_index: 0.8,
+  duplicate_without_user_selected_canonical: 0.8,
+})
+
 function loadJson(file) {
   if (!existsSync(file)) return null
   return JSON.parse(readFileSync(file, 'utf8'))
 }
 
-function normalizeUrl(raw) {
+export function normalizeObservationUrl(raw) {
+  const rawUrl = String(raw ?? '').trim()
+  if (!rawUrl) return { rawUrl: '', url: '', query: '', hasQuery: false, observationKey: '' }
   try {
-    const url = new URL(String(raw ?? ''), 'https://thehippiescientist.net')
-    const pathname = url.pathname.replace(/\/+$/, '') || '/'
-    return `https://thehippiescientist.net${pathname}${pathname === '/' ? '' : '/'}`
+    const parsed = new URL(rawUrl, 'https://thehippiescientist.net')
+    const pathname = parsed.pathname.replace(/\/+$/, '') || '/'
+    const url = \`https://thehippiescientist.net\${pathname}\${pathname === '/' ? '' : '/'}\`
+    const query = parsed.search || ''
+    return {
+      rawUrl,
+      url,
+      query,
+      hasQuery: Boolean(query),
+      observationKey: \`\${url}\${query}\`,
+    }
   } catch {
-    return String(raw ?? '').trim()
+    return { rawUrl, url: rawUrl, query: '', hasQuery: false, observationKey: rawUrl }
   }
 }
 
-export function profileIdentity(rawUrl) {
+export function crawlAgeDays(lastCrawled, observedAt) {
+  const crawled = Date.parse(String(lastCrawled ?? '').trim())
+  const observed = Date.parse(String(observedAt ?? '').trim())
+  if (!Number.isFinite(crawled) || !Number.isFinite(observed) || crawled > observed) return null
+  return Math.floor((observed - crawled) / 86_400_000)
+}
+
+export function profileIdentity(rawUrl) {export function profileIdentity(rawUrl) {
   try {
     const pathname = new URL(String(rawUrl ?? ''), 'https://thehippiescientist.net').pathname
     const match = pathname.match(/^\/(herbs|compounds)\/([^/]+)\/?$/i)
@@ -57,37 +80,49 @@ export function profileIdentity(rawUrl) {
   }
 }
 
+function statusSeverity(status, statusWeights) {
+  const configured = statusWeights?.[status]
+  if (typeof configured === 'number' && Number.isFinite(configured)) return configured
+  return DIAGNOSTIC_ONLY_STATUS_WEIGHTS[status]
+}
+
 function latestActiveObservations(input, statusWeights) {
   const latest = new Map()
   for (const row of input?.observations || []) {
     if (!row || row.active === false) continue
     const status = String(row.status ?? '').trim().toLowerCase()
-    const severity = statusWeights[status]
+    const severity = statusSeverity(status, statusWeights)
     if (typeof severity !== 'number') continue
-    const url = normalizeUrl(row.url)
-    if (!url) continue
+    const normalized = normalizeObservationUrl(row.url)
+    if (!normalized.url) continue
     const observedAt = String(row.observed_at ?? '').trim()
+    const lastCrawled = String(row.last_crawled ?? '').trim()
     const candidate = {
       engine: String(row.engine ?? '').trim().toLowerCase(),
       status,
       severity,
-      url,
+      url: normalized.url,
+      rawUrl: normalized.rawUrl,
+      query: normalized.query,
+      hasQuery: normalized.hasQuery,
       observedAt,
+      lastCrawled: lastCrawled || null,
+      crawlAgeDays: lastCrawled ? crawlAgeDays(lastCrawled, observedAt) : null,
       source: String(row.source ?? '').trim(),
     }
-    const previous = latest.get(url)
+    const previous = latest.get(normalized.observationKey)
     if (
       !previous ||
       observedAt > previous.observedAt ||
       (observedAt === previous.observedAt && severity > previous.severity)
     ) {
-      latest.set(url, candidate)
+      latest.set(normalized.observationKey, candidate)
     }
   }
-  return [...latest.values()].sort((a, b) => b.severity - a.severity || a.url.localeCompare(b.url))
+  return [...latest.values()].sort((a, b) => b.severity - a.severity || a.rawUrl.localeCompare(b.rawUrl))
 }
 
-function shadowLookup(shadowReport, publicationTruth) {
+function shadowLookup(shadowReport, publicationTruth) {function shadowLookup(shadowReport, publicationTruth) {
   const shadowByKey = new Map()
   for (const row of shadowReport?.failures || []) shadowByKey.set(`${row.kind}:${row.slug}`, 'FAIL_SHADOW')
   for (const row of shadowReport?.watch || []) shadowByKey.set(`${row.kind}:${row.slug}`, 'WATCH')
@@ -114,12 +149,14 @@ function shadowLookup(shadowReport, publicationTruth) {
   }
 }
 
-function diagnose({ severity, status, shadow }) {
+function diagnose({ severity, status, shadow, hasQuery }) {
+  if (hasQuery || status === 'duplicate_without_user_selected_canonical') return 'QUERY_PARAMETER_VARIANT'
   if (status === 'not_yet_crawled') return 'CRAWL_ATTENTION'
   if (status === 'indexed') {
     if (shadow === 'FAIL_SHADOW' || shadow === 'WATCH') return 'SHADOW_ONLY_INDEXED'
     return 'INDEXED'
   }
+  if (status === 'crawled_but_not_in_index' && shadow === 'NOT_EVALUATED') return 'INDEX_SELECTION_REVIEW'
   if (severity >= 0.8) {
     if (shadow === 'FAIL_SHADOW') return 'AGREEMENT_HIGH_PRIORITY'
     if (shadow === 'WATCH') return 'PARTIAL_AGREEMENT'
@@ -129,10 +166,10 @@ function diagnose({ severity, status, shadow }) {
   return shadow === 'FAIL_SHADOW' ? 'SHADOW_WITH_CRAWL_SIGNAL' : 'MONITOR'
 }
 
-export function buildFeedbackReport({ input, shadowReport, publicationTruth, statusWeights, generatedAt }) {
+export function buildFeedbackReportexport function buildFeedbackReport({ input, shadowReport, publicationTruth, statusWeights, generatedAt }) {
   const getShadow = shadowLookup(shadowReport, publicationTruth)
   const observations = latestActiveObservations(input, statusWeights).map((observation) => {
-    const identity = profileIdentity(observation.url)
+    const identity = observation.hasQuery ? null : profileIdentity(observation.url)
     const shadow = getShadow(identity)
     return {
       ...observation,
@@ -143,6 +180,7 @@ export function buildFeedbackReport({ input, shadowReport, publicationTruth, sta
   })
 
   const count = (diagnosis) => observations.filter((row) => row.diagnosis === diagnosis).length
+  const crawlAges = observations.map((row) => row.crawlAgeDays).filter((value) => Number.isInteger(value))
   return {
     generatedAt,
     mode: 'observation-only',
@@ -160,6 +198,12 @@ export function buildFeedbackReport({ input, shadowReport, publicationTruth, sta
       partialAgreement: count('PARTIAL_AGREEMENT'),
       externalInternalDisagreements: count('EXTERNAL_INTERNAL_DISAGREEMENT'),
       crawlAttention: count('CRAWL_ATTENTION'),
+      indexSelectionReview: count('INDEX_SELECTION_REVIEW'),
+      queryParameterVariants: count('QUERY_PARAMETER_VARIANT'),
+      crawlDatesProvided: crawlAges.length,
+      crawlObservationsOlderThan30Days: crawlAges.filter((days) => days > 30).length,
+      oldestCrawlAgeDays: crawlAges.length ? Math.max(...crawlAges) : null,
+      newestCrawlAgeDays: crawlAges.length ? Math.min(...crawlAges) : null,
     },
     observations,
   }
@@ -180,14 +224,18 @@ function renderMarkdown(report) {
     `- Partial agreements: ${report.summary.partialAgreement}`,
     `- External/internal disagreements: ${report.summary.externalInternalDisagreements}`,
     `- Crawl-attention observations: ${report.summary.crawlAttention}`,
+    `- Crawled-but-not-indexed review observations: ${report.summary.indexSelectionReview}`,
+    `- Query-parameter variants: ${report.summary.queryParameterVariants}`,
+    `- Observations with explicit crawl dates: ${report.summary.crawlDatesProvided}`,
     '',
     '## Reconciled observations',
     '',
-    '| URL | Engine status | Shadow | Diagnosis |',
-    '| --- | --- | --- | --- |',
+    '| Source URL | Normalized URL | Engine status | Last crawl (age) | Shadow | Diagnosis |',
+    '| --- | --- | --- | --- | --- | --- |',
   ]
   for (const row of report.observations) {
-    lines.push(`| ${row.url} | ${row.engine}:${row.status} | ${row.shadow} | ${row.diagnosis} |`)
+    const crawl = row.lastCrawled ? `${row.lastCrawled} (${row.crawlAgeDays ?? '?'}d)` : '—'
+    lines.push(`| ${row.rawUrl} | ${row.url} | ${row.engine}:${row.status} | ${crawl} | ${row.shadow} | ${row.diagnosis} |`)
   }
   lines.push(
     '',
@@ -195,8 +243,11 @@ function renderMarkdown(report) {
     '',
     '- `AGREEMENT_HIGH_PRIORITY`: external rejection and internal quality diagnostics agree; prioritize differentiated enrichment.',
     '- `EXTERNAL_INTERNAL_DISAGREEMENT`: the external engine rejects a page that the internal shadow model considers strong; inspect crawl prominence, intent fit, duplication, and model blind spots before changing content.',
+    '- `INDEX_SELECTION_REVIEW`: the engine crawled a route but did not select it, without a matching published-profile quality verdict. This is not automatically a content-quality diagnosis.',
     '- `CRAWL_ATTENTION`: discovery/crawl allocation signal, not proof of low content quality.',
-    '- No diagnosis in this report is an automatic noindex, robots, sitemap, or canonical decision.',
+    '- `QUERY_PARAMETER_VARIANT`: preserve the exact source URL and query evidence; never collapse it into the clean canonical route when diagnosing duplicate/canonical behavior.',
+    '- Crawl age is descriptive only. It prevents an old crawl verdict from being narrated as a fresh one; it does not automatically change priority or publication.',
+    '- No diagnosis in this report is an automatic noindex, robots, sitemap, canonical, or redirect decision.',
     '',
   )
   return lines.join('\n')
@@ -236,7 +287,9 @@ function main() {
       `Search index feedback: ${report.summary.observations} observations | ` +
         `${report.summary.agreementHighPriority} agreement-high | ` +
         `${report.summary.externalInternalDisagreements} disagreements | ` +
-        `${report.summary.crawlAttention} crawl-attention`,
+        `${report.summary.crawlAttention} crawl-attention | ` +
+        `${report.summary.indexSelectionReview} crawled-not-selected | ` +
+        `${report.summary.queryParameterVariants} query variants`,
     )
     console.log(`Report: ${path.relative(ROOT, JSON_OUT)}`)
   }
