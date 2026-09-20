@@ -13,12 +13,12 @@ import References from '@/components/References'
 import { buildTwitterMetadata } from '@/lib/seo'
 
 const PAGE_URL = `${SITE_URL}/guides/best/supplements-for-stress`
-const DATE = '2026-09-17'
+const DATE = '2026-09-20'
 
 export const metadata: Metadata = {
   title: 'Best Supplements for Stress: Evidence-Ranked Guide (2026)',
   description:
-    'Evidence-ranked stress supplements with 18 clinical sources: ashwagandha, rhodiola, magnesium and L-theanine, plus why omega-3 and saffron evidence is more anxiety-adjacent than direct stress evidence.',
+    'Evidence-ranked stress supplements with 17 clinical sources: ashwagandha, rhodiola, magnesium and L-theanine, plus why omega-3 and saffron evidence is more anxiety-adjacent than direct stress evidence.',
   alternates: { canonical: '/guides/best/supplements-for-stress/' },
   robots: { index: false, follow: true },
   openGraph: {
@@ -59,9 +59,8 @@ const REFS = [
   { n: 13, title: 'L-theanine in the adjunctive treatment of generalized anxiety disorder: a double-blind randomized placebo-controlled trial', text: 'Sarris J, et al. J Psychiatr Res. 2019;110:31-37. Did not outperform placebo for anxiety reduction.', year: 2019, pmid: '30580081', doi: '10.1016/j.jpsychires.2018.12.014', url: 'https://pubmed.ncbi.nlm.nih.gov/30580081/' },
   { n: 14, title: 'Efficacy and safety of omega-3 fatty acids supplementation for anxiety symptoms', text: 'Systematic review and dose-response meta-analysis of 23 randomized trials / 2,189 adults. Evidence certainty low to very low for anxiety effects.', year: 2024, pmid: '38890670', doi: '10.1186/s12888-024-05881-2', url: 'https://pubmed.ncbi.nlm.nih.gov/38890670/' },
   { n: 15, title: 'Effects of long-chain omega-3 polyunsaturated fatty acids on reducing anxiety and/or depression in adults', text: 'Systematic review and meta-analysis; anxiety evidence was too sparse for pooled analysis in this review.', year: 2023, pmid: '37028202', doi: '10.1016/j.plefa.2023.102572', url: 'https://pubmed.ncbi.nlm.nih.gov/37028202/' },
-  { n: 16, title: 'The effects of Omega-3 supplementation on stress, anxiety, depression, sleep quality, and everyday memory in individuals with psychological distress', text: 'Randomized double-blind placebo-controlled trial.', year: 2026, pmid: '41461240', doi: '10.1016/j.jad.2025.121055', url: 'https://pubmed.ncbi.nlm.nih.gov/41461240/' },
-  { n: 17, title: 'Effect of saffron on depression, anxiety and mood disorder: a GRADE assessed systematic review and meta-analysis of 34 randomized controlled trials', text: 'Mahmoudi R, et al. Nutr Neurosci. 2026. 34 RCTs / 1,769 adults; mixed results across anxiety scales.', year: 2026, pmid: '41693488', doi: '10.1080/1028415X.2025.2602153', url: 'https://pubmed.ncbi.nlm.nih.gov/41693488/' },
-  { n: 18, title: 'Effect of Saffron Versus Selective Serotonin Reuptake Inhibitors in Treatment of Depression and Anxiety', text: 'Systematic review and meta-analysis of randomized controlled trials. Anxiety/depression treatment context, not general daily stress.', year: 2025, pmid: '38913392', doi: '10.1093/nutrit/nuae076', url: 'https://pubmed.ncbi.nlm.nih.gov/38913392/' },
+  { n: 16, title: 'Effect of saffron on depression, anxiety and mood disorder: a GRADE assessed systematic review and meta-analysis of 34 randomized controlled trials', text: 'Mahmoudi R, et al. Nutr Neurosci. 2026. 34 RCTs / 1,769 adults; mixed results across anxiety scales.', year: 2026, pmid: '41693488', doi: '10.1080/1028415X.2025.2602153', url: 'https://pubmed.ncbi.nlm.nih.gov/41693488/' },
+  { n: 17, title: 'Effect of Saffron Versus Selective Serotonin Reuptake Inhibitors in Treatment of Depression and Anxiety', text: 'Systematic review and meta-analysis of randomized controlled trials. Anxiety/depression treatment context, not general daily stress.', year: 2025, pmid: '38913392', doi: '10.1093/nutrit/nuae076', url: 'https://pubmed.ncbi.nlm.nih.gov/38913392/' },
 ]
 
 const FAQS = [
@@ -126,7 +125,7 @@ export default function BestSupplementsForStressPage() {
       <StructuredData
         pageUrl={PAGE_URL}
         headline="Best Supplements for Stress: Evidence-Ranked Guide (2026)"
-        description="Evidence-ranked comparison of ashwagandha, rhodiola, magnesium and L-theanine for stress-related outcomes, with 18 clinical sources and adjacent omega-3/saffron evidence."
+        description="Evidence-ranked comparison of ashwagandha, rhodiola, magnesium and L-theanine for stress-related outcomes, with 17 clinical sources and adjacent omega-3/saffron evidence."
         datePublished="2026-06-16"
         dateModified={DATE}
         faqs={FAQS}
@@ -142,9 +141,9 @@ export default function BestSupplementsForStressPage() {
         <AffiliateDisclosure variant="compact" />
 
         <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
-          <p className="eyebrow-label">Stress evidence guide · 18-source clinical ledger</p>
+          <p className="eyebrow-label">Stress evidence guide · 17-source clinical ledger</p>
           <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Best Supplements for Stress: What the Evidence Actually Supports</h1>
-          <p className="mt-2 text-xs text-muted">Last evidence review September 17, 2026</p>
+          <p className="mt-2 text-xs text-muted">Last evidence review September 20, 2026</p>
           <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
             “Stress” is a broad word. Trials measure perceived stress, anxiety symptoms, fatigue, cortisol, sleep and performance under load — outcomes that are related but not interchangeable. This guide ranks supplements by how directly the human evidence matches <em>stress</em>, and it includes negative studies so a popular ingredient does not rise simply because positive trials are easier to quote.
           </p>
@@ -231,8 +230,8 @@ export default function BestSupplementsForStressPage() {
         <section id="adjacent" className="scroll-mt-20 card-premium p-6 space-y-4">
           <p className="eyebrow-label">Adjacent evidence, not direct winners</p>
           <h2 className="text-2xl font-semibold text-ink">What about omega-3 and saffron?</h2>
-          <p className="text-sm leading-7 text-muted"><strong className="text-ink">Omega-3:</strong> a 2024 dose-response meta-analysis of 23 randomized trials (2,189 adults) reported an anxiety-symptom signal, but certainty was low to very low.<Cite n={14} /> A 2023 review found too little anxiety evidence for pooled analysis, illustrating how sensitive conclusions are to inclusion criteria and study selection.<Cite n={15} /> A newer randomized trial has also studied omega-3 across stress, anxiety, depression and sleep in psychologically distressed participants.<Cite n={16} /> This is meaningful mental-health evidence, but it is not as direct as ashwagandha trials designed around perceived stress.</p>
-          <p className="text-sm leading-7 text-muted"><strong className="text-ink">Saffron:</strong> a 2026 GRADE-assessed meta-analysis of 34 RCTs found improvements on some self-reported depression/anxiety scales but not others, with high heterogeneity on the significant anxiety outcome.<Cite n={17} /> Comparative saffron-vs-SSRI trials are also treatment-context evidence for depression/anxiety, not proof that saffron is a general stress supplement for otherwise healthy adults.<Cite n={18} /></p>
+          <p className="text-sm leading-7 text-muted"><strong className="text-ink">Omega-3:</strong> a 2024 dose-response meta-analysis of 23 randomized trials (2,189 adults) reported an anxiety-symptom signal, but certainty was low to very low.<Cite n={14} /> A 2023 review found too little anxiety evidence for pooled analysis, illustrating how sensitive conclusions are to inclusion criteria and study selection.<Cite n={15} /> The remaining valid evidence is anxiety/depression-adjacent rather than direct proof of a general perceived-stress effect.</p>
+          <p className="text-sm leading-7 text-muted"><strong className="text-ink">Saffron:</strong> a 2026 GRADE-assessed meta-analysis of 34 RCTs found improvements on some self-reported depression/anxiety scales but not others, with high heterogeneity on the significant anxiety outcome.<Cite n={16} /> Comparative saffron-vs-SSRI trials are also treatment-context evidence for depression/anxiety, not proof that saffron is a general stress supplement for otherwise healthy adults.<Cite n={17} /></p>
           <p className="text-sm font-semibold text-ink">Decision rule: do not upgrade anxiety-adjacent evidence into a direct “best for stress” claim without saying what outcome was actually studied.</p>
         </section>
 
