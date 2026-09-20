@@ -12,6 +12,7 @@ type EmailCaptureProps = {
   action?: string
   className?: string
   location?: string
+  captureOwner?: 'page' | 'contextual-global'
 }
 
 export default function EmailCapture({
@@ -20,6 +21,7 @@ export default function EmailCapture({
   ctaLabel = 'Join the list',
   className = '',
   location = 'email-capture',
+  captureOwner = 'page',
 }: EmailCaptureProps) {
   const pathname = usePathname() || '/'
   const showPreferredSource = shouldShowPreferredSource(pathname)
@@ -31,6 +33,7 @@ export default function EmailCapture({
         description={description}
         ctaLabel={ctaLabel}
         location={location}
+        captureOwner={captureOwner}
         className={`${showPreferredSource ? 'mb-4' : 'mb-6 md:mb-0'} ${className}`}
       />
       {showPreferredSource ? <GooglePreferredSourceButton className='mb-6 md:mb-0' /> : null}
