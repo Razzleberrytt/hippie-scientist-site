@@ -1,7 +1,7 @@
 # Growth Scoreboard
 
 **Status:** Authoritative metric definitions and reporting surface
-**Updated:** 2026-08-31 (technical release-gate evidence; economics definitions retain their 2026-08-28 boundary and earlier measurement rows retain their dated evidence)
+**Updated:** 2026-09-20 (fresh GSC Page Indexing snapshot and domain-level 28-day Search Performance screenshot; page/query breakdown remains unavailable)
 **Default reporting period:** Rolling 28 complete days compared with the preceding 28 complete days. Repository/build health uses the latest main-branch run. `Unknown` means no authorized source value was available; it does not mean zero.
 
 ## Measurement status
@@ -14,11 +14,11 @@
 
 | Metric | Definition | Current value | Source | Period | Owner | Next measurement action | Interpretation notes |
 |---|---|---|---|---|---|---|---|
-| Google impressions | GSC web-search impressions for canonical site pages | Unknown | Google Search Console | 28 days | Growth analyst | Run authorized page/query export | Sitemap URLs are not impressions |
-| Google clicks | GSC web-search clicks | Unknown | GSC | 28 days | Growth analyst | Same export as impressions | Exclude internal analytics clicks |
-| Click-through rate | GSC clicks ÷ impressions | Unknown | GSC | 28 days | Growth analyst | Calculate from unrounded totals | Segment by query/page before acting |
+| Google impressions | GSC web-search impressions for canonical site pages | 13 | Google Search Console screenshot supplied 2026-09-20 | 28 days | Growth analyst | Export page/query breakdown for opportunity selection | Domain total only; sitemap URLs are not impressions |
+| Google clicks | GSC web-search clicks | 0 | Google Search Console screenshot supplied 2026-09-20 | 28 days | Growth analyst | Same page/query export as impressions | Domain total only; no page/query attribution yet |
+| Click-through rate | GSC clicks ÷ impressions | 0% (0 / 13) | Google Search Console screenshot supplied 2026-09-20 | 28 days | Growth analyst | Export unrounded page/query rows | Too little exposure for route-level optimization; segment before acting |
 | Average position | GSC impression-weighted position | Unknown | GSC | 28 days | Growth analyst | Export by page/query and device | Directional; not a rank tracker |
-| Indexed pages | Canonical pages Google reports indexed | Unknown | GSC Page Indexing/URL Inspection | Snapshot | SEO engineer | Export Page Indexing and inspect priority samples | Live main sitemap had 486 URLs; that is not index coverage |
+| Indexed pages | Canonical pages Google reports indexed | 18 indexed / 4,601 Google-known (0.39%); 4,583 not indexed | GSC Page Indexing export supplied 2026-09-20; chart through 2026-09-13 | Snapshot | SEO engineer | Reconcile lagged reasons against current final build truth, then monitor recrawl | Known-URL universe includes historical ghosts, redirects and intentional noindex; not equivalent to current sitemap size |
 | Pages gaining impressions | Pages with positive impression change vs prior comparable period and a minimum-volume rule | Unknown | GSC | 28d vs prior 28d | Growth analyst | Define minimum 20 prior/current impressions, then export | Record the threshold with each report |
 | Pages losing impressions | Pages with negative impression change beyond the agreed threshold | Unknown | GSC | 28d vs prior 28d | Growth analyst | Same cohort export | Check seasonality and canonical changes |
 | Pages entering top 20 | Pages whose comparable query/page position crosses from >20 to ≤20 with impressions | Unknown | GSC | 28d vs prior 28d | Growth analyst | Build cohort from page/query export | Avoid averages across unrelated queries |
