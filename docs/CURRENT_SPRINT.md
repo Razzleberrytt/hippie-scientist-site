@@ -5,7 +5,7 @@
 **Updated:** 2026-09-20
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #5688 is admitted via #5689 / PR #5690 as the sole Discovery/SEO implementation item from the operator-supplied 2026-09-20 GSC Page Indexing export. Normal implementation WIP is **1/3**. Revenue/Conversion and Authority/Content are free; #5081 remains separately blocked on a fresh non-overlapping governor lease. No P0 admission freeze remains.
+**Current admission:** #5688 / PR #5691 is merged and retired. #5698 is admitted as the sole Authority/Content implementation item to remove and quarantine retracted PMID 41461240 from the stress guide. Normal implementation WIP is **1/3**. Discovery/SEO and Revenue/Conversion are free; #5081 remains separately blocked on a fresh non-overlapping governor lease. No unrelated scientific promotion is authorized by this incident.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -53,11 +53,11 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Lane | Ticket | Title | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #5688 | Reconcile Sep 20 GSC index collapse against current crawl surface | Active | P1 index recovery | 208.3 | Operator-supplied 2026-09-20 GSC Page Indexing export; chart through 2026-09-13 |
+| A | #5698 | Quarantine retracted omega-3 PMID 41461240 from stress guide | Active | P0 source integrity | — | PubMed retraction notice PMID 42469048 surfaced 2026-09-20; retracted citation verified live on exact main |
 
-- **Discovery/SEO:** occupied by #5688.
+- **Discovery/SEO:** free; #5688 / PR #5691 is merged and retired.
 - **Revenue/Conversion:** free; #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
-- **Authority/Content:** free; #5665 / PR #5668 is merged and retired; #5081 remains separately blocked pending a fresh non-overlapping governor lease.
+- **Authority/Content:** occupied by #5698 for retraction/source-integrity repair only; #5081 remains separately blocked pending a fresh non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
 - **Control maintenance:** #5642 is a docs-only feeder reconciliation so the durable candidate inventory cannot override the merged citation→search→click policy. It grants no normal implementation authority and consumes no D/R/A slot.
 
@@ -83,7 +83,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 ## Ready next — strict dependency order
 
-Revenue/Conversion and Authority/Content are available; Discovery/SEO is occupied by #5688. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
+Discovery/SEO and Revenue/Conversion are available; Authority/Content is occupied by #5698 until the retraction repair is merged/retired. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
 
 ### Blocked or deferred candidates
 
