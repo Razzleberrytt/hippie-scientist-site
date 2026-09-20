@@ -5,6 +5,7 @@ import References from '@/components/References'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import { SITE_URL, buildTwitterMetadata } from '@/lib/seo'
 import RecommendationSection from '@/components/RecommendationSection'
+import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import { getRevenueProductSet } from '@/config/revenue-products'
 
 const path = '/guides/sleep/glycine-for-sleep/'
@@ -428,6 +429,13 @@ export default function Page() {
             recent systematic review. The 2026 scoping review confirms that the direct supplemental-glycine sleep literature is still only three trials rather than a mature replication base.<Cite n={12} /> Treat 3 g as a <em>studied intervention</em>, not as a universal sleep prescription.
           </p>
         </section>
+
+        <NewsletterCtaBlock
+          title="Keep up with evidence-first sleep research"
+          description="Read short research notes on sleep supplements, safety, and how to interpret new studies without turning preliminary findings into prescriptions."
+          ctaLabel="Read the newsletter"
+          location="glycine-sleep-post-answer-newsletter"
+        />
 
         <section className="space-y-3">
           <p className="text-sm leading-7 text-muted">

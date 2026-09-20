@@ -46,6 +46,7 @@ describe('contextual lead magnets', () => {
     expect(shouldShowContextualLeadMagnet('/lead-magnets/sleep-supplement-evidence-guide/')).toBe(false)
     expect(shouldShowContextualLeadMagnet('/privacy/')).toBe(false)
     expect(shouldShowContextualLeadMagnet('/terms/')).toBe(false)
+    expect(shouldShowContextualLeadMagnet('/guides/sleep/glycine-for-sleep/')).toBe(false)
     expect(shouldShowContextualLeadMagnet('/herbs/ashwagandha/')).toBe(true)
   })
 
