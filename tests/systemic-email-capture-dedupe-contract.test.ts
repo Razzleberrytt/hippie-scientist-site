@@ -7,6 +7,7 @@ const read = (file: string) => fs.readFileSync(path.join(process.cwd(), file), '
 const newsletter = read('components/NewsletterSignup.tsx')
 const emailCapture = read('components/EmailCapture.tsx')
 const deferred = read('components/articles/DeferredEmailCapture.tsx')
+const articleEmailCapture = read('components/articles/EmailCapture.tsx')
 const contextual = read('components/ContextualLeadMagnet.tsx')
 const layout = read('app/layout.tsx')
 const herbs = read('app/herbs/[slug]/page.tsx')
@@ -23,10 +24,15 @@ describe('systemic email-capture ownership contract', () => {
     expect(emailCapture).toContain("captureOwner?: 'page' | 'contextual-global'")
     expect(emailCapture).toContain("captureOwner = 'page'")
     expect(emailCapture).toContain('captureOwner={captureOwner}')
+
+    expect(articleEmailCapture).toContain("captureOwner?: 'page' | 'contextual-global'")
+    expect(articleEmailCapture).toContain("captureOwner = 'page'")
+    expect(articleEmailCapture).toContain('data-email-capture-owner={captureOwner}')
   })
 
   it('marks the deferred root-layout capture as contextual-global', () => {
     expect(deferred).toContain("captureOwner='contextual-global'")
+    expect(articleEmailCapture).toContain("captureOwner?: 'page' | 'contextual-global'")
     expect(contextual).toContain("<DeferredEmailCapture")
     expect(contextual).toContain("data-contextual-lead-magnet='true'")
     expect(layout).toContain('<ContextualLeadMagnet />')
