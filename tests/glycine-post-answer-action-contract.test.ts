@@ -18,6 +18,10 @@ const revenueTracking = fs.readFileSync(
   path.join(process.cwd(), 'lib', 'revenue-tracking.ts'),
   'utf8',
 )
+const leadMagnets = fs.readFileSync(
+  path.join(process.cwd(), 'lib', 'lead-magnets.ts'),
+  'utf8',
+)
 
 describe('Glycine for Sleep post-answer action', () => {
   it('keeps exactly one noncommercial next action between verdict and product sourcing', () => {
@@ -35,6 +39,8 @@ describe('Glycine for Sleep post-answer action', () => {
     expect(page).toContain('location="glycine-sleep-post-answer-newsletter"')
     expect(page).toContain('ctaLabel="Read the newsletter"')
     expect(page).not.toContain('<EmailCapture')
+    expect(leadMagnets).toContain("path === '/guides/sleep/glycine-for-sleep/'")
+    expect(leadMagnets).toContain("path === '/guides/sleep/glycine-for-sleep'")
   })
 
   it('keeps the post-answer action claim-neutral and separate from the affiliate boundary', () => {
