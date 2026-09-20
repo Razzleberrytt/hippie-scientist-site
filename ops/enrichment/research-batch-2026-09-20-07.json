@@ -1,0 +1,258 @@
+{
+  "research_version": 1,
+  "batch_id": "research-batch-2026-09-20-07",
+  "status": "research-complete",
+  "scope": "Research-only staging. No canonical/public mutation.",
+  "entries": [
+    {
+      "id": "r25-101",
+      "entity": "magnesium",
+      "topic": "blood_pressure_meta_2025",
+      "source": {
+        "pmid": "41000008",
+        "doi": "10.1161/HYPERTENSIONAHA.125.25129"
+      },
+      "finding": "A systematic review and meta-analysis included 38 randomized controlled trials with 2,709 participants receiving elemental magnesium for at least 4 weeks; doses ranged from 82.3 to 637 mg/day and study heterogeneity was high."
+    },
+    {
+      "id": "r25-102",
+      "entity": "magnesium",
+      "topic": "systolic_blood_pressure_2025",
+      "source": {
+        "pmid": "41000008",
+        "doi": "10.1161/HYPERTENSIONAHA.125.25129"
+      },
+      "finding": "Across the 38 randomized trials, magnesium supplementation reduced systolic blood pressure by a pooled mean difference of 2.81 mm Hg versus placebo (95% CI 1.29 to 4.32 mm Hg lower)."
+    },
+    {
+      "id": "r25-103",
+      "entity": "magnesium",
+      "topic": "diastolic_blood_pressure_2025",
+      "source": {
+        "pmid": "41000008",
+        "doi": "10.1161/HYPERTENSIONAHA.125.25129"
+      },
+      "finding": "The same meta-analysis found a pooled diastolic blood-pressure reduction of 2.05 mm Hg versus placebo (95% CI 0.88 to 3.23 mm Hg lower)."
+    },
+    {
+      "id": "r25-104",
+      "entity": "magnesium",
+      "topic": "blood_pressure_subgroups_2025",
+      "source": {
+        "pmid": "41000008",
+        "doi": "10.1161/HYPERTENSIONAHA.125.25129"
+      },
+      "finding": "Larger pooled blood-pressure reductions were observed among hypertensive participants already receiving blood-pressure medication and among participants with hypomagnesemia; these subgroup effects should not be generalized to normotensive or magnesium-replete adults."
+    },
+    {
+      "id": "r25-105",
+      "entity": "magnesium",
+      "topic": "blood_pressure_null_boundary_2025",
+      "source": {
+        "pmid": "41000008",
+        "doi": "10.1161/HYPERTENSIONAHA.125.25129"
+      },
+      "finding": "The magnesium blood-pressure meta-analysis did not reach statistical significance in normotensive groups and found no clear dose-response relationship; high between-study heterogeneity limits claims of a universal or optimal dose."
+    },
+    {
+      "id": "r25-106",
+      "entity": "magnesium",
+      "topic": "metabolic_syndrome_inflammation_2025",
+      "source": {
+        "pmid": "41245414",
+        "doi": "10.3389/fnut.2025.1692937"
+      },
+      "finding": "A systematic review and meta-analysis of eight randomized controlled trials involving 444 people with metabolic syndrome evaluated oral magnesium supplementation for at least two months against placebo on inflammatory markers."
+    },
+    {
+      "id": "r25-107",
+      "entity": "magnesium",
+      "topic": "crp_metabolic_syndrome_2025",
+      "source": {
+        "pmid": "41245414",
+        "doi": "10.3389/fnut.2025.1692937"
+      },
+      "finding": "In participants with metabolic syndrome, long-term oral magnesium supplementation reduced serum C-reactive protein with a pooled standardized mean difference of -0.327 (95% CI -0.602 to -0.053)."
+    },
+    {
+      "id": "r25-108",
+      "entity": "magnesium",
+      "topic": "crp_subgroup_boundary_2025",
+      "source": {
+        "pmid": "41245414",
+        "doi": "10.3389/fnut.2025.1692937"
+      },
+      "finding": "CRP subgroup signals were more apparent in 12- and 16-week studies, women, and tablet or capsule interventions, while other subgroup estimates became non-significant; these findings remain population- and formulation-specific rather than a general anti-inflammatory claim."
+    },
+    {
+      "id": "r25-109",
+      "entity": "green-tea",
+      "topic": "mood_rct_review_2025",
+      "source": {
+        "pmid": "40722728",
+        "doi": "10.3390/biomedicines13071656"
+      },
+      "finding": "A 2025 systematic review identified 13 randomized controlled trials of green tea, green tea extract, matcha, EGCG, or L-theanine for mood-related symptoms, with substantial intervention and outcome heterogeneity."
+    },
+    {
+      "id": "r25-110",
+      "entity": "green-tea",
+      "topic": "depressive_symptoms_rct_review_2025",
+      "source": {
+        "pmid": "40722728",
+        "doi": "10.3390/biomedicines13071656"
+      },
+      "finding": "Within the 13-trial green-tea review, four studies reported improvements in depressive symptoms; the review did not establish that all green-tea preparations have equivalent antidepressant effects."
+    },
+    {
+      "id": "r25-111",
+      "entity": "green-tea",
+      "topic": "anxiety_stress_sleep_rct_review_2025",
+      "source": {
+        "pmid": "40722728",
+        "doi": "10.3390/biomedicines13071656"
+      },
+      "finding": "The green-tea review reported improvements in anxiety symptoms in six studies, stress symptoms in five, and sleep symptoms in one, but the interventions ranged across whole tea, extracts, matcha, EGCG, and L-theanine and should not be collapsed into one interchangeable treatment."
+    },
+    {
+      "id": "r25-112",
+      "entity": "green-tea",
+      "topic": "bdnf_null_2025",
+      "source": {
+        "pmid": "40722728",
+        "doi": "10.3390/biomedicines13071656"
+      },
+      "finding": "No included randomized trial in the 2025 review found a statistically significant effect of green tea or its studied bioactive compounds on brain-derived neurotrophic factor, providing a mechanistic null boundary against inferring BDNF-mediated clinical benefit."
+    },
+    {
+      "id": "r25-113",
+      "entity": "probiotics",
+      "topic": "overweight_cardiometabolic_meta_2025",
+      "source": {
+        "pmid": "40735396",
+        "doi": "10.1002/fsn3.70434"
+      },
+      "finding": "A systematic review and meta-analysis synthesized 26 randomized controlled trials involving 1,755 adults with overweight or obesity and characterized the pooled cardiometabolic effects of probiotic supplementation as small and not yet conclusive."
+    },
+    {
+      "id": "r25-114",
+      "entity": "probiotics",
+      "topic": "blood_pressure_overweight_2025",
+      "source": {
+        "pmid": "40735396",
+        "doi": "10.1002/fsn3.70434"
+      },
+      "finding": "In adults with overweight or obesity, the pooled probiotic estimate for systolic blood pressure was not statistically significant, while the pooled diastolic blood-pressure effect was small; this does not support a broad antihypertensive claim."
+    },
+    {
+      "id": "r25-115",
+      "entity": "probiotics",
+      "topic": "lipids_overweight_2025",
+      "source": {
+        "pmid": "40735396",
+        "doi": "10.1002/fsn3.70434"
+      },
+      "finding": "The overweight/obesity probiotic meta-analysis reported small pooled changes in total cholesterol, LDL cholesterol, and triglycerides, while HDL cholesterol did not show a significant pooled change; strain and formulation differences remain important."
+    },
+    {
+      "id": "r25-116",
+      "entity": "probiotics",
+      "topic": "crp_overweight_2025",
+      "source": {
+        "pmid": "40735396",
+        "doi": "10.1002/fsn3.70434"
+      },
+      "finding": "The same meta-analysis reported a small pooled reduction in C-reactive protein (SMD -0.34; 95% CI -0.63 to -0.05) in adults with overweight or obesity, which should remain a biomarker finding rather than a disease-treatment claim."
+    },
+    {
+      "id": "r25-117",
+      "entity": "probiotics",
+      "topic": "overweight_meta_correction_2025",
+      "source": {
+        "pmid": "40873969",
+        "doi": "10.1002/fsn3.70874"
+      },
+      "finding": "A published correction applies to the 2025 probiotic cardiometabolic meta-analysis (original DOI 10.1002/fsn3.70434); downstream evidence extraction should use the corrected article and avoid propagating unverified original numeric fields."
+    },
+    {
+      "id": "r25-118",
+      "entity": "probiotics",
+      "topic": "clinical_depression_anxiety_meta_2025",
+      "source": {
+        "pmid": "39731509",
+        "doi": "10.1093/nutrit/nuae177"
+      },
+      "finding": "A systematic review included 23 randomized controlled trials with 1,401 clinically diagnosed participants, with 20 trials contributing to meta-analysis of probiotic, prebiotic, or synbiotic interventions for depression or anxiety symptoms."
+    },
+    {
+      "id": "r25-119",
+      "entity": "probiotics",
+      "topic": "clinical_depression_2025",
+      "source": {
+        "pmid": "39731509",
+        "doi": "10.1093/nutrit/nuae177"
+      },
+      "finding": "Across clinical samples, probiotic interventions were associated with lower depression symptom scores (pooled SMD -0.96; 95% CI -1.31 to -0.61), but high heterogeneity limits assumptions of a uniform effect across products or populations."
+    },
+    {
+      "id": "r25-120",
+      "entity": "probiotics",
+      "topic": "clinical_anxiety_2025",
+      "source": {
+        "pmid": "39731509",
+        "doi": "10.1093/nutrit/nuae177"
+      },
+      "finding": "Probiotic interventions in clinically diagnosed samples were associated with a moderate pooled reduction in anxiety symptoms (SMD -0.59; 95% CI -0.98 to -0.19), with formulation and trial-duration differences contributing to heterogeneity."
+    },
+    {
+      "id": "r25-121",
+      "entity": "prebiotics",
+      "topic": "clinical_depression_null_2025",
+      "source": {
+        "pmid": "39731509",
+        "doi": "10.1093/nutrit/nuae177"
+      },
+      "finding": "In the same review, prebiotic interventions did not produce a statistically significant pooled reduction in depression symptoms (SMD -0.28; 95% CI -0.61 to 0.04), separating prebiotic evidence from the probiotic signal."
+    },
+    {
+      "id": "r25-122",
+      "entity": "probiotics",
+      "topic": "mental_health_heterogeneity_2025",
+      "source": {
+        "pmid": "39731509",
+        "doi": "10.1093/nutrit/nuae177"
+      },
+      "finding": "The clinical depression/anxiety meta-analysis reported high heterogeneity and identified study duration and probiotic formulation as contributors, so evidence should remain strain-, formulation-, population-, and outcome-specific rather than a class-wide mental-health claim."
+    },
+    {
+      "id": "r25-123",
+      "entity": "probiotics",
+      "topic": "working_adults_mental_health_2026",
+      "source": {
+        "pmid": "41501907",
+        "doi": "10.1186/s40359-025-03885-5"
+      },
+      "finding": "A systematic review and meta-analysis of 12 randomized studies involving 3,350 healthy working adults found a modest pooled improvement across subclinical depression, anxiety, and stress outcomes with probiotics (SMD -0.21; 95% CI -0.34 to -0.09)."
+    },
+    {
+      "id": "r25-124",
+      "entity": "probiotics",
+      "topic": "working_adults_cortisol_crp_2026",
+      "source": {
+        "pmid": "41501907",
+        "doi": "10.1186/s40359-025-03885-5"
+      },
+      "finding": "In healthy working adults, probiotic interventions were associated with lower cortisol (SMD -0.26; 95% CI -0.45 to -0.08), while C-reactive protein did not show a statistically significant pooled effect."
+    },
+    {
+      "id": "r25-125",
+      "entity": "probiotics",
+      "topic": "working_adults_evidence_boundary_2026",
+      "source": {
+        "pmid": "41501907",
+        "doi": "10.1186/s40359-025-03885-5"
+      },
+      "finding": "The working-adult probiotic review found moderate heterogeneity related to strains, doses, and intervention duration, and available evidence was insufficient for firm conclusions on sleep quality or oxidative-stress biomarkers; findings remain preliminary."
+    }
+  ]
+}
