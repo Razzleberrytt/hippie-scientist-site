@@ -1,0 +1,258 @@
+{
+  "research_version": 1,
+  "batch_id": "research-batch-2026-09-20-09",
+  "status": "research-complete",
+  "scope": "Research-only staging. No canonical/public mutation.",
+  "entries": [
+    {
+      "id": "r25-151",
+      "entity": "omega-3",
+      "topic": "cognition_rct_meta_2025",
+      "source": {
+        "pmid": "40836005",
+        "doi": "10.1038/s41598-025-16129-8"
+      },
+      "finding": "A 2025 systematic review and dose-response meta-analysis included 58 randomized controlled trials evaluating omega-3 supplementation and multiple adult cognitive domains."
+    },
+    {
+      "id": "r25-152",
+      "entity": "omega-3",
+      "topic": "attention_perceptual_speed_2025",
+      "source": {
+        "pmid": "40836005",
+        "doi": "10.1038/s41598-025-16129-8"
+      },
+      "finding": "Per 2,000 mg/day increment in omega-3 supplementation, pooled estimates favored attention (SMD 0.98; 95% CI 0.41 to 1.54; low-certainty GRADE) and perceptual speed (SMD 0.50; 95% CI 0.05 to 0.95; moderate-certainty GRADE)."
+    },
+    {
+      "id": "r25-153",
+      "entity": "omega-3",
+      "topic": "memory_visuospatial_2025",
+      "source": {
+        "pmid": "40836005",
+        "doi": "10.1038/s41598-025-16129-8"
+      },
+      "finding": "The same dose-response meta-analysis reported improvements per 2,000 mg/day for primary memory (SMD 0.87; 95% CI 0.17 to 1.56; moderate certainty) and visuospatial function (SMD 0.86; 95% CI 0.46 to 1.27; moderate certainty)."
+    },
+    {
+      "id": "r25-154",
+      "entity": "omega-3",
+      "topic": "global_cognition_nonlinear_2025",
+      "source": {
+        "pmid": "40836005",
+        "doi": "10.1038/s41598-025-16129-8"
+      },
+      "finding": "Global cognitive ability improved in pooled dose-response analysis (SMD 1.08; 95% CI 0.73 to 1.44; low certainty), but the dose-response curve was non-linear, with gains increasing and then decreasing at higher doses."
+    },
+    {
+      "id": "r25-155",
+      "entity": "omega-3",
+      "topic": "cognition_evidence_boundary_2025",
+      "source": {
+        "pmid": "40836005",
+        "doi": "10.1038/s41598-025-16129-8"
+      },
+      "finding": "The authors characterized the overall cognitive benefit as modest and noted low certainty for several domains; longer, well-designed randomized trials were recommended before treating the dose-response estimates as firm dosing guidance."
+    },
+    {
+      "id": "r25-156",
+      "entity": "creatine",
+      "topic": "mental_disorders_systematic_review_2026",
+      "source": {
+        "pmid": "41558805",
+        "doi": "10.1177/07067437251408171"
+      },
+      "finding": "A 2026 systematic review included five randomized controlled trials reported in six articles (creatine n=126; placebo n=112), covering four trials in major depressive disorder and one in bipolar depression."
+    },
+    {
+      "id": "r25-157",
+      "entity": "creatine",
+      "topic": "psychiatric_dose_duration_2026",
+      "source": {
+        "pmid": "41558805",
+        "doi": "10.1177/07067437251408171"
+      },
+      "finding": "Creatine monohydrate was studied only as adjunctive treatment at 2 to 10 g/day for 4 to 8 weeks, so the evidence base does not establish standalone efficacy or long-term psychiatric use."
+    },
+    {
+      "id": "r25-158",
+      "entity": "creatine",
+      "topic": "mdd_escitalopram_augmentation_2026",
+      "source": {
+        "pmid": "41558805",
+        "doi": "10.1177/07067437251408171"
+      },
+      "finding": "One major-depression trial found creatine plus escitalopram outperformed escitalopram plus placebo at eight weeks (Cohen's d=1.13), but this estimate comes from a single trial."
+    },
+    {
+      "id": "r25-159",
+      "entity": "creatine",
+      "topic": "mdd_bipolar_nulls_2026",
+      "source": {
+        "pmid": "41558805",
+        "doi": "10.1177/07067437251408171"
+      },
+      "finding": "Creatine augmentation showed no difference versus placebo in one trial of female adolescents with major depression and no difference versus placebo augmentation in the included bipolar-depression trial."
+    },
+    {
+      "id": "r25-160",
+      "entity": "creatine",
+      "topic": "psychiatric_safety_boundary_2026",
+      "source": {
+        "pmid": "41558805",
+        "doi": "10.1177/07067437251408171"
+      },
+      "finding": "Creatine was generally well tolerated, but two of 17 creatine-treated participants in relevant trials experienced hypomania or mania; the review called for larger double-blind trials across mental disorders."
+    },
+    {
+      "id": "r25-161",
+      "entity": "ginkgo-biloba",
+      "topic": "cognitive_impairment_cochrane_2026",
+      "source": {
+        "pmid": "41641880",
+        "doi": "10.1002/14651858.CD013661.pub2"
+      },
+      "finding": "A 2026 Cochrane review included 82 randomized studies with 10,613 participants; 72 studies involving 9,783 participants provided extractable data across cognitive complaints, mild cognitive impairment, and dementia."
+    },
+    {
+      "id": "r25-162",
+      "entity": "ginkgo-biloba",
+      "topic": "dementia_cognition_2026",
+      "source": {
+        "pmid": "41641880",
+        "doi": "10.1002/14651858.CD013661.pub2"
+      },
+      "finding": "In dementia, ginkgo versus placebo produced a small improvement on a short cognitive performance test at six months (MD -1.86; 95% CI -3.48 to -0.24), but heterogeneity was very high (I²=96%) and certainty was low."
+    },
+    {
+      "id": "r25-163",
+      "entity": "ginkgo-biloba",
+      "topic": "dementia_adl_2026",
+      "source": {
+        "pmid": "41641880",
+        "doi": "10.1002/14651858.CD013661.pub2"
+      },
+      "finding": "In dementia, activities of daily living showed a small pooled benefit at six months (MD -0.19; 95% CI -0.35 to -0.03), with very high heterogeneity (I²=91%)."
+    },
+    {
+      "id": "r25-164",
+      "entity": "ginkgo-biloba",
+      "topic": "mci_null_2026",
+      "source": {
+        "pmid": "41641880",
+        "doi": "10.1002/14651858.CD013661.pub2"
+      },
+      "finding": "For mild cognitive impairment, the Cochrane review concluded that ginkgo probably has little or no effect at six months on global status, cognition, or activities of daily living."
+    },
+    {
+      "id": "r25-165",
+      "entity": "ginkgo-biloba",
+      "topic": "adverse_events_2026",
+      "source": {
+        "pmid": "41641880",
+        "doi": "10.1002/14651858.CD013661.pub2"
+      },
+      "finding": "In dementia trials, ginkgo probably produced little or no difference in overall adverse events up to 12 months (RR 0.95; 95% CI 0.90 to 1.00; moderate certainty) and may produce little or no difference in serious adverse events at six months (RR 0.88; 95% CI 0.58 to 1.33; low certainty)."
+    },
+    {
+      "id": "r25-166",
+      "entity": "acetyl-l-carnitine",
+      "topic": "mood_disorders_review_2026",
+      "source": {
+        "pmid": "42261369",
+        "doi": "10.2147/NDT.S586506"
+      },
+      "finding": "A 2026 systematic review identified 15 mood-disorder studies, with 10 contributing to meta-analysis; the evidence base included 14 randomized controlled trials and one open-label study."
+    },
+    {
+      "id": "r25-167",
+      "entity": "acetyl-l-carnitine",
+      "topic": "mood_disorders_sample_2026",
+      "source": {
+        "pmid": "42261369",
+        "doi": "10.2147/NDT.S586506"
+      },
+      "finding": "The acetyl-L-carnitine review covered 809 participants (392 treatment and 417 comparator participants) across major depressive disorder and bipolar-disorder evidence."
+    },
+    {
+      "id": "r25-168",
+      "entity": "acetyl-l-carnitine",
+      "topic": "depressive_symptoms_2026",
+      "source": {
+        "pmid": "42261369",
+        "doi": "10.2147/NDT.S586506"
+      },
+      "finding": "Meta-analytic synthesis found acetyl-L-carnitine significantly reduced depressive symptoms versus placebo and reported efficacy comparable to standard antidepressants, while the underlying trials varied in design and population."
+    },
+    {
+      "id": "r25-169",
+      "entity": "acetyl-l-carnitine",
+      "topic": "mood_safety_subgroup_boundary_2026",
+      "source": {
+        "pmid": "42261369",
+        "doi": "10.2147/NDT.S586506"
+      },
+      "finding": "The review reported fewer adverse effects than standard antidepressants and subgroup signals favoring older adults and treatment-resistant depression, but emphasized the need for larger longitudinal studies before firm subgroup recommendations."
+    },
+    {
+      "id": "r25-170",
+      "entity": "melatonin",
+      "topic": "sleep_scoping_review_2026",
+      "source": {
+        "pmid": "41014554",
+        "doi": "10.1002/jcph.70115"
+      },
+      "finding": "A scoping review of systematic reviews included 57 reviews comprising 227 meta-analyses of exogenous melatonin and human sleep-quality outcomes."
+    },
+    {
+      "id": "r25-171",
+      "entity": "melatonin",
+      "topic": "sleep_review_overlap_2026",
+      "source": {
+        "pmid": "41014554",
+        "doi": "10.1002/jcph.70115"
+      },
+      "finding": "Primary-study overlap across the included melatonin reviews was low (corrected covered area 2.5%), indicating that the review literature drew from largely distinct evidence bases rather than repeatedly pooling the same trials."
+    },
+    {
+      "id": "r25-172",
+      "entity": "melatonin",
+      "topic": "sleep_methodology_quality_2026",
+      "source": {
+        "pmid": "41014554",
+        "doi": "10.1002/jcph.70115"
+      },
+      "finding": "Only 8.8% of included melatonin systematic reviews met all seven predefined methodological-rigor criteria, including protocol preregistration, dual screening, and bias assessment."
+    },
+    {
+      "id": "r25-173",
+      "entity": "melatonin",
+      "topic": "inactive_comparator_direction_2026",
+      "source": {
+        "pmid": "41014554",
+        "doi": "10.1002/jcph.70115"
+      },
+      "finding": "Among 215 meta-analyses comparing melatonin with an inactive comparator, 80.9% favored melatonin, 7.9% favored the comparator, and 11.2% had an unclear direction of effect."
+    },
+    {
+      "id": "r25-174",
+      "entity": "melatonin",
+      "topic": "sleep_outcome_heterogeneity_2026",
+      "source": {
+        "pmid": "41014554",
+        "doi": "10.1002/jcph.70115"
+      },
+      "finding": "Sleep quality was defined and measured heterogeneously across reviews, and few reviews evaluated overall sleep quality directly, limiting any single pooled interpretation of 'sleep quality' benefit."
+    },
+    {
+      "id": "r25-175",
+      "entity": "melatonin",
+      "topic": "sleep_adverse_events_2026",
+      "source": {
+        "pmid": "41014554",
+        "doi": "10.1002/jcph.70115"
+      },
+      "finding": "Adverse events were commonly reported and generally mild, most often headache, gastrointestinal symptoms, and dizziness; inconsistent adverse-event terminology and reporting limited synthesis."
+    }
+  ]
+}
