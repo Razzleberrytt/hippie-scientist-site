@@ -5,7 +5,7 @@
 **Updated:** 2026-09-19
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #5629 / PR #5650, #5647 / PR #5657, and #5602 / PR #5661 are merged and retired. #5631 is admitted in Authority/Content for the 2026 supplement-stacking interaction-evidence refresh. Normal implementation WIP is **1/3**. Discovery/SEO and Revenue/Conversion are free; #5081 remains separately blocked on a fresh non-overlapping governor lease. No P0 admission freeze remains.
+**Current admission:** #5629 / PR #5650, #5647 / PR #5657, and #5602 / PR #5661 are merged and retired. #5631 / PR #5663 is in review in Authority/Content for the 2026 supplement-stacking interaction-evidence refresh. Normal implementation WIP is **1/3**. Discovery/SEO and Revenue/Conversion are free; #5081 remains separately blocked on a fresh non-overlapping governor lease. No P0 admission freeze remains.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -53,11 +53,11 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket | Owner | Status | Scope |
 |---|---|---|---|---|
-| Authority / Content | #5631 | Razzleberrytt / swarm | Admitted / ready for implementation | Refresh the canonical supplement-stacking safety guide with current interaction evidence while preserving documented-interaction vs plausible-mechanism vs unknown/unreported boundaries and avoiding stack recipes, timing hacks, or medication-changing advice. |
+| Authority / Content | #5631 / PR #5663 | Razzleberrytt / swarm | Open / in review | Refresh the canonical supplement-stacking safety guide with current interaction evidence while preserving documented-interaction vs plausible-mechanism vs unknown/unreported boundaries and avoiding stack recipes, timing hacks, or medication-changing advice. |
 
 - **Discovery/SEO:** free; #5629 / PR #5650 is merged and retired.
 - **Revenue/Conversion:** free; #5647 / PR #5657 is merged and retired.
-- **Authority/Content:** occupied by #5631; #5081 remains separately blocked pending a fresh non-overlapping governor lease.
+- **Authority/Content:** occupied by #5631 / PR #5663; #5081 remains separately blocked pending a fresh non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
 - **Control maintenance:** #5642 is a docs-only feeder reconciliation so the durable candidate inventory cannot override the merged citation→search→click policy. It grants no normal implementation authority and consumes no D/R/A slot.
 
