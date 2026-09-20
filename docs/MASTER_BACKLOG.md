@@ -50,7 +50,7 @@ Current review state: **1/3 normal implementation workstreams occupied**. #5669 
 
 | Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #5669 | Add one evidence-first post-answer action to Glycine for Sleep | R / Conversion | Admitted / ready for implementation | P2 conversion | 4/3/2/3/0.95/2 | 34.2 | last_verified 2026-09-19 on exact main `e0ef557c`; page has governed product sourcing/disclosure but no bounded non-commercial post-answer action; reuse NewsletterCtaBlock, not EmailCapture; external outcomes remain `Unknown` |
+| #5669 | Add one evidence-first post-answer action to Glycine for Sleep | R / Conversion | Admitted / ready for implementation | P2 conversion | 4/3/2/3/1.00/2 | 36.0 | last_verified 2026-09-19 after #5665 / PR #5668 merged, on exact main `896292ff`; page blob `4d25ec28` retains the completed Sept. 19 science refresh and still has governed product sourcing/disclosure but no bounded non-commercial post-answer action; same-route Authority work is retired; reuse NewsletterCtaBlock, not EmailCapture; external outcomes remain `Unknown` |
 
 - **D — free:** #5629 / PR #5650 is merged and retired.
 - **R — occupied by #5669:** no overlapping Revenue/Conversion admission until it merges or closes; #5647 / PR #5657 is merged and retired.
