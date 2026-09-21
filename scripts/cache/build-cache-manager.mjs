@@ -14,7 +14,7 @@
  *   const shouldRun = await cache.shouldRunStep(
  *     'build-runtime-from-workbook',
  *     ['workbook.xlsx', 'data/*.json'],
- *     ['public/data/**/*'],
+ *     ['public/data/herbs.json'],
  *   )
  *
  *   // Mark step as complete
