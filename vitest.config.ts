@@ -78,7 +78,11 @@ export default defineConfig({
       'scripts/ci/swarm-operational-ledger.test.mjs',
       'scripts/ci/__tests__/fabricated-source-quarantine.test.mjs',
     ],
-    maxWorkers: '50%',
+    // Public GitHub-hosted ubuntu runners expose 4 vCPUs. At 50%, Vitest used
+    // only half of the available CPU and the exact-head suite took ~7m15s.
+    // Use the full runner while preserving the same files, assertions, timeouts,
+    // fork isolation, and file-level parallelism.
+    maxWorkers: '100%',
     testTimeout: 15000,
     pool: 'forks',
     fileParallelism: true,
