@@ -20,6 +20,13 @@ describe('CI build performance contracts', () => {
     expect(workflow).toContain('Delegate scoped exact-head validation to standard CI')
   })
 
+  it('uses the full public GitHub runner only inside GitHub Actions', () => {
+    const config = read('next.config.mjs')
+
+    expect(config).toContain("process.env.GITHUB_ACTIONS === 'true' ? 4 : 2")
+    expect(config).toContain('cpus: staticGenerationCpus')
+  })
+
   it('persists only integrity-checked build intermediates on the production build lane', () => {
     const workflow = read('.github/workflows/ci.yml')
     const manager = read('scripts/cache/build-cache-manager.mjs')
