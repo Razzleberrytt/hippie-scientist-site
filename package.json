@@ -172,6 +172,7 @@
     "check:deps": "node scripts/ci/check-dependencies-installed.mjs",
     "check:node": "node scripts/ci/check-node-version.mjs",
     "audit:high": "node scripts/ci/audit-high-with-allowlist.mjs",
+    "security:lockfile-refresh": "npm install --package-lock-only --ignore-scripts --no-audit --fund=false",
     "check:node:self-test": "node scripts/ci/check-node-version.mjs --self-test",
     "validate:static-export": "node scripts/ci/validate-static-export-compatibility.mjs",
     "routes:inventory": "node scripts/ci/generate-route-inventory.mjs",
