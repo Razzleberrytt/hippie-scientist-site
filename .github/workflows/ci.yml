@@ -279,6 +279,18 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-
             ${{ runner.os }}-nextjs-
 
+      - name: Restore deterministic build intermediates
+        if: steps.impact.outputs.docs_only != 'true'
+        uses: actions/cache@v6
+        with:
+          path: |
+            .build-cache
+            public/images/optimized
+            lib/generated/optimized-images.json
+          key: ${{ runner.os }}-build-deploy-intermediates-v1-${{ hashFiles('package-lock.json', 'scripts/cache/build-cache-manager.mjs', 'scripts/optimize-images.mjs', 'lib/cloudflare-image-loader.ts', 'public/images/**/*.jpg', 'public/images/**/*.jpeg', 'public/images/**/*.png', 'public/images/**/*.gif', 'public/images/**/*.avif', 'public/images/**/*.tiff', 'public/images/**/*.webp') }}
+          restore-keys: |
+            ${{ runner.os }}-build-deploy-intermediates-v1-
+
       - name: Install dependencies
         if: steps.impact.outputs.docs_only != 'true'
         run: npm ci --no-audit --fund=false
