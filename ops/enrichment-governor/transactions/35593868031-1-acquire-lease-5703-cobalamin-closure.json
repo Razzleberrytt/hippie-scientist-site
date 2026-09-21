@@ -25,5 +25,6 @@
     "acquired": true,
     "expiresAt": "2026-09-21T12:54:56.876Z"
   },
-  "transactionCommitSha": null
+  "transactionCommitSha": "eef79a337434e6fc74b8b4729d93c4a9e25f8317",
+  "finalizedAt": "2026-09-21T11:24:59.123Z"
 }
