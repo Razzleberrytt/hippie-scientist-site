@@ -10,6 +10,11 @@ import { withContentCollections } from '@content-collections/next'
 
 const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })
 
+// Public GitHub-hosted ubuntu runners provide 4 vCPUs / 16 GB. Use the whole
+// runner for static generation in CI, while keeping the conservative 2-worker
+// ceiling on Cloudflare and local/unknown build hosts.
+const staticGenerationCpus = process.env.GITHUB_ACTIONS === 'true' ? 4 : 2
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
@@ -36,8 +41,9 @@ const nextConfig = {
     // Navigation loads can still use normal stylesheet links to avoid repeatedly
     // duplicating cached CSS.
     inlineCss: true,
-    // Limit static-generation workers to 2 to avoid OOM on memory-constrained build hosts.
-    cpus: 2,
+    // GitHub CI has a known 4-core/16-GB runner; other build hosts stay at 2
+    // workers to preserve the existing memory-safety envelope.
+    cpus: staticGenerationCpus,
   },
   images: {
     // Static export cannot use Next's *runtime* optimizer, but it can use a

@@ -69,7 +69,7 @@ jobs:
     timeout-minutes: 45
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -86,14 +86,14 @@ jobs:
 
       - name: Set up Node.js
         if: steps.impact.outputs.release_sensitive == 'true' && steps.impact.outputs.leaf_page_only != 'true'
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version-file: .nvmrc
           cache: npm
 
       - name: Install dependencies
         if: steps.impact.outputs.release_sensitive == 'true' && steps.impact.outputs.leaf_page_only != 'true'
-        run: npm ci
+        run: npm ci --no-audit --fund=false
 
       - name: Run complete release-quality suite
         if: steps.impact.outputs.release_sensitive == 'true' && steps.impact.outputs.leaf_page_only != 'true'

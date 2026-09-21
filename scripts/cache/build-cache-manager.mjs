@@ -11,7 +11,11 @@
  *   const cache = new CacheManager()
  *
  *   // Check if step needs to run
- *   const shouldRun = await cache.shouldRunStep('build-runtime-from-workbook', ['workbook.xlsx', 'data/*.json'])
+ *   const shouldRun = await cache.shouldRunStep(
+ *     'build-runtime-from-workbook',
+ *     ['workbook.xlsx', 'data/*.json'],
+ *     ['public/data/herbs.json'],
+ *   )
  *
  *   // Mark step as complete
  *   await cache.markStepComplete('build-runtime-from-workbook', outputFiles)
@@ -115,29 +119,40 @@ export class CacheManager {
    * Check if a build step should run
    * Returns false if inputs haven't changed
    */
-  async shouldRunStep(stepName, inputPatterns = [], config = {}) {
+  async shouldRunStep(stepName, inputPatterns = [], outputPatterns = [], config = {}) {
     const currentInputHash = await hashFiles(inputPatterns)
     const currentConfigHash = hashConfig(config)
-
     const cached = this.manifest[stepName]
 
     if (!cached) {
-      // First time running this step
+      // First time running this step.
       return true
     }
 
-    const isCacheValid =
+    const inputsMatch =
       cached.inputHash === currentInputHash &&
-      cached.configHash === currentConfigHash &&
-      cached.outputHash
+      cached.configHash === currentConfigHash
 
-    if (isCacheValid) {
-      console.log(`✓ [CACHE HIT] ${stepName}`)
-      return false
+    if (!inputsMatch) {
+      console.log(`⚠️ [CACHE MISS] ${stepName} (inputs/config changed)`)
+      return true
     }
 
-    console.log(`⚠️ [CACHE MISS] ${stepName}`)
-    return true
+    // Cross-run caches are only safe when the files currently on disk are the
+    // exact outputs produced by the cached step. Presence alone is insufficient:
+    // a fresh checkout can contain generated files with the same paths but
+    // different contents.
+    const outputs = arrayish(outputPatterns)
+    if (outputs.length > 0) {
+      const currentOutputHash = await hashFiles(outputs)
+      if (!cached.outputHash || currentOutputHash !== cached.outputHash) {
+        console.log(`⚠️ [CACHE MISS] ${stepName} (outputs missing or changed)`)
+        return true
+      }
+    }
+
+    console.log(`✓ [CACHE HIT] ${stepName}`)
+    return false
   }
 
   /**
