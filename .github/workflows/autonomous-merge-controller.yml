@@ -51,6 +51,7 @@ jobs:
       checks: read
       contents: read
       pull-requests: read
+      statuses: write
     outputs:
       ready: ${{ steps.monitor.outputs.ready }}
       head_sha: ${{ steps.monitor.outputs.head_sha }}
@@ -71,6 +72,25 @@ jobs:
       - name: Evaluate exact-head readiness once
         id: monitor
         run: node scripts/ci/autonomous-merge-monitor.mjs
+
+      - name: Attest exact-head validation
+        if: steps.monitor.outputs.ready == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATED_HEAD_SHA: ${{ steps.monitor.outputs.head_sha }}
+          VALIDATED_BASE_SHA: ${{ steps.monitor.outputs.base_sha }}
+        run: |
+          set -euo pipefail
+          if [ -z "$VALIDATED_HEAD_SHA" ] || [ -z "$VALIDATED_BASE_SHA" ]; then
+            echo 'Ready monitor did not provide exact head/base SHAs.' >&2
+            exit 1
+          fi
+          gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$VALIDATED_HEAD_SHA" \
+            -f state=success \
+            -f context='autonomous-merge/validated' \
+            -f description="PR #$PR_NUMBER exact-head validated on $VALIDATED_BASE_SHA" \
+            -f target_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          echo "Exact-head validation receipt recorded on $VALIDATED_HEAD_SHA for base $VALIDATED_BASE_SHA."
 
       - name: Monitor summary
         if: always()
