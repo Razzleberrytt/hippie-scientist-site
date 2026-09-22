@@ -106,7 +106,7 @@ export function classifyReleaseImpact(files) {
   ))
   const sensitiveFiles = normalizedFiles.filter(isReleaseSensitivePath)
   const docsOnly = normalizedFiles.length > 0 && normalizedFiles.every(isDocsOnlyPath)
-  const validationOnly = normalizedFiles.length > 0 && normalizedFiles.every(
+  const validationOnly = !docsOnly && normalizedFiles.length > 0 && normalizedFiles.every(
     (file) => isDocsOnlyPath(file) || isValidationOnlyPath(file),
   )
   const leafPageOnly = normalizedFiles.length > 0 && normalizedFiles.every(isLeafPagePath)
