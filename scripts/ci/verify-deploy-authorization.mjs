@@ -1,3 +1,5 @@
+import fs from 'node:fs'
+
 #!/usr/bin/env node
 
 const repo = process.env.GITHUB_REPOSITORY
@@ -32,6 +34,30 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
+function writeOutput(name, value) {
+  const outputPath = process.env.GITHUB_OUTPUT
+  if (outputPath) fs.appendFileSync(outputPath, `${name}=${String(value)}\n`)
+  console.log(`[deploy-auth] ${name}=${String(value)}`)
+}
+
+function recordAuthorization({ mode, prNumber, headSha, treeIdentical, skipRedundantValidation }) {
+  writeOutput('authorization_mode', mode)
+  writeOutput('pr_number', prNumber)
+  writeOutput('validated_head_sha', headSha)
+  writeOutput('tree_identical', treeIdentical)
+  writeOutput('skip_redundant_validation', skipRedundantValidation)
+}
+
+async function exactTreeMatch(headSha) {
+  const [mergeCommit, headCommit] = await Promise.all([
+    api(`/git/commits/${mergeSha}`),
+    api(`/git/commits/${headSha}`),
+  ])
+  const mergeTree = mergeCommit?.tree?.sha || ''
+  const headTree = headCommit?.tree?.sha || ''
+  return Boolean(mergeTree && headTree && mergeTree === headTree)
+}
+
 async function main() {
   const associated = await api(`/commits/${mergeSha}/pulls`)
   const merged = associated.filter(pr => pr.merged_at && pr.merge_commit_sha === mergeSha)
@@ -61,7 +87,14 @@ async function main() {
   const fullPr = await api(`/pulls/${pr.number}`)
   const mergedBy = fullPr.merged_by?.login || pr.merged_by?.login
   if (owner && mergedBy && mergedBy.toLowerCase() === owner.toLowerCase()) {
-    console.log(`Deployment authorized: PR #${pr.number} merged by repository owner ${mergedBy}, merge ${mergeSha}.`)
+    recordAuthorization({
+      mode: 'owner',
+      prNumber: pr.number,
+      headSha,
+      treeIdentical: false,
+      skipRedundantValidation: false,
+    })
+    console.log(`Deployment authorized: PR #${pr.number} merged by repository owner ${mergedBy}, merge ${mergeSha}; retaining full deploy validation.`)
     return
   }
 
@@ -69,7 +102,19 @@ async function main() {
     const status = await api(`/commits/${headSha}/status`)
     const authorized = status.statuses?.find(item => item.context === context && item.state === 'success')
     if (authorized) {
-      console.log(`Deployment authorized: PR #${pr.number}, head ${headSha}, merge ${mergeSha}.`)
+      const treeIdentical = await exactTreeMatch(headSha)
+      recordAuthorization({
+        mode: 'controller',
+        prNumber: pr.number,
+        headSha,
+        treeIdentical,
+        skipRedundantValidation: treeIdentical,
+      })
+      console.log(
+        treeIdentical
+          ? `Deployment authorized: PR #${pr.number}, head ${headSha}, merge ${mergeSha}; exact tree already passed controller-gated PR validation.`
+          : `Deployment authorized: PR #${pr.number}, head ${headSha}, merge ${mergeSha}; merge tree differs, retaining full deploy validation.`,
+      )
       return
     }
 
