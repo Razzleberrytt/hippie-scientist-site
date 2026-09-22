@@ -29,3 +29,19 @@ The report includes the repository/revision and SHA-256 of each inspected contro
 A merge/closure can intentionally make yesterday's active projection stale. The next control sync must move that entry to history and refresh owning PRs before new admission; do not suppress that finding or call a merged ticket current. GitHub API state is observed over a read window, not an atomic multi-resource transaction: rerun immediately before admission. No current analytics, production receipt, scientific correctness, or business outcome is inferred from a PASS.
 
 Rollback removes this checker, its tests/workflow, and the explicit control annotations; preserve the corrected historical dispositions. No provider integration or repository-protection setting is changed.
+
+
+## Reviewable admission transactions
+
+Queue refill uses a reviewable PR transaction rather than granting this workflow repository write access. The Builder may create a focused control-plane PR through the connected GitHub app only after fresh reconciliation shows admission is available.
+
+When a PR increases active implementation WIP, it must update both `docs/CURRENT_SPRINT.md` and `docs/MASTER_BACKLOG.md` and replace `ops/project-control/admission-transaction.json` with a manifest bound to the exact PR base SHA. The manifest records the candidate issue, D/R/A lane, title/priority, the single Master Backlog score inputs/result, and `last_verified`. `scripts/ci/validate-project-control-admission.mjs` then fails closed unless all of the following hold:
+
+- the transaction adds exactly one active ticket and preserves all prior active ownership;
+- normal WIP remains within cap and the selected D/R/A lane was free on the exact base;
+- the score is exactly `(BI × UV × TP × SL × Confidence) / Effort` with the canonical ranges;
+- freshness is no older than seven days and the candidate issue explicitly names the exact base SHA;
+- the candidate is open, has `ready-next`, and has no existing open PR claiming it;
+- the sprint and master backlog contain the same admitted ticket, lane, title, priority, calculated score, and freshness date.
+
+The admission transaction PR still passes the normal reconciliation and repository merge gates. This mechanism grants queue authority only; it never grants scientific/content mutation authority, bypasses leases, or converts missing external metrics into observed values. Retirements and status-only control syncs that do not increase active WIP do not require a new admission transaction.

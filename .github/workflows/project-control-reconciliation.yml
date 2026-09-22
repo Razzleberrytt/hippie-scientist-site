@@ -8,6 +8,8 @@ on:
       - 'docs/MASTER_BACKLOG.md'
       - 'docs/ROADMAP.md'
       - 'scripts/ci/reconcile-project-control*'
+      - 'scripts/ci/validate-project-control-admission*'
+      - 'ops/project-control/admission-transaction.json'
       - '.github/workflows/project-control-reconciliation.yml'
   push:
     branches: [main]
@@ -16,6 +18,8 @@ on:
       - 'docs/MASTER_BACKLOG.md'
       - 'docs/ROADMAP.md'
       - 'scripts/ci/reconcile-project-control*'
+      - 'scripts/ci/validate-project-control-admission*'
+      - 'ops/project-control/admission-transaction.json'
       - '.github/workflows/project-control-reconciliation.yml'
   workflow_dispatch:
 
@@ -50,6 +54,14 @@ jobs:
         run: |
           set -o pipefail
           node scripts/ci/reconcile-project-control.mjs --github --revision "$CONTROL_REVISION" | tee project-control-report.json
+      - name: Validate admission transaction when active WIP increases
+        if: github.event_name == 'pull_request'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          ADMISSION_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          git fetch --no-tags --depth=1 origin "$ADMISSION_BASE_SHA"
+          node scripts/ci/validate-project-control-admission.mjs --github --base-revision "$ADMISSION_BASE_SHA"
       - name: Retain reconciliation evidence
         if: always()
         uses: actions/upload-artifact@v4
