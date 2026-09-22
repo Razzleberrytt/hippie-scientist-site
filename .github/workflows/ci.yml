@@ -246,6 +246,7 @@ jobs:
           EVENT_HEAD_REF: ${{ github.event.pull_request.head.ref }}
           EVENT_BASE_REF: ${{ github.event.pull_request.base.ref }}
           EVENT_PR_NUMBER: ${{ github.event.pull_request.number }}
+          EVENT_BEFORE_SHA: ${{ github.event.before }}
           RECOVERY_PR_NUMBER: ${{ inputs.recovery_pr_number }}
         run: |
           set -euo pipefail
@@ -266,6 +267,12 @@ jobs:
               echo "Recovery dispatch is stale: workflow head=$GITHUB_SHA PR head=$source_sha"
               exit 1
             fi
+          elif [ "$EVENT_NAME" = "push" ] && [ -n "$EVENT_BEFORE_SHA" ] && [ "$EVENT_BEFORE_SHA" != "0000000000000000000000000000000000000000" ]; then
+            source_sha="$GITHUB_SHA"
+            base_sha="$EVENT_BEFORE_SHA"
+            head_ref="$GITHUB_REF_NAME"
+            base_ref="$GITHUB_REF_NAME"
+            pr_number=""
           else
             source_sha="$GITHUB_SHA"
             base_sha="$GITHUB_SHA"
@@ -413,7 +420,7 @@ jobs:
         run: npm run validate:route-seo
 
       - name: Dispatch exact-head governed export consumers
-        if: success() && steps.context.outputs.pr_number != '' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && (github.event_name != 'pull_request' || (github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]'))
+        if: success() && (github.event_name == 'push' || steps.context.outputs.pr_number != '') && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && (github.event_name != 'pull_request' || (github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]'))
         env:
           GH_TOKEN: ${{ github.token }}
           HEAD_REF: ${{ steps.context.outputs.head_ref }}
@@ -431,9 +438,19 @@ jobs:
             --arg pr "$PR_NUMBER" \
             '{ref:$ref,inputs:{producer_run_id:$run,producer_sha:$source,producer_base_sha:$base,producer_pr_number:$pr}}')"
 
-          # The CI producer owns the only normal same-repository PR build.
+          # The CI producer owns the only normal same-repository PR/main build.
           # Downstream output-dependent gates consume its hash-bound artifact.
-          consumers=(build-check.yml lighthouse.yml production-content-lint.yml)
+          if [ -n "$PR_NUMBER" ]; then
+            consumers=(build-check.yml lighthouse.yml production-content-lint.yml)
+          else
+            # Build Check has no direct main-push contract; preserve the historical
+            # main surface while eliminating fallback rebuilds in the consumers
+            # that already run after every relevant main push.
+            consumers=(lighthouse.yml production-content-lint.yml)
+          fi
+          if [ "$BASE_SHA" != "$SOURCE_SHA" ]; then
+            git fetch --no-tags --depth=1 origin "$BASE_SHA"
+          fi
           changed="$(git diff --name-only "$BASE_SHA" HEAD)"
           printf '%s\n' "$changed"
 
@@ -500,9 +517,9 @@ jobs:
           echo "- Coverage: deploy build, full verify:output contract, SEO reports, indexability, redirects, and route SEO." >> "$GITHUB_STEP_SUMMARY"
           echo "- Exact source SHA: ${{ steps.context.outputs.source_sha || github.sha }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Exact base SHA: ${{ steps.context.outputs.base_sha || github.sha }}" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Governed static export is hash-bound to source/base/lockfile/output and fans out only after this build succeeds." >> "$GITHUB_STEP_SUMMARY"
+          echo "- Governed static export is hash-bound to source/base/lockfile/output and fans out only after this build succeeds on PRs and main." >> "$GITHUB_STEP_SUMMARY"
           echo "- Consumer dispatch registration is proven before CI can finish; the autonomous merge controller then waits for exact-head consumer completion." >> "$GITHUB_STEP_SUMMARY"
-          echo "- Build Check, Lighthouse, Production Content Lint, and every triggered build-dependent governance consumer reuse that artifact; artifact miss/mismatch falls back to a complete build." >> "$GITHUB_STEP_SUMMARY"
+          echo "- PR Build Check plus Lighthouse, Production Content Lint, and every triggered build-dependent governance consumer reuse that artifact; artifact miss/mismatch falls back to a complete build." >> "$GITHUB_STEP_SUMMARY"
           echo "- Unprivileged fork/Dependabot PRs self-build consumer audits rather than attempting a forbidden workflow dispatch." >> "$GITHUB_STEP_SUMMARY"
           echo "- Docs-only: ${{ steps.impact.outputs.docs_only || 'false' }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Status: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
