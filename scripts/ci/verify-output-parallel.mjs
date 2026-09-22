@@ -6,7 +6,7 @@ import { pathToFileURL } from 'node:url'
 export const PREBUILD_GROUPS = [
   {
     name: 'source-boundaries',
-    command: 'node scripts/ci/validate-static-export-compatibility.mjs && node scripts/ci/validate-public-json-imports.mjs && node scripts/ci/validate-quarantine-imports.mjs && node scripts/ci/validate-direct-dependencies.mjs',
+    command: 'npm run validate:static-export && node scripts/ci/validate-public-json-imports.mjs && node scripts/ci/validate-quarantine-imports.mjs && node scripts/ci/validate-direct-dependencies.mjs',
   },
   {
     name: 'format-and-headers',
