@@ -199,6 +199,26 @@ describe('autonomous merge controller contract', () => {
     expect(controller).toContain('fallback sweep will continue ownership')
   })
 
+  it('gives targeted trusted-controller recovery enough time for governed consumers without widening consumer permissions', () => {
+    const workflow = read('.github/workflows/autonomous-merge-controller.yml')
+    const ci = read('.github/workflows/ci.yml')
+
+    expect(ci).toContain('gh workflow run autonomous-merge-controller.yml')
+    expect(ci).toContain('--ref main')
+    expect(ci).toContain('-f "pr_number=$PR_NUMBER"')
+    expect(ci).toContain('-f "expected_head_sha=$SOURCE_SHA"')
+    expect(workflow).toContain("MERGE_MAX_WAIT_MINUTES: ${{ inputs.pr_number != '' && '12' || '3' }}")
+
+    for (const workflowPath of [
+      '.github/workflows/build-check.yml',
+      '.github/workflows/lighthouse.yml',
+      '.github/workflows/production-content-lint.yml',
+    ]) {
+      const consumer = read(workflowPath)
+      expect(consumer).toContain('actions: read')
+      expect(consumer).not.toContain('actions: write')
+    }
+  })
   it('preserves direct-main deploy as primary and dispatches only when a controller merge lacks a deploy run', () => {
     const workflow = read('.github/workflows/autonomous-merge-controller.yml')
     const deploy = read('.github/workflows/deploy.yml')
