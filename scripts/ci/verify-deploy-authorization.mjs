@@ -1,6 +1,6 @@
-import fs from 'node:fs'
-
 #!/usr/bin/env node
+
+import fs from 'node:fs'
 
 const repo = process.env.GITHUB_REPOSITORY
 const mergeSha = process.env.DEPLOY_SHA || process.env.GITHUB_SHA
