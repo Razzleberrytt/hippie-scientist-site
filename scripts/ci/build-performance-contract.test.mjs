@@ -7,7 +7,7 @@ const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../
 const read = (relativePath) => fs.readFileSync(path.join(repoRoot, relativePath), 'utf8')
 
 describe('CI build performance contracts', () => {
-  it('delegates PR Site Health release validation to authoritative CI while retaining direct-main/manual defense', () => {
+  it('delegates PR and main-push Site Health validation to authoritative CI while retaining manual full defense', () => {
     const workflow = read('.github/workflows/check.yml')
     const fullCheckIndex = workflow.indexOf('run: npm run check:full')
     const fullCheckWindow = workflow.slice(Math.max(0, fullCheckIndex - 500), fullCheckIndex)
@@ -16,7 +16,8 @@ describe('CI build performance contracts', () => {
       "if: github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.recovery_pr_number != '')",
     )
     expect(workflow).toContain('Delegate scoped exact-head validation to standard CI')
-    expect(fullCheckWindow).toContain("github.event_name == 'push'")
+    expect(workflow).toContain('Delegate exact-main validation to standard CI')
+    expect(fullCheckWindow).not.toContain("github.event_name == 'push'")
     expect(fullCheckWindow).toContain("github.event_name == 'workflow_dispatch' && inputs.recovery_pr_number == ''")
     expect(fullCheckWindow).not.toContain('steps.impact.outputs.release_sensitive')
   })
