@@ -1,10 +1,12 @@
 import { spawn } from 'node:child_process'
 import process from 'node:process'
+import path from 'node:path'
+import { pathToFileURL } from 'node:url'
 
 export const PREBUILD_GROUPS = [
   {
     name: 'source-boundaries',
-    command: 'npm run validate:static-export && node scripts/ci/validate-public-json-imports.mjs && node scripts/ci/validate-quarantine-imports.mjs && node scripts/ci/validate-direct-dependencies.mjs',
+    command: 'node scripts/ci/validate-static-export-compatibility.mjs && node scripts/ci/validate-public-json-imports.mjs && node scripts/ci/validate-quarantine-imports.mjs && node scripts/ci/validate-direct-dependencies.mjs',
   },
   {
     name: 'format-and-headers',
@@ -85,7 +87,8 @@ export async function main() {
   console.log(`[verify-output] PASS in ${((Date.now() - started) / 1000).toFixed(2)}s`)
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+const entry = process.argv[1] ? pathToFileURL(path.resolve(process.argv[1])).href : ''
+if (entry && import.meta.url === entry) {
   main().catch((error) => {
     console.error(`[verify-output] FAIL: ${error instanceof Error ? error.message : error}`)
     process.exitCode = 1
