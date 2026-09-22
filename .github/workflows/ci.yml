@@ -169,6 +169,16 @@ jobs:
         if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: npm run audit:cluster-member-trust:strict
 
+      - name: Run supplemental release-quality validators
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
+        run: |
+          node scripts/ci/validate-indexability-metadata.mjs
+          npm run validate:evidence-language
+          npm run validate:profile-verdicts
+          npm run validate:claim-discipline
+          npm run validate:safety-visibility
+          npm run audit:data-governance:strict
+
       - name: Run security audit gate
         if: steps.impact.outputs.docs_only != 'true'
         run: npm run audit:high
