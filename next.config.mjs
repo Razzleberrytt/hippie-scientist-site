@@ -19,10 +19,10 @@ const staticGenerationCpus = process.env.GITHUB_ACTIONS === 'true' ? 4 : 2
 // concurrency only on the known 4-vCPU/16-GB hosted runner. Other hosts retain
 // Next's default 8-page setting.
 const staticGenerationMaxConcurrency = process.env.GITHUB_ACTIONS === 'true' ? 12 : 8
-// GitHub CI already runs the dedicated `npm run typecheck` gate in parallel with
-// the production build lane. Avoid paying Next's duplicate ~30s typecheck on the
-// build critical path there; Cloudflare/local builds keep Next typechecking on.
-const skipNextBuildTypecheck = process.env.GITHUB_ACTIONS === 'true'
+// The authoritative CI build lane runs `npm run typecheck` in its parallel
+// validation job. Only that producer opts out of Next's duplicate ~30s check;
+// every other GitHub/Cloudflare/local build keeps Next typechecking on.
+const skipNextBuildTypecheck = process.env.SKIP_NEXT_BUILD_TYPECHECK === '1'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
