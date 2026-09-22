@@ -153,11 +153,18 @@ export async function main(args = process.argv.slice(2)) {
     now: { type: 'string' },
   } })
   const baseRevision = values['base-revision'] || process.env.ADMISSION_BASE_SHA
-  const manifest = JSON.parse(readFileSync(values.manifest, 'utf8'))
   const headSprint = readFileSync('docs/CURRENT_SPRINT.md', 'utf8')
   const headBacklog = readFileSync('docs/MASTER_BACKLOG.md', 'utf8')
   const baseSprint = readAt(baseRevision, 'docs/CURRENT_SPRINT.md')
   const baseBacklog = readAt(baseRevision, 'docs/MASTER_BACKLOG.md')
+  const baseIds = parseActiveRows('docs/CURRENT_SPRINT.md', baseSprint).map((row) => row.issue)
+  const headIds = parseActiveRows('docs/CURRENT_SPRINT.md', headSprint).map((row) => row.issue)
+  const additions = headIds.filter((id) => !baseIds.includes(id))
+  if (additions.length === 0) {
+    console.log(JSON.stringify({ state: 'PASS', admission: 'not-required', reason: 'Active WIP did not increase' }, null, 2))
+    return
+  }
+  const manifest = JSON.parse(readFileSync(values.manifest, 'utf8'))
   let candidate, openPulls = []
   if (values.github) {
     const repository = process.env.GITHUB_REPOSITORY
