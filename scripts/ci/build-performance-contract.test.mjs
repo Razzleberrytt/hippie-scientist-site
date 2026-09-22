@@ -7,17 +7,38 @@ const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../
 const read = (relativePath) => fs.readFileSync(path.join(repoRoot, relativePath), 'utf8')
 
 describe('CI build performance contracts', () => {
-  it('classifies recovery-dispatched Site Health runs before choosing the full release path', () => {
+  it('delegates PR Site Health release validation to authoritative CI while retaining direct-main/manual defense', () => {
     const workflow = read('.github/workflows/check.yml')
+    const fullCheckIndex = workflow.indexOf('run: npm run check:full')
+    const fullCheckWindow = workflow.slice(Math.max(0, fullCheckIndex - 500), fullCheckIndex)
 
     expect(workflow).toContain(
       "if: github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.recovery_pr_number != '')",
     )
-    expect(workflow).toContain("BASE_REF: ${{ github.base_ref || 'main' }}")
-    expect(workflow).toContain(
-      "github.event_name == 'workflow_dispatch' && inputs.recovery_pr_number == ''",
-    )
     expect(workflow).toContain('Delegate scoped exact-head validation to standard CI')
+    expect(fullCheckWindow).toContain("github.event_name == 'push'")
+    expect(fullCheckWindow).toContain("github.event_name == 'workflow_dispatch' && inputs.recovery_pr_number == ''")
+    expect(fullCheckWindow).not.toContain('steps.impact.outputs.release_sensitive')
+  })
+
+  it('moves unique release validators into CI and removes Atomic duplicate full builds', () => {
+    const ci = read('.github/workflows/ci.yml')
+    const atomic = read('.github/workflows/atomic-upgrade-gate.yml')
+
+    for (const command of [
+      'validate-indexability-metadata.mjs',
+      'validate:evidence-language',
+      'validate:profile-verdicts',
+      'validate:claim-discipline',
+      'validate:safety-visibility',
+      'audit:data-governance:strict',
+    ]) {
+      expect(ci, command).toContain(command)
+    }
+    expect(ci).toContain('Run supplemental release-quality validators')
+    expect(atomic).toContain('Delegate release-quality suite to authoritative CI')
+    expect(atomic).not.toContain('npm run validate:release')
+    expect(atomic).not.toContain('npm ci --no-audit --fund=false')
   })
 
   it('uses the full public GitHub runner only inside GitHub Actions', () => {
