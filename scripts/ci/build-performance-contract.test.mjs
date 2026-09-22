@@ -60,8 +60,9 @@ describe('CI build performance contracts', () => {
 
     expect(workflow).toContain('Run typecheck')
     expect(workflow).toContain('npm run typecheck')
-    expect(config).toContain("skipNextBuildTypecheck = process.env.GITHUB_ACTIONS === 'true'")
+    expect(config).toContain("skipNextBuildTypecheck = process.env.SKIP_NEXT_BUILD_TYPECHECK === '1'")
     expect(config).toContain('ignoreBuildErrors: skipNextBuildTypecheck')
+    expect(workflow).toContain("SKIP_NEXT_BUILD_TYPECHECK: '1'")
   })
 
   it('parallelizes output verification without removing any acceptance check', () => {
