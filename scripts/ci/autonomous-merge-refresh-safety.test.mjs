@@ -22,12 +22,12 @@ describe('autonomous merge workflow refresh safety', () => {
   })
 
   it('treats an exact validated merge observed during terminal revalidation as success instead of refreshing a closed workflow PR', () => {
-    expect(controller).toContain('async function exactValidatedMergeObserved')
-    expect(controller).toContain('pr.merged')
-    expect(controller).toContain('parentShas.includes(validatedBaseSha)')
-    expect(controller).toContain('parentShas.includes(headSha)')
-    expect(controller).toContain('mergeTree === headTree')
-    expect(controller).toContain('treating the merge as terminal success')
+    expect(source).toContain('async function exactValidatedMergeObserved')
+    expect(source).toContain('pr.merged')
+    expect(source).toContain('parentShas.includes(validatedBaseSha)')
+    expect(source).toContain('parentShas.includes(headSha)')
+    expect(source).toContain('mergeTree === headTree')
+    expect(source).toContain('treating the merge as terminal success')
   })
 
   it('places the fail-closed guard before every update-branch mutation path', () => {
