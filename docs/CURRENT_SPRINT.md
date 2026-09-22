@@ -5,7 +5,7 @@
 **Updated:** 2026-09-20
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #5698 / PR #5701 is merged and retired after quarantining retracted PMID 41461240 and DOI 10.1016/j.jad.2025.121055 from the stress-guide evidence path. #5703 is now the sole Authority/Content implementation item for cobalamin deficiency-vs-enhancement closure. Normal implementation WIP is **1/3**. Discovery/SEO and Revenue/Conversion are free. #5705 is the required narrow cobalamin governor-lease transaction and does not consume a normal implementation lane; canonical cobalamin mutation remains forbidden until that lease PR merges. #5081 remains separately blocked on its own fresh non-overlapping governor lease.
+**Current admission:** #5698 / PR #5701 is merged and retired after quarantining retracted PMID 41461240 and DOI 10.1016/j.jad.2025.121055 from the stress-guide evidence path. #5703 is now the sole Authority/Content implementation item for cobalamin deficiency-vs-enhancement closure. Normal implementation WIP is **2/3**. Discovery/SEO is free; Revenue/Conversion is occupied by #5753. #5705 is the required narrow cobalamin governor-lease transaction and does not consume a normal implementation lane; canonical cobalamin mutation remains forbidden until that lease PR merges. #5081 remains separately blocked on its own fresh non-overlapping governor lease.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,14 +49,15 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 2/3
 
 | Lane | Ticket | Title | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
 | A | #5703 | Close cobalamin deficiency-vs-enhancement evidence with new 2024 null meta-analysis | Admitted — blocked on #5705 lease | P1 evidence governance | — | Five-source cobalamin closure preflighted 2026-09-20; canonical mutation waits for exact-main lease transaction |
+| R | #5753 | Audit Kava post-answer journey for one evidence-first next action | Admitted — audit first; fail closed to no-op if already compliant | Revenue/Conversion | — | Revalidated 2026-09-22 against exact MAIN `385c6ce8a85c51beed137293a1858444d5ebcdd9`; external conversion/revenue observations remain `Unknown` |
 
 - **Discovery/SEO:** free; #5688 / PR #5691 is merged and retired.
-- **Revenue/Conversion:** free; #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
+- **Revenue/Conversion:** occupied by #5753 for the bounded Kava post-answer journey audit; add at most one evidence-first next action only if a deterministic gap remains, otherwise retire as no-op. #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
 - **Authority/Content:** occupied by #5703 for the bounded cobalamin closure. #5705 is its mandatory state-only lease prerequisite and grants no scientific authority until merged; #5081 remains separately blocked on its own non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
 - **Control maintenance:** #5642 is a docs-only feeder reconciliation so the durable candidate inventory cannot override the merged citation→search→click policy. It grants no normal implementation authority and consumes no D/R/A slot.
