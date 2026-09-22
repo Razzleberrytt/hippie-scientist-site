@@ -7,7 +7,7 @@ function read(relativePath) {
 }
 
 describe('autonomous merge authorization provenance', () => {
-  it('keeps the PR-event monitor read-only while write-capable controller jobs can emit status', () => {
+  it('keeps the monitor evaluator read-only while the trusted wrapper can attest validation only', () => {
     const workflow = read('.github/workflows/autonomous-merge-controller.yml')
     const monitorBlock = workflow.match(/ {2}merge-controller:\n([\s\S]*?)\n {2}merge-commit:/)?.[1] || ''
 
@@ -16,7 +16,10 @@ describe('autonomous merge authorization provenance', () => {
     expect(monitorBlock).toContain('checks: read')
     expect(monitorBlock).toContain('contents: read')
     expect(monitorBlock).toContain('pull-requests: read')
-    expect(monitorBlock).not.toContain('statuses: write')
+    expect(monitorBlock).toContain('statuses: write')
+    expect(monitorBlock).toContain('Attest exact-head validation')
+    expect(monitorBlock).toContain("context='autonomous-merge/validated'")
+    expect(monitorBlock).not.toContain("context='autonomous-merge/authorized'")
   })
 
   it('emits event-driven authorization only after serialized revalidation and a confirmed merge', () => {
@@ -30,6 +33,19 @@ describe('autonomous merge authorization provenance', () => {
     expect(workflow).toContain("context='autonomous-merge/authorized'")
     expect(workflow).toContain('statuses/$EXPECTED_HEAD_SHA')
     expect(workflow).toContain('VALIDATED_BASE_SHA: ${{ needs.merge-controller.outputs.base_sha }}')
+  })
+
+  it('attests an exact validated merge even when the merge step loses a post-merge race', () => {
+    const workflow = read('.github/workflows/autonomous-merge-controller.yml')
+    const attest = workflow.match(/- name: Attest controller-authorized merge[\s\S]*?- name: Ensure merged PR enters deploy lifecycle/)?.[0] || ''
+
+    expect(attest).toContain('if: always()')
+    expect(attest).toContain('EXPECTED_HEAD_SHA')
+    expect(attest).toContain('VALIDATED_BASE_SHA')
+    expect(attest).toContain('merge_tree')
+    expect(attest).toContain('head_tree')
+    expect(attest).toContain('statuses/$EXPECTED_HEAD_SHA')
+    expect(attest).toContain('refusing authorization receipt')
   })
 
   it('attests fallback merges only from the controller merge-success log and verifies GitHub merge identity', () => {
