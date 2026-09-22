@@ -187,9 +187,15 @@ describe('workflow release-impact contract', () => {
     expect(yaml).toContain("github.actor == 'dependabot[bot]'")
   })
 
-  it('gives the classifier the history it needs to diff against the base ref', () => {
+  it('gives each classifier the exact base history it needs', () => {
+    const ci = fs.readFileSync(path.join(process.cwd(), '.github/workflows/ci.yml'), 'utf8')
+    expect(ci).toContain('fetch-depth: 1')
+    expect(ci).toContain('BASE_SHA: ${{ github.event.pull_request.base.sha }}')
+    expect(ci).toContain('BASE_SHA: ${{ steps.context.outputs.base_sha }}')
+    expect(ci.match(/git fetch --no-tags --depth=1 origin "\$BASE_SHA"/g)?.length).toBeGreaterThanOrEqual(2)
+    expect(ci.match(/git diff --name-only "\$BASE_SHA" HEAD/g)?.length).toBeGreaterThanOrEqual(2)
+
     for (const workflow of [
-      '.github/workflows/ci.yml',
       '.github/workflows/production-content-invariants.yml',
       '.github/workflows/check.yml',
     ]) {
