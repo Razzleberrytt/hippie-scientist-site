@@ -34,45 +34,62 @@ on:
       - 'scripts/ci/*production*'
       - '.github/workflows/production-content-invariants.yml'
   workflow_dispatch:
+    inputs:
+      producer_run_id:
+        description: CI run containing the governed static export artifact
+        required: false
+        type: string
+      producer_sha:
+        description: Exact PR head SHA bound into the governed static export receipt
+        required: false
+        type: string
+      producer_base_sha:
+        description: Exact PR base SHA bound into the governed static export receipt
+        required: false
+        type: string
+      producer_pr_number:
+        description: PR number that produced the governed static export
+        required: false
+        type: string
 
 concurrency:
   group: production-content-invariants-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
+  actions: read
   contents: read
 
 jobs:
   invariants:
-    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository || github.actor == 'dependabot[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
+      - name: Reject stale producer dispatch
+        if: inputs.producer_sha != ''
+        env:
+          PRODUCER_SHA: ${{ inputs.producer_sha }}
+        run: |
+          if [ "$GITHUB_SHA" != "$PRODUCER_SHA" ]; then
+            echo "Producer dispatch is stale: workflow head=$GITHUB_SHA producer=$PRODUCER_SHA"
+            exit 1
+          fi
+
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          fetch-depth: 0
-
-      - name: Classify release impact
-        id: impact
-        if: github.event_name == 'pull_request'
-        env:
-          BASE_REF: ${{ github.base_ref }}
-        run: |
-          git fetch origin "$BASE_REF"
-          changed="$(git diff --name-only "origin/$BASE_REF"...HEAD)"
-          printf '%s\n' "$changed"
-          printf '%s\n' "$changed" | node scripts/ci/classify-release-impact.mjs --github-output="$GITHUB_OUTPUT"
+          fetch-depth: 1
+          ref: ${{ inputs.producer_sha || github.sha }}
 
       - name: Setup Node
-        if: steps.impact.outputs.docs_only != 'true'
         uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: npm
 
-      - name: Restore Next.js build cache
-        if: steps.impact.outputs.docs_only != 'true'
+      - name: Restore Next.js build cache for self-built fallback
+        if: inputs.producer_run_id == ''
         uses: actions/cache@v6
         with:
           path: .next/cache
@@ -81,60 +98,51 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-
 
       - name: Install dependencies
-        if: steps.impact.outputs.docs_only != 'true'
-        run: npm ci
+        run: npm ci --no-audit --fund=false
 
       - name: Exercise every invariant with deterministic fixtures
-        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.leaf_page_only != 'true'
         run: |
           node scripts/ci/test-production-content-invariants.mjs
           node scripts/ci/test-runtime-source-registry-audit.mjs
 
-      # Start from the same governed corpus production deploys. Enforcing on raw
-      # workbook output skips post-processing, citation quarantine, governance
-      # overlay, and PubMed enrichment, which falsely demoted valid profiles.
-      - name: Build canonical governed runtime data
-        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.leaf_page_only != 'true'
-        run: npm run data:build
+      - name: Download governed static export
+        id: governed-download
+        if: inputs.producer_run_id != '' && inputs.producer_sha != ''
+        continue-on-error: true
+        uses: actions/download-artifact@v7
+        with:
+          name: governed-static-export-${{ inputs.producer_sha }}
+          path: .
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.producer_run_id }}
 
-      - name: Prepare explicit evidence provenance
-        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.leaf_page_only != 'true'
-        run: node scripts/data/prepare-production-evidence-provenance.mjs --data-dir=public/data
+      - name: Verify governed static export receipt and restore governed data
+        id: governed-verify
+        if: steps.governed-download.outcome == 'success'
+        continue-on-error: true
+        run: >-
+          node scripts/ci/governed-static-export.mjs verify
+          --source-sha "${{ inputs.producer_sha }}"
+          --base-sha "${{ inputs.producer_base_sha }}"
 
-      - name: Scrub internal language and demote unsafe profiles
-        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.leaf_page_only != 'true'
-        run: node scripts/data/enforce-production-content-invariants.mjs --data-dir=public/data --refresh-derived
+      - name: Build governed fallback on artifact miss or mismatch
+        if: steps.governed-verify.outcome != 'success'
+        env:
+          COMMIT_HASH: ${{ inputs.producer_sha || github.sha }}
+        run: |
+          rm -rf out .governed-static-export.json
+          npm run build:deploy
 
-      - name: Validate the post-enforcement profile corpus
-        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.leaf_page_only != 'true'
+      - name: Validate the exact governed profile corpus
         run: node scripts/ci/validate-production-content-invariants.mjs --data-dir=public/data
 
-      - name: Validate post-enforcement indexability budget
-        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.leaf_page_only != 'true'
+      - name: Validate governed indexability budget
         run: node scripts/ci/validate-production-indexability-budget.mjs --data-dir=public/data
 
-      - name: Reuse committed governed data for leaf page
-        if: steps.impact.outputs.leaf_page_only == 'true'
-        run: echo 'Leaf-page-only change; reuse committed governed data corpus. Data-source invariants remain unchanged from main while final HTML audits still run below.'
-
-      - name: Build production static HTML from governed data
-        if: steps.impact.outputs.docs_only != 'true'
-        run: node scripts/build-production.mjs
-
-      - name: Apply production redirect overrides
-        if: steps.impact.outputs.docs_only != 'true'
-        run: node scripts/seo/apply-redirect-overrides.mjs
-
-      - name: Reconcile final sitemap after redirect overrides
-        if: steps.impact.outputs.docs_only != 'true'
-        run: node scripts/seo/write-static-sitemap.mjs
-
       - name: Prove placeholders and dev language are absent from visible HTML
-        if: steps.impact.outputs.docs_only != 'true'
         run: node scripts/ci/audit-production-visible-language.mjs
 
-      - name: Verify profile robots after invariant demotions
-        if: steps.impact.outputs.docs_only != 'true'
+      - name: Verify profile robots after invariant enforcement
         run: node scripts/ci/audit-profile-robots.mjs
 
       - name: Upload invariant reports
@@ -154,25 +162,9 @@ jobs:
         if: always()
         run: |
           echo '## Production content invariants' >> "$GITHUB_STEP_SUMMARY"
-          echo '- A-grade criteria, human-source, safety-source, dose-source, citation resolution, placeholders, canonical duplicates, scientific names and internal-development language are covered.' >> "$GITHUB_STEP_SUMMARY"
-          echo '- The workflow evaluates the same governed runtime corpus as production deployment; raw workbook output is never treated as the final publication contract.' >> "$GITHUB_STEP_SUMMARY"
-          echo '- Leaf-page-only PRs reuse the already-governed committed corpus but still build and audit final HTML; any data, content-pipeline, shared, or generator change falls back to full invariant enforcement.' >> "$GITHUB_STEP_SUMMARY"
-          echo '- Explicit claim-to-source provenance is normalized before enforcement; unsupported numeric dosage is suppressed rather than allowed to create a false page-level indexability failure.' >> "$GITHUB_STEP_SUMMARY"
-          echo '- Canonical-looking runtime source references are audited against the source registry, including fallback claim source-reference aliases.' >> "$GITHUB_STEP_SUMMARY"
-          if [ -f reports/production-invariant-enforcement.json ]; then
-            node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
-          const fs = require('fs')
-          const r = JSON.parse(fs.readFileSync('reports/production-invariant-enforcement.json', 'utf8'))
-          console.log(`- Profiles scanned: ${r.scannedProfiles}`)
-          console.log(`- Profiles scrubbed: ${r.scrubbedProfiles}`)
-          console.log(`- Profiles demoted to NEEDS_REVIEW/noindex: ${r.demotedProfiles}`)
-          NODE
-          fi
-          if [ -f reports/production-content-invariants.json ]; then
-            node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
-          const fs = require('fs')
-          const r = JSON.parse(fs.readFileSync('reports/production-content-invariants.json', 'utf8'))
-          console.log(`- Runtime registry orphan references: ${r.runtimeRegistryOrphans?.length ?? 0}`)
-          NODE
-          fi
-          echo '- Invalid profiles remain research-accessible but cannot stay indexable.' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Same-repository PRs reuse the exact governed CI export instead of rebuilding the site.' >> "$GITHUB_STEP_SUMMARY"
+          echo '- The receipt restores the hash-bound final public/data state before invariant and indexability validation.' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Deterministic invariant fixtures still run independently; final HTML visible-language and robots audits still run.' >> "$GITHUB_STEP_SUMMARY"
+          echo "- Producer SHA: ${{ inputs.producer_sha || 'none (self-built fallback)' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Receipt verified: ${{ steps.governed-verify.outcome == 'success' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo '- Missing, stale, or tampered artifacts fail closed to a complete build:deploy run.' >> "$GITHUB_STEP_SUMMARY"
