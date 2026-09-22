@@ -11,9 +11,9 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import EmailCapture from '../../../../components/EmailCapture'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Sleep Supplements for Insomnia: What Works, What Does Not',
+  title: 'Supplements for Insomnia: What Works & What Does Not',
   description:
-    'Evidence-ranked sleep supplements for insomnia: melatonin, magnesium, L-theanine, glycine, valerian, passionflower, ashwagandha, chamomile, tryptophan and tart cherry, with 25 clinical sources.',
+    'Which supplements may help insomnia or sleep? Evidence for melatonin, magnesium, L-theanine, glycine, valerian and other popular options, with limitations, safety and 25 clinical sources.',
   path: '/guides/other/sleep-supplements-guide/',
   openGraphType: 'article',
 })
