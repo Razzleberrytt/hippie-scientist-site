@@ -50,6 +50,18 @@ export const DOCS_ONLY_PATTERNS = [
  * route checks in `isLeafPagePath` narrow this further so shared/dynamic route
  * implementations cannot accidentally enter the fast path.
  */
+export const VALIDATION_ONLY_PATTERNS = [
+  /^docs\/(?:CURRENT_SPRINT|MASTER_BACKLOG|ROADMAP)\.md$/,
+  /^docs\/ops\/project-control-reconciliation\.md$/,
+  /^ops\/project-control\//,
+  /^scripts\/ci\/(?:reconcile-project-control|validate-project-control-admission)(?:\.test)?\.mjs$/,
+  /^\.github\/workflows\/project-control-reconciliation\.yml$/,
+  /^security\/audit-allowlist\.json$/,
+  /^security\/audit-allowlist\.d\/[^/]+\.json$/,
+  /^ops\/enrichment-governor\/(?:work-queue\.json|quarantine\.json|ledger\.jsonl)$/,
+  /^ops\/enrichment-governor\/transactions\/[^/]+\.json$/,
+]
+
 export const LEAF_PAGE_PATTERNS = [
   /^app\/.+\/page\.(?:tsx|ts|jsx|js|mdx)$/,
 ]
@@ -66,6 +78,11 @@ export function isDocsOnlyPath(file) {
 export function isReleaseSensitivePath(file) {
   const normalized = String(file || '').trim().replaceAll('\\', '/')
   return Boolean(normalized) && RELEASE_SENSITIVE_PATTERNS.some((pattern) => pattern.test(normalized))
+}
+
+export function isValidationOnlyPath(file) {
+  const normalized = String(file || '').trim().replaceAll('\\', '/')
+  return Boolean(normalized) && VALIDATION_ONLY_PATTERNS.some((pattern) => pattern.test(normalized))
 }
 
 export function isLeafPagePath(file) {
@@ -91,11 +108,15 @@ export function classifyReleaseImpact(files) {
   ))
   const sensitiveFiles = normalizedFiles.filter(isReleaseSensitivePath)
   const docsOnly = normalizedFiles.length > 0 && normalizedFiles.every(isDocsOnlyPath)
+  const validationOnly = !docsOnly && normalizedFiles.length > 0 && normalizedFiles.every(
+    (file) => isDocsOnlyPath(file) || isValidationOnlyPath(file),
+  )
   const leafPageOnly = normalizedFiles.length > 0 && normalizedFiles.every(isLeafPagePath)
   return {
     releaseSensitive: sensitiveFiles.length > 0,
     sensitiveFiles,
     docsOnly,
+    validationOnly,
     leafPageOnly,
     files: normalizedFiles,
   }
@@ -111,6 +132,7 @@ function main() {
   for (const file of result.sensitiveFiles) console.log(`[release-impact] sensitive: ${file}`)
   console.log(`[release-impact] release_sensitive=${result.releaseSensitive}`)
   console.log(`[release-impact] docs_only=${result.docsOnly}`)
+  console.log(`[release-impact] validation_only=${result.validationOnly}`)
   console.log(`[release-impact] leaf_page_only=${result.leafPageOnly}`)
 
   if (outputArg) {
@@ -118,6 +140,7 @@ function main() {
     if (!outputPath) throw new Error('--github-output requires a file path')
     fs.appendFileSync(outputPath, `release_sensitive=${result.releaseSensitive}\n`)
     fs.appendFileSync(outputPath, `docs_only=${result.docsOnly}\n`)
+    fs.appendFileSync(outputPath, `validation_only=${result.validationOnly}\n`)
     fs.appendFileSync(outputPath, `leaf_page_only=${result.leafPageOnly}\n`)
   }
 }

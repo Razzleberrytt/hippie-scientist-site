@@ -32,23 +32,27 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       - name: Classify validation impact
         id: impact
         if: github.event_name == 'pull_request'
         env:
-          BASE_REF: ${{ github.event.pull_request.base.ref }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
-          git fetch origin "$BASE_REF"
-          changed="$(git diff --name-only "origin/$BASE_REF"...HEAD)"
+          git fetch --no-tags --depth=1 origin "$BASE_SHA"
+          changed="$(git diff --name-only "$BASE_SHA" HEAD)"
           printf '%s\n' "$changed"
           printf '%s\n' "$changed" | node scripts/ci/classify-release-impact.mjs --github-output="$GITHUB_OUTPUT"
 
       - name: Docs-only validation fast path
         if: steps.impact.outputs.docs_only == 'true'
         run: echo "Docs-only PR; exhaustive app/data validation is delegated to the dedicated control/path-scoped workflows."
+
+      - name: Validation-only control fast path
+        if: steps.impact.outputs.validation_only == 'true'
+        run: echo "Build-output-neutral control/security change; run lint, focused control tests, and the fail-closed security audit without app/data/build suites."
 
       - name: Setup Node from .nvmrc
         if: steps.impact.outputs.docs_only != 'true'
@@ -78,27 +82,41 @@ jobs:
         run: npm run check:node
 
       - name: Validate workbook source
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: npm run validate:workbook-source
 
       - name: Validate static export compatibility
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: npm run validate:static-export
 
       - name: Generate route inventory
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: npm run routes:inventory
 
       - name: Run lint
         if: steps.impact.outputs.docs_only != 'true'
         run: npm run lint
 
+      - name: Run focused control-plane tests
+        if: steps.impact.outputs.validation_only == 'true'
+        run: >-
+          npx vitest run
+          scripts/ci/reconcile-project-control.test.mjs
+          scripts/ci/validate-project-control-admission.test.mjs
+          scripts/ci/classify-release-impact.test.mjs
+          scripts/ci/build-performance-contract.test.mjs
+      - name: Validate governor state on validation-only changes
+        if: steps.impact.outputs.validation_only == 'true'
+        run: |
+          node --test scripts/enrichment-governor/__tests__/*.test.mjs
+          node scripts/enrichment-governor/validate-state.mjs
+
       - name: Run typecheck
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: npm run typecheck
 
       - name: Run tests (vitest + a11y gate)
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: |
           set -o pipefail
           npm run test 2>&1 | tee vitest.log
@@ -112,11 +130,11 @@ jobs:
       # reached main. Discovery is by content, so new suites are covered here
       # automatically.
       - name: Run native node:test suites
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: npm run test:node
 
       - name: Upload Vitest log
-        if: always() && steps.impact.outputs.docs_only != 'true' && hashFiles('vitest.log') != ''
+        if: always() && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && hashFiles('vitest.log') != ''
         uses: actions/upload-artifact@v7
         with:
           name: vitest-log-${{ github.event.pull_request.head.sha || github.sha }}
@@ -124,19 +142,19 @@ jobs:
           retention-days: 7
 
       - name: Validate canonical data system (schema, SQLite, graph, freshness)
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: npm run data:ci
 
       - name: Generate Related Botanicals quality audit
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: npx tsx scripts/audit-related-botanicals.ts
 
       - name: Add Related Botanicals audit summary
-        if: always() && steps.impact.outputs.docs_only != 'true' && hashFiles('reports/related-botanicals/related-botanicals-audit.md') != ''
+        if: always() && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && hashFiles('reports/related-botanicals/related-botanicals-audit.md') != ''
         run: cat reports/related-botanicals/related-botanicals-audit.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload Related Botanicals audit
-        if: always() && steps.impact.outputs.docs_only != 'true' && hashFiles('reports/related-botanicals/*') != ''
+        if: always() && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && hashFiles('reports/related-botanicals/*') != ''
         uses: actions/upload-artifact@v7
         with:
           name: related-botanicals-audit-${{ github.event.pull_request.head.sha || github.sha }}
@@ -144,11 +162,11 @@ jobs:
           retention-days: 30
 
       - name: Guard workbook source of truth
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: npm run guard:source-of-truth
 
       - name: Audit cluster-member runtime trust
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: npm run audit:cluster-member-trust:strict
 
       - name: Run security audit gate
@@ -186,8 +204,11 @@ jobs:
           echo "## CI validation/test lane" >> "$GITHUB_STEP_SUMMARY"
           echo "- Runs independently of the production build lane to shorten the critical path." >> "$GITHUB_STEP_SUMMARY"
           echo "- Docs-only: ${{ steps.impact.outputs.docs_only || 'false' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Validation-only: ${{ steps.impact.outputs.validation_only || 'false' }}" >> "$GITHUB_STEP_SUMMARY"
           if [ "${{ steps.impact.outputs.docs_only }}" = "true" ]; then
             echo "- Fast path: exhaustive app/data validation skipped because every changed file is classified docs-only; dedicated path-scoped governance checks remain authoritative." >> "$GITHUB_STEP_SUMMARY"
+          elif [ "${{ steps.impact.outputs.validation_only }}" = "true" ]; then
+            echo "- Fast path: lint + focused control tests + security audit; app/data/full-test suites skipped because the exact path classifier proves the diff cannot alter public build output." >> "$GITHUB_STEP_SUMMARY"
           else
             echo "- Coverage: lint, typecheck, Vitest/a11y, canonical data, workbook parity, runtime trust, and security audit." >> "$GITHUB_STEP_SUMMARY"
           fi
@@ -202,7 +223,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       - name: Resolve exact producer context
@@ -254,22 +275,26 @@ jobs:
         id: impact
         if: steps.context.outputs.pr_number != ''
         env:
-          BASE_REF: ${{ steps.context.outputs.base_ref }}
+          BASE_SHA: ${{ steps.context.outputs.base_sha }}
         run: |
-          git fetch origin "$BASE_REF"
-          changed="$(git diff --name-only "origin/$BASE_REF"...HEAD)"
+          git fetch --no-tags --depth=1 origin "$BASE_SHA"
+          changed="$(git diff --name-only "$BASE_SHA" HEAD)"
           printf '%s\n' "$changed"
           printf '%s\n' "$changed" | node scripts/ci/classify-release-impact.mjs --github-output="$GITHUB_OUTPUT"
 
+      - name: Validation-only production fast path
+        if: steps.impact.outputs.validation_only == 'true'
+        run: echo "Build-output-neutral validation/control change; production render/output consumers are intentionally not required."
+
       - name: Setup Node from .nvmrc
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: npm
 
       - name: Cache Next.js build cache
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         uses: actions/cache@v6
         with:
           path: |
@@ -280,7 +305,7 @@ jobs:
             ${{ runner.os }}-nextjs-
 
       - name: Restore deterministic build intermediates
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         uses: actions/cache@v6
         with:
           path: |
@@ -292,37 +317,37 @@ jobs:
             ${{ runner.os }}-build-deploy-intermediates-v1-
 
       - name: Install dependencies
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: npm ci --no-audit --fund=false
 
       - name: Verify package metadata is unchanged after install
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: git diff --exit-code package-lock.json package.json
 
       - name: Verify Node engine
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: npm run check:node
 
       - name: Validate workbook source
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: npm run validate:workbook-source
 
       - name: Validate static export compatibility
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: npm run validate:static-export
 
       - name: Build application
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         env:
           COMMIT_HASH: ${{ steps.context.outputs.source_sha }}
         run: npm run build:deploy
 
       - name: Verify build output
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: npm run verify:output
 
       - name: Write governed static export receipt
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: >-
           node scripts/ci/governed-static-export.mjs write
           --source-sha "${{ steps.context.outputs.source_sha }}"
@@ -330,7 +355,7 @@ jobs:
           --run-id "$GITHUB_RUN_ID"
 
       - name: Upload governed static export
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         uses: actions/upload-artifact@v7
         with:
           name: governed-static-export-${{ steps.context.outputs.source_sha }}
@@ -343,7 +368,7 @@ jobs:
           include-hidden-files: true
 
       - name: Generate SEO audit reports
-        if: always() && steps.impact.outputs.docs_only != 'true'
+        if: always() && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: |
           if ! find out -type f -name '*.html' -print -quit 2>/dev/null | grep -q .; then
             echo "No built HTML available; refreshing route manifest for fallback SEO audit."
@@ -352,11 +377,11 @@ jobs:
           npm run audit:seo-reports
 
       - name: Generate indexability candidate report
-        if: always() && steps.impact.outputs.docs_only != 'true'
+        if: always() && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: npm run indexability:report
 
       - name: Audit internal links through redirects
-        if: always() && steps.impact.outputs.docs_only != 'true'
+        if: always() && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: node scripts/ci/audit-internal-redirect-links.mjs
 
       - name: Upload SEO audit reports
@@ -371,11 +396,11 @@ jobs:
           if-no-files-found: ignore
 
       - name: Validate route SEO coverage
-        if: steps.impact.outputs.docs_only != 'true'
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: npm run validate:route-seo
 
       - name: Dispatch exact-head governed export consumers
-        if: success() && steps.context.outputs.pr_number != '' && steps.impact.outputs.docs_only != 'true' && (github.event_name != 'pull_request' || (github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]'))
+        if: success() && steps.context.outputs.pr_number != '' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && (github.event_name != 'pull_request' || (github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]'))
         env:
           GH_TOKEN: ${{ github.token }}
           HEAD_REF: ${{ steps.context.outputs.head_ref }}

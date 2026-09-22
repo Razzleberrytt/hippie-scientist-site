@@ -14,6 +14,11 @@ const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === 'tr
 // runner for static generation in CI, while keeping the conservative 2-worker
 // ceiling on Cloudflare and local/unknown build hosts.
 const staticGenerationCpus = process.env.GITHUB_ACTIONS === 'true' ? 4 : 2
+// Next 15 defaults to 8 pages per static-generation worker. The measured GitHub
+// build is dominated by 1,570-page static generation, so trial a bounded 12-page
+// concurrency only on the known 4-vCPU/16-GB hosted runner. Other hosts retain
+// Next's default 8-page setting.
+const staticGenerationMaxConcurrency = process.env.GITHUB_ACTIONS === 'true' ? 12 : 8
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -44,6 +49,7 @@ const nextConfig = {
     // GitHub CI has a known 4-core/16-GB runner; other build hosts stay at 2
     // workers to preserve the existing memory-safety envelope.
     cpus: staticGenerationCpus,
+    staticGenerationMaxConcurrency,
   },
   images: {
     // Static export cannot use Next's *runtime* optimizer, but it can use a
