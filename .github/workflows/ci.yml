@@ -420,19 +420,40 @@ jobs:
             --arg base "$BASE_SHA" \
             --arg pr "$PR_NUMBER" \
             '{ref:$ref,inputs:{producer_run_id:$run,producer_sha:$source,producer_base_sha:$base,producer_pr_number:$pr}}')"
+
+          # The CI producer owns the only normal same-repository PR build.
+          # Downstream output-dependent gates consume its hash-bound artifact.
           consumers=(build-check.yml lighthouse.yml production-content-lint.yml)
-          for workflow in build-check.yml lighthouse.yml; do
-            printf '%s' "$payload" | gh api --method POST "repos/${{ github.repository }}/actions/workflows/$workflow/dispatches" --input -
+          changed="$(git diff --name-only "$BASE_SHA" HEAD)"
+          printf '%s\n' "$changed"
+
+          if printf '%s\n' "$changed" | grep -Eq '^(data/|data-sources/|public/data/|content/|app/|components/|lib/|scripts/data/|scripts/lib/production-content-invariants\.mjs$|scripts/lib/runtime-source-registry-audit\.mjs$|scripts/ci/test-runtime-source-registry-audit\.mjs$|scripts/ci/[^/]*production[^/]*$|\.github/workflows/production-content-invariants\.yml$)'; then
+            consumers+=(production-content-invariants.yml)
+          fi
+          if printf '%s\n' "$changed" | grep -Eq '^(app/|components/|lib/|public/_redirects$|scripts/ci/audit-page-category-robots\.mjs$|scripts/ci/audit-profile-robots\.mjs$|scripts/ci/audit-static-crawl-surface\.mjs$|\.github/workflows/crawl-governance\.yml$)'; then
+            consumers+=(crawl-governance.yml)
+          fi
+          if printf '%s\n' "$changed" | grep -Eq '^(app/|components/|lib/|public/data/|data/evidence/|data/media/|scripts/ci/audit-schema-policy\.mjs$|scripts/ci/audit-structured-data\.mjs$|scripts/media/|\.github/workflows/schema-media-governance\.yml$)'; then
+            consumers+=(schema-media-governance.yml)
+          fi
+          if printf '%s\n' "$changed" | grep -Eq '^(app/|components/|lib/|public/_redirects$|public/redirect-overrides/|scripts/ci/audit-technical-seo-contract\.mjs$|scripts/monitor/production-seo-health[^/]*\.mjs$|\.github/workflows/technical-seo-monitor\.yml$)'; then
+            consumers+=(technical-seo-monitor.yml)
+          fi
+
+          for workflow in "${consumers[@]}"; do
+            if [ "$workflow" = "production-content-lint.yml" ]; then
+              dispatch_payload="$(jq -c --arg pr "$PR_NUMBER" '.inputs.recovery_pr_number=$pr' <<<"$payload")"
+            else
+              dispatch_payload="$payload"
+            fi
+            printf '%s' "$dispatch_payload" | gh api --method POST "repos/${{ github.repository }}/actions/workflows/$workflow/dispatches" --input -
             echo "Dispatched $workflow for exact head $SOURCE_SHA"
           done
-          lint_payload="$(jq -c --arg pr "$PR_NUMBER" '.inputs.recovery_pr_number=$pr' <<<"$payload")"
-          printf '%s' "$lint_payload" | gh api --method POST "repos/${{ github.repository }}/actions/workflows/production-content-lint.yml/dispatches" --input -
-          echo "Dispatched production-content-lint.yml for exact head $SOURCE_SHA"
 
           # Close the dispatch-registration race without holding this runner for
           # consumer completion. The autonomous merge controller observes both
-          # pull_request and workflow_dispatch runs and will wait for the newest
-          # exact-head consumer runs to become terminal before merging.
+          # pull_request and workflow_dispatch runs and waits for exact-head
+          # consumers to become terminal before merging.
           for workflow in "${consumers[@]}"; do
             registered_run=""
             for attempt in $(seq 1 20); do
@@ -471,7 +492,7 @@ jobs:
           echo "- Exact base SHA: ${{ steps.context.outputs.base_sha || github.sha }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Governed static export is hash-bound to source/base/lockfile/output and fans out only after this build succeeds." >> "$GITHUB_STEP_SUMMARY"
           echo "- Consumer dispatch registration is proven before CI can finish; the autonomous merge controller then waits for exact-head consumer completion." >> "$GITHUB_STEP_SUMMARY"
-          echo "- Build Check, Lighthouse, and Production Content Lint reuse that artifact; artifact miss/mismatch falls back to a complete build." >> "$GITHUB_STEP_SUMMARY"
+          echo "- Build Check, Lighthouse, Production Content Lint, and every triggered build-dependent governance consumer reuse that artifact; artifact miss/mismatch falls back to a complete build." >> "$GITHUB_STEP_SUMMARY"
           echo "- Unprivileged fork/Dependabot PRs self-build consumer audits rather than attempting a forbidden workflow dispatch." >> "$GITHUB_STEP_SUMMARY"
           echo "- Docs-only: ${{ steps.impact.outputs.docs_only || 'false' }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Status: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
