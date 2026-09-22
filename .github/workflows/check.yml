@@ -62,14 +62,14 @@ jobs:
           printf '%s\n' "$changed" | node scripts/ci/classify-release-impact.mjs --github-output="$GITHUB_OUTPUT"
 
       - name: Use Node
-        if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.recovery_pr_number == '')
+        if: github.event_name == 'workflow_dispatch' && inputs.recovery_pr_number == ''
         uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: npm
 
       - name: Cache Next.js build cache
-        if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.recovery_pr_number == '')
+        if: github.event_name == 'workflow_dispatch' && inputs.recovery_pr_number == ''
         uses: actions/cache@v6
         with:
           path: |
@@ -80,16 +80,21 @@ jobs:
             ${{ runner.os }}-nextjs-
 
       - name: Install deps
-        if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.recovery_pr_number == '')
+        if: github.event_name == 'workflow_dispatch' && inputs.recovery_pr_number == ''
         run: npm ci --no-audit --fund=false
 
       - name: Verify Node engine
-        if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.recovery_pr_number == '')
+        if: github.event_name == 'workflow_dispatch' && inputs.recovery_pr_number == ''
         run: npm run check:node
 
       - name: Run full check
-        if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.recovery_pr_number == '')
+        if: github.event_name == 'workflow_dispatch' && inputs.recovery_pr_number == ''
         run: npm run check:full
+
+      - name: Delegate exact-main validation to standard CI
+        if: github.event_name == 'push'
+        run: |
+          echo 'Main CI owns exhaustive exact-merge validation and the governed production build; Site Health does not repeat check:full on the same merge SHA.'
 
       - name: Delegate scoped exact-head validation to standard CI
         if: github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.recovery_pr_number != '')
