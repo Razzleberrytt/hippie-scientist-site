@@ -3,7 +3,7 @@ slug: valerian-root
 title: "Valerian Root for Sleep: Does It Work? Evidence Review (2026)"
 description: "Does valerian root actually help sleep or insomnia? An 18-source evidence review covering the 2024 umbrella review, preparation-specific trials, newer combination evidence, dose uncertainty, current safety guidance, interactions and how valerian compares with real insomnia treatment."
 date: '2026-06-06'
-updatedAt: '2026-09-18'
+updatedAt: '2026-09-22'
 author: Will
 category: Anxiety & Sleep
 keywords:
@@ -119,6 +119,9 @@ references:
     year: "2026"
     url: "https://www.ema.europa.eu/en/medicines/herbal/valerianae-radix"
 ---
+
+> **Quick answer:** Valerian has mixed, preparation-specific sleep evidence rather than a consistent class-wide insomnia effect. A positive trial of one standardized extract does not establish that every valerian tea, capsule, tincture, or combination product works the same way. Current insomnia guidelines do not place valerian alongside CBT-I as an evidence-equivalent treatment, and combination trials should not be attributed to valerian alone.
+
 
 > **Evidence verdict:** Valerian root is **not an established treatment for insomnia**. The highest-level current synthesis—a 2024 umbrella review—found no demonstrated insomnia-treatment efficacy, although some older reviews and trials suggest a possible **subjective sleep-quality** benefit. A newer randomized trial of one standardized extract reported both subjective and objective improvements, but a positive product-specific study does not overturn the broader heterogeneous evidence base. The fairest conclusion is **promising signals for certain preparations, low confidence in a class-wide insomnia effect**.
 
