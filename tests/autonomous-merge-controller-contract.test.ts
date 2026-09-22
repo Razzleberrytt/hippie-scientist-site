@@ -18,24 +18,31 @@ describe('autonomous merge controller contract', () => {
     expect(workflow).not.toContain('github.event.pull_request.head.ref')
   })
 
-  it('keeps privileged consumer wake orchestration on the trusted default branch', () => {
-    const wake = read('.github/workflows/governed-consumer-wake.yml')
-    expect(wake).toContain('workflow_run:')
-    expect(wake).toContain('types: [completed]')
-    expect(wake).toContain("github.event.workflow_run.event == 'workflow_dispatch'")
-    expect(wake).toContain('actions: write')
-    expect(wake).toContain('commits/$HEAD_SHA/pulls')
-    expect(wake).toContain('gh workflow run autonomous-merge-controller.yml --ref main')
+  it('lets governed consumers wake only the trusted main-branch controller', () => {
+    const legacyWake = read('.github/workflows/governed-consumer-wake.yml')
+    expect(legacyWake).toContain('workflow_run:')
+    expect(legacyWake).toContain('actions: write')
+    expect(legacyWake).toContain('gh workflow run autonomous-merge-controller.yml --ref main')
 
     for (const workflowPath of [
       '.github/workflows/build-check.yml',
       '.github/workflows/lighthouse.yml',
       '.github/workflows/production-content-lint.yml',
+      '.github/workflows/production-content-invariants.yml',
+      '.github/workflows/crawl-governance.yml',
+      '.github/workflows/schema-media-governance.yml',
+      '.github/workflows/technical-seo-monitor.yml',
     ]) {
       const consumer = read(workflowPath)
-      expect(consumer).toContain('actions: read')
-      expect(consumer).not.toContain('actions: write')
-      expect(consumer).not.toContain('Wake autonomous merge controller')
+      expect(consumer).toContain('actions: write')
+      expect(consumer).toContain('name: Wake trusted merge controller')
+      expect(consumer).toContain('gh workflow run autonomous-merge-controller.yml')
+      expect(consumer).toContain('--ref main')
+      expect(consumer).toContain('-f "pr_number=$PRODUCER_PR_NUMBER"')
+      expect(consumer).toContain('-f "expected_head_sha=$PRODUCER_SHA"')
+      expect(consumer).not.toContain('contents: write')
+      expect(consumer).not.toContain('pull-requests: write')
+      expect(consumer).not.toContain('gh pr merge')
     }
   })
 
