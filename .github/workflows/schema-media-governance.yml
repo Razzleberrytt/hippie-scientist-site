@@ -36,63 +36,127 @@ on:
       - 'scripts/media/**'
       - '.github/workflows/schema-media-governance.yml'
   workflow_dispatch:
+    inputs:
+      producer_run_id:
+        description: CI run containing the governed static export artifact
+        required: false
+        type: string
+      producer_sha:
+        description: Exact PR head SHA bound into the governed static export receipt
+        required: false
+        type: string
+      producer_base_sha:
+        description: Exact PR base SHA bound into the governed static export receipt
+        required: false
+        type: string
+      producer_pr_number:
+        description: PR number that produced the governed static export
+        required: false
+        type: string
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
+  actions: read
   contents: read
 
 jobs:
   schema-and-media:
-    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository || github.actor == 'dependabot[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
+      - name: Reject stale producer dispatch
+        if: inputs.producer_sha != ''
+        env:
+          PRODUCER_SHA: ${{ inputs.producer_sha }}
+        run: |
+          if [ "$GITHUB_SHA" != "$PRODUCER_SHA" ]; then
+            echo "Producer dispatch is stale: workflow head=$GITHUB_SHA producer=$PRODUCER_SHA"
+            exit 1
+          fi
+
       - uses: actions/checkout@v7
         with:
-          fetch-depth: 0
+          fetch-depth: 1
+          ref: ${{ inputs.producer_sha || github.sha }}
+
       - name: Classify release impact
         id: impact
-        if: github.event_name == 'pull_request'
+        if: inputs.producer_pr_number != '' || github.event_name == 'pull_request'
         env:
-          BASE_REF: ${{ github.base_ref }}
+          BASE_SHA: ${{ inputs.producer_base_sha || github.event.pull_request.base.sha }}
         run: |
-          git fetch origin "$BASE_REF"
-          changed="$(git diff --name-only "origin/$BASE_REF"...HEAD)"
+          git fetch --no-tags --depth=1 origin "$BASE_SHA"
+          changed="$(git diff --name-only "$BASE_SHA" HEAD)"
           printf '%s\n' "$changed"
           printf '%s\n' "$changed" | node scripts/ci/classify-release-impact.mjs --github-output="$GITHUB_OUTPUT"
+
       - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: npm
-      - run: npm ci
+
+      - name: Install dependencies
+        run: npm ci --no-audit --fund=false
+
       - name: Run shared schema regression tests
         run: >-
           npx vitest run
           lib/__tests__/schema-graph.test.ts
           lib/__tests__/schema-injector.test.ts
           lib/__tests__/structured-data.test.ts
-      - name: Build static export
+
+      - name: Download governed static export
+        id: governed-download
+        if: inputs.producer_run_id != '' && inputs.producer_sha != ''
+        continue-on-error: true
+        uses: actions/download-artifact@v7
+        with:
+          name: governed-static-export-${{ inputs.producer_sha }}
+          path: .
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.producer_run_id }}
+
+      - name: Verify governed static export receipt
+        id: governed-verify
+        if: steps.governed-download.outcome == 'success'
+        continue-on-error: true
+        run: >-
+          node scripts/ci/governed-static-export.mjs verify
+          --source-sha "${{ inputs.producer_sha }}"
+          --base-sha "${{ inputs.producer_base_sha }}"
+
+      - name: Build static export fallback
+        if: steps.governed-verify.outcome != 'success'
         env:
-          COMMIT_HASH: ${{ github.sha }}
-        run: npm run build:deploy
+          COMMIT_HASH: ${{ inputs.producer_sha || github.sha }}
+        run: |
+          rm -rf out .governed-static-export.json
+          npm run build:deploy
+
       - name: Existing structured-data completeness audit
         env:
           FULL_HTML_AUDIT: '1'
         run: node scripts/ci/audit-structured-data.mjs
+
       - name: Enforce schema safety and truthfulness policy
         run: node scripts/ci/audit-schema-policy.mjs
+
       - name: Generate review-only research graphics
-        if: github.event_name != 'pull_request' || steps.impact.outputs.leaf_page_only != 'true'
+        if: steps.impact.outputs.leaf_page_only != 'true'
         run: node scripts/media/build-research-graphics.mjs
+
       - name: Validate graphic promotion registry
-        if: github.event_name != 'pull_request' || steps.impact.outputs.leaf_page_only != 'true'
+        if: steps.impact.outputs.leaf_page_only != 'true'
         run: node scripts/media/promote-reviewed-research-graphics.mjs --check
+
       - name: Leaf-page media fast path
-        if: github.event_name == 'pull_request' && steps.impact.outputs.leaf_page_only == 'true'
+        if: steps.impact.outputs.leaf_page_only == 'true'
         run: echo 'Leaf-page-only change; schema validation remains full, while unrelated research-graphics generation/promotion checks are skipped.'
+
       - name: Upload reports and graphics for review
         if: always()
         uses: actions/upload-artifact@v7
@@ -104,3 +168,12 @@ jobs:
             artifacts/research-graphics/
           if-no-files-found: ignore
           retention-days: 30
+
+      - name: Report governed export reuse
+        if: always()
+        run: |
+          echo '## Schema and Media Governance' >> "$GITHUB_STEP_SUMMARY"
+          echo "- Producer SHA: ${{ inputs.producer_sha || 'none (self-built fallback)' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Governed receipt verified: ${{ steps.governed-verify.outcome == 'success' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo '- Same-repository PRs audit the exact CI export instead of rebuilding it.' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Schema tests and safety/truthfulness audits are unchanged; leaf-page media fast path is preserved.' >> "$GITHUB_STEP_SUMMARY"
