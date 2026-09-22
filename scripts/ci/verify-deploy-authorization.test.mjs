@@ -14,12 +14,15 @@ describe('deployment authorization boundary', () => {
     expect(verifier).toContain('Direct pushes and ambiguous merge provenance fail closed')
   })
 
-  it('binds authorization to the exact merged PR head', () => {
+  it('binds validation reuse to the exact merged PR head and exact base', () => {
     const verifier = read('scripts/ci/verify-deploy-authorization.mjs')
     expect(verifier).toContain("const context = 'autonomous-merge/authorized'")
+    expect(verifier).toContain("const validatedContext = 'autonomous-merge/validated'")
     expect(verifier).toContain('const headSha = pr.head?.sha')
+    expect(verifier).toContain('const baseSha = fullPr.base?.sha')
     expect(verifier).toContain('/commits/${headSha}/status')
-    expect(verifier).toContain("item.context === context && item.state === 'success'")
+    expect(verifier).toContain('item.context === validatedContext')
+    expect(verifier).toContain('item.description === expected')
   })
 
   it('accepts a merge performed by the repository owner', () => {
@@ -38,13 +41,12 @@ describe('deployment authorization boundary', () => {
     expect(verifier).toContain('fullPr.merged_by?.login')
   })
 
-  it('checks the owner before polling, so an owner merge does not wait for a receipt that never arrives', () => {
+  it('checks the exact-head validation receipt before the owner/manual fallback', () => {
     const verifier = read('scripts/ci/verify-deploy-authorization.mjs')
+    const validatedAt = verifier.indexOf('findValidatedReceipt(initialStatus')
     const ownerAt = verifier.indexOf('mergedBy.toLowerCase() === owner.toLowerCase()')
-    const pollAt = verifier.indexOf('for (let attempt = 1')
-    expect(ownerAt).toBeGreaterThan(-1)
-    expect(pollAt).toBeGreaterThan(-1)
-    expect(ownerAt).toBeLessThan(pollAt)
+    expect(validatedAt).toBeGreaterThan(-1)
+    expect(ownerAt).toBeGreaterThan(validatedAt)
   })
 
   it('still fails closed for a merge by anyone else without a receipt', () => {
@@ -55,15 +57,17 @@ describe('deployment authorization boundary', () => {
     expect(verifier).toContain('rather than the repository owner')
   })
 
-  it('permits deploy validation reuse only for a controller-authorized identical merge tree', () => {
+  it('permits deploy validation reuse only when both merge tree and validated base are identical', () => {
     const verifier = read('scripts/ci/verify-deploy-authorization.mjs')
     expect(verifier).toContain('writeOutput')
     expect(verifier).toContain("writeOutput('skip_redundant_validation'")
+    expect(verifier).toContain("writeOutput('base_identical'")
     expect(verifier).toContain('api(`/git/commits/${mergeSha}`)')
     expect(verifier).toContain('api(`/git/commits/${headSha}`)')
     expect(verifier).toContain('mergeTree === headTree')
-    expect(verifier).toContain("mode: 'controller'")
-    expect(verifier).toContain('skipRedundantValidation: treeIdentical')
+    expect(verifier).toContain('mergeBase === baseSha')
+    expect(verifier).toContain("mode: 'validated-head'")
+    expect(verifier).toContain('const reusable = treeIdentical && baseIdentical')
     expect(verifier).toContain("mode: 'owner'")
     expect(verifier).toContain('skipRedundantValidation: false')
   })

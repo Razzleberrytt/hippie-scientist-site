@@ -138,6 +138,20 @@ describe('autonomous merge controller contract', () => {
     expect(controller).toContain('zero-job control-plane failure recovered through canonical workflow dispatch')
   })
 
+  it('attests terminal-green exact head/base validation from the trusted monitor before merge mutation', () => {
+    const workflow = read('.github/workflows/autonomous-merge-controller.yml')
+    const monitorJob = workflow.match(/ {2}merge-controller:\n([\s\S]*?)\n {2}merge-commit:/)?.[1] || ''
+
+    expect(monitorJob).toContain('statuses: write')
+    expect(monitorJob).toContain('Attest exact-head validation')
+    expect(monitorJob).toContain("if: steps.monitor.outputs.ready == 'true'")
+    expect(monitorJob).toContain("context='autonomous-merge/validated'")
+    expect(monitorJob).toContain('steps.monitor.outputs.head_sha')
+    expect(monitorJob).toContain('steps.monitor.outputs.base_sha')
+    expect(monitorJob).toContain('exact-head validated on $VALIDATED_BASE_SHA')
+    expect(monitorJob).toContain('persist-credentials: false')
+  })
+
   it('serializes the mutation step and rechecks exact-base ancestry immediately before merge', () => {
     const workflow = read('.github/workflows/autonomous-merge-controller.yml')
     const controller = read('scripts/ci/autonomous-merge-controller.mjs')
