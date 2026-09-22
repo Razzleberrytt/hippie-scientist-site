@@ -111,6 +111,22 @@ describe('CI build performance contracts', () => {
     expect(verifier).toContain('Promise.all(groups.map')
   })
 
+  it('indexes redirect-source lookups instead of rescanning every redirect for every link', () => {
+    const audit = read('scripts/ci/audit-internal-links.mjs')
+
+    expect(audit).toContain('const exactRedirectSources = new Set()')
+    expect(audit).toContain('const redirectSourcePrefixes = []')
+    expect(audit).toContain('exactRedirectSources.has(normalizedRoute)')
+    expect(audit).not.toContain('redirectSourcePatterns.some((source)')
+    expect(audit).not.toContain('[internal-links] Scanning ${fileIndex}')
+  })
+
+  it('favors governed-artifact upload latency over default compression', () => {
+    const workflow = read('.github/workflows/ci.yml')
+
+    expect(workflow).toContain('compression-level: 1')
+  })
+
   it('persists only integrity-checked build intermediates on the production build lane', () => {
     const workflow = read('.github/workflows/ci.yml')
     const manager = read('scripts/cache/build-cache-manager.mjs')
