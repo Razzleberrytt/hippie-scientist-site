@@ -21,6 +21,15 @@ describe('autonomous merge workflow refresh safety', () => {
     expect(canAutoRefreshPr(['.github/ISSUE_TEMPLATE/bug.yml'])).toBe(true)
   })
 
+  it('treats an exact validated merge observed during terminal revalidation as success instead of refreshing a closed workflow PR', () => {
+    expect(controller).toContain('async function exactValidatedMergeObserved')
+    expect(controller).toContain('pr.merged')
+    expect(controller).toContain('parentShas.includes(validatedBaseSha)')
+    expect(controller).toContain('parentShas.includes(headSha)')
+    expect(controller).toContain('mergeTree === headTree')
+    expect(controller).toContain('treating the merge as terminal success')
+  })
+
   it('places the fail-closed guard before every update-branch mutation path', () => {
     expect(refreshFunction).toContain('const changedFiles = await getPrFiles(repo, pr.number)')
     expect(refreshFunction).toContain('if (!canAutoRefreshPr(changedFiles))')
