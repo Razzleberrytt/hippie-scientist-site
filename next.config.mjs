@@ -52,7 +52,9 @@ const nextConfig = {
     // the global Tailwind/CSS surface is shared across the initial route shell.
     // Navigation loads can still use normal stylesheet links to avoid repeatedly
     // duplicating cached CSS.
-    inlineCss: true,
+    // A/B experiment for #5869: compare external shared CSS against the
+    // current inline-CSS export for build finalization, artifact size, and CWV.
+    inlineCss: false,
     // GitHub CI has a known 4-core/16-GB runner; other build hosts stay at 2
     // workers to preserve the existing memory-safety envelope.
     cpus: staticGenerationCpus,
