@@ -36,6 +36,10 @@ describe('CI build performance contracts', () => {
       expect(ci, command).toContain(command)
     }
     expect(ci).toContain('Run supplemental release-quality validators')
+    const verifyIndex = ci.indexOf('name: Verify build output')
+    const supplementalIndex = ci.indexOf('name: Run supplemental release-quality validators')
+    expect(verifyIndex).toBeGreaterThan(-1)
+    expect(supplementalIndex).toBeGreaterThan(verifyIndex)
     expect(atomic).toContain('Delegate release-quality suite to authoritative CI')
     expect(atomic).not.toContain('npm run validate:release')
     expect(atomic).not.toContain('npm ci --no-audit --fund=false')
