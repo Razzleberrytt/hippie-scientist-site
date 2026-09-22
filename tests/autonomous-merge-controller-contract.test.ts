@@ -220,19 +220,23 @@ describe('autonomous merge controller contract', () => {
     expect(controller).toContain('fallback sweep will continue ownership')
   })
 
-  it('preserves direct-main deploy as primary and dispatches only when a controller merge lacks a deploy run', () => {
+  it('lets successful exact-main CI own normal deploy handoff and self-dispatches only when CI/deploy are both absent', () => {
     const workflow = read('.github/workflows/autonomous-merge-controller.yml')
     const deploy = read('.github/workflows/deploy.yml')
 
-    expect(deploy).toContain('push:')
-    expect(deploy).toContain('- main')
+    expect(deploy).toContain('workflow_run:')
+    expect(deploy).toContain('workflows: [CI]')
     expect(deploy).toContain('workflow_dispatch:')
     expect(workflow).toContain('Ensure merged PR enters deploy lifecycle')
     expect(workflow).toContain('pulls/$PR_NUMBER')
     expect(workflow).toContain('if [ "$merged" != "true" ]')
     expect(workflow).toContain('actions/runs?head_sha=$main_sha')
     expect(workflow).toContain('select(.name == "Deploy to Cloudflare Pages")')
+    expect(workflow).toContain('select(.name == "CI")')
+    expect(workflow).toContain('if [ "$deploy_count" -gt 0 ]')
+    expect(workflow).toContain('elif [ "$ci_count" -gt 0 ]')
+    expect(workflow).toContain('successful CI completion owns the deploy handoff')
     expect(workflow).toContain('actions/workflows/deploy.yml/dispatches')
-    expect(workflow).toContain('if [ "$deploy_count" -eq 0 ]')
+    expect(workflow).toContain('deploy.yml self-build fallback')
   })
 })
