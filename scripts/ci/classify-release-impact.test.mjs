@@ -221,7 +221,7 @@ describe('workflow release-impact contract', () => {
     expect(ci).toContain('npm run audit:high')
     expect(ci).toContain("if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'")
     expect(siteHealth).toContain("steps.impact.outputs.validation_only == 'true'")
-    expect(siteHealth).toContain("steps.impact.outputs.validation_only != 'true'")
+    expect(siteHealth).toContain('Delegate scoped exact-head validation to standard CI')
     expect(atomic).toContain('name: Validation-only fast path')
     expect(atomic).toContain("steps.impact.outputs.validation_only != 'true'")
   })
@@ -231,7 +231,7 @@ describe('workflow release-impact contract', () => {
     const atomic = fs.readFileSync(path.join(process.cwd(), '.github/workflows/atomic-upgrade-gate.yml'), 'utf8')
     const invariants = fs.readFileSync(path.join(process.cwd(), '.github/workflows/production-content-invariants.yml'), 'utf8')
 
-    expect(siteHealth).toContain("steps.impact.outputs.leaf_page_only != 'true'")
+    expect(siteHealth).toContain('Delegate scoped exact-head validation to standard CI')
     expect(siteHealth).toContain('Leaf-page-only change; CI production build/output/SEO remains authoritative')
     expect(atomic).toContain("steps.impact.outputs.leaf_page_only != 'true'")
     expect(atomic).toContain('Leaf-page-only change; skip duplicate full release suite')
