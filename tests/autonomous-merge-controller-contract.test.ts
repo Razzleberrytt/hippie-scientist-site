@@ -114,15 +114,19 @@ describe('autonomous merge controller contract', () => {
       expect(read(workflowPath)).toContain('workflow_dispatch:')
     }
 
+    const ci = read('.github/workflows/ci.yml')
+    const siteHealth = read('.github/workflows/check.yml')
     const atomic = read('.github/workflows/atomic-upgrade-gate.yml')
     const buildQuality = read('.github/workflows/build-quality-regression.yml')
     const productionLint = read('.github/workflows/production-content-lint.yml')
+    expect(ci).toContain('recovery_pr_number')
+    expect(siteHealth).toContain('recovery_pr_number')
     expect(atomic).toContain('recovery_pr_number')
     expect(atomic).toContain('recovery_base_ref')
     expect(buildQuality).toContain('recovery_pr_number')
     expect(buildQuality).toContain('recovery_base_ref')
     expect(productionLint).toContain('recovery_pr_number')
-    for (const workflow of [atomic, buildQuality, productionLint]) {
+    for (const workflow of [ci, siteHealth, atomic, buildQuality, productionLint]) {
       expect(workflow).toContain('pull-requests: read')
       expect(workflow).toContain('gh api')
     }
@@ -135,6 +139,9 @@ describe('autonomous merge controller contract', () => {
     expect(controller).toContain("run.conclusion === 'action_required'")
     expect(controller).toContain('getRunJobs')
     expect(controller).toContain('jobs.length !== 0')
+    expect(controller).toContain("CI_OWNED_RECOVERY_CONSUMERS = new Set(['Build Check', 'Lighthouse CI', 'Production Content Lint'])")
+    expect(controller).toContain("failedRuns.some((run) => run.name === 'CI')")
+    expect(controller).toContain('CI recovery owns governed consumer fan-out')
     expect(controller).toContain('zero-job control-plane failure recovered through canonical workflow dispatch')
   })
 
