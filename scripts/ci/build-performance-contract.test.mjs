@@ -68,6 +68,22 @@ describe('CI build performance contracts', () => {
     }
   })
 
+  it('moves script-only Vitest files out of jsdom without oversubscribing GitHub CPUs', () => {
+    const config = read('vitest.config.ts')
+
+    expect(config).toContain("name: 'scripts-node'")
+    expect(config).toContain("environment: 'node'")
+    expect(config).toContain("include: [SCRIPT_TEST_GLOB]")
+    expect(config).toContain('setupFiles: []')
+    expect(config).toContain("maxWorkers: GITHUB_ACTIONS ? 1 : '25%'")
+    expect(config).toContain("name: 'app-dom'")
+    expect(config).toContain("environment: 'jsdom'")
+    expect(config).toContain("exclude: [...TEST_EXCLUDES, 'scripts/**']")
+    expect(config).toContain("maxWorkers: GITHUB_ACTIONS ? 3 : '75%'")
+    expect(config.match(/extends: true/g)?.length).toBeGreaterThanOrEqual(2)
+  })
+
+
   it('uses the full public GitHub runner only inside GitHub Actions', () => {
     const config = read('next.config.mjs')
 
