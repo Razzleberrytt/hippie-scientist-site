@@ -58,6 +58,8 @@ export const VALIDATION_ONLY_PATTERNS = [
   /^\.github\/workflows\/project-control-reconciliation\.yml$/,
   /^security\/audit-allowlist\.json$/,
   /^security\/audit-allowlist\.d\/[^/]+\.json$/,
+  /^ops\/enrichment-governor\/(?:work-queue\.json|quarantine\.json|ledger\.jsonl)$/,
+  /^ops\/enrichment-governor\/transactions\/[^/]+\.json$/,
 ]
 
 export const LEAF_PAGE_PATTERNS = [
