@@ -205,6 +205,21 @@ describe('workflow release-impact contract', () => {
     }
   })
 
+  it('uses validation-only only for build-output-neutral control/security changes', () => {
+    const ci = fs.readFileSync(path.join(process.cwd(), '.github/workflows/ci.yml'), 'utf8')
+    const siteHealth = fs.readFileSync(path.join(process.cwd(), '.github/workflows/check.yml'), 'utf8')
+    const atomic = fs.readFileSync(path.join(process.cwd(), '.github/workflows/atomic-upgrade-gate.yml'), 'utf8')
+
+    expect(ci).toContain("if: steps.impact.outputs.validation_only == 'true'")
+    expect(ci).toContain('Run focused control-plane tests')
+    expect(ci).toContain('npm run audit:high')
+    expect(ci).toContain("if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'")
+    expect(siteHealth).toContain("steps.impact.outputs.validation_only == 'true'")
+    expect(siteHealth).toContain("steps.impact.outputs.validation_only != 'true'")
+    expect(atomic).toContain('name: Validation-only fast path')
+    expect(atomic).toContain("steps.impact.outputs.validation_only != 'true'")
+  })
+
   it('uses the leaf-page fast path only to remove duplicate exhaustive suites', () => {
     const siteHealth = fs.readFileSync(path.join(process.cwd(), '.github/workflows/check.yml'), 'utf8')
     const atomic = fs.readFileSync(path.join(process.cwd(), '.github/workflows/atomic-upgrade-gate.yml'), 'utf8')
@@ -348,6 +363,19 @@ describe('CLI writes all signals to $GITHUB_OUTPUT', () => {
       release_sensitive: 'false',
       docs_only: 'false',
       validation_only: 'false',
+      leaf_page_only: 'false',
+    })
+  })
+
+  it('reports validation_only=true only for the narrow control/security surface', () => {
+    expect(run([
+      'docs/CURRENT_SPRINT.md',
+      'scripts/ci/validate-project-control-admission.mjs',
+      'security/audit-allowlist.json',
+    ])).toEqual({
+      release_sensitive: 'true',
+      docs_only: 'false',
+      validation_only: 'true',
       leaf_page_only: 'false',
     })
   })
