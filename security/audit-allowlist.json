@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-14",
+  "generatedAt": "2026-09-22",
   "rules": [
     {
       "id": "esbuild-build-tooling-only-2026-06",
@@ -50,7 +50,7 @@
       "id": "content-collections-mdx-build-tooling-only-2026-06",
       "package": "@content-collections/mdx",
       "severity": "high",
-      "expiresOn": "2026-09-21",
+      "expiresOn": "2026-09-29",
       "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/5456",
       "rationale": "@content-collections/mdx is build tooling for static MDX/content generation. Its high finding includes the same esbuild advisory chain covered by esbuild-build-tooling-only-2026-06, plus moderate mdx-bundler/uuid findings that are not enforced by audit:high. It is not shipped to users in the static export, and npm reports no fixAvailable for this package. Interim allowlist until content-collections can consume patched transitive dependencies."
     },
@@ -58,7 +58,7 @@
       "id": "toml-mdx-frontmatter-unreachable-2026-09",
       "package": "toml",
       "severity": "high",
-      "expiresOn": "2026-09-21",
+      "expiresOn": "2026-09-29",
       "advisoryUrls": [
         "https://github.com/advisories/GHSA-82x6-q7mm-w9cf"
       ],
@@ -69,7 +69,7 @@
       "id": "remark-mdx-frontmatter-build-tooling-only-2026-09",
       "package": "remark-mdx-frontmatter",
       "severity": "high",
-      "expiresOn": "2026-09-21",
+      "expiresOn": "2026-09-29",
       "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/5456",
       "rationale": "remark-mdx-frontmatter is flagged only because it depends on the vulnerable toml parser (see toml-mdx-frontmatter-unreachable-2026-09). It is transitive build tooling under @content-collections/mdx, a devDependency, and is not shipped in the static export. Its TOML code path is unreachable here because all content/ frontmatter is YAML. npm reports no fixAvailable. Interim allowlist tied to the toml follow-up."
     },
@@ -77,7 +77,7 @@
       "id": "mdx-bundler-build-tooling-only-2026-09",
       "package": "mdx-bundler",
       "severity": "high",
-      "expiresOn": "2026-09-21",
+      "expiresOn": "2026-09-29",
       "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/5456",
       "rationale": "mdx-bundler is flagged only because it transitively depends on remark-mdx-frontmatter -> toml (see toml-mdx-frontmatter-unreachable-2026-09). It is build tooling under @content-collections/mdx, a devDependency, and is not shipped in the static export. The mdx-bundler/uuid findings already noted in content-collections-mdx-build-tooling-only-2026-06 were moderate; this rule covers the chain now that the toml advisories are rated high. npm reports no fixAvailable. Interim allowlist tied to the toml follow-up."
     },
@@ -159,7 +159,7 @@
       "id": "toml-content-collections-build-only-2026-09",
       "package": "toml",
       "severity": "high",
-      "expiresOn": "2026-09-21",
+      "expiresOn": "2026-09-29",
       "advisoryUrls": [
         "https://github.com/advisories/GHSA-82x6-q7mm-w9cf",
         "https://github.com/advisories/GHSA-v5mp-jgw5-2x6j"

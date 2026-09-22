@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { classifyReleaseImpact, isDocsOnlyPath, isLeafPagePath, isReleaseSensitivePath } from './classify-release-impact.mjs'
+import { classifyReleaseImpact, isDocsOnlyPath, isLeafPagePath, isReleaseSensitivePath, isValidationOnlyPath } from './classify-release-impact.mjs'
 
 describe('release impact classification', () => {
   it.each([
@@ -75,6 +75,7 @@ describe('release impact classification', () => {
       releaseSensitive: true,
       sensitiveFiles: ['public/data/herbs.json'],
       docsOnly: false,
+      validationOnly: false,
       leafPageOnly: false,
       files: ['components/Header.tsx', 'public/data/herbs.json'],
     })
@@ -187,15 +188,36 @@ describe('workflow release-impact contract', () => {
     expect(yaml).toContain("github.actor == 'dependabot[bot]'")
   })
 
-  it('gives the classifier the history it needs to diff against the base ref', () => {
+  it('gives each classifier the exact base history it needs', () => {
+    const ci = fs.readFileSync(path.join(process.cwd(), '.github/workflows/ci.yml'), 'utf8')
+    expect(ci).toContain('fetch-depth: 1')
+    expect(ci).toContain('BASE_SHA: ${{ github.event.pull_request.base.sha }}')
+    expect(ci).toContain('BASE_SHA: ${{ steps.context.outputs.base_sha }}')
+    expect(ci.match(/git fetch --no-tags --depth=1 origin "\$BASE_SHA"/g)?.length).toBeGreaterThanOrEqual(2)
+    expect(ci.match(/git diff --name-only "\$BASE_SHA" HEAD/g)?.length).toBeGreaterThanOrEqual(2)
+
     for (const workflow of [
-      '.github/workflows/ci.yml',
       '.github/workflows/production-content-invariants.yml',
       '.github/workflows/check.yml',
     ]) {
       const yaml = fs.readFileSync(path.join(process.cwd(), workflow), 'utf8')
       expect(yaml, workflow).toContain('fetch-depth: 0')
     }
+  })
+
+  it('uses validation-only only for build-output-neutral control/security changes', () => {
+    const ci = fs.readFileSync(path.join(process.cwd(), '.github/workflows/ci.yml'), 'utf8')
+    const siteHealth = fs.readFileSync(path.join(process.cwd(), '.github/workflows/check.yml'), 'utf8')
+    const atomic = fs.readFileSync(path.join(process.cwd(), '.github/workflows/atomic-upgrade-gate.yml'), 'utf8')
+
+    expect(ci).toContain("if: steps.impact.outputs.validation_only == 'true'")
+    expect(ci).toContain('Run focused control-plane tests')
+    expect(ci).toContain('npm run audit:high')
+    expect(ci).toContain("if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'")
+    expect(siteHealth).toContain("steps.impact.outputs.validation_only == 'true'")
+    expect(siteHealth).toContain("steps.impact.outputs.validation_only != 'true'")
+    expect(atomic).toContain('name: Validation-only fast path')
+    expect(atomic).toContain("steps.impact.outputs.validation_only != 'true'")
   })
 
   it('uses the leaf-page fast path only to remove duplicate exhaustive suites', () => {
@@ -209,6 +231,67 @@ describe('workflow release-impact contract', () => {
     expect(atomic).toContain('Leaf-page-only change; skip duplicate full release suite')
     expect(invariants).toContain("steps.impact.outputs.leaf_page_only != 'true'")
     expect(invariants).toContain('Leaf-page-only change; reuse committed governed data corpus')
+  })
+})
+
+describe('validation-only classification', () => {
+  it.each([
+    'docs/CURRENT_SPRINT.md',
+    'docs/MASTER_BACKLOG.md',
+    'docs/ROADMAP.md',
+    'docs/ops/project-control-reconciliation.md',
+    'ops/project-control/admission-transaction.json',
+    'scripts/ci/reconcile-project-control.mjs',
+    'scripts/ci/reconcile-project-control.test.mjs',
+    'scripts/ci/validate-project-control-admission.mjs',
+    'scripts/ci/validate-project-control-admission.test.mjs',
+    '.github/workflows/project-control-reconciliation.yml',
+    'security/audit-allowlist.json',
+    'security/audit-allowlist.d/mdx.json',
+    'ops/enrichment-governor/work-queue.json',
+    'ops/enrichment-governor/quarantine.json',
+    'ops/enrichment-governor/ledger.jsonl',
+    'ops/enrichment-governor/transactions/35635724269-1-acquire-lease.json',
+  ])('treats %s as unable to change public build output', (file) => {
+    expect(isValidationOnlyPath(file)).toBe(true)
+  })
+
+  it.each([
+    '.github/workflows/ci.yml',
+    'scripts/enrichment-governor/control.mjs',
+    'scripts/enrichment-governor/lease-transaction.mjs',
+    'ops/enrichment-governor/README.md',
+    'scripts/ci/validate-route-seo.mjs',
+    'scripts/build-deploy.mjs',
+    'next.config.mjs',
+    'package.json',
+    'app/page.tsx',
+    'components/Header.tsx',
+    'public/data/herbs.json',
+  ])('fails %s closed to normal validation/build', (file) => {
+    expect(isValidationOnlyPath(file)).toBe(false)
+  })
+
+  it('permits mixed control docs and exact validation-only control surfaces', () => {
+    const result = classifyReleaseImpact([
+      'docs/CURRENT_SPRINT.md',
+      'scripts/ci/validate-project-control-admission.mjs',
+      'security/audit-allowlist.json',
+    ])
+    expect(result.validationOnly).toBe(true)
+    expect(result.docsOnly).toBe(false)
+  })
+
+  it('fails closed when any build-affecting source rides along', () => {
+    expect(classifyReleaseImpact([
+      'docs/CURRENT_SPRINT.md',
+      'scripts/ci/validate-project-control-admission.mjs',
+      'components/Header.tsx',
+    ]).validationOnly).toBe(false)
+  })
+
+  it('fails closed for an empty diff', () => {
+    expect(classifyReleaseImpact([]).validationOnly).toBe(false)
   })
 })
 
@@ -241,6 +324,7 @@ describe('docs-only classification', () => {
       'data-sources/workbook-patches/y.json',
     ])
     expect(result.docsOnly).toBe(true)
+    expect(result.validationOnly).toBe(false)
     expect(result.releaseSensitive).toBe(false)
     expect(result.leafPageOnly).toBe(false)
   })
@@ -276,6 +360,7 @@ describe('CLI writes all signals to $GITHUB_OUTPUT', () => {
     expect(run(['docs/a.md', 'ops/reports/b.json'])).toEqual({
       release_sensitive: 'false',
       docs_only: 'true',
+      validation_only: 'false',
       leaf_page_only: 'false',
     })
   })
@@ -284,6 +369,20 @@ describe('CLI writes all signals to $GITHUB_OUTPUT', () => {
     expect(run(['docs/a.md', 'components/Navigation.tsx'])).toEqual({
       release_sensitive: 'false',
       docs_only: 'false',
+      validation_only: 'false',
+      leaf_page_only: 'false',
+    })
+  })
+
+  it('reports validation_only=true only for the narrow control/security surface', () => {
+    expect(run([
+      'docs/CURRENT_SPRINT.md',
+      'scripts/ci/validate-project-control-admission.mjs',
+      'security/audit-allowlist.json',
+    ])).toEqual({
+      release_sensitive: 'true',
+      docs_only: 'false',
+      validation_only: 'true',
       leaf_page_only: 'false',
     })
   })
@@ -292,6 +391,7 @@ describe('CLI writes all signals to $GITHUB_OUTPUT', () => {
     expect(run(['public/data/herbs.json'])).toEqual({
       release_sensitive: 'true',
       docs_only: 'false',
+      validation_only: 'false',
       leaf_page_only: 'false',
     })
   })
@@ -300,6 +400,7 @@ describe('CLI writes all signals to $GITHUB_OUTPUT', () => {
     expect(run(['app/guides/adhd/saffron-for-adhd/page.tsx'])).toEqual({
       release_sensitive: 'true',
       docs_only: 'false',
+      validation_only: 'false',
       leaf_page_only: 'true',
     })
   })
