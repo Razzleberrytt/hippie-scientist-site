@@ -119,4 +119,14 @@ describe('CI build performance contracts', () => {
     )
     expect(deploy).not.toContain('outputPatternsPresent(')
   })
+  it('indexes redirect sources once in the full internal-link audit hot path', () => {
+    const audit = read('scripts/ci/audit-internal-links.mjs')
+
+    expect(audit).toContain('const redirectExactSourceRoutes = new Set()')
+    expect(audit).toContain('redirectExactSourceRoutes.has(normalizedRoute)')
+    expect(audit).toContain('const redirectPrefixSourceRoutes = []')
+    expect(audit).not.toContain('redirectSourcePatterns.some((source)')
+    expect(audit).toContain("process.env.VERBOSE_INTERNAL_LINK_AUDIT === '1'")
+  })
+
 })
