@@ -47,6 +47,18 @@ describe('cluster-member production runtime boundary', () => {
     expect(guidance.safetyDetail).not.toMatch(/generally well tolerated/i)
   })
 
+  it('reuses fully resolved profile records across repeated build-time lookups', async () => {
+    const firstHerb = await getHerbBySlug('turmeric')
+    const secondHerb = await getHerbBySlug('turmeric')
+    const firstCompound = await getCompoundBySlug('green-tea-egcg-isolated')
+    const secondCompound = await getCompoundBySlug('green-tea-egcg-isolated')
+
+    expect(firstHerb).not.toBeNull()
+    expect(firstCompound).not.toBeNull()
+    expect(secondHerb).toBe(firstHerb)
+    expect(secondCompound).toBe(firstCompound)
+  })
+
   it('keeps search safety and flags aligned for all four profiles', () => {
     const search = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'search-index.json'), 'utf8'))
     const interactionEdges = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'interaction_edges.json'), 'utf8'))

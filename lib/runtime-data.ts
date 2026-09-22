@@ -19,6 +19,12 @@ const dataDir = path.join(process.cwd(), 'public', 'data')
 const fileCache = new Map<string, unknown>()
 const AUG23_ENRICHMENT_CLAIM_PREFIX = 'aug23-enr-'
 
+let herbIndexPromise: Promise<Map<string, RuntimeRecord>> | null = null
+let compoundIndexPromise: Promise<Map<string, RuntimeRecord>> | null = null
+let aug23EvidenceBySlugPromise: Promise<Map<string, Record<string, unknown>[]>> | null = null
+const resolvedHerbCache = new Map<string, Promise<RuntimeRecord | null>>()
+const resolvedCompoundCache = new Map<string, Promise<RuntimeRecord | null>>()
+
 function isRecord(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value)
 }
@@ -135,33 +141,72 @@ function mergeCitationSources(baseValue: unknown, imported: Record<string, unkno
   return output
 }
 
+function buildSlugIndex(rows: RuntimeRecord[]): Map<string, RuntimeRecord> {
+  const index = new Map<string, RuntimeRecord>()
+  for (const row of rows) {
+    const slug = cleanString(row?.slug)
+    if (slug) index.set(slug, row)
+  }
+  return index
+}
+
+async function getHerbIndex(): Promise<Map<string, RuntimeRecord>> {
+  if (!herbIndexPromise) {
+    herbIndexPromise = getHerbs().then(buildSlugIndex)
+  }
+  return herbIndexPromise
+}
+
+async function getCompoundIndex(): Promise<Map<string, RuntimeRecord>> {
+  if (!compoundIndexPromise) {
+    compoundIndexPromise = getCompounds().then(buildSlugIndex)
+  }
+  return compoundIndexPromise
+}
+
+async function getAug23EvidenceBySlug(): Promise<Map<string, Record<string, unknown>[]>> {
+  if (!aug23EvidenceBySlugPromise) {
+    aug23EvidenceBySlugPromise = (async () => {
+      const rawClaims = await readJsonFile('claims.json')
+      const bySlug = new Map<string, Record<string, unknown>[]>()
+      if (!Array.isArray(rawClaims)) return bySlug
+
+      for (const value of rawClaims) {
+        if (!isRecord(value)) continue
+        const id = cleanString(value.id)
+        const profileSlug = cleanString(value.profile_slug)
+        if (!id.startsWith(AUG23_ENRICHMENT_CLAIM_PREFIX) || !profileSlug) continue
+
+        const title = cleanString(value.title) || cleanString(value.claim)
+        const pmid = cleanString(value.pmid)
+        const doi = cleanString(value.doi)
+        const url = cleanString(value.source_url)
+        if (!title && !pmid && !doi && !url) continue
+
+        const source = {
+          id: `src_${id}`,
+          title,
+          pmid,
+          doi,
+          url,
+          studyType: cleanString(value.evidence_tier),
+          result: cleanString(value.claim),
+          metadataSource: 'workbook-evidence-register',
+        }
+        const existing = bySlug.get(profileSlug)
+        if (existing) existing.push(source)
+        else bySlug.set(profileSlug, [source])
+      }
+      return bySlug
+    })()
+  }
+  return aug23EvidenceBySlugPromise
+}
+
 async function attachAug23WorkbookEvidence(record: RuntimeRecord): Promise<RuntimeRecord> {
-  const rawClaims = await readJsonFile('claims.json')
-  if (!Array.isArray(rawClaims)) return record
-
-  const importedSources = rawClaims.flatMap((value): Record<string, unknown>[] => {
-    if (!isRecord(value)) return []
-    const id = cleanString(value.id)
-    const profileSlug = cleanString(value.profile_slug)
-    if (!id.startsWith(AUG23_ENRICHMENT_CLAIM_PREFIX) || profileSlug !== record.slug) return []
-
-    const title = cleanString(value.title) || cleanString(value.claim)
-    const pmid = cleanString(value.pmid)
-    const doi = cleanString(value.doi)
-    const url = cleanString(value.source_url)
-    if (!title && !pmid && !doi && !url) return []
-
-    return [{
-      id: `src_${id}`,
-      title,
-      pmid,
-      doi,
-      url,
-      studyType: cleanString(value.evidence_tier),
-      result: cleanString(value.claim),
-      metadataSource: 'workbook-evidence-register',
-    }]
-  })
+  const profileSlug = cleanString(record.slug)
+  if (!profileSlug) return record
+  const importedSources = (await getAug23EvidenceBySlug()).get(profileSlug) || []
 
   if (!importedSources.length) return record
   return {
@@ -274,9 +319,8 @@ export const getRouteBuildManifest = cache(async (): Promise<RuntimeRecord[]> =>
   return Array.isArray(rows) ? rows : []
 })
 
-export async function getHerbBySlug(slug: string): Promise<RuntimeRecord | null> {
-  const herbs = await getHerbs()
-  const herb = herbs.find((herb: any) => herb.slug === slug)
+async function resolveHerbBySlug(slug: string): Promise<RuntimeRecord | null> {
+  const herb = (await getHerbIndex()).get(slug)
   if (!herb) return null
   const detail = await readDetailRecord('herbs', slug)
   const mergedHerb = detail ? resolveRuntimeRecordLayers(herb, [detail]) as RuntimeRecord : herb
@@ -287,9 +331,19 @@ export async function getHerbBySlug(slug: string): Promise<RuntimeRecord | null>
   return enrichedHerb
 }
 
-export async function getCompoundBySlug(slug: string): Promise<RuntimeRecord | null> {
-  const compounds = await getCompounds()
-  const compound = compounds.find((compound: any) => compound.slug === slug)
+export function getHerbBySlug(slug: string): Promise<RuntimeRecord | null> {
+  const cached = resolvedHerbCache.get(slug)
+  if (cached) return cached
+  const pending = resolveHerbBySlug(slug).catch((error) => {
+    resolvedHerbCache.delete(slug)
+    throw error
+  })
+  resolvedHerbCache.set(slug, pending)
+  return pending
+}
+
+async function resolveCompoundBySlug(slug: string): Promise<RuntimeRecord | null> {
+  const compound = (await getCompoundIndex()).get(slug)
   if (!compound) return null
   const detail = await readDetailRecord('compounds', slug)
   const mergedCompound = detail ? resolveRuntimeRecordLayers(compound, [detail]) as RuntimeRecord : compound
@@ -298,6 +352,17 @@ export async function getCompoundBySlug(slug: string): Promise<RuntimeRecord | n
   if (!enrichedCompound || !getRuntimeVisibility(enrichedCompound).canRender) return null
 
   return enrichedCompound
+}
+
+export function getCompoundBySlug(slug: string): Promise<RuntimeRecord | null> {
+  const cached = resolvedCompoundCache.get(slug)
+  if (cached) return cached
+  const pending = resolveCompoundBySlug(slug).catch((error) => {
+    resolvedCompoundCache.delete(slug)
+    throw error
+  })
+  resolvedCompoundCache.set(slug, pending)
+  return pending
 }
 
 export const getFeaturedHerbs = cache(async (): Promise<RuntimeRecord[]> => {
