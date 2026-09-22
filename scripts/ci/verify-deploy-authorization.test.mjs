@@ -55,6 +55,19 @@ describe('deployment authorization boundary', () => {
     expect(verifier).toContain('rather than the repository owner')
   })
 
+  it('permits deploy validation reuse only for a controller-authorized identical merge tree', () => {
+    const verifier = read('scripts/ci/verify-deploy-authorization.mjs')
+    expect(verifier).toContain('writeOutput')
+    expect(verifier).toContain("writeOutput('skip_redundant_validation'")
+    expect(verifier).toContain('api(`/git/commits/${mergeSha}`)')
+    expect(verifier).toContain('api(`/git/commits/${headSha}`)')
+    expect(verifier).toContain('mergeTree === headTree')
+    expect(verifier).toContain("mode: 'controller'")
+    expect(verifier).toContain('skipRedundantValidation: treeIdentical')
+    expect(verifier).toContain("mode: 'owner'")
+    expect(verifier).toContain('skipRedundantValidation: false')
+  })
+
   it('polls briefly so push-triggered deploy cannot race post-merge attestation', () => {
     const verifier = read('scripts/ci/verify-deploy-authorization.mjs')
     expect(verifier).toContain("DEPLOY_AUTH_ATTEMPTS || '30'")
