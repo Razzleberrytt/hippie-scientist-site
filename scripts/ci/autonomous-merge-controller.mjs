@@ -467,6 +467,22 @@ async function evaluateOnce({ repo, number, expectedHeadSha, controllerRunId, al
   return { ...verdict, headSha: currentHeadSha, baseSha: verdict.baseSha || currentBaseSha, riskTier }
 }
 
+async function exactValidatedMergeObserved(repo, number, headSha, validatedBaseSha) {
+  const pr = await getPr(repo, number)
+  if (!pr.merged || pr.head?.sha !== headSha || !pr.merge_commit_sha) return false
+
+  const [mergeCommit, headCommit] = await Promise.all([
+    github(`/repos/${repo}/git/commits/${pr.merge_commit_sha}`),
+    github(`/repos/${repo}/git/commits/${headSha}`),
+  ])
+  const parentShas = (mergeCommit?.parents || []).map((parent) => parent.sha)
+  const mergeTree = mergeCommit?.tree?.sha || ''
+  const headTree = headCommit?.tree?.sha || ''
+  return parentShas.includes(validatedBaseSha) &&
+    parentShas.includes(headSha) &&
+    Boolean(mergeTree && headTree && mergeTree === headTree)
+}
+
 async function mergeIfStillCurrent({ repo, number, headSha, validatedBaseSha, controllerRunId = '' }) {
   const pr = await getPr(repo, number)
   if (pr.head?.sha !== headSha) {
@@ -485,6 +501,10 @@ async function mergeIfStillCurrent({ repo, number, headSha, validatedBaseSha, co
     return false
   }
   if (latestBaseSha !== validatedBaseSha || !(await headContainsBase(repo, latestBaseSha, headSha))) {
+    if (await exactValidatedMergeObserved(repo, number, headSha, validatedBaseSha)) {
+      console.log(`PR #${number} merged at the exact validated head/base while terminal revalidation was in flight; treating the merge as terminal success.`)
+      return true
+    }
     await refreshPrAndDispatch({ repo, pr, workflowRuns, currentBaseSha: latestBaseSha })
     return false
   }
@@ -516,6 +536,10 @@ async function mergeIfStillCurrent({ repo, number, headSha, validatedBaseSha, co
   }
   const finalBaseSha = await getBranchSha(repo, finalPr.base.ref)
   if (finalBaseSha !== latestBaseSha || finalBaseSha !== validatedBaseSha || !(await headContainsBase(repo, finalBaseSha, headSha))) {
+    if (await exactValidatedMergeObserved(repo, number, headSha, validatedBaseSha)) {
+      console.log(`PR #${number} merged at the exact validated head/base during the final gate; treating the merge as terminal success.`)
+      return true
+    }
     const latestWorkflowRuns = await getWorkflowRuns(repo, headSha)
     await refreshPrAndDispatch({ repo, pr: finalPr, workflowRuns: latestWorkflowRuns, currentBaseSha: finalBaseSha })
     return false
