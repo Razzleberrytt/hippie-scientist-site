@@ -119,7 +119,7 @@ describe('CI build performance contracts', () => {
     expect(audit).toContain('const redirectSourcePrefixes = []')
     expect(audit).toContain('exactRedirectSources.has(normalizedRoute)')
     expect(audit).not.toContain('redirectSourcePatterns.some((source)')
-    expect(audit).not.toContain('[internal-links] Scanning ${fileIndex}')
+    expect(audit).toContain("process.env.VERBOSE_INTERNAL_LINK_AUDIT === '1'")
   })
 
   it('favors governed-artifact upload latency over default compression', () => {
