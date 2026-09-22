@@ -3,7 +3,7 @@ slug: sleep-interventions-evidence-matrix
 title: "Sleep Interventions Evidence Matrix: Supplements, Habits, Circadian Tools, and Red Flags"
 description: "A decision-first evidence matrix comparing sleep science, supplements, CBT-I, circadian tools, environment, substances, life stages, and sleep-disorder red flags by strongest human outcome and biggest limitation."
 date: '2026-09-04'
-updatedAt: '2026-09-05'
+updatedAt: '2026-09-22'
 author: Will
 category: Sleep
 evidence_grade: Evidence Map
@@ -85,6 +85,20 @@ references:
 ---
 
 > **Use this page as a map, not a shopping list.** “Poor sleep” can mean insufficient sleep opportunity, chronic insomnia, circadian delay, shift-work misalignment, sleep apnea, restless legs, nocturia, pain, environmental disruption, substance effects, or a life-stage problem. Those mechanisms can feel similar while requiring very different solutions.
+
+## Quick decision answers
+
+### What has the strongest evidence for chronic insomnia?
+
+**CBT-I remains the evidence benchmark.** Supplements generally answer narrower, ingredient- or formulation-specific questions and should not be treated as evidence-equivalent substitutes for structured insomnia treatment.
+
+### When is melatonin most evidence-aligned?
+
+**When circadian timing is the bottleneck, not as a universal sedative.** The useful question is whether sleep timing is misaligned; a “best sleep supplement” framing collapses different sleep problems into one category.
+
+### When should a supplement comparison stop and a sleep-disorder pathway begin?
+
+**When the pattern points to breathing, movement, persistent hypersomnolence, or another disorder-level problem.** Snoring/apneas, restless-legs features, and persistent excessive sleepiness require a different evidence pathway than choosing among sleep aids.
 
 ## How to read the matrix
 
