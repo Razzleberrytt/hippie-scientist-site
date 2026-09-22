@@ -7,7 +7,7 @@ function read(relativePath) {
 }
 
 describe('autonomous merge authorization provenance', () => {
-  it('keeps the PR-event monitor read-only while write-capable controller jobs can emit status', () => {
+  it('keeps the monitor evaluator read-only while the trusted wrapper can attest validation only', () => {
     const workflow = read('.github/workflows/autonomous-merge-controller.yml')
     const monitorBlock = workflow.match(/ {2}merge-controller:\n([\s\S]*?)\n {2}merge-commit:/)?.[1] || ''
 
@@ -16,7 +16,10 @@ describe('autonomous merge authorization provenance', () => {
     expect(monitorBlock).toContain('checks: read')
     expect(monitorBlock).toContain('contents: read')
     expect(monitorBlock).toContain('pull-requests: read')
-    expect(monitorBlock).not.toContain('statuses: write')
+    expect(monitorBlock).toContain('statuses: write')
+    expect(monitorBlock).toContain('Attest exact-head validation')
+    expect(monitorBlock).toContain("context='autonomous-merge/validated'")
+    expect(monitorBlock).not.toContain("context='autonomous-merge/authorized'")
   })
 
   it('emits event-driven authorization only after serialized revalidation and a confirmed merge', () => {
