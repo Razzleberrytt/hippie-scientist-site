@@ -27,6 +27,33 @@ describe('CI build performance contracts', () => {
     expect(config).toContain('cpus: staticGenerationCpus')
   })
 
+  it('uses exact-base shallow checkout instead of fetching every repository branch', () => {
+    const workflow = read('.github/workflows/ci.yml')
+
+    expect(workflow).not.toContain('fetch-depth: 0')
+    expect(workflow.match(/fetch-depth: 1/g)?.length).toBeGreaterThanOrEqual(2)
+    expect(workflow).toContain('git fetch --no-tags --depth=1 origin "$BASE_SHA"')
+    expect(workflow).toContain('git diff --name-only "$BASE_SHA" HEAD')
+    expect(workflow).not.toContain('git diff --name-only "origin/$BASE_REF"...HEAD')
+  })
+
+  it('does not re-encode responsive images after build-deploy has integrity-checked them', () => {
+    const deploy = read('scripts/build-deploy.mjs')
+    const production = read('scripts/build-production.mjs')
+
+    expect(deploy).toContain("if (step.name === 'optimize-images') responsiveImagesReady = true")
+    expect(deploy).toContain("RESPONSIVE_IMAGES_READY: '1'")
+    expect(production).toContain("process.env.RESPONSIVE_IMAGES_READY === '1'")
+    expect(production).toContain("execSync('node scripts/optimize-images.mjs'")
+  })
+
+  it('bounds higher static-page concurrency to GitHub Actions only', () => {
+    const config = read('next.config.mjs')
+
+    expect(config).toContain("staticGenerationMaxConcurrency = process.env.GITHUB_ACTIONS === 'true' ? 12 : 8")
+    expect(config).toContain('staticGenerationMaxConcurrency,')
+  })
+
   it('persists only integrity-checked build intermediates on the production build lane', () => {
     const workflow = read('.github/workflows/ci.yml')
     const manager = read('scripts/cache/build-cache-manager.mjs')
