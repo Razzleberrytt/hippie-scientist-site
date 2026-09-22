@@ -38,6 +38,7 @@ jobs:
           cache: npm
 
       - name: Verify controller-authorized merge
+        id: deploy-auth
         env:
           GH_TOKEN: ${{ github.token }}
           DEPLOY_AUTH_ATTEMPTS: '30'
@@ -65,36 +66,45 @@ jobs:
             ${{ runner.os }}-nextjs-
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --no-audit --fund=false
 
       - name: Check Node version contract
         run: npm run check:node
 
       - name: Audit high-severity dependencies
+        if: steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run audit:high
 
       - name: Run test suite
+        if: steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run test
 
       - name: Validate canonical data pipeline
+        if: steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run data:ci
 
       - name: Validate workbook source
+        if: steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run validate:workbook-source
 
       - name: Validate static export compatibility
+        if: steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run validate:static-export
 
       - name: Lint
+        if: steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run lint
 
       - name: Typecheck
+        if: steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run typecheck
 
       - name: Guard workbook source-of-truth
+        if: steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run guard:source-of-truth
 
       - name: Audit cluster-member runtime trust
+        if: steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run audit:cluster-member-trust:strict
 
       - name: Build governed Metricool publication pilot
@@ -130,6 +140,7 @@ jobs:
         env:
           COMMIT_HASH: ${{ env.DEPLOY_SHA }}
           AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}
+          SKIP_NEXT_BUILD_TYPECHECK: ${{ steps.deploy-auth.outputs.skip_redundant_validation == 'true' && '1' || '' }}
         run: npm run build:deploy
 
       - name: Verify build output
@@ -251,6 +262,10 @@ jobs:
             echo "- npm version: $(npm --version)"
             echo "- Branch/ref: ${DEPLOY_BRANCH:-$GITHUB_REF}"
             echo "- Commit: ${DEPLOY_SHA:-$GITHUB_SHA}"
+            echo "- Authorization mode: ${{ steps.deploy-auth.outputs.authorization_mode || 'unknown' }}"
+            echo "- Validated PR head: ${{ steps.deploy-auth.outputs.validated_head_sha || 'unknown' }}"
+            echo "- Merge/head tree identical: ${{ steps.deploy-auth.outputs.tree_identical || 'false' }}"
+            echo "- Reused exact-tree PR validation: ${{ steps.deploy-auth.outputs.skip_redundant_validation || 'false' }}"
             echo "- Project name: ${CLOUDFLARE_PAGES_PROJECT:-<missing>}"
             if [ -f "$STATIC_OUTPUT_DIR/index.html" ]; then
               echo "- out/index.html exists: yes"
