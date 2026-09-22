@@ -54,6 +54,52 @@ describe('CI build performance contracts', () => {
     expect(config).toContain('staticGenerationMaxConcurrency,')
   })
 
+  it('parallelizes output verification without removing any acceptance check', () => {
+    const pkg = JSON.parse(read('package.json'))
+    const verifier = read('scripts/ci/verify-output-parallel.mjs')
+
+    expect(pkg.scripts['verify:output']).toBe('node scripts/ci/verify-output-parallel.mjs')
+    for (const fragment of [
+      'validate:static-export',
+      'validate-public-json-imports.mjs',
+      'validate-quarantine-imports.mjs',
+      'validate-direct-dependencies.mjs',
+      'validate-xlsx-boundary.mjs',
+      'validate-security-headers.mjs',
+      'verify-generated-data.mjs',
+      'validate-guide-related.mjs',
+      'validate-route-seo.mjs',
+      'validate-canonical-host.mjs',
+      'validate-route-governance.mjs',
+      'validate-dangerously-set-inner-html.mjs',
+      'verify-core-routes.mjs',
+      'verify-redirects.mjs',
+      'audit-profile-robots.mjs',
+      'validate-deploy-readiness.mjs',
+      'validate-build-seo-metadata.mjs',
+      'audit-metadata-duplicates.mjs',
+      'audit-internal-links.mjs',
+      'validate-internal-links.mjs',
+      'validate-hub-child-coverage.mjs',
+      'audit-structured-data.mjs',
+      'audit-seo-routes.mjs',
+      'validate-guide-faqs.mjs',
+      'validate-sitemap.mjs --require-built',
+      'validate-sitemap-completeness.mjs --require-built',
+      'validate-robots.mjs --require-built',
+      'validate-feed-output.mjs',
+      'audit:sitemap-affiliate',
+      'validate:pagefind-body',
+      'validate:cluster-member-export',
+      'report-performance-budget.mjs',
+    ]) {
+      expect(verifier, fragment).toContain(fragment)
+    }
+    expect(verifier).toContain("await runPhase('prebuild', PREBUILD_GROUPS)")
+    expect(verifier).toContain("await runPhase('postbuild', POSTBUILD_GROUPS)")
+    expect(verifier).toContain('Promise.all(groups.map')
+  })
+
   it('persists only integrity-checked build intermediates on the production build lane', () => {
     const workflow = read('.github/workflows/ci.yml')
     const manager = read('scripts/cache/build-cache-manager.mjs')
