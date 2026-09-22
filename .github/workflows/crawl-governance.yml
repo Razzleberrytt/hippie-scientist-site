@@ -51,7 +51,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  actions: read
+  actions: write
   contents: read
 
 jobs:
@@ -143,3 +143,17 @@ jobs:
           echo "- Governed receipt verified: ${{ steps.governed-verify.outcome == 'success' }}" >> "$GITHUB_STEP_SUMMARY"
           echo '- Same-repository PRs audit the exact CI export instead of rebuilding it.' >> "$GITHUB_STEP_SUMMARY"
           echo '- Fork, Dependabot, manual, and artifact-failure paths still fail closed to a complete build.' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Wake trusted merge controller
+        if: always() && github.event_name == 'workflow_dispatch' && inputs.producer_pr_number != '' && inputs.producer_sha != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PRODUCER_PR_NUMBER: ${{ inputs.producer_pr_number }}
+          PRODUCER_SHA: ${{ inputs.producer_sha }}
+        run: |
+          set -euo pipefail
+          gh workflow run autonomous-merge-controller.yml \
+            --repo "$GITHUB_REPOSITORY" \
+            --ref main \
+            -f "pr_number=$PRODUCER_PR_NUMBER" \
+            -f "expected_head_sha=$PRODUCER_SHA"
