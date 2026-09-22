@@ -34,4 +34,27 @@ describe('parallel enrichment reconciliation bridge', () => {
     const result = reconcileParallelSubmissions()
     for (const row of result.blocked) expect(row.reconciliation.eligible).toBe(false)
   })
+  it('surfaces staged missing-registry sources as read-only intake requirements', () => {
+    const result = reconcileParallelSubmissions()
+    const caffeine = result.sourceIntakeRequirements.filter(row => row.entitySlug === 'caffeine')
+
+    expect(result.summary.sourceIntakeRequirementCount).toBe(result.sourceIntakeRequirements.length)
+    expect(caffeine.length).toBeGreaterThanOrEqual(1)
+    for (const row of caffeine) {
+      expect(row.status).toBe('requires_source_intake')
+      expect(row.workpackId).toBe('wp_compound_caffeine')
+      expect(row.sourceId).toMatch(/^src_/u)
+      expect(row.submissionIds.length).toBeGreaterThan(0)
+    }
+
+    const surfaced = new Set(caffeine.flatMap(row => row.submissionIds))
+    for (const blocked of result.blocked.filter(row =>
+      row.sourceKind === 'parallel' &&
+      row.submission?.entitySlug === 'caffeine' &&
+      row.reconciliation?.reasons?.includes('source_missing_from_registry')
+    )) {
+      expect(surfaced.has(blocked.submission.submissionId)).toBe(true)
+      expect(blocked.reconciliation.eligible).toBe(false)
+    }
+  })
 })
