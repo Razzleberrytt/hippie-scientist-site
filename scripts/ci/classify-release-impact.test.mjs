@@ -248,12 +248,19 @@ describe('validation-only classification', () => {
     '.github/workflows/project-control-reconciliation.yml',
     'security/audit-allowlist.json',
     'security/audit-allowlist.d/mdx.json',
+    'ops/enrichment-governor/work-queue.json',
+    'ops/enrichment-governor/quarantine.json',
+    'ops/enrichment-governor/ledger.jsonl',
+    'ops/enrichment-governor/transactions/35635724269-1-acquire-lease.json',
   ])('treats %s as unable to change public build output', (file) => {
     expect(isValidationOnlyPath(file)).toBe(true)
   })
 
   it.each([
     '.github/workflows/ci.yml',
+    'scripts/enrichment-governor/control.mjs',
+    'scripts/enrichment-governor/lease-transaction.mjs',
+    'ops/enrichment-governor/README.md',
     'scripts/ci/validate-route-seo.mjs',
     'scripts/build-deploy.mjs',
     'next.config.mjs',
