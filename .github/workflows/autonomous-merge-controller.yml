@@ -170,7 +170,7 @@ jobs:
       EXPECTED_HEAD_SHA: ${{ inputs.expected_head_sha || '' }}
       SWEEP_OPEN_PRS: ${{ inputs.pr_number != '' && 'false' || 'true' }}
       MERGE_POLL_SECONDS: '5'
-      MERGE_MAX_WAIT_MINUTES: '3'
+      MERGE_MAX_WAIT_MINUTES: ${{ inputs.pr_number != '' && '12' || '3' }}
     steps:
       - name: Checkout trusted controller from main
         uses: actions/checkout@v7
