@@ -7,7 +7,6 @@ on:
       - 'app/**'
       - 'components/**'
       - 'lib/**'
-      - 'lib/**'
       - 'public/_redirects'
       - 'scripts/ci/audit-page-category-robots.mjs'
       - 'scripts/ci/audit-profile-robots.mjs'
@@ -21,7 +20,6 @@ on:
       - 'app/**'
       - 'components/**'
       - 'lib/**'
-      - 'lib/**'
       - 'public/_redirects'
       - 'scripts/ci/audit-page-category-robots.mjs'
       - 'scripts/ci/audit-profile-robots.mjs'
@@ -30,22 +28,52 @@ on:
       - 'app/robots.ts'
       - '.github/workflows/crawl-governance.yml'
   workflow_dispatch:
+    inputs:
+      producer_run_id:
+        description: CI run containing the governed static export artifact
+        required: false
+        type: string
+      producer_sha:
+        description: Exact PR head SHA bound into the governed static export receipt
+        required: false
+        type: string
+      producer_base_sha:
+        description: Exact PR base SHA bound into the governed static export receipt
+        required: false
+        type: string
+      producer_pr_number:
+        description: PR number that produced the governed static export
+        required: false
+        type: string
 
 concurrency:
   group: crawl-governance-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
+  actions: read
   contents: read
 
 jobs:
   audit:
-    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository || github.actor == 'dependabot[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
+      - name: Reject stale producer dispatch
+        if: inputs.producer_sha != ''
+        env:
+          PRODUCER_SHA: ${{ inputs.producer_sha }}
+        run: |
+          if [ "$GITHUB_SHA" != "$PRODUCER_SHA" ]; then
+            echo "Producer dispatch is stale: workflow head=$GITHUB_SHA producer=$PRODUCER_SHA"
+            exit 1
+          fi
+
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.producer_sha || github.sha }}
 
       - name: Setup Node
         uses: actions/setup-node@v7
@@ -54,12 +82,35 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --no-audit --fund=false
 
-      - name: Build static export
+      - name: Download governed static export
+        id: governed-download
+        if: inputs.producer_run_id != '' && inputs.producer_sha != ''
+        continue-on-error: true
+        uses: actions/download-artifact@v7
+        with:
+          name: governed-static-export-${{ inputs.producer_sha }}
+          path: .
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.producer_run_id }}
+
+      - name: Verify governed static export receipt
+        id: governed-verify
+        if: steps.governed-download.outcome == 'success'
+        continue-on-error: true
+        run: >-
+          node scripts/ci/governed-static-export.mjs verify
+          --source-sha "${{ inputs.producer_sha }}"
+          --base-sha "${{ inputs.producer_base_sha }}"
+
+      - name: Build static export fallback
+        if: steps.governed-verify.outcome != 'success'
         env:
-          COMMIT_HASH: ${{ github.sha }}
-        run: npm run build:deploy
+          COMMIT_HASH: ${{ inputs.producer_sha || github.sha }}
+        run: |
+          rm -rf out .governed-static-export.json
+          npm run build:deploy
 
       - name: Verify robots.txt
         run: node scripts/ci/validate-robots.mjs --require-built
@@ -83,3 +134,12 @@ jobs:
             reports/profile-publication-truth.json
             reports/static-crawl-surface.json
           retention-days: 30
+
+      - name: Report governed export reuse
+        if: always()
+        run: |
+          echo '## Crawl Governance' >> "$GITHUB_STEP_SUMMARY"
+          echo "- Producer SHA: ${{ inputs.producer_sha || 'none (self-built fallback)' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Governed receipt verified: ${{ steps.governed-verify.outcome == 'success' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo '- Same-repository PRs audit the exact CI export instead of rebuilding it.' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Fork, Dependabot, manual, and artifact-failure paths still fail closed to a complete build.' >> "$GITHUB_STEP_SUMMARY"
