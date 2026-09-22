@@ -3,7 +3,7 @@
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
-import { spawnSync } from 'node:child_process'
+import { spawn } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -66,22 +66,31 @@ function linkInstalledDependencies(tmpRepo) {
 }
 
 function runNodeScript(script, args, cwd) {
-  const result = spawnSync(process.execPath, [script, ...args], {
-    cwd,
-    stdio: 'inherit',
-    env: process.env,
+  return new Promise((resolve, reject) => {
+    const child = spawn(process.execPath, [script, ...args], {
+      cwd,
+      stdio: 'inherit',
+      env: process.env,
+    })
+    child.once('error', (error) => {
+      reject(new Error(`[data:verify] Spawn error for node ${script}: ${error.message}`))
+    })
+    child.once('exit', (code, signal) => {
+      if (code === 0) {
+        resolve()
+        return
+      }
+      reject(new Error(
+        `[data:verify] Command failed: node ${script} ${args.join(' ')}` +
+        ` (exit ${code ?? 'null'}${signal ? `, signal ${signal}` : ''})`,
+      ))
+    })
   })
-  if (result.error) {
-    console.error(`[data:verify] Spawn error: ${result.error.message}`)
-  }
-  if (result.status !== 0) {
-    throw new Error(`[data:verify] Command failed: node ${script} ${args.join(' ')}`)
-  }
 }
 
-function runDataBuild(cwd) {
+async function runDataBuild(cwd) {
   for (const [script, ...args] of DATA_BUILD_STEPS) {
-    runNodeScript(script, args, cwd)
+    await runNodeScript(script, args, cwd)
   }
 }
 
@@ -138,14 +147,19 @@ function createTempRepo(label) {
   return tmpRepo
 }
 
-function main() {
+async function main() {
   console.log('[data:verify] Regenerating public/data twice from workbook in clean temp copies...')
 
   const firstRepo = createTempRepo('a')
   const secondRepo = createTempRepo('b')
 
-  runDataBuild(firstRepo)
-  runDataBuild(secondRepo)
+  // The two clean replicas are independent. Keep each replica's build steps
+  // sequential, but run the replicas concurrently so determinism verification
+  // uses the available CI cores instead of doubling the critical path.
+  await Promise.all([
+    runDataBuild(firstRepo),
+    runDataBuild(secondRepo),
+  ])
 
   const drift = []
   for (const rel of GENERATED_OUTPUT_FILES) {
@@ -171,4 +185,7 @@ function main() {
   console.log(`[data:verify] PASS: ${GENERATED_OUTPUT_FILES.length} generated files are deterministic across clean builds.`)
 }
 
-main()
+main().catch((error) => {
+  console.error(error instanceof Error ? error.message : error)
+  process.exit(1)
+})
