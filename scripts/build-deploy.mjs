@@ -321,6 +321,7 @@ Executing ${steps.length} essential build steps...
 
 let failed = false
 const executed = []
+let responsiveImagesReady = false
 
 for (const step of steps) {
   process.stdout.write(`⏱️  ${step.name.padEnd(38)} ... `)
@@ -332,6 +333,7 @@ for (const step of steps) {
     if (shouldSkip) {
       const shouldRun = await cache.shouldRunStep(step.name, step.inputs || [], step.outputs || [])
       if (!shouldRun) {
+        if (step.name === 'optimize-images') responsiveImagesReady = true
         console.log(`[CACHED] ${((performance.now() - stepStart) / 1000).toFixed(2)}s`)
         executed.push({ ...step, cached: true, duration: 0 })
         continue
@@ -343,10 +345,12 @@ for (const step of steps) {
       stdio: 'inherit',
       env: {
         ...process.env,
+        ...(step.name === 'build-production' && responsiveImagesReady ? { RESPONSIVE_IMAGES_READY: '1' } : {}),
         NODE_OPTIONS: `${process.env.NODE_OPTIONS || ''} --trace-uncaught`.trim(),
       },
     })
 
+    if (step.name === 'optimize-images') responsiveImagesReady = true
     const stepDuration = performance.now() - stepStart
     if (step.outputs && step.cacheable !== false) {
       await cache.markStepComplete(step.name, step.outputs, step.inputs || [])
