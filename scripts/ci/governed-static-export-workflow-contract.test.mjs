@@ -11,8 +11,12 @@ describe('governed static export workflow topology', () => {
     expect(workflow).toContain('Upload governed static export')
     expect(workflow).toContain('governed-static-export-${{ steps.context.outputs.source_sha }}')
     expect(workflow).toContain('Dispatch exact-head governed export consumers')
-    expect(workflow).toContain('build-check.yml lighthouse.yml')
-    expect(workflow).toContain('production-content-lint.yml/dispatches')
+    expect(workflow).toContain('consumers=(build-check.yml lighthouse.yml production-content-lint.yml)')
+    expect(workflow).toContain('for workflow in "${consumers[@]}"')
+    expect(workflow).toContain('consumers+=(production-content-invariants.yml)')
+    expect(workflow).toContain('consumers+=(crawl-governance.yml)')
+    expect(workflow).toContain('consumers+=(schema-media-governance.yml)')
+    expect(workflow).toContain('consumers+=(technical-seo-monitor.yml)')
     expect(workflow).toContain('producer_base_sha:$base')
   })
 
@@ -35,6 +39,10 @@ describe('governed static export workflow topology', () => {
     ['Build Check', '.github/workflows/build-check.yml'],
     ['Lighthouse CI', '.github/workflows/lighthouse.yml'],
     ['Production Content Lint', '.github/workflows/production-content-lint.yml'],
+    ['Production Content Invariants', '.github/workflows/production-content-invariants.yml'],
+    ['Crawl Governance', '.github/workflows/crawl-governance.yml'],
+    ['Schema and Media Governance', '.github/workflows/schema-media-governance.yml'],
+    ['Technical SEO Monitor', '.github/workflows/technical-seo-monitor.yml'],
   ]) {
     it(`${name} registers on PRs but performs heavy work only in dispatched/fallback runs`, () => {
       const workflow = read(path)
@@ -44,9 +52,32 @@ describe('governed static export workflow topology', () => {
       expect(workflow).toContain('Verify governed static export receipt')
       expect(workflow).toContain('steps.governed-verify.outcome != \'success\'')
       expect(workflow).toContain('npm run build:deploy')
-      expect(workflow).toContain('npm run verify:output')
       expect(workflow).toContain('producer_sha')
       expect(workflow).toContain('producer_base_sha')
     })
   }
+
+  it('keeps full production-output verification in the original artifact consumers', () => {
+    for (const path of [
+      '.github/workflows/build-check.yml',
+      '.github/workflows/lighthouse.yml',
+      '.github/workflows/production-content-lint.yml',
+    ]) {
+      expect(read(path)).toContain('npm run verify:output')
+    }
+  })
+
+  it('restores governed data before content-invariant validation without a second normal PR build', () => {
+    const workflow = read('.github/workflows/production-content-invariants.yml')
+    expect(workflow).toContain('Verify governed static export receipt and restore governed data')
+    expect(workflow).toContain('validate-production-content-invariants.mjs --data-dir=public/data')
+    expect(workflow).toContain('validate-production-indexability-budget.mjs --data-dir=public/data')
+    expect(workflow).not.toContain('npm run data:build')
+    expect(workflow).not.toContain('node scripts/build-production.mjs')
+  })
+
+  it('does not turn producer-dispatched technical SEO audits into live-production probes', () => {
+    const workflow = read('.github/workflows/technical-seo-monitor.yml')
+    expect(workflow).toContain("github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.producer_run_id == '')")
+  })
 })
