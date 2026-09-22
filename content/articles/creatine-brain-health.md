@@ -3,7 +3,7 @@ slug: creatine-brain-health
 title: "Creatine for Brain Health: Cognition, Sleep Loss, Mood & Safety — 2026 Review"
 description: "Evidence-first 2026 review of creatine for cognition, memory, sleep deprivation, depression, brain energy metabolism, and kidney safety, including corrected meta-analytic and citation caveats."
 date: '2026-06-30'
-updatedAt: '2026-08-22'
+updatedAt: '2026-09-22'
 author: Will
 category: Cognitive health
 evidence_grade: mixed-human-evidence
@@ -91,6 +91,20 @@ references:
 > **Bottom line:** Creatine clearly participates in brain energy metabolism, and human studies show that it can affect cognition under some conditions. But the case for a **general-purpose nootropic effect is weaker than many summaries imply**. A widely cited 2024 cognition meta-analysis reported benefits in selected domains, yet a 2026 methodological commentary identified double-counting of correlated outcomes that can inflate precision; EFSA had raised the same concern and concluded that a general cause-and-effect cognitive benefit was not established. A corrected memory meta-analysis likewise lost its overall significant effect, although a subgroup signal in older adults remained. The strongest recent stress-state experiment used a single very large research dose during prolonged sleep deprivation and should not be converted into a consumer protocol. Depression evidence remains very-low-certainty, and the newest kidney meta-analysis distinguishes misleading creatinine-based eGFR changes from measured GFR.
 
 ![Creatine Brain Health](/images/guides/creatine-brain-health.jpg)
+
+## Quick evidence answers
+
+### Does creatine improve cognition in healthy adults?
+
+**A broad, reliable nootropic effect is not established.** Some domains and populations show signals, but pooled estimates are limited by study heterogeneity and methodological concerns in influential meta-analyses.
+
+### Is the sleep-deprivation study a consumer dosing protocol?
+
+**No.** The 2024 experiment tested an unusually large research exposure during acute sleep deprivation. Its result is evidence about a specific metabolic-stress condition, not a general daily brain-health regimen.
+
+### Does creatine damage healthy kidneys?
+
+**Current pooled evidence does not show a convincing measured-GFR injury signal in studied adults, but creatine can complicate creatinine-based kidney estimates.** That distinction matters when interpreting laboratory results.
 
 ## At a glance
 
