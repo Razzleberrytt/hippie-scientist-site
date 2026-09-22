@@ -34,9 +34,21 @@ describe('governed static export workflow topology', () => {
     expect(workflow).toContain('Registered $workflow run $registered_run for exact head $SOURCE_SHA')
     expect(workflow).toContain('Consumer dispatch failed to register within 40 seconds')
     expect(workflow).toContain('exit 1')
-    expect(workflow).toContain('the autonomous merge controller then waits for exact-head consumer completion')
+    expect(workflow).toContain('CI explicitly dispatches the trusted main-branch controller for PRs')
   })
 
+  it('dispatches the trusted controller only after exact-head consumers register', () => {
+    const workflow = read('.github/workflows/ci.yml')
+    const registrationAt = workflow.indexOf('Consumer dispatch failed to register within 40 seconds')
+    const controllerAt = workflow.indexOf('gh workflow run autonomous-merge-controller.yml')
+
+    expect(registrationAt).toBeGreaterThan(-1)
+    expect(controllerAt).toBeGreaterThan(registrationAt)
+    expect(workflow).toContain('--ref main')
+    expect(workflow).toContain('-f "pr_number=$PR_NUMBER"')
+    expect(workflow).toContain('-f "expected_head_sha=$SOURCE_SHA"')
+    expect(workflow).toContain('Dispatched trusted merge controller for PR #$PR_NUMBER at exact head $SOURCE_SHA')
+  })
   for (const [name, path] of [
     ['Build Check', '.github/workflows/build-check.yml'],
     ['Lighthouse CI', '.github/workflows/lighthouse.yml'],
