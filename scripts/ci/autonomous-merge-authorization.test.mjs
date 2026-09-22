@@ -32,6 +32,19 @@ describe('autonomous merge authorization provenance', () => {
     expect(workflow).toContain('VALIDATED_BASE_SHA: ${{ needs.merge-controller.outputs.base_sha }}')
   })
 
+  it('attests an exact validated merge even when the merge step loses a post-merge race', () => {
+    const workflow = read('.github/workflows/autonomous-merge-controller.yml')
+    const attest = workflow.match(/- name: Attest controller-authorized merge[\s\S]*?- name: Ensure merged PR enters deploy lifecycle/)?.[0] || ''
+
+    expect(attest).toContain('if: always()')
+    expect(attest).toContain('EXPECTED_HEAD_SHA')
+    expect(attest).toContain('VALIDATED_BASE_SHA')
+    expect(attest).toContain('merge_tree')
+    expect(attest).toContain('head_tree')
+    expect(attest).toContain('statuses/$EXPECTED_HEAD_SHA')
+    expect(attest).toContain('refusing authorization receipt')
+  })
+
   it('attests fallback merges only from the controller merge-success log and verifies GitHub merge identity', () => {
     const workflow = read('.github/workflows/autonomous-merge-controller.yml')
     const fallbackBlock = workflow.match(/ {2}fallback-sweep:\n([\s\S]*)$/)?.[1] || ''
