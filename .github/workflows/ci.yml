@@ -105,6 +105,11 @@ jobs:
           scripts/ci/validate-project-control-admission.test.mjs
           scripts/ci/classify-release-impact.test.mjs
           scripts/ci/build-performance-contract.test.mjs
+      - name: Validate governor state on validation-only changes
+        if: steps.impact.outputs.validation_only == 'true'
+        run: |
+          node --test scripts/enrichment-governor/__tests__/*.test.mjs
+          node scripts/enrichment-governor/validate-state.mjs
 
       - name: Run typecheck
         if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
