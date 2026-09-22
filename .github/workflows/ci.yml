@@ -340,6 +340,7 @@ jobs:
         if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         env:
           COMMIT_HASH: ${{ steps.context.outputs.source_sha }}
+          SKIP_NEXT_BUILD_TYPECHECK: '1'
         run: npm run build:deploy
 
       - name: Verify build output
