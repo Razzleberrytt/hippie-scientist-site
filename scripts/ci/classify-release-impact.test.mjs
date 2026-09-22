@@ -218,6 +218,11 @@ describe('workflow release-impact contract', () => {
 
     expect(ci).toContain("if: steps.impact.outputs.validation_only == 'true'")
     expect(ci).toContain('Run focused control-plane tests')
+    expect(ci).toContain('scripts/ci/autonomous-merge-refresh-safety.test.mjs')
+    expect(ci).toContain('scripts/ci/autonomous-merge-authorization.test.mjs')
+    expect(ci).toContain('scripts/ci/verify-deploy-authorization.test.mjs')
+    expect(ci).toContain('tests/autonomous-merge-controller-contract.test.ts')
+    expect(ci).toContain('tests/deployment-handoff-contract.test.ts')
     expect(ci).toContain('npm run audit:high')
     expect(ci).toContain("if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'")
     expect(siteHealth).toContain('Delegate scoped exact-head validation to standard CI')
@@ -252,6 +257,14 @@ describe('validation-only classification', () => {
     'scripts/ci/validate-project-control-admission.mjs',
     'scripts/ci/validate-project-control-admission.test.mjs',
     '.github/workflows/project-control-reconciliation.yml',
+    '.github/workflows/autonomous-merge-controller.yml',
+    'scripts/ci/autonomous-merge-controller.mjs',
+    'scripts/ci/autonomous-merge-refresh-safety.test.mjs',
+    'scripts/ci/autonomous-merge-authorization.test.mjs',
+    'scripts/ci/verify-deploy-authorization.mjs',
+    'scripts/ci/verify-deploy-authorization.test.mjs',
+    'tests/autonomous-merge-controller-contract.test.ts',
+    'tests/deployment-handoff-contract.test.ts',
     'security/audit-allowlist.json',
     'security/audit-allowlist.d/mdx.json',
     'ops/enrichment-governor/work-queue.json',
