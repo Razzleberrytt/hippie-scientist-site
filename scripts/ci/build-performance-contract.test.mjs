@@ -27,6 +27,79 @@ describe('CI build performance contracts', () => {
     expect(config).toContain('cpus: staticGenerationCpus')
   })
 
+  it('uses exact-base shallow checkout instead of fetching every repository branch', () => {
+    const workflow = read('.github/workflows/ci.yml')
+
+    expect(workflow).not.toContain('fetch-depth: 0')
+    expect(workflow.match(/fetch-depth: 1/g)?.length).toBeGreaterThanOrEqual(2)
+    expect(workflow).toContain('git fetch --no-tags --depth=1 origin "$BASE_SHA"')
+    expect(workflow).toContain('git diff --name-only "$BASE_SHA" HEAD')
+    expect(workflow).not.toContain('git diff --name-only "origin/$BASE_REF"...HEAD')
+  })
+
+  it('does not re-encode responsive images after build-deploy has integrity-checked them', () => {
+    const deploy = read('scripts/build-deploy.mjs')
+    const production = read('scripts/build-production.mjs')
+
+    expect(deploy).toContain("if (step.name === 'optimize-images') responsiveImagesReady = true")
+    expect(deploy).toContain("RESPONSIVE_IMAGES_READY: '1'")
+    expect(production).toContain("process.env.RESPONSIVE_IMAGES_READY === '1'")
+    expect(production).toContain("execSync('node scripts/optimize-images.mjs'")
+  })
+
+  it('bounds higher static-page concurrency to GitHub Actions only', () => {
+    const config = read('next.config.mjs')
+
+    expect(config).toContain("staticGenerationMaxConcurrency = process.env.GITHUB_ACTIONS === 'true' ? 12 : 8")
+    expect(config).toContain('staticGenerationMaxConcurrency,')
+  })
+
+  it('parallelizes output verification without removing any acceptance check', () => {
+    const pkg = JSON.parse(read('package.json'))
+    const verifier = read('scripts/ci/verify-output-parallel.mjs')
+
+    expect(pkg.scripts['verify:output']).toBe('node scripts/ci/verify-output-parallel.mjs')
+    for (const fragment of [
+      'validate:static-export',
+      'validate-public-json-imports.mjs',
+      'validate-quarantine-imports.mjs',
+      'validate-direct-dependencies.mjs',
+      'validate-xlsx-boundary.mjs',
+      'validate-security-headers.mjs',
+      'verify-generated-data.mjs',
+      'validate-guide-related.mjs',
+      'validate-route-seo.mjs',
+      'validate-canonical-host.mjs',
+      'validate-route-governance.mjs',
+      'validate-dangerously-set-inner-html.mjs',
+      'verify-core-routes.mjs',
+      'verify-redirects.mjs',
+      'audit-profile-robots.mjs',
+      'validate-deploy-readiness.mjs',
+      'validate-build-seo-metadata.mjs',
+      'audit-metadata-duplicates.mjs',
+      'audit-internal-links.mjs',
+      'validate-internal-links.mjs',
+      'validate-hub-child-coverage.mjs',
+      'audit-structured-data.mjs',
+      'audit-seo-routes.mjs',
+      'validate-guide-faqs.mjs',
+      'validate-sitemap.mjs --require-built',
+      'validate-sitemap-completeness.mjs --require-built',
+      'validate-robots.mjs --require-built',
+      'validate-feed-output.mjs',
+      'audit:sitemap-affiliate',
+      'validate:pagefind-body',
+      'validate:cluster-member-export',
+      'report-performance-budget.mjs',
+    ]) {
+      expect(verifier, fragment).toContain(fragment)
+    }
+    expect(verifier).toContain("await runPhase('prebuild', PREBUILD_GROUPS)")
+    expect(verifier).toContain("await runPhase('postbuild', POSTBUILD_GROUPS)")
+    expect(verifier).toContain('Promise.all(groups.map')
+  })
+
   it('persists only integrity-checked build intermediates on the production build lane', () => {
     const workflow = read('.github/workflows/ci.yml')
     const manager = read('scripts/cache/build-cache-manager.mjs')

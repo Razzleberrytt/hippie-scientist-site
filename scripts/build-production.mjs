@@ -86,15 +86,19 @@ try {
     pagesMoved = true
   }
 
-  // `build:deploy` already warms this cacheable generator, but build-production
-  // is also invoked directly by profiling/orchestration paths. Keep the actual
-  // production-render boundary self-sufficient: fresh variants are a fast no-op,
-  // while missing/stale variants are regenerated before Next emits image URLs.
-  console.log('[build] Ensuring responsive image variants...')
-  execSync('node scripts/optimize-images.mjs', {
-    stdio: 'inherit',
-    env: process.env,
-  })
+  // `build:deploy` may arrive here only after its cache manager has verified
+  // the current optimized-image outputs against the current inputs. Carry that
+  // proof across the orchestration boundary so we do not encode all variants a
+  // second time. Direct/profiled build-production runs remain self-sufficient.
+  if (process.env.RESPONSIVE_IMAGES_READY === '1') {
+    console.log('[build] Responsive image variants already integrity-checked by build:deploy.')
+  } else {
+    console.log('[build] Ensuring responsive image variants...')
+    execSync('node scripts/optimize-images.mjs', {
+      stdio: 'inherit',
+      env: process.env,
+    })
+  }
 
   console.log('[build] Running next build...')
   execSync('npx next build', {
