@@ -3,7 +3,8 @@ slug: ashwagandha
 title: "Ashwagandha Benefits, Sleep & Stress Evidence: What the Science Actually Shows"
 description: "Evidence-based 2026 review of ashwagandha for stress, anxiety and sleep, including meta-analyses, formulation limits, study-dose context, thyroid concerns, rare liver injury and medication safety."
 date: '2026-06-06'
-updatedAt: '2026-09-04'
+updatedAt: '2026-09-22'
+lastReviewed: '2026-09-22'
 author: Will
 category: Stress and anxiety
 evidence_grade: Moderate
@@ -120,6 +121,28 @@ Ashwagandha (*Withania somnifera*) is one of the better-studied botanical supple
 > **Bottom line:** Ashwagandha has a credible short-term evidence signal for stress and a smaller, still-limited signal for sleep. The evidence comes from specific extracts used for weeks, not from every powder, gummy, tea, or branded capsule. Optimal dose and duration are not settled, long-term safety remains less certain, and direct evidence for common ashwagandha stacks is lacking.
 
 For the sleep-specific evidence hierarchy, see [Ashwagandha for Sleep](/guides/sleep/ashwagandha-for-sleep/) and the [Sleep Interventions Evidence Matrix](/articles/sleep-interventions-evidence-matrix/).
+
+## Quick evidence answers
+
+### Does ashwagandha help stress?
+
+**Some standardized extracts have a credible short-term signal, but the size of benefit is uncertain.** Randomized trials and meta-analyses generally point toward lower perceived-stress scores in selected adults, while extract identity, dose, population, duration, and outcome measures vary substantially. [1,4]
+
+### Does it help anxiety?
+
+**Possibly, but the claim needs more caution than “ashwagandha treats anxiety.”** Pooled analyses report favorable symptom signals, while current evidence does not establish formulation equivalence, durable benefit, or replacement of established anxiety treatment. [1,2,4,10]
+
+### Does it improve sleep?
+
+**The average signal is small and based on a limited trial set.** A five-RCT meta-analysis found modest improvement overall, with stronger signals in some insomnia and longer-duration subgroups. It does not establish same-night sedation or reliable changes in sleep architecture. [3]
+
+### Are KSM-66, Sensoril, Shoden, root powder, and generic extracts interchangeable?
+
+**No.** Preparations differ in plant part, extraction, standardization, and studied exposure. Evidence from one extract should not automatically be transferred to another product.
+
+### What are the safety issues that should stay visible?
+
+**Rare liver injury, thyroid effects, pregnancy/breastfeeding cautions, and medication interactions matter.** Short-term tolerability in trials does not establish indefinite safety. [7–10]
 
 ## Evidence snapshot
 
