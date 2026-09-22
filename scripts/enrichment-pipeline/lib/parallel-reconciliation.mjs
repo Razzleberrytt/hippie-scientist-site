@@ -133,10 +133,11 @@ export function reconcileParallelSubmissions({ root = process.cwd() } = {}) {
   }
 
   const all = [...candidates, ...blocked]
+  const sourceIntake = sourceIntakeRequirements(blocked)
   return { version:1, deterministicModelVersion:'parallel-enrichment-reconciliation-v1', generatedAt:new Date().toISOString(), readOnly:true,
     inputs:{legacyPath:'ops/enrichment-submissions.json',fragmentRoot:'ops/enrichment-submissions/sessions',manifestPath:'ops/research-sessions/session-manifest.json',sourceRegistryPath:'public/data/source-registry.json'},
-    summary:{legacyCount:all.filter(x=>x.sourceKind==='legacy').length,parallelCount:all.filter(x=>x.sourceKind==='parallel').length,candidateCount:candidates.length,blockedCount:blocked.length,eligibleLegacy:candidates.filter(x=>x.sourceKind==='legacy').length,eligibleParallel:candidates.filter(x=>x.sourceKind==='parallel').length,stagingOnlyCount:all.filter(x=>x.reconciliation?.stagingOnly).length,errorCount:errors.length},
-    candidates, blocked, errors }
+    summary:{legacyCount:all.filter(x=>x.sourceKind==='legacy').length,parallelCount:all.filter(x=>x.sourceKind==='parallel').length,candidateCount:candidates.length,blockedCount:blocked.length,eligibleLegacy:candidates.filter(x=>x.sourceKind==='legacy').length,eligibleParallel:candidates.filter(x=>x.sourceKind==='parallel').length,stagingOnlyCount:all.filter(x=>x.reconciliation?.stagingOnly).length,sourceIntakeRequirementCount:sourceIntake.length,errorCount:errors.length},
+    candidates, blocked, sourceIntakeRequirements:sourceIntake, errors }
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
