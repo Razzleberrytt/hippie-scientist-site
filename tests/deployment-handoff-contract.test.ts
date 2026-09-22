@@ -54,6 +54,17 @@ describe('production deployment handoff contract', () => {
     }
   })
 
+  it('reuses exact-tree controller validation without skipping the merge-SHA build or output verification', () => {
+    const workflow = read('.github/workflows/deploy.yml')
+
+    expect(workflow).toContain('id: deploy-auth')
+    expect(workflow).toContain("if: steps.deploy-auth.outputs.skip_redundant_validation != 'true'")
+    expect(workflow).toContain("SKIP_NEXT_BUILD_TYPECHECK: ${{ steps.deploy-auth.outputs.skip_redundant_validation == 'true' && '1' || '' }}")
+    expect(workflow).toContain('npm ci --no-audit --fund=false')
+    expect(workflow).toContain('run: npm run build:deploy')
+    expect(workflow).toContain('run: npm run verify:output')
+  })
+
   it('publishes and verifies an exact-SHA production receipt before deploy success', () => {
     const workflow = read('.github/workflows/deploy.yml')
     const verifier = read('scripts/ci/deployment-receipt.mjs')
