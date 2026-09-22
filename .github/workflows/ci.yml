@@ -511,6 +511,19 @@ jobs:
             fi
           done
 
+          # GITHUB_TOKEN-dispatched consumer completions do not reliably emit a
+          # downstream workflow_run wake. Explicitly dispatch the trusted main
+          # controller after every exact-head consumer is registered; it polls
+          # until those consumers are terminal and revalidates every merge gate.
+          if [ -n "$PR_NUMBER" ]; then
+            gh workflow run autonomous-merge-controller.yml \
+              --repo "${{ github.repository }}" \
+              --ref main \
+              -f "pr_number=$PR_NUMBER" \
+              -f "expected_head_sha=$SOURCE_SHA"
+            echo "Dispatched trusted merge controller for PR #$PR_NUMBER at exact head $SOURCE_SHA"
+          fi
+
       - name: Add build summary
         if: always()
         run: |
@@ -519,7 +532,7 @@ jobs:
           echo "- Exact source SHA: ${{ steps.context.outputs.source_sha || github.sha }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Exact base SHA: ${{ steps.context.outputs.base_sha || github.sha }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Governed static export is hash-bound to source/base/lockfile/output and fans out only after this build succeeds on PRs and main." >> "$GITHUB_STEP_SUMMARY"
-          echo "- Consumer dispatch registration is proven before CI can finish; the autonomous merge controller then waits for exact-head consumer completion." >> "$GITHUB_STEP_SUMMARY"
+          echo "- Consumer dispatch registration is proven before CI can finish; CI explicitly dispatches the trusted main-branch controller for PRs, which waits for exact-head consumer completion." >> "$GITHUB_STEP_SUMMARY"
           echo "- PR Build Check plus Lighthouse, Production Content Lint, and every triggered build-dependent governance consumer reuse that artifact; artifact miss/mismatch falls back to a complete build." >> "$GITHUB_STEP_SUMMARY"
           echo "- Unprivileged fork/Dependabot PRs self-build consumer audits rather than attempting a forbidden workflow dispatch." >> "$GITHUB_STEP_SUMMARY"
           echo "- Docs-only: ${{ steps.impact.outputs.docs_only || 'false' }}" >> "$GITHUB_STEP_SUMMARY"
