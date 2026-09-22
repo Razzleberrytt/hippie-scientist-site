@@ -54,6 +54,16 @@ describe('CI build performance contracts', () => {
     expect(config).toContain('staticGenerationMaxConcurrency,')
   })
 
+  it('does not duplicate the dedicated CI typecheck inside the GitHub Next build', () => {
+    const config = read('next.config.mjs')
+    const workflow = read('.github/workflows/ci.yml')
+
+    expect(workflow).toContain('Run typecheck')
+    expect(workflow).toContain('npm run typecheck')
+    expect(config).toContain("skipNextBuildTypecheck = process.env.GITHUB_ACTIONS === 'true'")
+    expect(config).toContain('ignoreBuildErrors: skipNextBuildTypecheck')
+  })
+
   it('parallelizes output verification without removing any acceptance check', () => {
     const pkg = JSON.parse(read('package.json'))
     const verifier = read('scripts/ci/verify-output-parallel.mjs')
@@ -95,8 +105,9 @@ describe('CI build performance contracts', () => {
     ]) {
       expect(verifier, fragment).toContain(fragment)
     }
-    expect(verifier).toContain("await runPhase('prebuild', PREBUILD_GROUPS)")
-    expect(verifier).toContain("await runPhase('postbuild', POSTBUILD_GROUPS)")
+    expect(verifier).toContain("runPhase('prebuild', PREBUILD_GROUPS)")
+    expect(verifier).toContain("runPhase('postbuild', POSTBUILD_GROUPS)")
+    expect(verifier).toContain('await Promise.all([\n    runPhase')
     expect(verifier).toContain('Promise.all(groups.map')
   })
 
