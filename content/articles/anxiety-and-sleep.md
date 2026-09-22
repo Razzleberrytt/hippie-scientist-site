@@ -3,7 +3,7 @@ slug: anxiety-and-sleep
 title: "Anxiety and Sleep: Insomnia, Hyperarousal, CBT-I and the Bidirectional Evidence"
 description: "Evidence review of anxiety and sleep, including insomnia, hyperarousal, GAD, panic, PTSD, OCD, CBT-I, sleep-related worry, and why treating insomnia can help anxiety without replacing anxiety-specific care."
 date: '2026-09-04'
-updatedAt: '2026-09-04'
+updatedAt: '2026-09-22'
 author: Will
 category: Anxiety & Sleep
 evidence_grade: Moderate
@@ -79,6 +79,20 @@ references:
 ---
 
 > **Bottom line:** Anxiety can make sleep difficult, and disrupted sleep can make anxiety harder to regulate. But “anxiety causes insomnia” is still too simple. Generalized worry, nocturnal panic, trauma-related nightmares, compulsive rituals, circadian delay, insufficient sleep opportunity and a primary sleep disorder can all produce different versions of a bad night. Treating chronic insomnia with CBT-I is worthwhile even when anxiety is present, and it can reduce anxiety symptoms on average, but the anxiety benefit is smaller and less consistent than the insomnia benefit.[1-9]
+
+## Quick evidence answers
+
+### Can anxiety cause insomnia?
+
+**Yes, but it is not the only explanation.** Worry and hyperarousal can disrupt sleep onset and maintenance, while circadian delay, insufficient sleep opportunity, breathing disorders, restless legs, substances, medications, and other conditions can produce similar symptoms.[1,3,5]
+
+### Can poor sleep make anxiety worse?
+
+**Yes on average, but the relationship is bidirectional and individual effects vary.** Longitudinal evidence supports cross-lagged relationships, generally with small effects rather than one dominant causal pathway.[8,9]
+
+### Does treating insomnia also treat anxiety?
+
+**It can reduce anxiety symptoms, but usually less than it improves insomnia.** CBT-I remains appropriate for chronic insomnia when anxiety is present; it should not be presented as a replacement for anxiety-specific care.[2,6,7]
 
 ## Anxiety and sleep are connected in both directions
 
