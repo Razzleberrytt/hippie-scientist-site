@@ -19,11 +19,18 @@ const staticGenerationCpus = process.env.GITHUB_ACTIONS === 'true' ? 4 : 2
 // concurrency only on the known 4-vCPU/16-GB hosted runner. Other hosts retain
 // Next's default 8-page setting.
 const staticGenerationMaxConcurrency = process.env.GITHUB_ACTIONS === 'true' ? 12 : 8
+// The authoritative CI build lane runs `npm run typecheck` in its parallel
+// validation job. Only that producer opts out of Next's duplicate ~30s check;
+// every other GitHub/Cloudflare/local build keeps Next typechecking on.
+const skipNextBuildTypecheck = process.env.SKIP_NEXT_BUILD_TYPECHECK === '1'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
+  typescript: {
+    ignoreBuildErrors: skipNextBuildTypecheck,
+  },
   output: 'export',
   trailingSlash: true,
   // Skip ESLint during `next build`. Linting ~1.4k files inside the production
