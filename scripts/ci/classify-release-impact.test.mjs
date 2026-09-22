@@ -144,14 +144,20 @@ describe('workflow release-impact contract', () => {
     expect(yaml).toContain('steps.impact.outputs.release_sensitive')
   })
 
-  it.each([
-    ['.github/workflows/ci.yml', 'npm run build:deploy'],
-    ['.github/workflows/production-content-invariants.yml', 'node scripts/build-production.mjs'],
-  ])('%s skips its production build on docs-only PRs', (workflow, heavyCommand) => {
-    const yaml = fs.readFileSync(path.join(process.cwd(), workflow), 'utf8')
+  it('skips the authoritative CI production build on docs-only PRs', () => {
+    const yaml = fs.readFileSync(path.join(process.cwd(), '.github/workflows/ci.yml'), 'utf8')
     expect(yaml).toContain(classifierCommand)
-    expect(yaml).toContain(heavyCommand)
+    expect(yaml).toContain('npm run build:deploy')
     expect(yaml).toContain("steps.impact.outputs.docs_only != 'true'")
+  })
+
+  it('keeps production-content-invariants as an exact-artifact consumer with a fail-closed fallback', () => {
+    const yaml = fs.readFileSync(path.join(process.cwd(), '.github/workflows/production-content-invariants.yml'), 'utf8')
+    expect(yaml).toContain('Download governed static export')
+    expect(yaml).toContain('Verify governed static export receipt and restore governed data')
+    expect(yaml).toContain("if: steps.governed-verify.outcome != 'success'")
+    expect(yaml).toContain('npm run build:deploy')
+    expect(yaml).toContain("github.event.pull_request.head.repo.full_name != github.repository")
   })
 
   it('skips exhaustive CI validation only when the shared classifier proves docs-only', () => {
@@ -196,13 +202,13 @@ describe('workflow release-impact contract', () => {
     expect(ci.match(/git fetch --no-tags --depth=1 origin "\$BASE_SHA"/g)?.length).toBeGreaterThanOrEqual(2)
     expect(ci.match(/git diff --name-only "\$BASE_SHA" HEAD/g)?.length).toBeGreaterThanOrEqual(2)
 
-    for (const workflow of [
-      '.github/workflows/production-content-invariants.yml',
-      '.github/workflows/check.yml',
-    ]) {
-      const yaml = fs.readFileSync(path.join(process.cwd(), workflow), 'utf8')
-      expect(yaml, workflow).toContain('fetch-depth: 0')
-    }
+    const siteHealth = fs.readFileSync(path.join(process.cwd(), '.github/workflows/check.yml'), 'utf8')
+    expect(siteHealth).toContain('fetch-depth: 0')
+
+    const invariants = fs.readFileSync(path.join(process.cwd(), '.github/workflows/production-content-invariants.yml'), 'utf8')
+    expect(invariants).toContain('fetch-depth: 1')
+    expect(invariants).toContain('ref: ${{ inputs.producer_sha || github.sha }}')
+    expect(invariants).toContain('Reject stale producer dispatch')
   })
 
   it('uses validation-only only for build-output-neutral control/security changes', () => {
@@ -229,8 +235,8 @@ describe('workflow release-impact contract', () => {
     expect(siteHealth).toContain('Leaf-page-only change; CI production build/output/SEO remains authoritative')
     expect(atomic).toContain("steps.impact.outputs.leaf_page_only != 'true'")
     expect(atomic).toContain('Leaf-page-only change; skip duplicate full release suite')
-    expect(invariants).toContain("steps.impact.outputs.leaf_page_only != 'true'")
-    expect(invariants).toContain('Leaf-page-only change; reuse committed governed data corpus')
+    expect(invariants).toContain('Download governed static export')
+    expect(invariants).toContain('Same-repository PRs reuse the exact governed CI export instead of rebuilding the site.')
   })
 })
 
