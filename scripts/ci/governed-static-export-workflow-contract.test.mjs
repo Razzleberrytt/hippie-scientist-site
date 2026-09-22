@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest'
 const read = (path) => fs.readFileSync(path, 'utf8')
 
 describe('governed static export workflow topology', () => {
-  it('makes CI the PR producer and dispatches all heavy consumers only after artifact creation', () => {
+  it('makes CI the PR/main producer and dispatches all heavy consumers only after artifact creation', () => {
     const workflow = read('.github/workflows/ci.yml')
     expect(workflow).toContain('name: CI')
     expect(workflow).toContain('Write governed static export receipt')
@@ -18,6 +18,8 @@ describe('governed static export workflow topology', () => {
     expect(workflow).toContain('consumers+=(schema-media-governance.yml)')
     expect(workflow).toContain('consumers+=(technical-seo-monitor.yml)')
     expect(workflow).toContain('producer_base_sha:$base')
+    expect(workflow).toContain('EVENT_BEFORE_SHA: ${{ github.event.before }}')
+    expect(workflow).toContain('consumers=(lighthouse.yml production-content-lint.yml)')
   })
 
   it('fails closed until every dispatched exact-head consumer is visibly registered', () => {
@@ -47,7 +49,8 @@ describe('governed static export workflow topology', () => {
     it(`${name} registers on PRs but performs heavy work only in dispatched/fallback runs`, () => {
       const workflow = read(path)
       expect(workflow).toContain('pull_request:')
-      expect(workflow).toContain("if: github.event_name != 'pull_request'")
+      expect(workflow).toContain("github.event_name == 'workflow_dispatch'")
+      expect(workflow).toContain("github.event_name == 'pull_request'")
       expect(workflow).toContain('Download governed static export')
       expect(workflow).toContain('Verify governed static export receipt')
       expect(workflow).toContain('steps.governed-verify.outcome != \'success\'')
