@@ -3,6 +3,21 @@ import { transformWithOxc, type Plugin } from 'vite'
 import path from 'path'
 
 const ROOT = import.meta.dirname
+const SCRIPT_TEST_GLOB = 'scripts/**/*.{test,spec}.{ts,js,mjs,cjs}'
+const ALL_TEST_GLOB = '**/*.{test,spec}.?(c|m)[jt]s?(x)'
+const GITHUB_ACTIONS = process.env.GITHUB_ACTIONS === 'true'
+const TEST_EXCLUDES = [
+  '**/node_modules/**',
+  '**/dist/**',
+  '**/.next/**',
+  '**/.claude/**',
+  '**/out/**',
+  'agent/lib/runtime-resilience.test.js',
+  'scripts/enrichment-governor/__tests__/**',
+  'scripts/content/__tests__/**',
+  'scripts/ci/swarm-operational-ledger.test.mjs',
+  'scripts/ci/__tests__/fabricated-source-quarantine.test.mjs',
+]
 
 function workspaceAliasPlugin(): Plugin {
   return {
@@ -63,20 +78,31 @@ export default defineConfig({
     // Native node:test suites are executed by `npm run test:node` and focused
     // owning workflows. Letting Vitest discover them makes Vite try to bundle
     // the prefix-only node:test builtin instead of exercising the native runner.
-    exclude: [
-      '**/node_modules/**',
-      '**/dist/**',
-      '**/.next/**',
-      '**/.claude/**',
-      '**/out/**',
-      'agent/lib/runtime-resilience.test.js',
-      'scripts/enrichment-governor/__tests__/**',
-      'scripts/content/__tests__/**',
-      // node:test suites — vitest collects them, finds no vitest suite, and fails
-      // the file. They pass under `npm run test:node`, which discovers them by
-      // their real top-level `import ... from 'node:test'`.
-      'scripts/ci/swarm-operational-ledger.test.mjs',
-      'scripts/ci/__tests__/fabricated-source-quarantine.test.mjs',
+    exclude: TEST_EXCLUDES,
+    // Script/CI/data unit tests do not need a browser. Give them a real Node
+    // environment while keeping application/component/lib tests in jsdom.
+    // Inline projects must opt into root inheritance on Vitest 4.
+    projects: [
+      {
+        extends: true,
+        test: {
+          name: 'scripts-node',
+          environment: 'node',
+          include: [SCRIPT_TEST_GLOB],
+          setupFiles: [],
+          maxWorkers: GITHUB_ACTIONS ? 1 : '25%',
+        },
+      },
+      {
+        extends: true,
+        test: {
+          name: 'app-dom',
+          environment: 'jsdom',
+          include: [ALL_TEST_GLOB],
+          exclude: [...TEST_EXCLUDES, 'scripts/**'],
+          maxWorkers: GITHUB_ACTIONS ? 3 : '75%',
+        },
+      },
     ],
     // Public GitHub-hosted ubuntu runners expose 4 vCPUs. At 50%, Vitest used
     // only half of the available CPU and the exact-head suite took ~7m15s.
