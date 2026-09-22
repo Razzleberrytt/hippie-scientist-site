@@ -35,7 +35,7 @@ concurrency:
 
 permissions:
   contents: read
-  actions: read
+  actions: write
   pull-requests: read
 
 jobs:
@@ -182,3 +182,17 @@ jobs:
           echo "- Same-repository pull-request runs are registration-only; exact-head lint is dispatched by the successful CI producer." >> "$GITHUB_STEP_SUMMARY"
           echo "- Fork and Dependabot pull requests run the complete self-built lint path because dispatch permissions are unavailable." >> "$GITHUB_STEP_SUMMARY"
           echo "- Missing/stale/tampered artifacts always fall back to a complete governed build." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Wake trusted merge controller
+        if: always() && github.event_name == 'workflow_dispatch' && inputs.producer_pr_number != '' && inputs.producer_sha != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PRODUCER_PR_NUMBER: ${{ inputs.producer_pr_number }}
+          PRODUCER_SHA: ${{ inputs.producer_sha }}
+        run: |
+          set -euo pipefail
+          gh workflow run autonomous-merge-controller.yml \
+            --repo "$GITHUB_REPOSITORY" \
+            --ref main \
+            -f "pr_number=$PRODUCER_PR_NUMBER" \
+            -f "expected_head_sha=$PRODUCER_SHA"
