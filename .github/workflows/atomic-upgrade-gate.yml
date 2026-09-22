@@ -85,18 +85,18 @@ jobs:
           printf '%s\n' "$changed" | node scripts/ci/classify-release-impact.mjs --github-output="$GITHUB_OUTPUT"
 
       - name: Set up Node.js
-        if: steps.impact.outputs.release_sensitive == 'true' && steps.impact.outputs.leaf_page_only != 'true'
+        if: steps.impact.outputs.release_sensitive == 'true' && steps.impact.outputs.leaf_page_only != 'true' && steps.impact.outputs.validation_only != 'true'
         uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: npm
 
       - name: Install dependencies
-        if: steps.impact.outputs.release_sensitive == 'true' && steps.impact.outputs.leaf_page_only != 'true'
+        if: steps.impact.outputs.release_sensitive == 'true' && steps.impact.outputs.leaf_page_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: npm ci --no-audit --fund=false
 
       - name: Run complete release-quality suite
-        if: steps.impact.outputs.release_sensitive == 'true' && steps.impact.outputs.leaf_page_only != 'true'
+        if: steps.impact.outputs.release_sensitive == 'true' && steps.impact.outputs.leaf_page_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: npm run validate:release
 
       - name: Leaf page fast path
