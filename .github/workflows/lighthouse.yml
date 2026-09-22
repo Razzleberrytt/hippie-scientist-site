@@ -107,7 +107,7 @@ jobs:
           if [ -n "${{ inputs.producer_pr_number }}" ]; then
             echo "perf=.lighthouserc.pr.json" >> "$GITHUB_OUTPUT"
             echo "a11y=.lighthouserc.a11y.pr.json" >> "$GITHUB_OUTPUT"
-            echo "label=PR representative matrix (9 browser audits + 3 desktop performance audits)" >> "$GITHUB_OUTPUT"
+            echo "label=PR representative matrix (6 browser audits + 3 desktop performance audits)" >> "$GITHUB_OUTPUT"
           else
             echo "perf=.lighthouserc.json" >> "$GITHUB_OUTPUT"
             echo "a11y=.lighthouserc.a11y.json" >> "$GITHUB_OUTPUT"
@@ -236,7 +236,7 @@ jobs:
           echo "- Governed static export receipt verified: ${{ steps.governed-verify.outcome == 'success' }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Same-repository pull-request runs are registration-only; exact-head audits are dispatched by the successful CI producer." >> "$GITHUB_STEP_SUMMARY"
           echo "- Fork and Dependabot pull requests run a complete self-built validation path because dispatch permissions are unavailable." >> "$GITHUB_STEP_SUMMARY"
-          echo "- PR matrix keeps homepage/herb/compound mobile performance checks plus matching desktop representative checks and hard accessibility checks on homepage, herb, compound, compare, safety-checker, and activity-atlas route archetypes." >> "$GITHUB_STEP_SUMMARY"
+          echo "- PR matrix hard-gates accessibility inside homepage/herb/compound mobile performance audits, adds dedicated accessibility audits for compare/safety-checker/activity-atlas, and keeps matching desktop representative checks." >> "$GITHUB_STEP_SUMMARY"
           echo "- Main/scheduled/manual runs retain the existing full mobile/accessibility matrix plus the three representative desktop checks." >> "$GITHUB_STEP_SUMMARY"
           echo "- Lighthouse performance target: ≥ 82 mobile; ≥ 85 representative desktop (tracked, not gated)" >> "$GITHUB_STEP_SUMMARY"
           echo "- CWV budgets, reported as a trend on both viewports: LCP ≤ 2.5s, CLS ≤ 0.10, TBT ≤ 300ms" >> "$GITHUB_STEP_SUMMARY"
