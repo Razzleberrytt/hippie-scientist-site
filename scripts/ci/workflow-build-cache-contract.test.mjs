@@ -8,7 +8,7 @@ import { cleanProductionBuildArtifacts } from '../lib/clean-next-build-artifacts
 const workflows = [
   {
     path: '.github/workflows/production-content-invariants.yml',
-    buildCommand: 'node scripts/build-production.mjs',
+    buildCommand: 'npm run build:deploy',
   },
   {
     path: '.github/workflows/production-content-lint.yml',
@@ -21,8 +21,8 @@ const cachePath = 'path: .next/cache'
 const packageLockKey = "hashFiles('package-lock.json')"
 const fallbackKey = '${{ runner.os }}-nextjs-${{ hashFiles(\'package-lock.json\') }}-'
 
-describe('heavy production workflows restore usable Next.js build cache', () => {
-  it.each(workflows)('$path restores cache before the full governed build', ({ path: workflowPath, buildCommand }) => {
+describe('heavy production workflow fallbacks restore usable Next.js build cache', () => {
+  it.each(workflows)('$path restores cache before a fail-closed fallback build', ({ path: workflowPath, buildCommand }) => {
     const yaml = fs.readFileSync(path.join(process.cwd(), workflowPath), 'utf8')
     const cacheIndex = yaml.indexOf(cacheAction)
     const buildIndex = yaml.indexOf(buildCommand)
