@@ -3,7 +3,7 @@ slug: kava
 title: "Kava for Anxiety: Does It Work for Social Anxiety? Evidence & Liver Safety"
 description: "Evidence-first 2026 review of kava for anxiety: the negative 171-person GAD trial, older mixed RCTs, social-anxiety and kava-drink evidence gaps, liver injury, interactions, and why water extracts are not risk-free."
 date: '2026-06-08'
-updatedAt: '2026-08-22'
+updatedAt: '2026-09-22'
 author: Will
 category: Anxiety & Sleep
 keywords:
@@ -424,6 +424,8 @@ The strongest 2026 framing is:
 - product quality may reduce risk but does not create a zero-risk preparation.
 
 That is a less marketable answer than “kava works in 30 minutes.” It is also the answer the evidence can actually defend.
+
+> **Next evidence-first step:** If you are deciding what to read next, start with the [Kava Evidence & Safety Guide](/guides/herbs/kava/) for the broader benefit–risk picture. If your main concern is combining kava with medicines, alcohol, or other sedating substances, review the [interaction checker](/interactions/) before considering product-specific options.
 
 ---
 
