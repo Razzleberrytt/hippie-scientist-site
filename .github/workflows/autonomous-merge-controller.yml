@@ -115,22 +115,41 @@ jobs:
         run: node scripts/ci/autonomous-merge-controller.mjs
 
       - name: Attest controller-authorized merge
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          merged="$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER" --jq '.merged')"
+          pr_json="$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER")"
+          merged="$(jq -r '.merged' <<<"$pr_json")"
+          head_sha="$(jq -r '.head.sha' <<<"$pr_json")"
+          merge_sha="$(jq -r '.merge_commit_sha // empty' <<<"$pr_json")"
           if [ "$merged" != "true" ]; then
-            echo "PR #$PR_NUMBER was not merged by this controller run; no authorization status emitted."
+            echo "PR #$PR_NUMBER is not merged; no authorization status emitted."
             exit 0
+          fi
+          if [ "$head_sha" != "$EXPECTED_HEAD_SHA" ] || [ -z "$merge_sha" ]; then
+            echo "Merged PR identity does not match validated controller head; refusing authorization receipt." >&2
+            exit 1
+          fi
+
+          merge_json="$(gh api "repos/$GITHUB_REPOSITORY/git/commits/$merge_sha")"
+          parent_shas="$(jq '[.parents[].sha]' <<<"$merge_json")"
+          has_base="$(jq --arg sha "$VALIDATED_BASE_SHA" 'index($sha) != null' <<<"$parent_shas")"
+          has_head="$(jq --arg sha "$EXPECTED_HEAD_SHA" 'index($sha) != null' <<<"$parent_shas")"
+          merge_tree="$(jq -r '.tree.sha' <<<"$merge_json")"
+          head_tree="$(gh api "repos/$GITHUB_REPOSITORY/git/commits/$EXPECTED_HEAD_SHA" --jq '.tree.sha')"
+          if [ "$has_base" != "true" ] || [ "$has_head" != "true" ] || [ "$merge_tree" != "$head_tree" ]; then
+            echo "Merged revision does not exactly match validated controller head/base; refusing authorization receipt." >&2
+            exit 1
           fi
 
           gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$EXPECTED_HEAD_SHA" \
             -f state=success \
             -f context='autonomous-merge/authorized' \
-            -f description="PR #$PR_NUMBER controller-merged on ${VALIDATED_BASE_SHA:0:7}" \
+            -f description="PR #$PR_NUMBER exact controller-authorized merge on ${VALIDATED_BASE_SHA:0:7}" \
             -f target_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
-          echo "Controller merge authorization recorded on $EXPECTED_HEAD_SHA."
+          echo "Controller merge authorization recorded on exact validated head $EXPECTED_HEAD_SHA."
 
       - name: Ensure merged PR enters deploy lifecycle
         if: success()
