@@ -119,4 +119,15 @@ describe('CI build performance contracts', () => {
     )
     expect(deploy).not.toContain('outputPatternsPresent(')
   })
+  it('runs independent generated-data determinism replicas concurrently', () => {
+    const verifier = read('scripts/data/verify-generated-data.mjs')
+
+    expect(verifier).toContain("import { spawn } from 'node:child_process'")
+    expect(verifier).not.toContain('spawnSync')
+    expect(verifier).toContain('await Promise.all([')
+    expect(verifier).toContain('runDataBuild(firstRepo)')
+    expect(verifier).toContain('runDataBuild(secondRepo)')
+    expect(verifier).toContain('for (const [script, ...args] of DATA_BUILD_STEPS)')
+  })
+
 })
