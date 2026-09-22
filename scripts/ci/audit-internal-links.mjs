@@ -10,6 +10,7 @@ const root = process.cwd()
 const outDir = path.join(root, 'out')
 const FULL_HTML_AUDIT = process.env.FULL_HTML_AUDIT === '1' || process.env.CI === 'true'
 const staticAssetExt = /\.(?:css|js|json|png|jpe?g|gif|webp|avif|svg|ico|txt|xml|map|woff2?)$/i
+const VERBOSE_FILE_LOGS = process.env.VERBOSE_INTERNAL_LINK_AUDIT === '1'
 
 let files = []
 
@@ -86,14 +87,27 @@ const normalizeRoute = (route) => {
   return withoutQuery.replace(/\/+$/, '') || '/'
 }
 
-const isRedirectSourceRoute = (route) => redirectSourcePatterns.some((source) => {
-  const normalizedRoute = normalizeRoute(route)
-  if (source.endsWith('/*')) return normalizedRoute.startsWith(normalizeRoute(source.slice(0, -1)))
-  if (source.includes(':splat')) {
-    return normalizedRoute.startsWith(normalizeRoute(source.split(':splat')[0]))
+// Most redirect rules are exact paths. Precompile them once so every href does
+// O(1) exact lookup instead of scanning and normalizing ~1.3k rules. Wildcard
+// rules stay in a tiny prefix list and preserve the existing /* / :splat semantics.
+const exactRedirectSources = new Set()
+const redirectSourcePrefixes = []
+
+for (const source of redirectSourcePatterns) {
+  if (source.endsWith('/*')) {
+    redirectSourcePrefixes.push(normalizeRoute(source.slice(0, -1)))
+  } else if (source.includes(':splat')) {
+    redirectSourcePrefixes.push(normalizeRoute(source.split(':splat')[0]))
+  } else {
+    exactRedirectSources.add(normalizeRoute(source))
   }
-  return normalizedRoute === normalizeRoute(source)
-})
+}
+
+const isRedirectSourceRoute = (route) => {
+  const normalizedRoute = normalizeRoute(route)
+  if (exactRedirectSources.has(normalizedRoute)) return true
+  return redirectSourcePrefixes.some((prefix) => normalizedRoute.startsWith(prefix))
+}
 
 files = files.filter((filePath) => !isRedirectSourceRoute(routeFromFile(filePath)))
 
@@ -195,7 +209,9 @@ async function run() {
     await Promise.all(batch.map(async (filePath, index) => {
       const route = routeFromFile(filePath)
       const fileIndex = i + index
-      console.log(`[internal-links] Scanning ${fileIndex}: ${route}`)
+      // Per-file logging is useful for diagnosis but expensive across ~1.5k
+      // pages. Keep batch progress by default and allow opt-in file detail.
+      if (VERBOSE_FILE_LOGS) console.log(`[internal-links] Scanning ${fileIndex}: ${route}`)
       const html = await fsPromises.readFile(filePath, 'utf8')
       if (robotsNoindexRe.test(html)) noindexRoutes.add(route)
 

@@ -61,7 +61,7 @@ permissions:
 
 jobs:
   lighthouse:
-    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository || github.actor == 'dependabot[bot]'
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && (github.event.pull_request.head.repo.full_name != github.repository || github.actor == 'dependabot[bot]'))
     name: Lighthouse audit
     runs-on: ubuntu-latest
     timeout-minutes: 35
