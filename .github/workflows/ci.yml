@@ -424,7 +424,7 @@ jobs:
           changed="$(git diff --name-only "$BASE_SHA" HEAD)"
           printf '%s\n' "$changed"
 
-          if printf '%s\n' "$changed" | grep -Eq '^(data/|data-sources/|public/data/|content/|app/|components/|lib/|scripts/data/|scripts/lib/production-content-invariants\.mjs$|scripts/lib/runtime-source-registry-audit\.mjs$|scripts/ci/[^/]*production[^/]*$|\.github/workflows/production-content-invariants\.yml$)'; then
+          if printf '%s\n' "$changed" | grep -Eq '^(data/|data-sources/|public/data/|content/|app/|components/|lib/|scripts/data/|scripts/lib/production-content-invariants\.mjs$|scripts/lib/runtime-source-registry-audit\.mjs$|scripts/ci/test-runtime-source-registry-audit\.mjs$|scripts/ci/[^/]*production[^/]*$|\.github/workflows/production-content-invariants\.yml$)'; then
             consumers+=(production-content-invariants.yml)
           fi
           if printf '%s\n' "$changed" | grep -Eq '^(app/|components/|lib/|public/_redirects$|scripts/ci/audit-page-category-robots\.mjs$|scripts/ci/audit-profile-robots\.mjs$|scripts/ci/audit-static-crawl-surface\.mjs$|\.github/workflows/crawl-governance\.yml$)'; then
