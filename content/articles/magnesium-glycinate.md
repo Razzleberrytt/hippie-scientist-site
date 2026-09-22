@@ -3,8 +3,8 @@ slug: magnesium-glycinate
 title: "Magnesium Glycinate Nightly: Sleep Evidence & Long-Term Safety — 2026 Review"
 description: "Evidence-first review of magnesium glycinate and bisglycinate for sleep, including the 2025 randomized trial, the small effect size, what is known about nightly safety, what is not known beyond four weeks, kidney risk, supplemental upper limits, and medication interactions."
 date: '2026-06-06'
-updatedAt: '2026-08-22'
-lastReviewed: '2026-08-22'
+updatedAt: '2026-09-22'
+lastReviewed: '2026-09-22'
 author: Will
 category: Anxiety & Sleep
 keywords:
@@ -60,6 +60,24 @@ references:
 > **Bottom line:** Magnesium bisglycinate has **one direct randomized sleep trial**, and the average benefit was small. The trial lasted **four weeks**. That is useful evidence for short-term tolerability and modest symptom improvement in the studied population; it is **not long-term nightly safety evidence**. There is no strong human evidence establishing that taking magnesium glycinate every night for many months or years improves sleep, remains necessary, or is superior to other magnesium forms. General magnesium safety depends heavily on total supplemental intake, kidney function, medications, and the reason for supplementation. [1–4]
 
 ![Magnesium Glycinate](/images/guides/magnesium-for-sleep.jpg)
+
+## Quick evidence answers
+
+### Does magnesium glycinate actually help sleep?
+
+**Maybe a little in the short term, but the direct evidence is still sparse.** One four-week randomized trial of magnesium bisglycinate found a small additional improvement in self-reported insomnia severity versus placebo. That does not establish a large effect, long-term benefit, or treatment efficacy for chronic insomnia. [1]
+
+### Is magnesium glycinate proven better than other magnesium forms for sleep?
+
+**No.** Most magnesium-and-sleep research evaluates magnesium generally or uses other salts. The available direct bisglycinate trial does not show that glycinate is superior to citrate, oxide, threonate, or other forms. [1–3]
+
+### Does evidence for correcting magnesium deficiency prove sleep or anxiety benefits?
+
+**No.** Magnesium repletion is appropriate evidence for correcting inadequate magnesium status; it should not be generalized into proof that magnesium glycinate treats sleep, anxiety, or muscle symptoms in people whose magnesium status is already adequate. [2–4]
+
+### What matters most for safety?
+
+**Total elemental magnesium, kidney function, medications, and individual GI tolerance matter more than the word “glycinate” on the label.** Reduced kidney clearance can allow magnesium to accumulate, and magnesium can interfere with absorption of some antibiotics and oral bisphosphonates. [4]
 
 ## At a glance
 
@@ -127,7 +145,7 @@ A four-week RCT cannot answer a multi-year safety question.
 
 ### Direct glycinate-for-sleep data: very little
 
-As of the August 22, 2026 literature check, the direct magnesium-bisglycinate sleep trial lasts four weeks. The broader magnesium sleep literature uses different salts, populations, doses, and study durations. [1–3]
+As of the September 22, 2026 evidence review, the direct magnesium-bisglycinate sleep trial lasts four weeks. The broader magnesium sleep literature uses different salts, populations, doses, and study durations. [1–3]
 
 Therefore, the evidence does **not** establish:
 
