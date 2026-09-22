@@ -57,7 +57,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  actions: read
+  actions: write
   contents: read
 
 jobs:
@@ -168,3 +168,17 @@ jobs:
           echo "- Producer SHA: ${{ inputs.producer_sha || 'none (self-built fallback)' }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Receipt verified: ${{ steps.governed-verify.outcome == 'success' }}" >> "$GITHUB_STEP_SUMMARY"
           echo '- Missing, stale, or tampered artifacts fail closed to a complete build:deploy run.' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Wake trusted merge controller
+        if: always() && github.event_name == 'workflow_dispatch' && inputs.producer_pr_number != '' && inputs.producer_sha != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PRODUCER_PR_NUMBER: ${{ inputs.producer_pr_number }}
+          PRODUCER_SHA: ${{ inputs.producer_sha }}
+        run: |
+          set -euo pipefail
+          gh workflow run autonomous-merge-controller.yml \
+            --repo "$GITHUB_REPOSITORY" \
+            --ref main \
+            -f "pr_number=$PRODUCER_PR_NUMBER" \
+            -f "expected_head_sha=$PRODUCER_SHA"
