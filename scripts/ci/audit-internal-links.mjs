@@ -10,6 +10,7 @@ const root = process.cwd()
 const outDir = path.join(root, 'out')
 const FULL_HTML_AUDIT = process.env.FULL_HTML_AUDIT === '1' || process.env.CI === 'true'
 const staticAssetExt = /\.(?:css|js|json|png|jpe?g|gif|webp|avif|svg|ico|txt|xml|map|woff2?)$/i
+const VERBOSE_FILE_LOGS = process.env.VERBOSE_INTERNAL_LINK_AUDIT === '1'
 
 let files = []
 
@@ -86,14 +87,28 @@ const normalizeRoute = (route) => {
   return withoutQuery.replace(/\/+$/, '') || '/'
 }
 
-const isRedirectSourceRoute = (route) => redirectSourcePatterns.some((source) => {
-  const normalizedRoute = normalizeRoute(route)
-  if (source.endsWith('/*')) return normalizedRoute.startsWith(normalizeRoute(source.slice(0, -1)))
-  if (source.includes(':splat')) {
-    return normalizedRoute.startsWith(normalizeRoute(source.split(':splat')[0]))
+// Compile the redirect table once. The previous hot path normalized and scanned
+// every redirect rule for every href in every HTML file, which made the full
+// audit O(hrefs × redirects). Exact redirects overwhelmingly dominate the
+// contract, so keep those in a Set and retain a small prefix list only for
+// wildcard/splat rules.
+const redirectExactSourceRoutes = new Set()
+const redirectPrefixSourceRoutes = []
+for (const source of redirectSourcePatterns) {
+  if (source.endsWith('/*')) {
+    redirectPrefixSourceRoutes.push(normalizeRoute(source.slice(0, -1)))
+  } else if (source.includes(':splat')) {
+    redirectPrefixSourceRoutes.push(normalizeRoute(source.split(':splat')[0]))
+  } else {
+    redirectExactSourceRoutes.add(normalizeRoute(source))
   }
-  return normalizedRoute === normalizeRoute(source)
-})
+}
+
+const isRedirectSourceRoute = (route) => {
+  const normalizedRoute = normalizeRoute(route)
+  if (redirectExactSourceRoutes.has(normalizedRoute)) return true
+  return redirectPrefixSourceRoutes.some((prefix) => normalizedRoute.startsWith(prefix))
+}
 
 files = files.filter((filePath) => !isRedirectSourceRoute(routeFromFile(filePath)))
 
@@ -195,7 +210,7 @@ async function run() {
     await Promise.all(batch.map(async (filePath, index) => {
       const route = routeFromFile(filePath)
       const fileIndex = i + index
-      console.log(`[internal-links] Scanning ${fileIndex}: ${route}`)
+      if (VERBOSE_FILE_LOGS) console.log(`[internal-links] Scanning ${fileIndex}: ${route}`)
       const html = await fsPromises.readFile(filePath, 'utf8')
       if (robotsNoindexRe.test(html)) noindexRoutes.add(route)
 
