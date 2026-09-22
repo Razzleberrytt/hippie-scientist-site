@@ -83,4 +83,29 @@ describe('governed static export workflow topology', () => {
     const workflow = read('.github/workflows/technical-seo-monitor.yml')
     expect(workflow).toContain("github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.producer_run_id == '')")
   })
+  it('explicitly wakes the trusted controller from every governed consumer', () => {
+    const consumers = [
+      '.github/workflows/build-check.yml',
+      '.github/workflows/lighthouse.yml',
+      '.github/workflows/production-content-lint.yml',
+      '.github/workflows/production-content-invariants.yml',
+      '.github/workflows/crawl-governance.yml',
+      '.github/workflows/schema-media-governance.yml',
+      '.github/workflows/technical-seo-monitor.yml',
+    ]
+
+    for (const file of consumers) {
+      const workflow = fs.readFileSync(path.join(process.cwd(), file), 'utf8')
+      expect(workflow).toContain('actions: write')
+      expect(workflow).toContain('name: Wake trusted merge controller')
+      expect(workflow).toContain("if: always() && github.event_name == 'workflow_dispatch'")
+      expect(workflow).toContain("inputs.producer_pr_number != ''")
+      expect(workflow).toContain("inputs.producer_sha != ''")
+      expect(workflow).toContain('gh workflow run autonomous-merge-controller.yml')
+      expect(workflow).toContain('--ref main')
+      expect(workflow).toContain('-f "pr_number=$PRODUCER_PR_NUMBER"')
+      expect(workflow).toContain('-f "expected_head_sha=$PRODUCER_SHA"')
+    }
+  })
+
 })
