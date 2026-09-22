@@ -1,9 +1,10 @@
 name: Deploy to Cloudflare Pages
 
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
 
 concurrency:
@@ -11,25 +12,28 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
+  actions: read
   contents: read
   pull-requests: read
   statuses: read
 
 jobs:
   deploy:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     environment: production
     env:
       STATIC_OUTPUT_DIR: out
       DEPLOY_MODE: cloudflare-direct
-      DEPLOY_BRANCH: ${{ github.ref_name }}
-      DEPLOY_SHA: ${{ github.sha }}
+      DEPLOY_BRANCH: ${{ github.event.workflow_run.head_branch || github.ref_name }}
+      DEPLOY_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+      CI_PRODUCER_RUN_ID: ${{ github.event.workflow_run.id || '' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          ref: ${{ github.sha }}
+          ref: ${{ env.DEPLOY_SHA }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -45,6 +49,48 @@ jobs:
           DEPLOY_AUTH_INTERVAL_MS: '10000'
         run: node scripts/ci/verify-deploy-authorization.mjs
 
+      - name: Download exact-main governed export from CI
+        id: governed-download
+        if: github.event_name == 'workflow_run' && github.event.workflow_run.name == 'CI' && github.event.workflow_run.conclusion == 'success'
+        continue-on-error: true
+        uses: actions/download-artifact@v7
+        with:
+          name: governed-static-export-${{ env.DEPLOY_SHA }}
+          path: .
+          github-token: ${{ github.token }}
+          run-id: ${{ env.CI_PRODUCER_RUN_ID }}
+
+      - name: Verify exact-main governed export
+        id: governed-verify
+        if: steps.governed-download.outcome == 'success'
+        continue-on-error: true
+        env:
+          EXPECTED_PRODUCER_RUN_ID: ${{ env.CI_PRODUCER_RUN_ID }}
+        run: |
+          set -euo pipefail
+          receipt='.governed-static-export.json'
+          base_sha="$(jq -r '.baseSha // empty' "$receipt")"
+          producer_run_id="$(jq -r '.producerRunId // empty' "$receipt")"
+          if [ -z "$base_sha" ] || [ -z "$producer_run_id" ]; then
+            echo 'Governed export receipt is missing base or producer identity.' >&2
+            exit 1
+          fi
+          if [ "$producer_run_id" != "$EXPECTED_PRODUCER_RUN_ID" ]; then
+            echo "Governed export producer mismatch: expected $EXPECTED_PRODUCER_RUN_ID, received $producer_run_id" >&2
+            exit 1
+          fi
+          if ! git cat-file -e "$base_sha^{commit}" 2>/dev/null; then
+            git fetch --no-tags --depth=1 origin "$base_sha"
+          fi
+          if ! git merge-base --is-ancestor "$base_sha" "$DEPLOY_SHA"; then
+            echo "Governed export base $base_sha is not an ancestor of deploy SHA $DEPLOY_SHA" >&2
+            exit 1
+          fi
+          node scripts/ci/governed-static-export.mjs verify \
+            --source-sha "$DEPLOY_SHA" \
+            --base-sha "$base_sha"
+
+
       - name: Restore IndexNow state
         uses: actions/cache@v6
         with:
@@ -56,6 +102,7 @@ jobs:
             indexnow-${{ runner.os }}-
 
       - name: Cache Next.js build cache
+        if: steps.governed-verify.outcome != 'success'
         uses: actions/cache@v6
         with:
           path: |
@@ -72,39 +119,39 @@ jobs:
         run: npm run check:node
 
       - name: Audit high-severity dependencies
-        if: steps.deploy-auth.outputs.skip_redundant_validation != 'true'
+        if: steps.governed-verify.outcome != 'success' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run audit:high
 
       - name: Run test suite
-        if: steps.deploy-auth.outputs.skip_redundant_validation != 'true'
+        if: steps.governed-verify.outcome != 'success' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run test
 
       - name: Validate canonical data pipeline
-        if: steps.deploy-auth.outputs.skip_redundant_validation != 'true'
+        if: steps.governed-verify.outcome != 'success' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run data:ci
 
       - name: Validate workbook source
-        if: steps.deploy-auth.outputs.skip_redundant_validation != 'true'
+        if: steps.governed-verify.outcome != 'success' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run validate:workbook-source
 
       - name: Validate static export compatibility
-        if: steps.deploy-auth.outputs.skip_redundant_validation != 'true'
+        if: steps.governed-verify.outcome != 'success' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run validate:static-export
 
       - name: Lint
-        if: steps.deploy-auth.outputs.skip_redundant_validation != 'true'
+        if: steps.governed-verify.outcome != 'success' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run lint
 
       - name: Typecheck
-        if: steps.deploy-auth.outputs.skip_redundant_validation != 'true'
+        if: steps.governed-verify.outcome != 'success' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run typecheck
 
       - name: Guard workbook source-of-truth
-        if: steps.deploy-auth.outputs.skip_redundant_validation != 'true'
+        if: steps.governed-verify.outcome != 'success' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run guard:source-of-truth
 
       - name: Audit cluster-member runtime trust
-        if: steps.deploy-auth.outputs.skip_redundant_validation != 'true'
+        if: steps.governed-verify.outcome != 'success' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run audit:cluster-member-trust:strict
 
       - name: Build governed Metricool publication pilot
@@ -134,13 +181,16 @@ jobs:
           ffmpeg -version | sed -n '1p'
 
       - name: Stage governed Metricool publication media
+        env:
+          METRICOOL_PUBLIC_MEDIA_ROOT: ${{ steps.governed-verify.outcome == 'success' && 'out/media/distribution/metricool' || 'public/media/distribution/metricool' }}
         run: node scripts/distribution/stage-metricool-publication-media.mjs
 
       - name: Build app
+        if: steps.governed-verify.outcome != 'success'
         env:
           COMMIT_HASH: ${{ env.DEPLOY_SHA }}
           AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}
-          SKIP_NEXT_BUILD_TYPECHECK: ${{ steps.deploy-auth.outputs.skip_redundant_validation == 'true' && '1' || '' }}
+          SKIP_NEXT_BUILD_TYPECHECK: ${{ (steps.governed-verify.outcome == 'success' || steps.deploy-auth.outputs.skip_redundant_validation == 'true') && '1' || '' }}
         run: npm run build:deploy
 
       - name: Verify build output
@@ -266,6 +316,8 @@ jobs:
             echo "- Validated PR head: ${{ steps.deploy-auth.outputs.validated_head_sha || 'unknown' }}"
             echo "- Merge/head tree identical: ${{ steps.deploy-auth.outputs.tree_identical || 'false' }}"
             echo "- Reused exact-tree PR validation: ${{ steps.deploy-auth.outputs.skip_redundant_validation || 'false' }}"
+            echo "- Reused exact-main CI governed export: ${{ steps.governed-verify.outcome == 'success' }}"
+            echo "- CI producer run: ${CI_PRODUCER_RUN_ID:-none}"
             echo "- Project name: ${CLOUDFLARE_PAGES_PROJECT:-<missing>}"
             if [ -f "$STATIC_OUTPUT_DIR/index.html" ]; then
               echo "- out/index.html exists: yes"
