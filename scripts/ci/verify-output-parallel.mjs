@@ -82,8 +82,10 @@ async function runPhase(name, groups) {
 
 export async function main() {
   const started = Date.now()
-  await runPhase('prebuild', PREBUILD_GROUPS)
-  await runPhase('postbuild', POSTBUILD_GROUPS)
+  await Promise.all([
+    runPhase('prebuild', PREBUILD_GROUPS),
+    runPhase('postbuild', POSTBUILD_GROUPS),
+  ])
   console.log(`[verify-output] PASS in ${((Date.now() - started) / 1000).toFixed(2)}s`)
 }
 
