@@ -12,6 +12,49 @@ const REVIEW_STATUSES = new Set(['draft_submission','needs_validation_fix','read
 const STAGING_ONLY = new Set(['draft_submission','needs_validation_fix','ready_for_review','under_review','revision_requested','rejected','deprecated_submission'])
 const readJson = file => JSON.parse(fs.readFileSync(file, 'utf8'))
 
+function sourceIntakeRequirements(blocked) {
+  const byKey = new Map()
+  for (const record of blocked) {
+    const submission = record?.submission
+    const reasons = record?.reconciliation?.reasons ?? []
+    if (!submission || record.sourceKind !== 'parallel') continue
+    if (!record.reconciliation?.stagingOnly || submission.active !== true) continue
+    if (!reasons.includes('source_missing_from_registry')) continue
+    const disallowed = reasons.filter(reason =>
+      reason !== 'source_missing_from_registry' &&
+      !reason.startsWith('duplicate_finding_fingerprint:')
+    )
+    if (disallowed.length > 0) continue
+
+    const key = `${record.reconciliation.canonicalWorkpackId}|${submission.sourceId}`
+    const current = byKey.get(key) ?? {
+      requirementId: `parallel_source_${record.reconciliation.canonicalWorkpackId}_${submission.sourceId}`,
+      workpackId: record.reconciliation.canonicalWorkpackId,
+      sourceId: submission.sourceId,
+      entityType: submission.entityType,
+      entitySlug: submission.entitySlug ?? null,
+      surfaceId: submission.surfaceId ?? null,
+      evidenceClasses: [],
+      topicTypes: [],
+      submissionIds: [],
+      provenance: [],
+      status: 'requires_source_intake',
+    }
+    current.evidenceClasses.push(submission.evidenceClass)
+    current.topicTypes.push(submission.topicType)
+    current.submissionIds.push(submission.submissionId)
+    current.provenance.push(record.provenance)
+    byKey.set(key, current)
+  }
+
+  return [...byKey.values()].map(item => ({
+    ...item,
+    evidenceClasses: [...new Set(item.evidenceClasses)].sort(),
+    topicTypes: [...new Set(item.topicTypes)].sort(),
+    submissionIds: [...new Set(item.submissionIds)].sort(),
+  })).sort((a, b) => a.requirementId.localeCompare(b.requirementId))
+}
+
 function files(root) {
   if (!fs.existsSync(root)) return []
   return fs.readdirSync(root, { withFileTypes: true }).flatMap(entry => {
