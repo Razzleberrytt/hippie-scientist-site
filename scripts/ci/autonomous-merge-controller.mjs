@@ -7,6 +7,7 @@ const TRANSIENT_CONCLUSIONS = new Set(['cancelled', 'timed_out', 'stale', 'start
 const HOLD_LABELS = new Set(['hold-merge', 'do-not-merge', 'manual-merge'])
 const DISPATCH_EVENTS = new Set(['pull_request', 'workflow_dispatch'])
 const WORKFLOW_CONTROL_PATH = /^\.github\/workflows\//u
+const CI_OWNED_RECOVERY_CONSUMERS = new Set(['Build Check', 'Lighthouse CI', 'Production Content Lint'])
 
 const FAST_REQUIRED_WORKFLOWS = []
 const MEDIUM_CORE_REQUIRED_WORKFLOWS = [
@@ -265,7 +266,7 @@ function recoveryInputsFor(runName, pr) {
       recovery_base_ref: pr.base.ref,
     }
   }
-  if (runName === 'Production Content Lint') {
+  if (runName === 'CI' || runName === 'Site Health Check' || runName === 'Production Content Lint') {
     return { recovery_pr_number: String(pr.number) }
   }
   return null
@@ -340,7 +341,19 @@ async function recoverZeroJobActionRequired(repo, pr, failedRuns) {
     if (jobs.length !== 0) return false
   }
   console.log(`Classified ${failedRuns.length} action_required workflow(s) on ${pr.head.sha} as zero-job control-plane failures`)
-  for (const run of failedRuns) await dispatchWorkflowRun(repo, run, pr)
+  const ciRecovery = failedRuns.some((run) => run.name === 'CI')
+  const directRuns = ciRecovery
+    ? failedRuns.filter((run) => !CI_OWNED_RECOVERY_CONSUMERS.has(run.name))
+    : failedRuns
+
+  if (ciRecovery) {
+    const deferred = failedRuns
+      .filter((run) => CI_OWNED_RECOVERY_CONSUMERS.has(run.name))
+      .map((run) => run.name)
+    console.log(`CI recovery owns governed consumer fan-out; deferring direct recovery for: ${deferred.join(', ') || 'none'}`)
+  }
+
+  for (const run of directRuns) await dispatchWorkflowRun(repo, run, pr)
   return true
 }
 
