@@ -41,6 +41,28 @@ describe('CI build performance contracts', () => {
     expect(atomic).not.toContain('npm ci --no-audit --fund=false')
   })
 
+  it('reuses the governed main CI artifact instead of letting push consumers rebuild', () => {
+    const ci = read('.github/workflows/ci.yml')
+    expect(ci).toContain('EVENT_BEFORE_SHA: ${{ github.event.before }}')
+    expect(ci).toContain('consumers=(lighthouse.yml production-content-lint.yml)')
+    expect(ci).toContain('git fetch --no-tags --depth=1 origin "$BASE_SHA"')
+    expect(ci).toContain("github.event_name == 'push' || steps.context.outputs.pr_number != ''")
+
+    for (const path of [
+      '.github/workflows/lighthouse.yml',
+      '.github/workflows/production-content-lint.yml',
+      '.github/workflows/production-content-invariants.yml',
+      '.github/workflows/crawl-governance.yml',
+      '.github/workflows/schema-media-governance.yml',
+      '.github/workflows/technical-seo-monitor.yml',
+    ]) {
+      const workflow = read(path)
+      const jobIf = workflow.split('\n').find((line) => line.trimStart().startsWith('if: github.event_name'))
+      expect(jobIf, path).not.toContain("github.event_name != 'pull_request'")
+      expect(jobIf, path).toContain("github.event_name == 'workflow_dispatch'")
+    }
+  })
+
   it('uses the full public GitHub runner only inside GitHub Actions', () => {
     const config = read('next.config.mjs')
 
