@@ -10,6 +10,7 @@ const root = process.cwd()
 const outDir = path.join(root, 'out')
 const FULL_HTML_AUDIT = process.env.FULL_HTML_AUDIT === '1' || process.env.CI === 'true'
 const staticAssetExt = /\.(?:css|js|json|png|jpe?g|gif|webp|avif|svg|ico|txt|xml|map|woff2?)$/i
+const VERBOSE_FILE_LOGS = process.env.VERBOSE_INTERNAL_LINK_AUDIT === '1'
 
 let files = []
 
@@ -208,9 +209,9 @@ async function run() {
     await Promise.all(batch.map(async (filePath, index) => {
       const route = routeFromFile(filePath)
       const fileIndex = i + index
-      // Per-file logging added thousands of synchronized writes in CI and made
-      // the full audit materially slower. Batch progress above keeps diagnostics
-      // useful without turning stdout into part of the hot path.
+      // Per-file logging is useful for diagnosis but expensive across ~1.5k
+      // pages. Keep batch progress by default and allow opt-in file detail.
+      if (VERBOSE_FILE_LOGS) console.log(`[internal-links] Scanning ${fileIndex}: ${route}`)
       const html = await fsPromises.readFile(filePath, 'utf8')
       if (robotsNoindexRe.test(html)) noindexRoutes.add(route)
 
