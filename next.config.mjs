@@ -46,13 +46,11 @@ const nextConfig = {
   // See plan for 2026-06-05 Phase 2 note.
   outputFileTracingRoot: process.cwd(),
   experimental: {
-    // Inline the generated CSS into the initial HTML so first-load visitors do
-    // not wait on render-blocking stylesheet requests before the first paint.
-    // This is particularly useful here because the site is a static export and
-    // the global Tailwind/CSS surface is shared across the initial route shell.
-    // Navigation loads can still use normal stylesheet links to avoid repeatedly
-    // duplicating cached CSS.
-    inlineCss: true,
+    // Keep the shared stylesheet external during static export. Inlining the
+    // global CSS duplicates the same payload into every generated HTML file,
+    // amplifying both static-generation work and every downstream HTML scan.
+    // #5869 benchmarks this against Lighthouse before retention.
+    inlineCss: false,
     // GitHub CI has a known 4-core/16-GB runner; other build hosts stay at 2
     // workers to preserve the existing memory-safety envelope.
     cpus: staticGenerationCpus,
