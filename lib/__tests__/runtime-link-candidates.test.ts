@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { buildRenderableRuntimeRecordIndex } from '@/lib/runtime-link-candidates'
+import { buildRenderableRuntimeRecordIndex, getCachedRenderableRuntimeRecordIndex } from '@/lib/runtime-link-candidates'
 import type { RuntimeRecord } from '@/types/content'
 
 describe('renderable runtime link candidate index', () => {
@@ -46,4 +46,19 @@ describe('renderable runtime link candidate index', () => {
       ]),
     ).toEqual(new Map())
   })
+  it('reuses the derived index for the same stable runtime corpus only', () => {
+    const records: RuntimeRecord[] = [
+      { slug: 'alpha', indexability_status: 'PUBLISH' },
+      { slug: 'beta', indexability_status: 'NOINDEX' },
+    ]
+
+    const first = getCachedRenderableRuntimeRecordIndex(records)
+    const second = getCachedRenderableRuntimeRecordIndex(records)
+    const separate = getCachedRenderableRuntimeRecordIndex([...records])
+
+    expect(second).toBe(first)
+    expect(separate).not.toBe(first)
+    expect([...second.keys()]).toEqual(['alpha', 'beta'])
+  })
+
 })
