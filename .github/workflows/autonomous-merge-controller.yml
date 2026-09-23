@@ -185,12 +185,16 @@ jobs:
 
           sleep 10
           main_sha="$(gh api "repos/$GITHUB_REPOSITORY/branches/main" --jq '.commit.sha')"
-          deploy_count="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs?head_sha=$main_sha&per_page=100" --jq '[.workflow_runs[] | select(.name == "Deploy to Cloudflare Pages")] | length')"
-          if [ "$deploy_count" -eq 0 ]; then
-            echo "No deploy run registered for latest main $main_sha; dispatching deploy.yml fallback."
-            gh api --method POST "repos/$GITHUB_REPOSITORY/actions/workflows/deploy.yml/dispatches" -f ref=main
-          else
+          runs_json="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs?head_sha=$main_sha&per_page=100")"
+          deploy_count="$(jq '[.workflow_runs[] | select(.name == "Deploy to Cloudflare Pages")] | length' <<<"$runs_json")"
+          ci_count="$(jq '[.workflow_runs[] | select(.name == "CI")] | length' <<<"$runs_json")"
+          if [ "$deploy_count" -gt 0 ]; then
             echo "Deploy lifecycle already registered for latest main $main_sha."
+          elif [ "$ci_count" -gt 0 ]; then
+            echo "CI lifecycle registered for latest main $main_sha; successful CI completion owns the deploy handoff."
+          else
+            echo "No CI or deploy run registered for latest main $main_sha; dispatching deploy.yml self-build fallback."
+            gh api --method POST "repos/$GITHUB_REPOSITORY/actions/workflows/deploy.yml/dispatches" -f ref=main
           fi
 
   fallback-sweep:
@@ -255,10 +259,14 @@ jobs:
           set -euo pipefail
           sleep 10
           main_sha="$(gh api "repos/$GITHUB_REPOSITORY/branches/main" --jq '.commit.sha')"
-          deploy_count="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs?head_sha=$main_sha&per_page=100" --jq '[.workflow_runs[] | select(.name == "Deploy to Cloudflare Pages")] | length')"
-          if [ "$deploy_count" -eq 0 ]; then
-            echo "No deploy run registered for latest main $main_sha; dispatching deploy.yml fallback."
-            gh api --method POST "repos/$GITHUB_REPOSITORY/actions/workflows/deploy.yml/dispatches" -f ref=main
-          else
+          runs_json="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs?head_sha=$main_sha&per_page=100")"
+          deploy_count="$(jq '[.workflow_runs[] | select(.name == "Deploy to Cloudflare Pages")] | length' <<<"$runs_json")"
+          ci_count="$(jq '[.workflow_runs[] | select(.name == "CI")] | length' <<<"$runs_json")"
+          if [ "$deploy_count" -gt 0 ]; then
             echo "Deploy lifecycle already registered for latest main $main_sha."
+          elif [ "$ci_count" -gt 0 ]; then
+            echo "CI lifecycle registered for latest main $main_sha; successful CI completion owns the deploy handoff."
+          else
+            echo "No CI or deploy run registered for latest main $main_sha; dispatching deploy.yml self-build fallback."
+            gh api --method POST "repos/$GITHUB_REPOSITORY/actions/workflows/deploy.yml/dispatches" -f ref=main
           fi
