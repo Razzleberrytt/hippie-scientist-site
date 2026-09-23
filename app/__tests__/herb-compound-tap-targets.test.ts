@@ -6,6 +6,10 @@ const source = fs.readFileSync(
   path.join(process.cwd(), 'components/seo/HerbCompoundLinks.tsx'),
   'utf8',
 )
+const pageSource = fs.readFileSync(
+  path.join(process.cwd(), 'app/herbs/[slug]/page.tsx'),
+  'utf8',
+)
 
 describe('HerbCompoundLinks accessibility', () => {
   it('uses the shared primitives that own tap sizing and focus', () => {
@@ -14,6 +18,12 @@ describe('HerbCompoundLinks accessibility', () => {
     // focus baseline in styles/accessibility-wcag-22.css.
     expect(source).toContain('hs-chip')
     expect(source).toContain('hs-linklist')
+  })
+
+  it('reuses the profile page\'s resolved herb while keeping a resolver fallback', () => {
+    expect(source).toContain('herbRecord?: RuntimeRecord')
+    expect(source).toContain('herbRecord ? Promise.resolve(herbRecord) : getHerbBySlug(herbSlug)')
+    expect(pageSource).toContain('herbRecord={herbRecord}')
   })
 
   it('lets long compound names wrap instead of clipping them in a rail', () => {
