@@ -180,9 +180,10 @@ function getAug23WorkbookEvidenceIndex() {
 
 async function attachAug23WorkbookEvidence(record: RuntimeRecord): Promise<RuntimeRecord> {
   const evidenceByProfile = await getAug23WorkbookEvidenceIndex()
-  const importedSources = evidenceByProfile.get(cleanString(record.slug)) ?? []
+  const sourceTemplates = evidenceByProfile.get(cleanString(record.slug)) ?? []
 
-  if (!importedSources.length) return record
+  if (!sourceTemplates.length) return record
+  const importedSources = sourceTemplates.map((source) => ({ ...source }))
   return {
     ...record,
     sources: mergeCitationSources(record.sources, importedSources),
