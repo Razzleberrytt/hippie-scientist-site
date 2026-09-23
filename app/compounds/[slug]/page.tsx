@@ -634,8 +634,6 @@ export default async function CompoundPage({ params }: PageProps) {
     isRestrictedRecord(compound)
 
   const {
-    herbs,
-    compounds,
     allRecords,
     herbSlugs,
     compoundSlugs,
