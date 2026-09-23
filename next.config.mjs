@@ -15,10 +15,11 @@ const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === 'tr
 // ceiling on Cloudflare and local/unknown build hosts.
 const staticGenerationCpus = process.env.GITHUB_ACTIONS === 'true' ? 4 : 2
 // Next 15 defaults to 8 pages per static-generation worker. The measured GitHub
-// build is dominated by 1,570-page static generation, so trial a bounded 12-page
-// concurrency only on the known 4-vCPU/16-GB hosted runner. Other hosts retain
-// Next's default 8-page setting.
-const staticGenerationMaxConcurrency = process.env.GITHUB_ACTIONS === 'true' ? 12 : 8
+// build is dominated by 1,570-page static generation. A measured GitHub-only
+// trial at 12 reduced this phase from about 5m36s to about 4m40s. Trial 16 only
+// on the known 4-vCPU/16-GB hosted runner and retain it only with exact-head
+// timing plus green memory/stability evidence. Other hosts retain Next's default 8.
+const staticGenerationMaxConcurrency = process.env.GITHUB_ACTIONS === 'true' ? 16 : 8
 // The authoritative CI build lane runs `npm run typecheck` in its parallel
 // validation job. Only that producer opts out of Next's duplicate ~30s check;
 // every other GitHub/Cloudflare/local build keeps Next typechecking on.
