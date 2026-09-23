@@ -54,7 +54,7 @@ describe('production deployment handoff contract', () => {
     ]) {
       expect(workflow).toContain(command)
     }
-    expect(workflow).toContain("if: steps.governed-verify.outcome != 'success'")
+    expect(workflow).toContain("if: steps.governed-verify.outputs.reusable != 'true'")
   })
 
   it('reuses only an exact-main CI governed export with producer, ancestry, hash, and build-state proof', () => {
@@ -68,12 +68,14 @@ describe('production deployment handoff contract', () => {
     expect(workflow).toContain('Verify exact-main governed export')
     expect(workflow).toContain('producer_run_id')
     expect(workflow).toContain('EXPECTED_PRODUCER_RUN_ID')
-    expect(workflow).toContain('git merge-base --is-ancestor "$base_sha" "$DEPLOY_SHA"')
+    expect(workflow).toContain('merge_parent="$(gh api "repos/$GITHUB_REPOSITORY/git/commits/$DEPLOY_SHA" --jq')
+    expect(workflow).toContain('[ "$merge_parent" != "$base_sha" ]')
     expect(workflow).toContain('node scripts/ci/governed-static-export.mjs verify')
     expect(workflow).toContain('--source-sha "$DEPLOY_SHA"')
     expect(workflow).toContain('--base-sha "$base_sha"')
-    expect(workflow).toContain("if: steps.governed-verify.outcome != 'success' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'")
-    expect(workflow).toContain("METRICOOL_PUBLIC_MEDIA_ROOT: ${{ steps.governed-verify.outcome == 'success' && 'out/media/distribution/metricool' || 'public/media/distribution/metricool' }}")
+    expect(workflow).toContain('echo "reusable=true" >> "$GITHUB_OUTPUT"')
+    expect(workflow).toContain("if: steps.governed-verify.outputs.reusable != 'true' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'")
+    expect(workflow).toContain("METRICOOL_PUBLIC_MEDIA_ROOT: ${{ steps.governed-verify.outputs.reusable == 'true' && 'out/media/distribution/metricool' || 'public/media/distribution/metricool' }}")
     expect(ci).toContain('AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}')
   })
 
