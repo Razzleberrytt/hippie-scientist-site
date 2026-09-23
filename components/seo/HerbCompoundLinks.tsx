@@ -7,6 +7,7 @@ import type { RuntimeRecord } from '@/types/content'
 type HerbCompoundLinksProps = {
   herbSlug: string
   herbName?: string
+  herbRecord?: RuntimeRecord
 }
 
 /**
@@ -19,10 +20,10 @@ type HerbCompoundLinksProps = {
  * atlas paths are a link list rather than tinted cards, which never met AA
  * contrast in dark mode.
  */
-export default async function HerbCompoundLinks({ herbSlug, herbName }: HerbCompoundLinksProps) {
+export default async function HerbCompoundLinks({ herbSlug, herbName, herbRecord }: HerbCompoundLinksProps) {
   const [links, herb] = await Promise.all([
     getHerbCompoundLinks(herbSlug, herbName),
-    getHerbBySlug(herbSlug),
+    herbRecord ? Promise.resolve(herbRecord) : getHerbBySlug(herbSlug),
   ])
   const atlasLinks = herb ? getAtlasProfileLinks(herb as RuntimeRecord) : []
 
