@@ -125,6 +125,7 @@ describe('article social preview cards', () => {
     expect(generator).toContain('uniqueDigestCount')
     expect(generator).toContain('cacheKey')
     expect(generator).toContain('bytes')
-    expect(buildArticles).toContain('await buildArticleSocialImages()')
+    expect(buildArticles).not.toContain('buildArticleSocialImages')
+    expect(buildArticles).not.toContain('build-article-social-images.mjs')
   })
 })

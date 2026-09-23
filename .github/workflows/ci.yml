@@ -356,8 +356,9 @@ jobs:
           path: |
             .build-cache
             public/images/optimized
+            public/media/social/articles
             lib/generated/optimized-images.json
-          key: ${{ runner.os }}-build-deploy-intermediates-v1-${{ hashFiles('package-lock.json', 'scripts/cache/build-cache-manager.mjs', 'scripts/optimize-images.mjs', 'lib/cloudflare-image-loader.ts', 'public/images/**/*.jpg', 'public/images/**/*.jpeg', 'public/images/**/*.png', 'public/images/**/*.gif', 'public/images/**/*.avif', 'public/images/**/*.tiff', 'public/images/**/*.webp') }}
+          key: ${{ runner.os }}-build-deploy-intermediates-v2-${{ hashFiles('package-lock.json', 'scripts/cache/build-cache-manager.mjs', 'scripts/optimize-images.mjs', 'lib/cloudflare-image-loader.ts', 'public/images/**/*.jpg', 'public/images/**/*.jpeg', 'public/images/**/*.png', 'public/images/**/*.gif', 'public/images/**/*.avif', 'public/images/**/*.tiff', 'public/images/**/*.webp', 'content/articles/**/*.md', 'content/articles/**/*.mdx', 'content/blog/**/*.md', 'content/blog/**/*.mdx', 'scripts/build-articles.mjs', 'scripts/lib/article-quality-gates.mjs', 'scripts/media/build-article-social-images.mjs', 'lib/article-social.js') }}
           restore-keys: |
             ${{ runner.os }}-build-deploy-intermediates-v1-
 

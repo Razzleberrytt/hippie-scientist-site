@@ -46,6 +46,11 @@ const steps = [
     description: 'Generate long-form article JSON from vetted Markdown content',
   },
   {
+    name: 'build-article-social-images',
+    cmd: 'node scripts/media/build-article-social-images.mjs',
+    description: 'Generate deterministic article/blog social preview cards',
+  },
+  {
     name: 'validate-workbook-source',
     cmd: 'node scripts/ci/validate-workbook-source.mjs',
     description: 'Enforce that workbook (xlsx) is source of truth; fail on direct public/data edits',
