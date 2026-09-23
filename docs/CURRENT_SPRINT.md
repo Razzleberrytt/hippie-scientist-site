@@ -2,10 +2,10 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-09-20
+**Updated:** 2026-09-23
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #5698 / PR #5701 is merged and retired after quarantining retracted PMID 41461240 and DOI 10.1016/j.jad.2025.121055 from the stress-guide evidence path. #5703 is now the sole Authority/Content implementation item for cobalamin deficiency-vs-enhancement closure. Normal implementation WIP is **1/3**. Discovery/SEO and Revenue/Conversion are free. #5705 is the required narrow cobalamin governor-lease transaction and does not consume a normal implementation lane; canonical cobalamin mutation remains forbidden until that lease PR merges. #5081 remains separately blocked on its own fresh non-overlapping governor lease.
+**Current admission:** #5703 remains the sole Authority/Content implementation item and is blocked on its required governor lease. #5753 is admitted into the free Revenue/Conversion lane for a bounded Kava post-answer journey audit, with fail-closed no-op retirement if current MAIN already has one compliant action. Normal implementation WIP is **2/3**. Discovery/SEO remains free. Missing external conversion/revenue observations remain `Unknown`.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -13,176 +13,29 @@
 
 Finish the smallest trustworthy Evidence → Distribution loop that can produce a governed asset, preserve exact factual provenance through presentation/rendering, move it through an idempotent dry-run publishing lifecycle, and accept attributable outcome observations for deterministic feedback.
 
-At the same time, finish the smallest control-plane hardening needed to keep autonomous execution trustworthy as throughput increases: changed-file-relevant merge gates first (#4410/#4411), then machine reconciliation of GitHub state against the planning docs (#4412). Freshness/unlock-aware prioritization (#4413), durable experiment memory (#4414), and marginal-resource economics (#4415) are merged. Their implementation is not ready work; using them with real observations remains subject to evidence and admission gates.
-
-This sprint is an **acceleration track inside M1**, not a declaration that the Revenue Foundation is complete. GA4/GSC/affiliate alignment and production analytics receipt remain blocked by authorized external access. Those blockers stay visible, but they do not freeze unrelated governed distribution work.
-
-The sprint does **not** authorize broad/high-volume auto-posting, scientific rewriting, evidence-grade mutation, invented safety language, consumer-dose directives, a second factual dataset, speculative content volume, a second prioritization formula, or milestone completion without proof.
-
 ## Execution rules
 
-- Start only tickets listed under `Active` or `Ready next` below, and only when a real WIP slot exists. Merged control-hardening implementations are history, not admission candidates.
+- Start only tickets listed under `Active` or `Ready next` below, and only when a real WIP slot exists.
 - GitHub issue/PR state outranks stale document wording.
-- When a ticket merges/closes, remove it from `Active` on the next control sync.
-- The normal WIP cap remains three. A temporary incident/control overflow must be explicitly documented and blocks admission of further work until active WIP is below the cap.
-- One lane may not edit another lane's source-of-truth surface merely to move faster.
-- L1 owns rendering/media infrastructure; L2 factual/provenance; L3 opportunity/measurement; L4 presentation/experiments; L5 lifecycle/publishing. These surface owners do not override the one-ticket-per-workstream limit.
-- Canonical research objects and governed upstream evidence remain factual authority.
-- Every distribution asset must retain canonical source URL/content hash and the exact approved factual/limitation boundary.
+- The normal WIP cap remains three.
 - Missing production/external metrics remain `Unknown`, never zero and never inferred success.
-- Positive performance feedback must preserve the existing minimum-exposure threshold and may re-rank only already-eligible opportunities.
-- The backlog keeps exactly one score formula. Dependency-unlock value belongs inside Strategic Leverage; stale external assumptions reduce Confidence or force revalidation before promotion.
-- Externally contingent work must expose a current `last_verified` date/scope at promotion time under merged #4413; stale hypotheses may not remain perpetually `Ready` by inertia.
-- Before repeating a governed experiment using merged #4414, check durable experiment history; a materially equivalent prior test requires a named changed assumption/retest condition.
-- When comparable resource observations exist, scale based on marginal qualified outcomes per incremental resource, not gross output alone. Missing resource/outcome data remains `Unknown`.
 - Deterministic failures found inside scope are repaired before merge. Merge only on exact intended head when required gates are green and no blocking review/governance defect remains.
 
-## Milestone projection
-
-| Milestone | Status |
-|---|---|
-| M0 | In progress |
-| M1 | In progress |
-| M2 | Blocked |
-| M3 | Not started |
-| M4 | Not started |
-| M5 | Not started |
-| M6 | Not started |
-
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 2/3
 
 | Lane | Ticket | Title | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| A | #5703 | Close cobalamin deficiency-vs-enhancement evidence with new 2024 null meta-analysis | Admitted — blocked on #5705 lease | P1 evidence governance | — | Five-source cobalamin closure preflighted 2026-09-20; canonical mutation waits for exact-main lease transaction |
+| A | #5703 | Close cobalamin deficiency-vs-enhancement evidence with new 2024 null meta-analysis | Admitted — blocked on required lease | P1 evidence governance | — | Existing governed scientific admission; canonical mutation remains lease-gated |
+| R | #5753 | Audit Kava post-answer journey for one evidence-first next action | Admitted — audit first; fail closed to no-op if already compliant | Revenue/Conversion | — | Revalidated 2026-09-23 against exact MAIN `68f6c4f0eb14e4a76ebfca3a3cbe9ef7fe0b2603`; external conversion/revenue observations remain `Unknown` |
 
-- **Discovery/SEO:** free; #5688 / PR #5691 is merged and retired.
-- **Revenue/Conversion:** free; #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
-- **Authority/Content:** occupied by #5703 for the bounded cobalamin closure. #5705 is its mandatory state-only lease prerequisite and grants no scientific authority until merged; #5081 remains separately blocked on its own non-overlapping governor lease.
-- **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
-- **Control maintenance:** #5642 is a docs-only feeder reconciliation so the durable candidate inventory cannot override the merged citation→search→click policy. It grants no normal implementation authority and consumes no D/R/A slot.
-
-Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
-
-### Recently completed refill cycle
-
-- **#5698 / PR #5701 — Authority/Content P0:** merged as `1727c68cbb5dfc865e4be7c02af6e0fb7d867d75`; retracted PMID 41461240 / DOI 10.1016/j.jad.2025.121055 is quarantined against PMID- or DOI-only re-entry, stress-guide source usage was repaired, focused regressions were added, and exact-head CI/Site Health/Crawl/Technical SEO/Schema/Content Invariants/Atomic gates passed. This is source-integrity repair, not business-impact proof.
-- **#5681 / PR #5684 — Revenue/Conversion:** merged as `cc5c960aa00350c1eb64ee6cf4e6028c627bb289`; `AffiliateProductBox` now presents its affiliate disclosure before any product links, preserving existing page-level disclosures, product URLs/order/copy, click/impression tracking, rel attributes, and scientific content; exact-head CI/UI/schema/crawl/SEO/content/build gates passed; observed conversion/revenue impact remains `Unknown`.
-- **#5675 / PR #5678 — Revenue/Conversion:** merged as `53f7bbfc3013eb9d45e81c332756ef1857c3b22d`; newsletter/email signup surfaces now declare page-owned vs contextual-global ownership, the root ContextualLeadMagnet fails closed when main content owns signup, delayed article experiments reserve page ownership before hydration/portal placement, and a MutationObserver catches later ownership mounts; all exact-head CI/UI/accessibility/SEO/schema/crawl/content gates passed; observed signup/conversion/revenue impact remains `Unknown`.
-- **#5669 / PR #5672 — Revenue/Conversion:** merged as `b4474aba917784d1959f84a25ee28fcd138e9a0a`; Glycine for Sleep now has one page-owned evidence-first newsletter action after the verdict and before product sourcing, while the route-specific global ContextualLeadMagnet is suppressed to prevent a duplicate email path; the 12-source scientific ledger and affiliate disclosure boundary remain unchanged; observed conversion/revenue impact remains `Unknown`.
-- **#5665 / PR #5668 — Authority/Content:** merged as `896292ff5eb6167e177455aae1a140f3a0390cd3`; Glycine for Sleep now has a 12-source ledger, Sept. 19 review provenance, the September 2026 scoping-review evidence ceiling of three supplemental-glycine sleep trials, and explicit collagen-directness regressions while preserving the cautious efficacy, 3 g research-dose, safety, and insomnia-treatment boundaries; observed search/conversion/revenue impact remains `Unknown`.
-- **#5631 / PR #5663 — Authority/Content:** merged as `8a499f987f834f19ec211c74638f4ab4741c6787`; supplement-stacking safety now uses refreshed clinically relevant interaction evidence with focused regressions while preserving documented-interaction vs plausible-mechanism vs unknown/unreported boundaries and avoiding stack recipes, timing hacks, or medication-changing advice; observed search/citation/conversion/revenue impact remains `Unknown`.
-- **#5602 / PR #5661 — Authority/Content:** merged; Best Herbs for Anxiety now has a 22-source ledger, Sept. 19 review provenance, newer systematic evidence, and methodology visibility while preserving ranking and safety/negative-trial boundaries; observed search/citation/conversion impact remains `Unknown`.
-- **#5647 / PR #5657 — Revenue/Conversion:** merged; Valerian Root now has one downstream evidence-first newsletter action after the complete answer/FAQ/references journey, with the 18-source scientific content unchanged and observed conversion impact still `Unknown`.
-- **#5629 / PR #5650 — Discovery/SEO:** merged; Kava article, broad herb guide, and depth monograph now have explicit distinct reader-job ownership, self-consistent canonical/sitemap/link-map routing, and unchanged evidence/safety conclusions; observed search/citation impact remains `Unknown`.
-- **#5630 / PR #5646 — Revenue/Conversion:** merged; Best Herbs for Anxiety now has one downstream newsletter action, with evidence/safety unchanged and conversion impact still `Unknown`.
-
-- **#5638 / PR #5639 — Discovery/SEO control:** merged; search governance now consumes the canonical metadata experiment ledger and protects proposed/running/winning metadata experiments from competing rewrites.
-- **#5637 / PR #5636 — Discovery/SEO control:** merged; fresh dated search opportunity is primary, citation-only holds are non-actionable, and AI citations remain a bounded authority/confidence overlay.
-- **#5610 / PR #5625 — Discovery/SEO:** reciprocal magnesium general-vs-sleep intent routing plus sleep-shortlist handoff; completion becomes authoritative when this PR merges.
-- **#5611 / PR #5622 — Revenue/Conversion:** merged; one trust-preserving protein post-answer action on the shared next-action shell.
-- **#5612 / PR #5624 — Authority/Content:** merged; valerian evidence/safety refresh preserving monotherapy, null-outcome, preparation and safety boundaries.
+- **Discovery/SEO:** free.
+- **Revenue/Conversion:** occupied by #5753. Add at most one trust-preserving evidence-first next action only if a deterministic gap remains. Do not alter scientific conclusions, evidence grades, dosing, contraindications, safety language, canonical identity, disclosure ordering, affiliate behavior, or analytics contracts except to repair a deterministic in-scope defect.
+- **Authority/Content:** occupied by #5703; canonical mutation remains forbidden until its required non-overlapping governor lease is merged.
 
 ## Ready next — strict dependency order
 
-Discovery/SEO and Revenue/Conversion are available; Authority/Content is occupied by #5703 until its cobalamin closure is terminally completed or explicitly retired. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
+Discovery/SEO remains free. Reconcile current GitHub state first, then promote only a fresh legal non-overlapping candidate through the repository's single scoring/freshness policy. Fresh dated page-level search opportunity remains primary for Discovery/SEO; missing external evidence remains `Unknown`.
 
-### Blocked or deferred candidates
+## External blockers preserved
 
-| Candidate | Workstream | Admission state | Proof required before implementation |
-|---|---|---|---|
-| #5081 | Authority/Content / L2 | Blocked — fresh governor lease required | Acquire and merge a non-overlapping lease bound to exact current main before any canonical Sage evidence mutation; the free Authority slot does not waive this prerequisite. |
-
-## Control hardening — merged implementation, observed use still gated
-
-#4413 / PR #4469, #4414 / PR #4490, and #4415 / PR #4492 are merged and retired below. Do not recreate them from an older queue.
-
-- Consult the durable experiment-learning ledger before repeating an equivalent experiment; a retest requires a changed assumption and fresh evidence. Ledger capability does not prove that every producer already emits history.
-- The economics contract derives ratios from named observations; missing values remain Unknown. Comparable metric definitions, scope, attribution boundary and window duration are required.
-- Positive scale eligibility requires explicit attribution/quality-debt observations and source-bound exposure at the unchanged 250-view floor in both periods. Estimates and merged-code throughput cannot authorize scaling; other domain-specific sufficiency policies are not invented.
-- Real CI/resource and attributable growth ratios remain waiting until their supplying observations exist. Neither merge advances M1/M2 or proves business impact.
-
-## External blockers preserved from M0/M1
-
-| ID | Blocker | Current truth | Next legal action |
-|---|---|---|---|
-| REV-001 / #4280 | Production analytics receipt | Code readiness merged; production GA4/Ahrefs configuration/event receipt remains Unknown | Obtain authorized environment/property/network/DebugView evidence without exposing secrets |
-| SEO-004 | 28-day GSC baseline | No authorized fixed-window export in repo | Supply authorized Search Console access/export and record exact dates |
-| REV-002 | Aligned funnel/revenue baseline | Cross-source baseline incomplete | Reconcile GA4/GSC/Amazon/Mailchimp once source access exists; partial source-level observations remain explicitly partial |
-| #4014 | `main` branch protection/ruleset | GitHub currently reports provider-side protection disabled | Apply/verify required settings with authorized repository-settings access; documentation alone is not enforcement |
-| #4341 | Recurring Cloudflare production failure class | Repository-side checks do not expose root-cause logs | Inspect failed production deployment logs; repair only if a deterministic repository/config cause is identified |
-
-## Additional fallback work when every named candidate above is blocked
-
-Promote only after checking overlap, current exact-main state, source freshness, and the canonical governor/lease/provenance contract.
-
-No fallback ticket is currently promoted. #5076, #4532 / PR #5510, #5237 / PR #5513, #5026 / PR #5511, #5540 / PR #5544, and #5296 / PR #5552 are completed or retired. #5081 / PR #5556 remains pending and does not own Authority/Content until a fresh non-overlapping governor lease exists.
-
-## Sprint exit conditions
-
-The sprint exits only when all of the following are true or have a precise external blocker:
-
-- PRs #4388, #4401, and #4405 are merged or explicitly blocked with exact failing proof; no stale active status remains in control docs.
-- PR #4411 / #4410 is merged or explicitly blocked, and active implementation WIP is within the normal three-ticket cap.
-- #4412 has proven machine reconciliation and merged; known stale active state must still be reconciled rather than suppressed.
-- The governed research object → validated pack → lossless creative plan → deterministic rendered asset chain is reproducible and provenance-bound.
-- #4406 has proven an idempotent dry-run lifecycle with stale-asset rejection, durable receipts, retry safety, and rollback/stop semantics.
-- #4407 proves deterministic attributable observation ingestion, Unknown handling, replay, cross-platform isolation, and the existing minimum-exposure guard.
-- A bounded pilot package can be generated end-to-end and is measurement-ready; live publication is optional only if a supported/authorized provider path exists.
-- #4413/#4414/#4415 implementations are merged, and their single-formula/freshness, experiment-memory, and marginal-efficiency boundaries remain preserved in actual use; their merges do not substitute for distribution MVP or observed-outcome proof.
-- No broad auto-publishing or high-volume scheduling is enabled merely because the technical chain exists.
-- Revenue/GSC/analytics blockers remain honestly labeled and do not silently satisfy M1/M2 exits.
-- Backlog and sprint agree with current GitHub state: no completed issue or merged PR occupies an active slot.
-- Required scientific, provenance, safety, accessibility, release, and exact-head validation gates remain intact.
-
-## Recently retired from this sprint
-
-- **#5505 / PR #5506:** merged as `90bf695bd4c7f1e006159078d26afd4869149cdd`; phone-homepage-only polish removes the floating scroll-to-top control, decorative goal arrows, comparison numbering, and repeated footer onboarding while preserving global/desktop behavior. Production run #7308 is still in progress, so no production receipt is claimed yet. Traffic, engagement, conversion, and revenue effects remain `Unknown`.
-- **#5502 / PR #5504:** merged and production-deployed as `99dd55269206e983c9d34bece0f358a9f932f270`; phone homepage hierarchy now uses one dark research anchor, compact goals, flattened comparison navigation, a supporting Research Standard section, and corrected footer spacing. Exact production receipt verified. Traffic, engagement, conversion, and revenue effects remain `Unknown`.
-- **#5031 / PR #5090:** merged as `7b110d7a19c51e08de3d3b112ac36e96824bfd27`; explicit newsletter capture titles remove the duplicated `research` trust defect while preserving provider, tag, privacy, analytics and scientific boundaries. Exact-main deployment verification completed. Conversion lift remains `Unknown` until attributable observations exist.
-- **#5021 / PR #5028:** merged as `27613f9fba936c78cb024d1381811d2b2da159c9`; five Vitamin B6 findings were governed promoted and one was governed non-promoted, with neuropathy dose/duration boundaries retained, generic dose placeholders removed, recommendation/monetization/indexing fail-closed, and post-merge deployment verification completed. This is scientific-governance throughput, not traffic or revenue proof.
-- **PR #5084:** merged as `70ba137cbfec444557ad8c8b7ff0656f35651b61`; AI-citation asset-identity protection is on main. The ledger intentionally remains awaiting fresh page-level telemetry rather than inventing winner URLs from partial query exports.
-- **#4992 / PR #5016 / PR #5020:** Propionate closure merged as `523ba9323dd3506e51f2d1aaab53b6d0a2e49aa5`; post-merge Session E bootstrap proved 4 findings terminal/promoted with 0 pending, and verified state-only lease release merged as `4461ac4c59aa48bafca85125f86e4a37e6ee4610`. No generic efficacy, consumer-dose, or business outcome is inferred.
-- **#4266 / PR #4972:** merged as `8aba655daae2aba8d07cd2ba6f32ed52f8f3b498`; registered PMID 41943502 / DOI 10.1002/ptr.70315, added three formulation- and population-bounded KSM-66 safety records, regenerated the governed rollup, and added exact regression coverage without creating an efficacy or general-dose claim. All required exact-head checks passed; PR #4976 subsequently released the governed lease. The optional Cloudflare preview remained in progress at merge and no production outcome is inferred.
-- **#4949 / #4951 / PR #4952:** merged as `0c667ca7bd9bf49279594e7df79a806cb4c1237a`; restored direct comparison-hub discovery for the caffeine/L-theanine route, aligned canonical `/evidence/` and `/info/` hubs with sitemap and redirect ownership, and preserved historical audit exports with canonical-source tombstones. Exact-head and post-merge required checks, Cloudflare Pages, and deploy passed. This proves deterministic crawl/release recovery, not traffic, ranking, indexing, analytics, or revenue outcomes.
-- **#4731 / PR #4947:** merged as `6e32a773d908495f08fa297fc51da1cea6fb2659`; the factual-copy validator closes the scoped unbound dose-unit, onset/duration, and comparative-efficacy label bypasses with focused rejection/nonfactual controls. The separate Discovery/SEO incident later exposed by post-merge output verification is retired above.
-- **#4730 / PR #4858:** merged as `44b019fa1f67ead0538076944224243a098dbfde`; stale published or paused-but-live assets retain a governed withdrawal path and receipt while stale non-live assets remain terminal-invalid. The reopened issue is closed complete.
-- **#4784 / PR #4813:** merged as `1e8fae58a3499c9f6a79b4338e636244620ec629`; the least-privilege persistent governor transaction capability is on main. Capability does not equal an acquired lease, and current queue state has none.
-- **#4732 / PR #4734:** merged as `4d26d1cfacb5fb577f9216b7fa116e006e7b0a0d`; the bounded Metricool adapter is repository capability only. Provider credentials/configuration, live scheduling, publication confirmation, and public/business outcomes remain externally gated or Unknown.
-- **AUTH-001 / #4800 / PR #4803:** current content-audit diagnostic run `33316024891` completed successfully and explicitly printed `AUTH_DUPLICATE_COUNT=0`. PR #4803 closed unmerged because it only added a temporary diagnostic workflow; the historical four duplicate-intent pairs are stale and no redirect/consolidation work was manufactured.
-- **SEO-003 / #4795 / PR #4796:** exact-current Schema and Media Governance run `33315511238` passed shared schema regressions, production static export, structured-data completeness, first-party identity/safety policy, and media checks. PR #4796 closed unmerged because its only change was a diagnostic comment; the historical 38-identity failure is stale.
-- **#4719 / PR #4720:** merged as `90e2be7233f460919e3341f1aefd0053b1867df2`; governed static-export receipts now bind and restore producer-generated verification state plus the build manifest. Exact-head Build Check, Production Content Lint, and Lighthouse consumers passed; no validation gate was weakened.
-- **#4717 / PR #4718:** merged as `97c877513da12137ba666451fff5f6c4f691c483`; accessible vertical-video motion is bounded to calm allowlisted transitions with an explicit zero-motion fallback. This is not live video publication or completion of the deferred encoding boundary.
-- **#4715 / PR #4716:** merged as `f06b1d400b465c3997121e2af49b7d3eafc3b503`; the first provenance-bound carousel pilot completes dry-run scheduling only. Live publication remains unauthorized and the future 28-day observation window/value remain null/Unknown.
-- **#4651 / PR #4673:** merged as `058326df0f27685072047c465a7b86729bb51b2d`; Session F staging added six append-only research fragments and made zero canonical/public scientific mutations.
-- **PR #4631:** merged as `13d80681e32ff95a919651f1d0a4068fc972edee`; it staged the research boundaries later reviewed and promoted through completed #4266 / PR #4972.
-
-- **#4227 / PR #4523:** merged as `9f1a4fe26e7a6caab56de07c5a0f25b2f39c6f15`; exact-head governed static-export reuse is complete and no longer a fallback candidate.
-- **#4415 / PR #4492:** merged as `23dc2485720ff6b31043413b2b9295c4886944cb`. Final-head CI passed 2,866 tests across 593 files, real production build/output/SEO, and 42 focused economics regressions ([CI proof](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/33193431644), [focused proof](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/33193431712)). Repaired files verified on main; four review findings resolved after evidence review. Real efficiency observations remain Unknown.
-- **#4414 / PR #4490:** merged as `2e67f9e55f4d96dc7d82a683a829a29b4e2298f1`; durable experiment-learning capability is no longer queued. Recorded outcomes and producer integration require their own evidence.
-- **#4477 / PR #4478:** merged as `2b25ae9beed63afe1e6c045491828e3f096037e4`; the template catalog no longer active.
-- **PR #4491:** merged as `d726f81bc5ababbb024b86782da2e94fbc15989e`; governed safety-line preservation is no longer active.
-
-- **#4407 / PR #4484:** merged as `6fba155c6f241af7cee38981c413bde710d56c1b`; attributable outcome ingestion is no longer ready work. Final-head checks passed; this is implementation proof, not evidence of real observed performance or an executed pilot.
-
-- **#4413 / PR #4469:** merged as `d0936fbe7d41c84c753a8374f2a7b25047322339`; freshness/unlock-aware prioritization no longer occupies active WIP.
-- **#4476 / PR #4475:** merged as `65605fd2f4e9cfd85af63c14bd2a583471551bf2`; canonical evidence-grade binding no longer occupies active WIP.
-- **#4482 / PR #4481:** research draft staging merged as `d6934eacff95b4b9dc1c3c5be2f0c8a91e9bc4a1`; this is not approval for scientific promotion and does not resolve the recorded source-registry blocker.
-
-- **PR #4457:** completed/merged as `95ec9ba285f06c947f2844a2f81abce031b9e437`; complete canonical safety-warning preservation no longer occupies active WIP.
-
-- **#4412 / PR #4446:** completed/merged as `96a07976dee22cf7b91c337c820cc83ff7e6b860`; machine reconciliation is on main and no longer occupies active WIP. Final-head hosted CI passed all 18 reconciliation cases and 2,785 tests across 587 files; production build/output/SEO passed in [run 33148069222](https://github.com/Razzleberrytt/hippie-scientist-site/actions/runs/33148069222). Both review findings are verified/resolved. This is implementation proof, not a claim that later planning snapshots or business outcomes are healthy.
-- **#4463:** completed/merged as `f300e0e8f3ef8b9a485f0cbd8c0993725bd425b1`; trust-safe thumbnail variants are on main and no longer occupy active WIP.
-- **#4460:** completed/merged as `48bebb81e35c4bd605dedbfc15156cabeb915b06`; duplicate-angle suppression is on main and no longer occupies active WIP.
-- **#4406:** completed; the governed ready → publish → measured lifecycle is merged and no longer occupies the ready queue.
-- **#4439 / PR #4440:** completed/merged; canonical claim/source binding no longer occupies an active slot.
-- **PR #4448:** closed unmerged; vertical MP4 implementation is preserved for later legal reuse and does not occupy active WIP.
-- **#4447 / PR #4445:** merged as `692d85d1a496188b4bc48113f8f64b5e94c82098`; the hook trust contract no longer occupies an active slot.
-- **#4410 / PR #4411:** merged; scoped changed-file-relevant gates are on main. The temporary overflow exception is retired.
-- **PRs #4388, #4401, #4405:** merged; renderer, provenance-receipt, and lossless-presentation implementation no longer active.
-- **PR #4408 / #4409:** merged/closed; roadmap, sprint, and master backlog synchronized to exact GitHub state on 2026-08-27.
-- **#4182:** closed/completed; five herb/compound identity correction no longer active.
-- **#4238:** closed/completed; normalized source-registry baseline/provenance continuation no longer active.
-- **AUTH-004 / PR #4145:** merged; visual browse refinement no longer active.
-- **SEO-005 / PR #4331:** merged; monitor remains file-fed until a supported Bing AI Performance acquisition path exists.
-- **I18N-001 / PR #4332:** merged; Japanese/Korean core locale expansion is live while detailed scientific profiles remain fail-closed.
-- **REV-005 / PR #4358:** merged; the validated media-pack foundation is now upstream infrastructure for this sprint.
+Production analytics receipt, fixed-window GSC evidence, aligned funnel/revenue baseline, and provider-side deployment evidence remain externally gated where authorized source access is unavailable. These blockers do not freeze unrelated governed repository work.
