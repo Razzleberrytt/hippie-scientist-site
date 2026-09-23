@@ -816,7 +816,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       )}
 
       {/* Active compounds — internal links from the curated relationship map */}
-      <div id="compounds" className="scroll-mt-24"><HerbCompoundLinks herbSlug={herb.slug} herbName={displayName} /></div>
+      <div id="compounds" className="scroll-mt-24"><HerbCompoundLinks herbSlug={herb.slug} herbName={displayName} herbRecord={herbRecord} /></div>
 
       {goalLinks.length > 0 || conditionLinks.length > 0 ? (
         <section id="goals" className="card-premium scroll-mt-24 p-4 sm:p-5">
