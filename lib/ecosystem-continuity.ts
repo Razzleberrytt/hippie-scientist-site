@@ -1,5 +1,5 @@
 import { list, text, unique } from '@/lib/display-utils'
-import { buildRenderableRuntimeRecordIndex } from '@/lib/runtime-link-candidates'
+import { getCachedRenderableRuntimeRecordIndex } from '@/lib/runtime-link-candidates'
 import { safeArray, safeLower, safeScore, safeSlug } from '@/lib/search-safe'
 import { getRuntimeMapEntries } from './runtime-related-maps'
 import type { RuntimeRecord } from '../types/content'
@@ -33,7 +33,7 @@ function sortByScoreThenName(a: Record<string, unknown>, b: Record<string, unkno
 function hydrateContinuityEntries(entries: RuntimeRelationshipEntry[], records: RuntimeRecord[]) {
   if (!Array.isArray(entries) || entries.length === 0) return []
 
-  const bySlug = buildRenderableRuntimeRecordIndex(records)
+  const bySlug = getCachedRenderableRuntimeRecordIndex(records)
 
   return entries
     .map((entry): RuntimeRecord | null => {
