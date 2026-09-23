@@ -33,9 +33,20 @@ const steps = [
   {
     name: 'build-articles',
     cmd: 'node --trace-uncaught scripts/build-articles.mjs',
-    inputs: ['content/articles/**/*.{md,mdx}', 'scripts/build-articles.mjs', 'scripts/lib/article-quality-gates.mjs'],
+    inputs: ['content/articles/**/*.{md,mdx}', 'scripts/build-articles.mjs', 'scripts/lib/article-quality-gates.mjs', 'package-lock.json'],
     outputs: ['data/articles/articles.json'],
-    cacheable: false,
+  },
+  {
+    name: 'build-article-social-images',
+    cmd: 'node --trace-uncaught scripts/media/build-article-social-images.mjs',
+    inputs: [
+      'content/articles/**/*.{md,mdx}',
+      'content/blog/**/*.{md,mdx}',
+      'scripts/media/build-article-social-images.mjs',
+      'lib/article-social.js',
+      'package-lock.json',
+    ],
+    outputs: ['public/media/social/articles/**/*.jpg', 'public/media/social/articles/manifest.json'],
   },
   {
     // `next/image` resolves every local image through the custom loader to a
