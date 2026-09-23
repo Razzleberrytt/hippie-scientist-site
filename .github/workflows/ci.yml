@@ -120,8 +120,20 @@ jobs:
         if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: npm run typecheck
 
-      - name: Run tests (vitest + a11y gate)
-        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
+      - name: Run related tests for leaf pages (vitest + explicit a11y gate)
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && steps.impact.outputs.leaf_page_only == 'true'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+          mapfile -t changed_files < <(git diff --name-only "$BASE_SHA" HEAD)
+          {
+            npx vitest related "${changed_files[@]}" --run --passWithNoTests
+            npx vitest run app/__tests__/a11y.test.tsx
+          } 2>&1 | tee vitest.log
+
+      - name: Run full tests (vitest + a11y gate)
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && steps.impact.outputs.leaf_page_only != 'true'
         run: |
           set -o pipefail
           npm run test 2>&1 | tee vitest.log
@@ -214,8 +226,10 @@ jobs:
             echo "- Fast path: exhaustive app/data validation skipped because every changed file is classified docs-only; dedicated path-scoped governance checks remain authoritative." >> "$GITHUB_STEP_SUMMARY"
           elif [ "${{ steps.impact.outputs.validation_only }}" = "true" ]; then
             echo "- Fast path: lint + focused control tests + security audit; app/data/full-test suites skipped because the exact path classifier proves the diff cannot alter public build output." >> "$GITHUB_STEP_SUMMARY"
+          elif [ "${{ steps.impact.outputs.leaf_page_only }}" = "true" ]; then
+            echo "- Fast path: lint + typecheck + dependency-related Vitest selection + explicit a11y + native node:test + canonical data/runtime/security gates; production build/output/SEO remains authoritative." >> "$GITHUB_STEP_SUMMARY"
           else
-            echo "- Coverage: lint, typecheck, Vitest/a11y, canonical data, workbook parity, runtime trust, and security audit." >> "$GITHUB_STEP_SUMMARY"
+            echo "- Coverage: lint, typecheck, full Vitest/a11y, canonical data, workbook parity, runtime trust, and security audit." >> "$GITHUB_STEP_SUMMARY"
           fi
           echo "- Status: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
 
