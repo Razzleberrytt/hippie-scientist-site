@@ -5,7 +5,6 @@ import {
   assertUniqueArticleTitles,
   validateArticleQuality,
 } from './lib/article-quality-gates.mjs'
-import { buildArticleSocialImages } from './media/build-article-social-images.mjs'
 
 const ARTICLES_DIR = path.join(process.cwd(), 'content', 'articles')
 const OUTPUT_PATH = path.join(process.cwd(), 'data', 'articles', 'articles.json')
@@ -226,4 +225,3 @@ const main = () => {
 }
 
 main()
-await buildArticleSocialImages()
