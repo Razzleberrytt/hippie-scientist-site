@@ -9,6 +9,13 @@ function attachEntityType(records: RuntimeRecord[], entityType: 'herb' | 'compou
   }))
 }
 
+export function buildRuntimeSlugSets(herbs: RuntimeRecord[], compounds: RuntimeRecord[]) {
+  return {
+    herbSlugs: new Set(herbs.map((record) => record.slug)),
+    compoundSlugs: new Set(compounds.map((record) => record.slug)),
+  }
+}
+
 export const getUnifiedRuntimeRecords = cache(async () => {
   const [herbs, compounds] = await Promise.all([
     getHerbs(),
@@ -17,12 +24,15 @@ export const getUnifiedRuntimeRecords = cache(async () => {
 
   const herbRecords = attachEntityType(herbs, 'herb')
   const compoundRecords = attachEntityType(compounds, 'compound')
+  const { herbSlugs, compoundSlugs } = buildRuntimeSlugSets(herbs, compounds)
 
   return {
     herbs,
     compounds,
     herbRecords,
     compoundRecords,
+    herbSlugs,
+    compoundSlugs,
     allRecords: [
       ...herbRecords,
       ...compoundRecords,

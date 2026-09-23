@@ -634,13 +634,10 @@ export default async function CompoundPage({ params }: PageProps) {
     isRestrictedRecord(compound)
 
   const {
-    herbs,
-    compounds,
     allRecords,
+    herbSlugs,
+    compoundSlugs,
   } = await getUnifiedRuntimeRecords()
-
-  const herbSlugs = new Set(herbs.map((item: Record<string, unknown>) => item.slug))
-  const compoundSlugs = new Set(compounds.map((item: Record<string, unknown>) => item.slug))
   const sourceSlug = String(compound.slug || normalizedSlug)
 
   const summary = cleanSummary(compound.summary || compound.description, 'compound')
