@@ -105,6 +105,11 @@ jobs:
           scripts/ci/validate-project-control-admission.test.mjs
           scripts/ci/classify-release-impact.test.mjs
           scripts/ci/build-performance-contract.test.mjs
+          scripts/ci/autonomous-merge-refresh-safety.test.mjs
+          scripts/ci/autonomous-merge-authorization.test.mjs
+          scripts/ci/verify-deploy-authorization.test.mjs
+          tests/autonomous-merge-controller-contract.test.ts
+          tests/deployment-handoff-contract.test.ts
       - name: Validate governor state on validation-only changes
         if: steps.impact.outputs.validation_only == 'true'
         run: |
@@ -347,6 +352,7 @@ jobs:
         if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         env:
           COMMIT_HASH: ${{ steps.context.outputs.source_sha }}
+          AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}
           SKIP_NEXT_BUILD_TYPECHECK: '1'
         run: npm run build:deploy
 
