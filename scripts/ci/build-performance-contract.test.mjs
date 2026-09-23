@@ -112,10 +112,10 @@ describe('CI build performance contracts', () => {
     expect(production).toContain("execSync('node scripts/optimize-images.mjs'")
   })
 
-  it('bounds higher static-page concurrency to GitHub Actions only', () => {
+  it('bounds the measured higher static-page concurrency trial to GitHub Actions only', () => {
     const config = read('next.config.mjs')
 
-    expect(config).toContain("staticGenerationMaxConcurrency = process.env.GITHUB_ACTIONS === 'true' ? 12 : 8")
+    expect(config).toContain("staticGenerationMaxConcurrency = process.env.GITHUB_ACTIONS === 'true' ? 16 : 8")
     expect(config).toContain('staticGenerationMaxConcurrency,')
   })
 
