@@ -7,6 +7,7 @@ import type { RuntimeRecord } from '@/types/content'
 type CompoundSourceHerbsProps = {
   compoundSlug: string
   compoundName?: string
+  compoundRecord?: RuntimeRecord
 }
 
 /**
@@ -17,10 +18,11 @@ type CompoundSourceHerbsProps = {
 export default async function CompoundSourceHerbs({
   compoundSlug,
   compoundName,
+  compoundRecord,
 }: CompoundSourceHerbsProps) {
   const [sourceHerbs, compound] = await Promise.all([
     getCompoundSourceHerbs(compoundSlug, compoundName),
-    getCompoundBySlug(compoundSlug),
+    compoundRecord ? Promise.resolve(compoundRecord) : getCompoundBySlug(compoundSlug),
   ])
 
   const candidateAtlasLinks = compound
