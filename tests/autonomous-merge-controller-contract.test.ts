@@ -114,15 +114,19 @@ describe('autonomous merge controller contract', () => {
       expect(read(workflowPath)).toContain('workflow_dispatch:')
     }
 
+    const ci = read('.github/workflows/ci.yml')
+    const siteHealth = read('.github/workflows/check.yml')
     const atomic = read('.github/workflows/atomic-upgrade-gate.yml')
     const buildQuality = read('.github/workflows/build-quality-regression.yml')
     const productionLint = read('.github/workflows/production-content-lint.yml')
+    expect(ci).toContain('recovery_pr_number')
+    expect(siteHealth).toContain('recovery_pr_number')
     expect(atomic).toContain('recovery_pr_number')
     expect(atomic).toContain('recovery_base_ref')
     expect(buildQuality).toContain('recovery_pr_number')
     expect(buildQuality).toContain('recovery_base_ref')
     expect(productionLint).toContain('recovery_pr_number')
-    for (const workflow of [atomic, buildQuality, productionLint]) {
+    for (const workflow of [ci, siteHealth, atomic, buildQuality, productionLint]) {
       expect(workflow).toContain('pull-requests: read')
       expect(workflow).toContain('gh api')
     }
@@ -135,6 +139,9 @@ describe('autonomous merge controller contract', () => {
     expect(controller).toContain("run.conclusion === 'action_required'")
     expect(controller).toContain('getRunJobs')
     expect(controller).toContain('jobs.length !== 0')
+    expect(controller).toContain("CI_OWNED_RECOVERY_CONSUMERS = new Set(['Build Check', 'Lighthouse CI', 'Production Content Lint'])")
+    expect(controller).toContain("failedRuns.some((run) => run.name === 'CI')")
+    expect(controller).toContain('CI recovery owns governed consumer fan-out')
     expect(controller).toContain('zero-job control-plane failure recovered through canonical workflow dispatch')
   })
 
@@ -213,19 +220,23 @@ describe('autonomous merge controller contract', () => {
     expect(controller).toContain('fallback sweep will continue ownership')
   })
 
-  it('preserves direct-main deploy as primary and dispatches only when a controller merge lacks a deploy run', () => {
+  it('lets successful exact-main CI own normal deploy handoff and self-dispatches only when CI/deploy are both absent', () => {
     const workflow = read('.github/workflows/autonomous-merge-controller.yml')
     const deploy = read('.github/workflows/deploy.yml')
 
-    expect(deploy).toContain('push:')
-    expect(deploy).toContain('- main')
+    expect(deploy).toContain('workflow_run:')
+    expect(deploy).toContain('workflows: [CI]')
     expect(deploy).toContain('workflow_dispatch:')
     expect(workflow).toContain('Ensure merged PR enters deploy lifecycle')
     expect(workflow).toContain('pulls/$PR_NUMBER')
     expect(workflow).toContain('if [ "$merged" != "true" ]')
     expect(workflow).toContain('actions/runs?head_sha=$main_sha')
     expect(workflow).toContain('select(.name == "Deploy to Cloudflare Pages")')
+    expect(workflow).toContain('select(.name == "CI")')
+    expect(workflow).toContain('if [ "$deploy_count" -gt 0 ]')
+    expect(workflow).toContain('elif [ "$ci_count" -gt 0 ]')
+    expect(workflow).toContain('successful CI completion owns the deploy handoff')
     expect(workflow).toContain('actions/workflows/deploy.yml/dispatches')
-    expect(workflow).toContain('if [ "$deploy_count" -eq 0 ]')
+    expect(workflow).toContain('deploy.yml self-build fallback')
   })
 })

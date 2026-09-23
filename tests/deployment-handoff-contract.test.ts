@@ -7,23 +7,25 @@ function read(relativePath: string) {
 }
 
 describe('production deployment handoff contract', () => {
-  it('deploys directly from main pushes without depending on another workflow finishing', () => {
+  it('uses successful main CI completion as the normal deploy handoff with workflow_dispatch fallback', () => {
     const workflow = read('.github/workflows/deploy.yml')
 
-    expect(workflow).toContain('push:')
-    expect(workflow).toContain('branches:')
-    expect(workflow).toContain('- main')
+    expect(workflow).toContain('workflow_run:')
+    expect(workflow).toContain('workflows: [CI]')
+    expect(workflow).toContain('types: [completed]')
+    expect(workflow).toContain('branches: [main]')
     expect(workflow).toContain('workflow_dispatch:')
-    expect(workflow).not.toContain('workflow_run:')
-    expect(workflow).not.toContain('github.event.workflow_run')
+    expect(workflow).not.toContain('  push:')
+    expect(workflow).toContain("github.event.workflow_run.conclusion == 'success'")
   })
 
-  it('pins production deployment to the triggering push SHA and branch', () => {
+  it('pins production deployment to the exact CI head SHA or explicit fallback SHA', () => {
     const workflow = read('.github/workflows/deploy.yml')
 
-    expect(workflow).toContain('DEPLOY_BRANCH: ${{ github.ref_name }}')
-    expect(workflow).toContain('DEPLOY_SHA: ${{ github.sha }}')
-    expect(workflow).toContain('ref: ${{ github.sha }}')
+    expect(workflow).toContain('DEPLOY_BRANCH: ${{ github.event.workflow_run.head_branch || github.ref_name }}')
+    expect(workflow).toContain('DEPLOY_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}')
+    expect(workflow).toContain("CI_PRODUCER_RUN_ID: ${{ github.event.workflow_run.id || '' }}")
+    expect(workflow).toContain('ref: ${{ env.DEPLOY_SHA }}')
   })
 
   it('lets an active production deploy finish but bounds how long it can monopolize the deploy group', () => {
@@ -35,7 +37,7 @@ describe('production deployment handoff contract', () => {
     expect(workflow).toContain('timeout-minutes: 60')
   })
 
-  it('validates tests, canonical data, source-of-truth, types, lint, build, and output before publishing', () => {
+  it('retains complete validation and self-build commands as the artifact fallback', () => {
     const workflow = read('.github/workflows/deploy.yml')
 
     for (const command of [
@@ -52,17 +54,27 @@ describe('production deployment handoff contract', () => {
     ]) {
       expect(workflow).toContain(command)
     }
+    expect(workflow).toContain("if: steps.governed-verify.outcome != 'success'")
   })
 
-  it('reuses exact-tree controller validation without skipping the merge-SHA build or output verification', () => {
+  it('reuses only an exact-main CI governed export with producer, ancestry, hash, and build-state proof', () => {
     const workflow = read('.github/workflows/deploy.yml')
+    const ci = read('.github/workflows/ci.yml')
 
-    expect(workflow).toContain('id: deploy-auth')
-    expect(workflow).toContain("if: steps.deploy-auth.outputs.skip_redundant_validation != 'true'")
-    expect(workflow).toContain("SKIP_NEXT_BUILD_TYPECHECK: ${{ steps.deploy-auth.outputs.skip_redundant_validation == 'true' && '1' || '' }}")
-    expect(workflow).toContain('npm ci --no-audit --fund=false')
-    expect(workflow).toContain('run: npm run build:deploy')
-    expect(workflow).toContain('run: npm run verify:output')
+    expect(workflow).toContain('actions: read')
+    expect(workflow).toContain('Download exact-main governed export from CI')
+    expect(workflow).toContain('name: governed-static-export-${{ env.DEPLOY_SHA }}')
+    expect(workflow).toContain('run-id: ${{ env.CI_PRODUCER_RUN_ID }}')
+    expect(workflow).toContain('Verify exact-main governed export')
+    expect(workflow).toContain('producer_run_id')
+    expect(workflow).toContain('EXPECTED_PRODUCER_RUN_ID')
+    expect(workflow).toContain('git merge-base --is-ancestor "$base_sha" "$DEPLOY_SHA"')
+    expect(workflow).toContain('node scripts/ci/governed-static-export.mjs verify')
+    expect(workflow).toContain('--source-sha "$DEPLOY_SHA"')
+    expect(workflow).toContain('--base-sha "$base_sha"')
+    expect(workflow).toContain("if: steps.governed-verify.outcome != 'success' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'")
+    expect(workflow).toContain("METRICOOL_PUBLIC_MEDIA_ROOT: ${{ steps.governed-verify.outcome == 'success' && 'out/media/distribution/metricool' || 'public/media/distribution/metricool' }}")
+    expect(ci).toContain('AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}')
   })
 
   it('publishes and verifies an exact-SHA production receipt before deploy success', () => {
