@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 }
 
 const quickTake = [
-  'Apigenin is a trending sleep compound, but the strongest public-facing evidence is still mostly chamomile-adjacent rather than isolated apigenin insomnia evidence.',
+  'The direct human apigenin evidence is mainly absorption and metabolism research, not isolated-apigenin insomnia trials; sleep claims still rely heavily on chamomile-adjacent evidence.',
   'Chamomile contains apigenin, but a chamomile tea or extract study does not automatically validate every standalone apigenin capsule.',
   'The best framing is experimental calm support with low confidence, not a proven natural sleep medication.',
 ]
@@ -101,8 +101,8 @@ const sections = [
   {
     heading: 'Evidence grade: low to limited',
     body: [
-      'Chamomile has small human studies and reviews around sleep quality, but results are mixed and not strong enough to treat it like a reliable insomnia intervention. Isolated apigenin has even less direct sleep-specific human evidence.',
-      'That means apigenin can be discussed as a plausible sleep-adjacent compound, but the claim ceiling should stay low: possible relaxation support, not proven sleep architecture optimization.',
+      'A 2022 human pharmacokinetic study showed that apigenin and its glycosides from food matrices are absorbed and extensively metabolized, while an older parsley study also confirmed measurable but variable systemic exposure. Those studies establish human exposure—not a sleep benefit.',
+      'The strongest recent sleep synthesis is a 2024 chamomile meta-analysis, not an isolated-apigenin trial. Chamomile improved some sleep-quality outcomes, especially awakenings, while sleep duration, efficiency, and daytime functioning did not consistently improve. The claim ceiling for standalone apigenin therefore remains low.',
     ],
   },
   {
@@ -130,12 +130,20 @@ const sections = [
 
 const references = [
   {
-    label: 'Chamomile sleep evidence overview, Verywell Health',
-    href: 'https://www.verywellhealth.com/what-the-research-says-about-popular-sleep-supplements-7970910',
+    label: 'Borges G, et al. Absorption, distribution, metabolism and excretion of apigenin and its glycosides in healthy male adults. Free Radic Biol Med. 2022. PMID 35452808.',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/35452808/',
   },
   {
-    label: 'Chamomile tea sleep evidence and apigenin discussion, Verywell Health',
-    href: 'https://www.verywellhealth.com/does-chamomile-tea-make-you-sleepy-8602726',
+    label: 'Meyer H, et al. Bioavailability of apigenin from apiin-rich parsley in humans. Ann Nutr Metab. 2006. PMID 16407641.',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/16407641/',
+  },
+  {
+    label: 'Kazemi A, et al. Effects of chamomile (Matricaria chamomilla L.) on sleep: A systematic review and meta-analysis of clinical trials. 2024. PMID 39106912.',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/39106912/',
+  },
+  {
+    label: 'Zick SM, et al. Standardized chamomile extract for chronic primary insomnia: randomized placebo-controlled pilot study. 2011. PMID 21939549.',
+    href: 'https://pubmed.ncbi.nlm.nih.gov/21939549/',
   },
 ]
 
@@ -163,7 +171,7 @@ export default function Page() {
           <div className="mt-5 flex flex-wrap gap-2 text-xs font-semibold text-brand-800 dark:text-[var(--text-primary)]">
             <span className="rounded-full border border-brand-900/10 bg-brand-50 px-3 py-1 dark:border-white/10 dark:bg-[var(--surface-subtle)]">8 min read</span>
             <span className="rounded-full border border-brand-900/10 bg-brand-50 px-3 py-1 dark:border-white/10 dark:bg-[var(--surface-subtle)]">Low confidence</span>
-            <span className="rounded-full border border-brand-900/10 bg-brand-50 px-3 py-1 dark:border-white/10 dark:bg-[var(--surface-subtle)]">Updated July 8, 2026</span>
+            <span className="rounded-full border border-brand-900/10 bg-brand-50 px-3 py-1 dark:border-white/10 dark:bg-[var(--surface-subtle)]">Updated September 23, 2026</span>
           </div>
         </header>
 
