@@ -13,3 +13,20 @@ export function buildRenderableRuntimeRecordIndex(records: RuntimeRecord[]) {
 
   return bySlug
 }
+
+const renderableRuntimeRecordIndexCache = new WeakMap<RuntimeRecord[], Map<string, RuntimeRecord>>()
+
+/**
+ * Reuse the derived renderable index when callers share the same immutable
+ * runtime-record corpus. The unified runtime loader returns a stable array per
+ * server/build cache scope, so profile renderers can avoid rebuilding the same
+ * O(N) slug map for related, comparison, and ecosystem lookups.
+ */
+export function getCachedRenderableRuntimeRecordIndex(records: RuntimeRecord[]) {
+  const cached = renderableRuntimeRecordIndexCache.get(records)
+  if (cached) return cached
+
+  const index = buildRenderableRuntimeRecordIndex(records)
+  renderableRuntimeRecordIndexCache.set(records, index)
+  return index
+}
