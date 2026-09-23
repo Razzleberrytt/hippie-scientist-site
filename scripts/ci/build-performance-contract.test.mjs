@@ -82,6 +82,7 @@ describe('CI build performance contracts', () => {
     expect(workflow).toContain("steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true'")
     expect(workflow).toContain('Reused exact-tree main validation')
     expect(workflow).toContain('exact merge-SHA production build authoritative')
+    expect(workflow).toContain('Run related tests for leaf pages (vitest + explicit a11y gate)')
   })
 
   it('uses the full public GitHub runner only inside GitHub Actions', () => {
