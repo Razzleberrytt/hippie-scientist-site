@@ -1,5 +1,6 @@
 import { notFound, redirect } from 'next/navigation'
 import Link from 'next/link'
+import type { RuntimeRecord } from '../../../types/content'
 import { allCompoundMdxPages } from '../../../.content-collections/generated'
 import { getCompoundBySlug, getInteractionEdges, getSlugEntityTypeMap } from '../../../lib/runtime-data'
 import { InteractionWarnings } from '../../../components/InteractionWarnings'
