@@ -302,13 +302,10 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const suppressAffiliate = shouldSuppressAffiliate(herb)
 
   const {
-    herbs,
-    compounds,
     allRecords,
+    herbSlugs,
+    compoundSlugs,
   } = await getUnifiedRuntimeRecords()
-
-  const herbSlugs = new Set(herbs.map((item: RuntimeRecord) => item.slug))
-  const compoundSlugs = new Set(compounds.map((item: RuntimeRecord) => item.slug))
   const sourceRecordSlug = herb.slug
 
   const [
