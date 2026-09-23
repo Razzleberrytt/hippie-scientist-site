@@ -215,3 +215,4 @@ The strongest practical takeaway is not a universal “2 p.m. rule.” It is to 
 - [How Accurate Are Sleep Trackers?](/articles/sleep-trackers-accuracy/)
 - [Best Supplements for Sleep](/guides/sleep/best-supplements-for-sleep/)
 - [Sleep & ADHD](/guides/adhd/sleep-and-adhd/)
+- [Paraxanthine vs Caffeine: Cognition, Performance & Sleep Evidence](/articles/paraxanthine-evidence-review/)
