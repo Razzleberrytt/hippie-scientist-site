@@ -206,6 +206,14 @@ export default function CoQ10Page() {
         />
       </div>
 
+      <section className="card-premium p-6 space-y-3 max-w-4xl">
+        <p className="eyebrow-label">Related mitochondrial evidence</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">A separate healthy-aging compound with human trial data</h2>
+        <p className="text-sm leading-7 text-muted">
+          For another evidence-calibrated mitochondrial topic, see the <Link href="/articles/urolithin-a-evidence-review/" className="font-semibold text-brand-800 hover:underline">Urolithin A human-evidence review</Link>. Its muscle and mitochondrial signals are kept separate from broader anti-aging claims.
+        </p>
+      </section>
+
       <References refs={COQ10_REFS} />
       <EmailCapture headline="Get evidence reviews like this" description="CoQ10, heart failure, statins, and formulation — evidence with the uncertainty intact." ctaLabel="Get the evidence" location="guide-coq10" />
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
