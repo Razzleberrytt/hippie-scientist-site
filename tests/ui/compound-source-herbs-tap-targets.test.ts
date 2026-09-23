@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 
 const source = readFileSync('components/seo/CompoundSourceHerbs.tsx', 'utf8')
+const pageSource = readFileSync('app/compounds/[slug]/page.tsx', 'utf8')
 
 describe('compound botanical context links', () => {
   it('uses accessible tap targets with visible focus treatment', () => {
@@ -13,6 +14,12 @@ describe('compound botanical context links', () => {
   it('derives atlas links from the compound record', () => {
     expect(source).toContain('getCompoundBySlug(compoundSlug)')
     expect(source).toContain('getAtlasProfileLinks(compound as RuntimeRecord)')
+  })
+
+  it('reuses the profile page\'s resolved compound while keeping a resolver fallback', () => {
+    expect(source).toContain('compoundRecord?: RuntimeRecord')
+    expect(source).toContain('compoundRecord ? Promise.resolve(compoundRecord) : getCompoundBySlug(compoundSlug)')
+    expect(pageSource).toContain('compoundRecord={compound}')
   })
 
   it('does not show a generic atlas link for compounds without botanical relevance', () => {
