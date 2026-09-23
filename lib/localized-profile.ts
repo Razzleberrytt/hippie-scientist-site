@@ -128,17 +128,26 @@ export function sourcesForApprovedClaims(profile: CanonicalLocalizedProfile): Ca
   return (profile.sources ?? []).filter((source) => source.id && ids.has(source.id))
 }
 
+const canonicalLocalizedProfileCache = new Map<string, CanonicalLocalizedProfile>()
+
 export function loadCanonicalLocalizedProfile(
   kind: LocalizedProfileKind,
   slug: string,
   root = process.cwd(),
 ): CanonicalLocalizedProfile {
   if (!/^[a-z0-9-]+$/i.test(slug)) throw new Error(`Unsafe localized profile slug: ${slug}`)
+
+  const cacheKey = `${path.resolve(root)}\0${kind}\0${slug}`
+  const cached = canonicalLocalizedProfileCache.get(cacheKey)
+  if (cached) return cached
+
   const directory = kind === 'herb' ? 'herbs-detail' : 'compounds-detail'
   const filePath = path.join(root, 'public', 'data', directory, `${slug}.json`)
   const parsed = JSON.parse(fs.readFileSync(filePath, 'utf8')) as CanonicalLocalizedProfile
   if (!parsed?.slug || parsed.slug !== slug) {
     throw new Error(`Canonical localized profile mismatch for ${kind}:${slug}`)
   }
+
+  canonicalLocalizedProfileCache.set(cacheKey, parsed)
   return parsed
 }
