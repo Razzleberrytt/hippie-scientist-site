@@ -65,6 +65,7 @@ jobs:
         if: steps.governed-download.outcome == 'success'
         continue-on-error: true
         env:
+          GH_TOKEN: ${{ github.token }}
           EXPECTED_PRODUCER_RUN_ID: ${{ env.CI_PRODUCER_RUN_ID }}
         run: |
           set -euo pipefail
@@ -79,16 +80,15 @@ jobs:
             echo "Governed export producer mismatch: expected $EXPECTED_PRODUCER_RUN_ID, received $producer_run_id" >&2
             exit 1
           fi
-          if ! git cat-file -e "$base_sha^{commit}" 2>/dev/null; then
-            git fetch --no-tags --depth=1 origin "$base_sha"
-          fi
-          if ! git merge-base --is-ancestor "$base_sha" "$DEPLOY_SHA"; then
-            echo "Governed export base $base_sha is not an ancestor of deploy SHA $DEPLOY_SHA" >&2
+          merge_parent="$(gh api "repos/$GITHUB_REPOSITORY/git/commits/$DEPLOY_SHA" --jq '.parents[0].sha // empty')"
+          if [ -z "$merge_parent" ] || [ "$merge_parent" != "$base_sha" ]; then
+            echo "Governed export base mismatch: expected exact first parent $merge_parent, receipt has $base_sha" >&2
             exit 1
           fi
           node scripts/ci/governed-static-export.mjs verify \
             --source-sha "$DEPLOY_SHA" \
             --base-sha "$base_sha"
+          echo "reusable=true" >> "$GITHUB_OUTPUT"
 
 
       - name: Restore IndexNow state
@@ -102,7 +102,7 @@ jobs:
             indexnow-${{ runner.os }}-
 
       - name: Cache Next.js build cache
-        if: steps.governed-verify.outcome != 'success'
+        if: steps.governed-verify.outputs.reusable != 'true'
         uses: actions/cache@v6
         with:
           path: |
@@ -119,39 +119,39 @@ jobs:
         run: npm run check:node
 
       - name: Audit high-severity dependencies
-        if: steps.governed-verify.outcome != 'success' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
+        if: steps.governed-verify.outputs.reusable != 'true' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run audit:high
 
       - name: Run test suite
-        if: steps.governed-verify.outcome != 'success' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
+        if: steps.governed-verify.outputs.reusable != 'true' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run test
 
       - name: Validate canonical data pipeline
-        if: steps.governed-verify.outcome != 'success' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
+        if: steps.governed-verify.outputs.reusable != 'true' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run data:ci
 
       - name: Validate workbook source
-        if: steps.governed-verify.outcome != 'success' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
+        if: steps.governed-verify.outputs.reusable != 'true' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run validate:workbook-source
 
       - name: Validate static export compatibility
-        if: steps.governed-verify.outcome != 'success' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
+        if: steps.governed-verify.outputs.reusable != 'true' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run validate:static-export
 
       - name: Lint
-        if: steps.governed-verify.outcome != 'success' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
+        if: steps.governed-verify.outputs.reusable != 'true' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run lint
 
       - name: Typecheck
-        if: steps.governed-verify.outcome != 'success' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
+        if: steps.governed-verify.outputs.reusable != 'true' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run typecheck
 
       - name: Guard workbook source-of-truth
-        if: steps.governed-verify.outcome != 'success' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
+        if: steps.governed-verify.outputs.reusable != 'true' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run guard:source-of-truth
 
       - name: Audit cluster-member runtime trust
-        if: steps.governed-verify.outcome != 'success' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
+        if: steps.governed-verify.outputs.reusable != 'true' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run audit:cluster-member-trust:strict
 
       - name: Build governed Metricool publication pilot
@@ -182,15 +182,15 @@ jobs:
 
       - name: Stage governed Metricool publication media
         env:
-          METRICOOL_PUBLIC_MEDIA_ROOT: ${{ steps.governed-verify.outcome == 'success' && 'out/media/distribution/metricool' || 'public/media/distribution/metricool' }}
+          METRICOOL_PUBLIC_MEDIA_ROOT: ${{ steps.governed-verify.outputs.reusable == 'true' && 'out/media/distribution/metricool' || 'public/media/distribution/metricool' }}
         run: node scripts/distribution/stage-metricool-publication-media.mjs
 
       - name: Build app
-        if: steps.governed-verify.outcome != 'success'
+        if: steps.governed-verify.outputs.reusable != 'true'
         env:
           COMMIT_HASH: ${{ env.DEPLOY_SHA }}
           AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}
-          SKIP_NEXT_BUILD_TYPECHECK: ${{ (steps.governed-verify.outcome == 'success' || steps.deploy-auth.outputs.skip_redundant_validation == 'true') && '1' || '' }}
+          SKIP_NEXT_BUILD_TYPECHECK: ${{ (steps.governed-verify.outputs.reusable == 'true' || steps.deploy-auth.outputs.skip_redundant_validation == 'true') && '1' || '' }}
         run: npm run build:deploy
 
       - name: Verify build output
@@ -316,7 +316,7 @@ jobs:
             echo "- Validated PR head: ${{ steps.deploy-auth.outputs.validated_head_sha || 'unknown' }}"
             echo "- Merge/head tree identical: ${{ steps.deploy-auth.outputs.tree_identical || 'false' }}"
             echo "- Reused exact-tree PR validation: ${{ steps.deploy-auth.outputs.skip_redundant_validation || 'false' }}"
-            echo "- Reused exact-main CI governed export: ${{ steps.governed-verify.outcome == 'success' }}"
+            echo "- Reused exact-main CI governed export: ${{ steps.governed-verify.outputs.reusable == 'true' }}"
             echo "- CI producer run: ${CI_PRODUCER_RUN_ID:-none}"
             echo "- Project name: ${CLOUDFLARE_PAGES_PROJECT:-<missing>}"
             if [ -f "$STATIC_OUTPUT_DIR/index.html" ]; then
