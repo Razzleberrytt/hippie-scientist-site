@@ -39,7 +39,7 @@ This preserves a simple, correctly typed static JPEG for Cloudflare while forcin
 
 ## Build pipeline
 
-`scripts/media/build-article-social-images.mjs` runs from the article build and:
+`scripts/media/build-article-social-images.mjs` runs as its own deterministic build-deploy step after article JSON generation and:
 
 1. scans article/blog content sources;
 2. rejects duplicate slugs;
@@ -51,7 +51,7 @@ This preserves a simple, correctly typed static JPEG for Cloudflare while forcin
 8. rejects duplicate rendered digests;
 9. writes `public/media/social/articles/manifest.json` with integrity metadata.
 
-Generated JPEGs and the manifest are disposable build artifacts; they are reproducible from source and should not become a second editorial source of truth.
+Generated JPEGs and the manifest are disposable build artifacts; they are reproducible from source and should not become a second editorial source of truth. CI persists this directory together with the integrity-checked build cache, so unchanged article/blog/template inputs can reuse the exact prior JPEGs. The build cache verifies both input hashes and output hashes; missing or changed artifacts fail closed to regeneration.
 
 ## Metadata contract
 
