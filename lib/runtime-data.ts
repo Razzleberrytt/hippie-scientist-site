@@ -135,23 +135,23 @@ function mergeCitationSources(baseValue: unknown, imported: Record<string, unkno
   return output
 }
 
-async function attachAug23WorkbookEvidence(record: RuntimeRecord): Promise<RuntimeRecord> {
-  const rawClaims = await readJsonFile('claims.json')
-  if (!Array.isArray(rawClaims)) return record
+export function buildAug23WorkbookEvidenceIndex(rawClaims: unknown) {
+  const byProfile = new Map<string, Record<string, unknown>[]>()
+  if (!Array.isArray(rawClaims)) return byProfile
 
-  const importedSources = rawClaims.flatMap((value): Record<string, unknown>[] => {
-    if (!isRecord(value)) return []
+  for (const value of rawClaims) {
+    if (!isRecord(value)) continue
     const id = cleanString(value.id)
     const profileSlug = cleanString(value.profile_slug)
-    if (!id.startsWith(AUG23_ENRICHMENT_CLAIM_PREFIX) || profileSlug !== record.slug) return []
+    if (!id.startsWith(AUG23_ENRICHMENT_CLAIM_PREFIX) || !profileSlug) continue
 
     const title = cleanString(value.title) || cleanString(value.claim)
     const pmid = cleanString(value.pmid)
     const doi = cleanString(value.doi)
     const url = cleanString(value.source_url)
-    if (!title && !pmid && !doi && !url) return []
+    if (!title && !pmid && !doi && !url) continue
 
-    return [{
+    const source = {
       id: `src_${id}`,
       title,
       pmid,
@@ -160,10 +160,30 @@ async function attachAug23WorkbookEvidence(record: RuntimeRecord): Promise<Runti
       studyType: cleanString(value.evidence_tier),
       result: cleanString(value.claim),
       metadataSource: 'workbook-evidence-register',
-    }]
-  })
+    }
+    const existing = byProfile.get(profileSlug)
+    if (existing) existing.push(source)
+    else byProfile.set(profileSlug, [source])
+  }
 
-  if (!importedSources.length) return record
+  return byProfile
+}
+
+let aug23WorkbookEvidenceIndexPromise: Promise<Map<string, Record<string, unknown>[]>> | null = null
+
+function getAug23WorkbookEvidenceIndex() {
+  if (!aug23WorkbookEvidenceIndexPromise) {
+    aug23WorkbookEvidenceIndexPromise = readJsonFile('claims.json').then(buildAug23WorkbookEvidenceIndex)
+  }
+  return aug23WorkbookEvidenceIndexPromise
+}
+
+async function attachAug23WorkbookEvidence(record: RuntimeRecord): Promise<RuntimeRecord> {
+  const evidenceByProfile = await getAug23WorkbookEvidenceIndex()
+  const sourceTemplates = evidenceByProfile.get(cleanString(record.slug)) ?? []
+
+  if (!sourceTemplates.length) return record
+  const importedSources = sourceTemplates.map((source) => ({ ...source }))
   return {
     ...record,
     sources: mergeCitationSources(record.sources, importedSources),
