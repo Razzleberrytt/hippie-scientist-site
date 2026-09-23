@@ -68,6 +68,22 @@ describe('CI build performance contracts', () => {
     }
   })
 
+  it('reuses controller-validated exact-tree PR evidence on main while failing closed for every other merge', () => {
+    const workflow = read('.github/workflows/ci.yml')
+
+    expect(workflow).toContain('statuses: read')
+    expect(workflow).toContain('Resolve exact-tree main validation reuse')
+    expect(workflow).toContain("if: github.event_name == 'push' && github.ref == 'refs/heads/main'")
+    expect(workflow).toContain('continue-on-error: true')
+    expect(workflow).toContain("DEPLOY_AUTH_ATTEMPTS: '1'")
+    expect(workflow).toContain("DEPLOY_AUTH_INTERVAL_MS: '0'")
+    expect(workflow).toContain('node scripts/ci/verify-deploy-authorization.mjs')
+    expect(workflow).toContain("if: steps.merge-proof.outputs.skip_redundant_validation == 'true'")
+    expect(workflow).toContain("steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true'")
+    expect(workflow).toContain('Reused exact-tree main validation')
+    expect(workflow).toContain('exact merge-SHA production build authoritative')
+  })
+
   it('uses the full public GitHub runner only inside GitHub Actions', () => {
     const config = read('next.config.mjs')
 
