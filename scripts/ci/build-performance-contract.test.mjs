@@ -201,7 +201,13 @@ describe('CI build performance contracts', () => {
     expect(workflow).toContain('Restore deterministic build intermediates')
     expect(workflow).toContain('.build-cache')
     expect(workflow).toContain('public/images/optimized')
+    expect(workflow).toContain('public/media/social/articles')
+    expect(workflow).toContain('scripts/media/build-article-social-images.mjs')
+    expect(workflow).toContain('content/articles/**/*.md')
+    expect(workflow).toContain('content/blog/**/*.md')
     expect(workflow).toContain('build-deploy-intermediates-v1')
+    expect(deploy).toContain("name: 'build-article-social-images'")
+    expect(deploy).toContain("'public/media/social/articles/manifest.json'")
 
     expect(manager).toContain(
       'async shouldRunStep(stepName, inputPatterns = [], outputPatterns = [], config = {})',
