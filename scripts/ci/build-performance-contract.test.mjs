@@ -119,6 +119,13 @@ describe('CI build performance contracts', () => {
     expect(config).toContain('staticGenerationMaxConcurrency,')
   })
 
+  it('keeps shared CSS external during static export', () => {
+    const config = read('next.config.mjs')
+
+    expect(config).toContain('inlineCss: false')
+    expect(config).not.toContain('inlineCss: true')
+  })
+
   it('does not duplicate the dedicated CI typecheck inside the GitHub Next build', () => {
     const config = read('next.config.mjs')
     const workflow = read('.github/workflows/ci.yml')
