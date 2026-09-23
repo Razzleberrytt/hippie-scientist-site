@@ -35,7 +35,25 @@ const steps = [
     cmd: 'node --trace-uncaught scripts/build-articles.mjs',
     inputs: ['content/articles/**/*.{md,mdx}', 'scripts/build-articles.mjs', 'scripts/lib/article-quality-gates.mjs'],
     outputs: ['data/articles/articles.json'],
-    cacheable: false,
+  },
+  {
+    // Social previews are reproducible build artifacts. Keeping them separate
+    // from article JSON lets the deterministic cache skip expensive Sharp
+    // rendering when article/blog presentation inputs have not changed.
+    name: 'build-article-social-images',
+    cmd: 'node scripts/media/build-article-social-images.mjs',
+    inputs: [
+      'content/articles/**/*.{md,mdx}',
+      'content/blog/**/*.{md,mdx}',
+      'scripts/media/build-article-social-images.mjs',
+      'lib/article-social.js',
+      'package.json',
+      'package-lock.json',
+    ],
+    outputs: [
+      'public/media/social/articles/**/*.jpg',
+      'public/media/social/articles/manifest.json',
+    ],
   },
   {
     // `next/image` resolves every local image through the custom loader to a
