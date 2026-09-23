@@ -1,9 +1,11 @@
 import fs from 'node:fs'
+import fsp from 'node:fs/promises'
 import path from 'node:path'
 
 const root = process.cwd()
 const outDir = path.join(root, 'out')
 const MAX_META_DESCRIPTION_LENGTH = 155
+const FILE_IO_CONCURRENCY = 16
 
 const CANONICAL_REPLACEMENTS = new Map([
   ['https://thehippiescientist.net/herbs/piper-methysticum/', 'https://thehippiescientist.net/herbs/kava/'],
@@ -49,6 +51,21 @@ function* walkHtmlFiles(dir) {
       yield fullPath
     }
   }
+}
+
+async function processFilesBounded(files, concurrency, worker) {
+  let cursor = 0
+  const workerCount = Math.min(concurrency, files.length)
+
+  async function runWorker() {
+    while (cursor < files.length) {
+      const index = cursor
+      cursor += 1
+      await worker(files[index], index)
+    }
+  }
+
+  await Promise.all(Array.from({ length: workerCount }, () => runWorker()))
 }
 
 function truncateMetaDescription(value) {
@@ -119,30 +136,35 @@ let replacements = 0
 let normalizedDescriptionTags = 0
 let repairedInternalLinks = 0
 
-for (const filePath of walkHtmlFiles(outDir)) {
-  const html = fs.readFileSync(filePath, 'utf8')
+const htmlFiles = [...walkHtmlFiles(outDir)]
+
+await processFilesBounded(htmlFiles, FILE_IO_CONCURRENCY, async (filePath) => {
+  const html = await fsp.readFile(filePath, 'utf8')
   let next = html
+  let fileReplacements = 0
 
   for (const [from, to] of CANONICAL_REPLACEMENTS) {
     if (!next.includes(from)) continue
     const before = next
     next = next.split(from).join(to)
-    replacements += before.split(from).length - 1
+    fileReplacements += before.split(from).length - 1
   }
 
   const normalizedDescriptions = normalizeDescriptionTags(next)
   next = normalizedDescriptions.html
-  normalizedDescriptionTags += normalizedDescriptions.changedTags
 
   const repairedLinks = repairInternalLinks(next)
   next = repairedLinks.html
-  repairedInternalLinks += repairedLinks.changedLinks
 
   if (next !== html) {
-    fs.writeFileSync(filePath, next)
+    await fsp.writeFile(filePath, next)
     touchedFiles += 1
   }
-}
+
+  replacements += fileReplacements
+  normalizedDescriptionTags += normalizedDescriptions.changedTags
+  repairedInternalLinks += repairedLinks.changedLinks
+})
 
 console.log(
   `[repair-broken-canonicals] Rewrote ${replacements} canonical alias references, normalized ${normalizedDescriptionTags} description tags, and repaired ${repairedInternalLinks} internal links in ${touchedFiles} HTML files.`,
