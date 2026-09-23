@@ -49,36 +49,79 @@ jobs:
           DEPLOY_AUTH_INTERVAL_MS: '10000'
         run: node scripts/ci/verify-deploy-authorization.mjs
 
-      - name: Download exact-main governed export from CI
+      - name: Resolve reusable governed export producer
+        id: governed-producer
+        if: steps.deploy-auth.outputs.skip_redundant_validation == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT_CI_RUN_ID: ${{ env.CI_PRODUCER_RUN_ID }}
+          VALIDATED_HEAD_SHA: ${{ steps.deploy-auth.outputs.validated_head_sha }}
+        run: |
+          set -euo pipefail
+          if [ -n "$EVENT_CI_RUN_ID" ]; then
+            echo "run_id=$EVENT_CI_RUN_ID" >> "$GITHUB_OUTPUT"
+            echo "source_sha=$DEPLOY_SHA" >> "$GITHUB_OUTPUT"
+            echo "mode=exact-main" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [ -z "$VALIDATED_HEAD_SHA" ]; then
+            echo 'No validated PR head is available for governed-export fallback reuse.'
+            exit 0
+          fi
+
+          runs_json="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs?head_sha=$VALIDATED_HEAD_SHA&per_page=100")"
+          run_id="$(jq -r '[.workflow_runs[] | select(.name == "CI" and .status == "completed" and .conclusion == "success")] | sort_by(.created_at) | reverse | .[0].id // empty' <<<"$runs_json")"
+          if [ -z "$run_id" ]; then
+            echo "No successful CI producer found for validated PR head $VALIDATED_HEAD_SHA; retaining deploy self-build fallback."
+            exit 0
+          fi
+
+          echo "Resolved successful CI producer $run_id for validated PR head $VALIDATED_HEAD_SHA."
+          echo "run_id=$run_id" >> "$GITHUB_OUTPUT"
+          echo "source_sha=$VALIDATED_HEAD_SHA" >> "$GITHUB_OUTPUT"
+          echo "mode=validated-pr-head" >> "$GITHUB_OUTPUT"
+
+      - name: Download reusable governed export from CI
         id: governed-download
-        if: github.event_name == 'workflow_run' && github.event.workflow_run.name == 'CI' && github.event.workflow_run.conclusion == 'success'
+        if: steps.governed-producer.outputs.run_id != ''
         continue-on-error: true
         uses: actions/download-artifact@v7
         with:
-          name: governed-static-export-${{ env.DEPLOY_SHA }}
+          name: governed-static-export-${{ steps.governed-producer.outputs.source_sha }}
           path: .
           github-token: ${{ github.token }}
-          run-id: ${{ env.CI_PRODUCER_RUN_ID }}
+          run-id: ${{ steps.governed-producer.outputs.run_id }}
 
-      - name: Verify exact-main governed export
+      - name: Verify reusable governed export
         id: governed-verify
         if: steps.governed-download.outcome == 'success'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
-          EXPECTED_PRODUCER_RUN_ID: ${{ env.CI_PRODUCER_RUN_ID }}
+          EXPECTED_PRODUCER_RUN_ID: ${{ steps.governed-producer.outputs.run_id }}
+          EXPECTED_SOURCE_SHA: ${{ steps.governed-producer.outputs.source_sha }}
+          VALIDATED_HEAD_SHA: ${{ steps.deploy-auth.outputs.validated_head_sha }}
+          TREE_IDENTICAL: ${{ steps.deploy-auth.outputs.tree_identical }}
+          BASE_IDENTICAL: ${{ steps.deploy-auth.outputs.base_identical }}
         run: |
           set -euo pipefail
           receipt='.governed-static-export.json'
           base_sha="$(jq -r '.baseSha // empty' "$receipt")"
           producer_run_id="$(jq -r '.producerRunId // empty' "$receipt")"
-          if [ -z "$base_sha" ] || [ -z "$producer_run_id" ]; then
-            echo 'Governed export receipt is missing base or producer identity.' >&2
+          if [ -z "$base_sha" ] || [ -z "$producer_run_id" ] || [ -z "$EXPECTED_SOURCE_SHA" ]; then
+            echo 'Governed export receipt or expected producer/source identity is missing.' >&2
             exit 1
           fi
           if [ "$producer_run_id" != "$EXPECTED_PRODUCER_RUN_ID" ]; then
             echo "Governed export producer mismatch: expected $EXPECTED_PRODUCER_RUN_ID, received $producer_run_id" >&2
             exit 1
+          fi
+          if [ "$EXPECTED_SOURCE_SHA" != "$DEPLOY_SHA" ]; then
+            if [ "$EXPECTED_SOURCE_SHA" != "$VALIDATED_HEAD_SHA" ] || [ "$TREE_IDENTICAL" != 'true' ] || [ "$BASE_IDENTICAL" != 'true' ]; then
+              echo "PR-head governed export cannot be reused without exact validated head/base/tree identity." >&2
+              exit 1
+            fi
           fi
           merge_parent="$(gh api "repos/$GITHUB_REPOSITORY/git/commits/$DEPLOY_SHA" --jq '.parents[0].sha // empty')"
           if [ -z "$merge_parent" ] || [ "$merge_parent" != "$base_sha" ]; then
@@ -86,7 +129,7 @@ jobs:
             exit 1
           fi
           node scripts/ci/governed-static-export.mjs verify \
-            --source-sha "$DEPLOY_SHA" \
+            --source-sha "$EXPECTED_SOURCE_SHA" \
             --base-sha "$base_sha"
           echo "reusable=true" >> "$GITHUB_OUTPUT"
 
@@ -316,8 +359,8 @@ jobs:
             echo "- Validated PR head: ${{ steps.deploy-auth.outputs.validated_head_sha || 'unknown' }}"
             echo "- Merge/head tree identical: ${{ steps.deploy-auth.outputs.tree_identical || 'false' }}"
             echo "- Reused exact-tree PR validation: ${{ steps.deploy-auth.outputs.skip_redundant_validation || 'false' }}"
-            echo "- Reused exact-main CI governed export: ${{ steps.governed-verify.outputs.reusable == 'true' }}"
-            echo "- CI producer run: ${CI_PRODUCER_RUN_ID:-none}"
+            echo "- Reused governed CI export: ${{ steps.governed-verify.outputs.reusable == 'true' }}"
+            echo "- CI producer run: ${{ steps.governed-producer.outputs.run_id || 'none' }}"
             echo "- Project name: ${CLOUDFLARE_PAGES_PROJECT:-<missing>}"
             if [ -f "$STATIC_OUTPUT_DIR/index.html" ]; then
               echo "- out/index.html exists: yes"
