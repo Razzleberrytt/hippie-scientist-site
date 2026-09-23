@@ -1,5 +1,5 @@
 import { text } from '@/lib/display-utils'
-import { buildRenderableRuntimeRecordIndex } from '@/lib/runtime-link-candidates'
+import { getCachedRenderableRuntimeRecordIndex } from '@/lib/runtime-link-candidates'
 import { safeArray, safeScore, safeSlug } from '@/lib/search-safe'
 import {
   getRuntimeMapEntries,
@@ -121,7 +121,7 @@ async function getRuntimeRecords(kind: RuntimeRelationshipKind, record: RuntimeR
   if (!slug || requestedLimit === 0) return []
 
   const entries = await getRuntimeMapEntries(kind, slug)
-  const recordIndex = buildRenderableRuntimeRecordIndex(records)
+  const recordIndex = getCachedRenderableRuntimeRecordIndex(records)
   return sortHydratedRecords(hydrateRuntimeEntries(entries, recordIndex)).slice(0, requestedLimit)
 }
 
