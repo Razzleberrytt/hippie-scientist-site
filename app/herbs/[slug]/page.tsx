@@ -302,8 +302,6 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const suppressAffiliate = shouldSuppressAffiliate(herb)
 
   const {
-    herbs,
-    compounds,
     allRecords,
     herbSlugs,
     compoundSlugs,
