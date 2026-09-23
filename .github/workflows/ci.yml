@@ -357,7 +357,8 @@ jobs:
             .build-cache
             public/images/optimized
             lib/generated/optimized-images.json
-          key: ${{ runner.os }}-build-deploy-intermediates-v1-${{ hashFiles('package-lock.json', 'scripts/cache/build-cache-manager.mjs', 'scripts/optimize-images.mjs', 'lib/cloudflare-image-loader.ts', 'public/images/**/*.jpg', 'public/images/**/*.jpeg', 'public/images/**/*.png', 'public/images/**/*.gif', 'public/images/**/*.avif', 'public/images/**/*.tiff', 'public/images/**/*.webp') }}
+            public/media/social/articles
+          key: ${{ runner.os }}-build-deploy-intermediates-v1-${{ hashFiles('package-lock.json', 'scripts/cache/build-cache-manager.mjs', 'scripts/optimize-images.mjs', 'lib/cloudflare-image-loader.ts', 'scripts/media/build-article-social-images.mjs', 'lib/article-social.js', 'content/articles/**/*.md', 'content/articles/**/*.mdx', 'content/blog/**/*.md', 'content/blog/**/*.mdx', 'public/images/**/*.jpg', 'public/images/**/*.jpeg', 'public/images/**/*.png', 'public/images/**/*.gif', 'public/images/**/*.avif', 'public/images/**/*.tiff', 'public/images/**/*.webp') }}
           restore-keys: |
             ${{ runner.os }}-build-deploy-intermediates-v1-
 
