@@ -990,7 +990,7 @@ export default async function CompoundPage({ params }: PageProps) {
         </section>
 
         {/* Source herbs — internal links from the curated relationship map */}
-        <div id="compounds"><CompoundSourceHerbs compoundSlug={compound.slug} compoundName={displayName} /></div>
+        <div id="compounds"><CompoundSourceHerbs compoundSlug={compound.slug} compoundName={displayName} compoundRecord={compound} /></div>
 
         {canonicalNote ? (
           <section className="card-premium p-4 sm:p-5 space-y-3">
