@@ -155,7 +155,7 @@ export async function getBatchedRuntimeRecords(
     .slice(0, MAX_BATCHED_SLUGS)
   if (sourceSlugs.length === 0) return {}
 
-  const recordIndex = buildRenderableRuntimeRecordIndex(candidateRecords)
+  const recordIndex = getCachedRenderableRuntimeRecordIndex(candidateRecords)
   const entriesBySlug = await getRuntimeMapEntriesForSlugs(kind, sourceSlugs)
 
   return Object.fromEntries(
