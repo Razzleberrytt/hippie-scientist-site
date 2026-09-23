@@ -181,7 +181,8 @@ function getAug23WorkbookEvidenceIndex() {
 
 async function attachAug23WorkbookEvidence(record: RuntimeRecord): Promise<RuntimeRecord> {
   const evidenceByProfile = await getAug23WorkbookEvidenceIndex()
-  const importedSources = evidenceByProfile.get(cleanString(record.slug)) ?? []
+  const indexedSources = evidenceByProfile.get(cleanString(record.slug)) ?? []
+  const importedSources = indexedSources.map((source) => ({ ...source }))
 
   if (!importedSources.length) return record
   return {
