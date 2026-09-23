@@ -243,6 +243,22 @@ describe('workflow release-impact contract', () => {
     expect(invariants).toContain('Download governed static export')
     expect(invariants).toContain('Same-repository PRs reuse the exact governed CI export instead of rebuilding the site.')
   })
+
+  it('uses dependency-related Vitest selection only for proven leaf-page-only diffs', () => {
+    const ci = fs.readFileSync(path.join(process.cwd(), '.github/workflows/ci.yml'), 'utf8')
+
+    expect(ci).toContain('Run related tests for leaf pages (vitest + explicit a11y gate)')
+    expect(ci).toContain("steps.impact.outputs.leaf_page_only == 'true'")
+    expect(ci).toContain('npx vitest related "${changed_files[@]}" --run --passWithNoTests')
+    expect(ci).toContain('npx vitest run app/__tests__/a11y.test.tsx')
+    expect(ci).toContain('Run full tests (vitest + a11y gate)')
+    expect(ci).toContain("steps.impact.outputs.leaf_page_only != 'true'")
+    expect(ci).toContain('npm run test 2>&1 | tee vitest.log')
+    expect(ci).toContain('npm run test:node')
+    expect(ci).toContain('npm run data:ci')
+    expect(ci).toContain('npm run audit:high')
+    expect(ci).toContain('production build/output/SEO remains authoritative')
+  })
 })
 
 describe('validation-only classification', () => {
