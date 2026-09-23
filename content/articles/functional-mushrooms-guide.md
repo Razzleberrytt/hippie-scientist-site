@@ -136,3 +136,4 @@ A woody conk that grows on birch trees, with the highest ORAC (antioxidant) scor
 
 - [Lion's Mane: Benefits, Dosage & Evidence](/articles/lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide/)
 - [Mushroom Coffee Review](/articles/mushroom-coffee-benefits-review/)
+- [Ergothioneine: Human Evidence for Cognition, Aging & Safety](/articles/ergothioneine-evidence-review/)
