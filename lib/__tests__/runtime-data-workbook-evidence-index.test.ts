@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
 
-import { buildAug23WorkbookEvidenceIndex } from '@/lib/runtime-data'
+import { buildWorkbookEvidenceIndex } from '@/lib/runtime-data'
 
-describe('Aug 23 workbook evidence profile index', () => {
-  it('groups eligible enrichment claims by profile while preserving source order and fields', () => {
-    const index = buildAug23WorkbookEvidenceIndex([
+describe('manifest-backed workbook evidence profile index', () => {
+  it('groups legacy and current manifest enrichment claims by profile', () => {
+    const index = buildWorkbookEvidenceIndex([
       {
         id: 'aug23-enr-alpha-1',
         profile_slug: 'alpha',
@@ -16,24 +16,21 @@ describe('Aug 23 workbook evidence profile index', () => {
         evidence_tier: 'RCT',
       },
       {
+        id: 'med-sertraline-mdd-meta-2023',
+        profile_slug: 'sertraline',
+        title: 'Sertraline meta-analysis',
+        claim: 'Sertraline claim',
+        pmid: '37557058',
+        doi: '10.1016/j.psychres.2023.115391',
+        source_url: 'https://pubmed.ncbi.nlm.nih.gov/37557058/',
+        evidence_tier: 'systematic review/meta-analysis',
+        metadata_source: 'runtime-enrichment',
+      },
+      {
         id: 'other-alpha-ignored',
         profile_slug: 'alpha',
-        claim: 'Not an Aug 23 enrichment claim',
+        claim: 'Not manifest enrichment',
         pmid: '999',
-      },
-      {
-        id: 'aug23-enr-beta-1',
-        profile_slug: 'beta',
-        title: '',
-        claim: 'Fallback claim title',
-        pmid: '456',
-        evidence_tier: 'review',
-      },
-      {
-        id: 'aug23-enr-alpha-2',
-        profile_slug: 'alpha',
-        claim: 'Alpha claim two',
-        source_url: 'https://example.com/alpha-2',
       },
     ])
 
@@ -48,37 +45,28 @@ describe('Aug 23 workbook evidence profile index', () => {
         result: 'Alpha claim one',
         metadataSource: 'workbook-evidence-register',
       },
-      {
-        id: 'src_aug23-enr-alpha-2',
-        title: 'Alpha claim two',
-        pmid: '',
-        doi: '',
-        url: 'https://example.com/alpha-2',
-        studyType: '',
-        result: 'Alpha claim two',
-        metadataSource: 'workbook-evidence-register',
-      },
     ])
-    expect(index.get('beta')).toEqual([
+
+    expect(index.get('sertraline')).toEqual([
       {
-        id: 'src_aug23-enr-beta-1',
-        title: 'Fallback claim title',
-        pmid: '456',
-        doi: '',
-        url: '',
-        studyType: 'review',
-        result: 'Fallback claim title',
-        metadataSource: 'workbook-evidence-register',
+        id: 'src_med-sertraline-mdd-meta-2023',
+        title: 'Sertraline meta-analysis',
+        pmid: '37557058',
+        doi: '10.1016/j.psychres.2023.115391',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/37557058/',
+        studyType: 'systematic review/meta-analysis',
+        result: 'Sertraline claim',
+        metadataSource: 'runtime-enrichment',
       },
     ])
   })
 
   it('excludes unusable, non-enrichment, and unscoped claims', () => {
-    const index = buildAug23WorkbookEvidenceIndex([
+    const index = buildWorkbookEvidenceIndex([
       null,
       [],
-      { id: 'aug23-enr-no-profile', profile_slug: '', claim: 'No profile', pmid: '1' },
-      { id: 'aug23-enr-no-source', profile_slug: 'alpha', title: '', claim: '', pmid: '', doi: '', source_url: '' },
+      { id: 'med-no-profile', profile_slug: '', claim: 'No profile', pmid: '1', metadata_source: 'runtime-enrichment' },
+      { id: 'med-no-source', profile_slug: 'alpha', title: '', claim: '', pmid: '', doi: '', source_url: '', metadata_source: 'runtime-enrichment' },
       { id: 'legacy-claim', profile_slug: 'alpha', claim: 'Legacy', pmid: '2' },
     ])
 
@@ -86,6 +74,6 @@ describe('Aug 23 workbook evidence profile index', () => {
   })
 
   it('returns an empty index for non-array input', () => {
-    expect(buildAug23WorkbookEvidenceIndex({})).toEqual(new Map())
+    expect(buildWorkbookEvidenceIndex({})).toEqual(new Map())
   })
 })
