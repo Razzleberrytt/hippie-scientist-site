@@ -35,4 +35,4 @@ Ledgers may add evidence and source-provenance rows for existing entities, descr
 
 ## Regression contract
 
-`tests/runtime-enrichment.test.ts` validates every manifest-backed batch, verifies each digest before decoding, checks reviewed counts and per-batch source/evidence identifiers, verifies deterministic cross-batch deduplication, enforces the entity-context allowlist, verifies virtual-workbook growth, and prevents the medication batch from carrying publication/governance fields.
+`tests/runtime-enrichment.test.ts` validates every manifest-backed batch, verifies each digest before decoding, checks reviewed counts, requires globally unique evidence record IDs, allows repeat source identities to deduplicate deterministically across batches, enforces the entity-context allowlist, verifies virtual-workbook growth, and prevents the medication batch from carrying publication/governance fields.
