@@ -150,14 +150,14 @@ describe('manifest-backed additive enrichment ledgers', () => {
     const evidenceKey = (row: any) => {
       const entity = slug(first(row, ['entity_slug', 'profile_slug', 'slug', 'herb_slug', 'compound_slug']))
       const pmid = clean(first(row, ['pmid', 'PMID'])).toLowerCase()
-      const doi = clean(first(row, ['doi', 'DOI'])).toLowerCase().replace(/^https?:\\/\\/(?:dx\\.)?doi\\.org\\//, '')
+      const doi = normalizeDoi(first(row, ['doi', 'DOI']))
       const title = clean(first(row, ['title', 'study title', 'claim', 'summary', 'supported_claim_language'])).toLowerCase()
       const source = pmid ? `pmid:${pmid}` : doi ? `doi:${doi}` : title ? `title:${title}` : ''
       return entity && source ? `${entity}|${source}` : ''
     }
     const sourceKey = (row: any) => {
       const pmid = clean(first(row, ['pmid', 'PMID'])).toLowerCase()
-      const doi = clean(first(row, ['doi', 'DOI'])).toLowerCase().replace(/^https?:\\/\\/(?:dx\\.)?doi\\.org\\//, '')
+      const doi = normalizeDoi(first(row, ['doi', 'DOI']))
       const title = clean(first(row, ['title'])).toLowerCase()
       return pmid ? `pmid:${pmid}` : doi ? `doi:${doi}` : title ? `title:${title}` : ''
     }
