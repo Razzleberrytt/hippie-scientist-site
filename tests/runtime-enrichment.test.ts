@@ -219,21 +219,40 @@ describe('manifest-backed additive enrichment ledgers', () => {
     expect(touched).toBe(expectedTouched)
   }, 60000)
 
-  it('keeps the Sep 24 medication batch evidence-only and fail-closed by construction', () => {
-    const medication = batches.find((batch) => batch.manifest.batch_id === '2026-09-24-medication-anchor-enrichment')
-    expect(medication).toBeTruthy()
-    expect(medication!.ledger.entities).toEqual([])
-    expect(medication!.ledger.relationships).toEqual([])
-
-    const slugs = new Set(medication!.ledger.evidence.map((row: any) => row.entity_slug))
-    expect(slugs).toEqual(new Set(['sertraline', 'fluoxetine']))
+  it('keeps every medication batch evidence-only and fail-closed by construction', () => {
+    const medicationBatches = batches.filter((batch) =>
+      String(batch.manifest.batch_id || '').includes('medication'),
+    )
+    expect(medicationBatches.length).toBeGreaterThan(0)
 
     const blockedKeys = new Set([
       'runtime_export_decision', 'profile_status', 'robots', 'sitemap_included',
       'indexability_status', 'governance_status', 'affiliate_ready',
     ])
-    for (const row of [...medication!.ledger.evidence, ...medication!.ledger.sources]) {
-      for (const key of Object.keys(row)) expect(blockedKeys.has(key)).toBe(false)
+
+    for (const medication of medicationBatches) {
+      expect(medication.ledger.entities, medication.manifest.batch_id).toEqual([])
+      expect(medication.ledger.relationships, medication.manifest.batch_id).toEqual([])
+      expect(medication.ledger.evidence.length, medication.manifest.batch_id).toBeGreaterThan(0)
+
+      for (const row of [...medication.ledger.evidence, ...medication.ledger.sources]) {
+        for (const key of Object.keys(row)) {
+          expect(blockedKeys.has(key), `${medication.manifest.batch_id}: ${key}`).toBe(false)
+        }
+      }
     }
+
+    const first = medicationBatches.find((batch) =>
+      batch.manifest.batch_id === '2026-09-24-medication-anchor-enrichment',
+    )
+    expect(new Set(first!.ledger.evidence.map((row: any) => row.entity_slug)))
+      .toEqual(new Set(['sertraline', 'fluoxetine']))
+
+    const second = medicationBatches.find((batch) =>
+      batch.manifest.batch_id === '2026-09-24-medication-dextroamphetamine-zolpidem',
+    )
+    expect(second).toBeTruthy()
+    expect(new Set(second!.ledger.evidence.map((row: any) => row.entity_slug)))
+      .toEqual(new Set(['dextroamphetamine', 'zolpidem']))
   })
 })
