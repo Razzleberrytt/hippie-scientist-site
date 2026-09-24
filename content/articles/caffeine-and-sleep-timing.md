@@ -3,7 +3,7 @@ slug: caffeine-and-sleep-timing
 title: "Caffeine and Sleep: How Late Is Too Late? Evidence on Timing and Dose"
 description: "What controlled trials and meta-analyses show about caffeine timing, total sleep time, sleep latency, deep sleep, dose, and why a universal afternoon cutoff is too simple."
 date: '2026-09-04'
-updatedAt: '2026-09-04'
+updatedAt: '2026-09-24'
 author: Will
 category: Sleep Science
 evidence_grade: Moderate to Strong
@@ -51,9 +51,23 @@ references:
     year: "2025"
     pmid: "41124973"
     url: "https://pubmed.ncbi.nlm.nih.gov/41124973/"
+  - title: "A systematic review and meta-analysis of the acute effect of caffeine on attention"
+    authors: "Kløve K, Petersen A"
+    year: "2025"
+    pmid: "40335666"
+    doi: "10.1007/s00213-025-06775-1"
+    url: "https://pubmed.ncbi.nlm.nih.gov/40335666/"
 ---
 
 > **Bottom line:** Caffeine can affect much more than how quickly you fall asleep. Controlled evidence shows reductions in total sleep time and sleep efficiency, longer sleep-onset latency, more nighttime wakefulness, and less slow-wave sleep. The useful question is not “Is caffeine bad for sleep?” but **how much, how late, and for whom?**
+
+## Caffeine can sharpen attention and still cost sleep
+
+The evidence does not require treating caffeine as either “good” or “bad.” A 2025 systematic review and meta-analysis pooled 31 randomized, double-blind, placebo-controlled trials with 1,455 healthy rested adults and found small acute improvements in both attention accuracy and reaction time.[5]
+
+That result is useful because it separates a real short-term performance signal from broader claims such as “caffeine improves cognition” in every context. The same literature base also shows a tradeoff: caffeine taken too late can reduce sleep duration and efficiency, and higher doses can extend that disruption farther from bedtime.[1,4]
+
+So the evidence-backed framing is **benefit × timing × dose × person**. An acute attention benefit does not cancel a later sleep cost, and a sleep cost does not mean caffeine has no legitimate performance effect.
 
 ## The “no coffee after 2 p.m.” rule is convenient, not universal
 
@@ -210,6 +224,7 @@ The strongest practical takeaway is not a universal “2 p.m. rule.” It is to 
 
 ## Related reading
 
+- [Caffeine compound profile](/compounds/caffeine/)
 - [Sleep Onset vs Sleep Maintenance](/articles/sleep-onset-vs-sleep-maintenance/)
 - [Sleep Regularity](/articles/sleep-regularity-health/)
 - [How Accurate Are Sleep Trackers?](/articles/sleep-trackers-accuracy/)
