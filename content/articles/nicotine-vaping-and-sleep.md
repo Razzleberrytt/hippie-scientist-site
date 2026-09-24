@@ -3,7 +3,7 @@ slug: nicotine-vaping-and-sleep
 title: "Nicotine, Vaping and Sleep: What the Evidence Shows"
 description: "Evidence review of nicotine, cigarettes, vaping and sleep, including the 2025 e-cigarette meta-analysis, smoking-cessation sleep review, withdrawal effects, and causal limits."
 date: '2026-09-04'
-updatedAt: '2026-09-04'
+updatedAt: '2026-09-24'
 author: Will
 category: Anxiety & Sleep
 evidence_grade: Moderate observational
@@ -49,6 +49,18 @@ references:
     year: "2024"
     pmid: "38433577"
     url: "https://pubmed.ncbi.nlm.nih.gov/38433577/"
+  - title: "Meta-analysis of the acute effects of nicotine and smoking on human performance"
+    authors: "Heishman SJ, Kleykamp BA, Singleton EG"
+    year: "2010"
+    pmid: "20414766"
+    doi: "10.1007/s00213-010-1848-1"
+    url: "https://pubmed.ncbi.nlm.nih.gov/20414766/"
+  - title: "Nicotine addiction: More than just dopamine"
+    authors: "Kim K, Picciotto MR"
+    year: "2023"
+    pmid: "37832393"
+    doi: "10.1016/j.conb.2023.102797"
+    url: "https://pubmed.ncbi.nlm.nih.gov/37832393/"
 ---
 
 > **Bottom line:** Nicotine use and poor sleep are consistently linked, but the evidence needs careful interpretation. A 2025 meta-analysis found that e-cigarette users had higher odds of short sleep and sleep problems, yet the included studies were cross-sectional and cannot prove that vaping caused the problem. Smoking cessation can also temporarily worsen sleep during withdrawal. That does **not** mean nicotine is good for sleep; it means acute withdrawal and long-term sleep health are different questions.
@@ -74,6 +86,14 @@ So the defensible conclusion is **association**, not a universal causal estimate
 An analysis of NHANES 2015–2018 data included 11,659 U.S. adults.[3] Current e-cigarette use was associated with more than twice the odds of self-reported trouble sleeping compared with never use after adjustment for measured confounders. Current cigarette use was associated with both short sleep duration and trouble sleeping, while dual use was associated with both outcomes as well.[3]
 
 Again, observational adjustment cannot remove every source of confounding. But the consistency across smoking, vaping and dual-use groups makes it difficult to justify marketing nicotine exposure as sleep-neutral.
+
+## Acute attention effects do not make nicotine a sleep strategy
+
+Controlled human laboratory evidence does show small acute effects on some cognitive-performance measures. A meta-analysis of 41 double-blind, placebo-controlled studies found positive effects in six of nine analyzed domains, including alerting attention, orienting attention, short-term episodic memory and working-memory reaction time.[5] The authors specifically included healthy adult nonsmokers or smokers who were not substantially nicotine-deprived, which reduced the chance that every apparent benefit was simply withdrawal reversal.
+
+That signal belongs in an evidence-first profile — but it should not be converted into a broad “nicotine is good for cognition” claim. Repeated nicotine exposure can produce reinforcement, neuroadaptation, dependence and withdrawal. A 2023 neurobiology review describes nicotine addiction as involving dopamine as well as glutamate, GABA and habenula-interpeduncular circuitry involved in reward, aversion and withdrawal.[6]
+
+For sleep, the distinction is especially important: feeling more alert after nicotine is not evidence that nicotine improves sleep, restores sleep debt or is a sound long-term fatigue strategy.
 
 ## Nicotine is not the only variable in cigarette or vape research
 
