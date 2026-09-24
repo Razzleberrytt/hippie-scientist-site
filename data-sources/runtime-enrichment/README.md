@@ -33,6 +33,20 @@ Ledgers may add evidence and source-provenance rows for existing entities, descr
 
 `2026-09-24-medication-manifest.json` records the exact source anchors, reviewed counts, append-only policy, and ledger hash.
 
+## Sep. 24 medication sleep/stimulant batch
+
+- Ledger: `2026-09-24-medication-sleep-stimulant-enrichment.json`
+- Targets: `dextroamphetamine`, `zolpidem`
+- 5 evidence rows
+- 5 source rows
+- 0 entity-context rows
+- 0 relationships
+- Dextroamphetamine evidence keeps adult narcolepsy guidance separate from current Schedule II label safety/provenance.
+- Zolpidem evidence keeps short-term insomnia efficacy separate from boxed-warning and complex-sleep-behavior safety evidence.
+- The batch is evidence-only and cannot carry publication/governance fields.
+
+`2026-09-24-medication-sleep-stimulant-manifest.json` records the exact source anchors, reviewed counts, append-only policy, and ledger hash.
+
 ## Regression contract
 
-`tests/runtime-enrichment.test.ts` validates every manifest-backed batch, verifies each digest before decoding, checks reviewed counts, requires globally unique evidence record IDs, allows repeat source identities to deduplicate deterministically across batches, enforces the entity-context allowlist, verifies virtual-workbook growth, and prevents the medication batch from carrying publication/governance fields.
+`tests/runtime-enrichment.test.ts` validates every manifest-backed batch, verifies each digest before decoding, checks reviewed counts, requires globally unique evidence record IDs, allows repeat source identities to deduplicate deterministically across batches, enforces the entity-context allowlist, verifies virtual-workbook growth, and prevents every medication batch from carrying publication/governance fields.
