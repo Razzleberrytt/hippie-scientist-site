@@ -1,0 +1,11 @@
+{
+  "entity_type": "compound",
+  "slug": "dextroamphetamine",
+  "name": "Dextroamphetamine",
+  "summary": "Dextroamphetamine is a central nervous system stimulant and the dextrorotatory isomer of amphetamine. This profile remains research-only while indication-specific efficacy, abuse and misuse risk, cardiovascular and psychiatric safety, interaction, and regulatory evidence is assembled and reviewed.",
+  "description": "Canonical dextroamphetamine entity for evidence and safety integration. Publication remains held until molecule-specific scientific, controlled-substance, interaction, and regulatory provenance has passed the site’s review gates.",
+  "primary_effects_or_targets": "dopamine and norepinephrine signaling; catecholamine transport and release",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only"
+}
