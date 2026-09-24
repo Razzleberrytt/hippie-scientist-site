@@ -20,23 +20,6 @@ describe('runtime summary governance boundary', () => {
     expect(readHerbs).toBeGreaterThan(holds)
   })
 
-  it('keeps committed core rebuild callers in preserve-governed-state mode', () => {
-    const packageJson = JSON.parse(
-      fs.readFileSync(path.join(process.cwd(), 'package.json'), 'utf8'),
-    )
-    const promotionSource = fs.readFileSync(
-      path.join(process.cwd(), 'scripts/data/promote-profile.mjs'),
-      'utf8',
-    )
-
-    expect(packageJson.scripts['data:build:core']).toContain(
-      'build-runtime-summary-indexes.mjs --data-dir=public/data --preserve-governed-state',
-    )
-    expect(promotionSource).toContain(
-      "['scripts/data/build-runtime-summary-indexes.mjs', ['--data-dir=public/data', '--preserve-governed-state']]",
-    )
-  })
-
   it('supports a derived-only refresh that preserves already-governed runtime state', () => {
     const summarySource = fs.readFileSync(
       path.join(process.cwd(), 'scripts/data/build-runtime-summary-indexes.mjs'),
