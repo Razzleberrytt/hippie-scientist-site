@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-09-24-medication-dextroamphetamine-zolpidem",
+  "generated_from": {
+    "input_files": [
+      "DailyMed dextroamphetamine sulfate setid 0ef920a9-c5b9-4d31-a478-ee18d22a3c5b",
+      "DailyMed zolpidem tartrate setid 2abdcf77-d3ed-42bc-acd9-545aab75d567",
+      "PubMed PMID 34743789",
+      "PubMed PMID 34688027",
+      "PubMed PMID 34584301"
+    ],
+    "review_note": "Manual evidence pass for fail-closed dextroamphetamine and zolpidem canonical entities."
+  },
+  "counts": {
+    "entity_context_rows": 0,
+    "evidence_rows": 5,
+    "source_rows": 5,
+    "relationship_rows": 0,
+    "evidence_rows_after_canonical_dedupe": 5,
+    "source_rows_after_canonical_dedupe": 5,
+    "live_relationship_rows_new_after_dedupe": 0
+  },
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden",
+    "evidence_merge": "append-only, deduplicated by entity + PMID/DOI/title",
+    "regulatory_provenance": "jurisdiction-, formulation-, and revision-specific label claims remain tied to their cited DailyMed source"
+  },
+  "ledger": {
+    "file": "2026-09-24-medication-sleep-stimulant-enrichment.json",
+    "sha256": "4c493ec70a6694d966ae9c51bbfbbd8acc9501286f3184a1004560805d5367dc",
+    "bytes": 9392
+  }
+}
