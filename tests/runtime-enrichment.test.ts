@@ -140,6 +140,13 @@ describe('manifest-backed additive enrichment ledgers', () => {
       for (const key of keys) if (clean(row?.[key])) return row[key]
       return ''
     }
+    const normalizeDoi = (value: unknown) => {
+      const doi = clean(value).toLowerCase()
+      for (const prefix of ['https://dx.doi.org/', 'http://dx.doi.org/', 'https://doi.org/', 'http://doi.org/']) {
+        if (doi.startsWith(prefix)) return doi.slice(prefix.length)
+      }
+      return doi
+    }
     const evidenceKey = (row: any) => {
       const entity = slug(first(row, ['entity_slug', 'profile_slug', 'slug', 'herb_slug', 'compound_slug']))
       const pmid = clean(first(row, ['pmid', 'PMID'])).toLowerCase()
