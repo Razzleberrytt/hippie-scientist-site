@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "transactionType": "enrichment_governor_lease",
+  "requestedAt": "2026-09-24T13:04:16.988Z",
+  "operation": "acquire",
+  "actor": "github-actions[bot]",
+  "owner": "site-swarm-integration",
+  "leaseId": "lease-5703-cobalamin-closure",
+  "purpose": "close staged cobalamin deficiency-vs-enhancement evidence",
+  "files": [],
+  "entities": [
+    "compound:cobalamin"
+  ],
+  "disposition": null,
+  "baseSha": "9452aa16d09b37d38859e197e244a8a9f23a2524",
+  "before": {
+    "workQueueSha256": "48c03d47097b1111d96290535581d2b5a583ae9fe1ba4691fd41a1e5fc42e462",
+    "ledgerSha256": "68c59638cef7b33e5513795c14d57c4e389b4ad0bbfbbfa271470b6cdc1ddde2"
+  },
+  "after": {
+    "workQueueSha256": "d4974929d333333d52e573e2de4ec261d602f1ffc23b1b9d9542b66dbc5af4a1",
+    "ledgerSha256": "8604cdc17b75eda1dfff2fd79fb13d8b0587e1bb3d35b7a1af5943e3d3312d0c"
+  },
+  "result": {
+    "acquired": true,
+    "expiresAt": "2026-09-24T14:34:16.965Z"
+  },
+  "transactionCommitSha": null
+}
