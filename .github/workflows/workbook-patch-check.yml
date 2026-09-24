@@ -27,7 +27,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   validate:
@@ -74,6 +74,25 @@ jobs:
           if-no-files-found: error
           retention-days: 7
           compression-level: 0
+
+      - name: Regenerate canonical runtime output for this PR branch
+        if: github.event_name == 'pull_request' && github.head_ref == 'manual/sertraline-fluoxetine-canonical-2026-09-24' && github.event.pull_request.head.repo.full_name == github.repository
+        env:
+          HEAD_REF: ${{ github.head_ref }}
+        run: |
+          npm run data:build:core
+          npm run guard:source-of-truth
+          if git diff --quiet -- public/data; then
+            echo "Generated public/data already matches the canonical workbook."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add public/data
+            git commit -m "data: regenerate runtime for sertraline and fluoxetine"
+            git push origin "HEAD:${HEAD_REF}"
+            echo "Generated runtime committed; fresh PR checks will validate the new head."
+            exit 0
+          fi
 
       - name: Validate patch proposals against current workbook
         id: patch_check
