@@ -8,14 +8,17 @@ on:
     paths:
       - 'data-sources/workbook-patches/**'
       - 'data-sources/entity-row-proposals/**'
+      - 'data-sources/runtime-enrichment/**'
       - 'data-sources/herb_monograph_master.xlsx'
       - 'scripts/data/apply-workbook-patch.mjs'
       - 'scripts/data/edit-entity-master-cell.mjs'
+      - 'scripts/data/workbook-parser.mjs'
       - 'scripts/ci/validate-workbook-patches.mjs'
       - 'scripts/ci/validate-workbook-schema.mjs'
       - 'scripts/ci/validate-workbook-append-row.mjs'
       - 'scripts/ci/prepare-entity-row-review.mjs'
       - 'scripts/utils/read-workbook-exceljs.mjs'
+      - 'tests/runtime-enrichment.test.ts'
       - '.github/workflows/workbook-patch-check.yml'
   workflow_dispatch:
 
@@ -51,6 +54,9 @@ jobs:
 
       - name: Validate workbook schema
         run: npm run validate:workbook-schema --silent
+
+      - name: Validate manifest-backed runtime enrichment
+        run: npx vitest run tests/runtime-enrichment.test.ts
 
       - name: Validate surgical Entity_Master append path
         run: node scripts/ci/validate-workbook-append-row.mjs
