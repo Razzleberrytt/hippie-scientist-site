@@ -65,14 +65,14 @@
     {
       "slug": "nicotine",
       "column": "description",
-      "expected_old_value": "Tobacco alkaloid with well-characterized nicotinic receptor activity; effects propagate through neurotransmitter circuits and autonomic signaling.",
+      "expected_old_value": "",
       "new_value": "Nicotine activates nicotinic acetylcholine receptors and modulates multiple neurotransmitter circuits. Controlled human studies show small acute effects in some attention and memory domains, while modern addiction research emphasizes reinforcement, withdrawal and circuit adaptation; those acute cognitive findings do not establish long-term health benefit.",
       "confidence": "high",
       "source_ids": [
         "pmid-20414766",
         "pmid-37832393"
       ],
-      "rationale": "The existing description stops at mechanism. The replacement adds the human-performance evidence and the dependence/withdrawal counterweight required for a balanced evidence-first profile."
+      "rationale": "The canonical workbook description cell is blank even though generated runtime currently exposes a legacy mechanism sentence. This proposal fills the canonical source with balanced human-evidence and dependence context rather than treating generated runtime as source-of-truth."
     }
   ]
 }
