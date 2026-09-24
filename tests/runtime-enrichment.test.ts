@@ -106,12 +106,14 @@ describe('manifest-backed additive enrichment ledgers', () => {
     }
   })
 
-  it('keeps ids unique inside each reviewed batch and preserves source provenance', () => {
+  it('keeps evidence record IDs globally unique and preserves source provenance', () => {
+    const evidenceIds = ledger.evidence.map((row: any) => row.record_id)
+    expect(evidenceIds.every(Boolean)).toBe(true)
+    expect(new Set(evidenceIds).size).toBe(evidenceIds.length)
+
     const allSourceIds = new Set(ledger.sources.map((row: any) => row.source_id))
     for (const batch of batches) {
-      const evidenceIds = batch.ledger.evidence.map((row: any) => row.record_id)
       const sourceIds = batch.ledger.sources.map((row: any) => row.source_id)
-      expect(new Set(evidenceIds).size, batch.manifest.batch_id).toBe(evidenceIds.length)
       expect(new Set(sourceIds).size, batch.manifest.batch_id).toBe(sourceIds.length)
     }
 
@@ -120,6 +122,12 @@ describe('manifest-backed additive enrichment ledgers', () => {
       if (row.source_id) expect(allSourceIds.has(row.source_id)).toBe(true)
       expect(row.pmid || row.doi || row.url_or_source || row.title).toBeTruthy()
     }
+  })
+
+  it('enforces global enrichment evidence record IDs in the parser boundary', () => {
+    const parser = fs.readFileSync(path.join(root, 'scripts', 'data', 'workbook-parser.mjs'), 'utf8')
+    expect(parser).toContain('duplicate enrichment evidence record_id across manifests')
+    expect(parser).toContain('enrichment evidence row is missing record_id')
   })
 
   it('applies reviewed net-new rows to the virtual workbook', async () => {
