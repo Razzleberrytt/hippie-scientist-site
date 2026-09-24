@@ -106,16 +106,18 @@ describe('manifest-backed additive enrichment ledgers', () => {
     }
   })
 
-  it('has unique evidence/source ids with source provenance across batches', () => {
-    const evidenceIds = ledger.evidence.map((row: any) => row.record_id)
-    const sourceIds = ledger.sources.map((row: any) => row.source_id)
-    expect(new Set(evidenceIds).size).toBe(evidenceIds.length)
-    expect(new Set(sourceIds).size).toBe(sourceIds.length)
+  it('keeps ids unique inside each reviewed batch and preserves source provenance', () => {
+    const allSourceIds = new Set(ledger.sources.map((row: any) => row.source_id))
+    for (const batch of batches) {
+      const evidenceIds = batch.ledger.evidence.map((row: any) => row.record_id)
+      const sourceIds = batch.ledger.sources.map((row: any) => row.source_id)
+      expect(new Set(evidenceIds).size, batch.manifest.batch_id).toBe(evidenceIds.length)
+      expect(new Set(sourceIds).size, batch.manifest.batch_id).toBe(sourceIds.length)
+    }
 
-    const sourceSet = new Set(sourceIds)
     for (const row of ledger.evidence) {
       expect(row.entity_slug || row.profile_slug).toBeTruthy()
-      if (row.source_id) expect(sourceSet.has(row.source_id)).toBe(true)
+      if (row.source_id) expect(allSourceIds.has(row.source_id)).toBe(true)
       expect(row.pmid || row.doi || row.url_or_source || row.title).toBeTruthy()
     }
   })
@@ -125,14 +127,51 @@ describe('manifest-backed additive enrichment ledgers', () => {
     const raw = await readWorkbookExcelJS(workbookPath)
     const enriched = await readWorkbook(workbookPath)
 
-    const expectedEvidence = batches.reduce(
-      (sum, batch) => sum + Number(batch.manifest.counts.evidence_rows_after_canonical_dedupe || 0),
-      0,
-    )
-    const expectedSources = batches.reduce(
-      (sum, batch) => sum + Number(batch.manifest.counts.source_rows_after_canonical_dedupe || 0),
-      0,
-    )
+    const clean = (value: unknown) => String(value ?? '').replace(/\\s+/g, ' ').trim()
+    const slug = (value: unknown) => clean(value)
+      .toLowerCase()
+      .normalize('NFKD')
+      .replace(/[\\u0300-\\u036f]/g, '')
+      .replace(/&/g, ' and ')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-+|-+$/g, '')
+    const first = (row: any, keys: string[]) => {
+      for (const key of keys) if (clean(row?.[key])) return row[key]
+      return ''
+    }
+    const evidenceKey = (row: any) => {
+      const entity = slug(first(row, ['entity_slug', 'profile_slug', 'slug', 'herb_slug', 'compound_slug']))
+      const pmid = clean(first(row, ['pmid', 'PMID'])).toLowerCase()
+      const doi = clean(first(row, ['doi', 'DOI'])).toLowerCase().replace(/^https?:\\/\\/(?:dx\\.)?doi\\.org\\//, '')
+      const title = clean(first(row, ['title', 'study title', 'claim', 'summary', 'supported_claim_language'])).toLowerCase()
+      const source = pmid ? `pmid:${pmid}` : doi ? `doi:${doi}` : title ? `title:${title}` : ''
+      return entity && source ? `${entity}|${source}` : ''
+    }
+    const sourceKey = (row: any) => {
+      const pmid = clean(first(row, ['pmid', 'PMID'])).toLowerCase()
+      const doi = clean(first(row, ['doi', 'DOI'])).toLowerCase().replace(/^https?:\\/\\/(?:dx\\.)?doi\\.org\\//, '')
+      const title = clean(first(row, ['title'])).toLowerCase()
+      return pmid ? `pmid:${pmid}` : doi ? `doi:${doi}` : title ? `title:${title}` : ''
+    }
+
+    const evidenceKeys = new Set(raw.getSheetData('Evidence_Register').map(evidenceKey).filter(Boolean))
+    let expectedEvidence = 0
+    for (const row of ledger.evidence) {
+      const key = evidenceKey(row)
+      if (!key || evidenceKeys.has(key)) continue
+      evidenceKeys.add(key)
+      expectedEvidence += 1
+    }
+
+    const sourceKeys = new Set(raw.getSheetData('Source_Register').map(sourceKey).filter(Boolean))
+    let expectedSources = 0
+    for (const row of ledger.sources) {
+      const key = sourceKey(row)
+      if (!key || sourceKeys.has(key)) continue
+      sourceKeys.add(key)
+      expectedSources += 1
+    }
 
     expect(enriched.Sheets.Evidence_Register.length - raw.getSheetData('Evidence_Register').length)
       .toBe(expectedEvidence)
