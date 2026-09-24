@@ -11,6 +11,7 @@ const articleReferenceSchema = z.object({
   authors: z.string().default(''),
   year: z.string().default(''),
   pmid: z.string().default(''),
+  doi: z.string().default(''),
   url: z.string().default(''),
 })
 
