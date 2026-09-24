@@ -1,0 +1,90 @@
+{
+  "patch_version": 1,
+  "id": "caffeine-nicotine-anchor-evidence-2026-09-24",
+  "status": "proposal",
+  "generated_by": "manual-evidence-upgrade",
+  "sources": [
+    {
+      "id": "pmid-40335666",
+      "title": "A systematic review and meta-analysis of the acute effect of caffeine on attention",
+      "year": 2025,
+      "doi": "10.1007/s00213-025-06775-1",
+      "pmid": "40335666",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40335666/"
+    },
+    {
+      "id": "pmid-36870101",
+      "title": "The effect of caffeine on subsequent sleep: A systematic review and meta-analysis",
+      "year": 2023,
+      "doi": "10.1016/j.smrv.2023.101764",
+      "pmid": "36870101",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36870101/"
+    },
+    {
+      "id": "pmid-20414766",
+      "title": "Meta-analysis of the acute effects of nicotine and smoking on human performance",
+      "year": 2010,
+      "doi": "10.1007/s00213-010-1848-1",
+      "pmid": "20414766",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20414766/"
+    },
+    {
+      "id": "pmid-37832393",
+      "title": "Nicotine addiction: More than just dopamine",
+      "year": 2023,
+      "doi": "10.1016/j.conb.2023.102797",
+      "pmid": "37832393",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37832393/"
+    }
+  ],
+  "changes": [
+    {
+      "slug": "caffeine",
+      "column": "summary",
+      "expected_old_value": "Caffeine carries a Grade B rating — moderate evidence. Strongest recorded design is a meta-analysis, drawn from 3 recorded studies, 2 in people. Recorded activity centres on neurotransmitter modulation, vascular function support and hormonal signaling context, which describes mechanism rather than demonstrated benefit. Noted cautions include cardiac arrhythmia or a recent heart attack warrants clinician guidance due to increased risk of palpitations and abnormal heart rhythm.",
+      "new_value": "Caffeine has human evidence for modest acute attention benefits and consistent evidence that later or larger exposures can disrupt subsequent sleep. A 2025 systematic review and meta-analysis of 31 randomized, double-blind, placebo-controlled trials in healthy rested adults found small improvements in attention accuracy and reaction time, while a 2023 sleep meta-analysis found reductions in total sleep time and sleep efficiency across controlled studies. Effects depend on dose, timing and individual sensitivity.",
+      "confidence": "high",
+      "source_ids": [
+        "pmid-40335666",
+        "pmid-36870101"
+      ],
+      "rationale": "The current summary is pipeline-shaped and mechanism-heavy despite stronger human outcome evidence already available. The replacement gives separate, source-backed acute-attention and sleep tradeoff claims without turning either into a universal recommendation."
+    },
+    {
+      "slug": "caffeine",
+      "column": "description",
+      "expected_old_value": "Caffeine supports energy; focus; performance with high confidence in this merged decision layer.",
+      "new_value": "Caffeine is a methylxanthine stimulant whose human evidence supports modest acute effects on attention while controlled sleep research shows dose- and timing-dependent tradeoffs. Performance, sleep and safety claims should remain separated rather than collapsed into a generic energy-enhancer verdict.",
+      "confidence": "high",
+      "source_ids": [
+        "pmid-40335666",
+        "pmid-36870101"
+      ],
+      "rationale": "The existing description contains internal decision-layer language and an overbroad performance claim. The replacement is reader-facing and keeps the strongest human evidence domains distinct."
+    },
+    {
+      "slug": "nicotine",
+      "column": "summary",
+      "expected_old_value": "Canonical tobacco alkaloid with strong nicotinic and neurotransmitter pathway activity.",
+      "new_value": "Nicotine is a nicotinic acetylcholine receptor agonist that can acutely alter attention and other cognitive-performance measures, while repeated exposure can produce reinforcement, dependence and withdrawal. Evidence should distinguish nicotine itself from cigarettes, e-cigarettes and therapeutic nicotine-replacement products because delivery system and use pattern materially change exposure and harm.",
+      "confidence": "high",
+      "source_ids": [
+        "pmid-20414766",
+        "pmid-37832393"
+      ],
+      "rationale": "The current summary is mechanism-only and does not represent the best-established human evidence or the dependence context. The replacement preserves the acute performance signal while preventing it from being mistaken for a net-benefit claim."
+    },
+    {
+      "slug": "nicotine",
+      "column": "description",
+      "expected_old_value": "Tobacco alkaloid with well-characterized nicotinic receptor activity; effects propagate through neurotransmitter circuits and autonomic signaling.",
+      "new_value": "Nicotine activates nicotinic acetylcholine receptors and modulates multiple neurotransmitter circuits. Controlled human studies show small acute effects in some attention and memory domains, while modern addiction research emphasizes reinforcement, withdrawal and circuit adaptation; those acute cognitive findings do not establish long-term health benefit.",
+      "confidence": "high",
+      "source_ids": [
+        "pmid-20414766",
+        "pmid-37832393"
+      ],
+      "rationale": "The existing description stops at mechanism. The replacement adds the human-performance evidence and the dependence/withdrawal counterweight required for a balanced evidence-first profile."
+    }
+  ]
+}
