@@ -40,18 +40,6 @@
   "changes": [
     {
       "slug": "caffeine",
-      "column": "summary",
-      "expected_old_value": "Caffeine carries a Grade B rating — moderate evidence. Strongest recorded design is a meta-analysis, drawn from 3 recorded studies, 2 in people. Recorded activity centres on neurotransmitter modulation, vascular function support and hormonal signaling context, which describes mechanism rather than demonstrated benefit. Noted cautions include cardiac arrhythmia or a recent heart attack warrants clinician guidance due to increased risk of palpitations and abnormal heart rhythm.",
-      "new_value": "Caffeine has human evidence for modest acute attention benefits and consistent evidence that later or larger exposures can disrupt subsequent sleep. A 2025 systematic review and meta-analysis of 31 randomized, double-blind, placebo-controlled trials in healthy rested adults found small improvements in attention accuracy and reaction time, while a 2023 sleep meta-analysis found reductions in total sleep time and sleep efficiency across controlled studies. Effects depend on dose, timing and individual sensitivity.",
-      "confidence": "high",
-      "source_ids": [
-        "pmid-40335666",
-        "pmid-36870101"
-      ],
-      "rationale": "The current summary is pipeline-shaped and mechanism-heavy despite stronger human outcome evidence already available. The replacement gives separate, source-backed acute-attention and sleep tradeoff claims without turning either into a universal recommendation."
-    },
-    {
-      "slug": "caffeine",
       "column": "description",
       "expected_old_value": "Caffeine supports energy; focus; performance with high confidence in this merged decision layer.",
       "new_value": "Caffeine is a methylxanthine stimulant whose human evidence supports modest acute effects on attention while controlled sleep research shows dose- and timing-dependent tradeoffs. Performance, sleep and safety claims should remain separated rather than collapsed into a generic energy-enhancer verdict.",
