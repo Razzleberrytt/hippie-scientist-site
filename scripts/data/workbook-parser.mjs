@@ -22,26 +22,17 @@ import { readWorkbookExcelJS } from '../utils/read-workbook-exceljs.mjs'
 // - workbook shape exposes Sheets + SheetNames
 // - downstream exporters depend on deterministic row object structure
 //
-// Additive research enrichment lives in:
-// data-sources/runtime-enrichment/2026-08-23-enrichment.json.gz
-// It may add evidence, source provenance, safe descriptive context, and links
-// between entities that already exist in Entity_Master. It cannot create
+// Additive research enrichment lives in dated, manifest-backed ledgers under:
+// data-sources/runtime-enrichment/
+// Each manifest declares its ledger file, byte length, and SHA-256 digest.
+// Ledgers may add evidence, source provenance, safe descriptive context, and
+// links between entities that already exist in Entity_Master. They cannot create
 // entities or replace canonical identity/governance/publishing fields.
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.resolve(__dirname, '../..')
-const enrichmentFile = path.join(
-  repoRoot,
-  'data-sources',
-  'runtime-enrichment',
-  '2026-08-23-enrichment.json.gz',
-)
-const enrichmentManifestFile = path.join(
-  repoRoot,
-  'data-sources',
-  'runtime-enrichment',
-  '2026-08-23-manifest.json',
-)
+const enrichmentDir = path.join(repoRoot, 'data-sources', 'runtime-enrichment')
+const ENRICHMENT_ARRAY_KEYS = ['entities', 'evidence', 'sources', 'relationships']
 
 const ENTITY_SHEETS = ['Entity_Master', 'Sheet7']
 const CLAIM_SHEETS = ['Study Registry', 'Evidence_Register', 'Sheet8']
@@ -98,99 +89,119 @@ function findLoadedSheet(sheets, candidates) {
 }
 
 /**
- * Verify the ledger against the digest its own manifest records.
- *
- * The manifest declares `ledger.sha256` and `ledger.bytes` and nothing read
- * them. That gap shipped a truncated ledger: 15,009 bytes of an intended
- * 153,710 reached the repository, the DEFLATE stream desynchronized, and
- * `gunzipSync` threw a bare `Z_DATA_ERROR` five steps into a thirty-step
- * build -- a zlib stack trace that never mentioned the ledger, with twelve
- * red checks cascading off it.
- *
- * The loud failure was luck. A truncation landing on a record boundary can
- * gunzip cleanly and parse as JSON, and this ledger attaches evidence and
- * citation provenance to published profiles. Importing a silently partial one
- * would put real-looking citations on live pages that no one verified, which
- * is the exact failure this project treats as unacceptable. Checking the
- * digest before decompressing turns that from unlikely into impossible.
- *
- * Fails closed: an unreadable or incomplete manifest refuses the ledger rather
- * than waving it through unverified.
+ * Verify each additive ledger against the digest declared by its own manifest.
+ * Historical ledgers remain immutable; new batches land as new files so review,
+ * rollback, and provenance stay batch-scoped.
  */
-function verifyLedgerIntegrity(compressed) {
-  if (!fs.existsSync(enrichmentManifestFile)) {
+function listEnrichmentManifestFiles() {
+  if (!fs.existsSync(enrichmentDir)) return []
+  return fs.readdirSync(enrichmentDir)
+    .filter((name) => name.endsWith('-manifest.json'))
+    .sort()
+    .map((name) => path.join(enrichmentDir, name))
+}
+
+function readEnrichmentManifest(manifestPath) {
+  let manifest
+  try {
+    manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+  } catch (error) {
     throw new Error(
-      '[workbook-parser] enrichment ledger present but its manifest is missing: ' +
-        enrichmentManifestFile +
-        ' -- refusing to import an unverifiable ledger.',
+      '[workbook-parser] enrichment manifest is not valid JSON: ' +
+        manifestPath + ': ' + error.message,
     )
   }
 
-  let manifest
-  try {
-    manifest = JSON.parse(fs.readFileSync(enrichmentManifestFile, 'utf8'))
-  } catch (error) {
-    throw new Error('[workbook-parser] enrichment manifest is not valid JSON: ' + error.message)
+  const ledgerName = clean(manifest?.ledger?.file)
+  if (!ledgerName || path.basename(ledgerName) !== ledgerName) {
+    throw new Error(
+      '[workbook-parser] enrichment manifest must declare a local ledger.file basename: ' +
+        manifestPath,
+    )
   }
 
+  return { manifest, ledgerPath: path.join(enrichmentDir, ledgerName) }
+}
+
+function verifyLedgerIntegrity(payload, manifest, manifestPath, ledgerPath) {
   const expectedSha = String(manifest?.ledger?.sha256 || '').toLowerCase()
   const expectedBytes = Number(manifest?.ledger?.bytes)
   if (!/^[0-9a-f]{64}$/.test(expectedSha) || !Number.isInteger(expectedBytes) || expectedBytes <= 0) {
     throw new Error(
-      '[workbook-parser] enrichment manifest does not declare a usable ledger.sha256 and ledger.bytes; ' +
-        'refusing to import an unverifiable ledger.',
+      '[workbook-parser] enrichment manifest does not declare a usable ledger.sha256 and ledger.bytes: ' +
+        manifestPath,
     )
   }
 
-  const actualBytes = compressed.length
-  const actualSha = createHash('sha256').update(compressed).digest('hex')
+  const actualBytes = payload.length
+  const actualSha = createHash('sha256').update(payload).digest('hex')
   if (actualBytes !== expectedBytes || actualSha !== expectedSha) {
     throw new Error(
-      '[workbook-parser] enrichment ledger does not match its manifest.' +
-        ' expected ' + expectedBytes + ' bytes sha256 ' + expectedSha +
+      '[workbook-parser] enrichment ledger does not match its manifest: ' +
+        path.basename(ledgerPath) +
+        '. expected ' + expectedBytes + ' bytes sha256 ' + expectedSha +
         ', got ' + actualBytes + ' bytes sha256 ' + actualSha +
-        '. The ledger was corrupted or truncated in transport; re-upload it rather than regenerating the manifest.',
+        '. Re-upload the reviewed ledger rather than regenerating its manifest.',
     )
   }
+}
+
+function parseEnrichmentLedger(payload, ledgerPath) {
+  let raw
+  try {
+    raw = ledgerPath.endsWith('.gz')
+      ? gunzipSync(payload).toString('utf8')
+      : payload.toString('utf8')
+  } catch (error) {
+    throw new Error(
+      '[workbook-parser] enrichment ledger failed to decode: ' +
+        path.basename(ledgerPath) + ': ' + error.message,
+    )
+  }
+
+  let parsed
+  try {
+    parsed = JSON.parse(raw)
+  } catch (error) {
+    throw new Error(
+      '[workbook-parser] invalid enrichment ledger JSON: ' +
+        path.basename(ledgerPath) + ': ' + error.message,
+    )
+  }
+
+  for (const key of ENRICHMENT_ARRAY_KEYS) {
+    if (!Array.isArray(parsed?.[key])) {
+      throw new Error(
+        '[workbook-parser] enrichment ledger missing array ' + key + ': ' +
+          path.basename(ledgerPath),
+      )
+    }
+  }
+
+  return parsed
 }
 
 let enrichmentCache = null
 
 function readEnrichmentLedger() {
   if (enrichmentCache) return enrichmentCache
-  if (!fs.existsSync(enrichmentFile)) {
-    enrichmentCache = { entities: [], evidence: [], sources: [], relationships: [] }
-    return enrichmentCache
-  }
 
-  const compressed = fs.readFileSync(enrichmentFile)
-  verifyLedgerIntegrity(compressed)
-
-  let raw
-  try {
-    raw = gunzipSync(compressed).toString('utf8')
-  } catch (error) {
-    throw new Error(
-      '[workbook-parser] enrichment ledger failed to decompress: ' +
-        error.message +
-        ' -- the file is corrupt despite matching its manifest digest, so the manifest is stale. ' +
-        'Regenerate both together.',
-    )
-  }
-  let parsed
-  try {
-    parsed = JSON.parse(raw)
-  } catch (error) {
-    throw new Error(`[workbook-parser] invalid enrichment ledger: ${error.message}`)
-  }
-
-  for (const key of ['entities', 'evidence', 'sources', 'relationships']) {
-    if (!Array.isArray(parsed?.[key])) {
-      throw new Error(`[workbook-parser] enrichment ledger missing array: ${key}`)
+  const merged = Object.fromEntries(ENRICHMENT_ARRAY_KEYS.map((key) => [key, []]))
+  for (const manifestPath of listEnrichmentManifestFiles()) {
+    const { manifest, ledgerPath } = readEnrichmentManifest(manifestPath)
+    if (!fs.existsSync(ledgerPath)) {
+      throw new Error(
+        '[workbook-parser] enrichment manifest points to a missing ledger: ' + ledgerPath,
+      )
     }
+
+    const payload = fs.readFileSync(ledgerPath)
+    verifyLedgerIntegrity(payload, manifest, manifestPath, ledgerPath)
+    const parsed = parseEnrichmentLedger(payload, ledgerPath)
+    for (const key of ENRICHMENT_ARRAY_KEYS) merged[key].push(...parsed[key])
   }
 
-  enrichmentCache = parsed
+  enrichmentCache = merged
   return enrichmentCache
 }
 
