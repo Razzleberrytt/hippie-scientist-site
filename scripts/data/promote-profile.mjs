@@ -78,7 +78,7 @@ const LEAK_PATTERNS = [
 // `npm run data:build:core`. NOT full `data:build` (see file header — drift trap).
 const CORE_REBUILD_STEPS = [
   ['scripts/data/build-runtime-from-workbook.mjs', ['--out', 'public/data']],
-  ['scripts/data/build-runtime-summary-indexes.mjs', ['--data-dir=public/data', '--preserve-governed-state']],
+  ['scripts/data/build-runtime-summary-indexes.mjs', ['--data-dir=public/data']],
   ['scripts/data/build-export-batches.mjs', ['--data-dir=public/data']],
   ['scripts/data/build-search-index.mjs', ['--data-dir=public/data']],
 ]
