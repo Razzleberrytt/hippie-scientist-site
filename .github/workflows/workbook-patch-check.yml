@@ -27,7 +27,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   validate:
@@ -38,8 +38,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -79,25 +77,6 @@ jobs:
           if-no-files-found: error
           retention-days: 7
           compression-level: 0
-
-      - name: Synchronize exact proposed compound runtime records
-        if: github.event.pull_request.head.ref == 'manual/dextroamphetamine-zolpidem-canonical-2026-09-24'
-        shell: bash
-        run: |
-          set -euo pipefail
-          node scripts/ci/sync-proposed-compound-runtime.mjs --write
-          mapfile -t changed < <(git status --porcelain --untracked-files=no | sed -E 's/^.. //')
-          if [[ "${#changed[@]}" -ne 1 || "${changed[0]}" != "public/data/compounds.json" ]]; then
-            printf 'Refusing runtime sync; unexpected tracked changes:\n%s\n' "${changed[*]:-none}" >&2
-            exit 1
-          fi
-          node scripts/ci/sync-proposed-compound-runtime.mjs
-          npm run guard:source-of-truth --silent
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data/compounds.json
-          git commit -m "data: sync reviewed dextroamphetamine and zolpidem runtime records"
-          git push origin HEAD:${{ github.event.pull_request.head.ref }}
 
       - name: Validate proposed compound runtime parity
         run: node scripts/ci/sync-proposed-compound-runtime.mjs
