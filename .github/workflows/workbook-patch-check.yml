@@ -38,6 +38,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
+        with:
+          ref: ${{ github.head_ref || github.ref }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -80,19 +82,32 @@ jobs:
         env:
           HEAD_REF: ${{ github.head_ref }}
         run: |
-          npm run data:build:core
+          node scripts/data/build-runtime-from-workbook.mjs --out public/data
+          npm run -s data:normalize-evidence
           npm run guard:source-of-truth
-          if git diff --quiet -- public/data; then
+
+          changed_count="$(git diff --name-only -- public/data | sed '/^$/d' | wc -l | tr -d ' ')"
+          echo "Generated public/data changed files: ${changed_count}"
+          git diff --stat -- public/data
+
+          if [ "${changed_count}" -eq 0 ]; then
             echo "Generated public/data already matches the canonical workbook."
-          else
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add public/data
-            git commit -m "data: regenerate runtime for sertraline and fluoxetine"
-            git push origin "HEAD:${HEAD_REF}"
-            echo "Generated runtime committed; fresh PR checks will validate the new head."
             exit 0
           fi
+
+          if [ "${changed_count}" -gt 100 ]; then
+            echo "::error::Refusing to auto-commit ${changed_count} generated files; expected a bounded canonical-runtime diff."
+            git diff --name-only -- public/data
+            exit 1
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data
+          git commit -m "data: regenerate runtime for sertraline and fluoxetine"
+          git push origin "HEAD:${HEAD_REF}"
+          echo "Generated runtime committed; fresh PR checks will validate the new head."
+          exit 0
 
       - name: Validate patch proposals against current workbook
         id: patch_check
