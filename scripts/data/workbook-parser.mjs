@@ -201,6 +201,18 @@ function readEnrichmentLedger() {
     for (const key of ENRICHMENT_ARRAY_KEYS) merged[key].push(...parsed[key])
   }
 
+  const seenEvidenceIds = new Set()
+  for (const row of merged.evidence) {
+    const recordId = clean(row.record_id)
+    if (!recordId) {
+      throw new Error('[workbook-parser] enrichment evidence row is missing record_id')
+    }
+    if (seenEvidenceIds.has(recordId)) {
+      throw new Error('[workbook-parser] duplicate enrichment evidence record_id across manifests: ' + recordId)
+    }
+    seenEvidenceIds.add(recordId)
+  }
+
   enrichmentCache = merged
   return enrichmentCache
 }
@@ -306,7 +318,10 @@ function applyRuntimeEnrichment(sheets) {
       }
       if (!key || existingKeys.has(key)) continue
       existingKeys.add(key)
-      additions.push(row)
+      additions.push({
+        ...row,
+        metadata_source: clean(row.metadata_source) || 'runtime-enrichment',
+      })
     }
     if (additions.length) sheets[claimSheet] = [...sheets[claimSheet], ...additions]
     evidenceAdded = additions.length
