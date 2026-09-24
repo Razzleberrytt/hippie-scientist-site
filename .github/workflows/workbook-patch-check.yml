@@ -7,11 +7,14 @@ on:
       - main
     paths:
       - 'data-sources/workbook-patches/**'
+      - 'data-sources/entity-row-proposals/**'
       - 'data-sources/herb_monograph_master.xlsx'
       - 'scripts/data/apply-workbook-patch.mjs'
       - 'scripts/data/edit-entity-master-cell.mjs'
       - 'scripts/ci/validate-workbook-patches.mjs'
       - 'scripts/ci/validate-workbook-schema.mjs'
+      - 'scripts/ci/validate-workbook-append-row.mjs'
+      - 'scripts/ci/prepare-entity-row-review.mjs'
       - 'scripts/utils/read-workbook-exceljs.mjs'
       - '.github/workflows/workbook-patch-check.yml'
   workflow_dispatch:
@@ -48,6 +51,23 @@ jobs:
 
       - name: Validate workbook schema
         run: npm run validate:workbook-schema --silent
+
+      - name: Validate surgical Entity_Master append path
+        run: node scripts/ci/validate-workbook-append-row.mjs
+
+      - name: Prepare fail-closed entity review workbook
+        run: node scripts/ci/prepare-entity-row-review.mjs
+
+      - name: Upload fail-closed entity review workbook
+        uses: actions/upload-artifact@v7
+        with:
+          name: entity-row-review-workbook
+          path: |
+            reports/entity-row-review/herb_monograph_master.review.xlsx
+            reports/entity-row-review/manifest.json
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 0
 
       - name: Validate patch proposals against current workbook
         id: patch_check
