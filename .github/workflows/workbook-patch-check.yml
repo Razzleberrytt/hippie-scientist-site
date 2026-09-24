@@ -82,31 +82,63 @@ jobs:
         env:
           HEAD_REF: ${{ github.head_ref }}
         run: |
-          node scripts/data/build-runtime-from-workbook.mjs --out public/data
-          npm run -s data:normalize-evidence
+          rm -rf /tmp/generated-runtime
+          node scripts/data/build-runtime-from-workbook.mjs --out /tmp/generated-runtime
+
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+
+          const currentPath = 'public/data/compounds.json'
+          const generatedPath = '/tmp/generated-runtime/compounds.json'
+          const targets = ['fluoxetine', 'sertraline']
+
+          const current = JSON.parse(fs.readFileSync(currentPath, 'utf8'))
+          const generated = JSON.parse(fs.readFileSync(generatedPath, 'utf8'))
+          const freshBySlug = new Map(generated.map((record) => [record.slug, record]))
+          const generatedOrder = new Map(generated.map((record, index) => [record.slug, index]))
+          const output = [...current]
+
+          for (const target of targets) {
+            const record = freshBySlug.get(target)
+            if (!record) throw new Error(`Generated runtime is missing ${target}`)
+            if (output.some((item) => item.slug === target)) continue
+
+            const targetOrder = generatedOrder.get(target)
+            const insertAt = output.findIndex((item) => {
+              const itemOrder = generatedOrder.get(item.slug)
+              return Number.isFinite(itemOrder) && itemOrder > targetOrder
+            })
+
+            if (insertAt === -1) output.push(record)
+            else output.splice(insertAt, 0, record)
+          }
+
+          fs.writeFileSync(currentPath, `${JSON.stringify(output, null, 2)}\n`)
+          NODE
+
           npm run guard:source-of-truth
 
           changed_count="$(git diff --name-only -- public/data | sed '/^$/d' | wc -l | tr -d ' ')"
-          echo "Generated public/data changed files: ${changed_count}"
-          git diff --stat -- public/data
+          echo "Surgical generated-data changed files: ${changed_count}"
+          git diff --stat -- public/data/compounds.json
 
           if [ "${changed_count}" -eq 0 ]; then
-            echo "Generated public/data already matches the canonical workbook."
+            echo "Canonical medication records are already present in committed runtime."
             exit 0
           fi
 
-          if [ "${changed_count}" -gt 100 ]; then
-            echo "::error::Refusing to auto-commit ${changed_count} generated files; expected a bounded canonical-runtime diff."
+          if [ "${changed_count}" -ne 1 ] || ! git diff --name-only -- public/data | grep -qx 'public/data/compounds.json'; then
+            echo "::error::Refusing to auto-commit anything except the surgical compounds.json sync."
             git diff --name-only -- public/data
             exit 1
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data
-          git commit -m "data: regenerate runtime for sertraline and fluoxetine"
+          git add public/data/compounds.json
+          git commit -m "data: sync sertraline and fluoxetine runtime records"
           git push origin "HEAD:${HEAD_REF}"
-          echo "Generated runtime committed; fresh PR checks will validate the new head."
+          echo "Surgical runtime sync committed; fresh PR checks will validate the new head."
           exit 0
 
       - name: Validate patch proposals against current workbook
