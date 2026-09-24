@@ -10,39 +10,65 @@ import { countEligibleNewRuntimeRelationships } from '../scripts/tests/runtime-e
 
 const root = process.cwd()
 const dir = path.join(root, 'data-sources', 'runtime-enrichment')
-const ledgerPath = path.join(dir, '2026-08-23-enrichment.json.gz')
-const manifest = JSON.parse(fs.readFileSync(path.join(dir, '2026-08-23-manifest.json'), 'utf8'))
 
-// Loaded lazily. This used to gunzip at module scope, so a corrupt ledger threw
-// during import and vitest reported the whole file as unloadable -- no test
-// name, no assertion, just a zlib error. Deferring the read lets the integrity
-// test below name the actual problem.
-let ledger: any
+type Batch = {
+  manifestPath: string
+  manifest: any
+  ledgerPath: string
+  ledger?: any
+}
 
-describe('enrichment ledger integrity', () => {
-  // The manifest records `ledger.sha256` and `ledger.bytes`; for a while nothing
-  // read them, and a ledger truncated to 15,009 of 153,710 bytes reached the
-  // repository. It failed loudly by luck -- a truncation on a record boundary
-  // can gunzip and parse fine, and this ledger attaches citations to published
-  // profiles, so a silently partial import would put unverified evidence on
-  // live pages.
-  it('matches the digest recorded in its own manifest', () => {
-    const compressed = fs.readFileSync(ledgerPath)
-    expect(compressed.length).toBe(manifest.ledger.bytes)
-    expect(createHash('sha256').update(compressed).digest('hex')).toBe(manifest.ledger.sha256)
+const batches: Batch[] = fs.readdirSync(dir)
+  .filter((name) => name.endsWith('-manifest.json'))
+  .sort()
+  .map((name) => {
+    const manifestPath = path.join(dir, name)
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+    return {
+      manifestPath,
+      manifest,
+      ledgerPath: path.join(dir, String(manifest?.ledger?.file || '')),
+    }
   })
 
-  it('is refused by the parser when it does not match', async () => {
-    // Guards the guard: proves workbook-parser verifies before decompressing,
-    // so deleting the check fails here rather than in production data.
-    const parser = fs.readFileSync(
-      path.join(root, 'scripts', 'data', 'workbook-parser.mjs'),
-      'utf8',
-    )
+function decodeLedger(batch: Batch) {
+  const payload = fs.readFileSync(batch.ledgerPath)
+  const raw = batch.ledgerPath.endsWith('.gz')
+    ? gunzipSync(payload).toString('utf8')
+    : payload.toString('utf8')
+  return JSON.parse(raw)
+}
+
+function mergedLedger() {
+  const merged = { entities: [] as any[], evidence: [] as any[], sources: [] as any[], relationships: [] as any[] }
+  for (const batch of batches) {
+    const ledger = batch.ledger ?? decodeLedger(batch)
+    batch.ledger = ledger
+    for (const key of Object.keys(merged) as Array<keyof typeof merged>) merged[key].push(...ledger[key])
+  }
+  return merged
+}
+
+describe('enrichment ledger integrity', () => {
+  it('discovers at least one manifest-backed additive batch', () => {
+    expect(batches.length).toBeGreaterThan(0)
+  })
+
+  it('matches every ledger digest recorded in its own manifest', () => {
+    for (const batch of batches) {
+      expect(fs.existsSync(batch.ledgerPath), `missing ledger for ${path.basename(batch.manifestPath)}`).toBe(true)
+      const payload = fs.readFileSync(batch.ledgerPath)
+      expect(payload.length, path.basename(batch.ledgerPath)).toBe(batch.manifest.ledger.bytes)
+      expect(createHash('sha256').update(payload).digest('hex'), path.basename(batch.ledgerPath))
+        .toBe(batch.manifest.ledger.sha256)
+    }
+  })
+
+  it('verifies bytes before decoding any ledger payload', () => {
+    const parser = fs.readFileSync(path.join(root, 'scripts', 'data', 'workbook-parser.mjs'), 'utf8')
     expect(parser).toContain('verifyLedgerIntegrity')
-    expect(parser.indexOf('verifyLedgerIntegrity(compressed)')).toBeLessThan(
-      parser.indexOf('gunzipSync(compressed)'),
-    )
+    expect(parser.indexOf('verifyLedgerIntegrity(payload, manifest'))
+      .toBeLessThan(parser.indexOf('parseEnrichmentLedger(payload, ledgerPath)'))
   })
 })
 
@@ -56,19 +82,21 @@ const ALLOWED_ENTITY_CONTEXT = new Set([
   'enrichment_source_urls',
 ])
 
-describe('Aug 23 additive enrichment ledger', () => {
-  // Scoped to this block so the integrity suite above still reports. A
-  // file-scope hook fails during collection and skips every test, including
-  // the one that would have named the cause.
+describe('manifest-backed additive enrichment ledgers', () => {
+  let ledger: ReturnType<typeof mergedLedger>
+
   beforeAll(() => {
-    ledger = JSON.parse(gunzipSync(fs.readFileSync(ledgerPath)).toString('utf8'))
+    for (const batch of batches) batch.ledger = decodeLedger(batch)
+    ledger = mergedLedger()
   })
 
-  it('matches reviewed batch counts', () => {
-    expect(ledger.entities).toHaveLength(manifest.counts.entity_context_rows)
-    expect(ledger.evidence).toHaveLength(manifest.counts.evidence_rows)
-    expect(ledger.sources).toHaveLength(manifest.counts.source_rows)
-    expect(ledger.relationships).toHaveLength(manifest.counts.relationship_rows)
+  it('matches reviewed counts for every batch', () => {
+    for (const batch of batches) {
+      expect(batch.ledger.entities, batch.manifest.batch_id).toHaveLength(batch.manifest.counts.entity_context_rows)
+      expect(batch.ledger.evidence, batch.manifest.batch_id).toHaveLength(batch.manifest.counts.evidence_rows)
+      expect(batch.ledger.sources, batch.manifest.batch_id).toHaveLength(batch.manifest.counts.source_rows)
+      expect(batch.ledger.relationships, batch.manifest.batch_id).toHaveLength(batch.manifest.counts.relationship_rows)
+    }
   })
 
   it('keeps entity enrichment additive and outside governance fields', () => {
@@ -78,11 +106,12 @@ describe('Aug 23 additive enrichment ledger', () => {
     }
   })
 
-  it('has unique evidence/source ids with source provenance', () => {
+  it('has unique evidence/source ids with source provenance across batches', () => {
     const evidenceIds = ledger.evidence.map((row: any) => row.record_id)
     const sourceIds = ledger.sources.map((row: any) => row.source_id)
     expect(new Set(evidenceIds).size).toBe(evidenceIds.length)
     expect(new Set(sourceIds).size).toBe(sourceIds.length)
+
     const sourceSet = new Set(sourceIds)
     for (const row of ledger.evidence) {
       expect(row.entity_slug || row.profile_slug).toBeTruthy()
@@ -91,15 +120,24 @@ describe('Aug 23 additive enrichment ledger', () => {
     }
   })
 
-  it('applies only validated net-new rows to the virtual workbook', async () => {
+  it('applies reviewed net-new rows to the virtual workbook', async () => {
     const workbookPath = resolveWorkbookPath(root)
     const raw = await readWorkbookExcelJS(workbookPath)
     const enriched = await readWorkbook(workbookPath)
 
+    const expectedEvidence = batches.reduce(
+      (sum, batch) => sum + Number(batch.manifest.counts.evidence_rows_after_canonical_dedupe || 0),
+      0,
+    )
+    const expectedSources = batches.reduce(
+      (sum, batch) => sum + Number(batch.manifest.counts.source_rows_after_canonical_dedupe || 0),
+      0,
+    )
+
     expect(enriched.Sheets.Evidence_Register.length - raw.getSheetData('Evidence_Register').length)
-      .toBe(manifest.counts.evidence_rows_after_canonical_dedupe)
+      .toBe(expectedEvidence)
     expect(enriched.Sheets.Source_Register.length - raw.getSheetData('Source_Register').length)
-      .toBe(manifest.counts.source_rows_after_canonical_dedupe)
+      .toBe(expectedSources)
 
     const expectedRelationshipGrowth = countEligibleNewRuntimeRelationships(
       raw.getSheetData('Entity_Master'),
@@ -120,10 +158,28 @@ describe('Aug 23 additive enrichment ledger', () => {
       const contextKeys = Object.keys(overlay).filter((key) => !['slug', 'entity_type', 'name'].includes(key))
       if (contextKeys.some((key) => resolved[key] && !canonical[key])) touched += 1
     }
-    expect(touched).toBe(manifest.counts.entity_context_rows)
-    // Two full workbook reads. ExcelJS fails on this workbook's
-    // namespace-prefixed OOXML and falls back to a streaming reader that
-    // normalizes 14 files first, so this clears 15s alone but not under
-    // full-suite parallelism.
+    const expectedTouched = batches.reduce(
+      (sum, batch) => sum + Number(batch.manifest.counts.entity_context_rows || 0),
+      0,
+    )
+    expect(touched).toBe(expectedTouched)
   }, 60000)
+
+  it('keeps the Sep 24 medication batch evidence-only and fail-closed by construction', () => {
+    const medication = batches.find((batch) => batch.manifest.batch_id === '2026-09-24-medication-anchor-enrichment')
+    expect(medication).toBeTruthy()
+    expect(medication!.ledger.entities).toEqual([])
+    expect(medication!.ledger.relationships).toEqual([])
+
+    const slugs = new Set(medication!.ledger.evidence.map((row: any) => row.entity_slug))
+    expect(slugs).toEqual(new Set(['sertraline', 'fluoxetine']))
+
+    const blockedKeys = new Set([
+      'runtime_export_decision', 'profile_status', 'robots', 'sitemap_included',
+      'indexability_status', 'governance_status', 'affiliate_ready',
+    ])
+    for (const row of [...medication!.ledger.evidence, ...medication!.ledger.sources]) {
+      for (const key of Object.keys(row)) expect(blockedKeys.has(key)).toBe(false)
+    }
+  })
 })
