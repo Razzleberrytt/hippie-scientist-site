@@ -2,6 +2,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import zlib from 'node:zlib'
+import { isLeakedUserFacingText } from '../../lib/editorial-leak.mjs'
 
 const DEFAULT_WORKBOOK = 'data-sources/herb_monograph_master.xlsx'
 const ENTITY_SHEET_CANDIDATES = ['Entity_Master', 'Sheet7', 'Herb Master V3']
@@ -31,6 +32,11 @@ const RUNTIME_EXPORT_DECISIONS = new Set([
   'block',
   'alias_redirect_only',
 ])
+const FAIL_CLOSED_APPEND_DECISIONS = new Set(['hidden_until_grounded', 'research_archive_runtime'])
+const FAIL_CLOSED_APPEND_STATUSES = new Set(['research_only', 'research_needed', 'minimal', 'stub', 'none'])
+const APPEND_ENTITY_TYPES = new Set(['herb', 'compound'])
+const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
+
 const PROFILE_STATUSES = new Set([
   '',
   'complete',
@@ -50,7 +56,7 @@ const PROFILE_STATUSES = new Set([
 
 function usage(exitCode = 0) {
   const stream = exitCode === 0 ? process.stdout : process.stderr
-  stream.write(`Targeted Entity_Master XLSX cell editor\n\nUsage:\n  node scripts/data/edit-entity-master-cell.mjs --slug nac --column summary --value "..." --dry-run\n  node scripts/data/edit-entity-master-cell.mjs --slug nac --column summary --value "..." --out /tmp/edited.xlsx\n  node scripts/data/edit-entity-master-cell.mjs --roundtrip --out /tmp/roundtrip.xlsx\n\nOptions:\n  --workbook <path>  Workbook path. Default: ${DEFAULT_WORKBOOK}\n  --sheet <name>     Entity sheet name. Defaults to the first supported sheet present.\n  --slug <slug>      Entity sheet slug to edit. Required unless --roundtrip is used.\n  --column <name>    Entity_Master column to edit. Required unless --roundtrip is used.\n  --value <value>    New cell value. Required unless --roundtrip is used.\n  --out <path>       Output workbook path. Required for writes unless --in-place is used.\n  --in-place         Replace the workbook atomically through a temporary file.\n  --dry-run          Print the target cell and proposed value without writing.\n  --roundtrip        Repack the workbook without changing Entity_Master values. Requires --out.\n  --help             Show this help.\n`)
+  stream.write(`Targeted Entity_Master XLSX surgical editor\n\nUsage:\n  node scripts/data/edit-entity-master-cell.mjs --slug nac --column summary --value "..." --dry-run\n  node scripts/data/edit-entity-master-cell.mjs --slug nac --column summary --value "..." --out /tmp/edited.xlsx\n  node scripts/data/edit-entity-master-cell.mjs --append-row-file /tmp/new-entity.json --dry-run\n  node scripts/data/edit-entity-master-cell.mjs --append-row-file /tmp/new-entity.json --out /tmp/edited.xlsx\n  node scripts/data/edit-entity-master-cell.mjs --roundtrip --out /tmp/roundtrip.xlsx\n\nOptions:\n  --workbook <path>         Workbook path. Default: ${DEFAULT_WORKBOOK}\n  --sheet <name>            Entity sheet name. Defaults to the first supported sheet present.\n  --slug <slug>             Existing Entity_Master slug to edit.\n  --column <name>           Existing Entity_Master column to edit.\n  --value <value>           New cell value for an existing row.\n  --append-row-file <path>  JSON object describing one new fail-closed Entity_Master row.\n  --out <path>              Output workbook path. Required for writes unless --in-place is used.\n  --in-place                Replace the workbook atomically through a temporary file.\n  --dry-run                 Print the proposed edit/row without writing.\n  --roundtrip               Repack the workbook without changing Entity_Master values. Requires --out.\n  --help                    Show this help.\n`)
   process.exit(exitCode)
 }
 
@@ -65,6 +71,7 @@ function parseArgs(argv) {
     dryRun: false,
     inPlace: false,
     roundtrip: false,
+    appendRowFile: '',
   }
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -107,13 +114,28 @@ function parseArgs(argv) {
       case '--roundtrip':
         args.roundtrip = true
         break
+      case '--append-row-file':
+        args.appendRowFile = nextValue()
+        break
       default:
         throw new Error(`Unknown argument: ${arg}`)
     }
   }
 
   if (args.roundtrip) {
+    if (args.appendRowFile) throw new Error('--roundtrip cannot be combined with --append-row-file')
     if (!args.out) throw new Error('--roundtrip requires --out')
+    return args
+  }
+
+  if (args.appendRowFile) {
+    if (args.slug || args.column || args.value != null) {
+      throw new Error('--append-row-file cannot be combined with --slug, --column, or --value')
+    }
+    if (!args.dryRun && !args.out && !args.inPlace) {
+      throw new Error('Append writes require --out or --in-place. Use --dry-run to inspect only.')
+    }
+    if (args.out && args.inPlace) throw new Error('Use either --out or --in-place, not both.')
     return args
   }
 
@@ -445,6 +467,217 @@ function validateProposedValue(column, value) {
   }
 }
 
+function readAppendRowFile(filePath) {
+  const resolved = path.resolve(filePath)
+  if (!fs.existsSync(resolved)) fail(`Append row file not found: ${resolved}`)
+  let parsed
+  try {
+    parsed = JSON.parse(fs.readFileSync(resolved, 'utf8'))
+  } catch (error) {
+    fail(`Cannot parse append row JSON ${resolved}: ${error.message}`)
+  }
+  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+    fail('Append row JSON must be one object keyed by Entity_Master column names')
+  }
+  return { resolved, parsed }
+}
+
+function canonicalizeAppendRow(payload, headers, rows, sheetName) {
+  const headerLookup = new Map()
+  for (const [header, column] of headers.entries()) {
+    const key = normalize(header).toLowerCase()
+    if (!key) continue
+    if (headerLookup.has(key)) fail(`${sheetName} has case-insensitive duplicate header: ${header}`)
+    headerLookup.set(key, { header, column })
+  }
+
+  const canonical = {}
+  for (const [rawKey, rawValue] of Object.entries(payload)) {
+    const key = normalize(rawKey).toLowerCase()
+    const target = headerLookup.get(key)
+    if (!target) fail(`Append row contains unknown Entity_Master column: ${rawKey}`)
+    canonical[key] = rawValue == null ? '' : String(rawValue)
+  }
+
+  for (const required of REQUIRED_FIELDS) {
+    if (!normalize(canonical[required])) fail(`Append row is missing required field ${required}`)
+  }
+  for (const [key, value] of Object.entries(canonical)) validateProposedValue(key, value)
+
+  const entityType = normalize(canonical.entity_type).toLowerCase()
+  if (!APPEND_ENTITY_TYPES.has(entityType)) {
+    fail(`Append row entity_type must be one of: ${[...APPEND_ENTITY_TYPES].join(', ')}`)
+  }
+
+  const wantedSlug = normalize(canonical.slug)
+  if (!SLUG_PATTERN.test(wantedSlug)) {
+    fail(`Append row slug must be lowercase kebab-case: ${wantedSlug}`)
+  }
+  if (wantedSlug !== normalizeSlug(wantedSlug)) fail(`Append row slug must already be normalized: ${wantedSlug}`)
+
+  const slugColumn = headers.get('slug') ?? headerLookup.get('slug')?.column
+  const nameColumn = headers.get('name') ?? headerLookup.get('name')?.column
+  if (!slugColumn || !nameColumn) fail(`${sheetName} is missing slug/name columns`)
+
+  const duplicateSlugRows = rows.filter((row) =>
+    row.rowNumber !== 1 && normalizeSlug(row.cells.get(slugColumn)?.value) === wantedSlug
+  )
+  if (duplicateSlugRows.length) {
+    fail(`Refusing duplicate slug ${wantedSlug}; already present on row(s) ${duplicateSlugRows.map((row) => row.rowNumber).join(', ')}`)
+  }
+
+  const wantedName = normalize(canonical.name).toLowerCase()
+  const duplicateNameRows = rows.filter((row) =>
+    row.rowNumber !== 1 && normalize(row.cells.get(nameColumn)?.value).toLowerCase() === wantedName
+  )
+  if (duplicateNameRows.length) {
+    fail(`Refusing duplicate name ${canonical.name}; already present on row(s) ${duplicateNameRows.map((row) => row.rowNumber).join(', ')}`)
+  }
+
+  const decision = normalize(canonical.runtime_export_decision).toLowerCase()
+  if (!FAIL_CLOSED_APPEND_DECISIONS.has(decision)) {
+    fail(
+      `New entities must start fail-closed with runtime_export_decision one of: ` +
+      `${[...FAIL_CLOSED_APPEND_DECISIONS].join(', ')}`,
+    )
+  }
+
+  const status = normalize(canonical.profile_status).toLowerCase()
+  if (!FAIL_CLOSED_APPEND_STATUSES.has(status)) {
+    fail(
+      `New entities must start in a review state with profile_status one of: ` +
+      `${[...FAIL_CLOSED_APPEND_STATUSES].join(', ')}`,
+    )
+  }
+
+  for (const field of ['summary', 'description']) {
+    const value = normalize(canonical[field])
+    if (value && isLeakedUserFacingText(value)) {
+      fail(`Append row ${field} contains internal/editorial pipeline language`)
+    }
+  }
+
+  const robots = normalize(canonical.robots).toLowerCase()
+  if (robots && !robots.includes('noindex')) {
+    fail('New fail-closed entities may not request indexable robots metadata')
+  }
+  const sitemap = normalize(canonical.sitemap_included).toLowerCase()
+  if (['1', 'true', 'yes', 'y'].includes(sitemap)) {
+    fail('New fail-closed entities may not be included in the sitemap at creation time')
+  }
+
+  return { canonical, headerLookup, wantedSlug }
+}
+
+function expandRangeRef(ref, newRowNumber) {
+  const value = String(ref || '')
+  const match = value.match(/^([A-Z]+)(\d+)(?::([A-Z]+)(\d+))?$/i)
+  if (!match) return value
+  const startColumn = match[1]
+  const startRow = Number(match[2])
+  const endColumn = match[3] || startColumn
+  const endRow = Number(match[4] || match[2])
+  if (newRowNumber <= endRow) return value
+  return `${startColumn}${startRow}:${endColumn}${newRowNumber}`
+}
+
+function expandRangeAttributes(xml, newRowNumber) {
+  return String(xml).replace(/\bref="([A-Z]+\d+(?::[A-Z]+\d+)?)"/gi, (full, ref) => {
+    const expanded = expandRangeRef(ref, newRowNumber)
+    return `ref="${expanded}"`
+  })
+}
+
+function worksheetRelationshipsPath(worksheetPath) {
+  const dir = path.posix.dirname(worksheetPath)
+  const base = path.posix.basename(worksheetPath)
+  return path.posix.join(dir, '_rels', `${base}.rels`)
+}
+
+function expandLinkedTableRanges(entryMap, worksheetPath, newRowNumber) {
+  const relsPath = worksheetRelationshipsPath(worksheetPath)
+  const relEntry = entryMap.get(relsPath)
+  if (!relEntry) return
+
+  const relXml = relEntry.data.toString('utf8')
+  for (const match of relXml.matchAll(/<Relationship\b[^>]*>/g)) {
+    const tag = match[0]
+    const type = getAttribute(tag, 'Type')
+    const target = getAttribute(tag, 'Target')
+    if (!target || !/\/table$/i.test(type)) continue
+    const resolved = target.startsWith('/')
+      ? target.slice(1)
+      : path.posix.normalize(path.posix.join(path.posix.dirname(worksheetPath), target))
+    if (!entryMap.has(resolved)) fail(`Worksheet table relationship points to missing part: ${resolved}`)
+    setXml(entryMap, resolved, expandRangeAttributes(getXml(entryMap, resolved), newRowNumber))
+  }
+}
+
+function makeAppendRowXml(rowNumber, headers, canonical, templateRow) {
+  const cells = []
+  for (const [header, column] of [...headers.entries()].sort((a, b) => a[1] - b[1])) {
+    const key = normalize(header).toLowerCase()
+    if (!Object.prototype.hasOwnProperty.call(canonical, key)) continue
+    const value = String(canonical[key] ?? '')
+    if (!value) continue
+    const ref = `${columnNumberToName(column)}${rowNumber}`
+    const templateCellXml = templateRow?.cells.get(column)?.xml || ''
+    cells.push(makeInlineStringCell(ref, value, templateCellXml))
+  }
+  return `<row r="${rowNumber}">${cells.join('')}</row>`
+}
+
+function appendRowToSheetXml(sheetXml, rowXml, newRowNumber) {
+  const closeIndex = sheetXml.indexOf('</sheetData>')
+  if (closeIndex < 0) fail('Entity_Master worksheet is missing </sheetData>')
+  const withRow = sheetXml.slice(0, closeIndex) + rowXml + sheetXml.slice(closeIndex)
+  return expandRangeAttributes(withRow, newRowNumber)
+}
+
+function appendEntityRow({ workbookPath, sheet, appendRowFile, dryRun }) {
+  const entries = readZip(workbookPath)
+  const entryMap = entriesByName(entries)
+  const { sheetName, worksheetPath } = locateEntityMasterWorksheet(entryMap, sheet)
+  const sharedStrings = parseSharedStrings(entryMap)
+  const sheetXml = getXml(entryMap, worksheetPath)
+  const rows = parseRows(sheetXml, sharedStrings)
+  const headers = getHeaderMap(rows, sheetName)
+  const { resolved, parsed } = readAppendRowFile(appendRowFile)
+  const { canonical, wantedSlug } = canonicalizeAppendRow(parsed, headers, rows, sheetName)
+
+  const lastRow = rows.reduce((best, row) => (row.rowNumber > (best?.rowNumber || 0) ? row : best), null)
+  if (!lastRow) fail(`${sheetName} has no rows`)
+  const newRowNumber = lastRow.rowNumber + 1
+  const rowXml = makeAppendRowXml(newRowNumber, headers, canonical, lastRow)
+  const report = {
+    sheet: sheetName,
+    worksheetPath,
+    row: newRowNumber,
+    slug: wantedSlug,
+    sourceFile: resolved,
+    fields: Object.fromEntries(Object.entries(canonical).filter(([, value]) => normalize(value))),
+  }
+
+  if (!dryRun) {
+    setXml(entryMap, worksheetPath, appendRowToSheetXml(sheetXml, rowXml, newRowNumber))
+    expandLinkedTableRanges(entryMap, worksheetPath, newRowNumber)
+  }
+
+  return { entries, report, changed: !dryRun }
+}
+
+function printAppendReport(report, dryRun) {
+  console.log(`[edit-entity-master-cell] ${dryRun ? 'DRY RUN APPEND' : 'APPEND'}:`)
+  console.log(`  sheet: ${report.sheet}`)
+  console.log(`  worksheet: ${report.worksheetPath}`)
+  console.log(`  row: ${report.row}`)
+  console.log(`  slug: ${report.slug}`)
+  console.log(`  source: ${report.sourceFile}`)
+  for (const [field, value] of Object.entries(report.fields)) {
+    console.log(`  ${field}: ${JSON.stringify(value)}`)
+  }
+}
+
 function makeInlineStringCell(ref, value, existingCellXml = '') {
   const style = getAttribute(existingCellXml, 's')
   const preserve = /^\s|\s$/.test(String(value ?? '')) ? ' xml:space="preserve"' : ''
@@ -556,6 +789,26 @@ function main() {
     writeOutput(readZip(workbookPath), workbookPath, outPath, false)
     console.log(`[edit-entity-master-cell] Roundtrip workbook written to ${outPath}`)
     console.log('[edit-entity-master-cell] Next: run validate:workbook-schema, data:build, and guard:source-of-truth.')
+    return
+  }
+
+  if (args.appendRowFile) {
+    const { entries, report, changed } = appendEntityRow({
+      workbookPath,
+      sheet: args.sheet,
+      appendRowFile: args.appendRowFile,
+      dryRun: args.dryRun,
+    })
+    printAppendReport(report, args.dryRun)
+    if (!changed) {
+      console.log('[edit-entity-master-cell] No file written.')
+      return
+    }
+    const outputPath = args.inPlace ? workbookPath : path.resolve(args.out)
+    if (!args.inPlace && outputPath === workbookPath) fail('Output path equals input workbook. Use --in-place for atomic replacement.')
+    const written = writeOutput(entries, workbookPath, outputPath, args.inPlace)
+    console.log(`[edit-entity-master-cell] Workbook written to ${written}`)
+    console.log('[edit-entity-master-cell] Next: run validate:workbook-schema, workbook:roundtrip-test, data:build:core, and guard:source-of-truth.')
     return
   }
 

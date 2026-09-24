@@ -755,7 +755,17 @@ function claimRow(row) {
   if (isAggregateClaimRow(id, title, first(row, ['claim', 'finding', 'summary', 'conclusion', 'supported_claim_language']))) {
     return null
   }
-  return stripRecord({ id: id || pmid, title, claim: compact(first(row, ['claim', 'finding', 'summary', 'conclusion', 'supported_claim_language'])), pmid, doi: clean(first(row, ['doi', 'DOI'])), source_url: clean(first(row, ['source_url', 'url', 'link', 'url_or_source'])), evidence_tier: clean(first(row, ['evidence_tier', 'study_type', 'evidence_type'])), profile_slug: slug(first(row, ['profile_slug', 'slug', 'herb_slug', 'compound_slug', 'entity_slug'])) })
+  return stripRecord({
+    id: id || pmid,
+    title,
+    claim: compact(first(row, ['claim', 'finding', 'summary', 'conclusion', 'supported_claim_language'])),
+    pmid,
+    doi: clean(first(row, ['doi', 'DOI'])),
+    source_url: clean(first(row, ['source_url', 'url', 'link', 'url_or_source'])),
+    evidence_tier: clean(first(row, ['evidence_tier', 'study_type', 'evidence_type'])),
+    profile_slug: slug(first(row, ['profile_slug', 'slug', 'herb_slug', 'compound_slug', 'entity_slug'])),
+    metadata_source: clean(first(row, ['metadata_source', 'metadata source'])),
+  })
 }
 
 function published(v) {

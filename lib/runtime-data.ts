@@ -17,7 +17,7 @@ import { resolveRuntimeRecordLayers } from './runtime-record-resolver.mjs'
 const dataDir = path.join(process.cwd(), 'public', 'data')
 
 const fileCache = new Map<string, unknown>()
-const AUG23_ENRICHMENT_CLAIM_PREFIX = 'aug23-enr-'
+const LEGACY_AUG23_ENRICHMENT_CLAIM_PREFIX = 'aug23-enr-'
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value)
@@ -135,7 +135,7 @@ function mergeCitationSources(baseValue: unknown, imported: Record<string, unkno
   return output
 }
 
-export function buildAug23WorkbookEvidenceIndex(rawClaims: unknown) {
+export function buildWorkbookEvidenceIndex(rawClaims: unknown) {
   const byProfile = new Map<string, Record<string, unknown>[]>()
   if (!Array.isArray(rawClaims)) return byProfile
 
@@ -143,7 +143,11 @@ export function buildAug23WorkbookEvidenceIndex(rawClaims: unknown) {
     if (!isRecord(value)) continue
     const id = cleanString(value.id)
     const profileSlug = cleanString(value.profile_slug)
-    if (!id.startsWith(AUG23_ENRICHMENT_CLAIM_PREFIX) || !profileSlug) continue
+    const metadataSource = cleanString(value.metadata_source)
+    const isManifestEnrichment =
+      metadataSource === 'runtime-enrichment' ||
+      id.startsWith(LEGACY_AUG23_ENRICHMENT_CLAIM_PREFIX)
+    if (!isManifestEnrichment || !profileSlug) continue
 
     const title = cleanString(value.title) || cleanString(value.claim)
     const pmid = cleanString(value.pmid)
@@ -159,7 +163,7 @@ export function buildAug23WorkbookEvidenceIndex(rawClaims: unknown) {
       url,
       studyType: cleanString(value.evidence_tier),
       result: cleanString(value.claim),
-      metadataSource: 'workbook-evidence-register',
+      metadataSource: metadataSource || 'workbook-evidence-register',
     }
     const existing = byProfile.get(profileSlug)
     if (existing) existing.push(source)
@@ -169,17 +173,17 @@ export function buildAug23WorkbookEvidenceIndex(rawClaims: unknown) {
   return byProfile
 }
 
-let aug23WorkbookEvidenceIndexPromise: Promise<Map<string, Record<string, unknown>[]>> | null = null
+let workbookEvidenceIndexPromise: Promise<Map<string, Record<string, unknown>[]>> | null = null
 
-function getAug23WorkbookEvidenceIndex() {
-  if (!aug23WorkbookEvidenceIndexPromise) {
-    aug23WorkbookEvidenceIndexPromise = readJsonFile('claims.json').then(buildAug23WorkbookEvidenceIndex)
+function getWorkbookEvidenceIndex() {
+  if (!workbookEvidenceIndexPromise) {
+    workbookEvidenceIndexPromise = readJsonFile('claims.json').then(buildWorkbookEvidenceIndex)
   }
-  return aug23WorkbookEvidenceIndexPromise
+  return workbookEvidenceIndexPromise
 }
 
-async function attachAug23WorkbookEvidence(record: RuntimeRecord): Promise<RuntimeRecord> {
-  const evidenceByProfile = await getAug23WorkbookEvidenceIndex()
+async function attachWorkbookEvidence(record: RuntimeRecord): Promise<RuntimeRecord> {
+  const evidenceByProfile = await getWorkbookEvidenceIndex()
   const sourceTemplates = evidenceByProfile.get(cleanString(record.slug)) ?? []
 
   if (!sourceTemplates.length) return record
@@ -300,7 +304,7 @@ export async function getHerbBySlug(slug: string): Promise<RuntimeRecord | null>
   if (!herb) return null
   const detail = await readDetailRecord('herbs', slug)
   const mergedHerb = detail ? resolveRuntimeRecordLayers(herb, [detail]) as RuntimeRecord : herb
-  const enrichedHerb = await attachAug23WorkbookEvidence(mergedHerb)
+  const enrichedHerb = await attachWorkbookEvidence(mergedHerb)
 
   if (!enrichedHerb || !getRuntimeVisibility(enrichedHerb).canRender) return null
 
@@ -313,7 +317,7 @@ export async function getCompoundBySlug(slug: string): Promise<RuntimeRecord | n
   if (!compound) return null
   const detail = await readDetailRecord('compounds', slug)
   const mergedCompound = detail ? resolveRuntimeRecordLayers(compound, [detail]) as RuntimeRecord : compound
-  const enrichedCompound = await attachAug23WorkbookEvidence(mergedCompound)
+  const enrichedCompound = await attachWorkbookEvidence(mergedCompound)
 
   if (!enrichedCompound || !getRuntimeVisibility(enrichedCompound).canRender) return null
 
