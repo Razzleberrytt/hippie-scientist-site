@@ -41,14 +41,14 @@
     {
       "slug": "caffeine",
       "column": "description",
-      "expected_old_value": "Caffeine supports energy; focus; performance with high confidence in this merged decision layer.",
+      "expected_old_value": "",
       "new_value": "Caffeine is a methylxanthine stimulant whose human evidence supports modest acute effects on attention while controlled sleep research shows dose- and timing-dependent tradeoffs. Performance, sleep and safety claims should remain separated rather than collapsed into a generic energy-enhancer verdict.",
       "confidence": "high",
       "source_ids": [
         "pmid-40335666",
         "pmid-36870101"
       ],
-      "rationale": "The existing description contains internal decision-layer language and an overbroad performance claim. The replacement is reader-facing and keeps the strongest human evidence domains distinct."
+      "rationale": "The canonical workbook description cell is blank even though generated runtime currently exposes a legacy decision-layer sentence. This proposal fills the canonical source with reader-facing evidence framing rather than treating generated runtime as source-of-truth."
     },
     {
       "slug": "nicotine",
