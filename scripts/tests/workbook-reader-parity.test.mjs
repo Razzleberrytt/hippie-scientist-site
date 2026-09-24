@@ -119,35 +119,97 @@ if (process.env.VITEST) {
 
   test('exceljs workbook reader matches the parser adapter sample output', async () => {
     // The parser adapter no longer reproduces the raw workbook exactly: it
-    // applies the reviewed additive enrichment ledger, which appends rows to
+    // applies all reviewed additive enrichment ledgers, which append rows to
     // three registers. That divergence is the feature, so the parity guarantee
     // is narrowed rather than dropped. Evidence/source growth is pinned to the
-    // reviewed manifest; relationship growth is derived independently from the
+    // manifest-backed ledgers; relationship growth is derived independently from the
     // current canonical taxonomy because eligibility is herb -> compound by
     // contract. Anything else, including a changed sampled field, still fails.
-    const manifest = JSON.parse(
-      fs.readFileSync(
-        path.join(process.cwd(), 'data-sources', 'runtime-enrichment', '2026-08-23-manifest.json'),
-        'utf8',
-      ),
-    )
-    const ledger = JSON.parse(
-      gunzipSync(
-        fs.readFileSync(
-          path.join(process.cwd(), 'data-sources', 'runtime-enrichment', '2026-08-23-enrichment.json.gz'),
-        ),
-      ).toString('utf8'),
-    )
+    const enrichmentDir = path.join(process.cwd(), 'data-sources', 'runtime-enrichment')
+    const ledgers = fs.readdirSync(enrichmentDir)
+      .filter((name) => name.endsWith('-manifest.json'))
+      .sort()
+      .map((name) => {
+        const manifest = JSON.parse(fs.readFileSync(path.join(enrichmentDir, name), 'utf8'))
+        const ledgerPath = path.join(enrichmentDir, manifest.ledger.file)
+        const payload = fs.readFileSync(ledgerPath)
+        const raw = ledgerPath.endsWith('.gz')
+          ? gunzipSync(payload).toString('utf8')
+          : payload.toString('utf8')
+        return JSON.parse(raw)
+      })
+
+    const merged = {
+      evidence: ledgers.flatMap((ledger) => ledger.evidence || []),
+      sources: ledgers.flatMap((ledger) => ledger.sources || []),
+      relationships: ledgers.flatMap((ledger) => ledger.relationships || []),
+    }
 
     const result = await runParity({ log: false })
+
+    const clean = (value) => String(value ?? '').replace(/\s+/g, ' ').trim()
+    const slug = (value) => clean(value)
+      .toLowerCase()
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/&/g, ' and ')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-+|-+$/g, '')
+    const first = (row, keys) => {
+      for (const key of keys) if (clean(row?.[key])) return row[key]
+      return ''
+    }
+    const normalizeDoi = (value) => {
+      const doi = clean(value).toLowerCase()
+      for (const prefix of ['https://dx.doi.org/', 'http://dx.doi.org/', 'https://doi.org/', 'http://doi.org/']) {
+        if (doi.startsWith(prefix)) return doi.slice(prefix.length)
+      }
+      return doi
+    }
+    const evidenceKey = (row) => {
+      const entity = slug(first(row, ['entity_slug', 'profile_slug', 'slug', 'herb_slug', 'compound_slug']))
+      const pmid = clean(first(row, ['pmid', 'PMID'])).toLowerCase()
+      const doi = normalizeDoi(first(row, ['doi', 'DOI']))
+      const title = clean(first(row, ['title', 'study title', 'claim', 'summary', 'supported_claim_language'])).toLowerCase()
+      const source = pmid ? `pmid:${pmid}` : doi ? `doi:${doi}` : title ? `title:${title}` : ''
+      return entity && source ? `${entity}|${source}` : ''
+    }
+    const sourceKey = (row) => {
+      const pmid = clean(first(row, ['pmid', 'PMID'])).toLowerCase()
+      const doi = normalizeDoi(first(row, ['doi', 'DOI']))
+      const title = clean(first(row, ['title'])).toLowerCase()
+      return pmid ? `pmid:${pmid}` : doi ? `doi:${doi}` : title ? `title:${title}` : ''
+    }
+
+    const rawEvidence = result.rawWorkbook.getSheetData('Evidence_Register')
+    const evidenceKeys = new Set(rawEvidence.map(evidenceKey).filter(Boolean))
+    let expectedEvidenceGrowth = 0
+    for (const row of merged.evidence) {
+      const key = evidenceKey(row)
+      if (!key || evidenceKeys.has(key)) continue
+      evidenceKeys.add(key)
+      expectedEvidenceGrowth += 1
+    }
+
+    const rawSources = result.rawWorkbook.getSheetData('Source_Register')
+    const sourceKeys = new Set(rawSources.map(sourceKey).filter(Boolean))
+    let expectedSourceGrowth = 0
+    for (const row of merged.sources) {
+      const key = sourceKey(row)
+      if (!key || sourceKeys.has(key)) continue
+      sourceKeys.add(key)
+      expectedSourceGrowth += 1
+    }
+
     const expectedRelationshipGrowth = countEligibleNewRuntimeRelationships(
       result.rawWorkbook.getSheetData('Entity_Master'),
       result.rawWorkbook.getSheetData('Entity_Relationships'),
-      ledger.relationships,
+      merged.relationships,
     )
     const expectedGrowth = new Map([
-      ['Evidence_Register', manifest.counts.evidence_rows_after_canonical_dedupe],
-      ['Source_Register', manifest.counts.source_rows_after_canonical_dedupe],
+      ['Evidence_Register', expectedEvidenceGrowth],
+      ['Source_Register', expectedSourceGrowth],
       ['Entity_Relationships', expectedRelationshipGrowth],
     ])
 
