@@ -46,6 +46,19 @@ const proposals = proposalFiles.map((name) => {
   return { name, file, value }
 })
 
+const proposalSlugs = new Set(proposals.map(({ value }) => String(value.slug || '').trim().toLowerCase()))
+const enrichmentDir = path.join(root, 'data-sources', 'runtime-enrichment')
+const expectedEvidence = fs.existsSync(enrichmentDir)
+  ? fs.readdirSync(enrichmentDir)
+    .filter((name) => name.endsWith('-enrichment.json'))
+    .sort()
+    .flatMap((name) => {
+      const ledger = JSON.parse(fs.readFileSync(path.join(enrichmentDir, name), 'utf8'))
+      return Array.isArray(ledger.evidence) ? ledger.evidence : []
+    })
+    .filter((row) => proposalSlugs.has(String(row.entity_slug || row.profile_slug || '').trim().toLowerCase()))
+  : []
+
 fs.rmSync(reportDir, { recursive: true, force: true })
 fs.mkdirSync(reportDir, { recursive: true })
 fs.copyFileSync(sourceWorkbook, reviewWorkbook)
@@ -94,6 +107,47 @@ try {
   })
 
   const compounds = JSON.parse(fs.readFileSync(path.join(tempRuntime, 'compounds.json'), 'utf8'))
+  const claims = JSON.parse(fs.readFileSync(path.join(tempRuntime, 'claims.json'), 'utf8'))
+  const claimById = new Map(claims.map((claim) => [String(claim.id || ''), claim]))
+  const evidenceChecks = []
+
+  for (const evidence of expectedEvidence) {
+    const recordId = String(evidence.record_id || '').trim()
+    if (!recordId) throw new Error('Medication enrichment evidence row is missing record_id')
+    const claim = claimById.get(recordId)
+    if (!claim) throw new Error(`Reviewed evidence did not survive runtime claim build: ${recordId}`)
+
+    const expectedSlug = String(evidence.entity_slug || evidence.profile_slug || '').trim().toLowerCase()
+    if (String(claim.profile_slug || '').trim().toLowerCase() !== expectedSlug) {
+      throw new Error(
+        `Runtime evidence claim changed profile ownership: ${recordId} -> ${claim.profile_slug}`,
+      )
+    }
+
+    const expectedPmid = String(evidence.pmid || '').trim()
+    if (expectedPmid && String(claim.pmid || '').trim() !== expectedPmid) {
+      throw new Error(`Runtime evidence claim lost PMID provenance: ${recordId}`)
+    }
+
+    const expectedDoi = String(evidence.doi || '').trim().toLowerCase()
+    if (expectedDoi && String(claim.doi || '').trim().toLowerCase() !== expectedDoi) {
+      throw new Error(`Runtime evidence claim lost DOI provenance: ${recordId}`)
+    }
+
+    const expectedUrl = String(evidence.url_or_source || evidence.source_url || '').trim()
+    if (expectedUrl && String(claim.source_url || '').trim() !== expectedUrl) {
+      throw new Error(`Runtime evidence claim lost source URL provenance: ${recordId}`)
+    }
+
+    evidenceChecks.push({
+      record_id: recordId,
+      profile_slug: expectedSlug,
+      pmid: String(claim.pmid || ''),
+      doi: String(claim.doi || ''),
+      source_url: String(claim.source_url || ''),
+    })
+  }
+
   const checks = []
   for (const proposal of proposals) {
     const slug = String(proposal.value.slug || '')
@@ -128,9 +182,13 @@ try {
     review_workbook: path.relative(root, reviewWorkbook).split(path.sep).join('/'),
     proposal_files: proposalFiles,
     proposed_entities: checks,
+    runtime_evidence_claims: evidenceChecks,
   }
   fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, 'utf8')
-  console.log(`[entity-row-review] PASS: ${proposalFiles.length} proposal(s) appended and verified fail-closed.`)
+  console.log(
+    `[entity-row-review] PASS: ${proposalFiles.length} proposal(s) verified fail-closed; ` +
+    `${evidenceChecks.length} reviewed evidence claim(s) preserved in runtime output.`,
+  )
   for (const check of checks) {
     console.log(`- ${check.slug}: ${check.indexability_status}, ${check.runtime_export_decision}, ${check.profile_status}`)
   }
