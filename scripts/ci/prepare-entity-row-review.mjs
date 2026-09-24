@@ -31,6 +31,19 @@ function run(script, args, env = {}) {
   return result.stdout || ''
 }
 
+function runtimeSlug(value) {
+  return String(value ?? '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
 if (!fs.existsSync(sourceWorkbook)) throw new Error(`Missing canonical workbook: ${sourceWorkbook}`)
 if (!fs.existsSync(proposalDir)) throw new Error(`Missing entity-row proposal directory: ${proposalDir}`)
 
@@ -114,8 +127,13 @@ try {
   for (const evidence of expectedEvidence) {
     const recordId = String(evidence.record_id || '').trim()
     if (!recordId) throw new Error('Medication enrichment evidence row is missing record_id')
-    const claim = claimById.get(recordId)
-    if (!claim) throw new Error(`Reviewed evidence did not survive runtime claim build: ${recordId}`)
+    const runtimeId = runtimeSlug(recordId)
+    const claim = claimById.get(runtimeId)
+    if (!claim) {
+      throw new Error(
+        `Reviewed evidence did not survive runtime claim build: ${recordId} -> ${runtimeId}`,
+      )
+    }
 
     const expectedSlug = String(evidence.entity_slug || evidence.profile_slug || '').trim().toLowerCase()
     if (String(claim.profile_slug || '').trim().toLowerCase() !== expectedSlug) {
@@ -141,6 +159,7 @@ try {
 
     evidenceChecks.push({
       record_id: recordId,
+      runtime_id: runtimeId,
       profile_slug: expectedSlug,
       pmid: String(claim.pmid || ''),
       doi: String(claim.doi || ''),
