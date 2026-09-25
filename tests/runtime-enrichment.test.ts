@@ -1,5 +1,7 @@
 import { createHash } from 'node:crypto'
+import { spawnSync } from 'node:child_process'
 import fs from 'node:fs'
+import os from 'node:os'
 import path from 'node:path'
 import { gunzipSync } from 'node:zlib'
 import { beforeAll, describe, expect, it } from 'vitest'
@@ -130,10 +132,46 @@ describe('manifest-backed additive enrichment ledgers', () => {
     expect(parser).toContain('enrichment evidence row is missing record_id')
   })
 
-  it('applies reviewed net-new rows to the virtual workbook', async () => {
+  it('applies reviewed net-new rows to the proposal-aware virtual workbook', async () => {
     const workbookPath = resolveWorkbookPath(root)
-    const raw = await readWorkbookExcelJS(workbookPath)
-    const enriched = await readWorkbook(workbookPath)
+    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ths-runtime-enrichment-review-'))
+    const reviewWorkbook = path.join(tempDir, 'herb_monograph_master.review.xlsx')
+    fs.copyFileSync(workbookPath, reviewWorkbook)
+
+    const canonical = await readWorkbookExcelJS(workbookPath)
+    const existingSlugs = new Set(
+      canonical.getSheetData('Entity_Master')
+        .map((row: any) => String(row.slug || '').trim().toLowerCase())
+        .filter(Boolean),
+    )
+    const proposalDir = path.join(root, 'data-sources', 'entity-row-proposals')
+    const editor = path.join(root, 'scripts', 'data', 'edit-entity-master-cell.mjs')
+    for (const name of fs.readdirSync(proposalDir).filter((value) => value.endsWith('.json')).sort()) {
+      const proposalPath = path.join(proposalDir, name)
+      const proposal = JSON.parse(fs.readFileSync(proposalPath, 'utf8'))
+      const proposalSlug = String(proposal.slug || '').trim().toLowerCase()
+      if (!proposalSlug || existingSlugs.has(proposalSlug)) continue
+
+      const result = spawnSync(process.execPath, [
+        editor,
+        '--workbook', reviewWorkbook,
+        '--append-row-file', proposalPath,
+        '--in-place',
+      ], {
+        cwd: root,
+        encoding: 'utf8',
+      })
+      if (result.status !== 0) {
+        throw new Error(
+          `Failed to append proposal ${name} to enrichment review workbook:\n` +
+          [result.stdout, result.stderr].filter(Boolean).join('\n'),
+        )
+      }
+      existingSlugs.add(proposalSlug)
+    }
+
+    const raw = await readWorkbookExcelJS(reviewWorkbook)
+    const enriched = await readWorkbook(reviewWorkbook)
 
     const clean = (value: unknown) => String(value ?? '').replace(/\\s+/g, ' ').trim()
     const slug = (value: unknown) => clean(value)
@@ -217,6 +255,7 @@ describe('manifest-backed additive enrichment ledgers', () => {
       0,
     )
     expect(touched).toBe(expectedTouched)
+    fs.rmSync(tempDir, { recursive: true, force: true })
   }, 60000)
 
   it('keeps every medication batch evidence-only and fail-closed by construction', () => {
