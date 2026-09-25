@@ -102,21 +102,20 @@ try {
 
   if (!stale.length) {
     console.log('[sync-proposed-compound-runtime] PASS: ' + proposalSlugs.size + ' proposal record(s) already match exact generator output.')
-    process.exit(0)
-  }
+  } else {
+    if (!write) {
+      throw new Error(
+        'Committed compounds.json is stale for proposal slugs: ' + stale.join(', ') +
+        '. Run this script with --write, review the one-file diff, then run guard:source-of-truth.',
+      )
+    }
 
-  if (!write) {
-    throw new Error(
-      'Committed compounds.json is stale for proposal slugs: ' + stale.join(', ') +
-      '. Run this script with --write, review the one-file diff, then run guard:source-of-truth.',
+    fs.writeFileSync(committedPath, JSON.stringify(next, null, 2) + '\n', 'utf8')
+    console.log(
+      '[sync-proposed-compound-runtime] WROTE: ' + stale.join(', ') + ' from exact generator output; ' +
+      beforeOther.length + ' non-proposal records preserved unchanged.',
     )
   }
-
-  fs.writeFileSync(committedPath, JSON.stringify(next, null, 2) + '\n', 'utf8')
-  console.log(
-    '[sync-proposed-compound-runtime] WROTE: ' + stale.join(', ') + ' from exact generator output; ' +
-    beforeOther.length + ' non-proposal records preserved unchanged.',
-  )
 } finally {
   fs.rmSync(tempRuntime, { recursive: true, force: true })
 }
