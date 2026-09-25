@@ -61,6 +61,20 @@ Ledgers may add evidence and source-provenance rows for existing entities, descr
 
 `2026-09-25-medication-adhd-stimulant-manifest.json` records the exact DailyMed and PubMed anchors, reviewed counts, append-only policy, and ledger hash.
 
+## Sep. 25 antidepressant medication batch
+
+- Ledger: `2026-09-25-medication-antidepressant-enrichment.json`
+- Targets: `escitalopram`, `bupropion`
+- 8 evidence rows
+- 6 source rows (5 net-new after canonical source deduplication because PMID `29477251` is already registered)
+- 0 entity-context rows
+- 0 relationships
+- Both canonical entities remain Evidence-Limited / research-only / hidden-until-grounded / NOINDEX / outside sitemap.
+- Evidence preserves product/formulation boundaries for bupropion XL, pediatric versus adult indication boundaries for escitalopram, short-term trial limits, and the difference between comparative adverse-effect evidence and overall treatment choice.
+- The batch is evidence-only and cannot carry publication/governance fields.
+
+`2026-09-25-medication-antidepressant-manifest.json` records the exact DailyMed and PubMed anchors, reviewed counts, append-only policy, and ledger hash.
+
 ## Regression contract
 
 `tests/runtime-enrichment.test.ts` validates every manifest-backed batch, verifies each digest before decoding, checks reviewed counts, requires globally unique evidence record IDs, allows repeat source identities to deduplicate deterministically across batches, enforces the entity-context allowlist, verifies virtual-workbook growth, and prevents every medication batch from carrying publication/governance fields.
