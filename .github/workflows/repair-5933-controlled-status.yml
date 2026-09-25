@@ -31,8 +31,10 @@ jobs:
           set -euo pipefail
           node scripts/data/edit-entity-master-cell.mjs --slug dextroamphetamine --column controlled_substance --value true --in-place
           node scripts/data/edit-entity-master-cell.mjs --slug dextroamphetamine --column legal_status --value "U.S. Schedule II controlled substance" --in-place
+          node scripts/data/edit-entity-master-cell.mjs --slug dextroamphetamine --column allow_restricted_reference_export --value true --in-place
           node scripts/data/edit-entity-master-cell.mjs --slug zolpidem --column controlled_substance --value true --in-place
           node scripts/data/edit-entity-master-cell.mjs --slug zolpidem --column legal_status --value "U.S. Schedule IV controlled substance" --in-place
+          node scripts/data/edit-entity-master-cell.mjs --slug zolpidem --column allow_restricted_reference_export --value true --in-place
 
       - name: Validate workbook and regenerate proposal runtime records
         run: |
@@ -57,6 +59,7 @@ jobs:
             const row = rows.find((x) => x.slug === slug)
             if (!row) throw new Error('Missing runtime row: ' + slug)
             if (row.controlled_substance !== true) throw new Error(slug + ' controlled_substance != true')
+            if (row.allow_restricted_reference_export !== true) throw new Error(slug + ' restricted reference export != true')
             if (row.legal_status !== legal) throw new Error(slug + ' legal_status mismatch: ' + JSON.stringify(row.legal_status))
             if (row.indexability_status !== 'NOINDEX') throw new Error(slug + ' escaped NOINDEX')
             if (row.sitemap_included !== false) throw new Error(slug + ' escaped sitemap exclusion')
