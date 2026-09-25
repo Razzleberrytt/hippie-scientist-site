@@ -1,0 +1,81 @@
+name: One-shot promote PR 5937 ADHD stimulants
+
+on:
+  push:
+    branches:
+      - manual/lisdexamfetamine-methylphenidate-canonical-2026-09-25
+
+permissions:
+  contents: write
+
+jobs:
+  promote:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Validate staged manifest-backed batch
+        run: |
+          set -euo pipefail
+          node scripts/ci/prepare-entity-row-review.mjs
+          npx vitest run tests/runtime-enrichment.test.ts
+
+      - name: Promote reviewed entity proposals to canonical workbook
+        run: |
+          set -euo pipefail
+          node scripts/data/edit-entity-master-cell.mjs --append-row-file data-sources/entity-row-proposals/lisdexamfetamine.json --in-place
+          node scripts/data/edit-entity-master-cell.mjs --append-row-file data-sources/entity-row-proposals/methylphenidate.json --in-place
+
+      - name: Validate canonical workbook and runtime parity
+        run: |
+          set -euo pipefail
+          node scripts/ci/validate-workbook-schema.mjs
+          node scripts/ci/prepare-entity-row-review.mjs
+          npx vitest run tests/runtime-enrichment.test.ts
+          node scripts/ci/sync-proposed-compound-runtime.mjs --write
+          node scripts/ci/sync-proposed-compound-runtime.mjs
+          npm run -s guard:source-of-truth
+
+      - name: Assert restricted-reference runtime classification
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          const rows = JSON.parse(fs.readFileSync('public/data/compounds.json', 'utf8'))
+          for (const slug of ['lisdexamfetamine', 'methylphenidate']) {
+            const row = rows.find((x) => x.slug === slug)
+            if (!row) throw new Error('Missing runtime row: ' + slug)
+            if (row.controlled_substance !== true) throw new Error(slug + ' controlled_substance != true')
+            if (row.allow_restricted_reference_export !== true) throw new Error(slug + ' restricted reference export != true')
+            if (row.legal_status !== 'U.S. Schedule II controlled substance') throw new Error(slug + ' legal_status mismatch: ' + JSON.stringify(row.legal_status))
+            if (row.profile_status !== 'research_only') throw new Error(slug + ' profile_status mismatch: ' + row.profile_status)
+            if (row.runtime_export_decision !== 'hidden_until_grounded') throw new Error(slug + ' runtime export escaped fail-closed')
+            if (row.indexability_status !== 'NOINDEX') throw new Error(slug + ' escaped NOINDEX')
+            if (row.sitemap_included !== false) throw new Error(slug + ' escaped sitemap exclusion')
+            if (row.affiliate_ready !== false) throw new Error(slug + ' affiliate_ready must remain false')
+            console.log(slug, row.controlled_substance, row.legal_status, row.indexability_status, row.sitemap_included)
+          }
+          NODE
+
+      - name: Commit promoted workbook and runtime rows
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/promote-5937-adhd-stimulants.yml
+          git add data-sources/herb_monograph_master.xlsx public/data/compounds.json
+          git diff --cached --check
+          git diff --cached --name-status
+          git commit -m "feat(data): promote lisdexamfetamine and methylphenidate anchors"
+          git push origin HEAD:manual/lisdexamfetamine-methylphenidate-canonical-2026-09-25
