@@ -27,7 +27,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   validate:
@@ -38,8 +38,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
-        with:
-          ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -60,30 +58,6 @@ jobs:
       - name: Validate surgical Entity_Master append path
         run: node scripts/ci/validate-workbook-append-row.mjs
 
-      # TEMPORARY PR-branch bootstrap: materialize source-backed safety cells
-      # into the binary workbook, regenerate proposal runtime, and push only
-      # those generator-owned artifacts. Removed before final validation.
-      - name: Materialize reviewed antidepressant safety
-        env:
-          ESCITALOPRAM_SAFETY: >-
-            U.S. prescribing information carries a boxed warning about suicidal thoughts and behaviors in pediatric and young adult patients and includes serious warnings for serotonin syndrome, discontinuation symptoms, abnormal bleeding, hyponatremia, seizures, and activation of mania or hypomania. This summary is not exhaustive; consult current product-specific prescribing information.
-          BUPROPION_SAFETY: >-
-            U.S. prescribing information for bupropion XL carries a boxed warning about suicidal thoughts and behaviors in pediatric and young adult patients. Seizure risk is dose-related, and hypertension can occur. This summary is not exhaustive; consult current product-specific prescribing information.
-        shell: bash
-        run: |
-          set -euo pipefail
-          node scripts/data/edit-entity-master-cell.mjs --slug escitalopram --column safety_notes --value "$ESCITALOPRAM_SAFETY" --in-place
-          node scripts/data/edit-entity-master-cell.mjs --slug bupropion --column safety_notes --value "$BUPROPION_SAFETY" --in-place
-          node scripts/ci/sync-proposed-compound-runtime.mjs --write
-          git config user.name "ths-data-review-bot"
-          git config user.email "actions@users.noreply.github.com"
-          git add data-sources/herb_monograph_master.xlsx public/data/compounds.json
-          if git diff --cached --quiet; then
-            echo "Reviewed medication safety already materialized."
-          else
-            git commit -m "fix(data): materialize reviewed antidepressant safety"
-            git push origin "HEAD:${{ github.head_ref }}"
-          fi
       - name: Prepare fail-closed entity review workbook
         run: node scripts/ci/prepare-entity-row-review.mjs
 
