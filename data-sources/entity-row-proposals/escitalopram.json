@@ -1,0 +1,11 @@
+{
+  "entity_type": "compound",
+  "slug": "escitalopram",
+  "name": "Escitalopram",
+  "summary": "Escitalopram is a selective serotonin reuptake inhibitor (SSRI) medication. This profile remains research-only while molecule-specific efficacy, safety, interaction, age-specific, and regulatory evidence is assembled and reviewed.",
+  "description": "Canonical escitalopram entity for evidence and safety integration. Publication remains held until molecule-specific scientific evidence, pediatric and adult indication boundaries, interaction, and regulatory provenance has passed the site’s review gates.",
+  "primary_effects_or_targets": "serotonin transporter (SERT); serotonergic signaling",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only"
+}
