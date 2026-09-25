@@ -184,6 +184,11 @@ try {
     if (record.sitemap_included !== false) {
       throw new Error(`Proposed compound must remain outside sitemap: ${slug}`)
     }
+    const expectedSafety = String(proposal.value.safety_notes || '').replace(/\\s+/g, ' ').trim()
+    const actualSafety = String(record.safety || '').replace(/\\s+/g, ' ').trim()
+    if (expectedSafety && actualSafety !== expectedSafety) {
+      throw new Error(`Proposed compound lost reviewed safety text: ${slug}`)
+    }
     checks.push({
       slug,
       name: record.name,
