@@ -1,0 +1,14 @@
+{
+  "entity_type": "compound",
+  "slug": "lisdexamfetamine",
+  "name": "Lisdexamfetamine",
+  "summary": "Lisdexamfetamine is a central nervous system stimulant prodrug converted to dextroamphetamine. This profile remains research-only while indication-specific efficacy, abuse and misuse risk, cardiovascular and psychiatric safety, interaction, age-specific, and regulatory evidence is assembled and reviewed.",
+  "description": "Canonical lisdexamfetamine entity for evidence and safety integration. Publication remains held while molecule-specific and amphetamine-class evidence is kept distinct and controlled-substance, cardiovascular, interaction, and regulatory provenance passes the site’s review gates.",
+  "primary_effects_or_targets": "prodrug conversion to dextroamphetamine; dopamine and norepinephrine signaling",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only",
+  "controlled_substance": true,
+  "legal_status": "U.S. Schedule II controlled substance",
+  "allow_restricted_reference_export": true
+}

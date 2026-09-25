@@ -1,0 +1,14 @@
+{
+  "entity_type": "compound",
+  "slug": "methylphenidate",
+  "name": "Methylphenidate",
+  "summary": "Methylphenidate is a central nervous system stimulant that alters catecholamine signaling through dopamine and norepinephrine transporter inhibition. This profile remains research-only while indication-specific efficacy, abuse and misuse risk, cardiovascular and psychiatric safety, interaction, formulation, age-specific, and regulatory evidence is assembled and reviewed.",
+  "description": "Canonical methylphenidate entity for evidence and safety integration. Publication remains held until formulation-specific scientific evidence, controlled-substance status, cardiovascular safety, interaction, and regulatory provenance has passed the site’s review gates.",
+  "primary_effects_or_targets": "dopamine and norepinephrine transporter inhibition; catecholamine signaling",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only",
+  "controlled_substance": true,
+  "legal_status": "U.S. Schedule II controlled substance",
+  "allow_restricted_reference_export": true
+}

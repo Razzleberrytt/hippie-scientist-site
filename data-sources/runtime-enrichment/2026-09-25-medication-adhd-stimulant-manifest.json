@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-09-25-medication-lisdexamfetamine-methylphenidate",
+  "generated_from": {
+    "input_files": [
+      "DailyMed lisdexamfetamine setid 68b10d9f-ca3e-493d-a309-45f1d7e08061",
+      "DailyMed methylphenidate setid 35be77db-fbe3-487e-a220-a08a11aaec28",
+      "PubMed PMID 39350825",
+      "PubMed PMID 30097390",
+      "PubMed PMID 42134365",
+      "PubMed PMID 40203844"
+    ],
+    "review_note": "Manual evidence pass for fail-closed lisdexamfetamine and methylphenidate canonical entities, preserving molecule-specific, class-level, age-stratified, cardiovascular, and regulatory boundaries."
+  },
+  "counts": {
+    "entity_context_rows": 0,
+    "evidence_rows": 8,
+    "source_rows": 6,
+    "relationship_rows": 0,
+    "evidence_rows_after_canonical_dedupe": 8,
+    "source_rows_after_canonical_dedupe": 6,
+    "live_relationship_rows_new_after_dedupe": 0
+  },
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden",
+    "evidence_merge": "append-only, deduplicated by entity + PMID/DOI/title",
+    "regulatory_provenance": "jurisdiction-, formulation-, and revision-specific label claims remain tied to their cited DailyMed source",
+    "controlled_medication_export": "canonical entities must remain truthful Schedule II restricted-reference records; evidence ledger cannot carry governance fields"
+  },
+  "ledger": {
+    "file": "2026-09-25-medication-adhd-stimulant-enrichment.json",
+    "sha256": "020ef956555ce508273106d6bfda89ca6e84096a237c97f4931908e61ec0ef7d",
+    "bytes": 14538
+  }
+}

@@ -293,5 +293,12 @@ describe('manifest-backed additive enrichment ledgers', () => {
     expect(second).toBeTruthy()
     expect(new Set(second!.ledger.evidence.map((row: any) => row.entity_slug)))
       .toEqual(new Set(['dextroamphetamine', 'zolpidem']))
+
+    const third = medicationBatches.find((batch) =>
+      batch.manifest.batch_id === '2026-09-25-medication-lisdexamfetamine-methylphenidate',
+    )
+    expect(third).toBeTruthy()
+    expect(new Set(third!.ledger.evidence.map((row: any) => row.entity_slug)))
+      .toEqual(new Set(['lisdexamfetamine', 'methylphenidate']))
   })
 })
