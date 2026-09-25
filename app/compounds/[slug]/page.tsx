@@ -64,6 +64,7 @@ import ArticleMdx from '@/components/articles/ArticleMdx'
 import MonographHeroImage from '@/components/profile/MonographHeroImage'
 import { getMonographImage } from '@/lib/monograph-images'
 import { buildCompoundTrustGuidance } from '@/lib/compound-trust'
+import { getControlledMedicationWarning } from '@/lib/controlled-medication-warning'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -627,7 +628,7 @@ export default async function CompoundPage({ params }: PageProps) {
     redirect(`/compounds/${normalizeSlug(compound.slug)}/`)
   }
 
-  const legalStatusWarning = LEGAL_STATUS_WARNINGS[normalizedSlug]
+  const legalStatusWarning = LEGAL_STATUS_WARNINGS[normalizedSlug] ?? getControlledMedicationWarning(compound)
   const suppressAffiliate =
     shouldSuppressAffiliate(compound) ||
     Boolean(legalStatusWarning?.suppressAffiliate) ||
