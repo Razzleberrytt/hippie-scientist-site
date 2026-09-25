@@ -27,7 +27,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   validate:
@@ -38,6 +38,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -78,6 +80,27 @@ jobs:
           retention-days: 7
           compression-level: 0
 
+      # TEMPORARY branch bootstrap: materialize the reviewed binary workbook and
+      # generator-owned runtime. This block is removed after the materialization
+      # commit; the final PR head is then revalidated by the normal workflow.
+      - name: Materialize reviewed workbook and proposal runtime
+        env:
+          HERB_XLSX_PATH: reports/entity-row-review/herb_monograph_master.review.xlsx
+          ALLOW_EXTERNAL_WORKBOOK_PATH: 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/ci/sync-proposed-compound-runtime.mjs --write
+          cp reports/entity-row-review/herb_monograph_master.review.xlsx data-sources/herb_monograph_master.xlsx
+          git config user.name "ths-data-review-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data-sources/herb_monograph_master.xlsx public/data/compounds.json
+          if git diff --cached --quiet; then
+            echo "Reviewed workbook/runtime already materialized."
+          else
+            git commit -m "chore(data): materialize reviewed antidepressant entities"
+            git push origin "HEAD:${{ github.head_ref }}"
+          fi
       - name: Validate proposed compound runtime parity
         run: node scripts/ci/sync-proposed-compound-runtime.mjs
 
