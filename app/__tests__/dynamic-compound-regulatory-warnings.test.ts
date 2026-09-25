@@ -32,6 +32,13 @@ describe('dynamic compound regulatory warnings', () => {
     expect(page).not.toMatch(/compounded access now generally requires individualized, physician-documented clinical necessity/i)
   })
 
+  it('falls back to canonical controlled-medication warnings for controlled records', () => {
+    const page = readPage()
+
+    expect(page).toContain("getControlledMedicationWarning")
+    expect(page).toContain("LEGAL_STATUS_WARNINGS[normalizedSlug] ?? getControlledMedicationWarning(compound)")
+  })
+
   it('does not label missing or pending safety as standard caution', () => {
     const page = readPage()
 
