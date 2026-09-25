@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-09-25-medication-escitalopram-bupropion",
+  "generated_from": {
+    "input_files": [
+      "DailyMed escitalopram setid 155e973a-f4ff-4e5a-b937-09f1e106fe39",
+      "DailyMed bupropion XL setid d9eb0939-63c1-48c4-a444-a899d7924d06",
+      "PubMed PMID 29477251",
+      "PubMed PMID 15982747",
+      "PubMed PMID 27141292",
+      "PubMed PMID 16841623"
+    ],
+    "review_note": "Manual evidence pass for fail-closed escitalopram and bupropion canonical entities, preserving indication, formulation, comparative-efficacy, sexual-function, and regulatory boundaries."
+  },
+  "counts": {
+    "entity_context_rows": 0,
+    "evidence_rows": 8,
+    "source_rows": 6,
+    "relationship_rows": 0,
+    "evidence_rows_after_canonical_dedupe": 8,
+    "source_rows_after_canonical_dedupe": 5,
+    "live_relationship_rows_new_after_dedupe": 0
+  },
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden",
+    "evidence_merge": "append-only, deduplicated by entity + PMID/DOI/title",
+    "regulatory_provenance": "jurisdiction-, product-, formulation-, and revision-specific label claims remain tied to their cited DailyMed source",
+    "medication_export": "canonical entities remain research-only and hidden-until-grounded; the evidence ledger cannot carry governance fields"
+  },
+  "ledger": {
+    "file": "2026-09-25-medication-antidepressant-enrichment.json",
+    "sha256": "f134b57d857ceb81678656ca4ba64055682978c7df75a86969b56f764b65434f",
+    "bytes": 14660
+  }
+}
