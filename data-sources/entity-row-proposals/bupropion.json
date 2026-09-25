@@ -7,5 +7,6 @@
   "primary_effects_or_targets": "norepinephrine and dopamine reuptake inhibition; monoamine signaling",
   "evidence_tier": "Evidence-Limited",
   "runtime_export_decision": "hidden_until_grounded",
-  "profile_status": "research_only"
+  "profile_status": "research_only",
+  "safety_notes": "U.S. prescribing information for bupropion XL carries a boxed warning about suicidal thoughts and behaviors in pediatric and young adult patients. Seizure risk is dose-related, and hypertension can occur. This summary is not exhaustive; consult current product-specific prescribing information."
 }
