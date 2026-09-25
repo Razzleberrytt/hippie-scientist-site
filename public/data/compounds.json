@@ -21565,9 +21565,9 @@
     "last_reviewed": "",
     "doNotMonetize": false,
     "doNotPromote": false,
-    "allow_restricted_reference_export": false,
+    "allow_restricted_reference_export": true,
     "governance_status": "",
-    "legal_status": "",
+    "legal_status": "U.S. Schedule II controlled substance",
     "controlled_status": "",
     "controlled_schedule": "",
     "dea_status": "",
@@ -21593,7 +21593,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": true
   },
   {
     "slug": "dhea",
@@ -69036,9 +69036,9 @@
     "last_reviewed": "",
     "doNotMonetize": false,
     "doNotPromote": false,
-    "allow_restricted_reference_export": false,
+    "allow_restricted_reference_export": true,
     "governance_status": "",
-    "legal_status": "",
+    "legal_status": "U.S. Schedule IV controlled substance",
     "controlled_status": "",
     "controlled_schedule": "",
     "dea_status": "",
@@ -69064,6 +69064,6 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": true
   }
 ]
