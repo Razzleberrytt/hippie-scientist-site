@@ -1,0 +1,77 @@
+name: One-shot repair PR 5933 controlled status
+
+on:
+  push:
+    branches:
+      - manual/dextroamphetamine-zolpidem-canonical-2026-09-24
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Repair canonical controlled-substance fields
+        run: |
+          set -euo pipefail
+          node scripts/data/edit-entity-master-cell.mjs --slug dextroamphetamine --column controlled_substance --value true --in-place
+          node scripts/data/edit-entity-master-cell.mjs --slug dextroamphetamine --column legal_status --value "U.S. Schedule II controlled substance" --in-place
+          node scripts/data/edit-entity-master-cell.mjs --slug zolpidem --column controlled_substance --value true --in-place
+          node scripts/data/edit-entity-master-cell.mjs --slug zolpidem --column legal_status --value "U.S. Schedule IV controlled substance" --in-place
+
+      - name: Validate workbook and regenerate proposal runtime records
+        run: |
+          set -euo pipefail
+          node scripts/ci/validate-workbook-schema.mjs
+          node scripts/ci/prepare-entity-row-review.mjs
+          npx vitest run tests/runtime-enrichment.test.ts
+          node scripts/ci/sync-proposed-compound-runtime.mjs --write
+          node scripts/ci/sync-proposed-compound-runtime.mjs
+          npm run -s guard:source-of-truth
+
+      - name: Assert repaired runtime classification
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          const rows = JSON.parse(fs.readFileSync('public/data/compounds.json', 'utf8'))
+          const wanted = new Map([
+            ['dextroamphetamine', 'U.S. Schedule II controlled substance'],
+            ['zolpidem', 'U.S. Schedule IV controlled substance'],
+          ])
+          for (const [slug, legal] of wanted) {
+            const row = rows.find((x) => x.slug === slug)
+            if (!row) throw new Error('Missing runtime row: ' + slug)
+            if (row.controlled_substance !== true) throw new Error(slug + ' controlled_substance != true')
+            if (row.legal_status !== legal) throw new Error(slug + ' legal_status mismatch: ' + JSON.stringify(row.legal_status))
+            if (row.indexability_status !== 'NOINDEX') throw new Error(slug + ' escaped NOINDEX')
+            if (row.sitemap_included !== false) throw new Error(slug + ' escaped sitemap exclusion')
+            console.log(slug, row.controlled_substance, row.legal_status, row.indexability_status, row.sitemap_included)
+          }
+          NODE
+
+      - name: Commit repair and remove one-shot workflow
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/repair-5933-controlled-status.yml
+          git add data-sources/herb_monograph_master.xlsx public/data/compounds.json
+          git diff --cached --check
+          git diff --cached --name-status
+          git commit -m "fix(data): classify dextroamphetamine and zolpidem controls"
+          git push origin HEAD:manual/dextroamphetamine-zolpidem-canonical-2026-09-24
