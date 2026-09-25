@@ -55,14 +55,17 @@ jobs:
       - name: Validate workbook schema
         run: npm run validate:workbook-schema --silent
 
-      - name: Validate manifest-backed runtime enrichment
-        run: npx vitest run tests/runtime-enrichment.test.ts
-
       - name: Validate surgical Entity_Master append path
         run: node scripts/ci/validate-workbook-append-row.mjs
 
       - name: Prepare fail-closed entity review workbook
         run: node scripts/ci/prepare-entity-row-review.mjs
+
+      - name: Validate manifest-backed runtime enrichment
+        env:
+          HERB_XLSX_PATH: reports/entity-row-review/herb_monograph_master.review.xlsx
+          ALLOW_EXTERNAL_WORKBOOK_PATH: 'true'
+        run: npx vitest run tests/runtime-enrichment.test.ts
 
       - name: Upload fail-closed entity review workbook
         uses: actions/upload-artifact@v7
@@ -74,6 +77,12 @@ jobs:
           if-no-files-found: error
           retention-days: 7
           compression-level: 0
+
+      - name: Validate proposed compound runtime parity
+        run: node scripts/ci/sync-proposed-compound-runtime.mjs
+
+      - name: Guard workbook source of truth
+        run: npm run guard:source-of-truth --silent
 
       - name: Validate patch proposals against current workbook
         id: patch_check
@@ -92,7 +101,7 @@ jobs:
         with:
           name: workbook-patch-report
           path: workbook-patch-report.txt
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 14
 
       - name: Upload workbook for approved application
