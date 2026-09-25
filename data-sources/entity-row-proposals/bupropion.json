@@ -1,0 +1,11 @@
+{
+  "entity_type": "compound",
+  "slug": "bupropion",
+  "name": "Bupropion",
+  "summary": "Bupropion is an aminoketone antidepressant whose pharmacology involves norepinephrine and dopamine signaling. This profile remains research-only while indication-specific efficacy, seizure and blood-pressure safety, interaction, formulation, and regulatory evidence is assembled and reviewed.",
+  "description": "Canonical bupropion entity for evidence and safety integration. Publication remains held until formulation- and indication-specific scientific evidence, seizure and interaction safety, and regulatory provenance has passed the site’s review gates.",
+  "primary_effects_or_targets": "norepinephrine and dopamine reuptake inhibition; monoamine signaling",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only"
+}
