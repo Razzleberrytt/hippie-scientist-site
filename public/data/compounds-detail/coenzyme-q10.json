@@ -2,8 +2,8 @@
   "id": "coenzyme-q10",
   "slug": "coenzyme-q10",
   "name": "Coenzyme Q10",
-  "summary": "Coenzyme Q10 has human evidence in specific contexts, but effects are not uniform: Q-SYMBIO reported a chronic-heart-failure event signal, pooled fatigue evidence is modest, depression findings vary by scale, anxiety data are null and limited, and exercise-performance effects are small and inconsistent.",
-  "description": "CoQ10 evidence is endpoint- and population-dependent. A disease-specific heart-failure RCT and several randomized-trial syntheses provide human signals, but depression scales disagree, anxiety evidence is limited and null, fatigue findings vary by population, and exercise effects are low-certainty. These data do not justify a universal benefit or dosing claim.",
+  "summary": "Coenzyme Q10 has human evidence in specific contexts, but effects are not uniform: Q-SYMBIO reported a chronic-heart-failure event signal, pooled fatigue evidence is modest, depression findings vary by scale, anxiety data are limited and not statistically significant, and exercise-performance effects are small and inconsistent.",
+  "description": "CoQ10 evidence is endpoint- and population-dependent. A disease-specific heart-failure RCT and several randomized-trial syntheses provide human signals, but depression scales disagree, anxiety evidence is limited and not statistically significant, fatigue findings vary by population, and exercise effects are low-certainty. These data do not justify a universal benefit or dosing claim.",
   "compoundClass": "",
   "mechanisms": [
     "Oxidative Stress Modulation",
