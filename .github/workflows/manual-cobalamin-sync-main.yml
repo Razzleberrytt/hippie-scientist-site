@@ -1,0 +1,28 @@
+name: Manual Cobalamin Sync Main
+
+on:
+  push:
+    branches:
+      - manual/cobalamin-closure-20260926
+    paths:
+      - '.github/workflows/manual-cobalamin-sync-main.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: manual/cobalamin-closure-20260926
+          fetch-depth: 0
+      - name: Merge exact current main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin main
+          git merge --no-edit origin/main
+          git push origin HEAD:manual/cobalamin-closure-20260926
