@@ -2809,8 +2809,8 @@
     "id": "coenzyme-q10",
     "slug": "coenzyme-q10",
     "name": "Coenzyme Q10",
-    "summary": "Coenzyme Q10 is a compound studied in connection with energy and heart health activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Coenzyme Q10 is a compound studied in connection with energy and heart health activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Coenzyme Q10 has human evidence in specific contexts, but effects are not uniform: Q-SYMBIO reported a chronic-heart-failure event signal, pooled fatigue evidence is modest, depression findings vary by scale, anxiety data are null and limited, and exercise-performance effects are small and inconsistent.",
+    "description": "CoQ10 evidence is endpoint- and population-dependent. A disease-specific heart-failure RCT and several randomized-trial syntheses provide human signals, but depression scales disagree, anxiety evidence is limited and null, fatigue findings vary by population, and exercise effects are low-certainty. These data do not justify a universal benefit or dosing claim.",
     "compoundClass": "",
     "mechanisms": [
       "Oxidative Stress Modulation",
@@ -2824,28 +2824,8 @@
     "pathways": [],
     "foundIn": [],
     "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "coq10",
-    "slug": "coq10",
-    "name": "Coenzyme Q10",
-    "summary": "Coenzyme Q10 is a compound studied in connection with cardiovascular and energy activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Coenzyme Q10 is a compound studied in connection with cardiovascular and energy activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Oxidative Stress Modulation",
-      "Mitochondrial Support",
-      "Vascular Function Support"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
+    "safetyNotes": "Preserve medication-interaction screening, especially with warfarin or other vitamin-K antagonists and blood-pressure or glucose-lowering therapies. The reviewed efficacy evidence does not establish a universal consumer dose, formulation, or long-term safety profile.",
+    "evidenceLevel": "Moderate Human Evidence",
     "relatedCompounds": []
   },
   {
@@ -10470,28 +10450,6 @@
       "Metabolic Regulation",
       "Vascular Function Support",
       "NF-kB Modulation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "coenzyme-q10-ubiquinol",
-    "slug": "coenzyme-q10-ubiquinol",
-    "name": "Ubiquinol CoQ10",
-    "summary": "Ubiquinol CoQ10 is a compound studied in connection with energy and heart health activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Ubiquinol CoQ10 is a compound studied in connection with energy and heart health activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Oxidative Stress Modulation",
-      "Mitochondrial Support",
-      "Vascular Function Support",
-      "Stress Response Modulation",
-      "Neuroprotective Activity"
     ],
     "targets": [],
     "pathways": [],
