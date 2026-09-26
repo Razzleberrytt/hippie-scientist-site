@@ -68,7 +68,7 @@ jobs:
 
       - name: Validation-only control fast path
         if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.validation_only == 'true'
-        run: echo "Build-output-neutral control/security change; run lint, focused control tests, and the fail-closed security audit without app/data/build suites."
+        run: echo "Build-output-neutral control/security/validation-policy change; run lint, focused tests/validators, and the fail-closed security audit without app/data/build suites."
 
       - name: Setup Node from .nvmrc
         if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true'
@@ -113,7 +113,7 @@ jobs:
         if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true'
         run: npm run lint
 
-      - name: Run focused control-plane tests
+      - name: Run focused validation-only tests
         if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.validation_only == 'true'
         run: >-
           npx vitest run
@@ -124,8 +124,14 @@ jobs:
           scripts/ci/autonomous-merge-refresh-safety.test.mjs
           scripts/ci/autonomous-merge-authorization.test.mjs
           scripts/ci/verify-deploy-authorization.test.mjs
+          scripts/ci/__tests__/evidence-language-negation.test.mjs
+          lib/__tests__/validate-evidence-language.test.ts
           tests/autonomous-merge-controller-contract.test.ts
           tests/deployment-handoff-contract.test.ts
+
+      - name: Run focused evidence-language validator
+        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.validation_only == 'true'
+        run: npm run validate:evidence-language
       - name: Validate governor state on validation-only changes
         if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.validation_only == 'true'
         run: |
@@ -244,7 +250,7 @@ jobs:
           elif [ "${{ steps.impact.outputs.docs_only }}" = "true" ]; then
             echo "- Fast path: exhaustive app/data validation skipped because every changed file is classified docs-only; dedicated path-scoped governance checks remain authoritative." >> "$GITHUB_STEP_SUMMARY"
           elif [ "${{ steps.impact.outputs.validation_only }}" = "true" ]; then
-            echo "- Fast path: lint + focused control tests + security audit; app/data/full-test suites skipped because the exact path classifier proves the diff cannot alter public build output." >> "$GITHUB_STEP_SUMMARY"
+            echo "- Fast path: lint + focused validation-only tests/validators + security audit; app/data/full-test/build suites skipped because the exact path classifier proves the diff cannot alter public build output." >> "$GITHUB_STEP_SUMMARY"
           elif [ "${{ steps.impact.outputs.leaf_page_only }}" = "true" ]; then
             echo "- Fast path: lint + typecheck + dependency-related Vitest selection + explicit a11y + native node:test + canonical data/runtime/security gates; production build/output/SEO remains authoritative." >> "$GITHUB_STEP_SUMMARY"
           else
