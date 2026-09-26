@@ -102,11 +102,28 @@ function sessionFragmentFiles(root: string): string[] {
     .sort()
 }
 
-function stagedSubmissionEntityKeys(): string[] {
-  const root = path.join(ROOT, 'ops', 'enrichment-submissions', 'sessions')
-  const keys = new Set<string>()
+function authorizedStagedSubmissionEntityKeys(): string[] {
+  const queuePath = path.join(ROOT, 'ops', 'enrichment-governor', 'work-queue.json')
+  const fragmentRoot = path.join(ROOT, 'ops', 'enrichment-submissions', 'sessions')
+  if (!fs.existsSync(queuePath)) return []
 
-  for (const filePath of sessionFragmentFiles(root)) {
+  const queue = JSON.parse(fs.readFileSync(queuePath, 'utf8')) as {
+    leases?: Array<{ entities?: string[]; expiresAt?: string }>
+  }
+  const now = Date.now()
+  const leasedEntityKeys = new Set(
+    (queue.leases || [])
+      .filter(lease => {
+        const expiresAt = Date.parse(String(lease.expiresAt || ''))
+        return Number.isFinite(expiresAt) && expiresAt > now
+      })
+      .flatMap(lease => lease.entities || [])
+      .filter(value => /^(?:herb|compound):[a-z0-9-]+$/.test(value)),
+  )
+  if (leasedEntityKeys.size === 0) return []
+
+  const keys = new Set<string>()
+  for (const filePath of sessionFragmentFiles(fragmentRoot)) {
     const fragment = JSON.parse(fs.readFileSync(filePath, 'utf8')) as {
       submissions?: Array<{
         active?: boolean
@@ -123,7 +140,8 @@ function stagedSubmissionEntityKeys(): string[] {
 
       const slug = normalizeSlug(submission.entitySlug)
       if (!slug) continue
-      keys.add(entityKey(submission.entityType, slug))
+      const key = entityKey(submission.entityType, slug)
+      if (leasedEntityKeys.has(key)) keys.add(key)
     }
   }
 
@@ -270,7 +288,7 @@ function run() {
     expandedCompoundCandidateKeys.add(entityKey('compound', slug))
   }
 
-  const stagedEntityKeys = stagedSubmissionEntityKeys()
+  const stagedEntityKeys = authorizedStagedSubmissionEntityKeys()
 
   const allEntityKeys = new Set<string>([
     ...indexableKeys,
