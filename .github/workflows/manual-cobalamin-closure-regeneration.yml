@@ -1,0 +1,124 @@
+name: Manual Cobalamin Closure Regeneration
+
+on:
+  push:
+    branches:
+      - manual/cobalamin-closure-20260926
+    paths:
+      - '.github/workflows/manual-cobalamin-closure-regeneration.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: manual-cobalamin-closure-regeneration
+  cancel-in-progress: false
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: manual/cobalamin-closure-20260926
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Sync live governor state from main without persisting it
+        run: |
+          git fetch origin main --depth=1
+          git show origin/main:ops/enrichment-governor/work-queue.json > ops/enrichment-governor/work-queue.json
+
+      - name: Verify live cobalamin lease
+        run: |
+          node <<'NODE'
+          const fs = require('fs')
+          const q = JSON.parse(fs.readFileSync('ops/enrichment-governor/work-queue.json','utf8'))
+          const lease = (q.leases || []).find(x => x.id === 'lease-5703-cobalamin-closure-r2')
+          if (!lease) throw new Error('cobalamin lease missing')
+          if (lease.owner !== 'site-swarm-integration') throw new Error('unexpected lease owner')
+          if (!Array.isArray(lease.entities) || lease.entities.length !== 1 || lease.entities[0] !== 'compound:cobalamin') throw new Error('unexpected lease scope')
+          const remainingMs = Date.parse(lease.expiresAt) - Date.now()
+          if (remainingMs <= 5 * 60 * 1000) throw new Error('cobalamin lease has <=5 minutes remaining')
+          console.log({ leaseId: lease.id, expiresAt: lease.expiresAt, remainingMinutes: Math.floor(remainingMs/60000) })
+          NODE
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Validate normalized evidence before generation
+        run: |
+          node scripts/enrichment/validate-normalized-enrichment.mjs
+          node --test scripts/enrichment-governor/__tests__/source-candidate-identity.test.mjs
+          node --test scripts/enrichment-governor/__tests__/staged-closure-seeds.test.mjs
+
+      - name: Regenerate governed and runtime artifacts
+        run: |
+          node scripts/enrichment/generate-governed-enrichment.mjs
+          node scripts/data/apply-enrichment-runtime-overrides.mjs
+          node scripts/generate-entity-payloads.mjs
+
+      - name: Verify cobalamin closure boundaries
+        run: |
+          node --test scripts/enrichment-governor/__tests__/cobalamin-closure-boundaries.test.mjs
+          node --test scripts/enrichment-governor/__tests__/vitamin-b6-closure-boundaries.test.mjs
+          node --test scripts/enrichment-governor/__tests__/methyl-eugenol-closure-boundaries.test.mjs
+          node scripts/enrichment-pipeline/control-plane-cli.mjs validate
+          node scripts/ci/validate-enrichment-session-safety.mjs
+          node scripts/validate-source-registry.mjs
+          node scripts/enrichment-governor/validate-state.mjs
+
+      - name: Recheck lease before committing canonical generation
+        run: |
+          git show origin/main:ops/enrichment-governor/work-queue.json > ops/enrichment-governor/work-queue.json
+          node <<'NODE'
+          const fs = require('fs')
+          const q = JSON.parse(fs.readFileSync('ops/enrichment-governor/work-queue.json','utf8'))
+          const lease = (q.leases || []).find(x => x.id === 'lease-5703-cobalamin-closure-r2')
+          if (!lease || lease.owner !== 'site-swarm-integration' || lease.entities?.length !== 1 || lease.entities[0] !== 'compound:cobalamin') throw new Error('cobalamin lease missing or changed')
+          if (Date.parse(lease.expiresAt) <= Date.now()) throw new Error('cobalamin lease expired before generated commit')
+          console.log({ expiresAt: lease.expiresAt })
+          NODE
+
+      - name: Verify generated diff scope
+        run: |
+          git checkout -- ops/enrichment-governor/work-queue.json
+          git status --short
+          node <<'NODE'
+          const cp = require('child_process')
+          const lines = cp.execFileSync('git',['status','--short'],{encoding:'utf8'}).trim().split(/\r?\n/).filter(Boolean)
+          const allowed = [
+            'public/data/enrichment-governed.json',
+            'public/data/compounds.json',
+            'public/data/compounds-detail/cobalamin.json',
+            'public/data/ai-entities/compound/cobalamin.json',
+            'public/data/ai-entities/manifest.json',
+          ]
+          const generated = lines.map(line => line.slice(3)).filter(path => allowed.includes(path))
+          const unexpected = lines.map(line => line.slice(3)).filter(path =>
+            (path.startsWith('public/data/') || path.startsWith('data/canonical/')) && !allowed.includes(path)
+          )
+          if (unexpected.length) throw new Error('unexpected generated canonical paths: '+unexpected.join(', '))
+          if (!generated.includes('public/data/enrichment-governed.json')) throw new Error('governed artifact did not change')
+          if (!generated.includes('public/data/compounds-detail/cobalamin.json')) throw new Error('cobalamin detail did not change')
+          if (!generated.includes('public/data/ai-entities/compound/cobalamin.json')) throw new Error('cobalamin AI entity did not change')
+          console.log({generated})
+          NODE
+
+      - name: Commit deterministic generated outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/enrichment-governed.json
+          git add public/data/compounds-detail/cobalamin.json
+          git add public/data/ai-entities/compound/cobalamin.json
+          git add public/data/ai-entities/manifest.json
+          git add public/data/compounds.json || true
+          git diff --cached --quiet && { echo "No generated cobalamin delta produced"; exit 1; }
+          git commit -m "data(enrichment): regenerate cobalamin governed runtime"
+          git push origin HEAD:manual/cobalamin-closure-20260926
