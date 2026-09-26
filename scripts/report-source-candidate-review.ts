@@ -5,6 +5,7 @@ import addFormats from 'ajv-formats'
 import { getSourceClassRule } from './lib/source-class-governance'
 import type { SourceRegistryRecord } from './lib/source-registry-record'
 import { candidateSourceIdBase } from './lib/source-candidate-identity.mjs'
+import { resolveSourceClassAuthorization } from './lib/source-retry-authorization.mjs'
 
 type ReviewStatus =
   | 'draft_candidate'
@@ -310,9 +311,8 @@ function run() {
       if (match) duplicateMatches.push({ sourceId: match.sourceId, matchType: 'canonicalUrl' })
     }
 
-    const wrongClassForGap = Boolean(
-      intakeTask && intakeTask.recommendedSourceClasses.length > 0 && !intakeTask.recommendedSourceClasses.includes(candidate.sourceClass),
-    )
+    const classAuthorization = resolveSourceClassAuthorization(intakeTask, candidate.sourceClass)
+    const wrongClassForGap = Boolean(intakeTask && !classAuthorization.authorized)
 
     let outcomeCategory: OutcomeCategory = 'approved_new_source'
     if (duplicateMatches.length > 0 || candidate.duplicateRisk === 'known-duplicate' || isNonEmpty(candidate.duplicateOfSourceId)) {
