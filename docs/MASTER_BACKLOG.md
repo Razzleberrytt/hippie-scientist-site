@@ -46,27 +46,27 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-**2026-09-25 P0 #5941 — Active, owner-directed control incident:** Reduce verified Actions controller amplification (latest 100 runs: 29 controller invocations, 22 cancellations). Scope is repository-wide measurement plus the first bounded coordinator repair; later optimizations require their own evidence and scoped admission. Uses the existing Operations maintenance exception, preserves #5703 ownership and all scientific/release gates. No new normal lane is created. After metrics and merge/deploy proof are pending.
+**2026-09-25 P0 #5941 — Resolved:** bounded Actions coordination repair merged via PR #5949 and no longer consumes an Operations exception or changes normal D/R/A admission.
 
-Current review state: **1/3 normal implementation workstreams occupied**. #5698 / PR #5701 is merged and retired; Authority/Content is now owned by #5703 for the bounded cobalamin deficiency-vs-enhancement closure. #5705 is its exact-main state-only governor-lease prerequisite and does not consume a normal implementation workstream. #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, #5665 / PR #5668, #5629 / PR #5650, #5647 / PR #5657, #5602 / PR #5661, and #5631 / PR #5663 are merged and retired.
+Current review state: **0/3 normal implementation workstreams occupied**. #5703 / PR #5961 is merged and retired. Discovery/SEO, Revenue/Conversion, and Authority/Content are free. #5706 is the next staged Authority/Content candidate but is not admitted by this retirement transaction; a separate exact-base admission transaction must pass the scored manifest contract before #5963 may acquire its narrow CoQ10 lease. #5707 and #5708 remain staging-only; #5081 remains separately blocked on its own lease.
 
 | Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #5703 | Close cobalamin deficiency-vs-enhancement evidence with new 2024 null meta-analysis | A | Admitted — blocked on #5705 lease | P1 evidence governance | — | — | Five-source closure preflighted 2026-09-20; canonical mutation waits for exact-main governor transaction |
 
 - **D — free:** #5688 / PR #5691 is merged and retired.
 - **R — free:** #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
-- **A — occupied:** #5703 owns the bounded cobalamin closure. #5705 is its mandatory state-only lease prerequisite; #5081 remains separately blocked on its own fresh non-overlapping governor lease.
+- **A — free:** #5706 is the next staged Authority/Content candidate but requires a separate exact-base admission transaction before it owns the lane. #5963 remains a post-admission state-only prerequisite. Legacy `coq10` / `coenzyme-q10-ubiquinol` identities must reconcile to `compound:coenzyme-q10` without a parallel scientific owner; #5081 remains separately blocked on its own fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
 - **Control maintenance:** #5642 aligns the non-authoritative swarm feeder with the merged search-conversion policy; it is docs-only and does not consume a normal implementation workstream.
 
 Research-only enrichment staging remains separate from canonical implementation/promotion WIP. The durable candidate feeder is `docs/SWARM_BACKLOG.md`; it does not itself grant execution authority.
 
+- **#5703 / PR #5961 — retired 2026-09-26:** merged as `6bd7b57a633c8f88a70edb688d969ee19e7de8ad`; five cobalamin findings terminally promoted with source/runtime/governance repair and exact-head validation green. External Cloudflare preview status remained stale and was not a protected merge requirement.
 - **#5698 / PR #5701 — retired 2026-09-20:** merged as `1727c68cbb5dfc865e4be7c02af6e0fb7d867d75`; retracted PMID 41461240 / DOI 10.1016/j.jad.2025.121055 is quarantined against identifier re-entry and the stress-guide evidence path is repaired. All required exact-head gates passed; external search/conversion/revenue impact remains `Unknown`.
 
 ## Next — ordered dependency queue
 
-Discovery/SEO and Revenue/Conversion are available; Authority/Content is occupied by #5703 until the cobalamin closure is terminally completed or explicitly retired. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
+All three normal lanes are available after #5703 retirement. #5706 is the next staged Authority/Content candidate, but a separate exact-base admission transaction must add it with the machine-readable scored manifest and fresh issue revalidation before #5963 may acquire its narrow governor lease. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
