@@ -57,6 +57,12 @@ export const VALIDATION_ONLY_PATTERNS = [
   /^scripts\/ci\/(?:reconcile-project-control|validate-project-control-admission)(?:\.test)?\.mjs$/,
   /^scripts\/ci\/autonomous-merge-(?:controller|monitor|refresh-safety|authorization)(?:\.test)?\.mjs$/,
   /^scripts\/ci\/verify-deploy-authorization(?:\.test)?\.mjs$/,
+  // Pure evidence-language policy and its focused regressions cannot inspect or
+  // change built output. The runner stays off this allowlist because it contains
+  // post-build out/ reporting that must remain production-build validated.
+  /^scripts\/ci\/evidence-language-policy\.mjs$/,
+  /^scripts\/ci\/__tests__\/evidence-language-negation\.test\.mjs$/,
+  /^lib\/__tests__\/validate-evidence-language\.test\.ts$/,
   /^tests\/autonomous-merge-controller-contract\.test\.ts$/,
   /^tests\/deployment-handoff-contract\.test\.ts$/,
   /^\.github\/workflows\/autonomous-merge-controller\.yml$/,

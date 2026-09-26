@@ -9,6 +9,7 @@ describe('release impact classification', () => {
   it.each([
     'scripts/data/build-runtime-from-workbook.mjs',
     'scripts/ci/validate-route-seo.mjs',
+    'scripts/ci/validate-evidence-language.mjs',
     'scripts/build-deploy.mjs',
     'app/page.tsx',
     'app/layout.tsx',
@@ -217,7 +218,10 @@ describe('workflow release-impact contract', () => {
     const atomic = fs.readFileSync(path.join(process.cwd(), '.github/workflows/atomic-upgrade-gate.yml'), 'utf8')
 
     expect(ci).toContain("if: steps.impact.outputs.validation_only == 'true'")
-    expect(ci).toContain('Run focused control-plane tests')
+    expect(ci).toContain('Run focused validation-only tests')
+    expect(ci).toContain('lib/__tests__/validate-evidence-language.test.ts')
+    expect(ci).toContain('scripts/ci/__tests__/evidence-language-negation.test.mjs')
+    expect(ci).toContain('npm run validate:evidence-language')
     expect(ci).toContain('scripts/ci/autonomous-merge-refresh-safety.test.mjs')
     expect(ci).toContain('scripts/ci/autonomous-merge-authorization.test.mjs')
     expect(ci).toContain('scripts/ci/verify-deploy-authorization.test.mjs')
@@ -279,6 +283,9 @@ describe('validation-only classification', () => {
     'scripts/ci/autonomous-merge-authorization.test.mjs',
     'scripts/ci/verify-deploy-authorization.mjs',
     'scripts/ci/verify-deploy-authorization.test.mjs',
+    'scripts/ci/evidence-language-policy.mjs',
+    'scripts/ci/__tests__/evidence-language-negation.test.mjs',
+    'lib/__tests__/validate-evidence-language.test.ts',
     'tests/autonomous-merge-controller-contract.test.ts',
     'tests/deployment-handoff-contract.test.ts',
     'security/audit-allowlist.json',
@@ -321,6 +328,20 @@ describe('validation-only classification', () => {
     expect(classifyReleaseImpact([
       'docs/CURRENT_SPRINT.md',
       'scripts/ci/validate-project-control-admission.mjs',
+      'components/Header.tsx',
+    ]).validationOnly).toBe(false)
+  })
+
+  it('fast-paths pure evidence-language policy changes but keeps the build-dependent runner on the full path', () => {
+    expect(classifyReleaseImpact([
+      'scripts/ci/evidence-language-policy.mjs',
+      'scripts/ci/__tests__/evidence-language-negation.test.mjs',
+      'lib/__tests__/validate-evidence-language.test.ts',
+    ]).validationOnly).toBe(true)
+
+    expect(isValidationOnlyPath('scripts/ci/validate-evidence-language.mjs')).toBe(false)
+    expect(classifyReleaseImpact([
+      'scripts/ci/evidence-language-policy.mjs',
       'components/Header.tsx',
     ]).validationOnly).toBe(false)
   })
