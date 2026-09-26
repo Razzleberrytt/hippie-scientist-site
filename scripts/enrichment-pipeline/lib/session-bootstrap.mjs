@@ -18,7 +18,7 @@ function listJson(root) {
     .sort()
 }
 
-function findingTerminalState(submission, sidecar = null) {
+export function findingTerminalState(submission, sidecar = null) {
   const promotionStatus = sidecar?.promotionStatus ?? submission?.promotionStatus ?? null
   const reviewStatus = sidecar?.reviewStatus ?? submission?.reviewStatus ?? null
 
