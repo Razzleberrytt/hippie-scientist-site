@@ -132,7 +132,7 @@ jobs:
           git status --short
           node <<'NODE'
           const cp = require('child_process')
-          const lines = cp.execFileSync('git',['status','--short'],{encoding:'utf8'}).trim().split(/\r?\n/).filter(Boolean)
+          const lines = cp.execFileSync('git',['status','--short'],{encoding:'utf8'}).split(/\r?\n/).filter(Boolean)
           const allowed = new Set([
             'public/data/enrichment-governed.json',
             'public/data/compounds-detail/cobalamin.json',
