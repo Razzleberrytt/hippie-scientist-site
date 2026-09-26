@@ -13,6 +13,7 @@ type ReviewStatus =
   | 'rejected'
   | 'duplicate_of_existing'
   | 'deprecated_candidate'
+  | 'blocked_pending_manual_review'
 
 type OutcomeCategory =
   | 'approved_new_source'
@@ -210,6 +211,7 @@ function run() {
     rejected: 0,
     duplicate_of_existing: 0,
     deprecated_candidate: 0,
+    blocked_pending_manual_review: 0,
   }
 
   const byDerivedStatus: Record<ReviewStatus, number> = {
@@ -220,6 +222,7 @@ function run() {
     rejected: 0,
     duplicate_of_existing: 0,
     deprecated_candidate: 0,
+    blocked_pending_manual_review: 0,
   }
 
   const byOutcomeCategory: Record<OutcomeCategory, number> = {
@@ -338,6 +341,8 @@ function run() {
     let derivedReviewStatus: ReviewStatus
     if (candidate.reviewStatus === 'deprecated_candidate') {
       derivedReviewStatus = 'deprecated_candidate'
+    } else if (candidate.reviewStatus === 'blocked_pending_manual_review') {
+      derivedReviewStatus = 'blocked_pending_manual_review'
     } else if (outcomeCategory === 'duplicate_of_existing') {
       derivedReviewStatus = 'duplicate_of_existing'
     } else if (candidate.reviewStatus === 'rejected' || outcomeCategory === 'low_value_non_qualifying') {
@@ -350,7 +355,13 @@ function run() {
       derivedReviewStatus = 'approved_for_registry'
     }
 
-    const disallowedStatuses = new Set<ReviewStatus>(['rejected', 'duplicate_of_existing', 'deprecated_candidate', 'needs_metadata'])
+    const disallowedStatuses = new Set<ReviewStatus>([
+      'rejected',
+      'duplicate_of_existing',
+      'deprecated_candidate',
+      'needs_metadata',
+      'blocked_pending_manual_review',
+    ])
     const promotable = !disallowedStatuses.has(derivedReviewStatus)
 
     if (derivedReviewStatus !== candidate.reviewStatus) {
@@ -455,6 +466,7 @@ function run() {
       'rejected',
       'duplicate_of_existing',
       'deprecated_candidate',
+      'blocked_pending_manual_review',
     ],
     intakeToRegistryRequirements: [
       'Candidate must map to a valid intakeTaskId from ops/reports/source-intake-queue.json.',
