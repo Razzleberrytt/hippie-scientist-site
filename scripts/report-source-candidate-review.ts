@@ -153,8 +153,8 @@ function canonicalizeUrl(raw: string | undefined): string | null {
 }
 
 function sourceIdBase(candidate: SourceCandidate): string {
+  if (isNonEmpty(candidate.pmid)) return `src_pubmed-${candidate.pmid}`
   if (isNonEmpty(candidate.doi)) return `src_doi-${slugify(candidate.doi)}`
-  if (isNonEmpty(candidate.pmid)) return `src_pmid-${candidate.pmid}`
   const canonicalUrl = canonicalizeUrl(candidate.canonicalUrl)
   if (canonicalUrl) return `src_url-${slugify(canonicalUrl)}`
   if (isNonEmpty(candidate.monographId)) return `src_mono-${slugify(candidate.monographId)}`
