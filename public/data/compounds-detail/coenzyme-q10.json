@@ -2,8 +2,8 @@
   "id": "coenzyme-q10",
   "slug": "coenzyme-q10",
   "name": "Coenzyme Q10",
-  "summary": "Coenzyme Q10 is best framed around mitochondrial energy context, statin-associated muscle symptom research, heart-failure support context, and exercise-fatigue studies, with safety screening for warfarin and blood-pressure medication review.",
-  "description": "Coenzyme Q10 is best framed around mitochondrial energy context, statin-associated muscle symptom research, heart-failure support context, and exercise-fatigue studies, with safety screening for warfarin and blood-pressure medication review.",
+  "summary": "Coenzyme Q10 has human evidence in specific contexts, but effects are not uniform: Q-SYMBIO reported a chronic-heart-failure event signal, pooled fatigue evidence is modest, depression findings vary by scale, anxiety data are null and limited, and exercise-performance effects are small and inconsistent.",
+  "description": "CoQ10 evidence is endpoint- and population-dependent. A disease-specific heart-failure RCT and several randomized-trial syntheses provide human signals, but depression scales disagree, anxiety evidence is limited and null, fatigue findings vary by population, and exercise effects are low-certainty. These data do not justify a universal benefit or dosing claim.",
   "compoundClass": "",
   "mechanisms": [
     "Oxidative Stress Modulation",
@@ -17,32 +17,38 @@
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "May affect anticoagulation management; coordinate use with warfarin or high-risk cardiovascular medication plans.",
-  "evidenceLevel": "",
+  "safetyNotes": "Preserve medication-interaction screening, especially with warfarin or other vitamin-K antagonists and blood-pressure or glucose-lowering therapies. The reviewed efficacy evidence does not establish a universal consumer dose, formulation, or long-term safety profile.",
+  "evidenceLevel": "Moderate Human Evidence",
   "relatedCompounds": [],
   "governance": {
-    "reviewStatus": "approved",
+    "reviewStatus": "needs_review",
     "legalRisk": "none",
-    "medicalRisk": "low",
-    "monetizationAllowed": true,
-    "indexingAllowed": true,
-    "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": "curated_allowlist"
+    "medicalRisk": "moderate",
+    "monetizationAllowed": false,
+    "indexingAllowed": false,
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "endpoint_discordance_and_canonical_owner_consolidation"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 5,
+    "sourceIds": [
+      "src_pubmed-25282031",
+      "src_pubmed-36091835",
+      "src_pubmed-40833470",
+      "src_pubmed-41294251",
+      "src_pubmed-41457257"
+    ]
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
-  "sitemap_included": true,
+  "indexability_status": "NOINDEX",
+  "robots": "noindex,follow",
+  "sitemap_included": false,
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 95,
-  "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract",
+  "dosage": "",
+  "typical_dosage": "",
   "contraindications": [
     "Warfarin or other vitamin-K-antagonist blood-thinning medication without clinician monitoring (CoQ10 structural similarity to vitamin K can reduce drug effectiveness and lower INR)",
     "chemotherapy without oncologist review (antioxidant activity is a theoretical concern for oxidative-stress-dependent chemotherapy agents)",
@@ -61,5 +67,85 @@
     "summary-depth",
     "summary-quality-missing",
     "curated_allowlist"
+  ],
+  "safety": "Preserve medication-interaction screening, especially with warfarin or other vitamin-K antagonists and blood-pressure or glucose-lowering therapies. The reviewed efficacy evidence does not establish a universal consumer dose, formulation, or long-term safety profile.",
+  "evidence_tier": "Moderate Human Evidence",
+  "evidenceTier": "Moderate Human Evidence",
+  "evidence_grade": "C",
+  "evidence_label": "Moderate Human Evidence",
+  "evidenceLabel": "Moderate Human Evidence",
+  "sources": [
+    {
+      "sourceId": "src_pubmed-25282031",
+      "title": "The effect of coenzyme Q10 on morbidity and mortality in chronic heart failure: results from Q-SYMBIO: a randomized double-blind trial",
+      "sourceType": "rct",
+      "studyType": "randomized-controlled-trial",
+      "pmid": "25282031",
+      "doi": "10.1016/j.jchf.2014.06.008",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25282031/",
+      "publicationYear": 2014,
+      "authors": "Svend A Mortensen, Franklin Rosenfeldt, Adarsh Kumar, Peter Dolliner, Krzysztof J Filipiak, Daniel Pella, Urban Alehagen, Günter Steurer, Gian P Littarru, Q-SYMBIO Study Investigators",
+      "evidenceClass": "human-clinical",
+      "reviewer": "source-review-bot"
+    },
+    {
+      "sourceId": "src_pubmed-36091835",
+      "title": "Effectiveness of Coenzyme Q10 Supplementation for Reducing Fatigue: A Systematic Review and Meta-Analysis of Randomized Controlled Trials",
+      "sourceType": "meta-analysis",
+      "studyType": "meta-analysis",
+      "pmid": "36091835",
+      "doi": "10.3389/fphar.2022.883251",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36091835/",
+      "publicationYear": 2022,
+      "authors": "I-Chen Tsai, Chih-Wei Hsu, Chun-Hung Chang, Ping-Tao Tseng, Ke-Vin Chang",
+      "evidenceClass": "human-clinical",
+      "reviewer": "source-review-bot"
+    },
+    {
+      "sourceId": "src_pubmed-40833470",
+      "title": "The effect of coenzyme Q10 supplementation on depressive symptoms and anxiety: a systematic review and meta-analysis of randomized controlled trials",
+      "sourceType": "meta-analysis",
+      "studyType": "meta-analysis",
+      "pmid": "40833470",
+      "doi": "10.1007/s00228-025-03904-9",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40833470/",
+      "publicationYear": 2025,
+      "authors": "Rami Akwan, Muhammad M Elsharkawy, Azzam Zrineh, Areen Amleh, Bashar Douden, Mays Alhouseini, Layla Alsaeed, Mohamed Eldesouki",
+      "evidenceClass": "human-clinical",
+      "reviewer": "source-review-bot"
+    },
+    {
+      "sourceId": "src_pubmed-41294251",
+      "title": "Effects of Coenzyme Q10 Supplementation on Depressive Symptoms and Fatigue: A Systematic Review and Meta-Analysis of Randomized Controlled Trials",
+      "sourceType": "meta-analysis",
+      "studyType": "meta-analysis",
+      "pmid": "41294251",
+      "doi": "10.1097/JCP.0000000000002112",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41294251/",
+      "publicationYear": 2026,
+      "authors": "Pedro Lucas Machado Magalhães, Anderson Matheus Pereira da Silva, Mariana Letícia de Bastos Maximiano, João Vitor Andrade Fernandes, Dillan Cunha Amaral, Alice de Aquino Tavares Fortes, Helvécio Neves Feitosa Filho, Luiza de Oliveira Silva, Beatriz Dias da Silva Teixeira, Eryvelton de Souza Franco, Maria Bernadete de Sousa Maia",
+      "evidenceClass": "human-clinical",
+      "reviewer": "source-review-bot"
+    },
+    {
+      "sourceId": "src_pubmed-41457257",
+      "title": "Coenzyme Q10 supplementation increases blood concentrations but shows limited and inconsistent effects on exercise performance: a systematic review and meta-analysis",
+      "sourceType": "meta-analysis",
+      "studyType": "meta-analysis",
+      "pmid": "41457257",
+      "doi": "10.1017/S0007114525106211",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41457257/",
+      "publicationYear": 2025,
+      "authors": "Hengzhi Deng, Tianyu Song, Mingyue Yin, Kai Xu, Yuming Zhong, Norsyazmi Bin Mohd, Mohamed Nashrudin Bin Naharudin, Ashril Yusof, Xiaohan Fan",
+      "evidenceClass": "human-clinical",
+      "reviewer": "source-review-bot"
+    }
+  ],
+  "pmids": [
+    "25282031",
+    "36091835",
+    "40833470",
+    "41294251",
+    "41457257"
   ]
 }
