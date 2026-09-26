@@ -1,4 +1,5 @@
 name: Manual Cobalamin Source Admission
+# retry after source-candidate legacy schema reconciliation
 
 on:
   push:
