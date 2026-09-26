@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "transactionType": "enrichment_governor_lease",
+  "requestedAt": "2026-09-26T13:45:58.891Z",
+  "operation": "release",
+  "actor": "github-actions[bot]",
+  "owner": "site-swarm-integration",
+  "leaseId": "lease-5703-cobalamin-closure",
+  "purpose": null,
+  "files": [],
+  "entities": [],
+  "disposition": "renew_for_pipeline_repair_validation",
+  "baseSha": "2e5736b73d15a105f12f56c85d9338745e29be8d",
+  "before": {
+    "workQueueSha256": "5828703f7b4b7276c812507a2640332700455a2a813bd2eefe83ed091ce0ba39",
+    "ledgerSha256": "7ae038368bf0c4223e30d0811982de88dbde9d8aadaa9c627d208d459d097dc1"
+  },
+  "after": {
+    "workQueueSha256": "4a71c7046ca74ea496278dbfb6b134978331eec2f6588ad3ff6773b1f8a64a8c",
+    "ledgerSha256": "5adf65efad0b6d724860fb701b7944768415170b531c0c925dd575bd48f10e48"
+  },
+  "result": {
+    "released": true,
+    "existed": true
+  },
+  "transactionCommitSha": null
+}

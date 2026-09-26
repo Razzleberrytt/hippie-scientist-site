@@ -1,20 +1,8 @@
 {
   "version": 1,
-  "leases": [
-    {
-      "id": "lease-5703-cobalamin-closure",
-      "owner": "site-swarm-integration",
-      "purpose": "close staged cobalamin deficiency-vs-enhancement evidence",
-      "files": [],
-      "entities": [
-        "compound:cobalamin"
-      ],
-      "acquiredAt": "2026-09-26T12:17:50.175Z",
-      "expiresAt": "2026-09-26T13:47:50.175Z"
-    }
-  ],
+  "leases": [],
   "queued": [],
   "batched": [],
   "blocked": [],
-  "updatedAt": "2026-09-26T12:17:50.175Z"
+  "updatedAt": "2026-09-26T13:45:58.885Z"
 }
