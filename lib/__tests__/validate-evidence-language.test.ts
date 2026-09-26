@@ -41,6 +41,44 @@ describe('validate-evidence-language auditRecord', () => {
     expect(findings.some(f => f.type === 'critical' && f.value === 'tbd')).toBe(true)
   })
 
+  it('should allow null as legitimate statistical language', () => {
+    const record = {
+      slug: 'test-statistical-null',
+      summary: 'The meta-analysis found a null effect for anxiety while fatigue may improve.',
+      description: 'A null finding should be interpreted with the confidence interval and study limitations.',
+      evidence_tier: 'Strong Human Evidence'
+    }
+    const findings = runAuditRecord(record)
+    const nullCriticals = findings.filter(
+      f => f.type === 'critical' && f.reason.includes('placeholder keyword: "null"')
+    )
+    expect(nullCriticals).toHaveLength(0)
+  })
+
+  it('should still flag null when it is a standalone placeholder value', () => {
+    const records = [
+      {
+        slug: 'test-null-only',
+        summary: 'null',
+        description: '',
+        evidence_tier: 'Strong Human Evidence'
+      },
+      {
+        slug: 'test-null-labeled',
+        summary: 'Evidence status: null.',
+        description: 'Review is pending.',
+        evidence_tier: 'Strong Human Evidence'
+      }
+    ]
+
+    for (const record of records) {
+      const findings = runAuditRecord(record)
+      expect(
+        findings.some(f => f.type === 'critical' && f.reason.includes('placeholder keyword: "null"'))
+      ).toBe(true)
+    }
+  })
+
   it('should not flag substrings of placeholders like nan in chemical names', () => {
     const record = {
       slug: 'anandamide',

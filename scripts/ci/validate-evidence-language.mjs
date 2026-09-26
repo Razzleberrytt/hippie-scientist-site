@@ -23,7 +23,10 @@ export const PLACEHOLDER_KEYWORDS = [
   { regex: /\btbd\b/i, name: 'tbd' },
   { regex: /\blean bulk\b/i, name: 'lean bulk' },
   { regex: /\bnan\b/i, name: 'nan' },
-  { regex: /\bnull\b/i, name: 'null' },
+  // 'null' is also legitimate statistical language ("null result", "null
+  // finding", "null hypothesis"). Treat it as a placeholder only when it
+  // stands alone as a value, mirroring the fail-closed handling for "unknown".
+  { regex: /(?:^|[:;|,]\s*|[.!?]\s+)null\s*(?:[.;,|]|$)/i, name: 'null' },
   { regex: /\bundefined\b/i, name: 'undefined' },
   { regex: /\[object object\]/i, name: '[object object]' }
 ]
