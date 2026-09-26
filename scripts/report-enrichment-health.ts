@@ -79,6 +79,57 @@ function entityKey(entityType: EntityType, slug: string) {
   return `${entityType}:${normalizeSlug(slug)}`
 }
 
+const ACTIVE_STAGED_REVIEW_STATUSES = new Set([
+  'draft_submission',
+  'needs_validation_fix',
+  'ready_for_review',
+  'under_review',
+  'approved_for_rollup',
+  'revision_requested',
+])
+
+function sessionFragmentFiles(root: string): string[] {
+  if (!fs.existsSync(root)) return []
+
+  return fs
+    .readdirSync(root, { withFileTypes: true })
+    .flatMap(entry => {
+      const fullPath = path.join(root, entry.name)
+      if (entry.isDirectory()) return sessionFragmentFiles(fullPath)
+      if (entry.isFile() && entry.name.endsWith('.json')) return [fullPath]
+      return []
+    })
+    .sort()
+}
+
+function stagedSubmissionEntityKeys(): string[] {
+  const root = path.join(ROOT, 'ops', 'enrichment-submissions', 'sessions')
+  const keys = new Set<string>()
+
+  for (const filePath of sessionFragmentFiles(root)) {
+    const fragment = JSON.parse(fs.readFileSync(filePath, 'utf8')) as {
+      submissions?: Array<{
+        active?: boolean
+        reviewStatus?: string
+        entityType?: EntityType | 'surface'
+        entitySlug?: string
+      }>
+    }
+
+    for (const submission of fragment.submissions || []) {
+      if (submission.active !== true) continue
+      if (!ACTIVE_STAGED_REVIEW_STATUSES.has(String(submission.reviewStatus || ''))) continue
+      if (submission.entityType !== 'herb' && submission.entityType !== 'compound') continue
+
+      const slug = normalizeSlug(submission.entitySlug)
+      if (!slug) continue
+      keys.add(entityKey(submission.entityType, slug))
+    }
+  }
+
+  return Array.from(keys).sort()
+}
+
 function isValidCompoundSlug(slug: string) {
   if (!slug) return false
   if (!/^[a-z0-9-]+$/.test(slug)) return false
@@ -219,10 +270,13 @@ function run() {
     expandedCompoundCandidateKeys.add(entityKey('compound', slug))
   }
 
+  const stagedEntityKeys = stagedSubmissionEntityKeys()
+
   const allEntityKeys = new Set<string>([
     ...indexableKeys,
     ...governedRows.map(row => entityKey(row.entityType, row.entitySlug)),
     ...expandedCompoundCandidateKeys,
+    ...stagedEntityKeys,
   ])
 
   const entitiesByType = {
