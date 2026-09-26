@@ -29,12 +29,17 @@ jobs:
           node-version: 22
           cache: npm
 
+      - name: Sync live governor state from main without persisting it
+        run: |
+          git fetch origin main --depth=1
+          git show origin/main:ops/enrichment-governor/work-queue.json > ops/enrichment-governor/work-queue.json
+
       - name: Verify live cobalamin lease
         run: |
           node <<'NODE'
           const fs = require('fs')
           const q = JSON.parse(fs.readFileSync('ops/enrichment-governor/work-queue.json','utf8'))
-          const lease = (q.leases || []).find(x => x.id === 'lease-5703-cobalamin-closure')
+          const lease = (q.leases || []).find(x => x.id === 'lease-5703-cobalamin-closure-r2')
           if (!lease) throw new Error('cobalamin lease missing')
           if (lease.owner !== 'site-swarm-integration') throw new Error('unexpected lease owner')
           if (!Array.isArray(lease.entities) || lease.entities.length !== 1 || lease.entities[0] !== 'compound:cobalamin') throw new Error('unexpected lease scope')
@@ -221,7 +226,7 @@ jobs:
           node <<'NODE'
           const fs = require('fs')
           const q = JSON.parse(fs.readFileSync('ops/enrichment-governor/work-queue.json','utf8'))
-          const lease = (q.leases || []).find(x => x.id === 'lease-5703-cobalamin-closure')
+          const lease = (q.leases || []).find(x => x.id === 'lease-5703-cobalamin-closure-r2')
           if (!lease || lease.owner !== 'site-swarm-integration' || lease.entities?.[0] !== 'compound:cobalamin') throw new Error('cobalamin lease missing or changed')
           const remainingMs = Date.parse(lease.expiresAt) - Date.now()
           if (remainingMs <= 2 * 60 * 1000) throw new Error('cobalamin lease has <=2 minutes remaining before source mutation')
@@ -257,6 +262,7 @@ jobs:
 
       - name: Commit governed source admission
         run: |
+          git checkout HEAD -- ops/enrichment-governor/work-queue.json
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add ops/source-candidates.json public/data/source-registry.json ops/targets/cobalamin-closure.json
