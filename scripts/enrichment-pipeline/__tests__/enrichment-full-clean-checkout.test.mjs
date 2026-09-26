@@ -62,6 +62,7 @@ describe('full enrichment pipeline clean-checkout regeneration', () => {
       'public/data/publication-manifest.json',
       'public/data/affiliate-recommendation-readiness.json',
       'ops/source-candidates.json',
+      'ops/enrichment-submissions/sessions/session-c/2026-09-05-cobalamin-deficiency-enhancement-boundaries.json',
     ]
 
     for (const input of canonicalAndPublicInputs) copyIntoFixture(repoRoot, input)
@@ -120,6 +121,22 @@ describe('full enrichment pipeline clean-checkout regeneration', () => {
     expect(Array.isArray(workpacks.workpacks)).toBe(true)
     expect(Array.isArray(sourceGaps.gapItems)).toBe(true)
     expect(Array.isArray(intakeQueue.tasks)).toBe(true)
+
+    const cobalaminHealth = health.entities.find(
+      row => row.entityType === 'compound' && row.entitySlug === 'cobalamin',
+    )
+    expect(cobalaminHealth).toMatchObject({
+      publicStatus: 'non_indexable',
+      enrichmentHealthState: 'missing_governed_enrichment',
+    })
+
+    const cobalaminWorkpack = workpacks.workpacks.find(row => row.workpackId === 'wp_compound_cobalamin')
+    expect(cobalaminWorkpack).toBeTruthy()
+
+    const cobalaminIntakeTasks = intakeQueue.tasks.filter(row =>
+      Array.isArray(row.relatedWorkpackIds) && row.relatedWorkpackIds.includes('wp_compound_cobalamin'),
+    )
+    expect(cobalaminIntakeTasks.length).toBeGreaterThan(0)
 
     expect(fs.existsSync(path.join(tmpDir, 'ops', 'reports', 'source-wave-1-targets.json'))).toBe(false)
     expect(fs.existsSync(path.join(tmpDir, 'data-sources'))).toBe(false)
