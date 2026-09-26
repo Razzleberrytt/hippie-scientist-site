@@ -45,6 +45,32 @@ jobs:
           npx tsx scripts/report-source-candidate-review.ts
           node -e "const r=require('./ops/reports/source-candidate-review.json'); console.log(JSON.stringify(r.summary))"
 
+      - name: Assert cobalamin candidate preview
+        run: |
+          node <<'NODE'
+          const r = require('./ops/reports/source-candidate-review.json')
+          const ids = new Set([
+            'cand_cobalamin-33809274',
+            'cand_cobalamin-22221769',
+            'cand_cobalamin-37046885',
+            'cand_cobalamin-42227307',
+            'cand_cobalamin-39655146',
+          ])
+          const assessments = (r.assessments || []).filter(row => ids.has(row.candidateSourceId))
+          const insertions = (r.promotionPreview?.registryInsertions || []).filter(row =>
+            ['33809274','22221769','37046885','42227307','39655146'].includes(row.pmid)
+          )
+          console.log('=== COBALAMIN_CANDIDATE_PREVIEW ===')
+          console.log(JSON.stringify({ assessments, insertions }, null, 2))
+          if (assessments.length !== 5) throw new Error(`Expected 5 cobalamin candidate assessments, found ${assessments.length}`)
+          if (insertions.length !== 5) throw new Error(`Expected 5 cobalamin preview insertions, found ${insertions.length}`)
+          for (const row of insertions) {
+            if (row.sourceId !== `src_pubmed-${row.pmid}`) {
+              throw new Error(`Non-canonical cobalamin PubMed source identity: ${row.sourceId}`)
+            }
+          }
+          NODE
+
       - name: Print compact cobalamin intake and gap context
         run: |
           node <<'NODE'
