@@ -1,0 +1,493 @@
+{
+  "from": "2026-09-25T00:00:00Z",
+  "to": "2026-09-25T21:30:00Z",
+  "cohort": "Workflow runs created in [from,to); all available attempts and full job durations for those runs. PRs merged in the same window. Period throughput, not causal PR attribution.",
+  "limitations": [
+    "Job elapsed minutes are approximate runner usage, not billed/rounded minutes.",
+    "Same-workflow/same-SHA repetitions are candidates, not proof of equivalent inputs/base/artifact.",
+    "Build step names are diagnostics; inspect commands and logs before claiming duplicate builds. Validation names use an explicit core audit cohort.",
+    "No-op success cannot be inferred from conclusion alone. Zero executed steps are reported separately.",
+    "PR ready timestamps and missing/later deployment receipts remain unknown; creation is not readiness."
+  ],
+  "totalRuns": 650,
+  "conclusions": {
+    "failure": 88,
+    "success": 248,
+    "cancelled": 159,
+    "skipped": 155
+  },
+  "workflowCounts": {
+    "Autonomous merge controller": 154,
+    "🚨 BROKEN!!!!! Swarm Sentinel": 5,
+    "Stale Actions reaper": 4,
+    "Main Protection Audit": 4,
+    "Enrichment Governor Maintenance": 4,
+    "Weekly Search Console Opportunities": 1,
+    "Governed Consumer Wake": 51,
+    "CI": 28,
+    "Site Health Check": 27,
+    "Atomic upgrade gate": 28,
+    "Production Content Invariants": 36,
+    "Production Content Lint": 34,
+    "Build Check": 30,
+    "Schema and Media Governance": 35,
+    "Build quality regression": 26,
+    "Lighthouse CI": 32,
+    "Crawl experiment guard": 23,
+    "Botanical Activity Atlas Coverage": 23,
+    "Evidence Graph Identity Check": 24,
+    "Workbook Patch Check": 23,
+    "One-shot repair PR 5933 controlled status": 2,
+    "Deploy to Cloudflare Pages": 5,
+    "Enrichment Governor": 2,
+    "Content Claim Drift": 7,
+    "Crawl Governance": 11,
+    "Technical SEO Monitor": 10,
+    "Experience backlog contract": 7,
+    "Fast UI Check": 6,
+    "Owner Control Plane Bridge": 3,
+    "Enforce Main Protection": 3,
+    "One-shot promote PR 5937 ADHD stimulants": 1,
+    "Enrichment Governor Persistent Lease Transaction": 1
+  },
+  "events": {
+    "workflow_dispatch": 112,
+    "schedule": 25,
+    "workflow_run": 175,
+    "pull_request": 296,
+    "pull_request_target": 21,
+    "push": 15,
+    "issue_comment": 6
+  },
+  "approximateJobMinutes": 659.067,
+  "jobs": 742,
+  "jobMinutesByWorkflow": {
+    "CI": 257.633,
+    "Deploy to Cloudflare Pages": 61,
+    "Lighthouse CI": 53.1,
+    "Workbook Patch Check": 51.317,
+    "Schema and Media Governance": 39.6,
+    "Production Content Invariants": 33.617,
+    "Autonomous merge controller": 28.833,
+    "Production Content Lint": 17.717,
+    "Build quality regression": 15.6,
+    "Technical SEO Monitor": 13.4,
+    "Build Check": 11.433,
+    "🚨 BROKEN!!!!! Swarm Sentinel": 10.917,
+    "Fast UI Check": 10.133,
+    "Evidence Graph Identity Check": 9.35,
+    "Crawl Governance": 9.1,
+    "Atomic upgrade gate": 7.933,
+    "Site Health Check": 6.283,
+    "Crawl experiment guard": 3.95,
+    "Botanical Activity Atlas Coverage": 3.167,
+    "Main Protection Audit": 2.65,
+    "Enrichment Governor Maintenance": 2.333,
+    "One-shot repair PR 5933 controlled status": 2.167,
+    "Content Claim Drift": 1.933,
+    "One-shot promote PR 5937 ADHD stimulants": 1.867,
+    "Experience backlog contract": 0.983,
+    "Enrichment Governor Persistent Lease Transaction": 0.9,
+    "Stale Actions reaper": 0.867,
+    "Enrichment Governor": 0.567,
+    "Weekly Search Console Opportunities": 0.533,
+    "Owner Control Plane Bridge": 0.183,
+    "Governed Consumer Wake": 0,
+    "Enforce Main Protection": 0
+  },
+  "unfinishedJobs": 0,
+  "zeroExecutedStepRuns": 309,
+  "retryAttempts": 0,
+  "controllerInvocations": 154,
+  "controllerCancellations": 105,
+  "controllerCancellationPercent": 68.182,
+  "executedValidationRuns": 216,
+  "duplicateCandidates": [
+    {
+      "key": "Schema and Media Governance@6c8e61febd284ba05fa43aa31fa79cc1bbdb27c0",
+      "count": 2
+    },
+    {
+      "key": "Production Content Invariants@6c8e61febd284ba05fa43aa31fa79cc1bbdb27c0",
+      "count": 2
+    },
+    {
+      "key": "Production Content Lint@6c8e61febd284ba05fa43aa31fa79cc1bbdb27c0",
+      "count": 2
+    },
+    {
+      "key": "Lighthouse CI@6c8e61febd284ba05fa43aa31fa79cc1bbdb27c0",
+      "count": 2
+    },
+    {
+      "key": "Build Check@6c8e61febd284ba05fa43aa31fa79cc1bbdb27c0",
+      "count": 2
+    },
+    {
+      "key": "Technical SEO Monitor@050fd81adb3d398fbe9ccebd0213aa018e29fff9",
+      "count": 2
+    },
+    {
+      "key": "Schema and Media Governance@050fd81adb3d398fbe9ccebd0213aa018e29fff9",
+      "count": 2
+    },
+    {
+      "key": "Crawl Governance@050fd81adb3d398fbe9ccebd0213aa018e29fff9",
+      "count": 3
+    },
+    {
+      "key": "Production Content Invariants@050fd81adb3d398fbe9ccebd0213aa018e29fff9",
+      "count": 2
+    },
+    {
+      "key": "Production Content Lint@050fd81adb3d398fbe9ccebd0213aa018e29fff9",
+      "count": 2
+    },
+    {
+      "key": "Lighthouse CI@050fd81adb3d398fbe9ccebd0213aa018e29fff9",
+      "count": 2
+    },
+    {
+      "key": "Build Check@050fd81adb3d398fbe9ccebd0213aa018e29fff9",
+      "count": 2
+    },
+    {
+      "key": "CI@38f1f6599e9fcfdc5ff594dc17f7f2939d4cd5e1",
+      "count": 2
+    },
+    {
+      "key": "Atomic upgrade gate@581777c189f87f0ac968b27d1a1ad1cba5f347c7",
+      "count": 3
+    },
+    {
+      "key": "Evidence Graph Identity Check@581777c189f87f0ac968b27d1a1ad1cba5f347c7",
+      "count": 2
+    },
+    {
+      "key": "Build quality regression@581777c189f87f0ac968b27d1a1ad1cba5f347c7",
+      "count": 2
+    },
+    {
+      "key": "Schema and Media Governance@bdf696296924f30b73d55053f39f1f36b2a9e7b4",
+      "count": 2
+    },
+    {
+      "key": "Production Content Invariants@bdf696296924f30b73d55053f39f1f36b2a9e7b4",
+      "count": 2
+    },
+    {
+      "key": "Production Content Lint@bdf696296924f30b73d55053f39f1f36b2a9e7b4",
+      "count": 2
+    },
+    {
+      "key": "Lighthouse CI@bdf696296924f30b73d55053f39f1f36b2a9e7b4",
+      "count": 2
+    },
+    {
+      "key": "Build Check@bdf696296924f30b73d55053f39f1f36b2a9e7b4",
+      "count": 2
+    }
+  ],
+  "expensiveBuildExecutions": 28,
+  "buildSteps": [
+    {
+      "runId": 36144349715,
+      "jobId": 108101814326,
+      "workflow": "CI",
+      "headSha": "6c8e61febd284ba05fa43aa31fa79cc1bbdb27c0",
+      "name": "Build application",
+      "conclusion": "success"
+    },
+    {
+      "runId": 36144294529,
+      "jobId": 108101463298,
+      "workflow": "CI",
+      "headSha": "625ea9efb738d3a6728ca38223c27f9891c32f9c",
+      "name": "Build application",
+      "conclusion": "success"
+    },
+    {
+      "runId": 36144284234,
+      "jobId": 108101426421,
+      "workflow": "Production Content Invariants",
+      "headSha": "625ea9efb738d3a6728ca38223c27f9891c32f9c",
+      "name": "Build governed fallback on artifact miss or mismatch",
+      "conclusion": "success"
+    },
+    {
+      "runId": 36144281407,
+      "jobId": 108101418662,
+      "workflow": "Schema and Media Governance",
+      "headSha": "625ea9efb738d3a6728ca38223c27f9891c32f9c",
+      "name": "Build static export fallback",
+      "conclusion": "success"
+    },
+    {
+      "runId": 36144069116,
+      "jobId": 108101236154,
+      "workflow": "CI",
+      "headSha": "aefaaf276d5c791cda08891b644a4435348799f8",
+      "name": "Build application",
+      "conclusion": "cancelled"
+    },
+    {
+      "runId": 36143788559,
+      "jobId": 108100185998,
+      "workflow": "CI",
+      "headSha": "65f8a989408787b5c625a411e6b23493310f9bde",
+      "name": "Build application",
+      "conclusion": "cancelled"
+    },
+    {
+      "runId": 36142909394,
+      "jobId": 108096826688,
+      "workflow": "CI",
+      "headSha": "cd830155cc60e16f4e45b2435d95221d0c2d93f9",
+      "name": "Build application",
+      "conclusion": "success"
+    },
+    {
+      "runId": 36139984808,
+      "jobId": 108087159650,
+      "workflow": "Deploy to Cloudflare Pages",
+      "headSha": "52c8dc6add650e5d4c1fd08e814f99cff0699c78",
+      "name": "Build app",
+      "conclusion": "success"
+    },
+    {
+      "runId": 36139929703,
+      "jobId": 108086976226,
+      "workflow": "CI",
+      "headSha": "0c07475f8dea7c77051494c1d28c08d6fcda0dee",
+      "name": "Build application",
+      "conclusion": "success"
+    },
+    {
+      "runId": 36176737551,
+      "jobId": 108209065183,
+      "workflow": "CI",
+      "headSha": "6b330672e7fc8509989c27924aae0f64ed74160d",
+      "name": "Build application",
+      "conclusion": "success"
+    },
+    {
+      "runId": 36173180940,
+      "jobId": 108197418710,
+      "workflow": "Technical SEO Monitor",
+      "headSha": "050fd81adb3d398fbe9ccebd0213aa018e29fff9",
+      "name": "Build static export fallback",
+      "conclusion": "success"
+    },
+    {
+      "runId": 36173174673,
+      "jobId": 108197400509,
+      "workflow": "Schema and Media Governance",
+      "headSha": "050fd81adb3d398fbe9ccebd0213aa018e29fff9",
+      "name": "Build static export fallback",
+      "conclusion": "success"
+    },
+    {
+      "runId": 36173170536,
+      "jobId": 108197386773,
+      "workflow": "Production Content Invariants",
+      "headSha": "050fd81adb3d398fbe9ccebd0213aa018e29fff9",
+      "name": "Build governed fallback on artifact miss or mismatch",
+      "conclusion": "success"
+    },
+    {
+      "runId": 36173168547,
+      "jobId": 108197380393,
+      "workflow": "Crawl Governance",
+      "headSha": "050fd81adb3d398fbe9ccebd0213aa018e29fff9",
+      "name": "Build static export fallback",
+      "conclusion": "success"
+    },
+    {
+      "runId": 36173160502,
+      "jobId": 108197355428,
+      "workflow": "CI",
+      "headSha": "050fd81adb3d398fbe9ccebd0213aa018e29fff9",
+      "name": "Build application",
+      "conclusion": "success"
+    },
+    {
+      "runId": 36173066639,
+      "jobId": 108197407248,
+      "workflow": "CI",
+      "headSha": "e8e2fc6c85f60212ab3f5c575b70c7a6460b0229",
+      "name": "Build application",
+      "conclusion": "success"
+    },
+    {
+      "runId": 36173062168,
+      "jobId": 108197039132,
+      "workflow": "Deploy to Cloudflare Pages",
+      "headSha": "64858dfbee41bf15f44feb22e2bb21db56b40984",
+      "name": "Build app",
+      "conclusion": "success"
+    },
+    {
+      "runId": 36173001561,
+      "jobId": 108196852495,
+      "workflow": "CI",
+      "headSha": "531f503db1559ac92fb8afb9f603c9ce3d919810",
+      "name": "Build application",
+      "conclusion": "cancelled"
+    },
+    {
+      "runId": 36171876445,
+      "jobId": 108193137239,
+      "workflow": "CI",
+      "headSha": "d98afc84c9f42149fc630aac71baedb930850b9b",
+      "name": "Build application",
+      "conclusion": "success"
+    },
+    {
+      "runId": 36182546172,
+      "jobId": 108228132333,
+      "workflow": "CI",
+      "headSha": "581777c189f87f0ac968b27d1a1ad1cba5f347c7",
+      "name": "Build application",
+      "conclusion": "success"
+    },
+    {
+      "runId": 36182057478,
+      "jobId": 108226540328,
+      "workflow": "Deploy to Cloudflare Pages",
+      "headSha": "a8ad83c9572a0ccf44360797d5e1618cb8d5b204",
+      "name": "Build app",
+      "conclusion": "success"
+    },
+    {
+      "runId": 36181016871,
+      "jobId": 108223111508,
+      "workflow": "CI",
+      "headSha": "a8ad83c9572a0ccf44360797d5e1618cb8d5b204",
+      "name": "Build application",
+      "conclusion": "success"
+    },
+    {
+      "runId": 36184473899,
+      "jobId": 108234725246,
+      "workflow": "CI",
+      "headSha": "bdf696296924f30b73d55053f39f1f36b2a9e7b4",
+      "name": "Build application",
+      "conclusion": "success"
+    },
+    {
+      "runId": 36184185207,
+      "jobId": 108233499288,
+      "workflow": "Schema and Media Governance",
+      "headSha": "4d2f3ae0c8c7b9835cdc37c067a7052907eea536",
+      "name": "Build static export fallback",
+      "conclusion": "cancelled"
+    },
+    {
+      "runId": 36184183226,
+      "jobId": 108233492460,
+      "workflow": "Production Content Invariants",
+      "headSha": "4d2f3ae0c8c7b9835cdc37c067a7052907eea536",
+      "name": "Build governed fallback on artifact miss or mismatch",
+      "conclusion": "cancelled"
+    },
+    {
+      "runId": 36184179322,
+      "jobId": 108233478608,
+      "workflow": "CI",
+      "headSha": "4d2f3ae0c8c7b9835cdc37c067a7052907eea536",
+      "name": "Build application",
+      "conclusion": "success"
+    },
+    {
+      "runId": 36184011743,
+      "jobId": 108233344913,
+      "workflow": "CI",
+      "headSha": "e899390b1f89cb157dba91695a6367ad562b69d5",
+      "name": "Build application",
+      "conclusion": "cancelled"
+    },
+    {
+      "runId": 36183975907,
+      "jobId": 108232809445,
+      "workflow": "CI",
+      "headSha": "3b977b8f097bd5b80ca7b229ac6178c737404265",
+      "name": "Build application",
+      "conclusion": "cancelled"
+    }
+  ],
+  "sameShaBuildCandidates": [
+    {
+      "headSha": "625ea9efb738d3a6728ca38223c27f9891c32f9c",
+      "count": 3
+    },
+    {
+      "headSha": "050fd81adb3d398fbe9ccebd0213aa018e29fff9",
+      "count": 5
+    },
+    {
+      "headSha": "a8ad83c9572a0ccf44360797d5e1618cb8d5b204",
+      "count": 2
+    },
+    {
+      "headSha": "4d2f3ae0c8c7b9835cdc37c067a7052907eea536",
+      "count": 3
+    }
+  ],
+  "mergedPrs": [
+    {
+      "number": 5940,
+      "title": "feat(data): add fail-closed escitalopram and bupropion evidence anchors",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/5940"
+    },
+    {
+      "number": 5938,
+      "title": "feat(data): add fail-closed lisdexamfetamine and methylphenidate evidence anchors",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/5938"
+    },
+    {
+      "number": 5936,
+      "title": "chore(governor): acquire lease-5703-cobalamin-closure",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/5936"
+    },
+    {
+      "number": 5933,
+      "title": "feat(data): add fail-closed dextroamphetamine and zolpidem evidence anchors",
+      "url": "https://github.com/Razzleberrytt/hippie-scientist-site/pull/5933"
+    }
+  ],
+  "usefulPrNumbers": [
+    5940,
+    5938,
+    5933
+  ],
+  "minutesPerUsefulMerge": 219.689,
+  "runsPerUsefulMerge": 216.667,
+  "minutesPerAllMerges": 164.767,
+  "runsPerAllMerges": 162.5,
+  "mergeTimings": [
+    {
+      "number": 5940,
+      "createdToMergeMinutes": 93.65,
+      "readyToMergeMinutes": null,
+      "mergeToDeployMinutes": 4.217
+    },
+    {
+      "number": 5938,
+      "createdToMergeMinutes": 87.667,
+      "readyToMergeMinutes": null,
+      "mergeToDeployMinutes": 30.067
+    },
+    {
+      "number": 5936,
+      "createdToMergeMinutes": 17.7,
+      "readyToMergeMinutes": null,
+      "mergeToDeployMinutes": 12.683
+    },
+    {
+      "number": 5933,
+      "createdToMergeMinutes": 1093.583,
+      "readyToMergeMinutes": null,
+      "mergeToDeployMinutes": 4.967
+    }
+  ]
+}

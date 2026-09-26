@@ -111,3 +111,16 @@ For each supplied metric report, retain the ratio ID; each numerator/denominator
 3. Export the same 28 complete days from analytics, Amazon Associates, and Mailchimp; document timezone, currency, and attribution windows.
 4. Store aggregates or links to controlled reports—not secrets or user-level records—and update this file with source/date.
 5. Repeat on a fixed cadence only after definitions are stable.
+
+## Actions efficiency operational baseline — 2026-09-25 / #5941
+
+Scope and reproducible evidence are in the [Actions audit](audits/2026-09-25-actions-efficiency/README.md) and its [machine summary](audits/2026-09-25-actions-efficiency/summary.json). Window: 2026-09-25 00:00:00 UTC inclusive to 21:30:00 UTC exclusive, runs created in-window with full available job durations/attempts. This one-window diagnostic does not replace the default 28-day economics comparison or authorize scaling.
+
+| Metric | Baseline | After | Boundary |
+|---|---:|---|---|
+| Actions job-minutes per useful product merge | 219.689 | Unknown | 659.067 approximate elapsed job-minutes / 3 reviewed product merges (#5933, #5938, #5940); not billed minutes or causal PR allocation |
+| Workflow executions per useful product merge | 216.667 | Unknown | 650 runs / same 3 changes; state-only lease #5936 excluded and all-merge ratios retained in the audit |
+| Controller cancellation rate | 68.182% | Unknown | 105 cancelled / 154 invocations |
+| All-merge minutes / executions | 164.767 / 162.5 | Unknown | Same numerator / 4 merged PRs, including the lease |
+
+Unknown after values are not zero. Do not compare a quiet short post-change window to this active cohort or report structural projections as measured percentage improvements. Useful merged product changes are an operational diagnostic, not measured traffic/revenue outcomes.

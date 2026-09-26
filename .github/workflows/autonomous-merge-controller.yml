@@ -29,7 +29,9 @@ on:
 
 concurrency:
   group: autonomous-merge-${{ github.event.pull_request.number || inputs.pr_number || 'fallback' }}
-  cancel-in-progress: true
+  # Never interrupt a coordinator while it refreshes, merges, or emits receipts.
+  # GitHub coalesces pending arrivals; the scheduled sweep recovers missed wakes.
+  cancel-in-progress: false
 
 permissions:
   actions: write
@@ -122,6 +124,7 @@ jobs:
       EXPECTED_HEAD_SHA: ${{ needs.merge-controller.outputs.head_sha }}
       VALIDATED_BASE_SHA: ${{ needs.merge-controller.outputs.base_sha }}
       CONTROLLER_RUN_ID: ${{ github.run_id }}
+      CONTROLLER_SINGLE_PASS: 'true'
       MERGE_POLL_SECONDS: '10'
       MERGE_MAX_WAIT_MINUTES: '5'
     steps:
@@ -199,7 +202,12 @@ jobs:
 
   fallback-sweep:
     name: fallback-sweep
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.event_name == 'workflow_run'
+    if: >-
+      github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'workflow_run' &&
+       github.event.workflow_run.conclusion == 'success' &&
+       contains(fromJSON('["pull_request","workflow_dispatch"]'), github.event.workflow_run.event) &&
+       github.event.workflow_run.head_repository.full_name == github.repository)
     runs-on: ubuntu-latest
     timeout-minutes: 15
     concurrency:
@@ -209,9 +217,8 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GITHUB_REPOSITORY: ${{ github.repository }}
       CONTROLLER_RUN_ID: ${{ github.run_id }}
-      PR_NUMBER: ${{ inputs.pr_number || '' }}
-      EXPECTED_HEAD_SHA: ${{ inputs.expected_head_sha || '' }}
-      SWEEP_OPEN_PRS: ${{ inputs.pr_number != '' && 'false' || 'true' }}
+      # Every wake evaluates once; no runner waits for validations to finish.
+      CONTROLLER_SINGLE_PASS: 'true'
       MERGE_POLL_SECONDS: '5'
       MERGE_MAX_WAIT_MINUTES: '3'
     steps:
@@ -221,9 +228,18 @@ jobs:
           ref: ${{ github.event.repository.default_branch }}
           persist-credentials: false
 
+      - name: Classify exact-head wake before coordinator work
+        id: wake
+        run: node scripts/ci/autonomous-merge-wake.mjs
+
       - name: Reconcile one open PR without bypassing gates
+        id: reconcile
+        if: steps.wake.outputs.proceed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.wake.outputs.pr_number }}
+          EXPECTED_HEAD_SHA: ${{ steps.wake.outputs.head_sha }}
+          SWEEP_OPEN_PRS: ${{ steps.wake.outputs.sweep }}
         run: |
           set -euo pipefail
           log_file="$(mktemp)"
@@ -251,8 +267,10 @@ jobs:
             -f description="PR #$pr_number controller-merged on ${base_sha:0:7}" \
             -f target_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
           echo "Controller merge authorization recorded on $head_sha."
+          echo 'merged=true' >> "$GITHUB_OUTPUT"
 
       - name: Ensure latest main enters deploy lifecycle
+        if: github.event_name != 'workflow_run' || steps.reconcile.outputs.merged == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

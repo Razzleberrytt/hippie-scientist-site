@@ -19,13 +19,15 @@ describe('autonomous merge controller contract', () => {
   })
 
   it('keeps privileged consumer wake orchestration on the trusted default branch', () => {
-    const wake = read('.github/workflows/governed-consumer-wake.yml')
+    const wake = read('.github/workflows/autonomous-merge-controller.yml')
     expect(wake).toContain('workflow_run:')
     expect(wake).toContain('types: [completed]')
-    expect(wake).toContain("github.event.workflow_run.event == 'workflow_dispatch'")
+    expect(wake).toContain("github.event.workflow_run.conclusion == 'success'")
+    expect(wake).toContain('github.event.workflow_run.head_repository.full_name == github.repository')
     expect(wake).toContain('actions: write')
-    expect(wake).toContain('commits/$HEAD_SHA/pulls')
-    expect(wake).toContain('gh workflow run autonomous-merge-controller.yml --ref main')
+    expect(wake).toContain('node scripts/ci/autonomous-merge-wake.mjs')
+    expect(wake).toContain('ref: ${{ github.event.repository.default_branch }}')
+    expect(fs.existsSync('.github/workflows/governed-consumer-wake.yml')).toBe(false)
 
     for (const workflowPath of [
       '.github/workflows/build-check.yml',
@@ -212,8 +214,8 @@ describe('autonomous merge controller contract', () => {
     expect(monitorJob).toContain('timeout-minutes: 5')
     expect(monitorJob).not.toContain('MERGE_MAX_WAIT_MINUTES')
     expect(monitorJob).not.toContain("CHECK_ONLY: 'true'")
-    expect(workflow).toContain("PR_NUMBER: ${{ inputs.pr_number || '' }}")
-    expect(workflow).toContain("SWEEP_OPEN_PRS: ${{ inputs.pr_number != '' && 'false' || 'true' }}")
+    expect(workflow).toContain('PR_NUMBER: ${{ steps.wake.outputs.pr_number }}')
+    expect(workflow).toContain('SWEEP_OPEN_PRS: ${{ steps.wake.outputs.sweep }}')
     expect(monitor).not.toContain('while (')
     expect(monitor).toContain('base drift is owned by the serialized fallback sweep')
     expect(controller).toContain('Fallback sweep complete')

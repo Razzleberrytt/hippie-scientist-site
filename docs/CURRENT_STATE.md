@@ -152,3 +152,9 @@ Counts below use explicit definitions because source files, generated records, b
 ### Recommended
 
 Execute [CURRENT_SPRINT.md](CURRENT_SPRINT.md) in priority order. First verify production measurement, then clear remaining scoped diagnostic debt, use a 28-day baseline to select one flagship decision page, and upgrade only that measured journey while current evidence/safety gates remain mandatory.
+
+## Actions orchestration — verified 2026-09-25, #5941
+
+The [fixed-window efficiency audit](audits/2026-09-25-actions-efficiency/README.md) supersedes historical workflow counts for this operational scope. Main `05251bf961d9e25e4a23b9b66678406a85c37d83` has 70 workflow definitions and already supports governed CI export artifacts and exact-state validation reuse. Baseline: 650 workflow runs, 659.067 approximate job-minutes, 154 controller invocations and 105 cancellations. Controller trigger collisions, duplicate consumer wake ownership and stale producer dispatch failures are verified. The proposed scoped repair and 69-workflow inventory are not production completion evidence until merged/deployed. Actual efficiency improvement remains Unknown.
+
+Live repository enforcement: active ruleset `Protect main` (23041771) requires pull requests and resolved review conversations, forbids deletion/non-fast-forward changes, and has no bypass actors. The legacy branch-protection endpoint returns 404; this does not negate ruleset enforcement. Required-status-check configuration remains absent from that ruleset, so controller release gates remain separately necessary.

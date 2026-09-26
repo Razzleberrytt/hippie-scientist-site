@@ -78,27 +78,22 @@ describe('risk-tiered autonomous merge controller', () => {
     expect(source).not.toMatch(/page\s*<=\s*4/)
   })
 
-  it('routes consumer wakeups through a trusted workflow_run bridge', () => {
+  it('has one trusted completion wake owner without a dispatch bridge', () => {
     const controllerWorkflow = fs.readFileSync(path.join(process.cwd(), '.github/workflows/autonomous-merge-controller.yml'), 'utf8')
-    const wakeWorkflow = fs.readFileSync(path.join(process.cwd(), '.github/workflows/governed-consumer-wake.yml'), 'utf8')
 
     expect(controllerWorkflow).toContain('pr_number:')
     expect(controllerWorkflow).toContain('expected_head_sha:')
     expect(controllerWorkflow).toContain("group: autonomous-merge-${{ github.event.pull_request.number || inputs.pr_number || 'fallback' }}")
-    expect(controllerWorkflow).toContain("SWEEP_OPEN_PRS: ${{ inputs.pr_number != '' && 'false' || 'true' }}")
-    expect(controllerWorkflow).toContain("MERGE_POLL_SECONDS: '5'")
-    expect(controllerWorkflow).toContain("MERGE_MAX_WAIT_MINUTES: '3'")
+    expect(controllerWorkflow).toContain('SWEEP_OPEN_PRS: ${{ steps.wake.outputs.sweep }}')
+    expect(controllerWorkflow).toContain("CONTROLLER_SINGLE_PASS: 'true'")
 
-    expect(wakeWorkflow).toContain('workflow_run:')
+    expect(controllerWorkflow).toContain('workflow_run:')
     for (const workflowName of ['Build Check', 'Lighthouse CI', 'Production Content Lint']) {
-      expect(wakeWorkflow).toContain(`- ${workflowName}`)
+      expect(controllerWorkflow).toContain(`- ${workflowName}`)
     }
-    expect(wakeWorkflow).toContain("github.event.workflow_run.event == 'workflow_dispatch'")
-    expect(wakeWorkflow).toContain('actions: write')
-    expect(wakeWorkflow).toContain('commits/$HEAD_SHA/pulls')
-    expect(wakeWorkflow).toContain('gh workflow run autonomous-merge-controller.yml --ref main')
-    expect(wakeWorkflow).toContain('-f pr_number="${{ steps.context.outputs.pr_number }}"')
-    expect(wakeWorkflow).toContain('-f expected_head_sha="${{ steps.context.outputs.head_sha }}"')
+    expect(fs.existsSync('.github/workflows/governed-consumer-wake.yml')).toBe(false)
+    expect(controllerWorkflow).toContain('node scripts/ci/autonomous-merge-wake.mjs')
+    expect(controllerWorkflow).toContain('EXPECTED_HEAD_SHA: ${{ steps.wake.outputs.head_sha }}')
 
     for (const workflow of ['build-check.yml', 'lighthouse.yml', 'production-content-lint.yml']) {
       const source = fs.readFileSync(path.join(process.cwd(), '.github/workflows', workflow), 'utf8')

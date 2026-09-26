@@ -46,6 +46,8 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
+**2026-09-25 P0 #5941 — Active, owner-directed control incident:** Reduce verified Actions controller amplification (latest 100 runs: 29 controller invocations, 22 cancellations). Scope is repository-wide measurement plus the first bounded coordinator repair; later optimizations require their own evidence and scoped admission. Uses the existing Operations maintenance exception, preserves #5703 ownership and all scientific/release gates. No new normal lane is created. After metrics and merge/deploy proof are pending.
+
 Current review state: **1/3 normal implementation workstreams occupied**. #5698 / PR #5701 is merged and retired; Authority/Content is now owned by #5703 for the bounded cobalamin deficiency-vs-enhancement closure. #5705 is its exact-main state-only governor-lease prerequisite and does not consume a normal implementation workstream. #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, #5665 / PR #5668, #5629 / PR #5650, #5647 / PR #5657, #5602 / PR #5661, and #5631 / PR #5663 are merged and retired.
 
 | Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
