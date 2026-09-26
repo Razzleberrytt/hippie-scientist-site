@@ -2,8 +2,8 @@
   "id": "cobalamin",
   "slug": "cobalamin",
   "name": "vitamin b12",
-  "summary": "Corrects deficiency and prevents anemia and neuropathy.",
-  "description": "Vitamin B12 (cobalamin) prevents and treats deficiency-related anemia and neuropathy, primarily via cofactor roles in DNA synthesis and myelin maintenance.",
+  "summary": "Vitamin B12 is effective for correcting documented deficiency, but the reviewed evidence does not support broad cognitive, antidepressant, fatigue, growth, or developmental enhancement in nondeficient or generally supplemented populations.",
+  "description": "Cobalamin evidence is strongly context-dependent: correcting true deficiency is distinct from using vitamin B12 as a general nootropic or mood enhancer. Across systematic reviews and meta-analyses, biochemical deficiency correction can occur without corresponding cognitive or depressive benefit in nondeficient or broadly supplemented populations.",
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",
@@ -16,31 +16,117 @@
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Very low toxicity.",
-  "evidenceLevel": "",
+  "safetyNotes": "Treat deficiency-related neurologic or hematologic concerns as clinical issues rather than supplement-optimization targets. The reviewed evidence does not establish a universal consumer dose, route, or cobalamin form for cognitive or mood enhancement.",
+  "evidenceLevel": "Moderate Human Evidence",
   "relatedCompounds": [],
   "governance": {
     "reviewStatus": "needs_review",
     "legalRisk": "none",
-    "medicalRisk": "low",
-    "monetizationAllowed": true,
+    "medicalRisk": "moderate",
+    "monetizationAllowed": false,
     "indexingAllowed": false,
-    "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": ""
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "deficiency_treatment_not_general_enhancement"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 5,
+    "sourceIds": [
+      "src_pubmed-33809274",
+      "src_pubmed-22221769",
+      "src_pubmed-37046885",
+      "src_pubmed-42227307",
+      "src_pubmed-39655146"
+    ]
   },
   "claimMap": [],
   "indexability_status": "NOINDEX",
   "robots": "noindex,follow",
-  "dosage": "capsule or softgel",
-  "typical_dosage": "capsule or softgel",
+  "dosage": "",
+  "typical_dosage": "",
   "sitemap_included": false,
   "indexability_reasons": [
     "noindex-decision:hidden_until_grounded"
+  ],
+  "safety": "Treat deficiency-related neurologic or hematologic concerns as clinical issues rather than supplement-optimization targets. The reviewed evidence does not establish a universal consumer dose, route, or cobalamin form for cognitive or mood enhancement.",
+  "evidence_tier": "Moderate Human Evidence",
+  "evidenceTier": "Moderate Human Evidence",
+  "evidence_grade": "C",
+  "evidence_label": "Moderate Human Evidence",
+  "evidenceLabel": "Moderate Human Evidence",
+  "sources": [
+    {
+      "sourceId": "src_pubmed-33809274",
+      "title": "Effects of Vitamin B12 Supplementation on Cognitive Function, Depressive Symptoms, and Fatigue: A Systematic Review, Meta-Analysis, and Meta-Regression",
+      "sourceType": "meta-analysis",
+      "studyType": "meta-analysis",
+      "pmid": "33809274",
+      "doi": "10.3390/nu13030923",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33809274/",
+      "publicationYear": 2021,
+      "authors": "Stefan Markun, Isaac Gravestock, Levy Jäger, Thomas Rosemann, Giuseppe Pichierri, Jakob M Burgstaller",
+      "evidenceClass": "human-clinical",
+      "reviewer": "source-review-bot"
+    },
+    {
+      "sourceId": "src_pubmed-22221769",
+      "title": "Cognitive impairment and vitamin B12: a review",
+      "sourceType": "systematic-review",
+      "studyType": "systematic-review",
+      "pmid": "22221769",
+      "doi": "10.1017/S1041610211002511",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22221769/",
+      "publicationYear": 2012,
+      "authors": "Eileen Moore, Alastair Mander, David Ames, Ross Carne, Kerrie Sanders, David Watters",
+      "evidenceClass": "human-clinical",
+      "reviewer": "source-review-bot"
+    },
+    {
+      "sourceId": "src_pubmed-37046885",
+      "title": "Neurological Implications of Vitamin B12 Deficiency in Diet: A Systematic Review and Meta-Analysis",
+      "sourceType": "meta-analysis",
+      "studyType": "meta-analysis",
+      "pmid": "37046885",
+      "doi": "10.3390/healthcare11070958",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37046885/",
+      "publicationYear": 2023,
+      "authors": "Mubarak Alruwaili, Rehana Basri, Raed AlRuwaili, Anas Mohammad Albarrak, Naif H Ali",
+      "evidenceClass": "human-clinical",
+      "reviewer": "source-review-bot"
+    },
+    {
+      "sourceId": "src_pubmed-42227307",
+      "title": "Vitamin B12 supplementation for growth, development, and cognition in children",
+      "sourceType": "systematic-review",
+      "studyType": "systematic-review",
+      "pmid": "42227307",
+      "doi": "10.1002/14651858.CD015264.pub2",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42227307/",
+      "publicationYear": 2026,
+      "authors": "Doreen Y Larvie, Cristina E Güitrón Leal, Sudha Venkatramanan, Ximena E Palma Molina, Lili B Steel, Rebecca Kuriyan, Julia L Finkelstein",
+      "evidenceClass": "human-clinical",
+      "reviewer": "source-review-bot"
+    },
+    {
+      "sourceId": "src_pubmed-39655146",
+      "title": "Assessment of Vitamin B12 Efficacy on Cognitive Memory Function and Depressive Symptoms: A Systematic Review and Meta-Analysis",
+      "sourceType": "meta-analysis",
+      "studyType": "meta-analysis",
+      "pmid": "39655146",
+      "doi": "10.7759/cureus.73350",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39655146/",
+      "publicationYear": 2024,
+      "authors": "Hayat Alzahrani",
+      "evidenceClass": "human-clinical",
+      "reviewer": "source-review-bot"
+    }
+  ],
+  "pmids": [
+    "33809274",
+    "22221769",
+    "37046885",
+    "42227307",
+    "39655146"
   ]
 }

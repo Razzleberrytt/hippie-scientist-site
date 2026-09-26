@@ -280,6 +280,195 @@
   },
   {
     "entityType": "compound",
+    "entitySlug": "cobalamin",
+    "researchEnrichment": {
+      "evidenceSummary": "5 approved normalized findings across 3 topic types.",
+      "evidenceTier": "tier-1-strong",
+      "evidenceClassesPresent": [
+        "human-clinical"
+      ],
+      "supportedUses": [],
+      "unsupportedOrUnclearUses": [
+        {
+          "claim": "A systematic review, meta-analysis, and meta-regression of 16 randomized controlled trials involving 6,276 participants without advanced neurological disease or overt vitamin B12 deficiency found no evidence that vitamin B12 alone or B-vitamin combinations improved cognitive subdomains. The synthesis also did not support a robust general enhancement effect on depressive symptoms or idiopathic fatigue. These findings constrain use of B12 as a cognition or energy enhancer in nondeficient populations.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-33809274"
+          ],
+          "uncertaintyNote": "Null enhancement evidence does not negate treatment of true deficiency.",
+          "strengthNote": "moderate"
+        },
+        {
+          "claim": "A 2024 systematic review and meta-analysis of nine randomized controlled trials found no significant effect of vitamin B12 supplementation on cognitive memory function (SMD -0.03, 95% CI -0.07 to 0.01; p=0.1801) or depressive symptoms (SMD -0.01, 95% CI -0.0773 to 0.0525; p=0.708). This null evidence constrains broad cognition or antidepressant enhancement claims and does not negate treatment of documented vitamin B12 deficiency.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-39655146"
+          ],
+          "uncertaintyNote": "These null pooled results do not negate treatment of documented vitamin B12 deficiency and do not establish one consumer dose, formulation, or route.",
+          "strengthNote": "moderate"
+        }
+      ],
+      "mechanisms": [],
+      "constituents": [],
+      "interactions": [],
+      "contraindications": [],
+      "adverseEffects": [],
+      "dosageContextNotes": [],
+      "populationSpecificNotes": [
+        {
+          "claim": "A review of vitamin B12 and cognitive impairment found that high-dose oral or parenteral B12 corrected biochemical deficiency and that cognitive improvement was observed in patients with pre-existing B12 deficiency, while B12 therapy did not improve cognition in patients without pre-existing deficiency. Deficiency correction is therefore distinct from nootropic enhancement.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-22221769"
+          ],
+          "uncertaintyNote": "Association between low B12 and neurodegenerative disease is not itself proof of treatment efficacy outside deficiency.",
+          "strengthNote": "moderate"
+        },
+        {
+          "claim": "A 2026 Cochrane review of 16 trials in children found that vitamin B12 supplementation reduced B12 deficiency and improved B12 concentrations, while evidence suggested little to no effect on cognitive function, growth, development, or anemia across several comparisons. Pediatric nutritional and developmental evidence must remain separate from adult enhancement claims.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-42227307"
+          ],
+          "uncertaintyNote": "Certainty ranged from high to very low by outcome; few studies reported several clinical outcomes or adverse effects.",
+          "strengthNote": "moderate"
+        }
+      ],
+      "conflictNotes": [
+        {
+          "claim": "A systematic review and meta-analysis of neurological implications of vitamin B12 deficiency reported short-term neurological or cognitive improvement in some susceptible populations after correction, while longer-term supplementation findings were inconsistent and many controlled trials did not show sustained cognitive improvement. This reinforces the boundary between deficiency treatment and durable enhancement claims.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-37046885"
+          ],
+          "uncertaintyNote": "Heterogeneous populations and durations constrain broad conclusions.",
+          "strengthNote": "limited"
+        }
+      ],
+      "researchGaps": [],
+      "safetyProfile": {
+        "safetyEntries": [],
+        "summary": {
+          "total": 0,
+          "byTopicType": {},
+          "bySeverity": {}
+        }
+      },
+      "topicEvidenceJudgments": {
+        "conflict_note": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 15
+          },
+          "conflictNotes": [
+            "Source-backed conflict notes are present for this topic."
+          ],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "population_specific_note": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 2,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 16
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "unsupported_or_unclear_use": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 2,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 16
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        }
+      },
+      "pageEvidenceJudgment": {
+        "evidenceLabel": "mixed_or_uncertain",
+        "grading": {
+          "evidenceClass": [
+            "human-clinical"
+          ],
+          "studyDesignWeight": 5,
+          "humanRelevance": "direct-human",
+          "directnessToClaim": "direct",
+          "replicationDepth": 5,
+          "sourceReliabilityTier": "tier-a",
+          "recencyWeight": 2,
+          "editorialConfidence": "medium",
+          "conflictState": "mixed_or_uncertain",
+          "confidenceIndex": 17
+        },
+        "conflictNotes": [
+          "Source-backed conflict notes are present for this topic."
+        ],
+        "uncertaintyNotes": [
+          "One or more findings carry explicit uncertainty notes from editorial review."
+        ],
+        "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+      },
+      "editorialReadiness": {
+        "publishable": true,
+        "hasConflictOrWeakEvidence": true,
+        "conflictLabelingPresent": true,
+        "weakEvidenceClaimsLabeled": true
+      },
+      "sourceRegistryIds": [
+        "src_pubmed-22221769",
+        "src_pubmed-33809274",
+        "src_pubmed-37046885",
+        "src_pubmed-39655146",
+        "src_pubmed-42227307"
+      ],
+      "lastReviewedAt": "2026-09-26T14:15:00.000Z",
+      "reviewedBy": "normalized-enrichment-pipeline",
+      "editorialStatus": "approved"
+    }
+  },
+  {
+    "entityType": "compound",
     "entitySlug": "luteolin",
     "researchEnrichment": {
       "evidenceSummary": "9 approved normalized findings across 8 topic types.",
