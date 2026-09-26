@@ -193,13 +193,14 @@
       "reviewStatus": {
         "type": "string",
         "enum": [
-          "draft_candidate",
-          "needs_metadata",
-          "under_review",
           "approved_for_registry",
-          "rejected",
+          "blocked_pending_manual_review",
+          "deprecated_candidate",
+          "draft_candidate",
           "duplicate_of_existing",
-          "deprecated_candidate"
+          "needs_metadata",
+          "rejected",
+          "under_review"
         ]
       },
       "approvalNotes": {
