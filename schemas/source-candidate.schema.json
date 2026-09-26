@@ -65,7 +65,10 @@
         ]
       },
       "organization": {
-        "type": "string",
+        "type": [
+          "string",
+          "null"
+        ],
         "minLength": 1
       },
       "authors": {
@@ -110,7 +113,10 @@
         "minLength": 2
       },
       "jurisdiction": {
-        "type": "string",
+        "type": [
+          "string",
+          "null"
+        ],
         "minLength": 2
       },
       "evidenceClass": {
