@@ -469,6 +469,221 @@
   },
   {
     "entityType": "compound",
+    "entitySlug": "coenzyme-q10",
+    "researchEnrichment": {
+      "evidenceSummary": "5 approved normalized findings across 4 topic types.",
+      "evidenceTier": "tier-1-strong",
+      "evidenceClassesPresent": [
+        "human-clinical"
+      ],
+      "supportedUses": [
+        {
+          "claim": "A 2022 systematic review and random-effects meta-analysis of 13 randomized controlled trials totaling 1,126 participants found lower fatigue scores with CoQ10 versus placebo (Hedges' g -0.398, 95% CI -0.641 to -0.155). Included studies spanned healthy and disease populations, and subgroup results differed by CoQ10-only versus mixed-compound formulations, so the pooled signal should not be converted into a universal fatigue-treatment claim or a single standard dose.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-36091835"
+          ],
+          "uncertaintyNote": "Population and formulation heterogeneity remain material. Dose and duration meta-regression associations are study-level findings and must not be converted into an individualized dosing rule.",
+          "strengthNote": "moderate"
+        }
+      ],
+      "unsupportedOrUnclearUses": [
+        {
+          "claim": "A systematic review and meta-analysis of randomized trials in healthy adults found that CoQ10 supplementation reliably increased circulating CoQ10 concentrations, while exercise-performance effects were small and inconsistent. Chronic-supplementation and aerobic-endurance signals became unstable or borderline after outlier exclusion, acute effects were trivial, and no stable dose-response pattern emerged. Overall certainty was very low to low because of heterogeneity and moderate-to-high risk of bias.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-41457257"
+          ],
+          "uncertaintyNote": "Performance findings were sensitive to analytic choices and outlier removal, and no stable dose-response pattern was found.",
+          "strengthNote": "limited"
+        }
+      ],
+      "mechanisms": [],
+      "constituents": [],
+      "interactions": [],
+      "contraindications": [],
+      "adverseEffects": [],
+      "dosageContextNotes": [],
+      "populationSpecificNotes": [
+        {
+          "claim": "In the Q-SYMBIO randomized double-blind multicenter trial, 420 patients with moderate-to-severe chronic heart failure received adjunctive coenzyme Q10 or placebo with standard therapy. The 16-week functional and biomarker endpoints did not significantly differ, while the two-year composite major adverse cardiovascular endpoint occurred less often in the CoQ10 group (15% versus 26%; HR 0.50, 95% CI 0.32 to 0.80). This disease-specific adjunctive-treatment result must not be generalized into a universal wellness, prevention, or consumer-dose claim.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-25282031"
+          ],
+          "uncertaintyNote": "Short-term functional and biomarker endpoints were not significantly improved; preserve the chronic-heart-failure population boundary.",
+          "strengthNote": "moderate"
+        }
+      ],
+      "conflictNotes": [
+        {
+          "claim": "A 2026 systematic review and meta-analysis of five randomized controlled trials totaling 474 participants with primary depression or depression accompanying medical conditions found a pooled depressive-symptom improvement, but the fatigue outcome based on two trials was not significant (SMD -0.33, 95% CI -1.38 to 0.72; p=0.54) and showed very high heterogeneity (I²=89%). The depressive-symptom result and fatigue result must remain separate outcomes.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-41294251"
+          ],
+          "uncertaintyNote": "Only two trials contributed fatigue data and heterogeneity was very high, so the null fatigue estimate is imprecise rather than proof of no effect.",
+          "strengthNote": "limited"
+        },
+        {
+          "claim": "A 2025 systematic review and meta-analysis of small randomized trials found lower depression severity on the Montgomery-Åsberg Depression Rating Scale, while Beck Depression Inventory results were not significant and the pooled anxiety estimate from two small studies was also not significant. The apparent low-dose and short-duration subgroup signals are study-level findings and must not be converted into consumer dosing guidance. Depression scales and anxiety remain separate endpoints rather than one generic mood claim.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-40833470"
+          ],
+          "uncertaintyNote": "The evidence base is small and scale-dependent; MADRS, BDI, and anxiety results disagree.",
+          "strengthNote": "limited"
+        }
+      ],
+      "researchGaps": [],
+      "safetyProfile": {
+        "safetyEntries": [],
+        "summary": {
+          "total": 0,
+          "byTopicType": {},
+          "bySeverity": {}
+        }
+      },
+      "topicEvidenceJudgments": {
+        "conflict_note": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 2,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 16
+          },
+          "conflictNotes": [
+            "Source-backed conflict notes are present for this topic."
+          ],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "population_specific_note": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 1,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 14
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "supported_use": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 15
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "unsupported_or_unclear_use": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 15
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        }
+      },
+      "pageEvidenceJudgment": {
+        "evidenceLabel": "conflicting_evidence",
+        "grading": {
+          "evidenceClass": [
+            "human-clinical"
+          ],
+          "studyDesignWeight": 5,
+          "humanRelevance": "direct-human",
+          "directnessToClaim": "direct",
+          "replicationDepth": 5,
+          "sourceReliabilityTier": "tier-a",
+          "recencyWeight": 2,
+          "editorialConfidence": "medium",
+          "conflictState": "conflicting_evidence",
+          "confidenceIndex": 15
+        },
+        "conflictNotes": [
+          "Human evidence includes both efficacy-supporting and null/mixed findings.",
+          "Source-backed conflict notes are present for this topic."
+        ],
+        "uncertaintyNotes": [
+          "One or more findings carry explicit uncertainty notes from editorial review."
+        ],
+        "toneGuidance": "Lead with disagreement across sources and avoid directional conclusions."
+      },
+      "editorialReadiness": {
+        "publishable": true,
+        "hasConflictOrWeakEvidence": true,
+        "conflictLabelingPresent": true,
+        "weakEvidenceClaimsLabeled": true
+      },
+      "sourceRegistryIds": [
+        "src_pubmed-25282031",
+        "src_pubmed-36091835",
+        "src_pubmed-40833470",
+        "src_pubmed-41294251",
+        "src_pubmed-41457257"
+      ],
+      "lastReviewedAt": "2026-09-26T16:06:00.000Z",
+      "reviewedBy": "normalized-enrichment-pipeline",
+      "editorialStatus": "approved"
+    }
+  },
+  {
+    "entityType": "compound",
     "entitySlug": "luteolin",
     "researchEnrichment": {
       "evidenceSummary": "9 approved normalized findings across 8 topic types.",
