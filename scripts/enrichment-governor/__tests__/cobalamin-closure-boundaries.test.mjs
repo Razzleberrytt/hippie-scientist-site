@@ -47,7 +47,8 @@ test('Cobalamin normalized evidence preserves deficiency, null, and pediatric bo
   const nondeficient = records.find(item => item.sourceId === 'src_pubmed-33809274')
   assert.ok(nondeficient)
   assert.equal(nondeficient.topicType, 'unsupported_or_unclear_use')
-  assert.match(nondeficient.findingTextNormalized, /without overt vitamin B12 deficiency/i)
+  assert.match(nondeficient.findingTextNormalized, /overt vitamin B12 deficiency/i)
+  assert.match(nondeficient.findingTextNormalized, /nondeficient populations/i)
   assert.match(nondeficient.uncertaintyNote, /does not negate treatment of true deficiency/i)
 
   const deficiency = records.find(item => item.sourceId === 'src_pubmed-22221769')
