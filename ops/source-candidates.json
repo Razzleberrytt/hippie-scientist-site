@@ -1965,5 +1965,236 @@
         "ops/source-candidates.json"
       ]
     }
+  },
+  {
+    "intakeTaskId": "intake_gap_wp_compound_cobalamin_evidence_missing_modern_human_evidence_must_have_publish_blocking",
+    "sourceClass": "systematic-review-meta-analysis",
+    "evidenceClass": "human-clinical",
+    "publicationStatus": "published",
+    "duplicateRisk": "low",
+    "reviewStatus": "under_review",
+    "active": true,
+    "relatedEntities": [
+      {
+        "entityType": "compound",
+        "entitySlug": "cobalamin"
+      }
+    ],
+    "relatedTopicGaps": [
+      "evidence"
+    ],
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    },
+    "candidateSourceId": "cand_cobalamin-33809274",
+    "title": "Effects of Vitamin B12 Supplementation on Cognitive Function, Depressive Symptoms, and Fatigue: A Systematic Review, Meta-Analysis, and Meta-Regression",
+    "shortTitle": "B12 cognition, depression, and fatigue meta-analysis",
+    "sourceType": "meta-analysis",
+    "authors": [
+      "Stefan Markun",
+      "Isaac Gravestock",
+      "Levy Jäger",
+      "Thomas Rosemann",
+      "Giuseppe Pichierri",
+      "Jakob M Burgstaller"
+    ],
+    "publicationYear": 2021,
+    "citationText": "Markun S, Gravestock I, Jäger L, Rosemann T, Pichierri G, Burgstaller JM. Nutrients. 2021;13(3):923.",
+    "doi": "10.3390/nu13030923",
+    "pmid": "33809274",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/33809274/",
+    "language": "en",
+    "studyDesign": "meta-analysis",
+    "proposedReliabilityTier": "tier-b",
+    "whyThisSourceMatters": "Direct randomized-trial synthesis for the nondeficient cognitive, depressive-symptom, and fatigue enhancement boundary."
+  },
+  {
+    "intakeTaskId": "intake_gap_wp_compound_cobalamin_evidence_missing_modern_human_evidence_must_have_publish_blocking",
+    "sourceClass": "systematic-review-meta-analysis",
+    "evidenceClass": "human-clinical",
+    "publicationStatus": "published",
+    "duplicateRisk": "low",
+    "reviewStatus": "under_review",
+    "active": true,
+    "relatedEntities": [
+      {
+        "entityType": "compound",
+        "entitySlug": "cobalamin"
+      }
+    ],
+    "relatedTopicGaps": [
+      "evidence"
+    ],
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    },
+    "candidateSourceId": "cand_cobalamin-22221769",
+    "title": "Cognitive impairment and vitamin B12: a review",
+    "shortTitle": "B12 deficiency and cognition review",
+    "sourceType": "systematic-review",
+    "authors": [
+      "Eileen Moore",
+      "Alastair Mander",
+      "David Ames",
+      "Ross Carne",
+      "Kerrie Sanders",
+      "David Watters"
+    ],
+    "publicationYear": 2012,
+    "citationText": "Moore E, Mander A, Ames D, Carne R, Sanders K, Watters D. Int Psychogeriatr. 2012;24(4):541-556.",
+    "doi": "10.1017/S1041610211002511",
+    "pmid": "22221769",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/22221769/",
+    "language": "en",
+    "studyDesign": "systematic-review",
+    "proposedReliabilityTier": "tier-b",
+    "whyThisSourceMatters": "Separates benefit from correction of documented B12 deficiency from the lack of cognitive improvement in nondeficient populations."
+  },
+  {
+    "intakeTaskId": "intake_gap_wp_compound_cobalamin_evidence_missing_modern_human_evidence_must_have_publish_blocking",
+    "sourceClass": "systematic-review-meta-analysis",
+    "evidenceClass": "human-clinical",
+    "publicationStatus": "published",
+    "duplicateRisk": "low",
+    "reviewStatus": "under_review",
+    "active": true,
+    "relatedEntities": [
+      {
+        "entityType": "compound",
+        "entitySlug": "cobalamin"
+      }
+    ],
+    "relatedTopicGaps": [
+      "evidence"
+    ],
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    },
+    "candidateSourceId": "cand_cobalamin-37046885",
+    "title": "Neurological Implications of Vitamin B12 Deficiency in Diet: A Systematic Review and Meta-Analysis",
+    "shortTitle": "B12 deficiency neurological systematic review",
+    "sourceType": "meta-analysis",
+    "authors": [
+      "Mubarak Alruwaili",
+      "Rehana Basri",
+      "Raed AlRuwaili",
+      "Anas Mohammad Albarrak",
+      "Naif H Ali"
+    ],
+    "publicationYear": 2023,
+    "citationText": "Alruwaili M, Basri R, AlRuwaili R, Albarrak AM, Ali NH. Healthcare (Basel). 2023;11(7):958.",
+    "doi": "10.3390/healthcare11070958",
+    "pmid": "37046885",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/37046885/",
+    "language": "en",
+    "studyDesign": "meta-analysis",
+    "proposedReliabilityTier": "tier-b",
+    "whyThisSourceMatters": "Captures the mixed short-term neurological signal in susceptible or deficient populations while preserving inconsistent longer-term findings."
+  },
+  {
+    "intakeTaskId": "intake_gap_wp_compound_cobalamin_evidence_missing_modern_human_evidence_must_have_publish_blocking",
+    "sourceClass": "systematic-review-meta-analysis",
+    "evidenceClass": "human-clinical",
+    "publicationStatus": "published",
+    "duplicateRisk": "low",
+    "reviewStatus": "under_review",
+    "active": true,
+    "relatedEntities": [
+      {
+        "entityType": "compound",
+        "entitySlug": "cobalamin"
+      }
+    ],
+    "relatedTopicGaps": [
+      "evidence"
+    ],
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    },
+    "candidateSourceId": "cand_cobalamin-42227307",
+    "title": "Vitamin B12 supplementation for growth, development, and cognition in children",
+    "shortTitle": "Cochrane pediatric B12 supplementation review",
+    "sourceType": "systematic-review",
+    "organization": "Cochrane",
+    "authors": [
+      "Doreen Y Larvie",
+      "Cristina E Güitrón Leal",
+      "Sudha Venkatramanan",
+      "Ximena E Palma Molina",
+      "Lili B Steel",
+      "Rebecca Kuriyan",
+      "Julia L Finkelstein"
+    ],
+    "publicationYear": 2026,
+    "citationText": "Larvie DY, Güitrón Leal CE, Venkatramanan S, Palma Molina XE, Steel LB, Kuriyan R, Finkelstein JL. Cochrane Database Syst Rev. 2026;6(6):CD015264.",
+    "doi": "10.1002/14651858.CD015264.pub2",
+    "pmid": "42227307",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/42227307/",
+    "language": "en",
+    "studyDesign": "meta-analysis",
+    "proposedReliabilityTier": "tier-a",
+    "whyThisSourceMatters": "High-authority pediatric randomized-trial synthesis that separates biochemical deficiency correction from cognition, growth, development, and anemia outcomes."
+  },
+  {
+    "intakeTaskId": "intake_gap_wp_compound_cobalamin_evidence_missing_modern_human_evidence_must_have_publish_blocking",
+    "sourceClass": "systematic-review-meta-analysis",
+    "evidenceClass": "human-clinical",
+    "publicationStatus": "published",
+    "duplicateRisk": "low",
+    "reviewStatus": "under_review",
+    "active": true,
+    "relatedEntities": [
+      {
+        "entityType": "compound",
+        "entitySlug": "cobalamin"
+      }
+    ],
+    "relatedTopicGaps": [
+      "evidence"
+    ],
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    },
+    "candidateSourceId": "cand_cobalamin-39655146",
+    "title": "Assessment of Vitamin B12 Efficacy on Cognitive Memory Function and Depressive Symptoms: A Systematic Review and Meta-Analysis",
+    "shortTitle": "B12 memory and depressive symptoms meta-analysis",
+    "sourceType": "meta-analysis",
+    "authors": [
+      "Hayat Alzahrani"
+    ],
+    "publicationYear": 2024,
+    "citationText": "Alzahrani H. Cureus. 2024;16(11):e73350.",
+    "doi": "10.7759/cureus.73350",
+    "pmid": "39655146",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/39655146/",
+    "language": "en",
+    "studyDesign": "meta-analysis",
+    "proposedReliabilityTier": "tier-b",
+    "whyThisSourceMatters": "Adds the newer randomized-trial meta-analysis showing null pooled memory and depressive-symptom effects without negating treatment of documented deficiency."
   }
 ]
