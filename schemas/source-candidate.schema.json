@@ -23,7 +23,7 @@
     "properties": {
       "candidateSourceId": {
         "type": "string",
-        "pattern": "^cand_[a-z0-9]+(?:-[a-z0-9]+)*$"
+        "pattern": "^cand_[a-z0-9]+(?:[-_][a-z0-9]+)*$"
       },
       "intakeTaskId": {
         "type": "string",
