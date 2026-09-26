@@ -4,6 +4,7 @@ import Ajv2020 from 'ajv/dist/2020.js'
 import addFormats from 'ajv-formats'
 import { getSourceClassRule } from './lib/source-class-governance'
 import type { SourceRegistryRecord } from './lib/source-registry-record'
+import { candidateSourceIdBase } from './lib/source-candidate-identity.mjs'
 
 type ReviewStatus =
   | 'draft_candidate'
@@ -149,16 +150,6 @@ function canonicalizeUrl(raw: string | undefined): string | null {
   } catch {
     return null
   }
-}
-
-function sourceIdBase(candidate: SourceCandidate): string {
-  if (isNonEmpty(candidate.doi)) return `src_doi-${slugify(candidate.doi)}`
-  if (isNonEmpty(candidate.pmid)) return `src_pmid-${candidate.pmid}`
-  const canonicalUrl = canonicalizeUrl(candidate.canonicalUrl)
-  if (canonicalUrl) return `src_url-${slugify(canonicalUrl)}`
-  if (isNonEmpty(candidate.monographId)) return `src_mono-${slugify(candidate.monographId)}`
-  const year = Number.isInteger(candidate.publicationYear) ? `-${candidate.publicationYear}` : ''
-  return `src_title-${slugify(candidate.title)}${year}`
 }
 
 function buildUniqueSourceId(base: string, taken: Set<string>): string {
@@ -383,7 +374,7 @@ function run() {
 
     let proposedRegistrySourceId: string | undefined
     if (promotable && promotionBlockedReasons.length === 0) {
-      const sourceId = buildUniqueSourceId(sourceIdBase(candidate), takenSourceIds)
+      const sourceId = buildUniqueSourceId(candidateSourceIdBase(candidate), takenSourceIds)
       proposedRegistrySourceId = sourceId
       insertions.push({
         sourceId,
