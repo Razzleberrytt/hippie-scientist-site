@@ -14,6 +14,7 @@ type ReviewStatus =
   | 'rejected'
   | 'duplicate_of_existing'
   | 'deprecated_candidate'
+  | 'blocked_pending_manual_review'
 
 type OutcomeCategory =
   | 'approved_new_source'
