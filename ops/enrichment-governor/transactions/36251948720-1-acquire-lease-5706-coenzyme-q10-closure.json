@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "transactionType": "enrichment_governor_lease",
+  "requestedAt": "2026-09-26T15:27:06.277Z",
+  "operation": "acquire",
+  "actor": "github-actions[bot]",
+  "owner": "site-swarm-integration",
+  "leaseId": "lease-5706-coenzyme-q10-closure",
+  "purpose": "close CoQ10 endpoint-discordance and canonical identity",
+  "files": [],
+  "entities": [
+    "compound:coenzyme-q10"
+  ],
+  "disposition": null,
+  "baseSha": "d55f32c464262001dd4500e0e88fd7946d7cfda2",
+  "before": {
+    "workQueueSha256": "190520a861e3dd57bfc16c5508f827fd00d00c2db50f0864169fa86418a92fdf",
+    "ledgerSha256": "01ba388e7fb866dc356c80e9923663d7edbb3fb1934a6eed1becd46086f93d7a"
+  },
+  "after": {
+    "workQueueSha256": "3a559860d7a7f9db658e4a4b910f107ce398b42bff754d23ceaf210ec5ce12f4",
+    "ledgerSha256": "e0203f5505e664bf1c28e63ea8a3987638a56ff23417ef84620b73beb400a702"
+  },
+  "result": {
+    "acquired": true,
+    "expiresAt": "2026-09-26T16:57:06.271Z"
+  },
+  "transactionCommitSha": "6464d409aa783f53596a2a0d5bfbbd6d882f3200",
+  "finalizedAt": "2026-09-26T15:27:07.602Z"
+}
