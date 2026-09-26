@@ -27,6 +27,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Prove staged-owner clean-checkout regression
+        run: npx vitest run scripts/enrichment-pipeline/__tests__/enrichment-full-clean-checkout.test.mjs
+
       - name: Regenerate canonical prerequisite reports
         run: |
           set -euo pipefail
