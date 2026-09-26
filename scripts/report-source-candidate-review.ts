@@ -4,6 +4,8 @@ import Ajv2020 from 'ajv/dist/2020.js'
 import addFormats from 'ajv-formats'
 import { getSourceClassRule } from './lib/source-class-governance'
 import type { SourceRegistryRecord } from './lib/source-registry-record'
+import { candidateSourceIdBase } from './lib/source-candidate-identity.mjs'
+import { resolveSourceClassAuthorization } from './lib/source-retry-authorization.mjs'
 
 type ReviewStatus =
   | 'draft_candidate'
@@ -13,6 +15,7 @@ type ReviewStatus =
   | 'rejected'
   | 'duplicate_of_existing'
   | 'deprecated_candidate'
+  | 'blocked_pending_manual_review'
 
 type OutcomeCategory =
   | 'approved_new_source'
@@ -151,16 +154,6 @@ function canonicalizeUrl(raw: string | undefined): string | null {
   }
 }
 
-function sourceIdBase(candidate: SourceCandidate): string {
-  if (isNonEmpty(candidate.doi)) return `src_doi-${slugify(candidate.doi)}`
-  if (isNonEmpty(candidate.pmid)) return `src_pmid-${candidate.pmid}`
-  const canonicalUrl = canonicalizeUrl(candidate.canonicalUrl)
-  if (canonicalUrl) return `src_url-${slugify(canonicalUrl)}`
-  if (isNonEmpty(candidate.monographId)) return `src_mono-${slugify(candidate.monographId)}`
-  const year = Number.isInteger(candidate.publicationYear) ? `-${candidate.publicationYear}` : ''
-  return `src_title-${slugify(candidate.title)}${year}`
-}
-
 function buildUniqueSourceId(base: string, taken: Set<string>): string {
   if (!taken.has(base)) {
     taken.add(base)
@@ -210,6 +203,7 @@ function run() {
     rejected: 0,
     duplicate_of_existing: 0,
     deprecated_candidate: 0,
+    blocked_pending_manual_review: 0,
   }
 
   const byDerivedStatus: Record<ReviewStatus, number> = {
@@ -220,6 +214,7 @@ function run() {
     rejected: 0,
     duplicate_of_existing: 0,
     deprecated_candidate: 0,
+    blocked_pending_manual_review: 0,
   }
 
   const byOutcomeCategory: Record<OutcomeCategory, number> = {
@@ -319,9 +314,8 @@ function run() {
       if (match) duplicateMatches.push({ sourceId: match.sourceId, matchType: 'canonicalUrl' })
     }
 
-    const wrongClassForGap = Boolean(
-      intakeTask && intakeTask.recommendedSourceClasses.length > 0 && !intakeTask.recommendedSourceClasses.includes(candidate.sourceClass),
-    )
+    const classAuthorization = resolveSourceClassAuthorization(intakeTask, candidate.sourceClass)
+    const wrongClassForGap = Boolean(intakeTask && !classAuthorization.authorized)
 
     let outcomeCategory: OutcomeCategory = 'approved_new_source'
     if (duplicateMatches.length > 0 || candidate.duplicateRisk === 'known-duplicate' || isNonEmpty(candidate.duplicateOfSourceId)) {
@@ -336,7 +330,9 @@ function run() {
 
     const reviewEvidenceReady = isNonEmpty(candidate.reviewer) && isNonEmpty(candidate.reviewedAt)
     let derivedReviewStatus: ReviewStatus
-    if (candidate.reviewStatus === 'deprecated_candidate') {
+    if (candidate.reviewStatus === 'blocked_pending_manual_review') {
+      derivedReviewStatus = 'blocked_pending_manual_review'
+    } else if (candidate.reviewStatus === 'deprecated_candidate') {
       derivedReviewStatus = 'deprecated_candidate'
     } else if (outcomeCategory === 'duplicate_of_existing') {
       derivedReviewStatus = 'duplicate_of_existing'
@@ -350,7 +346,7 @@ function run() {
       derivedReviewStatus = 'approved_for_registry'
     }
 
-    const disallowedStatuses = new Set<ReviewStatus>(['rejected', 'duplicate_of_existing', 'deprecated_candidate', 'needs_metadata'])
+    const disallowedStatuses = new Set<ReviewStatus>(['rejected', 'duplicate_of_existing', 'deprecated_candidate', 'needs_metadata', 'blocked_pending_manual_review'])
     const promotable = !disallowedStatuses.has(derivedReviewStatus)
 
     if (derivedReviewStatus !== candidate.reviewStatus) {
@@ -383,7 +379,7 @@ function run() {
 
     let proposedRegistrySourceId: string | undefined
     if (promotable && promotionBlockedReasons.length === 0) {
-      const sourceId = buildUniqueSourceId(sourceIdBase(candidate), takenSourceIds)
+      const sourceId = buildUniqueSourceId(candidateSourceIdBase(candidate), takenSourceIds)
       proposedRegistrySourceId = sourceId
       insertions.push({
         sourceId,

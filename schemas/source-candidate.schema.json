@@ -21,10 +21,22 @@
       "active"
     ],
     "properties": {
-      "candidateSourceId": { "type": "string", "pattern": "^cand_[a-z0-9]+(?:-[a-z0-9]+)*$" },
-      "intakeTaskId": { "type": "string", "pattern": "^intake_[a-z0-9_]+$" },
-      "title": { "type": "string", "minLength": 1 },
-      "shortTitle": { "type": "string", "minLength": 1 },
+      "candidateSourceId": {
+        "type": "string",
+        "pattern": "^cand_[a-z0-9]+(?:[-_][a-z0-9]+)*$"
+      },
+      "intakeTaskId": {
+        "type": "string",
+        "pattern": "^intake_[a-z0-9_]+$"
+      },
+      "title": {
+        "type": "string",
+        "minLength": 1
+      },
+      "shortTitle": {
+        "type": "string",
+        "minLength": 1
+      },
       "sourceType": {
         "type": "string",
         "enum": [
@@ -52,21 +64,61 @@
           "reference-database-authority"
         ]
       },
-      "organization": { "type": "string", "minLength": 1 },
+      "organization": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "minLength": 1
+      },
       "authors": {
         "type": "array",
-        "items": { "type": "string", "minLength": 1 },
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
         "uniqueItems": true
       },
-      "publicationYear": { "type": "integer", "minimum": 1800, "maximum": 2100 },
-      "citationText": { "type": "string", "minLength": 1 },
-      "doi": { "type": "string", "pattern": "^10\\.[0-9]{4,9}\\/.+" },
-      "pmid": { "type": "string", "pattern": "^[1-9][0-9]{4,8}$" },
-      "canonicalUrl": { "type": "string", "format": "uri" },
-      "monographId": { "type": "string", "minLength": 1 },
-      "isbn": { "type": "string", "pattern": "^(?:97[89][- ]?)?[0-9][- 0-9]{8,}[0-9Xx]$" },
-      "language": { "type": "string", "minLength": 2 },
-      "jurisdiction": { "type": "string", "minLength": 2 },
+      "publicationYear": {
+        "type": "integer",
+        "minimum": 1800,
+        "maximum": 2100
+      },
+      "citationText": {
+        "type": "string",
+        "minLength": 1
+      },
+      "doi": {
+        "type": "string",
+        "pattern": "^10\\.[0-9]{4,9}\\/.+"
+      },
+      "pmid": {
+        "type": "string",
+        "pattern": "^[1-9][0-9]{4,8}$"
+      },
+      "canonicalUrl": {
+        "type": "string",
+        "format": "uri"
+      },
+      "monographId": {
+        "type": "string",
+        "minLength": 1
+      },
+      "isbn": {
+        "type": "string",
+        "pattern": "^(?:97[89][- ]?)?[0-9][- 0-9]{8,}[0-9Xx]$"
+      },
+      "language": {
+        "type": "string",
+        "minLength": 2
+      },
+      "jurisdiction": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "minLength": 2
+      },
       "evidenceClass": {
         "type": "string",
         "enum": [
@@ -80,49 +132,169 @@
       "studyDesign": {
         "type": "string",
         "enum": [
-          "randomized-controlled-trial",
-          "non-randomized-trial",
-          "cohort",
           "case-control",
+          "case-report",
+          "cohort",
           "cross-sectional",
-          "systematic-review",
-          "meta-analysis",
+          "database-reference",
           "in-vitro",
           "in-vivo-animal",
+          "meta-analysis",
           "narrative-monograph",
+          "narrative-review",
+          "non-randomized-controlled",
+          "non-randomized-trial",
+          "other",
+          "randomized-controlled-trial",
           "regulatory-guidance",
-          "database-reference",
-          "other"
+          "systematic-review"
         ]
       },
       "publicationStatus": {
         "type": "string",
-        "enum": ["published", "preprint", "withdrawn", "superseded", "archived"]
+        "enum": [
+          "published",
+          "preprint",
+          "withdrawn",
+          "superseded",
+          "archived"
+        ]
       },
-      "proposedReliabilityTier": { "type": "string", "enum": ["tier-a", "tier-b", "tier-c", "tier-d"] },
-      "duplicateRisk": { "type": "string", "enum": ["low", "moderate", "high", "known-duplicate"] },
-      "duplicateOfSourceId": { "type": "string", "pattern": "^src_[a-z0-9]+(?:-[a-z0-9]+)*$" },
-      "reviewer": { "type": "string", "minLength": 1 },
-      "reviewedAt": { "type": "string", "format": "date-time" },
+      "proposedReliabilityTier": {
+        "type": "string",
+        "enum": [
+          "tier-a",
+          "tier-b",
+          "tier-c",
+          "tier-d"
+        ]
+      },
+      "duplicateRisk": {
+        "type": "string",
+        "enum": [
+          "low",
+          "moderate",
+          "high",
+          "known-duplicate"
+        ]
+      },
+      "duplicateOfSourceId": {
+        "type": "string",
+        "pattern": "^src_[a-z0-9]+(?:-[a-z0-9]+)*$"
+      },
+      "reviewer": {
+        "type": "string",
+        "minLength": 1
+      },
+      "reviewedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
       "reviewStatus": {
         "type": "string",
         "enum": [
-          "draft_candidate",
-          "needs_metadata",
-          "under_review",
           "approved_for_registry",
-          "rejected",
+          "blocked_pending_manual_review",
+          "deprecated_candidate",
+          "draft_candidate",
           "duplicate_of_existing",
-          "deprecated_candidate"
+          "needs_metadata",
+          "rejected",
+          "under_review"
         ]
       },
-      "approvalNotes": { "type": "string" },
+      "approvalNotes": {
+        "type": "string"
+      },
       "rejectionReasons": {
         "type": "array",
-        "items": { "type": "string", "minLength": 1 },
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
         "uniqueItems": true
       },
-      "active": { "type": "boolean" }
+      "active": {
+        "type": "boolean"
+      },
+      "relatedEntities": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "entityType",
+            "entitySlug"
+          ],
+          "properties": {
+            "entityType": {
+              "type": "string",
+              "enum": [
+                "herb",
+                "compound"
+              ]
+            },
+            "entitySlug": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "uniqueItems": true
+      },
+      "relatedTopicGaps": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uniqueItems": true
+      },
+      "whyThisSourceMatters": {
+        "type": "string",
+        "minLength": 1
+      },
+      "blockerToPromotion": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "dedupeCheck": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "matchedRegistrySourceIds",
+          "matchedCandidateSourceIds",
+          "checkedAgainst"
+        ],
+        "properties": {
+          "matchedRegistrySourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "matchedCandidateSourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "checkedAgainst": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          }
+        }
+      }
     }
   }
 }

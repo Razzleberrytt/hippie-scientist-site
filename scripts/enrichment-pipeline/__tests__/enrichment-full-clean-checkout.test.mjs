@@ -62,12 +62,20 @@ describe('full enrichment pipeline clean-checkout regeneration', () => {
       'public/data/publication-manifest.json',
       'public/data/affiliate-recommendation-readiness.json',
       'ops/source-candidates.json',
+      'ops/enrichment-semantic-attestations.json',
+      'ops/enrichment-submissions.json',
+      'ops/enrichment-submissions/sessions',
+      'ops/research-sessions/session-manifest.json',
     ]
 
     for (const input of canonicalAndPublicInputs) copyIntoFixture(repoRoot, input)
 
     copyIntoFixture(repoRoot, 'schemas/normalized-enrichment-entry.schema.json')
+    copyIntoFixture(repoRoot, 'schemas/enrichment-submission.schema.json')
+    copyIntoFixture(repoRoot, 'schemas/enrichment-session-fragment.schema.json')
     copyIntoFixture(repoRoot, 'scripts/enrichment')
+    copyIntoFixture(repoRoot, 'scripts/enrichment-pipeline/lib')
+    copyIntoFixture(repoRoot, 'scripts/ci/enrichment-session-source-policy.mjs')
     copyIntoFixture(repoRoot, 'scripts/report-enrichment-health.ts')
     // Was a single copy of src/. Those modules now live at the repository
     // root, so the fixture needs each of their new homes.

@@ -84,6 +84,26 @@
       "reviewStatus": "draft_submission",
       "editorialStatus": "draft",
       "active": true
+    },
+    {
+      "submissionId": "sub_session-c-cobalamin-memory-depression-meta-null-20260920",
+      "authoringPackId": "ap_bp_wp_compound_cobalamin_src_pubmed_39655146",
+      "workpackId": "wp_compound_cobalamin",
+      "entityType": "compound",
+      "entitySlug": "cobalamin",
+      "sourceId": "src_pubmed-39655146",
+      "topicType": "unsupported_or_unclear_use",
+      "claimType": "efficacy_null_or_mixed",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A 2024 meta-analysis of randomized trials found no significant benefit of B12 supplementation for cognitive memory or depressive symptoms.",
+      "findingTextNormalized": "A 2024 systematic review and meta-analysis of nine randomized controlled trials found no significant effect of vitamin B12 supplementation on cognitive memory function (SMD -0.03, 95% CI -0.07 to 0.01; p=0.1801) or depressive symptoms (SMD -0.01, 95% CI -0.0773 to 0.0525; p=0.708). This null evidence constrains broad cognition or antidepressant enhancement claims and does not negate treatment of documented vitamin B12 deficiency.",
+      "strengthLabel": "moderate",
+      "populationContext": "Participants across nine randomized trials evaluating cognitive-memory and depressive outcomes; baseline deficiency status and clinical context varied across included studies.",
+      "usageContext": "Vitamin B12 or B-complex supplementation across randomized trials; formulations, co-nutrients, doses, and durations varied.",
+      "uncertaintyNote": "These null pooled results do not negate treatment of documented vitamin B12 deficiency and do not establish one consumer dose, formulation, or route.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
     }
   ]
 }

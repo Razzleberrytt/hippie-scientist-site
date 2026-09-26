@@ -82,15 +82,18 @@
         "type": "string",
         "enum": [
           "randomized-controlled-trial",
+          "non-randomized-controlled",
           "non-randomized-trial",
           "cohort",
           "case-control",
+          "case-report",
           "cross-sectional",
           "systematic-review",
           "meta-analysis",
           "in-vitro",
           "in-vivo-animal",
           "narrative-monograph",
+          "narrative-review",
           "regulatory-guidance",
           "database-reference",
           "other"

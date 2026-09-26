@@ -9,6 +9,8 @@ import {
 } from '../lib/enrichmentRecommendations'
 import { isPublishableGovernedEnrichment } from '../lib/governedResearch'
 import type { ResearchEnrichment } from '../types/researchEnrichment'
+import { reconcileParallelSubmissions } from './enrichment-pipeline/lib/parallel-reconciliation.mjs'
+import { stagedClosureEntityKeys } from './enrichment-pipeline/lib/staged-closure-seeds.mjs'
 
 type EntityType = 'herb' | 'compound'
 type HealthState =
@@ -219,10 +221,19 @@ function run() {
     expandedCompoundCandidateKeys.add(entityKey('compound', slug))
   }
 
+  const stagedAttestations = readJson<{ entries?: Array<Record<string, unknown>> }>(
+    'ops/enrichment-semantic-attestations.json',
+  )
+  const stagedClosureKeys = stagedClosureEntityKeys({
+    reconciliation: reconcileParallelSubmissions({ root: ROOT }),
+    attestations: stagedAttestations,
+  })
+
   const allEntityKeys = new Set<string>([
     ...indexableKeys,
     ...governedRows.map(row => entityKey(row.entityType, row.entitySlug)),
     ...expandedCompoundCandidateKeys,
+    ...stagedClosureKeys,
   ])
 
   const entitiesByType = {
@@ -614,6 +625,7 @@ function run() {
       entityHealthCounts: summarizeCounts(refreshedEntityRows),
       surfaceHealthCounts: summarizeCounts(surfaceRows),
       publicIndexableEntities: Array.from(indexableKeys).length,
+      stagedClosureEntitiesSeeded: stagedClosureKeys.length,
       indexableEntitiesWithoutHealthyState: refreshedEntityRows.filter(
         row => row.publicStatus === 'indexable' && row.enrichmentHealthState !== 'healthy',
       ).length,
@@ -636,6 +648,7 @@ function run() {
     `- Entities evaluated: ${report.summary.entitiesEvaluated}`,
     `- Surfaces evaluated: ${report.summary.surfacesEvaluated}`,
     `- Public indexable entities: ${report.summary.publicIndexableEntities}`,
+    `- Nonterminal staged closure entities seeded: ${report.summary.stagedClosureEntitiesSeeded}`,
     `- Indexable entities not healthy: ${report.summary.indexableEntitiesWithoutHealthyState}`,
     `- Stale entities (>${STALE_DAYS}d): ${report.summary.staleEntities}`,
     `- Blocked entities: ${report.summary.blockedEntities}`,

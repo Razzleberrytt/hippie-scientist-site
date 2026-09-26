@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-09-26T14:08:19.603Z",
+  "deterministicModelVersion": "cobalamin-closure-explicit-target-v1",
+  "targets": [
+    {
+      "entityType": "compound",
+      "entitySlug": "cobalamin",
+      "waveStatus": "declared-target",
+      "selectionWhy": "admitted Authority/Content closure #5703",
+      "highestPriorityMissingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "criticality": [
+        "gap_wp_compound_cobalamin_constituent_lack_of_mechanism_sources",
+        "gap_wp_compound_cobalamin_evidence_missing_modern_human_evidence",
+        "gap_wp_compound_cobalamin_mechanism_lack_of_mechanism_sources",
+        "gap_wp_compound_cobalamin_safety_lack_of_safety_sources"
+      ],
+      "currentGovernedCoverageStatus": "depublish_or_hide_enriched_section"
+    }
+  ]
+}
