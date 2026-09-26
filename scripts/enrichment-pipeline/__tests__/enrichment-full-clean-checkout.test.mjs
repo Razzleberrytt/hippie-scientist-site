@@ -62,10 +62,20 @@ describe('full enrichment pipeline clean-checkout regeneration', () => {
       'public/data/publication-manifest.json',
       'public/data/affiliate-recommendation-readiness.json',
       'ops/source-candidates.json',
+      'ops/enrichment-governor/work-queue.json',
       'ops/enrichment-submissions/sessions/session-c/2026-09-05-cobalamin-deficiency-enhancement-boundaries.json',
     ]
 
     for (const input of canonicalAndPublicInputs) copyIntoFixture(repoRoot, input)
+
+    const workQueuePath = path.join(tmpDir, 'ops', 'enrichment-governor', 'work-queue.json')
+    const workQueue = JSON.parse(fs.readFileSync(workQueuePath, 'utf8'))
+    const cobalaminLease = (workQueue.leases || []).find(lease =>
+      Array.isArray(lease.entities) && lease.entities.includes('compound:cobalamin'),
+    )
+    expect(cobalaminLease).toBeTruthy()
+    cobalaminLease.expiresAt = '2099-12-31T23:59:59.000Z'
+    fs.writeFileSync(workQueuePath, `${JSON.stringify(workQueue, null, 2)}\n`, 'utf8')
 
     copyIntoFixture(repoRoot, 'schemas/normalized-enrichment-entry.schema.json')
     copyIntoFixture(repoRoot, 'scripts/enrichment')
