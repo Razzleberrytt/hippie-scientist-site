@@ -71,6 +71,32 @@ jobs:
           }
           NODE
 
+      - name: Dry-run governed cobalamin source wave
+        run: |
+          set -euo pipefail
+          before_candidates="$(sha256sum ops/source-candidates.json | cut -d' ' -f1)"
+          before_registry="$(sha256sum public/data/source-registry.json | cut -d' ' -f1)"
+          node scripts/run-enrichment-wave.mjs \
+            --wave-id cobalamin-closure \
+            --targets ops/targets/cobalamin-closure-5703.json \
+            --mode source-review \
+            --dry-run
+          after_candidates="$(sha256sum ops/source-candidates.json | cut -d' ' -f1)"
+          after_registry="$(sha256sum public/data/source-registry.json | cut -d' ' -f1)"
+          test "$before_candidates" = "$after_candidates"
+          test "$before_registry" = "$after_registry"
+          node <<'NODE'
+          const r = require('./ops/reports/enrichment-wave-runner-cobalamin-closure-summary.json')
+          console.log('=== COBALAMIN_WAVE_DRY_RUN ===')
+          console.log(JSON.stringify(r.execution, null, 2))
+          if (r.execution?.stagedInputs?.selectedTargetCount !== 1) {
+            throw new Error('Expected exactly one cobalamin target in dry-run.')
+          }
+          if (r.execution?.stagedInputs?.stagedCandidateCount !== 5) {
+            throw new Error(`Expected exactly five cobalamin source candidates, found ${r.execution?.stagedInputs?.stagedCandidateCount}`)
+          }
+          NODE
+
       - name: Print compact cobalamin intake and gap context
         run: |
           node <<'NODE'
