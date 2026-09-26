@@ -1,0 +1,84 @@
+name: Cobalamin Closure Bootstrap
+
+on:
+  push:
+    branches:
+      - 'manual/cobalamin-closure-5703-2026-09-25'
+    paths:
+      - '.github/workflows/cobalamin-closure-bootstrap.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout exact branch
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Regenerate canonical prerequisite reports
+        run: |
+          set -euo pipefail
+          npx tsx scripts/report-enrichment-health.ts
+          npx tsx scripts/report-enrichment-backlog.ts
+          npx tsx scripts/report-enrichment-review-cycle.ts
+          npx tsx scripts/report-enrichment-workpacks.ts
+          npx tsx scripts/report-source-gaps.ts
+          npx tsx scripts/report-source-intake-queue.ts
+
+      - name: Print cobalamin exact-main intake and gap context
+        run: |
+          node <<'NODE'
+          const fs = require('fs')
+          const paths = [
+            'ops/reports/enrichment-workpacks.json',
+            'ops/reports/source-gaps.json',
+            'ops/reports/source-intake-queue.json',
+          ]
+          for (const path of paths) {
+            const data = JSON.parse(fs.readFileSync(path, 'utf8'))
+            if (path.endsWith('source-intake-queue.json')) {
+              const tasks = (data.tasks || []).filter(row =>
+                row?.entitySlug === 'cobalamin' ||
+                row?.workpackId === 'wp_compound_cobalamin' ||
+                JSON.stringify(row).includes('cobalamin')
+              )
+              console.log('=== COBALAMIN_INTAKE_TASKS ===')
+              console.log(JSON.stringify(tasks, null, 2))
+              continue
+            }
+            const hits = []
+            const seen = new Set()
+            function walk(value) {
+              if (!value || typeof value !== 'object') return
+              if (!Array.isArray(value)) {
+                const text = JSON.stringify(value)
+                if (text.includes('cobalamin') || text.includes('wp_compound_cobalamin')) {
+                  const key = text.slice(0, 1000)
+                  if (!seen.has(key)) {
+                    seen.add(key)
+                    hits.push(value)
+                  }
+                }
+              }
+              for (const child of Array.isArray(value) ? value : Object.values(value)) walk(child)
+            }
+            walk(data)
+            console.log(`=== ${path} COBALAMIN_CONTEXT ===`)
+            console.log(JSON.stringify(hits.slice(0, 30), null, 2))
+          }
+          NODE
+
+      - name: Validate generated intake report exists
+        run: test -s ops/reports/source-intake-queue.json
