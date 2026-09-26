@@ -1965,5 +1965,210 @@
         "ops/source-candidates.json"
       ]
     }
+  },
+  {
+    "intakeTaskId": "intake_gap_wp_compound_cobalamin_evidence_missing_modern_human_evidence_must_have_publish_blocking",
+    "sourceClass": "systematic-review-meta-analysis",
+    "evidenceClass": "human-clinical",
+    "publicationStatus": "published",
+    "duplicateRisk": "low",
+    "reviewStatus": "approved_for_registry",
+    "active": true,
+    "language": "en",
+    "relatedEntities": [
+      {
+        "entityType": "compound",
+        "entitySlug": "cobalamin"
+      }
+    ],
+    "relatedTopicGaps": [
+      "evidence"
+    ],
+    "whyThisSourceMatters": "Admitted #5703 evidence closure source for the deficiency-versus-enhancement boundary; no consumer-dose inference.",
+    "candidateSourceId": "cand_cobalamin-33809274",
+    "title": "Effects of Vitamin B12 Supplementation on Cognitive Function, Depressive Symptoms, and Fatigue: A Systematic Review, Meta-Analysis, and Meta-Regression",
+    "shortTitle": "B12 cognition depression fatigue meta-analysis",
+    "sourceType": "meta-analysis",
+    "authors": [
+      "Stefan Markun",
+      "Isaac Gravestock",
+      "Levy Jäger",
+      "Thomas Rosemann",
+      "Giuseppe Pichierri",
+      "Jakob M Burgstaller"
+    ],
+    "publicationYear": 2021,
+    "citationText": "Markun S, Gravestock I, Jäger L, Rosemann T, Pichierri G, Burgstaller JM. Nutrients. 2021;13(3):923. PMID:33809274.",
+    "doi": "10.3390/nu13030923",
+    "pmid": "33809274",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/33809274/",
+    "studyDesign": "meta-analysis",
+    "proposedReliabilityTier": "tier-a",
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-09-26T14:08:21.202Z",
+    "approvalNotes": "Approved via governed cobalamin-closure review checks and promoted to source registry."
+  },
+  {
+    "intakeTaskId": "intake_gap_wp_compound_cobalamin_evidence_missing_modern_human_evidence_must_have_publish_blocking",
+    "sourceClass": "systematic-review-meta-analysis",
+    "evidenceClass": "human-clinical",
+    "publicationStatus": "published",
+    "duplicateRisk": "low",
+    "reviewStatus": "approved_for_registry",
+    "active": true,
+    "language": "en",
+    "relatedEntities": [
+      {
+        "entityType": "compound",
+        "entitySlug": "cobalamin"
+      }
+    ],
+    "relatedTopicGaps": [
+      "evidence"
+    ],
+    "whyThisSourceMatters": "Admitted #5703 evidence closure source for the deficiency-versus-enhancement boundary; no consumer-dose inference.",
+    "candidateSourceId": "cand_cobalamin-22221769",
+    "title": "Cognitive impairment and vitamin B12: a review",
+    "shortTitle": "Vitamin B12 cognitive impairment review",
+    "sourceType": "systematic-review",
+    "authors": [
+      "Eileen Moore",
+      "Alastair Mander",
+      "David Ames",
+      "Ross Carne",
+      "Kerrie Sanders",
+      "David Watters"
+    ],
+    "publicationYear": 2012,
+    "citationText": "Moore E, Mander A, Ames D, Carne R, Sanders K, Watters D. Int Psychogeriatr. 2012;24(4):541-556. PMID:22221769.",
+    "doi": "10.1017/S1041610211002511",
+    "pmid": "22221769",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/22221769/",
+    "studyDesign": "systematic-review",
+    "proposedReliabilityTier": "tier-b",
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-09-26T14:08:21.202Z",
+    "approvalNotes": "Approved via governed cobalamin-closure review checks and promoted to source registry."
+  },
+  {
+    "intakeTaskId": "intake_gap_wp_compound_cobalamin_evidence_missing_modern_human_evidence_must_have_publish_blocking",
+    "sourceClass": "systematic-review-meta-analysis",
+    "evidenceClass": "human-clinical",
+    "publicationStatus": "published",
+    "duplicateRisk": "low",
+    "reviewStatus": "approved_for_registry",
+    "active": true,
+    "language": "en",
+    "relatedEntities": [
+      {
+        "entityType": "compound",
+        "entitySlug": "cobalamin"
+      }
+    ],
+    "relatedTopicGaps": [
+      "evidence"
+    ],
+    "whyThisSourceMatters": "Admitted #5703 evidence closure source for the deficiency-versus-enhancement boundary; no consumer-dose inference.",
+    "candidateSourceId": "cand_cobalamin-37046885",
+    "title": "Neurological Implications of Vitamin B12 Deficiency in Diet: A Systematic Review and Meta-Analysis",
+    "shortTitle": "B12 deficiency neurologic systematic review",
+    "sourceType": "meta-analysis",
+    "authors": [
+      "Mubarak Alruwaili",
+      "Rehana Basri",
+      "Raed AlRuwaili",
+      "Anas Mohammad Albarrak",
+      "Naif H Ali"
+    ],
+    "publicationYear": 2023,
+    "citationText": "Alruwaili M, Basri R, AlRuwaili R, Albarrak AM, Ali NH. Healthcare (Basel). 2023;11(7):958. PMID:37046885.",
+    "doi": "10.3390/healthcare11070958",
+    "pmid": "37046885",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/37046885/",
+    "studyDesign": "meta-analysis",
+    "proposedReliabilityTier": "tier-a",
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-09-26T14:08:21.202Z",
+    "approvalNotes": "Approved via governed cobalamin-closure review checks and promoted to source registry."
+  },
+  {
+    "intakeTaskId": "intake_gap_wp_compound_cobalamin_evidence_missing_modern_human_evidence_must_have_publish_blocking",
+    "sourceClass": "systematic-review-meta-analysis",
+    "evidenceClass": "human-clinical",
+    "publicationStatus": "published",
+    "duplicateRisk": "low",
+    "reviewStatus": "approved_for_registry",
+    "active": true,
+    "language": "en",
+    "relatedEntities": [
+      {
+        "entityType": "compound",
+        "entitySlug": "cobalamin"
+      }
+    ],
+    "relatedTopicGaps": [
+      "evidence"
+    ],
+    "whyThisSourceMatters": "Admitted #5703 evidence closure source for the deficiency-versus-enhancement boundary; no consumer-dose inference.",
+    "candidateSourceId": "cand_cobalamin-42227307",
+    "title": "Vitamin B12 supplementation for growth, development, and cognition in children",
+    "shortTitle": "Cochrane pediatric vitamin B12 review",
+    "sourceType": "systematic-review",
+    "authors": [
+      "Doreen Y Larvie",
+      "Cristina E Güitrón Leal",
+      "Sudha Venkatramanan",
+      "Ximena E Palma Molina",
+      "Lili B Steel",
+      "Rebecca Kuriyan",
+      "Julia L Finkelstein"
+    ],
+    "publicationYear": 2026,
+    "citationText": "Larvie DY, Güitrón Leal CE, Venkatramanan S, et al. Cochrane Database Syst Rev. 2026;6:CD015264. PMID:42227307.",
+    "doi": "10.1002/14651858.CD015264.pub2",
+    "pmid": "42227307",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/42227307/",
+    "studyDesign": "systematic-review",
+    "proposedReliabilityTier": "tier-a",
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-09-26T14:08:21.202Z",
+    "approvalNotes": "Approved via governed cobalamin-closure review checks and promoted to source registry."
+  },
+  {
+    "intakeTaskId": "intake_gap_wp_compound_cobalamin_evidence_missing_modern_human_evidence_must_have_publish_blocking",
+    "sourceClass": "systematic-review-meta-analysis",
+    "evidenceClass": "human-clinical",
+    "publicationStatus": "published",
+    "duplicateRisk": "low",
+    "reviewStatus": "approved_for_registry",
+    "active": true,
+    "language": "en",
+    "relatedEntities": [
+      {
+        "entityType": "compound",
+        "entitySlug": "cobalamin"
+      }
+    ],
+    "relatedTopicGaps": [
+      "evidence"
+    ],
+    "whyThisSourceMatters": "Admitted #5703 evidence closure source for the deficiency-versus-enhancement boundary; no consumer-dose inference.",
+    "candidateSourceId": "cand_cobalamin-39655146",
+    "title": "Assessment of Vitamin B12 Efficacy on Cognitive Memory Function and Depressive Symptoms: A Systematic Review and Meta-Analysis",
+    "shortTitle": "B12 memory depression null meta-analysis",
+    "sourceType": "meta-analysis",
+    "authors": [
+      "Hayat Alzahrani"
+    ],
+    "publicationYear": 2024,
+    "citationText": "Alzahrani H. Cureus. 2024;16(11):e73350. PMID:39655146.",
+    "doi": "10.7759/cureus.73350",
+    "pmid": "39655146",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/39655146/",
+    "studyDesign": "meta-analysis",
+    "proposedReliabilityTier": "tier-b",
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-09-26T14:08:21.202Z",
+    "approvalNotes": "Approved via governed cobalamin-closure review checks and promoted to source registry."
   }
 ]
