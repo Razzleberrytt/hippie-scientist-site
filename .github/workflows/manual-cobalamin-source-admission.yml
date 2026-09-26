@@ -61,13 +61,23 @@ jobs:
           const fs = require('fs')
           const path = require('path')
           const intake = JSON.parse(fs.readFileSync('ops/reports/source-intake-queue.json','utf8'))
+          const sourceClass = 'systematic-review-meta-analysis'
           const tasks = (intake.tasks || [])
             .filter(t => t.itemType === 'compound_page' && t.entitySlug === 'cobalamin')
-            .filter(t => (t.recommendedSourceClasses || []).includes('systematic-review-meta-analysis'))
+            .filter(t =>
+              (t.recommendedSourceClasses || []).includes(sourceClass) ||
+              (t.adaptiveRetryAttempts || []).some(a =>
+                a.pass !== 'pass_4_stop_manual_review' && (a.allowedSourceClasses || []).includes(sourceClass)
+              )
+            )
           const topicRank = new Map([['evidence',0],['source_registry',1],['safety',2],['surface_coverage',3],['mechanism',4],['constituent',5]])
-          tasks.sort((a,b) => (topicRank.get(a.topicType) ?? 99) - (topicRank.get(b.topicType) ?? 99) || a.intakeTaskId.localeCompare(b.intakeTaskId))
+          tasks.sort((a,b) => {
+            const aInitial = (a.recommendedSourceClasses || []).includes(sourceClass) ? 0 : 1
+            const bInitial = (b.recommendedSourceClasses || []).includes(sourceClass) ? 0 : 1
+            return aInitial - bInitial || (topicRank.get(a.topicType) ?? 99) - (topicRank.get(b.topicType) ?? 99) || a.intakeTaskId.localeCompare(b.intakeTaskId)
+          })
           const task = tasks[0]
-          if (!task) throw new Error('fresh intake chain produced no cobalamin task accepting systematic-review-meta-analysis')
+          if (!task) throw new Error('fresh intake chain produced no cobalamin task with initial or recorded-retry authorization for systematic-review-meta-analysis')
           const candidatesPath = 'ops/source-candidates.json'
           const candidates = JSON.parse(fs.readFileSync(candidatesPath,'utf8'))
           const pmids = new Set(['33809274','22221769','37046885','42227307','39655146'])
