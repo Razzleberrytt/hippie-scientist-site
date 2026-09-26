@@ -40,6 +40,9 @@ jobs:
           npx tsx scripts/report-source-gaps.ts
           npx tsx scripts/report-source-intake-queue.ts
 
+      - name: Baseline source-candidate review
+        run: npx tsx scripts/report-source-candidate-review.ts
+
       - name: Print compact cobalamin intake and gap context
         run: |
           node <<'NODE'
