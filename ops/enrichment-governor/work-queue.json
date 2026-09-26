@@ -2,19 +2,19 @@
   "version": 1,
   "leases": [
     {
-      "id": "lease-5703-cobalamin-closure-r2",
+      "id": "lease-5706-coq10-closure",
       "owner": "site-swarm-integration",
-      "purpose": "complete cobalamin evidence closure after intake-pipeline repair",
+      "purpose": "reconcile CoQ10 depression/anxiety endpoint discordance",
       "files": [],
       "entities": [
-        "compound:cobalamin"
+        "compound:coenzyme-q10"
       ],
-      "acquiredAt": "2026-09-26T13:48:41.301Z",
-      "expiresAt": "2026-09-26T15:18:41.301Z"
+      "acquiredAt": "2026-09-26T15:24:14.259Z",
+      "expiresAt": "2026-09-26T16:54:14.259Z"
     }
   ],
   "queued": [],
   "batched": [],
   "blocked": [],
-  "updatedAt": "2026-09-26T13:48:41.301Z"
+  "updatedAt": "2026-09-26T15:24:14.259Z"
 }
