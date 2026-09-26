@@ -2,6 +2,8 @@
   "herbs": {},
   "compounds": {
     "cbd": "cannabidiol",
-    "nac": "n-acetylcysteine"
+    "nac": "n-acetylcysteine",
+    "coq10": "coenzyme-q10",
+    "coenzyme-q10-ubiquinol": "coenzyme-q10"
   }
 }

@@ -80,6 +80,34 @@
       "requiresHumanReview": true,
       "dosage": "",
       "typicalDosage": ""
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "coenzyme-q10",
+      "sourceIds": [
+        "src_pubmed-25282031",
+        "src_pubmed-36091835",
+        "src_pubmed-40833470",
+        "src_pubmed-41294251",
+        "src_pubmed-41457257"
+      ],
+      "summary": "Coenzyme Q10 has human evidence in specific contexts, but effects are not uniform: Q-SYMBIO reported a chronic-heart-failure event signal, pooled fatigue evidence is modest, depression findings vary by scale, anxiety data are limited and not statistically significant, and exercise-performance effects are small and inconsistent.",
+      "description": "CoQ10 evidence is endpoint- and population-dependent. A disease-specific heart-failure RCT and several randomized-trial syntheses provide human signals, but depression scales disagree, anxiety evidence is limited and not statistically significant, fatigue findings vary by population, and exercise effects are low-certainty. These data do not justify a universal benefit or dosing claim.",
+      "safetyNotes": "Preserve medication-interaction screening, especially with warfarin or other vitamin-K antagonists and blood-pressure or glucose-lowering therapies. The reviewed efficacy evidence does not establish a universal consumer dose, formulation, or long-term safety profile.",
+      "evidenceLevel": "Moderate Human Evidence",
+      "evidenceGrade": "C",
+      "reviewStatus": "sourced_pending_review",
+      "medicalRisk": "moderate",
+      "governanceReason": "endpoint_discordance_and_canonical_owner_consolidation",
+      "indexabilityStatus": "NOINDEX",
+      "robots": "noindex,follow",
+      "sitemapIncluded": false,
+      "recommendationAllowed": false,
+      "monetizationAllowed": false,
+      "indexingAllowed": false,
+      "requiresHumanReview": true,
+      "dosage": "",
+      "typicalDosage": ""
     }
   ]
 }

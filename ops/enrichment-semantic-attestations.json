@@ -561,6 +561,260 @@
           ]
         }
       }
+    },
+    {
+      "submissionId": "sub_session-c-coq10-wrong-source-quarantine-20260829",
+      "promotionStatus": "quarantined",
+      "attestation": {
+        "reviewer": "site-swarm-evidence",
+        "reviewedAt": "2026-09-26T16:06:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "mismatch",
+          "reason": "PMID 25174896 studies infantile intraocular medulloepithelioma and does not study coenzyme Q10.",
+          "evidenceRefs": []
+        },
+        "preparation": {
+          "status": "mismatch",
+          "reason": "No CoQ10 preparation, formulation, route, or intervention is present in the source.",
+          "evidenceRefs": []
+        },
+        "population": {
+          "status": "mismatch",
+          "reason": "The source is a three-infant ophthalmic tumor pathology series, unrelated to CoQ10 supplementation populations.",
+          "evidenceRefs": []
+        },
+        "endpoint": {
+          "status": "mismatch",
+          "reason": "The paper contains no fatigue, cardiovascular, mood, exercise, or CoQ10 efficacy endpoint.",
+          "evidenceRefs": []
+        },
+        "conclusion": {
+          "status": "mismatch",
+          "reason": "This publication cannot support any CoQ10 efficacy, safety, dosing, grade, recommendation, or publication claim.",
+          "evidenceRefs": []
+        }
+      }
+    },
+    {
+      "submissionId": "sub_session-c-coq10-fatigue-meta-signal-20260829",
+      "promotionStatus": "promoted",
+      "attestation": {
+        "reviewer": "site-swarm-evidence",
+        "reviewedAt": "2026-09-26T16:06:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "PMID 36091835 directly evaluates coenzyme Q10 supplementation.",
+          "evidenceRefs": [
+            "src_pubmed-36091835"
+          ]
+        },
+        "preparation": {
+          "status": "matched",
+          "reason": "The synthesis distinguishes CoQ10-only from mixed-compound formulations and does not transfer the result to a specific ubiquinol product.",
+          "evidenceRefs": [
+            "src_pubmed-36091835"
+          ]
+        },
+        "population": {
+          "status": "matched",
+          "reason": "The 13 randomized trials span healthy and disease populations, matching the staged heterogeneous-population boundary.",
+          "evidenceRefs": [
+            "src_pubmed-36091835"
+          ]
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "Fatigue scores are the directly pooled clinical endpoint.",
+          "evidenceRefs": [
+            "src_pubmed-36091835"
+          ]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "The modest pooled fatigue signal is preserved with heterogeneity and without converting study-level dose or duration associations into consumer guidance.",
+          "evidenceRefs": [
+            "src_pubmed-36091835"
+          ]
+        }
+      }
+    },
+    {
+      "submissionId": "sub_session-c-coq10-depression-fatigue-null-20260829",
+      "promotionStatus": "promoted",
+      "attestation": {
+        "reviewer": "site-swarm-evidence",
+        "reviewedAt": "2026-09-26T16:06:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "PMID 41294251 directly evaluates coenzyme Q10 supplementation in randomized depression trials.",
+          "evidenceRefs": [
+            "src_pubmed-41294251"
+          ]
+        },
+        "preparation": {
+          "status": "matched",
+          "reason": "The finding stays at CoQ10 supplementation level and does not infer equivalence to a specific formulation or consumer regimen.",
+          "evidenceRefs": [
+            "src_pubmed-41294251"
+          ]
+        },
+        "population": {
+          "status": "matched",
+          "reason": "The source includes primary depression and depression accompanying medical conditions, matching the staged population boundary.",
+          "evidenceRefs": [
+            "src_pubmed-41294251"
+          ]
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "Depressive symptoms and fatigue are analyzed separately; only two trials contribute fatigue data.",
+          "evidenceRefs": [
+            "src_pubmed-41294251"
+          ]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "The depression signal and nonsignificant, highly heterogeneous fatigue result remain distinct rather than being collapsed into one benefit claim.",
+          "evidenceRefs": [
+            "src_pubmed-41294251"
+          ]
+        }
+      }
+    },
+    {
+      "submissionId": "sub_session-c-coq10-exercise-low-certainty-20260829",
+      "promotionStatus": "promoted",
+      "attestation": {
+        "reviewer": "site-swarm-evidence",
+        "reviewedAt": "2026-09-26T16:06:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "PMID 41457257 directly evaluates coenzyme Q10 supplementation in randomized exercise studies.",
+          "evidenceRefs": [
+            "src_pubmed-41457257"
+          ]
+        },
+        "preparation": {
+          "status": "matched",
+          "reason": "The finding keeps formulation, chronic-versus-acute exposure, dose, and duration heterogeneity explicit.",
+          "evidenceRefs": [
+            "src_pubmed-41457257"
+          ]
+        },
+        "population": {
+          "status": "matched",
+          "reason": "The synthesis concerns healthy adults across trained and untrained exercise populations.",
+          "evidenceRefs": [
+            "src_pubmed-41457257"
+          ]
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "Blood CoQ10, exercise performance, and subjective fatigue are kept as separate endpoints.",
+          "evidenceRefs": [
+            "src_pubmed-41457257"
+          ]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "Reliable biochemical elevation is not treated as proof of performance benefit; the small exercise signals remain low-certainty and sensitivity-dependent.",
+          "evidenceRefs": [
+            "src_pubmed-41457257"
+          ]
+        }
+      }
+    },
+    {
+      "submissionId": "sub_session-e-coenzyme-q10-heart-failure-rct-20260926",
+      "promotionStatus": "promoted",
+      "attestation": {
+        "reviewer": "site-swarm-evidence",
+        "reviewedAt": "2026-09-26T16:06:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "PMID 25282031 is the Q-SYMBIO randomized trial of adjunctive coenzyme Q10.",
+          "evidenceRefs": [
+            "src_pubmed-25282031"
+          ]
+        },
+        "preparation": {
+          "status": "matched",
+          "reason": "The finding records the studied adjunctive CoQ10 intervention without converting the trial regimen into consumer dosing advice.",
+          "evidenceRefs": [
+            "src_pubmed-25282031"
+          ]
+        },
+        "population": {
+          "status": "matched",
+          "reason": "The trial enrolled patients with moderate-to-severe chronic heart failure receiving standard therapy.",
+          "evidenceRefs": [
+            "src_pubmed-25282031"
+          ]
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "Short-term functional/biomarker endpoints and the two-year major cardiovascular event endpoint are preserved separately.",
+          "evidenceRefs": [
+            "src_pubmed-25282031"
+          ]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "The lower two-year event rate is retained as disease-specific adjunctive evidence while the null short-term endpoints remain visible.",
+          "evidenceRefs": [
+            "src_pubmed-25282031"
+          ]
+        }
+      }
+    },
+    {
+      "submissionId": "sub_session-e-coenzyme-q10-depression-anxiety-discordance-20260926",
+      "promotionStatus": "promoted",
+      "attestation": {
+        "reviewer": "site-swarm-evidence",
+        "reviewedAt": "2026-09-26T16:06:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "PMID 40833470 directly evaluates coenzyme Q10 supplementation across randomized depression and anxiety trials.",
+          "evidenceRefs": [
+            "src_pubmed-40833470"
+          ]
+        },
+        "preparation": {
+          "status": "matched",
+          "reason": "The synthesis spans heterogeneous CoQ10 regimens and the finding explicitly refuses consumer-dose inference from subgroup analyses.",
+          "evidenceRefs": [
+            "src_pubmed-40833470"
+          ]
+        },
+        "population": {
+          "status": "matched",
+          "reason": "The included small trials span different clinical populations, so the finding preserves that heterogeneity.",
+          "evidenceRefs": [
+            "src_pubmed-40833470"
+          ]
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "MADRS depression, BDI depression, and anxiety are separate measured outcomes with discordant pooled results.",
+          "evidenceRefs": [
+            "src_pubmed-40833470"
+          ]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "The MADRS signal is preserved alongside null BDI and anxiety results, preventing a generic antidepressant or anxiolytic claim.",
+          "evidenceRefs": [
+            "src_pubmed-40833470"
+          ]
+        }
+      }
     }
   ]
 }

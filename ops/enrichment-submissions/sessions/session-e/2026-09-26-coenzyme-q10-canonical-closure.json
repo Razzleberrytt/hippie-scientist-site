@@ -1,0 +1,50 @@
+{
+  "fragmentVersion": 1,
+  "sessionId": "E",
+  "shard": 4,
+  "batchId": "coenzyme-q10-canonical-closure-20260926",
+  "createdAt": "2026-09-26T16:06:00.000Z",
+  "submissions": [
+    {
+      "submissionId": "sub_session-e-coenzyme-q10-heart-failure-rct-20260926",
+      "authoringPackId": "ap_wp_compound_coenzyme_q10_src_pubmed_25282031",
+      "workpackId": "wp_compound_coenzyme_q10",
+      "entityType": "compound",
+      "entitySlug": "coenzyme-q10",
+      "sourceId": "src_pubmed-25282031",
+      "topicType": "population_specific_note",
+      "claimType": "efficacy_signal",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "Q-SYMBIO reported lower two-year major cardiovascular events with adjunctive CoQ10 in moderate-to-severe chronic heart failure, while short-term endpoints did not improve.",
+      "findingTextNormalized": "In the Q-SYMBIO randomized double-blind multicenter trial, 420 patients with moderate-to-severe chronic heart failure received adjunctive coenzyme Q10 or placebo with standard therapy. The 16-week functional and biomarker endpoints did not significantly differ, while the two-year composite major adverse cardiovascular endpoint occurred less often in the CoQ10 group (15% versus 26%; HR 0.50, 95% CI 0.32 to 0.80). This disease-specific adjunctive-treatment result must not be generalized into a universal wellness, prevention, or consumer-dose claim.",
+      "strengthLabel": "moderate",
+      "populationContext": "420 patients with moderate-to-severe chronic heart failure receiving standard therapy.",
+      "usageContext": "Adjunctive CoQ10 in a two-year heart-failure trial; the studied regimen is research context rather than consumer guidance.",
+      "safetyContext": "The trial reported long-term use in a monitored heart-failure population; this does not replace medication-interaction screening or general safety review.",
+      "uncertaintyNote": "Short-term NYHA, six-minute walk, and NT-proBNP endpoints were not significantly improved; the result is specific to chronic heart failure and the studied clinical protocol.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    },
+    {
+      "submissionId": "sub_session-e-coenzyme-q10-depression-anxiety-discordance-20260926",
+      "authoringPackId": "ap_wp_compound_coenzyme_q10_src_pubmed_40833470",
+      "workpackId": "wp_compound_coenzyme_q10",
+      "entityType": "compound",
+      "entitySlug": "coenzyme-q10",
+      "sourceId": "src_pubmed-40833470",
+      "topicType": "conflict_note",
+      "claimType": "efficacy_null_or_mixed",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "A 2025 RCT meta-analysis found a MADRS depression signal, but BDI and anxiety results were null, making endpoint-scale discordance material.",
+      "findingTextNormalized": "A 2025 systematic review and meta-analysis of small randomized trials found lower depression severity on the Montgomery-Åsberg Depression Rating Scale, while Beck Depression Inventory results were not significant and the pooled anxiety estimate from two small studies was also not significant. The apparent low-dose and short-duration subgroup signals are study-level findings and must not be converted into consumer dosing guidance. Depression scales and anxiety remain separate endpoints rather than one generic mood claim.",
+      "strengthLabel": "limited",
+      "populationContext": "Seven small eligible trials across varied clinical populations; six studies entered meta-analysis and anxiety synthesis included only two small studies.",
+      "usageContext": "Oral CoQ10 across heterogeneous randomized trials; formulations, populations, doses, and durations varied.",
+      "uncertaintyNote": "The evidence base is small and scale-dependent; MADRS, BDI, and anxiety results disagree, so a single antidepressant or anxiolytic conclusion is not supported.",
+      "reviewStatus": "draft_submission",
+      "editorialStatus": "draft",
+      "active": true
+    }
+  ]
+}

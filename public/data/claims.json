@@ -4894,32 +4894,6 @@
     "study_class_human": true
   },
   {
-    "id": "study-row-38",
-    "title": "fatigue",
-    "pmid": "25174896",
-    "source_url": "https://pubmed.ncbi.nlm.nih.gov/25174896/",
-    "evidence_tier": "RCT",
-    "profile_slug": "coq10",
-    "study_class": "rct",
-    "study_class_source": "RCT",
-    "study_class_label": "Randomized controlled trial",
-    "study_class_rank": 7,
-    "study_class_human": true
-  },
-  {
-    "id": "study-row-39",
-    "title": "cardiovascular",
-    "pmid": "25282031",
-    "source_url": "https://pubmed.ncbi.nlm.nih.gov/25282031/",
-    "evidence_tier": "meta_analysis",
-    "profile_slug": "coq10",
-    "study_class": "meta-analysis",
-    "study_class_source": "meta_analysis",
-    "study_class_label": "Meta-analysis",
-    "study_class_rank": 9,
-    "study_class_human": true
-  },
-  {
     "id": "study-row-4",
     "title": "cognitive_performance",
     "pmid": "16416332",
@@ -5926,18 +5900,6 @@
     "claim": "mood supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
     "evidence_tier": "evidence_summary",
     "profile_slug": "folate",
-    "study_class": "unclassified",
-    "study_class_source": "evidence_summary",
-    "study_class_label": "Unclassified",
-    "study_class_rank": 0,
-    "study_class_human": false
-  },
-  {
-    "id": "summary-row-22",
-    "title": "fatigue supported by 2 RCTs, 1 meta-analyses (3 positive studies)",
-    "claim": "fatigue supported by 2 RCTs, 1 meta-analyses (3 positive studies)",
-    "evidence_tier": "evidence_summary",
-    "profile_slug": "coq10",
     "study_class": "unclassified",
     "study_class_source": "evidence_summary",
     "study_class_label": "Unclassified",

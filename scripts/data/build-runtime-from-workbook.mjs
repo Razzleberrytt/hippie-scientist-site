@@ -85,6 +85,52 @@ function slug(v) {
     .replace(/^-+|-+$/g, '')
 }
 
+function canonicalCompoundAliases() {
+  const aliasesPath = path.join(repoRoot, 'data', 'canonical', 'enrichment-owner-aliases.json')
+  const redirectsPath = path.join(repoRoot, 'public', '_redirects')
+  if (!fs.existsSync(aliasesPath) || !fs.existsSync(redirectsPath)) return new Map()
+
+  const aliases = JSON.parse(fs.readFileSync(aliasesPath, 'utf8'))?.compounds || {}
+  const redirectTargets = new Map()
+  for (const rawLine of fs.readFileSync(redirectsPath, 'utf8').split(/\r?\n/)) {
+    const line = rawLine.trim()
+    if (!line || line.startsWith('#')) continue
+    const [source, target, status] = line.split(/\s+/)
+    if (!source || !target || status !== '301') continue
+    redirectTargets.set(source.replace(/\/$/, ''), target.replace(/\/$/, ''))
+  }
+
+  const resolved = new Map()
+  for (const [aliasValue, targetValue] of Object.entries(aliases)) {
+    const alias = slug(aliasValue)
+    const target = slug(targetValue)
+    if (!alias || !target || alias === target) continue
+    const sourcePath = `/compounds/${alias}`
+    const targetPath = `/compounds/${target}`
+    if (redirectTargets.get(sourcePath) === targetPath) resolved.set(alias, target)
+  }
+  return resolved
+}
+
+function suppressCanonicalizedCompoundRecords(records, aliases) {
+  if (!aliases.size) return records
+  const present = new Set(records.map(record => slug(record?.slug || record?.id || record?.name)))
+  return records.filter(record => {
+    const alias = slug(record?.slug || record?.id || record?.name)
+    const target = aliases.get(alias)
+    return !(target && present.has(target))
+  })
+}
+
+function suppressCanonicalizedCompoundClaims(claims, aliases, canonicalSlugs) {
+  if (!aliases.size) return claims
+  return claims.filter(claim => {
+    const alias = slug(claim?.profile_slug)
+    const target = aliases.get(alias)
+    return !(target && canonicalSlugs.has(target))
+  })
+}
+
 function splitList(v) {
   if (Array.isArray(v)) return v.flatMap(splitList)
   return clean(v).split(/[\n|;,]+/).map((s) => clean(s).replace(/^[-*•]\s*/, '')).filter(Boolean)
@@ -1020,9 +1066,18 @@ async function main() {
 
   const allHerbs = dedupe(herbRows.map((r) => profile(r, 'herb', taxonomy)))
   const allCompounds = dedupe(compoundRows.map((r) => profile(r, 'compound', taxonomy)))
+  const compoundAliases = canonicalCompoundAliases()
   const herbs = allHerbs.filter((record) => !isRestrictedRuntimeRecord(record) || canExportRestrictedReference(record))
-  const compounds = allCompounds.filter((record) => !isRestrictedRuntimeRecord(record) || canExportRestrictedReference(record))
-  const claims = normalizeRows(read(wb, SHEETS.claims), claimRow)
+  const compounds = suppressCanonicalizedCompoundRecords(
+    allCompounds.filter((record) => !isRestrictedRuntimeRecord(record) || canExportRestrictedReference(record)),
+    compoundAliases,
+  )
+  const canonicalCompoundSlugs = new Set(compounds.map(record => slug(record?.slug || record?.id || record?.name)))
+  const claims = suppressCanonicalizedCompoundClaims(
+    normalizeRows(read(wb, SHEETS.claims), claimRow),
+    compoundAliases,
+    canonicalCompoundSlugs,
+  )
   const herbCompoundMap = filterRestrictedMapRows(normalizeRows(read(wb, SHEETS.map), mapRow), allHerbs, allCompounds)
   const graph = Object.fromEntries(Object.entries(GRAPH_SHEETS).map(([kind, names]) => [kind, normalizeRows(read(wb, names, true), (r) => graphRow(r, kind))]))
   const evidenceEngines = Object.fromEntries(
