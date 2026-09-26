@@ -50,27 +50,37 @@
         "entity": {
           "status": "matched",
           "reason": "PMID 40205009 studies isolated wogonin rather than a Scutellaria lateriflora human preparation, exactly matching the staged identity firewall.",
-          "evidenceRefs": ["src_doi-10-1038-s41401-025-01547-1"]
+          "evidenceRefs": [
+            "src_doi-10-1038-s41401-025-01547-1"
+          ]
         },
         "preparation": {
           "status": "matched",
           "reason": "The finding preserves isolated-wogonin dosing and does not inherit that intervention into American Skullcap products or extracts.",
-          "evidenceRefs": ["src_doi-10-1038-s41401-025-01547-1"]
+          "evidenceRefs": [
+            "src_doi-10-1038-s41401-025-01547-1"
+          ]
         },
         "population": {
           "status": "matched",
           "reason": "The source uses septic-cardiomyopathy mouse and cardiomyocyte models, and the finding explicitly keeps it preclinical rather than human evidence.",
-          "evidenceRefs": ["src_doi-10-1038-s41401-025-01547-1"]
+          "evidenceRefs": [
+            "src_doi-10-1038-s41401-025-01547-1"
+          ]
         },
         "endpoint": {
           "status": "matched",
           "reason": "Cardiac dysfunction and ferroptosis endpoints are preserved as unrelated to sleep or anxiety efficacy for American Skullcap.",
-          "evidenceRefs": ["src_doi-10-1038-s41401-025-01547-1"]
+          "evidenceRefs": [
+            "src_doi-10-1038-s41401-025-01547-1"
+          ]
         },
         "conclusion": {
           "status": "matched",
           "reason": "The staged conclusion correctly treats the paper as a non-transferable mechanistic source and makes no clinical skullcap efficacy claim.",
-          "evidenceRefs": ["src_doi-10-1038-s41401-025-01547-1"]
+          "evidenceRefs": [
+            "src_doi-10-1038-s41401-025-01547-1"
+          ]
         }
       }
     },
@@ -83,27 +93,37 @@
         "entity": {
           "status": "matched",
           "reason": "PMID 40362800 directly studies a Scutellaria lateriflora extract-based food supplement in adults with primary insomnia.",
-          "evidenceRefs": ["src_doi-10-3390-nu17091491"]
+          "evidenceRefs": [
+            "src_doi-10-3390-nu17091491"
+          ]
         },
         "preparation": {
           "status": "matched",
           "reason": "The staged finding preserves the chemically characterized extract-based supplement, 400 mg/day regimen, and 56-day treatment periods.",
-          "evidenceRefs": ["src_doi-10-3390-nu17091491"]
+          "evidenceRefs": [
+            "src_doi-10-3390-nu17091491"
+          ]
         },
         "population": {
           "status": "matched",
           "reason": "The source enrolled 66 adults aged 18 to 70 with mild-to-moderate primary insomnia, matching the staged population boundary.",
-          "evidenceRefs": ["src_doi-10-3390-nu17091491"]
+          "evidenceRefs": [
+            "src_doi-10-3390-nu17091491"
+          ]
         },
         "endpoint": {
           "status": "matched",
           "reason": "The source directly measured PSQI as the primary outcome plus sleep-wake secondary measures described in the finding.",
-          "evidenceRefs": ["src_doi-10-3390-nu17091491"]
+          "evidenceRefs": [
+            "src_doi-10-3390-nu17091491"
+          ]
         },
         "conclusion": {
           "status": "matched",
           "reason": "The finding preserves the reported sleep improvements while limiting safety to the modest single trial and avoiding generic product claims.",
-          "evidenceRefs": ["src_doi-10-3390-nu17091491"]
+          "evidenceRefs": [
+            "src_doi-10-3390-nu17091491"
+          ]
         }
       }
     },
@@ -116,27 +136,37 @@
         "entity": {
           "status": "matched",
           "reason": "PMID 23878109 directly studies Scutellaria lateriflora in a placebo-controlled crossover trial of healthy volunteers.",
-          "evidenceRefs": ["src_doi-10-1002-ptr-5044"]
+          "evidenceRefs": [
+            "src_doi-10-1002-ptr-5044"
+          ]
         },
         "preparation": {
           "status": "matched",
           "reason": "The finding preserves the studied Scutellaria lateriflora regimen of 350 mg three times daily for two weeks.",
-          "evidenceRefs": ["src_doi-10-1002-ptr-5044"]
+          "evidenceRefs": [
+            "src_doi-10-1002-ptr-5044"
+          ]
         },
         "population": {
           "status": "matched",
           "reason": "The source studied 43 generally low-anxiety healthy volunteers rather than patients with an anxiety disorder, which the finding preserves.",
-          "evidenceRefs": ["src_doi-10-1002-ptr-5044"]
+          "evidenceRefs": [
+            "src_doi-10-1002-ptr-5044"
+          ]
         },
         "endpoint": {
           "status": "matched",
           "reason": "The finding separately preserves the null Beck Anxiety Inventory result and the favorable Total Mood Disturbance signal.",
-          "evidenceRefs": ["src_doi-10-1002-ptr-5044"]
+          "evidenceRefs": [
+            "src_doi-10-1002-ptr-5044"
+          ]
         },
         "conclusion": {
           "status": "matched",
           "reason": "The source's mixed direction, carryover effect, baseline imbalance, and low baseline anxiety are retained without converting mood change into anxiety-treatment efficacy.",
-          "evidenceRefs": ["src_doi-10-1002-ptr-5044"]
+          "evidenceRefs": [
+            "src_doi-10-1002-ptr-5044"
+          ]
         }
       }
     },
@@ -149,27 +179,37 @@
         "entity": {
           "status": "matched",
           "reason": "PMID 12652886 directly identifies Scutellaria lateriflora as the herbal intervention in a double-blind placebo-controlled study.",
-          "evidenceRefs": ["src_pubmed-12652886"]
+          "evidenceRefs": [
+            "src_pubmed-12652886"
+          ]
         },
         "preparation": {
           "status": "matched",
           "reason": "The finding deliberately does not invent regimen details absent from the PubMed abstract and keeps the intervention at oral plant-preparation level.",
-          "evidenceRefs": ["src_pubmed-12652886"]
+          "evidenceRefs": [
+            "src_pubmed-12652886"
+          ]
         },
         "population": {
           "status": "matched",
           "reason": "The source is a healthy-volunteer clinical trial rather than an anxiety-disorder treatment trial, and that boundary is explicit.",
-          "evidenceRefs": ["src_pubmed-12652886"]
+          "evidenceRefs": [
+            "src_pubmed-12652886"
+          ]
         },
         "endpoint": {
           "status": "matched",
           "reason": "The abstract reports anxiolytic effects in healthy subjects, matching the preliminary anxiety signal without effect-size inflation.",
-          "evidenceRefs": ["src_pubmed-12652886"]
+          "evidenceRefs": [
+            "src_pubmed-12652886"
+          ]
         },
         "conclusion": {
           "status": "matched",
           "reason": "The finding preserves the positive historical signal while downgrading certainty for sparse reporting and avoiding a generic anxiety-treatment recommendation.",
-          "evidenceRefs": ["src_pubmed-12652886"]
+          "evidenceRefs": [
+            "src_pubmed-12652886"
+          ]
         }
       }
     },
@@ -182,27 +222,37 @@
         "entity": {
           "status": "matched",
           "reason": "PMID 29801717 reviews luteolin itself rather than a luteolin-containing botanical extract, so the compound entity is the correct owner.",
-          "evidenceRefs": ["src_pubmed-29801717"]
+          "evidenceRefs": [
+            "src_pubmed-29801717"
+          ]
         },
         "preparation": {
           "status": "matched",
           "reason": "The finding asserts no preparation or dose. The source's single human result concerns a multi-ingredient formulation containing luteolin, and the uncertainty note fences that off from isolated-luteolin evidence.",
-          "evidenceRefs": ["src_pubmed-29801717"]
+          "evidenceRefs": [
+            "src_pubmed-29801717"
+          ]
         },
         "population": {
           "status": "matched",
           "reason": "No population is asserted. The finding states that population-specific human risk coverage is missing, which is the absence of a population claim rather than a generalization to one.",
-          "evidenceRefs": ["src_pubmed-29801717"]
+          "evidenceRefs": [
+            "src_pubmed-29801717"
+          ]
         },
         "endpoint": {
           "status": "matched",
           "reason": "No efficacy or safety endpoint is claimed. The finding is scoped to evidence coverage, so no surrogate or mechanistic outcome is promoted to a clinical one.",
-          "evidenceRefs": ["src_pubmed-29801717"]
+          "evidenceRefs": [
+            "src_pubmed-29801717"
+          ]
         },
         "conclusion": {
           "status": "matched",
           "reason": "The source concludes that much work remains to ensure the safety, quality and efficacy of luteolin before human therapeutic use. The finding restates that gap without converting the review's preclinical signal into human evidence.",
-          "evidenceRefs": ["src_pubmed-29801717"]
+          "evidenceRefs": [
+            "src_pubmed-29801717"
+          ]
         }
       }
     },
@@ -216,7 +266,9 @@
         "entity": {
           "status": "matched",
           "reason": "IARC Volume 134 evaluates methyleugenol as the exact chemical entity named by the staged finding.",
-          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+          "evidenceRefs": [
+            "src_iarc-v134-methyleugenol-2024"
+          ]
         },
         "preparation": {
           "status": "not_applicable",
@@ -226,17 +278,23 @@
         "population": {
           "status": "matched",
           "reason": "The finding preserves IARC's integrated animal, mechanistic, and inadequate-human-evidence basis without claiming direct human epidemiologic causality.",
-          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+          "evidenceRefs": [
+            "src_iarc-v134-methyleugenol-2024"
+          ]
         },
         "endpoint": {
           "status": "matched",
           "reason": "The endpoint is carcinogenic hazard identification and its evidence basis, not a dose-specific quantitative risk estimate.",
-          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+          "evidenceRefs": [
+            "src_iarc-v134-methyleugenol-2024"
+          ]
         },
         "conclusion": {
           "status": "matched",
           "reason": "Group 2A remains paired with sufficient animal evidence, strong mechanistic evidence, and inadequate evidence regarding cancer in humans.",
-          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+          "evidenceRefs": [
+            "src_iarc-v134-methyleugenol-2024"
+          ]
         }
       }
     },
@@ -250,27 +308,257 @@
         "entity": {
           "status": "matched",
           "reason": "The IARC monograph discusses methyleugenol occurrence and exposure, matching the exact compound governed by this proposition.",
-          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+          "evidenceRefs": [
+            "src_iarc-v134-methyleugenol-2024"
+          ]
         },
         "preparation": {
           "status": "matched",
           "reason": "The finding separates natural occurrence, food, consumer-product, essential-oil, and concentrated isolated-product exposure contexts.",
-          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+          "evidenceRefs": [
+            "src_iarc-v134-methyleugenol-2024"
+          ]
         },
         "population": {
           "status": "matched",
           "reason": "IARC identifies ubiquitous general-population exposure through food and personal-care products without equating all exposure levels or matrices.",
-          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+          "evidenceRefs": [
+            "src_iarc-v134-methyleugenol-2024"
+          ]
         },
         "endpoint": {
           "status": "matched",
           "reason": "The proposition governs exposure interpretation and does not invent a clinical endpoint, incidence estimate, or consumer dose.",
-          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+          "evidenceRefs": [
+            "src_iarc-v134-methyleugenol-2024"
+          ]
         },
         "conclusion": {
           "status": "matched",
           "reason": "The finding prevents background exposure from being treated as quantitatively interchangeable with concentrated isolated exposure while avoiding unsupported risk quantification.",
-          "evidenceRefs": ["src_iarc-v134-methyleugenol-2024"]
+          "evidenceRefs": [
+            "src_iarc-v134-methyleugenol-2024"
+          ]
+        }
+      }
+    },
+    {
+      "submissionId": "sub_session-c-cobalamin-nondeficient-meta-null-20260905",
+      "promotionStatus": "promoted",
+      "attestation": {
+        "reviewer": "site-swarm-evidence",
+        "reviewedAt": "2026-09-26T14:15:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "PMID 33809274 evaluates vitamin B12 alone or B-vitamin combinations and therefore belongs to the generic cobalamin evidence owner.",
+          "evidenceRefs": [
+            "src_pubmed-33809274"
+          ]
+        },
+        "preparation": {
+          "status": "matched",
+          "reason": "The finding preserves B12-alone versus B-complex exposure and does not transfer the evidence to methylcobalamin, cyanocobalamin, or another specific form.",
+          "evidenceRefs": [
+            "src_pubmed-33809274"
+          ]
+        },
+        "population": {
+          "status": "matched",
+          "reason": "The meta-analysis included participants without overt B12 deficiency or advanced neurologic disease, matching the staged nondeficient enhancement boundary.",
+          "evidenceRefs": [
+            "src_pubmed-33809274"
+          ]
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "Cognitive subdomains and depressive symptoms are the directly analyzed outcomes; fatigue was too sparsely reported for pooled inference.",
+          "evidenceRefs": [
+            "src_pubmed-33809274"
+          ]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "The finding preserves the null cognition/depression result without implying that treatment of true B12 deficiency is ineffective.",
+          "evidenceRefs": [
+            "src_pubmed-33809274"
+          ]
+        }
+      }
+    },
+    {
+      "submissionId": "sub_session-c-cobalamin-deficiency-cognition-boundary-20260905",
+      "promotionStatus": "promoted",
+      "attestation": {
+        "reviewer": "site-swarm-evidence",
+        "reviewedAt": "2026-09-26T14:15:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "PMID 22221769 reviews vitamin B12 deficiency, cognitive impairment, and B12 therapy, matching cobalamin directly.",
+          "evidenceRefs": [
+            "src_pubmed-22221769"
+          ]
+        },
+        "preparation": {
+          "status": "matched",
+          "reason": "The review covers oral or parenteral B12 therapy and the finding keeps route/form dependent on clinical context rather than converting study treatment into consumer guidance.",
+          "evidenceRefs": [
+            "src_pubmed-22221769"
+          ]
+        },
+        "population": {
+          "status": "matched",
+          "reason": "The review distinguishes patients with pre-existing B12 deficiency from patients without deficiency, which is the central staged boundary.",
+          "evidenceRefs": [
+            "src_pubmed-22221769"
+          ]
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "Biochemical correction and cognitive outcomes are kept separate instead of treating laboratory normalization as nootropic efficacy.",
+          "evidenceRefs": [
+            "src_pubmed-22221769"
+          ]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "The finding preserves that cognition improved only in the deficient subgroup and did not improve in patients without pre-existing deficiency.",
+          "evidenceRefs": [
+            "src_pubmed-22221769"
+          ]
+        }
+      }
+    },
+    {
+      "submissionId": "sub_session-c-cobalamin-neurologic-review-mixed-20260905",
+      "promotionStatus": "promoted",
+      "attestation": {
+        "reviewer": "site-swarm-evidence",
+        "reviewedAt": "2026-09-26T14:15:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "PMID 37046885 is a systematic review/meta-analysis of vitamin B12 deficiency and neurological outcomes.",
+          "evidenceRefs": [
+            "src_pubmed-37046885"
+          ]
+        },
+        "preparation": {
+          "status": "matched",
+          "reason": "The finding stays at B12 correction/supplementation level and does not generalize to a specific cobalamin salt or consumer regimen.",
+          "evidenceRefs": [
+            "src_pubmed-37046885"
+          ]
+        },
+        "population": {
+          "status": "matched",
+          "reason": "The source focuses on susceptible or deficient populations across heterogeneous age groups and contexts, matching the staged limitation.",
+          "evidenceRefs": [
+            "src_pubmed-37046885"
+          ]
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "Neurological and cognitive outcomes are preserved as the measured endpoints.",
+          "evidenceRefs": [
+            "src_pubmed-37046885"
+          ]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "Shorter-term improvement signals and inconsistent longer-term controlled evidence remain explicit, preserving the source's mixed conclusion.",
+          "evidenceRefs": [
+            "src_pubmed-37046885"
+          ]
+        }
+      }
+    },
+    {
+      "submissionId": "sub_session-c-cobalamin-child-cochrane-20260905",
+      "promotionStatus": "promoted",
+      "attestation": {
+        "reviewer": "site-swarm-evidence",
+        "reviewedAt": "2026-09-26T14:15:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "PMID 42227307 evaluates oral vitamin B12 supplementation in children and maps to generic cobalamin without form-specific transfer.",
+          "evidenceRefs": [
+            "src_pubmed-42227307"
+          ]
+        },
+        "preparation": {
+          "status": "matched",
+          "reason": "The finding preserves B12 alone or B12 plus micronutrients and does not convert trial doses or co-nutrient formulations into consumer dosing guidance.",
+          "evidenceRefs": [
+            "src_pubmed-42227307"
+          ]
+        },
+        "population": {
+          "status": "matched",
+          "reason": "The Cochrane review is explicitly limited to children younger than 12 years, and the finding keeps the pediatric boundary.",
+          "evidenceRefs": [
+            "src_pubmed-42227307"
+          ]
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "Deficiency status/concentration, cognition, growth, development, anemia, and adverse effects are the review's prespecified outcomes.",
+          "evidenceRefs": [
+            "src_pubmed-42227307"
+          ]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "The finding keeps biochemical deficiency improvement separate from the little-or-no-effect findings for cognition, growth, development, and anemia.",
+          "evidenceRefs": [
+            "src_pubmed-42227307"
+          ]
+        }
+      }
+    },
+    {
+      "submissionId": "sub_session-c-cobalamin-memory-depression-meta-null-20260920",
+      "promotionStatus": "promoted",
+      "attestation": {
+        "reviewer": "site-swarm-evidence",
+        "reviewedAt": "2026-09-26T14:15:00.000Z",
+        "confidence": "high",
+        "entity": {
+          "status": "matched",
+          "reason": "PMID 39655146 directly evaluates vitamin B12 supplementation and belongs to the generic cobalamin owner.",
+          "evidenceRefs": [
+            "src_pubmed-39655146"
+          ]
+        },
+        "preparation": {
+          "status": "matched",
+          "reason": "The meta-analysis pools B12/B-complex supplementation across randomized trials; the finding explicitly avoids transferring results to a specific cobalamin form or dose.",
+          "evidenceRefs": [
+            "src_pubmed-39655146"
+          ]
+        },
+        "population": {
+          "status": "matched",
+          "reason": "The source evaluates cognitive-memory and depressive outcomes across nine randomized trials rather than a uniform documented-deficiency treatment population, matching the general enhancement boundary.",
+          "evidenceRefs": [
+            "src_pubmed-39655146"
+          ]
+        },
+        "endpoint": {
+          "status": "matched",
+          "reason": "The pooled cognitive-memory and depressive-symptom effect estimates are preserved as null without substituting biochemical endpoints.",
+          "evidenceRefs": [
+            "src_pubmed-39655146"
+          ]
+        },
+        "conclusion": {
+          "status": "matched",
+          "reason": "The finding preserves the nonsignificant pooled results and explicitly states that they do not negate treatment of documented B12 deficiency.",
+          "evidenceRefs": [
+            "src_pubmed-39655146"
+          ]
         }
       }
     }
