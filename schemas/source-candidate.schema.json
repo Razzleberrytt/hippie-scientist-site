@@ -132,19 +132,22 @@
       "studyDesign": {
         "type": "string",
         "enum": [
-          "randomized-controlled-trial",
-          "non-randomized-trial",
-          "cohort",
           "case-control",
+          "case-report",
+          "cohort",
           "cross-sectional",
-          "systematic-review",
-          "meta-analysis",
+          "database-reference",
           "in-vitro",
           "in-vivo-animal",
+          "meta-analysis",
           "narrative-monograph",
+          "narrative-review",
+          "non-randomized-controlled",
+          "non-randomized-trial",
+          "other",
+          "randomized-controlled-trial",
           "regulatory-guidance",
-          "database-reference",
-          "other"
+          "systematic-review"
         ]
       },
       "publicationStatus": {
