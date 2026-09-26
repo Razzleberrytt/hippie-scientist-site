@@ -60,8 +60,18 @@ jobs:
       - name: Regenerate governed and runtime artifacts
         run: |
           node scripts/enrichment/generate-governed-enrichment.mjs
-          node scripts/data/apply-enrichment-runtime-overrides.mjs
           node scripts/generate-entity-payloads.mjs
+          node scripts/data/apply-enrichment-runtime-overrides.mjs
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs/promises'
+          import { buildAiEntityArtifacts } from './scripts/data/ai-entity-artifacts.mjs'
+          const dataDir = 'public/data'
+          const [herbs, compounds] = await Promise.all([
+            JSON.parse(await fs.readFile(`${dataDir}/herbs.json`, 'utf8')),
+            JSON.parse(await fs.readFile(`${dataDir}/compounds.json`, 'utf8')),
+          ])
+          await buildAiEntityArtifacts({ dataDir, herbs, compounds })
+          NODE
 
       - name: Verify cobalamin closure boundaries
         run: |
