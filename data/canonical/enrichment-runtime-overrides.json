@@ -52,6 +52,34 @@
       "requiresHumanReview": true,
       "dosage": "",
       "typicalDosage": ""
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "cobalamin",
+      "sourceIds": [
+        "src_pubmed-33809274",
+        "src_pubmed-22221769",
+        "src_pubmed-37046885",
+        "src_pubmed-42227307",
+        "src_pubmed-39655146"
+      ],
+      "summary": "Vitamin B12 is effective for correcting documented deficiency, but the reviewed evidence does not support broad cognitive, antidepressant, fatigue, growth, or developmental enhancement in nondeficient or generally supplemented populations.",
+      "description": "Cobalamin evidence is strongly context-dependent: correcting true deficiency is distinct from using vitamin B12 as a general nootropic or mood enhancer. Across systematic reviews and meta-analyses, biochemical deficiency correction can occur without corresponding cognitive or depressive benefit in nondeficient or broadly supplemented populations.",
+      "safetyNotes": "Treat deficiency-related neurologic or hematologic concerns as clinical issues rather than supplement-optimization targets. The reviewed evidence does not establish a universal consumer dose, route, or cobalamin form for cognitive or mood enhancement.",
+      "evidenceLevel": "Moderate Human Evidence",
+      "evidenceGrade": "C",
+      "reviewStatus": "sourced_pending_review",
+      "medicalRisk": "moderate",
+      "governanceReason": "deficiency_treatment_not_general_enhancement",
+      "indexabilityStatus": "NOINDEX",
+      "robots": "noindex,follow",
+      "sitemapIncluded": false,
+      "recommendationAllowed": false,
+      "monetizationAllowed": false,
+      "indexingAllowed": false,
+      "requiresHumanReview": true,
+      "dosage": "",
+      "typicalDosage": ""
     }
   ]
 }
