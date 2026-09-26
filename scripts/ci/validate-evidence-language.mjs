@@ -115,8 +115,13 @@ export function auditRecord(record, datasetName = 'test') {
   if (!textToAudit) return []
 
   // 2. Placeholder checks (Critical)
+  // Audit summary and description independently so a standalone placeholder at
+  // one field boundary cannot be hidden by valid prose in the adjacent field.
+  const placeholderFields = [summary, description]
   for (const kw of PLACEHOLDER_KEYWORDS) {
-    const match = textToAudit.match(kw.regex)
+    const match = placeholderFields
+      .map(value => value.match(kw.regex))
+      .find(Boolean)
     if (match) {
       localFindings.push({
         type: 'critical',

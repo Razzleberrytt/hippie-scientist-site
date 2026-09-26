@@ -64,6 +64,18 @@ describe('validate-evidence-language auditRecord', () => {
         evidence_tier: 'Strong Human Evidence'
       },
       {
+        slug: 'test-null-summary-boundary',
+        summary: 'null',
+        description: 'The remaining description contains valid reviewed evidence.',
+        evidence_tier: 'Strong Human Evidence'
+      },
+      {
+        slug: 'test-null-description-boundary',
+        summary: 'The summary contains valid reviewed evidence.',
+        description: 'null',
+        evidence_tier: 'Strong Human Evidence'
+      },
+      {
         slug: 'test-null-labeled',
         summary: 'Evidence status: null.',
         description: 'Review is pending.',
