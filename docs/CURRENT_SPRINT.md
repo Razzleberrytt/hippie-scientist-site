@@ -51,6 +51,8 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 ## Active / in review — implementation WIP 1/3
 
+**2026-09-25 owner-directed P0 control incident — #5941:** Active. Audit Actions efficiency and repair controller collision/duplicate wake ownership on current main. This uses the documented Operations maintenance exception, not a fourth permanent workstream. #5703 remains open and its scientific scope is untouched. No additional normal work is admitted by this incident. Acceptance: fixed-window baseline, complete workflow inventory, bounded exact-head coordination, unchanged release protections, regression/build evidence, and verified controller merge/deploy; measured savings remain Unknown until an after cohort exists.
+
 | Lane | Ticket | Title | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
 | A | #5703 | Close cobalamin deficiency-vs-enhancement evidence with new 2024 null meta-analysis | Admitted — blocked on #5705 lease | P1 evidence governance | — | Five-source cobalamin closure preflighted 2026-09-20; canonical mutation waits for exact-main lease transaction |

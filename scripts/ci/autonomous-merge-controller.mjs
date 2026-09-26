@@ -586,6 +586,7 @@ async function followOnePr() {
     if (verdict.action === 'refresh') {
       trackedHeadSha = verdict.headSha
       writeOutput('head_sha', trackedHeadSha)
+      if (process.env.CONTROLLER_SINGLE_PASS === 'true') return
       continue
     }
     if (verdict.action === 'merge') {
@@ -601,6 +602,7 @@ async function followOnePr() {
     }
     if (verdict.action === 'stop') return
     if (verdict.action === 'blocked' || verdict.action === 'failed') throw new Error(`[PR #${number}] ${verdict.reason}`)
+    if (process.env.CONTROLLER_SINGLE_PASS === 'true') return
     await sleep(intervalMs)
   }
   console.log(`[PR #${number}] controller window ended; fallback sweep will continue ownership`)
