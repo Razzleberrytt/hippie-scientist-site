@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-09-26T01:15:00.000Z",
+  "deterministicModelVersion": "cobalamin-closure-explicit-target-v1",
+  "selectionPolicy": {
+    "mode": "explicit-admitted-closure",
+    "sourceProposalReport": "ops/reports/source-gaps.json",
+    "notes": "Single-entity Authority/Content closure target admitted by issue #5703; missing topics and criticality derived from fresh exact-main workpack/source-gap reports after the cobalamin lease merged."
+  },
+  "targets": [
+    {
+      "entityType": "compound",
+      "entitySlug": "cobalamin",
+      "waveStatus": "declared-target",
+      "selectionWhy": "admitted Authority/Content closure #5703",
+      "highestPriorityMissingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "criticality": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "currentGovernedCoverageStatus": "missing_governed_enrichment"
+    }
+  ]
+}
