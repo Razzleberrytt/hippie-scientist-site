@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { isNegatedMatch } from '../validate-evidence-language.mjs'
+import { isNegatedMatch } from '../evidence-language-policy.mjs'
 
 /**
  * The definitive-term and clinical-claim checks are substring matches, so a

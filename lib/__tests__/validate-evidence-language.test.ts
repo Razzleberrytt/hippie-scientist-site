@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { auditRecord } from '../../scripts/ci/validate-evidence-language.mjs'
+import { auditRecord } from '../../scripts/ci/evidence-language-policy.mjs'
 
 interface AuditFinding {
   type: 'critical' | 'warning'
