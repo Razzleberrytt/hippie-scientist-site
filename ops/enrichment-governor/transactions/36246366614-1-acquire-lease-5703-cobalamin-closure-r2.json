@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "transactionType": "enrichment_governor_lease",
+  "requestedAt": "2026-09-26T13:48:41.335Z",
+  "operation": "acquire",
+  "actor": "github-actions[bot]",
+  "owner": "site-swarm-integration",
+  "leaseId": "lease-5703-cobalamin-closure-r2",
+  "purpose": "complete cobalamin evidence closure after intake-pipeline repair",
+  "files": [],
+  "entities": [
+    "compound:cobalamin"
+  ],
+  "disposition": null,
+  "baseSha": "2e5736b73d15a105f12f56c85d9338745e29be8d",
+  "before": {
+    "workQueueSha256": "47507772b426756715d8a11371c5c097e8fef59eaab5b3814077c584c26e07e3",
+    "ledgerSha256": "a1df90f7195ca98310c38143e1ec32b2ef0f13f15a0dd6a65ed0297fea93fd16"
+  },
+  "after": {
+    "workQueueSha256": "10e3fc76c01f0369a307889ef25d3899636bd0556b6f572d46bdc75b3e282427",
+    "ledgerSha256": "9ab8fb76db11c00857fb42a64c940aa631b5eb149e2962bbaa6f941641c99997"
+  },
+  "result": {
+    "acquired": true,
+    "expiresAt": "2026-09-26T15:18:41.301Z"
+  },
+  "transactionCommitSha": null
+}
