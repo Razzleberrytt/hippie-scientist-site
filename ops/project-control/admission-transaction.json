@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "ticket": 5754,
-  "lane": "O",
-  "title": "Control-plane admission transaction bootstrap",
-  "priority": "P0 control",
-  "base_revision": "ba92ab4514125e70d8a6483bab398963a799b8a4",
-  "last_verified": "2026-09-22",
+  "ticket": 5706,
+  "lane": "A",
+  "title": "Reconcile CoQ10 depression/anxiety endpoint discordance and canonical identity",
+  "priority": "P1 evidence governance",
+  "base_revision": "666375c6db9dae6ebd0b24d781f603d1b5b94128",
+  "last_verified": "2026-09-26",
   "score_inputs": {
-    "businessImpact": 5,
+    "businessImpact": 4,
     "userValue": 4,
     "trafficPotential": 3,
     "strategicLeverage": 5,
     "confidence": 1,
-    "effort": 2
+    "effort": 3
   },
-  "score": 150,
-  "note": "Bootstrap receipt only. O is not a normal implementation lane and this file is replaced by the first D/R/A admission transaction."
+  "score": 80,
+  "note": "Exact-base admission for the bounded CoQ10 endpoint-discordance and canonical-identity closure. Scientific mutation remains blocked on #5963."
 }
