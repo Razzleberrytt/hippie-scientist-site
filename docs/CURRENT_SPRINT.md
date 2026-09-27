@@ -55,7 +55,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Lane | Ticket | Title | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6024 | sitewide information architecture cleanup | In review — PR #6023 | P1 | — | Owner-directed 2026-09-27 on exact base `c59d169b5b6e0616ebb2619fb6750e87cb9f9548`; score intentionally not invented for owner-directed corrective work |
+| D | #6024 / PR #6023 | sitewide information architecture cleanup | In review | P1 | — | Owner-directed 2026-09-27 on exact base `c59d169b5b6e0616ebb2619fb6750e87cb9f9548`; score intentionally not invented for owner-directed corrective work |
 
 - **Discovery/SEO:** occupied by admitted #6024 / PR #6023 for the bounded information-architecture cleanup. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
 - **Revenue/Conversion:** free; #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
