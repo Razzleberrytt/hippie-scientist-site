@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { primaryNavigation } from '../primary-navigation'
+import { getActivePrimaryNavigationItem, primaryNavigation } from '../primary-navigation'
 
 function normalize(path: string) {
   return path === '/' ? '/' : path.replace(/\/$/, '')
@@ -19,6 +19,17 @@ describe('primary navigation active coverage', () => {
       .map((item) => ({ label: item.label, href: item.href, activePrefixes: item.activePrefixes }))
 
     expect(uncovered).toEqual([])
+  })
+
+  it('keeps ordinary guide routes owned by Guides', () => {
+    const guides = primaryNavigation.find((item) => item.label === 'Guides')
+    expect(guides?.activePrefixes).toContain('/guides')
+    expect(getActivePrimaryNavigationItem('/guides/mental-health/avoidant-borderline-personality-disorders-couples/')?.label).toBe('Guides')
+  })
+
+  it('lets a more-specific Safety route override the broad Guides prefix', () => {
+    expect(getActivePrimaryNavigationItem('/guides/other/supplement-stacking-safety/')?.label).toBe('Safety')
+    expect(getActivePrimaryNavigationItem('/safety-checker/')?.label).toBe('Safety')
   })
 
   it('keeps Ingredients active across both herb and compound depth routes', () => {
