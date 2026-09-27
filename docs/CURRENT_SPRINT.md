@@ -5,7 +5,7 @@
 **Updated:** 2026-09-27
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #6031 is admitted as the sole Discovery/SEO implementation item on exact base `0056e3032b76e2954fab11dfea788a5bbef2bf3d`. Normal implementation WIP is **1/3**. Revenue/Conversion and Authority/Content remain free. Scope: consolidate Guides, Learn, and Articles into one coherent editorial family while preserving stable URLs and scientific/evidence/safety/publication boundaries. #5081 remains separately blocked on its own governor prerequisite.
+**Current admission:** #6031 / PR #6033 is the sole Discovery/SEO implementation item, admitted on exact base `0056e3032b76e2954fab11dfea788a5bbef2bf3d`. Normal implementation WIP is **1/3**. Revenue/Conversion and Authority/Content remain free. Scope: consolidate Guides, Learn, and Articles into one coherent editorial family while preserving stable URLs and scientific/evidence/safety/publication boundaries. #5081 remains separately blocked on its own governor prerequisite.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -55,9 +55,9 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Lane | Ticket | Title | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6031 | Consolidate Guides, Learn, and Articles discovery | Admitted — implementation PR may now claim ownership | P1 | 75.0 | Revalidated 2026-09-27 on exact base `0056e3032b76e2954fab11dfea788a5bbef2bf3d`; BI 3 / UV 5 / TP 3 / SL 5 / C 1.00 / E 3 |
+| D | #6031 / PR #6033 | Consolidate Guides, Learn, and Articles discovery | In review | P1 | 75.0 | Revalidated 2026-09-27 on exact base `0056e3032b76e2954fab11dfea788a5bbef2bf3d`; BI 3 / UV 5 / TP 3 / SL 5 / C 1.00 / E 3 |
 
-- **Discovery/SEO:** occupied by admitted #6031; an implementation PR may claim ownership only after this admission transaction merges. #6024 / PR #6028 is merged and retired. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
+- **Discovery/SEO:** occupied by admitted #6031 / PR #6033; the implementation PR now owns the ticket. #6024 / PR #6028 is merged and retired. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
 - **Revenue/Conversion:** free; #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
 - **Authority/Content:** free after #5706 / PR #5971 merged and retired. #5081 remains separately blocked on its own non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
