@@ -62,9 +62,13 @@ describe('CI build performance contracts', () => {
       '.github/workflows/technical-seo-monitor.yml',
     ]) {
       const workflow = read(path)
-      const jobIf = workflow.split('\n').find((line) => line.trimStart().startsWith('if: github.event_name'))
+      const jobIf = workflow
+        .split('\n')
+        .find((line) => line.trimStart().startsWith('if:') && line.includes("github.event_name == 'workflow_dispatch'"))
+      expect(jobIf, path).toBeDefined()
       expect(jobIf, path).not.toContain("github.event_name != 'pull_request'")
       expect(jobIf, path).toContain("github.event_name == 'workflow_dispatch'")
+      expect(jobIf, path).toContain("(inputs.producer_sha == '' || github.sha == inputs.producer_sha)")
     }
   })
 
