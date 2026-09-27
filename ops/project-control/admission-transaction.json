@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "ticket": 6011,
+  "ticket": 6024,
   "lane": "D",
-  "title": "a11y: label unlabeled breadcrumb navigation on guide hubs",
-  "priority": "P2",
-  "base_revision": "19b816f4664343c2b27c0cbf0a94420a6e1d5f57",
+  "title": "sitewide information architecture cleanup",
+  "priority": "P1",
+  "base_revision": "5a7995fcc37c8a9d4ddf17e19091667447682794",
   "last_verified": "2026-09-27",
   "score_inputs": {
-    "businessImpact": 2,
-    "userValue": 4,
-    "trafficPotential": 2,
-    "strategicLeverage": 4,
+    "businessImpact": 3,
+    "userValue": 5,
+    "trafficPotential": 3,
+    "strategicLeverage": 5,
     "confidence": 1,
-    "effort": 1
+    "effort": 3
   },
-  "score": 64,
-  "note": "Exact-base admission for the bounded breadcrumb-navigation accessibility repair. Add accessible names to verified breadcrumb nav landmarks only; no scientific copy, route, schema, indexing, monetization, or visual-layout mutation is authorized."
+  "score": 75,
+  "note": "Exact-base admission for the owner-directed sitewide information-architecture cleanup. Establish five primary destinations, deterministic route ownership, role-aware global chrome, and a leaner Research hub while preserving stable URLs and all scientific/evidence/safety/publication boundaries."
 }
