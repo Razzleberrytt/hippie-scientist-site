@@ -5,6 +5,7 @@ import { Suspense } from 'react'
 import { getHerbs, getCompounds } from '../../lib/runtime-data'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
+import SafetyFamilyNav from '@/components/navigation/SafetyFamilyNav'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { WizardSkeleton } from '@/components/skeletons'
 import { buildToolPageSchemaGraph } from '../../lib/schema-graph'
@@ -87,6 +88,8 @@ export default async function SafetyCheckerPage() {
           Screen a supplement stack for possible interaction patterns and overlapping cautions. The checker uses structured safety and mechanism signals to decide what deserves a closer look; it cannot determine whether a combination is safe for you or predict a clinical interaction.
         </p>
       </header>
+
+      <SafetyFamilyNav active='checker' />
 
       <section className='grid gap-4 md:grid-cols-3' aria-label='How to use the supplement safety checker'>
         <article className='card-premium p-5 sm:p-6'>
