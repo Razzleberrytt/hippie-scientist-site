@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "ticket": 6031,
+  "ticket": 6035,
   "lane": "D",
-  "title": "Consolidate Guides, Learn, and Articles discovery",
+  "title": "Unify ingredient lookup across Herbs, Compounds, Search, and Evidence",
   "priority": "P1",
-  "base_revision": "0056e3032b76e2954fab11dfea788a5bbef2bf3d",
+  "base_revision": "f636b9720108f9078afda4795c369e18bfd9facb",
   "last_verified": "2026-09-27",
   "score_inputs": {
     "businessImpact": 3,
@@ -15,5 +15,5 @@
     "effort": 3
   },
   "score": 75,
-  "note": "Exact-base admission for editorial discovery consolidation. Guides owns topic/decision discovery, Learn owns educational concepts, and Articles owns research/editorial reading; stable URLs and scientific/evidence/safety/publication boundaries remain unchanged."
+  "note": "Exact-base admission for lookup-family consolidation. Herbs, Compounds, and Search become one lookup family; Evidence Lookup remains Research-owned as the explicit evidence-strength handoff. Stable URLs and scientific/evidence/safety/publication boundaries remain unchanged."
 }
