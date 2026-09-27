@@ -5,7 +5,7 @@
 **Updated:** 2026-09-27
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #6035 / PR #6038 is the sole Discovery/SEO implementation item, admitted on exact base `f636b9720108f9078afda4795c369e18bfd9facb`. Normal implementation WIP is **1/3**. Revenue/Conversion and Authority/Content remain free. Scope: unify Herbs, Compounds, Search, and the Evidence Lookup handoff into one coherent lookup flow while preserving stable URLs and scientific/evidence/safety/publication boundaries. #5081 remains separately blocked on its own governor prerequisite.
+**Current admission:** No normal implementation ticket is currently admitted. Normal implementation WIP is **0/3**; Discovery/SEO, Revenue/Conversion, and Authority/Content are free. #6035 closed after PR #6038 merged as `1c9277714cce080f3f85ba1586b9f626beca7fd1`. #5081 remains separately blocked on its own governor prerequisite.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -55,9 +55,8 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Lane | Ticket | Title | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6035 / PR #6038 | Unify ingredient lookup across Herbs, Compounds, Search, and Evidence | In review | P1 | 75.0 | Revalidated 2026-09-27 on exact base `f636b9720108f9078afda4795c369e18bfd9facb`; BI 3 / UV 5 / TP 3 / SL 5 / C 1.00 / E 3 |
 
-- **Discovery/SEO:** occupied by admitted #6035 / PR #6038; the implementation PR now owns the ticket. #6031 / PR #6033 is merged and retired. #6024 / PR #6028 is merged and retired. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
+- **Discovery/SEO:** free; #6035 / PR #6038 is merged and retired. #6031 / PR #6033 is merged and retired. #6024 / PR #6028 is merged and retired. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
 - **Revenue/Conversion:** free; #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
 - **Authority/Content:** free after #5706 / PR #5971 merged and retired. #5081 remains separately blocked on its own non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
@@ -66,6 +65,8 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
 
 ### Recently completed refill cycle
+
+- **#6035 / PR #6038 — Discovery/SEO:** merged as `1c9277714cce080f3f85ba1586b9f626beca7fd1`; Herbs, Compounds, Search, and Evidence Lookup now share a coherent lookup flow, paginated ingredient indexes keep the same navigation, Search accurately reflects its indexed content, and exact-head CI/Fast UI/Project Control/Atomic/Site Health/Build Quality/link/output/SEO gates passed. External engagement/business impact remains `Unknown`.
 
 - **#6031 / PR #6033 — Discovery/SEO:** merged as `6ab7cc95800a14f0dc3df159ac298c6a2c752f8c`; Guides, Learn, and Articles now form one editorial family with shared local navigation, distinct decision/concept/reading roles, a collapsed complete Learn index, normalized article categories, and preserved stable routes. Exact-head CI, Fast UI, Project Control, Atomic, Site Health, Build Quality, AI-search, internal-link, output, and SEO checks passed; external behavior/business impact remains `Unknown`.
 
