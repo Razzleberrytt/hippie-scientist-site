@@ -5,7 +5,7 @@
 **Updated:** 2026-09-27
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #6024 / PR #6028 is the sole Discovery/SEO implementation item, admitted on exact base `5a7995fcc37c8a9d4ddf17e19091667447682794`. Normal implementation WIP is **1/3**. Revenue/Conversion and Authority/Content remain free. The admitted scope is the owner-directed sitewide information-architecture cleanup: five primary destinations, deterministic route ownership, role-aware global chrome, and a leaner Research hub while preserving stable URLs. No scientific evidence, evidence grades, profile publication eligibility, monetization logic, or indexing-policy mutation is authorized. #5081 remains separately blocked on its own governor prerequisite.
+**Current admission:** No normal implementation ticket is currently admitted. Normal implementation WIP is **0/3**; Discovery/SEO, Revenue/Conversion, and Authority/Content are free. #6024 closed after PR #6028 merged as `01613f5f4bf209e5ebd733f79517e3eed066d601`. #5081 remains separately blocked on its own governor prerequisite.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -55,9 +55,8 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Lane | Ticket | Title | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6024 / PR #6028 | sitewide information architecture cleanup | In review | P1 | 75.0 | Revalidated 2026-09-27 on exact base `5a7995fcc37c8a9d4ddf17e19091667447682794`; BI 3 / UV 5 / TP 3 / SL 5 / C 1.00 / E 3 |
 
-- **Discovery/SEO:** occupied by admitted #6024 / PR #6028; the implementation PR now owns the ticket. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
+- **Discovery/SEO:** free; #6024 / PR #6028 is merged and retired. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
 - **Revenue/Conversion:** free; #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
 - **Authority/Content:** free after #5706 / PR #5971 merged and retired. #5081 remains separately blocked on its own non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
@@ -66,6 +65,8 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
 
 ### Recently completed refill cycle
+
+- **#6024 / PR #6028 — Discovery/SEO:** merged as `01613f5f4bf209e5ebd733f79517e3eed066d601`; established five primary destinations, deterministic route ownership, role-aware global chrome, a task-first Research hub, and consistent paginated ingredient-index behavior while preserving stable URLs and scientific/evidence/safety/publication boundaries.
 
 - **#6011 / PR #6019 — Discovery/SEO:** merged as `c59d169b5b6e0616ebb2619fb6750e87cb9f9548`; five guide hubs now label their breadcrumb navigation landmark and the ticket is closed/retired from active Discovery/SEO WIP.
 - **#6002 / PR #6010 — Discovery/SEO:** merged as `81665250fe00c7c910d6301b7a128d95a5627dd8`; removed nested `<main>` landmarks from 42 verified production app/shared sources, preserved `/research/` visual treatment through `.research-page-content`, and added a source-level regression rule leaving `app/layout.tsx` as the sole production main-landmark owner. Exact-head CI, Fast UI, Atomic, Site Health, Build Quality, internal-link/SEO verification, and all seven governed export consumers passed. External traffic, engagement, ranking, conversion, and revenue effects remain `Unknown`.
