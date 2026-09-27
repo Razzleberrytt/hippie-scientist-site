@@ -5,7 +5,7 @@
 **Updated:** 2026-09-27
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #6002 is admitted as the sole Discovery/SEO implementation item on exact base `c458d9da00afdb2e13b91e683afbcc1d57b31bc2`. Normal implementation WIP is **1/3**. Revenue/Conversion and Authority/Content remain free. The admitted scope is the bounded nested-main accessibility repair; no scientific, safety-content, indexing, monetization, or route behavior mutation is authorized. #5081 remains separately blocked on its own governor prerequisite.
+**Current admission:** No normal implementation item is active. Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are free. #6002 / PR #6010 merged and is retired from active ownership; #5081 remains separately blocked on its own governor prerequisite.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,15 +49,14 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 0/3
 
 **2026-09-25 owner-directed P0 control incident — #5941:** Resolved and retired after the bounded Actions coordination repair merged via PR #5949. It no longer consumes an Operations exception or changes normal D/R/A admission.
 
 | Lane | Ticket | Title | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6002 | a11y: remove nested main landmarks from route content | Admitted — implementation PR pending ownership handoff | P1 | 75.0 | Revalidated 2026-09-27 on exact base `c458d9da00afdb2e13b91e683afbcc1d57b31bc2`; BI 3 / UV 5 / TP 2 / SL 5 / C 1.00 / E 2 |
 
-- **Discovery/SEO:** occupied by admitted #6002; its implementation PR becomes the owning closing PR only after this admission transaction merges. #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
+- **Discovery/SEO:** free after #6002 / PR #6010 merged and retired. #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are also merged and retired.
 - **Revenue/Conversion:** free; #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
 - **Authority/Content:** free after #5706 / PR #5971 merged and retired. #5081 remains separately blocked on its own non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
@@ -66,6 +65,8 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
 
 ### Recently completed refill cycle
+
+- **#6002 / PR #6010 — Discovery/SEO:** merged as `81665250fe00c7c910d6301b7a128d95a5627dd8`; removed 40 invalid nested route-level `<main>` landmarks, preserved the root `#main-content` landmark as the sole document main, retained Research route styling through an explicit class hook, added a source-level accessibility regression rule, and passed exact-head CI, Fast UI, Atomic, Site Health, Build Quality, Lighthouse, accessibility, link/SEO, plus all seven governed export consumers. External traffic, engagement, ranking, conversion, and revenue effects remain `Unknown`.
 
 - **#6000 / PR #6001 — Discovery/SEO:** merged as `a862b97068e3aaf1a0916590b1e0bf2be7044ef7`; aligned footer/breadcrumb vocabulary with the current five-job navigation, moved Turmeric vs Curcumin discovery into the Comparisons hub, fixed the footer Research target to `/research/`, and passed exact-head CI, Fast UI, Atomic, Site Health, Build Quality, internal-link/SEO verification, plus all seven governed export consumers. External traffic, engagement, ranking, conversion, and revenue effects remain `Unknown`.
 
