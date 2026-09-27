@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "ticket": 6002,
+  "ticket": 6011,
   "lane": "D",
-  "title": "a11y: remove nested main landmarks from route content",
-  "priority": "P1",
-  "base_revision": "c458d9da00afdb2e13b91e683afbcc1d57b31bc2",
+  "title": "a11y: label unlabeled breadcrumb navigation on guide hubs",
+  "priority": "P2",
+  "base_revision": "19b816f4664343c2b27c0cbf0a94420a6e1d5f57",
   "last_verified": "2026-09-27",
   "score_inputs": {
-    "businessImpact": 3,
-    "userValue": 5,
+    "businessImpact": 2,
+    "userValue": 4,
     "trafficPotential": 2,
-    "strategicLeverage": 5,
+    "strategicLeverage": 4,
     "confidence": 1,
-    "effort": 2
+    "effort": 1
   },
-  "score": 75,
-  "note": "Exact-base admission for the bounded accessibility repair that removes nested main landmarks from rendered app-route content while preserving root #main-content ownership, styling, layout, copy, and route behavior. Includes a source-level regression rule. No scientific, safety-content, indexing, monetization, or route mutation."
+  "score": 64,
+  "note": "Exact-base admission for the bounded breadcrumb-navigation accessibility repair. Add accessible names to verified breadcrumb nav landmarks only; no scientific copy, route, schema, indexing, monetization, or visual-layout mutation is authorized."
 }
