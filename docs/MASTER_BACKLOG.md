@@ -48,12 +48,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 **2026-09-25 P0 #5941 — Resolved:** bounded Actions coordination repair merged via PR #5949 and no longer consumes an Operations exception or changes normal D/R/A admission.
 
-Current review state: **0/3 normal implementation workstreams occupied**. Discovery/SEO, Revenue/Conversion, and Authority/Content are free. #5989 / PR #5990 merged and is retired from active ownership. #5706 / PR #5971 is retired; #5081 remains separately blocked on its own lease.
+Current review state: **1/3 normal implementation workstreams occupied**. #6000 is admitted in Discovery/SEO on exact base `33553d368631dfe980813b657af3eb5c26caaecb` for the bounded navigation-shell consistency repair. Revenue/Conversion and Authority/Content remain free. #5989 / PR #5990 and #5706 / PR #5971 are retired; #5081 remains separately blocked on its own lease.
 
 | Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
+| #6000 | ux: align footer and breadcrumbs with current site navigation | D | Admitted — implementation PR #6001 pending ownership handoff | P1 | 4/5/4/4/1.00/3 | 106.7 | Revalidated 2026-09-27 on exact base `33553d368631dfe980813b657af3eb5c26caaecb` |
 
-- **D — free:** #5989 / PR #5990 and #5688 / PR #5691 are merged and retired.
+- **D — occupied:** #6000 owns the bounded navigation-shell consistency repair; implementation PR #6001 becomes the closing owner after admission merges. #5989 / PR #5990 and #5688 / PR #5691 are merged and retired.
 - **R — free:** #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
 - **A — free:** #5706 / PR #5971 is merged and retired; #5081 remains separately blocked on its own fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
