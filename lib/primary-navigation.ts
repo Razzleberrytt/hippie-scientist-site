@@ -65,6 +65,7 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
       '/guides/other/supplement-stacking-safety',
       '/guides/interactions',
       '/learn/interactions',
+      '/learn/safety-and-disclaimers',
       '/novel-psychoactive-substances',
     ],
     children: [
@@ -84,6 +85,9 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
       '/evidence',
       '/tools',
       '/learn/citation-explorer',
+      '/learn/efficacy-model',
+      '/learn/explorer',
+      '/learn/research-methodology',
       '/info/methodology',
       '/info/reviews',
       '/info/research-roadmap',
