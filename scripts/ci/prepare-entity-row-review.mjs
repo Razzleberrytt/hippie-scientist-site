@@ -14,6 +14,7 @@ const proposalDir = path.join(root, 'data-sources', 'entity-row-proposals')
 const reportDir = path.join(root, 'reports', 'entity-row-review')
 const reviewWorkbook = path.join(reportDir, 'herb_monograph_master.review.xlsx')
 const manifestPath = path.join(reportDir, 'manifest.json')
+const runtimePreviewPath = path.join(reportDir, 'compounds.preview.json')
 const editor = path.join(root, 'scripts', 'data', 'edit-entity-master-cell.mjs')
 const schemaValidator = path.join(root, 'scripts', 'ci', 'validate-workbook-schema.mjs')
 const runtimeBuilder = path.join(root, 'scripts', 'data', 'build-runtime-from-workbook.mjs')
@@ -200,10 +201,13 @@ try {
     })
   }
 
+  fs.copyFileSync(path.join(tempRuntime, 'compounds.json'), runtimePreviewPath)
+
   const manifest = {
     version: 1,
     source_workbook: path.relative(root, sourceWorkbook).split(path.sep).join('/'),
     review_workbook: path.relative(root, reviewWorkbook).split(path.sep).join('/'),
+    runtime_preview: path.relative(root, runtimePreviewPath).split(path.sep).join('/'),
     proposal_files: proposalFiles,
     proposed_entities: checks,
     runtime_evidence_claims: evidenceChecks,
