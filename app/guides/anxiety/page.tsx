@@ -207,7 +207,7 @@ export default function AnxietyGuideIndex() {
   return (
     <div className="mx-auto max-w-4xl px-4 pb-24 pt-8">
       <SchemaGraphScript graph={schemaGraph} />
-      <nav className="mb-4 text-xs text-muted">
+      <nav aria-label="Breadcrumb" className="mb-4 text-xs text-muted">
         <Link href="/guides/" className="hover:text-ink">
           Guides
         </Link>
