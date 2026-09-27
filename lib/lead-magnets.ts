@@ -1,4 +1,6 @@
-import { shouldShowGlobalLeadMagnet } from './page-experience-policy'\n\nexport type LeadMagnetSlug =
+import { shouldShowGlobalLeadMagnet } from './page-experience-policy'
+
+export type LeadMagnetSlug =
   | 'supplement-evidence-starter-kit'
   | 'sleep-supplement-evidence-guide'
   | 'anxiety-stress-evidence-cheat-sheet'
