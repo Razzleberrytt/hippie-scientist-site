@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "ticket": 6024,
+  "ticket": 6031,
   "lane": "D",
-  "title": "sitewide information architecture cleanup",
+  "title": "Consolidate Guides, Learn, and Articles discovery",
   "priority": "P1",
-  "base_revision": "5a7995fcc37c8a9d4ddf17e19091667447682794",
+  "base_revision": "0056e3032b76e2954fab11dfea788a5bbef2bf3d",
   "last_verified": "2026-09-27",
   "score_inputs": {
     "businessImpact": 3,
@@ -15,5 +15,5 @@
     "effort": 3
   },
   "score": 75,
-  "note": "Exact-base admission for the owner-directed sitewide information-architecture cleanup. Establish five primary destinations, deterministic route ownership, role-aware global chrome, and a leaner Research hub while preserving stable URLs and all scientific/evidence/safety/publication boundaries."
+  "note": "Exact-base admission for editorial discovery consolidation. Guides owns topic/decision discovery, Learn owns educational concepts, and Articles owns research/editorial reading; stable URLs and scientific/evidence/safety/publication boundaries remain unchanged."
 }
