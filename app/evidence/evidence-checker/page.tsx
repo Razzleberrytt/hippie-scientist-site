@@ -3,6 +3,7 @@ import Link from 'next/link'
 import fs from 'node:fs'
 import path from 'node:path'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
+import LookupFamilyNav from '@/components/navigation/LookupFamilyNav'
 import { buildPageMetadata } from '../../../lib/seo'
 import EvidenceLookupClient, { type LookupCompound } from './EvidenceLookupClient'
 
@@ -33,7 +34,7 @@ export default function EvidenceCheckerPage() {
       <Breadcrumbs
         items={[
           { href: '/', label: 'Home' },
-          { href: '/evidence/evidence-report/', label: 'Evidence' },
+          { href: '/research/', label: 'Research' },
           { label: 'Evidence Lookup' },
         ]}
       />
@@ -45,6 +46,8 @@ export default function EvidenceCheckerPage() {
           Search {compounds.length} compounds by name or filter by clinical evidence tier — from strong human trials to mechanism-only data. The list is generated from the current research library, so it stays aligned as the workbook changes.
         </p>
       </header>
+
+      <LookupFamilyNav active='evidence' />
 
       <section className="section-frame p-5 sm:p-6" aria-labelledby="evidence-lookup-heading">
         <div className="max-w-3xl">
