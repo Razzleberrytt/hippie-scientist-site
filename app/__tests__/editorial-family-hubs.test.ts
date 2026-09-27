@@ -29,10 +29,12 @@ describe('editorial family information architecture', () => {
     expect(guides).not.toContain('Featured guides')
   })
 
-  it('turns Articles into a curated latest view plus a categorized archive', () => {
+  it('turns Articles into a curated latest view plus a normalized categorized archive', () => {
     const articles = read('app/articles/page.tsx')
     expect(articles).toContain('latestArticles')
     expect(articles).toContain('articleGroups')
+    expect(articles).toContain('normalizeArticleCategory')
+    expect(articles).toContain('toLocaleLowerCase')
     expect(articles).toContain('Browse by category')
     expect(articles).toContain('<details')
   })
