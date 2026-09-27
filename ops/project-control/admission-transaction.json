@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "ticket": 6041,
+  "ticket": 6047,
   "lane": "D",
-  "title": "Unify Safety checker, guides, and education flow",
+  "title": "Align Home, Start, and Library to the five-destination architecture",
   "priority": "P1",
-  "base_revision": "be34dbde5f1e9e482b711324cbd1d683ff52ce4f",
+  "base_revision": "47fcc0fc1a7139a1f2ceba6a7cae1a6d954555ed",
   "last_verified": "2026-09-27",
   "score_inputs": {
     "businessImpact": 3,
@@ -15,5 +15,5 @@
     "effort": 3
   },
   "score": 75,
-  "note": "Exact-base admission for Safety-flow consolidation. Safety Checker remains the task entry point; interaction guides stay evidence-gated; educational interactions and the checklist become explicit supporting steps. Stable URLs and scientific/evidence/safety/publication boundaries remain unchanged."
+  "note": "Exact-base admission for front-door architecture alignment. Home and Start should route through Goals, Guides, Ingredients, Safety, and Research; Library remains exhaustive under the same five destinations plus Site Information. Stable URLs and scientific/evidence/safety/publication boundaries remain unchanged."
 }
