@@ -2,10 +2,10 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-09-26
+**Updated:** 2026-09-27
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #5706 is the sole Authority/Content implementation item after a fresh scored admission on exact base `666375c6db9dae6ebd0b24d781f603d1b5b94128`. Normal implementation WIP is **1/3**. Discovery/SEO and Revenue/Conversion remain free. #5963 is the mandatory narrow state-only CoQ10 governor-lease prerequisite and must merge before canonical CoQ10 mutation. Canonical ownership is `compound:coenzyme-q10` / `wp_compound_coenzyme_q10`; legacy `coq10` and `coenzyme-q10-ubiquinol` identities do not create parallel scientific owners. #5707 and #5708 remain staging-only; #5081 remains separately blocked on its own governor prerequisite.
+**Current admission:** No normal implementation ticket is active after #5706 completed via merged PR #5971 (`381bbe6029bdeaf604314aa1e9f67757b1fa37bd`). Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are free. #5081 remains separately blocked on its own governor prerequisite.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,23 +49,24 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 0/3
 
 **2026-09-25 owner-directed P0 control incident — #5941:** Resolved and retired after the bounded Actions coordination repair merged via PR #5949. It no longer consumes an Operations exception or changes normal D/R/A admission.
 
 | Lane | Ticket | Title | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| A | #5706 | Reconcile CoQ10 depression/anxiety endpoint discordance and canonical identity | Admitted — blocked on #5963 lease | P1 evidence governance | 80.0 | Revalidated 2026-09-26 on exact base `666375c6db9dae6ebd0b24d781f603d1b5b94128`; existing Session C integrity findings + PMID 40833470; canonical owner `compound:coenzyme-q10` |
 
 - **Discovery/SEO:** free; #5688 / PR #5691 is merged and retired.
 - **Revenue/Conversion:** free; #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
-- **Authority/Content:** occupied by #5706 after exact-base scored admission. #5963 is its mandatory state-only lease prerequisite; no canonical CoQ10 mutation is authorized until that lease merges. Legacy `coq10` and `coenzyme-q10-ubiquinol` identities resolve to `compound:coenzyme-q10`; #4783's duplicate-data-owner debt must be reconciled without creating a parallel scientific owner. #5081 remains separately blocked on its own non-overlapping governor lease.
+- **Authority/Content:** free after #5706 / PR #5971 merged and retired. #5081 remains separately blocked on its own non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
 - **Control maintenance:** #5642 is a docs-only feeder reconciliation so the durable candidate inventory cannot override the merged citation→search→click policy. It grants no normal implementation authority and consumes no D/R/A slot.
 
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
 
 ### Recently completed refill cycle
+
+- **#5706 / PR #5971 — Authority/Content:** merged as `381bbe6029bdeaf604314aa1e9f67757b1fa37bd`; consolidated CoQ10 evidence/runtime ownership onto `compound:coenzyme-q10`, preserved endpoint discordance and fail-closed public/runtime policy, and retired #5706 from active implementation ownership.
 
 - **#5703 / PR #5961 — Authority/Content:** merged as `6bd7b57a633c8f88a70edb688d969ee19e7de8ad`; terminally promoted five cobalamin findings, repaired source-admission identity/schema drift and staged-closure seeding, failed the public cobalamin profile closed for recommendation/monetization/indexing pending broader review, and restored the clean-checkout regression fixture; all repository-owned exact-head validation, build, Lighthouse, evidence, governor, Atomic, Site Health, and parallel-safety gates passed. External Cloudflare preview status remained stuck across successive superseded heads and was not a protected merge requirement.
 - **#5698 / PR #5701 — Authority/Content P0:** merged as `1727c68cbb5dfc865e4be7c02af6e0fb7d867d75`; retracted PMID 41461240 / DOI 10.1016/j.jad.2025.121055 is quarantined against PMID- or DOI-only re-entry, stress-guide source usage was repaired, focused regressions were added, and exact-head CI/Site Health/Crawl/Technical SEO/Schema/Content Invariants/Atomic gates passed. This is source-integrity repair, not business-impact proof.
@@ -87,7 +88,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 ## Ready next — strict dependency order
 
-Discovery/SEO and Revenue/Conversion are available; Authority/Content is occupied by #5706 until its bounded CoQ10 closure is terminally completed or explicitly retired. #5963 must merge first as the exact-main narrow governor lease. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
+Discovery/SEO, Revenue/Conversion, and Authority/Content are available. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
 
 ### Blocked or deferred candidates
 
