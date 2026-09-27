@@ -21,10 +21,18 @@ describe('primary navigation active coverage', () => {
     expect(uncovered).toEqual([])
   })
 
-  it('keeps ordinary guide routes owned by Guides', () => {
+  it('keeps editorial content owned by Guides', () => {
     const guides = primaryNavigation.find((item) => item.label === 'Guides')
-    expect(guides?.activePrefixes).toContain('/guides')
+    expect(guides?.activePrefixes).toEqual(expect.arrayContaining(['/guides', '/learn', '/articles']))
     expect(getActivePrimaryNavigationItem('/guides/mental-health/avoidant-borderline-personality-disorders-couples/')?.label).toBe('Guides')
+    expect(getActivePrimaryNavigationItem('/learn/how-neurotransmitters-work/')?.label).toBe('Guides')
+    expect(getActivePrimaryNavigationItem('/articles/example-research-note/')?.label).toBe('Guides')
+  })
+
+  it('lets specific research tools override the broad Learn ownership', () => {
+    expect(getActivePrimaryNavigationItem('/learn/citation-explorer/')?.label).toBe('Research')
+    expect(getActivePrimaryNavigationItem('/evidence/evidence-report/')?.label).toBe('Research')
+    expect(getActivePrimaryNavigationItem('/info/methodology/')?.label).toBe('Research')
   })
 
   it('lets a more-specific Safety route override the broad Guides prefix', () => {

@@ -13,7 +13,7 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
   {
     label: 'Goals',
     href: '/goals',
-    description: 'Start with what you are researching, then follow the evidence to relevant options',
+    description: 'Start with the outcome or question you are researching',
     children: [
       { section: 'Start here', label: 'Goal finder', href: '/goals' },
       ...coreGoals.map((goal) => ({
@@ -26,26 +26,28 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
   {
     label: 'Guides',
     href: '/guides',
-    description: 'Browse mental health, ADHD, sleep, anxiety, substance-use, comparison, and supplement decision guides',
-    activePrefixes: ['/guides'],
+    description: 'Decision guides, explainers, learning resources, and articles',
+    activePrefixes: ['/guides', '/learn', '/articles'],
     children: [
-      { section: 'Browse topics', label: 'All guides', href: '/guides', description: 'Browse the full guide library by topic' },
-      { section: 'Browse topics', label: 'Mental Health', href: '/guides/mental-health', description: 'OCD, BPD, personality disorders, relationships, treatment, and stigma-aware research' },
-      { section: 'Browse topics', label: 'ADHD', href: '/guides/adhd', description: 'Attention, executive function, nutrients, and treatment context' },
-      { section: 'Browse topics', label: 'Sleep', href: '/guides/sleep' },
-      { section: 'Browse topics', label: 'Anxiety', href: '/guides/anxiety' },
-      { section: 'Browse topics', label: 'Stress', href: '/guides/stress' },
-      { section: 'Browse topics', label: 'Focus & Cognition', href: '/guides/focus' },
-      { section: 'Decisions & other guides', label: 'Substance Use & Harm Reduction', href: '/guides/substance-use' },
-      { section: 'Decisions & other guides', label: 'Comparisons', href: '/guides/compare', description: 'Compare evidence, safety, forms, doses, and practical tradeoffs' },
-      { section: 'Decisions & other guides', label: 'Best Supplements', href: '/guides/best' },
-      { section: 'Decisions & other guides', label: 'Supplement Topic Guides', href: '/guides/other' },
+      { section: 'Browse guides', label: 'All guides', href: '/guides', description: 'Browse practical guides by topic or decision' },
+      { section: 'Browse guides', label: 'Mental Health', href: '/guides/mental-health', description: 'Conditions, relationships, treatment evidence, and stigma-aware research' },
+      { section: 'Browse guides', label: 'ADHD', href: '/guides/adhd', description: 'Attention, executive function, nutrients, and treatment context' },
+      { section: 'Browse guides', label: 'Sleep', href: '/guides/sleep' },
+      { section: 'Browse guides', label: 'Anxiety', href: '/guides/anxiety' },
+      { section: 'Browse guides', label: 'Stress', href: '/guides/stress' },
+      { section: 'Browse guides', label: 'Focus & Cognition', href: '/guides/focus' },
+      { section: 'Decide', label: 'Substance Use & Harm Reduction', href: '/guides/substance-use' },
+      { section: 'Decide', label: 'Comparisons', href: '/guides/compare', description: 'Compare evidence, safety, forms, doses, and practical tradeoffs' },
+      { section: 'Decide', label: 'Best Supplements', href: '/guides/best' },
+      { section: 'Decide', label: 'Supplement Topic Guides', href: '/guides/other' },
+      { section: 'Learn', label: 'Learning Library', href: '/learn', description: 'Evidence literacy, neuroscience, mechanisms, and safety explainers' },
+      { section: 'Learn', label: 'Articles', href: '/articles', description: 'Research notes, evidence reviews, and editorial articles' },
     ],
   },
   {
     label: 'Ingredients',
     href: '/herbs',
-    description: 'Look up herbs, nutrients, active compounds, extracts, evidence, and safety',
+    description: 'Look up herbs, nutrients, compounds, extracts, evidence, and safety',
     activePrefixes: ['/herbs', '/compounds'],
     children: [
       { label: 'Herb database', href: '/herbs' },
@@ -56,33 +58,50 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
   {
     label: 'Safety',
     href: '/safety-checker',
-    description: 'Check interaction signals, contraindication context, and uncertainty before combining products',
-    activePrefixes: ['/safety-checker', '/info/supplement-safety-checklist', '/guides/other/supplement-stacking-safety', '/novel-psychoactive-substances'],
+    description: 'Check interaction signals, contraindications, stacking risks, and uncertainty',
+    activePrefixes: [
+      '/safety-checker',
+      '/info/supplement-safety-checklist',
+      '/guides/other/supplement-stacking-safety',
+      '/guides/interactions',
+      '/learn/interactions',
+      '/novel-psychoactive-substances',
+    ],
     children: [
       { label: 'Safety Checker', href: '/safety-checker' },
       { label: 'Supplement safety checklist', href: '/info/supplement-safety-checklist' },
-      { label: 'Stacking safety', href: '/guides/other/supplement-stacking-safety' },
+      { label: 'Interaction guides', href: '/safety-checker/interactions' },
+      { label: 'How interactions work', href: '/learn/interactions' },
       { label: 'Harm-reduction research', href: '/novel-psychoactive-substances' },
     ],
   },
   {
     label: 'Research',
     href: '/research',
-    description: 'Browse studies, direct source links, evidence tools, research databases, methodology, and public data',
-    activePrefixes: ['/research', '/evidence', '/tools', '/articles', '/learn', '/info/methodology'],
+    description: 'Studies, citations, evidence tools, methodology, reports, and public data',
+    activePrefixes: [
+      '/research',
+      '/evidence',
+      '/tools',
+      '/learn/citation-explorer',
+      '/info/methodology',
+      '/info/reviews',
+      '/info/research-roadmap',
+      '/info/research-resources-for-writers',
+    ],
     children: [
-      { section: 'Start here', label: 'Research library', href: '/research' },
-      { section: 'Explore evidence', label: 'Citation explorer', href: '/learn/citation-explorer' },
-      { section: 'Explore evidence', label: 'Evidence Database', href: '/evidence/evidence-checker' },
-      { section: 'Explore evidence', label: 'Botanical Activity Atlas', href: '/tools/botanical-activity-atlas' },
+      { section: 'Start here', label: 'Research library', href: '/research', description: 'Choose the research task you are trying to complete' },
+      { section: 'Find evidence', label: 'Citation explorer', href: '/learn/citation-explorer', description: 'Find study-level source records' },
+      { section: 'Find evidence', label: 'Evidence Database', href: '/evidence/evidence-checker', description: 'Look up ingredient-level evidence' },
+      { section: 'Find evidence', label: 'Botanical Activity Atlas', href: '/tools/botanical-activity-atlas', description: 'Explore evidence and mechanism relationships' },
       { section: 'Reports & methods', label: 'Evidence Report', href: '/evidence/evidence-report' },
       { section: 'Reports & methods', label: 'Methodology', href: '/info/methodology' },
+      { section: 'Reports & methods', label: 'Review history', href: '/info/reviews' },
       { section: 'Keep up', label: 'Evidence digest', href: '/evidence/evidence-digest' },
-      { section: 'Keep up', label: 'All articles', href: '/articles' },
+      { section: 'Keep up', label: 'Research roadmap', href: '/info/research-roadmap' },
     ],
   },
 ]
-
 
 function normalizeNavigationPath(path: string) {
   if (!path || path === '/') return '/'
@@ -92,15 +111,15 @@ function normalizeNavigationPath(path: string) {
 function navigationPrefixMatches(pathname: string, prefix: string) {
   const path = normalizeNavigationPath(pathname)
   const normalizedPrefix = normalizeNavigationPath(prefix)
-  return path === normalizedPrefix || path.startsWith(`${normalizedPrefix}/`)
+  return path === normalizedPrefix || path.startsWith(normalizedPrefix + '/')
 }
 
 /**
  * Resolve exactly one active primary destination.
  *
- * Route families can intentionally overlap (for example, a safety guide living
- * under /guides). The longest matching prefix owns the active state so the
- * more-specific destination wins instead of highlighting two primary jobs.
+ * Route families can intentionally overlap. The longest matching prefix owns
+ * the active state so a specific research or safety tool can override a broad
+ * content family without highlighting two primary destinations.
  */
 export function getActivePrimaryNavigationItem(pathname: string): PrimaryNavigationItem | undefined {
   let best: { item: PrimaryNavigationItem; prefixLength: number } | undefined
