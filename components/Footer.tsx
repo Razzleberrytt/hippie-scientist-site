@@ -6,13 +6,11 @@ import { PUBLIC_ROUTES } from '../lib/public-routes'
 
 const exploreLinks = [
   { href: '/goals/', label: 'Goals' },
+  { href: PUBLIC_ROUTES.guides, label: 'Guides' },
   { href: PUBLIC_ROUTES.herbs, label: 'Herbs' },
   { href: PUBLIC_ROUTES.compounds, label: 'Compounds' },
-  { href: '/guides/compare/', label: 'Compare' },
-  { href: '/guides/compare/turmeric-vs-curcumin/', label: 'Turmeric vs Curcumin' },
-  { href: PUBLIC_ROUTES.articles, label: 'Research' },
-  { href: '/library/', label: 'Library' },
-  { href: '/evidence/research-trends/', label: 'Research trends' },
+  { href: PUBLIC_ROUTES.research, label: 'Research' },
+  { href: PUBLIC_ROUTES.library, label: 'Library' },
 ]
 
 const safetyLinks = [

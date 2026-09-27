@@ -49,7 +49,7 @@ These are stable depth routes. They should receive the richest evidence, safety,
 
 ## Redirect Policy
 
-Older route families such as top-level `/articles/*`, `/goals/*`, `/stacks/*`, top-level `/compare/*`, and top-level `/best-supplements-for-*` may still exist in redirects or static compatibility routes. They should not be used as primary navigation targets unless a route migration plan explicitly reactivates them.
+Superseded aliases and legacy route families such as `/stacks/*`, top-level `/compare/*`, and top-level `/best-supplements-for-*` may still exist in redirects or static compatibility routes. They should not be used as primary navigation targets unless a route migration plan explicitly reactivates them. Current first-class families such as `/goals/*`, `/guides/*`, `/research/`, and `/articles/*` are not legacy merely because older redirects also reference them.
 
 When moving or deleting a route:
 
