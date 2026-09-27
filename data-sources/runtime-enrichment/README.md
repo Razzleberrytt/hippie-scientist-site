@@ -90,6 +90,8 @@ Ledgers may add evidence and source-provenance rows for existing entities, descr
 
 `2026-09-26-medication-trazodone-hydroxyzine-manifest.json` records the exact DailyMed and PubMed anchors, reviewed counts, append-only policy, and ledger hash.
 
+Canonical materialization receipt: the reviewed workbook and exact generator-owned compound runtime were applied together; both new medication records remain fail-closed and outside indexing/promotion.
+
 ## Regression contract
 
 `tests/runtime-enrichment.test.ts` validates every manifest-backed batch, verifies each digest before decoding, checks reviewed counts, requires globally unique evidence record IDs, allows repeat source identities to deduplicate deterministically across batches, enforces the entity-context allowlist, verifies virtual-workbook growth, and prevents every medication batch from carrying publication/governance fields.
