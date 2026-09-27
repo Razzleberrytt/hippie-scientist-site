@@ -46,8 +46,8 @@ invariant('THS-001', 'homepage is routed through the focused V2 experience', () 
   page.includes("import HomepageV2 from '@/components/homepage-v2'") && page.includes('return <HomepageV2 />'),
 )
 invariant('THS-001', 'homepage hero has a clear promise and no more than two primary hero actions', () => {
-  const searchActions = (homepage.match(/action='\\/search\\/'/g) || []).length
-  const startActions = (homepage.match(/href='\\/start\\/'/g) || []).length
+  const searchActions = homepage.split("action='/search/'").length - 1
+  const startActions = homepage.split("href='/start/'").length - 1
   return homepage.includes('Find the right path before you dive into the details.') &&
     searchActions === 1 &&
     startActions === 1 &&
