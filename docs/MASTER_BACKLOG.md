@@ -48,13 +48,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 **2026-09-25 P0 #5941 — Resolved:** bounded Actions coordination repair merged via PR #5949 and no longer consumes an Operations exception or changes normal D/R/A admission.
 
-Current review state: **1/3 normal implementation workstreams occupied**. #6035 is admitted in Discovery/SEO on exact base `f636b9720108f9078afda4795c369e18bfd9facb` for ingredient lookup consolidation. Revenue/Conversion and Authority/Content remain free. #6031 / PR #6033 is merged and retired as `6ab7cc95800a14f0dc3df159ac298c6a2c752f8c`. #6024 / PR #6028 is merged and retired. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5706 / PR #5971 are retired; #5081 remains separately blocked on its own lease.
+Current review state: **1/3 normal implementation workstreams occupied**. #6035 / PR #6038 owns the admitted Discovery/SEO implementation on exact admission base `f636b9720108f9078afda4795c369e18bfd9facb` for ingredient lookup consolidation. Revenue/Conversion and Authority/Content remain free. #6031 / PR #6033 is merged and retired as `6ab7cc95800a14f0dc3df159ac298c6a2c752f8c`. #6024 / PR #6028 is merged and retired. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5706 / PR #5971 are retired; #5081 remains separately blocked on its own lease.
 
 | Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6035 | Unify ingredient lookup across Herbs, Compounds, Search, and Evidence | D | Admitted — implementation PR may now claim ownership | P1 | 3/5/3/5/1.00/3 | 75.0 | Revalidated 2026-09-27 on exact base `f636b9720108f9078afda4795c369e18bfd9facb` |
+| #6035 / PR #6038 | Unify ingredient lookup across Herbs, Compounds, Search, and Evidence | D | In review | P1 | 3/5/3/5/1.00/3 | 75.0 | Revalidated 2026-09-27 on exact base `f636b9720108f9078afda4795c369e18bfd9facb` |
 
-- **D — occupied:** #6035 owns the bounded ingredient lookup consolidation after this admission transaction merges. #6031 / PR #6033 is merged and retired. #6024 / PR #6028 is merged and retired. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
+- **D — occupied:** #6035 / PR #6038 owns the bounded ingredient lookup consolidation. #6031 / PR #6033 is merged and retired. #6024 / PR #6028 is merged and retired. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
 - **R — free:** #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
 - **A — free:** #5706 / PR #5971 is merged and retired; #5081 remains separately blocked on its own fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
