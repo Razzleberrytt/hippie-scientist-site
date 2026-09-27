@@ -12,14 +12,23 @@ const articlePages = [...allArticleMonographs, ...allBlogPosts].sort((a, b) =>
 
 const latestArticles = articlePages.slice(0, 6)
 
-const articleGroups = Object.entries(
-  articlePages.reduce<Record<string, typeof articlePages>>((groups, page) => {
-    const category = page.category || 'Other'
-    if (!groups[category]) groups[category] = []
-    groups[category].push(page)
+function normalizeArticleCategory(category?: string) {
+  const raw = category?.trim() || 'Other'
+  const key = raw.toLocaleLowerCase()
+  const label = raw === key
+    ? raw.replace(/\b\w/g, (character) => character.toUpperCase())
+    : raw
+  return { key, label }
+}
+
+const articleGroups = Object.values(
+  articlePages.reduce<Record<string, { label: string; pages: typeof articlePages }>>((groups, page) => {
+    const { key, label } = normalizeArticleCategory(page.category)
+    if (!groups[key]) groups[key] = { label, pages: [] }
+    groups[key].pages.push(page)
     return groups
   }, {})
-).sort(([a], [b]) => a.localeCompare(b))
+).sort((a, b) => a.label.localeCompare(b.label))
 
 export const metadata: Metadata = {
   title: 'Articles — Research Notes & Evidence Reviews',
@@ -96,10 +105,10 @@ export default function ArticlesIndexPage() {
         </div>
 
         <div className='mt-5 grid gap-3 md:grid-cols-2'>
-          {articleGroups.map(([category, pages]) => (
-            <details key={category} className='rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm'>
+          {articleGroups.map(({ label, pages }) => (
+            <details key={label.toLocaleLowerCase()} className='rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm'>
               <summary className='cursor-pointer font-semibold text-ink'>
-                {category} <span className='font-normal text-muted'>({pages.length})</span>
+                {label} <span className='font-normal text-muted'>({pages.length})</span>
               </summary>
               <div className='mt-4 space-y-2'>
                 {pages.map((page) => (
