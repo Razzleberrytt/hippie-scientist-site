@@ -16,7 +16,9 @@
 
 ### User-facing product and problems addressed
 
-**Verified (2026-09-27, #6024 / PR #6023):** Primary navigation now has five user destinations—Goals, Guides, Ingredients, Safety, and Research—with deterministic route-family ownership. Learn and Articles are owned by Guides; Evidence/Tools/citation/methodology surfaces are owned by Research; Library remains the exhaustive directory. A shared page-role policy suppresses global breadcrumbs/TOC/lead-capture chrome on hubs and utilities while preserving appropriate editorial/profile aids. Stable URLs and scientific/evidence/safety semantics are unchanged by this architecture pass; production engagement and business impact remain **Unknown** until measured.
+**Verified (2026-09-27, #6024 / PR #6028):** Primary navigation now has five user destinations—Goals, Guides, Ingredients, Safety, and Research—with deterministic route-family ownership. Learn and Articles are owned by Guides; Evidence/Tools/citation/methodology surfaces are owned by Research; Library remains the exhaustive directory. A shared page-role policy suppresses global breadcrumbs/TOC/lead-capture chrome on hubs and utilities while preserving appropriate editorial/profile aids. Stable URLs and scientific/evidence/safety semantics are unchanged by this architecture pass; production engagement and business impact remain **Unknown** until measured.
+
+**Verified on #6031 / PR #6033 exact head:** Guides, Learn, and Articles now operate as one editorial family with shared local navigation. Guides is the topic/decision front door; Learn is concept-first with a collapsed complete route index; Articles shows recent reading plus a categorized expandable archive. Legacy utility URLs under `/learn/*` stay stable while Research/Safety can own their primary-navigation state. Scientific claims, evidence grades, safety conclusions, publication eligibility, monetization, indexing policy, and business impact are unchanged/Unknown until separately measured.
 
 **Verified:** The current product provides:
 
