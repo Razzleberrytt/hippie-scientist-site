@@ -24,6 +24,25 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     ],
   },
   {
+    label: 'Guides',
+    href: '/guides',
+    description: 'Browse mental health, ADHD, sleep, anxiety, substance-use, comparison, and supplement decision guides',
+    activePrefixes: ['/guides'],
+    children: [
+      { section: 'Browse topics', label: 'All guides', href: '/guides', description: 'Browse the full guide library by topic' },
+      { section: 'Browse topics', label: 'Mental Health', href: '/guides/mental-health', description: 'OCD, BPD, personality disorders, relationships, treatment, and stigma-aware research' },
+      { section: 'Browse topics', label: 'ADHD', href: '/guides/adhd', description: 'Attention, executive function, nutrients, and treatment context' },
+      { section: 'Browse topics', label: 'Sleep', href: '/guides/sleep' },
+      { section: 'Browse topics', label: 'Anxiety', href: '/guides/anxiety' },
+      { section: 'Browse topics', label: 'Stress', href: '/guides/stress' },
+      { section: 'Browse topics', label: 'Focus & Cognition', href: '/guides/focus' },
+      { section: 'Decisions & other guides', label: 'Substance Use & Harm Reduction', href: '/guides/substance-use' },
+      { section: 'Decisions & other guides', label: 'Comparisons', href: '/guides/compare', description: 'Compare evidence, safety, forms, doses, and practical tradeoffs' },
+      { section: 'Decisions & other guides', label: 'Best Supplements', href: '/guides/best' },
+      { section: 'Decisions & other guides', label: 'Supplement Topic Guides', href: '/guides/other' },
+    ],
+  },
+  {
     label: 'Ingredients',
     href: '/herbs',
     description: 'Look up herbs, nutrients, active compounds, extracts, evidence, and safety',
@@ -32,15 +51,6 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
       { label: 'Herb database', href: '/herbs' },
       { label: 'Compound database', href: '/compounds' },
       { label: 'Search everything', href: '/search' },
-    ],
-  },
-  {
-    label: 'Compare',
-    href: '/guides/compare',
-    description: 'Compare options side by side by evidence, safety, form, dose, and practical tradeoffs',
-    children: [
-      { label: 'Comparison center', href: '/guides/compare' },
-      { label: 'Build your own', href: '/guides/compare/dynamic' },
     ],
   },
   {
@@ -72,3 +82,41 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     ],
   },
 ]
+
+
+function normalizeNavigationPath(path: string) {
+  if (!path || path === '/') return '/'
+  return path.replace(/\/+$/, '')
+}
+
+function navigationPrefixMatches(pathname: string, prefix: string) {
+  const path = normalizeNavigationPath(pathname)
+  const normalizedPrefix = normalizeNavigationPath(prefix)
+  return path === normalizedPrefix || path.startsWith(`${normalizedPrefix}/`)
+}
+
+/**
+ * Resolve exactly one active primary destination.
+ *
+ * Route families can intentionally overlap (for example, a safety guide living
+ * under /guides). The longest matching prefix owns the active state so the
+ * more-specific destination wins instead of highlighting two primary jobs.
+ */
+export function getActivePrimaryNavigationItem(pathname: string): PrimaryNavigationItem | undefined {
+  let best: { item: PrimaryNavigationItem; prefixLength: number } | undefined
+
+  for (const item of primaryNavigation) {
+    const prefixes = item.activePrefixes?.length ? item.activePrefixes : [item.href]
+
+    for (const prefix of prefixes) {
+      if (!navigationPrefixMatches(pathname, prefix)) continue
+
+      const prefixLength = normalizeNavigationPath(prefix).length
+      if (!best || prefixLength > best.prefixLength) {
+        best = { item, prefixLength }
+      }
+    }
+  }
+
+  return best?.item
+}
