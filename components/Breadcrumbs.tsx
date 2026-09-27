@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import { generateDynamicBreadcrumbs, BreadcrumbItem } from '@/lib/navigation-config'
-import { hasLocalBreadcrumbOwner } from '@/lib/breadcrumb-ownership'
+import { hasLocalBreadcrumbOwner } from '@/lib/breadcrumb-ownership'\nimport { shouldShowGlobalBreadcrumbs } from '@/lib/page-experience-policy'
 
 export function Breadcrumbs({ customTrail, showOnHome = false }: { customTrail?: BreadcrumbItem[]; showOnHome?: boolean } = {}) {
   const pathname = usePathname() || '/'

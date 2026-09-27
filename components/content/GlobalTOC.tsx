@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react'
-import { usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation'\nimport { shouldShowGlobalToc } from '@/lib/page-experience-policy'
 
 type Heading = {
   id: string
