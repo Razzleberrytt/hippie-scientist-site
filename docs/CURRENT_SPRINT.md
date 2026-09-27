@@ -5,7 +5,7 @@
 **Updated:** 2026-09-27
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #6000 is admitted as the sole Discovery/SEO implementation item on exact base `33553d368631dfe980813b657af3eb5c26caaecb`. Normal implementation WIP is **1/3**. Revenue/Conversion and Authority/Content remain free. The admitted scope is the bounded navigation-shell consistency repair; no scientific, safety, route-deletion, indexing, or monetization mutation is authorized. #5081 remains separately blocked on its own governor prerequisite.
+**Current admission:** No normal implementation item is active. Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are free. #6000 / PR #6001 merged and is retired from active ownership; #5081 remains separately blocked on its own governor prerequisite.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,15 +49,14 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 0/3
 
 **2026-09-25 owner-directed P0 control incident — #5941:** Resolved and retired after the bounded Actions coordination repair merged via PR #5949. It no longer consumes an Operations exception or changes normal D/R/A admission.
 
 | Lane | Ticket | Title | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6000 | ux: align footer and breadcrumbs with current site navigation | Admitted — implementation PR #6001 pending ownership handoff | P1 | 106.7 | Revalidated 2026-09-27 on exact base `33553d368631dfe980813b657af3eb5c26caaecb`; BI 4 / UV 5 / TP 4 / SL 4 / C 1.00 / E 3 |
 
-- **Discovery/SEO:** occupied by admitted #6000; implementation PR #6001 becomes the owning closing PR only after this admission transaction merges. #5989 / PR #5990 and #5688 / PR #5691 are merged and retired.
+- **Discovery/SEO:** free after #6000 / PR #6001 merged and retired. #5989 / PR #5990 and #5688 / PR #5691 are also merged and retired.
 - **Revenue/Conversion:** free; #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
 - **Authority/Content:** free after #5706 / PR #5971 merged and retired. #5081 remains separately blocked on its own non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
@@ -66,6 +65,8 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
 
 ### Recently completed refill cycle
+
+- **#6000 / PR #6001 — Discovery/SEO:** merged as `a862b97068e3aaf1a0916590b1e0bf2be7044ef7`; aligned footer/breadcrumb vocabulary with the current five-job navigation, moved Turmeric vs Curcumin discovery into the Comparisons hub, fixed the footer Research target to `/research/`, and passed exact-head CI, Fast UI, Atomic, Site Health, Build Quality, internal-link/SEO verification, plus all seven governed export consumers. External traffic, engagement, ranking, conversion, and revenue effects remain `Unknown`.
 
 - **#5989 / PR #5990 — Discovery/SEO:** merged as `9240bc1fe32c3985dbe068678fb2b94c647e0317`; simplified global navigation, established `/guides/` as the primary topic-discovery hub, preserved published-library and Botanical Activity Atlas semantics, and passed exact-head Project Control, Experience, Atomic, Site Health, Build Quality, Fast UI, full Vitest/a11y, production build/output, link, sitemap, and SEO verification. External traffic, engagement, ranking, conversion, and revenue effects remain `Unknown`.
 
