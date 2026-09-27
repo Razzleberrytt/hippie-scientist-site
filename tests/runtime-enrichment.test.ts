@@ -130,6 +130,8 @@ describe('manifest-backed additive enrichment ledgers', () => {
     const parser = fs.readFileSync(path.join(root, 'scripts', 'data', 'workbook-parser.mjs'), 'utf8')
     expect(parser).toContain('duplicate enrichment evidence record_id across manifests')
     expect(parser).toContain('enrichment evidence row is missing record_id')
+    expect(parser).toContain('enrichment source correction prior identity mismatch')
+    expect(parser).toContain('expected_prior_identity')
   })
 
   it('applies reviewed net-new rows to the proposal-aware virtual workbook', async () => {
@@ -172,6 +174,16 @@ describe('manifest-backed additive enrichment ledgers', () => {
 
     const raw = await readWorkbookExcelJS(reviewWorkbook)
     const enriched = await readWorkbook(reviewWorkbook)
+
+    const corrected9809861 = enriched.Sheets.Source_Register.find(
+      (row: any) => String(row.pmid || '').trim() === '9809861',
+    )
+    expect(corrected9809861).toBeTruthy()
+    expect(String(corrected9809861.doi || '').trim()).toBe('10.1007/s002130050731')
+    expect(String(corrected9809861.author_or_label || '').trim()).toBe('Lader M, Scotto JC.')
+    expect(String(corrected9809861.title || '').trim()).toBe(
+      'A multicentre double-blind comparison of hydroxyzine, buspirone and placebo in patients with generalized anxiety disorder',
+    )
 
     const clean = (value: unknown) => String(value ?? '').replace(/\\s+/g, ' ').trim()
     const slug = (value: unknown) => clean(value)
@@ -314,5 +326,12 @@ describe('manifest-backed additive enrichment ledgers', () => {
     expect(fifth).toBeTruthy()
     expect(new Set(fifth!.ledger.evidence.map((row: any) => row.entity_slug)))
       .toEqual(new Set(['trazodone', 'hydroxyzine']))
+
+    const sixth = medicationBatches.find((batch) =>
+      batch.manifest.batch_id === '2026-09-27-medication-buspirone-modafinil',
+    )
+    expect(sixth).toBeTruthy()
+    expect(new Set(sixth!.ledger.evidence.map((row: any) => row.entity_slug)))
+      .toEqual(new Set(['buspirone', 'modafinil']))
   })
 })
