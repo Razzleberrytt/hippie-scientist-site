@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react'
-import { usePathname } from 'next/navigation'\nimport { shouldShowGlobalToc } from '@/lib/page-experience-policy'
+import { usePathname } from 'next/navigation'
+import { shouldShowGlobalToc } from '@/lib/page-experience-policy'
 
 type Heading = {
   id: string
@@ -22,6 +23,11 @@ export default function GlobalTOC() {
   useEffect(() => {
     setActiveId('')
     setMobileOpen(false)
+
+    if (!shouldShowGlobalToc(pathname || '/')) {
+      setVisible(false)
+      return
+    }
 
     const hasCuratedSectionNav = Boolean(document.querySelector('nav[aria-label="Page sections"]'))
     const hasCuratedToc = Array.from(
