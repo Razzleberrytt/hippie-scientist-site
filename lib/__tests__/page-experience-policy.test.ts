@@ -15,7 +15,10 @@ describe('page experience policy', () => {
     expect(isHubRoute('/guides/')).toBe(true)
     expect(isHubRoute('/guides/sleep/')).toBe(true)
     expect(isHubRoute('/goals/focus/')).toBe(true)
+    expect(isHubRoute('/herbs/page/2/')).toBe(true)
+    expect(isHubRoute('/compounds/page/3/')).toBe(true)
     expect(isHubRoute('/guides/sleep/magnesium-for-sleep/')).toBe(false)
+    expect(isHubRoute('/herbs/ashwagandha/')).toBe(false)
   })
 
   it('distinguishes profiles and interactive utilities from editorial pages', () => {

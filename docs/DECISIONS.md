@@ -1,8 +1,20 @@
 # Decision Log
 
 **Status:** Authoritative
-**Updated:** 2026-08-27
+**Updated:** 2026-09-27
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
+
+## 2026-09-27 — Five-destination information architecture and page-role ownership
+
+**Decision:** Organize the user-facing site around five primary destinations: **Goals**, **Guides**, **Ingredients**, **Safety**, and **Research**. Treat `/learn/*` and `/articles/*` as editorial/learning formats owned by Guides; treat `/evidence/*`, `/tools/*`, citation lookup, methodology, and research reports as Research capabilities. Keep `/library/` as the intentionally exhaustive directory rather than making every hub exhaustive. Preserve stable URLs; this is an ownership/navigation decision, not a bulk route migration.
+
+**Decision:** Global breadcrumbs, generated tables of contents, and contextual lead captures are page-role tools rather than default decoration. Hubs and interactive utilities should stay lean; long-form editorial pages may retain reading aids; ingredient profiles may retain contextual resources; research infrastructure should not inherit unrelated marketing capture.
+
+**Rationale:** The site accumulated overlapping hub taxonomies and globally injected modules that made independent content families compete for attention and made dense pages feel less coherent. One ownership model makes navigation deterministic without deleting useful content or changing evidence/safety semantics.
+
+**Alternatives considered:** Keep Goals, Guides, Learn, Articles, Evidence, Research, Tools, Library, and ingredient indexes as peer destinations; or bulk-migrate URLs into a new taxonomy. The first preserves cognitive overload; the second creates unnecessary URL/search risk.
+
+**Consequences:** `lib/primary-navigation.ts` owns primary destination resolution, `lib/page-experience-policy.ts` owns shared chrome eligibility, and `docs/site-information-architecture.md` is the supporting implementation guide. Route-specific content remains available at stable URLs. Scientific claims, evidence grades, safety language, publication eligibility, analytics outcomes, and business impact are unchanged/Unknown unless separately measured. **Status:** Accepted; implemented in #6024 / PR #6023.
 
 ## 2026-08-21 — Control-document authority
 

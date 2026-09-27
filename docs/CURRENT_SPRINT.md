@@ -5,7 +5,7 @@
 **Updated:** 2026-09-27
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #6011 is admitted as the sole Discovery/SEO implementation item on exact base `19b816f4664343c2b27c0cbf0a94420a6e1d5f57`. Normal implementation WIP is **1/3**. Revenue/Conversion and Authority/Content remain free. The admitted scope is the bounded breadcrumb-navigation accessibility repair; no scientific, route, schema, indexing, monetization, or visual-layout mutation is authorized. #5081 remains separately blocked on its own governor prerequisite.
+**Current admission:** #6024 is admitted as the sole Discovery/SEO implementation item on exact base `c59d169b5b6e0616ebb2619fb6750e87cb9f9548`. Normal implementation WIP is **1/3**. Revenue/Conversion and Authority/Content remain free. The admitted scope is the owner-directed sitewide information-architecture cleanup in PR #6023: establish five primary destinations, deterministic route ownership, role-aware global chrome, and a leaner Research hub while preserving stable URLs. No scientific evidence, evidence grades, profile publication eligibility, monetization logic, or indexing policy mutation is authorized. #6011 closed after PR #6019 merged; #5081 remains separately blocked on its own governor prerequisite.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -55,9 +55,9 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Lane | Ticket | Title | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6011 | a11y: label unlabeled breadcrumb navigation on guide hubs | Admitted — implementation PR pending ownership handoff | P2 | 64.0 | Revalidated 2026-09-27 on exact base `19b816f4664343c2b27c0cbf0a94420a6e1d5f57`; BI 2 / UV 4 / TP 2 / SL 4 / C 1.00 / E 1 |
+| D | #6024 | sitewide information architecture cleanup | In review — PR #6023 | P1 | — | Owner-directed 2026-09-27 on exact base `c59d169b5b6e0616ebb2619fb6750e87cb9f9548`; score intentionally not invented for owner-directed corrective work |
 
-- **Discovery/SEO:** occupied by admitted #6011; its implementation PR becomes the owning closing PR only after this admission transaction merges. #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
+- **Discovery/SEO:** occupied by admitted #6024 / PR #6023 for the bounded information-architecture cleanup. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
 - **Revenue/Conversion:** free; #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
 - **Authority/Content:** free after #5706 / PR #5971 merged and retired. #5081 remains separately blocked on its own non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
@@ -67,6 +67,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 ### Recently completed refill cycle
 
+- **#6011 / PR #6019 — Discovery/SEO:** merged as `c59d169b5b6e0616ebb2619fb6750e87cb9f9548`; guide-hub breadcrumb navigation is now explicitly labelled for accessibility, and the closed ticket no longer consumes Discovery/SEO WIP.
 - **#6002 / PR #6010 — Discovery/SEO:** merged as `81665250fe00c7c910d6301b7a128d95a5627dd8`; removed nested `<main>` landmarks from 42 verified production app/shared sources, preserved `/research/` visual treatment through `.research-page-content`, and added a source-level regression rule leaving `app/layout.tsx` as the sole production main-landmark owner. Exact-head CI, Fast UI, Atomic, Site Health, Build Quality, internal-link/SEO verification, and all seven governed export consumers passed. External traffic, engagement, ranking, conversion, and revenue effects remain `Unknown`.
 - **#6000 / PR #6001 — Discovery/SEO:** merged as `a862b97068e3aaf1a0916590b1e0bf2be7044ef7`; aligned footer/breadcrumb vocabulary with the current five-job navigation, moved Turmeric vs Curcumin discovery into the Comparisons hub, fixed the footer Research target to `/research/`, and passed exact-head CI, Fast UI, Atomic, Site Health, Build Quality, internal-link/SEO verification, plus all seven governed export consumers. External traffic, engagement, ranking, conversion, and revenue effects remain `Unknown`.
 

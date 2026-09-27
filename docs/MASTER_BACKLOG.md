@@ -48,13 +48,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 **2026-09-25 P0 #5941 — Resolved:** bounded Actions coordination repair merged via PR #5949 and no longer consumes an Operations exception or changes normal D/R/A admission.
 
-Current review state: **1/3 normal implementation workstreams occupied**. #6011 is admitted in Discovery/SEO on exact base `19b816f4664343c2b27c0cbf0a94420a6e1d5f57` for the bounded breadcrumb-navigation accessibility repair. Revenue/Conversion and Authority/Content remain free. #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5706 / PR #5971 are retired; #5081 remains separately blocked on its own lease.
+Current review state: **1/3 normal implementation workstreams occupied**. #6024 / PR #6023 is admitted in Discovery/SEO on exact base `c59d169b5b6e0616ebb2619fb6750e87cb9f9548` for the bounded sitewide information-architecture cleanup. Revenue/Conversion and Authority/Content remain free. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5706 / PR #5971 are retired; #5081 remains separately blocked on its own lease.
 
 | Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6011 | a11y: label unlabeled breadcrumb navigation on guide hubs | D | Admitted — implementation PR pending ownership handoff | P2 | 2/4/2/4/1.00/1 | 64.0 | Revalidated 2026-09-27 on exact base `19b816f4664343c2b27c0cbf0a94420a6e1d5f57` |
+| #6024 | sitewide information architecture cleanup | D | In review — PR #6023 | P1 | — | — | Owner-directed 2026-09-27 on exact base `c59d169b5b6e0616ebb2619fb6750e87cb9f9548`; no synthetic score assigned |
 
-- **D — occupied:** #6011 owns the bounded breadcrumb-navigation accessibility repair; its implementation PR becomes the closing owner after admission merges. #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
+- **D — occupied:** #6024 / PR #6023 owns the bounded information-architecture cleanup. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
 - **R — free:** #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
 - **A — free:** #5706 / PR #5971 is merged and retired; #5081 remains separately blocked on its own fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
@@ -113,6 +113,7 @@ These are capability proofs, not claims of business impact.
 
 | Item | Verified disposition |
 |---|---|
+| #6011 / PR #6019 | Merged as `c59d169b5b6e0616ebb2619fb6750e87cb9f9548`; five guide hubs now label their breadcrumb navigation landmark and the ticket is closed/retired from active Discovery/SEO WIP. |
 | #6002 / PR #6010 | Merged as `81665250fe00c7c910d6301b7a128d95a5627dd8`; nested main landmarks removed from 42 verified production app/shared sources, `/research/` premium styling preserved via an explicit content hook, and the accessibility-pattern audit now prevents regression. Exact-head CI/Fast UI/Atomic/Site Health/Build Quality/link/SEO and all seven governed export consumers passed; external business impact remains `Unknown`. |
 | #6000 / PR #6001 | Merged as `a862b97068e3aaf1a0916590b1e0bf2be7044ef7`; footer/breadcrumb vocabulary now matches the current navigation, Research points to `/research/`, and Turmeric vs Curcumin is owned by the Comparisons hub. Exact-head CI/UI/accessibility/link/SEO and all seven governed export consumers passed; external business impact remains `Unknown`. |
 | #5989 / PR #5990 | Merged as `9240bc1fe32c3985dbe068678fb2b94c647e0317`; global navigation was simplified, `/guides/` became the primary topic-discovery hub, existing published-library/Atlas semantics were preserved, and exact-head control, UI/accessibility, tests, production build/output, link, sitemap, and SEO checks passed. External traffic, ranking, conversion, and revenue impact remain `Unknown`. |

@@ -90,7 +90,15 @@ export function isHubRoute(pathname: string) {
   if (TOP_LEVEL_HUBS.has(path) || GUIDE_HUBS.has(path)) return true
 
   const segments = path.split('/').filter(Boolean)
-  return segments[0] === 'goals' && segments.length <= 2
+  if (segments[0] === 'goals' && segments.length <= 2) return true
+
+  const isPaginatedIngredientIndex =
+    segments.length === 3 &&
+    (segments[0] === 'herbs' || segments[0] === 'compounds') &&
+    segments[1] === 'page' &&
+    /^\d+$/.test(segments[2])
+
+  return isPaginatedIngredientIndex
 }
 
 export function isUtilityRoute(pathname: string) {
