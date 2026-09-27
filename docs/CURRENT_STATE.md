@@ -20,6 +20,8 @@
 
 **Verified (2026-09-27, #6031 / PR #6033 merged as `6ab7cc95800a14f0dc3df159ac298c6a2c752f8c`):** Guides, Learn, and Articles now operate as one editorial family with shared local navigation. Guides is the topic/decision front door; Learn is concept-first with a collapsed complete route index; Articles shows recent reading plus a categorized expandable archive. Legacy utility URLs under `/learn/*` stay stable while Research/Safety can own their primary-navigation state. Scientific claims, evidence grades, safety conclusions, publication eligibility, monetization, indexing policy, and business impact are unchanged/Unknown until separately measured.
 
+**Verified on #6035 / PR #6038 exact head:** Herbs, Compounds, Search, and Evidence Lookup now share one lookup-family navigation. Herb and Compound indexes stay profile-focused, global Search stays search-first, and Evidence Lookup remains Research-owned as the explicit evidence-strength handoff. Stable URLs, profile filters, pagination, search noindex/follow behavior, scientific claims, evidence grades, safety conclusions, publication eligibility, monetization, and indexing policy remain unchanged; observed user/business impact is **Unknown** until measured.
+
 **Verified:** The current product provides:
 
 - herb profiles at `/herbs/:slug` and compound profiles at `/compounds/:slug`;
