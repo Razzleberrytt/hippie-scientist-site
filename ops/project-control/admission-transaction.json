@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "ticket": 5706,
-  "lane": "A",
-  "title": "Reconcile CoQ10 depression/anxiety endpoint discordance and canonical identity",
-  "priority": "P1 evidence governance",
-  "base_revision": "666375c6db9dae6ebd0b24d781f603d1b5b94128",
-  "last_verified": "2026-09-26",
+  "ticket": 5989,
+  "lane": "D",
+  "title": "Simplify global navigation and guide discovery",
+  "priority": "Owner-directed P0 UX/navigation",
+  "base_revision": "eb7542afecd2acbf6bc8bd91a892ae0676a4a589",
+  "last_verified": "2026-09-27",
   "score_inputs": {
     "businessImpact": 4,
-    "userValue": 4,
-    "trafficPotential": 3,
-    "strategicLeverage": 5,
+    "userValue": 5,
+    "trafficPotential": 4,
+    "strategicLeverage": 4,
     "confidence": 1,
     "effort": 3
   },
-  "score": 80,
-  "note": "Exact-base admission for the bounded CoQ10 endpoint-discordance and canonical-identity closure. Scientific mutation remains blocked on #5963."
+  "score": 106.7,
+  "note": "Exact-base admission for the bounded global-navigation and guide-discovery repair. Scientific, evidence-grade, safety, publication, indexing, and monetization mutation remain out of scope."
 }
