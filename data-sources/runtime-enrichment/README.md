@@ -108,7 +108,7 @@ Canonical materialization receipt: the reviewed workbook and exact generator-own
 
 `2026-09-27-medication-buspirone-modafinil-manifest.json` records the exact DailyMed and PubMed anchors, reviewed counts, append-only policy, and ledger hash.
 
-The workbook review workflow also emits an exact generated `compounds.json` preview from the fail-closed review workbook, so reviewed proposal materialization can reuse generator output instead of reconstructing runtime records manually.
+The workbook review workflow persists the exact generated `compounds.preview.json` beside the fail-closed review workbook and, on trusted same-repository `manual/*` PRs, materializes that reviewed workbook/runtime pair only when the branch still matches the exact validated head.
 
 ## Sep. 27 PMID 9809861 source-identity correction
 
@@ -119,23 +119,6 @@ The workbook review workflow also emits an exact generated `compounds.json` prev
 - The historical ledger remains byte-for-byte immutable; only the merged virtual source record is corrected.
 
 `2026-09-27-source-identity-correction-manifest.json` records the correction provenance, reviewed count, guard policy, and ledger hash.
-
-## Sep. 27 buspirone / modafinil medication batch
-
-- Ledger: `2026-09-27-medication-buspirone-modafinil-enrichment.json`
-- Targets: `buspirone`, `modafinil`
-- 8 evidence rows
-- 7 new source rows; the existing AASM source PMID `34743789` is reused rather than duplicated
-- 0 entity-context rows
-- 0 relationships
-- Both proposals remain Evidence-Limited / research-only / hidden-until-grounded / NOINDEX / outside sitemap.
-- Buspirone evidence keeps azapirone-class synthesis distinct from molecule-specific evidence and preserves the short controlled-duration boundary in the current U.S. label.
-- Modafinil evidence keeps current U.S. narcolepsy/OSA/SWD labeling distinct from guideline-supported idiopathic-hypersomnia use, while preserving OSA limitation-of-use, Schedule IV, serious rash/hypersensitivity, psychiatric, and interaction boundaries.
-- The batch is evidence-only and cannot carry publication/governance fields.
-
-`2026-09-27-medication-buspirone-modafinil-manifest.json` records the exact DailyMed/PubMed anchors, reviewed counts, append-only policy, and ledger hash.
-
-The fail-closed entity-review job now persists the exact generated `compounds.preview.json` alongside its workbook review artifact, avoiding a second runtime generation pass when canonical materialization is required.
 
 ## Regression contract
 

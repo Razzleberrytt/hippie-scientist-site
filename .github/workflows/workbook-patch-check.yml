@@ -83,6 +83,38 @@ jobs:
           retention-days: 7
           compression-level: 0
 
+      - name: Materialize reviewed proposal artifacts on trusted manual branch
+        if: >-
+          github.event_name == 'pull_request' &&
+          github.event.pull_request.head.repo.full_name == github.repository &&
+          startsWith(github.head_ref, 'manual/')
+        env:
+          EXPECTED_HEAD: ${{ github.event.pull_request.head.sha }}
+          HEAD_BRANCH: ${{ github.head_ref }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          remote_head="$(git ls-remote origin "refs/heads/$HEAD_BRANCH" | awk '{print $1}')"
+          if [[ "$remote_head" != "$EXPECTED_HEAD" ]]; then
+            echo "Branch advanced from $EXPECTED_HEAD to $remote_head; leaving materialization to the newer run."
+            exit 0
+          fi
+
+          cp reports/entity-row-review/herb_monograph_master.review.xlsx data-sources/herb_monograph_master.xlsx
+          cp reports/entity-row-review/compounds.preview.json public/data/compounds.json
+
+          if git diff --quiet -- data-sources/herb_monograph_master.xlsx public/data/compounds.json; then
+            echo "Reviewed workbook/runtime already materialized."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data-sources/herb_monograph_master.xlsx public/data/compounds.json
+          git commit -m "data(runtime): materialize reviewed proposal artifacts"
+          git push origin "HEAD:$HEAD_BRANCH"
+
       - name: Validate manifest-backed runtime enrichment
         env:
           HERB_XLSX_PATH: reports/entity-row-review/herb_monograph_master.review.xlsx
