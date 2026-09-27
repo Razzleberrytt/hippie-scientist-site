@@ -213,6 +213,8 @@ function readEnrichmentLedger() {
     seenEvidenceIds.add(recordId)
   }
 
+  merged.sources = applySourceIdentityCorrections(merged.sources)
+
   enrichmentCache = merged
   return enrichmentCache
 }
@@ -236,6 +238,82 @@ function sourceKey(row) {
     .replace(/^https?:\/\/(?:dx\.)?doi\.org\//, '')
   const title = clean(first(row, ['title'])).toLowerCase()
   return pmid ? `pmid:${pmid}` : doi ? `doi:${doi}` : title ? `title:${title}` : ''
+}
+
+function applySourceIdentityCorrections(rows) {
+  const resolved = []
+  const indexBySourceId = new Map()
+
+  for (const rawRow of rows) {
+    const correctionTarget = clean(rawRow?.corrects_source_id)
+    if (!correctionTarget) {
+      const sourceId = clean(rawRow?.source_id)
+      if (sourceId) indexBySourceId.set(sourceId, resolved.length)
+      resolved.push(rawRow)
+      continue
+    }
+
+    const sourceId = clean(rawRow?.source_id)
+    if (!sourceId || sourceId !== correctionTarget) {
+      throw new Error(
+        '[workbook-parser] enrichment source correction must preserve source_id: ' +
+        (sourceId || '(blank)') + ' -> ' + correctionTarget,
+      )
+    }
+
+    const index = indexBySourceId.get(correctionTarget)
+    if (index === undefined) {
+      throw new Error(
+        '[workbook-parser] enrichment source correction target was not loaded earlier: ' +
+        correctionTarget,
+      )
+    }
+
+    const prior = resolved[index]
+    if (sourceKey(prior) !== sourceKey(rawRow)) {
+      throw new Error(
+        '[workbook-parser] enrichment source correction cannot change PMID/DOI/title identity key: ' +
+        correctionTarget,
+      )
+    }
+
+    for (const field of ['pmid', 'doi']) {
+      if (clean(prior?.[field]).toLowerCase() !== clean(rawRow?.[field]).toLowerCase()) {
+        throw new Error(
+          '[workbook-parser] enrichment source correction cannot change identifier ' +
+          field + ' for ' + correctionTarget,
+        )
+      }
+    }
+
+    const expected = rawRow?.expected_prior_identity
+    if (!expected || typeof expected !== 'object' || Array.isArray(expected)) {
+      throw new Error(
+        '[workbook-parser] enrichment source correction is missing expected_prior_identity: ' +
+        correctionTarget,
+      )
+    }
+
+    for (const field of ['doi', 'author_or_label', 'title']) {
+      const expectedValue = clean(expected[field])
+      if (!expectedValue) continue
+      if (clean(prior?.[field]) !== expectedValue) {
+        throw new Error(
+          '[workbook-parser] enrichment source correction prior identity mismatch for ' +
+          correctionTarget + '.' + field,
+        )
+      }
+    }
+
+    const replacement = { ...rawRow }
+    delete replacement.corrects_source_id
+    delete replacement.expected_prior_identity
+    delete replacement.correction_reason
+    resolved[index] = replacement
+    indexBySourceId.set(sourceId, index)
+  }
+
+  return resolved
 }
 
 function relationshipKey(row) {
