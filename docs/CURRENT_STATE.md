@@ -22,6 +22,8 @@
 
 **Verified on #6035 / PR #6038 exact head:** Herbs, Compounds, Search, and Evidence Lookup now share one lookup-family navigation. Herb and Compound indexes stay profile-focused, global Search stays search-first, and Evidence Lookup remains Research-owned as the explicit evidence-strength handoff. Stable URLs, profile filters, pagination, search noindex/follow behavior, scientific claims, evidence grades, safety conclusions, publication eligibility, monetization, and indexing policy remain unchanged; observed user/business impact is **Unknown** until measured.
 
+**Verified on #6041 / PR #6044 exact head:** Safety now has one shared local flow across the checker, evidence-gated interaction guides and their detail pages, the educational interactions framework, and the supplement safety checklist. The flow is check → review evidence-gated guidance → understand mechanisms/uncertainty → prepare before buying or stacking. Existing URLs, interaction evidence, warnings, publication thresholds, medication-specific escalation language, and signup behavior are unchanged; production engagement/business impact remains **Unknown** until measured.
+
 **Verified:** The current product provides:
 
 - herb profiles at `/herbs/:slug` and compound profiles at `/compounds/:slug`;
