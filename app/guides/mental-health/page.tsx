@@ -63,6 +63,7 @@ const FEATURED_SLUGS = [
   'personality-disorders-overview',
   'obsessive-compulsive-disorder',
   'borderline-personality-disorder',
+  'avoidant-borderline-personality-disorders-couples',
 ]
 
 function articleBySlug(slug: string): MentalHealthArticle {
@@ -234,7 +235,7 @@ export default function MentalHealthGuidesHub() {
 
       <section className="mt-10" aria-labelledby="start-here">
         <h2 id="start-here" className="text-2xl font-bold text-ink">Start here</h2>
-        <div className="mt-5 grid gap-4 lg:grid-cols-3">
+        <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {featured.map((article) => <ArticleCard key={article.slug} article={article} featured />)}
         </div>
       </section>
