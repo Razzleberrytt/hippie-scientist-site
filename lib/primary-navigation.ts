@@ -69,11 +69,11 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
       '/novel-psychoactive-substances',
     ],
     children: [
-      { label: 'Safety Checker', href: '/safety-checker' },
-      { label: 'Supplement safety checklist', href: '/info/supplement-safety-checklist' },
-      { label: 'Interaction guides', href: '/safety-checker/interactions' },
-      { label: 'How interactions work', href: '/learn/interactions' },
-      { label: 'Harm-reduction research', href: '/novel-psychoactive-substances' },
+      { section: 'Check', label: 'Safety Checker', href: '/safety-checker' },
+      { section: 'Understand', label: 'Interaction guides', href: '/safety-checker/interactions' },
+      { section: 'Understand', label: 'How interactions work', href: '/learn/interactions' },
+      { section: 'Prepare', label: 'Supplement safety checklist', href: '/info/supplement-safety-checklist' },
+      { section: 'Related', label: 'Harm-reduction research', href: '/novel-psychoactive-substances' },
     ],
   },
   {

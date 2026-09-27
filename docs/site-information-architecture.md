@@ -30,6 +30,15 @@ The site has five primary user destinations. Content types and implementation ro
 - Detailed datasets, long card grids, and full indexes belong on dedicated pages, not duplicated across multiple hubs.
 - **Ingredients lookup family:** `/herbs/`, `/compounds/`, and `/search/` share one local lookup navigation. `/evidence/evidence-checker/` is the Research-owned evidence-strength handoff, not a competing ingredient directory. Herb/compound indexes stay profile-focused; goal-based decisions belong in Guides.
 
+### Safety family
+
+- **Safety Checker** is the task-first entry point for screening a combination for overlapping caution signals.
+- **Interaction Guides** contain only evidence-gated, editorially approved pair reviews; arbitrary dynamic checker results do not become verified guide pages.
+- **Understand interactions** at `/learn/interactions/` explains mechanisms, stacking patterns, and uncertainty without acting as a clearance tool.
+- **Safety checklist** is the pre-purchase/pre-stack preparation resource and remains supporting content rather than a competing primary Safety hub.
+- These core Safety surfaces share local navigation, and interaction-guide detail pages keep that navigation so users do not lose context after drilling in.
+- Medication-specific/high-risk contexts continue to escalate to clinician or pharmacist review; navigation changes never weaken the existing uncertainty or safety boundaries.
+
 ### Editorial family
 
 - **Guides** is the front door for health topics, comparisons, and practical decisions.

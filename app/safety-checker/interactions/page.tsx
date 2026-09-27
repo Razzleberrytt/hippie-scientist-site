@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import SafetyFamilyNav from '@/components/navigation/SafetyFamilyNav'
 import { INDEXABLE_SAFETY_PAIR_GUIDES } from '@/lib/safety-pair-guides'
 import { buildPageMetadata } from '@/lib/seo'
 
@@ -17,6 +18,8 @@ export default function InteractionGuidesPage() {
         <h1 className='mt-2 text-3xl font-bold tracking-tight text-ink sm:text-5xl'>Interaction Guides</h1>
         <p className='mt-4 max-w-3xl text-base leading-7 text-muted sm:text-lg'>Only editorially approved combinations with meaningful supporting evidence are published here. Arbitrary Safety Checker combinations remain dynamic screening results and are not turned into indexable pages.</p>
       </section>
+
+      <SafetyFamilyNav active='guides' />
 
       <section className='grid gap-4 md:grid-cols-2'>
         {INDEXABLE_SAFETY_PAIR_GUIDES.map((guide) => <Link key={guide.slug} href={`/safety-checker/interactions/${guide.slug}/`} className='rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-900/20'><p className='text-xs font-bold uppercase tracking-wide text-emerald-800'>{guide.evidence} · {guide.confidence} confidence</p><h2 className='mt-2 text-xl font-bold text-ink'>{guide.title}</h2><p className='mt-2 text-sm leading-6 text-muted'>{guide.description}</p><span className='mt-4 inline-block text-sm font-bold text-indigo-800'>Read interaction evidence →</span></Link>)}

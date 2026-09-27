@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import SafetyFamilyNav from '@/components/navigation/SafetyFamilyNav'
 import { notFound } from 'next/navigation'
 import { INDEXABLE_SAFETY_PAIR_GUIDES, getSafetyPairGuide } from '@/lib/safety-pair-guides'
 import { buildPageMetadata } from '@/lib/seo'
@@ -35,6 +36,8 @@ export default async function SafetyPairGuidePage({ params }: PageProps) {
   return (
     <div className='mx-auto max-w-4xl space-y-8 px-4 py-8 sm:py-10'>
       <nav aria-label='Breadcrumb' className='text-sm text-muted'><Link href='/safety-checker/' className='font-semibold text-indigo-800 hover:underline'>Safety Checker</Link><span aria-hidden='true' className='mx-2'>/</span><Link href='/safety-checker/interactions/' className='font-semibold text-indigo-800 hover:underline'>Interaction guides</Link></nav>
+
+      <SafetyFamilyNav active='guides' />
 
       <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8'>
         <p className='eyebrow-label'>Editorial interaction review</p>
