@@ -70,7 +70,7 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     children: [
       { label: 'Safety Checker', href: '/safety-checker' },
       { label: 'Supplement safety checklist', href: '/info/supplement-safety-checklist' },
-      { label: 'Interaction guides', href: '/guides/interactions' },
+      { label: 'Interaction guides', href: '/safety-checker/interactions' },
       { label: 'How interactions work', href: '/learn/interactions' },
       { label: 'Harm-reduction research', href: '/novel-psychoactive-substances' },
     ],
