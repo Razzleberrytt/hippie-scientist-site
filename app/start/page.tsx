@@ -33,7 +33,7 @@ const paths = [
 
 export default function StartHerePage() {
   return (
-    <main className='container-page mx-auto max-w-5xl space-y-8 py-10 sm:py-14'>
+    <div className='container-page mx-auto max-w-5xl space-y-8 py-10 sm:py-14'>
       <header className='rounded-[2rem] border border-brand-900/10 bg-white/95 p-6 shadow-sm sm:p-10'>
         <p className='eyebrow-label'>Start here</p>
         <h1 className='mt-3 max-w-4xl text-4xl font-bold tracking-tight text-ink sm:text-5xl'>
@@ -57,6 +57,6 @@ export default function StartHerePage() {
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

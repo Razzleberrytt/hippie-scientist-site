@@ -13,7 +13,7 @@ export const metadata: Metadata = buildPageMetadata({
 export default function EvidenceChangesPage() {
   const updates = getEvidenceChangeUpdates()
   return (
-    <main className='container-page space-y-7 py-10'>
+    <div className='container-page space-y-7 py-10'>
       <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8'>
         <p className='eyebrow-label'>Evidence Change Tracker</p>
         <h1 className='mt-2 text-4xl font-semibold tracking-tight text-ink'>Recent evidence changes</h1>
@@ -25,6 +25,6 @@ export default function EvidenceChangesPage() {
         </div>
       </section>
       <ResearchUpdateList updates={updates} emptyMessage='No evidence-grade changes have been recorded in the append-only public ledger yet. The tracker will populate when a real reviewed change occurs.' />
-    </main>
+    </div>
   )
 }
