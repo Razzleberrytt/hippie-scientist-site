@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-09-20
+**Updated:** 2026-09-27
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
@@ -48,26 +48,27 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 **2026-09-25 P0 #5941 — Resolved:** bounded Actions coordination repair merged via PR #5949 and no longer consumes an Operations exception or changes normal D/R/A admission.
 
-Current review state: **1/3 normal implementation workstreams occupied**. #5706 now owns Authority/Content after exact-base scored admission against `666375c6db9dae6ebd0b24d781f603d1b5b94128`. #5963 is its exact-main state-only governor-lease prerequisite and does not consume a normal implementation workstream. Discovery/SEO and Revenue/Conversion remain free. #5707 and #5708 remain staging-only; #5081 remains separately blocked on its own lease.
+Current review state: **0/3 normal implementation workstreams occupied**. #5706 completed via merged PR #5971 (`381bbe6029bdeaf604314aa1e9f67757b1fa37bd`) and is retired from active ownership. Discovery/SEO, Revenue/Conversion, and Authority/Content are free; #5081 remains separately blocked on its own lease.
 
 | Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #5706 | Reconcile CoQ10 depression/anxiety endpoint discordance and canonical identity | A | Admitted — blocked on #5963 lease | P1 evidence governance | 4/4/3/5/1.00/3 | 80.0 | Revalidated 2026-09-26 on exact base `666375c6db9dae6ebd0b24d781f603d1b5b94128`; canonical owner `compound:coenzyme-q10` |
 
 - **D — free:** #5688 / PR #5691 is merged and retired.
 - **R — free:** #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
-- **A — occupied:** #5706 owns the bounded CoQ10 closure after exact-base scored admission. #5963 is its mandatory state-only lease prerequisite. Legacy `coq10` / `coenzyme-q10-ubiquinol` identities must reconcile to `compound:coenzyme-q10` without a parallel scientific owner; #5081 remains separately blocked on its own fresh non-overlapping governor lease.
+- **A — free:** #5706 / PR #5971 is merged and retired; #5081 remains separately blocked on its own fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
 - **Control maintenance:** #5642 aligns the non-authoritative swarm feeder with the merged search-conversion policy; it is docs-only and does not consume a normal implementation workstream.
 
 Research-only enrichment staging remains separate from canonical implementation/promotion WIP. The durable candidate feeder is `docs/SWARM_BACKLOG.md`; it does not itself grant execution authority.
+
+- **#5706 / PR #5971 — retired 2026-09-26:** merged as `381bbe6029bdeaf604314aa1e9f67757b1fa37bd`; canonical CoQ10 evidence/runtime ownership was consolidated and the closure no longer consumes Authority/Content WIP.
 
 - **#5703 / PR #5961 — retired 2026-09-26:** merged as `6bd7b57a633c8f88a70edb688d969ee19e7de8ad`; five cobalamin findings terminally promoted with source/runtime/governance repair and exact-head validation green. External Cloudflare preview status remained stale and was not a protected merge requirement.
 - **#5698 / PR #5701 — retired 2026-09-20:** merged as `1727c68cbb5dfc865e4be7c02af6e0fb7d867d75`; retracted PMID 41461240 / DOI 10.1016/j.jad.2025.121055 is quarantined against identifier re-entry and the stress-guide evidence path is repaired. All required exact-head gates passed; external search/conversion/revenue impact remains `Unknown`.
 
 ## Next — ordered dependency queue
 
-Discovery/SEO and Revenue/Conversion are available; Authority/Content is occupied by #5706 until the CoQ10 closure is terminally completed or explicitly retired. #5963 must merge first as the narrow exact-main governor lease. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
+Discovery/SEO, Revenue/Conversion, and Authority/Content are available. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
