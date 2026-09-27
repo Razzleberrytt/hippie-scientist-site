@@ -30,6 +30,14 @@ The site has five primary user destinations. Content types and implementation ro
 - Detailed datasets, long card grids, and full indexes belong on dedicated pages, not duplicated across multiple hubs.
 - **Ingredients lookup family:** `/herbs/`, `/compounds/`, and `/search/` share one local lookup navigation. `/evidence/evidence-checker/` is the Research-owned evidence-strength handoff, not a competing ingredient directory. Herb/compound indexes stay profile-focused; goal-based decisions belong in Guides.
 
+### Front doors
+
+- **Home** is orientation + direct search + the canonical five destinations. It should not reproduce separate comparison, methodology, or topic mini-hubs below the fold.
+- **Start** is a lightweight intent router that uses the exact same five destinations as the primary navigation.
+- **Library** is the exhaustive exception: it may list many links, but its top-level groups remain Goals, Guides, Ingredients, Safety, Research, plus **Site Information** for trust/policy/support resources.
+- **Site Information** supports the primary architecture; it is not a sixth primary destination.
+- Front-door destination names and hrefs come from one shared source so Home and Start cannot silently drift into different taxonomies.
+
 ### Safety family
 
 - **Safety Checker** is the task-first entry point for screening a combination for overlapping caution signals.
@@ -55,5 +63,5 @@ The site has five primary user destinations. Content types and implementation ro
 3. Align Guides, Learn, and Articles under one content hierarchy.
 4. Align Ingredients, search, and evidence handoffs.
 5. Simplify Safety around checking, understanding, and escalation.
-6. Audit page-level duplicate modules and remove redundant cards/callouts.
-7. Use the complete Library only as the exhaustive directory.
+6. Align Home, Start, and Library to the same five-destination architecture.
+7. Audit page-level duplicate modules and remove redundant cards/callouts.

@@ -1,102 +1,7 @@
 import Link from 'next/link'
-import {
-  ArrowRight,
-  Cloud,
-  FlaskConical,
-  Leaf,
-  Moon,
-  Search,
-  ShieldCheck,
-  Zap,
-} from 'lucide-react'
-import { coreGoals } from '@/lib/core-goals'
+import { ArrowRight, Search } from 'lucide-react'
+import SiteDestinationGrid from '@/components/navigation/SiteDestinationGrid'
 import { getPublicSiteMetrics } from '@/lib/public-site-metrics'
-
-const goalDetails = {
-  sleep: {
-    icon: Moon,
-    label: 'Sleep',
-    href: '/guides/sleep/',
-    blurb: 'Timing, sleep quality, and next-day effects.',
-  },
-  anxiety: {
-    icon: Cloud,
-    label: 'Anxiety',
-    href: '/guides/anxiety/',
-    blurb: 'Calm, tension, and overthinking without the hype.',
-  },
-  stress: {
-    icon: Leaf,
-    label: 'Stress',
-    href: '/guides/stress/',
-    blurb: 'Adaptogens, fatigue, and resilience in context.',
-  },
-  focus: {
-    icon: Zap,
-    label: 'Focus',
-    href: '/guides/focus/',
-    blurb: 'Attention, energy, and cognitive tradeoffs.',
-  },
-} as const
-
-const goalOrder = ['sleep', 'anxiety', 'stress', 'focus'] as const
-
-const goals = goalOrder.map((slug) => ({
-  ...coreGoals.find((goal) => goal.slug === slug)!,
-  ...goalDetails[slug],
-}))
-
-const evidenceSignals = [
-  {
-    index: '01',
-    icon: FlaskConical,
-    label: 'Human evidence',
-    detail: 'Clinical outcomes lead; mechanisms stay in their lane.',
-  },
-  {
-    index: '02',
-    icon: ShieldCheck,
-    label: 'Safety context',
-    detail: 'Interactions, contraindications, and dose context stay visible.',
-  },
-  {
-    index: '03',
-    icon: Search,
-    label: 'Decision clarity',
-    detail: 'Useful takeaways without pretending uncertainty disappeared.',
-  },
-] as const
-
-const comparisons = [
-  {
-    href: '/guides/compare/melatonin-vs-magnesium/',
-    label: 'Melatonin vs. magnesium',
-    context: 'Compare sleep timing, next-day effects, and safety context.',
-  },
-  {
-    href: '/guides/compare/rhodiola-vs-ashwagandha/',
-    label: 'Rhodiola vs. ashwagandha',
-    context: 'Compare stimulating and calming adaptogen tradeoffs.',
-  },
-  {
-    href: '/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/',
-    label: 'Calming supplements compared',
-    context: 'Separate evidence for stress, anxiety, and sleep outcomes.',
-  },
-]
-
-const principles = [
-  {
-    icon: FlaskConical,
-    title: 'Human studies lead',
-    body: 'Mechanism and animal research stay clearly separated from clinical results.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Safety stays visible',
-    body: 'Interactions, contraindications, and dose context appear before the verdict.',
-  },
-]
 
 export default async function HomepageV2() {
   const metrics = await getPublicSiteMetrics()
@@ -108,197 +13,80 @@ export default async function HomepageV2() {
 
   return (
     <div className='hs-home'>
-      <div className='hs-home-shell'>
-        <section className='hs-index-hero' aria-labelledby='home-title'>
-          <div className='hs-hero-main'>
-            <div className='hs-hero-copy'>
-              <p className='hs-home-eyebrow'>Evidence-based supplement guidance</p>
-              <h1 id='home-title' className='hs-home-title'>
-                Better answers start with better <em>evidence.</em>
-              </h1>
-              <p className='hs-home-lede'>
-                Evidence, safety, dose, and context for herbs and supplements — with uncertainty left intact.
+      <div className='mx-auto max-w-7xl space-y-10 px-4 pb-20 pt-6 sm:px-6 lg:px-8'>
+        <section className='hero-shell rounded-[2rem] border px-5 py-8 sm:p-10' aria-labelledby='home-title'>
+          <p className='eyebrow-label'>Evidence-based supplement research</p>
+          <h1 id='home-title' className='mt-4 max-w-5xl font-display text-4xl font-bold tracking-tight text-ink sm:text-6xl'>
+            Find the right path before you dive into the details.
+          </h1>
+          <p className='mt-5 max-w-3xl text-lg leading-8 text-muted'>
+            Search directly when you know the name, or choose the job you are trying to do: compare a goal, read a guide, look up an ingredient, check safety, or verify the research.
+          </p>
+
+          <form className='mt-7 flex max-w-3xl items-center gap-3 rounded-2xl border border-brand-900/10 bg-white p-3 shadow-sm' action='/search/' method='get' role='search'>
+            <Search className='ml-1 h-5 w-5 shrink-0 text-brand-700' aria-hidden='true' />
+            <label className='sr-only' htmlFor='homepage-search'>Search herbs, compounds, or questions</label>
+            <input
+              id='homepage-search'
+              name='q'
+              type='search'
+              autoComplete='off'
+              autoCapitalize='none'
+              autoCorrect='off'
+              spellCheck={false}
+              enterKeyHint='search'
+              placeholder='Search herbs, compounds, or questions'
+              className='min-w-0 flex-1 bg-transparent px-2 py-2 text-base text-ink outline-none placeholder:text-muted'
+            />
+            <button type='submit' className='inline-flex min-h-11 items-center justify-center rounded-full bg-brand-900 px-5 text-sm font-bold text-white'>
+              Search
+            </button>
+          </form>
+
+          <div className='mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm'>
+            <Link href='/start/' className='font-semibold text-brand-700 hover:underline'>Not sure where to begin? Start here →</Link>
+            <Link href='/library/' className='font-semibold text-brand-700 hover:underline'>Browse the complete directory →</Link>
+          </div>
+        </section>
+
+        <section aria-labelledby='home-destinations-heading'>
+          <div className='max-w-3xl'>
+            <p className='eyebrow-label'>Five destinations</p>
+            <h2 id='home-destinations-heading' className='mt-2 text-3xl font-semibold tracking-tight text-ink'>
+              Choose what you are trying to accomplish.
+            </h2>
+            <p className='mt-3 text-sm leading-7 text-muted'>
+              These same five destinations organize the rest of the site, so the structure stays consistent after you click through.
+            </p>
+          </div>
+          <div className='mt-6'>
+            <SiteDestinationGrid />
+          </div>
+        </section>
+
+        <section className='rounded-[2rem] border border-brand-900/10 bg-white p-6 shadow-sm sm:p-8' aria-labelledby='home-trust-heading'>
+          <div className='grid gap-7 lg:grid-cols-[1fr_auto] lg:items-end'>
+            <div>
+              <p className='eyebrow-label'>Evidence stays visible</p>
+              <h2 id='home-trust-heading' className='mt-2 text-2xl font-semibold tracking-tight text-ink'>
+                Human evidence, safety context, and uncertainty remain part of the answer.
+              </h2>
+              <p className='mt-3 max-w-3xl text-sm leading-7 text-muted'>
+                The site separates clinical outcomes from mechanisms, keeps interaction and contraindication context visible, and leaves uncertainty intact instead of turning every study into a recommendation.
               </p>
-
-              <form className='hs-home-search' action='/search/' method='get' role='search'>
-                <Search aria-hidden='true' strokeWidth={1.75} />
-                <label className='sr-only' htmlFor='homepage-search'>
-                  Search herbs, compounds, or questions
-                </label>
-                <input
-                  id='homepage-search'
-                  name='q'
-                  type='search'
-                  autoComplete='off'
-                  autoCapitalize='none'
-                  autoCorrect='off'
-                  spellCheck={false}
-                  enterKeyHint='search'
-                  placeholder='Search herbs, compounds, or questions'
-                />
-                <button type='submit' aria-label='Search the research library'>
-                  <ArrowRight aria-hidden='true' />
-                </button>
-              </form>
-
-              <a className='hs-home-browse-link hs-hero-primary-link' href='#browse-by-goal'>
-                Browse health goals <ArrowRight aria-hidden='true' />
-              </a>
+              <Link href='/info/methodology/' className='mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:underline'>
+                Read the methodology <ArrowRight className='h-4 w-4' aria-hidden='true' />
+              </Link>
             </div>
 
-            <aside className='hs-evidence-panel' aria-label='How The Hippie Scientist evaluates evidence'>
-              <div className='hs-evidence-panel-heading'>
-                <span className='hs-evidence-seal' aria-hidden='true'>
-                  <FlaskConical strokeWidth={1.45} />
-                </span>
-                <div>
-                  <p>Research lens</p>
-                  <h2>Evidence, safety, context.</h2>
+            <dl className='grid grid-cols-3 gap-3' aria-label='Research library size'>
+              {stats.map((stat) => (
+                <div key={stat.label} className='min-w-[7rem] rounded-xl bg-brand-50/60 p-4 text-center'>
+                  <dd className='text-2xl font-bold text-ink'>{stat.value}</dd>
+                  <dt className='mt-1 text-[11px] leading-4 text-muted'>{stat.label}</dt>
                 </div>
-              </div>
-
-              <p className='hs-evidence-panel-intro'>
-                Every profile is filtered through the same decision framework before a conclusion
-                earns visual emphasis.
-              </p>
-
-              <div className='hs-evidence-signals'>
-                {evidenceSignals.map((signal) => {
-                  const Icon = signal.icon
-
-                  return (
-                    <div key={signal.index} className='hs-evidence-signal'>
-                      <span className='hs-evidence-signal-index' aria-hidden='true'>
-                        {signal.index}
-                      </span>
-                      <span className='hs-evidence-signal-icon' aria-hidden='true'>
-                        <Icon strokeWidth={1.55} />
-                      </span>
-                      <span>
-                        <strong>{signal.label}</strong>
-                        <small>{signal.detail}</small>
-                      </span>
-                    </div>
-                  )
-                })}
-              </div>
-
-              <Link href='/info/methodology/' className='hs-evidence-panel-link'>
-                Read the methodology <ArrowRight aria-hidden='true' />
-              </Link>
-            </aside>
-          </div>
-
-          <div id='browse-by-goal' className='hs-goal-block'>
-            <div className='hs-goal-block-heading'>
-              <div>
-                <p className='hs-home-eyebrow'>Browse by goal</p>
-                <h2>Start with what you want to improve.</h2>
-              </div>
-              <Link href='/goals/' className='hs-text-link'>
-                All health goals <ArrowRight aria-hidden='true' />
-              </Link>
-            </div>
-
-            <nav className='hs-goal-nav' aria-label='Browse by health goal'>
-              {goals.map((goal) => {
-                const Icon = goal.icon
-
-                return (
-                  <Link key={goal.slug} href={goal.href} className='hs-goal-link'>
-                    <span className='hs-goal-link-top'>
-                      <span className='hs-goal-icon'>
-                        <Icon aria-hidden='true' strokeWidth={1.6} />
-                      </span>
-                      <ArrowRight className='hs-goal-arrow' aria-hidden='true' />
-                    </span>
-                    <span className='hs-goal-copy'>
-                      <strong>{goal.label}</strong>
-                      <small>{goal.blurb}</small>
-                    </span>
-                  </Link>
-                )
-              })}
-            </nav>
-          </div>
-
-          <dl className='hs-home-stats' aria-label='Research library size'>
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <dd>{stat.value}</dd>
-                <dt>{stat.label}</dt>
-              </div>
-            ))}
-          </dl>
-        </section>
-
-        <section className='hs-decision-section' aria-labelledby='decision-title'>
-          <div className='hs-section-intro'>
-            <p className='hs-home-eyebrow'>Make a decision</p>
-            <h2 id='decision-title'>Compare before you choose.</h2>
-            <p>
-              Side-by-side guides turn a crowded supplement shelf into a clearer set of tradeoffs.
-            </p>
-            <Link href='/guides/compare/' className='hs-text-link'>
-              Explore comparison guides <ArrowRight aria-hidden='true' />
-            </Link>
-          </div>
-
-          <div className='hs-comparison-list'>
-            {comparisons.map((comparison, index) => (
-              <Link key={comparison.href} href={comparison.href} className='hs-comparison-row'>
-                <span className='hs-comparison-index' aria-hidden='true'>
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <span className='hs-comparison-copy'>
-                  <strong>{comparison.label}</strong>
-                  <small>{comparison.context}</small>
-                </span>
-                <span className='hs-comparison-action' aria-hidden='true'>
-                  <ArrowRight />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        <section className='hs-method-section' aria-labelledby='method-title'>
-          <div className='hs-method-intro'>
-            <p className='hs-home-eyebrow'>The research standard</p>
-            <h2 id='method-title'>Evidence first. Safety always.</h2>
-            <p>
-              Every profile follows the same evidence hierarchy, so the strength of a claim is clear
-              before the conclusion asks for your attention.
-            </p>
-            <div className='hs-method-actions'>
-              <Link href='/info/methodology/' className='hs-text-link'>
-                Read the methodology <ArrowRight aria-hidden='true' />
-              </Link>
-              <Link href='/safety-checker/' className='hs-text-link'>
-                Check interactions <ArrowRight aria-hidden='true' />
-              </Link>
-              <Link href='/info/supplement-safety-checklist/' className='hs-text-link'>
-                Safety checklist <ArrowRight aria-hidden='true' />
-              </Link>
-            </div>
-          </div>
-
-          <div className='hs-principles'>
-            {principles.map((principle) => {
-              const Icon = principle.icon
-
-              return (
-                <article key={principle.title}>
-                  <span className='hs-principle-icon'>
-                    <Icon aria-hidden='true' strokeWidth={1.55} />
-                  </span>
-                  <div>
-                    <h3>{principle.title}</h3>
-                    <p>{principle.body}</p>
-                  </div>
-                </article>
-              )
-            })}
+              ))}
+            </dl>
           </div>
         </section>
       </div>
