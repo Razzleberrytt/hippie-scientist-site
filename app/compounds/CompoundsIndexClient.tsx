@@ -314,36 +314,13 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
 
   const visibleCompounds = filterCompounds(baseCompounds, query, activeFilter, activeEvidence)
   const hasActiveFilters = Boolean(query.trim()) || activeFilter !== 'all' || activeEvidence !== 'all'
-  const totalProfiles = baseCompounds.length  const safetyMapped = baseCompounds.filter((compound: RuntimeRecord) => getSafety(compound) !== 'Safety review pending').length
+  const totalProfiles = baseCompounds.length
   const featuredCompounds = hasActiveFilters || paginated ? [] : baseCompounds.slice(0, 6)
   const libraryCompounds = hasActiveFilters ? visibleCompounds : paginated ? compounds : baseCompounds.slice(featuredCompounds.length)
 
   return (
     <div className="px-2 py-2 text-ink sm:px-3 sm:py-3">
       <div className="mx-auto max-w-7xl space-y-4 sm:space-y-4">
-        <section className="hero-shell relative overflow-hidden rounded-[0.95rem] border border-brand-900/10 px-3 py-4 shadow-sm sm:px-4 sm:py-5">
-          <div className="relative grid gap-3 lg:grid-cols-[1.05fr_.95fr] lg:items-end">
-            <div className="max-w-3xl space-y-2">
-              <p className="eyebrow-label">Compound research library</p>
-              <h2 className="max-w-[18ch] text-balance font-display text-2xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-4xl">
-                Explore compound profiles
-              </h2>
-              <p className="max-w-2xl text-sm leading-6 text-muted">
-                Scan bioactive molecules by practical context first, then compare evidence, mechanism hints, and caution notes where source data supports them.
-              </p>
-            </div>
-
-            <div className="rounded-[0.8rem] border border-brand-900/10 bg-white/80 p-2.5 shadow-sm">
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-800">Library signal</p>
-              <div className="mt-2 grid grid-cols-3 gap-2">
-                <StatCard value={totalProfiles} label="Profiles" />
-                <StatCard value={evidenceForward} label="Evidence-led" />
-                <StatCard value={safetyMapped} label="Safety mapped" />
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section className="rounded-[0.85rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-sm sm:p-4" aria-labelledby="compound-search-heading">
           <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl space-y-1.5">
