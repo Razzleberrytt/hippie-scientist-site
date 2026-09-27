@@ -146,7 +146,7 @@ export default function GuidesHub() {
       />
 
       <header className="hero-shell rounded-[2rem] border px-5 py-6 sm:p-8">
-        <p className="eyebrow-label">Browse by topic</p>
+        <p className="eyebrow-label">Evidence Library · Browse by topic</p>
         <h1 className="heading-premium mt-5 max-w-4xl">Guides</h1>
         <p className="text-reading mt-4 max-w-3xl">
           Start with the subject you care about. Mental health, ADHD, sleep, anxiety, supplement decisions, comparisons, and research tools each have a clear home.
@@ -205,7 +205,7 @@ export default function GuidesHub() {
 
       <section className="section-frame p-5 text-center sm:p-8" aria-labelledby="reference-databases-heading">
         <p className="eyebrow-label">Looking for one ingredient?</p>
-        <h2 id="reference-databases-heading" className="compact-heading mt-3">Use the reference databases instead</h2>
+        <h2 id="reference-databases-heading" className="compact-heading mt-3">Browse the reference databases</h2>
         <p className="mx-auto mt-3 max-w-3xl text-sm leading-6 text-[color:var(--hs-body)] sm:text-base">
           Guides answer broader questions. Browse the published herb and compound libraries when you already know the ingredient you want to look up. We keep source inventory separate from what readers can actually browse.
         </p>
