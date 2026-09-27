@@ -48,12 +48,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 **2026-09-25 P0 #5941 — Resolved:** bounded Actions coordination repair merged via PR #5949 and no longer consumes an Operations exception or changes normal D/R/A admission.
 
-Current review state: **0/3 normal implementation workstreams occupied**. #5706 completed via merged PR #5971 (`381bbe6029bdeaf604314aa1e9f67757b1fa37bd`) and is retired from active ownership. Discovery/SEO, Revenue/Conversion, and Authority/Content are free; #5081 remains separately blocked on its own lease.
+Current review state: **1/3 normal implementation workstreams occupied**. #5989 is admitted in Discovery/SEO on exact base `eb7542afecd2acbf6bc8bd91a892ae0676a4a589` for the bounded global-navigation and guide-discovery repair. Revenue/Conversion and Authority/Content remain free. #5706 / PR #5971 is retired; #5081 remains separately blocked on its own lease.
 
 | Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
+| #5989 | Simplify global navigation and guide discovery | D | Admitted — implementation PR pending ownership handoff | Owner-directed P0 UX/navigation | 4/5/4/4/1.00/3 | 106.7 | Revalidated 2026-09-27 on exact base `eb7542afecd2acbf6bc8bd91a892ae0676a4a589` |
 
-- **D — free:** #5688 / PR #5691 is merged and retired.
+- **D — occupied:** #5989 owns the bounded global-navigation and guide-discovery repair; implementation PR #5990 becomes the closing owner after admission merges. #5688 / PR #5691 is merged and retired.
 - **R — free:** #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
 - **A — free:** #5706 / PR #5971 is merged and retired; #5081 remains separately blocked on its own fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
@@ -68,7 +69,7 @@ Research-only enrichment staging remains separate from canonical implementation/
 
 ## Next — ordered dependency queue
 
-Discovery/SEO, Revenue/Conversion, and Authority/Content are available. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
+Discovery/SEO is occupied by #5989 until the navigation repair is terminally completed or explicitly retired. Revenue/Conversion and Authority/Content are available. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
