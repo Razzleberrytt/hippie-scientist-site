@@ -35,10 +35,10 @@ const checks = [
   {
     id: 'nested-main-landmark',
     wcag: 'WCAG 1.3.1 Info and Relationships / landmark structure',
-    pattern: /<main\\b/g,
+    pattern: /<main\b/g,
     allow: (file) => {
       const rel = normalizedRelative(file)
-      return rel === 'app/layout.tsx' || rel.includes('/__tests__/') || /\\.(?:test|spec)\\.[^.]+$/.test(rel)
+      return rel === 'app/layout.tsx' || rel.includes('/__tests__/') || /\.(?:test|spec)\.[^.]+$/.test(rel)
     },
     message: 'The root app/layout.tsx owns #main-content. Route and shared component sources must not render a nested <main>; use a neutral container instead.',
   },
