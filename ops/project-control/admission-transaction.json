@@ -1,19 +1,19 @@
 {
   "version": 1,
-  "ticket": 6000,
+  "ticket": 6002,
   "lane": "D",
-  "title": "ux: align footer and breadcrumbs with current site navigation",
+  "title": "a11y: remove nested main landmarks from route content",
   "priority": "P1",
-  "base_revision": "33553d368631dfe980813b657af3eb5c26caaecb",
+  "base_revision": "c458d9da00afdb2e13b91e683afbcc1d57b31bc2",
   "last_verified": "2026-09-27",
   "score_inputs": {
-    "businessImpact": 4,
+    "businessImpact": 3,
     "userValue": 5,
-    "trafficPotential": 4,
-    "strategicLeverage": 4,
+    "trafficPotential": 2,
+    "strategicLeverage": 5,
     "confidence": 1,
-    "effort": 3
+    "effort": 2
   },
-  "score": 106.7,
-  "note": "Exact-base admission for the bounded navigation-shell consistency repair. Shared Goals/Guides/Research vocabulary, comparison-hub ownership, and global footer cleanup only; no scientific, safety, route-deletion, indexing, or monetization mutation is authorized."
+  "score": 75,
+  "note": "Exact-base admission for the bounded accessibility repair that removes nested main landmarks from rendered app-route content while preserving root #main-content ownership, styling, layout, copy, and route behavior. Includes a source-level regression rule. No scientific, safety-content, indexing, monetization, or route mutation."
 }

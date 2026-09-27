@@ -48,12 +48,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 **2026-09-25 P0 #5941 — Resolved:** bounded Actions coordination repair merged via PR #5949 and no longer consumes an Operations exception or changes normal D/R/A admission.
 
-Current review state: **0/3 normal implementation workstreams occupied**. Discovery/SEO, Revenue/Conversion, and Authority/Content are free. #6000 / PR #6001 merged and is retired from active ownership. #5989 / PR #5990 and #5706 / PR #5971 are retired; #5081 remains separately blocked on its own lease.
+Current review state: **1/3 normal implementation workstreams occupied**. #6002 is admitted in Discovery/SEO on exact base `c458d9da00afdb2e13b91e683afbcc1d57b31bc2` for the bounded nested-main accessibility repair. Revenue/Conversion and Authority/Content remain free. #6000 / PR #6001, #5989 / PR #5990, and #5706 / PR #5971 are retired; #5081 remains separately blocked on its own lease.
 
 | Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
+| #6002 | a11y: remove nested main landmarks from route content | D | Admitted — implementation PR pending ownership handoff | P1 | 3/5/2/5/1.00/2 | 75.0 | Revalidated 2026-09-27 on exact base `c458d9da00afdb2e13b91e683afbcc1d57b31bc2` |
 
-- **D — free:** #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
+- **D — occupied:** #6002 owns the bounded nested-main accessibility repair; its implementation PR becomes the closing owner after admission merges. #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
 - **R — free:** #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
 - **A — free:** #5706 / PR #5971 is merged and retired; #5081 remains separately blocked on its own fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
