@@ -63,12 +63,6 @@ jobs:
       - name: Prepare fail-closed entity review workbook
         run: node scripts/ci/prepare-entity-row-review.mjs
 
-      - name: Validate manifest-backed runtime enrichment
-        env:
-          HERB_XLSX_PATH: reports/entity-row-review/herb_monograph_master.review.xlsx
-          ALLOW_EXTERNAL_WORKBOOK_PATH: 'true'
-        run: npx vitest run tests/runtime-enrichment.test.ts
-
       - name: Upload fail-closed entity review workbook
         uses: actions/upload-artifact@v7
         with:
@@ -80,42 +74,20 @@ jobs:
           retention-days: 7
           compression-level: 0
 
-      - name: Generate exact proposed compound runtime preview
-        env:
-          HERB_XLSX_PATH: reports/entity-row-review/herb_monograph_master.review.xlsx
-          ALLOW_EXTERNAL_WORKBOOK_PATH: 'true'
-        run: node scripts/data/build-runtime-from-workbook.mjs --out reports/proposed-compound-runtime
-
       - name: Upload exact proposed compound runtime preview
         uses: actions/upload-artifact@v7
         with:
           name: proposed-compound-runtime-preview
-          path: reports/proposed-compound-runtime/compounds.json
+          path: reports/entity-row-review/compounds.preview.json
           if-no-files-found: error
           retention-days: 7
           compression-level: 0
 
-      - name: Materialize reviewed proposal artifacts on trusted manual branch
-        if: >-
-          github.event_name == 'pull_request' &&
-          github.event.pull_request.head.repo.full_name == github.repository &&
-          startsWith(github.head_ref, 'manual/')
-        shell: bash
-        run: |
-          set -euo pipefail
-          cp reports/entity-row-review/herb_monograph_master.review.xlsx data-sources/herb_monograph_master.xlsx
-          cp reports/proposed-compound-runtime/compounds.json public/data/compounds.json
-
-          if git diff --quiet -- data-sources/herb_monograph_master.xlsx public/data/compounds.json; then
-            echo "Reviewed workbook/runtime already materialized."
-            exit 0
-          fi
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data-sources/herb_monograph_master.xlsx public/data/compounds.json
-          git commit -m "data(runtime): materialize reviewed proposal artifacts"
-          git push origin "HEAD:${{ github.head_ref }}"
+      - name: Validate manifest-backed runtime enrichment
+        env:
+          HERB_XLSX_PATH: reports/entity-row-review/herb_monograph_master.review.xlsx
+          ALLOW_EXTERNAL_WORKBOOK_PATH: 'true'
+        run: npx vitest run tests/runtime-enrichment.test.ts
 
       - name: Validate proposed compound runtime parity
         run: node scripts/ci/sync-proposed-compound-runtime.mjs
