@@ -92,6 +92,24 @@ Ledgers may add evidence and source-provenance rows for existing entities, descr
 
 Canonical materialization receipt: the reviewed workbook and exact generator-owned compound runtime were applied together; both new medication records remain fail-closed and outside indexing/promotion.
 
+
+## Sep. 27 buspirone / modafinil medication batch
+
+- Ledger: `2026-09-27-medication-buspirone-modafinil-enrichment.json`
+- Targets: `buspirone`, `modafinil`
+- 8 evidence rows
+- 8 source rows
+- 0 entity-context rows
+- 0 relationships
+- Both proposals remain Evidence-Limited / research-only / hidden-until-grounded; this batch stages governed evidence and does not promote indexing, sitemap inclusion, or monetization.
+- Buspirone evidence preserves molecule-vs-azapirone-class distinctions and the label's controlled long-term evidence ceiling beyond 3 to 4 weeks.
+- Modafinil evidence preserves narcolepsy / OSA / shift-work indication boundaries, the OSA underlying-obstruction limitation, serious-rash/hypersensitivity and psychiatric warnings, contraceptive interaction context, and Schedule IV status.
+- The batch is evidence-only and cannot carry publication/governance fields.
+
+`2026-09-27-medication-buspirone-modafinil-manifest.json` records the exact DailyMed and PubMed anchors, reviewed counts, append-only policy, and ledger hash.
+
+The workbook review workflow also emits an exact generated `compounds.json` preview from the fail-closed review workbook, so reviewed proposal materialization can reuse generator output instead of reconstructing runtime records manually.
+
 ## Regression contract
 
 `tests/runtime-enrichment.test.ts` validates every manifest-backed batch, verifies each digest before decoding, checks reviewed counts, requires globally unique evidence record IDs, allows repeat source identities to deduplicate deterministically across batches, enforces the entity-context allowlist, verifies virtual-workbook growth, and prevents every medication batch from carrying publication/governance fields.

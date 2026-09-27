@@ -78,6 +78,21 @@ jobs:
           retention-days: 7
           compression-level: 0
 
+      - name: Generate exact proposed compound runtime preview
+        env:
+          HERB_XLSX_PATH: reports/entity-row-review/herb_monograph_master.review.xlsx
+          ALLOW_EXTERNAL_WORKBOOK_PATH: 'true'
+        run: node scripts/data/build-runtime-from-workbook.mjs --out reports/proposed-compound-runtime
+
+      - name: Upload exact proposed compound runtime preview
+        uses: actions/upload-artifact@v7
+        with:
+          name: proposed-compound-runtime-preview
+          path: reports/proposed-compound-runtime/compounds.json
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 0
+
       - name: Validate proposed compound runtime parity
         run: node scripts/ci/sync-proposed-compound-runtime.mjs
 

@@ -314,5 +314,12 @@ describe('manifest-backed additive enrichment ledgers', () => {
     expect(fifth).toBeTruthy()
     expect(new Set(fifth!.ledger.evidence.map((row: any) => row.entity_slug)))
       .toEqual(new Set(['trazodone', 'hydroxyzine']))
+
+    const sixth = medicationBatches.find((batch) =>
+      batch.manifest.batch_id === '2026-09-27-medication-buspirone-modafinil',
+    )
+    expect(sixth).toBeTruthy()
+    expect(new Set(sixth!.ledger.evidence.map((row: any) => row.entity_slug)))
+      .toEqual(new Set(['buspirone', 'modafinil']))
   })
 })
