@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "ticket": 6035,
+  "ticket": 6041,
   "lane": "D",
-  "title": "Unify ingredient lookup across Herbs, Compounds, Search, and Evidence",
+  "title": "Unify Safety checker, guides, and education flow",
   "priority": "P1",
-  "base_revision": "f636b9720108f9078afda4795c369e18bfd9facb",
+  "base_revision": "be34dbde5f1e9e482b711324cbd1d683ff52ce4f",
   "last_verified": "2026-09-27",
   "score_inputs": {
     "businessImpact": 3,
@@ -15,5 +15,5 @@
     "effort": 3
   },
   "score": 75,
-  "note": "Exact-base admission for lookup-family consolidation. Herbs, Compounds, and Search become one lookup family; Evidence Lookup remains Research-owned as the explicit evidence-strength handoff. Stable URLs and scientific/evidence/safety/publication boundaries remain unchanged."
+  "note": "Exact-base admission for Safety-flow consolidation. Safety Checker remains the task entry point; interaction guides stay evidence-gated; educational interactions and the checklist become explicit supporting steps. Stable URLs and scientific/evidence/safety/publication boundaries remain unchanged."
 }

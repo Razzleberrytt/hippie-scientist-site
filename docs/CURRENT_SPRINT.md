@@ -5,7 +5,7 @@
 **Updated:** 2026-09-27
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** No normal implementation ticket is currently admitted. Normal implementation WIP is **0/3**; Discovery/SEO, Revenue/Conversion, and Authority/Content are free. #6035 closed after PR #6038 merged as `1c9277714cce080f3f85ba1586b9f626beca7fd1`. #5081 remains separately blocked on its own governor prerequisite.
+**Current admission:** #6041 is admitted as the sole Discovery/SEO implementation item on exact base `be34dbde5f1e9e482b711324cbd1d683ff52ce4f`. Normal implementation WIP is **1/3**. Revenue/Conversion and Authority/Content remain free. Scope: unify the Safety Checker, interaction guides, educational interactions framework, and safety checklist into one coherent safety flow while preserving stable URLs and all scientific/evidence/safety/publication boundaries. #5081 remains separately blocked on its own governor prerequisite.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -55,8 +55,9 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Lane | Ticket | Title | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
+| D | #6041 | Unify Safety checker, guides, and education flow | Admitted — implementation PR may now claim ownership | P1 | 75.0 | Revalidated 2026-09-27 on exact base `be34dbde5f1e9e482b711324cbd1d683ff52ce4f`; BI 3 / UV 5 / TP 3 / SL 5 / C 1.00 / E 3 |
 
-- **Discovery/SEO:** free; #6035 / PR #6038 is merged and retired. #6031 / PR #6033 is merged and retired. #6024 / PR #6028 is merged and retired. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
+- **Discovery/SEO:** occupied by admitted #6041; an implementation PR may claim ownership only after this admission transaction merges. #6035 / PR #6038 is merged and retired. #6031 / PR #6033 is merged and retired. #6024 / PR #6028 is merged and retired. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
 - **Revenue/Conversion:** free; #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
 - **Authority/Content:** free after #5706 / PR #5971 merged and retired. #5081 remains separately blocked on its own non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
