@@ -70,7 +70,7 @@ export default async function BotanicalAtlasCategoryPage({ params }: PageProps) 
   })
 
   return (
-    <main className='mx-auto max-w-7xl space-y-8 px-4 py-8 sm:py-10'>
+    <div className='mx-auto max-w-7xl space-y-8 px-4 py-8 sm:py-10'>
       <SchemaGraphScript graph={schemaGraph} />
 
       <nav aria-label='Breadcrumb' className='text-sm text-muted'>
@@ -113,6 +113,6 @@ export default async function BotanicalAtlasCategoryPage({ params }: PageProps) 
         <p className='font-bold text-ink'>Educational use only</p>
         <p className='mt-1.5'>These comparisons summarize normalized reference data. They do not verify a commercial product, establish a dose, diagnose a condition, or determine whether a botanical is safe for an individual.</p>
       </section>
-    </main>
+    </div>
   )
 }
