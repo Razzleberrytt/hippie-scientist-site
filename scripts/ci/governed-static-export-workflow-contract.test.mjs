@@ -51,7 +51,7 @@ describe('governed static export workflow topology', () => {
       expect(workflow).toContain('pull_request:')
       expect(workflow).toContain("github.event_name == 'workflow_dispatch'")
       expect(workflow).toContain("github.event_name == 'pull_request'")
-      expect(workflow).toContain("(inputs.producer_sha == '' || github.sha == inputs.producer_sha)")
+      expect(workflow).toMatch(/if: \(.+github\.event_name.+\) && \(inputs\.producer_sha == '' \|\| github\.sha == inputs\.producer_sha\)/)
       expect(workflow).toContain('Reject stale producer dispatch')
       expect(workflow).toContain('Download governed static export')
       expect(workflow).toContain('Verify governed static export receipt')
