@@ -9,7 +9,7 @@ import EvidenceLookupClient, { type LookupCompound } from './EvidenceLookupClien
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Supplement Evidence Lookup — Search Compounds by Clinical Evidence Grade',
-  description: 'Search herbs and compounds by evidence grade, from human clinical support to mechanism-only data. Compare what has real evidence with what remains preliminary.',
+  description: 'Search compounds by evidence grade, from human clinical support to mechanism-only data. Compare stronger human evidence with preliminary or mechanism-only records.',
   path: '/evidence/evidence-checker/',
 })
 
