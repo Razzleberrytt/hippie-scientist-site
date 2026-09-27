@@ -14,7 +14,7 @@ export default async function EvidenceMatricesPage() {
   const rows = await getResearchMatrixRows()
 
   return (
-    <main className='mx-auto max-w-7xl space-y-8 px-4 py-8 sm:py-10'>
+    <div className='mx-auto max-w-7xl space-y-8 px-4 py-8 sm:py-10'>
       <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8'>
         <p className='eyebrow-label'>Research comparison tool</p>
         <h1 className='mt-2 text-3xl font-bold tracking-tight text-ink sm:text-5xl'>Supplement Evidence & Safety Matrices</h1>
@@ -31,6 +31,6 @@ export default async function EvidenceMatricesPage() {
       <ResearchMatricesClient rows={rows} />
 
       <section className='rounded-2xl border border-brand-900/10 bg-white/80 p-5 text-xs leading-relaxed text-muted'><p className='font-bold text-ink'>Educational research tool</p><p className='mt-1.5'>These matrices summarize structured reference data. They do not diagnose conditions, choose treatment, establish pregnancy safety, or determine whether a medication-supplement combination is appropriate for an individual.</p></section>
-    </main>
+    </div>
   )
 }

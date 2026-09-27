@@ -29,7 +29,7 @@ export default async function LeadMagnetResourcePage({ params }: PageProps) {
   if (!offer) notFound()
 
   return (
-    <main className='mx-auto max-w-5xl space-y-8 px-4 py-8 sm:py-10'>
+    <div className='mx-auto max-w-5xl space-y-8 px-4 py-8 sm:py-10'>
       <nav aria-label='Breadcrumb' className='text-sm text-muted'>
         <Link href='/' className='font-semibold text-indigo-800 hover:underline'>Home</Link>
         <span aria-hidden='true' className='mx-2'>/</span>
@@ -75,6 +75,6 @@ export default async function LeadMagnetResourcePage({ params }: PageProps) {
         <Link href='/safety-checker/' className='text-indigo-800 hover:underline'>Open the Safety Checker →</Link>
         <Link href='/learn/product-quality/' className='text-indigo-800 hover:underline'>Review product-quality criteria →</Link>
       </section>
-    </main>
+    </div>
   )
 }
