@@ -195,7 +195,7 @@ export default function GuidesHub() {
       ))}
 
       <AtlasComparisonCallout
-        title="Want to compare botanicals instead of reading one guide at a time?"
+        title="Compare botanicals across anxiety, sleep, and focus goals"
         description="Use the Botanical Activity Atlas to filter the structured library by calming, sleep-related, stimulating, cognition, chemistry, evidence strength, noticeability, and safety signals."
         href="/tools/botanical-activity-atlas/?sort=evidence"
         cta="Compare botanicals by evidence"
@@ -207,7 +207,7 @@ export default function GuidesHub() {
         <p className="eyebrow-label">Looking for one ingredient?</p>
         <h2 id="reference-databases-heading" className="compact-heading mt-3">Use the reference databases instead</h2>
         <p className="mx-auto mt-3 max-w-3xl text-sm leading-6 text-[color:var(--hs-body)] sm:text-base">
-          Guides answer broader questions. The herb and compound databases are faster when you already know the ingredient you want to look up.
+          Guides answer broader questions. Browse the published herb and compound libraries when you already know the ingredient you want to look up. We keep source inventory separate from what readers can actually browse.
         </p>
         <div className="mt-5 flex flex-col justify-center gap-3 sm:flex-row">
           <Link href="/herbs/" className="button-primary inline-flex min-h-11 items-center justify-center px-6 py-2.5 text-sm font-semibold">
