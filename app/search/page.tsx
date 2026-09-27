@@ -11,9 +11,9 @@ const GlobalSearch = dynamic(() => import('@/components/search/GlobalSearch'), {
 })
 
 export const metadata: Metadata = {
-  title: 'Search The Hippie Scientist',
+  title: 'Search Profiles & Learning | The Hippie Scientist',
   description:
-    'Search herb and compound profiles, guides, and educational content by name, goal, mechanism, evidence, or safety context.',
+    'Search herb and compound profiles plus educational content by name, goal, mechanism, evidence, or safety context.',
   alternates: {
     canonical: '/search/',
   },
@@ -41,9 +41,9 @@ export default function SearchPage() {
 
       <header className='hero-shell rounded-[2rem] border px-5 py-6 sm:p-8 lg:p-10'>
         <p className='eyebrow-label'>Lookup utility</p>
-        <h1 className='heading-premium mt-5 max-w-4xl'>Search the site</h1>
+        <h1 className='heading-premium mt-5 max-w-4xl'>Search profiles & learning</h1>
         <p className='text-reading mt-4 max-w-3xl'>
-          Search across herb and compound profiles, guides, and educational pages. Use the dedicated Herb or Compound indexes when you want structured filters; use Evidence strength when the research tier is the question.
+          Search across herb and compound profiles plus educational pages. For topic-based guidance and practical decisions, use Guides. Use the dedicated Herb or Compound indexes when you want structured filters; use Evidence strength when the research tier is the question.
         </p>
       </header>
 

@@ -6,9 +6,11 @@ import { getActivePrimaryNavigationItem } from '../../lib/primary-navigation'
 const read = (path: string) => readFileSync(resolve(process.cwd(), path), 'utf8')
 
 describe('ingredient lookup information architecture', () => {
-  it('shares lookup navigation across Herbs, Compounds, Search, and Evidence Lookup', () => {
+  it('shares lookup navigation across first and paginated Herbs and Compounds plus Search and Evidence Lookup', () => {
     expect(read('app/herbs/page.tsx')).toContain("LookupFamilyNav active='herbs'")
+    expect(read('app/herbs/page/[page]/page.tsx')).toContain("LookupFamilyNav active='herbs'")
     expect(read('app/compounds/page.tsx')).toContain("LookupFamilyNav active='compounds'")
+    expect(read('app/compounds/page/[page]/page.tsx')).toContain("LookupFamilyNav active='compounds'")
     expect(read('app/search/page.tsx')).toContain("LookupFamilyNav active='search'")
     expect(read('app/evidence/evidence-checker/page.tsx')).toContain("LookupFamilyNav active='evidence'")
   })
@@ -25,7 +27,20 @@ describe('ingredient lookup information architecture', () => {
     expect(search).not.toContain('Research tools')
   })
 
-  it('owns sitewide search under Ingredients while Evidence Lookup remains Research-owned', () => {
+  it('describes Search according to the content actually present in the search index', () => {
+    const search = read('app/search/page.tsx')
+    const lookupNav = read('components/navigation/LookupFamilyNav.tsx')
+    const primaryNav = read('lib/primary-navigation.ts')
+
+    expect(search).toContain('Search profiles & learning')
+    expect(search).toContain('herb and compound profiles plus educational pages')
+    expect(search).not.toContain('profiles, guides, and educational')
+    expect(lookupNav).toContain("label: 'Search'")
+    expect(lookupNav).not.toContain("label: 'Search all'")
+    expect(primaryNav).toContain("label: 'Search profiles & learning'")
+  })
+
+  it('owns search under Ingredients while Evidence Lookup remains Research-owned', () => {
     expect(getActivePrimaryNavigationItem('/search/')?.label).toBe('Ingredients')
     expect(getActivePrimaryNavigationItem('/evidence/evidence-checker/')?.label).toBe('Research')
   })

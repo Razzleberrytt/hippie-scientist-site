@@ -23,9 +23,9 @@ const lookupItems: Array<{
   },
   {
     id: 'search',
-    label: 'Search all',
+    label: 'Search',
     href: '/search/',
-    description: 'Search across profiles, guides, and educational content.',
+    description: 'Search profiles and educational content by name, goal, mechanism, or safety context.',
   },
   {
     id: 'evidence',

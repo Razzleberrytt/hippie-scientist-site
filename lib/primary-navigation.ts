@@ -52,7 +52,7 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     children: [
       { label: 'Herb database', href: '/herbs' },
       { label: 'Compound database', href: '/compounds' },
-      { label: 'Search all', href: '/search' },
+      { label: 'Search profiles & learning', href: '/search' },
     ],
   },
   {
