@@ -5,7 +5,7 @@
 **Updated:** 2026-09-27
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #5989 is admitted as the sole Discovery/SEO implementation item on exact base `eb7542afecd2acbf6bc8bd91a892ae0676a4a589`. Normal implementation WIP is **1/3**. Revenue/Conversion and Authority/Content remain free. The admitted scope is the bounded global-navigation and guide-discovery repair; no scientific, evidence-grade, safety, publication, indexing, or monetization mutation is authorized. #5081 remains separately blocked on its own governor prerequisite.
+**Current admission:** #5989 / PR #5990 is the sole active Discovery/SEO implementation item, admitted on exact base `eb7542afecd2acbf6bc8bd91a892ae0676a4a589` and now in review. Normal implementation WIP is **1/3**. Revenue/Conversion and Authority/Content remain free. The admitted scope is the bounded global-navigation and guide-discovery repair; no scientific, evidence-grade, safety, publication, indexing, or monetization mutation is authorized. #5081 remains separately blocked on its own governor prerequisite.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -55,9 +55,9 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Lane | Ticket | Title | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #5989 | Simplify global navigation and guide discovery | Admitted — implementation PR pending ownership handoff | Owner-directed P0 UX/navigation | 106.7 | Revalidated 2026-09-27 on exact base `eb7542afecd2acbf6bc8bd91a892ae0676a4a589`; BI 4 / UV 5 / TP 4 / SL 4 / C 1.00 / E 3 |
+| D | #5989 / PR #5990 | Simplify global navigation and guide discovery | In review | Owner-directed P0 UX/navigation | 106.7 | Revalidated 2026-09-27 on exact base `eb7542afecd2acbf6bc8bd91a892ae0676a4a589`; BI 4 / UV 5 / TP 4 / SL 4 / C 1.00 / E 3; final exact-head control/UI/CI/link/SEO gates required |
 
-- **Discovery/SEO:** occupied by admitted #5989; implementation PR #5990 becomes the owning closing PR only after this admission transaction merges. #5688 / PR #5691 is merged and retired.
+- **Discovery/SEO:** occupied by #5989 / PR #5990 for the bounded navigation and guide-discovery repair. #5688 / PR #5691 is merged and retired. No second Discovery/SEO implementation item may be admitted until #5989 merges, closes, or is explicitly retired.
 - **Revenue/Conversion:** free; #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
 - **Authority/Content:** free after #5706 / PR #5971 merged and retired. #5081 remains separately blocked on its own non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
@@ -89,7 +89,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 ## Ready next — strict dependency order
 
-Discovery/SEO is occupied by #5989 until its bounded implementation is terminally completed or explicitly retired. Revenue/Conversion and Authority/Content are available. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
+Discovery/SEO is occupied by #5989 / PR #5990 until its bounded implementation is terminally completed or explicitly retired. Revenue/Conversion and Authority/Content are available. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
 
 ### Blocked or deferred candidates
 
