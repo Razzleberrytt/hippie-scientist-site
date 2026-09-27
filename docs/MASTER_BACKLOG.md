@@ -48,13 +48,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 **2026-09-25 P0 #5941 — Resolved:** bounded Actions coordination repair merged via PR #5949 and no longer consumes an Operations exception or changes normal D/R/A admission.
 
-Current review state: **1/3 normal implementation workstreams occupied**. #6031 is admitted in Discovery/SEO on exact base `0056e3032b76e2954fab11dfea788a5bbef2bf3d` for Guides/Learn/Articles discovery consolidation. Revenue/Conversion and Authority/Content remain free. #6024 / PR #6028 is merged and retired. Revenue/Conversion and Authority/Content remain free. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5706 / PR #5971 are retired; #5081 remains separately blocked on its own lease.
+Current review state: **1/3 normal implementation workstreams occupied**. #6031 / PR #6033 owns the admitted Discovery/SEO implementation on exact admission base `0056e3032b76e2954fab11dfea788a5bbef2bf3d` for Guides/Learn/Articles discovery consolidation. Revenue/Conversion and Authority/Content remain free. #6024 / PR #6028 is merged and retired. Revenue/Conversion and Authority/Content remain free. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5706 / PR #5971 are retired; #5081 remains separately blocked on its own lease.
 
 | Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6031 | Consolidate Guides, Learn, and Articles discovery | D | Admitted — implementation PR may now claim ownership | P1 | 3/5/3/5/1.00/3 | 75.0 | Revalidated 2026-09-27 on exact base `0056e3032b76e2954fab11dfea788a5bbef2bf3d` |
+| #6031 / PR #6033 | Consolidate Guides, Learn, and Articles discovery | D | In review | P1 | 3/5/3/5/1.00/3 | 75.0 | Revalidated 2026-09-27 on exact base `0056e3032b76e2954fab11dfea788a5bbef2bf3d` |
 
-- **D — occupied:** #6031 owns the bounded Guides/Learn/Articles discovery consolidation after this admission transaction merges. #6024 / PR #6028 is merged and retired. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
+- **D — occupied:** #6031 / PR #6033 owns the bounded Guides/Learn/Articles discovery consolidation. #6024 / PR #6028 is merged and retired. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
 - **R — free:** #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
 - **A — free:** #5706 / PR #5971 is merged and retired; #5081 remains separately blocked on its own fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
