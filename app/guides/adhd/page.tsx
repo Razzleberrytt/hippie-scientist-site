@@ -177,7 +177,7 @@ export default function AdhdGuideIndex() {
   return (
     <div className="mx-auto max-w-4xl px-4 pb-24 pt-8">
       <SchemaGraphScript graph={schemaGraph} />
-      <nav className="text-xs text-muted mb-4">
+      <nav aria-label="Breadcrumb" className="text-xs text-muted mb-4">
         <Link href="/guides/" className="hover:text-ink">Guides</Link>
         <span className="mx-1.5">/</span>
         <span className="text-ink font-medium">ADHD</span>
