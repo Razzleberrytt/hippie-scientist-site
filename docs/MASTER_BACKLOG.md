@@ -48,12 +48,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 **2026-09-25 P0 #5941 — Resolved:** bounded Actions coordination repair merged via PR #5949 and no longer consumes an Operations exception or changes normal D/R/A admission.
 
-Current review state: **0/3 normal implementation workstreams occupied**. Discovery/SEO, Revenue/Conversion, and Authority/Content are free. #6031 / PR #6033 is merged and retired as `6ab7cc95800a14f0dc3df159ac298c6a2c752f8c`. #6024 / PR #6028 is merged and retired. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5706 / PR #5971 are retired; #5081 remains separately blocked on its own lease.
+Current review state: **1/3 normal implementation workstreams occupied**. #6035 is admitted in Discovery/SEO on exact base `f636b9720108f9078afda4795c369e18bfd9facb` for ingredient lookup consolidation. Revenue/Conversion and Authority/Content remain free. #6031 / PR #6033 is merged and retired as `6ab7cc95800a14f0dc3df159ac298c6a2c752f8c`. #6024 / PR #6028 is merged and retired. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5706 / PR #5971 are retired; #5081 remains separately blocked on its own lease.
 
 | Ticket | Title | Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
+| #6035 | Unify ingredient lookup across Herbs, Compounds, Search, and Evidence | D | Admitted — implementation PR may now claim ownership | P1 | 3/5/3/5/1.00/3 | 75.0 | Revalidated 2026-09-27 on exact base `f636b9720108f9078afda4795c369e18bfd9facb` |
 
-- **D — free:** #6031 / PR #6033 is merged and retired. #6024 / PR #6028 is merged and retired. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
+- **D — occupied:** #6035 owns the bounded ingredient lookup consolidation after this admission transaction merges. #6031 / PR #6033 is merged and retired. #6024 / PR #6028 is merged and retired. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
 - **R — free:** #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
 - **A — free:** #5706 / PR #5971 is merged and retired; #5081 remains separately blocked on its own fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
@@ -68,7 +69,7 @@ Research-only enrichment staging remains separate from canonical implementation/
 
 ## Next — ordered dependency queue
 
-Discovery/SEO, Revenue/Conversion, and Authority/Content are available. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
+Discovery/SEO is occupied by #6035. Revenue/Conversion and Authority/Content are available. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
