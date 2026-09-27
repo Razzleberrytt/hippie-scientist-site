@@ -29,6 +29,15 @@ The site has five primary user destinations. Content types and implementation ro
 - A hub should answer “where do I go next?” in one screenful before adding secondary context.
 - Detailed datasets, long card grids, and full indexes belong on dedicated pages, not duplicated across multiple hubs.
 
+### Editorial family
+
+- **Guides** is the front door for health topics, comparisons, and practical decisions.
+- **Learn** is the front door for concepts, evidence literacy, neuroscience, mechanisms, and educational context.
+- **Articles** is the archive for research notes, evidence reviews, regulatory updates, and editorial reading.
+- Guides, Learn, and Articles share local navigation so users can switch content modes without mistaking them for unrelated site sections.
+- Existing utility URLs under `/learn/*` remain stable, but Research or Safety owns their primary-navigation state when their job is verification, modeling, methodology, or safety rather than education.
+- Exhaustive route inventories may remain available in compact or collapsed indexes; above-the-fold hub content should stay curated.
+
 ## Cleanup sequence
 
 1. Establish route ownership and global page-experience policy.
