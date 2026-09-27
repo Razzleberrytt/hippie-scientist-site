@@ -5,7 +5,7 @@
 **Updated:** 2026-09-27
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** No normal implementation ticket is currently admitted. Normal implementation WIP is **0/3**; Discovery/SEO, Revenue/Conversion, and Authority/Content are free. #6031 closed after PR #6033 merged as `6ab7cc95800a14f0dc3df159ac298c6a2c752f8c`. #5081 remains separately blocked on its own governor prerequisite.
+**Current admission:** #6035 is admitted as the sole Discovery/SEO implementation item on exact base `f636b9720108f9078afda4795c369e18bfd9facb`. Normal implementation WIP is **1/3**. Revenue/Conversion and Authority/Content remain free. Scope: unify Herbs, Compounds, Search, and the Evidence Lookup handoff into one coherent lookup flow while preserving stable URLs and scientific/evidence/safety/publication boundaries. #5081 remains separately blocked on its own governor prerequisite.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -55,8 +55,9 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Lane | Ticket | Title | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
+| D | #6035 | Unify ingredient lookup across Herbs, Compounds, Search, and Evidence | Admitted — implementation PR may now claim ownership | P1 | 75.0 | Revalidated 2026-09-27 on exact base `f636b9720108f9078afda4795c369e18bfd9facb`; BI 3 / UV 5 / TP 3 / SL 5 / C 1.00 / E 3 |
 
-- **Discovery/SEO:** free; #6031 / PR #6033 is merged and retired. #6024 / PR #6028 is merged and retired. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
+- **Discovery/SEO:** occupied by admitted #6035; an implementation PR may claim ownership only after this admission transaction merges. #6031 / PR #6033 is merged and retired. #6024 / PR #6028 is merged and retired. #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
 - **Revenue/Conversion:** free; #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
 - **Authority/Content:** free after #5706 / PR #5971 merged and retired. #5081 remains separately blocked on its own non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
@@ -98,7 +99,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 ## Ready next — strict dependency order
 
-Discovery/SEO, Revenue/Conversion, and Authority/Content are available. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
+Discovery/SEO is occupied by #6035. Revenue/Conversion and Authority/Content are available. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
 
 ### Blocked or deferred candidates
 
