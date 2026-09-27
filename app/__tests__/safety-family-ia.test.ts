@@ -9,9 +9,18 @@ describe('safety family information architecture', () => {
   it('keeps shared safety navigation across the core flow and guide details', () => {
     expect(read('app/safety-checker/page.tsx')).toContain("SafetyFamilyNav active='checker'")
     expect(read('app/safety-checker/interactions/page.tsx')).toContain("SafetyFamilyNav active='guides'")
-    expect(read('app/safety-checker/interactions/[slug]/page.tsx')).toContain("SafetyFamilyNav active='guides'")
+    expect(read('app/safety-checker/interactions/[slug]/page.tsx')).toContain("SafetyFamilyNav active='guides' currentPage={null}")
     expect(read('app/learn/interactions/page.tsx')).toContain("SafetyFamilyNav active='learn'")
     expect(read('app/info/supplement-safety-checklist/page.tsx')).toContain("SafetyFamilyNav active='checklist'")
+  })
+
+  it('keeps the parent guide visually highlighted without falsely marking it as the exact current detail page', () => {
+    const nav = read('components/navigation/SafetyFamilyNav.tsx')
+    const detail = read('app/safety-checker/interactions/[slug]/page.tsx')
+
+    expect(nav).toContain("currentPage?: SafetyFamilySurface | null")
+    expect(nav).toContain("item.id === exactCurrentPage ? 'page' : undefined")
+    expect(detail).toContain("SafetyFamilyNav active='guides' currentPage={null}")
   })
 
   it('preserves evidence gating and educational boundaries', () => {

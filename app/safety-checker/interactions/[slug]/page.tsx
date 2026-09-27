@@ -37,7 +37,7 @@ export default async function SafetyPairGuidePage({ params }: PageProps) {
     <div className='mx-auto max-w-4xl space-y-8 px-4 py-8 sm:py-10'>
       <nav aria-label='Breadcrumb' className='text-sm text-muted'><Link href='/safety-checker/' className='font-semibold text-indigo-800 hover:underline'>Safety Checker</Link><span aria-hidden='true' className='mx-2'>/</span><Link href='/safety-checker/interactions/' className='font-semibold text-indigo-800 hover:underline'>Interaction guides</Link></nav>
 
-      <SafetyFamilyNav active='guides' />
+      <SafetyFamilyNav active='guides' currentPage={null} />
 
       <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8'>
         <p className='eyebrow-label'>Editorial interaction review</p>

@@ -34,7 +34,15 @@ const safetyItems: Array<{
   },
 ]
 
-export default function SafetyFamilyNav({ active }: { active: SafetyFamilySurface }) {
+export default function SafetyFamilyNav({
+  active,
+  currentPage,
+}: {
+  active: SafetyFamilySurface
+  currentPage?: SafetyFamilySurface | null
+}) {
+  const exactCurrentPage = currentPage === undefined ? active : currentPage
+
   return (
     <nav
       aria-label='Safety research options'
@@ -47,7 +55,7 @@ export default function SafetyFamilyNav({ active }: { active: SafetyFamilySurfac
             <Link
               key={item.id}
               href={item.href}
-              aria-current={isActive ? 'page' : undefined}
+              aria-current={item.id === exactCurrentPage ? 'page' : undefined}
               className={
                 isActive
                   ? 'rounded-xl border border-brand-700/20 bg-brand-50 p-4'
