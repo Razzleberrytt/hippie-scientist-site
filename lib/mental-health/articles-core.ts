@@ -507,7 +507,7 @@ export const coreMentalHealthArticles: MentalHealthArticle[] = [
       },
     ],
     references: [DSM_5_TR, WHO_ICD11_CDDR, NIMH_BPD, NICE_BPD, BPD_JAMA_REVIEW, BPD_PSYCH_COCHRANE, BPD_PHARM_COCHRANE, BPD_META_ANALYSIS],
-  },,
+  },
   {
     slug: 'avoidant-borderline-personality-disorders-couples',
     title: 'Avoidant and Borderline Personality Disorders in Couples: What the Research Actually Shows',
