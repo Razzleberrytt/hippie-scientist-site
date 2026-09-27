@@ -19,6 +19,17 @@ describe('shared footer hydration boundary', () => {
     expect(footer).toContain('isAnalyticsRouteEnabled()')
   })
 
+  it('keeps footer discovery aligned with the canonical navigation hierarchy', () => {
+    const footer = read('components/Footer.tsx')
+
+    expect(footer).toContain("{ href: PUBLIC_ROUTES.guides, label: 'Guides' }")
+    expect(footer).toContain("{ href: PUBLIC_ROUTES.research, label: 'Research' }")
+    expect(footer).not.toContain("{ href: '/guides/compare/', label: 'Compare' }")
+    expect(footer).not.toContain('Turmeric vs Curcumin')
+    expect(footer).not.toContain('Research trends')
+    expect(footer).not.toContain("{ href: PUBLIC_ROUTES.articles, label: 'Research' }")
+  })
+
   it('isolates privacy interaction and lazy dialog loading in the small client island', () => {
     const controls = read('components/FooterConsentControls.tsx')
 
