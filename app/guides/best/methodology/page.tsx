@@ -12,7 +12,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function BestGuideMethodologyPage() {
   return (
-    <main className='mx-auto max-w-5xl space-y-8 px-4 py-8 sm:py-10'>
+    <div className='mx-auto max-w-5xl space-y-8 px-4 py-8 sm:py-10'>
       <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8'>
         <p className='eyebrow-label'>Ranking methodology</p>
         <h1 className='mt-2 text-3xl font-bold tracking-tight text-ink sm:text-5xl'>“Best” starts with the evidence, not the product carousel</h1>
@@ -40,6 +40,6 @@ export default function BestGuideMethodologyPage() {
       <BuyingQualityPrimer />
 
       <section className='rounded-2xl border border-brand-900/10 bg-brand-50/60 p-5'><h2 className='text-xl font-bold text-ink'>Required page order</h2><p className='mt-2 text-sm leading-6 text-muted'>Direct answer → ingredient evidence table → inclusion/exclusion rationale → safety and studied-form context → product-quality criteria → optional commercial product examples. Affiliate modules never come before the evidence needed to understand why an ingredient belongs on the page.</p><Link href='/guides/best/' className='mt-4 inline-flex font-bold text-indigo-800 hover:underline'>Browse best-supplement guides →</Link></section>
-    </main>
+    </div>
   )
 }

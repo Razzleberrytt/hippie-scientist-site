@@ -33,7 +33,7 @@ export default async function SafetyPairGuidePage({ params }: PageProps) {
   const checkerSearch = `?items=herb:${guide.ingredientSlug}&meds=${guide.counterpartId}`
 
   return (
-    <main className='mx-auto max-w-4xl space-y-8 px-4 py-8 sm:py-10'>
+    <div className='mx-auto max-w-4xl space-y-8 px-4 py-8 sm:py-10'>
       <nav aria-label='Breadcrumb' className='text-sm text-muted'><Link href='/safety-checker/' className='font-semibold text-indigo-800 hover:underline'>Safety Checker</Link><span aria-hidden='true' className='mx-2'>/</span><Link href='/safety-checker/interactions/' className='font-semibold text-indigo-800 hover:underline'>Interaction guides</Link></nav>
 
       <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8'>
@@ -59,6 +59,6 @@ export default async function SafetyPairGuidePage({ params }: PageProps) {
       <section className='rounded-2xl border border-indigo-900/10 bg-indigo-50/50 p-5'><h2 className='text-xl font-bold text-ink'>Screen this combination</h2><p className='mt-2 text-sm leading-6 text-muted'>Open the interactive checker with only the public ingredient slug and medication-class ID preselected. The URL does not contain personal medical information.</p><Link href={`/safety-checker/${checkerSearch}`} className='mt-4 inline-flex rounded-full bg-indigo-950 px-4 py-2 text-sm font-bold text-white'>Open prefilled Safety Checker →</Link></section>
 
       <section className='rounded-2xl border border-rose-900/15 bg-rose-50/50 p-5 text-xs leading-5 text-rose-950'><strong>Educational use only.</strong> This interaction review cannot determine whether a specific medication regimen is safe for an individual or replace medication-specific review by a pharmacist or clinician.</section>
-    </main>
+    </div>
   )
 }

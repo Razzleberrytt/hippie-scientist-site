@@ -111,18 +111,18 @@ export default function OnDemandComparisonClient() {
 
   if (state !== 'ready') {
     return (
-      <main className='container-page mx-auto max-w-3xl py-12'>
+      <div className='container-page mx-auto max-w-3xl py-12'>
         <div className='rounded-[1.5rem] border border-brand-900/10 bg-white p-7 shadow-sm'>
           <h1 className='text-3xl font-bold text-ink'>Choose two valid ingredients to compare.</h1>
           <p className='mt-3 text-sm leading-7 text-muted'>This on-demand tool only compares canonical public ingredient profiles. Return to search and select two profiles.</p>
           <Link href='/search/' className='mt-5 inline-flex rounded-full bg-brand-800 px-5 py-2.5 text-sm font-bold text-white'>Return to search</Link>
         </div>
-      </main>
+      </div>
     )
   }
 
   return (
-    <main className='container-page mx-auto max-w-6xl space-y-7 py-10 sm:py-14'>
+    <div className='container-page mx-auto max-w-6xl space-y-7 py-10 sm:py-14'>
       <header className='rounded-[2rem] border border-brand-900/10 bg-white/95 p-6 shadow-sm sm:p-9'>
         <p className='eyebrow-label'>On-demand comparison</p>
         <h1 className='mt-2 text-4xl font-bold tracking-tight text-ink sm:text-5xl'>{items[0].name} vs {items[1].name}</h1>
@@ -136,6 +136,6 @@ export default function OnDemandComparisonClient() {
       <section className='rounded-2xl border border-amber-900/15 bg-amber-50/60 p-5 text-sm leading-7 text-amber-950'>
         <strong>Interpretation limit:</strong> differences in mechanisms, evidence labels, or safety notes do not establish which option is appropriate for an individual. Use the full profiles and source citations for deeper review.
       </section>
-    </main>
+    </div>
   )
 }

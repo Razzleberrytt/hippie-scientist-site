@@ -11,7 +11,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function InteractionGuidesPage() {
   return (
-    <main className='mx-auto max-w-5xl space-y-8 px-4 py-8 sm:py-10'>
+    <div className='mx-auto max-w-5xl space-y-8 px-4 py-8 sm:py-10'>
       <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8'>
         <p className='eyebrow-label'>Evidence-gated safety content</p>
         <h1 className='mt-2 text-3xl font-bold tracking-tight text-ink sm:text-5xl'>Interaction Guides</h1>
@@ -23,6 +23,6 @@ export default function InteractionGuidesPage() {
       </section>
 
       <section className='rounded-2xl border border-brand-900/10 bg-brand-50/50 p-5 text-sm leading-6 text-muted'>Need a combination that is not listed? Use the <Link href='/safety-checker/' className='font-bold text-indigo-800 underline'>interactive Safety Checker</Link>. A dynamic result is a screening aid, not an editorially verified interaction guide.</section>
-    </main>
+    </div>
   )
 }

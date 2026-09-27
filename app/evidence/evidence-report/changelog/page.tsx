@@ -12,7 +12,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function EvidenceDatasetChangelogPage() {
   return (
-    <main className="container-page mx-auto max-w-4xl space-y-8 py-10">
+    <div className="container-page mx-auto max-w-4xl space-y-8 py-10">
       <section className="hero-shell rounded-[2rem] border p-6 sm:p-8">
         <p className="eyebrow-label">Version history</p>
         <h1 className="heading-premium mt-3">Evidence dataset changelog</h1>
@@ -39,6 +39,6 @@ export default function EvidenceDatasetChangelogPage() {
           </article>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

@@ -147,7 +147,7 @@ export default function MentalHealthGuidesHub() {
   }
 
   return (
-    <main className="mx-auto max-w-6xl px-4 pb-24 pt-8 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-6xl px-4 pb-24 pt-8 sm:px-6 lg:px-8">
       <JsonLd schema={collectionLd} />
       <JsonLd schema={itemListLd} />
       <JsonLd schema={breadcrumbLd} />
@@ -294,6 +294,6 @@ export default function MentalHealthGuidesHub() {
           </ul>
         </div>
       </section>
-    </main>
+    </div>
   )
 }
