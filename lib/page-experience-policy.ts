@@ -52,6 +52,9 @@ const RESEARCH_SURFACE_PREFIXES = [
 ]
 
 const NON_EDITORIAL_INFO = new Set([
+  '/privacy',
+  '/terms',
+  '/corrections',
   '/info/about',
   '/info/author',
   '/info/contact',
