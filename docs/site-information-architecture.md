@@ -28,6 +28,7 @@ The site has five primary user destinations. Content types and implementation ro
 - Global breadcrumbs, TOCs, and lead magnets are not default decoration. They render only where the page role benefits from them.
 - A hub should answer “where do I go next?” in one screenful before adding secondary context.
 - Detailed datasets, long card grids, and full indexes belong on dedicated pages, not duplicated across multiple hubs.
+- **Ingredients lookup family:** `/herbs/`, `/compounds/`, and `/search/` share one local lookup navigation. `/evidence/evidence-checker/` is the Research-owned evidence-strength handoff, not a competing ingredient directory. Herb/compound indexes stay profile-focused; goal-based decisions belong in Guides.
 
 ### Editorial family
 

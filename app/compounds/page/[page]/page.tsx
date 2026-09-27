@@ -9,6 +9,7 @@ import { getCompoundName } from '../../library-selector'
 import CompoundsIndexClient from '../../CompoundsIndexClient'
 import type { RuntimeRecord } from '../../../../types/content'
 import Pagination from '@/components/Pagination'
+import LookupFamilyNav from '@/components/navigation/LookupFamilyNav'
 
 type P = {
   params: Promise<{ page: string }>
@@ -60,6 +61,8 @@ export default async function CompoundsPageN({ params }: P) {
           Browse evidence, mechanism, and safety summaries for published compound profiles.
         </p>
       </header>
+
+      <LookupFamilyNav active='compounds' />
 
       <Pagination basePath="/compounds" currentPage={p.currentPage} totalPages={p.totalPages} itemLabel="Compound profiles" />
 
