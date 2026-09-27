@@ -48,11 +48,11 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     label: 'Ingredients',
     href: '/herbs',
     description: 'Look up herbs, nutrients, compounds, extracts, evidence, and safety',
-    activePrefixes: ['/herbs', '/compounds'],
+    activePrefixes: ['/herbs', '/compounds', '/search'],
     children: [
       { label: 'Herb database', href: '/herbs' },
       { label: 'Compound database', href: '/compounds' },
-      { label: 'Search everything', href: '/search' },
+      { label: 'Search all', href: '/search' },
     ],
   },
   {
