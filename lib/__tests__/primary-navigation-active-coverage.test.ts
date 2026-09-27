@@ -31,12 +31,16 @@ describe('primary navigation active coverage', () => {
 
   it('lets specific research tools override the broad Learn ownership', () => {
     expect(getActivePrimaryNavigationItem('/learn/citation-explorer/')?.label).toBe('Research')
+    expect(getActivePrimaryNavigationItem('/learn/efficacy-model/')?.label).toBe('Research')
+    expect(getActivePrimaryNavigationItem('/learn/explorer/')?.label).toBe('Research')
+    expect(getActivePrimaryNavigationItem('/learn/research-methodology/')?.label).toBe('Research')
     expect(getActivePrimaryNavigationItem('/evidence/evidence-report/')?.label).toBe('Research')
     expect(getActivePrimaryNavigationItem('/info/methodology/')?.label).toBe('Research')
   })
 
   it('lets a more-specific Safety route override the broad Guides prefix', () => {
     expect(getActivePrimaryNavigationItem('/guides/other/supplement-stacking-safety/')?.label).toBe('Safety')
+    expect(getActivePrimaryNavigationItem('/learn/safety-and-disclaimers/')?.label).toBe('Safety')
     expect(getActivePrimaryNavigationItem('/safety-checker/')?.label).toBe('Safety')
   })
 
