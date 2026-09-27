@@ -64,6 +64,7 @@ const EDUCATION_TOPICS = [
   { title: 'How Receptors Work', href: '/learn/how-receptors-work/' },
   { title: 'Why Neurochemistry Is Complex', href: '/learn/why-neurochemistry-is-complex/' },
   { title: 'Evidence Hierarchy', href: '/learn/evidence-hierarchy/' },
+  { title: 'What Are Adaptogens?', href: '/learn/what-are-adaptogens/' },
   { title: 'How Focus and Motivation Work', href: '/learn/how-focus-and-motivation-work/' },
   { title: 'How Memory Formation Works', href: '/learn/how-memory-formation-works/' },
   { title: 'How Learning Affects Neuroplasticity', href: '/learn/how-learning-affects-neuroplasticity/' },
