@@ -10,6 +10,7 @@ import { getCompoundName } from './library-selector'
 import CompoundsIndexClient from './CompoundsIndexClient'
 import type { RuntimeRecord } from '../../types/content'
 import Pagination from '@/components/Pagination'
+import LookupFamilyNav from '@/components/navigation/LookupFamilyNav'
 import '../../styles/library-browse.css'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -53,6 +54,8 @@ export default async function CompoundsPage() {
           Mechanism, evidence strength, and safety context for {allCompounds.length} published compounds and supplement constituents — evidence first, no hype.
         </p>
       </header>
+
+      <LookupFamilyNav active='compounds' />
 
       <nav aria-label="Published compound profiles index" className="hidden">
         <ul>
