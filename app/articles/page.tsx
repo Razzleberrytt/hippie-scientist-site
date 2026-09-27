@@ -3,11 +3,23 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { allArticleMonographs, allBlogPosts } from '../../.content-collections/generated'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
+import EditorialFamilyNav from '@/components/navigation/EditorialFamilyNav'
 import { SITE_URL, buildTwitterMetadata } from '../../lib/seo'
 
 const articlePages = [...allArticleMonographs, ...allBlogPosts].sort((a, b) =>
   b.lastUpdated.localeCompare(a.lastUpdated)
 )
+
+const latestArticles = articlePages.slice(0, 6)
+
+const articleGroups = Object.entries(
+  articlePages.reduce<Record<string, typeof articlePages>>((groups, page) => {
+    const category = page.category || 'Other'
+    if (!groups[category]) groups[category] = []
+    groups[category].push(page)
+    return groups
+  }, {})
+).sort(([a], [b]) => a.localeCompare(b))
 
 export const metadata: Metadata = {
   title: 'Articles — Research Notes & Evidence Reviews',
@@ -30,54 +42,76 @@ export const metadata: Metadata = {
 
 export default function ArticlesIndexPage() {
   return (
-    <div className="mx-auto max-w-6xl space-y-6 px-4 py-4 sm:py-6">
-      <Breadcrumbs
-        items={[
-          { href: '/', label: 'Home' },
-          { label: 'Articles' },
-        ]}
-      />
+    <div className='mx-auto max-w-6xl space-y-8 px-4 pb-24 pt-4 sm:pt-6'>
+      <Breadcrumbs items={[{ href: '/', label: 'Home' }, { label: 'Articles' }]} />
 
-      <header className="hero-shell rounded-[2rem] border px-5 py-6 sm:p-8">
-        <p className="eyebrow-label">Research &amp; evidence reviews</p>
-        <h1 className="heading-premium mt-5 max-w-4xl">Articles</h1>
-        <p className="text-reading mt-4 max-w-3xl">
-          Research notes, evidence reviews, regulatory updates, and editorial deep dives. Browse {articlePages.length} published pieces with the same evidence-first, safety-aware approach used across the profile library.
+      <header className='hero-shell rounded-[2rem] border px-5 py-6 sm:p-8'>
+        <p className='eyebrow-label'>Editorial library · Research and reading</p>
+        <h1 className='heading-premium mt-5 max-w-4xl'>Articles</h1>
+        <p className='text-reading mt-4 max-w-3xl'>
+          Read research notes, evidence reviews, regulatory updates, and editorial deep dives. Guides are for decisions; Learn is for concepts; Articles are for deeper reading.
         </p>
       </header>
 
-      <section className="grid gap-4 sm:grid-cols-2 lg:gap-5" aria-label="Articles">
-        {articlePages.map((page) => (
-          <Link
-            key={page.slug}
-            href={page.url}
-            className="card-premium group flex min-h-[13rem] flex-col p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2 sm:p-6"
-          >
-            <div className="flex flex-wrap items-center gap-2 text-xs">
-              <span className="rounded-full border border-[color:var(--hs-hairline)] bg-[color:var(--surface-subtle)] px-2.5 py-1 font-semibold uppercase tracking-[0.08em] text-[color:var(--hs-body)]">
-                {page.category}
-              </span>
-              {page.evidenceGrade ? (
-                <span className="rounded-full border border-[color:var(--hs-hairline)] bg-[color:var(--surface-subtle)] px-2.5 py-1 font-semibold text-[color:var(--hs-body)]">
-                  Evidence: {page.evidenceGrade}
-                </span>
-              ) : null}
-              <time dateTime={page.lastUpdated} className="text-[color:var(--hs-body)]">
-                {page.lastUpdated}
-              </time>
-            </div>
+      <EditorialFamilyNav active='articles' />
 
-            <h2 className="mt-4 text-xl font-semibold leading-snug tracking-tight text-[color:var(--hs-ink)] sm:text-[1.35rem]">
-              {page.title}
+      <section aria-labelledby='latest-articles-heading'>
+        <div className='flex flex-wrap items-end justify-between gap-3'>
+          <div>
+            <p className='eyebrow-label'>Latest</p>
+            <h2 id='latest-articles-heading' className='mt-2 text-3xl font-semibold tracking-tight text-ink'>
+              Recent articles
             </h2>
-            <p className="mt-3 line-clamp-3 text-sm leading-6 text-[color:var(--hs-body)]">{page.description}</p>
+          </div>
+          <p className='text-sm text-muted'>{articlePages.length} published pieces</p>
+        </div>
 
-            <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-[color:var(--hs-gold-ink)]">
-              Read article
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-            </span>
-          </Link>
-        ))}
+        <div className='mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+          {latestArticles.map((page) => (
+            <Link key={page.slug} href={page.url} className='card-premium group flex min-h-[12rem] flex-col p-5'>
+              <div className='flex flex-wrap items-center gap-2 text-xs text-muted'>
+                <span className='font-semibold uppercase tracking-[0.08em]'>{page.category}</span>
+                <time dateTime={page.lastUpdated}>{page.lastUpdated}</time>
+              </div>
+              <h3 className='mt-3 text-lg font-semibold leading-snug text-ink'>{page.title}</h3>
+              <p className='mt-2 line-clamp-2 text-sm leading-6 text-muted'>{page.description}</p>
+              <span className='mt-auto inline-flex items-center gap-2 pt-4 text-sm font-bold text-brand-700'>
+                Read article
+                <ArrowRight className='h-4 w-4 transition-transform group-hover:translate-x-1' aria-hidden='true' />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section aria-labelledby='article-archive-heading'>
+        <div className='max-w-3xl'>
+          <p className='eyebrow-label'>Full archive</p>
+          <h2 id='article-archive-heading' className='mt-2 text-3xl font-semibold tracking-tight text-ink'>
+            Browse by category
+          </h2>
+          <p className='mt-2 text-sm leading-6 text-muted'>
+            The complete archive stays here, but categories expand only when you need them instead of rendering every article as a full card.
+          </p>
+        </div>
+
+        <div className='mt-5 grid gap-3 md:grid-cols-2'>
+          {articleGroups.map(([category, pages]) => (
+            <details key={category} className='rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm'>
+              <summary className='cursor-pointer font-semibold text-ink'>
+                {category} <span className='font-normal text-muted'>({pages.length})</span>
+              </summary>
+              <div className='mt-4 space-y-2'>
+                {pages.map((page) => (
+                  <Link key={page.slug} href={page.url} className='block rounded-lg px-2 py-2 text-sm text-brand-800 transition hover:bg-brand-50/50'>
+                    <span className='font-medium'>{page.title}</span>
+                    <span className='ml-2 text-xs text-muted'>{page.lastUpdated}</span>
+                  </Link>
+                ))}
+              </div>
+            </details>
+          ))}
+        </div>
       </section>
     </div>
   )
