@@ -27,7 +27,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   validate:
@@ -38,9 +38,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
-        with:
-          ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
-          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -80,24 +77,6 @@ jobs:
           if-no-files-found: error
           retention-days: 7
           compression-level: 0
-
-      - name: Materialize reviewed workbook and exact runtime (temporary PR bootstrap)
-        if: github.event_name == 'pull_request' && github.event.pull_request.number == 5985
-        shell: bash
-        run: |
-          set -euo pipefail
-          cp reports/entity-row-review/herb_monograph_master.review.xlsx data-sources/herb_monograph_master.xlsx
-          node scripts/ci/sync-proposed-compound-runtime.mjs --write
-          git checkout origin/main -- .github/workflows/workbook-patch-check.yml
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data-sources/herb_monograph_master.xlsx public/data/compounds.json .github/workflows/workbook-patch-check.yml
-          if git diff --cached --quiet; then
-            echo "No canonical materialization changes to commit."
-          else
-            git commit -m "data(runtime): materialize trazodone hydroxyzine review"
-            git push origin HEAD:${{ github.event.pull_request.head.ref }}
-          fi
 
       - name: Validate proposed compound runtime parity
         run: node scripts/ci/sync-proposed-compound-runtime.mjs
