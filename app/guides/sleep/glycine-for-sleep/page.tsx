@@ -171,7 +171,7 @@ const FAQS = [
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-5xl px-4 pb-24 pt-8 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-5xl px-4 pb-24 pt-8 sm:px-6 lg:px-8">
       <StructuredData
         pageUrl={pageUrl}
         headline="Glycine for Sleep: Does 3 g Actually Work? Evidence Review"
@@ -453,6 +453,6 @@ export default function Page() {
           <Link href="/guides/sleep/best-supplements-for-sleep/" className="hover:underline">Best sleep supplements decision guide →</Link>
         </nav>
       </article>
-    </main>
+    </div>
   )
 }
