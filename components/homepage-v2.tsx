@@ -79,9 +79,9 @@ export default async function HomepageV2() {
               </Link>
             </div>
 
-            <dl className='grid grid-cols-3 gap-3' aria-label='Research library size'>
+            <dl className='grid grid-cols-3 gap-2 sm:gap-3' aria-label='Research library size'>
               {stats.map((stat) => (
-                <div key={stat.label} className='min-w-[7rem] rounded-xl bg-brand-50/60 p-4 text-center'>
+                <div key={stat.label} className='min-w-0 rounded-xl bg-brand-50/60 p-3 text-center sm:p-4'>
                   <dd className='text-2xl font-bold text-ink'>{stat.value}</dd>
                   <dt className='mt-1 text-[11px] leading-4 text-muted'>{stat.label}</dt>
                 </div>
