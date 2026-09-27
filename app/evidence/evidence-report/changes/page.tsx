@@ -15,7 +15,7 @@ export default function EvidenceChangeTrackerPage() {
   const quarters = [...new Set(events.map(event => event.quarter))]
 
   return (
-    <main className="container-page mx-auto max-w-5xl space-y-10 py-10">
+    <div className="container-page mx-auto max-w-5xl space-y-10 py-10">
       <section className="hero-shell rounded-[2rem] border p-6 sm:p-8 lg:p-10">
         <p className="eyebrow-label">Original research monitoring</p>
         <h1 className="heading-premium mt-3">Evidence Change Tracker</h1>
@@ -69,6 +69,6 @@ export default function EvidenceChangeTrackerPage() {
           discoverable in the Citation Explorer rather than being mislabeled as a grade-change event.
         </p>
       </section>
-    </main>
+    </div>
   )
 }

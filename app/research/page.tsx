@@ -251,7 +251,7 @@ export default async function ResearchPage() {
     reviewStudies.length + trialStudies.length + humanContextStudies.length + preclinicalStudies.length
 
   return (
-    <main className="mx-auto max-w-6xl space-y-14 px-4 py-10 sm:px-6 lg:px-8">
+    <div className="research-page-content mx-auto max-w-6xl space-y-14 px-4 py-10 sm:px-6 lg:px-8">
       <section className="overflow-hidden rounded-[2rem] border border-brand-900/10 bg-white p-6 shadow-sm sm:p-8 lg:p-10">
         <p className="eyebrow-label">Research library · sources first</p>
         <h1 className="mt-3 max-w-4xl font-display text-4xl font-bold tracking-tight text-ink sm:text-5xl">
@@ -469,6 +469,6 @@ export default async function ResearchPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   )
 }
