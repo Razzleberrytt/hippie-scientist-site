@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Leaf, Menu, Search, X } from 'lucide-react'
 import DarkModeToggle from './DarkModeToggle'
-import { primaryNavigation, type PrimaryNavigationItem } from '@/lib/primary-navigation'
+import { getActivePrimaryNavigationItem, primaryNavigation, type PrimaryNavigationItem } from '@/lib/primary-navigation'
 
 const GlobalSearchModal = dynamic(
   () => import('./search/GlobalSearchModal').then((mod) => mod.GlobalSearchModal),
@@ -38,10 +38,6 @@ function normalizePath(path: string) {
   return path === '/' ? '/' : path.replace(/\/$/, '')
 }
 
-function pathMatches(pathname: string, prefix: string) {
-  return pathname === prefix || pathname.startsWith(`${prefix}/`)
-}
-
 function isCurrentPage(pathname: string, href: string) {
   return normalizePath(pathname) === normalizePath(href)
 }
@@ -59,6 +55,7 @@ export function Navigation() {
   const searchReturnFocusRef = useRef<HTMLButtonElement | null>(null)
   const searchDialogId = useId()
   const pathname = usePathname() || '/'
+  const activePrimaryHref = getActivePrimaryNavigationItem(pathname)?.href
 
   const openSearch = useCallback((trigger: HTMLButtonElement | null) => {
     searchReturnFocusRef.current = trigger ?? headerSearchTriggerRef.current
@@ -124,10 +121,7 @@ export function Navigation() {
     return () => window.removeEventListener('keydown', onKey)
   }, [closeSearch, mobileOpen, openSearch, searchOpen])
 
-  const isPrimaryActive = (link: PrimaryNavigationItem) => {
-    const prefixes = link.activePrefixes?.length ? link.activePrefixes : [link.href]
-    return prefixes.some((prefix) => pathMatches(pathname, prefix))
-  }
+  const isPrimaryActive = (link: PrimaryNavigationItem) => activePrimaryHref === link.href
 
   const closeMobile = () => setMobileOpen(false)
 

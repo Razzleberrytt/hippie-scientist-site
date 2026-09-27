@@ -64,8 +64,9 @@ invariant('THS-001', 'homepage scientific search protects mobile ingredient term
 )
 
 invariant('THS-002', 'primary navigation remains intentionally narrow', () =>
-  includesAll(primaryNavigation, ["label: 'Goals'", "label: 'Ingredients'", "label: 'Compare'", "label: 'Safety'", "label: 'Research'"]) &&
+  includesAll(primaryNavigation, ["label: 'Goals'", "label: 'Guides'", "label: 'Ingredients'", "label: 'Safety'", "label: 'Research'"]) &&
   !primaryNavigation.includes("label: 'Home'") &&
+  !primaryNavigation.includes("label: 'Compare',\n    href: '/guides/compare'") &&
   navigation.includes('primaryNavigation'),
 )
 

@@ -155,8 +155,8 @@ export default function SiteDirectoryPage() {
             <p className='text-sm font-bold text-ink'>How the site is organized</p>
             <ol className='mt-4 space-y-4 text-sm leading-6 text-muted'>
               <li><strong className='text-ink'>1. Goals</strong> start with the outcome or question you are researching.</li>
-              <li><strong className='text-ink'>2. Ingredients</strong> provide structured herb and compound profiles.</li>
-              <li><strong className='text-ink'>3. Compare</strong> puts options side by side by evidence and tradeoffs.</li>
+              <li><strong className='text-ink'>2. Guides</strong> group mental health, ADHD, sleep, comparisons, and other topic research.</li>
+              <li><strong className='text-ink'>3. Ingredients</strong> provide structured herb and compound profiles.</li>
               <li><strong className='text-ink'>4. Safety</strong> surfaces interactions, contraindications, and stacking context.</li>
               <li><strong className='text-ink'>5. Research</strong> explains evidence, methods, citations, and uncertainty.</li>
             </ol>

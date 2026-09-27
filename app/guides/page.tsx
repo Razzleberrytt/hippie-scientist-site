@@ -7,170 +7,207 @@ import { AtlasComparisonCallout } from '@/components/guides/AtlasComparisonCallo
 import { buildTwitterMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Evidence Library — Supplements, Science & Mental Health',
-  description: 'One evidence library for guides, articles, and explainers covering ADHD, sleep, anxiety, focus, mental health, substance use, harm reduction, herbs, supplements, and research literacy.',
+  title: 'Guides & Topic Hubs — Mental Health, Sleep, ADHD & More',
+  description: 'Browse The Hippie Scientist guides by clear topic: mental health, ADHD, sleep, anxiety, stress, focus, substance use, supplement comparisons, and practical decision guides.',
   alternates: { canonical: `${SITE_URL}/guides/` },
   openGraph: {
-    title: 'Evidence Library — The Hippie Scientist',
-    description: 'Browse citation-rich guides, mental health explainers, substance-use and harm-reduction research, supplement comparisons, and science foundations in one organized library.',
+    title: 'Guides & Topic Hubs — The Hippie Scientist',
+    description: 'Browse mental health, ADHD, sleep, anxiety, substance-use, comparison, and supplement guides from one clear starting point.',
     url: `${SITE_URL}/guides/`,
     type: 'website',
     images: ['/og-default.jpg'],
   },
   twitter: buildTwitterMetadata({
-    title: 'Evidence Library — The Hippie Scientist',
-    description: 'Browse citation-rich guides, mental health explainers, substance-use and harm-reduction research, supplement comparisons, and science foundations in one organized library.',
+    title: 'Guides & Topic Hubs — The Hippie Scientist',
+    description: 'Browse mental health, ADHD, sleep, anxiety, substance-use, comparison, and supplement guides from one clear starting point.',
   }),
 }
 
-const SECTIONS = [
+const GUIDE_GROUPS = [
   {
-    title: 'Mental Health',
-    href: '/guides/mental-health/',
-    desc: 'OCD, BPD, and every named DSM-5-TR personality disorder — citation-rich guides covering diagnosis, differential diagnosis, treatment, safety, and stigma.',
+    title: 'Health & mental health',
+    description: 'Start here when your question is about a condition, symptom pattern, or functional goal.',
+    items: [
+      {
+        title: 'Mental Health',
+        href: '/guides/mental-health/',
+        desc: 'OCD, BPD, personality disorders, relationships, treatment evidence, safety, and stigma-aware explainers.',
+      },
+      {
+        title: 'ADHD',
+        href: '/guides/adhd/',
+        desc: 'Attention, executive function, nutrients, supplements, and treatment context.',
+      },
+      {
+        title: 'Sleep',
+        href: '/guides/sleep/',
+        desc: 'Sleep aids, insomnia evidence, melatonin alternatives, and practical sleep decisions.',
+      },
+      {
+        title: 'Anxiety',
+        href: '/guides/anxiety/',
+        desc: 'Evidence-graded guides for anxious thoughts, physical tension, and calm.',
+      },
+      {
+        title: 'Stress',
+        href: '/guides/stress/',
+        desc: 'Acute tension, chronic overload, burnout, adaptogens, and stress-support decisions.',
+      },
+      {
+        title: 'Focus & Cognition',
+        href: '/guides/focus/',
+        desc: 'Nootropics, cognitive performance, stimulant tradeoffs, and focus support.',
+      },
+      {
+        title: 'Metabolic Health',
+        href: '/guides/metabolic-health/',
+        desc: 'Blood sugar, insulin sensitivity, weight-loss claims, and medication context.',
+      },
+    ],
   },
   {
-    title: 'Substance Use & Harm Reduction',
-    href: '/guides/substance-use/',
-    desc: 'Dependence, withdrawal, overdose risk, kratom-derived opioids, tianeptine, emerging psychoactives, and harm-reduction evidence — with uncertainty kept explicit.',
+    title: 'Substances & supplement decisions',
+    description: 'Use these when you are comparing options, researching a substance, or deciding what kind of product to investigate.',
+    items: [
+      {
+        title: 'Substance Use & Harm Reduction',
+        href: '/guides/substance-use/',
+        desc: 'Dependence, withdrawal, overdose risk, kratom-derived opioids, tianeptine, and emerging psychoactives.',
+      },
+      {
+        title: 'Comparisons',
+        href: '/guides/compare/',
+        desc: 'Head-to-head comparisons by evidence, safety, form, dose, and practical tradeoffs.',
+      },
+      {
+        title: 'Best Supplements',
+        href: '/guides/best/',
+        desc: 'Evidence-aware roundups organized around a specific need or decision.',
+      },
+      {
+        title: 'Herb Guides',
+        href: '/guides/herbs/',
+        desc: 'Long-form practical guides for important botanicals and extracts.',
+      },
+      {
+        title: 'Supplement Topic Guides',
+        href: '/guides/other/',
+        desc: 'Forms, quality, routines, advanced compounds, and topics that do not fit a single goal.',
+      },
+    ],
   },
   {
-    title: 'ADHD',
-    href: '/guides/adhd/',
-    desc: 'Supplements, nutrients, and strategies for attention and executive function — 22 evidence-based guides.',
-  },
-  {
-    title: 'Sleep',
-    href: '/guides/sleep/',
-    desc: 'Natural sleep aids, melatonin alternatives, and sleep hygiene — 17 guides with clinical evidence.',
-  },
-  {
-    title: 'Stress',
-    href: '/guides/stress/',
-    desc: 'Evidence-aware guides for acute tension, chronic overload, burnout, adaptogens, and stress-support decisions.',
-  },
-  {
-    title: 'Anxiety',
-    href: '/guides/anxiety/',
-    desc: 'Evidence-graded guides for anxious thoughts, physical tension, and calm — with safety warnings kept visible.',
-  },
-  {
-    title: 'Focus & Cognition',
-    href: '/guides/focus/',
-    desc: 'Nootropics, focus stacks, and cognitive enhancement — 6 guides on getting more from your brain.',
-  },
-  {
-    title: 'Metabolic Health',
-    href: '/guides/metabolic-health/',
-    desc: 'Blood sugar, insulin sensitivity, weight-loss claims, medication context, and metabolic supplement comparisons kept tied to human evidence.',
-  },
-  {
-    title: 'Herb Guides',
-    href: '/guides/herbs/',
-    desc: 'Deep-dive monographs on individual herbs — ashwagandha, kava, passionflower, rhodiola, turmeric.',
-  },
-  {
-    title: 'Comparisons',
-    href: '/guides/compare/',
-    desc: 'Head-to-head supplement comparisons — ashwagandha vs rhodiola, melatonin vs valerian, and more.',
-  },
-  {
-    title: 'Best Supplements',
-    href: '/guides/best/',
-    desc: 'Curated recommendations for specific needs — blood pressure, fat loss, joint support, gut health.',
-  },
-  {
-    title: 'Science Foundations',
-    href: '/learn/',
-    desc: 'Research literacy, neuroscience, interactions, and product quality explainers that make the rest of the library easier to evaluate.',
-  },
-  {
-    title: 'Supplement Topic Guides',
-    href: '/guides/other/',
-    desc: 'Form and quality guides, popular supplement categories, goal-based routines, advanced compounds, and harm reduction — organized by the decision you are making.',
+    title: 'Learn how to evaluate the evidence',
+    description: 'Use these when you want to understand why studies conflict, how evidence is graded, or how to check safety before acting.',
+    items: [
+      {
+        title: 'Science Foundations',
+        href: '/learn/',
+        desc: 'Research literacy, neuroscience, interactions, and product-quality explainers.',
+      },
+      {
+        title: 'Research Library',
+        href: '/research/',
+        desc: 'Browse studies, evidence tools, reports, citations, and methodology.',
+      },
+      {
+        title: 'Safety Checker',
+        href: '/safety-checker/',
+        desc: 'Check interaction signals, contraindication context, and important uncertainty.',
+      },
+    ],
   },
 ]
 
-export default function LibraryHub() {
+function GuideCard({ title, href, desc }: { title: string; href: string; desc: string }) {
   return (
-    <div className="mx-auto max-w-6xl space-y-6 px-4 pb-24 pt-4 sm:pt-6">
+    <Link
+      href={href}
+      className="card-premium group flex min-h-[9.5rem] flex-col p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2"
+    >
+      <h3 className="text-lg font-semibold leading-snug tracking-tight text-[color:var(--hs-ink)]">{title}</h3>
+      <p className="mt-2 text-sm leading-6 text-[color:var(--hs-body)]">{desc}</p>
+      <span className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-bold text-[color:var(--hs-gold-ink)]">
+        Explore
+        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+      </span>
+    </Link>
+  )
+}
+
+export default function GuidesHub() {
+  return (
+    <div className="mx-auto max-w-6xl space-y-8 px-4 pb-24 pt-4 sm:pt-6">
       <Breadcrumbs
         items={[
           { href: '/', label: 'Home' },
-          { label: 'Evidence Library' },
+          { label: 'Guides' },
         ]}
       />
 
       <header className="hero-shell rounded-[2rem] border px-5 py-6 sm:p-8">
-        <p className="eyebrow-label">Guides, comparisons &amp; explainers</p>
-        <h1 className="heading-premium mt-5 max-w-4xl">Evidence Library</h1>
+        <p className="eyebrow-label">Evidence Library · Browse by topic</p>
+        <h1 className="heading-premium mt-5 max-w-4xl">Guides</h1>
         <p className="text-reading mt-4 max-w-3xl">
-          Guides, articles, mental health explainers, comparisons, and science foundations — organized as one connected library instead of separate content silos.
+          Start with the subject you care about. Mental health, ADHD, sleep, anxiety, supplement decisions, comparisons, and research tools each have a clear home.
         </p>
       </header>
 
+      <section className="grid gap-4 md:grid-cols-2" aria-label="Featured guides">
+        <Link href="/guides/mental-health/avoidant-borderline-personality-disorders-couples/" className="card-premium group p-6">
+          <p className="eyebrow-label">New mental health research</p>
+          <h2 className="mt-3 text-2xl font-semibold tracking-tight text-ink">Avoidant + Borderline Personality Disorders in Couples</h2>
+          <p className="mt-3 text-sm leading-6 text-muted">
+            What the research actually shows about attachment, withdrawal, reassurance, conflict cycles, relationship stability, and treatment — without turning the pairing into a stereotype.
+          </p>
+          <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand-700">
+            Read the relationship research guide <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+          </span>
+        </Link>
+
+        <Link href="/guides/substance-use/" className="card-premium group p-6">
+          <p className="eyebrow-label">Evidence cluster</p>
+          <h2 className="mt-3 text-2xl font-semibold tracking-tight text-ink">Substance Use, Dependence & Harm Reduction</h2>
+          <p className="mt-3 text-sm leading-6 text-muted">
+            Mitragynine, 7-OH, MGM-15, mitragynine pseudoindoxyl, tianeptine, withdrawal evidence, novel psychoactives, and risk-reduction research.
+          </p>
+          <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand-700">
+            Explore substance-use research <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+          </span>
+        </Link>
+      </section>
+
+      {GUIDE_GROUPS.map((group) => (
+        <section key={group.title} aria-labelledby={`group-${group.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>
+          <div className="max-w-3xl">
+            <h2
+              id={`group-${group.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+              className="compact-heading"
+            >
+              {group.title}
+            </h2>
+            <p className="mt-2 text-sm leading-6 text-muted">{group.description}</p>
+          </div>
+          <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {group.items.map((item) => <GuideCard key={item.href} {...item} />)}
+          </div>
+        </section>
+      ))}
+
       <AtlasComparisonCallout
         title="Compare botanicals across anxiety, sleep, and focus goals"
-        description="Use the Botanical Activity Atlas to filter the same structured library by calming, sleep-related, stimulating, cognition, chemistry, evidence strength, noticeability, and safety signals. It is the fastest way to compare options before opening individual guides."
+        description="Use the Botanical Activity Atlas to filter the structured library by calming, sleep-related, stimulating, cognition, chemistry, evidence strength, noticeability, and safety signals."
         href="/tools/botanical-activity-atlas/?sort=evidence"
         cta="Compare botanicals by evidence"
         secondaryHref="/safety-checker/"
         secondaryCta="Check interaction risk"
       />
 
-      <section className="grid gap-4 md:grid-cols-2" aria-label="Featured evidence hubs">
-        <Link href="/guides/sleep/best-natural-sleep-aids-that-work/" className="card-premium group p-6">
-          <p className="eyebrow-label">High-signal evidence guide</p>
-          <h2 className="mt-3 text-2xl font-semibold tracking-tight text-ink">Best Natural Sleep Aids That Work</h2>
-          <p className="mt-3 text-sm leading-6 text-muted">
-            A 22-source clinical ledger that separates chronic-insomnia treatment from supplement evidence and ranks melatonin, L-theanine, magnesium, ashwagandha, valerian, passionflower, and glycine conservatively.
-          </p>
-          <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand-700">
-            Read the sleep evidence guide <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-          </span>
-        </Link>
-
-        <Link href="/guides/substance-use/" className="card-premium group p-6">
-          <p className="eyebrow-label">New evidence cluster</p>
-          <h2 className="mt-3 text-2xl font-semibold tracking-tight text-ink">Substance Use, Dependence & Harm Reduction</h2>
-          <p className="mt-3 text-sm leading-6 text-muted">
-            One hub for mitragynine, 7-OH, MGM-15, mitragynine pseudoindoxyl, corynoxine B, tianeptine, withdrawal evidence, novel psychoactives, and risk-reduction research.
-          </p>
-          <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand-700">
-            Explore the substance-use evidence hub <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-          </span>
-        </Link>
-      </section>
-
-      <section aria-labelledby="evidence-library-sections">
-        <div className="max-w-3xl">
-          <p className="eyebrow-label">Browse by subject</p>
-          <h2 id="evidence-library-sections" className="compact-heading mt-3">Choose the question you are trying to answer.</h2>
-        </div>
-
-        <div className="mt-5 grid gap-4 md:grid-cols-2 lg:gap-5">
-          {SECTIONS.map((section) => (
-            <Link
-              key={section.href}
-              href={section.href}
-              className="card-premium group flex min-h-[11rem] flex-col p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2 sm:p-6"
-            >
-              <h3 className="text-xl font-semibold leading-snug tracking-tight text-[color:var(--hs-ink)]">{section.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-[color:var(--hs-body)]">{section.desc}</p>
-              <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-[color:var(--hs-gold-ink)]">
-                Explore section
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-              </span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
       <section className="section-frame p-5 text-center sm:p-8" aria-labelledby="reference-databases-heading">
-        <p className="eyebrow-label">Structured reference</p>
+        <p className="eyebrow-label">Looking for one ingredient?</p>
         <h2 id="reference-databases-heading" className="compact-heading mt-3">Browse the reference databases</h2>
         <p className="mx-auto mt-3 max-w-3xl text-sm leading-6 text-[color:var(--hs-body)] sm:text-base">
-          Prefer structured profiles? Browse the published herb and compound libraries, where public eligibility rules keep source inventory separate from what readers can actually browse.
+          Guides answer broader questions. Browse the published herb and compound libraries when you already know the ingredient you want to look up. We keep source inventory separate from what readers can actually browse.
         </p>
         <div className="mt-5 flex flex-col justify-center gap-3 sm:flex-row">
           <Link href="/herbs/" className="button-primary inline-flex min-h-11 items-center justify-center px-6 py-2.5 text-sm font-semibold">
