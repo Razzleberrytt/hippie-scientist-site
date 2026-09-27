@@ -80,7 +80,7 @@ const routeContentExpectations = [
   },
   {
     route: '/research',
-    required: ['Follow the evidence all the way back to the research.', 'Search the complete citation index'],
+    required: ['What are you trying to verify?', 'Four jobs, four clear destinations.'],
     forbidden: [LOADING_SENTINEL],
   },
   {

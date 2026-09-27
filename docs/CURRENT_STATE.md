@@ -1,7 +1,7 @@
 # Current State
 
 **Status:** Authoritative description of the present implementation
-**Evidence cutoff:** 2026-08-28 for the scoped #4415 economics proof below; 2026-08-25 for SEO-001 publication-parity and the earlier CI/deploy snapshot; other audited facts retain their stated dates
+**Evidence cutoff:** 2026-09-27 for the #6024 information-architecture implementation; 2026-08-28 for the scoped #4415 economics proof below; 2026-08-25 for SEO-001 publication-parity and the earlier CI/deploy snapshot; other audited facts retain their stated dates
 **Labels:** **Verified** = reproduced from code, generated data, CI, GitHub, or live output; **Inferred** = supported but not directly measured; **Unknown** = access or evidence unavailable; **Recommended** = proposed next action, not current behavior.
 
 ## Executive summary
@@ -15,6 +15,8 @@
 ## Product
 
 ### User-facing product and problems addressed
+
+**Verified (2026-09-27, #6024 / PR #6023):** Primary navigation now has five user destinations—Goals, Guides, Ingredients, Safety, and Research—with deterministic route-family ownership. Learn and Articles are owned by Guides; Evidence/Tools/citation/methodology surfaces are owned by Research; Library remains the exhaustive directory. A shared page-role policy suppresses global breadcrumbs/TOC/lead-capture chrome on hubs and utilities while preserving appropriate editorial/profile aids. Stable URLs and scientific/evidence/safety semantics are unchanged by this architecture pass; production engagement and business impact remain **Unknown** until measured.
 
 **Verified:** The current product provides:
 
