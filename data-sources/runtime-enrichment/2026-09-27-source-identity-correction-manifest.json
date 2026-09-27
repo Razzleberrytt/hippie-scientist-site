@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-09-27-source-identity-correction-pmid-9809861",
+  "generated_from": {
+    "input_files": [
+      "PubMed PMID 9809861",
+      "PubMed PMID 9777055",
+      "2026-09-26-medication-trazodone-hydroxyzine-enrichment.json"
+    ],
+    "review_note": "Append-only bibliographic identity correction. The historical ledger remains immutable; parser reconciliation replaces only the explicitly matched source metadata after verifying the expected prior identity and preserving the PMID/DOI key."
+  },
+  "counts": {
+    "entity_context_rows": 0,
+    "evidence_rows": 0,
+    "source_rows": 1,
+    "relationship_rows": 0,
+    "evidence_rows_after_canonical_dedupe": 0,
+    "source_rows_after_canonical_dedupe": 0,
+    "live_relationship_rows_new_after_dedupe": 0
+  },
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden",
+    "source_correction": "explicit source_id + identifier-key match + expected-prior-identity guard; historical ledger bytes remain immutable",
+    "evidence_merge": "no evidence rows in this correction batch",
+    "regulatory_provenance": "unchanged"
+  },
+  "ledger": {
+    "file": "2026-09-27-source-identity-correction-enrichment.json",
+    "sha256": "5960eac1241d3672386eebd4ee9072f2578fa768754d4db207d4c2f448089d1f",
+    "bytes": 1386
+  }
+}
