@@ -110,6 +110,8 @@ Canonical materialization receipt: the reviewed workbook and exact generator-own
 
 The workbook review workflow persists the exact generated `compounds.preview.json` beside the fail-closed review workbook and, on trusted same-repository `manual/*` PRs, materializes that reviewed workbook/runtime pair only when the branch still matches the exact validated head.
 
+Canonical materialization receipt: the reviewed workbook and exact generator-owned compound runtime were applied together on this PR; `buspirone` and `modafinil` remain research-only, NOINDEX, outside sitemap inclusion, and non-monetized.
+
 Canonical materialization receipt: PR #6022 committed the reviewed workbook and exact generated compound runtime together as `f15d6afd1bfc49a626be99f3f8ea72601b6481c6`; both new medication records remain research-only, NOINDEX, outside the sitemap, and unmonetized.
 
 ## Sep. 27 PMID 9809861 source-identity correction
