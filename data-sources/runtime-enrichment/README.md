@@ -75,6 +75,21 @@ Ledgers may add evidence and source-provenance rows for existing entities, descr
 
 `2026-09-25-medication-antidepressant-manifest.json` records the exact DailyMed and PubMed anchors, reviewed counts, append-only policy, and ledger hash.
 
+## Sep. 26 trazodone / hydroxyzine medication batch
+
+- Ledger: `2026-09-26-medication-trazodone-hydroxyzine-enrichment.json`
+- Targets: `trazodone`, `hydroxyzine`
+- 8 evidence rows
+- 8 source rows (7 net-new after canonical source deduplication because PMID `29477251` is already registered)
+- 0 entity-context rows
+- 0 relationships
+- Both proposals remain Evidence-Limited / research-only / hidden-until-grounded; this batch stages governed evidence and does not promote indexing, sitemap inclusion, or monetization.
+- Trazodone evidence keeps the approved major-depression indication distinct from off-label sleep evidence and preserves QT/cardiac, serotonin-syndrome, orthostatic, and priapism safety boundaries.
+- Hydroxyzine evidence preserves the short-term GAD evidence ceiling, the label's unassessed >4-month antianxiety boundary, and QT/Torsade plus CNS-depressant safety context.
+- The batch is evidence-only and cannot carry publication/governance fields.
+
+`2026-09-26-medication-trazodone-hydroxyzine-manifest.json` records the exact DailyMed and PubMed anchors, reviewed counts, append-only policy, and ledger hash.
+
 ## Regression contract
 
 `tests/runtime-enrichment.test.ts` validates every manifest-backed batch, verifies each digest before decoding, checks reviewed counts, requires globally unique evidence record IDs, allows repeat source identities to deduplicate deterministically across batches, enforces the entity-context allowlist, verifies virtual-workbook growth, and prevents every medication batch from carrying publication/governance fields.
