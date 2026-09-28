@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs'
 import path from 'node:path'
+import { hasResolvableEvidence } from '../data/evidence-receipts.mjs'
 
 const repoRoot = process.cwd()
 const args = new Set(process.argv.slice(2))
@@ -66,6 +67,24 @@ function readJson(filePath) {
   }
 }
 
+const sourceRegistry = readJson(path.join(dataDir, 'source-registry.json'))
+const activeRegistrySourceIds = new Set(
+  Array.isArray(sourceRegistry)
+    ? sourceRegistry
+      .filter((source) => source?.active !== false)
+      .map((source) => String(source?.sourceId || source?.id || '').trim())
+      .filter(Boolean)
+    : [],
+)
+const inactiveRegistrySourceIds = new Set(
+  Array.isArray(sourceRegistry)
+    ? sourceRegistry
+      .filter((source) => source?.active === false)
+      .map((source) => String(source?.sourceId || source?.id || '').trim())
+      .filter(Boolean)
+    : [],
+)
+
 function listJsonFiles(dirPath) {
   if (!exists(dirPath)) return []
   return fs
@@ -80,36 +99,14 @@ function hasAnyKeyDeep(value, keys) {
   return Object.entries(value).some(([key, child]) => keys.includes(key) || hasAnyKeyDeep(child, keys))
 }
 
-// Detects REAL record-level evidence. An empty `evidence` wrapper (the scaffolding the
-// governance overlay attaches to every record) must NOT count as sourced — otherwise the
-// gate could be passed by adding empty objects. Only genuine source ids / non-empty
-// evidence buckets / source-backed claims qualify.
+// Generated counts summarize evidence; they never establish it. Opaque source IDs
+// must resolve to a materialized local source or an active registry source, while
+// PMID/DOI/HTTPS identifiers are self-resolving receipts.
 function hasNonEmptyEvidence(value) {
-  if (!value || typeof value !== 'object') return false
-
-  // Flat source arrays / id lists.
-  for (const key of ['sources', 'references', 'citations', 'studies', 'sourceIds', 'source_ids', 'pmids', 'pubmedIds']) {
-    const child = value[key]
-    if (Array.isArray(child) && child.length > 0) return true
-    if (typeof child === 'string' && child.trim()) return true
-  }
-
-  // Structured evidence wrapper: only real content counts.
-  const evidence = value.evidence
-  if (evidence && typeof evidence === 'object') {
-    if (Array.isArray(evidence.sourceIds) && evidence.sourceIds.length > 0) return true
-    if (Number(evidence.sourceCount) > 0) return true
-    for (const bucket of ['human', 'mechanistic', 'safety', 'traditional']) {
-      if (Array.isArray(evidence[bucket]) && evidence[bucket].length > 0) return true
-    }
-  }
-
-  // Claim map entries that trace back to at least one source id.
-  if (Array.isArray(value.claimMap) && value.claimMap.some((claim) => Array.isArray(claim?.sourceIds) && claim.sourceIds.length > 0)) {
-    return true
-  }
-
-  return false
+  return hasResolvableEvidence(value, {
+    registrySourceIds: activeRegistrySourceIds,
+    inactiveRegistrySourceIds,
+  })
 }
 
 function countFromReport(report, key) {
