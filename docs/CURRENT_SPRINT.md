@@ -2,10 +2,10 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-09-27
+**Updated:** 2026-09-28
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Owner-directed P0 #6051 remains admitted in Discovery/SEO. Owner-directed trust repair #4987 is admitted in Authority/Content after the 2026-09-27 200-bug audit exposed source-count self-attestation and claim/source namespace contamination. Normal implementation WIP is **2/3**. Revenue/Conversion remains available; Discovery/SEO and Authority/Content are occupied until their current owners complete, block, or are explicitly displaced. #5081 remains separately blocked on its own governor prerequisite.
+**Current admission:** Owner-directed P0 #6051 remains admitted in Discovery/SEO. #4987 / PR #6057 merged green and is retired; owner-directed #4989 now owns Authority/Content to consolidate curated-index policy to one authority without changing publication state. Normal implementation WIP is **2/3**. Revenue/Conversion remains available; Discovery/SEO and Authority/Content are occupied until their current owners complete, block, or are explicitly displaced. #5081 remains separately blocked on its own governor prerequisite.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -55,17 +55,19 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 **#6051 — Discovery/SEO P0: mobile-first UX, exploration, and content coherence overhaul.** Owner-directed 2026-09-27. Fix the experience through which existing information is discovered and understood before speculative content expansion: simplify narrow-phone navigation, establish progressive disclosure, consolidate repeated verdict/evidence/safety copy, make exhaustive indexes secondary to search/filter/curated discovery, establish a reusable Summary → Benefits → Safety → Usage/context → Research profile hierarchy, and create clear contextual next actions. Preserve stable URLs, evidence/safety semantics, publication rules, accessibility, performance, and static-export compatibility. External engagement/business impact remains `Unknown` until measured.
 
-**#4987 — Authority/Content trust repair: require real evidence receipts for approval and source counts.** Owner-directed 2026-09-27 after the site-wide bug audit. Separate claim identifiers from publication/source identifiers, prevent generated counts from self-attesting evidence, require resolvable evidence receipts for coverage, and require an approved claim→approved source linkage before generic governance can mark evidence approved/recommendable. Preserve scientific content, grades, stable URLs, and existing stricter/manual governance. No state becomes more permissive from this repair.
+**#4989 — Authority/Content trust repair: consolidate curated-index policy to one authority.** Owner-directed 2026-09-28 continuation after #4987 merged. Replace independently maintained curated herb/compound lists with one canonical policy consumed by runtime SEO, sitemap/indexability, governance overlay, promotion tooling, audits, and regression tests. Preserve the narrower legacy governance index-bypass explicitly so consolidation creates zero new promotions; curated membership remains separate from scientific approval.
 
 - **Discovery/SEO:** occupied by P0 #6051. #6047 / PR #6050 and the preceding IA refill cycle are merged and retired.
 - **Revenue/Conversion:** free; #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
-- **Authority/Content:** occupied by owner-directed #4987 trust repair. #5706 / PR #5971 is merged and retired; #5081 remains separately blocked on its own non-overlapping governor lease.
+- **Authority/Content:** occupied by owner-directed #4989 trust repair. #4987 / PR #6057 and #5706 / PR #5971 are merged and retired; #5081 remains separately blocked on its own non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
 - **Control maintenance:** #5642 is a docs-only feeder reconciliation so the durable candidate inventory cannot override the merged citation→search→click policy. It grants no normal implementation authority and consumes no D/R/A slot.
 
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
 
 ### Recently completed refill cycle
+
+- **#4987 / PR #6057 — Authority/Content:** merged 2026-09-28 after exact-head CI, Atomic, Project Control, Site Health, and Build Quality passed. Claim IDs can no longer inflate source counts; stale counts and dangling/inactive source identities cannot self-attest evidence; generic scientific approval/recommendation now requires an approved claim linked to an approved source. Curated indexing remains a separate discoverability policy.
 
 - **#6047 / PR #6050 — Discovery/SEO:** retired with this merge; Home, Start, Library, and primary navigation now share the canonical Goals / Guides / Ingredients / Safety / Research architecture. Home keeps direct search and a compact trust/metrics block, Start is a lightweight five-destination router, Library remains exhaustive under the same five groups plus Site Information, and narrow-phone metric cards can shrink without horizontal overflow. Retained homepage regression contracts were updated to protect the replacement architecture. Exact-head CI, full tests/a11y, production build/output/SEO, Fast UI, Atomic, Site Health, Build Quality, project-control reconciliation, content lint/invariants, schema/media, crawl, Technical SEO, Build Check, and Lighthouse all passed; external engagement/business impact remains `Unknown`.
 
