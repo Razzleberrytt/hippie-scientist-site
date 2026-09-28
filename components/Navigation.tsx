@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useId, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
+import { useCallback, useEffect, useId, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from 'react'
 import dynamic from 'next/dynamic'
 import { createPortal } from 'react-dom'
 import Link from 'next/link'
@@ -15,6 +15,31 @@ const GlobalSearchModal = dynamic(
 )
 
 const primaryLinks = primaryNavigation
+
+const mobilePrimaryLinks = [
+  {
+    label: 'Explore',
+    href: '/explore',
+    description: 'Find a path by goal, ingredient, guide, safety question, or evidence task.',
+  },
+  {
+    label: 'Safety',
+    href: '/safety-checker',
+    description: 'Check interaction signals, contraindications, and uncertainty.',
+  },
+  {
+    label: 'Research',
+    href: '/research',
+    description: 'Trace claims back to studies, source records, and methodology.',
+  },
+] as const
+
+const mobileSecondaryLinks = [
+  { label: 'Goals', href: '/goals' },
+  { label: 'Guides', href: '/guides' },
+  { label: 'Ingredients', href: '/herbs' },
+  { label: 'Complete library', href: '/library' },
+] as const
 
 function toCanonicalHref(href: string) {
   if (!href || href === '/' || href.includes('?') || href.includes('#')) return href
@@ -42,7 +67,7 @@ function isCurrentPage(pathname: string, href: string) {
   return normalizePath(pathname) === normalizePath(href)
 }
 
-export function Navigation() {
+export function Navigation({ mobileUtilitySlot }: { mobileUtilitySlot?: ReactNode } = {}) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [searchLoaded, setSearchLoaded] = useState(false)
@@ -122,6 +147,11 @@ export function Navigation() {
   }, [closeSearch, mobileOpen, openSearch, searchOpen])
 
   const isPrimaryActive = (link: PrimaryNavigationItem) => activePrimaryHref === link.href
+  const mobileExploreActive =
+    normalizePath(pathname) === '/explore' ||
+    activePrimaryHref === '/goals' ||
+    activePrimaryHref === '/guides' ||
+    activePrimaryHref === '/herbs'
 
   const closeMobile = () => setMobileOpen(false)
 
@@ -344,34 +374,63 @@ export function Navigation() {
               </button>
             </div>
 
-            <nav className='flex flex-col gap-2 text-base' aria-label='Mobile primary links'>
-              {primaryLinks.map((link) => {
-                const active = isPrimaryActive(link)
-                const current = isCurrentPage(pathname, link.href)
+            <nav className='flex flex-col gap-3 text-base' aria-label='Mobile primary links'>
+              <div className='space-y-2'>
+                {mobilePrimaryLinks.map((link) => {
+                  const active = link.href === '/explore' ? mobileExploreActive : activePrimaryHref === link.href
+                  const current = isCurrentPage(pathname, link.href)
 
-                return (
-                  <Link
-                    key={link.href}
-                    href={toCanonicalHref(link.href)}
-                    prefetch={false}
-                    onClick={closeMobile}
-                    aria-current={current ? 'page' : undefined}
-                    className={`block rounded-2xl px-4 py-3.5 font-semibold transition ${
-                      active
-                        ? 'border border-[var(--border-strong)] bg-[var(--surface-subtle)] text-[var(--text-primary)] shadow-sm'
-                        : 'text-[var(--text-secondary)] hover:bg-[var(--surface-subtle)] hover:text-[var(--text-primary)]'
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                )
-              })}
+                  return (
+                    <Link
+                      key={link.href}
+                      href={toCanonicalHref(link.href)}
+                      prefetch={false}
+                      onClick={closeMobile}
+                      aria-current={current ? 'page' : undefined}
+                      className={`block rounded-2xl border px-4 py-3.5 transition ${
+                        active
+                          ? 'border-[var(--border-strong)] bg-[var(--surface-subtle)] text-[var(--text-primary)] shadow-sm'
+                          : 'border-transparent text-[var(--text-secondary)] hover:border-[var(--border-soft)] hover:bg-[var(--surface-subtle)] hover:text-[var(--text-primary)]'
+                      }`}
+                    >
+                      <span className='block font-semibold text-[var(--text-primary)]'>{link.label}</span>
+                      <span className='mt-1 block text-xs leading-5 text-[var(--text-secondary)]'>{link.description}</span>
+                    </Link>
+                  )
+                })}
+              </div>
 
-              <div className='my-2 h-px bg-[var(--border-soft)]' />
+              <details className='group rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-card)]'>
+                <summary className='flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 text-sm font-semibold text-[var(--text-secondary)] [&::-webkit-details-marker]:hidden'>
+                  <span>Browse all sections</span>
+                  <span aria-hidden='true' className='text-lg leading-none text-[var(--hs-gold)] transition-transform group-open:rotate-45'>+</span>
+                </summary>
+                <div className='border-t border-[var(--border-soft)] p-2'>
+                  {mobileSecondaryLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={toCanonicalHref(link.href)}
+                      prefetch={false}
+                      onClick={closeMobile}
+                      aria-current={isCurrentPage(pathname, link.href) ? 'page' : undefined}
+                      className='block rounded-xl px-3 py-2.5 text-sm font-semibold text-[var(--text-secondary)] transition hover:bg-[var(--surface-subtle)] hover:text-[var(--text-primary)]'
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </details>
+
               <div className='flex items-center justify-between rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-subtle)] px-4 py-3'>
                 <span className='text-sm font-semibold text-[var(--text-secondary)]'>Theme</span>
                 <DarkModeToggle showLabel />
               </div>
+
+              {mobileUtilitySlot ? (
+                <div className='rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-subtle)] px-4 py-3'>
+                  {mobileUtilitySlot}
+                </div>
+              ) : null}
             </nav>
           </div>
         </div>,

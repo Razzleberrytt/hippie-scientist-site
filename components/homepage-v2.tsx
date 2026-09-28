@@ -1,7 +1,28 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Search } from 'lucide-react'
-import SiteDestinationGrid from '@/components/navigation/SiteDestinationGrid'
 import { getPublicSiteMetrics } from '@/lib/public-site-metrics'
+import { buildPageMetadata } from '../lib/seo'
+
+export const metadata: Metadata = buildPageMetadata({
+  title: 'The Hippie Scientist: Evidence & Safety for Supplements',
+  description:
+    'Compare evidence-based plant medicine, herbs, and supplements by goal. Explore human clinical trial evidence, biological mechanisms, and drug interactions for sleep, anxiety, focus, and stress.',
+  keywords: [
+    'evidence-based herbs',
+    'evidence-based supplements',
+    'supplement clinical trial evidence',
+    'natural anxiolytics research',
+    'sleep supplement comparison',
+    'adaptogen science safety',
+    'herb mechanisms of action',
+    'botanical medicine database',
+    'nootropic clinical studies',
+    'supplement safety and interactions',
+  ],
+  path: '/',
+  openGraphType: 'website',
+})
 
 export default async function HomepageV2() {
   const metrics = await getPublicSiteMetrics()
@@ -13,17 +34,17 @@ export default async function HomepageV2() {
 
   return (
     <div className='hs-home'>
-      <div className='mx-auto max-w-7xl space-y-10 px-4 pb-20 pt-6 sm:px-6 lg:px-8'>
-        <section className='hero-shell rounded-[2rem] border px-5 py-8 sm:p-10' aria-labelledby='home-title'>
+      <div className='mx-auto max-w-7xl space-y-8 px-4 pb-20 pt-5 sm:px-6 sm:pt-6 lg:px-8'>
+        <section className='hero-shell rounded-[2rem] border px-5 py-7 sm:p-10' aria-labelledby='home-title'>
           <p className='eyebrow-label'>Evidence-based supplement research</p>
-          <h1 id='home-title' className='mt-4 max-w-5xl font-display text-4xl font-bold tracking-tight text-ink sm:text-6xl'>
-            Find the right path before you dive into the details.
+          <h1 id='home-title' className='mt-3 max-w-5xl font-display text-4xl font-bold tracking-tight text-ink sm:text-6xl'>
+            Start with the question. Open the evidence when you need it.
           </h1>
-          <p className='mt-5 max-w-3xl text-lg leading-8 text-muted'>
-            Search directly when you know the name, or choose the job you are trying to do: compare a goal, read a guide, look up an ingredient, check safety, or verify the research.
+          <p className='mt-4 max-w-3xl text-base leading-7 text-muted sm:text-lg sm:leading-8'>
+            Search a name directly, or use Explore to choose a path by goal, ingredient, safety question, guide, or research task.
           </p>
 
-          <form className='mt-7 flex max-w-3xl items-center gap-3 rounded-2xl border border-brand-900/10 bg-white p-3 shadow-sm' action='/search/' method='get' role='search'>
+          <form className='mt-6 flex max-w-3xl items-center gap-2 rounded-2xl border border-brand-900/10 bg-white p-2.5 shadow-sm sm:gap-3 sm:p-3' action='/search/' method='get' role='search'>
             <Search className='ml-1 h-5 w-5 shrink-0 text-brand-700' aria-hidden='true' />
             <label className='sr-only' htmlFor='homepage-search'>Search herbs, compounds, or questions</label>
             <input
@@ -36,31 +57,71 @@ export default async function HomepageV2() {
               spellCheck={false}
               enterKeyHint='search'
               placeholder='Search herbs, compounds, or questions'
-              className='min-w-0 flex-1 bg-transparent px-2 py-2 text-base text-ink outline-none placeholder:text-muted'
+              className='min-w-0 flex-1 bg-transparent px-1 py-2 text-base text-ink outline-none placeholder:text-muted sm:px-2'
             />
-            <button type='submit' className='inline-flex min-h-11 items-center justify-center rounded-full bg-brand-900 px-5 text-sm font-bold text-white'>
+            <button type='submit' className='inline-flex min-h-11 items-center justify-center rounded-full bg-brand-900 px-4 text-sm font-bold text-white sm:px-5'>
               Search
             </button>
           </form>
 
-          <div className='mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm'>
-            <Link href='/start/' className='font-semibold text-brand-700 hover:underline'>Not sure where to begin? Start here →</Link>
-            <Link href='/library/' className='font-semibold text-brand-700 hover:underline'>Browse the complete directory →</Link>
+          <div className='mt-5 flex flex-wrap items-center gap-3'>
+            <Link
+              href='/explore/'
+              className='inline-flex min-h-11 items-center gap-2 rounded-full bg-brand-900 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-800'
+            >
+              Explore the site <ArrowRight className='h-4 w-4' aria-hidden='true' />
+            </Link>
+            <Link
+              href='/safety-checker/'
+              className='inline-flex min-h-11 items-center rounded-full border border-brand-900/15 bg-white px-5 py-2.5 text-sm font-semibold text-brand-800 transition hover:bg-brand-50'
+            >
+              Check safety
+            </Link>
           </div>
+          <p className='mt-4 text-xs leading-5 text-muted'>
+            Need the exhaustive index? <Link href='/library/' className='font-semibold text-brand-700 hover:underline'>Open the complete library</Link>.
+          </p>
         </section>
 
-        <section aria-labelledby='home-destinations-heading'>
+        <section aria-labelledby='home-paths-heading'>
           <div className='max-w-3xl'>
-            <p className='eyebrow-label'>Five destinations</p>
-            <h2 id='home-destinations-heading' className='mt-2 text-3xl font-semibold tracking-tight text-ink'>
-              Choose what you are trying to accomplish.
+            <p className='eyebrow-label'>Common starting points</p>
+            <h2 id='home-paths-heading' className='mt-2 text-3xl font-semibold tracking-tight text-ink'>
+              Three fast ways into the research.
             </h2>
-            <p className='mt-3 text-sm leading-7 text-muted'>
-              These same five destinations organize the rest of the site, so the structure stays consistent after you click through.
-            </p>
           </div>
-          <div className='mt-6'>
-            <SiteDestinationGrid />
+
+          <div className='mt-5 grid gap-4 lg:grid-cols-[1.25fr_0.75fr]'>
+            <Link
+              href='/goals/'
+              className='card-premium group flex min-h-[13rem] flex-col justify-between p-6 transition hover:border-brand-700/25 hover:bg-brand-50/30 sm:p-7'
+            >
+              <div>
+                <p className='eyebrow-label'>Start with an outcome</p>
+                <h3 className='mt-2 text-2xl font-semibold tracking-tight text-ink'>Explore by goal</h3>
+                <p className='mt-3 max-w-2xl text-sm leading-7 text-muted'>
+                  Begin with sleep, anxiety, focus, stress, or another goal and compare the relevant options in context.
+                </p>
+              </div>
+              <span className='mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand-700'>
+                Choose a goal <ArrowRight className='h-4 w-4 transition-transform group-hover:translate-x-1' aria-hidden='true' />
+              </span>
+            </Link>
+
+            <div className='grid gap-3'>
+              <Link href='/search/' className='rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm transition hover:border-brand-700/25 hover:bg-brand-50/30'>
+                <p className='text-sm font-semibold text-ink'>Look up an ingredient</p>
+                <p className='mt-1 text-xs leading-5 text-muted'>Jump straight to an herb, compound, nutrient, or extract.</p>
+              </Link>
+              <Link href='/guides/' className='rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm transition hover:border-brand-700/25 hover:bg-brand-50/30'>
+                <p className='text-sm font-semibold text-ink'>Read a decision guide</p>
+                <p className='mt-1 text-xs leading-5 text-muted'>Use a focused guide when the question matters more than the ingredient name.</p>
+              </Link>
+              <Link href='/explore/' className='rounded-2xl border border-brand-900/10 bg-brand-50/45 p-5 transition hover:border-brand-700/25'>
+                <p className='text-sm font-semibold text-brand-800'>See every discovery path →</p>
+                <p className='mt-1 text-xs leading-5 text-muted'>Goals, ingredients, safety, guides, research, and the full library.</p>
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -72,7 +133,7 @@ export default async function HomepageV2() {
                 Human evidence, safety context, and uncertainty remain part of the answer.
               </h2>
               <p className='mt-3 max-w-3xl text-sm leading-7 text-muted'>
-                The site separates clinical outcomes from mechanisms, keeps interaction and contraindication context visible, and leaves uncertainty intact instead of turning every study into a recommendation.
+                Clinical outcomes stay separate from mechanisms, while interaction context and uncertainty remain visible instead of being flattened into a recommendation.
               </p>
               <Link href='/info/methodology/' className='mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:underline'>
                 Read the methodology <ArrowRight className='h-4 w-4' aria-hidden='true' />
