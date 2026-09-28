@@ -70,7 +70,7 @@ export default function ExplorePage() {
       <section className='hero-shell rounded-[2rem] border px-5 py-7 sm:p-9' aria-labelledby='explore-title'>
         <p className='eyebrow-label'>Explore</p>
         <h1 id='explore-title' className='mt-3 max-w-4xl font-display text-4xl font-bold tracking-tight text-ink sm:text-5xl'>
-          What are you trying to do?
+          Find the right path for your question.
         </h1>
         <p className='mt-4 max-w-3xl text-base leading-7 text-muted sm:text-lg sm:leading-8'>
           Pick one path. The deeper evidence stays available after you have enough context to make sense of it.
