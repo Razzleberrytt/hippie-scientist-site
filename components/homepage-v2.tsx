@@ -1,28 +1,7 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Search } from 'lucide-react'
 import { getPublicSiteMetrics } from '@/lib/public-site-metrics'
-import { buildPageMetadata } from '../lib/seo'
 
-export const metadata: Metadata = buildPageMetadata({
-  title: 'The Hippie Scientist: Evidence & Safety for Supplements',
-  description:
-    'Compare evidence-based plant medicine, herbs, and supplements by goal. Explore human clinical trial evidence, biological mechanisms, and drug interactions for sleep, anxiety, focus, and stress.',
-  keywords: [
-    'evidence-based herbs',
-    'evidence-based supplements',
-    'supplement clinical trial evidence',
-    'natural anxiolytics research',
-    'sleep supplement comparison',
-    'adaptogen science safety',
-    'herb mechanisms of action',
-    'botanical medicine database',
-    'nootropic clinical studies',
-    'supplement safety and interactions',
-  ],
-  path: '/',
-  openGraphType: 'website',
-})
 
 export default async function HomepageV2() {
   const metrics = await getPublicSiteMetrics()
