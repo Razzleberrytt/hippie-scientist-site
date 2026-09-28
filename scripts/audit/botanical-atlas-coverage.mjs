@@ -2,12 +2,12 @@
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
+import { curatedPolicySlugSet, loadCuratedIndexPolicy } from '../lib/curated-index-policy.mjs'
 
 const root = process.cwd()
 const outDir = path.join(root, 'reports', 'botanical-atlas')
 const herbPath = path.join(root, 'public', 'data', 'herbs.json')
 const compoundPath = path.join(root, 'public', 'data', 'compounds.json')
-const allowlistPath = path.join(root, 'src', 'lib', 'index-allowlist.ts')
 
 const readJsonArray = (filePath) => {
   if (!existsSync(filePath)) return []
@@ -26,15 +26,9 @@ const text = (...values) => {
   return typeof match === 'string' ? match.trim() : ''
 }
 
-const extractAllowlist = (source, exportName) => {
-  const match = source.match(new RegExp(`export const ${exportName} = \\[([\\s\\S]*?)\\] as const`))
-  if (!match) return new Set()
-  return new Set(Array.from(match[1].matchAll(/['"]([^'"]+)['"]/g), (entry) => entry[1]))
-}
-
-const allowlistSource = existsSync(allowlistPath) ? readFileSync(allowlistPath, 'utf8') : ''
-const herbAllowlist = extractAllowlist(allowlistSource, 'CURATED_INDEXABLE_HERB_SLUGS')
-const compoundAllowlist = extractAllowlist(allowlistSource, 'CURATED_INDEXABLE_COMPOUND_SLUGS')
+const curatedPolicy = loadCuratedIndexPolicy(root)
+const herbAllowlist = curatedPolicySlugSet(curatedPolicy, 'herbs')
+const compoundAllowlist = curatedPolicySlugSet(curatedPolicy, 'compounds')
 
 const fieldGroups = {
   effects: ['primary_effects', 'effects', 'primaryActions'],
