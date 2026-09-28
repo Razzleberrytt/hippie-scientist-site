@@ -5,13 +5,22 @@
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
 
 
+## 2026-09-28 — Curated index policy has one mutable authority
+
+**Decision:** Store curated herb/compound membership and the legacy governance index-bypass in `data/curated-index-policy.json`. Runtime SEO, sitemap/indexability, governance overlay, profile-promotion tooling, profile-publication audits, Atlas coverage audits, and tests are readers of that policy rather than independent owners. Curated membership is a discoverability policy and does not itself establish scientific approval.
+
+**Rationale:** The runtime allowlist, governance overlay, and CI/audit scripts had diverged into multiple hardcoded copies. The broader runtime lists already contained profiles that were intentionally governed/noindex, while the overlay carried a narrower bypass set. Blindly taking the union would have promoted profiles solely because duplicate lists were consolidated.
+
+**Consequences:** The canonical policy records `governanceIndexBypass` per entry so the old narrower bypass boundary is preserved explicitly and consolidation creates zero new promotions. The stale compound-side `citicoline` entry is retired because the canonical runtime owner is `/herbs/citicoline/` and the compound-side identity is CDP-choline/legacy redirect handling. Future consumers may add readers, but no new independently mutable curated slug list is permitted. **Status:** Accepted; implementation tracked by #4989.
+
+
 ## 2026-09-27 — Generated evidence metadata cannot self-attest scientific approval
 
 **Decision:** Treat generated evidence counts and identifier arrays as summaries, not authority. Claim identifiers and publication/source identifiers must remain in separate namespaces. A generic profile may be marked scientifically approved/recommendable only when an approved claim is linked to an approved materialized source; a positive `sourceCount` or source-like token alone is insufficient. Opaque source identifiers must resolve to a materialized local source or active source-registry identity; PMID/DOI/HTTPS receipts may resolve directly.
 
 **Rationale:** The 2026-09-27 integrity audit found that claim IDs could inflate `evidence.sourceIds`, stale positive counts could satisfy governance checks without a surviving source, and source presence alone could produce `reviewStatus: approved`. Those patterns allow generated metadata to manufacture trust rather than summarize governed evidence.
 
-**Consequences:** #4987 owns the bounded Authority/Content repair. Existing manual/restricted governance remains authoritative. Indexability may continue to use its separate publication policy, but recommendation/approval becomes fail-closed when the governed claim→source receipt is absent. The migration must never make evidence grade, recommendation, monetization, publication, or indexability more permissive. **Status:** Accepted; implementation in review.
+**Consequences:** #4987 owned the bounded Authority/Content repair. Existing manual/restricted governance remains authoritative. Indexability continues to use its separate publication policy, while recommendation/approval fails closed when the governed claim→source receipt is absent. The migration did not make evidence grade, recommendation, monetization, publication, or indexability more permissive. **Status:** Accepted; implemented by PR #6057 on 2026-09-28.
 
 ## 2026-09-27 — Mobile experience coherence is P0 before broad content expansion
 
