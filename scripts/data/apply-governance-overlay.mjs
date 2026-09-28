@@ -28,6 +28,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { writeJsonAtomic } from '../lib/atomic-json.mjs'
+import { buildClaimEvidenceIndex, hasApprovedClaimSourceReceipt } from './evidence-receipts.mjs'
 
 const repoRoot = process.cwd()
 const dataDirArg = process.argv.find((arg) => arg.startsWith('--data-dir='))
@@ -304,35 +305,9 @@ const SOURCE_BACKED_PROMOTION_SLUGS = new Set([
   'atractylenolide-iii',
 ])
 
-function buildClaimSourceIdsBySlug() {
+function buildClaimEvidenceBySlug() {
   const claims = readJson(path.join(dataDir, 'claims.json'), [])
-  const bySlug = new Map()
-  if (!Array.isArray(claims)) return bySlug
-
-  for (const claim of claims) {
-    const slug = String(claim?.profile_slug || '').trim()
-    if (!slug || !SOURCE_BACKED_PROMOTION_SLUGS.has(slug)) continue
-
-    const sourceIds = [
-      claim.pmid ? `pmid:${claim.pmid}` : '',
-      claim.doi ? `doi:${claim.doi}` : '',
-      claim.source_url ? String(claim.source_url) : '',
-    ].filter(Boolean)
-
-    if (!sourceIds.length) continue
-    const ids = [
-      ...sourceIds,
-      claim.id ? `claim:${claim.id}` : '',
-    ].filter(Boolean)
-    if (!bySlug.has(slug)) bySlug.set(slug, [])
-    bySlug.get(slug).push(...ids)
-  }
-
-  for (const [slug, ids] of bySlug.entries()) {
-    bySlug.set(slug, [...new Set(ids)].sort())
-  }
-
-  return bySlug
+  return buildClaimEvidenceIndex(claims, SOURCE_BACKED_PROMOTION_SLUGS)
 }
 
 function mirrorRecordFieldsIntoDetail(detailRecord, record) {
@@ -411,7 +386,7 @@ function backfillEmptyDetailFields(detailRecord, record) {
  * indexable" — true when the record is currently PUBLISH/sitemapped OR was previously
  * downgraded by this overlay for missing sources.
  */
-function buildGovernance({ slug, record, hasSources, baseIndexable, wasIndexable }) {
+function buildGovernance({ slug, record, hasSources, hasGovernedReceipt, baseIndexable, wasIndexable }) {
   if (RESTRICTED_SLUGS.has(slug)) {
     return {
       reviewStatus: 'needs_review',
@@ -428,17 +403,20 @@ function buildGovernance({ slug, record, hasSources, baseIndexable, wasIndexable
   const doNotMonetize = record?.doNotMonetize === true || record?.do_not_monetize === true
   const doNotPromote = record?.doNotPromote === true || record?.do_not_promote === true
   const indexingAllowed = Boolean(baseIndexable && hasSources)
-  const requiresHumanReview = Boolean(wasIndexable && !hasSources)
+  const requiresHumanReview = Boolean(wasIndexable && (!hasSources || !hasGovernedReceipt))
+  const reason = !hasSources
+    ? DOWNGRADE_REASON
+    : (requiresHumanReview ? 'missing_governed_evidence_receipt' : '')
 
   return {
-    reviewStatus: hasSources ? 'approved' : 'needs_review',
+    reviewStatus: hasGovernedReceipt ? 'approved' : 'needs_review',
     legalRisk: 'none',
     medicalRisk: 'low',
     monetizationAllowed: !doNotMonetize,
     indexingAllowed,
-    recommendationAllowed: !doNotPromote,
+    recommendationAllowed: !doNotPromote && hasGovernedReceipt,
     requiresHumanReview,
-    reason: requiresHumanReview ? DOWNGRADE_REASON : '',
+    reason,
   }
 }
 
@@ -524,7 +502,7 @@ function processKind(kind, listFile, detailDirName, report) {
 
   const deIndexed = []
   const restricted = []
-  const claimSourceIdsBySlug = buildClaimSourceIdsBySlug()
+  const claimEvidenceBySlug = buildClaimEvidenceBySlug()
 
   for (const record of list) {
     const slug = record?.slug
@@ -540,14 +518,26 @@ function processKind(kind, listFile, detailDirName, report) {
     const isCuratedCompound = kind === 'compounds' && CURATED_COMPOUND_SLUGS.has(slug) && !RESTRICTED_SLUGS.has(slug)
     const isCurated = isCuratedHerb || isCuratedCompound
     const manualOverride = kind === 'compounds' ? MANUAL_GOVERNANCE_OVERRIDES.get(slug) : undefined
-    const claimSourceIds = claimSourceIdsBySlug.get(slug) || []
+    const claimEvidence = claimEvidenceBySlug.get(slug) || { sourceIds: [], claimIds: [] }
+    const claimSourceIds = claimEvidence.sourceIds
     const hasSources = (detailEntry && hasRealSources(detailEntry.record)) || hasRealSources(record) || claimSourceIds.length > 0 || isCurated
+    const hasGovernedReceipt = Boolean(
+      (detailEntry && hasApprovedClaimSourceReceipt(detailEntry.record))
+      || hasApprovedClaimSourceReceipt(record),
+    )
     const baseIndexable = isBaseIndexable(record) || isCurated
     const existingReasons = Array.isArray(record.indexability_reasons) ? record.indexability_reasons : []
     // Stable across re-runs: a record we previously downgraded still counts as "meant to
     // be indexable" even though its status is now NEEDS_REVIEW.
     const wasIndexable = baseIndexable || existingReasons.includes(DOWNGRADE_REASON)
-    const governance = manualOverride || buildGovernance({ slug, record, hasSources, baseIndexable, wasIndexable })
+    const governance = manualOverride || buildGovernance({
+      slug,
+      record,
+      hasSources,
+      hasGovernedReceipt,
+      baseIndexable,
+      wasIndexable,
+    })
 
     // 3. Enforce indexability consequences on the flat list record.
     if (manualOverride) {
@@ -599,7 +589,9 @@ function processKind(kind, listFile, detailDirName, report) {
       const sourceIds = [...new Set([...extractSourceIds(detailEntry.record), ...claimSourceIds])].sort()
       detailEntry.record.governance = record.governance
       detailEntry.record.evidence = {
-        reviewStatus: sourceIds.length > 0 ? 'sourced' : 'needs_review',
+        reviewStatus: hasGovernedReceipt
+          ? 'sourced'
+          : (sourceIds.length > 0 ? 'sourced_pending_review' : 'needs_review'),
         sourceCount: sourceIds.length,
         sourceIds,
       }
