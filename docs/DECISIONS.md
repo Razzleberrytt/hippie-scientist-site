@@ -4,6 +4,15 @@
 **Updated:** 2026-09-27
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
 
+
+## 2026-09-27 — Generated evidence metadata cannot self-attest scientific approval
+
+**Decision:** Treat generated evidence counts and identifier arrays as summaries, not authority. Claim identifiers and publication/source identifiers must remain in separate namespaces. A generic profile may be marked scientifically approved/recommendable only when an approved claim is linked to an approved materialized source; a positive `sourceCount` or source-like token alone is insufficient. Opaque source identifiers must resolve to a materialized local source or active source-registry identity; PMID/DOI/HTTPS receipts may resolve directly.
+
+**Rationale:** The 2026-09-27 integrity audit found that claim IDs could inflate `evidence.sourceIds`, stale positive counts could satisfy governance checks without a surviving source, and source presence alone could produce `reviewStatus: approved`. Those patterns allow generated metadata to manufacture trust rather than summarize governed evidence.
+
+**Consequences:** #4987 owns the bounded Authority/Content repair. Existing manual/restricted governance remains authoritative. Indexability may continue to use its separate publication policy, but recommendation/approval becomes fail-closed when the governed claim→source receipt is absent. The migration must never make evidence grade, recommendation, monetization, publication, or indexability more permissive. **Status:** Accepted; implementation in review.
+
 ## 2026-09-27 — Mobile experience coherence is P0 before broad content expansion
 
 **Decision:** Make #6051 the owner-directed P0 for user-facing product work. The immediate priority is not adding more broad content; it is making the existing evidence, safety, research, guides, and ingredient data coherent and pleasant to use on mobile. Use progressive disclosure so pages answer the reader's immediate question first, then interpretation, then deep evidence. Prefer a small number of visually distinct, reusable patterns over many equally weighted cards and repeated explanatory sections. Keep exhaustive directories available but secondary to search, filtering, curated discovery, and contextual next actions.
