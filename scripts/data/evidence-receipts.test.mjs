@@ -88,6 +88,23 @@ describe('governed evidence receipts', () => {
     })).toBe(true)
   })
 
+  it('fails closed when an explicitly inactive registry source is materialized locally', () => {
+    const record = {
+      sources: [{
+        id: 'src_inactive',
+        pmid: '30198828',
+      }],
+      evidence: {
+        sourceIds: ['src_inactive'],
+      },
+    }
+
+    expect(hasResolvableEvidence(record, {
+      registrySourceIds: new Set(),
+      inactiveRegistrySourceIds: new Set(['src_inactive']),
+    })).toBe(false)
+  })
+
   it('requires an approved claim linked to an approved source before generic approval', () => {
     const source = {
       id: 'src_verified',
@@ -121,5 +138,33 @@ describe('governed evidence receipts', () => {
         sourceRefIds: ['src_missing'],
       }],
     })).toBe(false)
+
+    expect(hasApprovedClaimSourceReceipt({
+      sources: [{
+        id: 'src_inactive',
+        reviewStatus: 'approved',
+      }],
+      claimMap: [{
+        id: 'claim-approved',
+        reviewStatus: 'approved',
+        sourceRefIds: ['src_inactive'],
+      }],
+    }, {
+      inactiveRegistrySourceIds: new Set(['src_inactive']),
+    })).toBe(false)
+
+    expect(hasApprovedClaimSourceReceipt({
+      sources: [{
+        id: 'src_registry',
+        reviewStatus: 'approved',
+      }],
+      claimMap: [{
+        id: 'claim-approved',
+        reviewStatus: 'approved',
+        sourceRefIds: ['src_registry'],
+      }],
+    }, {
+      registrySourceIds: new Set(['src_registry']),
+    })).toBe(true)
   })
 })
