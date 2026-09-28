@@ -25,6 +25,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { writeFileAtomic } from '../lib/atomic-json.mjs'
+import { applyCitationIntegrityHold, hasCitationIntegrityHold, CITATION_INTEGRITY_HOLD_REASON } from '../../lib/citation-integrity-holds.mjs'
 
 const ROOT = process.cwd()
 const args = process.argv.slice(2)
@@ -131,8 +132,23 @@ function main() {
       if (!file.endsWith('.json')) continue
       const filePath = path.join(full, file)
       const raw = fs.readFileSync(filePath, 'utf8')
-      const record = JSON.parse(raw)
+      let record = JSON.parse(raw)
       profilesInspected += 1
+      if (kind === 'herb' && hasCitationIntegrityHold(record)) {
+        for (const source of record.sources || []) {
+          quarantined.push({ profile: record.slug, kind, classification: 'SEMANTIC_REVIEW_HOLD', reason: CITATION_INTEGRITY_HOLD_REASON, source })
+        }
+        for (const claim of record.claimMap || []) {
+          quarantinedClaims.push({ profile: record.slug, kind, classification: 'SEMANTIC_REVIEW_HOLD', reason: CITATION_INTEGRITY_HOLD_REASON, claim })
+        }
+        record = applyCitationIntegrityHold(record)
+        const serialized = `${JSON.stringify(record, null, 2)}\n`
+        if (serialized !== raw) {
+          filesChanged += 1
+          if (!DRY_RUN) writeFileAtomic(filePath, serialized)
+        }
+        continue
+      }
       if (!Array.isArray(record.sources) || record.sources.length === 0) continue
       profilesWithCitations += 1
 
@@ -269,12 +285,16 @@ function main() {
   )
 
   const claimsPath = path.join(DATA_DIR, 'claims.json')
-  if (withdrawnPairs.size && fs.existsSync(claimsPath)) {
+  if (fs.existsSync(claimsPath)) {
     const rawClaims = fs.readFileSync(claimsPath, 'utf8')
     const claims = JSON.parse(rawClaims)
     if (Array.isArray(claims)) {
       const keptClaims = []
       for (const claim of claims) {
+        if (hasCitationIntegrityHold({ slug: claim?.profile_slug })) {
+          quarantinedClaims.push({ profile: claim.profile_slug, kind: 'claim', classification: 'SEMANTIC_REVIEW_HOLD', reason: CITATION_INTEGRITY_HOLD_REASON, claim })
+          continue
+        }
         const pmid = String(claim?.pmid ?? '').trim()
         if (!pmid || !withdrawnPairs.has(`${claim?.profile_slug}::${pmid}`)) {
           keptClaims.push(claim)
@@ -342,7 +362,23 @@ function main() {
     }
   }
 
-  if (!DRY_RUN && quarantined.length) {
+  // The secondary summary layer can retain a legacy record absent from herbs.json.
+  // Contain every existing profile layer; runtime resolution applies the same hold
+  // after merging so a later stale overlay cannot restore a settled grade.
+  for (const file of ['herbs.json', 'herbs-summary.json', 'summary-indexes/herbs-summary.json']) {
+    const filePath = path.join(DATA_DIR, file)
+    if (!fs.existsSync(filePath)) continue
+    const raw = fs.readFileSync(filePath, 'utf8')
+    const rows = JSON.parse(raw)
+    if (!Array.isArray(rows)) continue
+    const next = rows.map(applyCitationIntegrityHold)
+    if (!DRY_RUN && JSON.stringify(rows) !== JSON.stringify(next)) {
+      const pretty = /\n\s+"/.test(raw.slice(0, 4096))
+      writeFileAtomic(filePath, `${pretty ? JSON.stringify(next, null, 2) : JSON.stringify(next)}${raw.endsWith('\n') ? '\n' : ''}`)
+    }
+  }
+
+  if (!DRY_RUN && (quarantined.length || quarantinedClaims.length)) {
     fs.mkdirSync(path.dirname(REPORT_PATH), { recursive: true })
     writeFileAtomic(
       REPORT_PATH,

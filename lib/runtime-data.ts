@@ -13,6 +13,7 @@ import type { RuntimeRecord } from '../types/content'
 import { getRuntimeVisibility } from './runtime-visibility'
 import { getUnifiedRuntimeRecords } from './runtime-record-index'
 import { resolveRuntimeRecordLayers } from './runtime-record-resolver.mjs'
+import { applyCitationIntegrityHold, hasCitationIntegrityHold } from './citation-integrity-holds.mjs'
 
 const dataDir = path.join(process.cwd(), 'public', 'data')
 
@@ -105,7 +106,7 @@ function mergeBySlug(baseRows: RuntimeRecord[], enrichmentRows: RuntimeRecord[])
     }
   }
 
-  return merged
+  return merged.map(record => applyCitationIntegrityHold(record) as RuntimeRecord)
 }
 
 function citationSourceKey(source: Record<string, unknown>): string {
@@ -183,6 +184,7 @@ function getWorkbookEvidenceIndex() {
 }
 
 async function attachWorkbookEvidence(record: RuntimeRecord): Promise<RuntimeRecord> {
+  if (hasCitationIntegrityHold(record)) return applyCitationIntegrityHold(record) as RuntimeRecord
   const evidenceByProfile = await getWorkbookEvidenceIndex()
   const sourceTemplates = evidenceByProfile.get(cleanString(record.slug)) ?? []
 
