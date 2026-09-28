@@ -76,6 +76,14 @@ const activeRegistrySourceIds = new Set(
       .filter(Boolean)
     : [],
 )
+const inactiveRegistrySourceIds = new Set(
+  Array.isArray(sourceRegistry)
+    ? sourceRegistry
+      .filter((source) => source?.active === false)
+      .map((source) => String(source?.sourceId || source?.id || '').trim())
+      .filter(Boolean)
+    : [],
+)
 
 function listJsonFiles(dirPath) {
   if (!exists(dirPath)) return []
@@ -95,7 +103,10 @@ function hasAnyKeyDeep(value, keys) {
 // must resolve to a materialized local source or an active registry source, while
 // PMID/DOI/HTTPS identifiers are self-resolving receipts.
 function hasNonEmptyEvidence(value) {
-  return hasResolvableEvidence(value, { registrySourceIds: activeRegistrySourceIds })
+  return hasResolvableEvidence(value, {
+    registrySourceIds: activeRegistrySourceIds,
+    inactiveRegistrySourceIds,
+  })
 }
 
 function countFromReport(report, key) {
