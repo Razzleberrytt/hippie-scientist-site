@@ -4,6 +4,14 @@
 **Updated:** 2026-09-27
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
 
+## 2026-09-27 — Mobile experience coherence is P0 before broad content expansion
+
+**Decision:** Make #6051 the owner-directed P0 for user-facing product work. The immediate priority is not adding more broad content; it is making the existing evidence, safety, research, guides, and ingredient data coherent and pleasant to use on mobile. Use progressive disclosure so pages answer the reader's immediate question first, then interpretation, then deep evidence. Prefer a small number of visually distinct, reusable patterns over many equally weighted cards and repeated explanatory sections. Keep exhaustive directories available but secondary to search, filtering, curated discovery, and contextual next actions.
+
+**Rationale:** The site now has substantial information depth and a cleaner five-destination ownership model, but mobile exploration still makes users process too much taxonomy, repeated explanation, long indexes, and similarly weighted sections. That fragmentation reduces comprehension and makes strong research feel less useful than it is. The highest-leverage product move is therefore to improve the interface through which existing information is understood.
+
+**Consequences:** Discovery/SEO is occupied by #6051. Stable URLs, scientific claims, evidence grades, safety language, publication eligibility, accessibility, performance, and static-export constraints remain hard gates. Visual polish must improve hierarchy and readability rather than add decorative noise. Engagement, conversion, search, and revenue impact remain `Unknown` until measured. **Status:** Accepted; implementation pending.
+
 ## 2026-09-27 — Five-destination information architecture and page-role ownership
 
 **Decision:** Organize the user-facing site around five primary destinations: **Goals**, **Guides**, **Ingredients**, **Safety**, and **Research**. Treat `/learn/*` and `/articles/*` as editorial/learning formats owned by Guides; treat `/evidence/*`, `/tools/*`, citation lookup, methodology, and research reports as Research capabilities. Keep `/library/` as the intentionally exhaustive directory rather than making every hub exhaustive. Preserve stable URLs; this is an ownership/navigation decision, not a bulk route migration.
