@@ -1,6 +1,6 @@
 # Tyrosine citation-integrity containment — #6056
 
-Status: validated locally on the original base; in review. Parent #4444 remains open.
+Status: in review in PR #6059; integrated with main be5a4a1b9. Parent #4444 remains open.
 
 ## Baseline and scope
 
@@ -41,7 +41,8 @@ efficacy claim, evidence grade, or dosing protocol is promoted.
 
 - Existing citation quarantine contains held detail records, summary layers, and
   workbook claims, retaining originals in its internal report.
-- Runtime record merging and workbook-evidence attachment apply the same hold so
+- Runtime lists attach their herb/compound namespace before merging. Record merging
+  and workbook-evidence attachment apply the same herb:tyrosine hold so
   stale overlays cannot restore accepted sources, evidence grade, or counters.
 - The shared visibility predicate honors explicit indexing, recommendation, and
   monetization denials. Previously `monetizationAllowed: false` could still produce
@@ -56,8 +57,8 @@ in particular, cobalamin closure #5703 / PR #5961 has already merged.
 
 ## Validation
 
-- Focused application tests: 42 passed (four files).
-- Quarantine integration test: one passed; includes repeat execution, DOI-only
+- Focused application tests: 42 passed (four files), including after main integration.
+- Script tests after integration: 10 passed (receipt suite plus quarantine). The quarantine test includes repeat execution, DOI-only
   evidence, reintroduced stale input, retained provenance, and an unaffected
   compound control.
 - Running both Vitest projects in one invocation hit an existing mixed-worker

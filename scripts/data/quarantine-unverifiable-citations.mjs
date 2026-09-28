@@ -134,14 +134,14 @@ function main() {
       const raw = fs.readFileSync(filePath, 'utf8')
       let record = JSON.parse(raw)
       profilesInspected += 1
-      if (kind === 'herb' && hasCitationIntegrityHold(record)) {
+      if (hasCitationIntegrityHold({ ...record, entityType: kind })) {
         for (const source of record.sources || []) {
           quarantined.push({ profile: record.slug, kind, classification: 'SEMANTIC_REVIEW_HOLD', reason: CITATION_INTEGRITY_HOLD_REASON, source })
         }
         for (const claim of record.claimMap || []) {
           quarantinedClaims.push({ profile: record.slug, kind, classification: 'SEMANTIC_REVIEW_HOLD', reason: CITATION_INTEGRITY_HOLD_REASON, claim })
         }
-        record = applyCitationIntegrityHold(record)
+        record = applyCitationIntegrityHold({ ...record, entityType: kind })
         const serialized = `${JSON.stringify(record, null, 2)}\n`
         if (serialized !== raw) {
           filesChanged += 1
@@ -291,7 +291,7 @@ function main() {
     if (Array.isArray(claims)) {
       const keptClaims = []
       for (const claim of claims) {
-        if (hasCitationIntegrityHold({ slug: claim?.profile_slug })) {
+        if (hasCitationIntegrityHold({ slug: claim?.profile_slug, entityType: claim?.entityType || 'herb' })) {
           quarantinedClaims.push({ profile: claim.profile_slug, kind: 'claim', classification: 'SEMANTIC_REVIEW_HOLD', reason: CITATION_INTEGRITY_HOLD_REASON, claim })
           continue
         }
@@ -371,7 +371,8 @@ function main() {
     const raw = fs.readFileSync(filePath, 'utf8')
     const rows = JSON.parse(raw)
     if (!Array.isArray(rows)) continue
-    const next = rows.map(applyCitationIntegrityHold)
+    const next = rows.map(row => hasCitationIntegrityHold({ ...row, entityType: 'herb' })
+      ? applyCitationIntegrityHold({ ...row, entityType: 'herb' }) : row)
     if (!DRY_RUN && JSON.stringify(rows) !== JSON.stringify(next)) {
       const pretty = /\n\s+"/.test(raw.slice(0, 4096))
       writeFileAtomic(filePath, `${pretty ? JSON.stringify(next, null, 2) : JSON.stringify(next)}${raw.endsWith('\n') ? '\n' : ''}`)

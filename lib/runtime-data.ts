@@ -82,7 +82,7 @@ function isSafeSlug(slug: string) {
   return /^[a-z0-9][a-z0-9-]*$/.test(slug)
 }
 
-function mergeBySlug(baseRows: RuntimeRecord[], enrichmentRows: RuntimeRecord[]) {
+function mergeBySlug(baseRows: RuntimeRecord[], enrichmentRows: RuntimeRecord[], entityType: 'herb' | 'compound') {
   const bySlug = new Map<string, RuntimeRecord>()
 
   for (const row of enrichmentRows) {
@@ -92,6 +92,7 @@ function mergeBySlug(baseRows: RuntimeRecord[], enrichmentRows: RuntimeRecord[])
   }
 
   const merged = baseRows.map(row => {
+    row = { ...row, entityType }
     const slug = typeof row?.slug === 'string' ? row.slug : ''
     const enrichment = bySlug.get(slug)
 
@@ -102,7 +103,7 @@ function mergeBySlug(baseRows: RuntimeRecord[], enrichmentRows: RuntimeRecord[])
 
   for (const row of enrichmentRows) {
     if (typeof row?.slug === 'string' && !knownSlugs.has(row.slug)) {
-      merged.push(row)
+      merged.push({ ...row, entityType })
     }
   }
 
@@ -214,8 +215,8 @@ export const getHerbs = cache(async (): Promise<RuntimeRecord[]> => {
   const enrichmentRows = Array.isArray(summary) ? summary : []
   const indexedRows = Array.isArray(summaryIndexed) ? summaryIndexed : []
 
-  const firstPass = mergeBySlug(baseRows, enrichmentRows)
-  return mergeBySlug(firstPass, indexedRows)
+  const firstPass = mergeBySlug(baseRows, enrichmentRows, 'herb')
+  return mergeBySlug(firstPass, indexedRows, 'herb')
 })
 
 export const getCompounds = cache(async (): Promise<RuntimeRecord[]> => {
@@ -229,9 +230,9 @@ export const getCompounds = cache(async (): Promise<RuntimeRecord[]> => {
   const enrichmentRows = Array.isArray(summary) ? summary : []
   const indexedRows = Array.isArray(summaryIndexed) ? summaryIndexed : []
 
-  const firstPass = mergeBySlug(baseRows, enrichmentRows)
+  const firstPass = mergeBySlug(baseRows, enrichmentRows, 'compound')
 
-  return mergeBySlug(firstPass, indexedRows).map(row => ({
+  return mergeBySlug(firstPass, indexedRows, 'compound').map(row => ({
     name:
       cleanString(row?.name) ||
       cleanString(row?.compoundName) ||
