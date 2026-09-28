@@ -474,5 +474,5 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /evidence-standards/ /info/methodology/ 301
 /evidence-checker /evidence/evidence-checker/ 301
 /evidence-checker/ /evidence/evidence-checker/ 301
-/build /stacks/builder/ 301
-/build/ /stacks/builder/ 301
+/build /tools/ 301
+/build/ /tools/ 301
