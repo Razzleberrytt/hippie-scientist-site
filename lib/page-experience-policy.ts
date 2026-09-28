@@ -1,5 +1,6 @@
 const TOP_LEVEL_HUBS = new Set([
   '/start',
+  '/explore',
   '/library',
   '/goals',
   '/guides',

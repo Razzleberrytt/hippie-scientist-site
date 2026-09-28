@@ -12,6 +12,7 @@ import {
 describe('page experience policy', () => {
   it('treats major front doors and topic indexes as hubs', () => {
     expect(isHubRoute('/research/')).toBe(true)
+    expect(isHubRoute('/explore/')).toBe(true)
     expect(isHubRoute('/guides/')).toBe(true)
     expect(isHubRoute('/guides/sleep/')).toBe(true)
     expect(isHubRoute('/goals/focus/')).toBe(true)
@@ -38,6 +39,9 @@ describe('page experience policy', () => {
   })
 
   it('keeps hub and tool chrome lean while preserving editorial assistance', () => {
+    expect(shouldShowGlobalBreadcrumbs('/explore/')).toBe(false)
+    expect(shouldShowGlobalToc('/explore/')).toBe(false)
+    expect(shouldShowGlobalLeadMagnet('/explore/')).toBe(false)
     expect(shouldShowGlobalBreadcrumbs('/guides/')).toBe(false)
     expect(shouldShowGlobalToc('/guides/sleep/')).toBe(false)
     expect(shouldShowGlobalToc('/safety-checker/')).toBe(false)

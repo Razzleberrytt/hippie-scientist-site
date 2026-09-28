@@ -9,15 +9,15 @@ function source(relativePath: string): string {
 describe('mobile premium UX regression contract', () => {
   it('keeps the flagship homepage compact, useful, restrained, and visually consistent on mobile', () => {
     const text = source('components/homepage-v2.tsx')
-    const destinations = source('components/navigation/SiteDestinationGrid.tsx')
     const page = source('app/page.tsx')
     const scrollTop = source('components/ScrollToTopButton.tsx')
     const footer = source('components/Footer.tsx')
     const visual = source('styles/homepage-mobile-refinement.css')
 
     expect(text).toContain("className='hs-home'")
-    expect(text).toContain("className='hero-shell rounded-[2rem] border px-5 py-8 sm:p-10'")
-    expect(text).toContain('<SiteDestinationGrid />')
+    expect(text).toContain("className='hero-shell rounded-[2rem] border px-5 py-7 sm:p-10'")
+    expect(text).toContain("href='/explore/'")
+    expect(text).not.toContain('<SiteDestinationGrid />')
     expect(text).toContain("placeholder='Search herbs, compounds, or questions'")
     expect(text).toContain("autoCapitalize='none'")
     expect(text).toContain("autoCorrect='off'")
@@ -27,8 +27,6 @@ describe('mobile premium UX regression contract', () => {
     expect(text).not.toContain('const comparisons')
     expect(text).not.toContain('const principles')
 
-    expect(destinations).toContain("className='grid gap-4 sm:grid-cols-2 xl:grid-cols-5'")
-    expect(destinations).toContain("className='card-premium group flex min-h-[12rem] flex-col p-5")
     expect(page).toContain("import '@/styles/homepage-mobile-refinement.css'")
 
     // Repeated/floating global chrome stays available elsewhere but is suppressed on the phone homepage.

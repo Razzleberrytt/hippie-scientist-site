@@ -34,10 +34,11 @@ describe('premium visual refinement contracts', () => {
   })
 
   it('keeps the homepage hero as an unmistakable flagship composition', () => {
-    expect(homepage).toContain("className='hero-shell rounded-[2rem] border px-5 py-8 sm:p-10'")
-    expect(homepage).toContain('Find the right path before you dive into the details.')
+    expect(homepage).toContain("className='hero-shell rounded-[2rem] border px-5 py-7 sm:p-10'")
+    expect(homepage).toContain('Start with the question. Open the evidence when you need it.')
     expect(homepage).toContain("role='search'")
-    expect(homepage).toContain('<SiteDestinationGrid />')
+    expect(homepage).toContain("href='/explore/'")
+    expect(homepage).not.toContain('<SiteDestinationGrid />')
     expect(homepage).toContain("id='home-trust-heading'")
     expect(homepage).toContain('getPublicSiteMetrics')
   })

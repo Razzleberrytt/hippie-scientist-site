@@ -13,7 +13,7 @@ function read(relativePath: string) {
  * ones. Every one of those strings has since moved. The footer no longer
  * special-cases the homepage at all.
  *
- * The homepage now routes through the canonical five destinations instead of
+ * The homepage now hands discovery to the focused Explore surface instead of
  * pointing directly to the checklist. Keep the conversion contract focused on
  * two things that remain intentional: the homepage must not grow a competing
  * capture surface, and the canonical safety/checklist routes must stay available.
@@ -34,9 +34,12 @@ describe('homepage owned-audience funnel', () => {
 
   it('keeps the canonical safety destination and checklist capture route available', () => {
     const homepage = read('components/homepage-v2.tsx')
+    const explore = read('app/explore/page.tsx')
     const destinations = read('lib/site-destinations.ts')
 
-    expect(homepage).toContain('<SiteDestinationGrid />')
+    expect(homepage).toContain("href='/explore/'")
+    expect(homepage).not.toContain('<SiteDestinationGrid />')
+    expect(explore).toContain("href: '/safety-checker/'")
     expect(destinations).toContain("id: 'safety'")
     expect(destinations).toContain("href: '/safety-checker'")
     expect(read('app/info/supplement-safety-checklist/page.tsx')).toContain('<NewsletterSignup')
