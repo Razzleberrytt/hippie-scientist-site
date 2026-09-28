@@ -520,6 +520,23 @@ function processKind(kind, listFile, detailDirName, report) {
   const deIndexed = []
   const restricted = []
   const claimEvidenceBySlug = buildClaimEvidenceBySlug()
+  const sourceRegistry = readJson(path.join(dataDir, 'source-registry.json'), [])
+  const activeRegistrySourceIds = new Set(
+    Array.isArray(sourceRegistry)
+      ? sourceRegistry
+        .filter((source) => source?.active !== false)
+        .map((source) => String(source?.sourceId || source?.id || '').trim())
+        .filter(Boolean)
+      : [],
+  )
+  const inactiveRegistrySourceIds = new Set(
+    Array.isArray(sourceRegistry)
+      ? sourceRegistry
+        .filter((source) => source?.active === false)
+        .map((source) => String(source?.sourceId || source?.id || '').trim())
+        .filter(Boolean)
+      : [],
+  )
 
   for (const record of list) {
     const slug = record?.slug
@@ -538,9 +555,13 @@ function processKind(kind, listFile, detailDirName, report) {
     const claimEvidence = claimEvidenceBySlug.get(slug) || { sourceIds: [], claimIds: [] }
     const claimSourceIds = claimEvidence.sourceIds
     const hasSources = (detailEntry && hasRealSources(detailEntry.record)) || hasRealSources(record) || claimSourceIds.length > 0 || isCurated
+    const receiptOptions = {
+      registrySourceIds: activeRegistrySourceIds,
+      inactiveRegistrySourceIds,
+    }
     const hasGovernedReceipt = Boolean(
-      (detailEntry && hasApprovedClaimSourceReceipt(detailEntry.record))
-      || hasApprovedClaimSourceReceipt(record),
+      (detailEntry && hasApprovedClaimSourceReceipt(detailEntry.record, receiptOptions))
+      || hasApprovedClaimSourceReceipt(record, receiptOptions),
     )
     const baseIndexable = isBaseIndexable(record) || isCurated
     const existingReasons = Array.isArray(record.indexability_reasons) ? record.indexability_reasons : []
