@@ -44,6 +44,7 @@ describe('P0 mobile exploration shell', () => {
 
     expect(homepage).toContain(themeSafeAction)
     expect(homepage).toContain(themeSafeActionText)
+    expect(homepage).toContain("!text-[var(--surface-elevated)]")
     expect(explore).toContain(themeSafeAction)
     expect(explore).toContain(themeSafeActionText)
     expect(homepage).not.toContain('bg-brand-900 px-4 text-sm font-bold text-white')
