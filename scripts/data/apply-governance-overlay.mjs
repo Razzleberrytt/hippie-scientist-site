@@ -135,7 +135,7 @@ function removeDirRecursive(dirPath) {
   return true
 }
 
-/** Extract real source identifiers from an existing record (never invents any). */
+/** Extract canonical source receipts from an existing record (never invents any). */
 function extractSourceIds(record) {
   const ids = []
   const sources = Array.isArray(record?.sources) ? record.sources : []
@@ -145,7 +145,24 @@ function extractSourceIds(record) {
       ids.push(source)
       continue
     }
-    const id = source.pubmedId || source.pmid || source.id || source.doi || source.url
+
+    const pmid = String(source.pubmedId || source.pmid || '').trim()
+    if (/^\d{6,9}$/.test(pmid)) {
+      ids.push(`pmid:${pmid}`)
+      continue
+    }
+
+    const doi = String(source.doi || '')
+      .replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, '')
+      .replace(/^doi:\s*/i, '')
+      .trim()
+      .toLowerCase()
+    if (/^10\.\d{4,9}\/.+/.test(doi)) {
+      ids.push(`doi:${doi}`)
+      continue
+    }
+
+    const id = source.id || source.sourceId || source.url
     if (id) ids.push(String(id))
   }
   return ids
