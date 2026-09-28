@@ -45,12 +45,12 @@ const lighthouseWorkflow = read('.github/workflows/lighthouse.yml')
 invariant('THS-001', 'homepage is routed through the focused V2 experience', () =>
   page.includes("import HomepageV2 from '@/components/homepage-v2'") && page.includes('return <HomepageV2 />'),
 )
-invariant('THS-001', 'homepage hero has a clear promise and no more than two primary hero actions', () => {
+invariant('THS-001', 'homepage hero has a clear promise and only Search plus Explore as primary actions', () => {
   const searchActions = homepage.split("action='/search/'").length - 1
-  const startActions = homepage.split("href='/start/'").length - 1
-  return homepage.includes('Find the right path before you dive into the details.') &&
+  const exploreActions = homepage.split("href='/explore/'").length - 1
+  return homepage.includes('Start with the question. Open the evidence when you need it.') &&
     searchActions === 1 &&
-    startActions === 1 &&
+    exploreActions === 1 &&
     homepage.includes("href='/library/'")
 })
 invariant('THS-001', 'homepage scientific search protects mobile ingredient terms from keyboard rewriting', () =>
@@ -126,8 +126,9 @@ invariant('THS-012', 'profile next actions are decision-aware and monetization c
   includesAll(compoundProfile, ['ProfileDecisionPanel', 'suppressAffiliate', 'isRestrictedRecord']),
 )
 
-invariant('THS-013', 'homepage uses one canonical destination grid without duplicate comparison or methodology mini-hubs', () =>
-  homepage.includes('<SiteDestinationGrid />') &&
+invariant('THS-013', 'homepage uses one canonical Explore handoff without duplicate destination or methodology mini-hubs', () =>
+  homepage.includes("href='/explore/'") &&
+  !homepage.includes('<SiteDestinationGrid />') &&
   homepage.includes("href='/info/methodology/'") &&
   !homepage.includes('const comparisons') &&
   !homepage.includes('const principles') &&

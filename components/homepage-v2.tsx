@@ -71,58 +71,10 @@ export default async function HomepageV2() {
             >
               Explore the site <ArrowRight className='h-4 w-4' aria-hidden='true' />
             </Link>
-            <Link
-              href='/safety-checker/'
-              className='inline-flex min-h-11 items-center rounded-full border border-brand-900/15 bg-white px-5 py-2.5 text-sm font-semibold text-brand-800 transition hover:bg-brand-50'
-            >
-              Check safety
-            </Link>
           </div>
           <p className='mt-4 text-xs leading-5 text-muted'>
             Need the exhaustive index? <Link href='/library/' className='font-semibold text-brand-700 hover:underline'>Open the complete library</Link>.
           </p>
-        </section>
-
-        <section aria-labelledby='home-paths-heading'>
-          <div className='max-w-3xl'>
-            <p className='eyebrow-label'>Common starting points</p>
-            <h2 id='home-paths-heading' className='mt-2 text-3xl font-semibold tracking-tight text-ink'>
-              Three fast ways into the research.
-            </h2>
-          </div>
-
-          <div className='mt-5 grid gap-4 lg:grid-cols-[1.25fr_0.75fr]'>
-            <Link
-              href='/goals/'
-              className='card-premium group flex min-h-[13rem] flex-col justify-between p-6 transition hover:border-brand-700/25 hover:bg-brand-50/30 sm:p-7'
-            >
-              <div>
-                <p className='eyebrow-label'>Start with an outcome</p>
-                <h3 className='mt-2 text-2xl font-semibold tracking-tight text-ink'>Explore by goal</h3>
-                <p className='mt-3 max-w-2xl text-sm leading-7 text-muted'>
-                  Begin with sleep, anxiety, focus, stress, or another goal and compare the relevant options in context.
-                </p>
-              </div>
-              <span className='mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand-700'>
-                Choose a goal <ArrowRight className='h-4 w-4 transition-transform group-hover:translate-x-1' aria-hidden='true' />
-              </span>
-            </Link>
-
-            <div className='grid gap-3'>
-              <Link href='/search/' className='rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm transition hover:border-brand-700/25 hover:bg-brand-50/30'>
-                <p className='text-sm font-semibold text-ink'>Look up an ingredient</p>
-                <p className='mt-1 text-xs leading-5 text-muted'>Jump straight to an herb, compound, nutrient, or extract.</p>
-              </Link>
-              <Link href='/guides/' className='rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm transition hover:border-brand-700/25 hover:bg-brand-50/30'>
-                <p className='text-sm font-semibold text-ink'>Read a decision guide</p>
-                <p className='mt-1 text-xs leading-5 text-muted'>Use a focused guide when the question matters more than the ingredient name.</p>
-              </Link>
-              <Link href='/explore/' className='rounded-2xl border border-brand-900/10 bg-brand-50/45 p-5 transition hover:border-brand-700/25'>
-                <p className='text-sm font-semibold text-brand-800'>See every discovery path →</p>
-                <p className='mt-1 text-xs leading-5 text-muted'>Goals, ingredients, safety, guides, research, and the full library.</p>
-              </Link>
-            </div>
-          </div>
         </section>
 
         <section className='rounded-[2rem] border border-brand-900/10 bg-white p-6 shadow-sm sm:p-8' aria-labelledby='home-trust-heading'>
