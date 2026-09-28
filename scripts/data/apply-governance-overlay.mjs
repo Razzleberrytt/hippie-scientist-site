@@ -28,6 +28,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { writeJsonAtomic } from '../lib/atomic-json.mjs'
+import { curatedPolicySlugSet, loadCuratedIndexPolicy } from '../lib/curated-index-policy.mjs'
 import { buildClaimEvidenceIndex, hasApprovedClaimSourceReceipt } from './evidence-receipts.mjs'
 
 const repoRoot = process.cwd()
@@ -58,22 +59,9 @@ function readJson(filePath, fallback) {
   }
 }
 
-const curatedIndexPolicy = readJson(path.join(repoRoot, 'data', 'curated-index-policy.json'), {
-  herbs: [],
-  compounds: [],
-})
-const CURATED_HERB_SLUGS = new Set(
-  (Array.isArray(curatedIndexPolicy.herbs) ? curatedIndexPolicy.herbs : [])
-    .filter((entry) => entry?.governanceIndexBypass === true)
-    .map((entry) => String(entry?.slug || '').trim())
-    .filter(Boolean),
-)
-const CURATED_COMPOUND_SLUGS = new Set(
-  (Array.isArray(curatedIndexPolicy.compounds) ? curatedIndexPolicy.compounds : [])
-    .filter((entry) => entry?.governanceIndexBypass === true)
-    .map((entry) => String(entry?.slug || '').trim())
-    .filter(Boolean),
-)
+const curatedIndexPolicy = loadCuratedIndexPolicy(repoRoot)
+const CURATED_HERB_SLUGS = curatedPolicySlugSet(curatedIndexPolicy, 'herbs', { governanceIndexBypassOnly: true })
+const CURATED_COMPOUND_SLUGS = curatedPolicySlugSet(curatedIndexPolicy, 'compounds', { governanceIndexBypassOnly: true })
 
 // Windows antivirus/indexing can briefly hold generated JSON files between
 // pipeline stages. The shared helper writes to a sibling temp file and renames
