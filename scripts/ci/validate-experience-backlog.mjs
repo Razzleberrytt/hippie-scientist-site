@@ -46,11 +46,12 @@ invariant('THS-001', 'homepage is routed through the focused V2 experience', () 
   page.includes("import HomepageV2 from '@/components/homepage-v2'") && page.includes('return <HomepageV2 />'),
 )
 invariant('THS-001', 'homepage hero has a clear promise and no more than two primary hero actions', () => {
-  const searchActions = classTokenCount(homepage, 'hs-home-search', 'form')
-  const browseActions = classTokenCount(homepage, 'hs-home-browse-link', 'a')
-  return homepage.includes('Better answers start with better') &&
+  const searchActions = homepage.split("action='/search/'").length - 1
+  const startActions = homepage.split("href='/start/'").length - 1
+  return homepage.includes('Find the right path before you dive into the details.') &&
     searchActions === 1 &&
-    browseActions === 1
+    startActions === 1 &&
+    homepage.includes("href='/library/'")
 })
 invariant('THS-001', 'homepage scientific search protects mobile ingredient terms from keyboard rewriting', () =>
   includesAll(homepage, [
@@ -125,17 +126,12 @@ invariant('THS-012', 'profile next actions are decision-aware and monetization c
   includesAll(compoundProfile, ['ProfileDecisionPanel', 'suppressAffiliate', 'isRestrictedRecord']),
 )
 
-invariant('THS-013', 'homepage navigation and comparison content use the restrained shared editorial material system', () =>
-  includesAll(homepageFinal, [
-    '--home-panel:',
-    '.hs-goal-nav {',
-    '.hs-comparison-list {',
-    '.hs-method-section {',
-    'var(--home-line-strong)',
-  ]) &&
-  !homepage.includes('hs-specimen') &&
-  !homepage.includes('hs-vs') &&
-  !homepage.includes('hs-article'),
+invariant('THS-013', 'homepage uses one canonical destination grid without duplicate comparison or methodology mini-hubs', () =>
+  homepage.includes('<SiteDestinationGrid />') &&
+  homepage.includes("href='/info/methodology/'") &&
+  !homepage.includes('const comparisons') &&
+  !homepage.includes('const principles') &&
+  !homepage.includes('hs-comparison-index'),
 )
 
 invariant('THS-014', 'accessibility and theme contrast are explicit repository gates', () =>

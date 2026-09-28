@@ -29,7 +29,10 @@ describe('homepage goal routes', () => {
     expect(new Set(hrefs).size).toBe(hrefs.length)
   })
 
-  it('builds the homepage goal cards from that same source', () => {
-    expect(read('components/homepage-v2.tsx')).toContain("from '@/lib/core-goals'")
+  it('routes homepage goal discovery through the canonical site destinations instead of duplicating goal cards', () => {
+    const homepage = read('components/homepage-v2.tsx')
+
+    expect(homepage).toContain('<SiteDestinationGrid />')
+    expect(homepage).not.toContain("from '@/lib/core-goals'")
   })
 })
