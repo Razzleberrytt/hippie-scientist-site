@@ -114,18 +114,24 @@ function sourceEntryIds(source) {
   return [...ids]
 }
 
-function sourceEntryIsResolvable(source, registrySourceIds) {
+function sourceEntryIsResolvable(source, registrySourceIds, inactiveRegistrySourceIds) {
   const ids = sourceEntryIds(source)
   if (!ids.length) return false
+
+  const opaqueId = typeof source === 'object' && source
+    ? text(source.id || source.sourceId)
+    : ''
+  if (opaqueId && inactiveRegistrySourceIds.has(opaqueId)) return false
+
   return ids.some((id) => isSelfResolvingSourceId(id) || registrySourceIds.has(id))
 }
 
-function materializedSourceIds(record, registrySourceIds) {
+function materializedSourceIds(record, registrySourceIds, inactiveRegistrySourceIds) {
   const ids = new Set()
   for (const key of ['sources', 'references', 'citations', 'studies']) {
     const entries = Array.isArray(record?.[key]) ? record[key] : []
     for (const source of entries) {
-      if (!sourceEntryIsResolvable(source, registrySourceIds)) continue
+      if (!sourceEntryIsResolvable(source, registrySourceIds, inactiveRegistrySourceIds)) continue
       for (const id of sourceEntryIds(source)) ids.add(id)
     }
   }
@@ -138,10 +144,13 @@ function referenceIsResolvable(reference, localSourceIds, registrySourceIds) {
   return isSelfResolvingSourceId(id) || localSourceIds.has(id) || registrySourceIds.has(id)
 }
 
-export function hasResolvableEvidence(record, { registrySourceIds = new Set() } = {}) {
+export function hasResolvableEvidence(record, {
+  registrySourceIds = new Set(),
+  inactiveRegistrySourceIds = new Set(),
+} = {}) {
   if (!record || typeof record !== 'object') return false
 
-  const localSourceIds = materializedSourceIds(record, registrySourceIds)
+  const localSourceIds = materializedSourceIds(record, registrySourceIds, inactiveRegistrySourceIds)
   if (localSourceIds.size > 0) return true
 
   for (const key of ['sourceIds', 'source_ids', 'pmids', 'pubmedIds']) {
@@ -157,7 +166,7 @@ export function hasResolvableEvidence(record, { registrySourceIds = new Set() } 
 
     for (const bucket of ['human', 'mechanistic', 'safety', 'traditional']) {
       const entries = Array.isArray(evidence[bucket]) ? evidence[bucket] : []
-      if (entries.some((entry) => sourceEntryIsResolvable(entry, registrySourceIds))) return true
+      if (entries.some((entry) => sourceEntryIsResolvable(entry, registrySourceIds, inactiveRegistrySourceIds))) return true
     }
   }
 
@@ -174,13 +183,17 @@ export function hasResolvableEvidence(record, { registrySourceIds = new Set() } 
   return false
 }
 
-export function hasApprovedClaimSourceReceipt(record) {
+export function hasApprovedClaimSourceReceipt(record, {
+  registrySourceIds = new Set(),
+  inactiveRegistrySourceIds = new Set(),
+} = {}) {
   if (!record || typeof record !== 'object') return false
 
   const approvedSourceIds = new Set()
   for (const source of Array.isArray(record.sources) ? record.sources : []) {
     if (!source || typeof source !== 'object') continue
     if (text(source.reviewStatus || source.review_status).toLowerCase() !== 'approved') continue
+    if (!sourceEntryIsResolvable(source, registrySourceIds, inactiveRegistrySourceIds)) continue
     for (const id of sourceEntryIds(source)) approvedSourceIds.add(id)
   }
 
