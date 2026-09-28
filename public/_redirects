@@ -461,3 +461,18 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /compounds/lavender/ /herbs/lavandula-angustifolia/ 301
 /compounds/lemon-balm /herbs/melissa-officinalis/ 301
 /compounds/lemon-balm/ /herbs/melissa-officinalis/ 301
+
+# Bing Site Explorer crawl-error cleanup (2026-09-28): preserve six legacy entry
+# points by sending each to its closest current canonical destination.
+/best-herbs-for-focus /guides/focus/best-nootropics-for-focus/ 301
+/best-herbs-for-focus/ /guides/focus/best-nootropics-for-focus/ 301
+/about /info/about/ 301
+/about/ /info/about/ 301
+/evidence-report /evidence/evidence-report/ 301
+/evidence-report/ /evidence/evidence-report/ 301
+/evidence-standards /info/methodology/ 301
+/evidence-standards/ /info/methodology/ 301
+/evidence-checker /evidence/evidence-checker/ 301
+/evidence-checker/ /evidence/evidence-checker/ 301
+/build /stacks/builder/ 301
+/build/ /stacks/builder/ 301
