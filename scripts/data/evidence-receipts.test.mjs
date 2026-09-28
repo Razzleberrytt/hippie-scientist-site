@@ -52,6 +52,15 @@ describe('governed evidence receipts', () => {
     })).toBe(false)
   })
 
+  it('never treats a claim identifier as a source receipt', () => {
+    expect(hasResolvableEvidence({
+      evidence: {
+        sourceCount: 1,
+        sourceIds: ['claim:study-row-1'],
+      },
+    })).toBe(false)
+  })
+
   it('rejects a dangling opaque source id but accepts self-resolving identifiers', () => {
     expect(hasResolvableEvidence({
       evidence: {
