@@ -50,47 +50,6 @@ const RESTRICTED_SLUGS = new Set([
   'salvinorin-a',
 ])
 
-// Curated index-allowlisted herb slugs. Mirrors the canonical
-// editor-curated allowlist in src/lib/index-allowlist.ts so the runtime
-// visibility gate honors the same source of truth used by the sitemap.
-const CURATED_HERB_SLUGS = new Set([
-  'ashwagandha',
-  'rhodiola',
-  'piper-methysticum',
-  'turmeric',
-  'ginger',
-  'peppermint',
-  'black-cohosh',
-  'momordica-charantia',
-  'black-seed',
-  'bacopa',
-  'ginkgo-biloba',
-  'saffron',
-  'melissa-officinalis',
-  'valerian',
-])
-
-// Curated index-allowlisted compound slugs. Mirrors the canonical
-// editor-curated allowlist in src/lib/index-allowlist.ts.
-// Kratom + mitragynine intentionally excluded — restricted.
-const CURATED_COMPOUND_SLUGS = new Set([
-  'l-theanine',
-  'magnesium',
-  'omega-3',
-  'caffeine',
-  'epigallocatechin-gallate-egcg',
-  'n-acetylcysteine',
-  'coenzyme-q10',
-  'curcumin-piperine',
-  'berberine',
-  'alpha-gpc',
-  'cdp-choline',
-  'phosphatidylcholine',
-  'acetyl-l-carnitine',
-  'l-tyrosine',
-  'huperzine-a',
-])
-
 function readJson(filePath, fallback) {
   try {
     return JSON.parse(fs.readFileSync(filePath, 'utf8'))
@@ -98,6 +57,23 @@ function readJson(filePath, fallback) {
     return fallback
   }
 }
+
+const curatedIndexPolicy = readJson(path.join(repoRoot, 'data', 'curated-index-policy.json'), {
+  herbs: [],
+  compounds: [],
+})
+const CURATED_HERB_SLUGS = new Set(
+  (Array.isArray(curatedIndexPolicy.herbs) ? curatedIndexPolicy.herbs : [])
+    .filter((entry) => entry?.governanceIndexBypass === true)
+    .map((entry) => String(entry?.slug || '').trim())
+    .filter(Boolean),
+)
+const CURATED_COMPOUND_SLUGS = new Set(
+  (Array.isArray(curatedIndexPolicy.compounds) ? curatedIndexPolicy.compounds : [])
+    .filter((entry) => entry?.governanceIndexBypass === true)
+    .map((entry) => String(entry?.slug || '').trim())
+    .filter(Boolean),
+)
 
 // Windows antivirus/indexing can briefly hold generated JSON files between
 // pipeline stages. The shared helper writes to a sibling temp file and renames
