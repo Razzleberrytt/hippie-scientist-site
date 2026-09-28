@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-09-27
+**Updated:** 2026-09-28
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
@@ -48,13 +48,15 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 **2026-09-25 P0 #5941 — Resolved:** bounded Actions coordination repair merged via PR #5949 and no longer consumes an Operations exception or changes normal D/R/A admission.
 
-Current review state: **2/3 normal implementation workstreams occupied**. Owner-directed P0 #6051 owns Discovery/SEO until completion, block, or explicit displacement. Revenue/Conversion remains free; #6056 occupies Authority/Content. #6047 / PR #6050, #6041 / PR #6044, #6035 / PR #6038, #6031 / PR #6033, #6024 / PR #6028, #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5706 / PR #5971 are retired; #5081 remains separately blocked on its own lease.
+Current review state: **2/3 normal implementation workstreams occupied**. Owner-directed P0 #6051 owns Discovery/SEO and owner-directed P0 #6056 owns Authority/Content until completion, block, or explicit displacement. Revenue/Conversion remains free for legal non-overlapping admission. #6047 / PR #6050, #6041 / PR #6044, #6035 / PR #6038, #6031 / PR #6033, #6024 / PR #6028, #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5706 / PR #5971 are retired; #5081 remains separately blocked on its own lease.
 
 **P0 #6051 — D / mobile product experience:** active. Rebuild the mobile exploration experience around progressive disclosure and content coherence: simplified mobile navigation, useful discovery before exhaustive indexes, reusable profile hierarchy, copy deduplication, readable data presentation, contextual next actions, and restrained premium visual polish. Stable URLs and evidence/safety/publication/accessibility/performance gates remain unchanged; external engagement/business impact is `Unknown` until measured.
 
+**#6056 — Authority/Content P0: Tyrosine citation-integrity containment.** In review, owner-directed 2026-09-27. Hold the legacy herb:tyrosine source/claim presentation and settled evidence grade across generation and runtime overlays; honor explicit governance denials in shared visibility. Preserve safety, the existing compound redirect, and compound:l-tyrosine evidence. No positive scientific promotion or workbook mutation. Local 43 focused tests, check:fast, and production build passed on the original base; integrated-head CI remains required. Broader #4444 remains open.
+
 - **D — occupied:** #6051 owns Discovery/SEO. #6047 / PR #6050 is merged and retired. #6041 / PR #6044, #6035 / PR #6038, #6031 / PR #6033, #6024 / PR #6028, #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
 - **R — free:** #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
-- **A — free:** #5706 / PR #5971 is merged and retired; #5081 remains separately blocked on its own fresh non-overlapping governor lease.
+- **A — occupied:** #6056 owns Authority/Content. #5706 / PR #5971 is merged and retired; #5081 remains separately blocked on its own fresh non-overlapping governor lease.
 - **Control state:** #5609 is resolved; there is no current P0 admission freeze.
 - **Control maintenance:** #5642 aligns the non-authoritative swarm feeder with the merged search-conversion policy; it is docs-only and does not consume a normal implementation workstream.
 
@@ -65,9 +67,11 @@ Research-only enrichment staging remains separate from canonical implementation/
 - **#5703 / PR #5961 — retired 2026-09-26:** merged as `6bd7b57a633c8f88a70edb688d969ee19e7de8ad`; five cobalamin findings terminally promoted with source/runtime/governance repair and exact-head validation green. External Cloudflare preview status remained stale and was not a protected merge requirement.
 - **#5698 / PR #5701 — retired 2026-09-20:** merged as `1727c68cbb5dfc865e4be7c02af6e0fb7d867d75`; retracted PMID 41461240 / DOI 10.1016/j.jad.2025.121055 is quarantined against identifier re-entry and the stress-guide evidence path is repaired. All required exact-head gates passed; external search/conversion/revenue impact remains `Unknown`.
 
+**Retired #4987 / PR #6057 (2026-09-28):** merged as `be5a4a1b96c0773d8a7782a9c717f59a4f622ea1`; evidence receipt checks distinguish claim/source namespaces and reject inactive/unresolved receipt authority. Does not consume active WIP.
+
 ## Next — ordered dependency queue
 
-Discovery/SEO is occupied by owner-directed P0 #6051. Revenue/Conversion is available; Authority/Content is occupied by #6056. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. Do not admit another Discovery/SEO ticket until #6051 completes, blocks, or is explicitly displaced. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
+Discovery/SEO is occupied by owner-directed P0 #6051. Authority/Content is occupied by owner-directed #6056. Revenue/Conversion remains available. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. Do not admit another Discovery/SEO ticket until #6051 completes, blocks, or is explicitly displaced. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
