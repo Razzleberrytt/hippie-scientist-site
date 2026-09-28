@@ -585,13 +585,16 @@ function processKind(kind, listFile, detailDirName, report) {
         record.indexability_reasons.push('manual_editorial_review')
       }
     } else if (isCurated) {
+      // Curated membership is a discoverability decision, not a scientific-review
+      // receipt. Keep the page indexable, but preserve the stricter review,
+      // recommendation, and human-review state derived from governed evidence.
       record.indexability_status = 'PUBLISH'
       record.robots = 'index,follow'
       record.sitemap_included = true
       record.governance.indexingAllowed = true
-      record.governance.reviewStatus = 'approved'
-      record.governance.requiresHumanReview = false
-      record.governance.reason = record.governance.reason || 'curated_allowlist'
+      if (!record.governance.reason && record.governance.reviewStatus === 'approved') {
+        record.governance.reason = 'curated_allowlist'
+      }
       if (!record.indexability_reasons.includes('curated_allowlist')) {
         record.indexability_reasons.push('curated_allowlist')
       }
