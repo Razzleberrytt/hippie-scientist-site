@@ -1,17 +1,11 @@
 #!/usr/bin/env node
 /**
- * Regression guard: verify every slug in the editor-curated allowlist
- * (mirrored from src/lib/index-allowlist.ts) actually has
- * indexability_status === 'PUBLISH' in the built
- * public/data/{herbs,compounds}.json flat lists.
+ * Regression guard for the canonical curated-index policy.
  *
- * Exits non-zero if any curated slug is downgraded so a stray workbook edit
- * can't silently turn high-traffic pages back into noindex.
- *
- * Why the lists are duplicated here: this script runs in CI without TS
- * transpilation. Keep this file in lockstep with src/lib/index-allowlist.ts —
- * the `npm run audit:curated-indexable` job will catch drift because the
- * overlay would have flipped any mismatched slug back to NEEDS_REVIEW anyway.
+ * Every policy entry must resolve to runtime data. Entries with the explicit
+ * governanceIndexBypass flag retain the legacy invariant that they build as
+ * PUBLISH + sitemap_included unless a deliberate governance hold says otherwise.
+ * Membership without that flag remains governed by the normal publication rules.
  *
  * Usage:  node scripts/audit/verify-curated-indexable.mjs
  *         npm run audit:curated-indexable
