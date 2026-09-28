@@ -91,7 +91,7 @@ export default function ExplorePage() {
             placeholder='Search a name or question'
             className='min-w-0 flex-1 bg-transparent px-1 py-2 text-base text-ink outline-none placeholder:text-muted sm:px-2'
           />
-          <button type='submit' className='inline-flex min-h-11 items-center justify-center rounded-full bg-brand-900 px-4 text-sm font-bold text-white'>
+          <button type='submit' className='inline-flex min-h-11 items-center justify-center rounded-full bg-[var(--text-primary)] px-4 text-sm font-bold text-[var(--surface-elevated)] transition hover:opacity-90'>
             Search
           </button>
         </form>

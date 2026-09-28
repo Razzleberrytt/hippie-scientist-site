@@ -35,4 +35,18 @@ describe('P0 mobile exploration shell', () => {
     expect(explore).toContain("href: '/research/'")
     expect(explore).toContain("href: '/library/'")
   })
+
+  it('keeps primary actions contrast-safe when the brand scale flips in dark mode', () => {
+    const homepage = read('components/homepage-v2.tsx')
+    const explore = read('app/explore/page.tsx')
+    const themeSafeAction = "bg-[var(--text-primary)]"
+    const themeSafeActionText = "text-[var(--surface-elevated)]"
+
+    expect(homepage).toContain(themeSafeAction)
+    expect(homepage).toContain(themeSafeActionText)
+    expect(explore).toContain(themeSafeAction)
+    expect(explore).toContain(themeSafeActionText)
+    expect(homepage).not.toContain('bg-brand-900 px-4 text-sm font-bold text-white')
+    expect(explore).not.toContain('bg-brand-900 px-4 text-sm font-bold text-white')
+  })
 })

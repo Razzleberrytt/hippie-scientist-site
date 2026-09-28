@@ -38,7 +38,7 @@ export default async function HomepageV2() {
               placeholder='Search herbs, compounds, or questions'
               className='min-w-0 flex-1 bg-transparent px-1 py-2 text-base text-ink outline-none placeholder:text-muted sm:px-2'
             />
-            <button type='submit' className='inline-flex min-h-11 items-center justify-center rounded-full bg-brand-900 px-4 text-sm font-bold text-white sm:px-5'>
+            <button type='submit' className='inline-flex min-h-11 items-center justify-center rounded-full bg-[var(--text-primary)] px-4 text-sm font-bold text-[var(--surface-elevated)] transition hover:opacity-90 sm:px-5'>
               Search
             </button>
           </form>
@@ -46,7 +46,7 @@ export default async function HomepageV2() {
           <div className='mt-5 flex flex-wrap items-center gap-3'>
             <Link
               href='/explore/'
-              className='inline-flex min-h-11 items-center gap-2 rounded-full bg-brand-900 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-800'
+              className='inline-flex min-h-11 items-center gap-2 rounded-full bg-[var(--text-primary)] px-5 py-2.5 text-sm font-bold text-[var(--surface-elevated)] shadow-sm transition hover:opacity-90'
             >
               Explore the site <ArrowRight className='h-4 w-4' aria-hidden='true' />
             </Link>
