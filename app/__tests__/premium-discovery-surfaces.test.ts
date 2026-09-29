@@ -48,10 +48,13 @@ describe('premium discovery surfaces regression contract', () => {
     const panel = source('components/editorial/ProfileDecisionPanel.tsx')
 
     expect(panel).toContain('profile-decision-panel space-y-4')
-    expect(panel).toContain('profile-at-a-glance')
+    expect(panel).not.toContain('profile-at-a-glance')
+    expect(panel).not.toContain('runtimeSummary.evidence')
+    expect(panel).not.toContain('runtimeSummary.safety')
     expect(panel).toContain('profile-next-steps')
     expect(panel).toContain('ScientificVerdictCard')
     expect(panel).toContain('EvidenceConfidence')
+    expect(panel).toContain('verdict ? (')
   })
 
   it('keeps herb and compound profiles on one mobile information hierarchy', () => {
