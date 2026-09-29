@@ -727,6 +727,7 @@ export default async function CompoundPage({ params }: PageProps) {
   const stackRecommendations = getStackRecommendations(normalizedSlug, 3)
   const canonicalNote = CANONICAL_COMPOUND_NOTES[normalizedSlug]
   const citations = extractCitationsFromRecord(compound)
+  const clusterSeeAlso = getClusterSeeAlso(normalizedSlug, 'compound', 8)
   const evidenceDesignMatch = text(compound.evidence_design_match)
   const evidenceRiskOfBias = text(compound.evidence_risk_of_bias)
   const evidenceConsistency = text(compound.evidence_consistency)
@@ -792,7 +793,6 @@ export default async function CompoundPage({ params }: PageProps) {
     : null
   const pathwayDiagram = generatePathwayDiagram({ ...compound, name: displayName })
   const goalLinks = getGoalsForEntity(normalizedSlug)
-  const clusterSeeAlso = getClusterSeeAlso(normalizedSlug, 'compound', 8)
   const continuationGroups = [
     ...(semanticRelated.length > 0
       ? [{
