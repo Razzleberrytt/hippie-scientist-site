@@ -40,6 +40,16 @@ describe('ingredient lookup information architecture', () => {
     expect(primaryNav).toContain("label: 'Search profiles & learning'")
   })
 
+  it('keeps narrow-phone lookup navigation compact without removing destinations', () => {
+    const lookupNav = read('components/navigation/LookupFamilyNav.tsx')
+
+    expect(lookupNav).toContain("grid grid-cols-2 gap-2 lg:grid-cols-4")
+    expect(lookupNav).toContain("hidden text-xs leading-5 text-muted sm:block")
+    expect(lookupNav).toContain("hidden rounded-full")
+    expect(lookupNav).toContain("sm:inline-flex")
+    expect(lookupNav).toContain("min-h-14")
+  })
+
   it('owns search under Ingredients while Evidence Lookup remains Research-owned', () => {
     expect(getActivePrimaryNavigationItem('/search/')?.label).toBe('Ingredients')
     expect(getActivePrimaryNavigationItem('/evidence/evidence-checker/')?.label).toBe('Research')
