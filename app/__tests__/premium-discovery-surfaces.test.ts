@@ -75,7 +75,9 @@ describe('premium discovery surfaces regression contract', () => {
     }
 
     expect(compound).toContain('<dl className="hs-defs">')
+    expect(compound).toContain('space-y-4 sm:space-y-5')
     expect(compound).not.toContain('id="quick-stats"')
+    expect(compound).not.toContain('flex-1 min-w-0 space-y-10')
     expect(compound.indexOf('id="compounds"')).toBeGreaterThan(compound.indexOf('id="dosing"'))
     expect(compound).toContain('<ProfileTOC items={tocItems} variant="desktop" />')
   })
