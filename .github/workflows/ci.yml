@@ -70,6 +70,10 @@ jobs:
         if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.validation_only == 'true'
         run: echo "Build-output-neutral control/security/validation-policy change; run lint, focused tests/validators, and the fail-closed security audit without app/data/build suites."
 
+      - name: UI-only validation fast path
+        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.ui_only == 'true'
+        run: echo "Shared presentation-only change; run lint, typecheck, dependency-related Vitest, and explicit a11y here while the production build/output/SEO lane remains authoritative."
+
       - name: Setup Node from .nvmrc
         if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true'
         uses: actions/setup-node@v7
@@ -154,8 +158,42 @@ jobs:
             npx vitest run app/__tests__/a11y.test.tsx
           } 2>&1 | tee vitest.log
 
+      - name: Run related tests for UI-only changes (vitest + source-reading contracts + explicit a11y gate)
+        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && steps.impact.outputs.ui_only == 'true'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+          mapfile -t changed_files < <(git diff --name-only "$BASE_SHA" HEAD)
+          declare -A explicit_test_set=()
+
+          for changed_file in "${changed_files[@]}"; do
+            if [[ "$changed_file" =~ (^|/)(__tests__/.*|[^/]+\.(test|spec)\.[cm]?[jt]sx?)$ ]]; then
+              explicit_test_set["$changed_file"]=1
+            fi
+
+            while IFS= read -r test_file; do
+              if [[ "$test_file" =~ \.(test|spec)\.[cm]?[jt]sx?$ ]]; then
+                explicit_test_set["$test_file"]=1
+              fi
+            done < <(grep -RFl -- "$changed_file" app/__tests__ tests components 2>/dev/null || true)
+          done
+
+          explicit_ui_tests=()
+          if [ "${#explicit_test_set[@]}" -gt 0 ]; then
+            mapfile -t explicit_ui_tests < <(printf '%s\n' "${!explicit_test_set[@]}" | sort)
+          fi
+
+          {
+            npx vitest related "${changed_files[@]}" --run --passWithNoTests
+            if [ "${#explicit_ui_tests[@]}" -gt 0 ]; then
+              npx vitest run "${explicit_ui_tests[@]}"
+            fi
+            npx vitest run app/__tests__/a11y.test.tsx
+          } 2>&1 | tee vitest.log
+
       - name: Run full tests (vitest + a11y gate)
-        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && steps.impact.outputs.leaf_page_only != 'true'
+        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && steps.impact.outputs.leaf_page_only != 'true' && steps.impact.outputs.ui_only != 'true'
         run: |
           set -o pipefail
           npm run test 2>&1 | tee vitest.log
@@ -169,7 +207,7 @@ jobs:
       # reached main. Discovery is by content, so new suites are covered here
       # automatically.
       - name: Run native node:test suites
-        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
+        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && steps.impact.outputs.ui_only != 'true'
         run: npm run test:node
 
       - name: Upload Vitest log
@@ -181,19 +219,19 @@ jobs:
           retention-days: 7
 
       - name: Validate canonical data system (schema, SQLite, graph, freshness)
-        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
+        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && steps.impact.outputs.ui_only != 'true'
         run: npm run data:ci
 
       - name: Generate Related Botanicals quality audit
-        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
+        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && steps.impact.outputs.ui_only != 'true'
         run: npx tsx scripts/audit-related-botanicals.ts
 
       - name: Add Related Botanicals audit summary
-        if: always() && steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && hashFiles('reports/related-botanicals/related-botanicals-audit.md') != ''
+        if: always() && steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && steps.impact.outputs.ui_only != 'true' && hashFiles('reports/related-botanicals/related-botanicals-audit.md') != ''
         run: cat reports/related-botanicals/related-botanicals-audit.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload Related Botanicals audit
-        if: always() && steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && hashFiles('reports/related-botanicals/*') != ''
+        if: always() && steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && steps.impact.outputs.ui_only != 'true' && hashFiles('reports/related-botanicals/*') != ''
         uses: actions/upload-artifact@v7
         with:
           name: related-botanicals-audit-${{ github.event.pull_request.head.sha || github.sha }}
@@ -201,19 +239,19 @@ jobs:
           retention-days: 30
 
       - name: Guard workbook source of truth
-        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
+        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && steps.impact.outputs.ui_only != 'true'
         run: npm run guard:source-of-truth
 
       - name: Audit cluster-member runtime trust
-        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
+        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true' && steps.impact.outputs.ui_only != 'true'
         run: npm run audit:cluster-member-trust:strict
 
       - name: Run security audit gate
-        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true'
+        if: steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.ui_only != 'true'
         run: npm run audit:high
 
       - name: Generate raw npm audit JSON
-        if: ${{ always() && !cancelled() && steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' }}
+        if: ${{ always() && !cancelled() && steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.ui_only != 'true' }}
         env:
           NPM_CONFIG_FETCH_TIMEOUT: '60000'
           NPM_CONFIG_FETCH_RETRIES: '1'
@@ -231,7 +269,7 @@ jobs:
           exit 0
 
       - name: Upload audit artifact
-        if: always() && steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && hashFiles('npm-audit.after.json') != ''
+        if: always() && steps.merge-proof.outputs.skip_redundant_validation != 'true' && steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.ui_only != 'true' && hashFiles('npm-audit.after.json') != ''
         uses: actions/upload-artifact@v7
         with:
           name: npm-audit-after-${{ github.event.pull_request.head.sha || github.sha }}
@@ -244,6 +282,7 @@ jobs:
           echo "- Runs independently of the production build lane to shorten the critical path." >> "$GITHUB_STEP_SUMMARY"
           echo "- Docs-only: ${{ steps.impact.outputs.docs_only || 'false' }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Validation-only: ${{ steps.impact.outputs.validation_only || 'false' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- UI-only: ${{ steps.impact.outputs.ui_only || 'false' }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- Reused exact-tree main validation: ${{ steps.merge-proof.outputs.skip_redundant_validation || 'false' }}" >> "$GITHUB_STEP_SUMMARY"
           if [ "${{ steps.merge-proof.outputs.skip_redundant_validation }}" = "true" ]; then
             echo "- Fast path: exact controller-validated PR base/tree preserved by the main merge; duplicate validation/test/data work skipped while exact merge-SHA build/output remains mandatory." >> "$GITHUB_STEP_SUMMARY"
@@ -251,6 +290,8 @@ jobs:
             echo "- Fast path: exhaustive app/data validation skipped because every changed file is classified docs-only; dedicated path-scoped governance checks remain authoritative." >> "$GITHUB_STEP_SUMMARY"
           elif [ "${{ steps.impact.outputs.validation_only }}" = "true" ]; then
             echo "- Fast path: lint + focused validation-only tests/validators + security audit; app/data/full-test/build suites skipped because the exact path classifier proves the diff cannot alter public build output." >> "$GITHUB_STEP_SUMMARY"
+          elif [ "${{ steps.impact.outputs.ui_only }}" = "true" ]; then
+            echo "- Fast path: lint + typecheck + dependency-related Vitest + changed/source-reading UI contracts + explicit a11y; unrelated node/data/workbook/runtime-trust/npm-audit validation is skipped, while the authoritative production build/output/SEO lane remains mandatory." >> "$GITHUB_STEP_SUMMARY"
           elif [ "${{ steps.impact.outputs.leaf_page_only }}" = "true" ]; then
             echo "- Fast path: lint + typecheck + dependency-related Vitest selection + explicit a11y + native node:test + canonical data/runtime/security gates; production build/output/SEO remains authoritative." >> "$GITHUB_STEP_SUMMARY"
           else
