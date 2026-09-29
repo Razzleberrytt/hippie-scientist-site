@@ -39,6 +39,7 @@ const globals = read('app/globals.css')
 const homepageFinal = read('styles/homepage-premium-final.css')
 const herbProfile = read('app/herbs/[slug]/page.tsx')
 const compoundProfile = read('app/compounds/[slug]/page.tsx')
+const seeAlsoCluster = read('components/SeeAlsoCluster.tsx')
 const packageJson = read('package.json')
 const lighthouseWorkflow = read('.github/workflows/lighthouse.yml')
 
@@ -117,8 +118,9 @@ invariant('THS-010', 'profiles begin with a short plain-English summary rather t
 )
 
 invariant('THS-011', 'related discovery is backed by runtime relationship maps rather than only hardcoded link dumps', () =>
-  includesAll(herbProfile, ['getRouteInternalLinkGroups', 'getBatchedRuntimeRecords', 'RelatedDiscoveryGroups']) &&
-  includesAll(compoundProfile, ['getRouteInternalLinkGroups', 'getBatchedRuntimeRecords', 'RelatedDiscoveryGroups']),
+  includesAll(herbProfile, ['getRouteInternalLinkGroups', 'getBatchedRuntimeRecords', 'continuationGroups={continuationGroups}']) &&
+  includesAll(seeAlsoCluster, ['RelatedDiscoveryGroups', 'continuationGroups', 'dedupeContinuationGroups']) &&
+  includesAll(compoundProfile, ['getRouteInternalLinkGroups', 'getBatchedRuntimeRecords', 'continuationGroups={continuationGroups}']),
 )
 
 invariant('THS-012', 'profile next actions are decision-aware and monetization can be suppressed for risk', () =>

@@ -4079,19 +4079,6 @@
     "study_class_human": true
   },
   {
-    "id": "study-row-199",
-    "title": "focus, energy",
-    "pmid": "8629725",
-    "source_url": "https://pubmed.ncbi.nlm.nih.gov/8629725/ | https://pubmed.ncbi.nlm.nih.gov/1924634/",
-    "evidence_tier": "randomized_stress_condition_trials",
-    "profile_slug": "tyrosine",
-    "study_class": "rct",
-    "study_class_source": "randomized_stress_condition_trials",
-    "study_class_label": "Randomized controlled trial",
-    "study_class_rank": 7,
-    "study_class_human": true
-  },
-  {
     "id": "study-row-2",
     "title": "cognitive_performance",
     "pmid": "19773644",

@@ -113,6 +113,7 @@ describe('mobile premium UX regression contract', () => {
     expect(text).toContain('getQuickTocItems')
     expect(text).toContain("/evidence/i")
     expect(text).toContain("/safety|interaction/i")
+    expect(text.indexOf("/safety|interaction/i")).toBeLessThan(text.indexOf("/evidence/i"))
     expect(text).toContain("data-mobile-quick-jumps='true'")
     expect(text).toContain("top-[4.35rem]")
   })
