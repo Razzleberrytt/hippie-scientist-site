@@ -16,9 +16,9 @@ describe('herb profile continuation-path consolidation', () => {
     expect(compound).toContain('<RelatedDiscoveryGroups')
   })
 
-  it('preserves unique article or research reading in the existing context section', () => {
+  it('preserves unique guide, article, or research reading in the existing context section', () => {
     expect(herb).toContain('function getRelatedReadingLinks')
-    expect(herb).toContain('/article|research/i.test(group.title)')
+    expect(herb).toContain('/guide|article|research/i.test(group.title)')
     expect(herb).toContain('Guides &amp; research context for {displayName}')
     expect(herb).toContain('Related reading')
     expect(herb).toContain('relatedReadingLinks.map')
