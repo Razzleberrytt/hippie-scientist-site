@@ -47,4 +47,77 @@ describe('SeeAlsoCluster', () => {
       .filter((link) => !/Full guide|guide →/.test(link.textContent || ''))
     expect(peerLinks.length).toBeLessThanOrEqual(1)
   })
+  it('renders deduped continuation groups even when no semantic cluster exists', async () => {
+    await renderCluster({
+      slug: 'not-a-real-herb',
+      kind: 'herb',
+      continuationGroups: [
+        {
+          title: 'Related Guides',
+          links: [
+            { href: '/goals/example/', label: 'Example goal' },
+            { href: '/goals/example', label: 'Duplicate example goal' },
+            { href: '/guides/unique/', label: 'Unique guide' },
+          ],
+        },
+      ],
+    })
+
+    const exampleLinks = screen
+      .getAllByRole('link')
+      .filter((link) => (link.getAttribute('href') || '').replace(/\/+$/, '') === '/goals/example')
+
+    expect(exampleLinks).toHaveLength(1)
+    expect(screen.getByRole('link', { name: 'Unique guide' })).toHaveAttribute('href', '/guides/unique/')
+  })
+
+  it('does not repeat continuation hrefs already owned by semantic-cluster navigation', async () => {
+    await renderCluster({
+      slug: 'valerian',
+      kind: 'herb',
+      continuationGroups: [
+        {
+          title: 'Related Guides',
+          links: [
+            { href: '/goals/sleep/', label: 'Duplicate sleep goal' },
+            { href: '/guides/sleep/unique/', label: 'Unique sleep guide' },
+          ],
+        },
+      ],
+    })
+
+    expect(screen.queryByRole('link', { name: 'Duplicate sleep goal' })).toBeNull()
+    expect(screen.getByRole('link', { name: 'Unique sleep guide' })).toHaveAttribute('href', '/guides/sleep/unique/')
+  })
+
+  it('keeps later unique links visible when same-title continuation groups coalesce', async () => {
+    await renderCluster({
+      slug: 'not-a-real-herb',
+      kind: 'herb',
+      continuationGroups: [
+        {
+          title: 'Related Guides',
+          links: [
+            { href: '/goals/one', label: 'Goal one' },
+            { href: '/goals/two', label: 'Goal two' },
+            { href: '/goals/three', label: 'Goal three' },
+            { href: '/goals/four', label: 'Goal four' },
+            { href: '/goals/five', label: 'Goal five' },
+          ],
+        },
+        {
+          title: 'Related Guides',
+          links: [
+            { href: '/guides/generated-unique', label: 'Generated unique guide' },
+          ],
+        },
+      ],
+    })
+
+    expect(screen.getByRole('link', { name: 'Generated unique guide' })).toHaveAttribute(
+      'href',
+      '/guides/generated-unique',
+    )
+  })
+
 })
