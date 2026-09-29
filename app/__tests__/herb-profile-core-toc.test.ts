@@ -9,6 +9,7 @@ function source(relativePath: string): string {
 describe('herb profile core TOC contract', () => {
   const herb = source('app/herbs/[slug]/page.tsx')
   const profileToc = source('components/ui/ProfileTOC.tsx')
+  const editorialSurfaces = source('styles/editorial-content-surfaces.css')
   const tocStart = herb.indexOf('const tocItems = [')
   const tocEnd = herb.indexOf('\n  ]', tocStart)
   const toc = herb.slice(tocStart, tocEnd + 4)
@@ -53,6 +54,12 @@ describe('herb profile core TOC contract', () => {
     expect(profileToc).toContain("menuLabel = 'All sections'")
     expect(profileToc).toContain('aria-label={navigationLabel}')
     expect(profileToc).toContain('{menuLabel}')
+  })
+
+  it('keeps profile TOC styling on a stable hook instead of the accessible name', () => {
+    expect((profileToc.match(/data-profile-toc='true'/g) || []).length).toBe(2)
+    expect(editorialSurfaces).toContain('nav[data-profile-toc="true"]')
+    expect(editorialSurfaces).not.toContain('nav[aria-label="Page sections"]')
   })
 
   it('maps omitted deep anchors back to visible core navigation state', () => {
