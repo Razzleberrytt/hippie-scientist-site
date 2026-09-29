@@ -61,9 +61,10 @@ Measured continuation links before: 20
 - SeeAlsoCluster: 3
 - generated discovery grid: 17
 
-Expected after this slice:
-- SeeAlsoCluster remains the related-profile authority
-- unique guide/article/research links move into the existing guides/research-context card
+Expected after this slice: approximately 8 continuation links
+- SeeAlsoCluster remains the related-profile authority: 3
+- unique guide/article/research links move into the existing guides/research-context card: up to 5 on this control profile
+- article/research links are prioritized before guide links when the compact cap applies
 - generic safety links do not create a second continuation module because the page already has Safety + final Safety Checker navigation
 - compound links remain available earlier through HerbCompoundLinks
 
@@ -79,7 +80,7 @@ Herb profiles use one clear owner per continuation job:
 
 The broad RelatedDiscoveryGroups grid is removed only from herb profiles. Compound profiles remain unchanged.
 
-Generated guide/article/research links are filtered against hrefs already represented by goal, condition, related-herb, and comparison paths before being folded into the context card.
+Generated guide/article/research links are filtered against hrefs already represented by goal, condition, related-herb, and comparison paths before being folded into the context card. Article/research links are prioritized before remaining unique guides; the compact handoff is capped at six links.
 
 ## Safety / publication boundary
 
