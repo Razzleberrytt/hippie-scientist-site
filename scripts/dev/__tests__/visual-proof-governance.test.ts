@@ -20,6 +20,8 @@ describe('hosted visual proof governance', () => {
 
   it('runs the existing sweep in a pinned hosted browser and retains artifacts', () => {
     expect(workflow).toContain('playwright@1.63.0')
+    expect(workflow).toContain('RUNTIME_DIR="$RUNNER_TEMP/visual-proof-playwright"')
+    expect(workflow).toContain('node_modules/playwright-core')
     expect(workflow).toContain('install --with-deps chromium')
     expect(workflow).toContain('node scripts/dev/visual-sweep.mjs hosted')
     expect(workflow).toContain('actions/upload-artifact@v7')
