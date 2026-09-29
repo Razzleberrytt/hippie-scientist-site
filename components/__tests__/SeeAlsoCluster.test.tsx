@@ -90,4 +90,34 @@ describe('SeeAlsoCluster', () => {
     expect(screen.getByRole('link', { name: 'Unique sleep guide' })).toHaveAttribute('href', '/guides/sleep/unique/')
   })
 
+  it('keeps later unique links visible when same-title continuation groups coalesce', async () => {
+    await renderCluster({
+      slug: 'not-a-real-herb',
+      kind: 'herb',
+      continuationGroups: [
+        {
+          title: 'Related Guides',
+          links: [
+            { href: '/goals/one', label: 'Goal one' },
+            { href: '/goals/two', label: 'Goal two' },
+            { href: '/goals/three', label: 'Goal three' },
+            { href: '/goals/four', label: 'Goal four' },
+            { href: '/goals/five', label: 'Goal five' },
+          ],
+        },
+        {
+          title: 'Related Guides',
+          links: [
+            { href: '/guides/generated-unique', label: 'Generated unique guide' },
+          ],
+        },
+      ],
+    })
+
+    expect(screen.getByRole('link', { name: 'Generated unique guide' })).toHaveAttribute(
+      'href',
+      '/guides/generated-unique',
+    )
+  })
+
 })
