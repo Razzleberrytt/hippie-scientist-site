@@ -34,6 +34,14 @@ describe('hosted visual proof governance', () => {
     expect(workflow).toContain('retention-days: 30')
   })
 
+  it('triggers for shared presentation and visual configuration sources', () => {
+    expect(workflow).toContain("- 'lib/**'")
+    expect(workflow).toContain("- 'config/**'")
+    expect(workflow).toContain("- 'public/**'")
+    expect(workflow).toContain("- 'tailwind.config.*'")
+    expect(workflow).toContain("- 'postcss.config.*'")
+  })
+
   it('keeps execution bounded and reproducible', () => {
     expect(workflow).toContain('timeout-minutes: 35')
     expect(workflow).toContain('cancel-in-progress: true')
