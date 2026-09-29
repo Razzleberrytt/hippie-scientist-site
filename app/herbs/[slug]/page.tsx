@@ -449,19 +449,21 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
   const tocItems = [
     { id: 'overview', label: 'Overview' },
-    ...(expansion ? [{ id: 'editorial-review', label: 'Editorial review' }] : []),
     { id: 'safety', label: 'Safety' },
-    ...(interactionEdges.length > 0 ? [{ id: 'interactions', label: 'Interactions' }] : []),
     { id: 'evidence', label: 'Evidence' },
     ...(dosingSummary || timeline ? [{ id: 'dosing', label: 'Dosing & timing' }] : []),
-    ...(pathwayDiagram ? [{ id: 'pathway', label: 'Pathway' }] : []),
-    ...(mechanisms.length > 0 ? [{ id: 'mechanisms', label: 'Mechanisms' }] : []),
-    { id: 'compounds', label: 'Compounds' },
-    ...(goalLinks.length > 0 ? [{ id: 'goals', label: 'Goal guides' }] : []),
-    ...(conditionLinks.length > 0 ? [{ id: 'conditions', label: 'Condition guides' }] : []),
     { id: 'related', label: 'Related paths' },
     { id: 'compare', label: 'Compare & sourcing' },
   ]
+  const tocTrackingAliases = {
+    'editorial-review': 'overview',
+    interactions: 'safety',
+    pathway: 'evidence',
+    mechanisms: 'evidence',
+    compounds: 'related',
+    goals: 'related',
+    conditions: 'related',
+  }
 
 
   return (
@@ -558,7 +560,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
           Rendered by the shared ProfileDecisionPanel so all profiles benefit. */}
       <ProfileDecisionPanel decision={profileDecision} name={displayName} />
 
-      <ProfileTOC items={tocItems} variant="mobile" />
+      <ProfileTOC items={tocItems} variant="mobile" trackingAliases={tocTrackingAliases} navigationLabel="Core page sections" menuLabel="Core sections" />
 
       {normalizedSlug === 'ashwagandha' && (
         <details className="hs-disclosure">
@@ -955,7 +957,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
         </Link>
       </div>
         </div>
-        <ProfileTOC items={tocItems} variant="desktop" />
+        <ProfileTOC items={tocItems} variant="desktop" trackingAliases={tocTrackingAliases} navigationLabel="Core page sections" menuLabel="Core sections" />
       </div>
     </div>
   )
