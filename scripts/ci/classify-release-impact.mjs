@@ -78,6 +78,24 @@ export const LEAF_PAGE_PATTERNS = [
 ]
 
 /**
+ * Shared presentation-only files that may use focused dependency-related tests
+ * while the production build remains authoritative for rendered output.
+ *
+ * This list is intentionally narrow. Generic components, App Router pages,
+ * lib/, data, config, workflows, packages, and security files fail closed to
+ * the exhaustive path.
+ */
+export const UI_ONLY_SOURCE_PATTERNS = [
+  /^components\/(?:ui|navigation|editorial)\//,
+  /^styles\/.+\.css$/,
+]
+
+export const UI_ONLY_COMPANION_PATTERNS = [
+  /^app\/__tests__\/.+\.(?:test|spec)\.(?:[cm]?[jt]sx?)$/,
+  /^components\/(?:ui|navigation|editorial)\/.+\.(?:test|spec)\.(?:[cm]?[jt]sx?)$/,
+]
+
+/**
  * @param {string} file
  * @returns {boolean}
  */
@@ -113,6 +131,20 @@ export function isLeafPagePath(file) {
   return urlSegments.length >= 2
 }
 
+export function isUiOnlySourcePath(file) {
+  const normalized = String(file || '').trim().replaceAll('\\', '/')
+  if (!normalized || !UI_ONLY_SOURCE_PATTERNS.some((pattern) => pattern.test(normalized))) return false
+  if (/(^|\/)__tests__\//.test(normalized)) return false
+  if (/\.(?:test|spec)\.(?:[cm]?[jt]sx?)$/.test(normalized)) return false
+  return true
+}
+
+export function isUiOnlyPath(file) {
+  const normalized = String(file || '').trim().replaceAll('\\', '/')
+  if (!normalized) return false
+  return isUiOnlySourcePath(normalized) || UI_ONLY_COMPANION_PATTERNS.some((pattern) => pattern.test(normalized))
+}
+
 export function classifyReleaseImpact(files) {
   const normalizedFiles = Array.from(new Set(
     files.map((file) => String(file || '').trim().replaceAll('\\', '/')).filter(Boolean),
@@ -123,12 +155,18 @@ export function classifyReleaseImpact(files) {
     (file) => isDocsOnlyPath(file) || isValidationOnlyPath(file),
   )
   const leafPageOnly = normalizedFiles.length > 0 && normalizedFiles.every(isLeafPagePath)
+  const uiOnly =
+    !docsOnly &&
+    !validationOnly &&
+    normalizedFiles.some(isUiOnlySourcePath) &&
+    normalizedFiles.every(isUiOnlyPath)
   return {
     releaseSensitive: sensitiveFiles.length > 0,
     sensitiveFiles,
     docsOnly,
     validationOnly,
     leafPageOnly,
+    uiOnly,
     files: normalizedFiles,
   }
 }
@@ -145,6 +183,7 @@ function main() {
   console.log(`[release-impact] docs_only=${result.docsOnly}`)
   console.log(`[release-impact] validation_only=${result.validationOnly}`)
   console.log(`[release-impact] leaf_page_only=${result.leafPageOnly}`)
+  console.log(`[release-impact] ui_only=${result.uiOnly}`)
 
   if (outputArg) {
     const outputPath = outputArg.slice('--github-output='.length)
@@ -153,6 +192,7 @@ function main() {
     fs.appendFileSync(outputPath, `docs_only=${result.docsOnly}\n`)
     fs.appendFileSync(outputPath, `validation_only=${result.validationOnly}\n`)
     fs.appendFileSync(outputPath, `leaf_page_only=${result.leafPageOnly}\n`)
+    fs.appendFileSync(outputPath, `ui_only=${result.uiOnly}\n`)
   }
 }
 
