@@ -25,6 +25,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { writeFileAtomic } from '../lib/atomic-json.mjs'
+import { applyCitationIntegrityHold, hasCitationIntegrityHold, CITATION_INTEGRITY_HOLD_REASON } from '../../lib/citation-integrity-holds.mjs'
 
 const ROOT = process.cwd()
 const args = process.argv.slice(2)
@@ -102,6 +103,22 @@ function claimSourceIds(claim) {
     .filter(Boolean)
 }
 
+
+function scrubHeldHerb(value, assumeHerb = false) {
+  if (Array.isArray(value)) return value.map((entry) => scrubHeldHerb(entry, assumeHerb))
+  if (!value || typeof value !== 'object') return value
+
+  const isHeld = value.slug === 'tyrosine' && (assumeHerb || value.entityType === 'herb')
+  if (isHeld) return applyCitationIntegrityHold({ ...value, entityType: 'herb' })
+
+  const next = {}
+  for (const [key, child] of Object.entries(value)) {
+    const childAssumeHerb = assumeHerb || key === 'herbs' || key.startsWith('herb-')
+    next[key] = scrubHeldHerb(child, childAssumeHerb)
+  }
+  return next
+}
+
 function main() {
   if (!fs.existsSync(DATA_DIR)) {
     console.error(`[quarantine-citations] FAILED — no data directory at ${path.relative(ROOT, DATA_DIR)}`)
@@ -131,8 +148,23 @@ function main() {
       if (!file.endsWith('.json')) continue
       const filePath = path.join(full, file)
       const raw = fs.readFileSync(filePath, 'utf8')
-      const record = JSON.parse(raw)
+      let record = JSON.parse(raw)
       profilesInspected += 1
+      if (hasCitationIntegrityHold({ ...record, entityType: kind })) {
+        for (const source of record.sources || []) {
+          quarantined.push({ profile: record.slug, kind, classification: 'SEMANTIC_REVIEW_HOLD', reason: CITATION_INTEGRITY_HOLD_REASON, source })
+        }
+        for (const claim of record.claimMap || []) {
+          quarantinedClaims.push({ profile: record.slug, kind, classification: 'SEMANTIC_REVIEW_HOLD', reason: CITATION_INTEGRITY_HOLD_REASON, claim })
+        }
+        record = applyCitationIntegrityHold({ ...record, entityType: kind })
+        const serialized = `${JSON.stringify(record, null, 2)}\n`
+        if (serialized !== raw) {
+          filesChanged += 1
+          if (!DRY_RUN) writeFileAtomic(filePath, serialized)
+        }
+        continue
+      }
       if (!Array.isArray(record.sources) || record.sources.length === 0) continue
       profilesWithCitations += 1
 
@@ -269,12 +301,16 @@ function main() {
   )
 
   const claimsPath = path.join(DATA_DIR, 'claims.json')
-  if (withdrawnPairs.size && fs.existsSync(claimsPath)) {
+  if (fs.existsSync(claimsPath)) {
     const rawClaims = fs.readFileSync(claimsPath, 'utf8')
     const claims = JSON.parse(rawClaims)
     if (Array.isArray(claims)) {
       const keptClaims = []
       for (const claim of claims) {
+        if (hasCitationIntegrityHold({ slug: claim?.profile_slug, entityType: claim?.entityType || 'herb' })) {
+          quarantinedClaims.push({ profile: claim.profile_slug, kind: 'claim', classification: 'SEMANTIC_REVIEW_HOLD', reason: CITATION_INTEGRITY_HOLD_REASON, claim })
+          continue
+        }
         const pmid = String(claim?.pmid ?? '').trim()
         if (!pmid || !withdrawnPairs.has(`${claim?.profile_slug}::${pmid}`)) {
           keptClaims.push(claim)
@@ -314,6 +350,68 @@ function main() {
     }
   }
 
+  // A legacy held record can survive in independently published summary/index
+  // artifacts even after its detail file is quarantined. Scrub every known
+  // public index shape here so stale regeneration cannot restore Grade A/PUBLISH.
+  const heldIndexFiles = [
+    ['herbs.json', true],
+    ['herbs-summary.json', true],
+    ['herb-index.json', true],
+    ['summary-indexes/herbs-summary.json', true],
+    ['summary-indexes/search-index.json', false],
+    ['summary-indexes/alphabetical-shards.json', false],
+    ['summary-indexes/entity-shards.json', false],
+    ['summary-indexes/alpha-entity-shards.json', false],
+  ]
+
+  for (const [file, assumeHerb] of heldIndexFiles) {
+    const filePath = path.join(DATA_DIR, file)
+    if (!fs.existsSync(filePath)) continue
+    const raw = fs.readFileSync(filePath, 'utf8')
+    const value = JSON.parse(raw)
+    const next = scrubHeldHerb(value, assumeHerb)
+    if (!DRY_RUN && JSON.stringify(value) !== JSON.stringify(next)) {
+      const pretty = /\n\s+"/.test(raw.slice(0, 4096))
+      writeFileAtomic(filePath, `${pretty ? JSON.stringify(next, null, 2) : JSON.stringify(next)}${raw.endsWith('\n') ? '\n' : ''}`)
+    }
+  }
+
+  const aiEntityPath = path.join(DATA_DIR, 'ai-entities', 'herb', 'tyrosine.json')
+  if (fs.existsSync(aiEntityPath)) {
+    const raw = fs.readFileSync(aiEntityPath, 'utf8')
+    const graph = JSON.parse(raw)
+    for (const node of graph?.['@graph'] || []) {
+      if (Array.isArray(node.additionalProperty)) {
+        for (const prop of node.additionalProperty) {
+          if (prop?.propertyID === 'evidence tier') prop.value = 'Under evidence review'
+          if (prop?.propertyID === 'evidence label') prop.value = 'review'
+        }
+      }
+      if (typeof node.description === 'string') {
+        node.description = 'L-Tyrosine evidence is under review; no settled evidence grade is currently assigned.'
+      }
+    }
+    if (!DRY_RUN && JSON.stringify(graph) !== JSON.stringify(JSON.parse(raw))) {
+      writeFileAtomic(aiEntityPath, `${JSON.stringify(graph)}${raw.endsWith('\n') ? '\n' : ''}`)
+    }
+  }
+
+  const aiManifestPath = path.join(DATA_DIR, 'ai-entities', 'manifest.json')
+  if (fs.existsSync(aiManifestPath)) {
+    const raw = fs.readFileSync(aiManifestPath, 'utf8')
+    const manifest = JSON.parse(raw)
+    if (Array.isArray(manifest?.entities)) {
+      manifest.entities = manifest.entities.map((entity) =>
+        entity?.kind === 'herb' && entity?.slug === 'tyrosine'
+          ? { ...entity, evidenceLabel: 'review' }
+          : entity
+      )
+    }
+    if (!DRY_RUN && JSON.stringify(manifest) !== JSON.stringify(JSON.parse(raw))) {
+      writeFileAtomic(aiManifestPath, `${JSON.stringify(manifest)}${raw.endsWith('\n') ? '\n' : ''}`)
+    }
+  }
+
   // A confirmed bad citation being absent is the desired steady state and must
   // pass on a clean checkout. The old implementation depended on a gitignored
   // previous-run report to prove prior withdrawal, so a deterministic rebuild
@@ -342,7 +440,7 @@ function main() {
     }
   }
 
-  if (!DRY_RUN && quarantined.length) {
+  if (!DRY_RUN && (quarantined.length || quarantinedClaims.length)) {
     fs.mkdirSync(path.dirname(REPORT_PATH), { recursive: true })
     writeFileAtomic(
       REPORT_PATH,

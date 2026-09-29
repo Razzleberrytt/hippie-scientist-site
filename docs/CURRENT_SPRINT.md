@@ -5,7 +5,7 @@
 **Updated:** 2026-09-28
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Owner-directed P0 #6051 remains admitted in Discovery/SEO. #4987 / PR #6057 merged green and is retired; owner-directed #4989 now owns Authority/Content to consolidate curated-index policy to one authority without changing publication state. Normal implementation WIP is **2/3**. Revenue/Conversion remains available; Discovery/SEO and Authority/Content are occupied until their current owners complete, block, or are explicitly displaced. #5081 remains separately blocked on its own governor prerequisite.
+**Current admission:** Owner-directed P0 #6051 remains admitted in Discovery/SEO. #4989 / PR #6060 merged and is retired; owner-directed P0 #6056 now owns Authority/Content for bounded Tyrosine citation-integrity containment. Normal implementation WIP is **2/3**. Revenue/Conversion remains available; Discovery/SEO and Authority/Content are occupied until their current owners complete, block, or are explicitly displaced. #5081 remains separately blocked on its own governor prerequisite.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -55,17 +55,19 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 **#6051 — Discovery/SEO P0: mobile-first UX, exploration, and content coherence overhaul.** Owner-directed 2026-09-27. Fix the experience through which existing information is discovered and understood before speculative content expansion: simplify narrow-phone navigation, establish progressive disclosure, consolidate repeated verdict/evidence/safety copy, make exhaustive indexes secondary to search/filter/curated discovery, establish a reusable Summary → Benefits → Safety → Usage/context → Research profile hierarchy, and create clear contextual next actions. Preserve stable URLs, evidence/safety semantics, publication rules, accessibility, performance, and static-export compatibility. External engagement/business impact remains `Unknown` until measured.
 
-**#4989 — Authority/Content trust repair: consolidate curated-index policy to one authority.** Owner-directed 2026-09-28 continuation after #4987 merged. Replace independently maintained curated herb/compound lists with one canonical policy consumed by runtime SEO, sitemap/indexability, governance overlay, promotion tooling, audits, and regression tests. Preserve the narrower legacy governance index-bypass explicitly so consolidation creates zero new promotions; curated membership remains separate from scientific approval.
+**#6056 — Authority/Content P0: Tyrosine citation-integrity containment.** Hold the legacy herb:tyrosine source/claim presentation and settled evidence grade across detail, summary, search/shard, AI-entity, generation, and runtime layers; honor explicit governance denials. Preserve the separate compound:l-tyrosine evidence owner and existing redirect behavior. No positive scientific promotion or workbook mutation.
 
 - **Discovery/SEO:** occupied by P0 #6051. #6047 / PR #6050 and the preceding IA refill cycle are merged and retired.
 - **Revenue/Conversion:** free; #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
-- **Authority/Content:** occupied by owner-directed #4989 trust repair. #4987 / PR #6057 and #5706 / PR #5971 are merged and retired; #5081 remains separately blocked on its own non-overlapping governor lease.
+- **Authority/Content:** occupied by owner-directed P0 #6056 citation-integrity containment. #4989 / PR #6060, #4987 / PR #6057, and #5706 / PR #5971 are merged and retired; #5081 remains separately blocked on its own non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
 - **Control maintenance:** #5642 is a docs-only feeder reconciliation so the durable candidate inventory cannot override the merged citation→search→click policy. It grants no normal implementation authority and consumes no D/R/A slot.
 
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
 
 ### Recently completed refill cycle
+
+- **#4989 / PR #6060 — Authority/Content:** merged 2026-09-28; curated-index policy now has one canonical authority consumed by runtime/governance/audit readers, with legacy bypass semantics preserved and no new scientific approvals created.
 
 - **#4987 / PR #6057 — Authority/Content:** merged 2026-09-28 after exact-head CI, Atomic, Project Control, Site Health, and Build Quality passed. Claim IDs can no longer inflate source counts; stale counts and dangling/inactive source identities cannot self-attest evidence; generic scientific approval/recommendation now requires an approved claim linked to an approved source. Curated indexing remains a separate discoverability policy.
 
@@ -107,7 +109,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 ## Ready next — strict dependency order
 
-Discovery/SEO is occupied by owner-directed P0 #6051. Revenue/Conversion and Authority/Content remain available. Reconcile current GitHub state first; do not promote another Discovery/SEO ticket while #6051 owns that workstream. For free lanes, promote only the highest legal non-overlapping candidate from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
+Discovery/SEO is occupied by owner-directed P0 #6051. Authority/Content is occupied by owner-directed P0 #6056. Revenue/Conversion remains available. Reconcile current GitHub state first; do not promote another Discovery/SEO ticket while #6051 owns that workstream. For free lanes, promote only the highest legal non-overlapping candidate from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
 
 ### Blocked or deferred candidates
 
