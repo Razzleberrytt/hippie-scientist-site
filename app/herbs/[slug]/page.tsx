@@ -9,7 +9,7 @@ import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@
 import { normalizeSlug } from '@/lib/slug-utils'
 import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
 import { getBatchedRuntimeRecords } from '@/lib/related-runtime'
-import { getEntityConditionEntries, getRouteInternalLinkGroups, type RuntimeMapEntry } from '../../../lib/runtime-related-maps'
+import { getEntityConditionEntries, getRouteInternalLinkGroups, type InternalLinkGroup, type RuntimeMapEntry } from '../../../lib/runtime-related-maps'
 import { getEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
 import { faqPageJsonLd, isMeaningfulFaqAnswer, SITE_URL } from '../../../lib/seo'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
@@ -44,7 +44,6 @@ import ProfileDecisionPanel from '@/components/editorial/ProfileDecisionPanel'
 import { buildProfileDecision } from '@/lib/profile-decision'
 import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
 import ShowMeTheStudies from '@/components/ui/ShowMeTheStudies'
-import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 import EvidenceGradeRationale from '@/components/education/EvidenceGradeRationale'
 import TrialDesignInsight from '@/components/education/TrialDesignInsight'
 import { extractCitationsFromRecord } from '@/lib/citations'
@@ -270,6 +269,20 @@ function shouldSuppressAffiliate(record: Herb): boolean {
   return safetyText.includes('high caution') || safetyText.includes('needs-review') || safetyText.includes('needs review') || safetyText.includes('severe')
 }
 
+function getRelatedReadingLinks(groups: InternalLinkGroup[], excludedHrefs: Set<string>) {
+  const seen = new Set<string>()
+
+  return groups
+    .filter((group) => /article|research/i.test(group.title))
+    .flatMap((group) => group.links)
+    .filter((link) => {
+      if (!link.href || excludedHrefs.has(link.href) || seen.has(link.href)) return false
+      seen.add(link.href)
+      return true
+    })
+    .slice(0, 4)
+}
+
 export default async function HerbDetailPage({ params }: PageProps) {
   const { slug } = await params
   const normalizedSlug = normalizeSlug(slug)
@@ -390,6 +403,14 @@ export default async function HerbDetailPage({ params }: PageProps) {
     })
     .filter((item): item is { label: string; href: string } => item !== null)
     .slice(0, 4)
+
+  const existingContinuationHrefs = new Set([
+    ...goalLinks.map((link) => link.href),
+    ...conditionLinks.map((link) => link.href || '/guides/'),
+    ...relatedHerbLinks.map((link) => link.href),
+    ...comparisonLinks.map((link) => link.href),
+  ])
+  const relatedReadingLinks = getRelatedReadingLinks(internalLinkGroups, existingContinuationHrefs)
 
   const breadcrumbId = `${SITE_URL}/herbs/${normalizedSlug}/#breadcrumb`
   const clusterSeeAlso = getClusterSeeAlso(normalizedSlug, 'herb', 8)
@@ -820,9 +841,9 @@ export default async function HerbDetailPage({ params }: PageProps) {
       {/* Active compounds — internal links from the curated relationship map */}
       <div id="compounds" className="scroll-mt-24"><HerbCompoundLinks herbSlug={herb.slug} herbName={displayName} /></div>
 
-      {goalLinks.length > 0 || conditionLinks.length > 0 ? (
+      {goalLinks.length > 0 || conditionLinks.length > 0 || relatedReadingLinks.length > 0 ? (
         <section id="goals" className="card-premium scroll-mt-24 p-4 sm:p-5">
-          <h2 className="font-semibold text-ink">Guides that use {displayName}</h2>
+          <h2 className="font-semibold text-ink">Guides &amp; research context for {displayName}</h2>
           {goalLinks.length > 0 ? (
             <div className="mt-3">
               <p className="hs-label">Goal guides</p>
@@ -849,16 +870,26 @@ export default async function HerbDetailPage({ params }: PageProps) {
               </ul>
             </div>
           ) : null}
+          {relatedReadingLinks.length > 0 ? (
+            <div className="mt-4">
+              <p className="hs-label">Related reading</p>
+              <ul className="hs-linklist mt-2">
+                {relatedReadingLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href}>
+                      <span>{link.label}</span>
+                      <span aria-hidden="true" className="hs-linklist__arrow">→</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
         </section>
       ) : null}
 
-      <section id="related" className="scroll-mt-24 space-y-4">
+      <section id="related" className="scroll-mt-24">
         <SeeAlsoCluster slug={normalizedSlug} kind="herb" limit={6} />
-
-        <RelatedDiscoveryGroups
-          title="Related research paths"
-          groups={internalLinkGroups}
-        />
       </section>
 
       {/* Section 5: Compare Nearby + CTA */}
@@ -910,18 +941,10 @@ export default async function HerbDetailPage({ params }: PageProps) {
           recommendations={stackRecommendations}
         />
 
-        {relatedHerbLinks.length > 0 || comparisonLinks.length > 0 ? (
+        {comparisonLinks.length > 0 ? (
           <div>
             <p className="hs-label">Continue comparing</p>
             <ul className="hs-linklist hs-linklist--split mt-2">
-              {relatedHerbLinks.map(link => (
-                <li key={link.href}>
-                  <Link href={link.href}>
-                    <span>{link.label}</span>
-                    <span aria-hidden="true" className="hs-linklist__arrow">→</span>
-                  </Link>
-                </li>
-              ))}
               {comparisonLinks.map(link => (
                 <li key={link.href}>
                   <Link href={link.href}>
