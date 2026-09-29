@@ -5404,7 +5404,7 @@
   {
     "slug": "tyrosine",
     "name": "L-Tyrosine",
-    "summary": "L-Tyrosine botanical profile with evidence, safety, and practical fit.",
+    "summary": "This L-Tyrosine profile is under evidence review after citation mismatches were identified. No settled evidence grade is currently assigned.",
     "primary_effects": [
       "cognitive_support",
       "dopamine_precursor",
@@ -5415,15 +5415,15 @@
       "dopamine_precursor",
       "stress_resilience"
     ],
-    "evidence_grade": "a",
-    "evidence_tier": "Strong Human Evidence",
+    "evidence_grade": null,
+    "evidence_tier": "Editorial grade not demonstrated by recorded studies",
     "profile_status": "top50_authority_patched",
     "runtime_export_decision": "full_public_runtime",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
@@ -5435,7 +5435,42 @@
       "safety-context",
       "summary-present",
       "summary-quality-missing"
-    ]
+    ],
+    "description": "L-Tyrosine evidence is under review. Previously displayed source associations do not establish supplement benefits.",
+    "evidence_grade_source": "a",
+    "evidence_tier_source": "Strong Human Evidence",
+    "evidenceGrade": null,
+    "evidence_grade_band": null,
+    "evidence_grade_backed": false,
+    "evidence_grade_backing_gap": "tyrosine-citation-integrity-review",
+    "evidenceTier": "Editorial grade not demonstrated by recorded studies",
+    "evidenceLevel": "Editorial grade not demonstrated by recorded studies",
+    "evidence_label": "Editorial grade not demonstrated by recorded studies",
+    "evidenceLabel": "Editorial grade not demonstrated by recorded studies",
+    "evidence_human_study_count": 0,
+    "evidence_recorded_study_count": 0,
+    "evidence_strongest_design": "unclassified",
+    "evidence_design_match": null,
+    "evidence_rationale": "The previous source associations are withheld pending review; no accepted studies are counted on this profile.",
+    "sources": [],
+    "references": [],
+    "pmids": [],
+    "claimMap": [],
+    "evidence": {
+      "reviewStatus": "needs_review",
+      "sourceCount": 0,
+      "sourceIds": [],
+      "claimCount": 0,
+      "claimIds": []
+    },
+    "governance": {
+      "reviewStatus": "needs_review",
+      "indexingAllowed": false,
+      "monetizationAllowed": false,
+      "recommendationAllowed": false,
+      "requiresHumanReview": true,
+      "reason": "tyrosine-citation-integrity-review"
+    }
   },
   {
     "slug": "lavandula-angustifolia",
