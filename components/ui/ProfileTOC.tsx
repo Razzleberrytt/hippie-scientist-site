@@ -114,6 +114,7 @@ export default function ProfileTOC({
       {variant !== 'desktop' ? (
         <nav
           aria-label={navigationLabel}
+          data-profile-toc='true'
           className='sticky top-[4.35rem] z-40 -mx-1 overflow-hidden rounded-2xl border border-[color:var(--hs-hairline)] bg-[color:color-mix(in_srgb,var(--hs-surface)_94%,transparent)] shadow-[0_12px_30px_-24px_rgba(53,47,65,0.42)] backdrop-blur-xl lg:hidden'
           data-mobile-quick-jumps='true'
         >
@@ -178,6 +179,7 @@ export default function ProfileTOC({
       {variant !== 'mobile' ? (
         <nav
           aria-label={navigationLabel}
+          data-profile-toc='true'
           className='hidden w-56 shrink-0 self-start lg:sticky lg:top-24 lg:block'
         >
           <div className='border-l border-[color:var(--hs-hairline-strong)] pl-3'>
