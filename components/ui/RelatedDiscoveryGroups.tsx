@@ -39,13 +39,7 @@ export function getDiscoveryLinkContext(link: DiscoveryLink): string | null {
 }
 
 function getGroupDescription(group: DiscoveryGroup): string | null {
-  if (group.description) return group.description
-  const title = group.title.toLowerCase()
-  if (title.includes('herb')) return 'Botanicals connected by the same goals, effects, or research topics.'
-  if (title.includes('compound')) return 'Compounds connected by the same goals, effects, or research topics.'
-  if (title.includes('safety')) return 'Safety checks and cautions relevant to this decision.'
-  if (title.includes('guide') || title.includes('article')) return 'Deeper context, comparisons, and practical research paths.'
-  return null
+  return group.description?.trim() || null
 }
 
 export default function RelatedDiscoveryGroups({
