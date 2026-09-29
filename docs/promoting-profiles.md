@@ -55,9 +55,10 @@ To keep `check:data` green, the promoted slug must be **source-backed** by one o
 - **real citation path (preferred):** the slug has a real `Evidence_Register`/claims
   citation **and** is listed in `SOURCE_BACKED_PROMOTION_SLUGS` (in the overlay).
 - **record-level sources:** the record itself carries a `sources[]` entry.
-- **curated allowlist:** the slug is in `lib/index-allowlist.ts` (mirrored as
-  `CURATED_*_SLUGS` in the overlay). This is a broad editorial bypass — use it only
-  for high-traffic slugs whose evidence lives in narrative, not a PMID list.
+- **curated governance bypass:** the slug is an entry in
+  `data/curated-index-policy.json` with `governanceIndexBypass: true`. The same
+  policy file is read by runtime, sitemap/indexation, governance, promotion tooling,
+  and audits. Curated membership by itself does **not** establish scientific approval.
 
 `promote:check` tells you exactly which path (if any) applies and, when a citation
 exists but isn't registered, prints the one-line fix.

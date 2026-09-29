@@ -2,6 +2,7 @@
 
 import fs from 'node:fs'
 import path from 'node:path'
+import { curatedPolicySlugSet, loadCuratedIndexPolicy } from './lib/curated-index-policy.mjs'
 
 const ROOT = process.cwd()
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://thehippiescientist.net')
@@ -118,8 +119,9 @@ function profileDecision(kind, record, allowlist) {
 }
 
 function main() {
-  const herbAllowlist = new Set(parseStringArrayFromTs('lib/index-allowlist.ts', 'CURATED_INDEXABLE_HERB_SLUGS'))
-  const compoundAllowlist = new Set(parseStringArrayFromTs('lib/index-allowlist.ts', 'CURATED_INDEXABLE_COMPOUND_SLUGS'))
+  const curatedPolicy = loadCuratedIndexPolicy(ROOT)
+  const herbAllowlist = curatedPolicySlugSet(curatedPolicy, 'herbs')
+  const compoundAllowlist = curatedPolicySlugSet(curatedPolicy, 'compounds')
   const coreRoutes = parseStringArrayFromTs('lib/index-allowlist.ts', 'CORE_INDEXABLE_ROUTES')
   const moneyRoutes = parseStringArrayFromTs('lib/index-allowlist.ts', 'MONEY_ENTRY_ROUTES')
   const herbs = readJson('public/data/herbs.json', [])

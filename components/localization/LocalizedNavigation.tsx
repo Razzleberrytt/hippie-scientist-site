@@ -72,8 +72,15 @@ export default function LocalizedNavigation() {
   if (locale === DEFAULT_LOCALE) {
     return (
       <>
-        <Navigation />
-        <div className='locale-switcher-bar border-b border-[var(--border-soft)] bg-[var(--surface-card-strong)]/90'>
+        <Navigation
+          mobileUtilitySlot={
+            <div className='space-y-2'>
+              <span className='text-sm font-semibold text-[var(--text-secondary)]'>Languages</span>
+              <LanguageLinks pathname={pathname} currentLocale={locale} compact />
+            </div>
+          }
+        />
+        <div className='locale-switcher-bar hidden border-b border-[var(--border-soft)] bg-[var(--surface-card-strong)]/90 lg:block'>
           <div className='mx-auto flex max-w-7xl justify-end px-4 sm:px-6 lg:px-8'>
             <LanguageLinks pathname={pathname} currentLocale={locale} />
           </div>
