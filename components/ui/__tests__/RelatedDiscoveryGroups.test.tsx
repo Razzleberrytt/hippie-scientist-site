@@ -52,6 +52,20 @@ describe('RelatedDiscoveryGroups', () => {
     expect(screen.getByText('Choose a useful next step')).toBeTruthy()
   })
 
+  it('does not invent a generic description when none is supplied', () => {
+    render(
+      <RelatedDiscoveryGroups
+        groups={[
+          { title: 'Related Herbs', links: [{ href: '/herbs/ashwagandha/', label: 'Ashwagandha' }] },
+          { title: 'Related Guides', links: [{ href: '/guides/sleep/', label: 'Sleep guide' }] },
+        ]}
+      />,
+    )
+
+    expect(screen.queryByText('Botanicals connected by the same goals, effects, or research topics.')).toBeNull()
+    expect(screen.queryByText('Deeper context, comparisons, and practical research paths.')).toBeNull()
+  })
+
   it('renders the optional group description when provided', () => {
     render(
       <RelatedDiscoveryGroups

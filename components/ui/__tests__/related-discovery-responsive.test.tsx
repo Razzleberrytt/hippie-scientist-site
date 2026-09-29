@@ -36,7 +36,7 @@ describe('RelatedDiscoveryGroups responsive contract', () => {
     expect(html).not.toContain('w-[15rem]')
   })
 
-  it('uses the shared link-list primitive while preserving contextual copy', () => {
+  it('uses the shared link-list primitive while preserving useful link context', () => {
     const html = renderToStaticMarkup(<RelatedDiscoveryGroups groups={groups} />)
 
     expect(html).toContain('hs-linklist')
@@ -44,6 +44,6 @@ describe('RelatedDiscoveryGroups responsive contract', () => {
     expect(html).toContain('hs-linklist__arrow')
     expect(html).toContain('Shared topic: Stress')
     expect(html).toContain('Safety context')
-    expect(html).toContain('Botanicals connected by the same goals, effects, or research topics.')
+    expect(html).not.toContain('Botanicals connected by the same goals, effects, or research topics.')
   })
 })
