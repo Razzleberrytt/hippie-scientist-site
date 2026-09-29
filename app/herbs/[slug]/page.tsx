@@ -271,16 +271,17 @@ function shouldSuppressAffiliate(record: Herb): boolean {
 
 function getRelatedReadingLinks(groups: InternalLinkGroup[], excludedHrefs: Set<string>) {
   const seen = new Set<string>()
+  const articleAndResearch = groups.filter((group) => /article|research/i.test(group.title))
+  const guides = groups.filter((group) => /guide/i.test(group.title) && !/article|research/i.test(group.title))
 
-  return groups
-    .filter((group) => /guide|article|research/i.test(group.title))
+  return [...articleAndResearch, ...guides]
     .flatMap((group) => group.links)
     .filter((link) => {
       if (!link.href || excludedHrefs.has(link.href) || seen.has(link.href)) return false
       seen.add(link.href)
       return true
     })
-    .slice(0, 4)
+    .slice(0, 6)
 }
 
 export default async function HerbDetailPage({ params }: PageProps) {
