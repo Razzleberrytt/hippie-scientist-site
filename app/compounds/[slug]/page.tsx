@@ -798,8 +798,11 @@ export default async function CompoundPage({ params }: PageProps) {
       ? [{
           title: 'Related Profiles',
           description: 'Profiles connected through runtime relationship and ecosystem maps.',
-          links: semanticRelated.slice(0, 6).map((item) => {
-            const relatedSlug = String(item.slug || '')
+          links: semanticRelated
+            .filter((item) => item.slug)
+            .slice(0, 6)
+            .map((item) => {
+            const relatedSlug = String(item.slug)
             return {
               href: item.entityType === 'herb' ? `/herbs/${relatedSlug}` : `/compounds/${relatedSlug}`,
               label: formatDisplayLabel(item.name || relatedSlug),
