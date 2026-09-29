@@ -40,9 +40,9 @@ export default function LookupFamilyNav({ active }: { active: LookupFamilySurfac
   return (
     <nav
       aria-label='Ingredient lookup options'
-      className='rounded-2xl border border-brand-900/10 bg-white/80 p-3 shadow-sm'
+      className='rounded-2xl border border-brand-900/10 bg-white/80 p-2 shadow-sm sm:p-3'
     >
-      <div className='grid gap-2 sm:grid-cols-2 lg:grid-cols-4'>
+      <div className='grid grid-cols-2 gap-2 lg:grid-cols-4'>
         {lookupItems.map((item) => {
           const isActive = item.id === active
           return (
@@ -52,19 +52,19 @@ export default function LookupFamilyNav({ active }: { active: LookupFamilySurfac
               aria-current={isActive ? 'page' : undefined}
               className={
                 isActive
-                  ? 'rounded-xl border border-brand-700/20 bg-brand-50 p-4'
-                  : 'rounded-xl border border-transparent p-4 transition hover:border-brand-900/10 hover:bg-brand-50/40'
+                  ? 'min-h-14 rounded-xl border border-brand-700/20 bg-brand-50 p-3 sm:p-4'
+                  : 'min-h-14 rounded-xl border border-transparent p-3 transition hover:border-brand-900/10 hover:bg-brand-50/40 sm:p-4'
               }
             >
               <span className='flex items-center gap-2 text-sm font-bold text-ink'>
                 {item.label}
                 {item.owner ? (
-                  <span className='rounded-full border border-brand-900/10 px-2 py-0.5 text-[0.62rem] font-semibold uppercase tracking-[0.08em] text-muted'>
+                  <span className='hidden rounded-full border border-brand-900/10 px-2 py-0.5 text-[0.62rem] font-semibold uppercase tracking-[0.08em] text-muted sm:inline-flex'>
                     {item.owner}
                   </span>
                 ) : null}
               </span>
-              <span className='mt-1 block text-xs leading-5 text-muted'>{item.description}</span>
+              <span className='mt-1 hidden text-xs leading-5 text-muted sm:block'>{item.description}</span>
             </Link>
           )
         })}
