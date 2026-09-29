@@ -20,6 +20,7 @@ type RelatedDiscoveryGroupsProps = {
   title?: string
   groups: DiscoveryGroup[]
   className?: string
+  linksPerGroup?: number
 }
 
 function humanizeCluster(value: string) {
@@ -47,9 +48,11 @@ export default function RelatedDiscoveryGroups({
   title = 'Choose a useful next step',
   groups,
   className = '',
+  linksPerGroup = 4,
 }: RelatedDiscoveryGroupsProps) {
   const visibleGroups = groups.filter((group) => group.links.length > 0)
   if (visibleGroups.length === 0) return null
+  const linkLimit = Math.min(8, Math.max(1, linksPerGroup))
 
   return (
     <section className={`border-y border-[color:var(--hs-hairline-strong)] py-5 ${className}`.trim()}>
@@ -77,7 +80,7 @@ export default function RelatedDiscoveryGroups({
               ) : null}
 
               <ul className="hs-linklist mt-3">
-                {group.links.slice(0, 4).map((item) => {
+                {group.links.slice(0, linkLimit).map((item) => {
                   const context = getDiscoveryLinkContext(item)
                   return (
                     <li key={item.href}>

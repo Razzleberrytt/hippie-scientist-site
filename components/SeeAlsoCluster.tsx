@@ -7,6 +7,7 @@
  */
 
 import Link from 'next/link'
+import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 import { getClusterSeeAlso, getEntityClusters } from '@/lib/cluster-linking'
 import { getBotanicalAtlasRecords } from '@/lib/botanical-atlas-data'
 import { getRelatedBotanicals, type RelatedBotanicalMatch } from '@/lib/related-botanicals'
@@ -15,12 +16,29 @@ import RelatedBotanicalsTracked from '@/components/RelatedBotanicalsTracked'
 import type { BotanicalAtlasRecord } from '@/components/atlas/BotanicalActivityAtlasClient'
 import type { EntityKind } from '@/lib/schema'
 
+type ContinuationLink = {
+  href: string
+  label: string
+  score?: number
+  type?: string
+  clusters?: string[]
+  sharedClusters?: string[]
+}
+
+type ContinuationGroup = {
+  title: string
+  description?: string
+  links: ContinuationLink[]
+}
+
 type SeeAlsoClusterProps = {
   slug: string
   kind: EntityKind
   /** Max number of semantic-cluster entries to render (default 6). */
   limit?: number
   className?: string
+  /** Additional page-level continuation paths, deduped against the links this component already owns. */
+  continuationGroups?: ContinuationGroup[]
 }
 
 const HERB_SOURCE_ALIASES: Record<string, string> = {
@@ -56,11 +74,52 @@ function toTrackedMatches(sourceSlug: string, matches: RelatedBotanicalMatch[]) 
   })
 }
 
+function normalizeContinuationHref(value: string) {
+  const trimmed = value.trim()
+  if (!trimmed) return ''
+  if (trimmed === '/') return '/'
+  return trimmed.replace(/\/+$/, '')
+}
+
+function dedupeContinuationGroups(groups: ContinuationGroup[], claimedHrefs: Set<string>) {
+  const seen = new Set(
+    [...claimedHrefs]
+      .map(normalizeContinuationHref)
+      .filter(Boolean),
+  )
+  const merged = new Map<string, ContinuationGroup>()
+
+  for (const group of groups) {
+    const freshLinks = group.links.filter((link) => {
+      const key = normalizeContinuationHref(link.href)
+      if (!key || seen.has(key)) return false
+      seen.add(key)
+      return true
+    })
+    if (freshLinks.length === 0) continue
+
+    const key = group.title.trim().toLowerCase()
+    const existing = merged.get(key)
+    if (existing) {
+      existing.links.push(...freshLinks)
+      continue
+    }
+
+    merged.set(key, {
+      ...group,
+      links: [...freshLinks],
+    })
+  }
+
+  return [...merged.values()]
+}
+
 export default async function SeeAlsoCluster({
   slug,
   kind,
   limit = 6,
   className,
+  continuationGroups = [],
 }: SeeAlsoClusterProps) {
   const seeAlso = getClusterSeeAlso(slug, kind, limit)
   const clusters = getEntityClusters(slug, kind)
@@ -81,16 +140,29 @@ export default async function SeeAlsoCluster({
     entries: typeof seeAlso
   }
 
+  const botanicalHrefKeys = new Set(
+    relatedMatches.map((match) => normalizeContinuationHref(`/herbs/${match.record.slug}/`)),
+  )
+
   const grouped: GroupedEntry[] = clusters
     .map((cluster) => ({
       clusterId: cluster.id,
       clusterLabel: cluster.label,
       clusterGoalHref: `/goals/${cluster.goalSlug}`,
-      entries: seeAlso.filter((entry) => entry.cluster === cluster.id),
+      entries: seeAlso
+        .filter((entry) => entry.cluster === cluster.id)
+        .filter((entry) => !botanicalHrefKeys.has(normalizeContinuationHref(entry.href))),
     }))
     .filter((group) => group.entries.length > 0)
 
-  if (!relatedMatches.length && !grouped.length) return null
+  const claimedHrefs = new Set<string>([
+    ...relatedMatches.map((match) => `/herbs/${match.record.slug}/`),
+    ...grouped.flatMap((group) => group.entries.map((entry) => entry.href)),
+    ...grouped.map((group) => group.clusterGoalHref),
+  ])
+  const visibleContinuationGroups = dedupeContinuationGroups(continuationGroups, claimedHrefs)
+
+  if (!relatedMatches.length && !grouped.length && !visibleContinuationGroups.length) return null
 
   const guideLinkClass =
     'inline-flex min-h-11 items-center text-xs font-semibold text-[color:var(--tone-ink)] underline-offset-4 transition hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--hs-gold)] focus-visible:ring-offset-2'
@@ -152,6 +224,15 @@ export default async function SeeAlsoCluster({
           </div>
         </section>
       ) : null}
+      {visibleContinuationGroups.length > 0 ? (
+        <RelatedDiscoveryGroups
+          eyebrow="More paths"
+          title="Guides, compounds & safety context"
+          groups={visibleContinuationGroups}
+          linksPerGroup={5}
+        />
+      ) : null}
+
     </div>
   )
 }

@@ -44,7 +44,6 @@ import ProfileDecisionPanel from '@/components/editorial/ProfileDecisionPanel'
 import { buildProfileDecision } from '@/lib/profile-decision'
 import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
 import ShowMeTheStudies from '@/components/ui/ShowMeTheStudies'
-import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 import EvidenceGradeRationale from '@/components/education/EvidenceGradeRationale'
 import TrialDesignInsight from '@/components/education/TrialDesignInsight'
 import { extractCitationsFromRecord } from '@/lib/citations'
@@ -390,6 +389,32 @@ export default async function HerbDetailPage({ params }: PageProps) {
     })
     .filter((item): item is { label: string; href: string } => item !== null)
     .slice(0, 4)
+
+  const continuationGroups = [
+    ...(relatedHerbLinks.length > 0
+      ? [{
+          title: 'Related Herbs',
+          description: 'Herb profiles connected through the runtime relationship map.',
+          links: relatedHerbLinks.map((link) => ({ ...link, type: 'herb' })),
+        }]
+      : []),
+    ...(goalLinks.length > 0 || conditionLinks.length > 0
+      ? [{
+          title: 'Related Guides',
+          description: 'Goal and condition context for deciding what to read next.',
+          links: [
+            ...goalLinks.map((link) => ({ ...link, type: 'guide' })),
+            ...conditionLinks.slice(0, 5).map((link: RuntimeMapEntry) => ({
+              href: link.href || '/guides/',
+              label: link.label || formatDisplayLabel(link.slug),
+              score: link.score,
+              type: 'guide',
+            })),
+          ],
+        }]
+      : []),
+    ...internalLinkGroups,
+  ]
 
   const breadcrumbId = `${SITE_URL}/herbs/${normalizedSlug}/#breadcrumb`
   const clusterSeeAlso = getClusterSeeAlso(normalizedSlug, 'herb', 8)
@@ -820,45 +845,27 @@ export default async function HerbDetailPage({ params }: PageProps) {
       {/* Active compounds — internal links from the curated relationship map */}
       <div id="compounds" className="scroll-mt-24"><HerbCompoundLinks herbSlug={herb.slug} herbName={displayName} /></div>
 
-      {goalLinks.length > 0 || conditionLinks.length > 0 ? (
-        <section id="goals" className="card-premium scroll-mt-24 p-4 sm:p-5">
-          <h2 className="font-semibold text-ink">Guides that use {displayName}</h2>
-          {goalLinks.length > 0 ? (
-            <div className="mt-3">
-              <p className="hs-label">Goal guides</p>
-              <ul className="hs-chips mt-2">
-                {goalLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="hs-chip capitalize">{link.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
-          {conditionLinks.length > 0 ? (
-            <div id="conditions" className="mt-4 scroll-mt-24">
-              <p className="hs-label">Condition guides</p>
-              <ul className="hs-chips mt-2">
-                {conditionLinks.slice(0, 5).map((link: RuntimeMapEntry) => (
-                  <li key={link.slug}>
-                    <Link href={link.href || '/guides/'} className="hs-chip">
-                      {link.label || formatDisplayLabel(link.slug)}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
-        </section>
-      ) : null}
-
       <section id="related" className="scroll-mt-24 space-y-4">
-        <SeeAlsoCluster slug={normalizedSlug} kind="herb" limit={6} />
+        <div className="space-y-1">
+          <p className="eyebrow-label">Next steps</p>
+          <h2 className="text-xl font-semibold tracking-tight text-ink">Continue exploring {displayName}</h2>
+          <p className="text-sm leading-6 text-muted">
+            Related profiles, goal context, compounds, and safety paths — deduped into one place.
+          </p>
+        </div>
 
-        <RelatedDiscoveryGroups
-          title="Related research paths"
-          groups={internalLinkGroups}
-        />
+        {/* Preserve legacy deep-link anchors while consolidating their content
+            into the single continuation handoff. */}
+        <div id="goals" className="scroll-mt-24">
+          <div id="conditions" className="scroll-mt-24">
+            <SeeAlsoCluster
+              slug={normalizedSlug}
+              kind="herb"
+              limit={6}
+              continuationGroups={continuationGroups}
+            />
+          </div>
+        </div>
       </section>
 
       {/* Section 5: Compare Nearby + CTA */}
@@ -910,18 +917,10 @@ export default async function HerbDetailPage({ params }: PageProps) {
           recommendations={stackRecommendations}
         />
 
-        {relatedHerbLinks.length > 0 || comparisonLinks.length > 0 ? (
+        {comparisonLinks.length > 0 ? (
           <div>
-            <p className="hs-label">Continue comparing</p>
+            <p className="hs-label">Compare alternatives</p>
             <ul className="hs-linklist hs-linklist--split mt-2">
-              {relatedHerbLinks.map(link => (
-                <li key={link.href}>
-                  <Link href={link.href}>
-                    <span>{link.label}</span>
-                    <span aria-hidden="true" className="hs-linklist__arrow">→</span>
-                  </Link>
-                </li>
-              ))}
               {comparisonLinks.map(link => (
                 <li key={link.href}>
                   <Link href={link.href}>
