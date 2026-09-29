@@ -81,3 +81,9 @@ in particular, cobalamin closure #5703 / PR #5961 has already merged.
 - Main advanced with #6057 (source-receipt governance) during validation. The PR
   must integrate that change and obtain current-head CI; the earlier local build
   is not proof of the integrated head. No merge/deployment/business impact claimed.
+
+## Follow-up containment after review
+
+The initial hold correctly protected the detail/runtime path but review found independently publishable derived surfaces that could still preserve the stale herb `tyrosine` Grade A/PUBLISH presentation. The containment boundary now also sanitizes `herb-index.json`, mixed search indexes, alphabetical/entity shard indexes, and the herb Tyrosine AI-entity sidecar. Regression coverage seeds each shape and verifies the separate `compound:l-tyrosine` owner remains unchanged.
+
+After the branch was synchronized with current `main`, the previously conflicting planning documents were resolved by retaining the newer `main` control state rather than restoring stale sprint/backlog ownership.
