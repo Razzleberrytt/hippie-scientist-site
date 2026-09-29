@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
+import { parse } from 'yaml'
 
 function source(relativePath: string): string {
   return readFileSync(path.join(process.cwd(), relativePath), 'utf8')
@@ -10,6 +11,10 @@ describe('hosted visual proof governance', () => {
   const sweep = source('scripts/dev/visual-sweep.mjs')
   const workflow = source('.github/workflows/visual-proof.yml')
   const dependencyGuard = source('scripts/ci/validate-direct-dependencies.mjs')
+
+  it('keeps the workflow valid YAML', () => {
+    expect(() => parse(workflow)).not.toThrow()
+  })
 
   it('fails closed on load, overflow, and theme regressions', () => {
     expect(sweep).toContain('const errs = report.filter((r) => r.status)')
