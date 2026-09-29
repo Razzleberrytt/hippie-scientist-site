@@ -8,8 +8,8 @@ type ProfileTOCVariant = 'all' | 'mobile' | 'desktop'
 
 const QUICK_TOC_PRIORITIES = [
   /decision|verdict|summary|overview/i,
-  /evidence/i,
   /safety|interaction/i,
+  /evidence/i,
   /dos|how to use/i,
   /source|reference|citation/i,
 ]
