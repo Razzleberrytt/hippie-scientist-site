@@ -23,6 +23,13 @@ describe('compound profile continuation consolidation', () => {
     expect(compound).not.toContain('Guides that use {displayName}')
   })
 
+  it('does not render an empty continuation shell for profiles with no paths', () => {
+    expect(compound).toContain('const hasContinuationPaths =')
+    expect(compound).toContain('clusterSeeAlso.length > 0')
+    expect(compound).toContain('continuationGroups.some((group) => group.links.length > 0)')
+    expect(compound).toContain('{hasContinuationPaths ? (')
+  })
+
   it('preserves source herbs as a distinct origin/context job', () => {
     expect(compound).toContain('<CompoundSourceHerbs')
     expect(compound).toContain("{ id: 'compounds', label: 'Source herbs' }")
