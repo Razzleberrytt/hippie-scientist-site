@@ -802,13 +802,13 @@ export default async function CompoundPage({ params }: PageProps) {
             .filter((item) => item.slug)
             .slice(0, 6)
             .map((item) => {
-            const relatedSlug = String(item.slug)
-            return {
-              href: item.entityType === 'herb' ? `/herbs/${relatedSlug}` : `/compounds/${relatedSlug}`,
-              label: formatDisplayLabel(item.name || relatedSlug),
-              type: item.entityType === 'herb' ? 'herb' : 'compound',
-            }
-          }),
+              const relatedSlug = String(item.slug)
+              return {
+                href: item.entityType === 'herb' ? `/herbs/${relatedSlug}` : `/compounds/${relatedSlug}`,
+                label: formatDisplayLabel(item.name || relatedSlug),
+                type: item.entityType === 'herb' ? 'herb' : 'compound',
+              }
+            }),
         }]
       : []),
     ...(goalLinks.length > 0 || conditionLinks.length > 0
@@ -831,7 +831,7 @@ export default async function CompoundPage({ params }: PageProps) {
           title: 'Related Herbs',
           description: 'Herb profiles connected to the same condition context.',
           links: conditionHerbEntries
-            .filter((item: RuntimeMapEntry) => item.slug !== sourceSlug)
+            .filter((item: RuntimeMapEntry) => item.slug && item.slug !== sourceSlug)
             .slice(0, 4)
             .map((item: RuntimeMapEntry) => ({
               href: `/herbs/${item.slug}`,
