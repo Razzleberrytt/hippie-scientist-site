@@ -996,9 +996,6 @@ export default async function CompoundPage({ params }: PageProps) {
 
         {/* Essentials now live in the hero, matching herb profiles. */}
 
-        {/* Source herbs — internal links from the curated relationship map */}
-        <div id="compounds"><CompoundSourceHerbs compoundSlug={compound.slug} compoundName={displayName} /></div>
-
         {canonicalNote ? (
           <section className="card-premium p-4 sm:p-5 space-y-3">
             <h2 className="font-semibold text-ink">{canonicalNote.title}</h2>
@@ -1160,6 +1157,12 @@ export default async function CompoundPage({ params }: PageProps) {
             </div>
           </details>
         )}
+
+        {/* Relationship context comes after the core decision, safety, evidence,
+            dosing, and mechanism sections so it cannot interrupt the primary flow. */}
+        <div id="compounds" className="scroll-mt-24">
+          <CompoundSourceHerbs compoundSlug={compound.slug} compoundName={displayName} />
+        </div>
 
         {goalLinks.length > 0 || conditionLinks.length > 0 ? (
           <section id="goals" className="card-premium scroll-mt-24 p-4 sm:p-5">
