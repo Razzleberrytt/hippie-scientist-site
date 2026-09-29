@@ -1260,12 +1260,6 @@ export default async function CompoundPage({ params }: PageProps) {
           </div>
         </section>
 
-        <EmailCapture
-          headline={`Get the ${displayName} evidence notes`}
-          description="Occasional research updates, safety context, and product-quality checks for supplement decisions."
-          location={`compound-${normalizedSlug}`}
-        />
-
         <StackRecommendationSection
           productName={displayName}
           recommendations={stackRecommendations}
@@ -1328,6 +1322,12 @@ export default async function CompoundPage({ params }: PageProps) {
 
         <Disclaimer className="mt-4" />
         <AuthorCredentials />
+
+        <EmailCapture
+          headline={`Get the ${displayName} evidence notes`}
+          description="Occasional research updates, safety context, and product-quality checks for supplement decisions."
+          location={`compound-${normalizedSlug}`}
+        />
 
         <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between">
           <Link href="/compounds/" className="inline-flex rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-ink transition hover:bg-sand-50">
