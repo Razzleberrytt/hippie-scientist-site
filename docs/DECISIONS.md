@@ -1,8 +1,46 @@
 # Decision Log
 
 **Status:** Authoritative
-**Updated:** 2026-08-27
+**Updated:** 2026-09-27
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
+
+
+## 2026-09-28 — Curated index policy has one mutable authority
+
+**Decision:** Store curated herb/compound membership and the legacy governance index-bypass in `data/curated-index-policy.json`. Runtime SEO, sitemap/indexability, governance overlay, profile-promotion tooling, profile-publication audits, Atlas coverage audits, and tests are readers of that policy rather than independent owners. Curated membership is a discoverability policy and does not itself establish scientific approval.
+
+**Rationale:** The runtime allowlist, governance overlay, and CI/audit scripts had diverged into multiple hardcoded copies. The broader runtime lists already contained profiles that were intentionally governed/noindex, while the overlay carried a narrower bypass set. Blindly taking the union would have promoted profiles solely because duplicate lists were consolidated.
+
+**Consequences:** The canonical policy records `governanceIndexBypass` per entry so the old narrower bypass boundary is preserved explicitly and consolidation creates zero new promotions. The stale compound-side `citicoline` entry is retired because the canonical runtime owner is `/herbs/citicoline/` and the compound-side identity is CDP-choline/legacy redirect handling. Future consumers may add readers, but no new independently mutable curated slug list is permitted. **Status:** Accepted; implementation tracked by #4989.
+
+
+## 2026-09-27 — Generated evidence metadata cannot self-attest scientific approval
+
+**Decision:** Treat generated evidence counts and identifier arrays as summaries, not authority. Claim identifiers and publication/source identifiers must remain in separate namespaces. A generic profile may be marked scientifically approved/recommendable only when an approved claim is linked to an approved materialized source; a positive `sourceCount` or source-like token alone is insufficient. Opaque source identifiers must resolve to a materialized local source or active source-registry identity; PMID/DOI/HTTPS receipts may resolve directly.
+
+**Rationale:** The 2026-09-27 integrity audit found that claim IDs could inflate `evidence.sourceIds`, stale positive counts could satisfy governance checks without a surviving source, and source presence alone could produce `reviewStatus: approved`. Those patterns allow generated metadata to manufacture trust rather than summarize governed evidence.
+
+**Consequences:** #4987 owned the bounded Authority/Content repair. Existing manual/restricted governance remains authoritative. Indexability continues to use its separate publication policy, while recommendation/approval fails closed when the governed claim→source receipt is absent. The migration did not make evidence grade, recommendation, monetization, publication, or indexability more permissive. **Status:** Accepted; implemented by PR #6057 on 2026-09-28.
+
+## 2026-09-27 — Mobile experience coherence is P0 before broad content expansion
+
+**Decision:** Make #6051 the owner-directed P0 for user-facing product work. The immediate priority is not adding more broad content; it is making the existing evidence, safety, research, guides, and ingredient data coherent and pleasant to use on mobile. Use progressive disclosure so pages answer the reader's immediate question first, then interpretation, then deep evidence. Prefer a small number of visually distinct, reusable patterns over many equally weighted cards and repeated explanatory sections. Keep exhaustive directories available but secondary to search, filtering, curated discovery, and contextual next actions.
+
+**Rationale:** The site now has substantial information depth and a cleaner five-destination ownership model, but mobile exploration still makes users process too much taxonomy, repeated explanation, long indexes, and similarly weighted sections. That fragmentation reduces comprehension and makes strong research feel less useful than it is. The highest-leverage product move is therefore to improve the interface through which existing information is understood.
+
+**Consequences:** Discovery/SEO is occupied by #6051. Stable URLs, scientific claims, evidence grades, safety language, publication eligibility, accessibility, performance, and static-export constraints remain hard gates. Visual polish must improve hierarchy and readability rather than add decorative noise. Engagement, conversion, search, and revenue impact remain `Unknown` until measured. **Status:** Accepted; implementation pending.
+
+## 2026-09-27 — Five-destination information architecture and page-role ownership
+
+**Decision:** Organize the user-facing site around five primary destinations: **Goals**, **Guides**, **Ingredients**, **Safety**, and **Research**. Treat `/learn/*` and `/articles/*` as editorial/learning formats owned by Guides; treat `/evidence/*`, `/tools/*`, citation lookup, methodology, and research reports as Research capabilities. Keep `/library/` as the intentionally exhaustive directory rather than making every hub exhaustive. Preserve stable URLs; this is an ownership/navigation decision, not a bulk route migration.
+
+**Decision:** Global breadcrumbs, generated tables of contents, and contextual lead captures are page-role tools rather than default decoration. Hubs and interactive utilities should stay lean; long-form editorial pages may retain reading aids; ingredient profiles may retain contextual resources; research infrastructure should not inherit unrelated marketing capture.
+
+**Rationale:** The site accumulated overlapping hub taxonomies and globally injected modules that made independent content families compete for attention and made dense pages feel less coherent. One ownership model makes navigation deterministic without deleting useful content or changing evidence/safety semantics.
+
+**Alternatives considered:** Keep Goals, Guides, Learn, Articles, Evidence, Research, Tools, Library, and ingredient indexes as peer destinations; or bulk-migrate URLs into a new taxonomy. The first preserves cognitive overload; the second creates unnecessary URL/search risk.
+
+**Consequences:** `lib/primary-navigation.ts` owns primary destination resolution, `lib/page-experience-policy.ts` owns shared chrome eligibility, and `docs/site-information-architecture.md` is the supporting implementation guide. Route-specific content remains available at stable URLs. Scientific claims, evidence grades, safety language, publication eligibility, analytics outcomes, and business impact are unchanged/Unknown unless separately measured. **Status:** Accepted; implemented in #6024 / PR #6023.
 
 ## 2026-08-21 — Control-document authority
 

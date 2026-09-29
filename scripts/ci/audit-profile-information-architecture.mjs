@@ -58,18 +58,29 @@ function sourceArchitectureChecks() {
   return files.map((relative) => {
     const source = fs.readFileSync(path.join(ROOT, relative), 'utf8')
     const positions = {
-      decision: source.indexOf('ProfileDecisionPanel'),
+      overview: source.indexOf('id="overview"'),
+      decision: source.indexOf('<ProfileDecisionPanel'),
+      mobileToc: source.indexOf('variant="mobile"'),
       safety: source.indexOf('id="safety"'),
       evidence: source.indexOf('id="evidence"'),
       dose: Math.max(source.indexOf('id="dosing"'), source.indexOf('Dosing & timing')),
       mechanisms: source.indexOf('id="mechanisms"'),
       related: source.indexOf('id="related"'),
     }
+    const coherentMobileCore =
+      positions.overview >= 0 &&
+      positions.decision > positions.overview &&
+      positions.mobileToc > positions.decision &&
+      positions.safety > positions.mobileToc &&
+      positions.evidence > positions.safety &&
+      positions.dose > positions.evidence
+
     return {
       file: relative,
       hasBreadcrumbs: /Breadcrumb|breadcrumbs/i.test(source),
       hasProfileToc: source.includes('ProfileTOC'),
       hasDecisionPanel: positions.decision >= 0,
+      coherentMobileCore,
       safetyBeforeMechanisms: positions.safety >= 0 && (positions.mechanisms < 0 || positions.safety < positions.mechanisms),
       evidenceBeforeMechanisms: positions.evidence >= 0 && (positions.mechanisms < 0 || positions.evidence < positions.mechanisms),
       relatedAfterCoreEvidence: positions.related < 0 || (positions.evidence >= 0 && positions.related > positions.evidence),
@@ -144,7 +155,7 @@ const summary = {
   averageUniqueRatio: rows.length ? Number((rows.reduce((sum, row) => sum + row.uniqueRatio, 0) / rows.length).toFixed(3)) : null,
   boilerplateDominated: rows.filter((row) => row.flags.includes('boilerplate-dominated')).length,
   excessiveLinkCount: rows.filter((row) => row.flags.includes('excessive-internal-link-count')).length,
-  architectureFailures: sourceChecks.filter((row) => !row.hasDecisionPanel || !row.safetyBeforeMechanisms || !row.evidenceBeforeMechanisms || !row.relatedAfterCoreEvidence).length,
+  architectureFailures: sourceChecks.filter((row) => !row.hasDecisionPanel || !row.coherentMobileCore || !row.safetyBeforeMechanisms || !row.evidenceBeforeMechanisms || !row.relatedAfterCoreEvidence).length,
   flaggedProfiles: flagged.length,
 }
 

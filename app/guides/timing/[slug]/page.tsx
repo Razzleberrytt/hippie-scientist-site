@@ -56,7 +56,7 @@ export default async function IngredientTimingPage({ params }: { params: Promise
   const foodDecision = getFoodDecision(record, timing)
 
   return (
-    <main className="container-page space-y-8 py-10">
+    <div className="container-page space-y-8 py-10">
       <nav aria-label="Breadcrumb" className="text-sm text-muted">
         <Link href="/" className="hover:text-ink">Home</Link>
         <span aria-hidden="true"> / </span>
@@ -107,6 +107,6 @@ export default async function IngredientTimingPage({ params }: { params: Promise
       </section>
 
       <Disclaimer />
-    </main>
+    </div>
   )
 }

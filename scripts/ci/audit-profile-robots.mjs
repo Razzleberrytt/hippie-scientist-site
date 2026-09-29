@@ -13,6 +13,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { curatedPolicySlugSet, loadCuratedIndexPolicy } from '../lib/curated-index-policy.mjs'
 
 const repoRoot = process.cwd()
 const outDir = path.join(repoRoot, 'out')
@@ -26,13 +27,6 @@ const DATASETS = [
 
 function readJson(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(repoRoot, relativePath), 'utf8'))
-}
-
-function readAllowlist(exportName) {
-  const source = fs.readFileSync(path.join(repoRoot, 'lib/index-allowlist.ts'), 'utf8')
-  const block = source.match(new RegExp(exportName + '[^=]*=\\s*\\[([\\s\\S]*?)\\]'))
-  if (!block) return new Set()
-  return new Set([...block[1].matchAll(/'([^']+)'/g)].map((match) => match[1]))
 }
 
 function normalizeRoute(value) {
@@ -124,9 +118,10 @@ function run() {
     process.exit(1)
   }
 
+  const curatedPolicy = loadCuratedIndexPolicy(repoRoot)
   const curated = {
-    herb: readAllowlist('CURATED_INDEXABLE_HERB_SLUGS'),
-    compound: readAllowlist('CURATED_INDEXABLE_COMPOUND_SLUGS'),
+    herb: curatedPolicySlugSet(curatedPolicy, 'herbs'),
+    compound: curatedPolicySlugSet(curatedPolicy, 'compounds'),
   }
 
   const redirectSources = new Set(

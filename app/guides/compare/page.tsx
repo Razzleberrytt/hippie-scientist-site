@@ -87,6 +87,7 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
       { slug: 'berberine-vs-metformin', label: 'Berberine vs Metformin' },
       { slug: 'berberine-vs-inositol', label: 'Berberine vs Inositol' },
       { slug: 'berberine-vs-cinnamon', label: 'Berberine vs Cinnamon' },
+      { slug: 'turmeric-vs-curcumin', label: 'Turmeric vs Curcumin', note: 'Whole botanical vs concentrated curcuminoid context' },
       { slug: 'curcumin-vs-boswellia-vs-omega-3', label: 'Curcumin vs Boswellia vs Omega-3' },
     ],
   },

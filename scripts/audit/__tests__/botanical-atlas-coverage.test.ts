@@ -11,9 +11,9 @@ describe('Botanical Activity Atlas coverage audit', () => {
     }
   })
 
-  it('prioritizes curated indexable profiles and emits reviewable formats', () => {
-    expect(script).toContain('CURATED_INDEXABLE_HERB_SLUGS')
-    expect(script).toContain('CURATED_INDEXABLE_COMPOUND_SLUGS')
+  it('prioritizes profiles from the canonical curated policy and emits reviewable formats', () => {
+    expect(script).toContain('loadCuratedIndexPolicy')
+    expect(script).toContain('curatedPolicySlugSet')
     expect(script).toContain("'coverage.json'")
     expect(script).toContain("'coverage.csv'")
     expect(script).toContain("'coverage.md'")

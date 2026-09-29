@@ -24,6 +24,11 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { readWorkbook, getSheet, sheetToRows } from '../data/workbook-parser.mjs'
 import { RESTRICTED_RUNTIME_TERMS } from '../data/restricted-runtime-terms.mjs'
+import { DEPRECATED_COMPOUND_CANONICALS } from '../../lib/deprecated-compound-canonicals.ts'
+import {
+  CROSS_TAXONOMY_REDIRECT_SLUGS,
+  DEPRECATED_HERB_CANONICALS,
+} from '../../lib/deprecated-herb-canonicals.ts'
 import { assertWorkbookExists, resolveWorkbookPath } from '../workbook-source.mjs'
 
 const repoRoot = process.cwd()
@@ -116,11 +121,39 @@ async function main() {
     })
   }
 
+  const deprecatedAliasHasRuntimeTarget = (slug, kind) => {
+    if (kind === 'herb') {
+      const target = DEPRECATED_HERB_CANONICALS[slug]
+      if (!target) return false
+      return CROSS_TAXONOMY_REDIRECT_SLUGS.has(slug)
+        ? runtimeCompoundSlugs.has(target)
+        : runtimeHerbSlugs.has(target)
+    }
+
+    const target = DEPRECATED_COMPOUND_CANONICALS[slug]
+    if (!target) return false
+    if (target.startsWith('/herbs/')) {
+      const targetSlug = target.split('/').filter(Boolean).at(-1)
+      return Boolean(targetSlug && runtimeHerbSlugs.has(targetSlug))
+    }
+    if (target.startsWith('/compounds/')) {
+      const targetSlug = target.split('/').filter(Boolean).at(-1)
+      return Boolean(targetSlug && runtimeCompoundSlugs.has(targetSlug))
+    }
+    return runtimeCompoundSlugs.has(target)
+  }
+
   const missingHerbsAll = [...workbookHerbSlugs].filter((slug) => !runtimeHerbSlugs.has(slug)).sort()
   const missingCompoundsAll = [...workbookCompoundSlugs].filter((slug) => !runtimeCompoundSlugs.has(slug)).sort()
   const withheldCount = [...missingHerbsAll, ...missingCompoundsAll].filter(withheld).length
-  const missingHerbs = missingHerbsAll.filter((slug) => !withheld(slug))
-  const missingCompounds = missingCompoundsAll.filter((slug) => !withheld(slug))
+  const deprecatedHerbAliasCount = missingHerbsAll.filter((slug) => deprecatedAliasHasRuntimeTarget(slug, 'herb')).length
+  const deprecatedCompoundAliasCount = missingCompoundsAll.filter((slug) => deprecatedAliasHasRuntimeTarget(slug, 'compound')).length
+  const missingHerbs = missingHerbsAll.filter(
+    (slug) => !withheld(slug) && !deprecatedAliasHasRuntimeTarget(slug, 'herb'),
+  )
+  const missingCompounds = missingCompoundsAll.filter(
+    (slug) => !withheld(slug) && !deprecatedAliasHasRuntimeTarget(slug, 'compound'),
+  )
 
   // Duplicate slugs collapse records into each other during the build, so one
   // profile silently overwrites another.
@@ -138,6 +171,10 @@ async function main() {
   console.log(`[validate-workbook-json-parity] Workbook: ${workbookHerbSlugs.size} herb rows, ${workbookCompoundSlugs.size} compound rows.`)
   console.log(`[validate-workbook-json-parity] public/data: ${herbsJson.length} herbs, ${compoundsJson.length} compounds.`)
   console.log(`[validate-workbook-json-parity] Deliberately withheld (controlled substances): ${withheldCount}.`)
+  console.log(
+    `[validate-workbook-json-parity] Deprecated aliases with live canonical targets: ` +
+    `${deprecatedHerbAliasCount} herbs, ${deprecatedCompoundAliasCount} compounds.`,
+  )
 
   // A parity check that compared two empty sets would agree perfectly.
   if (workbookHerbSlugs.size === 0 || workbookCompoundSlugs.size === 0 || herbsJson.length === 0 || compoundsJson.length === 0) {

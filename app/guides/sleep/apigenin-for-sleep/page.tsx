@@ -143,7 +143,7 @@ export default function Page() {
   const faqLd = faqPageJsonLd({ pagePath: path, questions: faqs })
 
   return (
-    <main className="mx-auto max-w-4xl px-4 pb-24 pt-8 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-4xl px-4 pb-24 pt-8 sm:px-6 lg:px-8">
       {faqLd ? <JsonLd schema={faqLd} /> : null}
       <nav className="mb-6 text-xs text-muted" aria-label="Breadcrumb">
         <Link href="/guides/" className="hover:text-ink">Guides</Link>
@@ -260,6 +260,6 @@ export default function Page() {
 
         <SleepResearchNextActions />
       </article>
-    </main>
+    </div>
   )
 }

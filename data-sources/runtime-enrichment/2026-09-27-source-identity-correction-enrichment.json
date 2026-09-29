@@ -1,0 +1,28 @@
+{
+  "entities": [],
+  "evidence": [],
+  "sources": [
+    {
+      "source_id": "pmid-9809861",
+      "pmid": "9809861",
+      "doi": "10.1007/s002130050731",
+      "author_or_label": "Lader M, Scotto JC.",
+      "year": "1998",
+      "journal": "Psychopharmacology (Berl)",
+      "title": "A multicentre double-blind comparison of hydroxyzine, buspirone and placebo in patients with generalized anxiety disorder",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9809861/",
+      "entity_slugs": "hydroxyzine",
+      "used_for": "short-term generalized anxiety disorder randomized evidence",
+      "citation_or_note": "Bibliographic identity correction for PMID 9809861; the historical 2026-09-26 ledger paired this PMID/DOI with metadata from a different hydroxyzine review. The 244-patient, four-week trial identity is retained.",
+      "status": "published",
+      "corrects_source_id": "pmid-9809861",
+      "expected_prior_identity": {
+        "doi": "10.1007/s002130050731",
+        "author_or_label": "Ferreri M, Hantouche EG.",
+        "title": "Recent clinical trials of hydroxyzine in generalized anxiety disorder"
+      },
+      "correction_reason": "PMID and DOI resolve to the Lader/Scotto multicentre hydroxyzine-buspirone-placebo trial; Ferreri/Hantouche review metadata belongs to PMID 9777055 and DOI 10.1111/j.1600-0447.1998.tb05974.x."
+    }
+  ],
+  "relationships": []
+}

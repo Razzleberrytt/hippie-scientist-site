@@ -5,6 +5,8 @@ export type MentalHealthSourceTier =
   | 'Systematic review'
   | 'Meta-analysis'
   | 'Peer-reviewed clinical review'
+  | 'Observational study'
+  | 'Qualitative study'
   | 'Randomized trial'
   | 'Professional reference'
 

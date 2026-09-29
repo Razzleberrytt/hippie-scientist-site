@@ -3,14 +3,14 @@ import { coreGoals } from '../core-goals'
 import { primaryNavigation } from '../primary-navigation'
 
 describe('primary navigation', () => {
-  it('puts the four dominant user intents first', () => {
-    expect(primaryNavigation.slice(0, 4).map((item) => item.label)).toEqual([
+  it('keeps five distinct top-level jobs', () => {
+    expect(primaryNavigation.map((item) => item.label)).toEqual([
       'Goals',
+      'Guides',
       'Ingredients',
-      'Compare',
       'Safety',
+      'Research',
     ])
-    expect(primaryNavigation[4]?.label).toBe('Research')
   })
 
   it('keeps the Goals menu inside the canonical goals namespace', () => {
@@ -21,6 +21,26 @@ describe('primary navigation', () => {
       coreGoals.map((goal) => ({ label: goal.label, href: goal.href.replace(/\/$/, '') })),
     )
     expect(goals?.children?.some((item) => item.href.startsWith('/guides/'))).toBe(false)
+  })
+
+  it('makes Guides the front door to topic content', () => {
+    const guides = primaryNavigation.find((item) => item.label === 'Guides')
+
+    expect(guides?.href).toBe('/guides')
+    expect(guides?.activePrefixes).toContain('/guides')
+    expect(guides?.children?.[0]).toMatchObject({ label: 'All guides', href: '/guides' })
+    expect(guides?.children).toEqual(expect.arrayContaining([
+      expect.objectContaining({ label: 'Mental Health', href: '/guides/mental-health' }),
+      expect.objectContaining({ label: 'ADHD', href: '/guides/adhd' }),
+      expect.objectContaining({ label: 'Comparisons', href: '/guides/compare' }),
+      expect.objectContaining({ label: 'Substance Use & Harm Reduction', href: '/guides/substance-use' }),
+    ]))
+  })
+
+  it('does not duplicate Compare as a top-level destination', () => {
+    expect(primaryNavigation.some((item) => item.label === 'Compare')).toBe(false)
+    const guides = primaryNavigation.find((item) => item.label === 'Guides')
+    expect(guides?.children?.some((item) => item.href === '/guides/compare')).toBe(true)
   })
 
   it('uses the source-first research library as the Research landing page', () => {

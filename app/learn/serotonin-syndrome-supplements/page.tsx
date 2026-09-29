@@ -35,9 +35,9 @@ const ENTITIES = [
   { name: 'Ginkgo', slug: 'ginkgo-biloba', type: 'herb', flag: 'SSRI caution (also separately flagged for anticoagulant risk)' },
   { name: 'Phenylalanine', slug: 'phenylalanine', type: 'compound', flag: 'SSRI caution' },
   { name: 'L-Tyrosine', slug: 'l-tyrosine', type: 'compound', flag: 'SSRI and stimulant caution' },
-  { name: 'DMT', slug: 'dmt', type: 'compound', flag: 'SSRI caution' },
-  { name: 'Harmaline', slug: 'harmaline', type: 'compound', flag: 'SSRI caution; MAOI-active alkaloid' },
-  { name: 'Harmine', slug: 'harmine', type: 'compound', flag: 'SSRI caution; MAOI-active alkaloid' },
+  { name: 'DMT', slug: 'dmt', type: 'compound', profileAvailable: false, flag: 'SSRI caution' },
+  { name: 'Harmaline', slug: 'harmaline', type: 'compound', profileAvailable: false, flag: 'SSRI caution; MAOI-active alkaloid' },
+  { name: 'Harmine', slug: 'harmine', type: 'compound', profileAvailable: false, flag: 'SSRI caution; MAOI-active alkaloid' },
   { name: 'Mucuna', slug: 'mucuna', type: 'herb', flag: 'MAOI caution — hypertensive crisis mechanism, not serotonin syndrome (see note below)' },
   { name: 'Yohimbe', slug: 'yohimbe', type: 'herb', flag: 'MAOI caution — hypertensive crisis mechanism, not serotonin syndrome (see note below)' },
 ]
@@ -88,7 +88,7 @@ export default function SerotoninSyndromeArticle() {
       <section className="rounded-2xl border border-brand-900/10 bg-brand-50/50 p-5 mb-10">
         <h2 className="text-lg font-bold text-ink mb-2">How this list was built</h2>
         <p className="text-sm leading-7 text-muted">This isn&apos;t a curated &ldquo;things to watch out for&rdquo; roundup. It&apos;s the output of a keyword-matched derivation run against every entity&apos;s documented contraindications — anything flagging interaction with SSRIs, SNRIs, MAOIs, or serotonergic activity directly. Eighteen entities matched. Because every flagged entity is mechanistically linked to every other, that&apos;s <strong className="text-ink">153 individual pairwise cautions</strong> — far more than anyone tracking ingredients one page at a time would catch.</p>
-        <p className="mt-3 text-sm text-muted">Every entity below links to its full monograph, including a live &ldquo;Caution When Combined With&rdquo; panel showing its specific flagged pairings.</p>
+        <p className="mt-3 text-sm text-muted">Published profiles below link to their full monographs. Restricted reference-only compounds remain listed for safety context without linking to an unpublished route.</p>
       </section>
 
       <section className="mb-10">
@@ -98,7 +98,7 @@ export default function SerotoninSyndromeArticle() {
             <thead className="bg-brand-50/60"><tr><th className="px-4 py-3 text-left font-semibold text-ink">Entity</th><th className="px-4 py-3 text-left font-semibold text-ink">Type</th><th className="px-4 py-3 text-left font-semibold text-ink">What it&apos;s flagged for</th></tr></thead>
             <tbody className="divide-y divide-brand-900/5">
               {ENTITIES.map((e) => (
-                <tr key={e.slug}><td className="px-4 py-3"><Link href={`/${e.type === 'compound' ? 'compounds' : 'herbs'}/${e.slug}/`} className="font-semibold text-brand-800 hover:underline">{e.name}</Link></td><td className="px-4 py-3 text-muted">{e.type === 'compound' ? 'Compound' : 'Herb'}</td><td className="px-4 py-3 text-muted text-xs leading-5">{e.flag}</td></tr>
+                <tr key={e.slug}><td className="px-4 py-3">{e.profileAvailable === false ? <span className="font-semibold text-ink">{e.name}</span> : <Link href={`/${e.type === 'compound' ? 'compounds' : 'herbs'}/${e.slug}/`} className="font-semibold text-brand-800 hover:underline">{e.name}</Link>}</td><td className="px-4 py-3 text-muted">{e.type === 'compound' ? 'Compound' : 'Herb'}</td><td className="px-4 py-3 text-muted text-xs leading-5">{e.flag}</td></tr>
               ))}
             </tbody>
           </table>

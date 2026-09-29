@@ -214,3 +214,76 @@ export const CLUSTER_A_REVIEW: MentalHealthReference = {
   tier: 'Systematic review',
   note: 'Indexed in PubMed; PMID 40111791.',
 }
+
+
+export const AVPD_ATTACHMENT_EIKENAES: MentalHealthReference = {
+  id: 'avpd-attachment-eikenaes',
+  citation: 'Eikenæs I, Pedersen G, Wilberg T. Attachment styles in patients with avoidant personality disorder compared with social phobia. Psychology and Psychotherapy: Theory, Research and Practice. 2016;89(3):245-260.',
+  url: 'https://doi.org/10.1111/papt.12075',
+  tier: 'Observational study',
+  note: 'Multisite cross-sectional study; PMID 26332087.',
+}
+
+export const BPD_ATTACHMENT_META_SMITH: MentalHealthReference = {
+  id: 'bpd-attachment-meta-smith',
+  citation: 'Smith M, South S. Romantic attachment style and borderline personality pathology: a meta-analysis. Clinical Psychology Review. 2020;75:101781.',
+  url: 'https://doi.org/10.1016/j.cpr.2019.101781',
+  tier: 'Meta-analysis',
+  note: 'PMID 31918217.',
+}
+
+export const BPD_AVPD_DYAD_BEENEY: MentalHealthReference = {
+  id: 'bpd-avpd-dyad-beeney',
+  citation: 'Beeney JE, Hallquist MN, Scott LN, et al. The Emotional Bank Account and the Four Horsemen of the Apocalypse in Romantic Relationships of People With Borderline Personality Disorder: A Dyadic Observational Study. Clinical Psychological Science. 2019;7(5):1063-1077.',
+  url: 'https://doi.org/10.1177/2167702619830647',
+  tier: 'Observational study',
+  note: '130 couples; clinician-rated borderline and avoidant personality-disorder criteria; PMID 32670673.',
+}
+
+export const BPD_COUPLE_STABILITY_BOUCHARD: MentalHealthReference = {
+  id: 'bpd-couple-stability-bouchard',
+  citation: 'Bouchard S, Sabourin S, Lussier Y, Villeneuve E. Relationship quality and stability in couples when one partner suffers from borderline personality disorder. Journal of Marital and Family Therapy. 2009;35(4):446-455.',
+  url: 'https://doi.org/10.1111/j.1752-0606.2009.00151.x',
+  tier: 'Observational study',
+  note: '35 BPD couples and 35 nonclinical control couples; PMID 19785701.',
+}
+
+export const BPD_ROMANTIC_REVIEW_NAVARRO: MentalHealthReference = {
+  id: 'bpd-romantic-review-navarro',
+  citation: 'Navarro-Gómez S, Frías Á, Palma C. Romantic Relationships of People with Borderline Personality: A Narrative Review. Psychopathology. 2017;50(3):175-187.',
+  url: 'https://doi.org/10.1159/000474950',
+  tier: 'Peer-reviewed clinical review',
+  note: 'Narrative review of 30 articles; PMID 28521314.',
+}
+
+export const BPD_PARTNER_REVIEW_GREER: MentalHealthReference = {
+  id: 'bpd-partner-review-greer',
+  citation: 'Greer H, Cohen JN. Partners of Individuals with Borderline Personality Disorder: A Systematic Review of the Literature Examining Their Experiences and the Supports Available to Them. Harvard Review of Psychiatry. 2018;26(4):185-200.',
+  url: 'https://doi.org/10.1097/HRP.0000000000000164',
+  tier: 'Systematic review',
+  note: 'PMID 29975337.',
+}
+
+export const BPD_AVPD_INTERPERSONAL_MCCLOSKEY: MentalHealthReference = {
+  id: 'bpd-avpd-interpersonal-mccloskey',
+  citation: 'McCloskey KD, Cox DW, Ogrodniczuk JS, Laverdière O, Joyce AS, Kealy D. Interpersonal problems and social dysfunction: Examining patients with avoidant and borderline personality disorder symptoms. Journal of Clinical Psychology. 2021;77(1):329-339.',
+  url: 'https://doi.org/10.1002/jclp.23033',
+  tier: 'Observational study',
+  note: 'Cross-sectional outpatient study; PMID 32738186.',
+}
+
+export const BPD_SIGNIFICANT_OTHERS_FITZPATRICK: MentalHealthReference = {
+  id: 'bpd-significant-others-fitzpatrick',
+  citation: 'Fitzpatrick S, Wagner AC, Monson CM. Optimizing borderline personality disorder treatment by incorporating significant others: a review and synthesis. Personality Disorders: Theory, Research, and Treatment. 2019;10(4):297-308.',
+  url: 'https://doi.org/10.1037/per0000328',
+  tier: 'Systematic review',
+  note: 'PMID 30714800.',
+}
+
+export const BPD_SUCCESSFUL_COUPLES_MOLYNEUX: MentalHealthReference = {
+  id: 'bpd-successful-couples-molyneux',
+  citation: 'Molyneux E, Broadbear JH, Rao S, et al. “Someone catching me when I’m falling”: a qualitative study exploring satisfaction in romantic relationships where one partner has borderline personality disorder. Frontiers in Psychiatry. 2026;17:1807149.',
+  url: 'https://doi.org/10.3389/fpsyt.2026.1807149',
+  tier: 'Qualitative study',
+  note: 'Six long-term couples; PMID 42549054.',
+}

@@ -1,18 +1,18 @@
 # Site Organization
 
-Current as of July 2026.
+Current as of September 2026.
 
 ## Navigation Policy
 
-The header should stay simple:
+The header should stay simple and describe five distinct user jobs:
 
-- Herbs
-- Compounds
-- Guides
-- Learn
-- Tools
+- Goals — start from an outcome or question.
+- Guides — browse topic hubs and editorial decision guides.
+- Ingredients — directly look up herbs and compounds.
+- Safety — check interaction and contraindication context.
+- Research — inspect studies, evidence tools, articles, and methodology.
 
-Desktop navigation exposes top-level destinations. Mobile navigation may show the full child hierarchy, but it should remain grouped under those five labels.
+Comparisons live under Guides rather than occupying a separate top-level slot. Mental Health is a first-class Guides destination. Desktop and mobile navigation use the same hierarchy so users do not have to learn two different site structures.
 
 ## Public Route Families
 
@@ -25,10 +25,14 @@ These are stable depth routes. They should receive the richest evidence, safety,
 
 ### Discovery Layer
 
-- `/guides` - guide index.
-- `/guides/adhd/*` - ADHD supplement and nutrient decision guides.
+- `/guides` - guide index and primary topic front door.
+- `/guides/mental-health/*` - mental-health conditions, relationships, treatment evidence, and stigma-aware explainers.
+- `/guides/substance-use/*` - substance-use, dependence, withdrawal, and harm-reduction guides.
+- `/guides/adhd/*` - ADHD supplement, nutrient, and treatment-context guides.
 - `/guides/sleep/*` - sleep aids, melatonin alternatives, and wind-down guides.
-- `/guides/anxiety/*` - anxiety, stress, adaptogen, and cortisol guides.
+- `/guides/anxiety/*` - anxiety and calm-support guides.
+- `/guides/stress/*` - stress, burnout, adaptogen, and overload guides.
+- `/guides/metabolic-health/*` - metabolic-health, blood-sugar, and weight-claim guides.
 - `/guides/focus/*` - nootropic, focus, and stimulant-smoothing guides.
 - `/guides/herbs/*` - editorial herb guide pages that complement `/herbs/:slug`.
 - `/guides/compare/*` - comparison hub and pairwise tradeoff pages.
@@ -45,7 +49,7 @@ These are stable depth routes. They should receive the richest evidence, safety,
 
 ## Redirect Policy
 
-Older route families such as top-level `/articles/*`, `/goals/*`, `/stacks/*`, top-level `/compare/*`, and top-level `/best-supplements-for-*` may still exist in redirects or static compatibility routes. They should not be used as primary navigation targets unless a route migration plan explicitly reactivates them.
+Superseded aliases and legacy route families such as `/stacks/*`, top-level `/compare/*`, and top-level `/best-supplements-for-*` may still exist in redirects or static compatibility routes. They should not be used as primary navigation targets unless a route migration plan explicitly reactivates them. Current first-class families such as `/goals/*`, `/guides/*`, `/research/`, and `/articles/*` are not legacy merely because older redirects also reference them.
 
 When moving or deleting a route:
 

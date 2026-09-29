@@ -57,7 +57,7 @@ const roadmap = [
 
 export default function ResearchRoadmapPage() {
   return (
-    <main className="container-page mx-auto max-w-5xl space-y-10 py-10">
+    <div className="container-page mx-auto max-w-5xl space-y-10 py-10">
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
         <p className="eyebrow-label">Public roadmap</p>
         <h1 className="mt-3 max-w-4xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl">What gets researched next should follow evidence and demand.</h1>
@@ -98,6 +98,6 @@ export default function ResearchRoadmapPage() {
           Repeated suggestions create a demand signal, not an automatic publishing order. A topic still needs adequate evidence, a useful search or research intent, acceptable safety framing, and enough unique value to justify an indexable page or tool upgrade.
         </p>
       </section>
-    </main>
+    </div>
   )
 }

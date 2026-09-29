@@ -229,15 +229,6 @@ function buildEvidenceHref(evidenceValue: string, query: string, context: string
   return suffix ? `/compounds?${suffix}` : '/compounds'
 }
 
-function StatCard({ value, label }: { value: number; label: string }) {
-  return (
-    <div className="min-w-0 rounded-[0.8rem] border border-brand-900/10 bg-white/80 p-2.5 shadow-sm sm:p-3">
-      <p className="text-xl font-semibold tracking-tight text-ink sm:text-2xl">{value}</p>
-      <p className="mt-0.5 text-[0.62rem] font-bold uppercase leading-snug tracking-[0.1em] text-muted">{label}</p>
-    </div>
-  )
-}
-
 function EmptyLibraryState() {
   return (
     <DecisionEmptyState
@@ -310,25 +301,7 @@ function CompoundSkeletonGrid() {
   )
 }
 
-const browsePaths = [
-  {
-    label: 'Herb sources',
-    href: '/herbs',
-    description: 'Start from whole-plant profiles before isolating constituent chemistry.',
-  },
-  {
-    label: 'Goal guides',
-    href: '/guides',
-    description: 'Use goal guides when the practical context matters more than the molecule.',
-  },
-  {
-    label: 'Compare options',
-    href: '/guides/compare',
-    description: 'Review alternatives without treating compound lists as recommendations.',
-  },
-]
-
-export default function CompoundsIndexClient({ compounds: sourceCompounds, allCompounds, initialQuery = '', initialContext = '', paginated = false, page: _page = 1, totalPages: _totalPages = 1}: { compounds: RuntimeRecord[]; allCompounds?: RuntimeRecord[]; initialQuery?: string; initialContext?: string; paginated?: boolean; page?: number; totalPages?: number }) {
+export default function CompoundsIndexClient({ compounds: sourceCompounds, allCompounds, initialQuery = '', initialContext = '', paginated = false, page = 1, totalPages: _totalPages = 1}: { compounds: RuntimeRecord[]; allCompounds?: RuntimeRecord[]; initialQuery?: string; initialContext?: string; paginated?: boolean; page?: number; totalPages?: number }) {
   const urlParams = useSearchParams()
   const query = urlParams?.get('q') || firstParam(initialQuery)
   const context = urlParams?.get('context') || firstParam(initialContext)
@@ -342,44 +315,24 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
   const visibleCompounds = filterCompounds(baseCompounds, query, activeFilter, activeEvidence)
   const hasActiveFilters = Boolean(query.trim()) || activeFilter !== 'all' || activeEvidence !== 'all'
   const totalProfiles = baseCompounds.length
-  const evidenceForward = baseCompounds.filter((compound: RuntimeRecord) => /human|clinical|strong|high/i.test(text(compound?.evidence_tier || compound?.evidence_grade || compound?.evidenceLevel))).length
-  const safetyMapped = baseCompounds.filter((compound: RuntimeRecord) => getSafety(compound) !== 'Safety review pending').length
-  const featuredCompounds = hasActiveFilters || paginated ? [] : baseCompounds.slice(0, 6)
-  const libraryCompounds = hasActiveFilters ? visibleCompounds : paginated ? compounds : baseCompounds.slice(featuredCompounds.length)
+  const showFeatured = !hasActiveFilters && (!paginated || page === 1)
+  const featuredCompounds = showFeatured ? (paginated ? compounds : baseCompounds).slice(0, 6) : []
+  const featuredCompoundSlugs = new Set(featuredCompounds.map((compound) => compound.slug))
+  const libraryCompounds = hasActiveFilters
+    ? visibleCompounds
+    : paginated
+      ? compounds.filter((compound) => !featuredCompoundSlugs.has(compound.slug))
+      : baseCompounds.slice(featuredCompounds.length)
 
   return (
     <div className="px-2 py-2 text-ink sm:px-3 sm:py-3">
       <div className="mx-auto max-w-7xl space-y-4 sm:space-y-4">
-        <section className="hero-shell relative overflow-hidden rounded-[0.95rem] border border-brand-900/10 px-3 py-4 shadow-sm sm:px-4 sm:py-5">
-          <div className="relative grid gap-3 lg:grid-cols-[1.05fr_.95fr] lg:items-end">
-            <div className="max-w-3xl space-y-2">
-              <p className="eyebrow-label">Compound research library</p>
-              <h2 className="max-w-[18ch] text-balance font-display text-2xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-4xl">
-                Explore compound profiles
-              </h2>
-              <p className="max-w-2xl text-sm leading-6 text-muted">
-                Scan bioactive molecules by practical context first, then compare evidence, mechanism hints, and caution notes where source data supports them.
-              </p>
-            </div>
-
-            <div className="rounded-[0.8rem] border border-brand-900/10 bg-white/80 p-2.5 shadow-sm">
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-800">Library signal</p>
-              <div className="mt-2 grid grid-cols-3 gap-2">
-                <StatCard value={totalProfiles} label="Profiles" />
-                <StatCard value={evidenceForward} label="Evidence-led" />
-                <StatCard value={safetyMapped} label="Safety mapped" />
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section className="rounded-[0.85rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-sm sm:p-4" aria-labelledby="compound-search-heading">
           <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl space-y-1.5">
               <p className="eyebrow-label">Search and filter</p>
               <h2 id="compound-search-heading" className="compact-heading">Start with the question you need answered.</h2>
             </div>
-            <Link href="/herbs/" className="w-fit text-sm font-bold text-brand-800 transition hover:text-brand-900">Browse herb sources →</Link>
           </div>
 
           <form action="/compounds" className="mt-3 grid gap-2 sm:grid-cols-[1fr_auto]">
@@ -427,28 +380,6 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
           </div>
         </section>
 
-        <section className="rounded-[0.85rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-sm">
-          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <div className="max-w-2xl space-y-1.5">
-              <p className="eyebrow-label">Common starting points</p>
-              <h2 className="compact-heading">Use broader guides if you are still orienting.</h2>
-            </div>
-          </div>
-
-          <div className="mt-3 grid gap-2 md:grid-cols-3">
-            {browsePaths.map(path => (
-              <Link
-                key={path.label}
-                href={path.href}
-                className="group rounded-[0.75rem] border border-brand-900/10 bg-[var(--surface-card)] p-2.5 shadow-sm transition hover:border-brand-700/20 hover:bg-[var(--surface-card-strong)]"
-              >
-                <h3 className="text-base font-semibold tracking-tight text-ink transition group-hover:text-brand-800">{path.label}</h3>
-                <p className="mt-1 text-sm leading-5 text-muted">{path.description}</p>
-              </Link>
-            ))}
-          </div>
-        </section>
-
         {compounds.length === 0 ? (
           <EmptyLibraryState />
         ) : visibleCompounds.length === 0 ? (
@@ -463,7 +394,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
                     <h2 className="compact-heading">High-signal starting points.</h2>
                   </div>
                   <p className="max-w-md text-sm leading-6 text-muted">
-                    Sorted by evidence, safety, and profile readiness.
+                    Sorted by evidence signals, profile readiness, and practical browse value.
                   </p>
                 </div>
 

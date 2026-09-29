@@ -44,7 +44,7 @@ export default async function MorningOrNightPage({ params }: { params: Promise<{
   const profileHref = record.entityType === 'compound' ? `/compounds/${slug}/` : `/herbs/${slug}/`
 
   return (
-    <main className="container-page space-y-8 py-10">
+    <div className="container-page space-y-8 py-10">
       <nav aria-label="Breadcrumb" className="text-sm text-muted">
         <Link href="/" className="hover:text-ink">Home</Link>
         <span aria-hidden="true"> / </span>
@@ -85,6 +85,6 @@ export default async function MorningOrNightPage({ params }: { params: Promise<{
       </section>
 
       <Disclaimer />
-    </main>
+    </div>
   )
 }

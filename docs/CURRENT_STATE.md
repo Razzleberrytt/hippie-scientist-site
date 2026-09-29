@@ -1,7 +1,7 @@
 # Current State
 
 **Status:** Authoritative description of the present implementation
-**Evidence cutoff:** 2026-08-28 for the scoped #4415 economics proof below; 2026-08-25 for SEO-001 publication-parity and the earlier CI/deploy snapshot; other audited facts retain their stated dates
+**Evidence cutoff:** 2026-09-27 for the #6024 information-architecture implementation; 2026-08-28 for the scoped #4415 economics proof below; 2026-08-25 for SEO-001 publication-parity and the earlier CI/deploy snapshot; other audited facts retain their stated dates
 **Labels:** **Verified** = reproduced from code, generated data, CI, GitHub, or live output; **Inferred** = supported but not directly measured; **Unknown** = access or evidence unavailable; **Recommended** = proposed next action, not current behavior.
 
 ## Executive summary
@@ -15,6 +15,16 @@
 ## Product
 
 ### User-facing product and problems addressed
+
+**Verified (2026-09-27, #6024 / PR #6028):** Primary navigation now has five user destinations—Goals, Guides, Ingredients, Safety, and Research—with deterministic route-family ownership. Learn and Articles are owned by Guides; Evidence/Tools/citation/methodology surfaces are owned by Research; Library remains the exhaustive directory. A shared page-role policy suppresses global breadcrumbs/TOC/lead-capture chrome on hubs and utilities while preserving appropriate editorial/profile aids. Stable URLs and scientific/evidence/safety semantics are unchanged by this architecture pass; production engagement and business impact remain **Unknown** until measured.
+
+**Verified (2026-09-27, #6031 / PR #6033 merged as `6ab7cc95800a14f0dc3df159ac298c6a2c752f8c`):** Guides, Learn, and Articles now operate as one editorial family with shared local navigation. Guides is the topic/decision front door; Learn is concept-first with a collapsed complete route index; Articles shows recent reading plus a categorized expandable archive. Legacy utility URLs under `/learn/*` stay stable while Research/Safety can own their primary-navigation state. Scientific claims, evidence grades, safety conclusions, publication eligibility, monetization, indexing policy, and business impact are unchanged/Unknown until separately measured.
+
+**Verified on #6035 / PR #6038 exact head:** Herbs, Compounds, Search, and Evidence Lookup now share one lookup-family navigation. Herb and Compound indexes stay profile-focused, global Search stays search-first, and Evidence Lookup remains Research-owned as the explicit evidence-strength handoff. Stable URLs, profile filters, pagination, search noindex/follow behavior, scientific claims, evidence grades, safety conclusions, publication eligibility, monetization, and indexing policy remain unchanged; observed user/business impact is **Unknown** until measured.
+
+**Verified on #6041 / PR #6044 exact head:** Safety now has one shared local flow across the checker, evidence-gated interaction guides and their detail pages, the educational interactions framework, and the supplement safety checklist. The flow is check → review evidence-gated guidance → understand mechanisms/uncertainty → prepare before buying or stacking. Existing URLs, interaction evidence, warnings, publication thresholds, medication-specific escalation language, and signup behavior are unchanged; production engagement/business impact remains **Unknown** until measured.
+
+**Verified (2026-09-27, #6047 / PR #6050):** Home, Start, and Library now use the same canonical five-destination model. Home is orientation + direct search + five destinations + one compact trust/metrics block; Start is a lightweight five-destination router; Library remains exhaustive but groups content under Goals, Guides, Ingredients, Safety, Research, plus supporting Site Information. Stable URLs, search behavior, public metrics, scientific/evidence/safety/publication semantics, monetization, and indexing policy are unchanged; observed engagement/business impact is **Unknown** until measured.
 
 **Verified:** The current product provides:
 

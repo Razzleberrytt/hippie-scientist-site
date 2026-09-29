@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { classifyReleaseImpact, isDocsOnlyPath, isLeafPagePath, isReleaseSensitivePath, isValidationOnlyPath } from './classify-release-impact.mjs'
+import { classifyReleaseImpact, isDocsOnlyPath, isLeafPagePath, isReleaseSensitivePath, isUiOnlyPath, isUiOnlySourcePath, isValidationOnlyPath } from './classify-release-impact.mjs'
 
 describe('release impact classification', () => {
   it.each([
@@ -78,8 +78,77 @@ describe('release impact classification', () => {
       docsOnly: false,
       validationOnly: false,
       leafPageOnly: false,
+      uiOnly: false,
       files: ['components/Header.tsx', 'public/data/herbs.json'],
     })
+  })
+})
+
+describe('ui-only classification', () => {
+  it.each([
+    'components/ui/ProfileTOC.tsx',
+    'components/navigation/LookupFamilyNav.tsx',
+    'components/editorial/ProfileDecisionPanel.tsx',
+    'styles/profile-premium.css',
+  ])('treats %s as an allowed UI source path', (file) => {
+    expect(isUiOnlySourcePath(file)).toBe(true)
+    expect(isUiOnlyPath(file)).toBe(true)
+  })
+
+  it.each([
+    'app/__tests__/mobile-premium-ux.test.ts',
+    'app/__tests__/premium-discovery-surfaces.test.ts',
+  ])('allows %s only as a UI companion file', (file) => {
+    expect(isUiOnlySourcePath(file)).toBe(false)
+    expect(isUiOnlyPath(file)).toBe(true)
+  })
+
+  it('requires at least one UI source and fails closed on mixed sensitive paths', () => {
+    expect(classifyReleaseImpact([
+      'components/ui/ProfileTOC.tsx',
+      'app/__tests__/mobile-premium-ux.test.ts',
+    ]).uiOnly).toBe(true)
+
+    expect(classifyReleaseImpact([
+      'styles/profile-premium.css',
+      'app/__tests__/premium-discovery-surfaces.test.ts',
+    ]).uiOnly).toBe(true)
+
+    expect(classifyReleaseImpact([
+      'app/__tests__/mobile-premium-ux.test.ts',
+    ]).uiOnly).toBe(false)
+    expect(classifyReleaseImpact([
+      'components/ui/__tests__/Button.test.tsx',
+    ]).uiOnly).toBe(false)
+    expect(classifyReleaseImpact([
+      'components/editorial/ProfileDecisionPanel.test.tsx',
+    ]).uiOnly).toBe(false)
+
+    for (const extra of [
+      'app/herbs/[slug]/page.tsx',
+      'lib/profile-decision.ts',
+      'public/data/herbs.json',
+      'package.json',
+      '.github/workflows/ci.yml',
+      'security/audit-allowlist.json',
+      'components/RecommendationSection.tsx',
+    ]) {
+      expect(classifyReleaseImpact([
+        'components/ui/ProfileTOC.tsx',
+        extra,
+      ]).uiOnly, extra).toBe(false)
+    }
+  })
+
+  it('does not overlap docs-only, validation-only, or leaf-page-only classes', () => {
+    const result = classifyReleaseImpact([
+      'components/editorial/ProfileDecisionPanel.tsx',
+      'app/__tests__/premium-discovery-surfaces.test.ts',
+    ])
+    expect(result.docsOnly).toBe(false)
+    expect(result.validationOnly).toBe(false)
+    expect(result.leafPageOnly).toBe(false)
+    expect(result.uiOnly).toBe(true)
   })
 })
 
@@ -246,6 +315,22 @@ describe('workflow release-impact contract', () => {
     expect(atomic).toContain('Leaf-page-only change; skip duplicate full release suite')
     expect(invariants).toContain('Download governed static export')
     expect(invariants).toContain('Same-repository PRs reuse the exact governed CI export instead of rebuilding the site.')
+  })
+
+  it('uses a focused validation lane for proven UI-only diffs while retaining the production build', () => {
+    const ci = fs.readFileSync(path.join(process.cwd(), '.github/workflows/ci.yml'), 'utf8')
+
+    expect(ci).toContain('UI-only validation fast path')
+    expect(ci).toContain("steps.impact.outputs.ui_only == 'true'")
+    expect(ci).toContain('Run related tests for UI-only changes (vitest + source-reading contracts + explicit a11y gate)')
+    expect(ci).toContain('npx vitest related "${changed_files[@]}" --run --passWithNoTests')
+    expect(ci).toContain('grep -RFl -- "$changed_file" app/__tests__ tests components')
+    expect(ci).toContain('npx vitest run "${explicit_ui_tests[@]}"')
+    expect(ci).toContain('npx vitest run app/__tests__/a11y.test.tsx')
+    expect(ci).toContain('elif [ "${{ steps.impact.outputs.ui_only }}" = "true" ]; then')
+    expect(ci).toContain('changed/source-reading UI contracts + explicit a11y')
+    expect(ci).toContain("steps.impact.outputs.ui_only != 'true'")
+    expect(ci).toContain('npm run build:deploy')
   })
 
   it('uses dependency-related Vitest selection only for proven leaf-page-only diffs', () => {
@@ -418,6 +503,7 @@ describe('CLI writes all signals to $GITHUB_OUTPUT', () => {
       docs_only: 'true',
       validation_only: 'false',
       leaf_page_only: 'false',
+      ui_only: 'false',
     })
   })
 
@@ -427,6 +513,7 @@ describe('CLI writes all signals to $GITHUB_OUTPUT', () => {
       docs_only: 'false',
       validation_only: 'false',
       leaf_page_only: 'false',
+      ui_only: 'false',
     })
   })
 
@@ -440,6 +527,7 @@ describe('CLI writes all signals to $GITHUB_OUTPUT', () => {
       docs_only: 'false',
       validation_only: 'true',
       leaf_page_only: 'false',
+      ui_only: 'false',
     })
   })
 
@@ -449,6 +537,7 @@ describe('CLI writes all signals to $GITHUB_OUTPUT', () => {
       docs_only: 'false',
       validation_only: 'false',
       leaf_page_only: 'false',
+      ui_only: 'false',
     })
   })
 
@@ -458,6 +547,20 @@ describe('CLI writes all signals to $GITHUB_OUTPUT', () => {
       docs_only: 'false',
       validation_only: 'false',
       leaf_page_only: 'true',
+      ui_only: 'false',
+    })
+  })
+
+  it('reports ui_only=true for a narrow shared UI source plus regression test', () => {
+    expect(run([
+      'components/navigation/LookupFamilyNav.tsx',
+      'app/__tests__/ingredient-lookup-ia.test.ts',
+    ])).toEqual({
+      release_sensitive: 'false',
+      docs_only: 'false',
+      validation_only: 'false',
+      leaf_page_only: 'false',
+      ui_only: 'true',
     })
   })
 })

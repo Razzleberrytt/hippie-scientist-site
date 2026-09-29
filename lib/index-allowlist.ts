@@ -1,3 +1,4 @@
+import curatedIndexPolicy from '../data/curated-index-policy.json'
 import { getHerbSourceSlug } from './herb-canonical-source-aliases'
 
 export const CORE_INDEXABLE_ROUTES = [
@@ -48,34 +49,15 @@ export const MONEY_ENTRY_ROUTES = [
   '/best-magnesium-supplements-for-adhd',
 ] as const
 
-// Canonical (current-data) slugs. Curated index-allowlisted herb slugs.
-// Must match the actual `slug` field on records in public/data/herbs.json so
-// the governance overlay + sitemap treat them as PUBLISH. If the workbook
-// renames a canonical slug, update this list in lockstep with the rename.
-export const CURATED_INDEXABLE_HERB_SLUGS = [
-  'ashwagandha',
-  'rhodiola',
-  'piper-methysticum',
-  'turmeric',
-  'ginger',
-  'peppermint',
-  'black-cohosh',
-  'momordica-charantia',
-  'black-seed',
-  'bacopa',
-  'ginkgo-biloba',
-  'saffron',
-  'melissa-officinalis',
-  'valerian',
-  'st-johns-wort',
-  'reishi',
-  'lions-mane',
-  'schisandra',
-  'eleuthero',
-  'evening-primrose',
-  'turkey-tail',
-  'quercetin',
-] as const
+// Canonical curated membership now comes from one data authority shared with the
+// governance overlay and Node-based audits. Membership is a discoverability policy;
+// it does not itself establish scientific approval.
+export const CURATED_INDEXABLE_HERB_SLUGS = curatedIndexPolicy.herbs
+  .map((entry) => entry.slug) as readonly string[]
+
+export const CURATED_GOVERNANCE_INDEX_BYPASS_HERB_SLUGS = curatedIndexPolicy.herbs
+  .filter((entry) => entry.governanceIndexBypass === true)
+  .map((entry) => entry.slug) as readonly string[]
 
 export function isCuratedIndexableHerbRouteSlug(slug: string): boolean {
   const sourceSlug = getHerbSourceSlug(slug)
@@ -83,43 +65,12 @@ export function isCuratedIndexableHerbRouteSlug(slug: string): boolean {
     (CURATED_INDEXABLE_HERB_SLUGS as readonly string[]).includes(sourceSlug)
 }
 
-// Canonical (current-data) slugs. Curated index-allowlisted compound slugs.
-// Must match the actual `slug` field on records in public/data/compounds.json.
-// Note: kratom + mitragynine are intentionally EXCLUDED — those are
-// restricted slugs (see scripts/data/apply-governance-overlay.mjs) and must
-// stay noindex. Phosphatidylserine -> use phosphatidylcholine (closest
-// canonical slug in current data).
-export const CURATED_INDEXABLE_COMPOUND_SLUGS = [
-  'l-theanine',
-  'magnesium',
-  'magnesium-glycinate',
-  'omega-3',
-  'caffeine',
-  'epigallocatechin-gallate-egcg',
-  'n-acetylcysteine',
-  'coenzyme-q10',
-  'curcumin-piperine',
-  'berberine',
-  'melatonin',
-  'inositol',
-  'alpha-gpc',
-  'cdp-choline',
-  'citicoline',
-  'phosphatidylcholine',
-  'acetyl-l-carnitine',
-  'l-tyrosine',
-  'huperzine-a',
-  'dim',
-  'wogonin',
-  'morin',
-  'krill-oil',
-  'pomegranate-extract',
-  'panax-ginseng-extract',
-  'alpha-lipoic-acid',
-  'glycine',
-  'taurine',
-  'zinc',
-  'saffron-extract',
-  'creatine-beta-alanine',
-  'iron',
-] as const
+// Compound membership uses the same authority. The canonical policy also records
+// the narrower legacy governance index-bypass explicitly so consolidation cannot
+// promote a profile solely because duplicate lists were merged.
+export const CURATED_INDEXABLE_COMPOUND_SLUGS = curatedIndexPolicy.compounds
+  .map((entry) => entry.slug) as readonly string[]
+
+export const CURATED_GOVERNANCE_INDEX_BYPASS_COMPOUND_SLUGS = curatedIndexPolicy.compounds
+  .filter((entry) => entry.governanceIndexBypass === true)
+  .map((entry) => entry.slug) as readonly string[]

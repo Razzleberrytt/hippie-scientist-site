@@ -86,7 +86,7 @@ const automationRules = [
 
 export default function EditorialPolicyPage() {
   return (
-    <main className="container-page mx-auto max-w-5xl space-y-12 py-10">
+    <div className="container-page mx-auto max-w-5xl space-y-12 py-10">
       <section className="hero-shell rounded-[2rem] border p-6 sm:p-8 lg:p-10">
         <p className="eyebrow-label">Public scientific standard</p>
         <h1 className="heading-premium mt-4">Editorial, evidence &amp; automation policy</h1>
@@ -181,6 +181,6 @@ export default function EditorialPolicyPage() {
           <Link href="/info/affiliate-disclosure/" className="text-brand-700 hover:underline">Affiliate disclosure →</Link>
         </div>
       </section>
-    </main>
+    </div>
   )
 }
