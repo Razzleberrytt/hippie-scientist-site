@@ -301,7 +301,7 @@ function CompoundSkeletonGrid() {
   )
 }
 
-export default function CompoundsIndexClient({ compounds: sourceCompounds, allCompounds, initialQuery = '', initialContext = '', paginated = false, page: _page = 1, totalPages: _totalPages = 1}: { compounds: RuntimeRecord[]; allCompounds?: RuntimeRecord[]; initialQuery?: string; initialContext?: string; paginated?: boolean; page?: number; totalPages?: number }) {
+export default function CompoundsIndexClient({ compounds: sourceCompounds, allCompounds, initialQuery = '', initialContext = '', paginated = false, page = 1, totalPages: _totalPages = 1}: { compounds: RuntimeRecord[]; allCompounds?: RuntimeRecord[]; initialQuery?: string; initialContext?: string; paginated?: boolean; page?: number; totalPages?: number }) {
   const urlParams = useSearchParams()
   const query = urlParams?.get('q') || firstParam(initialQuery)
   const context = urlParams?.get('context') || firstParam(initialContext)
@@ -315,8 +315,14 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
   const visibleCompounds = filterCompounds(baseCompounds, query, activeFilter, activeEvidence)
   const hasActiveFilters = Boolean(query.trim()) || activeFilter !== 'all' || activeEvidence !== 'all'
   const totalProfiles = baseCompounds.length
-  const featuredCompounds = hasActiveFilters || paginated ? [] : baseCompounds.slice(0, 6)
-  const libraryCompounds = hasActiveFilters ? visibleCompounds : paginated ? compounds : baseCompounds.slice(featuredCompounds.length)
+  const showFeatured = !hasActiveFilters && (!paginated || page === 1)
+  const featuredCompounds = showFeatured ? (paginated ? compounds : baseCompounds).slice(0, 6) : []
+  const featuredCompoundSlugs = new Set(featuredCompounds.map((compound) => compound.slug))
+  const libraryCompounds = hasActiveFilters
+    ? visibleCompounds
+    : paginated
+      ? compounds.filter((compound) => !featuredCompoundSlugs.has(compound.slug))
+      : baseCompounds.slice(featuredCompounds.length)
 
   return (
     <div className="px-2 py-2 text-ink sm:px-3 sm:py-3">
@@ -388,7 +394,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
                     <h2 className="compact-heading">High-signal starting points.</h2>
                   </div>
                   <p className="max-w-md text-sm leading-6 text-muted">
-                    Sorted by evidence, safety, and profile readiness.
+                    Sorted by evidence signals, profile readiness, and practical browse value.
                   </p>
                 </div>
 
