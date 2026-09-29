@@ -727,7 +727,6 @@ export default async function CompoundPage({ params }: PageProps) {
   const stackRecommendations = getStackRecommendations(normalizedSlug, 3)
   const canonicalNote = CANONICAL_COMPOUND_NOTES[normalizedSlug]
   const citations = extractCitationsFromRecord(compound)
-  const clusterSeeAlso = getClusterSeeAlso(normalizedSlug, 'compound', 8)
   const evidenceDesignMatch = text(compound.evidence_design_match)
   const evidenceRiskOfBias = text(compound.evidence_risk_of_bias)
   const evidenceConsistency = text(compound.evidence_consistency)
@@ -793,6 +792,7 @@ export default async function CompoundPage({ params }: PageProps) {
     : null
   const pathwayDiagram = generatePathwayDiagram({ ...compound, name: displayName })
   const goalLinks = getGoalsForEntity(normalizedSlug)
+  const clusterSeeAlso = getClusterSeeAlso(normalizedSlug, 'compound', 8)
   const continuationGroups = [
     ...(semanticRelated.length > 0
       ? [{
@@ -843,6 +843,9 @@ export default async function CompoundPage({ params }: PageProps) {
       : []),
     ...internalLinkGroups,
   ]
+  const hasContinuationPaths =
+    clusterSeeAlso.length > 0 ||
+    continuationGroups.some((group) => group.links.length > 0)
 
   const tocItems = [
     { id: 'overview', label: 'Overview' },
@@ -1214,26 +1217,28 @@ export default async function CompoundPage({ params }: PageProps) {
           <CompoundSourceHerbs compoundSlug={compound.slug} compoundName={displayName} />
         </div>
 
-        <section id="related" className="scroll-mt-24 space-y-4">
-          <div className="space-y-1">
-            <p className="eyebrow-label">Next steps</p>
-            <h2 className="text-xl font-semibold tracking-tight text-ink">Continue exploring {displayName}</h2>
-            <p className="text-sm leading-6 text-muted">
-              Related profiles, goal context, research paths, and safety context — deduped into one place.
-            </p>
-          </div>
-
-          <div id={goalLinks.length > 0 || conditionLinks.length > 0 ? 'goals' : undefined} className="scroll-mt-24">
-            <div id={conditionLinks.length > 0 ? 'conditions' : undefined} className="scroll-mt-24">
-              <SeeAlsoCluster
-                slug={normalizedSlug}
-                kind="compound"
-                limit={6}
-                continuationGroups={continuationGroups}
-              />
+        {hasContinuationPaths ? (
+          <section id="related" className="scroll-mt-24 space-y-4">
+            <div className="space-y-1">
+              <p className="eyebrow-label">Next steps</p>
+              <h2 className="text-xl font-semibold tracking-tight text-ink">Continue exploring {displayName}</h2>
+              <p className="text-sm leading-6 text-muted">
+                Related profiles, goal context, research paths, and safety context — deduped into one place.
+              </p>
             </div>
-          </div>
-        </section>
+
+            <div id={goalLinks.length > 0 || conditionLinks.length > 0 ? 'goals' : undefined} className="scroll-mt-24">
+              <div id={conditionLinks.length > 0 ? 'conditions' : undefined} className="scroll-mt-24">
+                <SeeAlsoCluster
+                  slug={normalizedSlug}
+                  kind="compound"
+                  limit={6}
+                  continuationGroups={continuationGroups}
+                />
+              </div>
+            </div>
+          </section>
+        ) : null}
 
         {/* Section 5: Compare Nearby + CTA */}
         <section id="compare" className="card-premium p-4 sm:p-5 space-y-4">
