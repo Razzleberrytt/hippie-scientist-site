@@ -55,8 +55,8 @@ describe('herb profile continuation consolidation', () => {
     expect(experience).toContain("includesAll(seeAlsoCluster, ['RelatedDiscoveryGroups', 'continuationGroups', 'dedupeContinuationGroups'])")
   })
 
-  it('leaves compound continuation behavior and shared discovery defaults unchanged', () => {
-    expect(compound).toContain('<SeeAlsoCluster slug={normalizedSlug} kind="compound" limit={6} />')
+  it('keeps both profile families on the shared continuation architecture and discovery defaults stable', () => {
+    expect(compound).toContain('continuationGroups={continuationGroups}')
     expect(discovery).toContain('linksPerGroup = 4')
   })
 })

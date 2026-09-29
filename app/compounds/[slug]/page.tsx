@@ -9,7 +9,6 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import ReadingProgress from '@/components/ui/ReadingProgress'
 import EvidenceSnapshotCard from '@/components/ui/EvidenceSnapshotCard'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
-import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeSlug } from '@/lib/slug-utils'
@@ -794,6 +793,60 @@ export default async function CompoundPage({ params }: PageProps) {
     : null
   const pathwayDiagram = generatePathwayDiagram({ ...compound, name: displayName })
   const goalLinks = getGoalsForEntity(normalizedSlug)
+  const continuationGroups = [
+    ...(semanticRelated.length > 0
+      ? [{
+          title: 'Related Profiles',
+          description: 'Profiles connected through runtime relationship and ecosystem maps.',
+          links: semanticRelated
+            .filter((item) => item.slug)
+            .slice(0, 6)
+            .map((item) => {
+              const relatedSlug = String(item.slug)
+              return {
+                href: item.entityType === 'herb' ? `/herbs/${relatedSlug}` : `/compounds/${relatedSlug}`,
+                label: formatDisplayLabel(item.name || relatedSlug),
+                type: item.entityType === 'herb' ? 'herb' : 'compound',
+              }
+            }),
+        }]
+      : []),
+    ...(goalLinks.length > 0 || conditionLinks.length > 0
+      ? [{
+          title: 'Related Guides',
+          description: 'Goal and condition context for deciding what to read next.',
+          links: [
+            ...goalLinks.map((link) => ({ ...link, type: 'guide' })),
+            ...conditionLinks.slice(0, 5).map((link: RuntimeMapEntry) => ({
+              href: link.href || '/guides/',
+              label: link.label || formatDisplayLabel(link.slug),
+              score: link.score,
+              type: 'guide',
+            })),
+          ],
+        }]
+      : []),
+    ...(conditionHerbEntries.length > 0
+      ? [{
+          title: 'Related Herbs',
+          description: 'Herb profiles connected to the same condition context.',
+          links: conditionHerbEntries
+            .filter((item: RuntimeMapEntry) => item.slug && item.slug !== sourceSlug)
+            .slice(0, 4)
+            .map((item: RuntimeMapEntry) => ({
+              href: `/herbs/${item.slug}`,
+              label: item.title || formatDisplayLabel(item.slug),
+              score: item.score,
+              type: 'herb',
+            })),
+        }]
+      : []),
+    ...internalLinkGroups,
+  ]
+  const hasContinuationPaths =
+    clusterSeeAlso.length > 0 ||
+    continuationGroups.some((group) => group.links.length > 0)
+
   const tocItems = [
     { id: 'overview', label: 'Overview' },
     { id: 'safety', label: 'Safety' },
@@ -1164,44 +1217,28 @@ export default async function CompoundPage({ params }: PageProps) {
           <CompoundSourceHerbs compoundSlug={compound.slug} compoundName={displayName} />
         </div>
 
-        {goalLinks.length > 0 || conditionLinks.length > 0 ? (
-          <section id="goals" className="card-premium scroll-mt-24 p-4 sm:p-5">
-            <h2 className="font-semibold text-ink">Guides that use {displayName}</h2>
-            {goalLinks.length > 0 ? (
-              <div className="mt-3">
-                <p className="hs-label">Goal guides</p>
-                <ul className="hs-chips mt-2">
-                  {goalLinks.map((link) => (
-                    <li key={link.href}>
-                      <Link href={link.href} className="hs-chip capitalize">{link.label}</Link>
-                    </li>
-                  ))}
-                </ul>
+        {hasContinuationPaths ? (
+          <section id="related" className="scroll-mt-24 space-y-4">
+            <div className="space-y-1">
+              <p className="eyebrow-label">Next steps</p>
+              <h2 className="text-xl font-semibold tracking-tight text-ink">Continue exploring {displayName}</h2>
+              <p className="text-sm leading-6 text-muted">
+                Related profiles, goal context, research paths, and safety context — deduped into one place.
+              </p>
+            </div>
+
+            <div id={goalLinks.length > 0 || conditionLinks.length > 0 ? 'goals' : undefined} className="scroll-mt-24">
+              <div id={conditionLinks.length > 0 ? 'conditions' : undefined} className="scroll-mt-24">
+                <SeeAlsoCluster
+                  slug={normalizedSlug}
+                  kind="compound"
+                  limit={6}
+                  continuationGroups={continuationGroups}
+                />
               </div>
-            ) : null}
-            {conditionLinks.length > 0 ? (
-              <div id="conditions" className="mt-4 scroll-mt-24">
-                <p className="hs-label">Condition guides</p>
-                <ul className="hs-chips mt-2">
-                  {conditionLinks.slice(0, 5).map((link: RuntimeMapEntry) => (
-                    <li key={link.slug}>
-                      <Link href={link.href || '/guides/'} className="hs-chip">
-                        {link.label || formatDisplayLabel(link.slug)}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
+            </div>
           </section>
         ) : null}
-
-        <SeeAlsoCluster slug={normalizedSlug} kind="compound" limit={6} />
-
-        <RelatedDiscoveryGroups
-          title="Related research paths"
-          groups={internalLinkGroups}
-        />
 
         {/* Section 5: Compare Nearby + CTA */}
         <section id="compare" className="card-premium p-4 sm:p-5 space-y-4">
@@ -1211,53 +1248,23 @@ export default async function CompoundPage({ params }: PageProps) {
           </div>
           {!suppressAffiliate && <SourcingCta record={compound} displayName={displayName} />}
 
-          <div className="grid gap-4 sm:grid-cols-2 pt-2">
-            {semanticRelated.length > 0 && (
-              <div className="space-y-2">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-muted">Related alternatives</h3>
-                <div className="flex flex-col gap-2">
-                  {semanticRelated.slice(0, 4).map(item => {
-                    const relatedSlug = String(item.slug || '')
+          {comparisonRecords.length > 0 && (
+            <div className="space-y-2 pt-2">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-muted">Tradeoffs</h3>
+              <div className="flex flex-col gap-2">
+                {comparisonRecords
+                  .filter((item: Record<string, unknown>) => item?.slug)
+                  .map((item: Record<string, unknown>) => {
+                    const compSlug = getValidComparisonSlug(sourceSlug, String(item.slug || ''))
+                    if (!compSlug) return null
                     return (
-                      <Link key={relatedSlug} href={item.entityType === 'herb' ? `/herbs/${relatedSlug}` : `/compounds/${relatedSlug}`} className="text-sm font-semibold text-brand-800 hover:underline">{formatDisplayLabel(item.name || relatedSlug)}</Link>
+                      <Link key={String(item.slug || compSlug)} href={`/guides/compare/${compSlug}`} className="text-sm font-semibold text-brand-800 hover:underline">Compare {formatDisplayLabel(item.name || item.slug)}</Link>
                     )
-                  })}
-                </div>
+                  })
+                  .filter(Boolean)}
               </div>
-            )}
-            {conditionHerbEntries.length > 0 && (
-              <div className="space-y-2">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-muted">Herbs for similar conditions</h3>
-                <div className="flex flex-col gap-2">
-                  {conditionHerbEntries
-                    .filter((item: RuntimeMapEntry) => item.slug !== sourceSlug)
-                    .slice(0, 4)
-                    .map((item: RuntimeMapEntry) => (
-                      <Link key={item.slug} href={`/herbs/${item.slug}`} className="text-sm font-semibold text-brand-800 hover:underline">
-                        {item.title || formatDisplayLabel(item.slug)}
-                      </Link>
-                    ))}
-                </div>
-              </div>
-            )}
-            {comparisonRecords.length > 0 && (
-              <div className="space-y-2">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-muted">Tradeoffs</h3>
-                <div className="flex flex-col gap-2">
-                  {comparisonRecords
-                    .filter((item: Record<string, unknown>) => item?.slug)
-                    .map((item: Record<string, unknown>) => {
-                      const compSlug = getValidComparisonSlug(sourceSlug, String(item.slug || ''))
-                      if (!compSlug) return null
-                      return (
-                        <Link key={String(item.slug || compSlug)} href={`/guides/compare/${compSlug}`} className="text-sm font-semibold text-brand-800 hover:underline">Compare {formatDisplayLabel(item.name || item.slug)}</Link>
-                      )
-                    })
-                    .filter(Boolean)}
-                </div>
-              </div>
-            )}
-          </div>
+            </div>
+          )}
         </section>
 
         <StackRecommendationSection
