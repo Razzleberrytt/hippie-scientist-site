@@ -112,7 +112,18 @@ function evaluateRuntimeVisibility(record: Record<string, unknown>) {
 
 export function getRuntimeVisibility(record: Record<string, unknown>) {
   try {
-    return evaluateRuntimeVisibility(record)
+    const visibility = evaluateRuntimeVisibility(record)
+    const governance = record.governance
+    if (!governance || typeof governance !== 'object' || Array.isArray(governance)) return visibility
+    const policy = governance as Record<string, unknown>
+    // An explicit denial is a ceiling on inferred publication permissions.
+    // A true flag never promotes a record that fails the existing checks.
+    return {
+      ...visibility,
+      canIndex: visibility.canIndex && coerceBool(policy.indexingAllowed) !== false,
+      canFeature: visibility.canFeature && coerceBool(policy.recommendationAllowed) !== false,
+      canMonetize: visibility.canMonetize && coerceBool(policy.monetizationAllowed) !== false,
+    }
   } catch {
     // Governance must fail closed. Interactive tools historically wrapped this
     // helper in fail-open catches; containing evaluation errors here prevents an
