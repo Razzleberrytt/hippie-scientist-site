@@ -9,6 +9,7 @@ import { toLeanProfileIndexRecords } from '@/lib/profile-index-records'
 import { getHerbName, loadPublishedHerbs } from './library-data'
 import HerbsIndexClient from './HerbsIndexClient'
 import Pagination from '@/components/Pagination'
+import LookupFamilyNav from '@/components/navigation/LookupFamilyNav'
 import '../../styles/library-browse.css'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -51,6 +52,8 @@ export default async function HerbsPage() {
           Mechanisms, safety notes, active compounds, and research context for {herbs.length} herbs — plain language, conservative claims.
         </p>
       </header>
+
+      <LookupFamilyNav active='herbs' />
 
       <nav aria-label="Herb profiles index" className="hidden">
         <ul>

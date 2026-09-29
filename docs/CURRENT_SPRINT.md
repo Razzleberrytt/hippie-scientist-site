@@ -2,10 +2,10 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-09-26
+**Updated:** 2026-09-28
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** #5706 is the sole Authority/Content implementation item after a fresh scored admission on exact base `666375c6db9dae6ebd0b24d781f603d1b5b94128`. Normal implementation WIP is **1/3**. Discovery/SEO and Revenue/Conversion remain free. #5963 is the mandatory narrow state-only CoQ10 governor-lease prerequisite and must merge before canonical CoQ10 mutation. Canonical ownership is `compound:coenzyme-q10` / `wp_compound_coenzyme_q10`; legacy `coq10` and `coenzyme-q10-ubiquinol` identities do not create parallel scientific owners. #5707 and #5708 remain staging-only; #5081 remains separately blocked on its own governor prerequisite.
+**Current admission:** Owner-directed P0 #6051 remains admitted in Discovery/SEO. #6056 / PR #6066 and #4989 / PR #6060 are merged and retired. Normal implementation WIP is **1/3**. Authority/Content and Revenue/Conversion are available; Discovery/SEO remains occupied until #6051 completes, blocks, or is explicitly displaced. #5081 remains separately blocked on its own governor prerequisite.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,23 +49,45 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 2/3
 
 **2026-09-25 owner-directed P0 control incident — #5941:** Resolved and retired after the bounded Actions coordination repair merged via PR #5949. It no longer consumes an Operations exception or changes normal D/R/A admission.
 
-| Lane | Ticket | Title | Status | Priority | Score | Freshness |
-|---|---|---|---|---|---:|---|
-| A | #5706 | Reconcile CoQ10 depression/anxiety endpoint discordance and canonical identity | Admitted — blocked on #5963 lease | P1 evidence governance | 80.0 | Revalidated 2026-09-26 on exact base `666375c6db9dae6ebd0b24d781f603d1b5b94128`; existing Session C integrity findings + PMID 40833470; canonical owner `compound:coenzyme-q10` |
+**#6051 — Discovery/SEO P0: mobile-first UX, exploration, and content coherence overhaul.** Owner-directed 2026-09-27. Fix the experience through which existing information is discovered and understood before speculative content expansion: simplify narrow-phone navigation, establish progressive disclosure, consolidate repeated verdict/evidence/safety copy, make exhaustive indexes secondary to search/filter/curated discovery, establish a reusable Summary → Benefits → Safety → Usage/context → Research profile hierarchy, and create clear contextual next actions. Preserve stable URLs, evidence/safety semantics, publication rules, accessibility, performance, and static-export compatibility. External engagement/business impact remains `Unknown` until measured.
 
-- **Discovery/SEO:** free; #5688 / PR #5691 is merged and retired.
+**Retired #6056 / PR #6066 — Authority/Content:** merged 2026-09-29. Legacy herb:tyrosine now fails closed across detail, summary/index, AI-entity, generation, and runtime layers; unsupported dosing aliases are withheld; compound:l-tyrosine remains the separate evidence owner.
+
+- **Discovery/SEO:** occupied by P0 #6051. #6047 / PR #6050 and the preceding IA refill cycle are merged and retired.
 - **Revenue/Conversion:** free; #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
-- **Authority/Content:** occupied by #5706 after exact-base scored admission. #5963 is its mandatory state-only lease prerequisite; no canonical CoQ10 mutation is authorized until that lease merges. Legacy `coq10` and `coenzyme-q10-ubiquinol` identities resolve to `compound:coenzyme-q10`; #4783's duplicate-data-owner debt must be reconciled without creating a parallel scientific owner. #5081 remains separately blocked on its own non-overlapping governor lease.
+- **Authority/Content:** available. #6056 / PR #6066, #4989 / PR #6060, #4987 / PR #6057, and #5706 / PR #5971 are merged and retired; #5081 remains separately blocked on its own non-overlapping governor lease.
 - **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
 - **Control maintenance:** #5642 is a docs-only feeder reconciliation so the durable candidate inventory cannot override the merged citation→search→click policy. It grants no normal implementation authority and consumes no D/R/A slot.
 
 Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
 
 ### Recently completed refill cycle
+
+- **#4989 / PR #6060 — Authority/Content:** merged 2026-09-28; curated-index policy now has one canonical authority consumed by runtime/governance/audit readers, with legacy bypass semantics preserved and no new scientific approvals created.
+
+- **#4987 / PR #6057 — Authority/Content:** merged 2026-09-28 after exact-head CI, Atomic, Project Control, Site Health, and Build Quality passed. Claim IDs can no longer inflate source counts; stale counts and dangling/inactive source identities cannot self-attest evidence; generic scientific approval/recommendation now requires an approved claim linked to an approved source. Curated indexing remains a separate discoverability policy.
+
+- **#6047 / PR #6050 — Discovery/SEO:** retired with this merge; Home, Start, Library, and primary navigation now share the canonical Goals / Guides / Ingredients / Safety / Research architecture. Home keeps direct search and a compact trust/metrics block, Start is a lightweight five-destination router, Library remains exhaustive under the same five groups plus Site Information, and narrow-phone metric cards can shrink without horizontal overflow. Retained homepage regression contracts were updated to protect the replacement architecture. Exact-head CI, full tests/a11y, production build/output/SEO, Fast UI, Atomic, Site Health, Build Quality, project-control reconciliation, content lint/invariants, schema/media, crawl, Technical SEO, Build Check, and Lighthouse all passed; external engagement/business impact remains `Unknown`.
+
+- **#6041 / PR #6044 — Discovery/SEO:** merged as `245f76d2856bf5ee622180faf668b90c8a172441`; Safety Checker, evidence-gated interaction guides, interaction education, and the supplement safety checklist now share one coherent Safety flow. Guide-detail pages preserve the Safety-family visual context without falsely marking the parent index as the exact current page. Exact-head CI, Fast UI/accessibility, Project Control, Atomic, Site Health, Build Quality, link/output/SEO, data, and security gates passed; external engagement/business impact remains `Unknown`.
+
+- **#6035 / PR #6038 — Discovery/SEO:** merged as `1c9277714cce080f3f85ba1586b9f626beca7fd1`; Herbs, Compounds, Search, and Evidence Lookup now share a coherent lookup flow, paginated ingredient indexes keep the same navigation, Search accurately reflects its indexed content, and exact-head CI/Fast UI/Project Control/Atomic/Site Health/Build Quality/link/output/SEO gates passed. External engagement/business impact remains `Unknown`.
+
+- **#6031 / PR #6033 — Discovery/SEO:** merged as `6ab7cc95800a14f0dc3df159ac298c6a2c752f8c`; Guides, Learn, and Articles now form one editorial family with shared local navigation, distinct decision/concept/reading roles, a collapsed complete Learn index, normalized article categories, and preserved stable routes. Exact-head CI, Fast UI, Project Control, Atomic, Site Health, Build Quality, AI-search, internal-link, output, and SEO checks passed; external behavior/business impact remains `Unknown`.
+
+- **#6024 / PR #6028 — Discovery/SEO:** merged as `01613f5f4bf209e5ebd733f79517e3eed066d601`; established five primary destinations, deterministic route ownership, role-aware global chrome, a task-first Research hub, and consistent paginated ingredient-index behavior while preserving stable URLs and scientific/evidence/safety/publication boundaries.
+
+- **#6011 / PR #6019 — Discovery/SEO:** merged as `c59d169b5b6e0616ebb2619fb6750e87cb9f9548`; five guide hubs now label their breadcrumb navigation landmark and the ticket is closed/retired from active Discovery/SEO WIP.
+- **#6002 / PR #6010 — Discovery/SEO:** merged as `81665250fe00c7c910d6301b7a128d95a5627dd8`; removed nested `<main>` landmarks from 42 verified production app/shared sources, preserved `/research/` visual treatment through `.research-page-content`, and added a source-level regression rule leaving `app/layout.tsx` as the sole production main-landmark owner. Exact-head CI, Fast UI, Atomic, Site Health, Build Quality, internal-link/SEO verification, and all seven governed export consumers passed. External traffic, engagement, ranking, conversion, and revenue effects remain `Unknown`.
+- **#6000 / PR #6001 — Discovery/SEO:** merged as `a862b97068e3aaf1a0916590b1e0bf2be7044ef7`; aligned footer/breadcrumb vocabulary with the current five-job navigation, moved Turmeric vs Curcumin discovery into the Comparisons hub, fixed the footer Research target to `/research/`, and passed exact-head CI, Fast UI, Atomic, Site Health, Build Quality, internal-link/SEO verification, plus all seven governed export consumers. External traffic, engagement, ranking, conversion, and revenue effects remain `Unknown`.
+
+- **#5989 / PR #5990 — Discovery/SEO:** merged as `9240bc1fe32c3985dbe068678fb2b94c647e0317`; simplified global navigation, established `/guides/` as the primary topic-discovery hub, preserved published-library and Botanical Activity Atlas semantics, and passed exact-head Project Control, Experience, Atomic, Site Health, Build Quality, Fast UI, full Vitest/a11y, production build/output, link, sitemap, and SEO verification. External traffic, engagement, ranking, conversion, and revenue effects remain `Unknown`.
+
+- **#5706 / PR #5971 — Authority/Content:** merged as `381bbe6029bdeaf604314aa1e9f67757b1fa37bd`; consolidated CoQ10 evidence/runtime ownership onto `compound:coenzyme-q10`, preserved endpoint discordance and fail-closed public/runtime policy, and retired #5706 from active implementation ownership.
 
 - **#5703 / PR #5961 — Authority/Content:** merged as `6bd7b57a633c8f88a70edb688d969ee19e7de8ad`; terminally promoted five cobalamin findings, repaired source-admission identity/schema drift and staged-closure seeding, failed the public cobalamin profile closed for recommendation/monetization/indexing pending broader review, and restored the clean-checkout regression fixture; all repository-owned exact-head validation, build, Lighthouse, evidence, governor, Atomic, Site Health, and parallel-safety gates passed. External Cloudflare preview status remained stuck across successive superseded heads and was not a protected merge requirement.
 - **#5698 / PR #5701 — Authority/Content P0:** merged as `1727c68cbb5dfc865e4be7c02af6e0fb7d867d75`; retracted PMID 41461240 / DOI 10.1016/j.jad.2025.121055 is quarantined against PMID- or DOI-only re-entry, stress-guide source usage was repaired, focused regressions were added, and exact-head CI/Site Health/Crawl/Technical SEO/Schema/Content Invariants/Atomic gates passed. This is source-integrity repair, not business-impact proof.
@@ -87,7 +109,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 ## Ready next — strict dependency order
 
-Discovery/SEO and Revenue/Conversion are available; Authority/Content is occupied by #5706 until its bounded CoQ10 closure is terminally completed or explicitly retired. #5963 must merge first as the exact-main narrow governor lease. Reconcile current GitHub state first, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
+Discovery/SEO is occupied by owner-directed P0 #6051. Authority/Content and Revenue/Conversion remain available. Reconcile current GitHub state first; do not promote another Discovery/SEO ticket while #6051 owns that workstream. For free lanes, promote only the highest legal non-overlapping candidate from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
 
 ### Blocked or deferred candidates
 

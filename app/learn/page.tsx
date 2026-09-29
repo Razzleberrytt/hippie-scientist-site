@@ -1,190 +1,87 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
-import EducationSupernodeGrid from '@/components/education/education-supernode-grid'
+import Breadcrumbs from '@/components/ui/Breadcrumbs'
+import EditorialFamilyNav from '@/components/navigation/EditorialFamilyNav'
 import { learnPosts } from './data'
-import References from '@/components/References'
 
 export const metadata: Metadata = {
-  title: 'Neuroscience and Neuropharmacology Education',
+  title: 'Learn — Neuroscience, Evidence & Mechanisms',
   description:
-    'Explore education on neurochemistry, cognition, stress biology, recovery systems, and psychoactive neuroscience.',
+    'Learn evidence literacy, neuroscience, cognition, stress biology, neurochemistry, psychoactive science, and safety concepts without the hype.',
   alternates: { canonical: '/learn/' },
   openGraph: {
-    title: 'Neuroscience and Neuropharmacology Education',
-    description:
-      'Explore education on neurochemistry, cognition, stress biology, recovery systems, and psychoactive neuroscience.',
+    title: 'Learn — Neuroscience, Evidence & Mechanisms',
+    description: 'Understand the concepts behind the evidence: research literacy, neurochemistry, cognition, stress, recovery, and psychoactive science.',
     url: '/learn/',
     images: ['/og-default.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Neuroscience and Neuropharmacology Education',
-    description:
-      'Explore education on neurochemistry, cognition, stress biology, recovery systems, and psychoactive neuroscience.',
+    title: 'Learn — Neuroscience, Evidence & Mechanisms',
+    description: 'Understand the concepts behind the evidence: research literacy, neurochemistry, cognition, stress, recovery, and psychoactive science.',
   },
 }
 
-const supernodes = [
+const LEARNING_TRACKS = [
   {
-    title: 'Stress and Recovery Biology',
-    description:
-      'Educational exploration of stress neurobiology, burnout systems, recovery-oriented neuropharmacology, sleep continuity, fatigue systems, and nervous-system resilience.',
-    href: '/learn/how-stress-affects-the-brain/',
-    category: 'Recovery Neuroscience',
-  },
-  {
-    title: 'Cognition and Neuroplasticity',
-    description:
-      'Explore memory formation, neuroplasticity, focus continuity, executive-function systems, learning adaptation, and cognition-oriented neuroscience.',
-    href: '/learn/how-learning-affects-neuroplasticity/',
-    category: 'Cognition Systems',
-  },
-  {
-    title: 'Psychoactive Education',
-    description:
-      'Systems-oriented psychoactive education covering altered states, contextual neurobiology, emotional processing, set and setting, and harm-reduction framing.',
-    href: '/learn/understanding-altered-states/',
-    category: 'Contextual Neurobiology',
-  },
-  {
-    title: 'Adaptogens and Stress Resilience',
-    description:
-      'Educational exploration of adaptogens, stress-response physiology, neuroendocrine adaptation, burnout systems, and resilience biology.',
-    href: '/learn/what-are-adaptogens/',
-    category: 'Stress Physiology',
-  },
-]
-
-const foundational = [
-  {
-    title: 'Evidence Literacy: Clinical Trial Design',
+    title: 'Evidence literacy',
     href: '/learn/evidence-literacy/',
+    description: 'Learn how trials, evidence hierarchies, conflicting studies, uncertainty, and individual variability change what a claim means.',
   },
   {
-    title: 'How to Read Scientific Studies',
-    href: '/learn/how-to-read-scientific-studies/',
-  },
-  {
-    title: 'How Neurotransmitters Work',
+    title: 'Brain & neurochemistry',
     href: '/learn/how-neurotransmitters-work/',
+    description: 'Build a foundation in neurotransmitters, receptors, neuropharmacology, and why single-chemical explanations usually fail.',
   },
   {
-    title: 'How Receptors Work',
-    href: '/learn/how-receptors-work/',
+    title: 'Cognition, stress & recovery',
+    href: '/learn/how-stress-affects-the-brain/',
+    description: 'Understand focus, memory, neuroplasticity, stress biology, fatigue, sleep, and emotional regulation as connected systems.',
   },
   {
-    title: 'Why Neurochemistry Is Complex',
-    href: '/learn/why-neurochemistry-is-complex/',
-  },
-  {
-    title: 'Evidence Hierarchy',
-    href: '/learn/evidence-hierarchy/',
-  },
-]
-
-const cognition = [
-  {
-    title: 'How Focus and Motivation Work',
-    href: '/learn/how-focus-and-motivation-work/',
-  },
-  {
-    title: 'How Memory Formation Works',
-    href: '/learn/how-memory-formation-works/',
-  },
-  {
-    title: 'How Learning Affects Neuroplasticity',
-    href: '/learn/how-learning-affects-neuroplasticity/',
-  },
-  {
-    title: 'What Is a Nootropic?',
-    href: '/learn/what-is-a-nootropic/',
-  },
-]
-
-const recovery = [
-  {
-    title: 'How Sleep Affects Neurochemistry',
-    href: '/learn/how-sleep-affects-neurochemistry/',
-  },
-  {
-    title: 'How the Brain Recovers From Fatigue',
-    href: '/learn/how-the-brain-recovers-from-fatigue/',
-  },
-  {
-    title: 'What Is Neuroinflammation?',
-    href: '/learn/what-is-neuroinflammation/',
-  },
-  {
-    title: 'How Emotional Regulation Works',
-    href: '/learn/how-emotional-regulation-works/',
-  },
-  {
-    title: 'Rhabdomyolysis: How Muscle Breakdown Can Injure the Kidneys',
-    href: '/learn/rhabdomyolysis/',
-  },
-]
-
-const psychoactive = [
-  {
-    title: 'Understanding Altered States',
+    title: 'Psychoactive science & safety',
     href: '/learn/understanding-altered-states/',
+    description: 'Learn altered-state mechanisms, context, perception, harm reduction, serotonergic risk, and psychoactive plant science.',
   },
-  {
-    title: 'How Set and Setting Matter',
-    href: '/learn/why-set-and-setting-matter/',
-  },
-  {
-    title: 'Psychoactive Substances Overview',
-    href: '/novel-psychoactive-substances/',
-  },
-  {
-    title: 'Calming Psychoactives: GABA, Stress Regulation & Safety',
-    href: '/learn/calming/',
-  },
-  {
-    title: 'Dissociative Mechanisms: NMDA, Perception & Safety',
-    href: '/learn/dissociative-mechanisms/',
-  },
-  {
-    title: 'Psychoactive Harm Reduction: Interactions, Set, Setting & Safety',
-    href: '/learn/harm-reduction/',
-  },
-  {
-    title: 'Serotonergic Stacking Risks',
-    href: '/learn/serotonergic-stacking-risks/',
-  },
-  {
-    title: '18 Supplements That Can Trigger Serotonin Syndrome',
-    href: '/learn/serotonin-syndrome-supplements/',
-  },
-]
+] as const
 
-const researchTools = [
-  {
-    title: 'Scientific Evidence Citation Explorer',
-    href: '/learn/citation-explorer/',
-  },
-  {
-    title: 'Interactive Supplement Efficacy Modeler',
-    href: '/learn/efficacy-model/',
-  },
-  {
-    title: 'Biological Pathway Connectivity Explorer',
-    href: '/learn/explorer/',
-  },
-  {
-    title: 'Research Methodology',
-    href: '/learn/research-methodology/',
-  },
-  {
-    title: 'Safety and Educational Disclaimers',
-    href: '/learn/safety-and-disclaimers/',
-  },
-]
+const STARTING_POINTS = [
+  { title: 'How to Read Scientific Studies', href: '/learn/how-to-read-scientific-studies/' },
+  { title: 'How Neurotransmitters Work', href: '/learn/how-neurotransmitters-work/' },
+  { title: 'How Receptors Work', href: '/learn/how-receptors-work/' },
+  { title: 'Why Studies Conflict', href: '/learn/why-studies-conflict/' },
+  { title: 'How Focus and Motivation Work', href: '/learn/how-focus-and-motivation-work/' },
+  { title: 'How Sleep Affects Neurochemistry', href: '/learn/how-sleep-affects-neurochemistry/' },
+  { title: 'Understanding Altered States', href: '/learn/understanding-altered-states/' },
+  { title: 'Psychoactive Harm Reduction', href: '/learn/harm-reduction/' },
+] as const
 
-const neurotransmitters = [
+const EDUCATION_TOPICS = [
+  { title: 'Evidence Literacy: Clinical Trial Design', href: '/learn/evidence-literacy/' },
+  { title: 'How to Read Scientific Studies', href: '/learn/how-to-read-scientific-studies/' },
+  { title: 'How Neurotransmitters Work', href: '/learn/how-neurotransmitters-work/' },
+  { title: 'How Receptors Work', href: '/learn/how-receptors-work/' },
+  { title: 'Why Neurochemistry Is Complex', href: '/learn/why-neurochemistry-is-complex/' },
+  { title: 'Evidence Hierarchy', href: '/learn/evidence-hierarchy/' },
+  { title: 'What Are Adaptogens?', href: '/learn/what-are-adaptogens/' },
+  { title: 'How Focus and Motivation Work', href: '/learn/how-focus-and-motivation-work/' },
+  { title: 'How Memory Formation Works', href: '/learn/how-memory-formation-works/' },
+  { title: 'How Learning Affects Neuroplasticity', href: '/learn/how-learning-affects-neuroplasticity/' },
+  { title: 'What Is a Nootropic?', href: '/learn/what-is-a-nootropic/' },
+  { title: 'How Sleep Affects Neurochemistry', href: '/learn/how-sleep-affects-neurochemistry/' },
+  { title: 'How the Brain Recovers From Fatigue', href: '/learn/how-the-brain-recovers-from-fatigue/' },
+  { title: 'What Is Neuroinflammation?', href: '/learn/what-is-neuroinflammation/' },
+  { title: 'How Emotional Regulation Works', href: '/learn/how-emotional-regulation-works/' },
+  { title: 'Rhabdomyolysis: How Muscle Breakdown Can Injure the Kidneys', href: '/learn/rhabdomyolysis/' },
+  { title: 'Understanding Altered States', href: '/learn/understanding-altered-states/' },
+  { title: 'How Set and Setting Matter', href: '/learn/why-set-and-setting-matter/' },
+  { title: 'Psychoactive Substances Overview', href: '/novel-psychoactive-substances/' },
+  { title: 'Calming Psychoactives: GABA, Stress Regulation & Safety', href: '/learn/calming/' },
+  { title: 'Dissociative Mechanisms: NMDA, Perception & Safety', href: '/learn/dissociative-mechanisms/' },
+  { title: 'Psychoactive Harm Reduction: Interactions, Set, Setting & Safety', href: '/learn/harm-reduction/' },
+  { title: 'Serotonergic Stacking Risks', href: '/learn/serotonergic-stacking-risks/' },
+  { title: '18 Supplements That Can Trigger Serotonin Syndrome', href: '/learn/serotonin-syndrome-supplements/' },
   { title: 'Dopamine', href: '/learn/dopamine/' },
   { title: 'Serotonin', href: '/learn/serotonin/' },
   { title: 'GABA Pathway', href: '/learn/gaba/' },
@@ -193,9 +90,6 @@ const neurotransmitters = [
   { title: 'GABA vs Serotonin', href: '/learn/gaba-vs-serotonin/' },
   { title: 'Evidence Levels', href: '/learn/evidence-levels/' },
   { title: 'What Is Neuropharmacology?', href: '/learn/what-is-neuropharmacology/' },
-]
-
-const researchLiteracy = [
   { title: 'Why Human Trials Matter', href: '/learn/why-human-trials-matter/' },
   { title: 'Why Studies Conflict', href: '/learn/why-studies-conflict/' },
   { title: 'Why Neuroscience Is Difficult', href: '/learn/why-neuroscience-is-difficult/' },
@@ -205,9 +99,6 @@ const researchLiteracy = [
   { title: 'Scientific but Human Neuroscience', href: '/learn/scientific-but-human-neuroscience/' },
   { title: 'Understanding Individual Variability', href: '/learn/understanding-individual-variability/' },
   { title: 'Study Design Snapshots: Reading an Evidence Grade', href: '/learn/study-design-snapshot/' },
-]
-
-const psychoactivePlants = [
   { title: 'What Are Psychoactive Herbs?', href: '/learn/what-are-psychoactive-herbs/' },
   { title: 'What Is an Entheogen?', href: '/learn/what-is-an-entheogen/' },
   { title: 'How Psychoactive Plants Affect the Brain', href: '/learn/how-psychoactive-plants-affect-the-brain/' },
@@ -215,17 +106,11 @@ const psychoactivePlants = [
   { title: 'How Herbal Psychoactives Differ from Pharmaceuticals', href: '/learn/how-herbal-psychoactives-differ-from-pharmaceuticals/' },
   { title: 'Dream Herbs: Oneirogenic Plants, REM Sleep & Safety', href: '/learn/dream-herbs/' },
   { title: 'Entheogens and Psychoactive Botanicals', href: '/learn/entheogens/' },
-]
-
-const burnoutFatigue = [
   { title: 'Why Burnout Affects Cognition', href: '/learn/why-burnout-affects-cognition/' },
   { title: 'Stress and Cognition Continuity', href: '/learn/stress-and-cognition-continuity/' },
   { title: 'Cognitive Resilience Systems', href: '/learn/cognitive-resilience-systems/' },
   { title: 'Emotional Amplification Systems', href: '/learn/emotional-amplification-systems/' },
   { title: 'Why Fatigue Is Biologically Complex', href: '/learn/why-fatigue-is-biologically-complex/' },
-]
-
-const variabilityAndContext = [
   { title: 'Understanding Placebo and Expectancy', href: '/learn/understanding-placebo-and-expectancy/' },
   { title: 'Placebo and Context Effects', href: '/learn/placebo-and-context-effects/' },
   { title: 'What Is Anxiety Neurochemistry?', href: '/learn/what-is-anxiety-neurochemistry/' },
@@ -236,259 +121,118 @@ const variabilityAndContext = [
   { title: 'Neuroscience Glossary', href: '/learn/neuroscience-glossary/' },
   { title: 'Inflammation and the Brain', href: '/learn/inflammation/' },
   { title: 'Supplement Product Quality Guide', href: '/learn/product-quality/' },
-]
+] as const
 
-function CompactSection({
-  title,
-  items,
-}: {
-  title: string
-  items: { title: string; href: string }[]
-}) {
-  return (
-    <section className='space-y-4'>
-      <h2 className='text-xl font-semibold tracking-tight text-ink'>{title}</h2>
-      <div className='grid gap-2 sm:grid-cols-2 lg:grid-cols-3'>
-        {items.map(item => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className='rounded-xl border border-brand-900/10 bg-white/70 px-4 py-3 text-sm font-medium text-brand-800 transition hover:border-brand-700/20 hover:bg-brand-50/30'
-          >
-            {item.title} →
-          </Link>
-        ))}
-      </div>
-    </section>
-  )
-}
-
-function Section({
-  title,
-  description,
-  items,
-}: {
-  title: string
-  description: string
-  items: { title: string; href: string }[]
-}) {
-  return (
-    <section className='space-y-6'>
-      <div className='space-y-2 max-w-3xl'>
-        <p className='eyebrow-label'>Educational Cluster</p>
-
-        <h2 className='text-3xl font-semibold tracking-tight text-ink'>
-          {title}
-        </h2>
-
-        <p className='text-base leading-8 text-muted'>
-          {description}
-        </p>
-      </div>
-
-      <div className='grid gap-5 lg:grid-cols-2'>
-        {items.map(item => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className='card-premium p-6 transition motion-safe:hover:-translate-y-0.5'
-          >
-            <div className='space-y-3'>
-              <p className='eyebrow-label'>Authority Page</p>
-
-              <h3 className='text-2xl font-semibold tracking-tight text-ink'>
-                {item.title}
-              </h3>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </section>
-  )
-}
-
-const PAGE_REFS = [
-  { n: 1, text: 'Kandel ER, et al. (2013). Principles of Neural Science. McGraw-Hill.', url: '' },
-]
+const LEGACY_UTILITY_ROUTES = [
+  { title: 'Scientific Evidence Citation Explorer', href: '/learn/citation-explorer/', owner: 'Research' },
+  { title: 'Interactive Supplement Efficacy Modeler', href: '/learn/efficacy-model/', owner: 'Research' },
+  { title: 'Biological Pathway Connectivity Explorer', href: '/learn/explorer/', owner: 'Research' },
+  { title: 'Research Methodology', href: '/learn/research-methodology/', owner: 'Research' },
+  { title: 'Safety and Educational Disclaimers', href: '/learn/safety-and-disclaimers/', owner: 'Safety / trust' },
+] as const
 
 export default function EducationHubPage() {
   return (
-    <div className='container-page py-10 space-y-16'>
+    <div className='mx-auto max-w-6xl space-y-8 px-4 pb-24 pt-4 sm:pt-6'>
       <AuthorityJsonLd
-        title='Neuroscience and Neuropharmacology Education'
-        description='Evidence-informed educational ecosystem covering neurochemistry, cognition systems, stress biology, recovery neuropharmacology, psychoactive education, and systems-oriented neuroscience.'
+        title='Learn — Neuroscience, Evidence & Mechanisms'
+        description='Evidence-informed education covering research literacy, neurochemistry, cognition, stress biology, recovery systems, and psychoactive science.'
         url='https://thehippiescientist.net/learn/'
         type='CollectionPage'
       />
 
-      <section className='space-y-8 max-w-5xl'>
-        <div className='space-y-4'>
-          <p className='eyebrow-label'>Educational Authority Hub</p>
+      <Breadcrumbs items={[{ href: '/', label: 'Home' }, { label: 'Learn' }]} />
 
-          <h1 className='max-w-4xl text-4xl font-bold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-6xl'>
-            Neuroscience and Neuropharmacology, Explained Clearly
-          </h1>
-        </div>
-
-        <div className='overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm'>
-          <Image
-            src='/images/learn-hub.jpg'
-            alt='Brain and neurotransmitter illustration representing neuroscience education'
-            width={1536}
-            height={700}
-            priority
-            className='h-auto w-full'
-          />
-        </div>
-
-        <p className='max-w-4xl text-base leading-8 text-muted sm:text-lg sm:leading-9'>
-          Explore how stress, sleep, cognition, neurotransmitters, psychoactive substances, and research evidence fit together—without reducing complex biology to simplistic claims.
+      <header className='hero-shell rounded-[2rem] border px-5 py-6 sm:p-8'>
+        <p className='eyebrow-label'>Editorial library · Concepts and mechanisms</p>
+        <h1 className='heading-premium mt-5 max-w-4xl'>Learn</h1>
+        <p className='text-reading mt-4 max-w-3xl'>
+          Use Learn when you want to understand how something works. Practical decisions belong in Guides; research notes and reviews belong in Articles; source-level verification belongs in Research.
         </p>
+      </header>
 
-        <div className='flex flex-wrap gap-3'>
-          <Link
-            href='/goals/'
-            className='rounded-full border border-brand-900/15 px-4 py-2 text-sm font-medium text-ink transition hover:bg-ink hover:text-white'
-          >
-            Explore Goal Guides
-          </Link>
+      <EditorialFamilyNav active='learn' />
 
-          <Link
-            href='/guides/'
-            className='rounded-full border border-brand-900/15 px-4 py-2 text-sm font-medium text-ink transition hover:bg-ink hover:text-white'
-          >
-            Browse all guides
-          </Link>
+      <section aria-labelledby='learning-tracks-heading'>
+        <div className='max-w-3xl'>
+          <p className='eyebrow-label'>Choose a learning track</p>
+          <h2 id='learning-tracks-heading' className='mt-2 text-3xl font-semibold tracking-tight text-ink'>
+            Start with the concept you want to understand
+          </h2>
         </div>
-      </section>
-
-      <EducationSupernodeGrid
-        title='Start with the major neuroscience systems'
-        description='Explore foundational authority hubs covering stress physiology, cognition systems, contextual neurobiology, recovery-oriented neuroscience, and resilience biology.'
-        items={supernodes}
-      />
-
-      <Section
-        title='Foundational Neuroscience'
-        description='Core neuroscience-literacy systems covering neurotransmitters, receptors, evidence interpretation, and systems-oriented neurobiology.'
-        items={foundational}
-      />
-
-      <Section
-        title='Cognition and Learning Systems'
-        description='Educational exploration of attention, memory, neuroplasticity, executive function, motivation systems, and cognition-oriented neuropharmacology.'
-        items={cognition}
-      />
-
-      <Section
-        title='Stress, Recovery, and Emotional Regulation'
-        description='Recovery-oriented educational systems covering stress physiology, sleep neurochemistry, neuroinflammation, fatigue recovery, and emotional regulation biology.'
-        items={recovery}
-      />
-
-      <Section
-        title='Psychoactive and Altered-State Education'
-        description='Systems-oriented psychoactive education focused on perception, contextual neurobiology, altered states, emotional intensity, and harm-reduction awareness.'
-        items={psychoactive}
-      />
-
-      <Section
-        title='Research Tools and Safety Pages'
-        description='Methodology, citation, modeling, pathway, and safety pages that should be reachable from the main education hub instead of sitting isolated.'
-        items={researchTools}
-      />
-
-      <section className='space-y-6'>
-        <div className='space-y-2 max-w-3xl'>
-          <p className='eyebrow-label'>Practical Application</p>
-          <h2 className='text-3xl font-semibold tracking-tight text-ink'>Recent stack guides</h2>
-          <p className='text-base leading-8 text-muted'>
-            Practical, evidence-informed supplement stacks that put the neuroscience above into action.
-          </p>
-        </div>
-        <div className='grid gap-5 lg:grid-cols-2'>
-          {learnPosts.map(post => (
-            <Link
-              key={post.slug}
-              href={`/learn/${post.slug}/`}
-              className='card-premium p-6 transition motion-safe:hover:-translate-y-0.5'
-            >
-              <div className='space-y-2'>
-                <p className='eyebrow-label'>{post.category}</p>
-                <h3 className='text-xl font-semibold tracking-tight text-ink'>{post.title}</h3>
-                <p className='text-sm leading-6 text-muted'>{post.description}</p>
-              </div>
+        <div className='mt-5 grid gap-4 md:grid-cols-2'>
+          {LEARNING_TRACKS.map((track) => (
+            <Link key={track.href} href={track.href} className='card-premium p-6 transition hover:bg-brand-50/30'>
+              <h3 className='text-xl font-semibold text-ink'>{track.title}</h3>
+              <p className='mt-2 text-sm leading-6 text-muted'>{track.description}</p>
+              <span className='mt-4 inline-flex text-sm font-semibold text-brand-700'>Start learning →</span>
             </Link>
           ))}
         </div>
       </section>
 
-      <section className='space-y-10'>
-        <div className='space-y-2'>
-          <p className='eyebrow-label'>Complete Topic Index</p>
-          <h2 className='text-3xl font-semibold tracking-tight text-ink'>All Education Topics</h2>
-          <p className='text-base leading-8 text-muted max-w-3xl'>
-            Explore the full depth of the educational ecosystem — neurotransmitter pathways, research literacy, psychoactive plant science, burnout biology, individual variability, and reference pages.
-          </p>
-        </div>
-        <CompactSection title='Neurotransmitter Pathways' items={neurotransmitters} />
-        <CompactSection title='Research Literacy and Evidence Limitations' items={researchLiteracy} />
-        <CompactSection title='Psychoactive Plant Science' items={psychoactivePlants} />
-        <CompactSection title='Burnout, Fatigue, and Resilience' items={burnoutFatigue} />
-        <CompactSection title='Context, Variability, and Applied Topics' items={variabilityAndContext} />
-      </section>
-
-      <section className='card-premium p-8 space-y-6'>
-        <div className='space-y-3 max-w-3xl'>
-          <p className='eyebrow-label'>Educational Philosophy</p>
-
-          <h2 className='text-3xl font-semibold tracking-tight text-ink'>
-            Scientific nuance over oversimplification
-          </h2>
-
-          <p className='text-base leading-8 text-muted'>
-            Many neuroscience and supplement discussions online reduce complex
-            biological systems into simplistic narratives involving single
-            neurotransmitters, deterministic optimization frameworks, or
-            exaggerated mechanistic claims. This educational ecosystem instead
-            emphasizes systems biology, uncertainty awareness, contextual
-            interpretation, evidence limitations, and scientific humility.
-          </p>
-        </div>
-
-        <div className='grid gap-5 lg:grid-cols-3'>
-          <div className='rounded-3xl border border-black/5 bg-white/60 p-6 space-y-3'>
-            <h3 className='text-xl font-semibold text-ink'>Evidence Aware</h3>
-
-            <p className='text-sm leading-7 text-muted'>
-              Human evidence, mechanistic limitations, translational
-              uncertainty, and biological variability are emphasized throughout
-              the platform.
-            </p>
-          </div>
-
-          <div className='rounded-3xl border border-black/5 bg-white/60 p-6 space-y-3'>
-            <h3 className='text-xl font-semibold text-ink'>Systems Oriented</h3>
-
-            <p className='text-sm leading-7 text-muted'>
-              Stress biology, cognition systems, sleep recovery, emotional
-              regulation, neuropharmacology, and environmental context are
-              treated as interacting systems.
-            </p>
-          </div>
-
-          <div className='rounded-3xl border border-black/5 bg-white/60 p-6 space-y-3'>
-            <h3 className='text-xl font-semibold text-ink'>Anti-Hype</h3>
-
-            <p className='text-sm leading-7 text-muted'>
-              Educational content avoids sensationalized optimization narratives,
-              simplistic neurotransmitter explanations, and exaggerated
-              psychoactive claims.
-            </p>
-          </div>
+      <section aria-labelledby='common-starting-points-heading'>
+        <h2 id='common-starting-points-heading' className='text-2xl font-semibold tracking-tight text-ink'>
+          Common starting points
+        </h2>
+        <div className='mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4'>
+          {STARTING_POINTS.map((item) => (
+            <Link key={item.href} href={item.href} className='rounded-xl border border-brand-900/10 bg-white px-4 py-3 text-sm font-medium text-brand-800 transition hover:bg-brand-50/40'>
+              {item.title} →
+            </Link>
+          ))}
         </div>
       </section>
-      <References refs={PAGE_REFS} />
+
+      <details className='section-frame p-5 sm:p-6'>
+        <summary className='cursor-pointer text-lg font-semibold text-ink'>
+          Complete learning index ({EDUCATION_TOPICS.length + LEGACY_UTILITY_ROUTES.length + learnPosts.length} routes)
+        </summary>
+        <p className='mt-3 max-w-3xl text-sm leading-6 text-muted'>
+          The full route inventory stays available without turning the top of the page into a wall of cards. Legacy utility and practical routes are labeled by their logical owner.
+        </p>
+
+        <div className='mt-6'>
+          <h3 className='text-base font-semibold text-ink'>Education topics</h3>
+          <div className='mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3'>
+            {EDUCATION_TOPICS.map((item) => (
+              <Link key={item.href} href={item.href} className='rounded-lg border border-brand-900/10 bg-white px-3 py-2 text-sm text-brand-800 hover:bg-brand-50/40'>
+                {item.title}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className='mt-7'>
+          <h3 className='text-base font-semibold text-ink'>Legacy utility routes</h3>
+          <div className='mt-3 grid gap-2 sm:grid-cols-2'>
+            {LEGACY_UTILITY_ROUTES.map((item) => (
+              <Link key={item.href} href={item.href} className='rounded-lg border border-brand-900/10 bg-white px-3 py-2 text-sm text-brand-800 hover:bg-brand-50/40'>
+                {item.title} <span className='text-muted'>· {item.owner}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className='mt-7'>
+          <h3 className='text-base font-semibold text-ink'>Practical legacy Learn routes</h3>
+          <p className='mt-1 text-xs leading-5 text-muted'>
+            These URLs remain stable and discoverable. New practical decision content belongs under Guides.
+          </p>
+          <div className='mt-3 grid gap-2 sm:grid-cols-2'>
+            {learnPosts.map((post) => (
+              <Link key={post.slug} href={'/learn/' + post.slug + '/'} className='rounded-lg border border-brand-900/10 bg-white px-3 py-2 text-sm text-brand-800 hover:bg-brand-50/40'>
+                {post.title}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </details>
+
+      <aside className='rounded-2xl border border-brand-900/10 bg-brand-50/45 p-5 text-sm leading-6 text-muted sm:p-6'>
+        Need source-level verification? Go to <Link href='/research/' className='font-semibold text-brand-700 hover:underline'>Research</Link>.
+        Looking up a specific herb or compound? Use <Link href='/herbs/' className='font-semibold text-brand-700 hover:underline'>Ingredients</Link>.
+      </aside>
     </div>
   )
 }

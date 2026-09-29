@@ -13,13 +13,10 @@ function read(relativePath: string) {
  * ones. Every one of those strings has since moved. The footer no longer
  * special-cases the homepage at all.
  *
- * NOTE FOR THE OWNER: the homepage now carries no on-page capture form. It links
- * to /info/supplement-safety-checklist/, where the signup lives. Whether that is
- * the intended funnel or an omission from the homepage redesign is a conversion
- * decision, not something these tests should settle by asserting either shape.
- * What is pinned here is the part that is unambiguous: the homepage must not
- * grow a second, competing capture surface, and the route it funnels to has to
- * exist and carry a signup.
+ * The homepage now hands discovery to the focused Explore surface instead of
+ * pointing directly to the checklist. Keep the conversion contract focused on
+ * two things that remain intentional: the homepage must not grow a competing
+ * capture surface, and the canonical safety/checklist routes must stay available.
  */
 describe('homepage owned-audience funnel', () => {
   it('offers a single owned-audience path from the homepage', () => {
@@ -35,8 +32,16 @@ describe('homepage owned-audience funnel', () => {
     expect(captureCount).toBeLessThanOrEqual(1)
   })
 
-  it('keeps the checklist destination the homepage points at', () => {
-    expect(read('components/homepage-v2.tsx')).toContain('/info/supplement-safety-checklist/')
+  it('keeps the canonical safety destination and checklist capture route available', () => {
+    const homepage = read('components/homepage-v2.tsx')
+    const explore = read('app/explore/page.tsx')
+    const destinations = read('lib/site-destinations.ts')
+
+    expect(homepage).toContain("href='/explore/'")
+    expect(homepage).not.toContain('<SiteDestinationGrid />')
+    expect(explore).toContain("href: '/safety-checker/'")
+    expect(destinations).toContain("id: 'safety'")
+    expect(destinations).toContain("href: '/safety-checker'")
     expect(read('app/info/supplement-safety-checklist/page.tsx')).toContain('<NewsletterSignup')
   })
 })

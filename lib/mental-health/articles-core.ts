@@ -5,6 +5,17 @@ import {
   BPD_META_ANALYSIS,
   BPD_PHARM_COCHRANE,
   BPD_PSYCH_COCHRANE,
+  AVPD_ATTACHMENT_EIKENAES,
+  AVPD_INSIGHTS,
+  AVPD_REVIEW,
+  BPD_ATTACHMENT_META_SMITH,
+  BPD_AVPD_DYAD_BEENEY,
+  BPD_AVPD_INTERPERSONAL_MCCLOSKEY,
+  BPD_COUPLE_STABILITY_BOUCHARD,
+  BPD_PARTNER_REVIEW_GREER,
+  BPD_ROMANTIC_REVIEW_NAVARRO,
+  BPD_SIGNIFICANT_OTHERS_FITZPATRICK,
+  BPD_SUCCESSFUL_COUPLES_MOLYNEUX,
   DSM_5_TR,
   ICD11_PD_REVIEW,
   NICE_BPD,
@@ -497,4 +508,233 @@ export const coreMentalHealthArticles: MentalHealthArticle[] = [
     ],
     references: [DSM_5_TR, WHO_ICD11_CDDR, NIMH_BPD, NICE_BPD, BPD_JAMA_REVIEW, BPD_PSYCH_COCHRANE, BPD_PHARM_COCHRANE, BPD_META_ANALYSIS],
   },
+  {
+    slug: 'avoidant-borderline-personality-disorders-couples',
+    title: 'Avoidant and Borderline Personality Disorders in Couples: What the Research Actually Shows',
+    seoTitle: 'Avoidant and Borderline Personality Disorders in Couples',
+    description: 'Research review of couples where avoidant and borderline personality traits may interact, including attachment, conflict, withdrawal, reassurance, and treatment.',
+    category: 'Personality disorders',
+    cluster: 'Overview',
+    datePublished: '2026-09-26',
+    dateReviewed: '2026-09-26',
+    readingTime: '14 min read',
+    deck: 'Avoidant personality disorder and borderline personality disorder can both involve intense sensitivity to rejection and abandonment, but they often express that vulnerability differently. Research supports studying the interaction, not reducing couples to a simple “pursuer versus avoider” stereotype.',
+    keyPoints: [
+      {
+        text: 'Direct research on couples specifically recruited because one partner has avoidant personality disorder and the other has borderline personality disorder is sparse. The closest dyadic work measured clinician-rated BPD and AvPD symptom severity across both members of 130 couples rather than testing a single diagnostic pairing.',
+        refs: ['bpd-avpd-dyad-beeney'],
+      },
+      {
+        text: 'Avoidant personality disorder is not the same thing as avoidant attachment. AvPD can include strong desire for connection, attachment anxiety, fear of abandonment, shame, and withdrawal used to reduce anticipated rejection.',
+        refs: ['avpd-attachment-eikenaes', 'avpd-insights', 'avpd-review'],
+      },
+      {
+        text: 'Borderline personality pathology is strongly associated with romantic attachment anxiety and also significantly associated with attachment avoidance; a meta-analysis found the anxiety association larger on average.',
+        refs: ['bpd-attachment-meta-smith', 'bpd-jama-review'],
+      },
+      {
+        text: 'A pursuit-withdrawal cycle is plausible when one partner responds to perceived distance by seeking reassurance or escalating contact while the other responds to threat by retreating. The evidence supports the component processes, but it does not prove that every AvPD+BPD couple follows this sequence.',
+        refs: ['bpd-avpd-dyad-beeney', 'bpd-couple-stability-bouchard', 'avpd-attachment-eikenaes'],
+      },
+      {
+        text: 'These relationships are not inevitably unstable. A 2026 qualitative study of six long-term BPD couples highlighted open communication, mutual effort, and secure-base behavior as themes in satisfying relationships, although the very small qualitative sample limits generalization.',
+        refs: ['bpd-successful-couples-molyneux'],
+      },
+    ],
+    sections: [
+      {
+        title: 'First: AvPD is not “avoidant attachment,” and BPD is not an attachment style',
+        paragraphs: [
+          {
+            text: 'Avoidant personality disorder (AvPD) is a clinical diagnosis involving a pervasive pattern of social inhibition, feelings of inadequacy, and hypersensitivity to criticism or rejection. Borderline personality disorder (BPD) is a separate diagnosis involving instability in affect, self-image and relationships, with features that can include intense abandonment sensitivity. Attachment anxiety and attachment avoidance are relationship dimensions, not diagnoses.',
+            refs: ['dsm-5-tr', 'avpd-review', 'bpd-jama-review'],
+          },
+          {
+            text: 'The distinction matters because the everyday phrase “avoidant partner” often refers to attachment avoidance, emotional withdrawal, or simply wanting space. A person with AvPD may withdraw while simultaneously wanting closeness and fearing abandonment. In a multisite study, patients with AvPD showed especially elevated attachment anxiety around abandonment and separation compared with patients who had social phobia without AvPD.',
+            refs: ['avpd-attachment-eikenaes'],
+          },
+        ],
+      },
+      {
+        title: 'What AvPD may bring into a close relationship',
+        paragraphs: [
+          {
+            text: 'AvPD often involves an approach-avoidance conflict: closeness is wanted, but exposing needs or imperfections can feel dangerous because rejection, humiliation, or disapproval is anticipated. Withdrawal can therefore function as short-term threat reduction rather than indifference.',
+            refs: ['avpd-review', 'avpd-insights', 'avpd-attachment-eikenaes'],
+          },
+          {
+            text: 'Interpersonal research also shows that AvPD is not one uniform style. In an outpatient study examining both AvPD and BPD symptoms, AvPD-related social dysfunction was indirectly associated with cold interpersonal problems and with overly nurturant patterns. Other work has described nonassertive, friendly-submissive, and cold-submissive presentations. A partner with AvPD should therefore not be assumed to be emotionally detached or uniformly passive.',
+            refs: ['bpd-avpd-interpersonal-mccloskey', 'avpd-insights'],
+          },
+        ],
+      },
+      {
+        title: 'What BPD may bring into a close relationship',
+        paragraphs: [
+          {
+            text: 'BPD is strongly linked with interpersonal sensitivity, especially in attachment-relevant situations. A meta-analysis of romantic attachment studies found a larger association between BPD traits and attachment anxiety than between BPD traits and attachment avoidance, while both dimensions were significantly related to BPD pathology.',
+            refs: ['bpd-attachment-meta-smith'],
+          },
+          {
+            text: 'Reviews of romantic relationships in BPD describe, on average, greater relationship instability, insecurity and dissatisfaction than comparison groups. These are group-level findings, not predictions about a particular person. They also do not mean that intense emotion, conflict, or a breakup automatically demonstrates BPD.',
+            refs: ['bpd-romantic-review-navarro', 'bpd-jama-review'],
+          },
+        ],
+      },
+      {
+        title: 'The most relevant dyadic study measured both BPD and AvPD',
+        paragraphs: [
+          {
+            text: 'A particularly relevant study observed 130 couples during a ten-minute conflict discussion and assessed clinician-rated BPD and AvPD criteria in both partners. Higher BPD symptoms were associated with lower relationship satisfaction for the person and the partner. People with more BPD symptoms showed more criticism, while their partners showed more defensiveness and stonewalling. Conflict behavior partly accounted for relationship-satisfaction differences.',
+            refs: ['bpd-avpd-dyad-beeney'],
+          },
+          {
+            text: 'The same study found that higher AvPD symptom severity predicted worsening relationship satisfaction across the following year. Importantly, the investigators included AvPD partly to test whether partner withdrawal seen around BPD could simply be explained by having an avoidant-personality partner. Their findings did not justify that simple explanation.',
+            refs: ['bpd-avpd-dyad-beeney'],
+          },
+          {
+            text: 'This study is unusually useful for the AvPD+BPD question, but it still did not recruit a group defined as “one diagnosed AvPD partner plus one diagnosed BPD partner.” It supports examining both symptom dimensions inside the couple; it does not establish a special diagnostic compatibility or incompatibility.',
+            refs: ['bpd-avpd-dyad-beeney'],
+          },
+        ],
+      },
+      {
+        title: 'The possible pursuit-withdrawal loop',
+        paragraphs: [
+          {
+            text: 'A clinically plausible cycle emerges when the evidence is considered together. One partner may notice distance and experience it as possible abandonment, increasing reassurance seeking, protest, criticism, repeated contact, or urgency. The other partner may experience that intensity as evidence that rejection, shame, criticism, or conflict is imminent and retreat further. The increased distance can then confirm the first partner’s fear and intensify the next approach.',
+            refs: ['bpd-attachment-meta-smith', 'avpd-attachment-eikenaes', 'bpd-avpd-dyad-beeney'],
+          },
+          {
+            text: 'This should be understood as a hypothesis about interacting regulation strategies, not a formula. BPD can also involve withdrawal, detachment or avoidance, and AvPD can involve reassurance needs and fear of abandonment. Both disorders can contain mixtures of approach and avoidance depending on context, severity, history and the specific relationship.',
+            refs: ['bpd-attachment-meta-smith', 'avpd-attachment-eikenaes', 'avpd-insights'],
+          },
+        ],
+      },
+      {
+        title: 'Breakups, reconciliations, and demand-withdraw communication',
+        paragraphs: [
+          {
+            text: 'In a study of 35 couples that included a woman diagnosed with BPD, frequent breakup-reconciliation episodes were common, nearly 30% of the couples separated during an 18-month follow-up, and the BPD couples reported more attachment insecurity and demand-withdraw communication than 35 nonclinical comparison couples. Nearly half of the male partners met criteria for at least one personality disorder.',
+            refs: ['bpd-couple-stability-bouchard'],
+          },
+          {
+            text: 'Those findings are often cited because they resemble popular descriptions of BPD relationships, but the sample was small, gender-specific and clinically selected. They cannot be converted into a breakup probability for an individual couple, and they do not tell us that the partners’ personality disorders caused every conflict.',
+            refs: ['bpd-couple-stability-bouchard', 'bpd-romantic-review-navarro'],
+          },
+        ],
+      },
+      {
+        title: 'Why “give them space” can help in one moment and hurt in another',
+        paragraphs: [
+          {
+            text: 'Withdrawal can reduce arousal and prevent impulsive escalation, so a time-limited pause can be useful. The problem is ambiguity. Unexplained silence may be interpreted as rejection or abandonment, while forced closeness can feel intrusive or shaming to a partner who is overwhelmed. A structured pause communicates both boundaries and continuity: the conversation stops temporarily, but the relationship has not silently disappeared.',
+            refs: ['bpd-avpd-dyad-beeney', 'bpd-successful-couples-molyneux'],
+          },
+          {
+            text: 'The 2026 qualitative study of six long-term couples involving BPD found that secure-base behavior and open communication were central themes in how participants described satisfying relationships. Some partners with more avoidant attachment tendencies described giving space rather than moving toward distress. Because the study was qualitative and tiny, this is useful for hypothesis generation rather than a treatment rule.',
+            refs: ['bpd-successful-couples-molyneux'],
+          },
+        ],
+      },
+      {
+        title: 'The partner cannot become the therapist',
+        paragraphs: [
+          {
+            text: 'A systematic review of partners of people with BPD identified emotional strain, feelings of limited control, and a tendency for partners to slide into parental or therapeutic roles. That role confusion can undermine reciprocity and can exhaust the partner who feels responsible for preventing every crisis.',
+            refs: ['bpd-partner-review-greer'],
+          },
+          {
+            text: 'Support can include listening, validation, predictable communication and agreed crisis plans, but it should not require one partner to diagnose, monitor or regulate the other person continuously. Each partner remains responsible for seeking appropriate treatment and for behavior that affects the other person.',
+            refs: ['bpd-partner-review-greer', 'bpd-significant-others-fitzpatrick'],
+          },
+        ],
+      },
+      {
+        title: 'What treatment research implies for the couple',
+        paragraphs: [
+          {
+            text: 'The strongest evidence base is still disorder-focused treatment rather than an AvPD+BPD-specific couples protocol. BPD has several structured psychotherapies with evidence of benefit, while AvPD treatment evidence is smaller and commonly targets social inhibition, shame, negative self-beliefs, attachment fears and avoidance.',
+            refs: ['bpd-jama-review', 'avpd-review', 'avpd-insights'],
+          },
+          {
+            text: 'A review of BPD interventions involving significant others found support for approaches that address the close-relationship context rather than treating the partner as irrelevant. Psychoeducation, skills, validation, clearer communication and relationship-focused work may reduce distress, but the literature remains much thinner than the individual-treatment literature.',
+            refs: ['bpd-significant-others-fitzpatrick', 'bpd-partner-review-greer'],
+          },
+          {
+            text: 'For a couple caught in a pursuit-withdrawal pattern, a useful treatment formulation may target both sides of the loop: tolerating separation without catastrophic interpretation, communicating the need for space without disappearing, asking directly for reassurance instead of testing the relationship, reducing criticism and defensiveness, and returning to difficult conversations after arousal falls.',
+            refs: ['bpd-avpd-dyad-beeney', 'bpd-successful-couples-molyneux', 'bpd-significant-others-fitzpatrick'],
+          },
+        ],
+      },
+      {
+        title: 'Diagnosis never excuses abuse or removes agency',
+        paragraphs: [
+          {
+            text: 'Neither BPD nor AvPD makes abuse inevitable, and neither diagnosis should be used to excuse threats, coercion, stalking, violence, intimidation, financial control, or deliberate punishment. Conversely, a partner should not label ordinary conflict, needing space, reassurance seeking, or emotional intensity as abuse simply because a personality-disorder diagnosis is present.',
+            refs: ['dsm-5-tr', 'bpd-jama-review', 'avpd-review'],
+          },
+          {
+            text: 'When there is actual violence, credible threat, coercive control, stalking, or danger to children, safety planning takes priority over analyzing attachment dynamics. Relationship work is appropriate only when it can occur without pressuring someone to remain in an unsafe situation.',
+            refs: ['bpd-partner-review-greer', 'bpd-jama-review'],
+          },
+        ],
+      },
+      {
+        title: 'The research bottom line',
+        paragraphs: [
+          {
+            text: 'The literature supports a nuanced picture: AvPD and BPD can both involve rejection sensitivity, attachment insecurity and fear of abandonment, but the observable coping strategy may differ. Withdrawal and urgent approach can interact in ways that amplify each person’s threat response. That interaction is clinically plausible and partly supported by dyadic evidence, but there is not enough direct research to declare an AvPD+BPD “relationship type.”',
+            refs: ['avpd-attachment-eikenaes', 'bpd-attachment-meta-smith', 'bpd-avpd-dyad-beeney'],
+          },
+          {
+            text: 'The most defensible conclusion is therefore neither “these disorders are naturally incompatible” nor “they are uniquely attracted to each other.” Relationship quality depends on severity, insight, treatment, communication, trauma history, substance use, external stress, partner behavior, safety, and the couple’s ability to repair ruptures. Diagnoses describe vulnerabilities; they do not write the ending.',
+            refs: ['bpd-romantic-review-navarro', 'bpd-successful-couples-molyneux', 'bpd-significant-others-fitzpatrick'],
+          },
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Is avoidant personality disorder the same as avoidant attachment?',
+        answer: 'No. AvPD is a clinical personality-disorder diagnosis. Avoidant attachment is a relationship dimension. A person with AvPD can show attachment anxiety, attachment avoidance, or both, and fear of abandonment has been documented in AvPD research.',
+        refs: ['avpd-attachment-eikenaes', 'avpd-review'],
+      },
+      {
+        question: 'Do BPD and AvPD naturally create a pursuer-withdrawer relationship?',
+        answer: 'They can contribute to that pattern, but it is not inevitable. Research supports rejection sensitivity, attachment insecurity, criticism, defensiveness and withdrawal as relevant processes; it does not establish one universal AvPD+BPD couple script.',
+        refs: ['bpd-avpd-dyad-beeney', 'bpd-attachment-meta-smith', 'avpd-attachment-eikenaes'],
+      },
+      {
+        question: 'Are couples with BPD and AvPD doomed to break up?',
+        answer: 'No. Group studies identify elevated average relationship difficulties, but they cannot predict an individual couple. Long-term satisfying relationships involving BPD have been documented, and treatment, communication and secure-base behavior may matter.',
+        refs: ['bpd-romantic-review-navarro', 'bpd-successful-couples-molyneux'],
+      },
+      {
+        question: 'Should the more avoidant partner always be given space?',
+        answer: 'Not automatically. A time-limited pause can lower arousal, but unexplained disappearance may intensify abandonment fears. Research supports clearer, predictable communication rather than treating withdrawal or pursuit as the only valid strategy.',
+        refs: ['bpd-avpd-dyad-beeney', 'bpd-successful-couples-molyneux'],
+      },
+      {
+        question: 'Can couples therapy replace individual treatment?',
+        answer: 'Usually not. Couples or significant-other work may help relationship processes, while each disorder still requires an individualized clinical formulation and, when indicated, disorder-focused psychotherapy.',
+        refs: ['bpd-significant-others-fitzpatrick', 'avpd-review', 'bpd-jama-review'],
+      },
+    ],
+    references: [
+      DSM_5_TR,
+      BPD_JAMA_REVIEW,
+      AVPD_REVIEW,
+      AVPD_INSIGHTS,
+      AVPD_ATTACHMENT_EIKENAES,
+      BPD_ATTACHMENT_META_SMITH,
+      BPD_AVPD_DYAD_BEENEY,
+      BPD_AVPD_INTERPERSONAL_MCCLOSKEY,
+      BPD_COUPLE_STABILITY_BOUCHARD,
+      BPD_ROMANTIC_REVIEW_NAVARRO,
+      BPD_PARTNER_REVIEW_GREER,
+      BPD_SIGNIFICANT_OTHERS_FITZPATRICK,
+      BPD_SUCCESSFUL_COUPLES_MOLYNEUX,
+    ],
+  }
 ]

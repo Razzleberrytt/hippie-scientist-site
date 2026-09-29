@@ -17,4 +17,14 @@ describe('comparison hub discovery links', () => {
     )
     expect(hubSource).toContain('href={`/guides/compare/${pair.slug}/`}')
   })
+
+  it('keeps turmeric vs curcumin discoverable from the comparison hub instead of global footer chrome', () => {
+    const hubSource = fs.readFileSync(hubPath, 'utf8')
+    const turmericComparisonPath = path.join(rootDir, 'app', 'guides', 'compare', 'turmeric-vs-curcumin', 'page.tsx')
+
+    expect(fs.existsSync(turmericComparisonPath)).toBe(true)
+    expect(hubSource).toContain(
+      "{ slug: 'turmeric-vs-curcumin', label: 'Turmeric vs Curcumin', note: 'Whole botanical vs concentrated curcuminoid context' },",
+    )
+  })
 })

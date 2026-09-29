@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-09-27-medication-buspirone-modafinil",
+  "generated_from": {
+    "input_files": [
+      "DailyMed buspirone setid 225575f1-9635-4922-8286-d479d6480bf0",
+      "PubMed PMID 37544075",
+      "PubMed PMID 16856115",
+      "PubMed PMID 3320034",
+      "DailyMed modafinil setid 1a309416-bd6a-45b1-982f-b689b097453d",
+      "PubMed PMID 41852498",
+      "PubMed PMID 20671626",
+      "PubMed PMID 16079371"
+    ],
+    "review_note": "Manual evidence pass for fail-closed buspirone and modafinil canonical proposals, preserving molecule-versus-class evidence, short-versus-long-term anxiety evidence, U.S. indication and OSA boundaries, serious-rash/hypersensitivity, psychiatric and interaction safety, Schedule IV status, and regulatory provenance."
+  },
+  "counts": {
+    "entity_context_rows": 0,
+    "evidence_rows": 8,
+    "source_rows": 8,
+    "relationship_rows": 0,
+    "evidence_rows_after_canonical_dedupe": 8,
+    "source_rows_after_canonical_dedupe": 8,
+    "live_relationship_rows_new_after_dedupe": 0
+  },
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden",
+    "evidence_merge": "append-only, deduplicated by entity + PMID/DOI/title",
+    "regulatory_provenance": "jurisdiction-, product-, formulation-, and revision-specific label claims remain tied to their cited DailyMed source",
+    "medication_export": "canonical proposals remain research-only and hidden-until-grounded; the evidence ledger cannot carry governance fields"
+  },
+  "ledger": {
+    "file": "2026-09-27-medication-buspirone-modafinil-enrichment.json",
+    "sha256": "3816bee4c0b6e0d0dd47a2f9c7d5df48c6fdf006cafff68fd8d5305f2daf2d47",
+    "bytes": 15099
+  }
+}

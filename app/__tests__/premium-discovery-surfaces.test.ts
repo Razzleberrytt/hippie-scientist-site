@@ -13,7 +13,8 @@ describe('premium discovery surfaces regression contract', () => {
 
     expect(layout).toContain("import '../../styles/research-library-premium.css'")
     expect(layout).toContain('research-route-theme')
-    expect(css).toContain('.research-route-theme main > section:first-child')
+    expect(source('app/research/page.tsx')).toContain('research-page-content')
+    expect(css).toContain('.research-route-theme .research-page-content > section:first-child')
     expect(css).toContain('section:has(#source-first-heading)')
     expect(css).toContain('section:has(#research-tools-heading)')
     expect(css).toContain('section:has(#library-context-heading)')
@@ -47,10 +48,41 @@ describe('premium discovery surfaces regression contract', () => {
     const panel = source('components/editorial/ProfileDecisionPanel.tsx')
 
     expect(panel).toContain('profile-decision-panel space-y-4')
-    expect(panel).toContain('profile-at-a-glance')
+    expect(panel).not.toContain('profile-at-a-glance')
+    expect(panel).not.toContain('runtimeSummary.evidence')
+    expect(panel).not.toContain('runtimeSummary.safety')
     expect(panel).toContain('profile-next-steps')
     expect(panel).toContain('ScientificVerdictCard')
     expect(panel).toContain('EvidenceConfidence')
+    expect(panel).toContain('verdict ? (')
+  })
+
+  it('keeps herb and compound profiles on one mobile information hierarchy', () => {
+    const herb = source('app/herbs/[slug]/page.tsx')
+    const compound = source('app/compounds/[slug]/page.tsx')
+
+    for (const profile of [herb, compound]) {
+      const overview = profile.indexOf('id="overview"')
+      const decision = profile.indexOf('<ProfileDecisionPanel')
+      const mobileToc = profile.indexOf('variant="mobile"')
+      const safety = profile.indexOf('id="safety"')
+      const evidence = profile.indexOf('id="evidence"')
+      const dosing = profile.indexOf('id="dosing"')
+
+      expect(overview).toBeGreaterThan(-1)
+      expect(decision).toBeGreaterThan(overview)
+      expect(mobileToc).toBeGreaterThan(decision)
+      expect(safety).toBeGreaterThan(mobileToc)
+      expect(evidence).toBeGreaterThan(safety)
+      expect(dosing).toBeGreaterThan(evidence)
+    }
+
+    expect(compound).toContain('<dl className="hs-defs">')
+    expect(compound).toContain('space-y-4 sm:space-y-5')
+    expect(compound).not.toContain('id="quick-stats"')
+    expect(compound).not.toContain('flex-1 min-w-0 space-y-10')
+    expect(compound.indexOf('id="compounds"')).toBeGreaterThan(compound.indexOf('id="dosing"'))
+    expect(compound).toContain('<ProfileTOC items={tocItems} variant="desktop" />')
   })
 
   it('preserves reduced-motion handling on animated premium surfaces', () => {

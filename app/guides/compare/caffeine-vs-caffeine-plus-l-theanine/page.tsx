@@ -57,7 +57,7 @@ const rows = [
 
 export default function CaffeineVsCaffeinePlusLTheaninePage() {
   return (
-    <main className="container-page space-y-9 py-10">
+    <div className="container-page space-y-9 py-10">
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
@@ -151,6 +151,6 @@ export default function CaffeineVsCaffeinePlusLTheaninePage() {
 
       <Disclaimer />
       <References refs={REFERENCES} />
-    </main>
+    </div>
   )
 }

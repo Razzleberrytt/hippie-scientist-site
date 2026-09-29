@@ -1,8 +1,8 @@
 {
   "name": "L-Tyrosine",
   "slug": "tyrosine",
-  "summary": "L-Tyrosine carries a Grade A rating — strong evidence. Strongest recorded design is a randomized controlled trial, drawn from 4 recorded studies, 1 in people. Recorded activity centres on neurotransmitter modulation, stress response modulation and neuroprotective activity, which describes mechanism rather than demonstrated benefit. Noted cautions include mAO inhibitors and thyroid meds.",
-  "description": "L-Tyrosine botanical profile with evidence, safety, and practical fit.",
+  "summary": "This L-Tyrosine profile is under evidence review after citation mismatches were identified. No settled evidence grade is currently assigned.",
+  "description": "L-Tyrosine evidence is under review. Previously displayed source associations do not establish supplement benefits.",
   "primaryActions": [
     "stress"
   ],
@@ -23,86 +23,33 @@
   ],
   "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "",
+  "evidenceLevel": "Editorial grade not demonstrated by recorded studies",
   "relatedHerbs": [],
   "region": "",
-  "sources": [
-    {
-      "pubmedId": "22554242",
-      "title": "The shikimate pathway and aromatic amino Acid biosynthesis in plants",
-      "authors": "Maeda H et al.",
-      "year": 2012,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/22554242/",
-      "journal": "Annu Rev Plant Biol",
-      "doi": "10.1146/annurev-arplant-042811-105439",
-      "studyType": "Narrative review",
-      "studyClass": "narrative-review",
-      "metadataSource": "pubmed"
-    },
-    {
-      "pubmedId": "30000526",
-      "title": "Interferon Alfacon-1",
-      "authors": "PubMed indexed authors",
-      "year": 2006,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30000526/",
-      "studyType": "Narrative review",
-      "studyClass": "narrative-review",
-      "metadataSource": "pubmed"
-    },
-    {
-      "pubmedId": "12482446",
-      "title": "Rosmarinic acid",
-      "authors": "Petersen M et al.",
-      "year": 2003,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/12482446/",
-      "journal": "Phytochemistry",
-      "doi": "10.1016/s0031-9422(02)00513-7",
-      "studyType": "Narrative review",
-      "studyClass": "narrative-review",
-      "metadataSource": "pubmed"
-    },
-    {
-      "id": "src_a3adb67a41f3",
-      "title": "Tracking community sentinel events: breast cancer mortality and neighborhood risk for advanced-stage tumors in Denver",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/8629725/",
-      "pmid": "8629725",
-      "authors": "PubMed",
-      "citation": "PubMed PMID 8629725. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved",
-      "journal": "Am J Public Health",
-      "year": 1996,
-      "doi": "10.2105/ajph.86.5.717",
-      "metadataSource": "pubmed"
-    }
-  ],
+  "sources": [],
   "governance": {
-    "reviewStatus": "approved",
+    "reviewStatus": "needs_review",
     "legalRisk": "none",
     "medicalRisk": "low",
-    "monetizationAllowed": true,
-    "indexingAllowed": true,
-    "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": ""
+    "monetizationAllowed": false,
+    "indexingAllowed": false,
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "tyrosine-citation-integrity-review"
   },
   "evidence": {
-    "reviewStatus": "sourced_pending_review",
-    "sourceCount": 1,
-    "sourceIds": [
-      "src_a3adb67a41f3"
-    ],
-    "claimCount": 1,
-    "claimIds": [
-      "clm_d098d900f4e3"
-    ]
+    "reviewStatus": "needs_review",
+    "sourceCount": 0,
+    "sourceIds": [],
+    "claimCount": 0,
+    "claimIds": []
   },
   "claimMap": [],
-  "dosage": "500-2000 mg acute dosing",
-  "typical_dosage": "500-2000 mg acute dosing",
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
-  "sitemap_included": true,
+  "dosage": "",
+  "typical_dosage": "",
+  "indexability_status": "NEEDS_REVIEW",
+  "robots": "noindex,follow",
+  "sitemap_included": false,
   "indexability_reasons": [
     "effect-coverage",
     "evidence-signal",
@@ -113,5 +60,31 @@
     "safety-context",
     "summary-present",
     "summary-quality-missing"
-  ]
+  ],
+  "evidence_grade_source": "",
+  "evidence_tier_source": "",
+  "evidence_grade": null,
+  "evidenceGrade": null,
+  "evidence_grade_band": null,
+  "evidence_grade_backed": false,
+  "evidence_grade_backing_gap": "tyrosine-citation-integrity-review",
+  "evidence_tier": "Editorial grade not demonstrated by recorded studies",
+  "evidenceTier": "Editorial grade not demonstrated by recorded studies",
+  "evidence_label": "Editorial grade not demonstrated by recorded studies",
+  "evidenceLabel": "Editorial grade not demonstrated by recorded studies",
+  "evidence_human_study_count": 0,
+  "evidence_recorded_study_count": 0,
+  "evidence_strongest_design": "unclassified",
+  "evidence_design_match": null,
+  "evidence_rationale": "The previous source associations are withheld pending review; no accepted studies are counted on this profile.",
+  "references": [],
+  "pmids": [],
+  "typicalDosage": "",
+  "dose": "",
+  "dosing": "",
+  "onset": "",
+  "duration": "",
+  "timing": "",
+  "timeline": "",
+  "frequency": ""
 }

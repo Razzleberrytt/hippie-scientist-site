@@ -1,7 +1,7 @@
 # Documentation Index
 
 **Status:** Authoritative documentation map
-**Updated:** 2026-08-29
+**Updated:** 2026-09-27
 **Inventory scope:** 277 live markdown files under `docs/` and at the repository root, after the 2026-08-29 documentation pass moved 88 documents into `docs/archive/2026-08/`. Classification stays rule-based so this index does not become a second per-file maintenance burden; the full per-file disposition is in [`generated/docs-disposition.md`](generated/docs-disposition.md).
 
 **Archive:** [`archive/`](archive/README.md) holds retained context. It must not be used to select work or quote status. `scripts/ci/validate-doc-links.mjs`, part of `npm run check`, fails on any broken relative link outside the archive and generated output.
@@ -53,7 +53,7 @@ These remain valuable but cannot override the control system.
 | Path or rule | Purpose | Audience | Authority / update expectation |
 |---|---|---|---|
 | `content-quality/**`, especially [`evidence-first-decision-page-standard.md`](content-quality/evidence-first-decision-page-standard.md) | Evidence-first release and editorial quality standards | Content/evidence/product agents | Supporting release gate; update through editorial/evidence review |
-| [`site-organization.md`](site-organization.md), `seo/**` | Route taxonomy, SEO, canonical, sitemap, and linking policy | SEO/engineering | Supporting; reconcile with live routes before route work |
+| [`site-information-architecture.md`](site-information-architecture.md), [`site-organization.md`](site-organization.md), `seo/**` | User-facing destination ownership, page roles, route taxonomy, SEO, canonical, sitemap, and linking policy | Product/SEO/engineering | Supporting; durable choices are recorded in `DECISIONS.md`, current shipped reality in `CURRENT_STATE.md`, and live routes/tests must be reconciled before route work |
 | [`data-pipeline.md`](data-pipeline.md), [`generated-data-policy.md`](generated-data-policy.md), `canonical-data-system/**`, workbook/XLSX/source-registry root docs | Workbook, identity, data, and generated-artifact contracts | Data/content engineering | Supporting; update with pipeline changes and builds |
 | [`build-and-verification.md`](build-and-verification.md), [`cloudflare-pages.md`](cloudflare-pages.md), `ci/**`, `security/**`, [`RELEASE.md`](RELEASE.md), [`VALIDATION.md`](VALIDATION.md) | Build, deploy, CI, dependency, and release procedures | Engineering/operations | Operational-supporting; commands must be tested before relying on them |
 | [`agent-integration-guide.md`](agent-integration-guide.md), `agents/**`, `AGENT-*`, `agent-*`, enrichment/editorial workflow docs | Agent patch and editorial review mechanics | Agents/reviewers | Supporting; `CURRENT_SPRINT.md` still controls what may run |

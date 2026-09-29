@@ -22,7 +22,7 @@ export default async function EvidenceReport2026Page() {
 
   if (!versionMatches) {
     return (
-      <main className='container-page space-y-6 py-10'>
+      <div className='container-page space-y-6 py-10'>
         <p className='eyebrow-label'>Permanent archive · {edition.year}</p>
         {/* The live report at /evidence/evidence-report/ carries the same title, so
             the archived edition says so in its heading as well as its <title>.
@@ -35,7 +35,7 @@ export default async function EvidenceReport2026Page() {
           <Link href='/evidence/evidence-report/' className='text-brand-800 hover:underline'>Open the current report →</Link>
           <Link href='/evidence/evidence-report/compare/' className='text-brand-800 hover:underline'>Compare annual editions →</Link>
         </div>
-      </main>
+      </div>
     )
   }
 

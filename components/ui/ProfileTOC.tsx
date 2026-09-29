@@ -5,11 +5,14 @@ import '@/styles/profile-rendering-performance.css'
 
 type TocItem = { id: string; label: string }
 type ProfileTOCVariant = 'all' | 'mobile' | 'desktop'
+type TrackingAliases = Record<string, string>
+
+const EMPTY_TRACKING_ALIASES: TrackingAliases = {}
 
 const QUICK_TOC_PRIORITIES = [
   /decision|verdict|summary|overview/i,
-  /evidence/i,
   /safety|interaction/i,
+  /evidence/i,
   /dos|how to use/i,
   /source|reference|citation/i,
 ]
@@ -39,7 +42,19 @@ export function getQuickTocItems(items: TocItem[], limit = 4) {
   return selected
 }
 
-export default function ProfileTOC({ items, variant = 'all' }: { items: TocItem[]; variant?: ProfileTOCVariant }) {
+export default function ProfileTOC({
+  items,
+  variant = 'all',
+  trackingAliases = EMPTY_TRACKING_ALIASES,
+  navigationLabel = 'Page sections',
+  menuLabel = 'All sections',
+}: {
+  items: TocItem[]
+  variant?: ProfileTOCVariant
+  trackingAliases?: TrackingAliases
+  navigationLabel?: string
+  menuLabel?: string
+}) {
   const [activeId, setActiveId] = useState<string | null>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -47,18 +62,23 @@ export default function ProfileTOC({ items, variant = 'all' }: { items: TocItem[
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries.find((entry) => entry.isIntersecting)
-        if (visible) setActiveId(visible.target.id)
+        if (visible) {
+          const visibleId = visible.target.id
+          setActiveId(trackingAliases[visibleId] || visibleId)
+        }
       },
       { rootMargin: '-20% 0px -70% 0px' },
     )
 
-    items.forEach(({ id }) => {
+    const observedIds = new Set([...items.map(({ id }) => id), ...Object.keys(trackingAliases)])
+
+    observedIds.forEach((id) => {
       const element = document.getElementById(id)
       if (element) observer.observe(element)
     })
 
     return () => observer.disconnect()
-  }, [items])
+  }, [items, trackingAliases])
 
   if (items.length === 0) return null
 
@@ -93,7 +113,7 @@ export default function ProfileTOC({ items, variant = 'all' }: { items: TocItem[
     <>
       {variant !== 'desktop' ? (
         <nav
-          aria-label='Page sections'
+          aria-label={navigationLabel}
           className='sticky top-[4.35rem] z-40 -mx-1 overflow-hidden rounded-2xl border border-[color:var(--hs-hairline)] bg-[color:color-mix(in_srgb,var(--hs-surface)_94%,transparent)] shadow-[0_12px_30px_-24px_rgba(53,47,65,0.42)] backdrop-blur-xl lg:hidden'
           data-mobile-quick-jumps='true'
         >
@@ -124,7 +144,7 @@ export default function ProfileTOC({ items, variant = 'all' }: { items: TocItem[
             <button
               type='button'
               aria-expanded={mobileOpen}
-              aria-label={`${mobileOpen ? 'Hide' : 'Show'} all page sections. Current section: ${activeLabel}`}
+              aria-label={`${mobileOpen ? 'Hide' : 'Show'} ${navigationLabel.toLowerCase()}. Current section: ${activeLabel}`}
               onClick={() => setMobileOpen((open) => !open)}
               className='grid min-h-11 min-w-11 shrink-0 place-items-center rounded-xl border border-[color:var(--hs-hairline-strong)] bg-[color:var(--hs-surface)] text-[color:var(--hs-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[color:var(--hs-gold)]'
             >
@@ -147,7 +167,7 @@ export default function ProfileTOC({ items, variant = 'all' }: { items: TocItem[
               style={{ maxHeight: 'min(55dvh, 28rem)' }}
             >
               <p className='px-3 pb-2 pt-1 text-[0.64rem] font-extrabold uppercase tracking-[0.16em] text-[color:var(--hs-gold-ink)]'>
-                All sections
+                {menuLabel}
               </p>
               {links}
             </div>
@@ -157,7 +177,7 @@ export default function ProfileTOC({ items, variant = 'all' }: { items: TocItem[
 
       {variant !== 'mobile' ? (
         <nav
-          aria-label='Page sections'
+          aria-label={navigationLabel}
           className='hidden w-56 shrink-0 self-start lg:sticky lg:top-24 lg:block'
         >
           <div className='border-l border-[color:var(--hs-hairline-strong)] pl-3'>
