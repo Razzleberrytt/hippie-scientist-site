@@ -702,6 +702,7 @@ export default async function CompoundPage({ params }: PageProps) {
     .filter((item: Record<string, unknown>) => getRuntimeVisibility(item).canRender)
     .slice(0, 8)
 
+  const goalLinks = getGoalsForEntity(normalizedSlug)
   const continuationGroups = [
     ...(semanticRelated.length > 0
       ? [{
@@ -841,7 +842,6 @@ export default async function CompoundPage({ params }: PageProps) {
     ? faqPageJsonLd({ pagePath: `/compounds/${normalizedSlug}/`, questions: faqCandidates })
     : null
   const pathwayDiagram = generatePathwayDiagram({ ...compound, name: displayName })
-  const goalLinks = getGoalsForEntity(normalizedSlug)
   const tocItems = [
     { id: 'overview', label: 'Overview' },
     { id: 'safety', label: 'Safety' },
