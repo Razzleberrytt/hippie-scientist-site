@@ -362,20 +362,75 @@ function main() {
     }
   }
 
-  // The secondary summary layer can retain a legacy record absent from herbs.json.
-  // Contain every existing profile layer; runtime resolution applies the same hold
-  // after merging so a later stale overlay cannot restore a settled grade.
-  for (const file of ['herbs.json', 'herbs-summary.json', 'summary-indexes/herbs-summary.json']) {
+  // Derived indexes are independently publishable and can outlive the detail
+  // record that generated them. Walk every known herb/search index shape rather
+  // than maintaining a separate one-off rewrite per schema. Mixed indexes carry
+  // entityType; herb-only indexes default to herb. The separate
+  // compound:l-tyrosine row has slug "l-tyrosine" and is intentionally untouched.
+  const holdDerivedIndexValue = (value, defaultEntityType = 'herb') => {
+    if (Array.isArray(value)) return value.map((entry) => holdDerivedIndexValue(entry, defaultEntityType))
+    if (!value || typeof value !== 'object') return value
+
+    const entityType = value.entityType || defaultEntityType
+    if (value.slug && hasCitationIntegrityHold({ ...value, entityType })) {
+      return applyCitationIntegrityHold({ ...value, entityType: 'herb' })
+    }
+
+    return Object.fromEntries(
+      Object.entries(value).map(([key, child]) => [key, holdDerivedIndexValue(child, defaultEntityType)]),
+    )
+  }
+
+  for (const file of [
+    'herbs.json',
+    'herbs-summary.json',
+    'herb-index.json',
+    'summary-indexes/herbs-summary.json',
+    'summary-indexes/search-index.json',
+    'summary-indexes/alphabetical-shards.json',
+    'summary-indexes/entity-shards.json',
+    'summary-indexes/alpha-entity-shards.json',
+  ]) {
     const filePath = path.join(DATA_DIR, file)
     if (!fs.existsSync(filePath)) continue
     const raw = fs.readFileSync(filePath, 'utf8')
-    const rows = JSON.parse(raw)
-    if (!Array.isArray(rows)) continue
-    const next = rows.map(row => hasCitationIntegrityHold({ ...row, entityType: 'herb' })
-      ? applyCitationIntegrityHold({ ...row, entityType: 'herb' }) : row)
-    if (!DRY_RUN && JSON.stringify(rows) !== JSON.stringify(next)) {
+    const parsed = JSON.parse(raw)
+    const next = holdDerivedIndexValue(parsed)
+    if (!DRY_RUN && JSON.stringify(parsed) !== JSON.stringify(next)) {
       const pretty = /\n\s+"/.test(raw.slice(0, 4096))
       writeFileAtomic(filePath, `${pretty ? JSON.stringify(next, null, 2) : JSON.stringify(next)}${raw.endsWith('\n') ? '\n' : ''}`)
+    }
+  }
+
+  // AI/entity sidecars are also public data surfaces. Keep the file stable, but
+  // strip the stale settled-grade presentation so an external consumer cannot
+  // read "Strong Human Evidence" / "a" after the profile has been held.
+  const aiEntityPath = path.join(DATA_DIR, 'ai-entities', 'herb', 'tyrosine.json')
+  if (fs.existsSync(aiEntityPath)) {
+    const raw = fs.readFileSync(aiEntityPath, 'utf8')
+    const entityDoc = JSON.parse(raw)
+    const graph = Array.isArray(entityDoc?.['@graph']) ? entityDoc['@graph'] : []
+    const nextGraph = graph.map((node) => {
+      const nextNode = { ...node }
+      if (Array.isArray(nextNode.additionalProperty)) {
+        nextNode.additionalProperty = nextNode.additionalProperty.map((property) => {
+          if (property?.propertyID === 'evidence tier') {
+            return { ...property, value: 'Editorial grade not demonstrated by recorded studies' }
+          }
+          if (property?.propertyID === 'evidence label') {
+            return { ...property, value: 'under-review' }
+          }
+          return property
+        })
+      }
+      if (typeof nextNode.description === 'string') {
+        nextNode.description = 'L-Tyrosine evidence is under review; no settled evidence grade is currently assigned.'
+      }
+      return nextNode
+    })
+    const next = { ...entityDoc, '@graph': nextGraph }
+    if (!DRY_RUN && JSON.stringify(entityDoc) !== JSON.stringify(next)) {
+      writeFileAtomic(aiEntityPath, `${JSON.stringify(next)}${raw.endsWith('\n') ? '\n' : ''}`)
     }
   }
 
