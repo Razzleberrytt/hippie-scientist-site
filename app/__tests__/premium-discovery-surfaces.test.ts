@@ -54,6 +54,34 @@ describe('premium discovery surfaces regression contract', () => {
     expect(panel).toContain('EvidenceConfidence')
   })
 
+  it('keeps herb and compound profiles on one mobile information hierarchy', () => {
+    const herb = source('app/herbs/[slug]/page.tsx')
+    const compound = source('app/compounds/[slug]/page.tsx')
+
+    for (const profile of [herb, compound]) {
+      const overview = profile.indexOf('id="overview"')
+      const decision = profile.indexOf('<ProfileDecisionPanel')
+      const mobileToc = profile.indexOf('variant="mobile"')
+      const safety = profile.indexOf('id="safety"')
+      const evidence = profile.indexOf('id="evidence"')
+      const dosing = profile.indexOf('id="dosing"')
+
+      expect(overview).toBeGreaterThan(-1)
+      expect(decision).toBeGreaterThan(overview)
+      expect(mobileToc).toBeGreaterThan(decision)
+      expect(safety).toBeGreaterThan(mobileToc)
+      expect(evidence).toBeGreaterThan(safety)
+      expect(dosing).toBeGreaterThan(evidence)
+    }
+
+    expect(compound).toContain('<dl className="hs-defs">')
+    expect(compound).toContain('space-y-4 sm:space-y-5')
+    expect(compound).not.toContain('id="quick-stats"')
+    expect(compound).not.toContain('flex-1 min-w-0 space-y-10')
+    expect(compound.indexOf('id="compounds"')).toBeGreaterThan(compound.indexOf('id="dosing"'))
+    expect(compound).toContain('<ProfileTOC items={tocItems} variant="desktop" />')
+  })
+
   it('preserves reduced-motion handling on animated premium surfaces', () => {
     const researchCss = source('styles/research-library-premium.css')
     const libraryCss = source('styles/library-browse.css')
