@@ -273,7 +273,7 @@ function getRelatedReadingLinks(groups: InternalLinkGroup[], excludedHrefs: Set<
   const seen = new Set<string>()
 
   return groups
-    .filter((group) => /article|research/i.test(group.title))
+    .filter((group) => /guide|article|research/i.test(group.title))
     .flatMap((group) => group.links)
     .filter((link) => {
       if (!link.href || excludedHrefs.has(link.href) || seen.has(link.href)) return false
