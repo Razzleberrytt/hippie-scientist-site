@@ -85,6 +85,27 @@ describe('premium discovery surfaces regression contract', () => {
     expect(compound).toContain('<ProfileTOC items={tocItems} variant="desktop" />')
   })
 
+  it('keeps the herb primary TOC focused on core decision anchors', () => {
+    const herb = source('app/herbs/[slug]/page.tsx')
+    const tocStart = herb.indexOf('const tocItems = [')
+    const tocEnd = herb.indexOf('\n  ]', tocStart)
+    const toc = herb.slice(tocStart, tocEnd)
+
+    expect(tocStart).toBeGreaterThan(-1)
+    expect(tocEnd).toBeGreaterThan(tocStart)
+
+    for (const id of ['overview', 'safety', 'evidence', 'dosing', 'related', 'compare']) {
+      expect(toc).toContain(`id: '${id}'`)
+    }
+
+    for (const id of ['editorial-review', 'interactions', 'pathway', 'mechanisms', 'compounds', 'goals', 'conditions']) {
+      expect(toc).not.toContain(`id: '${id}'`)
+      expect(herb).toContain(`id="${id}"`)
+    }
+
+    expect((toc.match(/label:/g) || []).length).toBeLessThanOrEqual(6)
+  })
+
   it('preserves reduced-motion handling on animated premium surfaces', () => {
     const researchCss = source('styles/research-library-premium.css')
     const libraryCss = source('styles/library-browse.css')
