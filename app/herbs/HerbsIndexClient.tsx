@@ -311,8 +311,14 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
     ? `Showing ${showingFrom}–${showingTo} of ${totalProfiles}`
     : `${totalProfiles}`
 
-  const featuredHerbs = hasActiveFilters || paginated ? [] : baseHerbs.slice(0, 6)
-  const libraryHerbs = hasActiveFilters ? visibleHerbs : paginated ? herbs : baseHerbs.slice(featuredHerbs.length)
+  const showFeatured = !hasActiveFilters && (!paginated || page === 1)
+  const featuredHerbs = showFeatured ? (paginated ? herbs : baseHerbs).slice(0, 6) : []
+  const featuredHerbSlugs = new Set(featuredHerbs.map((herb) => herb.slug))
+  const libraryHerbs = hasActiveFilters
+    ? visibleHerbs
+    : paginated
+      ? herbs.filter((herb) => !featuredHerbSlugs.has(herb.slug))
+      : baseHerbs.slice(featuredHerbs.length)
 
   return (
     <div className="px-2 pb-28 pt-2 text-ink sm:px-3 sm:pt-3">
