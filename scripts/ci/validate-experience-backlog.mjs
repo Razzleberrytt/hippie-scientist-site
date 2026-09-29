@@ -117,7 +117,8 @@ invariant('THS-010', 'profiles begin with a short plain-English summary rather t
 )
 
 invariant('THS-011', 'related discovery is backed by runtime relationship maps rather than only hardcoded link dumps', () =>
-  includesAll(herbProfile, ['getRouteInternalLinkGroups', 'getBatchedRuntimeRecords', 'RelatedDiscoveryGroups']) &&
+  includesAll(herbProfile, ['getRouteInternalLinkGroups', 'getBatchedRuntimeRecords', 'SeeAlsoCluster', 'getRelatedReadingLinks']) &&
+  !herbProfile.includes('<RelatedDiscoveryGroups') &&
   includesAll(compoundProfile, ['getRouteInternalLinkGroups', 'getBatchedRuntimeRecords', 'RelatedDiscoveryGroups']),
 )
 
