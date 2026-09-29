@@ -406,10 +406,10 @@ export default async function HerbDetailPage({ params }: PageProps) {
     .slice(0, 4)
 
   const existingContinuationHrefs = new Set([
-    ...goalLinks.map((link) => link.href),
-    ...conditionLinks.map((link) => link.href || '/guides/'),
-    ...relatedHerbLinks.map((link) => link.href),
-    ...comparisonLinks.map((link) => link.href),
+    ...goalLinks.map((link: { href: string }) => link.href),
+    ...conditionLinks.map((link: RuntimeMapEntry) => link.href || '/guides/'),
+    ...relatedHerbLinks.map((link: { href: string }) => link.href),
+    ...comparisonLinks.map((link: { href: string }) => link.href),
   ])
   const relatedReadingLinks = getRelatedReadingLinks(internalLinkGroups, existingContinuationHrefs)
 
