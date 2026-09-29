@@ -69,18 +69,18 @@ html:not(.dark) [data-profile-page] .hero-shell .rounded-xl {
 }
 
 /* Shared profile TOC */
-html:not(.dark) nav[aria-label="Page sections"] {
+html:not(.dark) nav[data-profile-toc="true"] {
   border-color: var(--hs-hairline) !important;
   background: color-mix(in srgb, var(--hs-surface) 92%, transparent) !important;
   box-shadow: 0 12px 34px rgba(53, 47, 65, 0.07) !important;
 }
 
-html:not(.dark) nav[aria-label="Page sections"] a {
+html:not(.dark) nav[data-profile-toc="true"] a {
   color: var(--hs-body);
 }
 
-html:not(.dark) nav[aria-label="Page sections"] a[aria-current="location"],
-html:not(.dark) nav[aria-label="Page sections"] a:hover {
+html:not(.dark) nav[data-profile-toc="true"] a[aria-current="location"],
+html:not(.dark) nav[data-profile-toc="true"] a:hover {
   background: color-mix(in srgb, var(--tone) 7%, var(--hs-surface));
   color: var(--hs-ink);
 }
