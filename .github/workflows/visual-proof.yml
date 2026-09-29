@@ -1,0 +1,100 @@
+name: P0 Visual Proof
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app/**'
+      - 'components/**'
+      - 'styles/**'
+      - 'scripts/dev/visual-sweep.mjs'
+      - 'scripts/ci/validate-direct-dependencies.mjs'
+      - '.github/workflows/visual-proof.yml'
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - 'app/**'
+      - 'components/**'
+      - 'styles/**'
+      - 'scripts/dev/visual-sweep.mjs'
+      - 'scripts/ci/validate-direct-dependencies.mjs'
+      - '.github/workflows/visual-proof.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: visual-proof-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  visual-proof:
+    name: Representative mobile/theme sweep
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install repository dependencies
+        run: npm ci --no-audit --fund=false
+
+      - name: Install transient Playwright runtime
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
+        run: npm install --no-save --package-lock=false playwright@1.63.0
+
+      - name: Install hosted Chromium
+        run: npx playwright@1.63.0 install --with-deps chromium
+
+      - name: Build production static export
+        run: npm run build:deploy
+
+      - name: Run representative visual proof
+        run: |
+          npx serve@14 out -p 3000 > /tmp/visual-proof-server.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID 2>/dev/null || true' EXIT
+          timeout 30 bash -c 'until curl -sf http://localhost:3000 > /dev/null; do sleep 1; done'
+          node scripts/dev/visual-sweep.mjs hosted
+
+      - name: Upload visual proof
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: p0-visual-proof-${{ github.sha }}
+          path: .visual-sweep/hosted/
+          if-no-files-found: error
+          retention-days: 30
+          include-hidden-files: true
+
+      - name: Summarize proof
+        if: always()
+        run: |
+          echo "## P0 mobile/theme visual proof" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Commit: \`$GITHUB_SHA\`" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f .visual-sweep/hosted/report.json ]; then
+            node --input-type=module <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          import fs from 'node:fs'
+          const rows = JSON.parse(fs.readFileSync('.visual-sweep/hosted/report.json', 'utf8'))
+          const failed = rows.filter((row) => row.status)
+          const overflow = rows.filter((row) => row.overflow > 0)
+          const themeMismatch = rows.filter((row) => !row.status && row.appliedTheme !== row.theme)
+          const screenshots = rows.filter((row) => row.screenshot)
+          console.log(`- Matrix states: ${rows.length}`)
+          console.log(`- Screenshots retained: ${screenshots.length}`)
+          console.log(`- Failed loads: ${failed.length}`)
+          console.log(`- Horizontal overflow states: ${overflow.length}`)
+          console.log(`- Theme mismatches: ${themeMismatch.length}`)
+          NODE
+          else
+            echo "- report.json was not produced; inspect the job log." >> "$GITHUB_STEP_SUMMARY"
+          fi
