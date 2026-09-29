@@ -101,7 +101,15 @@ function dedupeContinuationGroups(groups: ContinuationGroup[], claimedHrefs: Set
     const key = group.title.trim().toLowerCase()
     const existing = merged.get(key)
     if (existing) {
-      existing.links.push(...freshLinks)
+      // Interleave later unique links with the earlier source so the display
+      // cap cannot let a large page-level group starve generated destinations.
+      const interleaved: ContinuationLink[] = []
+      const length = Math.max(existing.links.length, freshLinks.length)
+      for (let index = 0; index < length; index += 1) {
+        if (existing.links[index]) interleaved.push(existing.links[index])
+        if (freshLinks[index]) interleaved.push(freshLinks[index])
+      }
+      existing.links = interleaved
       continue
     }
 
