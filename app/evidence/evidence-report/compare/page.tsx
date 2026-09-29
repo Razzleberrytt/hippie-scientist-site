@@ -17,7 +17,7 @@ export default async function EvidenceReportComparePage() {
   const hasMultipleYears = new Set(editions.map(edition => edition.year)).size > 1
 
   return (
-    <main className='container-page space-y-8 py-10'>
+    <div className='container-page space-y-8 py-10'>
       <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8'>
         <p className='eyebrow-label'>Longitudinal original research</p>
         <h1 className='mt-2 text-4xl font-semibold tracking-tight text-ink'>Evidence Report — year over year</h1>
@@ -41,6 +41,6 @@ export default async function EvidenceReportComparePage() {
       </section>
 
       <section className='rounded-2xl border border-brand-900/10 bg-brand-50/50 p-5 text-sm leading-7 text-muted'><strong className='text-ink'>Archive rule:</strong> an annual route may render calculated report metrics only while the active dataset version matches the version pinned to that edition. If it does not match, the archive fails closed instead of substituting newer data.</section>
-    </main>
+    </div>
   )
 }

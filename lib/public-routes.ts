@@ -5,6 +5,7 @@ export const PUBLIC_ROUTES = {
   compounds: '/compounds/',
   articles: '/articles/',
   guides: '/guides/',
+  research: '/research/',
   about: '/info/about/',
   author: '/info/author/',
   faq: '/info/faq/',

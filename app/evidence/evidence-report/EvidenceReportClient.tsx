@@ -75,7 +75,7 @@ export default function EvidenceReportClient({ datasetVersion, citationText, met
   }
 
   return (
-    <main className="mx-auto max-w-6xl space-y-10 px-4 py-10 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-6xl space-y-10 px-4 py-10 sm:px-6 lg:px-8">
       <section className="rounded-[2rem] border border-brand-900/10 bg-white p-6 shadow-sm sm:p-8 lg:p-10">
         <p className="eyebrow-label">Original data report · dataset v{datasetVersion}</p>
         <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-ink sm:text-5xl">State of Supplement Evidence 2026</h1>
@@ -260,6 +260,6 @@ export default function EvidenceReportClient({ datasetVersion, citationText, met
           <Link href="/learn/citation-explorer/" className="text-brand-700 hover:underline">Search the studies →</Link>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

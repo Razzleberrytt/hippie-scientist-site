@@ -16,7 +16,7 @@ const feeds = [
 
 export default function UpdatesPage() {
   return (
-    <main className='container-page space-y-8 py-10'>
+    <div className='container-page space-y-8 py-10'>
       <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8'>
         <p className='eyebrow-label'>For readers, researchers & journalists</p>
         <h1 className='mt-2 text-4xl font-semibold tracking-tight text-ink'>Follow the research without checking manually</h1>
@@ -35,6 +35,6 @@ export default function UpdatesPage() {
         ))}
       </section>
       <p className='text-sm leading-6 text-muted'>Topic-specific RSS is intentionally demand-gated. Evidence changes already receive their own focused feed because they are a distinct research-following use case; arbitrary ingredient/topic feeds are not generated unless usage demonstrates demand.</p>
-    </main>
+    </div>
   )
 }

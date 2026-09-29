@@ -8,7 +8,6 @@ const foundation = read('styles/premium-foundation.css')
 const surfaces = read('styles/premium-surfaces.css')
 const controls = read('styles/premium-controls.css')
 const chrome = read('styles/premium-chrome.css')
-const homeStructure = read('styles/homepage-structure.css')
 const homeVisual = read('styles/homepage-premium-final.css')
 const homepage = read('components/homepage-v2.tsx')
 
@@ -35,25 +34,27 @@ describe('premium visual refinement contracts', () => {
   })
 
   it('keeps the homepage hero as an unmistakable flagship composition', () => {
-    expect(homeStructure).toContain('.hs-hero-main')
-    expect(homeStructure).toContain('grid-template-columns: minmax(0, 1.08fr) minmax(20rem, 0.92fr)')
-    expect(homepage).toContain("className='hs-evidence-panel'")
-    expect(homepage).toContain("className='hs-goal-block'")
-    expect(homeVisual).toContain('.hs-evidence-panel')
-    expect(homeVisual).toContain('.hs-index-hero')
+    expect(homepage).toContain("className='hero-shell rounded-[2rem] border px-5 py-7 sm:p-10'")
+    expect(homepage).toContain('Start with the question. Open the evidence when you need it.')
+    expect(homepage).toContain("role='search'")
+    expect(homepage).toContain("href='/explore/'")
+    expect(homepage).not.toContain('<SiteDestinationGrid />')
+    expect(homepage).toContain("id='home-trust-heading'")
+    expect(homepage).toContain('getPublicSiteMetrics')
   })
 
-  it('renders the homepage goal chooser as a balanced mobile decision matrix', () => {
-    expect(homeStructure).toContain('@media (max-width: 767px)')
-    expect(homeStructure).toContain('grid-template-columns: repeat(2, minmax(0, 1fr))')
-    expect(homeVisual).toContain('.hs-goal-link:nth-child(even)')
-    expect(homeVisual).toContain('.hs-goal-link:nth-child(n + 3)')
+  it('renders the canonical destination chooser as a balanced responsive decision grid', () => {
+    const destinations = read('components/navigation/SiteDestinationGrid.tsx')
+
+    expect(destinations).toContain('siteDestinations.map')
+    expect(destinations).toContain("className='grid gap-4 sm:grid-cols-2 xl:grid-cols-5'")
+    expect(destinations).toContain("className='card-premium group flex min-h-[12rem] flex-col p-5")
   })
 
-  it('keeps comparison rows visibly indexed without adding screen-reader noise', () => {
-    expect(homepage).toMatch(/className='[^']*\bhs-comparison-index\b[^']*' aria-hidden='true'/)
-    expect(homepage).toContain("String(index + 1).padStart(2, '0')")
-    expect(homeVisual).toContain('.hs-comparison-index')
+  it('keeps obsolete homepage comparison and methodology mini-hubs retired', () => {
+    expect(homepage).not.toContain('const comparisons')
+    expect(homepage).not.toContain('const principles')
+    expect(homepage).not.toContain('hs-comparison-index')
   })
 
   it('retains reduced-motion support across shared and homepage interactions', () => {

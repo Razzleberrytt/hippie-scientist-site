@@ -13,7 +13,8 @@ describe('premium discovery surfaces regression contract', () => {
 
     expect(layout).toContain("import '../../styles/research-library-premium.css'")
     expect(layout).toContain('research-route-theme')
-    expect(css).toContain('.research-route-theme main > section:first-child')
+    expect(source('app/research/page.tsx')).toContain('research-page-content')
+    expect(css).toContain('.research-route-theme .research-page-content > section:first-child')
     expect(css).toContain('section:has(#source-first-heading)')
     expect(css).toContain('section:has(#research-tools-heading)')
     expect(css).toContain('section:has(#library-context-heading)')

@@ -26,7 +26,7 @@ export default function CorrectionsPage() {
   const affectedPages = new Set(sorted.map(correction => correction.pagePath)).size
 
   return (
-    <main className="container-page mx-auto max-w-5xl space-y-10 py-10">
+    <div className="container-page mx-auto max-w-5xl space-y-10 py-10">
       <section className="hero-shell rounded-[2rem] border p-6 sm:p-8 lg:p-10">
         <p className="eyebrow-label">Scientific accountability</p>
         <h1 className="heading-premium mt-4">Corrections &amp; scientific update history</h1>
@@ -142,6 +142,6 @@ export default function CorrectionsPage() {
           Flag an error →
         </Link>
       </section>
-    </main>
+    </div>
   )
 }

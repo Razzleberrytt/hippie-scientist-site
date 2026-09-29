@@ -12,7 +12,7 @@ export const metadata: Metadata = buildPageMetadata({
 export default function LeadMagnetsPage() {
   const resources = Object.values(LEAD_MAGNETS)
   return (
-    <main className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
+    <div className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
       <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8'>
         <p className='eyebrow-label'>Free research resources</p>
         <h1 className='mt-2 text-3xl font-bold tracking-tight text-ink sm:text-5xl'>Choose the checklist that matches what you are researching</h1>
@@ -29,6 +29,6 @@ export default function LeadMagnetsPage() {
           </article>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

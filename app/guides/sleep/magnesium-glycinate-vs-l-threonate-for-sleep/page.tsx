@@ -104,7 +104,7 @@ export default function Page() {
   const faqLd = faqPageJsonLd({ pagePath: path, questions: FAQS })
 
   return (
-    <main className="mx-auto max-w-5xl px-4 pb-24 pt-8 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-5xl px-4 pb-24 pt-8 sm:px-6 lg:px-8">
       {faqLd ? <JsonLd schema={faqLd} /> : null}
 
       <nav className="mb-6 text-xs text-muted" aria-label="Breadcrumb">
@@ -277,6 +277,6 @@ export default function Page() {
 
         <p className="text-xs leading-6 text-muted dark:text-[var(--text-secondary)]">Last evidence review: {UPDATED_DATE}</p>
       </article>
-    </main>
+    </div>
   )
 }

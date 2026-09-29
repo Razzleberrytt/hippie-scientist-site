@@ -39,7 +39,7 @@ export default function BotanicalAtlasEmbed({ records }: { records: BotanicalAtl
   ].filter(Boolean).join(' · ')
 
   return (
-    <main className='mx-auto max-w-5xl p-4'>
+    <div className='mx-auto max-w-5xl p-4'>
       <header className='mb-3 flex flex-wrap items-end justify-between gap-3'>
         <div>
           <p className='text-xs font-bold uppercase tracking-wide text-muted'>The Hippie Scientist</p>
@@ -50,6 +50,6 @@ export default function BotanicalAtlasEmbed({ records }: { records: BotanicalAtl
       </header>
       {filtered.length ? <BotanicalAtlasGraph records={filtered.slice(0, 150)} compact /> : <p className='rounded-xl border border-brand-900/10 bg-white p-4 text-sm text-muted'>No botanicals match this embedded filter state.</p>}
       <p className='mt-3 text-[11px] leading-4 text-muted'>Mechanism nodes are context, not clinical outcome claims. Educational reference only.</p>
-    </main>
+    </div>
   )
 }

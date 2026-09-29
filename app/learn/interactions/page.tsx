@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { buildPageMetadata } from '../../../lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import SafetyFamilyNav from '@/components/navigation/SafetyFamilyNav'
 import FaqJsonLd from '@/components/seo/FaqJsonLd'
 import References from '@/components/References'
 
@@ -109,6 +110,8 @@ export default function PsychoactiveInteractionsPage() {
           { label: 'Interactions' },
         ]}
       />
+
+      <SafetyFamilyNav active='learn' />
 
       <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 lg:p-10">
         <p className="eyebrow-label">Educational Safety Hub</p>

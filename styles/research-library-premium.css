@@ -8,12 +8,12 @@
   --research-panel-quiet: color-mix(in srgb, var(--surface-subtle) 78%, var(--surface-card));
 }
 
-.research-route-theme main {
+.research-route-theme .research-page-content {
   position: relative;
   isolation: isolate;
 }
 
-.research-route-theme main > section:first-child {
+.research-route-theme .research-page-content > section:first-child {
   position: relative;
   overflow: hidden;
   border-color: var(--research-rule);
@@ -26,7 +26,7 @@
     0 26px 64px -48px rgba(25, 40, 31, 0.48);
 }
 
-.research-route-theme main > section:first-child::before {
+.research-route-theme .research-page-content > section:first-child::before {
   content: '';
   position: absolute;
   inset: 0 auto auto 0;
@@ -35,12 +35,12 @@
   background: linear-gradient(90deg, var(--hs-gold), color-mix(in srgb, var(--hs-gold) 18%, transparent));
 }
 
-.research-route-theme main > section:first-child > * {
+.research-route-theme .research-page-content > section:first-child > * {
   position: relative;
   z-index: 1;
 }
 
-.research-route-theme main > section:first-child h1 {
+.research-route-theme .research-page-content > section:first-child h1 {
   max-width: 16ch;
   font-size: clamp(2.65rem, 6vw, 4.85rem);
   font-weight: 650;
@@ -48,12 +48,12 @@
   letter-spacing: -0.04em;
 }
 
-.research-route-theme main > section:first-child p.text-lg {
+.research-route-theme .research-page-content > section:first-child p.text-lg {
   max-width: 62ch;
   color: var(--text-secondary);
 }
 
-.research-route-theme main > section:first-child a {
+.research-route-theme .research-page-content > section:first-child a {
   min-height: 2.75rem;
   display: inline-flex;
   align-items: center;
@@ -69,11 +69,11 @@
   box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 40%, transparent);
 }
 
-.research-route-theme main > section[aria-labelledby]:not(:first-child) {
+.research-route-theme .research-page-content > section[aria-labelledby]:not(:first-child) {
   scroll-margin-top: 6rem;
 }
 
-.research-route-theme main > section[aria-labelledby]:not(:first-child):not(:has(#source-first-heading)) {
+.research-route-theme .research-page-content > section[aria-labelledby]:not(:first-child):not(:has(#source-first-heading)) {
   border-top: 1px solid var(--border-soft);
   padding-top: 2.1rem;
 }
@@ -213,7 +213,7 @@
   letter-spacing: -0.035em;
 }
 
-html.dark .research-route-theme main > section:first-child,
+html.dark .research-route-theme .research-page-content > section:first-child,
 html.dark .research-route-theme article,
 html.dark .research-route-theme section:has(#evidence-strongest-heading) > div,
 html.dark .research-route-theme section:has(#external-databases-heading) {
@@ -223,38 +223,38 @@ html.dark .research-route-theme section:has(#external-databases-heading) {
 }
 
 @media (max-width: 767px) {
-  .research-route-theme main {
+  .research-route-theme .research-page-content {
     row-gap: 2.25rem;
     padding-top: 1.25rem;
   }
 
-  .research-route-theme main > section:first-child {
+  .research-route-theme .research-page-content > section:first-child {
     border-radius: 1.45rem;
     padding: 1.4rem;
   }
 
-  .research-route-theme main > section:first-child h1 {
+  .research-route-theme .research-page-content > section:first-child h1 {
     max-width: none;
     font-size: clamp(2.35rem, 11.5vw, 3.35rem);
     line-height: 1;
   }
 
-  .research-route-theme main > section:first-child p.text-lg {
+  .research-route-theme .research-page-content > section:first-child p.text-lg {
     font-size: 1rem;
     line-height: 1.7;
   }
 
-  .research-route-theme main > section:first-child .flex.flex-wrap.gap-3 {
+  .research-route-theme .research-page-content > section:first-child .flex.flex-wrap.gap-3 {
     display: grid;
     grid-template-columns: 1fr;
   }
 
-  .research-route-theme main > section:first-child a {
+  .research-route-theme .research-page-content > section:first-child a {
     width: 100%;
     min-height: 3rem;
   }
 
-  .research-route-theme main > section[aria-labelledby]:not(:first-child):not(:has(#source-first-heading)) {
+  .research-route-theme .research-page-content > section[aria-labelledby]:not(:first-child):not(:has(#source-first-heading)) {
     padding-top: 1.6rem;
   }
 

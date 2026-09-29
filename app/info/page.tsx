@@ -61,7 +61,7 @@ const groups = [
 
 export default function InfoIndexPage() {
   return (
-    <main className='container-page space-y-8 py-10'>
+    <div className='container-page space-y-8 py-10'>
       <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10'>
         <p className='eyebrow-label'>Site information</p>
         <h1 className='mt-3 text-4xl font-semibold tracking-tight text-ink sm:text-5xl'>
@@ -99,6 +99,6 @@ export default function InfoIndexPage() {
           </div>
         </section>
       ))}
-    </main>
+    </div>
   )
 }

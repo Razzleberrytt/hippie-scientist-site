@@ -9,62 +9,31 @@ function source(relativePath: string): string {
 describe('mobile premium UX regression contract', () => {
   it('keeps the flagship homepage compact, useful, restrained, and visually consistent on mobile', () => {
     const text = source('components/homepage-v2.tsx')
-    const structure = source('styles/homepage-structure.css')
-    const visual = source('styles/homepage-mobile-refinement.css')
     const page = source('app/page.tsx')
     const scrollTop = source('components/ScrollToTopButton.tsx')
     const footer = source('components/Footer.tsx')
+    const visual = source('styles/homepage-mobile-refinement.css')
 
-    expect(text).toContain("className='hs-hero-main'")
-    expect(text).toContain("className='hs-evidence-panel'")
-    expect(text).toContain("className='hs-home-browse-link hs-hero-primary-link'")
-    expect(text).toContain("className='hs-goal-nav'")
+    expect(text).toContain("className='hs-home'")
+    expect(text).toContain("className='hero-shell rounded-[2rem] border px-5 py-7 sm:p-10'")
+    expect(text).toContain("href='/explore/'")
+    expect(text).not.toContain('<SiteDestinationGrid />')
     expect(text).toContain("placeholder='Search herbs, compounds, or questions'")
+    expect(text).toContain("autoCapitalize='none'")
+    expect(text).toContain("autoCorrect='off'")
+    expect(text).toContain('spellCheck={false}')
+    expect(text).toContain("className='grid grid-cols-3 gap-2 sm:gap-3'")
+    expect(text).toContain("className='min-w-0 rounded-xl bg-brand-50/60 p-3 text-center sm:p-4'")
+    expect(text).not.toContain('const comparisons')
+    expect(text).not.toContain('const principles')
+
     expect(page).toContain("import '@/styles/homepage-mobile-refinement.css'")
-    expect(structure).toContain('@media (max-width: 767px)')
-    expect(structure).toContain('display: contents;')
-    expect(structure).toContain('order: 2;')
-    expect(structure).toContain('order: 3;')
-    expect(structure).toContain('grid-template-columns: repeat(2, minmax(0, 1fr))')
-    expect(visual).toContain('font-size: clamp(2.25rem, 10.2vw, 2.72rem);')
-    expect(visual).toContain('.hs-home-title em::after')
-    expect(visual).toContain('min-width: 2.75rem;')
-    expect(visual).toContain('min-height: 2.75rem;')
-
-    // Shared phone geometry stays intentionally quieter than desktop.
-    expect(visual).toContain('--home-mobile-panel-radius: 0.95rem;')
-    expect(visual).toContain('--home-mobile-card-radius: 0.85rem;')
-    expect(visual).toContain('.hs-goal-copy small {\n    display: none;')
-    expect(visual).toContain('.hs-goal-arrow {\n    display: none;')
-
-    // Research Lens is the single dark explanatory anchor on phones.
-    expect(visual).toContain('.hs-evidence-signal {\n    grid-template-columns: auto minmax(0, 1fr);')
-    expect(visual).toContain('.hs-evidence-signal-index {\n    display: none;')
-
-    // Comparison content is an editorial list rather than another stack of cards.
-    expect(visual).toContain('.hs-comparison-list {\n    gap: 0;\n    border-top: 1px solid var(--home-line);')
-    expect(visual).toContain('.hs-comparison-row {\n    min-height: 0;')
-    expect(visual).toContain('border-radius: 0;')
-    expect(visual).toContain('.hs-comparison-index {\n    display: none;')
-
-    // The lower methodology block cannot become a second dark hero or repeat Research Lens cards.
-    expect(visual).toContain('.hs-method-section {\n    gap: 0;')
-    expect(visual).toContain('.hs-method-actions > a:first-child {\n    display: none;')
-    expect(visual).toContain('.hs-principles {\n    display: none;')
-
-    // Route-owned bottom spacing must not stack with main/footer spacing.
-    expect(visual).toContain('body:has(.hs-home) #main-content {\n    padding-bottom: 0;')
-    expect(visual).toContain('body:has(.hs-home) .editorial-footer {\n    margin-top: 0;')
-    expect(visual).toContain('padding-bottom: 0;')
 
     // Repeated/floating global chrome stays available elsewhere but is suppressed on the phone homepage.
     expect(scrollTop).toContain("data-scroll-to-top-button='true'")
     expect(footer).toContain("data-footer-new-here='true'")
     expect(visual).toContain("body:has(.hs-home) [data-scroll-to-top-button='true'],")
     expect(visual).toContain("body:has(.hs-home) [data-footer-new-here='true'] {\n    display: none;")
-
-    expect(visual).toContain('.hs-home .hs-text-link {\n    color: var(--home-forest);')
-    expect(visual).not.toContain('.hs-home .hs-text-link {\n    color: var(--home-gold);')
   })
 
   it('keeps the privacy choice visible without covering page actions', () => {

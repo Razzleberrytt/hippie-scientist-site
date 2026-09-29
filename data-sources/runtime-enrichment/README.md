@@ -75,6 +75,55 @@ Ledgers may add evidence and source-provenance rows for existing entities, descr
 
 `2026-09-25-medication-antidepressant-manifest.json` records the exact DailyMed and PubMed anchors, reviewed counts, append-only policy, and ledger hash.
 
+## Sep. 26 trazodone / hydroxyzine medication batch
+
+- Ledger: `2026-09-26-medication-trazodone-hydroxyzine-enrichment.json`
+- Targets: `trazodone`, `hydroxyzine`
+- 8 evidence rows
+- 8 source rows (7 net-new after canonical source deduplication because PMID `29477251` is already registered)
+- 0 entity-context rows
+- 0 relationships
+- Both proposals remain Evidence-Limited / research-only / hidden-until-grounded; this batch stages governed evidence and does not promote indexing, sitemap inclusion, or monetization.
+- Trazodone evidence keeps the approved major-depression indication distinct from off-label sleep evidence and preserves QT/cardiac, serotonin-syndrome, orthostatic, and priapism safety boundaries.
+- Hydroxyzine evidence preserves the short-term GAD evidence ceiling, the label's unassessed >4-month antianxiety boundary, and QT/Torsade plus CNS-depressant safety context.
+- The batch is evidence-only and cannot carry publication/governance fields.
+
+`2026-09-26-medication-trazodone-hydroxyzine-manifest.json` records the exact DailyMed and PubMed anchors, reviewed counts, append-only policy, and ledger hash.
+
+Canonical materialization receipt: the reviewed workbook and exact generator-owned compound runtime were applied together; both new medication records remain fail-closed and outside indexing/promotion.
+
+
+## Sep. 27 buspirone / modafinil medication batch
+
+- Ledger: `2026-09-27-medication-buspirone-modafinil-enrichment.json`
+- Targets: `buspirone`, `modafinil`
+- 8 evidence rows
+- 8 source rows
+- 0 entity-context rows
+- 0 relationships
+- Both proposals remain Evidence-Limited / research-only / hidden-until-grounded; this batch stages governed evidence and does not promote indexing, sitemap inclusion, or monetization.
+- Buspirone evidence preserves molecule-vs-azapirone-class distinctions and the label's controlled long-term evidence ceiling beyond 3 to 4 weeks.
+- Modafinil evidence preserves narcolepsy / OSA / shift-work indication boundaries, the OSA underlying-obstruction limitation, serious-rash/hypersensitivity and psychiatric warnings, contraceptive interaction context, and Schedule IV status.
+- The batch is evidence-only and cannot carry publication/governance fields.
+
+`2026-09-27-medication-buspirone-modafinil-manifest.json` records the exact DailyMed and PubMed anchors, reviewed counts, append-only policy, and ledger hash.
+
+The workbook review workflow persists the exact generated `compounds.preview.json` beside the fail-closed review workbook and, on trusted same-repository `manual/*` PRs, materializes that reviewed workbook/runtime pair only when the branch still matches the exact validated head.
+
+Canonical materialization receipt: the reviewed workbook and exact generator-owned compound runtime were applied together on this PR; `buspirone` and `modafinil` remain research-only, NOINDEX, outside sitemap inclusion, and non-monetized.
+
+Canonical materialization receipt: PR #6022 committed the reviewed workbook and exact generated compound runtime together as `f15d6afd1bfc49a626be99f3f8ea72601b6481c6`; both new medication records remain research-only, NOINDEX, outside the sitemap, and unmonetized.
+
+## Sep. 27 PMID 9809861 source-identity correction
+
+- Ledger: `2026-09-27-source-identity-correction-enrichment.json`
+- Corrects bibliographic metadata for PMID `9809861` / DOI `10.1007/s002130050731` without rewriting the immutable Sep. 26 ledger.
+- The original identifier already pointed to the 244-patient hydroxyzine/buspirone/placebo trial, but its title and authors had been copied from a different hydroxyzine review.
+- The correction is fail-closed: parser reconciliation requires the same source ID and identifier key plus an exact `expected_prior_identity` match before replacement.
+- The historical ledger remains byte-for-byte immutable; only the merged virtual source record is corrected.
+
+`2026-09-27-source-identity-correction-manifest.json` records the correction provenance, reviewed count, guard policy, and ledger hash.
+
 ## Regression contract
 
 `tests/runtime-enrichment.test.ts` validates every manifest-backed batch, verifies each digest before decoding, checks reviewed counts, requires globally unique evidence record IDs, allows repeat source identities to deduplicate deterministically across batches, enforces the entity-context allowlist, verifies virtual-workbook growth, and prevents every medication batch from carrying publication/governance fields.
