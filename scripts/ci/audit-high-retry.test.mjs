@@ -84,6 +84,47 @@ if (process.env.FAKE_AUDIT_MODE === 'valid-high') {
   }))
   process.exit(1)
 }
+if (process.env.FAKE_AUDIT_MODE === 'mdx-direct-high') {
+  console.log(JSON.stringify({
+    auditReportVersion: 2,
+    vulnerabilities: {
+      'mdx-bundler': {
+        name: 'mdx-bundler',
+        severity: 'high',
+        via: [{ severity: 'high', url: 'https://example.invalid/GHSA-new-mdx-direct' }],
+      },
+    },
+    metadata: { vulnerabilities: { info: 0, low: 0, moderate: 0, high: 1, critical: 0, total: 1 } },
+  }))
+  process.exit(1)
+}
+if (process.env.FAKE_AUDIT_MODE === 'mdx-transitive-toml-high') {
+  console.log(JSON.stringify({
+    auditReportVersion: 2,
+    vulnerabilities: {
+      'mdx-bundler': {
+        name: 'mdx-bundler',
+        severity: 'high',
+        via: ['remark-mdx-frontmatter'],
+      },
+      'remark-mdx-frontmatter': {
+        name: 'remark-mdx-frontmatter',
+        severity: 'high',
+        via: ['toml'],
+      },
+      toml: {
+        name: 'toml',
+        severity: 'high',
+        via: [
+          { severity: 'high', url: 'https://github.com/advisories/GHSA-82x6-q7mm-w9cf' },
+          { severity: 'high', url: 'https://github.com/advisories/GHSA-v5mp-jgw5-2x6j' },
+        ],
+      },
+    },
+    metadata: { vulnerabilities: { info: 0, low: 0, moderate: 0, high: 3, critical: 0, total: 3 } },
+  }))
+  process.exit(1)
+}
 console.log(JSON.stringify(clean))
 `, 'utf8')
 
@@ -139,5 +180,20 @@ describe('high-severity audit transport retry', () => {
     expect(count).toBe(1)
     expect(result.stderr).toContain('unallowlisted high/critical vulnerabilities found')
     expect(result.stderr).not.toContain('retrying')
+  })
+
+  it('fails closed when a transitive-only MDX wrapper gets a new direct high advisory', () => {
+    const { result, count } = runAuditFixture('mdx-direct-high')
+    expect(result.status).toBe(1)
+    expect(count).toBe(1)
+    expect(result.stderr).toContain('unallowlisted high/critical vulnerabilities found')
+    expect(result.stderr).toContain('mdx-bundler')
+  })
+
+  it('still permits the explicitly bounded dependency-only TOML chain', () => {
+    const { result, count } = runAuditFixture('mdx-transitive-toml-high')
+    expect(result.status).toBe(0)
+    expect(count).toBe(1)
+    expect(result.stdout).toContain('[audit:high] PASS')
   })
 })

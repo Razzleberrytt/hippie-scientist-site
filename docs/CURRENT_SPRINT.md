@@ -49,7 +49,11 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 2/3
+## Active / in review — implementation WIP 1/3
+
+**2026-09-30 control recovery — #6107 / PR #6108:** Obsolete lease PR #5970 closed after confirming #5971 merged. Trusted-main fallback run `36727748877` succeeded; sentinel `36728160455` passed and closed #6107. The repeatable PR-local isolation repair remains in review in #6108, with 35 focused regressions passing. This is a temporary control exception, not a fourth normal lane. #6051 remains active; existing visual-proof PR #6106 owns its next completion slice. Follow `SWARM_BACKLOG.md`; do not create overlapping capture work.
+
+**2026-09-30 P0 release blockers — #6109 and existing #5456:** Current security audit finds a vulnerable brace-expansion/minimatch toolchain and expired MDX/TOML exceptions. Remediate dependencies with compatibility proof; no gate weakening or expiry extension. PR #6106 now patches undici 7.29.0 → 7.29.1; lockfile audit confirms undici findings removed. The other blockers remain independent. Prioritize this release repair before more P0 feature slices and avoid repeatedly rerunning unchanged failing audit jobs.
 
 **2026-09-25 owner-directed P0 control incident — #5941:** Resolved and retired after the bounded Actions coordination repair merged via PR #5949. It no longer consumes an Operations exception or changes normal D/R/A admission.
 
