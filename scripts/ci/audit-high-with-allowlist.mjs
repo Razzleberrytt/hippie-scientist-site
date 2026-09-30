@@ -162,6 +162,24 @@ function matchesRule(vuln, rule) {
   if (rule.severity && vuln.severity !== rule.severity) return false
 
   const via = Array.isArray(vuln.via) ? vuln.via : []
+  const directHighAdvisories = via.filter((entry) => {
+    if (!entry || typeof entry !== 'object') return false
+    const severity = String(entry.severity || '').toLowerCase()
+    return severity === 'high' || severity === 'critical'
+  })
+  const highDependencyBranches = via.filter((entry) => {
+    if (typeof entry !== 'string') return false
+    return isHighOrCritical(vulnerabilities[entry])
+  })
+
+  // Package-only wrapper rules may deliberately cover a known vulnerable
+  // dependency chain, but they must never swallow a new direct advisory on
+  // the wrapper package itself.
+  if (rule.transitiveOnly === true) {
+    if (directHighAdvisories.length > 0) return false
+    if (highDependencyBranches.length === 0) return false
+  }
+
   const advisoryUrls = via.filter((x) => x && typeof x === 'object' && x.url).map((x) => x.url)
   if (Array.isArray(rule.advisoryUrls) && rule.advisoryUrls.length > 0) {
     return rule.advisoryUrls.every((url) => advisoryUrls.includes(url))
