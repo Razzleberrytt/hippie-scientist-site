@@ -40,7 +40,8 @@ Use this order when selecting the next coherent slice. Hard evidence, safety, ac
 
 | Order | Candidate / existing owner | Acceptance and next action |
 |---|---|---|
-| P0 incident | #6107 controller recovery | A conflicting obsolete PR must not abort the sweep; unexpected infrastructure errors still fail visibly. Verify a trusted-main recovery after merge. |
+| P0 release incident | #6109 and existing #5456 | Resolve brace-expansion/minimatch findings and expired MDX/TOML exceptions with dependency compatibility proof. PR #6106 removes undici findings; avoid rerunning unchanged security failures. |
+| P0 recovery in review | #6107 / PR #6108 | Obsolete #5970 retired; trusted-main fallback and sentinel passed. Complete repeatable PR-local isolation through required merge gates; unexpected infrastructure errors still fail visibly. |
 | P0 | #6051, existing #6105 / PR #6106 | Finish hosted mobile/theme proof and relevant gates. Use its retained screenshots/report to select actual navigation, overflow or coherence defects; do not duplicate capture tooling. |
 | P0 next slice | #6051 Research discovery cleanup | Inspect current Research hub and its existing search/filter/curated paths. Reduce competing entry points and repeated summaries only where current UI proof demonstrates a defect; preserve full citation/methodology access. |
 | P0 next slice | #6051 site-wide logical placement | Test Home → discovery → profile/guide → contextual next action at narrow phone width in both themes. Extend canonical navigation/page-role/related-discovery policies; keep Library exhaustive and stable routes intact. |
