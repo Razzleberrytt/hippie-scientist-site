@@ -10,7 +10,7 @@ describe('Explore task launchpad', () => {
 
     expect(page).toContain("action='/search/'")
     expect(page).toContain("href: '/goals/'")
-    expect(page).toContain("href: '/safety-checker/interactions/'")
+    expect(page).toContain("href: '/safety-checker/'")
     expect(page).toContain("href: '/guides/compare/'")
     expect(page).toContain("href: '/research/'")
   })
@@ -35,7 +35,7 @@ describe('Explore task launchpad', () => {
   it('keeps interaction and comparison as separate reader jobs', () => {
     const page = read('app/explore/page.tsx')
 
-    expect(page).toContain("title: 'Check an interaction'")
+    expect(page).toContain("title: 'Check a stack or interaction'")
     expect(page).toContain("title: 'Compare ingredients'")
     expect(page).toContain("title: 'Inspect research & updates'")
     expect(page).toContain("title: 'Browse by goal'")
