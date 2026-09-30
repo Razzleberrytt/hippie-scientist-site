@@ -1235,7 +1235,7 @@ export default async function CompoundPage({ params }: PageProps) {
                   kind="compound"
                   limit={6}
                   claimedHrefs={profileDecisionClaimedHrefs}
-              continuationGroups={continuationGroups}
+                  continuationGroups={continuationGroups}
                 />
               </div>
             </div>
