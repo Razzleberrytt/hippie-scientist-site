@@ -148,4 +148,23 @@ describe('SeeAlsoCluster', () => {
     expect(screen.getByText('Also in this cluster')).toBeTruthy()
   })
 
+
+  it('backfills cluster peers when an earlier decision owns a top-ranked peer', async () => {
+    await renderCluster({
+      slug: 'l-theanine',
+      kind: 'compound',
+      limit: 6,
+      claimedHrefs: ['/herbs/ashwagandha/'],
+    })
+
+    const clusterRegion = screen.getByRole('region', { name: 'Also in this cluster' })
+    const peerLinks = within(clusterRegion)
+      .getAllByRole('link')
+      .filter((link) => !/Full guide|guide →/.test(link.textContent || ''))
+
+    expect(peerLinks).toHaveLength(6)
+    expect(screen.queryByRole('link', { name: 'Ashwagandha' })).toBeNull()
+    expect(screen.getByRole('link', { name: 'Gotu Kola' })).toHaveAttribute('href', '/herbs/gotu-kola')
+  })
+
 })
