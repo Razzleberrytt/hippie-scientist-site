@@ -642,7 +642,14 @@ async function fallbackSweep() {
     const verdict = await evaluateSweepCandidate(() => evaluateOnce({ repo, number: pr.number, expectedHeadSha: pr.head.sha, controllerRunId, allowRetry: true }))
     console.log(`[fallback PR #${pr.number}] [${verdict.riskTier || 'unknown'}] ${verdict.action}: ${verdict.reason}`)
     if (verdict.action === 'merge') {
-      if (await mergeIfStillCurrent({ repo, number: pr.number, headSha: verdict.headSha, validatedBaseSha: verdict.baseSha, controllerRunId })) merged += 1
+      const mergeResult = await evaluateSweepCandidate(() =>
+        mergeIfStillCurrent({ repo, number: pr.number, headSha: verdict.headSha, validatedBaseSha: verdict.baseSha, controllerRunId })
+      )
+      if (mergeResult && typeof mergeResult === 'object' && mergeResult.action === 'blocked') {
+        console.log(`[fallback PR #${pr.number}] blocked during terminal revalidation: ${mergeResult.reason}`)
+        continue
+      }
+      if (mergeResult) merged += 1
       break
     }
     if (verdict.action === 'refresh') break
