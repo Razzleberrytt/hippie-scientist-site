@@ -28,9 +28,9 @@ const taskPaths = [
   },
   {
     eyebrow: 'Check before combining',
-    title: 'Check an interaction',
-    description: 'Review known and plausible interaction signals, contraindications, and uncertainty before combining supplements or medicines.',
-    href: '/safety-checker/interactions/',
+    title: 'Check a stack or interaction',
+    description: 'Screen supplements, herbs, compounds, and medication classes for possible interaction patterns and overlapping cautions.',
+    href: '/safety-checker/',
     icon: ShieldCheck,
   },
   {
@@ -61,7 +61,7 @@ export default function ExplorePage() {
           Know the name? Search it directly. Otherwise choose the job that matches your question and open the deeper evidence only when you need it.
         </p>
 
-        <div className='mt-6 max-w-3xl rounded-2xl border border-brand-900/10 bg-white p-3 shadow-sm sm:p-4'>
+        <div className='mt-6 max-w-3xl rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-sm sm:p-4'>
           <div className='flex items-center gap-2'>
             <span className='inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-800'>
               <FlaskConical className='h-5 w-5' aria-hidden='true' />
@@ -138,7 +138,7 @@ export default function ExplorePage() {
         </div>
       </section>
 
-      <section className='rounded-2xl border border-brand-900/10 bg-white px-5 py-4 shadow-sm sm:flex sm:items-center sm:justify-between sm:gap-6 sm:px-6' aria-labelledby='explore-library-heading'>
+      <section className='rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] px-5 py-4 shadow-sm sm:flex sm:items-center sm:justify-between sm:gap-6 sm:px-6' aria-labelledby='explore-library-heading'>
         <div className='min-w-0'>
           <p className='eyebrow-label'>Need everything?</p>
           <h2 id='explore-library-heading' className='mt-1 text-lg font-semibold text-ink'>Open the complete library</h2>
