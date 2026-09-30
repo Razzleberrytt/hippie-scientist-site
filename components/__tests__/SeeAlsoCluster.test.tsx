@@ -120,4 +120,32 @@ describe('SeeAlsoCluster', () => {
     )
   })
 
+
+  it('does not repeat continuation hrefs already claimed by the earlier decision surface', async () => {
+    await renderCluster({
+      slug: 'not-a-real-herb',
+      kind: 'herb',
+      claimedHrefs: ['/guides/claimed/'],
+      continuationGroups: [
+        {
+          title: 'Related Guides',
+          links: [
+            { href: '/guides/claimed', label: 'Claimed earlier' },
+            { href: '/guides/unique/', label: 'Unique later path' },
+          ],
+        },
+      ],
+    })
+
+    expect(screen.queryByRole('link', { name: 'Claimed earlier' })).toBeNull()
+    expect(screen.getByRole('link', { name: 'Unique later path' })).toHaveAttribute('href', '/guides/unique/')
+  })
+
+  it('lets the decision layer own an exact cluster-goal href without removing peer discovery', async () => {
+    await renderCluster({ slug: 'valerian', kind: 'herb', claimedHrefs: ['/goals/sleep/'] })
+
+    expect(screen.queryByRole('link', { name: /Sleep & Recovery guide/ })).toBeNull()
+    expect(screen.getByText('Also in this cluster')).toBeTruthy()
+  })
+
 })
