@@ -19,6 +19,8 @@ describe('compound profile continuation consolidation', () => {
     expect(compound).toContain("title: 'Related Herbs'")
     expect(compound).toContain('...internalLinkGroups')
     expect(compound).toContain('continuationGroups={continuationGroups}')
+    expect(compound).toContain('getProfileDecisionClaimedHrefs(profileDecision)')
+    expect(compound).toContain('claimedHrefs={profileDecisionClaimedHrefs}')
     expect(compound).not.toContain('<RelatedDiscoveryGroups')
     expect(compound).not.toContain('Guides that use {displayName}')
   })
