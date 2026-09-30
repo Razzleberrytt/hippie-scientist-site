@@ -6,9 +6,10 @@ import { builtinModules, isBuiltin } from 'node:module'
 const experimentalBuiltins = ['node:sqlite']
 const builtinSet = new Set([...builtinModules, ...builtinModules.map(m => `node:${m}`), ...experimentalBuiltins])
 // Packages a script may import without the repo depending on them. `playwright`
-// backs the on-demand tools in scripts/dev/, which are run by hand against a
-// dev server (`npm i --no-save playwright`) and never by the build or CI, so it
-// is deliberately absent from package.json.
+// backs browser probes in scripts/dev/. Local runs install it ad hoc, and the
+// hosted visual-proof workflow installs a pinned transient copy before executing
+// the same sweep. It remains deliberately absent from package.json because it is
+// visual-QA tooling, not a production/runtime dependency.
 const optionalProbes = new Set(['exceljs', 'glob', 'react-plotly.js', 'playwright'])
 const generatedImports = new Set(['content-collections'])
 const sourceRoots = ['app', 'components', 'src', 'lib', 'scripts', 'data', 'config']

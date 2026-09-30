@@ -183,6 +183,19 @@ export function canAutoRefreshPr(changedFiles = []) {
   return !changedFiles.some((path) => WORKFLOW_CONTROL_PATH.test(path))
 }
 
+export class PrRefreshBlockedError extends Error {}
+
+// Isolate only known PR-local blockers. Authentication, transport, and service
+// failures must still fail the controller heartbeat instead of looking healthy.
+export async function evaluateSweepCandidate(evaluate) {
+  try {
+    return await evaluate()
+  } catch (error) {
+    if (!(error instanceof PrRefreshBlockedError)) throw error
+    return { action: 'blocked', reason: error.message }
+  }
+}
+
 async function github(path, { method = 'GET', body } = {}) {
   const token = requiredEnv('GITHUB_TOKEN')
   const response = await fetch(`${API_ROOT}${path}`, {
@@ -197,7 +210,10 @@ async function github(path, { method = 'GET', body } = {}) {
   })
   if (!response.ok) {
     const text = await response.text()
-    throw new Error(`${method} ${path} failed (${response.status}): ${text.slice(0, 1000)}`)
+    const error = new Error(`${method} ${path} failed (${response.status}): ${text.slice(0, 1000)}`)
+    error.status = response.status
+    error.responseBody = text
+    throw error
   }
   if (response.status === 204) return null
   const text = await response.text()
@@ -251,10 +267,18 @@ async function retryTransientRuns(repo, runs) {
 }
 
 async function syncPrBranch(repo, number, expectedHeadSha) {
-  const result = await github(`/repos/${repo}/pulls/${number}/update-branch`, {
-    method: 'PUT',
-    body: { expected_head_sha: expectedHeadSha },
-  })
+  let result
+  try {
+    result = await github(`/repos/${repo}/pulls/${number}/update-branch`, {
+      method: 'PUT',
+      body: { expected_head_sha: expectedHeadSha },
+    })
+  } catch (error) {
+    if (error.status === 422 && /merge conflict between base and head/i.test(error.responseBody || '')) {
+      throw new PrRefreshBlockedError(`[PR #${number}] NEEDS_CLEAN_RESTAGE: merge conflict between base and head`)
+    }
+    throw error
+  }
   console.log(`Updated PR #${number} with latest base: ${result?.message || 'update accepted'}`)
   return result
 }
@@ -313,7 +337,7 @@ async function headContainsBase(repo, baseSha, headSha) {
 async function refreshPrAndDispatch({ repo, pr, workflowRuns, currentBaseSha }) {
   const changedFiles = await getPrFiles(repo, pr.number)
   if (!canAutoRefreshPr(changedFiles)) {
-    throw new Error(`[PR #${pr.number}] NEEDS_CLEAN_RESTAGE: workflow-changing PRs may not use bot-authored update-branch`)
+    throw new PrRefreshBlockedError(`[PR #${pr.number}] NEEDS_CLEAN_RESTAGE: workflow-changing PRs may not use bot-authored update-branch`)
   }
 
   let workingPr = pr
@@ -615,10 +639,17 @@ async function fallbackSweep() {
   let merged = 0
   for (const pr of payload) {
     if (pr.draft || pr.head?.repo?.full_name !== repo) continue
-    const verdict = await evaluateOnce({ repo, number: pr.number, expectedHeadSha: pr.head.sha, controllerRunId, allowRetry: true })
+    const verdict = await evaluateSweepCandidate(() => evaluateOnce({ repo, number: pr.number, expectedHeadSha: pr.head.sha, controllerRunId, allowRetry: true }))
     console.log(`[fallback PR #${pr.number}] [${verdict.riskTier || 'unknown'}] ${verdict.action}: ${verdict.reason}`)
     if (verdict.action === 'merge') {
-      if (await mergeIfStillCurrent({ repo, number: pr.number, headSha: verdict.headSha, validatedBaseSha: verdict.baseSha, controllerRunId })) merged += 1
+      const mergeResult = await evaluateSweepCandidate(() =>
+        mergeIfStillCurrent({ repo, number: pr.number, headSha: verdict.headSha, validatedBaseSha: verdict.baseSha, controllerRunId })
+      )
+      if (mergeResult && typeof mergeResult === 'object' && mergeResult.action === 'blocked') {
+        console.log(`[fallback PR #${pr.number}] blocked during terminal revalidation: ${mergeResult.reason}`)
+        continue
+      }
+      if (mergeResult) merged += 1
       break
     }
     if (verdict.action === 'refresh') break
