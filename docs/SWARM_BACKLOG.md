@@ -40,9 +40,10 @@ Use this order when selecting the next coherent slice. Hard evidence, safety, ac
 
 | Order | Candidate / existing owner | Acceptance and next action |
 |---|---|---|
-| P0 release incident | #6109 and existing #5456 | Resolve brace-expansion/minimatch findings and expired MDX/TOML exceptions with dependency compatibility proof. PR #6106 removes undici findings; avoid rerunning unchanged security failures. |
-| P0 recovery in review | #6107 / PR #6108 | Obsolete #5970 retired; trusted-main fallback and sentinel passed. Complete repeatable PR-local isolation through required merge gates; unexpected infrastructure errors still fail visibly. |
-| P0 | #6051, existing #6105 / PR #6106 | Finish hosted mobile/theme proof and relevant gates. Use its retained screenshots/report to select actual navigation, overflow or coherence defects; do not duplicate capture tooling. |
+| P0 control exception | #6112 | Stop consumer fan-out for a closed/superseded producer with fresh API proof. Current-head audits, registration proof and visible infrastructure failures remain mandatory. |
+| P1 permanent security remediation | Existing #5456 | #6109 is closed via merged #6111; permanent MDX/TOML removal remains open. Do not confuse renewed temporary build-tool containment with removal. |
+| Completed recovery | #6107 / merged PR #6108 | Obsolete #5970 retired; controller isolation merged. Current main controller/sentinel passed; actual throughput/savings still need measurement. |
+| P0 | #6051; #6105 / PR #6106 merged | Hosted mobile/theme proof and desktop menu repair are merged. Use retained screenshots/report to choose the next real navigation/coherence defect; do not duplicate capture tooling or re-promote completed proof work. |
 | P0 next slice | #6051 Research discovery cleanup | Inspect current Research hub and its existing search/filter/curated paths. Reduce competing entry points and repeated summaries only where current UI proof demonstrates a defect; preserve full citation/methodology access. |
 | P0 next slice | #6051 site-wide logical placement | Test Home → discovery → profile/guide → contextual next action at narrow phone width in both themes. Extend canonical navigation/page-role/related-discovery policies; keep Library exhaustive and stable routes intact. |
 | P1 | Practical useful features | Repair a proven missing reader action in the existing search, filters, comparison, evidence lookup or safety flow. Require an observable completed reader journey; avoid speculative feature expansion. |
@@ -57,7 +58,7 @@ At the start of a run, read the current main SHA, owned PR head/status and incid
 | Fresh search-conversion candidate | Discovery / SEO | Waiting on fresh dated page/query evidence | Use the citation→search→click report. A page must have measurable search upside; citation count alone is insufficient. |
 | Deterministic discovery defect | Discovery / SEO | Candidate feeder only | #5688 / PR #5691 is merged and retired. New discovery work requires fresh proof and explicit promotion. |
 | Revalidated conversion candidate | Revenue / Conversion | Candidate feeder only | Use current funnel/CTA evidence and existing safety/disclosure boundaries; do not infer revenue opportunity from citations alone. |
-| Revalidated evidence/safety candidate | Authority / Content | Occupied by #5706 | #5706 is the admitted CoQ10 closure. Do not start #5707, #5708, or another Authority/Content implementation concurrently. Canonical CoQ10 mutation waits for #5963's exact-main governor lease; legacy CoQ10 aliases must reconcile to the single canonical owner; #5081 remains separately blocked on its own lease. |
+| Revalidated evidence/safety candidate | Authority / Content | Available for legal admission | #5706 is merged and retired. Promote only fresh non-overlapping source-bound work; #5707/#5708 remain staging-only and #5081 remains separately blocked on its governor prerequisite. |
 
 ## Route-level winner program — 90 candidates
 

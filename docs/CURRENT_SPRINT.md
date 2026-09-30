@@ -51,9 +51,11 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 ## Active / in review — implementation WIP 1/3
 
-**2026-09-30 control recovery — #6107 / PR #6108:** Obsolete lease PR #5970 closed after confirming #5971 merged. Trusted-main fallback run `36727748877` succeeded; sentinel `36728160455` passed and closed #6107. The repeatable PR-local isolation repair remains in review in #6108, with 35 focused regressions passing. This is a temporary control exception, not a fourth normal lane. #6051 remains active; existing visual-proof PR #6106 owns its next completion slice. Follow `SWARM_BACKLOG.md`; do not create overlapping capture work.
+**2026-09-30 control exception — #6112:** Repair the obsolete CI producer fan-out race observed in runs `36743833188` and `36743401113` after merged branches were deleted. Current same-repository exact-head PR/main producers still require every relevant consumer and registration proof. Only fresh API evidence of closed/superseded targets may stop obsolete fan-out; authentication, infrastructure and current-target failures remain nonzero. Normal WIP remains 1/3, with #6051 owning Discovery/SEO. Acceptance: lifecycle/race/error regressions, workflow contracts and required hosted checks, including production export.
 
-**2026-09-30 P0 release blockers — #6109 and existing #5456:** Current security audit finds a vulnerable brace-expansion/minimatch toolchain and expired MDX/TOML exceptions. Remediate dependencies with compatibility proof; no gate weakening or expiry extension. PR #6106 now patches undici 7.29.0 → 7.29.1; lockfile audit confirms undici findings removed. The other blockers remain independent. Prioritize this release repair before more P0 feature slices and avoid repeatedly rerunning unchanged failing audit jobs.
+**Verified completion refresh:** #6108 merged as `412e19b9cd789d187fe9d3b5f1c54ff937f6178e`; #6106 merged as `882838de94cb60390bb6992f47b8cd1d67cc6341`. Security release incident #6109 was closed by #6111; permanent MDX/TOML removal remains #5456. Main deployment `36746098108`, controller `36771252705` and sentinel `36758295986` passed. These merged slices do not complete parent #6051 or prove business/quota impact.
+
+
 
 **2026-09-25 owner-directed P0 control incident — #5941:** Resolved and retired after the bounded Actions coordination repair merged via PR #5949. It no longer consumes an Operations exception or changes normal D/R/A admission.
 

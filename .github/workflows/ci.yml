@@ -517,6 +517,14 @@ jobs:
           PR_NUMBER: ${{ steps.context.outputs.pr_number }}
         run: |
           set -euo pipefail
+          stop_if_obsolete() {
+            target_status="$(node scripts/ci/governed-consumer-target.mjs)"
+            if [ "$target_status" = 'obsolete' ]; then
+              echo "Producer $SOURCE_SHA is obsolete; no further consumer fan-out is needed." | tee -a "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+          }
+          stop_if_obsolete
           dispatch_epoch="$(date -u +%s)"
           payload="$(jq -nc \
             --arg ref "$HEAD_REF" \
@@ -561,7 +569,11 @@ jobs:
             else
               dispatch_payload="$payload"
             fi
-            printf '%s' "$dispatch_payload" | gh api --method POST "repos/${{ github.repository }}/actions/workflows/$workflow/dispatches" --input -
+            target_status="$(WORKFLOW="$workflow" DISPATCH_PAYLOAD="$dispatch_payload" node scripts/ci/governed-consumer-target.mjs dispatch)"
+            if [ "$target_status" = 'obsolete' ]; then
+              echo "Producer $SOURCE_SHA became obsolete during dispatch; stopping fan-out." | tee -a "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
             echo "Dispatched $workflow for exact head $SOURCE_SHA"
           done
 
@@ -571,6 +583,7 @@ jobs:
           # consumers to become terminal before merging.
           for workflow in "${consumers[@]}"; do
             registered_run=""
+            stop_if_obsolete
             for attempt in $(seq 1 20); do
               runs_json="$(gh api --method GET "repos/${{ github.repository }}/actions/workflows/$workflow/runs" \
                 -f event=workflow_dispatch \
@@ -593,6 +606,7 @@ jobs:
               sleep 2
             done
             if [ -z "$registered_run" ]; then
+              stop_if_obsolete
               echo "Consumer dispatch failed to register within 40 seconds: $workflow for $SOURCE_SHA"
               exit 1
             fi
