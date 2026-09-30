@@ -1,7 +1,7 @@
 # Site Swarm — Extensive Backlog Inventory
 
 **Status:** Durable candidate feeder; not direct execution authority  
-**Updated:** 2026-09-20  
+**Updated:** 2026-09-30  
 **Current citation snapshot:** 2026-09-17 — 29,591 Bing AI citations across 133 cited URLs  
 **Execution authority:** `docs/CURRENT_SPRINT.md` only  
 **Ranked feeder:** `docs/MASTER_BACKLOG.md`  
@@ -32,7 +32,24 @@ The legacy `backlog/master_backlog.csv.xz.b64` seed is corrupt and the historica
 
 The older #5608–#5612 refill cycle is completed/retired and must not be re-promoted from this feeder.
 
-**Active promoted Authority/Content item:** #5706 owns the bounded CoQ10 endpoint-discordance and canonical-identity closure after exact-base scored admission on `666375c6db9dae6ebd0b24d781f603d1b5b94128`. #5963 is the required state-only CoQ10 lease transaction and does not create another implementation slot. Canonical ownership is `compound:coenzyme-q10` / `wp_compound_coenzyme_q10`; legacy `coq10` and `coenzyme-q10-ubiquinol` identities must not create parallel evidence owners. #5707 and #5708 remain staging-only; #5081 remains blocked on its separate governor prerequisite.
+**Reconciled 2026-09-30:** #5706 / PR #5971 is merged and retired; obsolete lease PR #5970 is closed. #6056 / PR #6066 and #4989 / PR #6060 are also retired. #6051 remains the active Discovery/SEO P0; continue its existing PR #6106 before creating overlapping visual-proof work. #5707 and #5708 remain staging-only; #5081 remains blocked on its separate governor prerequisite.
+
+### Owner-directed priority order and bounded refill
+
+Use this order when selecting the next coherent slice. Hard evidence, safety, accessibility, performance, static-export and stable-URL constraints override every score. Reuse existing components and pipelines. Each promotion requires fresh implementation/PR overlap checks, observable acceptance criteria, the single master score, and sprint admission.
+
+| Order | Candidate / existing owner | Acceptance and next action |
+|---|---|---|
+| P0 incident | #6107 controller recovery | A conflicting obsolete PR must not abort the sweep; unexpected infrastructure errors still fail visibly. Verify a trusted-main recovery after merge. |
+| P0 | #6051, existing #6105 / PR #6106 | Finish hosted mobile/theme proof and relevant gates. Use its retained screenshots/report to select actual navigation, overflow or coherence defects; do not duplicate capture tooling. |
+| P0 next slice | #6051 Research discovery cleanup | Inspect current Research hub and its existing search/filter/curated paths. Reduce competing entry points and repeated summaries only where current UI proof demonstrates a defect; preserve full citation/methodology access. |
+| P0 next slice | #6051 site-wide logical placement | Test Home → discovery → profile/guide → contextual next action at narrow phone width in both themes. Extend canonical navigation/page-role/related-discovery policies; keep Library exhaustive and stable routes intact. |
+| P1 | Practical useful features | Repair a proven missing reader action in the existing search, filters, comparison, evidence lookup or safety flow. Require an observable completed reader journey; avoid speculative feature expansion. |
+| P1 | Indexing/discovery recovery | Prioritize fresh page/query-supported opportunity or deterministic canonical/link/sitemap defects. Preserve publication holds and never infer demand from citation totals. |
+| P1 hard gate | Evidence/citation integrity | Prioritize actual contamination, missing receipt, retraction or source-identity defects. Use canonical source review and governor lease requirements; #5081 stays blocked until its prerequisite passes. |
+| P1 | Build/CI friction and high-ROI bugs | Repair repeatable failures from current logs first, including security audit blockers. Preserve quality gates; measure saved job time only after comparable runs exist. |
+
+At the start of a run, read the current main SHA, owned PR head/status and incident state once. Re-fetch full artifacts only when those change. If no legal candidate exists, record the concrete blocker and stop without repeated no-op audits. Refill immediately after terminal completion, within the existing three-workstream cap; an empty lane never authorizes duplicated or speculative work.
 
 | Candidate | Workstream | State | Promotion proof |
 |---|---|---|---|

@@ -49,7 +49,9 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 2/3
+## Active / in review — implementation WIP 1/3
+
+**2026-09-30 control incident — #6107:** Bounded recovery repair in progress. The fallback controller repeatedly aborts on obsolete lease PR #5970's update-branch merge conflict (run `36718436812`); #5970 is now closed after confirming #5971 merged. Isolate known PR-local restage blockers while preserving visible infrastructure failures and every merge gate. This incident is a temporary control exception, not a fourth normal lane. #6051 remains active; existing visual-proof PR #6106 owns the next P0 completion slice. Follow the reconciled priority/refill order in `SWARM_BACKLOG.md`; do not create overlapping capture work.
 
 **2026-09-25 owner-directed P0 control incident — #5941:** Resolved and retired after the bounded Actions coordination repair merged via PR #5949. It no longer consumes an Operations exception or changes normal D/R/A admission.
 
