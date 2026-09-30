@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { buildProfileDecision } from '../profile-decision'
+import { buildProfileDecision, getProfileDecisionClaimedHrefs } from '../profile-decision'
 
 describe('buildProfileDecision runtime summary', () => {
   it('derives evidence, safety, and context from existing runtime fields when no curated verdict exists', () => {
@@ -78,5 +78,22 @@ describe('buildProfileDecision runtime summary', () => {
       goTo: 'All compounds',
       href: '/compounds/',
     })
+  })
+
+  it('exposes decision-owned destinations for downstream exploration dedupe', () => {
+    const decision = buildProfileDecision({
+      slug: 'ashwagandha',
+      effects: ['sleep support', 'stress support', 'focus'],
+    }, 'herb')
+
+    const claimed = getProfileDecisionClaimedHrefs(decision)
+
+    expect(claimed).toContain('/compounds/l-theanine/')
+    expect(claimed).toContain('/guides/anxiety/ashwagandha-for-anxiety/')
+    expect(claimed).toContain('/guides/sleep/')
+    expect(claimed).toContain('/guides/anxiety/')
+    expect(claimed).toContain('/guides/focus/')
+    expect(claimed).toContain('/herbs/')
+    expect(new Set(claimed.map((href) => href.replace(/\/+$/, ''))).size).toBe(claimed.length)
   })
 })
