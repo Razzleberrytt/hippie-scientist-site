@@ -137,7 +137,6 @@ export default async function SeeAlsoCluster({
   continuationGroups = [],
   claimedHrefs: priorClaimedHrefs = [],
 }: SeeAlsoClusterProps) {
-  const seeAlso = getClusterSeeAlso(slug, kind, limit)
   const clusters = getEntityClusters(slug, kind)
   const priorClaimedHrefKeys = new Set(
     priorClaimedHrefs.map(normalizeContinuationHref).filter(Boolean),
@@ -167,15 +166,24 @@ export default async function SeeAlsoCluster({
     relatedMatches.map((match) => normalizeContinuationHref(`/herbs/${match.record.slug}/`)),
   )
 
+  // Ownership filtering can remove top-ranked peers after getClusterSeeAlso
+  // applies its cap. Overfetch by the maximum number of known exclusions, then
+  // filter and re-apply the requested limit so unique peers backfill the slots.
+  const seeAlso = getClusterSeeAlso(
+    slug,
+    kind,
+    limit + priorClaimedHrefKeys.size + botanicalHrefKeys.size,
+  )
+    .filter((entry) => !botanicalHrefKeys.has(normalizeContinuationHref(entry.href)))
+    .filter((entry) => !priorClaimedHrefKeys.has(normalizeContinuationHref(entry.href)))
+    .slice(0, limit)
+
   const grouped: GroupedEntry[] = clusters
     .map((cluster) => ({
       clusterId: cluster.id,
       clusterLabel: cluster.label,
       clusterGoalHref: `/goals/${cluster.goalSlug}`,
-      entries: seeAlso
-        .filter((entry) => entry.cluster === cluster.id)
-        .filter((entry) => !botanicalHrefKeys.has(normalizeContinuationHref(entry.href)))
-        .filter((entry) => !priorClaimedHrefKeys.has(normalizeContinuationHref(entry.href))),
+      entries: seeAlso.filter((entry) => entry.cluster === cluster.id),
     }))
     .filter((group) => group.entries.length > 0)
 
