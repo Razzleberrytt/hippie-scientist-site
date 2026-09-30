@@ -53,4 +53,10 @@ describe('hosted visual proof governance', () => {
     expect(dependencyGuard).toContain("optionalProbes = new Set(['exceljs', 'glob', 'react-plotly.js', 'playwright'])")
     expect(dependencyGuard).toContain('hosted visual-proof workflow installs a pinned transient copy')
   })
+
+  it('retains Explore in the representative mobile proof journey', () => {
+    expect(sweep).toContain("'/', '/start/', '/explore/', '/library/'")
+    expect(sweep).toContain("'/', '/start/', '/explore/', '/guides/'")
+  })
+
 })
