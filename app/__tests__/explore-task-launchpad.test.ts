@@ -37,7 +37,17 @@ describe('Explore task launchpad', () => {
 
     expect(page).toContain("title: 'Check an interaction'")
     expect(page).toContain("title: 'Compare ingredients'")
-    expect(page).toContain("title: 'Inspect the research'")
+    expect(page).toContain("title: 'Inspect research & updates'")
     expect(page).toContain("title: 'Browse by goal'")
   })
+
+  it('uses one compact task list instead of a wall of equal cards', () => {
+    const page = read('app/explore/page.tsx')
+
+    expect(page).toContain("divide-y divide-brand-900/10")
+    expect(page).toContain("min-h-24")
+    expect(page).not.toContain("min-h-[12rem]")
+    expect(page).toContain('see what changed')
+  })
+
 })
