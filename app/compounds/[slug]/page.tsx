@@ -44,7 +44,7 @@ import SafetyCautionLevel, { safetyFactorsForRecord } from '@/components/ui/Safe
 import { getSafetySensitivity } from '@/lib/safety-classification'
 import EvidenceBackingNote from '@/components/ui/EvidenceBackingNote'
 import ProfileDecisionPanel from '@/components/editorial/ProfileDecisionPanel'
-import { buildProfileDecision } from '@/lib/profile-decision'
+import { buildProfileDecision, getProfileDecisionClaimedHrefs } from '@/lib/profile-decision'
 import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
 import ShowMeTheStudies from '@/components/ui/ShowMeTheStudies'
 import EvidenceGradeRationale from '@/components/education/EvidenceGradeRationale'
@@ -704,6 +704,7 @@ export default async function CompoundPage({ params }: PageProps) {
 
   const displayName = formatDisplayLabel(compound.name || compound.slug)
   const profileDecision = buildProfileDecision(compound as Record<string, unknown>, 'compound')
+  const profileDecisionClaimedHrefs = getProfileDecisionClaimedHrefs(profileDecision)
   const quickSummary = firstSentences(summary, 1) || 'Compound profile with safety, mechanism, and fit context.'
   const timeline = getTimeline(compound)
   const avoidIf = getAvoidIf(compound)
@@ -1233,6 +1234,7 @@ export default async function CompoundPage({ params }: PageProps) {
                   slug={normalizedSlug}
                   kind="compound"
                   limit={6}
+                  claimedHrefs={profileDecisionClaimedHrefs}
                   continuationGroups={continuationGroups}
                 />
               </div>

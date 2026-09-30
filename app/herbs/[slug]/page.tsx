@@ -41,7 +41,7 @@ import ProfileSafetyLine from '@/components/ui/ProfileSafetyLine'
 import EvidenceBackingNote from '@/components/ui/EvidenceBackingNote'
 import ProfileEvidenceLens from '@/components/ui/ProfileEvidenceLens'
 import ProfileDecisionPanel from '@/components/editorial/ProfileDecisionPanel'
-import { buildProfileDecision } from '@/lib/profile-decision'
+import { buildProfileDecision, getProfileDecisionClaimedHrefs } from '@/lib/profile-decision'
 import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
 import ShowMeTheStudies from '@/components/ui/ShowMeTheStudies'
 import EvidenceGradeRationale from '@/components/education/EvidenceGradeRationale'
@@ -363,6 +363,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const evidenceLimitations = deriveEvidenceLimitations({ profile: herb })
   const topUses = getTopUses(herb)
   const profileDecision = buildProfileDecision(herbRecord as Record<string, unknown>, 'herb')
+  const profileDecisionClaimedHrefs = getProfileDecisionClaimedHrefs(profileDecision)
   const safetyTone = getSafetyTone(safetySummary, avoidIf, safetySensitivity)
   const safetyFactors = safetyFactorsForRecord(herb as unknown as Record<string, unknown>)
   const relatedHerbLinks = getRelatedLinks(relatedHerbs, 'herb')
@@ -862,6 +863,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
               slug={normalizedSlug}
               kind="herb"
               limit={6}
+              claimedHrefs={profileDecisionClaimedHrefs}
               continuationGroups={continuationGroups}
             />
           </div>

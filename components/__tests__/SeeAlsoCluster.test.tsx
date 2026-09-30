@@ -120,4 +120,51 @@ describe('SeeAlsoCluster', () => {
     )
   })
 
+
+  it('does not repeat continuation hrefs already claimed by the earlier decision surface', async () => {
+    await renderCluster({
+      slug: 'not-a-real-herb',
+      kind: 'herb',
+      claimedHrefs: ['/guides/claimed/'],
+      continuationGroups: [
+        {
+          title: 'Related Guides',
+          links: [
+            { href: '/guides/claimed', label: 'Claimed earlier' },
+            { href: '/guides/unique/', label: 'Unique later path' },
+          ],
+        },
+      ],
+    })
+
+    expect(screen.queryByRole('link', { name: 'Claimed earlier' })).toBeNull()
+    expect(screen.getByRole('link', { name: 'Unique later path' })).toHaveAttribute('href', '/guides/unique/')
+  })
+
+  it('lets the decision layer own an exact cluster-goal href without removing peer discovery', async () => {
+    await renderCluster({ slug: 'valerian', kind: 'herb', claimedHrefs: ['/goals/sleep/'] })
+
+    expect(screen.queryByRole('link', { name: /Sleep & Recovery guide/ })).toBeNull()
+    expect(screen.getByText('Also in this cluster')).toBeTruthy()
+  })
+
+
+  it('backfills cluster peers when an earlier decision owns a top-ranked peer', async () => {
+    await renderCluster({
+      slug: 'l-theanine',
+      kind: 'compound',
+      limit: 6,
+      claimedHrefs: ['/herbs/ashwagandha/'],
+    })
+
+    const clusterRegion = screen.getByRole('region', { name: 'Also in this cluster' })
+    const peerLinks = within(clusterRegion)
+      .getAllByRole('link')
+      .filter((link) => !/Full guide|guide →/.test(link.textContent || ''))
+
+    expect(peerLinks).toHaveLength(6)
+    expect(screen.queryByRole('link', { name: 'Ashwagandha' })).toBeNull()
+    expect(screen.getByRole('link', { name: 'Gotu Kola' })).toHaveAttribute('href', '/herbs/gotu-kola')
+  })
+
 })
