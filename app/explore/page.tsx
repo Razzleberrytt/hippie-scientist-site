@@ -42,8 +42,8 @@ const taskPaths = [
   },
   {
     eyebrow: 'Trace the evidence',
-    title: 'Inspect the research',
-    description: 'Find studies, check evidence strength, review methodology, and trace claims back to their sources.',
+    title: 'Inspect research & updates',
+    description: 'Find studies, check evidence strength, see what changed, review methodology, and trace claims back to their sources.',
     href: '/research/',
     icon: Microscope,
   },
@@ -111,23 +111,26 @@ export default function ExplorePage() {
           </p>
         </div>
 
-        <div className='mt-5 grid gap-3 sm:grid-cols-2'>
+        <div className='mt-5 overflow-hidden rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] shadow-sm divide-y divide-brand-900/10'>
           {taskPaths.map((path) => {
             const Icon = path.icon
             return (
               <Link
                 key={path.href}
                 href={path.href}
-                className='card-premium group flex min-h-[12rem] flex-col p-5 transition hover:-translate-y-0.5 hover:border-brand-700/25 hover:bg-brand-50/30 sm:p-6'
+                className='group grid min-h-24 grid-cols-[2.75rem_minmax(0,1fr)_1.25rem] items-center gap-3 px-4 py-4 transition hover:bg-brand-50/30 sm:grid-cols-[3rem_minmax(0,1fr)_auto] sm:gap-4 sm:px-5'
               >
-                <span className='inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-50 text-brand-800'>
+                <span className='inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-brand-800'>
                   <Icon className='h-5 w-5' aria-hidden='true' />
                 </span>
-                <p className='eyebrow-label mt-4'>{path.eyebrow}</p>
-                <h3 className='mt-2 text-xl font-semibold tracking-tight text-ink'>{path.title}</h3>
-                <p className='mt-2 text-sm leading-6 text-muted'>{path.description}</p>
-                <span className='mt-auto inline-flex items-center gap-2 pt-4 text-sm font-bold text-brand-700'>
-                  Open <ArrowRight className='h-4 w-4 transition-transform group-hover:translate-x-1' aria-hidden='true' />
+                <span className='min-w-0'>
+                  <span className='eyebrow-label block'>{path.eyebrow}</span>
+                  <span className='mt-1 block text-base font-semibold tracking-tight text-ink sm:text-lg'>{path.title}</span>
+                  <span className='mt-1 block text-xs leading-5 text-muted sm:text-sm sm:leading-6'>{path.description}</span>
+                </span>
+                <span className='inline-flex items-center gap-2 text-sm font-bold text-brand-700'>
+                  <span className='hidden sm:inline'>Open</span>
+                  <ArrowRight className='h-4 w-4 transition-transform group-hover:translate-x-1' aria-hidden='true' />
                 </span>
               </Link>
             )
