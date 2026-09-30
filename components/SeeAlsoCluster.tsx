@@ -39,6 +39,8 @@ type SeeAlsoClusterProps = {
   className?: string
   /** Additional page-level continuation paths, deduped against the links this component already owns. */
   continuationGroups?: ContinuationGroup[]
+  /** Destinations already rendered by an earlier decision surface. */
+  claimedHrefs?: string[]
 }
 
 const HERB_SOURCE_ALIASES: Record<string, string> = {
@@ -56,15 +58,20 @@ function meaningfulReasons(match: RelatedBotanicalMatch) {
   return (preferred.length ? preferred : fallback).slice(0, 2)
 }
 
-function toTrackedMatches(sourceSlug: string, matches: RelatedBotanicalMatch[]) {
+function toTrackedMatches(
+  sourceSlug: string,
+  matches: RelatedBotanicalMatch[],
+  claimedHrefKeys: Set<string> = new Set(),
+) {
   return matches.map((match) => {
     const comparisonSlug = getValidComparisonSlug(sourceSlug, match.record.slug)
+    const compareHref = comparisonSlug ? `/guides/compare/${comparisonSlug}/` : undefined
     return {
       slug: match.record.slug,
       name: match.record.name,
       scientificName: match.record.scientificName,
       score: match.score,
-      compareHref: comparisonSlug ? `/guides/compare/${comparisonSlug}/` : undefined,
+      compareHref: compareHref && !claimedHrefKeys.has(normalizeContinuationHref(compareHref)) ? compareHref : undefined,
       reasons: meaningfulReasons(match).map((reason) => ({
         type: reason.type,
         label: reason.label,
@@ -128,9 +135,13 @@ export default async function SeeAlsoCluster({
   limit = 6,
   className,
   continuationGroups = [],
+  claimedHrefs: priorClaimedHrefs = [],
 }: SeeAlsoClusterProps) {
   const seeAlso = getClusterSeeAlso(slug, kind, limit)
   const clusters = getEntityClusters(slug, kind)
+  const priorClaimedHrefKeys = new Set(
+    priorClaimedHrefs.map(normalizeContinuationHref).filter(Boolean),
+  )
 
   let relatedMatches: RelatedBotanicalMatch[] = []
   let relatedSourceSlug = slug
@@ -138,7 +149,11 @@ export default async function SeeAlsoCluster({
     const atlasRecords: BotanicalAtlasRecord[] = await getBotanicalAtlasRecords()
     relatedSourceSlug = HERB_SOURCE_ALIASES[slug] ?? slug
     const source = atlasRecords.find((record: BotanicalAtlasRecord) => record.slug === relatedSourceSlug)
-    if (source) relatedMatches = getRelatedBotanicals(source, atlasRecords, 3)
+    if (source) {
+      relatedMatches = getRelatedBotanicals(source, atlasRecords, 3).filter(
+        (match) => !priorClaimedHrefKeys.has(normalizeContinuationHref(`/herbs/${match.record.slug}/`)),
+      )
+    }
   }
 
   type GroupedEntry = {
@@ -159,11 +174,13 @@ export default async function SeeAlsoCluster({
       clusterGoalHref: `/goals/${cluster.goalSlug}`,
       entries: seeAlso
         .filter((entry) => entry.cluster === cluster.id)
-        .filter((entry) => !botanicalHrefKeys.has(normalizeContinuationHref(entry.href))),
+        .filter((entry) => !botanicalHrefKeys.has(normalizeContinuationHref(entry.href)))
+        .filter((entry) => !priorClaimedHrefKeys.has(normalizeContinuationHref(entry.href))),
     }))
     .filter((group) => group.entries.length > 0)
 
   const claimedHrefs = new Set<string>([
+    ...priorClaimedHrefs,
     ...relatedMatches.map((match) => `/herbs/${match.record.slug}/`),
     ...grouped.flatMap((group) => group.entries.map((entry) => entry.href)),
     ...grouped.map((group) => group.clusterGoalHref),
@@ -178,7 +195,10 @@ export default async function SeeAlsoCluster({
   return (
     <div className={`space-y-4 ${className ?? ''}`}>
       {relatedMatches.length > 0 ? (
-        <RelatedBotanicalsTracked sourceSlug={relatedSourceSlug} matches={toTrackedMatches(relatedSourceSlug, relatedMatches)} />
+        <RelatedBotanicalsTracked
+          sourceSlug={relatedSourceSlug}
+          matches={toTrackedMatches(relatedSourceSlug, relatedMatches, priorClaimedHrefKeys)}
+        />
       ) : null}
 
       {grouped.length > 0 ? (
@@ -190,7 +210,7 @@ export default async function SeeAlsoCluster({
             <p id="see-also-cluster-heading" className="hs-label">
               Also in this cluster
             </p>
-            {grouped.length === 1 ? (
+            {grouped.length === 1 && !priorClaimedHrefKeys.has(normalizeContinuationHref(grouped[0].clusterGoalHref)) ? (
               <Link href={grouped[0].clusterGoalHref} prefetch={false} className={guideLinkClass}>
                 {grouped[0].clusterLabel} guide →
               </Link>
@@ -205,9 +225,11 @@ export default async function SeeAlsoCluster({
                     <p className="text-xs font-semibold uppercase tracking-wider text-[color:var(--hs-body)]">
                       {group.clusterLabel}
                     </p>
-                    <Link href={group.clusterGoalHref} prefetch={false} className={guideLinkClass}>
-                      Full guide →
-                    </Link>
+                    {!priorClaimedHrefKeys.has(normalizeContinuationHref(group.clusterGoalHref)) ? (
+                      <Link href={group.clusterGoalHref} prefetch={false} className={guideLinkClass}>
+                        Full guide →
+                      </Link>
+                    ) : null}
                   </div>
                 ) : null}
 
