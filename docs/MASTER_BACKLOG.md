@@ -46,6 +46,10 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
+**2026-09-30 P0 recovery #6107 / PR #6108:** trusted-main fallback `36727748877` passed after obsolete lease PR #5970 closed; sentinel `36728160455` closed #6107. Repeatable sweep isolation remains in review with 35 passing focused tests; infrastructure failures stay visible. Temporary control exception; #6051 still owns Discovery/SEO. Continue existing PR #6106 before overlapping proof work.
+
+**P0 release repair #6109 + existing #5456:** security audit blocks release on brace-expansion/minimatch dependency paths and expired MDX/TOML exceptions. Freshness: lockfile audit verified 2026-09-30. Hard security gate overrides numeric score. Acceptance: compatible dependency remediation, clean install, audit, relevant lint/content tests and production export; no exception broadening. PR #6106's narrow undici 7.29.1 repair removes that independent finding; other security debt remains. Durable prioritized refill and bounded no-change behavior are in `SWARM_BACKLOG.md`.
+
 **2026-09-25 P0 #5941 — Resolved:** bounded Actions coordination repair merged via PR #5949 and no longer consumes an Operations exception or changes normal D/R/A admission.
 
 Current review state: **1/3 normal implementation workstreams occupied**. Owner-directed P0 #6051 owns Discovery/SEO until completion, block, or explicit displacement. #6056 / PR #6066, #4989 / PR #6060, and #4987 / PR #6057 are merged/retired. Authority/Content and Revenue/Conversion remain free for legal non-overlapping admission. #6047 / PR #6050, #6041 / PR #6044, #6035 / PR #6038, #6031 / PR #6033, #6024 / PR #6028, #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5706 / PR #5971 are retired; #5081 remains separately blocked on its own lease.
