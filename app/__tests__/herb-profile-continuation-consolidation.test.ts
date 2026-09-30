@@ -54,7 +54,7 @@ describe('herb profile continuation consolidation', () => {
   it('updates the THS-011 contract to recognize the shared continuation container', () => {
     expect(experience).toContain("const seeAlsoCluster = read('components/SeeAlsoCluster.tsx')")
     expect(experience).toContain("continuationGroups={continuationGroups}")
-    expect(experience).toContain("includesAll(seeAlsoCluster, ['RelatedDiscoveryGroups', 'continuationGroups', 'dedupeContinuationGroups'])")
+    expect(experience).toContain("includesAll(seeAlsoCluster, ['RelatedDiscoveryGroups', 'continuationGroups', 'dedupeContinuationGroups', 'claimedHrefs'])")
   })
 
   it('keeps both profile families on the shared continuation architecture and discovery defaults stable', () => {
