@@ -173,3 +173,33 @@ export function buildProfileDecision(record: LooseRecord, kind: 'herb' | 'compou
 
   return { verdict, runtimeSummary, continueReading }
 }
+
+function normalizeDecisionHref(value: string) {
+  const trimmed = value.trim()
+  if (!trimmed) return ''
+  if (trimmed === '/') return '/'
+  return trimmed.replace(/\/+$/, '')
+}
+
+/**
+ * Hrefs already rendered by the answer-first decision surface. Later profile
+ * exploration uses this list as an ownership boundary so it does not repeat
+ * the same destination under a second navigation module.
+ */
+export function getProfileDecisionClaimedHrefs(decision: ProfileDecision): string[] {
+  const candidates = [
+    decision.verdict?.betterAlternative?.href,
+    decision.verdict?.primaryGuide?.href,
+    ...(decision.verdict?.comparisons ?? []).map((comparison) => comparison.href),
+    ...decision.continueReading.map((path) => path.href),
+  ]
+
+  const seen = new Set<string>()
+  return candidates.filter((href): href is string => {
+    if (!href) return false
+    const key = normalizeDecisionHref(href)
+    if (!key || seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+}
