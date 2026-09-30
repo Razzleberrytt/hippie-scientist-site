@@ -4,8 +4,9 @@
  * It retains desktop-light screenshots for every route and mobile light/dark
  * screenshots for the representative P0 journey below.
  *
- * Not wired into CI: it needs a browser, and this repo already runs a
- * production build, fast-ui-check, and Lighthouse per PR. Run it on demand.
+ * Hosted visual proof runs this exact sweep through
+ * .github/workflows/visual-proof.yml using a transient pinned Playwright
+ * install. It remains directly runnable for local before/after review.
  *
  *   npm run dev
  *   npm i --no-save playwright && node scripts/dev/visual-sweep.mjs before
@@ -84,4 +85,4 @@ console.log(`horizontal overflow: ${over.length}`)
 console.log(`theme mismatches: ${themeMismatches.length}`)
 console.log(`screenshots: ${report.filter((r) => r.screenshot).length}`)
 for (const o of over.slice(0, 12)) console.log(`  ${o.route} @${o.w} ${o.theme}: +${o.overflow}px`)
-if (themeMismatches.length) process.exitCode = 1
+if (errs.length || over.length || themeMismatches.length) process.exitCode = 1

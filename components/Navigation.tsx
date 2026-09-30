@@ -240,8 +240,8 @@ export function Navigation({ mobileUtilitySlot }: { mobileUtilitySlot?: ReactNod
 
                   {hasChildren ? (
                     <div
-                      className={`invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition duration-150 ease-out group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 ${
-                        isMegaMenu ? menuWidth : 'w-80'
+                      className={`invisible absolute top-full z-50 pt-3 opacity-0 transition duration-150 ease-out group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 ${
+                        isMegaMenu ? `right-0 ${menuWidth}` : 'left-1/2 w-80 -translate-x-1/2'
                       }`}
                     >
                       <div className={`overflow-hidden rounded-3xl border border-[var(--border-soft)] bg-[var(--surface-elevated)] shadow-[0_24px_56px_-34px_rgba(29,29,31,0.34)] ring-1 ring-white/50 dark:shadow-[0_28px_64px_-34px_rgba(0,0,0,0.78)] dark:ring-white/5 ${isMegaMenu ? `grid ${menuGrid} gap-2 p-3` : 'p-2'}`}>
