@@ -1,0 +1,43 @@
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
+import { describe, expect, it } from 'vitest'
+
+const read = (path: string) => readFileSync(resolve(process.cwd(), path), 'utf8')
+
+describe('Explore task launchpad', () => {
+  it('keeps one direct entity lookup and four distinct evidence tasks', () => {
+    const page = read('app/explore/page.tsx')
+
+    expect(page).toContain("action='/search/'")
+    expect(page).toContain("href: '/goals/'")
+    expect(page).toContain("href: '/safety-checker/interactions/'")
+    expect(page).toContain("href: '/guides/compare/'")
+    expect(page).toContain("href: '/research/'")
+  })
+
+  it('reuses existing entity libraries instead of creating another index', () => {
+    const page = read('app/explore/page.tsx')
+
+    expect(page).toContain("href='/herbs/'")
+    expect(page).toContain("href='/compounds/'")
+    expect(page).not.toContain('ExploreClient')
+    expect(page).not.toContain('buildSearchIndex')
+  })
+
+  it('keeps the exhaustive library visually and structurally secondary', () => {
+    const page = read('app/explore/page.tsx')
+
+    expect(page).toContain('Need everything?')
+    expect(page).toContain("href='/library/'")
+    expect(page).toContain('Use the exhaustive directory when you already know')
+  })
+
+  it('keeps interaction and comparison as separate reader jobs', () => {
+    const page = read('app/explore/page.tsx')
+
+    expect(page).toContain("title: 'Check an interaction'")
+    expect(page).toContain("title: 'Compare ingredients'")
+    expect(page).toContain("title: 'Inspect the research'")
+    expect(page).toContain("title: 'Browse by goal'")
+  })
+})
