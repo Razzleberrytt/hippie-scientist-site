@@ -58,7 +58,7 @@ const nextSteps = [
 
 export default function MetabolicHealthGoalPage() {
   return (
-    <main className="container-page space-y-10 py-10">
+    <div className="container-page space-y-10 py-10">
       <SchemaOrg schema={breadcrumbs} />
 
       <nav aria-label="Breadcrumb" className="text-sm text-muted">
@@ -99,6 +99,6 @@ export default function MetabolicHealthGoalPage() {
       </section>
 
       <Disclaimer />
-    </main>
+    </div>
   )
 }

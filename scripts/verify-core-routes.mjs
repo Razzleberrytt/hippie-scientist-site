@@ -80,7 +80,7 @@ const routeContentExpectations = [
   },
   {
     route: '/research',
-    required: ['Follow the evidence all the way back to the research.', 'Search the complete citation index'],
+    required: ['What are you trying to verify?', 'Four jobs, four clear destinations.'],
     forbidden: [LOADING_SENTINEL],
   },
   {
@@ -95,7 +95,7 @@ const routeContentExpectations = [
   },
   {
     route: '/guides',
-    required: ['Evidence Library', 'Browse the reference databases'],
+    required: ['Browse by health topic', 'Make a supplement or substance decision'],
     forbidden: [LOADING_SENTINEL, 'Find the right supplement path for your goals.'],
   },
 ]

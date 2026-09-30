@@ -136,7 +136,7 @@ export default function HerbsGuideIndex() {
   return (
     <div className="mx-auto max-w-6xl space-y-10 px-4 pb-24 pt-8 sm:pt-10">
       <SchemaGraphScript graph={schemaGraph} />
-      <nav className="text-xs text-muted">
+      <nav aria-label="Breadcrumb" className="text-xs text-muted">
         <Link href="/guides/" className="hover:text-ink">Guides</Link>
         <span className="mx-1.5">/</span>
         <span className="font-medium text-ink">Herb Profiles</span>

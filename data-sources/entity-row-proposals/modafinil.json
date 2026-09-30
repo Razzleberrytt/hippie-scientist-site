@@ -1,0 +1,15 @@
+{
+  "entity_type": "compound",
+  "slug": "modafinil",
+  "name": "Modafinil",
+  "summary": "Modafinil is a wake-promoting prescription medication used in the United States for excessive sleepiness associated with narcolepsy, obstructive sleep apnea, and shift work disorder. This profile remains research-only while indication-specific efficacy, serious-rash and hypersensitivity, psychiatric, cardiovascular, interaction, abuse/dependence, and regulatory evidence is assembled and reviewed.",
+  "description": "Canonical modafinil entity for evidence and safety integration. Publication remains held until narcolepsy, obstructive-sleep-apnea, and shift-work evidence is kept indication-specific and serious-rash, psychiatric, cardiovascular, reproductive-interaction, controlled-substance, and regulatory provenance passes the site’s review gates.",
+  "primary_effects_or_targets": "wake-promoting central nervous system activity; dopamine-transporter-related signaling",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only",
+  "controlled_substance": true,
+  "legal_status": "U.S. Schedule IV controlled substance",
+  "allow_restricted_reference_export": true,
+  "safety_notes": "Current U.S. prescribing information warns about serious rash including Stevens-Johnson syndrome, angioedema/anaphylaxis and multi-organ hypersensitivity, persistent sleepiness, psychiatric symptoms, and cardiovascular events. Modafinil can reduce steroidal-contraceptive effectiveness during treatment and for one month after discontinuation, and it is a Schedule IV controlled substance. In obstructive sleep apnea it treats excessive sleepiness, not the underlying obstruction. This summary is not exhaustive; consult current product-specific prescribing information."
+}

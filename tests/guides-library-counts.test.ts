@@ -7,13 +7,14 @@ function read(relativePath: string) {
 }
 
 describe('guides library inventory semantics', () => {
-  it('does not present raw source inventory as public library totals', () => {
+  it('keeps ingredient inventory separate from the guide hub', () => {
     const guidesPage = read('app/guides/page.tsx')
 
     expect(guidesPage).not.toContain("import buildReport from '@/public/data/build-report.json'")
     expect(guidesPage).not.toContain('{counts.herbs}')
     expect(guidesPage).not.toContain('{counts.compounds}')
-    expect(guidesPage).toContain('Browse the published herb and compound libraries')
-    expect(guidesPage).toContain('keep source inventory separate from what readers can actually browse')
+    expect(guidesPage).toContain('Look up an ingredient')
+    expect(guidesPage).toContain('Use the herb or compound databases.')
+    expect(guidesPage).toContain("href: '/herbs/'")
   })
 })

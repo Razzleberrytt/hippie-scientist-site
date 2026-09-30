@@ -1,0 +1,12 @@
+{
+  "entity_type": "compound",
+  "slug": "buspirone",
+  "name": "Buspirone",
+  "summary": "Buspirone is a non-benzodiazepine anxiolytic with serotonergic activity. This profile remains research-only while generalized-anxiety efficacy, duration-of-evidence, serotonin-syndrome, CYP3A4 interaction, and regulatory evidence is assembled and reviewed.",
+  "description": "Canonical buspirone entity for evidence and safety integration. Publication remains held until indication-specific scientific evidence, short- versus long-term treatment boundaries, serotonergic and metabolic interaction context, and regulatory provenance has passed the site’s review gates.",
+  "primary_effects_or_targets": "5-HT1A serotonergic signaling; anxiolytic azapirone activity",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only",
+  "safety_notes": "Current U.S. prescribing information contraindicates use with monoamine oxidase inhibitors intended to treat depression because of serotonin-syndrome and elevated-blood-pressure risk, warns about serotonin syndrome with serotonergic combinations, and notes clinically important CYP3A4 inhibitor/inducer interactions. Controlled long-term effectiveness beyond 3 to 4 weeks has not been demonstrated in the cited label. This summary is not exhaustive; consult current product-specific prescribing information."
+}

@@ -7,14 +7,13 @@ function read(relativePath: string) {
 }
 
 describe('Learn hub hero readability', () => {
-  it('uses responsive heading scale and one concise introduction', () => {
+  it('uses the shared compact hero treatment and one concise role statement', () => {
     const page = read('app/learn/page.tsx')
 
-    expect(page).toContain("text-4xl")
-    expect(page).toContain("sm:text-5xl")
-    expect(page).toContain("lg:text-6xl")
-    expect(page).toContain('Neuroscience and Neuropharmacology, Explained Clearly')
-    expect(page).toContain('without reducing complex biology to simplistic claims')
+    expect(page).toContain("className='heading-premium mt-5 max-w-4xl'>Learn</h1>")
+    expect(page).toContain('Use Learn when you want to understand how something works.')
+    expect(page).toContain('Practical decisions belong in Guides')
+    expect(page).not.toContain('Neuroscience and Neuropharmacology, Explained Clearly')
     expect(page).not.toContain("<div className='space-y-5 text-lg leading-9 text-muted max-w-4xl'>")
   })
 })

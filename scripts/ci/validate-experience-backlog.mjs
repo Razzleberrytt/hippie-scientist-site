@@ -39,18 +39,20 @@ const globals = read('app/globals.css')
 const homepageFinal = read('styles/homepage-premium-final.css')
 const herbProfile = read('app/herbs/[slug]/page.tsx')
 const compoundProfile = read('app/compounds/[slug]/page.tsx')
+const seeAlsoCluster = read('components/SeeAlsoCluster.tsx')
 const packageJson = read('package.json')
 const lighthouseWorkflow = read('.github/workflows/lighthouse.yml')
 
 invariant('THS-001', 'homepage is routed through the focused V2 experience', () =>
   page.includes("import HomepageV2 from '@/components/homepage-v2'") && page.includes('return <HomepageV2 />'),
 )
-invariant('THS-001', 'homepage hero has a clear promise and no more than two primary hero actions', () => {
-  const searchActions = classTokenCount(homepage, 'hs-home-search', 'form')
-  const browseActions = classTokenCount(homepage, 'hs-home-browse-link', 'a')
-  return homepage.includes('Better answers start with better') &&
+invariant('THS-001', 'homepage hero has a clear promise and only Search plus Explore as primary actions', () => {
+  const searchActions = homepage.split("action='/search/'").length - 1
+  const exploreActions = homepage.split("href='/explore/'").length - 1
+  return homepage.includes('Start with the question. Open the evidence when you need it.') &&
     searchActions === 1 &&
-    browseActions === 1
+    exploreActions === 1 &&
+    homepage.includes("href='/library/'")
 })
 invariant('THS-001', 'homepage scientific search protects mobile ingredient terms from keyboard rewriting', () =>
   includesAll(homepage, [
@@ -64,8 +66,9 @@ invariant('THS-001', 'homepage scientific search protects mobile ingredient term
 )
 
 invariant('THS-002', 'primary navigation remains intentionally narrow', () =>
-  includesAll(primaryNavigation, ["label: 'Goals'", "label: 'Ingredients'", "label: 'Compare'", "label: 'Safety'", "label: 'Research'"]) &&
+  includesAll(primaryNavigation, ["label: 'Goals'", "label: 'Guides'", "label: 'Ingredients'", "label: 'Safety'", "label: 'Research'"]) &&
   !primaryNavigation.includes("label: 'Home'") &&
+  !primaryNavigation.includes("label: 'Compare',\n    href: '/guides/compare'") &&
   navigation.includes('primaryNavigation'),
 )
 
@@ -115,8 +118,9 @@ invariant('THS-010', 'profiles begin with a short plain-English summary rather t
 )
 
 invariant('THS-011', 'related discovery is backed by runtime relationship maps rather than only hardcoded link dumps', () =>
-  includesAll(herbProfile, ['getRouteInternalLinkGroups', 'getBatchedRuntimeRecords', 'RelatedDiscoveryGroups']) &&
-  includesAll(compoundProfile, ['getRouteInternalLinkGroups', 'getBatchedRuntimeRecords', 'RelatedDiscoveryGroups']),
+  includesAll(herbProfile, ['getRouteInternalLinkGroups', 'getBatchedRuntimeRecords', 'continuationGroups={continuationGroups}']) &&
+  includesAll(seeAlsoCluster, ['RelatedDiscoveryGroups', 'continuationGroups', 'dedupeContinuationGroups']) &&
+  includesAll(compoundProfile, ['getRouteInternalLinkGroups', 'getBatchedRuntimeRecords', 'continuationGroups={continuationGroups}']),
 )
 
 invariant('THS-012', 'profile next actions are decision-aware and monetization can be suppressed for risk', () =>
@@ -124,17 +128,13 @@ invariant('THS-012', 'profile next actions are decision-aware and monetization c
   includesAll(compoundProfile, ['ProfileDecisionPanel', 'suppressAffiliate', 'isRestrictedRecord']),
 )
 
-invariant('THS-013', 'homepage navigation and comparison content use the restrained shared editorial material system', () =>
-  includesAll(homepageFinal, [
-    '--home-panel:',
-    '.hs-goal-nav {',
-    '.hs-comparison-list {',
-    '.hs-method-section {',
-    'var(--home-line-strong)',
-  ]) &&
-  !homepage.includes('hs-specimen') &&
-  !homepage.includes('hs-vs') &&
-  !homepage.includes('hs-article'),
+invariant('THS-013', 'homepage uses one canonical Explore handoff without duplicate destination or methodology mini-hubs', () =>
+  homepage.includes("href='/explore/'") &&
+  !homepage.includes('<SiteDestinationGrid />') &&
+  homepage.includes("href='/info/methodology/'") &&
+  !homepage.includes('const comparisons') &&
+  !homepage.includes('const principles') &&
+  !homepage.includes('hs-comparison-index'),
 )
 
 invariant('THS-014', 'accessibility and theme contrast are explicit repository gates', () =>

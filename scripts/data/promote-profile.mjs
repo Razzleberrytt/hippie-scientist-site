@@ -59,11 +59,13 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { execFileSync } from 'node:child_process'
+import { curatedPolicySlugSet, loadCuratedIndexPolicy } from '../lib/curated-index-policy.mjs'
 import { scoreIndexability } from './indexability-policy.mjs'
 
 const ROOT = process.cwd()
 const OVERLAY_SRC = path.join(ROOT, 'scripts/data/apply-governance-overlay.mjs')
 const EDITOR = path.join(ROOT, 'scripts/data/edit-entity-master-cell.mjs')
+const CURATED_INDEX_POLICY = loadCuratedIndexPolicy(ROOT)
 
 const PUBLISHABLE_DECISIONS = new Set(['full_public_runtime', 'primary_runtime_priority', 'publish', 'publishable', 'ready'])
 const LEAK_PATTERNS = [
@@ -116,7 +118,7 @@ function asRows(raw) {
   return Array.isArray(raw) ? raw : raw?.items || raw?.data || []
 }
 
-/** Parse the string literals of a named `new Set([...])` from the overlay source (single source of truth). */
+/** Parse non-curated policy sets that are still owned by the overlay source. */
 function parseSet(source, setName) {
   const start = source.indexOf(`${setName} = new Set([`)
   if (start === -1) return new Set()
@@ -163,8 +165,8 @@ function gateVerdict(slug, record, kind) {
   const overlay = fs.readFileSync(OVERLAY_SRC, 'utf8')
   const restricted = parseSet(overlay, 'RESTRICTED_SLUGS')
   const sourceBacked = parseSet(overlay, 'SOURCE_BACKED_PROMOTION_SLUGS')
-  const curatedHerb = parseSet(overlay, 'CURATED_HERB_SLUGS')
-  const curatedCompound = parseSet(overlay, 'CURATED_COMPOUND_SLUGS')
+  const curatedHerb = curatedPolicySlugSet(CURATED_INDEX_POLICY, 'herbs', { governanceIndexBypassOnly: true })
+  const curatedCompound = curatedPolicySlugSet(CURATED_INDEX_POLICY, 'compounds', { governanceIndexBypassOnly: true })
   const claims = asRows(readJson('public/data/claims.json', []))
 
   const isRestricted = restricted.has(slug)

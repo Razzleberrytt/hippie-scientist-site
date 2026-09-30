@@ -286,24 +286,6 @@ function HerbCard({ herb, featured = false }: { herb: RuntimeRecord; featured?: 
   )
 }
 
-const browsePaths = [
-  {
-    label: 'Stress & calm',
-    href: '/guides/best/supplements-for-stress/',
-    description: 'Calming herbs, adaptogens, and interaction context.',
-  },
-  {
-    label: 'Sleep & recovery',
-    href: '/guides/sleep',
-    description: 'Wind-down support, sleep quality, and next-day fit.',
-  },
-  {
-    label: 'Focus & cognition',
-    href: '/guides/focus',
-    description: 'Attention, fatigue, and non-jittery support paths.',
-  },
-]
-
 export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initialQuery = '', initialContext = '', paginated = false, page = 1, totalPages: _totalPages = 1}: { herbs: RuntimeRecord[]; allHerbs?: RuntimeRecord[]; initialQuery?: string; initialContext?: string; paginated?: boolean; page?: number; totalPages?: number }) {
   const urlParams = useSearchParams()
   const query = urlParams?.get('q') || firstParam(initialQuery)
@@ -329,8 +311,14 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
     ? `Showing ${showingFrom}–${showingTo} of ${totalProfiles}`
     : `${totalProfiles}`
 
-  const featuredHerbs = hasActiveFilters || paginated ? [] : baseHerbs.slice(0, 6)
-  const libraryHerbs = hasActiveFilters ? visibleHerbs : paginated ? herbs : baseHerbs.slice(featuredHerbs.length)
+  const showFeatured = !hasActiveFilters && (!paginated || page === 1)
+  const featuredHerbs = showFeatured ? (paginated ? herbs : baseHerbs).slice(0, 6) : []
+  const featuredHerbSlugs = new Set(featuredHerbs.map((herb) => herb.slug))
+  const libraryHerbs = hasActiveFilters
+    ? visibleHerbs
+    : paginated
+      ? herbs.filter((herb) => !featuredHerbSlugs.has(herb.slug))
+      : baseHerbs.slice(featuredHerbs.length)
 
   return (
     <div className="px-2 pb-28 pt-2 text-ink sm:px-3 sm:pt-3">
@@ -343,7 +331,6 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
                 Find an herb
               </h2>
             </div>
-            <Link href="/guides/" className="w-fit text-sm font-bold text-brand-800 transition hover:text-brand-900">Browse goals →</Link>
           </div>
 
           <form action="/herbs" className="mt-3 grid gap-2 sm:grid-cols-[1fr_auto]">
@@ -406,28 +393,6 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
               </Link>
             </div>
           )}
-        </section>
-
-        <section className="rounded-[0.85rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-sm">
-          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <div className="max-w-2xl space-y-1.5">
-              <p className="eyebrow-label">Common starting points</p>
-              <h2 className="compact-heading">Goal guides if you are still orienting.</h2>
-            </div>
-          </div>
-
-          <div className="mt-3 grid gap-2 md:grid-cols-3">
-            {browsePaths.map(path => (
-              <Link
-                key={path.label}
-                href={path.href}
-                className="group rounded-[0.75rem] border border-brand-900/10 bg-[var(--surface-card)] p-2.5 shadow-sm transition hover:border-brand-700/20 hover:bg-[var(--surface-card-strong)]"
-              >
-                <h3 className="text-base font-semibold tracking-tight text-ink transition group-hover:text-brand-800">{path.label}</h3>
-                <p className="mt-1 text-sm leading-5 text-muted">{path.description}</p>
-              </Link>
-            ))}
-          </div>
         </section>
 
         {herbs.length === 0 ? (

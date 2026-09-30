@@ -82,7 +82,7 @@ export default async function MedicationClassInteractionPage({ params }: { param
   const safety = interactionValueToText(record.safety)
 
   return (
-    <main className="container-page space-y-8 py-10">
+    <div className="container-page space-y-8 py-10">
       <nav aria-label="Breadcrumb" className="text-sm text-muted">
         <Link href="/" className="hover:text-ink">Home</Link>
         <span aria-hidden="true"> / </span>
@@ -116,6 +116,6 @@ export default async function MedicationClassInteractionPage({ params }: { param
       </section>
 
       <Disclaimer />
-    </main>
+    </div>
   )
 }

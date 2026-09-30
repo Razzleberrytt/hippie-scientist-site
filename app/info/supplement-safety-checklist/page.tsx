@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import NewsletterSignup from '../../../components/NewsletterSignup'
 import NewsletterCtaBlock from '../../../components/NewsletterCtaBlock'
+import SafetyFamilyNav from '@/components/navigation/SafetyFamilyNav'
 
 import { buildPageMetadata } from '../../../lib/seo'
 
@@ -14,6 +15,8 @@ export const metadata: Metadata = buildPageMetadata({
 export default function SupplementSafetyChecklistPage() {
   return (
     <div className='mx-auto max-w-5xl space-y-8 px-4 py-10 sm:px-6 lg:px-8'>
+      <SafetyFamilyNav active='checklist' />
+
       <section className='rounded-[2rem] border-2 border-emerald-700/25 bg-gradient-to-br from-emerald-50/80 to-white p-6 shadow-sm sm:p-10'>
         <p className='text-xs font-bold uppercase tracking-[0.18em] text-emerald-800'>Free · No spam funnel</p>
         <h1 className='mt-3 max-w-4xl text-4xl font-bold tracking-tight text-ink sm:text-5xl'>

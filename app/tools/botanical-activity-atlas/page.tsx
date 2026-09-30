@@ -48,7 +48,7 @@ export default async function BotanicalActivityAtlasPage() {
   })
 
   return (
-    <main className='mx-auto max-w-7xl space-y-8 px-4 py-8 sm:py-10'>
+    <div className='mx-auto max-w-7xl space-y-8 px-4 py-8 sm:py-10'>
       <SchemaGraphScript graph={schemaGraph} />
 
       <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8'>
@@ -100,6 +100,6 @@ export default async function BotanicalActivityAtlasPage() {
         <p className='font-bold'>Educational use only</p>
         <p className='mt-1.5'>This atlas summarizes structured reference data and cannot establish product identity, dose, purity, personal suitability, or clinical safety. Review medication and health-condition interactions with a qualified clinician or pharmacist.</p>
       </section>
-    </main>
+    </div>
   )
 }

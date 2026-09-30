@@ -47,7 +47,11 @@ describe('contextual lead magnets', () => {
     expect(shouldShowContextualLeadMagnet('/privacy/')).toBe(false)
     expect(shouldShowContextualLeadMagnet('/terms/')).toBe(false)
     expect(shouldShowContextualLeadMagnet('/guides/sleep/glycine-for-sleep/')).toBe(false)
+    expect(shouldShowContextualLeadMagnet('/research/')).toBe(false)
+    expect(shouldShowContextualLeadMagnet('/guides/')).toBe(false)
+    expect(shouldShowContextualLeadMagnet('/safety-checker/')).toBe(false)
     expect(shouldShowContextualLeadMagnet('/herbs/ashwagandha/')).toBe(true)
+    expect(shouldShowContextualLeadMagnet('/guides/sleep/magnesium-for-sleep/')).toBe(true)
   })
 
   it('keeps every registered resource addressable by its stable slug', () => {

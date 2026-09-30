@@ -1,0 +1,230 @@
+{
+  "version": 1,
+  "updated": "2026-09-28",
+  "purpose": "Single authority for curated profile membership and the legacy governance index-bypass. Curated membership never implies scientific approval.",
+  "herbs": [
+    {
+      "slug": "ashwagandha",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "rhodiola",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "piper-methysticum",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "turmeric",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "ginger",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "peppermint",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "black-cohosh",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "momordica-charantia",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "black-seed",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "bacopa",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "ginkgo-biloba",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "saffron",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "melissa-officinalis",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "valerian",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "st-johns-wort",
+      "governanceIndexBypass": false
+    },
+    {
+      "slug": "reishi",
+      "governanceIndexBypass": false
+    },
+    {
+      "slug": "lions-mane",
+      "governanceIndexBypass": false
+    },
+    {
+      "slug": "schisandra",
+      "governanceIndexBypass": false
+    },
+    {
+      "slug": "eleuthero",
+      "governanceIndexBypass": false
+    },
+    {
+      "slug": "evening-primrose",
+      "governanceIndexBypass": false
+    },
+    {
+      "slug": "turkey-tail",
+      "governanceIndexBypass": false
+    },
+    {
+      "slug": "quercetin",
+      "governanceIndexBypass": false
+    }
+  ],
+  "compounds": [
+    {
+      "slug": "l-theanine",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "magnesium",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "omega-3",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "caffeine",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "epigallocatechin-gallate-egcg",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "n-acetylcysteine",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "coenzyme-q10",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "curcumin-piperine",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "berberine",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "alpha-gpc",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "cdp-choline",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "phosphatidylcholine",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "acetyl-l-carnitine",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "l-tyrosine",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "huperzine-a",
+      "governanceIndexBypass": true
+    },
+    {
+      "slug": "magnesium-glycinate",
+      "governanceIndexBypass": false
+    },
+    {
+      "slug": "melatonin",
+      "governanceIndexBypass": false
+    },
+    {
+      "slug": "inositol",
+      "governanceIndexBypass": false
+    },
+    {
+      "slug": "dim",
+      "governanceIndexBypass": false
+    },
+    {
+      "slug": "wogonin",
+      "governanceIndexBypass": false
+    },
+    {
+      "slug": "morin",
+      "governanceIndexBypass": false
+    },
+    {
+      "slug": "krill-oil",
+      "governanceIndexBypass": false
+    },
+    {
+      "slug": "pomegranate-extract",
+      "governanceIndexBypass": false
+    },
+    {
+      "slug": "panax-ginseng-extract",
+      "governanceIndexBypass": false
+    },
+    {
+      "slug": "alpha-lipoic-acid",
+      "governanceIndexBypass": false
+    },
+    {
+      "slug": "glycine",
+      "governanceIndexBypass": false
+    },
+    {
+      "slug": "taurine",
+      "governanceIndexBypass": false
+    },
+    {
+      "slug": "zinc",
+      "governanceIndexBypass": false
+    },
+    {
+      "slug": "saffron-extract",
+      "governanceIndexBypass": false
+    },
+    {
+      "slug": "creatine-beta-alanine",
+      "governanceIndexBypass": false
+    },
+    {
+      "slug": "iron",
+      "governanceIndexBypass": false
+    }
+  ],
+  "resolvedConflicts": [
+    {
+      "slug": "citicoline",
+      "previousKind": "compound",
+      "resolution": "removed_from_compound_curated_policy",
+      "canonicalOwner": "/herbs/citicoline/",
+      "note": "No canonical compound record owns citicoline. Existing compound-side identity is CDP-choline; /compounds/citicoline is already handled by legacy canonical redirects."
+    }
+  ]
+}

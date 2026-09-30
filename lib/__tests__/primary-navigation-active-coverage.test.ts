@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { primaryNavigation } from '../primary-navigation'
+import { getActivePrimaryNavigationItem, primaryNavigation } from '../primary-navigation'
 
 function normalize(path: string) {
   return path === '/' ? '/' : path.replace(/\/$/, '')
@@ -19,6 +19,29 @@ describe('primary navigation active coverage', () => {
       .map((item) => ({ label: item.label, href: item.href, activePrefixes: item.activePrefixes }))
 
     expect(uncovered).toEqual([])
+  })
+
+  it('keeps editorial content owned by Guides', () => {
+    const guides = primaryNavigation.find((item) => item.label === 'Guides')
+    expect(guides?.activePrefixes).toEqual(expect.arrayContaining(['/guides', '/learn', '/articles']))
+    expect(getActivePrimaryNavigationItem('/guides/mental-health/avoidant-borderline-personality-disorders-couples/')?.label).toBe('Guides')
+    expect(getActivePrimaryNavigationItem('/learn/how-neurotransmitters-work/')?.label).toBe('Guides')
+    expect(getActivePrimaryNavigationItem('/articles/example-research-note/')?.label).toBe('Guides')
+  })
+
+  it('lets specific research tools override the broad Learn ownership', () => {
+    expect(getActivePrimaryNavigationItem('/learn/citation-explorer/')?.label).toBe('Research')
+    expect(getActivePrimaryNavigationItem('/learn/efficacy-model/')?.label).toBe('Research')
+    expect(getActivePrimaryNavigationItem('/learn/explorer/')?.label).toBe('Research')
+    expect(getActivePrimaryNavigationItem('/learn/research-methodology/')?.label).toBe('Research')
+    expect(getActivePrimaryNavigationItem('/evidence/evidence-report/')?.label).toBe('Research')
+    expect(getActivePrimaryNavigationItem('/info/methodology/')?.label).toBe('Research')
+  })
+
+  it('lets a more-specific Safety route override the broad Guides prefix', () => {
+    expect(getActivePrimaryNavigationItem('/guides/other/supplement-stacking-safety/')?.label).toBe('Safety')
+    expect(getActivePrimaryNavigationItem('/learn/safety-and-disclaimers/')?.label).toBe('Safety')
+    expect(getActivePrimaryNavigationItem('/safety-checker/')?.label).toBe('Safety')
   })
 
   it('keeps Ingredients active across both herb and compound depth routes', () => {

@@ -3,21 +3,19 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 const root = process.cwd()
-const libraryPage = fs.readFileSync(path.join(root, 'app/guides/page.tsx'), 'utf8')
+const guidesPage = fs.readFileSync(path.join(root, 'app/guides/page.tsx'), 'utf8')
 const callout = fs.readFileSync(path.join(root, 'components/guides/AtlasComparisonCallout.tsx'), 'utf8')
 
-describe('Evidence Library atlas comparison callout', () => {
-  it('links visitors to the evidence-sorted Botanical Activity Atlas', () => {
-    expect(libraryPage).toContain('/tools/botanical-activity-atlas/?sort=evidence')
-    expect(libraryPage).toContain('Compare botanicals across anxiety, sleep, and focus goals')
+describe('Atlas comparison callout ownership', () => {
+  it('keeps the main Guides hub focused on guide-owned discovery', () => {
+    expect(guidesPage).not.toContain('AtlasComparisonCallout')
+    expect(guidesPage).toContain("href: '/research/'")
+    expect(guidesPage).toContain("href: '/safety-checker/'")
+    expect(guidesPage).toContain('Verify the research')
+    expect(guidesPage).toContain('Check safety')
   })
 
-  it('keeps interaction checking beside the comparison pathway', () => {
-    expect(libraryPage).toContain('secondaryHref="/safety-checker/"')
-    expect(libraryPage).toContain('secondaryCta="Check interaction risk"')
-  })
-
-  it('uses accessible tap targets in the reusable callout', () => {
+  it('keeps the reusable comparison callout accessible where deeper routers use it', () => {
     expect(callout).toContain('min-h-[44px]')
     expect(callout).toContain("secondaryHref = '/tools/botanical-activity-atlas/'")
   })

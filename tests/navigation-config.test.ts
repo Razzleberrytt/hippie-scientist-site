@@ -14,19 +14,19 @@ describe('navigation breadcrumbs', () => {
   it('labels first-class guide hubs distinctly', () => {
     expect(generateDynamicBreadcrumbs('/guides/stress')).toEqual([
       { label: 'Home', href: '/', current: false },
-      { label: 'Topics & Guides', href: '/guides', current: false },
+      { label: 'Guides', href: '/guides', current: false },
       { label: 'Stress', href: '/guides/stress', current: true },
     ])
 
     expect(generateDynamicBreadcrumbs('/guides/anxiety')).toEqual([
       { label: 'Home', href: '/', current: false },
-      { label: 'Topics & Guides', href: '/guides', current: false },
+      { label: 'Guides', href: '/guides', current: false },
       { label: 'Anxiety', href: '/guides/anxiety', current: true },
     ])
 
     expect(generateDynamicBreadcrumbs('/guides/metabolic-health')).toEqual([
       { label: 'Home', href: '/', current: false },
-      { label: 'Topics & Guides', href: '/guides', current: false },
+      { label: 'Guides', href: '/guides', current: false },
       { label: 'Metabolic Health', href: '/guides/metabolic-health', current: true },
     ])
   })
@@ -36,7 +36,7 @@ describe('navigation breadcrumbs', () => {
       const href = goal.href.replace(/\/$/, '')
       expect(generateDynamicBreadcrumbs(href)).toEqual([
         { label: 'Home', href: '/', current: false },
-        { label: 'Supplement Goals', href: '/goals', current: false },
+        { label: 'Goals', href: '/goals', current: false },
         { label: goal.label, href, current: true },
       ])
     }

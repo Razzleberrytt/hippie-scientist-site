@@ -61,7 +61,7 @@ const requestChecklist = [
 
 export default function ResearchResourcesForWritersPage() {
   return (
-    <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
       <header className="max-w-3xl">
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Writer & journalist media kit</p>
         <h1 className="mt-3 text-4xl font-bold tracking-tight text-ink sm:text-5xl">Research resources you can verify and cite</h1>
@@ -120,6 +120,6 @@ export default function ResearchResourcesForWritersPage() {
           Reporter responses should return the underlying source object, scope, methodology, and caveats. If a number or scientific claim cannot be verified before a deadline, the project should say that rather than supplying an unverified quote. The same rule applies to evidence-change pitches and replacement statistics offered during outreach.
         </p>
       </section>
-    </main>
+    </div>
   )
 }
