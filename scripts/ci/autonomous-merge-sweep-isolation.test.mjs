@@ -1,5 +1,9 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { evaluateSweepCandidate, PrRefreshBlockedError } from './autonomous-merge-controller.mjs'
+
+const controller = fs.readFileSync(path.join(process.cwd(), 'scripts/ci/autonomous-merge-controller.mjs'), 'utf8')
 
 describe('fallback sweep PR-local isolation', () => {
   it('continues to a ready candidate after a conflicting or workflow-changing PR', async () => {
@@ -11,6 +15,12 @@ describe('fallback sweep PR-local isolation', () => {
     ]) verdicts.push(await evaluateSweepCandidate(evaluate))
     expect(verdicts.map(({ action }) => action)).toEqual(['blocked', 'blocked', 'merge'])
     expect(verdicts[2]).toEqual({ action: 'merge', headSha: 'validated-head', baseSha: 'validated-base' })
+  })
+
+  it('isolates PR-local blockers raised during terminal merge revalidation', () => {
+    expect(controller).toMatch(/const mergeResult = await evaluateSweepCandidate\(\(\) =>[\s\S]*mergeIfStillCurrent/u)
+    expect(controller).toContain("mergeResult.action === 'blocked'")
+    expect(controller).toContain('continue')
   })
 
   it.each(['authentication failed', 'rate limited', 'service unavailable', 'unknown 422'])('keeps %s visible as a heartbeat failure', async (message) => {
