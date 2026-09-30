@@ -19,6 +19,8 @@ describe('herb profile continuation consolidation', () => {
     expect(herb).toContain("title: 'Related Guides'")
     expect(herb).toContain('...internalLinkGroups')
     expect(herb).toContain('continuationGroups={continuationGroups}')
+    expect(herb).toContain('getProfileDecisionClaimedHrefs(profileDecision)')
+    expect(herb).toContain('claimedHrefs={profileDecisionClaimedHrefs}')
     expect(herb).not.toContain('<RelatedDiscoveryGroups')
     expect(herb).not.toContain('Guides that use {displayName}')
   })
