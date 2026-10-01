@@ -135,6 +135,53 @@ export function validateAdmissionTransaction({
 const readAt = (revision, path) => execFileSync('git', ['show', revision + ':' + path], { encoding: 'utf8' })
 const closingRefs = (body = '') => [...String(body).matchAll(/\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\s+#(\d+)\b/gi)].map((match) => Number(match[1]))
 
+// This records work already owned by an open PR before the fixed base existed.
+// It is not a ready-next admission and never authorizes additional capacity.
+export function validateExistingOwnerReconciliation({ baseSprint, baseBacklog, headSprint, headBacklog,
+  manifest, baseRevision, baseCommittedAt, now, issues = [], openPulls = [], associations = [] }) {
+  const errors = []
+  const fail = (message) => errors.push(message)
+  const baseS = parseActiveRows('docs/CURRENT_SPRINT.md', baseSprint)
+  const baseB = parseActiveRows('docs/MASTER_BACKLOG.md', baseBacklog)
+  const headS = parseActiveRows('docs/CURRENT_SPRINT.md', headSprint)
+  const headB = parseActiveRows('docs/MASTER_BACKLOG.md', headBacklog)
+  const identity = (rows) => rows.map((row) => `${row.issue}:${row.lane}`).sort().join(',')
+  if (identity(baseS) !== identity(baseB) || identity(headS) !== identity(headB)) fail('Sprint/backlog ownership must agree')
+  const cap = capOf(baseSprint)
+  if (!cap || [baseBacklog, headSprint, headBacklog].some((text) => capOf(text) !== cap)) fail('WIP caps must remain identical')
+  if (headS.length > cap) fail('Reconciliation exceeds normal WIP cap')
+  if (!/^[a-f0-9]{40}$/.test(baseRevision || '') || manifest?.base_revision !== baseRevision) fail('Exact base revision mismatch')
+  if (manifest?.mode !== 'existing-owner-reconciliation') fail('Explicit reconciliation mode is required')
+  const verified = Date.parse(manifest?.last_verified || '')
+  const clock = Date.parse(now || '')
+  const baseTime = Date.parse(baseCommittedAt || '')
+  if (![verified, clock, baseTime].every(Number.isFinite) || baseTime > clock || verified > clock || clock - verified > 7 * DAY_MS) fail('Fresh verification and base commit time are required')
+  for (const [prior, current] of [[baseS, headS], [baseB, headB]]) for (const row of prior) {
+    if (!current.some((head) => head.issue === row.issue && head.lane === row.lane && head.ticket === row.ticket)) fail('Existing base owners must be preserved in both tables')
+  }
+  const additions = headS.filter((row) => !baseS.some((prior) => prior.issue === row.issue))
+  const owners = Array.isArray(manifest?.owners) ? manifest.owners : []
+  if (!additions.length || owners.length !== additions.length || new Set(owners.map((owner) => owner.ticket)).size !== owners.length) fail('Declare exactly the added owners')
+  for (const lane of LANES) if (headS.filter((row) => row.lane === lane).length > 1) fail('Duplicate lane ' + lane)
+  if (headS.some((row) => !LANES.has(row.lane)) || new Set(headS.map((row) => row.issue)).size !== headS.length) fail('Invalid or duplicate roster identity')
+  for (const row of additions) {
+    const owner = owners.find((item) => item.ticket === row.issue)
+    const backlogRow = headB.find((item) => item.issue === row.issue)
+    if (!owner || !Number.isInteger(owner.pr) || owner.pr < 1 || owner.lane !== row.lane || !LANES.has(owner.lane)) { fail('Missing or invalid owner declaration'); continue }
+    const ticketRefs = (value) => [...String(value).matchAll(/#(\d+)\b/g)].map((match) => Number(match[1])).sort((a,b) => a-b).join(',')
+    const expectedRefs = [owner.ticket, owner.pr].sort((a,b) => a-b).join(',')
+    if (ticketRefs(row.ticket) !== expectedRefs || ticketRefs(backlogRow?.ticket) !== expectedRefs) fail('Roster PR identity mismatch')
+    if (!issues.some((issue) => issue.number === owner.ticket && issue.state === 'open' && !issue.pull_request)) fail('Owner must be an open issue, not a PR')
+    const matches = openPulls.filter((pr) => pr.closes?.includes(owner.ticket))
+    const pr = matches[0]
+    const created = Date.parse(pr?.created_at || '')
+    if (matches.length !== 1 || pr?.number !== owner.pr || pr?.state !== 'open' || !Number.isFinite(created) || created >= baseTime) fail('Unique open owning PR must predate the exact base')
+    if (!associations.some((link) => link.ticket === owner.ticket && link.pr === owner.pr &&
+      Number.isFinite(Date.parse(link.createdAt)) && Date.parse(link.createdAt) < baseTime)) fail('Issue/PR association must predate the exact base')
+  }
+  return { state: errors.length ? 'BLOCKED' : 'PASS', mode: 'existing-owner-reconciliation', errors: [...new Set(errors)].sort(), wip: headS.length, cap }
+}
+
 async function githubJson(url, token) {
   const response = await fetch(url, {
     headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' },
@@ -165,6 +212,37 @@ export async function main(args = process.argv.slice(2)) {
     return
   }
   const manifest = JSON.parse(readFileSync(values.manifest, 'utf8'))
+  if (manifest.mode === 'existing-owner-reconciliation') {
+    if (!values.github) throw new Error('Existing-owner reconciliation requires authenticated live GitHub evidence')
+    const repository = process.env.GITHUB_REPOSITORY
+    const token = process.env.GITHUB_TOKEN
+    if (!token || !/^[\w.-]+\/[\w.-]+$/.test(repository || '')) throw new Error('Authenticated GitHub access is required')
+    if (!Array.isArray(manifest.owners) || !manifest.owners.every((owner) => Number.isInteger(owner.ticket) && owner.ticket > 0)) throw new Error('Invalid reconciliation owners')
+    const api = 'https://api.github.com/repos/' + repository + '/'
+    const commit = await githubJson(api + 'commits/' + baseRevision, token)
+    if (commit.sha !== baseRevision) throw new Error('Base commit identity mismatch')
+    const issues = await Promise.all(manifest.owners.map((owner) => githubJson(api + 'issues/' + owner.ticket, token)))
+    const associations = []
+    for (const owner of manifest.owners) for (let page = 1; ; page++) {
+      const events = await githubJson(api + 'issues/' + owner.ticket + '/timeline?per_page=100&page=' + page, token)
+      for (const event of events) if (event.event === 'cross-referenced' && event.source?.issue?.pull_request &&
+        event.source.issue.url === api + 'issues/' + owner.pr) {
+        associations.push({ ticket: owner.ticket, pr: event.source.issue.number, createdAt: event.created_at })
+      }
+      if (events.length < 100) break
+    }
+    const pulls = []
+    for (let page = 1; ; page++) {
+      const prs = await githubJson(api + 'pulls?state=open&per_page=100&page=' + page, token)
+      for (const pr of prs) pulls.push({ number: pr.number, state: pr.state, created_at: pr.created_at, closes: closingRefs(pr.body) })
+      if (prs.length < 100) break
+    }
+    const report = validateExistingOwnerReconciliation({ baseSprint, baseBacklog, headSprint, headBacklog, manifest,
+      baseRevision, baseCommittedAt: commit.commit?.committer?.date, now: values.now || new Date().toISOString(), issues, openPulls: pulls, associations })
+    console.log(JSON.stringify(report, null, 2))
+    if (report.state !== 'PASS') process.exitCode = 1
+    return
+  }
   let candidate, openPulls = []
   if (values.github) {
     const repository = process.env.GITHUB_REPOSITORY

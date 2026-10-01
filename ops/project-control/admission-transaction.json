@@ -1,19 +1,19 @@
 {
-  "version": 1,
-  "ticket": 6047,
-  "lane": "D",
-  "title": "Align Home, Start, and Library to the five-destination architecture",
-  "priority": "P1",
-  "base_revision": "47fcc0fc1a7139a1f2ceba6a7cae1a6d954555ed",
-  "last_verified": "2026-09-27",
-  "score_inputs": {
-    "businessImpact": 3,
-    "userValue": 5,
-    "trafficPotential": 3,
-    "strategicLeverage": 5,
-    "confidence": 1,
-    "effort": 3
-  },
-  "score": 75,
-  "note": "Exact-base admission for front-door architecture alignment. Home and Start should route through Goals, Guides, Ingredients, Safety, and Research; Library remains exhaustive under the same five destinations plus Site Information. Stable URLs and scientific/evidence/safety/publication boundaries remain unchanged."
+  "version": 2,
+  "mode": "existing-owner-reconciliation",
+  "base_revision": "27fa47bf16bed5306ed5bd84bb0914a4717e548a",
+  "last_verified": "2026-10-01T12:09:11.584Z",
+  "owners": [
+    {
+      "ticket": 5758,
+      "pr": 6126,
+      "lane": "D"
+    },
+    {
+      "ticket": 6115,
+      "pr": 6116,
+      "lane": "A"
+    }
+  ],
+  "note": "Record implementation PR owners already open before this fixed base; no new work admission."
 }

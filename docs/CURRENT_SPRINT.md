@@ -53,10 +53,10 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket / owning PR | Scope | Status |
 |---|---|---|---|
-| Discovery/SEO | #5758 / PR #6126 | Sleep-guide search-snippet experiment; preserve scientific body and canonical route | In review |
-| Authority/Content | #6115 / PR #6116 | Bounded mitragynine-adjacent citation cluster; preserve evidence and safety boundaries | In review |
+| D | #5758 / PR #6126 | Sleep-guide search-snippet experiment; preserve scientific body and canonical route | In review |
+| A | #6115 / PR #6116 | Bounded mitragynine-adjacent citation cluster; preserve evidence and safety boundaries | In review |
 
-**Control maintenance #6131:** In review — reconcile closed owners and make the active roster readable by the existing reconciler. Docs-only maintenance grants no normal implementation slot.
+**Control maintenance #6131:** In review — reconcile closed owners and make the active roster readable by the existing reconciler. The gate now requires authenticated proof that added roster owners already had unique open PRs before the fixed base; normal admission remains unchanged. This control repair grants no normal implementation slot.
 
 **Security follow-up #5456:** Open — permanent MDX/TOML dependency-chain removal remains unresolved. Temporary build-tool containment expires 2026-10-07; no extension is authorized by this reconciliation.
 

@@ -53,7 +53,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 **Current admission (verified 2026-10-01):** Normal implementation WIP is **2/3**: #5758 / PR #6126 owns Discovery/SEO, and #6115 / PR #6116 owns Authority/Content. Revenue/Conversion has no implementation owner in the inspected open PR roster. Closed #6051 and #6112 are retired. #5081 remains blocked on its own governor prerequisite. Docs-only control audit #6131 grants no additional implementation slot.
 
-**Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Docs only; no additional normal implementation slot.
+**Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
 **Security follow-up #5456:** Open permanent MDX/TOML dependency-chain removal. Temporary containment expires 2026-10-07; this audit does not extend it.
 
