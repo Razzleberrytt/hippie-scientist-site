@@ -221,7 +221,7 @@
     "audit:data-governance": "node scripts/ci/validate-data-governance.mjs",
     "audit:data-governance:json": "node scripts/ci/validate-data-governance.mjs --json",
     "audit:data-governance:strict": "node scripts/ci/validate-data-governance.mjs --strict",
-    "validate:audit-hardening": "npm run audit:high && npm run audit:data-governance && npm run validate:security-headers",
+    "validate:audit-hardening": "npm run validate:toml-security-floor && npm run audit:high && npm run audit:data-governance && npm run validate:security-headers",
     "guard:no-full-build-drift": "node scripts/ci/guard-no-full-build-drift.mjs",
     "evidence:finalize": "node scripts/data/finalize-evidence-profile.mjs",
     "evidence:check": "npx vitest run scripts/data/canonical/__tests__/citation-export.test.mjs scripts/data/canonical/__tests__/evidence-finalize.test.mjs components/ui/__tests__/ShowMeTheStudies.test.tsx && npm run data:canonical:validate && node scripts/ci/validate-evidence-reviews.mjs",
@@ -244,7 +244,8 @@
     "validate:agent-patches": "node scripts/ci/validate-agent-patches.mjs",
     "report:pending-patches": "node scripts/ci/report-pending-patches.mjs",
     "status:agent-patches": "node scripts/ci/agent-patches-status.mjs",
-    "enrich:duplicates": "node scripts/enrichment-pipeline/cli.mjs duplicates"
+    "enrich:duplicates": "node scripts/enrichment-pipeline/cli.mjs duplicates",
+    "validate:toml-security-floor": "node scripts/ci/validate-toml-security-floor.mjs"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "5.2.9",
@@ -322,7 +323,8 @@
     "undici": "7.29.1",
     "uuid": "11.1.1",
     "ws": "8.21.0",
-    "brace-expansion@5.x": "5.0.12"
+    "brace-expansion@5.x": "5.0.12",
+    "toml": "4.2.0"
   },
   "lint-staged": {
     "*.{ts,tsx}": "eslint --max-warnings=0",
