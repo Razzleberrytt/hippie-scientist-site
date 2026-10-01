@@ -1,17 +1,13 @@
 import { runSync } from '@mdx-js/mdx'
-import type { ComponentProps } from 'react'
+import type { MDXComponents } from 'mdx/types.js'
 import * as runtime from 'react/jsx-runtime'
 
 type MdxContentProps = {
   code: string
-  components?: ComponentProps<'div'> extends never ? never : Record<string, unknown>
+  components?: MDXComponents
 }
 
 export function MDXContent({ code, components }: MdxContentProps) {
-  const { default: Content } = runSync(code, {
-    ...runtime,
-    baseUrl: import.meta.url,
-  })
-
+  const { default: Content } = runSync(code, runtime)
   return <Content components={components} />
 }
