@@ -90,6 +90,14 @@ That does not invalidate the findings.
 
 It makes independent replication especially important.
 
+## What would materially strengthen the case?
+
+The clearest next step would be an independent randomized replication in a defined pain condition, with enough participants to estimate both benefit and adverse effects with reasonable precision. The intervention should also be chemically and dose-defined so that a result can be attached to the preparation that was actually tested rather than generalized to every product labeled agmatine sulfate.
+
+Duration matters too. A two-week radiculopathy trial can test a short-term signal, but it cannot establish durability for chronic use. Longer follow-up would help separate transient symptom change from a sustained effect and would provide more useful tolerability information.
+
+The outcome boundary should stay narrow. Evidence in lumbar radiculopathy or painful small-fiber neuropathy does not automatically transfer to osteoarthritis, migraine, nonspecific back pain, exercise soreness, or unrelated nootropic claims. Each of those reader questions needs its own evidence rather than borrowing confidence from the same small clinical program.
+
 ## Verdict
 
 Agmatine sulfate has **preliminary human evidence for neuropathic/radicular pain**.
