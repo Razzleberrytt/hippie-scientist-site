@@ -16,7 +16,7 @@ const {
   })),
 }))
 
-vi.mock('@/utils/analytics/eventStorage', () => ({ appendAnalyticsEvent }))
+vi.mock('@/lib/analyticsEventStorage', () => ({ appendAnalyticsEvent }))
 vi.mock('../analytics', () => ({ trackContentJourneyAnalytics }))
 vi.mock('../social-attribution', () => ({ getSocialAttributionLocalFields }))
 vi.mock('../governedAnalytics', () => ({ trackGovernedEvent: vi.fn() }))
