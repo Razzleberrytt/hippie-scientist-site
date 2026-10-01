@@ -1,5 +1,5 @@
 import { defineCollection, defineConfig } from '@content-collections/core'
-import { compileMDX } from '@content-collections/mdx'
+import { compileMDX } from './lib/content-collections-mdx'
 import remarkGfm from 'remark-gfm'
 import remarkImageDimensions from './lib/remark-image-dimensions.mjs'
 import { z } from 'zod/v4'
