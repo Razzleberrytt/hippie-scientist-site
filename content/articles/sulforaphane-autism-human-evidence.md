@@ -118,6 +118,14 @@ Across the randomized literature, sulforaphane has generally been tolerated reas
 
 That does not automatically establish long-term safety at every dose or in every medical context.
 
+## What would make the mixed trial record easier to interpret?
+
+Future trials would benefit from harmonized, prespecified primary outcomes and careful reporting of who rated each measure. When clinician-rated and caregiver-rated scales point in different directions, the disagreement is part of the result rather than noise to be hidden.
+
+Preparation identity also matters because different glucoraphanin, myrosinase, and sulforaphane delivery systems can produce different exposure. Replication with well-characterized formulations would make cross-trial comparisons more meaningful.
+
+Most importantly, a pooled average should not be translated into a claim about any individual person. The existing trials answer a population-level research question under defined study conditions; they do not establish a universal response or replace individualized support and care.
+
 ## Verdict
 
 Sulforaphane has **emerging human evidence in autism**, stronger than mechanism-only supplement claims but not consistent enough for a simple treatment verdict.
