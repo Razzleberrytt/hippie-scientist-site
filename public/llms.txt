@@ -88,6 +88,12 @@ Use canonical, public, indexable URLs. Prefer the most specific page that answer
 - [MGM-15 / dihydro-7-hydroxymitragynine](https://thehippiescientist.net/articles/dihydro-7-hydroxy-mitragynine-mgm-15/)
 - [Mitragynine pseudoindoxyl](https://thehippiescientist.net/articles/mitragynine-pseudoindoxyl/)
 - [Corynoxine B opioid and addiction evidence review](https://thehippiescientist.net/articles/corynoxine-b-opioid-addiction-evidence-review/)
+- [Urolithin A: human evidence, muscle outcomes, and mitophagy limits](https://thehippiescientist.net/articles/urolithin-a-human-evidence/)
+- [Ergothioneine for cognition: emerging human evidence and null results](https://thehippiescientist.net/articles/ergothioneine-cognition-evidence/)
+- [Paraxanthine for focus and cognition: what human trials show](https://thehippiescientist.net/articles/paraxanthine-cognition-evidence/)
+- [Alpha-ketoglutarate for healthy aging: human evidence and limits](https://thehippiescientist.net/articles/alpha-ketoglutarate-aging-evidence/)
+- [Ziziphus spinosa (Suan Zao Ren) for sleep](https://thehippiescientist.net/articles/ziziphus-spinosa-sleep/)
+- [Gastrodia elata (Tianma) for cognition](https://thehippiescientist.net/articles/gastrodia-elata-cognition/)
 
 ### High-value comparison pages
 
