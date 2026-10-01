@@ -1,20 +1,20 @@
 {
   "version": 2,
-  "base_revision": "6dc066b75bdeca2dd45f77764eacb3c746f758f4",
-  "last_verified": "2026-10-01T17:20:00Z",
-  "ticket": 6134,
+  "base_revision": "fc85937e3ebe4726b67c8afafd093cfed0b3aa98",
+  "last_verified": "2026-10-01T18:48:15Z",
+  "ticket": 6149,
   "lane": "R",
-  "title": "Bridge live Metricool social experiments into canonical qualified-visit attribution",
+  "title": "Capture consented social attribution before remote analytics transport check",
   "priority": "P1",
   "score_inputs": {
     "businessImpact": 4,
     "userValue": 4,
     "trafficPotential": 3,
     "strategicLeverage": 5,
-    "confidence": 0.75,
-    "effort": 2
+    "confidence": 1,
+    "effort": 1
   },
-  "score": 90,
-  "note": "Fresh exact-base admission: live Metricool experiments and existing taggedDestination/qualifiedVisits contracts are verified; production first-party session receipts remain Unknown. Admission control issue #6136; implementation authority remains #6134.",
-  "control_issue": 6136
+  "score": 240,
+  "note": "Fresh exact-base admission: EXP-005 production probe reproduced the consented local-capture ordering defect on deployed main; root cause is deterministic in lib/loadAnalytics.ts. #6143 remains an external transport prerequisite outside normal WIP. Admission control issue #6150; implementation authority remains #6149.",
+  "control_issue": 6150
 }
