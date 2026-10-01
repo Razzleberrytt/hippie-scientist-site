@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-09-28
+**Updated:** 2026-10-01
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
@@ -46,25 +46,22 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-**P0 control exception #6112 — 2026-09-30:** Stop obsolete producer consumer fan-out after merge/head replacement, with fresh API proof; preserve every current-target dispatch/registration gate and visible infrastructure failure. Runs `36743833188` / `36743401113` establish the deleted-branch race. Normal WIP remains 1/3 under #6051. #6108 and #6106 are now merged; main deployment `36746098108` passed. Release incident #6109 is closed via #6111; permanent MDX/TOML removal remains #5456. Scoring is overridden by this repeatable release/control defect; realized savings remain Unknown.
+| ID / owning PR | Scope | WS | Status |
+|---|---|---|---|
+| #5758 / PR #6126 | Sleep-guide search-snippet experiment | D | In review |
+| #6115 / PR #6116 | Bounded mitragynine-adjacent citation cluster | A | In review |
 
+**Current admission (verified 2026-10-01):** Normal implementation WIP is **2/3**: #5758 / PR #6126 owns Discovery/SEO, and #6115 / PR #6116 owns Authority/Content. Revenue/Conversion has no implementation owner in the inspected open PR roster. Closed #6051 and #6112 are retired. #5081 remains blocked on its own governor prerequisite. Docs-only control audit #6131 grants no additional implementation slot.
 
+**Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
-**2026-09-25 P0 #5941 — Resolved:** bounded Actions coordination repair merged via PR #5949 and no longer consumes an Operations exception or changes normal D/R/A admission.
+**Security follow-up #5456:** Open permanent MDX/TOML dependency-chain removal. Temporary containment expires 2026-10-07; this audit does not extend it.
 
-Current review state: **1/3 normal implementation workstreams occupied**. Owner-directed P0 #6051 owns Discovery/SEO until completion, block, or explicit displacement. #6056 / PR #6066, #4989 / PR #6060, and #4987 / PR #6057 are merged/retired. Authority/Content and Revenue/Conversion remain free for legal non-overlapping admission. #6047 / PR #6050, #6041 / PR #6044, #6035 / PR #6038, #6031 / PR #6033, #6024 / PR #6028, #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5706 / PR #5971 are retired; #5081 remains separately blocked on its own lease.
+### Verified completion refresh — 2026-10-01
 
-**P0 #6051 — D / mobile product experience:** active. Rebuild the mobile exploration experience around progressive disclosure and content coherence: simplified mobile navigation, useful discovery before exhaustive indexes, reusable profile hierarchy, copy deduplication, readable data presentation, contextual next actions, and restrained premium visual polish. Stable URLs and evidence/safety/publication/accessibility/performance gates remain unchanged; external engagement/business impact is `Unknown` until measured.
-
-**Retired #6056 / PR #6066 — A / Tyrosine citation-integrity containment:** merged 2026-09-29. Legacy herb:tyrosine now fails closed across public indexes, AI artifacts, generation, and runtime overlays; unsupported dosing aliases are withheld; compound:l-tyrosine remains separate.
-
-- **D — occupied:** #6051 owns Discovery/SEO. #6047 / PR #6050 is merged and retired. #6041 / PR #6044, #6035 / PR #6038, #6031 / PR #6033, #6024 / PR #6028, #6011 / PR #6019, #6002 / PR #6010, #6000 / PR #6001, #5989 / PR #5990, and #5688 / PR #5691 are merged and retired.
-- **R — free:** #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
-- **A — available:** #6056 / PR #6066, #4989 / PR #6060, #4987 / PR #6057, and #5706 / PR #5971 are merged and retired; #5081 remains separately blocked on its own fresh non-overlapping governor lease.
-- **Control state:** #5609 is resolved; there is no current P0 admission freeze.
-- **Control maintenance:** #5642 aligns the non-authoritative swarm feeder with the merged search-conversion policy; it is docs-only and does not consume a normal implementation workstream.
-
-Research-only enrichment staging remains separate from canonical implementation/promotion WIP. The durable candidate feeder is `docs/SWARM_BACKLOG.md`; it does not itself grant execution authority.
+- **#6051 — completed:** GitHub closed the mobile overhaul on 2026-10-01 at 02:06:39 UTC after its acceptance checklist was checked. PR #6106 remains the hosted visual-proof/desktop-menu repair receipt. This retires its Discovery/SEO reservation; external engagement/business impact remains Unknown.
+- **#6112 / PR #6113 — completed:** merged 2026-09-30 as `8b9635eb6d1145ba0ecc6698c1ee188cc4193a3c`; obsolete producer fan-out repair no longer owns a control exception.
+- **#6128 / PR #6129 — completed:** merged as `27fa47bf16bed5306ed5bd84bb0914a4717e548a`. Exact-merge CI `36853489382`, content lint `36854691768`, invariants `36854694901`, Lighthouse `36854689068`, and production deployment `36854756177` passed. Fifteen article-quality failures were repaired; business impact and realized quota savings remain Unknown.
 
 - **#5706 / PR #5971 — retired 2026-09-26:** merged as `381bbe6029bdeaf604314aa1e9f67757b1fa37bd`; canonical CoQ10 evidence/runtime ownership was consolidated and the closure no longer consumes Authority/Content WIP.
 
@@ -73,7 +70,7 @@ Research-only enrichment staging remains separate from canonical implementation/
 
 ## Next — ordered dependency queue
 
-Discovery/SEO is occupied by owner-directed P0 #6051. Authority/Content and Revenue/Conversion remain available. Reconcile current GitHub state, then promote the highest legal non-overlapping candidate only into a free lane from `docs/SWARM_BACKLOG.md` using the single master scoring formula. Do not admit another Discovery/SEO ticket until #6051 completes, blocks, or is explicitly displaced. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
+Discovery/SEO is occupied by #5758 / PR #6126; Authority/Content by #6115 / PR #6116. Promote only into a free lane after fresh GitHub reconciliation, non-overlap checks, and the single master scoring formula. Revenue/Conversion availability does not waive evidence, freshness, experiment, or external-access gates. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|

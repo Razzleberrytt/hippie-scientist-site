@@ -28,7 +28,7 @@
 
 **Rationale:** The site now has substantial information depth and a cleaner five-destination ownership model, but mobile exploration still makes users process too much taxonomy, repeated explanation, long indexes, and similarly weighted sections. That fragmentation reduces comprehension and makes strong research feel less useful than it is. The highest-leverage product move is therefore to improve the interface through which existing information is understood.
 
-**Consequences:** Discovery/SEO is occupied by #6051. Stable URLs, scientific claims, evidence grades, safety language, publication eligibility, accessibility, performance, and static-export constraints remain hard gates. Visual polish must improve hierarchy and readability rather than add decorative noise. Engagement, conversion, search, and revenue impact remain `Unknown` until measured. **Status:** Accepted; implementation pending.
+**Consequences:** #6051 reserved Discovery/SEO until its verified closure on 2026-10-01. Current ownership belongs to the reconciled sprint/backlog. Stable URLs, scientific claims, evidence grades, safety language, publication eligibility, accessibility, performance, and static-export constraints remain hard gates. Visual polish must improve hierarchy and readability rather than add decorative noise. Engagement, conversion, search, and revenue impact remain `Unknown` until measured. **Status:** Accepted; #6051 closed 2026-10-01 after its acceptance checklist was completed. Business impact remains Unknown.
 
 ## 2026-09-27 — Five-destination information architecture and page-role ownership
 
@@ -292,3 +292,11 @@ Coverage: 9 routes × 2 themes × 3 breakpoints = 54 combinations, 7,998 element
 **Evidence:** The fixed-window audit recorded 650 runs, 659.067 approximate job-minutes, 154 controller invocations and 105 controller cancellations. The three reviewed useful product merges yield 219.689 minutes and 216.667 executions per useful merge. See [the audit](audits/2026-09-25-actions-efficiency/README.md) for definitions, raw-source reproduction, authority mapping and limitations.
 
 **Consequences:** Pending concurrency entries may still be coalesced by GitHub; non-cancellation of running work is not a FIFO guarantee. Provider-suppressed completion chains retain scheduled recovery. Structural reductions do not prove realized savings. Full mission completion requires a comparable after cohort, lower compute per useful merge, and verified autonomous merge/deploy continuity. Further architectural changes require separate scoped evidence. **Status:** Implementation in review; observed outcome pending.
+
+## 2026-10-01 — Existing-owner reconciliation is distinct from new admission
+
+**Decision:** Control rosters use the existing machine-readable active-table contract. An explicit existing-owner-reconciliation manifest may record already-open implementation owners only when authenticated GitHub evidence binds a unique open PR and open issue, with PR creation and a local issue/PR timeline association strictly before the exact base commit. Sprint/backlog ownership, lane uniqueness, preserved base owners, unchanged normal cap and fresh verification remain gates. New work continues through the unchanged scored ready-next admission contract.
+
+**Rationale:** The prose-only roster reported machine WIP 0/3 while existing PRs occupied two workstreams. Converting that roster to tables triggered the new-admission validator, which previously had no way to reconcile already-running owners.
+
+**Consequences:** PR #6132 / #6131 owns this bounded repair. Reconciliation does not authorize additional work, scientific promotion or cap exceptions. The historical timeline proves pre-base association; current closing references prove current ownership. Unknown outcomes remain Unknown. **Status:** Accepted; exact-head release checks required.
