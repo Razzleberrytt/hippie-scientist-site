@@ -5,7 +5,7 @@
 **Updated:** 2026-10-01
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (verified 2026-10-01):** Normal implementation WIP is **3/3**: #5758 / PR #6126 owns Discovery/SEO, #6134 owns Revenue/Conversion for bounded L3 social-attribution measurement, and #6115 / PR #6116 owns Authority/Content. Closed #6051 and #6112 are retired. #5081 remains blocked on its own governor prerequisite. No additional normal implementation capacity remains.
+**Current admission (verified 2026-10-01):** Normal implementation WIP is **3/3**: #5758 / PR #6126 owns Discovery/SEO, #6134 / PR #6137 owns Revenue/Conversion for bounded L3 social-attribution measurement, and #6115 / PR #6116 owns Authority/Content. Closed #6051 and #6112 are retired. #5081 remains blocked on its own governor prerequisite. No additional normal implementation capacity remains.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -54,7 +54,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
 | D | #5758 / PR #6126 | Sleep-guide search-snippet experiment; preserve scientific body and canonical route | In review | — | — | existing owner |
-| R | #6134 | Bridge live Metricool social experiments into canonical qualified-visit attribution | Admitted — implementation next | P1 | 90.0 | last_verified 2026-10-01T17:20:00Z |
+| R | #6134 / PR #6137 | Bridge live Metricool social experiments into canonical qualified-visit attribution | In review | P1 | 90.0 | last_verified 2026-10-01T17:20:00Z |
 | A | #6115 / PR #6116 | Bounded mitragynine-adjacent citation cluster; preserve evidence and safety boundaries | In review | — | — | existing owner |
 
 **Control maintenance #6131:** In review — reconcile closed owners and make the active roster readable by the existing reconciler. The gate now requires authenticated proof that added roster owners already had unique open PRs before the fixed base; normal admission remains unchanged. This control repair grants no normal implementation slot.
@@ -115,7 +115,7 @@ Research-only enrichment staging is not canonical implementation admission. No n
 
 ## Ready next — strict dependency order
 
-Discovery/SEO is occupied by #5758 / PR #6126; Revenue/Conversion by admitted #6134; Authority/Content by #6115 / PR #6116. Normal WIP is full at 3/3. Promote no additional implementation until a lane is freed through verified completion/blockage/displacement under the normal control rules. Evidence, freshness, experiment, and external-access gates remain unchanged. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
+Discovery/SEO is occupied by #5758 / PR #6126; Revenue/Conversion by #6134 / PR #6137; Authority/Content by #6115 / PR #6116. Normal WIP is full at 3/3. Promote no additional implementation until a lane is freed through verified completion/blockage/displacement under the normal control rules. Evidence, freshness, experiment, and external-access gates remain unchanged. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
 
 ### Blocked or deferred candidates
 

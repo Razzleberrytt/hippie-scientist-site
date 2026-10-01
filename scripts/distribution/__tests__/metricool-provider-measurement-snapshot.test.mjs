@@ -17,6 +17,7 @@ const snapshot = {
   observedTo: '2026-08-27T12:04:00.000Z',
   capturedAt: '2026-08-27T13:00:00.000Z',
   assetViews: 1000,
+  platformLinkClicks: 24,
   qualifiedVisits: 60,
   completionRate: 0.8,
   saveRate: 0.08,
@@ -30,6 +31,7 @@ describe('Metricool provider measurement snapshot', () => {
       observedTo: snapshot.observedTo,
       capturedAt: snapshot.capturedAt,
       assetViews: 1000,
+      platformLinkClicks: 24,
       qualifiedVisits: 60,
       completionRate: 0.8,
       saveRate: 0.08,
@@ -37,9 +39,21 @@ describe('Metricool provider measurement snapshot', () => {
     })
   })
 
-  it('rejects missing metrics rather than interpreting absence as zero', () => {
-    expect(() => normalizeMetricoolProviderMeasurementSnapshot({ publicationEvidence, snapshot: { ...snapshot, assetViews: undefined } }))
-      .toThrow(/explicit assetViews.*not zero performance/i)
+  it('passes incomplete metrics through without interpreting absence as zero', () => {
+    expect(normalizeMetricoolProviderMeasurementSnapshot({
+      publicationEvidence,
+      snapshot: { ...snapshot, assetViews: undefined, qualifiedVisits: undefined, platformLinkClicks: undefined },
+    })).toEqual({
+      observedFrom: snapshot.observedFrom,
+      observedTo: snapshot.observedTo,
+      capturedAt: snapshot.capturedAt,
+      assetViews: undefined,
+      platformLinkClicks: undefined,
+      qualifiedVisits: undefined,
+      completionRate: 0.8,
+      saveRate: 0.08,
+      attributionRisk: 'low',
+    })
   })
 
   it('rejects the wrong provider', () => {

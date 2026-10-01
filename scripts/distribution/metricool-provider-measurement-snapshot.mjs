@@ -32,10 +32,11 @@ export function normalizeMetricoolProviderMeasurementSnapshot({ publicationEvide
     observedFrom: required(snapshot.observedFrom, 'observedFrom'),
     observedTo: required(snapshot.observedTo, 'observedTo'),
     capturedAt: required(snapshot.capturedAt, 'capturedAt'),
-    assetViews: required(snapshot.assetViews, 'assetViews'),
-    qualifiedVisits: required(snapshot.qualifiedVisits, 'qualifiedVisits'),
-    completionRate: required(snapshot.completionRate, 'completionRate'),
-    saveRate: required(snapshot.saveRate, 'saveRate'),
+    assetViews: snapshot.assetViews,
+    platformLinkClicks: snapshot.platformLinkClicks,
+    qualifiedVisits: snapshot.qualifiedVisits,
+    completionRate: snapshot.completionRate,
+    saveRate: snapshot.saveRate,
     attributionRisk: snapshot.attributionRisk,
   }
 }

@@ -78,10 +78,13 @@ function normalizeObservation(raw, lifecycle, candidate, now, maxCaptureAgeDays)
   const qualifiedVisits = finiteNonNegative(raw?.qualifiedVisits)
   const completionRate = finiteRate(raw?.completionRate)
   const saveRate = finiteRate(raw?.saveRate)
+  const platformLinkClicksMissing = raw?.platformLinkClicks === null || raw?.platformLinkClicks === undefined || raw?.platformLinkClicks === ''
+  const platformLinkClicks = platformLinkClicksMissing ? null : finiteNonNegative(raw?.platformLinkClicks)
   if (assetViews === null) reasons.push('assetViews must be a non-negative finite number')
   if (qualifiedVisits === null) reasons.push('qualifiedVisits must be a non-negative finite number')
   if (completionRate === null) reasons.push('completionRate must be between 0 and 1')
   if (saveRate === null) reasons.push('saveRate must be between 0 and 1')
+  if (!platformLinkClicksMissing && platformLinkClicks === null) reasons.push('platformLinkClicks must be a non-negative finite number when supplied')
   if (assetViews !== null && qualifiedVisits !== null && qualifiedVisits > assetViews) reasons.push('qualifiedVisits cannot exceed assetViews')
 
   const normalized = {
@@ -101,6 +104,7 @@ function normalizeObservation(raw, lifecycle, candidate, now, maxCaptureAgeDays)
     observedTo: observedTo?.toISOString() || null,
     capturedAt: capturedAt?.toISOString() || null,
     assetViews,
+    ...(platformLinkClicksMissing ? {} : { platformLinkClicks }),
     qualifiedVisits,
     completionRate,
     saveRate,
@@ -108,7 +112,15 @@ function normalizeObservation(raw, lifecycle, candidate, now, maxCaptureAgeDays)
     observationOnly: true,
   }
   const observationId = sha256(stableJson(normalized))
-  return { valid: reasons.length === 0, reasons, normalized: { observationId, ...normalized } }
+  return {
+    valid: reasons.length === 0,
+    reasons,
+    normalized: {
+      observationId,
+      ...normalized,
+      platformLinkClicks: platformLinkClicksMissing ? null : platformLinkClicks,
+    },
+  }
 }
 
 export function ingestDistributionObservations(lifecycles = [], rawObservations = [], candidates = [], {
@@ -144,6 +156,7 @@ export function ingestDistributionObservations(lifecycles = [], rawObservations 
     angleKey: entry.angleKey,
     publishedAt: entry.publishedAt,
     assetViews: entry.assetViews,
+    platformLinkClicks: entry.platformLinkClicks,
     qualifiedVisits: entry.qualifiedVisits,
     completionRate: entry.completionRate,
     saveRate: entry.saveRate,

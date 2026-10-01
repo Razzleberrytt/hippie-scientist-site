@@ -1,4 +1,4 @@
-import { appendAnalyticsEvent } from '@/utils/analytics/eventStorage'
+import { appendAnalyticsEvent } from '@/lib/analyticsEventStorage'
 
 export type GovernedPageType =
   | 'herb_detail'
