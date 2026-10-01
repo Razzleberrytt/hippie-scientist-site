@@ -103,6 +103,16 @@ If a product can lower glucose or blood pressure, people already using glucose-l
 
 The RCT literature is mostly short-term compared with lifelong cardiometabolic treatment.
 
+## Why a large meta-analysis can still leave practical uncertainty
+
+Having dozens of randomized trials is a major strength, but pooled sample size does not erase differences among the studies being pooled. A meta-analysis can estimate an average direction while individual trials differ in baseline blood pressure, diabetes status, background medication, preparation, dose, adherence, and treatment duration.
+
+That is why heterogeneity deserves the same visibility as the pooled effect. When heterogeneity is high, the average result is less useful as a prediction for one specific product or one specific person.
+
+For the evidence database, the better model is to preserve outcome-specific nodes—blood pressure, fasting glucose, HbA1c, lipids—and attach preparation and population details to each source. That makes it possible to say "human evidence exists" without pretending that every black-seed product has been clinically validated.
+
+It also keeps biomarker improvement separate from harder clinical outcomes such as cardiovascular events, which require different evidence.
+
 ## Verdict
 
 Nigella sativa has **moderate evidence for modest effects on several metabolic risk markers**, with one big caveat: study heterogeneity is substantial.
