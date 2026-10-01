@@ -97,9 +97,11 @@
 
 ### Analytics and operational dependencies
 
-**Verified:** Analytics loading is consent-gated and controlled by `NEXT_PUBLIC_GA4_ID` and/or an Ahrefs key. Affiliate and funnel events are instrumented in code.
+**Verified:** Analytics loading is consent-gated and controlled by `NEXT_PUBLIC_GA4_ID` and/or an Ahrefs key. Affiliate, social-attribution, and funnel/journey events are instrumented in code. PR #6137 merged the consent-gated social-attribution bridge as `fd9ea3ea079c868453e364b479fff54fa7b152d2`; post-merge control cleanup merged as `3d9ee3a6e9ba6e1d5099619635c8803ed591fdd2`, and that main revision completed Cloudflare deployment with exact production-receipt verification.
 
-**Unknown:** Whether those identifiers are set in the production build and whether events reach a reporting property. Search Console service-account credentials were unavailable; repository scripts could not fetch a baseline. Cloudflare environment values, analytics-property access, Amazon reports, Mailchimp reports, and a reliable revenue baseline were unavailable.
+**Verified current-production blocker (2026-10-01):** In a clean production browser with no DNT/GPC signal, explicitly granting analytics consent persisted the granted state, but `window.gtag` remained undefined after the consent-triggered load window. No GA4 `gtag/js?id=G-...`, GA4 collection, or Ahrefs analytics request fired. A first-party-served GTM container `GTM-K9MGMJZS` is present, but its public resource currently declares `tags: []`, `predicates: []`, and `rules: []`. This is consistent with the application's fail-closed behavior when no `NEXT_PUBLIC_GA4_ID` / Ahrefs key is supplied.
+
+**Blocked/Unknown:** GitHub #6143 owns activation and verification of one approved aggregate production analytics transport plus a read-only reporting path. No GA4 property, web stream, or Measurement ID is recorded in repository/project evidence and none may be invented. Until #6143 is satisfied, first-party qualified visits, social journey outcomes, engagement/conversion rates, affiliate outcomes, Mailchimp outcomes, and revenue remain **Unknown**, not zero. Platform views/clicks must not substitute for site sessions. Search Console service-account access and other external business reports also remain separate dependencies.
 
 ### Derived resource economics — verified 2026-08-28
 
