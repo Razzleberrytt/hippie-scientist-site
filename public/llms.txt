@@ -215,3 +215,10 @@ When citing this site:
 ## Crawl notes
 
 Public HTML pages are intended to be crawled unless blocked in robots.txt or omitted from the sitemap. The public [AI entity manifest](https://thehippiescientist.net/data/ai-entities/manifest.json) and its sharded JSON-LD files support machine understanding. Internal tooling, draft routes, preview routes, temporary routes, and operational reports are not intended as citation targets.
+
+- [Spermidine for cognition: human trials, null results, and healthy-aging hype](https://thehippiescientist.net/articles/spermidine-cognition-human-evidence/)
+- [Palmitoylethanolamide (PEA) for pain: what the human evidence shows](https://thehippiescientist.net/articles/palmitoylethanolamide-pain-evidence/)
+- [Theacrine vs caffeine: human evidence and major gaps](https://thehippiescientist.net/articles/theacrine-caffeine-human-evidence/)
+- [Nigella sativa (black seed): metabolic and blood-pressure evidence](https://thehippiescientist.net/articles/nigella-sativa-metabolic-evidence/)
+- [Mucuna pruriens: levodopa evidence, Parkinson trials, and safety limits](https://thehippiescientist.net/articles/mucuna-pruriens-levodopa-parkinsons-evidence/)
+- [Magnolia officinalis for anxiety and sleep: why the human evidence is thin](https://thehippiescientist.net/articles/magnolia-officinalis-anxiety-sleep-evidence/)
