@@ -47,15 +47,6 @@
       "rationale": "@content-collections/integrations is transitive build tooling used by the content collection generator. It is flagged through @content-collections/core, whose high finding is the same esbuild advisory chain covered by esbuild-build-tooling-only-2026-06. It is not shipped to users in the static export, and npm reports no fixAvailable for this package. Interim allowlist until content-collections can consume a patched esbuild release."
     },
     {
-      "id": "content-collections-mdx-build-tooling-only-2026-06",
-      "package": "@content-collections/mdx",
-      "severity": "high",
-      "expiresOn": "2026-10-07",
-      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/5456",
-      "rationale": "@content-collections/mdx is build tooling for static MDX/content generation. Its high finding includes the same esbuild advisory chain covered by esbuild-build-tooling-only-2026-06, plus moderate mdx-bundler/uuid findings that are not enforced by audit:high. It is not shipped to users in the static export, and npm reports no fixAvailable for this package. Interim allowlist until content-collections can consume patched transitive dependencies.",
-      "transitiveOnly": true
-    },
-    {
       "id": "content-collections-next-build-tooling-only-2026-06",
       "package": "@content-collections/next",
       "severity": "high",
