@@ -5,7 +5,7 @@
 **Updated:** 2026-10-01
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (verified 2026-10-01):** Normal implementation WIP is **2/3**: #5758 / PR #6126 owns Discovery/SEO, #6115 / PR #6116 owns Authority/Content, and Revenue/Conversion is unoccupied after #6134 / PR #6137 merged as `fd9ea3ea079c868453e364b479fff54fa7b152d2`. Closed #6051, #6112, and #6134 are retired from active WIP. #5081 remains blocked on its own governor prerequisite. A free Revenue/Conversion lane does not itself promote a replacement ticket.
+**Current admission (verified 2026-10-01):** Normal implementation WIP is **3/3**: #5758 / PR #6126 owns Discovery/SEO, #6149 owns Revenue/Conversion for the bounded consented social-attribution local-capture fix, and #6115 / PR #6116 owns Authority/Content. #6143 remains an external production-analytics transport prerequisite and is not admitted to normal WIP. Closed #6051, #6112, and #6134 are retired from active WIP. #5081 remains blocked on its own governor prerequisite.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,11 +49,12 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 2/3
+## Active / in review — implementation WIP 3/3
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
 | D | #5758 / PR #6126 | Sleep-guide search-snippet experiment; preserve scientific body and canonical route | In review | — | — | existing owner |
+| R | #6149 | Capture consented social attribution before remote analytics transport check | Admitted — implementation next | P1 | 240.0 | last_verified 2026-10-01T18:48:15Z |
 | A | #6115 / PR #6116 | Bounded mitragynine-adjacent citation cluster; preserve evidence and safety boundaries | In review | — | — | existing owner |
 
 **Control maintenance #6131:** In review — reconcile closed owners and make the active roster readable by the existing reconciler. The gate now requires authenticated proof that added roster owners already had unique open PRs before the fixed base; normal admission remains unchanged. This control repair grants no normal implementation slot.
