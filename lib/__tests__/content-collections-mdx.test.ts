@@ -11,10 +11,9 @@ type RuntimeModule = {
 }
 
 function renderCompiled(code: string) {
-  // eslint-disable-next-line no-new-func
   const factory = new Function(code) as (runtime: typeof jsxRuntime) => RuntimeModule
-  const module = factory(jsxRuntime)
-  return renderToStaticMarkup(createElement(module.default))
+  const compiledModule = factory(jsxRuntime)
+  return renderToStaticMarkup(createElement(compiledModule.default))
 }
 
 describe('content collections MDX adapter', () => {

@@ -1,3 +1,4 @@
+import { createElement } from 'react'
 import type { ComponentPropsWithoutRef, ComponentType } from 'react'
 import * as jsxRuntime from 'react/jsx-runtime'
 import ArticleEmailCaptureExperiment from '@/components/monetization/ArticleEmailCaptureExperiment'
@@ -15,33 +16,39 @@ type MdxRuntimeModule = {
   default: ComponentType<MdxRuntimeProps>
 }
 
+const mdxComponentCache = new Map<string, ComponentType<MdxRuntimeProps>>()
+
 function BodyHeadingOne({ children, ...props }: ComponentPropsWithoutRef<'h1'>) {
   return <h2 {...props}>{children}</h2>
 }
 
-function evaluateMdx(code: string): ComponentType<MdxRuntimeProps> {
-  // The code is generated at build time by @mdx-js/mdx with
-  // outputFormat='function-body'. It receives React's production JSX runtime
-  // as arguments[0], matching the documented MDX run contract.
-  // eslint-disable-next-line no-new-func
-  const factory = new Function(code) as (runtime: typeof jsxRuntime) => MdxRuntimeModule
-  const module = factory(jsxRuntime)
+function getMdxComponent(code: string): ComponentType<MdxRuntimeProps> {
+  const cached = mdxComponentCache.get(code)
+  if (cached) return cached
 
-  if (!module || typeof module.default !== 'function') {
+  const factory = new Function(code) as (runtime: typeof jsxRuntime) => MdxRuntimeModule
+  const compiledModule = factory(jsxRuntime)
+
+  if (!compiledModule || typeof compiledModule.default !== 'function') {
     throw new Error('Compiled MDX did not return a renderable default component')
   }
 
-  return module.default
+  mdxComponentCache.set(code, compiledModule.default)
+  return compiledModule.default
+}
+
+function MdxRuntime({ code, components }: ArticleMdxProps & MdxRuntimeProps) {
+  const component = getMdxComponent(code)
+  return createElement(component, { components })
 }
 
 export default function ArticleMdx({ code }: ArticleMdxProps) {
   const components = useMDXComponents({ h1: BodyHeadingOne })
-  const Content = evaluateMdx(code)
 
   return (
     <>
       <div data-article-body>
-        <Content components={components} />
+        <MdxRuntime code={code} components={components} />
       </div>
       <ArticleEmailCaptureExperiment
         location='article-body'
