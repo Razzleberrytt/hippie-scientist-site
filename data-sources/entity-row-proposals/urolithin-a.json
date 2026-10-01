@@ -1,0 +1,11 @@
+{
+  "entity_type": "compound",
+  "slug": "urolithin-a",
+  "name": "Urolithin A",
+  "summary": "Urolithin A is a gut-microbiome-derived metabolite produced from ellagitannin and ellagic-acid precursors. Randomized human trials report some favorable muscle-endurance, strength, and mitochondrial-biomarker signals, while several important primary functional outcomes have been null or inconclusive.",
+  "description": "Canonical urolithin A research entity for evidence and safety integration. Publication remains held until trial-specific efficacy, formulation, sponsorship, longer-term safety, and outcome-boundary evidence has passed the site’s review gates.",
+  "primary_effects_or_targets": "mitophagy-associated signaling; mitochondrial quality control; skeletal-muscle performance",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only"
+}
