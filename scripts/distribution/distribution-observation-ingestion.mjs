@@ -104,7 +104,7 @@ function normalizeObservation(raw, lifecycle, candidate, now, maxCaptureAgeDays)
     observedTo: observedTo?.toISOString() || null,
     capturedAt: capturedAt?.toISOString() || null,
     assetViews,
-    platformLinkClicks,
+    ...(platformLinkClicksMissing ? {} : { platformLinkClicks }),
     qualifiedVisits,
     completionRate,
     saveRate,
@@ -112,7 +112,15 @@ function normalizeObservation(raw, lifecycle, candidate, now, maxCaptureAgeDays)
     observationOnly: true,
   }
   const observationId = sha256(stableJson(normalized))
-  return { valid: reasons.length === 0, reasons, normalized: { observationId, ...normalized } }
+  return {
+    valid: reasons.length === 0,
+    reasons,
+    normalized: {
+      observationId,
+      ...normalized,
+      platformLinkClicks: platformLinkClicksMissing ? null : platformLinkClicks,
+    },
+  }
 }
 
 export function ingestDistributionObservations(lifecycles = [], rawObservations = [], candidates = [], {
