@@ -11,6 +11,7 @@ const tempDirs = []
 function runFixture(hrefs, {
   expectedTag = 'test-tag-20',
   extraEnv = {},
+  configSource = null,
 } = {}) {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'affiliate-destination-audit-'))
   tempDirs.push(tempDir)
@@ -18,15 +19,23 @@ function runFixture(hrefs, {
   fs.mkdirSync(outDir, { recursive: true })
   const anchors = hrefs.map((href, index) => `<a href="${href}">Link ${index + 1}</a>`).join('\n')
   fs.writeFileSync(path.join(outDir, 'index.html'), `<!doctype html><html><body>${anchors}</body></html>`, 'utf8')
+  if (configSource !== null) {
+    const configDir = path.join(tempDir, 'config')
+    fs.mkdirSync(configDir, { recursive: true })
+    fs.writeFileSync(path.join(configDir, 'affiliate.ts'), configSource, 'utf8')
+  }
+
+  const env = {
+    ...process.env,
+    ...extraEnv,
+  }
+  if (expectedTag === null) delete env.AMAZON_AFFILIATE_TAG
+  else env.AMAZON_AFFILIATE_TAG = expectedTag
 
   const result = spawnSync(process.execPath, [auditScript], {
     cwd: tempDir,
     encoding: 'utf8',
-    env: {
-      ...process.env,
-      AMAZON_AFFILIATE_TAG: expectedTag,
-      ...extraEnv,
-    },
+    env,
   })
   return result
 }
@@ -46,6 +55,33 @@ describe('production affiliate destination audit', () => {
     expect(result.status).toBe(0)
     expect(result.stdout).toContain('every parseable clickable Amazon link has exactly one tag parameter OK')
     expect(result.stdout).toContain('every parseable clickable Amazon link uses the configured production tag OK')
+  })
+
+  it('uses the existing affiliate config fallback when no environment override is set', () => {
+    const result = runFixture(
+      ['https://www.amazon.com/dp/B000TEST?tag=repo-fallback-20'],
+      {
+        expectedTag: null,
+        configSource: "const amazonAffiliateTag = process.env.AMAZON_AFFILIATE_TAG?.trim() || 'repo-fallback-20'\nexport const AFFILIATE_TAGS = { amazon: amazonAffiliateTag }\n",
+      },
+    )
+
+    expect(result.status).toBe(0)
+    expect(result.stdout).toContain('expected production tag source: config/affiliate.ts fallback')
+    expect(result.stdout).toContain('[affiliate-tag] OK')
+  })
+
+  it('fails closed when the repository fallback cannot be resolved', () => {
+    const result = runFixture(
+      ['https://www.amazon.com/dp/B000TEST?tag=anything-20'],
+      {
+        expectedTag: null,
+        configSource: "export const AFFILIATE_TAGS = { amazon: 'dynamic-or-missing-contract' }\n",
+      },
+    )
+
+    expect(result.status).toBe(1)
+    expect(result.stderr).toContain('could not resolve the repository fallback Amazon Associates tag')
   })
 
   it('decodes HTML entities before checking the query string', () => {
