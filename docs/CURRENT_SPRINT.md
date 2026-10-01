@@ -5,7 +5,7 @@
 **Updated:** 2026-10-01
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (verified 2026-10-01):** Normal implementation WIP is **3/3**: #5758 / PR #6126 owns Discovery/SEO, #6134 / PR #6137 owns Revenue/Conversion for bounded L3 social-attribution measurement, and #6115 / PR #6116 owns Authority/Content. Closed #6051 and #6112 are retired. #5081 remains blocked on its own governor prerequisite. No additional normal implementation capacity remains.
+**Current admission (verified 2026-10-01):** Normal implementation WIP is **2/3**: #5758 / PR #6126 owns Discovery/SEO, #6115 / PR #6116 owns Authority/Content, and Revenue/Conversion is unoccupied after #6134 / PR #6137 merged as `fd9ea3ea079c868453e364b479fff54fa7b152d2`. Closed #6051, #6112, and #6134 are retired from active WIP. #5081 remains blocked on its own governor prerequisite. A free Revenue/Conversion lane does not itself promote a replacement ticket.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,12 +49,11 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 3/3
+## Active / in review — implementation WIP 2/3
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
 | D | #5758 / PR #6126 | Sleep-guide search-snippet experiment; preserve scientific body and canonical route | In review | — | — | existing owner |
-| R | #6134 / PR #6137 | Bridge live Metricool social experiments into canonical qualified-visit attribution | In review | P1 | 90.0 | last_verified 2026-10-01T17:20:00Z |
 | A | #6115 / PR #6116 | Bounded mitragynine-adjacent citation cluster; preserve evidence and safety boundaries | In review | — | — | existing owner |
 
 **Control maintenance #6131:** In review — reconcile closed owners and make the active roster readable by the existing reconciler. The gate now requires authenticated proof that added roster owners already had unique open PRs before the fixed base; normal admission remains unchanged. This control repair grants no normal implementation slot.
@@ -67,6 +66,7 @@ Research-only enrichment staging is not canonical implementation admission. No n
 
 ### Verified completion refresh — 2026-10-01
 
+- **#6134 / PR #6137 — completed:** merged 2026-10-01 as `fd9ea3ea079c868453e364b479fff54fa7b152d2`. The bounded social-attribution bridge now preserves consent-gated experiment identity across page/journey events, keeps platform link clicks separate from first-party `qualifiedVisits`, and leaves incomplete provider observations waiting rather than fabricating zero. Production event receipt, actual qualified visits, downstream journey rates, traffic lift, conversion, and revenue remain **Unknown** until separately observed.
 - **#6051 — completed:** GitHub closed the mobile overhaul on 2026-10-01 at 02:06:39 UTC after its acceptance checklist was checked. PR #6106 remains the hosted visual-proof/desktop-menu repair receipt. This retires its Discovery/SEO reservation; external engagement/business impact remains Unknown.
 - **#6112 / PR #6113 — completed:** merged 2026-09-30 as `8b9635eb6d1145ba0ecc6698c1ee188cc4193a3c`; obsolete producer fan-out repair no longer owns a control exception.
 - **#6128 / PR #6129 — completed:** merged as `27fa47bf16bed5306ed5bd84bb0914a4717e548a`. Exact-merge CI `36853489382`, content lint `36854691768`, invariants `36854694901`, Lighthouse `36854689068`, and production deployment `36854756177` passed. Fifteen article-quality failures were repaired; business impact and realized quota savings remain Unknown.
@@ -115,7 +115,7 @@ Research-only enrichment staging is not canonical implementation admission. No n
 
 ## Ready next — strict dependency order
 
-Discovery/SEO is occupied by #5758 / PR #6126; Revenue/Conversion by #6134 / PR #6137; Authority/Content by #6115 / PR #6116. Normal WIP is full at 3/3. Promote no additional implementation until a lane is freed through verified completion/blockage/displacement under the normal control rules. Evidence, freshness, experiment, and external-access gates remain unchanged. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
+Discovery/SEO is occupied by #5758 / PR #6126; Authority/Content by #6115 / PR #6116; Revenue/Conversion is unoccupied after #6134 / PR #6137 merged. Normal WIP is 2/3. Promote any Revenue/Conversion replacement only after fresh GitHub reconciliation, non-overlap checks, and the normal admission/scoring rules. Evidence, freshness, experiment, and external-access gates remain unchanged. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
 
 ### Blocked or deferred candidates
 
