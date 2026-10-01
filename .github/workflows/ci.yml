@@ -441,6 +441,12 @@ jobs:
         if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: npm run verify:output
 
+      - name: Verify Amazon affiliate destination integrity
+        if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
+        env:
+          AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}
+        run: npm run audit:affiliate-tag-production
+
       - name: Run supplemental release-quality validators
         if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         run: |
