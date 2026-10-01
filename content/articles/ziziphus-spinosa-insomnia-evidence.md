@@ -98,6 +98,14 @@ The standalone trial is best understood as a feasibility signal. It does not dis
 
 A useful research page should make that boundary obvious.
 
+## What a stronger sleep trial would need to show
+
+A useful follow-up study would recruit substantially more participants and keep the intervention definition precise: species, plant part, preparation, dose, and product composition. It should also prespecify the sleep outcomes that matter most rather than relying on a broad collection of exploratory measures.
+
+Replication would be especially valuable because the standalone evidence currently rests on a very small completed sample. Consistent improvement across validated sleep measures, with transparent reporting of null outcomes and adverse effects, would be more informative than another loosely related formula study.
+
+The distinction matters for practical interpretation. Evidence for a defined Suan Zao Ren seed preparation cannot automatically be transferred to jujube fruit, tea, gummies, or a multi-herb nighttime blend sold under a similar common name.
+
 ## Verdict
 
 Ziziphus spinosa is a good example of a traditional herb with **real but very small direct clinical evidence**.
