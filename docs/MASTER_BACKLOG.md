@@ -48,16 +48,17 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #5758 / PR #6126 | Sleep-guide search-snippet experiment | D | In review | — | — | — | existing owner |
 | #6115 / PR #6116 | Bounded mitragynine-adjacent citation cluster | A | In review | — | — | — | existing owner |
 
-**Current admission (verified 2026-10-01):** Normal implementation WIP is **2/3**: #5758 / PR #6126 owns Discovery/SEO and #6115 / PR #6116 owns Authority/Content. Revenue/Conversion is free after #6145 / PR #6154 merged as `c8ff86010e4fa7e9030b3744a13dc565e621db38`. Closed #6051, #6112, #6134, and #6145 are retired from active WIP. #5081 remains blocked on its own governor prerequisite. The prior #6145 score/admission remains historical evidence; observed click/revenue/product-availability outcomes remain Unknown.
+**Current admission (verified 2026-10-01):** Normal implementation WIP is **1/3**: #6115 / PR #6116 owns Authority/Content. Discovery/SEO is free after #5758 / PR #6126 merged as `32dda28c8cd84e32b6df2458dcff6da66328e935`; Revenue/Conversion remains free after #6145 / PR #6154 merged as `c8ff86010e4fa7e9030b3744a13dc565e621db38`. Closed #6051, #6112, #6134, #6145, and #5758 are retired from active WIP. #5081 remains blocked on its own governor prerequisite.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
 **Security follow-up #5456:** Open permanent MDX/TOML dependency-chain removal. Temporary containment expires 2026-10-07; this audit does not extend it.
 
 ### Verified completion refresh — 2026-10-01
+
+- **#5758 / PR #6126 — completed:** merged as `32dda28c8cd84e32b6df2458dcff6da66328e935`; the sleep flagship metadata experiment is deployed from a fully green exact-head validation set. Search CTR impact remains **Unknown** until measured after deployment.
 
 - **#6145 / PR #6154 — completed:** merged as `c8ff86010e4fa7e9030b3744a13dc565e621db38`; affiliate-destination integrity is now enforced against built production output. Live product availability, click-through, orders, conversion, and revenue remain **Unknown** until observed.
 
@@ -73,7 +74,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Discovery/SEO is occupied by #5758 / PR #6126; Revenue/Conversion is free after #6145 / PR #6154 merged; Authority/Content is occupied by #6115 / PR #6116. Normal WIP is 2/3. A Revenue/Conversion candidate may be promoted only through the normal scored, freshness, dependency, experiment, and admission gates. The single master scoring formula, evidence, freshness, experiment, and external-access gates remain unchanged. The single master scoring formula, evidence, freshness, experiment, and external-access gates remain unchanged. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
+Discovery/SEO is free after #5758 / PR #6126 merged; Revenue/Conversion is free after #6145 / PR #6154 merged; Authority/Content is occupied by #6115 / PR #6116. Normal WIP is 1/3. New Discovery/SEO or Revenue/Conversion work may be promoted only through the normal scored, freshness, dependency, experiment, and admission gates. The single master scoring formula, evidence, freshness, experiment, and external-access gates remain unchanged. The single master scoring formula, evidence, freshness, experiment, and external-access gates remain unchanged. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
