@@ -1,4 +1,4 @@
-import { MDXContent } from '@content-collections/mdx/react'
+import { MDXContent } from '@/components/articles/LocalMdxContent'
 import type { ComponentPropsWithoutRef } from 'react'
 import ArticleEmailCaptureExperiment from '@/components/monetization/ArticleEmailCaptureExperiment'
 import { useMDXComponents } from '@/mdx-components'
