@@ -3,10 +3,30 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
+const defaultRepoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
+const repoRoot = process.env.TOML_SECURITY_REPO_ROOT
+  ? path.resolve(process.env.TOML_SECURITY_REPO_ROOT)
+  : defaultRepoRoot
+
+function readRules(filePath) {
+  const payload = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+  return Array.isArray(payload.rules) ? payload.rules : []
+}
+
 const packageJson = JSON.parse(fs.readFileSync(path.join(repoRoot, 'package.json'), 'utf8'))
 const packageLock = JSON.parse(fs.readFileSync(path.join(repoRoot, 'package-lock.json'), 'utf8'))
-const allowlist = JSON.parse(fs.readFileSync(path.join(repoRoot, 'security', 'audit-allowlist.json'), 'utf8'))
+const allowlistPath = path.join(repoRoot, 'security', 'audit-allowlist.json')
+const allowlistFragmentsDir = path.join(repoRoot, 'security', 'audit-allowlist.d')
+const fragmentPaths = fs.existsSync(allowlistFragmentsDir)
+  ? fs.readdirSync(allowlistFragmentsDir)
+      .filter((name) => name.endsWith('.json'))
+      .sort()
+      .map((name) => path.join(allowlistFragmentsDir, name))
+  : []
+const allowlistRules = [
+  ...readRules(allowlistPath),
+  ...fragmentPaths.flatMap((filePath) => readRules(filePath)),
+]
 
 function parseVersion(value) {
   const match = String(value || '').match(/^(\d+)\.(\d+)\.(\d+)$/)
@@ -39,7 +59,7 @@ if (!lockedToml?.version || !atLeast(lockedToml.version, minimumPatchedVersion))
 }
 
 const stalePackages = new Set(['toml', 'remark-mdx-frontmatter', 'mdx-bundler', '@content-collections/mdx'])
-const staleRules = (allowlist.rules || []).filter((rule) => {
+const staleRules = allowlistRules.filter((rule) => {
   if (!rule) return false
   const follows5456 = String(rule.followUpIssueUrl || '').endsWith('/issues/5456')
   return follows5456 && stalePackages.has(rule.package)
