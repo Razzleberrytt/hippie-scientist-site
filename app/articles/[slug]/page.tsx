@@ -11,6 +11,7 @@ import WhatEvidenceShows from '@/components/evidence/WhatEvidenceShows'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import { editorialReviewEvents } from '@/data/editorial/reviews'
 import { latestReviewForPage } from '@/lib/editorial-provenance'
+import { buildKratomCompoundArticleSchema } from '@/lib/kratom-compound-article-schema'
 import {
   buildArticleReferenceSchema,
   buildCitationReadySummary,
@@ -85,6 +86,7 @@ export default async function ArticleMonographPage({ params }: PageProps) {
     faqAnswers,
   } = normalizeCitationMetadata(page)
   const articleReferences = normalizeArticleReferences(page.references)
+  const compoundArticleSchema = buildKratomCompoundArticleSchema(page.slug, page.relatedSlugs)
   const citationReadySummary = buildCitationReadySummary({
     description: page.description,
     keyTakeaways,
@@ -114,6 +116,7 @@ export default async function ArticleMonographPage({ params }: PageProps) {
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
+    '@id': `${SITE_URL}${pagePath}`,
     headline: page.title,
     description: page.description,
     abstract: citationReadySummary,
@@ -130,7 +133,7 @@ export default async function ArticleMonographPage({ params }: PageProps) {
     thumbnailUrl: socialImageUrl,
     keywords: page.tags,
     articleSection: page.category,
-    ...(canonicalConcepts.length > 0 ? { about: canonicalConcepts } : {}),
+    ...(compoundArticleSchema ?? (canonicalConcepts.length > 0 ? { about: canonicalConcepts } : {})),
     author: author === AUTHOR_NAME
       ? { '@type': 'Person', '@id': AUTHOR_SCHEMA_ID, name: AUTHOR_NAME, url: AUTHOR_URL }
       : { '@type': 'Person', name: author },

@@ -5,7 +5,7 @@
 **Updated:** 2026-10-01
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (verified 2026-10-01):** Normal implementation WIP is **3/3**: #5758 / PR #6126 owns Discovery/SEO, #6145 / PR #6154 owns Revenue/Conversion for bounded affiliate-destination integrity hardening, and #6115 / PR #6116 owns Authority/Content. Closed #6051, #6112, and #6134 are retired from active WIP. #5081 remains blocked on its own governor prerequisite. #6145 is admitted from feeder R-S004 at score 72.0 on exact base `fc85937e3ebe4726b67c8afafd093cfed0b3aa98`; admission is implementation authority, not proof of a current broken link or business outcome.
+**Current admission (verified 2026-10-01):** Normal implementation WIP is **0/3**. Discovery/SEO is free after #5758 / PR #6126 merged as `32dda28c8cd84e32b6df2458dcff6da66328e935`; Revenue/Conversion is free after #6145 / PR #6154 merged as `c8ff86010e4fa7e9030b3744a13dc565e621db38`; Authority/Content is free after #6115 / PR #6116 merged as `4a398dbb821ca3dd7ae975682e18eec3a002b302`. Closed #6051, #6112, #6134, #6145, #5758, and #6115 are retired from active WIP. #5081 remains blocked on its own governor prerequisite and does not become admitted merely because Authority/Content is free.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,23 +49,26 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 3/3
+## Active / in review — implementation WIP 0/3
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #5758 / PR #6126 | Sleep-guide search-snippet experiment; preserve scientific body and canonical route | In review | — | — | existing owner |
-| R | #6145 / PR #6154 | Fail closed malformed affiliate destinations in production output | In review | P1 | 72.0 | last_verified 2026-10-01T18:47:00Z |
-| A | #6115 / PR #6116 | Bounded mitragynine-adjacent citation cluster; preserve evidence and safety boundaries | In review | — | — | existing owner |
 
 **Control maintenance #6131:** In review — reconcile closed owners and make the active roster readable by the existing reconciler. The gate now requires authenticated proof that added roster owners already had unique open PRs before the fixed base; normal admission remains unchanged. This control repair grants no normal implementation slot.
 
 **Security follow-up #5456:** Open — permanent MDX/TOML dependency-chain removal remains unresolved. Temporary build-tool containment expires 2026-10-07; no extension is authorized by this reconciliation.
 
-**Authority prerequisite #5081:** Blocked on a fresh non-overlapping governor lease; PR #6116 occupies Authority/Content independently.
+**Authority prerequisite #5081:** Blocked on a fresh non-overlapping governor lease. Authority/Content is free after #6116 merged, but that free slot does not waive #5081's prerequisite.
 
 Research-only enrichment staging is not canonical implementation admission. No new work may overlap either active owner.
 
 ### Verified completion refresh — 2026-10-01
+
+- **#6115 / PR #6116 — completed:** merged as `4a398dbb821ca3dd7ae975682e18eec3a002b302`; the mitragynine-adjacent citation cluster is now on `main`, preserving evidence/safety boundaries while adding the four missing compound reviews and refreshed cluster links/schema. External search/citation/business impact remains **Unknown** until observed.
+
+- **#5758 / PR #6126 — completed:** merged as `32dda28c8cd84e32b6df2458dcff6da66328e935`; the sleep flagship search title/meta description now match proven query wording more closely while preserving the canonical URL, H1, body, citations, safety language, and evidence conclusions. External CTR improvement remains **Unknown** until post-change search data exists.
+
+- **#6145 / PR #6154 — completed:** merged as `c8ff86010e4fa7e9030b3744a13dc565e621db38`; the built-output affiliate audit now fails closed on malformed/non-HTTPS Amazon destinations and invalid Associates tag structure while preserving the existing production tag authority. Product availability, clicks, orders, conversion, and revenue remain **Unknown** until separately observed.
 
 - **#6134 / PR #6137 — completed:** merged 2026-10-01 as `fd9ea3ea079c868453e364b479fff54fa7b152d2`. The bounded social-attribution bridge now preserves consent-gated experiment identity across page/journey events, keeps platform link clicks separate from first-party `qualifiedVisits`, and leaves incomplete provider observations waiting rather than fabricating zero. Production event receipt, actual qualified visits, downstream journey rates, traffic lift, conversion, and revenue remain **Unknown** until separately observed.
 - **#6051 — completed:** GitHub closed the mobile overhaul on 2026-10-01 at 02:06:39 UTC after its acceptance checklist was checked. PR #6106 remains the hosted visual-proof/desktop-menu repair receipt. This retires its Discovery/SEO reservation; external engagement/business impact remains Unknown.
@@ -116,7 +119,7 @@ Research-only enrichment staging is not canonical implementation admission. No n
 
 ## Ready next — strict dependency order
 
-Discovery/SEO is occupied by #5758 / PR #6126; Revenue/Conversion by #6145 / PR #6154; Authority/Content by #6115 / PR #6116. Normal WIP is 3/3. Promote no additional normal implementation until a lane is freed through verified completion/blockage/displacement under the normal control rules. Evidence, freshness, experiment, and external-access gates remain unchanged. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
+Discovery/SEO is free after #5758 / PR #6126 merged; Revenue/Conversion is free after #6145 / PR #6154 merged; Authority/Content is free after #6115 / PR #6116 merged. Normal WIP is 0/3. New work in any normal lane may be promoted only through the normal scored, freshness, dependency, experiment, and admission gates. Evidence, freshness, experiment, and external-access gates remain unchanged. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
 
 ### Blocked or deferred candidates
 
