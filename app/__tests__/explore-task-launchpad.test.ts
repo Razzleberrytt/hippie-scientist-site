@@ -50,4 +50,12 @@ describe('Explore task launchpad', () => {
     expect(page).toContain('see what changed')
   })
 
+
+  it('backs the research-and-updates task with an explicit updates handoff', () => {
+    const research = read('app/research/page.tsx')
+
+    expect(research).toContain("href='/updates/'")
+    expect(research).toContain('See recent evidence changes and newly reviewed pages')
+  })
+
 })
