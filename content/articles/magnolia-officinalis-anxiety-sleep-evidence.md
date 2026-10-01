@@ -100,6 +100,8 @@ The same discipline applies to sleep outcomes. A subjective change in perceived 
 
 This is exactly why a connected evidence database is more useful than flattening every Magnolia-related paper into one score.
 
+A future review should also report null findings with the same prominence as positive ones. That keeps a small literature from looking stronger merely because favorable endpoints are easier to summarize than unchanged sleep or anxiety outcomes.
+
 ## Verdict
 
 Magnolia officinalis is **research-interesting but clinically underproven** for anxiety and sleep.
