@@ -8,6 +8,11 @@ const mocks = vi.hoisted(() => ({
   getConsent: vi.fn(),
   trackLeadMagnetClick: vi.fn(),
   trackPageView: vi.fn(),
+  trackHomepageEntityClick: vi.fn(),
+  trackCollectionDetailClick: vi.fn(),
+  trackDetailCheckerClick: vi.fn(),
+  trackDetailBuilderClick: vi.fn(),
+  trackDetailRelatedEntityClick: vi.fn(),
 }))
 
 vi.mock('next/navigation', () => ({
@@ -23,6 +28,14 @@ vi.mock('@/lib/analytics', () => ({
   trackPageView: mocks.trackPageView,
 }))
 
+vi.mock('@/lib/contentJourneyTracking', () => ({
+  trackHomepageEntityClick: mocks.trackHomepageEntityClick,
+  trackCollectionDetailClick: mocks.trackCollectionDetailClick,
+  trackDetailCheckerClick: mocks.trackDetailCheckerClick,
+  trackDetailBuilderClick: mocks.trackDetailBuilderClick,
+  trackDetailRelatedEntityClick: mocks.trackDetailRelatedEntityClick,
+}))
+
 vi.mock('@/lib/consent', () => ({
   CONSENT_CHANGE_EVENT: 'consent-granted',
   getConsent: mocks.getConsent,
@@ -36,6 +49,12 @@ afterEach(() => {
   mocks.getConsent.mockReset()
   mocks.trackLeadMagnetClick.mockReset()
   mocks.trackPageView.mockReset()
+  mocks.trackHomepageEntityClick.mockReset()
+  mocks.trackCollectionDetailClick.mockReset()
+  mocks.trackDetailCheckerClick.mockReset()
+  mocks.trackDetailBuilderClick.mockReset()
+  mocks.trackDetailRelatedEntityClick.mockReset()
+  window.history.replaceState({}, '', '/')
   vi.unstubAllGlobals()
 })
 
@@ -71,6 +90,52 @@ describe('ClickTracker', () => {
       slug: 'adhd-supplement-starter-checklist',
       sourcePath: '/',
     })
+  })
+
+  it('tracks homepage entity journeys once through document click capture after consent', () => {
+    mocks.getConsent.mockReturnValue('granted')
+    mocks.trackPageView.mockReturnValue(true)
+    window.history.replaceState({}, '', '/')
+
+    render(
+      <>
+        <ClickTracker />
+        <Link href="/herbs/ashwagandha/" data-tracking-location="home-featured" onClick={(event) => event.preventDefault()}>
+          Ashwagandha
+        </Link>
+      </>,
+    )
+
+    fireEvent.click(document.querySelector('a')!)
+
+    expect(mocks.trackHomepageEntityClick).toHaveBeenCalledTimes(1)
+    expect(mocks.trackHomepageEntityClick).toHaveBeenCalledWith({
+      targetType: 'herb',
+      targetSlug: 'ashwagandha',
+      placement: 'home-featured',
+    })
+  })
+
+  it('does not emit content journeys before analytics consent', () => {
+    mocks.getConsent.mockReturnValue('unknown')
+    window.history.replaceState({}, '', '/')
+
+    render(
+      <>
+        <ClickTracker />
+        <Link href="/compounds/glycine/" onClick={(event) => event.preventDefault()}>
+          Glycine
+        </Link>
+      </>,
+    )
+
+    fireEvent.click(document.querySelector('a')!)
+
+    expect(mocks.trackHomepageEntityClick).not.toHaveBeenCalled()
+    expect(mocks.trackCollectionDetailClick).not.toHaveBeenCalled()
+    expect(mocks.trackDetailCheckerClick).not.toHaveBeenCalled()
+    expect(mocks.trackDetailBuilderClick).not.toHaveBeenCalled()
+    expect(mocks.trackDetailRelatedEntityClick).not.toHaveBeenCalled()
   })
 
   it('does not track before analytics consent', () => {

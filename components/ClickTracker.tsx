@@ -10,6 +10,13 @@ import {
   trackPageView,
 } from '@/lib/analytics'
 import { CONSENT_CHANGE_EVENT, getConsent } from '@/lib/consent'
+import {
+  trackCollectionDetailClick,
+  trackDetailBuilderClick,
+  trackDetailCheckerClick,
+  trackDetailRelatedEntityClick,
+  trackHomepageEntityClick,
+} from '@/lib/contentJourneyTracking'
 import { loadAnalytics } from '../lib/loadAnalytics'
 import DeferredProfileFeedbackControls from '@/components/feedback/DeferredProfileFeedbackControls'
 
@@ -23,6 +30,115 @@ function loadRevenueTracking() {
 function isAffiliateLink(link: HTMLAnchorElement) {
   const href = link.getAttribute('href') || ''
   return href.includes('amazon.com') || href.includes('amzn.to') || Boolean(link.getAttribute('rel')?.includes('sponsored'))
+}
+
+
+type JourneyEntityType = 'herb' | 'compound'
+
+function internalPathFromHref(href: string): string | null {
+  if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return null
+  try {
+    const url = new URL(href, window.location.origin)
+    if (url.origin !== window.location.origin) return null
+    return url.pathname || '/'
+  } catch {
+    return null
+  }
+}
+
+function entityDestination(pathname: string): { type: JourneyEntityType; slug: string } | null {
+  const match = pathname.match(/^\/(herbs|compounds)\/([^/]+)\/?$/)
+  if (!match) return null
+  return {
+    type: match[1] === 'herbs' ? 'herb' : 'compound',
+    slug: match[2],
+  }
+}
+
+function collectionDestination(pathname: string): 'herbs' | 'compounds' | null {
+  const match = pathname.match(/^\/(herbs|compounds)\/?$/)
+  return match ? (match[1] as 'herbs' | 'compounds') : null
+}
+
+function journeyPlacement(link: HTMLAnchorElement): string {
+  return (
+    link.dataset.trackingLocation ||
+    link.closest<HTMLElement>('[data-tracking-location]')?.dataset.trackingLocation ||
+    link.closest<HTMLElement>('section[id]')?.id ||
+    'document-capture'
+  )
+}
+
+function trackContentJourneyFromDocumentClick(link: HTMLAnchorElement): void {
+  const href = link.getAttribute('href') || ''
+  const destinationPath = internalPathFromHref(href)
+  if (!destinationPath) return
+
+  const sourcePath = window.location.pathname || '/'
+  const placement = journeyPlacement(link)
+  const targetEntity = entityDestination(destinationPath)
+  const sourceEntity = entityDestination(sourcePath)
+  const sourceCollection = collectionDestination(sourcePath)
+
+  if (sourcePath === '/') {
+    if (targetEntity) {
+      trackHomepageEntityClick({
+        targetType: targetEntity.type,
+        targetSlug: targetEntity.slug,
+        placement,
+      })
+      return
+    }
+    const targetCollection = collectionDestination(destinationPath)
+    if (targetCollection) {
+      trackHomepageEntityClick({
+        targetType: 'collection',
+        targetSlug: targetCollection,
+        placement,
+      })
+    }
+    return
+  }
+
+  if (sourceCollection && targetEntity) {
+    trackCollectionDetailClick({
+      collectionSlug: sourceCollection,
+      targetType: targetEntity.type,
+      targetSlug: targetEntity.slug,
+      placement,
+    })
+    return
+  }
+
+  if (!sourceEntity) return
+
+  if (/^\/safety-checker\/?$/.test(destinationPath) || /^\/tools\/interaction-checker\/?$/.test(destinationPath)) {
+    trackDetailCheckerClick({
+      detailType: sourceEntity.type,
+      detailSlug: sourceEntity.slug,
+      placement,
+    })
+    return
+  }
+
+  if (/^\/(?:build|stacks\/builder)\/?$/.test(destinationPath)) {
+    trackDetailBuilderClick({
+      detailType: sourceEntity.type,
+      detailSlug: sourceEntity.slug,
+      placement,
+    })
+    return
+  }
+
+  if (targetEntity && (targetEntity.type !== sourceEntity.type || targetEntity.slug !== sourceEntity.slug)) {
+    trackDetailRelatedEntityClick({
+      detailType: sourceEntity.type,
+      detailSlug: sourceEntity.slug,
+      targetType: targetEntity.type,
+      targetSlug: targetEntity.slug,
+      placement,
+    })
+  }
 }
 
 function affiliateMetadata(link: HTMLAnchorElement) {
@@ -173,6 +289,10 @@ export default function ClickTracker() {
       const href = link.getAttribute('href') || ''
       const consentGranted = getConsent() === 'granted'
       const nav = link.closest('nav[aria-label="Primary"], nav[aria-label="Mobile primary links"]')
+
+      if (consentGranted) {
+        trackContentJourneyFromDocumentClick(link)
+      }
 
       if (nav && href.startsWith('/') && consentGranted) {
         trackNavigationClick({

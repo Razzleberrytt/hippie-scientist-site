@@ -2,17 +2,23 @@
 
 import { canTrackAnalytics } from '@/lib/consent'
 import { markNewsletterSignup } from '@/lib/email-attribution'
+import { getSocialAttributionEventParams } from '@/lib/social-attribution'
 
 type Gtag = (
   command: 'event',
   eventName:
     | 'affiliate_click'
     | 'atlas_callout_click'
+    | 'collection_detail_click'
+    | 'detail_builder_click'
+    | 'detail_interaction_checker_click'
+    | 'detail_related_entity_click'
     | 'email_return'
     | 'email_signup'
     | 'experiment_conversion'
     | 'experiment_impression'
     | 'guide_view'
+    | 'homepage_entity_click'
     | 'lead_magnet_click'
     | 'navigation_click'
     | 'page_view'
@@ -56,6 +62,22 @@ export type ResearchSuggestionParams = {
 
 export type SleepNextAction = 'research-hub' | 'newsletter-interest'
 
+export type ContentJourneyEventName =
+  | 'homepage_entity_click'
+  | 'collection_detail_click'
+  | 'detail_interaction_checker_click'
+  | 'detail_builder_click'
+  | 'detail_related_entity_click'
+
+export type ContentJourneyAnalyticsParams = {
+  type: ContentJourneyEventName
+  source: string
+  sourceType: 'homepage' | 'collection' | 'detail'
+  targetType: 'herb' | 'compound' | 'collection' | 'interaction_checker' | 'builder'
+  target: string
+  placement: string
+}
+
 function getGtag(): Gtag | null {
   if (!canTrackAnalytics()) return null
 
@@ -88,6 +110,7 @@ export function trackPageView(params: { pagePath?: string }): boolean {
       page_path: pagePath,
       page_location: typeof window !== 'undefined' ? window.location.href : undefined,
       page_title: typeof document !== 'undefined' ? document.title : undefined,
+      ...getSocialAttributionEventParams(),
     })
     return true
   } catch {
@@ -183,6 +206,23 @@ export function trackNavigationClick(params: NavigationClickParams): void {
       navigation_destination: params.destination,
       navigation_location: params.location,
       source_path: getCurrentPagePath(params.sourcePath),
+      ...getSocialAttributionEventParams(),
+    })
+  } catch {
+    // Analytics must never block navigation.
+  }
+}
+
+export function trackContentJourneyAnalytics(params: ContentJourneyAnalyticsParams): void {
+  try {
+    getGtag()?.('event', params.type, {
+      journey_source: params.source,
+      journey_source_type: params.sourceType,
+      journey_target_type: params.targetType,
+      journey_target: params.target,
+      journey_placement: params.placement,
+      page_path: getCurrentPagePath(),
+      ...getSocialAttributionEventParams(),
     })
   } catch {
     // Analytics must never block navigation.
@@ -283,6 +323,7 @@ export function trackGuideView(params: GuideViewParams): void {
       guide_slug: params.slug,
       guide_cluster: params.cluster,
       page_path: params.pagePath,
+      ...getSocialAttributionEventParams(),
     })
   } catch {
     // Analytics must never block page rendering.

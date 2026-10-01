@@ -1,6 +1,6 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest'
-import { scoreAdmission, validateAdmissionTransaction } from './validate-project-control-admission.mjs'
+import { scoreAdmission, validateAdmissionTransaction, validateExistingOwnerReconciliation } from './validate-project-control-admission.mjs'
 
 const base = 'a'.repeat(40)
 const title = 'Audit Kava post-answer journey for one evidence-first next action'
@@ -101,3 +101,39 @@ describe('project-control admission transaction', () => {
     expect(validateAdmissionTransaction(altered).errors.join(' ')).toContain('add exactly the candidate')
   })
 })
+
+const reconciliationInput = () => ({
+  baseSprint: '**WIP cap:** 3\n## Active\n', baseBacklog: '**WIP cap:** 3\n## Now\n',
+  headSprint: '**WIP cap:** 3\n## Active\n| D | #5758 / PR #6126 | Sleep | In review |\n| A | #6115 / PR #6116 | Cluster | In review |',
+  headBacklog: '**WIP cap:** 3\n## Now\n| #5758 / PR #6126 | Sleep | D | In review |\n| #6115 / PR #6116 | Cluster | A | In review |',
+  baseRevision: base, baseCommittedAt: '2026-10-01T11:08:24Z', now: '2026-10-01T13:00:00Z',
+  manifest: { mode: 'existing-owner-reconciliation', base_revision: base, last_verified: '2026-10-01T12:00:00Z', owners: [{ ticket:5758, pr:6126, lane:'D' }, { ticket:6115, pr:6116, lane:'A' }] },
+  issues: [{number:5758,state:'open'}, {number:6115,state:'open'}],
+  associations: [{ticket:5758,pr:6126,createdAt:'2026-09-30T12:00:00Z'}, {ticket:6115,pr:6116,createdAt:'2026-09-30T12:00:00Z'}],
+  openPulls: [{number:6126,state:'open',created_at:'2026-09-30T12:00:00Z',closes:[5758]}, {number:6116,state:'open',created_at:'2026-09-30T12:00:00Z',closes:[6115]}],
+});
+describe('existing owner reconciliation', () => {
+  it('reconciles both already-open owners without admitting new work', () => { expect(validateExistingOwnerReconciliation(reconciliationInput())).toMatchObject({state:'PASS',wip:2}); });
+  it('fails closed for stale, future, absent, closed or duplicate ownership and changed caps', () => {
+    for (const mutate of [
+      x=>{x.manifest.base_revision='b'.repeat(40)}, x=>{x.manifest.last_verified='2026-09-01'},
+      x=>{x.manifest.last_verified='2026-10-02'}, x=>{x.baseCommittedAt='invalid'},
+      x=>{x.openPulls[0].created_at='2026-10-01T12:00:00Z'}, x=>{x.openPulls[0].state='closed'},
+      x=>{x.openPulls[0].closes=[]}, x=>{x.issues[0].state='closed'},
+      x=>{x.openPulls.push({...x.openPulls[0],number:999})}, x=>{x.manifest.owners.pop()},
+      x=>{x.headSprint=x.headSprint.replace('| A |','| D |')},
+      x=>{x.headBacklog=x.headBacklog.replace('| A |','| R |')},
+      x=>{x.headSprint=x.headSprint.replace('cap:** 3','cap:** 4')},
+    ]) {const x=reconciliationInput();mutate(x);expect(validateExistingOwnerReconciliation(x).state).toBe('BLOCKED');}
+  });
+  it('preserves every base owner and rejects undeclared row identities', () => {
+    const x=reconciliationInput();x.baseSprint+='| R | #99 | Existing | In review |';x.baseBacklog+='| #99 | Existing | R | In review |';
+    expect(validateExistingOwnerReconciliation(x).state).toBe('BLOCKED');
+    const y=reconciliationInput();y.headSprint=y.headSprint.replace('PR #6126','PR #9000');expect(validateExistingOwnerReconciliation(y).state).toBe('BLOCKED');
+  });
+});
+
+it('rejects PR objects posing as owner issues', () => { const x=reconciliationInput();x.issues[0].pull_request={url:'https://api.github.com/repos/example/pulls/5758'};expect(validateExistingOwnerReconciliation(x).state).toBe('BLOCKED'); });
+it('preserves base owner PR references in both tables', () => { const x=reconciliationInput();const a='| R | #99 / PR #100 | Existing | In review |';const b='| #99 / PR #100 | Existing | R | In review |';x.baseSprint+=a;x.baseBacklog+=b;x.headSprint+='\n'+a;x.headBacklog+='\n'+b.replace('PR #100','PR #101');expect(validateExistingOwnerReconciliation(x).state).toBe('BLOCKED'); });
+
+it('rejects old PRs without a pre-base issue association', () => {for(const mutate of [x=>{x.associations=[]},x=>{x.associations[0].createdAt='2026-10-01T12:00:00Z'},x=>{x.associations[0].pr=99}]){const x=reconciliationInput();mutate(x);expect(validateExistingOwnerReconciliation(x).state).toBe('BLOCKED');}});

@@ -88,6 +88,12 @@ Use canonical, public, indexable URLs. Prefer the most specific page that answer
 - [MGM-15 / dihydro-7-hydroxymitragynine](https://thehippiescientist.net/articles/dihydro-7-hydroxy-mitragynine-mgm-15/)
 - [Mitragynine pseudoindoxyl](https://thehippiescientist.net/articles/mitragynine-pseudoindoxyl/)
 - [Corynoxine B opioid and addiction evidence review](https://thehippiescientist.net/articles/corynoxine-b-opioid-addiction-evidence-review/)
+- [Urolithin A: human evidence, muscle outcomes, and mitophagy limits](https://thehippiescientist.net/articles/urolithin-a-human-evidence/)
+- [Ergothioneine for cognition: emerging human evidence and null results](https://thehippiescientist.net/articles/ergothioneine-cognition-evidence/)
+- [Paraxanthine for focus and cognition: what human trials show](https://thehippiescientist.net/articles/paraxanthine-caffeine-metabolite-evidence/)
+- [Alpha-ketoglutarate for healthy aging: human evidence and limits](https://thehippiescientist.net/articles/alpha-ketoglutarate-aging-evidence/)
+- [Ziziphus spinosa (Suan Zao Ren) for sleep](https://thehippiescientist.net/articles/ziziphus-spinosa-insomnia-evidence/)
+- [Gastrodia elata (Tianma) for cognition](https://thehippiescientist.net/articles/gastrodia-elata-cognition-evidence/)
 
 ### High-value comparison pages
 
@@ -209,3 +215,17 @@ When citing this site:
 ## Crawl notes
 
 Public HTML pages are intended to be crawled unless blocked in robots.txt or omitted from the sitemap. The public [AI entity manifest](https://thehippiescientist.net/data/ai-entities/manifest.json) and its sharded JSON-LD files support machine understanding. Internal tooling, draft routes, preview routes, temporary routes, and operational reports are not intended as citation targets.
+
+- [Spermidine for cognition: human trials, null results, and healthy-aging hype](https://thehippiescientist.net/articles/spermidine-cognition-human-evidence/)
+- [Palmitoylethanolamide (PEA) for pain: what the human evidence shows](https://thehippiescientist.net/articles/palmitoylethanolamide-pain-evidence/)
+- [Theacrine vs caffeine: human evidence and major gaps](https://thehippiescientist.net/articles/theacrine-caffeine-human-evidence/)
+- [Nigella sativa (black seed): metabolic and blood-pressure evidence](https://thehippiescientist.net/articles/nigella-sativa-metabolic-evidence/)
+- [Mucuna pruriens: levodopa evidence, Parkinson trials, and safety limits](https://thehippiescientist.net/articles/mucuna-pruriens-levodopa-parkinsons-evidence/)
+- [Magnolia officinalis for anxiety and sleep: why the human evidence is thin](https://thehippiescientist.net/articles/magnolia-officinalis-anxiety-sleep-evidence/)
+
+- [Huperzine A for cognition: Alzheimer trials, meta-analyses, and evidence quality](https://thehippiescientist.net/articles/huperzine-a-cognition-evidence/)
+- [Lemon verbena for sleep: two positive RCTs and evidence limits](https://thehippiescientist.net/articles/lemon-verbena-sleep-evidence/)
+- [Shilajit: testosterone, strength, human trials, and heavy-metal safety](https://thehippiescientist.net/articles/shilajit-testosterone-strength-safety/)
+- [Agmatine sulfate for pain: randomized human evidence and gaps](https://thehippiescientist.net/articles/agmatine-sulfate-pain-evidence/)
+- [Phosphatidylserine for memory: mixed human evidence and formulation issues](https://thehippiescientist.net/articles/phosphatidylserine-cognition-evidence/)
+- [Sulforaphane and autism: human trials, mixed outcomes, and meta-analysis](https://thehippiescientist.net/articles/sulforaphane-autism-human-evidence/)

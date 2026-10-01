@@ -20,7 +20,7 @@ import { chromium } from 'playwright'
 import { mkdirSync, writeFileSync } from 'node:fs'
 
 const ROUTES = [
-  '/', '/start/', '/library/', '/goals/',
+  '/', '/start/', '/explore/', '/library/', '/goals/',
   '/goals/sleep/', '/goals/stress/', '/goals/anxiety/', '/goals/focus/',
   '/herbs/', '/herbs/ashwagandha/', '/compounds/', '/compounds/l-theanine/',
   '/guides/', '/guides/compare/', '/guides/compare/rhodiola-vs-ashwagandha/',
@@ -31,7 +31,7 @@ const ROUTES = [
 ]
 const WIDTHS = [390, 768, 1280]
 const MOBILE_PROOF_ROUTES = new Set([
-  '/', '/start/', '/guides/', '/herbs/', '/herbs/ashwagandha/',
+  '/', '/start/', '/explore/', '/guides/', '/herbs/', '/herbs/ashwagandha/',
   '/compounds/', '/compounds/l-theanine/', '/research/',
 ])
 const tag = process.argv[2] || 'base'

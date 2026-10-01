@@ -63,6 +63,7 @@ const observation = {
   observedTo: '2026-08-27T12:04:00.000Z',
   capturedAt: '2026-08-27T13:00:00.000Z',
   assetViews: 1000,
+  platformLinkClicks: 24,
   qualifiedVisits: 60,
   completionRate: 0.8,
   saveRate: 0.08,
@@ -89,20 +90,54 @@ describe('Metricool connector measurement ingestion', () => {
       platform: 'youtube',
       publicationExternalId: 'post-123',
       assetViews: 1000,
+      platformLinkClicks: 24,
       qualifiedVisits: 60,
       observationOnly: true,
     })
   })
 
-  it('rejects missing metrics instead of fabricating zero performance', () => {
+  it('keeps incomplete platform observations waiting instead of fabricating zero performance', () => {
     const publication = publicationEvidence()
+    const result = recordMetricoolConnectorMeasuredObservation({
+      publicationEvidence: publication,
+      currentIdentity: publication.lifecycle.identity,
+      candidate,
+      observation: { ...observation, qualifiedVisits: undefined },
+      now,
+    })
+
+    expect(result.status).toBe('waiting-for-qualified-visits')
+    expect(result.lifecycle.state).toBe('published')
+    expect(result.qualifiedVisits).toBeNull()
+    expect(result.platformObservation).toMatchObject({
+      assetViews: 1000,
+      platformLinkClicks: 24,
+      completionRate: 0.8,
+      saveRate: 0.08,
+    })
+    expect(result.missingForCanonicalMeasurement).toEqual(['qualifiedVisits'])
+  })
+
+  it('keeps missing platform metrics explicit and rejects invalid supplied values', () => {
+    const publication = publicationEvidence()
+    const waiting = recordMetricoolConnectorMeasuredObservation({
+      publicationEvidence: publication,
+      currentIdentity: publication.lifecycle.identity,
+      candidate,
+      observation: { ...observation, assetViews: undefined, completionRate: undefined },
+      now,
+    })
+
+    expect(waiting.status).toBe('waiting-for-qualified-visits')
+    expect(waiting.missingForCanonicalMeasurement).toEqual(['assetViews', 'completionRate'])
+
     expect(() => recordMetricoolConnectorMeasuredObservation({
       publicationEvidence: publication,
       currentIdentity: publication.lifecycle.identity,
       candidate,
-      observation: { ...observation, assetViews: undefined },
+      observation: { ...observation, platformLinkClicks: -1 },
       now,
-    })).toThrow(/explicit assetViews.*not zero performance/i)
+    })).toThrow(/platformLinkClicks.*non-negative finite/i)
   })
 
   it('rejects platform or candidate drift rather than pooling observations', () => {

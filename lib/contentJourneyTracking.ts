@@ -1,5 +1,7 @@
-import { appendAnalyticsEvent } from '@/utils/analytics/eventStorage'
+import { appendAnalyticsEvent } from '@/lib/analyticsEventStorage'
+import { trackContentJourneyAnalytics } from './analytics'
 import { trackGovernedEvent } from './governedAnalytics'
+import { getSocialAttributionLocalFields } from './social-attribution'
 
 type EntityType = 'herb' | 'compound' | 'collection'
 type DetailType = 'herb' | 'compound'
@@ -39,7 +41,10 @@ function trackJourneyEvent(params: {
     ctaType: params.ctaMetadata?.ctaType,
     ctaPosition: params.ctaMetadata?.ctaPosition,
     variantId: params.ctaMetadata?.variantId,
+    ...getSocialAttributionLocalFields(),
   })
+
+  trackContentJourneyAnalytics(params)
 
   if (params.ctaMetadata) {
     const entityType = params.ctaMetadata.pageType === 'compound_detail' ? 'compound' : 'herb'

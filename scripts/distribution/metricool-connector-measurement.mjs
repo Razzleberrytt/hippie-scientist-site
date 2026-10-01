@@ -5,11 +5,22 @@ function clean(value) {
   return String(value ?? '').trim()
 }
 
-function requiredMetric(value, name) {
-  if (value === null || value === undefined || value === '') {
-    throw new Error(`Metricool measurement requires explicit ${name}; missing observations are not zero performance`)
+function optionalNonNegativeMetric(value, name) {
+  if (value === null || value === undefined || value === '') return null
+  const number = Number(value)
+  if (!Number.isFinite(number) || number < 0) {
+    throw new Error(`Metricool measurement requires ${name} to be a non-negative finite number when supplied`)
   }
-  return value
+  return number
+}
+
+function optionalRateMetric(value, name) {
+  if (value === null || value === undefined || value === '') return null
+  const number = Number(value)
+  if (!Number.isFinite(number) || number < 0 || number > 1) {
+    throw new Error(`Metricool measurement requires ${name} to be between 0 and 1 when supplied`)
+  }
+  return number
 }
 
 export function recordMetricoolConnectorMeasuredObservation({
@@ -51,6 +62,40 @@ export function recordMetricoolConnectorMeasuredObservation({
   if (clean(publishedReceipt.provider) !== 'metricool') throw new Error('published receipt provider mismatch')
   if (clean(publishedReceipt.externalId) !== clean(publicationEvidence.externalId)) throw new Error('published receipt externalId mismatch')
 
+  const platformObservation = {
+    observedFrom: observation?.observedFrom,
+    observedTo: observation?.observedTo,
+    capturedAt: observation?.capturedAt,
+    assetViews: optionalNonNegativeMetric(observation?.assetViews, 'assetViews'),
+    platformLinkClicks: optionalNonNegativeMetric(observation?.platformLinkClicks, 'platformLinkClicks'),
+    completionRate: optionalRateMetric(observation?.completionRate, 'completionRate'),
+    saveRate: optionalRateMetric(observation?.saveRate, 'saveRate'),
+    attributionRisk: observation?.attributionRisk,
+  }
+  const qualifiedVisits = optionalNonNegativeMetric(observation?.qualifiedVisits, 'qualifiedVisits')
+  const missingForCanonicalMeasurement = [
+    ['assetViews', platformObservation.assetViews],
+    ['qualifiedVisits', qualifiedVisits],
+    ['completionRate', platformObservation.completionRate],
+    ['saveRate', platformObservation.saveRate],
+  ].filter(([, value]) => value === null).map(([name]) => name)
+
+  if (missingForCanonicalMeasurement.length) {
+    return {
+      schemaVersion: 'metricool-connector-measurement-ingestion-v1',
+      status: 'waiting-for-qualified-visits',
+      provider: 'metricool',
+      lifecycleId: lifecycle.lifecycleId,
+      identityFingerprint: identity.fingerprint,
+      idempotencyKey: identity.idempotencyKey,
+      externalId: publicationEvidence.externalId,
+      missingForCanonicalMeasurement,
+      platformObservation,
+      qualifiedVisits,
+      lifecycle: structuredClone(lifecycle),
+    }
+  }
+
   const rawObservation = {
     lifecycleId: lifecycle.lifecycleId,
     identityFingerprint: identity.fingerprint,
@@ -63,14 +108,8 @@ export function recordMetricoolConnectorMeasuredObservation({
     contentHash: identity.researchObjectHash,
     taggedDestination: identity.taggedDestination,
     angleKey: candidate.angleKey,
-    observedFrom: observation?.observedFrom,
-    observedTo: observation?.observedTo,
-    capturedAt: observation?.capturedAt,
-    assetViews: requiredMetric(observation?.assetViews, 'assetViews'),
-    qualifiedVisits: requiredMetric(observation?.qualifiedVisits, 'qualifiedVisits'),
-    completionRate: requiredMetric(observation?.completionRate, 'completionRate'),
-    saveRate: requiredMetric(observation?.saveRate, 'saveRate'),
-    attributionRisk: observation?.attributionRisk,
+    ...platformObservation,
+    qualifiedVisits,
   }
 
   const history = ingestDistributionObservations([lifecycle], [rawObservation], [candidate], { now: new Date(now) })
@@ -95,6 +134,7 @@ export function recordMetricoolConnectorMeasuredObservation({
     observedTo: accepted.observedTo,
     capturedAt: accepted.capturedAt,
     assetViews: accepted.assetViews,
+    platformLinkClicks: accepted.platformLinkClicks,
     qualifiedVisits: accepted.qualifiedVisits,
     completionRate: accepted.completionRate,
     saveRate: accepted.saveRate,

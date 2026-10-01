@@ -189,6 +189,12 @@ export default async function ResearchPage() {
         <p className='mt-5 max-w-3xl text-lg leading-8 text-muted'>
           Start with the research task, not a wall of cards. Find a source, check an ingredient, inspect the full evidence picture, or see how the grading system works.
         </p>
+        <Link
+          href='/updates/'
+          className='mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-brand-700 hover:underline'
+        >
+          See recent evidence changes and newly reviewed pages →
+        </Link>
       </section>
 
       <section aria-labelledby='research-paths-heading'>
