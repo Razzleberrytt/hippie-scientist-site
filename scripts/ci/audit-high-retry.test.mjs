@@ -190,10 +190,12 @@ describe('high-severity audit transport retry', () => {
     expect(result.stderr).toContain('mdx-bundler')
   })
 
-  it('still permits the explicitly bounded dependency-only TOML chain', () => {
+  it('fails closed on the retired MDX/TOML chain after its bounded exception is removed', () => {
     const { result, count } = runAuditFixture('mdx-transitive-toml-high')
-    expect(result.status).toBe(0)
+    expect(result.status).toBe(1)
     expect(count).toBe(1)
-    expect(result.stdout).toContain('[audit:high] PASS')
+    expect(result.stderr).toContain('unallowlisted high/critical vulnerabilities found')
+    expect(result.stderr).toContain('toml')
+    expect(result.stderr).not.toContain('retrying')
   })
 })
