@@ -111,7 +111,7 @@ The cleanest answer would come from modern head-to-head or independently replica
 
 Primary outcomes matter as well. Memory complaints can be measured with many tests, and a positive secondary task does not cancel a neutral prespecified primary endpoint. Future trials should make that hierarchy easy to see and should report effect sizes rather than only whether a threshold for statistical significance was crossed.
 
-The population boundary also needs to remain intact. Age-associated memory complaints, diagnosed dementia, stress-response studies, and healthy-young-adult nootropic use are different questions. Evidence from one group should not automatically raise confidence for the others.
+The population boundary also needs to remain intact. Age-associated memory complaints, diagnosed dementia, stress-response studies, and healthy-young-adult nootropic use are different questions. Evidence from one group should not automatically raise confidence for the others. The same rule applies to duration: a short cognitive-test change cannot establish protection against long-term cognitive decline or dementia.
 
 ## Verdict
 
