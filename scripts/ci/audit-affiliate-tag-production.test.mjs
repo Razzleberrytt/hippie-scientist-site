@@ -120,6 +120,15 @@ describe('production affiliate destination audit', () => {
     expect(result.stderr).toContain('malformed or unparseable')
   })
 
+  it('fails closed when invalid syntax immediately follows the Amazon hostname', () => {
+    const result = runFixture([
+      'https://www.amazon.com%ZZ/dp/B000TEST?tag=test-tag-20',
+    ])
+
+    expect(result.status).toBe(1)
+    expect(result.stderr).toContain('malformed or unparseable')
+  })
+
   it('does not expand scope to unrelated malformed non-Amazon hrefs', () => {
     const result = runFixture([
       '::::not-a-url::::',
