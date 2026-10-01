@@ -53,6 +53,7 @@ function observation(lifecycle, overrides = {}) {
     observedTo: '2026-08-27T12:04:00.000Z',
     capturedAt: '2026-08-27T13:00:00.000Z',
     assetViews: 1000,
+    platformLinkClicks: 24,
     qualifiedVisits: 60,
     completionRate: 0.8,
     saveRate: 0.08,
@@ -79,6 +80,7 @@ describe('distribution outcome observation ingestion', () => {
       candidateId: candidate.id,
       platform: 'instagram',
       assetViews: 1000,
+      platformLinkClicks: 24,
       qualifiedVisits: 60,
       sourceUrl: identity.sourceUrl,
       contentHash: identity.researchObjectHash,
@@ -86,6 +88,26 @@ describe('distribution outcome observation ingestion', () => {
     const feedback = applyDistributionFeedback(candidate, result.history, { now: NOW })
     expect(feedback.feedback.measured.rewardSampleSufficient).toBe(true)
     expect(feedback.feedback.performanceReward).toBeGreaterThan(0)
+  })
+
+  it('preserves platform clicks separately and rejects invalid supplied click counts', () => {
+    const lifecycle = publishedLifecycle()
+    const withoutClicks = ingestDistributionObservations(
+      [lifecycle],
+      [observation(lifecycle, { platformLinkClicks: undefined })],
+      [candidate],
+      { now: NOW },
+    )
+    expect(withoutClicks.accepted[0].platformLinkClicks).toBeNull()
+
+    const invalid = ingestDistributionObservations(
+      [lifecycle],
+      [observation(lifecycle, { platformLinkClicks: -1 })],
+      [candidate],
+      { now: NOW },
+    )
+    expect(invalid.accepted).toEqual([])
+    expect(invalid.rejected[0].reasons.join(' ')).toMatch(/platformLinkClicks.*non-negative finite/i)
   })
 
   it('rejects duplicate, stale, and receipt-mismatched observations instead of inferring outcomes', () => {
