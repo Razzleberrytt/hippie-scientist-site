@@ -11,6 +11,7 @@ const ANALYTICS_SESSION_KEYS = [
   'hs_compare_seen_pages',
   'hs_compare_pending_entry',
   'botanical-atlas-engagement',
+  'ths_social_attribution_v1',
 ] as const
 const MAX_EVENTS = 200
 
