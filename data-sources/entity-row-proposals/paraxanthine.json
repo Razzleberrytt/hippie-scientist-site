@@ -1,0 +1,11 @@
+{
+  "entity_type": "compound",
+  "slug": "paraxanthine",
+  "name": "Paraxanthine",
+  "summary": "Paraxanthine is the major primary metabolite of caffeine in humans and has stimulant pharmacology of its own. Small randomized crossover studies report acute cognition and attention signals, but the published human evidence is tiny, short term, and commercially concentrated.",
+  "description": "Canonical paraxanthine research entity for evidence and safety integration. Publication remains held until independent replication, direct caffeine-comparator evidence, cardiovascular and sleep outcomes, chronic exposure, and product-specific provenance have passed review.",
+  "primary_effects_or_targets": "methylxanthine stimulant pharmacology; adenosine-receptor antagonism; attention and cognitive-performance research",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only"
+}
