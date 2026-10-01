@@ -84,6 +84,8 @@ Independent replication would be especially valuable in this field because much 
 
 Until those pieces exist, theacrine can reasonably be described as stimulant-adjacent and human-tested without calling it a superior or tolerance-proof caffeine alternative.
 
+The same caution applies to safety language: absence of a major signal in a small short trial is not evidence that repeated use is risk-free. Larger exposure datasets are needed before making strong tolerability comparisons with caffeine.
+
 ## Verdict
 
 Theacrine is best labeled **preliminary human evidence**.
