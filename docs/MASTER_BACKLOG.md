@@ -46,12 +46,13 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-| ID / owning PR | Scope | WS | Status |
-|---|---|---|---|
-| #5758 / PR #6126 | Sleep-guide search-snippet experiment | D | In review |
-| #6115 / PR #6116 | Bounded mitragynine-adjacent citation cluster | A | In review |
+| ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
+|---|---|---|---|---|---|---:|---|
+| #5758 / PR #6126 | Sleep-guide search-snippet experiment | D | In review | — | — | — | existing owner |
+| #6134 | Bridge live Metricool social experiments into canonical qualified-visit attribution | R | Admitted — implementation next | P1 | 4/4/3/5/0.75/2 | 90.0 | last_verified 2026-10-01T17:20:00Z |
+| #6115 / PR #6116 | Bounded mitragynine-adjacent citation cluster | A | In review | — | — | — | existing owner |
 
-**Current admission (verified 2026-10-01):** Normal implementation WIP is **2/3**: #5758 / PR #6126 owns Discovery/SEO, and #6115 / PR #6116 owns Authority/Content. Revenue/Conversion has no implementation owner in the inspected open PR roster. Closed #6051 and #6112 are retired. #5081 remains blocked on its own governor prerequisite. Docs-only control audit #6131 grants no additional implementation slot.
+**Current admission (verified 2026-10-01):** Normal implementation WIP is **3/3**: #5758 / PR #6126 owns Discovery/SEO, #6134 owns Revenue/Conversion for bounded L3 social-attribution measurement, and #6115 / PR #6116 owns Authority/Content. Closed #6051 and #6112 are retired. #5081 remains blocked on its own governor prerequisite. No additional normal implementation capacity remains.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
@@ -70,7 +71,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Discovery/SEO is occupied by #5758 / PR #6126; Authority/Content by #6115 / PR #6116. Promote only into a free lane after fresh GitHub reconciliation, non-overlap checks, and the single master scoring formula. Revenue/Conversion availability does not waive evidence, freshness, experiment, or external-access gates. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
+Discovery/SEO is occupied by #5758 / PR #6126; Revenue/Conversion by admitted #6134; Authority/Content by #6115 / PR #6116. Normal WIP is full at 3/3. Promote no additional implementation until a lane is freed through verified completion/blockage/displacement under the normal control rules. The single master scoring formula, evidence, freshness, experiment, and external-access gates remain unchanged. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
