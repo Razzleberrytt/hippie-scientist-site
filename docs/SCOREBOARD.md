@@ -1,14 +1,18 @@
 # Growth Scoreboard
 
 **Status:** Authoritative metric definitions and reporting surface
-**Updated:** 2026-09-20 (fresh GSC Page Indexing snapshot and domain-level 28-day Search Performance screenshot; page/query breakdown remains unavailable)
+**Updated:** 2026-10-01 (production analytics transport probe + deployed social-attribution bridge; business outcomes remain unavailable)
 **Default reporting period:** Rolling 28 complete days compared with the preceding 28 complete days. Repository/build health uses the latest main-branch run. `Unknown` means no authorized source value was available; it does not mean zero.
 
 ## Measurement status
 
-**Verified:** Consent-gated analytics and affiliate-event code exists. PR #4269 merged as `ac20330`, preserving first consented GA events during deferred loading and assigning explicit initial/client-route page views to one owner.
-**Unknown:** Production property configuration/event receipt and all business performance values.
-**Next:** Resolve the authorized production receipt blocker in issue #4280, then import read-only GSC, GA4, Amazon Associates, and Mailchimp reports with matching date ranges. Never commit credentials or person-level data.
+**Verified code/deployment:** Consent-gated analytics and affiliate-event code exists. PR #4269 merged as `ac20330`, preserving first consented GA events during deferred loading and assigning explicit initial/client-route page views to one owner. PR #6137 merged the bounded social-attribution/session bridge as `fd9ea3ea079c868453e364b479fff54fa7b152d2`; main `3d9ee3a6e9ba6e1d5099619635c8803ed591fdd2` subsequently passed the Cloudflare deployment workflow and exact production-receipt verification.
+
+**Verified production transport status (2026-10-01):** A clean browser probe with analytics consent granted found `window.gtag` still undefined, no GA4 loader/collection request and no Ahrefs analytics request. The present first-party GTM container `GTM-K9MGMJZS` exposes no configured tags/rules. Therefore the browser attribution capability is deployed, but aggregate remote event receipt is not active through the current application/GTM path.
+
+**Unknown:** First-party landing sessions, social `qualifiedVisits`, downstream journey sessions/rates, affiliate conversions, email conversions, revenue, and all other business performance values. Missing transport/coverage is not zero performance.
+
+**Next:** Resolve GitHub #6143 by connecting the intended GA4 property/web stream (or another explicitly approved aggregate analytics transport), configuring production without committing credentials, proving a consented tagged test receipt, and establishing read-only reporting. Then import matching-period GSC/GA4/Amazon/Mailchimp aggregates. Never commit private analytics credentials or person-level data.
 
 ## Search
 
