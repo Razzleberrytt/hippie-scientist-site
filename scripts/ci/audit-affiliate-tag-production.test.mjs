@@ -132,6 +132,7 @@ describe('production affiliate destination audit', () => {
   it('does not expand scope to unrelated malformed non-Amazon hrefs', () => {
     const result = runFixture([
       '::::not-a-url::::',
+      'https://notamazon.com%ZZ/path?tag=wrong-tag-20',
       'https://example.com/path?tag=wrong-tag-20',
     ])
 
