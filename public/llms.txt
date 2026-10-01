@@ -222,3 +222,10 @@ Public HTML pages are intended to be crawled unless blocked in robots.txt or omi
 - [Nigella sativa (black seed): metabolic and blood-pressure evidence](https://thehippiescientist.net/articles/nigella-sativa-metabolic-evidence/)
 - [Mucuna pruriens: levodopa evidence, Parkinson trials, and safety limits](https://thehippiescientist.net/articles/mucuna-pruriens-levodopa-parkinsons-evidence/)
 - [Magnolia officinalis for anxiety and sleep: why the human evidence is thin](https://thehippiescientist.net/articles/magnolia-officinalis-anxiety-sleep-evidence/)
+
+- [Huperzine A for cognition: Alzheimer trials, meta-analyses, and evidence quality](https://thehippiescientist.net/articles/huperzine-a-cognition-evidence/)
+- [Lemon verbena for sleep: two positive RCTs and evidence limits](https://thehippiescientist.net/articles/lemon-verbena-sleep-evidence/)
+- [Shilajit: testosterone, strength, human trials, and heavy-metal safety](https://thehippiescientist.net/articles/shilajit-testosterone-strength-safety/)
+- [Agmatine sulfate for pain: randomized human evidence and gaps](https://thehippiescientist.net/articles/agmatine-sulfate-pain-evidence/)
+- [Phosphatidylserine for memory: mixed human evidence and formulation issues](https://thehippiescientist.net/articles/phosphatidylserine-cognition-evidence/)
+- [Sulforaphane and autism: human trials, mixed outcomes, and meta-analysis](https://thehippiescientist.net/articles/sulforaphane-autism-human-evidence/)
