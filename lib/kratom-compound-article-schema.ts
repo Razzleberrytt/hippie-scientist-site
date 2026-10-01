@@ -25,7 +25,9 @@ function compoundNode(slug: ClusterSlug) {
     '@id': `${url}#compound`,
     name: kratomCompoundArticles[slug],
     url,
-    subjectOf: { '@type': 'Article', '@id': url },
+    // Reference the owning article by identity only. A typed Article stub would
+    // be an incomplete second Article node and fail the schema truthfulness gate.
+    subjectOf: { '@id': url },
   }
 }
 

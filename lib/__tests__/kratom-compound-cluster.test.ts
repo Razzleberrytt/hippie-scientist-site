@@ -16,6 +16,8 @@ describe('kratom compound citation cluster', () => {
     const schema = buildKratomCompoundArticleSchema(slug, data.relatedSlugs)!
     expect(schema.about['@type']).toBe('ChemicalSubstance')
     expect(schema.about.url).toBe(`https://thehippiescientist.net/articles/${slug}/`)
+    expect(schema.about.subjectOf).toEqual({ '@id': `https://thehippiescientist.net/articles/${slug}/` })
+    expect(JSON.stringify(schema)).not.toContain('"subjectOf":{"@type":"Article"')
     expect(schema.mentions).toHaveLength(6)
     for (const other of slugs.filter(value => value !== slug)) {
       expect(data.relatedSlugs).toContain(other)
