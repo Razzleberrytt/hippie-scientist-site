@@ -1,0 +1,11 @@
+{
+  "entity_type": "compound",
+  "slug": "ergothioneine",
+  "name": "Ergothioneine",
+  "summary": "Ergothioneine is a diet-derived sulfur-containing amino-acid derivative concentrated in some mushrooms and transported in humans by OCTN1. A small randomized pilot trial in older adults with mild cognitive impairment reported signals in learning performance and neurofilament-light trajectories, but the human cognition evidence remains preliminary.",
+  "description": "Canonical ergothioneine entity for evidence and safety integration. Publication remains held until the small human cognition literature, dietary-versus-isolated exposure boundary, biomarkers, longer-term safety, and replication status have passed the site’s review gates.",
+  "primary_effects_or_targets": "antioxidant redox activity; OCTN1 transport; neuroprotection research",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only"
+}
