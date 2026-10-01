@@ -12,12 +12,12 @@ import { buildTwitterMetadata } from '@/lib/seo'
 const PAGE_URL = `${SITE_URL}/guides/sleep/best-natural-sleep-aids-that-work`
 
 export const metadata: Metadata = {
-  title: 'Natural Sleep Aids That Work: Evidence-Based Guide',
+  title: 'Best Natural Sleep Aids That Work: 2026 Evidence Guide',
   description:
-    'Which natural sleep aids actually work? Compare evidence for melatonin, magnesium, L-theanine, valerian, passionflower, ashwagandha and glycine, plus what to do when supplements are not enough.',
+    'Which natural sleep aids work best? Compare human evidence and safety for melatonin, L-theanine, magnesium, valerian, passionflower and glycine.',
   alternates: { canonical: '/guides/sleep/best-natural-sleep-aids-that-work/' },
   openGraph: {
-    title: 'Natural Sleep Aids That Work: Evidence-Based Guide',
+    title: 'Best Natural Sleep Aids That Work: 2026 Evidence Guide',
     description:
       'A citation-dense, evidence-ranked guide to natural sleep aids: what helps, what is overhyped, how strong the human evidence is, and when supplements are the wrong tool.',
     url: '/guides/sleep/best-natural-sleep-aids-that-work/',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     images: ['/images/guides/best-natural-sleep-aids-that-work.jpg'],
   },
   twitter: buildTwitterMetadata({
-    title: 'Natural Sleep Aids That Work: Evidence-Based Guide',
+    title: 'Best Natural Sleep Aids That Work: 2026 Evidence Guide',
     description:
       'Evidence-ranked natural sleep aids with systematic reviews, clinical guidelines, human trials and practical safety context.',
   }),
