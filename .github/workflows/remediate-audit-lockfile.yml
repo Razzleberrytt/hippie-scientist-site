@@ -3,11 +3,17 @@ name: Remediate audit lockfile
 on:
   push:
     branches:
-      - fix/audit-high-js-yaml-sharp
+      - 'fix/audit-*'
     paths:
       - package.json
       - .github/workflows/remediate-audit-lockfile.yml
   workflow_dispatch:
+    inputs:
+      target_branch:
+        description: Branch whose package-lock.json should be regenerated
+        required: true
+        default: fix/audit-high-js-yaml-sharp
+        type: string
 
 permissions:
   contents: write
@@ -15,11 +21,13 @@ permissions:
 jobs:
   refresh-lockfile:
     runs-on: ubuntu-latest
+    env:
+      TARGET_BRANCH: ${{ github.event_name == 'workflow_dispatch' && inputs.target_branch || github.ref_name }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: fix/audit-high-js-yaml-sharp
+          ref: ${{ env.TARGET_BRANCH }}
           fetch-depth: 0
 
       - name: Setup Node 22
@@ -41,4 +49,4 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add package-lock.json
           git commit -m 'chore(security): refresh lockfile from package manifest'
-          git push origin HEAD:fix/audit-high-js-yaml-sharp
+          git push origin HEAD:"$TARGET_BRANCH"
