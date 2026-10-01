@@ -117,10 +117,22 @@ invariant('THS-010', 'profiles begin with a short plain-English summary rather t
   includesAll(compoundProfile, ['quickSummary', 'cleanSummary']),
 )
 
-invariant('THS-011', 'related discovery is backed by runtime relationship maps rather than only hardcoded link dumps', () =>
-  includesAll(herbProfile, ['getRouteInternalLinkGroups', 'getBatchedRuntimeRecords', 'continuationGroups={continuationGroups}']) &&
-  includesAll(seeAlsoCluster, ['RelatedDiscoveryGroups', 'continuationGroups', 'dedupeContinuationGroups']) &&
-  includesAll(compoundProfile, ['getRouteInternalLinkGroups', 'getBatchedRuntimeRecords', 'continuationGroups={continuationGroups}']),
+invariant('THS-011', 'related discovery is backed by runtime maps and respects answer-first navigation ownership', () =>
+  includesAll(herbProfile, [
+    'getRouteInternalLinkGroups',
+    'getBatchedRuntimeRecords',
+    'getProfileDecisionClaimedHrefs',
+    'claimedHrefs={profileDecisionClaimedHrefs}',
+    'continuationGroups={continuationGroups}',
+  ]) &&
+  includesAll(seeAlsoCluster, ['RelatedDiscoveryGroups', 'continuationGroups', 'dedupeContinuationGroups', 'claimedHrefs']) &&
+  includesAll(compoundProfile, [
+    'getRouteInternalLinkGroups',
+    'getBatchedRuntimeRecords',
+    'getProfileDecisionClaimedHrefs',
+    'claimedHrefs={profileDecisionClaimedHrefs}',
+    'continuationGroups={continuationGroups}',
+  ]),
 )
 
 invariant('THS-012', 'profile next actions are decision-aware and monetization can be suppressed for risk', () =>

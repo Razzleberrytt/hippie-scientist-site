@@ -19,6 +19,8 @@ describe('compound profile continuation consolidation', () => {
     expect(compound).toContain("title: 'Related Herbs'")
     expect(compound).toContain('...internalLinkGroups')
     expect(compound).toContain('continuationGroups={continuationGroups}')
+    expect(compound).toContain('getProfileDecisionClaimedHrefs(profileDecision)')
+    expect(compound).toContain('claimedHrefs={profileDecisionClaimedHrefs}')
     expect(compound).not.toContain('<RelatedDiscoveryGroups')
     expect(compound).not.toContain('Guides that use {displayName}')
   })
@@ -69,7 +71,7 @@ describe('compound profile continuation consolidation', () => {
   })
 
   it('keeps the experience contract runtime-backed for both profile families', () => {
-    expect(experience).toContain("includesAll(compoundProfile, ['getRouteInternalLinkGroups', 'getBatchedRuntimeRecords', 'continuationGroups={continuationGroups}'])")
-    expect(experience).toContain("includesAll(herbProfile, ['getRouteInternalLinkGroups', 'getBatchedRuntimeRecords', 'continuationGroups={continuationGroups}'])")
+    expect(experience).toContain("'claimedHrefs={profileDecisionClaimedHrefs}'")
+    expect(experience).toContain("'getProfileDecisionClaimedHrefs'")
   })
 })
