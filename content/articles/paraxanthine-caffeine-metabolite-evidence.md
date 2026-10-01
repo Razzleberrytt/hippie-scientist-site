@@ -106,6 +106,14 @@ The biggest gaps are straightforward:
 
 Those questions matter at least as much as another short computerized attention test.
 
+## What would change the evidence grade?
+
+The next step is not simply accumulating more small acute crossover experiments. Confidence would rise more meaningfully with larger, independently run trials that reproduce the cognitive findings, use transparent caffeine comparators, and report both benefits and adverse effects over repeated use.
+
+It would also help to know whether an apparent advantage survives outside narrow athletic or young-adult samples. A compound can perform well on a short laboratory task without proving that it is a better everyday stimulant for a broader population.
+
+Until that evidence exists, paraxanthine should be treated as a promising methylxanthine with early human data—not as a settled upgrade over caffeine.
+
 ## Verdict
 
 Paraxanthine is **more than a marketing-only ingredient** because randomized human studies exist.
