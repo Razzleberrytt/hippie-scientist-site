@@ -1,4 +1,4 @@
-import { appendAnalyticsEvent } from '@/utils/analytics/eventStorage'
+import { appendAnalyticsEvent } from '@/lib/analyticsEventStorage'
 import { trackContentJourneyAnalytics } from './analytics'
 import { trackGovernedEvent } from './governedAnalytics'
 import { getSocialAttributionLocalFields } from './social-attribution'
