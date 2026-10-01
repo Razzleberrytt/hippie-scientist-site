@@ -90,6 +90,26 @@ describe('distribution outcome observation ingestion', () => {
     expect(feedback.feedback.performanceReward).toBeGreaterThan(0)
   })
 
+  it('preserves legacy observation identity when optional click data are absent', () => {
+    const lifecycle = publishedLifecycle()
+    const omitted = ingestDistributionObservations(
+      [lifecycle],
+      [observation(lifecycle, { platformLinkClicks: undefined })],
+      [candidate],
+      { now: NOW },
+    )
+    const explicitNull = ingestDistributionObservations(
+      [lifecycle],
+      [observation(lifecycle, { platformLinkClicks: null })],
+      [candidate],
+      { now: NOW },
+    )
+
+    expect(omitted.accepted[0].observationId).toBe(explicitNull.accepted[0].observationId)
+    expect(omitted.accepted[0].platformLinkClicks).toBeNull()
+    expect(explicitNull.accepted[0].platformLinkClicks).toBeNull()
+  })
+
   it('preserves platform clicks separately and rejects invalid supplied click counts', () => {
     const lifecycle = publishedLifecycle()
     const withoutClicks = ingestDistributionObservations(
