@@ -1,0 +1,11 @@
+{
+  "entity_type": "compound",
+  "slug": "ergothioneine",
+  "name": "Ergothioneine",
+  "summary": "Ergothioneine is a diet-derived sulfur-containing compound transported by SLC22A4/OCTN1 and concentrated in human tissues. Early randomized human cognition studies are mixed, with a tiny MCI pilot showing favorable signals and a larger 2025 trial failing to show a sustained benefit on its primary composite-memory outcome.",
+  "description": "Canonical ergothioneine research entity for evidence integration. Publication remains held while the site separates observational and mechanistic interest from randomized human outcomes and reviews dose, duration, sponsor, population, and safety boundaries.",
+  "primary_effects_or_targets": "SLC22A4/OCTN1 transport; cellular redox defense; neurocognitive-aging research",
+  "evidence_tier": "Evidence-Limited",
+  "runtime_export_decision": "hidden_until_grounded",
+  "profile_status": "research_only"
+}
