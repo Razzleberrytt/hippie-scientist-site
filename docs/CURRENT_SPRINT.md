@@ -2,10 +2,10 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-09-28
+**Updated:** 2026-10-01
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission:** Owner-directed P0 #6051 remains admitted in Discovery/SEO. #6056 / PR #6066 and #4989 / PR #6060 are merged and retired. Normal implementation WIP is **1/3**. Authority/Content and Revenue/Conversion are available; Discovery/SEO remains occupied until #6051 completes, blocks, or is explicitly displaced. #5081 remains separately blocked on its own governor prerequisite.
+**Current admission (verified 2026-10-01):** Normal implementation WIP is **2/3**: #5758 / PR #6126 owns Discovery/SEO, and #6115 / PR #6116 owns Authority/Content. Revenue/Conversion has no implementation owner in the inspected open PR roster. Closed #6051 and #6112 are retired. #5081 remains blocked on its own governor prerequisite. Docs-only control audit #6131 grants no additional implementation slot.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,27 +49,26 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 2/3
 
-**2026-09-30 control exception — #6112:** Repair the obsolete CI producer fan-out race observed in runs `36743833188` and `36743401113` after merged branches were deleted. Current same-repository exact-head PR/main producers still require every relevant consumer and registration proof. Only fresh API evidence of closed/superseded targets may stop obsolete fan-out; authentication, infrastructure and current-target failures remain nonzero. Normal WIP remains 1/3, with #6051 owning Discovery/SEO. Acceptance: lifecycle/race/error regressions, workflow contracts and required hosted checks, including production export.
+| Workstream | Ticket / owning PR | Scope | Status |
+|---|---|---|---|
+| Discovery/SEO | #5758 / PR #6126 | Sleep-guide search-snippet experiment; preserve scientific body and canonical route | In review |
+| Authority/Content | #6115 / PR #6116 | Bounded mitragynine-adjacent citation cluster; preserve evidence and safety boundaries | In review |
 
-**Verified completion refresh:** #6108 merged as `412e19b9cd789d187fe9d3b5f1c54ff937f6178e`; #6106 merged as `882838de94cb60390bb6992f47b8cd1d67cc6341`. Security release incident #6109 was closed by #6111; permanent MDX/TOML removal remains #5456. Main deployment `36746098108`, controller `36771252705` and sentinel `36758295986` passed. These merged slices do not complete parent #6051 or prove business/quota impact.
+**Control maintenance #6131:** In review — reconcile closed owners and make the active roster readable by the existing reconciler. Docs-only maintenance grants no normal implementation slot.
 
+**Security follow-up #5456:** Open — permanent MDX/TOML dependency-chain removal remains unresolved. Temporary build-tool containment expires 2026-10-07; no extension is authorized by this reconciliation.
 
+**Authority prerequisite #5081:** Blocked on a fresh non-overlapping governor lease; PR #6116 occupies Authority/Content independently.
 
-**2026-09-25 owner-directed P0 control incident — #5941:** Resolved and retired after the bounded Actions coordination repair merged via PR #5949. It no longer consumes an Operations exception or changes normal D/R/A admission.
+Research-only enrichment staging is not canonical implementation admission. No new work may overlap either active owner.
 
-**#6051 — Discovery/SEO P0: mobile-first UX, exploration, and content coherence overhaul.** Owner-directed 2026-09-27. Fix the experience through which existing information is discovered and understood before speculative content expansion: simplify narrow-phone navigation, establish progressive disclosure, consolidate repeated verdict/evidence/safety copy, make exhaustive indexes secondary to search/filter/curated discovery, establish a reusable Summary → Benefits → Safety → Usage/context → Research profile hierarchy, and create clear contextual next actions. Preserve stable URLs, evidence/safety semantics, publication rules, accessibility, performance, and static-export compatibility. External engagement/business impact remains `Unknown` until measured.
+### Verified completion refresh — 2026-10-01
 
-**Retired #6056 / PR #6066 — Authority/Content:** merged 2026-09-29. Legacy herb:tyrosine now fails closed across detail, summary/index, AI-entity, generation, and runtime layers; unsupported dosing aliases are withheld; compound:l-tyrosine remains the separate evidence owner.
-
-- **Discovery/SEO:** occupied by P0 #6051. #6047 / PR #6050 and the preceding IA refill cycle are merged and retired.
-- **Revenue/Conversion:** free; #5681 / PR #5684, #5675 / PR #5678, #5669 / PR #5672, and #5647 / PR #5657 are merged and retired.
-- **Authority/Content:** available. #6056 / PR #6066, #4989 / PR #6060, #4987 / PR #6057, and #5706 / PR #5971 are merged and retired; #5081 remains separately blocked on its own non-overlapping governor lease.
-- **Resolved control incident:** #5609 closed after #5618 merged; it no longer blocks admission.
-- **Control maintenance:** #5642 is a docs-only feeder reconciliation so the durable candidate inventory cannot override the merged citation→search→click policy. It grants no normal implementation authority and consumes no D/R/A slot.
-
-Research-only enrichment PRs are non-canonical staging and do not consume, create, or authorize scientific-promotion WIP.
+- **#6051 — completed:** GitHub closed the mobile overhaul on 2026-10-01 at 02:06:39 UTC after its acceptance checklist was checked. PR #6106 remains the hosted visual-proof/desktop-menu repair receipt. This retires its Discovery/SEO reservation; external engagement/business impact remains Unknown.
+- **#6112 / PR #6113 — completed:** merged 2026-09-30 as `8b9635eb6d1145ba0ecc6698c1ee188cc4193a3c`; obsolete producer fan-out repair no longer owns a control exception.
+- **#6128 / PR #6129 — completed:** merged as `27fa47bf16bed5306ed5bd84bb0914a4717e548a`. Exact-merge CI `36853489382`, content lint `36854691768`, invariants `36854694901`, Lighthouse `36854689068`, and production deployment `36854756177` passed. Fifteen article-quality failures were repaired; business impact and realized quota savings remain Unknown.
 
 ### Recently completed refill cycle
 
@@ -115,7 +114,7 @@ Research-only enrichment PRs are non-canonical staging and do not consume, creat
 
 ## Ready next — strict dependency order
 
-Discovery/SEO is occupied by owner-directed P0 #6051. Authority/Content and Revenue/Conversion remain available. Reconcile current GitHub state first; do not promote another Discovery/SEO ticket while #6051 owns that workstream. For free lanes, promote only the highest legal non-overlapping candidate from `docs/SWARM_BACKLOG.md` using the single master scoring formula. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
+Discovery/SEO is occupied by #5758 / PR #6126; Authority/Content by #6115 / PR #6116. Promote only into a free lane after fresh GitHub reconciliation, non-overlap checks, and the single master scoring formula. Revenue/Conversion availability does not waive evidence, freshness, experiment, or external-access gates. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
 
 ### Blocked or deferred candidates
 

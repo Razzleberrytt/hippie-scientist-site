@@ -28,7 +28,7 @@
 
 **Rationale:** The site now has substantial information depth and a cleaner five-destination ownership model, but mobile exploration still makes users process too much taxonomy, repeated explanation, long indexes, and similarly weighted sections. That fragmentation reduces comprehension and makes strong research feel less useful than it is. The highest-leverage product move is therefore to improve the interface through which existing information is understood.
 
-**Consequences:** Discovery/SEO is occupied by #6051. Stable URLs, scientific claims, evidence grades, safety language, publication eligibility, accessibility, performance, and static-export constraints remain hard gates. Visual polish must improve hierarchy and readability rather than add decorative noise. Engagement, conversion, search, and revenue impact remain `Unknown` until measured. **Status:** Accepted; implementation pending.
+**Consequences:** #6051 reserved Discovery/SEO until its verified closure on 2026-10-01. Current ownership belongs to the reconciled sprint/backlog. Stable URLs, scientific claims, evidence grades, safety language, publication eligibility, accessibility, performance, and static-export constraints remain hard gates. Visual polish must improve hierarchy and readability rather than add decorative noise. Engagement, conversion, search, and revenue impact remain `Unknown` until measured. **Status:** Accepted; #6051 closed 2026-10-01 after its acceptance checklist was completed. Business impact remains Unknown.
 
 ## 2026-09-27 — Five-destination information architecture and page-role ownership
 
