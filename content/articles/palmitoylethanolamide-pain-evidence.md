@@ -98,6 +98,16 @@ Across randomized studies, PEA has generally been described as well tolerated in
 
 That does not create a blanket long-term safety guarantee across pregnancy, major organ disease, polypharmacy, or every commercial formulation.
 
+## What would make the pain evidence more actionable?
+
+The next useful step is not simply another pooled estimate across every pain condition. More actionable evidence would identify which diagnoses respond most consistently, which formulation was used, how long treatment lasted, what background therapies were allowed, and whether the benefit was large enough to matter clinically rather than only statistically.
+
+Head-to-head formulation work would also help. If micronized or ultramicronized PEA repeatedly performs better because of absorption differences, that should be demonstrated rather than assumed from product branding.
+
+Longer follow-up matters as well. Chronic pain is often managed for months or years, while many supplement trials are comparatively short. Short-term tolerability therefore cannot answer every question about sustained use, rare adverse effects, or interactions in people taking multiple medications.
+
+For now, the evidence supports treating PEA as a legitimate pain-research compound while keeping diagnosis, formulation, and duration attached to the claim.
+
 ## Verdict
 
 PEA has **moderate human evidence for pain-related outcomes** relative to the broader supplement field.
