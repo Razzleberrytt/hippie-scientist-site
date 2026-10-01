@@ -116,7 +116,7 @@ function looksAmazonish(value) {
   // This helper is called only after URL parsing has already failed. Do not
   // require valid URL delimiters here: the invalid character immediately
   // following amazon.com may be the reason parsing failed in the first place.
-  return /amazon\.com/i.test(value);
+  return /(?:^|[./:@-])(?:www\.)?amazon\.com/i.test(value);
 }
 
 function isAmazonHost(hostname) {
