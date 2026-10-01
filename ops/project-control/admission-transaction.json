@@ -15,5 +15,6 @@
     "effort": 2
   },
   "score": 90,
-  "note": "Fresh exact-base admission: live Metricool experiments and existing taggedDestination/qualifiedVisits contracts are verified; production first-party session receipts remain Unknown."
+  "note": "Fresh exact-base admission: live Metricool experiments and existing taggedDestination/qualifiedVisits contracts are verified; production first-party session receipts remain Unknown. Admission control issue #6136; implementation authority remains #6134.",
+  "control_issue": 6136
 }
