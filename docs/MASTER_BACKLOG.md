@@ -49,9 +49,10 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
 | #5758 / PR #6126 | Sleep-guide search-snippet experiment | D | In review | — | — | — | existing owner |
+| #6145 | Fail closed malformed affiliate destinations in production output | R | Admitted — implementation next | P1 | 4/4/3/4/0.75/2 | 72.0 | last_verified 2026-10-01T18:47:00Z |
 | #6115 / PR #6116 | Bounded mitragynine-adjacent citation cluster | A | In review | — | — | — | existing owner |
 
-**Current admission (verified 2026-10-01):** Normal implementation WIP is **2/3**: #5758 / PR #6126 owns Discovery/SEO, #6115 / PR #6116 owns Authority/Content, and Revenue/Conversion is unoccupied after #6134 / PR #6137 merged as `fd9ea3ea079c868453e364b479fff54fa7b152d2`. Closed #6051, #6112, and #6134 are retired from active WIP. #5081 remains blocked on its own governor prerequisite. A free Revenue/Conversion lane does not itself promote a replacement ticket.
+**Current admission (verified 2026-10-01):** Normal implementation WIP is **3/3**: #5758 / PR #6126 owns Discovery/SEO, #6145 owns Revenue/Conversion for bounded affiliate-destination integrity hardening, and #6115 / PR #6116 owns Authority/Content. Closed #6051, #6112, and #6134 are retired from active WIP. #5081 remains blocked on its own governor prerequisite. #6145 is admitted from feeder R-S004 at score 72.0 on exact base `fc85937e3ebe4726b67c8afafd093cfed0b3aa98`; observed click/revenue/product-availability outcomes remain Unknown.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
@@ -71,7 +72,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Discovery/SEO is occupied by #5758 / PR #6126; Authority/Content by #6115 / PR #6116; Revenue/Conversion is unoccupied after #6134 / PR #6137 merged. Normal WIP is 2/3. Promote any Revenue/Conversion replacement only after fresh GitHub reconciliation, non-overlap checks, and the normal admission/scoring rules. The single master scoring formula, evidence, freshness, experiment, and external-access gates remain unchanged. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
+Discovery/SEO is occupied by #5758 / PR #6126; Revenue/Conversion by admitted #6145; Authority/Content by #6115 / PR #6116. Normal WIP is 3/3. No additional normal implementation may be promoted until a lane is freed. The single master scoring formula, evidence, freshness, experiment, and external-access gates remain unchanged. The single master scoring formula, evidence, freshness, experiment, and external-access gates remain unchanged. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
