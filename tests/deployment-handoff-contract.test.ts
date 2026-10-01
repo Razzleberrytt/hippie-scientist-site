@@ -88,6 +88,7 @@ describe('production deployment handoff contract', () => {
 
   it('passes the same Amazon affiliate tag into the production build, output verification, and affiliate audit', () => {
     const workflow = read('.github/workflows/deploy.yml')
+    const ci = read('.github/workflows/ci.yml')
 
     const tagBinding = 'AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}'
     expect(workflow.split(tagBinding).length - 1).toBeGreaterThanOrEqual(3)
@@ -95,6 +96,11 @@ describe('production deployment handoff contract', () => {
     const auditStep = workflow.slice(workflow.indexOf('- name: Verify Amazon affiliate tag (production safety)'))
     expect(auditStep).toContain(tagBinding)
     expect(auditStep).toContain('run: npm run audit:affiliate-tag-production')
+
+    expect(ci).toContain('name: Verify Amazon affiliate destination integrity')
+    const ciAuditStep = ci.slice(ci.indexOf('- name: Verify Amazon affiliate destination integrity'))
+    expect(ciAuditStep).toContain(tagBinding)
+    expect(ciAuditStep).toContain('run: npm run audit:affiliate-tag-production')
   })
 
   it('publishes and verifies an exact-SHA production receipt before deploy success', () => {
