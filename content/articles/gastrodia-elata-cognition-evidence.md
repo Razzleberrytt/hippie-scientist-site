@@ -110,7 +110,7 @@ The most useful future result would not simply be another positive animal experi
 
 Those details determine which node in the evidence graph should change. A gastrodin trial can strengthen the gastrodin evidence base without automatically upgrading the whole-herb conclusion. Likewise, a positive multi-herb trial can support that formula while leaving ingredient attribution unresolved.
 
-That separation is conservative, but it prevents a common evidence error: treating biological relatedness as clinical equivalence.
+That separation is conservative, but it prevents a common evidence error: treating biological relatedness as clinical equivalence. It also keeps future evidence upgrades traceable to the intervention that was actually tested.
 
 ## Verdict
 
