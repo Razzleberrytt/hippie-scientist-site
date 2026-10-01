@@ -98,6 +98,8 @@ Duration matters too. A two-week radiculopathy trial can test a short-term signa
 
 The outcome boundary should stay narrow. Evidence in lumbar radiculopathy or painful small-fiber neuropathy does not automatically transfer to osteoarthritis, migraine, nonspecific back pain, exercise soreness, or unrelated nootropic claims. Each of those reader questions needs its own evidence rather than borrowing confidence from the same small clinical program.
 
+Safety confidence has the same limitation. A small short study can identify common tolerability problems, but it is poorly suited to detect uncommon adverse events or establish the safety of prolonged exposure across medically diverse populations. That uncertainty should remain visible alongside the efficacy signal.
+
 ## Verdict
 
 Agmatine sulfate has **preliminary human evidence for neuropathic/radicular pain**.
