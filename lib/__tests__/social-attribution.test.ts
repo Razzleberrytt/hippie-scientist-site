@@ -14,13 +14,28 @@ import {
   parseSocialAttribution,
 } from '../social-attribution'
 
+function setTestLocation(pathname: string, search = '') {
+  Object.defineProperty(window.location, 'pathname', {
+    configurable: true,
+    value: pathname,
+  })
+  Object.defineProperty(window.location, 'search', {
+    configurable: true,
+    value: search,
+  })
+  Object.defineProperty(window.location, 'href', {
+    configurable: true,
+    value: `http://localhost${pathname}${search}`,
+  })
+}
+
 describe('social attribution', () => {
   beforeEach(() => {
     canTrackAnalytics.mockReset()
     canTrackAnalytics.mockReturnValue(true)
     window.sessionStorage.clear()
     window.localStorage.clear()
-    window.history.replaceState({}, '', '/')
+    setTestLocation('/')
   })
 
   it('accepts only bounded THS social experiment tags and stores no raw query', () => {
@@ -51,17 +66,17 @@ describe('social attribution', () => {
 
   it('does not create attribution state before analytics consent', () => {
     canTrackAnalytics.mockReturnValue(false)
-    window.history.replaceState({}, '', '/guides/sleep/glycine-for-sleep/?utm_source=facebook&utm_medium=social&utm_campaign=ths_social_2026q4&utm_content=exp003_glycine_studied_dose')
+    setTestLocation('/guides/sleep/glycine-for-sleep/', '?utm_source=facebook&utm_medium=social&utm_campaign=ths_social_2026q4&utm_content=exp003_glycine_studied_dose')
 
     expect(getSocialAttribution()).toBeNull()
     expect(window.sessionStorage.getItem(SOCIAL_ATTRIBUTION_SESSION_KEY)).toBeNull()
   })
 
   it('keeps the first valid social experiment identity across internal navigation', () => {
-    window.history.replaceState({}, '', '/guides/sleep/glycine-for-sleep/?utm_source=facebook&utm_medium=social&utm_campaign=ths_social_2026q4&utm_content=exp003_glycine_studied_dose')
+    setTestLocation('/guides/sleep/glycine-for-sleep/', '?utm_source=facebook&utm_medium=social&utm_campaign=ths_social_2026q4&utm_content=exp003_glycine_studied_dose')
     const landing = getSocialAttribution()
 
-    window.history.replaceState({}, '', '/compounds/glycine/')
+    setTestLocation('/compounds/glycine/')
     const continued = getSocialAttribution()
 
     expect(continued).toEqual(landing)
