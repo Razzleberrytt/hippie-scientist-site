@@ -104,6 +104,14 @@ Readers can then see where a claim actually comes from.
 
 That is much more useful than a conventional supplement article that blends every positive result into one narrative.
 
+## How to read the next Gastrodia study
+
+The most useful future result would not simply be another positive animal experiment. It would be a well-described human trial that tells readers exactly **what** was tested: whole Gastrodia material, a standardized extract, isolated gastrodin, or a multi-ingredient formula. The preparation, dose, duration, participant population, comparator, and prespecified cognitive outcomes all matter.
+
+Those details determine which node in the evidence graph should change. A gastrodin trial can strengthen the gastrodin evidence base without automatically upgrading the whole-herb conclusion. Likewise, a positive multi-herb trial can support that formula while leaving ingredient attribution unresolved.
+
+That separation is conservative, but it prevents a common evidence error: treating biological relatedness as clinical equivalence.
+
 ## Verdict
 
 Gastrodia elata is **research-interesting but clinically underdeveloped for cognition**.
