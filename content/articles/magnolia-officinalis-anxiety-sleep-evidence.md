@@ -90,6 +90,16 @@ A stronger Magnolia anxiety or sleep literature would include:
 
 That evidence is currently sparse.
 
+## How to interpret a future positive Magnolia trial
+
+A stronger study would need to make the intervention traceable. "Magnolia bark" is not a complete experimental description: species identity, extraction method, dose, constituent standardization, duration, and whether another botanical is present all affect what the result can support.
+
+If a future trial tests Magnolia alone and improves a prespecified anxiety scale, that would strengthen a standalone-herb claim. If it tests Relora again, the result belongs to the combination-product evidence bucket. If it tests isolated honokiol, the result belongs to the constituent bucket instead.
+
+The same discipline applies to sleep outcomes. A subjective change in perceived restfulness is not interchangeable with sleep latency, total sleep time, awakenings, or an objective sleep measure. Separating those outcomes prevents a broad "improves sleep" headline from outrunning what was actually measured.
+
+This is exactly why a connected evidence database is more useful than flattening every Magnolia-related paper into one score.
+
 ## Verdict
 
 Magnolia officinalis is **research-interesting but clinically underproven** for anxiety and sleep.
