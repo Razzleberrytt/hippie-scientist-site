@@ -105,6 +105,14 @@ Those results are mixed and often involve small samples.
 
 They should remain separate from age-related cognition evidence.
 
+## What evidence would resolve the formulation question?
+
+The cleanest answer would come from modern head-to-head or independently replicated trials that identify the phosphatidylserine source and fatty-acid composition rather than treating every PS preparation as interchangeable. That would show whether the older positive findings reflect phosphatidylserine itself, a particular source, or a formulation-specific effect.
+
+Primary outcomes matter as well. Memory complaints can be measured with many tests, and a positive secondary task does not cancel a neutral prespecified primary endpoint. Future trials should make that hierarchy easy to see and should report effect sizes rather than only whether a threshold for statistical significance was crossed.
+
+The population boundary also needs to remain intact. Age-associated memory complaints, diagnosed dementia, stress-response studies, and healthy-young-adult nootropic use are different questions. Evidence from one group should not automatically raise confidence for the others. The same rule applies to duration: a short cognitive-test change cannot establish protection against long-term cognitive decline or dementia.
+
 ## Verdict
 
 Phosphatidylserine has **limited, mixed human evidence for memory**, with meaningful positive historical trials and meaningful negative evidence.

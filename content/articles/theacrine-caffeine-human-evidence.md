@@ -74,6 +74,18 @@ Many commercial products combine theacrine with caffeine or other stimulants.
 
 Those trials may be useful for evaluating the actual blend, but they should not be silently converted into evidence for isolated theacrine.
 
+## What evidence would justify a caffeine-replacement claim?
+
+A meaningful comparison would need isolated theacrine and caffeine arms with matched, transparent dosing rather than a branded multi-ingredient blend. It should measure both desired effects and tradeoffs: alertness, objective cognitive performance, heart rate, blood pressure, anxiety, sleep timing, sleep quality, repeated-use tolerance, and withdrawal-like symptoms after stopping.
+
+The population matters too. A result in a small group of healthy young adults does not automatically generalize to habitual high-caffeine users, people sensitive to stimulants, older adults, or people taking medications that affect cardiovascular or central-nervous-system function.
+
+Independent replication would be especially valuable in this field because much of the current evidence is connected to commercial ingredient development. Commercial involvement does not make a study false, but a small literature becomes more trustworthy when similar findings appear in trials designed and funded by unrelated groups.
+
+Until those pieces exist, theacrine can reasonably be described as stimulant-adjacent and human-tested without calling it a superior or tolerance-proof caffeine alternative.
+
+The same caution applies to safety language: absence of a major signal in a small short trial is not evidence that repeated use is risk-free. Larger exposure datasets are needed before making strong tolerability comparisons with caffeine.
+
 ## Verdict
 
 Theacrine is best labeled **preliminary human evidence**.

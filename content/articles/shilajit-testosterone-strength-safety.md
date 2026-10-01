@@ -100,6 +100,14 @@ That does not tell the entire composition, prove purity, or substitute for conta
 
 A chemically complex geologic-biological material needs stronger quality control than a single isolated molecule.
 
+## What would make the human results easier to generalize?
+
+Replication should start with product identity. A future trial should report the source material, purification process, relevant chemical characterization, contaminant testing, dose, and batch consistency. Without those details, a positive result may be real for the studied preparation while remaining difficult to apply to the wider Shilajit market.
+
+The testosterone finding also needs population-specific replication. A change in healthy middle-aged men does not establish the same hormonal response in younger adults, people with clinically low testosterone, women, or athletes. The strength-fatigue result is similarly narrow: it measures a particular response under a particular protocol rather than proving greater muscle growth or sport performance.
+
+Safety evidence should travel with efficacy evidence. Because composition varies, a clean result from one purified batch cannot serve as a contaminant guarantee for unrelated products. That makes third-party analytical quality a separate evidence question, not a footnote to the clinical trials.
+
 ## Verdict
 
 Shilajit has **preliminary human evidence** for a few outcomes, including testosterone and fatigue-related strength.

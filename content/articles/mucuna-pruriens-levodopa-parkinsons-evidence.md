@@ -110,6 +110,16 @@ Because Mucuna delivers a potent neurotransmitter precursor, using it to "boost 
 
 The most useful evidence page is one that makes its medication-like pharmacology obvious.
 
+## What the Parkinson trials do—and do not—generalize to
+
+The randomized Parkinson literature is clinically important because the intervention contains an established pharmacologically active precursor. It does not automatically support using Mucuna for motivation, attention, mood, or general "dopamine optimization" in healthy people.
+
+Those are different populations, goals, outcome measures, and risk-benefit calculations. A treatment can be reasonable to study in Parkinson disease while remaining poorly characterized for unsupervised wellness use.
+
+Future evidence is also easier to interpret when papers report the actual levodopa content of the tested preparation rather than only the weight of seed powder. Without that information, comparing doses across products can be misleading because botanical material may vary substantially in active-compound concentration.
+
+That distinction should remain visible whenever Mucuna is compared with prescription levodopa or marketed as a supplement.
+
 ## Verdict
 
 Mucuna pruriens has **real randomized human evidence**, especially in Parkinson disease.

@@ -99,6 +99,16 @@ A trial can test a memory task over months without establishing an effect on dem
 
 Those are much larger clinical claims.
 
+## What would count as convincing confirmation?
+
+A stronger case would require the larger-trial problem to reverse: an adequately powered independent study would need to reproduce a prespecified cognitive benefit rather than relying on exploratory secondary signals after a neutral primary endpoint.
+
+The target population also matters. Subjective cognitive decline is not the same thing as mild cognitive impairment, diagnosed dementia, or healthy aging without cognitive symptoms. Evidence should not jump between those groups simply because they all involve older adults.
+
+It is also important to separate a cognitive endpoint from a longevity claim. Autophagy biology can motivate research, but a change in a memory test does not establish slower biological aging, prevention of neurodegenerative disease, or longer life.
+
+Until confirmatory human trials succeed on their primary outcomes, the null SmartAge result should remain central rather than being buried beneath mechanistic enthusiasm.
+
 ## Verdict
 
 Spermidine belongs in the evidence database because it has a meaningful translational story and a properly conducted randomized program.

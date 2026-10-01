@@ -100,6 +100,14 @@ Older reviews did not identify a strong serious-adverse-event signal, but the sa
 
 Medication interactions and contraindications deserve the same seriousness as the efficacy question.
 
+## What would raise confidence today?
+
+The historical trial count is not the main missing piece. Confidence would improve more from modern, transparently reported randomized trials with adequate concealment, prespecified primary outcomes, longer follow-up, and independent replication. Those studies would need to distinguish short-term symptomatic change from any claim about disease progression.
+
+Formulation and population should also remain explicit. Evidence in people with diagnosed Alzheimer's disease cannot be silently converted into a recommendation for healthy adults, students, or people with subjective memory complaints. Likewise, a positive score on one cognitive scale does not establish broad improvement across memory, executive function, daily independence, or long-term clinical outcomes.
+
+This is a useful example of why evidence quantity and evidence certainty are different variables. Twenty small or biased trials can produce a stable-looking pooled estimate while still leaving important uncertainty about the true effect.
+
 ## Verdict
 
 Huperzine A has **limited but real clinical evidence**, with the strongest signal in Alzheimer's disease.

@@ -90,6 +90,14 @@ Two positive trials are meaningful, but the total participant count is still mod
 
 For persistent chronic insomnia, evidence-based behavioral treatment remains a much more established benchmark.
 
+## What would turn an emerging signal into stronger evidence?
+
+Independent replication is the biggest missing piece. A larger trial using a clearly described lemon-verbena preparation could test whether the positive subjective and actigraphy findings reproduce outside the commercial development context and across a broader range of participants.
+
+The intervention also needs to stay traceable. Tea, syrup, powdered leaf, essential oil, and a standardized extract can differ substantially in composition, so a result from one preparation should not upgrade every product carrying the same plant name. Dose, extraction method, marker compounds, and duration belong with the claim.
+
+Future studies would be easier to compare if they prespecified a small set of clinically meaningful sleep outcomes and reported null results just as prominently as positive ones. That would help distinguish a reproducible sleep effect from a pattern created by many possible endpoints in a still-small literature.
+
 ## Verdict
 
 Lemon verbena has **emerging human evidence for sleep quality**, stronger than many obscure sleep herbs but not yet robust enough for a broad treatment claim.
