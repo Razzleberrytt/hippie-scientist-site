@@ -29,11 +29,12 @@ describe('P0 mobile exploration shell', () => {
     const explore = read('app/explore/page.tsx')
 
     expect(homepage).toContain("href='/explore/'")
+    expect(explore).toContain("action='/search/'")
     expect(explore).toContain("href: '/goals/'")
-    expect(explore).toContain("href: '/search/'")
     expect(explore).toContain("href: '/safety-checker/'")
+    expect(explore).toContain("href: '/guides/compare/'")
     expect(explore).toContain("href: '/research/'")
-    expect(explore).toContain("href: '/library/'")
+    expect(explore).toContain("href='/library/'")
   })
 
   it('keeps primary actions contrast-safe when the brand scale flips in dark mode', () => {
