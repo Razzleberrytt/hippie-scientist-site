@@ -90,6 +90,7 @@ export default function ContentCards({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (!ref.current) return
+    const contentRoot = ref.current.querySelector<HTMLElement>('[data-article-body]') ?? ref.current
 
     // Editorial components (ScientificVerdictCard, DecisionMatrix, RealityCheck,
     // …) render self-contained blocks marked `.not-prose`. Their internal
@@ -97,11 +98,11 @@ export default function ContentCards({ children }: { children: ReactNode }) {
     // would tear the components apart. `isEditorial` excludes that whole subtree.
     const isEditorial = (el: Element) => Boolean(el.closest('.not-prose'))
 
-    const h2s = Array.from(ref.current.querySelectorAll('h2')).filter((h2) => !isEditorial(h2))
+    const h2s = Array.from(contentRoot.querySelectorAll('h2')).filter((h2) => !isEditorial(h2))
     if (h2s.length === 0) return
 
     // ── Step 1: Wrap combination warnings in collapsible <details> ──
-    const allElements = Array.from(ref.current.querySelectorAll('*')).filter((el) => !isEditorial(el))
+    const allElements = Array.from(contentRoot.querySelectorAll('*')).filter((el) => !isEditorial(el))
     for (const el of allElements) {
       const text = el.textContent?.trim() || ''
       
@@ -183,17 +184,17 @@ export default function ContentCards({ children }: { children: ReactNode }) {
     })
 
     // ── Step 3: Wrap intro content ──
-    const firstSection = ref.current.querySelector('section')
+    const firstSection = contentRoot.querySelector(':scope > section.article-section-card')
     if (firstSection) {
       const introCard = document.createElement('section')
       introCard.className = 'article-section-card article-intro-card'
-      let el = ref.current.firstElementChild
+      let el = contentRoot.firstElementChild
       while (el && el !== firstSection) {
         const next = el.nextElementSibling
         if (el.tagName !== 'SECTION') introCard.appendChild(el)
         el = next
       }
-      if (introCard.children.length > 0) ref.current.insertBefore(introCard, firstSection)
+      if (introCard.children.length > 0) contentRoot.insertBefore(introCard, firstSection)
     }
   }, [])
 

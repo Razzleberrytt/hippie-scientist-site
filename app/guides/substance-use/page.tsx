@@ -15,7 +15,7 @@ const HUB_PATH = '/guides/substance-use'
 const HUB_TITLE = 'Substance Use, Dependence & Harm Reduction — Evidence Hub'
 const HUB_DESCRIPTION =
   'Evidence-based guides on dependence, withdrawal, overdose risk, kratom-derived opioids, tianeptine, novel psychoactive substances, and harm-reduction research.'
-const REVIEW_DATE = '2026-09-17'
+const REVIEW_DATE = '2026-09-30'
 
 export const metadata: Metadata = {
   title: HUB_TITLE,
@@ -55,6 +55,26 @@ const START_HERE = [
 ]
 
 const KRATOM_CLUSTER = [
+  {
+    href: '/articles/3-dehydromitragynine/',
+    title: '3-Dehydromitragynine',
+    desc: 'Oxidative metabolism and mouse toxicity, with human exposure and clinical attribution unresolved.',
+  },
+  {
+    href: '/articles/speciociliatine/',
+    title: 'Speciociliatine',
+    desc: 'Mixed-kratom human exposure, conflicting receptor assays, and laboratory metabolism.',
+  },
+  {
+    href: '/articles/speciogynine/',
+    title: 'Speciogynine',
+    desc: 'Preclinical serotonin findings and human exposure data, without established mood-treatment evidence.',
+  },
+  {
+    href: '/articles/mitraciliatine/',
+    title: 'Mitraciliatine',
+    desc: 'Mixed opioid-receptor activity, species differences, and unresolved clinical safety.',
+  },
   {
     href: '/articles/dihydro-7-hydroxy-mitragynine-mgm-15/',
     title: 'MGM-15 / Dihydro-7-Hydroxymitragynine',
