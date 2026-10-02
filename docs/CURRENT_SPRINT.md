@@ -53,7 +53,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6021 | nav: fix misleading Articles breadcrumb destination on focus-cluster pages | Active — admitted against exact free-base main; implementation follows separately | P1 | 72.0 | 2026-10-02T16:00:00Z — exact base 85470582cbeaf68fedf9ef6c9386f109b1e281b2 |
+| D | #6021 / PR #6195 | nav: fix misleading Articles breadcrumb destination on focus-cluster pages | In review — breadcrumb label/a11y repair implemented; exact-head validation pending | P1 | 72.0 | 2026-10-02T16:00:00Z — admitted on exact base 85470582cbeaf68fedf9ef6c9386f109b1e281b2 |
 
 
 
