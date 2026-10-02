@@ -60,6 +60,27 @@ const DOMAIN_REQUIRED_WORKFLOWS = [
       /^scripts\/(?:build|generate)[^/]*\.(?:mjs|js|ts)$/i,
     ],
   },
+  {
+    workflow: 'P0 Visual Proof',
+    patterns: [
+      /^app\//,
+      /^components\//,
+      /^lib\//,
+      /^config\//,
+      /^public\//,
+      /^styles\//,
+      /^types\//,
+      /^package\.json$/,
+      /^package-lock\.json$/,
+      /^\.nvmrc$/,
+      /^next\.config\./,
+      /^tailwind\.config\./,
+      /^postcss\.config\./,
+      /^scripts\/dev\/visual-sweep\.mjs$/,
+      /^scripts\/ci\/validate-direct-dependencies\.mjs$/,
+      /^\.github\/workflows\/visual-proof\.yml$/,
+    ],
+  },
 ]
 
 const HIGH_RISK_PATTERNS = [
@@ -166,9 +187,10 @@ export function classifyRisk({ pr, changedFiles = [] }) {
 
 export function requiredWorkflowsFor(riskTier, changedFiles = []) {
   if (riskTier === 'low') return [...FAST_REQUIRED_WORKFLOWS]
-  if (riskTier === 'high') return [...HIGH_REQUIRED_WORKFLOWS]
 
-  const required = new Set(MEDIUM_CORE_REQUIRED_WORKFLOWS)
+  const required = new Set(
+    riskTier === 'high' ? HIGH_REQUIRED_WORKFLOWS : MEDIUM_CORE_REQUIRED_WORKFLOWS,
+  )
   for (const { workflow, patterns } of DOMAIN_REQUIRED_WORKFLOWS) {
     if (changedFiles.some((path) => patterns.some((pattern) => pattern.test(path)))) required.add(workflow)
   }
