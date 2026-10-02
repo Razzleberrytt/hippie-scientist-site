@@ -80,7 +80,7 @@ const routeContentExpectations = [
   },
   {
     route: '/research',
-    required: ['What are you trying to verify?', 'Four jobs, four clear destinations.'],
+    required: ['What are you trying to verify?', 'Three jobs, three clear destinations.'],
     forbidden: [LOADING_SENTINEL],
   },
   {
