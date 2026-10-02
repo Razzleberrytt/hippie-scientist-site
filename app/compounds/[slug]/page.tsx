@@ -883,8 +883,8 @@ export default async function CompoundPage({ params }: PageProps) {
 
         {/* Title Header */}
         <div id="overview" className="hs-masthead hero-shell scroll-mt-24 rounded-[1.25rem] border border-brand-900/10 p-5 shadow-sm sm:p-6">
-          <header className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-center">
-            <div className="space-y-3">
+          <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-5 lg:items-center">
+            <header className="space-y-3 lg:col-start-1 lg:row-start-1">
               <div className="space-y-1">
                 <p className="hs-label">Compound Profile</p>
                 <h1 className="font-semibold tracking-tight text-ink">
@@ -936,14 +936,20 @@ export default async function CompoundPage({ params }: PageProps) {
                   </div>
                 )}
               </dl>
-            </div>
-            <MonographHeroImage image={heroImage} label={displayName} eyebrow="Monograph visual" />
-          </header>
-        </div>
+            </header>
 
-        {/* Decision surface — verdict (when curated) + intent-based routing.
-            Rendered by the shared ProfileDecisionPanel so all profiles benefit. */}
-        <ProfileDecisionPanel decision={profileDecision} name={displayName} />
+            {/* Keep the decision layer ahead of supporting art in DOM/mobile order.
+                Desktop grid placement still keeps the monograph visual beside the
+                profile facts, with the decision layer immediately below that row. */}
+            <div className="lg:col-span-2 lg:row-start-2">
+              <ProfileDecisionPanel decision={profileDecision} name={displayName} />
+            </div>
+
+            <div className="lg:col-start-2 lg:row-start-1">
+              <MonographHeroImage image={heroImage} label={displayName} eyebrow="Monograph visual" />
+            </div>
+          </div>
+        </div>
 
         {/* Mobile section navigation belongs near the decision layer, not after
             the article. Desktop keeps the existing sidebar position. */}
