@@ -45,11 +45,13 @@ describe('autonomous merge backpressure contract', () => {
     expect(workflow).toContain('group: autonomous-merge-commit')
   })
 
-  it('retains serialized write-capable fallback and merge-time base revalidation', () => {
+  it('retains serialized fallback while only exact targeted wakes may poll briefly', () => {
     expect(fallbackJob).toContain('PR_NUMBER: ${{ steps.wake.outputs.pr_number }}')
     expect(fallbackJob).toContain('SWEEP_OPEN_PRS: ${{ steps.wake.outputs.sweep }}')
     expect(workflow).not.toContain('cancel-in-progress: true')
-    expect(fallbackJob).toContain("CONTROLLER_SINGLE_PASS: 'true'")
+    expect(fallbackJob).toContain("github.event_name == 'workflow_dispatch' && inputs.pr_number != '' && inputs.expected_head_sha != '' && 'false' || 'true'")
+    expect(fallbackJob).toContain("MERGE_POLL_SECONDS: '3'")
+    expect(fallbackJob).toContain("MERGE_MAX_WAIT_MINUTES: '3'")
     expect(fallbackJob).toContain('node scripts/ci/autonomous-merge-controller.mjs')
     expect(workflow).toContain('group: autonomous-merge-commit')
     expect(controller).toMatch(/async function mergeIfStillCurrent[\s\S]*refreshPrAndDispatch/u)
