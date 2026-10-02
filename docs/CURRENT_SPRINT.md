@@ -5,7 +5,7 @@
 **Updated:** 2026-10-02
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (verified 2026-10-02):** Normal implementation WIP is **1/3**. Discovery/SEO is occupied by #6181; Revenue/Conversion and Authority/Content remain free. #6181 was freshly revalidated against exact main `c08342acc06a67a70a66e0f15f05b5dee708071c` and the live Research hub; #6174 / PR #6177 remains completed and retired. Revenue/Conversion is free after #6145 / PR #6154 merged as `c8ff86010e4fa7e9030b3744a13dc565e621db38`; Authority/Content is free after #6115 / PR #6116 merged as `4a398dbb821ca3dd7ae975682e18eec3a002b302`. #5081 remains blocked on its own governor prerequisite and does not become admitted merely because Authority/Content is free.
+**Current admission (verified 2026-10-02):** Normal implementation WIP is **0/3**. Discovery/SEO is free after #6181 / PR #6184 merged as `31e2f7b1b07ba01ab7e9e99831ac807b33d7061a`; Revenue/Conversion is free after #6145 / PR #6154 merged as `c8ff86010e4fa7e9030b3744a13dc565e621db38`; Authority/Content is free after #6115 / PR #6116 merged as `4a398dbb821ca3dd7ae975682e18eec3a002b302`. Closed #6181 and #6174 remain completed and retired. #5081 remains blocked on its own governor prerequisite and does not become admitted merely because Authority/Content is free.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,11 +49,10 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 0/3
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6181 | fix(ux): simplify Research hub to three primary research tasks | Active — freshly revalidated against exact main and live /research/; implementation follows separately | P1 | 120.0 | 2026-10-02T13:42:22Z — exact base c08342acc06a67a70a66e0f15f05b5dee708071c |
 
 
 **Control maintenance #6131:** In review — reconcile closed owners and make the active roster readable by the existing reconciler. The gate now requires authenticated proof that added roster owners already had unique open PRs before the fixed base; normal admission remains unchanged. This control repair grants no normal implementation slot.
@@ -65,6 +64,8 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 Research-only enrichment staging is not canonical implementation admission. No new work may overlap an active normal-lane owner.
 
 ### Verified completion refresh — 2026-10-02
+
+- **#6181 / PR #6184 — completed:** merged as `31e2f7b1b07ba01ab7e9e99831ac807b33d7061a`; Research now presents three primary tasks—search citations, look up evidence, and inspect the Evidence Report—while Methodology and recent evidence changes remain secondary trust/update paths. Stable routes, source samples, external databases, downloads, scientific content, evidence grading, safety language, canonical metadata, and monetization behavior were preserved. Exact-head CI, full Vitest/a11y, production build/output/SEO, Fast UI, P0 visual proof, Experience contract, Atomic, Site Health, Build Quality, and review resolution passed. External engagement, search, conversion, and revenue impact remain **Unknown** until observed.
 
 - **#6174 / PR #6177 — completed:** merged as `c80d1f736c87040ae85ea33bae16bf642dd8b7dd`; herb and compound profile intros now keep decision-critical verdict/routing content ahead of supporting monograph art in narrow-screen reading order while preserving the desktop two-column intro. A review-found light-theme styling collision was repaired by scoping generic hero rounded-card treatment to the identity/quick-facts header, preserving verdict/safety semantic colors. Exact-head CI, Fast UI/accessibility, P0 visual proof, Experience contract, Atomic, Site Health, Build Quality, crawl/content guards, production build/output/SEO, and review resolution passed. External engagement, search, conversion, and revenue impact remain **Unknown** until observed.
 
@@ -123,7 +124,7 @@ Research-only enrichment staging is not canonical implementation admission. No n
 
 ## Ready next — strict dependency order
 
-Discovery/SEO is occupied by #6181; Revenue/Conversion is free after #6145 / PR #6154 merged; Authority/Content is free after #6115 / PR #6116 merged. Normal WIP is 1/3. New work in any normal lane may be promoted only through the normal scored, freshness, dependency, experiment, and admission gates. Evidence, freshness, experiment, and external-access gates remain unchanged. For Discovery/SEO, fresh dated page-level search opportunity is primary; #6181 is a deterministic current-route information-hierarchy defect revalidated on exact main and does not claim search-demand uplift. P0/scientific/canonical/governance incidents still override normal scoring, and no other candidate becomes executable until explicitly promoted.
+Discovery/SEO is free after #6181 / PR #6184 merged; Revenue/Conversion is free after #6145 / PR #6154 merged; Authority/Content is free after #6115 / PR #6116 merged. Normal WIP is 0/3. New work in any normal lane may be promoted only through the normal scored, freshness, dependency, experiment, and admission gates. Evidence, freshness, experiment, and external-access gates remain unchanged. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until explicitly promoted.
 
 ### Blocked or deferred candidates
 
