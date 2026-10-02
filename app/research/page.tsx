@@ -203,7 +203,7 @@ export default async function ResearchPage() {
             Three jobs, three clear destinations.
           </h2>
         </div>
-        <div className='mt-6 grid gap-4 sm:grid-cols-2'>
+        <div className='mt-6 grid gap-4 md:grid-cols-3'>
           {researchPaths.map((path) => (
             <Link
               key={path.href}
