@@ -23,6 +23,25 @@ const HIGH_REQUIRED_WORKFLOWS = [
   'Production Content Lint',
 ]
 
+const P0_VISUAL_PROOF_PATTERNS = [
+  /^app\//,
+  /^components\//,
+  /^lib\//,
+  /^config\//,
+  /^public\//,
+  /^styles\//,
+  /^types\//,
+  /^package\.json$/,
+  /^package-lock\.json$/,
+  /^\.nvmrc$/,
+  /^next\.config\./,
+  /^tailwind\.config\./,
+  /^postcss\.config\./,
+  /^scripts\/dev\/visual-sweep\.mjs$/,
+  /^scripts\/ci\/validate-direct-dependencies\.mjs$/,
+  /^\.github\/workflows\/visual-proof\.yml$/,
+]
+
 const DOMAIN_REQUIRED_WORKFLOWS = [
   {
     workflow: 'Research Distribution',
@@ -62,24 +81,7 @@ const DOMAIN_REQUIRED_WORKFLOWS = [
   },
   {
     workflow: 'P0 Visual Proof',
-    patterns: [
-      /^app\//,
-      /^components\//,
-      /^lib\//,
-      /^config\//,
-      /^public\//,
-      /^styles\//,
-      /^types\//,
-      /^package\.json$/,
-      /^package-lock\.json$/,
-      /^\.nvmrc$/,
-      /^next\.config\./,
-      /^tailwind\.config\./,
-      /^postcss\.config\./,
-      /^scripts\/dev\/visual-sweep\.mjs$/,
-      /^scripts\/ci\/validate-direct-dependencies\.mjs$/,
-      /^\.github\/workflows\/visual-proof\.yml$/,
-    ],
+    patterns: P0_VISUAL_PROOF_PATTERNS,
   },
 ]
 
@@ -186,7 +188,12 @@ export function classifyRisk({ pr, changedFiles = [] }) {
 }
 
 export function requiredWorkflowsFor(riskTier, changedFiles = []) {
-  if (riskTier === 'low') return [...FAST_REQUIRED_WORKFLOWS]
+  const needsP0VisualProof = changedFiles.some((path) =>
+    P0_VISUAL_PROOF_PATTERNS.some((pattern) => pattern.test(path)),
+  )
+  if (riskTier === 'low') {
+    return needsP0VisualProof ? ['CI', 'P0 Visual Proof'] : [...FAST_REQUIRED_WORKFLOWS]
+  }
 
   const required = new Set(
     riskTier === 'high' ? HIGH_REQUIRED_WORKFLOWS : MEDIUM_CORE_REQUIRED_WORKFLOWS,
