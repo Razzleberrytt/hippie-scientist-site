@@ -49,6 +49,11 @@ describe('hosted visual proof governance', () => {
     expect(workflow).toContain('npm run build:deploy')
   })
 
+  it('records the exact commit without shell command substitution', () => {
+    expect(workflow).toContain('echo "- Commit: \\\`${{ inputs.producer_sha || github.sha }}\\\`"')
+    expect(workflow).not.toContain('echo "- Commit: `${{ inputs.producer_sha || github.sha }}`"')
+  })
+
   it('keeps Playwright outside production dependencies while documenting hosted use', () => {
     expect(dependencyGuard).toContain("optionalProbes = new Set(['exceljs', 'glob', 'react-plotly.js', 'playwright'])")
     expect(dependencyGuard).toContain('hosted visual-proof workflow installs a pinned transient copy')
