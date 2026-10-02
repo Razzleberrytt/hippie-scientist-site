@@ -5,7 +5,7 @@
 **Updated:** 2026-10-01
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (verified 2026-10-01):** Normal implementation WIP is **0/3**. Discovery/SEO is free after #5758 / PR #6126 merged as `32dda28c8cd84e32b6df2458dcff6da66328e935`; Revenue/Conversion is free after #6145 / PR #6154 merged as `c8ff86010e4fa7e9030b3744a13dc565e621db38`; Authority/Content is free after #6115 / PR #6116 merged as `4a398dbb821ca3dd7ae975682e18eec3a002b302`. Closed #6051, #6112, #6134, #6145, #5758, and #6115 are retired from active WIP. #5081 remains blocked on its own governor prerequisite and does not become admitted merely because Authority/Content is free.
+**Current admission (verified 2026-10-02):** Normal implementation WIP is **1/3**. Discovery/SEO is occupied by #6174; Revenue/Conversion and Authority/Content remain free. Discovery/SEO is free after #5758 / PR #6126 merged as `32dda28c8cd84e32b6df2458dcff6da66328e935`; Revenue/Conversion is free after #6145 / PR #6154 merged as `c8ff86010e4fa7e9030b3744a13dc565e621db38`; Authority/Content is free after #6115 / PR #6116 merged as `4a398dbb821ca3dd7ae975682e18eec3a002b302`. Closed #6051, #6112, #6134, #6145, #5758, and #6115 are retired from active WIP. #5081 remains blocked on its own governor prerequisite and does not become admitted merely because Authority/Content is free.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,10 +49,12 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 0/3
+## Active / in review — implementation WIP 1/3
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
+| Discovery/SEO | #6174 | Mobile profile intro hierarchy: decision layer before supporting monograph art on narrow screens; preserve desktop two-column intro | Active — admitted from exact current main after code + live-route revalidation; no overlapping issue/PR found | P1 UX coherence | 90.0 | Verified 2026-10-02 against current main + live Ashwagandha profile |
+
 
 **Control maintenance #6131:** In review — reconcile closed owners and make the active roster readable by the existing reconciler. The gate now requires authenticated proof that added roster owners already had unique open PRs before the fixed base; normal admission remains unchanged. This control repair grants no normal implementation slot.
 
@@ -119,7 +121,7 @@ Research-only enrichment staging is not canonical implementation admission. No n
 
 ## Ready next — strict dependency order
 
-Discovery/SEO is free after #5758 / PR #6126 merged; Revenue/Conversion is free after #6145 / PR #6154 merged; Authority/Content is free after #6115 / PR #6116 merged. Normal WIP is 0/3. New work in any normal lane may be promoted only through the normal scored, freshness, dependency, experiment, and admission gates. Evidence, freshness, experiment, and external-access gates remain unchanged. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
+Discovery/SEO is occupied by #6174; Revenue/Conversion is free after #6145 / PR #6154 merged; Authority/Content is free after #6115 / PR #6116 merged. Normal WIP is 1/3. New work in any normal lane may be promoted only through the normal scored, freshness, dependency, experiment, and admission gates. Evidence, freshness, experiment, and external-access gates remain unchanged. For Discovery/SEO, fresh dated page-level search opportunity is primary: prioritize meaningful-impression CTR underperformers, then positions 4–15, then substantive query-supported upgrades. Fresh AI-citation telemetry is only a bounded authority/confidence overlay and cannot turn a zero-upside hold into executable work. The existing 65/35 citation-adjacent/exploration allocation applies only within otherwise eligible discretionary work and never outranks a measured search-conversion opportunity. P0/scientific/canonical/governance incidents still override normal scoring, and no candidate becomes executable until it is explicitly promoted here.
 
 ### Blocked or deferred candidates
 
