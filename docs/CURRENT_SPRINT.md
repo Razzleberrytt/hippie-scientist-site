@@ -5,7 +5,7 @@
 **Updated:** 2026-10-02
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (verified 2026-10-02):** Normal implementation WIP is **1/3**. Discovery/SEO is occupied by #6185; Revenue/Conversion and Authority/Content remain free. #6185 was freshly revalidated against exact main `1a3aec30faa045a43716169fdeb851f9da2861b4`; no overlapping open implementation PR was found. Revenue/Conversion is free after #6145 / PR #6154 merged as `c8ff86010e4fa7e9030b3744a13dc565e621db38`; Authority/Content is free after #6115 / PR #6116 merged as `4a398dbb821ca3dd7ae975682e18eec3a002b302`. Closed #6181 and #6174 remain completed and retired. #5081 remains blocked on its own governor prerequisite and does not become admitted merely because Authority/Content is free.
+**Current admission (verified 2026-10-02):** Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are free after #6185 / PR #6190 merged as `0657391a3bb73916f18bd0df42542363dcdc07d3`. #6021 is freshly revalidated and Ready next, but is not active until a separate admission transaction is merged against this free base. #5081 remains blocked on its own governor prerequisite and does not become admitted merely because Authority/Content is free.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,11 +49,11 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 0/3
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6185 | perf(ci): fast-fail bounded UI contract drift before exhaustive validation | Active — freshly revalidated against exact main; implementation follows separately | P1 | 80.0 | 2026-10-02T14:34:49Z — exact base 1a3aec30faa045a43716169fdeb851f9da2861b4 |
+
 
 
 **Control maintenance #6131:** In review — reconcile closed owners and make the active roster readable by the existing reconciler. The gate now requires authenticated proof that added roster owners already had unique open PRs before the fixed base; normal admission remains unchanged. This control repair grants no normal implementation slot.
@@ -65,6 +65,8 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 Research-only enrichment staging is not canonical implementation admission. No new work may overlap an active normal-lane owner.
 
 ### Verified completion refresh — 2026-10-02
+
+- **#6185 / PR #6190 — completed:** merged as `0657391a3bb73916f18bd0df42542363dcdc07d3`; bounded UI-contract changes now fail stale source/copy contracts before broad validation, exact-head governed static exports are reused by Build Check, Lighthouse, Production Content Lint, and P0 Visual Proof, fallback rebuilds remain fail-closed on artifact miss/mismatch, and P0 is required whenever its retained path trigger applies (including low-risk visual-path tests). Exact-head full Vitest/a11y, native node tests, canonical data, workbook/runtime-trust/security, production build/output/SEO, Build Quality, Atomic, Site Health, governed consumer reuse, Lighthouse, P0 visual proof, and review resolution passed. External traffic, conversion, ranking, and revenue impact remain **Unknown**.
 
 - **#6181 / PR #6184 — completed:** merged as `31e2f7b1b07ba01ab7e9e99831ac807b33d7061a`; Research now presents three primary tasks—search citations, look up evidence, and inspect the Evidence Report—while Methodology and recent evidence changes remain secondary trust/update paths. Stable routes, source samples, external databases, downloads, scientific content, evidence grading, safety language, canonical metadata, and monetization behavior were preserved. Exact-head CI, full Vitest/a11y, production build/output/SEO, Fast UI, P0 visual proof, Experience contract, Atomic, Site Health, Build Quality, and review resolution passed. External engagement, search, conversion, and revenue impact remain **Unknown** until observed.
 
@@ -125,7 +127,7 @@ Research-only enrichment staging is not canonical implementation admission. No n
 
 ## Ready next — strict dependency order
 
-Discovery/SEO is occupied by #6185; Revenue/Conversion is free after #6145 / PR #6154 merged; Authority/Content is free after #6115 / PR #6116 merged. Normal WIP is 1/3. #6185 is a bounded CI/control-infrastructure repair admitted in D because it directly unblocks safer, faster site-UX/content-hierarchy iteration; it does not create an Operations fourth lane or claim external traffic/revenue impact. New work in any normal lane may be promoted only through the normal scored, freshness, dependency, experiment, and admission gates. Evidence, freshness, experiment, and external-access gates remain unchanged. P0/scientific/canonical/governance incidents still override normal scoring, and no other candidate becomes executable until explicitly promoted.
+All three normal workstreams are free; Normal WIP is 0/3. **Ready next: #6021** — bounded navigation/accessibility repair on the shared focus-cluster root template. Fresh exact-main proof on `0657391a3bb73916f18bd0df42542363dcdc07d3` confirms the visible `Articles` breadcrumb still links to `/guides/` and the breadcrumb nav lacks an accessible name, with no overlapping open implementation PR. Fresh score: BI 3 × UV 4 × TP 2 × SL 3 × Confidence 1.00 ÷ Effort 1 = **72.0**. A separate admission transaction is required before implementation. Evidence, experiment, scientific, canonical, governance, and external-access gates remain unchanged.
 
 ### Blocked or deferred candidates
 
