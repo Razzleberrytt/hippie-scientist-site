@@ -516,8 +516,8 @@ export default async function HerbDetailPage({ params }: PageProps) {
         <div className="flex-1 min-w-0 space-y-4 sm:space-y-5">
       {/* Title Header — includes the quick-stat strip so the essentials fit in one screen */}
       <div id="overview" className="hs-masthead hero-shell scroll-mt-24 rounded-[1.25rem] border border-brand-900/10 p-5 shadow-sm sm:p-6">
-        <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-5 lg:items-start">
-          <header className="space-y-3 lg:col-start-1 lg:row-start-1">
+        <header className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_240px] lg:items-start">
+          <div className="space-y-3">
             <div className="space-y-1">
               <p className="hs-label">Herb Profile</p>
               <h1 className="font-semibold tracking-tight text-ink">
@@ -576,20 +576,15 @@ export default async function HerbDetailPage({ params }: PageProps) {
                 </div>
               )}
             </dl>
-          </header>
-
-          {/* Keep the decision layer ahead of supporting art in DOM/mobile order.
-              Desktop grid placement still keeps the monograph visual beside the
-              profile facts, with the decision layer immediately below that row. */}
-          <div className="lg:col-span-2 lg:row-start-2">
-            <ProfileDecisionPanel decision={profileDecision} name={displayName} />
           </div>
 
-          <div className="lg:col-start-2 lg:row-start-1">
-            <MonographHeroImage image={heroImage} label={displayName} eyebrow="Monograph visual" />
-          </div>
-        </div>
+          <MonographHeroImage image={heroImage} label={displayName} eyebrow="Monograph visual" />
+        </header>
       </div>
+
+      {/* Decision surface — verdict (when curated) + intent-based routing.
+          Rendered by the shared ProfileDecisionPanel so all profiles benefit. */}
+      <ProfileDecisionPanel decision={profileDecision} name={displayName} />
 
       <ProfileTOC items={tocItems} variant="mobile" trackingAliases={tocTrackingAliases} navigationLabel="Core page sections" menuLabel="Core sections" />
 
