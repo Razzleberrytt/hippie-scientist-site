@@ -48,9 +48,10 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
+| #6185 | perf(ci): fast-fail bounded UI contract drift before exhaustive validation | D | Active — freshly revalidated against exact main; implementation follows separately | P1 | 4/4/2/5/1/2 | 80.0 | 2026-10-02T14:34:49Z — exact base 1a3aec30faa045a43716169fdeb851f9da2861b4 |
 
 
-**Current admission (verified 2026-10-02):** Normal implementation WIP is **0/3**. Discovery/SEO is free after #6181 / PR #6184 merged as `31e2f7b1b07ba01ab7e9e99831ac807b33d7061a`; Revenue/Conversion is free after #6145 / PR #6154 merged as `c8ff86010e4fa7e9030b3744a13dc565e621db38`; Authority/Content is free after #6115 / PR #6116 merged as `4a398dbb821ca3dd7ae975682e18eec3a002b302`. Closed #6181 and #6174 remain completed and retired. #5081 remains blocked on its own governor prerequisite.
+**Current admission (verified 2026-10-02):** Normal implementation WIP is **1/3**. Discovery/SEO is occupied by #6185; Revenue/Conversion and Authority/Content remain free. #6185 was freshly revalidated against exact main `1a3aec30faa045a43716169fdeb851f9da2861b4`; no overlapping open implementation PR was found. Revenue/Conversion is free after #6145 / PR #6154 merged as `c8ff86010e4fa7e9030b3744a13dc565e621db38`; Authority/Content is free after #6115 / PR #6116 merged as `4a398dbb821ca3dd7ae975682e18eec3a002b302`. Closed #6181 and #6174 remain completed and retired. #5081 remains blocked on its own governor prerequisite.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
@@ -80,7 +81,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Discovery/SEO is free after #6181 / PR #6184 merged; Revenue/Conversion is free after #6145 / PR #6154 merged; Authority/Content is free after #6115 / PR #6116 merged. Normal WIP is 0/3. New work in any normal lane may be promoted only through the normal scored, freshness, dependency, experiment, and admission gates. The single master scoring formula, evidence, freshness, experiment, and external-access gates remain unchanged.
+Discovery/SEO is occupied by #6185; Revenue/Conversion is free after #6145 / PR #6154 merged; Authority/Content is free after #6115 / PR #6116 merged. Normal WIP is 1/3. #6185 is the admitted bounded CI/control-infrastructure repair for recurring UI/content-hierarchy validation latency; its external search, traffic, conversion, and revenue effects remain Unknown. New work in any normal lane may be promoted only through the normal scored, freshness, dependency, experiment, and admission gates. The single master scoring formula, evidence, freshness, experiment, and external-access gates remain unchanged.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|

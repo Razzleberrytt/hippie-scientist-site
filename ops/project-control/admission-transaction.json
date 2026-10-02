@@ -1,20 +1,20 @@
 {
   "version": 2,
-  "base_revision": "c08342acc06a67a70a66e0f15f05b5dee708071c",
-  "last_verified": "2026-10-02T13:42:22Z",
-  "ticket": 6181,
+  "base_revision": "1a3aec30faa045a43716169fdeb851f9da2861b4",
+  "last_verified": "2026-10-02T14:34:49Z",
+  "ticket": 6185,
   "lane": "D",
-  "title": "fix(ux): simplify Research hub to three primary research tasks",
+  "title": "perf(ci): fast-fail bounded UI contract drift before exhaustive validation",
   "priority": "P1",
   "score_inputs": {
-    "businessImpact": 3,
-    "userValue": 5,
-    "trafficPotential": 4,
-    "strategicLeverage": 4,
+    "businessImpact": 4,
+    "userValue": 4,
+    "trafficPotential": 2,
+    "strategicLeverage": 5,
     "confidence": 1,
     "effort": 2
   },
-  "score": 120,
-  "note": "Fresh exact-main + live-route Research hub revalidation. Admission only: simplify four equal-weight choices to three primary research tasks with methodology/updates as secondary trust paths; no scientific/data mutation.",
-  "control_issue": 6182
+  "score": 80,
+  "note": "Fresh exact-main revalidation after #6181 retirement. Admission only: repair bounded UI contract fast-fail/classification and exact-head build reuse without weakening evidence, safety, accessibility, canonical-data, security, stable-URL, or governor gates.",
+  "control_issue": 6188
 }
