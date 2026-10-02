@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-10-01
+**Updated:** 2026-10-02
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
@@ -48,16 +48,17 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6174 | fix(ux): put profile decisions before monograph art on narrow screens | D | Active — freshly admitted from exact base; implementation follows in a separate PR | P1 | 3/5/3/4/1/2 | 90.0 | 2026-10-02T12:57:27Z — exact base 4628b89aaff13a4cf382868340f1bbd54088a5ae |
 
 
-**Current admission (verified 2026-10-02):** Normal implementation WIP is **1/3**. Discovery/SEO is occupied by #6174; Revenue/Conversion and Authority/Content remain free. Discovery/SEO is free after #5758 / PR #6126 merged as `32dda28c8cd84e32b6df2458dcff6da66328e935`; Revenue/Conversion is free after #6145 / PR #6154 merged as `c8ff86010e4fa7e9030b3744a13dc565e621db38`; Authority/Content is free after #6115 / PR #6116 merged as `4a398dbb821ca3dd7ae975682e18eec3a002b302`. Closed #6051, #6112, #6134, #6145, #5758, and #6115 are retired from active WIP. #5081 remains blocked on its own governor prerequisite.
+**Current admission (verified 2026-10-02):** Normal implementation WIP is **0/3**. Discovery/SEO is free after #6174 / PR #6177 merged as `c80d1f736c87040ae85ea33bae16bf642dd8b7dd`; Revenue/Conversion is free after #6145 / PR #6154 merged as `c8ff86010e4fa7e9030b3744a13dc565e621db38`; Authority/Content is free after #6115 / PR #6116 merged as `4a398dbb821ca3dd7ae975682e18eec3a002b302`. Closed #6174, #6051, #6112, #6134, #6145, #5758, and #6115 are retired from active WIP. #5081 remains blocked on its own governor prerequisite.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
 **Security follow-up #5456:** Open permanent MDX/TOML dependency-chain removal. Temporary containment expires 2026-10-07; this audit does not extend it.
 
-### Verified completion refresh — 2026-10-01
+### Verified completion refresh — 2026-10-02
+
+- **#6174 / PR #6177 — completed:** merged as `c80d1f736c87040ae85ea33bae16bf642dd8b7dd`; mobile herb/compound profile reading order is now facts → decision layer → supporting art, desktop retains the two-column intro, and light-theme verdict/safety semantic colors are protected from generic hero-shell styling. Exact-head CI, Fast UI/accessibility, P0 visual proof, Experience contract, Atomic, Site Health, Build Quality, crawl/content guards, production build/output/SEO, and review resolution passed. External engagement/business impact remains **Unknown**.
 
 - **#6115 / PR #6116 — completed:** merged as `4a398dbb821ca3dd7ae975682e18eec3a002b302`; the bounded mitragynine-adjacent compound cluster is live on `main`. Search, citation, engagement, conversion, and revenue effects remain **Unknown** until measured.
 
@@ -77,7 +78,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Discovery/SEO is free after #5758 / PR #6126 merged; Revenue/Conversion is free after #6145 / PR #6154 merged; Authority/Content is free after #6115 / PR #6116 merged. Normal WIP is 0/3. New work in any normal lane may be promoted only through the normal scored, freshness, dependency, experiment, and admission gates. The single master scoring formula, evidence, freshness, experiment, and external-access gates remain unchanged. The single master scoring formula, evidence, freshness, experiment, and external-access gates remain unchanged. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
+Discovery/SEO is free after #6174 / PR #6177 merged; Revenue/Conversion is free after #6145 / PR #6154 merged; Authority/Content is free after #6115 / PR #6116 merged. Normal WIP is 0/3. New work in any normal lane may be promoted only through the normal scored, freshness, dependency, experiment, and admission gates. The single master scoring formula, evidence, freshness, experiment, and external-access gates remain unchanged. The single master scoring formula, evidence, freshness, experiment, and external-access gates remain unchanged. For Discovery/SEO, fresh dated page-level impressions/clicks/CTR/position are the primary promotion signal: CTR underperformance and positions 4–15 outrank pure citation-count growth. Fresh AI-citation telemetry may only add bounded confidence/authority to already-eligible search opportunities. The 65/35 citation-adjacent/exploration allocation remains a portfolio constraint inside eligible discretionary work; it cannot promote citation-only holds or bypass P0, scientific-safety, canonical, governance, experiment-protection, or freshness gates.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
