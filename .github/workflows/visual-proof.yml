@@ -145,7 +145,7 @@ jobs:
           --source-sha "${{ inputs.producer_sha }}"
           --base-sha "${{ inputs.producer_base_sha }}"
 
-      - name: Build production static export fallback
+      - name: Build static export fallback
         if: steps.governed-verify.outcome != 'success'
         env:
           COMMIT_HASH: ${{ inputs.producer_sha || github.sha }}
