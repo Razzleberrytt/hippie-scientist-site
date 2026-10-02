@@ -579,10 +579,10 @@ export default async function FocusClusterRootArticlePage({ params }: { params: 
         dateModified={article.dateModified}
       />
 
-      <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
-        <Link href="/guides/" className="transition hover:text-ink">Articles</Link>
-        <span>/</span>
-        <span className="line-clamp-1 text-ink">{article.title}</span>
+      <nav className="mb-6 flex items-center gap-2 text-sm text-muted" aria-label="Breadcrumb">
+        <Link href="/guides/" className="transition hover:text-ink">Guides</Link>
+        <span aria-hidden="true">/</span>
+        <span className="line-clamp-1 text-ink" aria-current="page">{article.title}</span>
       </nav>
 
       <header className="border-b border-brand-900/10 pb-8">

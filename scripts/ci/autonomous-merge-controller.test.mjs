@@ -88,14 +88,14 @@ describe('risk-tiered autonomous merge controller', () => {
     expect(controllerWorkflow).toContain("CONTROLLER_SINGLE_PASS: 'true'")
 
     expect(controllerWorkflow).toContain('workflow_run:')
-    for (const workflowName of ['Build Check', 'Lighthouse CI', 'Production Content Lint']) {
+    for (const workflowName of ['Build Check', 'Lighthouse CI', 'Production Content Lint', 'P0 Visual Proof']) {
       expect(controllerWorkflow).toContain(`- ${workflowName}`)
     }
     expect(fs.existsSync('.github/workflows/governed-consumer-wake.yml')).toBe(false)
     expect(controllerWorkflow).toContain('node scripts/ci/autonomous-merge-wake.mjs')
     expect(controllerWorkflow).toContain('EXPECTED_HEAD_SHA: ${{ steps.wake.outputs.head_sha }}')
 
-    for (const workflow of ['build-check.yml', 'lighthouse.yml', 'production-content-lint.yml']) {
+    for (const workflow of ['build-check.yml', 'lighthouse.yml', 'production-content-lint.yml', 'visual-proof.yml']) {
       const source = fs.readFileSync(path.join(process.cwd(), '.github/workflows', workflow), 'utf8')
       expect(source, workflow).toContain('actions: read')
       expect(source, workflow).not.toContain('actions: write')
@@ -114,6 +114,13 @@ describe('risk-tiered autonomous merge controller', () => {
   it('uses the exact-head validation job instead of the whole CI workflow for low risk', () => {
     expect(requiredWorkflowsFor('low', ['docs/merge-policy.md'])).toEqual([])
     expect(requiredChecksFor('low')).toEqual(['Validation, tests, and data'])
+  })
+
+  it('requires CI plus P0 proof when a low-risk test file still triggers visual validation', () => {
+    expect(requiredWorkflowsFor('low', ['app/__tests__/foo.test.ts'])).toEqual([
+      'CI',
+      'P0 Visual Proof',
+    ])
   })
 
   it('requires CI plus targeted distribution workflows for a medium renderer', () => {
@@ -136,6 +143,21 @@ describe('risk-tiered autonomous merge controller', () => {
     ])
   })
 
+  it('requires CI, site health, production-content, and P0 visual proof for medium visual paths', () => {
+    expect(requiredWorkflowsFor('medium', ['app/research/page.tsx'])).toEqual([
+      'CI',
+      'Atomic upgrade gate',
+      'Build quality regression',
+      'Site Health Check',
+      'Production Content Lint',
+      'P0 Visual Proof',
+    ])
+  })
+
+  it('also requires P0 visual proof for high-risk changes that trigger the visual consumer', () => {
+    expect(requiredWorkflowsFor('high', ['.github/workflows/visual-proof.yml'])).toContain('P0 Visual Proof')
+  })
+
   it('lets a low-risk docs PR merge after validation while the CI production job remains pending', () => {
     const verdict = evaluateReadiness({
       pr,
@@ -151,6 +173,33 @@ describe('risk-tiered autonomous merge controller', () => {
       changedFiles: ['docs/merge-policy.md'],
     })
     expect(verdict.action).toBe('merge')
+  })
+
+  it('waits for CI and dispatched P0 proof before merging a low-risk visual-path test', () => {
+    const pending = evaluateReadiness({
+      pr,
+      workflowRuns: [run('CI'), dispatchedRun('P0 Visual Proof', 'in_progress', null)],
+      checkRuns: [check('Validation, tests, and data')],
+      expectedHeadSha: headSha,
+      currentBaseSha: baseSha,
+      controllerRunId: 'controller',
+      riskTier: 'low',
+      changedFiles: ['app/__tests__/foo.test.ts'],
+    })
+    expect(pending.action).toBe('wait')
+    expect(pending.reason).toContain('P0 Visual Proof')
+
+    const green = evaluateReadiness({
+      pr,
+      workflowRuns: [run('CI'), dispatchedRun('P0 Visual Proof')],
+      checkRuns: [check('Validation, tests, and data')],
+      expectedHeadSha: headSha,
+      currentBaseSha: baseSha,
+      controllerRunId: 'controller',
+      riskTier: 'low',
+      changedFiles: ['app/__tests__/foo.test.ts'],
+    })
+    expect(green.action).toBe('merge')
   })
 
   it('waits for medium-risk CI producer completion before merge', () => {
@@ -217,6 +266,43 @@ describe('risk-tiered autonomous merge controller', () => {
       changedFiles: ['src/components/SearchBox.tsx'],
     })
     expect(verdict.action).toBe('merge')
+  })
+
+  it('waits for dispatched P0 visual proof before merging a medium visual-path change', () => {
+    const pending = evaluateReadiness({
+      pr,
+      workflowRuns: [
+        ...mediumCore,
+        run('Site Health Check'),
+        run('Production Content Lint'),
+        dispatchedRun('P0 Visual Proof', 'in_progress', null),
+      ],
+      checkRuns: [check('Validation, tests, and data')],
+      expectedHeadSha: headSha,
+      currentBaseSha: baseSha,
+      controllerRunId: 'controller',
+      riskTier: 'medium',
+      changedFiles: ['app/research/page.tsx'],
+    })
+    expect(pending.action).toBe('wait')
+    expect(pending.reason).toContain('P0 Visual Proof')
+
+    const green = evaluateReadiness({
+      pr,
+      workflowRuns: [
+        ...mediumCore,
+        run('Site Health Check'),
+        run('Production Content Lint'),
+        dispatchedRun('P0 Visual Proof'),
+      ],
+      checkRuns: [check('Validation, tests, and data')],
+      expectedHeadSha: headSha,
+      currentBaseSha: baseSha,
+      controllerRunId: 'controller',
+      riskTier: 'medium',
+      changedFiles: ['app/research/page.tsx'],
+    })
+    expect(green.action).toBe('merge')
   })
 
   it('accepts canonical workflow_dispatch evidence on the exact current head with base freshness proven separately', () => {

@@ -34,11 +34,16 @@ const researchPaths = [
     href: '/evidence/evidence-report/',
     description: 'Review library-wide evidence metrics, grade distribution, ambiguity analysis, and the public dataset.',
   },
+] as const
+
+const secondaryResearchLinks = [
   {
-    eyebrow: 'Understand the rules',
-    title: 'Read the methodology',
+    label: 'Methodology',
     href: '/info/methodology/',
-    description: 'See how study design, evidence strength, uncertainty, and safety language are handled across the site.',
+  },
+  {
+    label: 'Recent evidence changes',
+    href: '/updates/',
   },
 ] as const
 
@@ -187,24 +192,18 @@ export default async function ResearchPage() {
           What are you trying to verify?
         </h1>
         <p className='mt-5 max-w-3xl text-lg leading-8 text-muted'>
-          Start with the research task, not a wall of cards. Find a source, check an ingredient, inspect the full evidence picture, or see how the grading system works.
+          Start with the research task, not a wall of cards. Find a source, check an ingredient, or inspect the full evidence picture.
         </p>
-        <Link
-          href='/updates/'
-          className='mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-brand-700 hover:underline'
-        >
-          See recent evidence changes and newly reviewed pages →
-        </Link>
       </section>
 
       <section aria-labelledby='research-paths-heading'>
         <div className='max-w-3xl'>
           <p className='eyebrow-label'>Choose a path</p>
           <h2 id='research-paths-heading' className='mt-2 text-3xl font-semibold tracking-tight text-ink'>
-            Four jobs, four clear destinations.
+            Three jobs, three clear destinations.
           </h2>
         </div>
-        <div className='mt-6 grid gap-4 sm:grid-cols-2'>
+        <div className='mt-6 grid gap-4 md:grid-cols-3'>
           {researchPaths.map((path) => (
             <Link
               key={path.href}
@@ -215,6 +214,15 @@ export default async function ResearchPage() {
               <h3 className='mt-2 text-xl font-semibold text-ink'>{path.title}</h3>
               <p className='mt-3 text-sm leading-7 text-muted'>{path.description}</p>
               <span className='mt-4 inline-flex text-sm font-semibold text-brand-700'>Open →</span>
+            </Link>
+          ))}
+        </div>
+
+        <div className='mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 rounded-xl border border-brand-900/10 bg-white/70 px-4 py-3 text-sm'>
+          <span className='font-semibold text-ink'>Trust & updates</span>
+          {secondaryResearchLinks.map((link) => (
+            <Link key={link.href} href={link.href} className='font-semibold text-brand-700 hover:underline'>
+              {link.label} →
             </Link>
           ))}
         </div>

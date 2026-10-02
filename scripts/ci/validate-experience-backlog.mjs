@@ -38,6 +38,7 @@ const layout = read('app/layout.tsx')
 const globals = read('app/globals.css')
 const homepageFinal = read('styles/homepage-premium-final.css')
 const editorialContentSurfaces = read('styles/editorial-content-surfaces.css')
+const researchHub = read('app/research/page.tsx')
 const herbProfile = read('app/herbs/[slug]/page.tsx')
 const compoundProfile = read('app/compounds/[slug]/page.tsx')
 const seeAlsoCluster = read('components/SeeAlsoCluster.tsx')
@@ -82,6 +83,29 @@ invariant('THS-004', 'homepage spacing and material hierarchy are governed by th
   includesAll(page, ["@/styles/homepage-structure.css", "@/styles/homepage-premium-final.css"]) &&
   includesAll(homepageFinal, ['.hs-home {', '.hs-index-hero', '.hs-decision-section', '.hs-method-section', '@media (max-width: 767px)']),
 )
+
+invariant('THS-004A', 'Research hub keeps three primary research tasks and secondary trust/update links', () => {
+  const start = researchHub.indexOf('const researchPaths = [')
+  const end = researchHub.indexOf('] as const', start)
+  const primaryBlock = start >= 0 && end > start ? researchHub.slice(start, end) : ''
+  const primaryHrefCount = primaryBlock.split('href:').length - 1
+
+  return primaryHrefCount === 3 &&
+    includesAll(primaryBlock, [
+      "href: '/learn/citation-explorer/'",
+      "href: '/evidence/evidence-checker/'",
+      "href: '/evidence/evidence-report/'",
+    ]) &&
+    !primaryBlock.includes("href: '/info/methodology/'") &&
+    !primaryBlock.includes("href: '/updates/'") &&
+    includesAll(researchHub, [
+      "Three jobs, three clear destinations.",
+      "const secondaryResearchLinks = [",
+      "href: '/info/methodology/'",
+      "href: '/updates/'",
+      "Trust & updates",
+    ])
+})
 
 invariant('THS-005', 'herb and compound profiles share core decision/evidence primitives', () =>
   includesAll(herbProfile, ['ProfileDecisionPanel', 'EvidenceScoreBadge', 'MonographHeroImage']) &&
