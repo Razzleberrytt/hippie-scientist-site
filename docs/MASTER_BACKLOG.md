@@ -48,16 +48,18 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6185 | perf(ci): fast-fail bounded UI contract drift before exhaustive validation | D | Active — freshly revalidated against exact main; implementation follows separately | P1 | 4/4/2/5/1/2 | 80.0 | 2026-10-02T14:34:49Z — exact base 1a3aec30faa045a43716169fdeb851f9da2861b4 |
+| #6021 | nav: fix misleading Articles breadcrumb destination on focus-cluster pages | D | Active — current defect revalidated; no overlapping open implementation PR | P1 | 3/4/2/3/1/1 | 72.0 | 2026-10-02T15:53:00Z — exact base 0657391a3bb73916f18bd0df42542363dcdc07d3 |
 
 
-**Current admission (verified 2026-10-02):** Normal implementation WIP is **1/3**. Discovery/SEO is occupied by #6185; Revenue/Conversion and Authority/Content remain free. #6185 was freshly revalidated against exact main `1a3aec30faa045a43716169fdeb851f9da2861b4`; no overlapping open implementation PR was found. Revenue/Conversion is free after #6145 / PR #6154 merged as `c8ff86010e4fa7e9030b3744a13dc565e621db38`; Authority/Content is free after #6115 / PR #6116 merged as `4a398dbb821ca3dd7ae975682e18eec3a002b302`. Closed #6181 and #6174 remain completed and retired. #5081 remains blocked on its own governor prerequisite.
+**Current admission (verified 2026-10-02):** Normal implementation WIP is **1/3**. Discovery/SEO is occupied by #6021; Revenue/Conversion and Authority/Content remain free. #6021 was freshly revalidated against exact main `0657391a3bb73916f18bd0df42542363dcdc07d3`: the misleading breadcrumb label/destination pair and missing breadcrumb accessible name remain present, with no overlapping open implementation PR. #6185 / PR #6190 is completed and retired. #5081 remains blocked on its own governor prerequisite.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
 **Security follow-up #5456:** Open permanent MDX/TOML dependency-chain removal. Temporary containment expires 2026-10-07; this audit does not extend it.
 
 ### Verified completion refresh — 2026-10-02
+
+- **#6185 / PR #6190 — completed:** merged as `0657391a3bb73916f18bd0df42542363dcdc07d3`; bounded UI-contract drift now fails before broad validation, exact-head governed static exports are reused by downstream build-dependent checks, P0 Visual Proof is required for every retained visual trigger including low-risk visual-path tests, and artifact mismatch/miss still falls back to a full build. Exact-head CI/full tests/a11y/data/security, production build/output/SEO, Build Quality, Atomic, Site Health, Build Check, Production Content Lint, Lighthouse, P0 visual proof, governed export reuse, and review resolution passed. External business impact remains **Unknown**.
 
 - **#6181 / PR #6184 — completed:** merged as `31e2f7b1b07ba01ab7e9e99831ac807b33d7061a`; the Research hub now keeps Citation Explorer, Evidence Checker, and Evidence Report as the three primary tasks, with Methodology and recent evidence changes secondary. Stable routes and scientific/evidence/safety/publication boundaries were preserved; exact-head CI, production output/SEO, Fast UI, P0 visual proof, Experience, Atomic, Site Health, Build Quality, and review resolution passed. External search, engagement, conversion, and revenue impact remain **Unknown**.
 
@@ -81,7 +83,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Discovery/SEO is occupied by #6185; Revenue/Conversion is free after #6145 / PR #6154 merged; Authority/Content is free after #6115 / PR #6116 merged. Normal WIP is 1/3. #6185 is the admitted bounded CI/control-infrastructure repair for recurring UI/content-hierarchy validation latency; its external search, traffic, conversion, and revenue effects remain Unknown. New work in any normal lane may be promoted only through the normal scored, freshness, dependency, experiment, and admission gates. The single master scoring formula, evidence, freshness, experiment, and external-access gates remain unchanged.
+Discovery/SEO is occupied by #6021; Revenue/Conversion and Authority/Content are free. Normal WIP is 1/3. #6021 is the admitted bounded navigation/accessibility repair for the focus-cluster root template. Its external search, engagement, conversion, and revenue effects remain Unknown. New work in any normal lane may be promoted only through the normal scored, freshness, dependency, experiment, and admission gates. The single master scoring formula, evidence, freshness, experiment, scientific, canonical, governance, and external-access gates remain unchanged.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
