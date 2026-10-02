@@ -62,7 +62,10 @@ html:not(.dark) [data-profile-page] .hero-shell h1 {
   letter-spacing: -0.045em;
 }
 
-html:not(.dark) [data-profile-page] .hero-shell .rounded-xl {
+/* Keep generic hero-card treatment scoped to the identity/quick-facts column.
+   Decision surfaces own their semantic verdict/safety colors and must not be
+   flattened merely because mobile ordering places them inside the hero shell. */
+html:not(.dark) [data-profile-page] .hero-shell > .grid > header .rounded-xl {
   border-color: var(--hs-hairline);
   background: color-mix(in srgb, var(--hs-surface) 82%, transparent);
   box-shadow: 0 7px 22px rgba(53, 47, 65, 0.045);

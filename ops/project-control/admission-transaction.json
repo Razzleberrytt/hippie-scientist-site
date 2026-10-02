@@ -1,20 +1,20 @@
 {
   "version": 2,
-  "base_revision": "fc85937e3ebe4726b67c8afafd093cfed0b3aa98",
-  "last_verified": "2026-10-01T18:47:00Z",
-  "ticket": 6145,
-  "lane": "R",
-  "title": "Fail closed malformed affiliate destinations in production output",
+  "base_revision": "c08342acc06a67a70a66e0f15f05b5dee708071c",
+  "last_verified": "2026-10-02T13:42:22Z",
+  "ticket": 6181,
+  "lane": "D",
+  "title": "fix(ux): simplify Research hub to three primary research tasks",
   "priority": "P1",
   "score_inputs": {
-    "businessImpact": 4,
-    "userValue": 4,
-    "trafficPotential": 3,
+    "businessImpact": 3,
+    "userValue": 5,
+    "trafficPotential": 4,
     "strategicLeverage": 4,
-    "confidence": 0.75,
+    "confidence": 1,
     "effort": 2
   },
-  "score": 72,
-  "note": "Fresh exact-base admission from feeder R-S004. Existing production tag audit is verified but narrow; no current broken destination or business loss is claimed. Admission control issue #6146; implementation authority remains #6145.",
-  "control_issue": 6146
+  "score": 120,
+  "note": "Fresh exact-main + live-route Research hub revalidation. Admission only: simplify four equal-weight choices to three primary research tasks with methodology/updates as secondary trust paths; no scientific/data mutation.",
+  "control_issue": 6182
 }
