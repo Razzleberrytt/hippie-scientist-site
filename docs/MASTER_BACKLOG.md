@@ -48,7 +48,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6021 | nav: fix misleading Articles breadcrumb destination on focus-cluster pages | D | Active — admitted against exact free-base main; implementation follows separately | P1 | 3/4/2/3/1/1 | 72.0 | 2026-10-02T16:00:00Z — exact base 85470582cbeaf68fedf9ef6c9386f109b1e281b2 |
+| #6021 / PR #6194 | nav: fix misleading Articles breadcrumb destination on focus-cluster pages | D | Active — admission owner recorded; implementation follows separately | P1 | 3/4/2/3/1/1 | 72.0 | 2026-10-02T16:00:00Z — exact base 85470582cbeaf68fedf9ef6c9386f109b1e281b2 |
 
 
 
