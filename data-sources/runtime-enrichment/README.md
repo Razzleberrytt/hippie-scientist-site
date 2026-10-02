@@ -139,6 +139,8 @@ Canonical materialization receipt: PR #6022 committed the reviewed workbook and 
 
 `2026-10-02-supplement-evidence-manifest.json` records the PubMed anchors, reviewed counts, append-only policy, and exact ledger hash.
 
+Tracking: atomic enrichment issue `#6198`; canonical magnesium citation-integrity follow-up `#6197`.
+
 ## Regression contract
 
 `tests/runtime-enrichment.test.ts` validates every manifest-backed batch, verifies each digest before decoding, checks reviewed counts, requires globally unique evidence record IDs, allows repeat source identities to deduplicate deterministically across batches, enforces the entity-context allowlist, verifies virtual-workbook growth, and prevents every medication batch from carrying publication/governance fields.
