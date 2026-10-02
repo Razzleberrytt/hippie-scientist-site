@@ -50,7 +50,8 @@ describe('hosted visual proof governance', () => {
   })
 
   it('records the exact commit without shell command substitution', () => {
-    expect(workflow).toContain('echo "- Commit: \\`${{ inputs.producer_sha || github.sha }}\\`"')
+    const escapedBacktick = '\\' + '`'
+    expect(workflow).toContain('echo "- Commit: ' + escapedBacktick + '${{ inputs.producer_sha || github.sha }}' + escapedBacktick + '"')
     expect(workflow).not.toContain('echo "- Commit: `${{ inputs.producer_sha || github.sha }}`"')
   })
 
