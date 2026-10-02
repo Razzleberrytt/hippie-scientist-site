@@ -7,7 +7,7 @@ const TRANSIENT_CONCLUSIONS = new Set(['cancelled', 'timed_out', 'stale', 'start
 const HOLD_LABELS = new Set(['hold-merge', 'do-not-merge', 'manual-merge'])
 const DISPATCH_EVENTS = new Set(['pull_request', 'workflow_dispatch'])
 const WORKFLOW_CONTROL_PATH = /^\.github\/workflows\//u
-const CI_OWNED_RECOVERY_CONSUMERS = new Set(['Build Check', 'Lighthouse CI', 'Production Content Lint'])
+const CI_OWNED_RECOVERY_CONSUMERS = new Set(['Build Check', 'Lighthouse CI', 'Production Content Lint', 'P0 Visual Proof'])
 
 const FAST_REQUIRED_WORKFLOWS = []
 const MEDIUM_CORE_REQUIRED_WORKFLOWS = [
