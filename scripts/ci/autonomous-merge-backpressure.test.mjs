@@ -50,7 +50,7 @@ describe('autonomous merge backpressure contract', () => {
     expect(fallbackJob).toContain('SWEEP_OPEN_PRS: ${{ steps.wake.outputs.sweep }}')
     expect(workflow).not.toContain('cancel-in-progress: true')
     expect(fallbackJob).toContain("github.event_name == 'workflow_dispatch' && inputs.pr_number != '' && inputs.expected_head_sha != '' && 'false' || 'true'")
-    expect(fallbackJob).toContain("MERGE_POLL_SECONDS: '3'")
+    expect(fallbackJob).toContain("MERGE_POLL_SECONDS: '10'")
     expect(fallbackJob).toContain("MERGE_MAX_WAIT_MINUTES: '3'")
     expect(fallbackJob).toContain('node scripts/ci/autonomous-merge-controller.mjs')
     expect(workflow).toContain('group: autonomous-merge-commit')
