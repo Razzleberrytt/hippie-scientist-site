@@ -33,6 +33,7 @@ describe('autonomous merge controller contract', () => {
       '.github/workflows/build-check.yml',
       '.github/workflows/lighthouse.yml',
       '.github/workflows/production-content-lint.yml',
+      '.github/workflows/visual-proof.yml',
     ]) {
       const consumer = read(workflowPath)
       expect(consumer).toContain('actions: read')
@@ -141,7 +142,7 @@ describe('autonomous merge controller contract', () => {
     expect(controller).toContain("run.conclusion === 'action_required'")
     expect(controller).toContain('getRunJobs')
     expect(controller).toContain('jobs.length !== 0')
-    expect(controller).toContain("CI_OWNED_RECOVERY_CONSUMERS = new Set(['Build Check', 'Lighthouse CI', 'Production Content Lint'])")
+    expect(controller).toContain("CI_OWNED_RECOVERY_CONSUMERS = new Set(['Build Check', 'Lighthouse CI', 'Production Content Lint', 'P0 Visual Proof'])")
     expect(controller).toContain("failedRuns.some((run) => run.name === 'CI')")
     expect(controller).toContain('CI recovery owns governed consumer fan-out')
     expect(controller).toContain('zero-job control-plane failure recovered through canonical workflow dispatch')

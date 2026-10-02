@@ -12,6 +12,7 @@ on:
       - Production Content Lint
       - Build Check
       - Lighthouse CI
+      - P0 Visual Proof
       - Research Distribution
     types: [completed]
   schedule:

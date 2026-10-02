@@ -5,13 +5,14 @@ import { describe, expect, it } from 'vitest'
 import { requiredWorkflowsFor } from './autonomous-merge-controller.mjs'
 
 describe('changed-file workflow reachability', () => {
-  it('keeps lib runtime changes behind both site and production-content gates', () => {
+  it('keeps lib runtime changes behind site, production-content, and visual-proof gates', () => {
     expect(requiredWorkflowsFor('medium', ['lib/analytics.ts'])).toEqual([
       'CI',
       'Atomic upgrade gate',
       'Build quality regression',
       'Site Health Check',
       'Production Content Lint',
+      'P0 Visual Proof',
     ])
   })
 

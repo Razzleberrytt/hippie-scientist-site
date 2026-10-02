@@ -78,6 +78,22 @@ export const LEAF_PAGE_PATTERNS = [
 ]
 
 /**
+ * Shallow hub pages with proven source-reading contracts may use a focused
+ * validation lane while the production build/output/SEO lane remains
+ * authoritative. This is deliberately an explicit allowlist.
+ */
+export const BOUNDED_UI_SOURCE_PATTERNS = [
+  /^app\/research\/page\.tsx$/,
+]
+
+export const BOUNDED_UI_COMPANION_PATTERNS = [
+  /^app\/__tests__\/.+\.(?:test|spec)\.(?:[cm]?[jt]sx?)$/,
+  /^scripts\/ci\/validate-experience-backlog\.mjs$/,
+  /^scripts\/ci\/validate-bounded-ui-contracts(?:\.test)?\.mjs$/,
+  /^scripts\/verify-core-routes\.mjs$/,
+]
+
+/**
  * Shared presentation-only files that may use focused dependency-related tests
  * while the production build remains authoritative for rendered output.
  *
@@ -131,6 +147,17 @@ export function isLeafPagePath(file) {
   return urlSegments.length >= 2
 }
 
+export function isBoundedUiSourcePath(file) {
+  const normalized = String(file || '').trim().replaceAll('\\', '/')
+  return Boolean(normalized) && BOUNDED_UI_SOURCE_PATTERNS.some((pattern) => pattern.test(normalized))
+}
+
+export function isBoundedUiPath(file) {
+  const normalized = String(file || '').trim().replaceAll('\\', '/')
+  if (!normalized) return false
+  return isBoundedUiSourcePath(normalized) || BOUNDED_UI_COMPANION_PATTERNS.some((pattern) => pattern.test(normalized))
+}
+
 export function isUiOnlySourcePath(file) {
   const normalized = String(file || '').trim().replaceAll('\\', '/')
   if (!normalized || !UI_ONLY_SOURCE_PATTERNS.some((pattern) => pattern.test(normalized))) return false
@@ -160,6 +187,13 @@ export function classifyReleaseImpact(files) {
     !validationOnly &&
     normalizedFiles.some(isUiOnlySourcePath) &&
     normalizedFiles.every(isUiOnlyPath)
+  const boundedUi =
+    !docsOnly &&
+    !validationOnly &&
+    !leafPageOnly &&
+    !uiOnly &&
+    normalizedFiles.some(isBoundedUiSourcePath) &&
+    normalizedFiles.every(isBoundedUiPath)
   return {
     releaseSensitive: sensitiveFiles.length > 0,
     sensitiveFiles,
@@ -167,6 +201,7 @@ export function classifyReleaseImpact(files) {
     validationOnly,
     leafPageOnly,
     uiOnly,
+    boundedUi,
     files: normalizedFiles,
   }
 }
@@ -184,6 +219,7 @@ function main() {
   console.log(`[release-impact] validation_only=${result.validationOnly}`)
   console.log(`[release-impact] leaf_page_only=${result.leafPageOnly}`)
   console.log(`[release-impact] ui_only=${result.uiOnly}`)
+  console.log(`[release-impact] bounded_ui=${result.boundedUi}`)
 
   if (outputArg) {
     const outputPath = outputArg.slice('--github-output='.length)
@@ -193,6 +229,7 @@ function main() {
     fs.appendFileSync(outputPath, `validation_only=${result.validationOnly}\n`)
     fs.appendFileSync(outputPath, `leaf_page_only=${result.leafPageOnly}\n`)
     fs.appendFileSync(outputPath, `ui_only=${result.uiOnly}\n`)
+    fs.appendFileSync(outputPath, `bounded_ui=${result.boundedUi}\n`)
   }
 }
 

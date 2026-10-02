@@ -36,7 +36,9 @@ npm run validate:release
 
 ## Best Practices
 
-1. **Avoid repetitive full builds**: Do not run `npm run build` or `npm run validate:release` repeatedly while making exploratory edits.
-2. **Validate early with fast tiers**: Use `npm run validate:content` or `npm run validate:code` to catch syntax, compiler, or structural data issues first.
-3. **Run full build once stable**: Only compile the full static export once your changes have stabilized and you are ready for a PR check.
-4. **CI Enforcement**: GitHub Actions and Cloudflare Page deployment pipelines will always execute the full release validation path (`npm run check:full`), guaranteeing 100% deployment safety.
+1. **Avoid repetitive full builds**: Do not run `npm run build` or `npm run validate:release` after every exploratory edit.
+2. **Batch related work, not unrelated tickets**: Keep one scoped ticket/branch, make the related UI/content-hierarchy edits together, and use the fast tier while the batch is still moving. Do not use batching to mix unrelated tickets or bypass scientific, safety, security, accessibility, canonical-data, or route-governance gates.
+3. **Fail deterministic contracts first**: Proven bounded hub changes should run source-reading and source↔postbuild copy contracts before broad lint/test/build work. If the diff leaves the explicit allowlist, CI fails closed to the exhaustive path.
+4. **Run exhaustive release validation once the batch is stable**: The exact PR head still receives the authoritative production build/output/SEO gate at the merge boundary. Release-sensitive ambiguity never inherits a fast path merely because an earlier commit qualified.
+5. **Reuse exact-head build artifacts**: Build-dependent consumers should use the hash-bound governed static export produced by authoritative CI when available. Missing, stale, mismatched, fork, or otherwise untrusted artifacts fall back to a complete build.
+6. **P0 visual proof remains mandatory when triggered**: Same-repository PRs consume the governed CI export instead of compiling the same exact head again; fork/Dependabot or artifact-verification failure uses the self-built fallback.
