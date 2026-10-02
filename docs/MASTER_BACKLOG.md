@@ -48,10 +48,10 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6021 | nav: fix misleading Articles breadcrumb destination on focus-cluster pages | D | Active — current defect revalidated; no overlapping open implementation PR | P1 | 3/4/2/3/1/1 | 72.0 | 2026-10-02T15:53:00Z — exact base 0657391a3bb73916f18bd0df42542363dcdc07d3 |
 
 
-**Current admission (verified 2026-10-02):** Normal implementation WIP is **1/3**. Discovery/SEO is occupied by #6021; Revenue/Conversion and Authority/Content remain free. #6021 was freshly revalidated against exact main `0657391a3bb73916f18bd0df42542363dcdc07d3`: the misleading breadcrumb label/destination pair and missing breadcrumb accessible name remain present, with no overlapping open implementation PR. #6185 / PR #6190 is completed and retired. #5081 remains blocked on its own governor prerequisite.
+
+**Current admission (verified 2026-10-02):** Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are free after #6185 / PR #6190 merged as `0657391a3bb73916f18bd0df42542363dcdc07d3`. #6021 is freshly revalidated and queued as Ready next; it is not active until a separate admission transaction lands. #5081 remains blocked on its own governor prerequisite.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
@@ -83,7 +83,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Discovery/SEO is occupied by #6021; Revenue/Conversion and Authority/Content are free. Normal WIP is 1/3. #6021 is the admitted bounded navigation/accessibility repair for the focus-cluster root template. Its external search, engagement, conversion, and revenue effects remain Unknown. New work in any normal lane may be promoted only through the normal scored, freshness, dependency, experiment, and admission gates. The single master scoring formula, evidence, freshness, experiment, scientific, canonical, governance, and external-access gates remain unchanged.
+All three normal workstreams are free; Normal WIP is 0/3. **Ready next: #6021** — fix the misleading focus-cluster breadcrumb label/destination pair and add the missing accessible breadcrumb name. Fresh score 72.0 (3/4/2/3/1/1) on exact main `0657391a3bb73916f18bd0df42542363dcdc07d3`; no overlapping open implementation PR exists. A separate admission transaction is required before implementation. External search, engagement, conversion, and revenue effects remain Unknown. The single master scoring formula, evidence, freshness, experiment, scientific, canonical, governance, and external-access gates remain unchanged.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
