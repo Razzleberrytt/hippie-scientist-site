@@ -582,6 +582,9 @@ jobs:
           if printf '%s\n' "$changed" | grep -Eq '^(app/|components/|lib/|public/_redirects$|public/redirect-overrides/|scripts/ci/audit-technical-seo-contract\.mjs$|scripts/monitor/production-seo-health[^/]*\.mjs$|\.github/workflows/technical-seo-monitor\.yml$)'; then
             consumers+=(technical-seo-monitor.yml)
           fi
+          if printf '%s\n' "$changed" | grep -Eq '^(app/|components/|lib/|config/|public/|styles/|types/|package\.json$|package-lock\.json$|\.nvmrc$|next\.config\.|tailwind\.config\.|postcss\.config\.|scripts/dev/visual-sweep\.mjs$|scripts/ci/validate-direct-dependencies\.mjs$|\.github/workflows/visual-proof\.yml$)'; then
+            consumers+=(visual-proof.yml)
+          fi
 
           for workflow in "${consumers[@]}"; do
             if [ "$workflow" = "production-content-lint.yml" ]; then
