@@ -37,6 +37,7 @@ const primaryNavigation = read('lib/primary-navigation.ts')
 const layout = read('app/layout.tsx')
 const globals = read('app/globals.css')
 const homepageFinal = read('styles/homepage-premium-final.css')
+const editorialContentSurfaces = read('styles/editorial-content-surfaces.css')
 const herbProfile = read('app/herbs/[slug]/page.tsx')
 const compoundProfile = read('app/compounds/[slug]/page.tsx')
 const seeAlsoCluster = read('components/SeeAlsoCluster.tsx')
@@ -86,6 +87,26 @@ invariant('THS-005', 'herb and compound profiles share core decision/evidence pr
   includesAll(herbProfile, ['ProfileDecisionPanel', 'EvidenceScoreBadge', 'MonographHeroImage']) &&
   includesAll(compoundProfile, ['ProfileDecisionPanel', 'EvidenceScoreBadge', 'MonographHeroImage']),
 )
+
+invariant('THS-005A', 'mobile profile intro puts the decision layer before supporting art while desktop preserves the two-column first row', () => {
+  const herbDecision = herbProfile.indexOf('<ProfileDecisionPanel')
+  const herbImage = herbProfile.indexOf('<MonographHeroImage')
+  const compoundDecision = compoundProfile.indexOf('<ProfileDecisionPanel')
+  const compoundImage = compoundProfile.indexOf('<MonographHeroImage')
+  const herbImageCount = herbProfile.split('<MonographHeroImage').length - 1
+  const compoundImageCount = compoundProfile.split('<MonographHeroImage').length - 1
+
+  return herbDecision >= 0 &&
+    compoundDecision >= 0 &&
+    herbDecision < herbImage &&
+    compoundDecision < compoundImage &&
+    herbImageCount === 1 &&
+    compoundImageCount === 1 &&
+    includesAll(herbProfile, ['lg:col-span-2 lg:row-start-2', 'lg:col-start-2 lg:row-start-1']) &&
+    includesAll(compoundProfile, ['lg:col-span-2 lg:row-start-2', 'lg:col-start-2 lg:row-start-1']) &&
+    editorialContentSurfaces.includes('html:not(.dark) [data-profile-page] .hero-shell > .grid > header .rounded-xl {') &&
+    !editorialContentSurfaces.includes('html:not(.dark) [data-profile-page] .hero-shell .rounded-xl {')
+})
 
 invariant('THS-006', 'both profile families expose one canonical scanning/jump-navigation surface with section anchors', () =>
   includesAll(herbProfile, ['ProfileTOC', 'id="evidence"', 'id="safety"']) &&
