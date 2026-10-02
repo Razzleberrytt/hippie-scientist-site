@@ -5,7 +5,7 @@
 **Updated:** 2026-10-02
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (verified 2026-10-02):** Normal implementation WIP is **1/3**. Discovery/SEO is occupied by #6021; Revenue/Conversion and Authority/Content remain free. #6021 was freshly revalidated against exact main `0657391a3bb73916f18bd0df42542363dcdc07d3`: the focus-cluster root template still renders “Articles” while linking to `/guides/`, the breadcrumb nav still lacks an accessible name, and no overlapping open implementation PR exists. Fresh score: BI 3 × UV 4 × TP 2 × SL 3 × Confidence 1.00 ÷ Effort 1 = **72.0**. #6185 / PR #6190 is completed and retired. #5081 remains blocked on its own governor prerequisite and does not become admitted merely because Authority/Content is free.
+**Current admission (verified 2026-10-02):** Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are free after #6185 / PR #6190 merged as `0657391a3bb73916f18bd0df42542363dcdc07d3`. #6021 is freshly revalidated and Ready next, but is not active until a separate admission transaction is merged against this free base. #5081 remains blocked on its own governor prerequisite and does not become admitted merely because Authority/Content is free.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,11 +49,11 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 0/3
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6021 | nav: fix misleading Articles breadcrumb destination on focus-cluster pages | Active — current defect revalidated; implementation may proceed in the free Discovery/SEO slot | P1 | 72.0 | 2026-10-02T15:53:00Z — exact base 0657391a3bb73916f18bd0df42542363dcdc07d3 |
+
 
 
 **Control maintenance #6131:** In review — reconcile closed owners and make the active roster readable by the existing reconciler. The gate now requires authenticated proof that added roster owners already had unique open PRs before the fixed base; normal admission remains unchanged. This control repair grants no normal implementation slot.
@@ -127,7 +127,7 @@ Research-only enrichment staging is not canonical implementation admission. No n
 
 ## Ready next — strict dependency order
 
-Discovery/SEO is occupied by #6021; Revenue/Conversion and Authority/Content are free. Normal WIP is 1/3. #6021 is a bounded navigation/accessibility repair on the shared focus-cluster root template: make the breadcrumb parent label agree with `/guides/` and add an accessible breadcrumb name without changing article copy, evidence, metadata, canonicals, redirects, or layout. New work in any normal lane still requires scored, fresh, non-overlapping admission. Evidence, experiment, scientific, canonical, governance, and external-access gates remain unchanged.
+All three normal workstreams are free; Normal WIP is 0/3. **Ready next: #6021** — bounded navigation/accessibility repair on the shared focus-cluster root template. Fresh exact-main proof on `0657391a3bb73916f18bd0df42542363dcdc07d3` confirms the visible `Articles` breadcrumb still links to `/guides/` and the breadcrumb nav lacks an accessible name, with no overlapping open implementation PR. Fresh score: BI 3 × UV 4 × TP 2 × SL 3 × Confidence 1.00 ÷ Effort 1 = **72.0**. A separate admission transaction is required before implementation. Evidence, experiment, scientific, canonical, governance, and external-access gates remain unchanged.
 
 ### Blocked or deferred candidates
 
