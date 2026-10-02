@@ -53,7 +53,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| Discovery/SEO | #6174 | fix(ux): put profile decisions before monograph art on narrow screens | Active — freshly admitted from exact base; implementation follows in a separate PR | P1 | 90.0 | 2026-10-02T12:57:27Z — exact base 4628b89aaff13a4cf382868340f1bbd54088a5ae |
+| D | #6174 | fix(ux): put profile decisions before monograph art on narrow screens | Active — freshly admitted from exact base; implementation follows in a separate PR | P1 | 90.0 | 2026-10-02T12:57:27Z — exact base 4628b89aaff13a4cf382868340f1bbd54088a5ae |
 
 
 **Control maintenance #6131:** In review — reconcile closed owners and make the active roster readable by the existing reconciler. The gate now requires authenticated proof that added roster owners already had unique open PRs before the fixed base; normal admission remains unchanged. This control repair grants no normal implementation slot.
