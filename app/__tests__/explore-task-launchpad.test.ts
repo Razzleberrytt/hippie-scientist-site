@@ -51,11 +51,14 @@ describe('Explore task launchpad', () => {
   })
 
 
-  it('backs the research-and-updates task with an explicit updates handoff', () => {
+  it('backs the research-and-updates task with a secondary updates handoff', () => {
     const research = read('app/research/page.tsx')
 
-    expect(research).toContain("href='/updates/'")
-    expect(research).toContain('See recent evidence changes and newly reviewed pages')
+    expect(research).toContain("const secondaryResearchLinks = [")
+    expect(research).toContain("label: 'Recent evidence changes'")
+    expect(research).toContain("href: '/updates/'")
+    expect(research).toContain('Trust & updates')
+    expect(research).not.toContain('See recent evidence changes and newly reviewed pages')
   })
 
 })
