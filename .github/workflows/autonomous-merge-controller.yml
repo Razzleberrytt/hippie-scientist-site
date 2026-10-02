@@ -218,9 +218,10 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GITHUB_REPOSITORY: ${{ github.repository }}
       CONTROLLER_RUN_ID: ${{ github.run_id }}
-      # Every wake evaluates once; no runner waits for validations to finish.
-      CONTROLLER_SINGLE_PASS: 'true'
-      MERGE_POLL_SECONDS: '5'
+      # Completion wakes stay one-shot. Exact targeted workflow_dispatch wakes
+      # poll briefly so the consumer's final wake job can transition to terminal.
+      CONTROLLER_SINGLE_PASS: ${{ github.event_name == 'workflow_dispatch' && inputs.pr_number != '' && inputs.expected_head_sha != '' && 'false' || 'true' }}
+      MERGE_POLL_SECONDS: '3'
       MERGE_MAX_WAIT_MINUTES: '3'
     steps:
       - name: Checkout trusted controller from main
