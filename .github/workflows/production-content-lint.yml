@@ -199,11 +199,11 @@ jobs:
           EXPECTED_HEAD_SHA: ${{ inputs.producer_sha }}
           DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
         run: |
-          payload="$(jq -nc \\
-            --arg ref "$DEFAULT_BRANCH" \\
-            --arg pr "$PR_NUMBER" \\
-            --arg sha "$EXPECTED_HEAD_SHA" \\
+          payload="$(jq -nc \
+            --arg ref "$DEFAULT_BRANCH" \
+            --arg pr "$PR_NUMBER" \
+            --arg sha "$EXPECTED_HEAD_SHA" \
             '{ref:$ref,inputs:{pr_number:$pr,expected_head_sha:$sha}}')"
-          gh api --method POST \\
-            "repos/${{ github.repository }}/actions/workflows/autonomous-merge-controller.yml/dispatches" \\
+          gh api --method POST \
+            "repos/${{ github.repository }}/actions/workflows/autonomous-merge-controller.yml/dispatches" \
             --input - <<<"$payload"
