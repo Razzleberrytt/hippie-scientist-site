@@ -48,16 +48,17 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6181 | fix(ux): simplify Research hub to three primary research tasks | D | Active — freshly revalidated against exact main and live /research/; implementation follows separately | P1 | 3/5/4/4/1/2 | 120.0 | 2026-10-02T13:42:22Z — exact base c08342acc06a67a70a66e0f15f05b5dee708071c |
 
 
-**Current admission (verified 2026-10-02):** Normal implementation WIP is **1/3**. Discovery/SEO is occupied by #6181; Revenue/Conversion and Authority/Content remain free. #6181 was freshly revalidated against exact main `c08342acc06a67a70a66e0f15f05b5dee708071c` and the live Research hub; #6174 / PR #6177 remains completed and retired. Revenue/Conversion is free after #6145 / PR #6154 merged as `c8ff86010e4fa7e9030b3744a13dc565e621db38`; Authority/Content is free after #6115 / PR #6116 merged as `4a398dbb821ca3dd7ae975682e18eec3a002b302`. #5081 remains blocked on its own governor prerequisite.
+**Current admission (verified 2026-10-02):** Normal implementation WIP is **0/3**. Discovery/SEO is free after #6181 / PR #6184 merged as `31e2f7b1b07ba01ab7e9e99831ac807b33d7061a`; Revenue/Conversion is free after #6145 / PR #6154 merged as `c8ff86010e4fa7e9030b3744a13dc565e621db38`; Authority/Content is free after #6115 / PR #6116 merged as `4a398dbb821ca3dd7ae975682e18eec3a002b302`. Closed #6181 and #6174 remain completed and retired. #5081 remains blocked on its own governor prerequisite.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
 **Security follow-up #5456:** Open permanent MDX/TOML dependency-chain removal. Temporary containment expires 2026-10-07; this audit does not extend it.
 
 ### Verified completion refresh — 2026-10-02
+
+- **#6181 / PR #6184 — completed:** merged as `31e2f7b1b07ba01ab7e9e99831ac807b33d7061a`; the Research hub now keeps Citation Explorer, Evidence Checker, and Evidence Report as the three primary tasks, with Methodology and recent evidence changes secondary. Stable routes and scientific/evidence/safety/publication boundaries were preserved; exact-head CI, production output/SEO, Fast UI, P0 visual proof, Experience, Atomic, Site Health, Build Quality, and review resolution passed. External search, engagement, conversion, and revenue impact remain **Unknown**.
 
 - **#6174 / PR #6177 — completed:** merged as `c80d1f736c87040ae85ea33bae16bf642dd8b7dd`; mobile herb/compound profile reading order is now facts → decision layer → supporting art, desktop retains the two-column intro, and light-theme verdict/safety semantic colors are protected from generic hero-shell styling. Exact-head CI, Fast UI/accessibility, P0 visual proof, Experience contract, Atomic, Site Health, Build Quality, crawl/content guards, production build/output/SEO, and review resolution passed. External engagement/business impact remains **Unknown**.
 
@@ -79,7 +80,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Discovery/SEO is occupied by #6181; Revenue/Conversion is free after #6145 / PR #6154 merged; Authority/Content is free after #6115 / PR #6116 merged. Normal WIP is 1/3. New work in any normal lane may be promoted only through the normal scored, freshness, dependency, experiment, and admission gates. The single master scoring formula, evidence, freshness, experiment, and external-access gates remain unchanged. #6181 is a deterministic current-route hierarchy cleanup, not a citation- or search-demand claim; fresh external performance remains Unknown.
+Discovery/SEO is free after #6181 / PR #6184 merged; Revenue/Conversion is free after #6145 / PR #6154 merged; Authority/Content is free after #6115 / PR #6116 merged. Normal WIP is 0/3. New work in any normal lane may be promoted only through the normal scored, freshness, dependency, experiment, and admission gates. The single master scoring formula, evidence, freshness, experiment, and external-access gates remain unchanged.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
