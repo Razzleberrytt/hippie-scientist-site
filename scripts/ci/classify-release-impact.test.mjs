@@ -306,8 +306,9 @@ describe('workflow release-impact contract', () => {
     ]) {
       const index = yaml.indexOf(command)
       expect(index, command).toBeGreaterThan(-1)
-      const window = yaml.slice(Math.max(0, index - 240), index)
-      expect(window, command).toContain("steps.impact.outputs.docs_only != 'true'")
+      const stepStart = yaml.lastIndexOf('\n      - name:', index)
+      const step = yaml.slice(stepStart === -1 ? 0 : stepStart, index)
+      expect(step, command).toContain("steps.impact.outputs.docs_only != 'true'")
     }
     expect(yaml).toContain('dedicated path-scoped governance checks remain authoritative')
   })
