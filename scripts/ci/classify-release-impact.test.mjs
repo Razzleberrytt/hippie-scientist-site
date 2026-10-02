@@ -379,7 +379,7 @@ describe('workflow release-impact contract', () => {
 
     expect(ci).toContain('UI-only validation fast path')
     expect(ci).toContain("steps.impact.outputs.ui_only == 'true'")
-    expect(ci).toContain('Run related tests for UI-only changes (vitest + source-reading contracts + explicit a11y gate)')
+    expect(ci).toContain('Run related tests for UI-only/bounded UI changes (vitest + source-reading contracts + explicit a11y gate)')
     expect(ci).toContain('npx vitest related "${changed_files[@]}" --run --passWithNoTests')
     expect(ci).toContain('grep -RFl -- "$changed_file" app/__tests__ tests components')
     expect(ci).toContain('npx vitest run "${explicit_ui_tests[@]}"')
@@ -388,6 +388,36 @@ describe('workflow release-impact contract', () => {
     expect(ci).toContain('changed/source-reading UI contracts + explicit a11y')
     expect(ci).toContain("steps.impact.outputs.ui_only != 'true'")
     expect(ci).toContain('npm run build:deploy')
+  })
+
+  it('fast-fails proven bounded UI contracts while retaining authoritative build/output/SEO', () => {
+    const ci = fs.readFileSync(path.join(process.cwd(), '.github/workflows/ci.yml'), 'utf8')
+
+    expect(ci).toContain('Bounded UI-contract validation fast path')
+    expect(ci).toContain("steps.impact.outputs.bounded_ui == 'true'")
+    expect(ci).toContain('Fail bounded UI source contracts before broad validation')
+    expect(ci).toContain('node scripts/ci/validate-experience-backlog.mjs')
+    expect(ci).toContain('node scripts/ci/validate-bounded-ui-contracts.mjs')
+    expect(ci).toContain('app/__tests__/explore-task-launchpad.test.ts')
+    expect(ci).toContain("steps.impact.outputs.bounded_ui != 'true'")
+    expect(ci).toContain('npm run build:deploy')
+    expect(ci).toContain('authoritative production build/output/SEO remains mandatory')
+  })
+
+  it('reuses the governed CI export for P0 visual proof with a fail-closed build fallback', () => {
+    const ci = fs.readFileSync(path.join(process.cwd(), '.github/workflows/ci.yml'), 'utf8')
+    const visual = fs.readFileSync(path.join(process.cwd(), '.github/workflows/visual-proof.yml'), 'utf8')
+
+    expect(ci).toContain('consumers+=(visual-proof.yml)')
+    expect(visual).toContain('producer_run_id:')
+    expect(visual).toContain('producer_sha:')
+    expect(visual).toContain('Download governed static export')
+    expect(visual).toContain('Verify governed static export receipt')
+    expect(visual).toContain("if: steps.governed-verify.outcome != 'success'")
+    expect(visual).toContain('npm run build:deploy')
+    expect(visual).toContain("github.event.pull_request.head.repo.full_name != github.repository")
+    expect(visual).toContain("github.actor == 'dependabot[bot]'")
+    expect(visual).toContain('Governed CI export verified:')
   })
 
   it('uses dependency-related Vitest selection only for proven leaf-page-only diffs', () => {
@@ -561,6 +591,7 @@ describe('CLI writes all signals to $GITHUB_OUTPUT', () => {
       validation_only: 'false',
       leaf_page_only: 'false',
       ui_only: 'false',
+      bounded_ui: 'false',
     })
   })
 
@@ -571,6 +602,7 @@ describe('CLI writes all signals to $GITHUB_OUTPUT', () => {
       validation_only: 'false',
       leaf_page_only: 'false',
       ui_only: 'false',
+      bounded_ui: 'false',
     })
   })
 
@@ -585,6 +617,7 @@ describe('CLI writes all signals to $GITHUB_OUTPUT', () => {
       validation_only: 'true',
       leaf_page_only: 'false',
       ui_only: 'false',
+      bounded_ui: 'false',
     })
   })
 
@@ -595,6 +628,7 @@ describe('CLI writes all signals to $GITHUB_OUTPUT', () => {
       validation_only: 'false',
       leaf_page_only: 'false',
       ui_only: 'false',
+      bounded_ui: 'false',
     })
   })
 
@@ -605,6 +639,7 @@ describe('CLI writes all signals to $GITHUB_OUTPUT', () => {
       validation_only: 'false',
       leaf_page_only: 'true',
       ui_only: 'false',
+      bounded_ui: 'false',
     })
   })
 
@@ -618,6 +653,23 @@ describe('CLI writes all signals to $GITHUB_OUTPUT', () => {
       validation_only: 'false',
       leaf_page_only: 'false',
       ui_only: 'true',
+      bounded_ui: 'false',
+    })
+  })
+
+  it('reports bounded_ui=true for the proven Research hub + companion contracts', () => {
+    expect(run([
+      'app/research/page.tsx',
+      'app/__tests__/explore-task-launchpad.test.ts',
+      'scripts/ci/validate-experience-backlog.mjs',
+      'scripts/verify-core-routes.mjs',
+    ])).toEqual({
+      release_sensitive: 'true',
+      docs_only: 'false',
+      validation_only: 'false',
+      leaf_page_only: 'false',
+      ui_only: 'false',
+      bounded_ui: 'true',
     })
   })
 })
