@@ -48,10 +48,10 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6174 | Put the shared profile decision layer before supporting monograph art on narrow screens while preserving the desktop two-column intro | D | Active — admitted from exact current main; no overlapping open issue/PR | P1 UX coherence | 3/5/3/4/1/2 | 90.0 | 2026-10-02 — current code + live Ashwagandha route revalidated |
+| #6174 / PR #6175 | Put the shared profile decision layer before supporting monograph art on narrow screens while preserving the desktop two-column intro | D | Active — admitted from exact current main; no overlapping open issue/PR | P1 UX coherence | 3/5/3/4/1/2 | 90.0 | 2026-10-02 — current code + live Ashwagandha route revalidated |
 
 
-**Current admission (verified 2026-10-02):** Normal implementation WIP is **1/3**. Discovery/SEO is occupied by #6174; Revenue/Conversion and Authority/Content remain free. Discovery/SEO is free after #5758 / PR #6126 merged as `32dda28c8cd84e32b6df2458dcff6da66328e935`; Revenue/Conversion is free after #6145 / PR #6154 merged as `c8ff86010e4fa7e9030b3744a13dc565e621db38`; Authority/Content is free after #6115 / PR #6116 merged as `4a398dbb821ca3dd7ae975682e18eec3a002b302`. Closed #6051, #6112, #6134, #6145, #5758, and #6115 are retired from active WIP. #5081 remains blocked on its own governor prerequisite.
+**Current admission (verified 2026-10-02):** Normal implementation WIP is **1/3**. Discovery/SEO is occupied by #6174 / PR #6175; Revenue/Conversion and Authority/Content remain free. Discovery/SEO is free after #5758 / PR #6126 merged as `32dda28c8cd84e32b6df2458dcff6da66328e935`; Revenue/Conversion is free after #6145 / PR #6154 merged as `c8ff86010e4fa7e9030b3744a13dc565e621db38`; Authority/Content is free after #6115 / PR #6116 merged as `4a398dbb821ca3dd7ae975682e18eec3a002b302`. Closed #6051, #6112, #6134, #6145, #5758, and #6115 are retired from active WIP. #5081 remains blocked on its own governor prerequisite.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
