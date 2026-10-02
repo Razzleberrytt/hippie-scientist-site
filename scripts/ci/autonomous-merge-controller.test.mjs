@@ -136,6 +136,21 @@ describe('risk-tiered autonomous merge controller', () => {
     ])
   })
 
+  it('requires CI, site health, production-content, and P0 visual proof for medium visual paths', () => {
+    expect(requiredWorkflowsFor('medium', ['app/research/page.tsx'])).toEqual([
+      'CI',
+      'Atomic upgrade gate',
+      'Build quality regression',
+      'Site Health Check',
+      'Production Content Lint',
+      'P0 Visual Proof',
+    ])
+  })
+
+  it('also requires P0 visual proof for high-risk changes that trigger the visual consumer', () => {
+    expect(requiredWorkflowsFor('high', ['.github/workflows/visual-proof.yml'])).toContain('P0 Visual Proof')
+  })
+
   it('lets a low-risk docs PR merge after validation while the CI production job remains pending', () => {
     const verdict = evaluateReadiness({
       pr,
@@ -217,6 +232,43 @@ describe('risk-tiered autonomous merge controller', () => {
       changedFiles: ['src/components/SearchBox.tsx'],
     })
     expect(verdict.action).toBe('merge')
+  })
+
+  it('waits for dispatched P0 visual proof before merging a medium visual-path change', () => {
+    const pending = evaluateReadiness({
+      pr,
+      workflowRuns: [
+        ...mediumCore,
+        run('Site Health Check'),
+        run('Production Content Lint'),
+        dispatchedRun('P0 Visual Proof', 'in_progress', null),
+      ],
+      checkRuns: [check('Validation, tests, and data')],
+      expectedHeadSha: headSha,
+      currentBaseSha: baseSha,
+      controllerRunId: 'controller',
+      riskTier: 'medium',
+      changedFiles: ['app/research/page.tsx'],
+    })
+    expect(pending.action).toBe('wait')
+    expect(pending.reason).toContain('P0 Visual Proof')
+
+    const green = evaluateReadiness({
+      pr,
+      workflowRuns: [
+        ...mediumCore,
+        run('Site Health Check'),
+        run('Production Content Lint'),
+        dispatchedRun('P0 Visual Proof'),
+      ],
+      checkRuns: [check('Validation, tests, and data')],
+      expectedHeadSha: headSha,
+      currentBaseSha: baseSha,
+      controllerRunId: 'controller',
+      riskTier: 'medium',
+      changedFiles: ['app/research/page.tsx'],
+    })
+    expect(green.action).toBe('merge')
   })
 
   it('accepts canonical workflow_dispatch evidence on the exact current head with base freshness proven separately', () => {
