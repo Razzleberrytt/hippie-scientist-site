@@ -245,3 +245,28 @@ jobs:
           echo "- Client-boundary source budget: warn at 18KB, fail at 45KB" >> "$GITHUB_STEP_SUMMARY"
           echo "- Missing/stale/tampered governed artifacts fall back to a complete build; no audit threshold is weakened." >> "$GITHUB_STEP_SUMMARY"
           echo "- Status: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
+
+  wake-controller:
+    name: Wake autonomous merge controller
+    if: always() && github.event_name == 'workflow_dispatch' && inputs.producer_run_id != '' && inputs.producer_pr_number != '' && inputs.producer_sha != ''
+    needs: [lighthouse]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: write
+    steps:
+      - name: Wake autonomous merge controller
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ inputs.producer_pr_number }}
+          EXPECTED_HEAD_SHA: ${{ inputs.producer_sha }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          payload="$(jq -nc \\
+            --arg ref "$DEFAULT_BRANCH" \\
+            --arg pr "$PR_NUMBER" \\
+            --arg sha "$EXPECTED_HEAD_SHA" \\
+            '{ref:$ref,inputs:{pr_number:$pr,expected_head_sha:$sha}}')"
+          gh api --method POST \\
+            "repos/${{ github.repository }}/actions/workflows/autonomous-merge-controller.yml/dispatches" \\
+            --input - <<<"$payload"
