@@ -116,6 +116,13 @@ describe('risk-tiered autonomous merge controller', () => {
     expect(requiredChecksFor('low')).toEqual(['Validation, tests, and data'])
   })
 
+  it('requires CI plus P0 proof when a low-risk test file still triggers visual validation', () => {
+    expect(requiredWorkflowsFor('low', ['app/__tests__/foo.test.ts'])).toEqual([
+      'CI',
+      'P0 Visual Proof',
+    ])
+  })
+
   it('requires CI plus targeted distribution workflows for a medium renderer', () => {
     expect(requiredWorkflowsFor('medium', ['scripts/distribution/render-carousel-svg.mjs'])).toEqual([
       'CI',
@@ -166,6 +173,33 @@ describe('risk-tiered autonomous merge controller', () => {
       changedFiles: ['docs/merge-policy.md'],
     })
     expect(verdict.action).toBe('merge')
+  })
+
+  it('waits for CI and dispatched P0 proof before merging a low-risk visual-path test', () => {
+    const pending = evaluateReadiness({
+      pr,
+      workflowRuns: [run('CI'), dispatchedRun('P0 Visual Proof', 'in_progress', null)],
+      checkRuns: [check('Validation, tests, and data')],
+      expectedHeadSha: headSha,
+      currentBaseSha: baseSha,
+      controllerRunId: 'controller',
+      riskTier: 'low',
+      changedFiles: ['app/__tests__/foo.test.ts'],
+    })
+    expect(pending.action).toBe('wait')
+    expect(pending.reason).toContain('P0 Visual Proof')
+
+    const green = evaluateReadiness({
+      pr,
+      workflowRuns: [run('CI'), dispatchedRun('P0 Visual Proof')],
+      checkRuns: [check('Validation, tests, and data')],
+      expectedHeadSha: headSha,
+      currentBaseSha: baseSha,
+      controllerRunId: 'controller',
+      riskTier: 'low',
+      changedFiles: ['app/__tests__/foo.test.ts'],
+    })
+    expect(green.action).toBe('merge')
   })
 
   it('waits for medium-risk CI producer completion before merge', () => {
