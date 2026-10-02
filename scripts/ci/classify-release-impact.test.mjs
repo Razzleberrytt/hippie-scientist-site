@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
-import { classifyReleaseImpact, isDocsOnlyPath, isLeafPagePath, isReleaseSensitivePath, isUiOnlyPath, isUiOnlySourcePath, isValidationOnlyPath } from './classify-release-impact.mjs'
+import { classifyReleaseImpact, isBoundedUiPath, isBoundedUiSourcePath, isDocsOnlyPath, isLeafPagePath, isReleaseSensitivePath, isUiOnlyPath, isUiOnlySourcePath, isValidationOnlyPath } from './classify-release-impact.mjs'
 
 describe('release impact classification', () => {
   it.each([
@@ -79,8 +79,65 @@ describe('release impact classification', () => {
       validationOnly: false,
       leafPageOnly: false,
       uiOnly: false,
+      boundedUi: false,
       files: ['components/Header.tsx', 'public/data/herbs.json'],
     })
+  })
+})
+
+describe('bounded UI-contract classification', () => {
+  it('allows only the proven Research hub as a bounded UI source', () => {
+    expect(isBoundedUiSourcePath('app/research/page.tsx')).toBe(true)
+    expect(isBoundedUiPath('app/research/page.tsx')).toBe(true)
+
+    for (const file of [
+      'app/page.tsx',
+      'app/guides/page.tsx',
+      'app/herbs/[slug]/page.tsx',
+      'app/compounds/[slug]/page.tsx',
+      'app/research/layout.tsx',
+    ]) {
+      expect(isBoundedUiSourcePath(file), file).toBe(false)
+    }
+  })
+
+  it('permits the exact #6184 page + source/postbuild contract shape', () => {
+    const result = classifyReleaseImpact([
+      'app/research/page.tsx',
+      'app/__tests__/explore-task-launchpad.test.ts',
+      'scripts/ci/validate-experience-backlog.mjs',
+      'scripts/verify-core-routes.mjs',
+    ])
+
+    expect(result.releaseSensitive).toBe(true)
+    expect(result.boundedUi).toBe(true)
+    expect(result.uiOnly).toBe(false)
+    expect(result.leafPageOnly).toBe(false)
+  })
+
+  it('fails closed when unrelated implementation, data, workflow, or security files ride along', () => {
+    for (const extra of [
+      'lib/runtime-data.ts',
+      'public/data/herbs.json',
+      'package.json',
+      '.github/workflows/ci.yml',
+      'security/audit-allowlist.json',
+      'app/herbs/[slug]/page.tsx',
+    ]) {
+      expect(classifyReleaseImpact([
+        'app/research/page.tsx',
+        'app/__tests__/explore-task-launchpad.test.ts',
+        extra,
+      ]).boundedUi, extra).toBe(false)
+    }
+  })
+
+  it('requires the bounded page source rather than companion files alone', () => {
+    expect(classifyReleaseImpact([
+      'app/__tests__/explore-task-launchpad.test.ts',
+      'scripts/ci/validate-experience-backlog.mjs',
+      'scripts/verify-core-routes.mjs',
+    ]).boundedUi).toBe(false)
   })
 })
 
