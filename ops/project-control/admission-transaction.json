@@ -1,20 +1,20 @@
 {
   "version": 2,
-  "base_revision": "4628b89aaff13a4cf382868340f1bbd54088a5ae",
-  "last_verified": "2026-10-02T12:57:27Z",
-  "ticket": 6174,
+  "base_revision": "c08342acc06a67a70a66e0f15f05b5dee708071c",
+  "last_verified": "2026-10-02T13:42:22Z",
+  "ticket": 6181,
   "lane": "D",
-  "title": "fix(ux): put profile decisions before monograph art on narrow screens",
+  "title": "fix(ux): simplify Research hub to three primary research tasks",
   "priority": "P1",
   "score_inputs": {
     "businessImpact": 3,
     "userValue": 5,
-    "trafficPotential": 3,
+    "trafficPotential": 4,
     "strategicLeverage": 4,
     "confidence": 1,
     "effort": 2
   },
-  "score": 90,
-  "note": "Fresh mobile-profile information-hierarchy regression revalidated against exact base and representative live Ashwagandha route. Admission only; product implementation is intentionally separate.",
-  "control_issue": 6176
+  "score": 120,
+  "note": "Fresh exact-main + live-route Research hub revalidation. Admission only: simplify four equal-weight choices to three primary research tasks with methodology/updates as secondary trust paths; no scientific/data mutation.",
+  "control_issue": 6182
 }
