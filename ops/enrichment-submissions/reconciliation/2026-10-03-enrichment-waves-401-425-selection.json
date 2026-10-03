@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-401-425-selection",
+  "continuation_of": "2026-10-03-enrichment-waves-376-400-selection",
+  "program": {
+    "range": "301-500",
+    "pass_size": 25,
+    "target_findings": 200,
+    "progress_after_pass": 125,
+    "merge_policy": "accumulate eight 25-finding passes; consolidate, admit, validate, and merge once after 200"
+  },
+  "source_provenance": [
+    "public/data/claims.json"
+  ],
+  "reconciliation_note": "These source identities were already represented in canonical claim data but had not been covered by the enrichment-wave ledger. This pass adds research/admission coverage without treating the underlying publication as newly discovered.",
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "validation_strategy": "cheap duplicate/entity/source screening during authoring; expensive repository-wide validation only after Wave 500"
+  },
+  "waves": [
+    {
+      "wave": 401,
+      "entity_slug": "green-tea-extract-egcg",
+      "pmid": "39942757",
+      "focus": "meta-analytic human evidence covering Antioxidant/metabolic.. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 402,
+      "entity_slug": "curcumin-piperine",
+      "pmid": "38561618",
+      "focus": "meta-analytic human evidence covering OA pain/inflammation (RCTs/meta).. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 403,
+      "entity_slug": "cranberry",
+      "pmid": "37068952",
+      "focus": "systematic-review human evidence covering urinary_health, immunity. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 404,
+      "entity_slug": "diosgenin",
+      "pmid": "35677108",
+      "focus": "meta-analytic human evidence covering Endocrine/metabolic/osteogenic.. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 405,
+      "entity_slug": "yohimbine",
+      "pmid": "35118966",
+      "focus": "meta-analytic human evidence covering erectile_function. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 406,
+      "entity_slug": "carnitine",
+      "pmid": "32359762",
+      "focus": "meta-analytic human evidence covering energy, body_composition. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 407,
+      "entity_slug": "fenugreek-extract",
+      "pmid": "32048383",
+      "focus": "meta-analytic human evidence covering Testosterone/metabolic in RCTs.. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 408,
+      "entity_slug": "calcium",
+      "pmid": "31860103",
+      "focus": "meta-analytic human evidence covering fracture_risk_combination. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 409,
+      "entity_slug": "pycnogenol",
+      "pmid": "31763928",
+      "focus": "meta-analytic human evidence covering heart_health. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 410,
+      "entity_slug": "magnesium",
+      "pmid": "31654344",
+      "focus": "meta-analytic human evidence covering sleep_quality. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 411,
+      "entity_slug": "ashwagandha",
+      "pmid": "31517876",
+      "focus": "systematic-review human evidence covering anxiety_score. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 412,
+      "entity_slug": "omega-3",
+      "pmid": "30686880",
+      "focus": "meta-analytic human evidence covering anxiety_score. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 413,
+      "entity_slug": "omega-3",
+      "pmid": "30415628",
+      "focus": "meta-analytic human evidence covering cardiovascular. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 414,
+      "entity_slug": "psyllium-husk",
+      "pmid": "30239559",
+      "focus": "meta-analytic human evidence covering ldl_cholesterol. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 415,
+      "entity_slug": "myo-inositol",
+      "pmid": "29498933",
+      "focus": "meta-analytic human evidence covering metabolism, hormone_health. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 416,
+      "entity_slug": "creatine",
+      "pmid": "28615996",
+      "focus": "meta-analytic human evidence covering strength_output; muscle_mass. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 417,
+      "entity_slug": "magnesium",
+      "pmid": "28471760",
+      "focus": "systematic-review human evidence covering anxiety_score; blood_pressure. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 418,
+      "entity_slug": "holy-basil",
+      "pmid": "28400848",
+      "focus": "systematic-review human evidence covering stress, metabolism. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 419,
+      "entity_slug": "vitamin-d",
+      "pmid": "28202713",
+      "focus": "meta-analytic human evidence covering immune_function. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 420,
+      "entity_slug": "pomegranate-extract",
+      "pmid": "27888156",
+      "focus": "meta-analytic human evidence covering blood_pressure. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 421,
+      "entity_slug": "curcumin",
+      "pmid": "27533649",
+      "focus": "meta-analytic human evidence covering pain. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 422,
+      "entity_slug": "curcumin",
+      "pmid": "27403209",
+      "focus": "meta-analytic human evidence covering inflammation_markers. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 423,
+      "entity_slug": "aloe-vera",
+      "pmid": "27347994",
+      "focus": "meta-analytic human evidence covering metabolism, gut_health; gut_health, metabolism. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 424,
+      "entity_slug": "omega-3",
+      "pmid": "27132744",
+      "focus": "meta-analytic human evidence covering depression. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 425,
+      "entity_slug": "quercetin",
+      "pmid": "26907242",
+      "focus": "systematic-review human evidence covering inflammation, immunity. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "review_ready_for_final_admission"
+    }
+  ]
+}

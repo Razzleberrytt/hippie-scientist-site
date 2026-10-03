@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-301-325-selection",
+  "program": {
+    "range": "301-500",
+    "pass_size": 25,
+    "target_findings": 200,
+    "progress_after_pass": 25,
+    "merge_policy": "accumulate eight 25-finding passes; consolidate, admit, validate, and merge once after 200"
+  },
+  "base_main": "ca52477032080583d81f8908c59b0d0aca5c96c0",
+  "source_provenance": [
+    "ops/enrichment/research-batch-2026-09-12-01.json",
+    "ops/enrichment/research-batch-2026-09-12-02.json"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "validation_strategy": "cheap duplicate/entity screening during authoring; expensive repository-wide validation only after Wave 500"
+  },
+  "waves": [
+    {
+      "wave": 301,
+      "entity_slug": "saffron",
+      "pmid": "15852492",
+      "focus": "Six-week randomized placebo-controlled Crocus sativus stigma-extract trial in mild-to-moderate depression; preserve extract identity, short duration, and diagnosis boundary.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 302,
+      "entity_slug": "passionflower",
+      "pmid": "11679026",
+      "focus": "Small double-blind GAD trial versus oxazepam; comparable symptom improvement with slower onset in the trial, but small sample and comparator design prevent broad equivalence claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 303,
+      "entity_slug": "rhodiola",
+      "pmid": "19016404",
+      "focus": "Standardized SHR-5 randomized trial in stress-related fatigue; preserve extract identity and fatigue-context boundary.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 304,
+      "entity_slug": "bacopa-monnieri",
+      "pmid": "41091332",
+      "focus": "2025 12-week randomized trial in 101 healthy adults testing Bacumen for cognition, stress and fatigue; proprietary extract and healthy-population limits retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 305,
+      "entity_slug": "panax-ginseng",
+      "pmid": "32055589",
+      "focus": "Randomized double-blind placebo-controlled trial in 90 Korean volunteers with mild cognitive impairment; MCI-specific cognition evidence, not healthy nootropic evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 306,
+      "entity_slug": "l-theanine",
+      "pmid": "31623400",
+      "focus": "Four-week randomized crossover trial in healthy adults; selected stress-related and cognitive outcomes, with isolated-theanine and chronic-exposure boundaries.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 307,
+      "entity_slug": "magnesium-bisglycinate",
+      "pmid": "40918053",
+      "focus": "2025 randomized placebo-controlled trial in 155 adults with self-reported poor sleep; magnesium-bisglycinate/formulation-specific sleep evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 308,
+      "entity_slug": "melatonin",
+      "pmid": "33157425",
+      "focus": "Four-week randomized trial of fast-release melatonin in middle-aged adults with primary insomnia; formulation, age, duration and insomnia-diagnosis boundaries retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 309,
+      "entity_slug": "lavender",
+      "pmid": "24456909",
+      "focus": "10-week randomized trial in 539 adults with GAD comparing Silexan doses, placebo and paroxetine; Silexan-specific oral lavender evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 310,
+      "entity_slug": "chamomile",
+      "pmid": "19593179",
+      "focus": "Randomized placebo-controlled Matricaria recutita extract trial in mild-to-moderate GAD; preliminary diagnosis- and extract-specific evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 311,
+      "entity_slug": "curcumin",
+      "pmid": "25046624",
+      "focus": "Eight-week randomized double-blind placebo-controlled trial in major depressive disorder; curcumin regimen and psychiatric-population boundaries retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 312,
+      "entity_slug": "omega-3",
+      "pmid": "20584525",
+      "focus": "Large randomized trial in major depressive episodes; overall primary analysis only trended toward benefit while a prespecified non-anxious subgroup improved, so no uniform antidepressant claim.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 313,
+      "entity_slug": "creatine",
+      "pmid": "22864465",
+      "focus": "Eight-week randomized trial of creatine augmentation of escitalopram in women with MDD; adjunctive, sex-specific psychiatric evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 314,
+      "entity_slug": "tart-cherry",
+      "pmid": "20438325",
+      "focus": "Small randomized crossover pilot in older adults with chronic insomnia; some subjective benefits but several objective sleep outcomes did not differ from placebo.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 315,
+      "entity_slug": "cocoa-flavanols",
+      "pmid": "19942640",
+      "focus": "Randomized double-blind crossover study in healthy adults during sustained mental effort; acute mood/cognition effects with healthy-population and short-term boundaries.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 316,
+      "entity_slug": "green-tea-l-theanine-combination",
+      "pmid": "21303262",
+      "focus": "16-week randomized trial in mild cognitive impairment; combination-only evidence with subgroup-limited memory/attention signals and no attribution to either ingredient alone.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 317,
+      "entity_slug": "cranberry",
+      "pmid": "22777630",
+      "focus": "2012 randomized-trial review; lower UTI risk in women with recurrent UTIs with substantial heterogeneity; prevention not active-infection treatment.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 318,
+      "entity_slug": "beetroot-nitrate",
+      "pmid": "23596162",
+      "focus": "16-trial review of inorganic nitrate/beetroot juice; systolic-BP signal, diastolic null, short heterogeneous interventions and dose-response meta-regression kept together.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 319,
+      "entity_slug": "fenugreek",
+      "pmid": "24438170",
+      "focus": "Earlier glycemic meta-analysis; glucose reductions concentrated in medium/high-dose diabetes trials with substantial heterogeneity; dose and disease status remain explicit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 320,
+      "entity_slug": "garlic",
+      "pmid": "25557383",
+      "focus": "17-trial BP meta-analysis; modest SBP/DBP reductions overall but systolic benefit concentrated in hypertensive rather than normotensive participants.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 321,
+      "entity_slug": "cranberry",
+      "pmid": "28288837",
+      "focus": "Clinical-trial meta-analysis finding reduced UTI incidence versus controls; prevention-only evidence with product heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 322,
+      "entity_slug": "elderberry",
+      "pmid": "30670267",
+      "focus": "Small meta-analysis of 180 participants reporting reduced upper-respiratory symptom severity; limited evidence base and no specific influenza-treatment claim.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 323,
+      "entity_slug": "echinacea",
+      "pmid": "31126553",
+      "focus": "2019 review showing possible lower URI risk but no convincing shortening of illness duration; varied preparations and selective-reporting concerns retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 324,
+      "entity_slug": "cinnamon",
+      "pmid": "37316893",
+      "focus": "Umbrella meta-analysis documenting conflicting glycemic conclusions across prior cinnamon syntheses; explicit counterweight to a single efficacy label.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 325,
+      "entity_slug": "cinnamon",
+      "pmid": "37818728",
+      "focus": "24-RCT T2D dose-response meta-analysis; fasting glucose/HbA1c signals with insulin null and substantial preparation/trial heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    }
+  ]
+}
