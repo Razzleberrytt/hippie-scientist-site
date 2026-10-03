@@ -26,6 +26,10 @@
     {
       "pmid": "19435703",
       "reason": "pelargonium-sidoides is not a canonical Entity_Master slug accepted by runtime enrichment"
+    },
+    {
+      "pmid": "41080184",
+      "reason": "canonical admission audit confirmed existing evidence and source identity; intentionally not materialized again"
     }
   ],
   "waves": [
@@ -154,8 +158,8 @@
       "entity_slug": "rhodiola",
       "pmid": "41080184",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/41080184/",
-      "review_note": "endurance/exercise performance RCT meta-analysis; preserve athletic context and distinguish performance endpoints from biomarkers",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "review_note": "canonical admission audit confirmed this vetted Rhodiola PMID is already represented; Wave 66 closes as a dedupe/reconciliation wave with no net-new runtime row",
+      "state": "reviewed_existing_coverage_not_materialized"
     },
     {
       "wave": 67,
