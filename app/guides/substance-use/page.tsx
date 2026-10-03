@@ -184,6 +184,21 @@ const RESEARCH_CHEMICALS = [
     title: 'Benzofurans & RC Entactogens',
     desc: '6-APB, 5-APB, 5-MAPB and related serotonergic stimulants, with toxicity and product-identity limits.',
   },
+  {
+    href: '/articles/novel-sedatives-qualone-analogues/',
+    title: 'Novel Sedatives & Quaalude Analogues',
+    desc: 'Dicloqualone, 2-methoxyqualone and other non-benzo depressants where market availability has outrun human safety data.',
+  },
+  {
+    href: '/articles/orphine-opioids/',
+    title: 'Orphine Opioids',
+    desc: 'Cychlorphine, chlorphine, spirochlorphine and the newer synthetic-opioid family emerging after the nitazene wave.',
+  },
+  {
+    href: '/articles/cats-claw-kava-hidden-opioids/',
+    title: 'Hidden Opioids in Botanical-Labeled Products',
+    desc: 'Buzzers, Homiez and the 2026 Cat’s Claw/Kava poison-center warnings, with lab-confirmed findings kept separate from suspected contents.',
+  },
 ]
 
 const HUB_ITEMS = [...START_HERE, ...KRATOM_CLUSTER, ...DEPENDENCE, ...RESEARCH_CHEMICALS, ...EMERGING]
