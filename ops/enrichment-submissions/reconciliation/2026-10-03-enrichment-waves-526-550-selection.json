@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-526-550-selection",
+  "continuation_of": "2026-10-03-enrichment-waves-501-525-selection",
+  "program": {
+    "range": "501-700",
+    "pass_size": 25,
+    "target_findings": 200,
+    "progress_after_pass": 50,
+    "merge_policy": "accumulate eight 25-finding passes; consolidate, admit, validate, and merge once after 200"
+  },
+  "source_provenance": [
+    "ops/enrichment/research-batch-2026-09-12-02.json",
+    "PubMed-indexed systematic reviews/meta-analyses verified 2026-10-03"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 700 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "source_identity_required": true,
+    "validation_strategy": "cheap duplicate/entity/source screening during authoring; expensive repository-wide validation only after Wave 700"
+  },
+  "waves": [
+    {
+      "wave": 526,
+      "entity_slug": "cranberry",
+      "pmid": "39030132",
+      "focus": "2024 network meta-analysis of cranberry formulations for UTI prevention; preserve juice/product form and comparator boundaries.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 527,
+      "entity_slug": "cranberry",
+      "pmid": "39668896",
+      "focus": "meta-analysis of cranberry proanthocyanidin exposure and UTI risk; composition threshold is study metadata, not a consumer dose recommendation.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 528,
+      "entity_slug": "fenugreek",
+      "pmid": "41509111",
+      "focus": "updated randomized-trial meta-analysis of fenugreek seed for glycemic outcomes; fasting glucose signal with heterogeneity and HOMA-IR/null boundaries.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 529,
+      "entity_slug": "collagen-peptides",
+      "pmid": "40324552",
+      "focus": "2025 skin-aging RCT meta-analysis; apparent hydration/elasticity/wrinkle benefits disappear in non-industry-funded and higher-quality subgroups, making funding/quality sensitivity first-class.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 530,
+      "entity_slug": "vitamin-d",
+      "pmid": "40601932",
+      "focus": "2026 RCT meta-analysis specific to vitamin D2 effects on parathyroid hormone, calcium, and phosphorus; D2-specific identity and mineral-homeostasis endpoints must remain separate from generic vitamin-D claims.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 531,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "41859772",
+      "focus": "2026 umbrella review of randomized-trial meta-analyses for glycemic-control biomarkers; review-overlap and surrogate-outcome boundaries require exact extraction before claim promotion.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 532,
+      "entity_slug": "probiotics",
+      "pmid": "41820241",
+      "focus": "2026 updated systematic review/meta-analysis with trial-sequential analysis for irritable bowel syndrome; strain, symptom endpoint, and IBS-subtype heterogeneity must remain explicit.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 533,
+      "entity_slug": "collagen-peptides",
+      "pmid": "41809116",
+      "focus": "2026 umbrella review spanning skin and musculoskeletal outcomes; favorable dermal/bone/muscle findings coexist with mixed oral-health/cardiometabolic results, and collagen preparation identity must not be flattened.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 534,
+      "entity_slug": "alpha-lipoic-acid",
+      "pmid": "42535603",
+      "focus": "2026 systematic review/meta-analysis of alpha-lipoic acid as adjunctive therapy in schizophrenia; psychiatric population, adjunctive-treatment status, efficacy and safety require source-specific extraction.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 535,
+      "entity_slug": "creatine",
+      "pmid": "42507286",
+      "focus": "2026 systematic review/meta-analysis of creatine and kidney health in healthy people and CKD; separate serum-creatinine interpretation from true renal-function outcomes and preserve CKD-vs-healthy populations.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 536,
+      "entity_slug": "green-tea-extract",
+      "pmid": "40160899",
+      "focus": "2025 GRADE-assessed RCT meta-analysis of inflammatory/oxidative biomarkers; oxidative markers improved while CRP, IL-6 and TNF-alpha were largely null, so anti-inflammatory claims require calibration.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 537,
+      "entity_slug": "creatine",
+      "pmid": "38417175",
+      "focus": "33-RCT meta-analysis in older adults/chronic disease at risk of functional disability; modest physical-function signal with heterogeneity and population-specific boundary.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 538,
+      "entity_slug": "green-tea-extract",
+      "pmid": "40497293",
+      "focus": "2025 GRADE-assessed dose-response RCT meta-analysis of blood pressure; preserve preparation, baseline-BP, duration and dose-response boundaries.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 539,
+      "entity_slug": "creatine",
+      "pmid": "42027564",
+      "focus": "2026 systematic review/meta-analysis in healthy young men separating resistance-training from non-resistance-training contexts for lean mass, strength and performance.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 540,
+      "entity_slug": "l-theanine",
+      "pmid": "41227106",
+      "focus": "2025 placebo-controlled RCT meta-analysis of cognition in healthy adults; some reaction-time domains improved while several cognitive tests were null, with few trials and preparation heterogeneity.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 541,
+      "entity_slug": "fenugreek",
+      "pmid": "42688439",
+      "focus": "2026 randomized placebo-controlled systematic review/meta-analysis of testosterone-axis outcomes in adult men; preserve male population, extract identity, surrogate hormone outcomes and related safety context.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 542,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "40833470",
+      "focus": "2025 RCT meta-analysis of depression and anxiety symptoms; depression effects varied by scale and anxiety was null in the limited pooled evidence.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 543,
+      "entity_slug": "garlic",
+      "pmid": "41695233",
+      "focus": "2026 systematic review/meta-analysis in type 2 diabetes; disease-specific glycemic/lipid evidence only, not a generic diabetes-treatment claim.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 544,
+      "entity_slug": "olive-leaf-extract",
+      "pmid": "41848522",
+      "focus": "2026 systematic review/meta-analysis found no clinically meaningful pooled glycemic or lipid benefit from olive-leaf extract/oleuropein in continuous-intake RCTs; strong null counterweight.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 545,
+      "entity_slug": "pomegranate",
+      "pmid": "40847381",
+      "focus": "34-RCT GRADE-assessed glycemic meta-analysis; fasting glucose, insulin and HOMA-IR signals with HbA1c null and very high heterogeneity for several endpoints.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 546,
+      "entity_slug": "flaxseed",
+      "pmid": "38971216",
+      "focus": "54-RCT GRADE-assessed inflammatory-marker meta-analysis; CRP and IL-6 signals with TNF-alpha null and high heterogeneity.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 547,
+      "entity_slug": "flaxseed",
+      "pmid": "38992480",
+      "focus": "updated randomized-trial meta-analysis of anthropometric outcomes; preparation and baseline-population heterogeneity require source-specific interpretation.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 548,
+      "entity_slug": "nigella-sativa",
+      "pmid": "38265398",
+      "focus": "randomized-trial meta-analysis in metabolic syndrome; disease-specific lipid and glycemic outcomes require exact extraction and should not be merged with general-population Nigella evidence.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 549,
+      "entity_slug": "nigella-sativa",
+      "pmid": "38777430",
+      "focus": "34-study updated meta-analysis of adult lipid outcomes; pooled TC/TG/LDL reductions and HDL increase with substantial preparation and population heterogeneity.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 550,
+      "entity_slug": "nigella-sativa",
+      "pmid": "39181437",
+      "focus": "30-RCT updated glycemic meta-analysis; fasting glucose and HbA1c signals coexist with insulin and HOMA-IR nulls and extremely high heterogeneity.",
+      "state": "review_ready_for_final_admission"
+    }
+  ]
+}
