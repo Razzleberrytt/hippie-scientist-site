@@ -111,6 +111,8 @@ const sourceSheet = findSheet(workbook, SOURCE_SHEETS)
 
 const evidenceKeys = new Set((claimSheet ? workbook.getSheetData(claimSheet) : []).map(evidenceKey).filter(Boolean))
 const sourceKeys = new Set((sourceSheet ? workbook.getSheetData(sourceSheet) : []).map(sourceKey).filter(Boolean))
+const ledgerEvidenceByKey = new Map()
+const ledgerSourceById = new Map()
 
 let targetReport = null
 
@@ -120,12 +122,33 @@ for (const manifestName of manifests) {
 
   const duplicateEvidence = []
   const duplicateSources = []
+  const invalidCorrections = []
   let admittedEvidence = 0
+  let correctedEvidence = 0
   let admittedSources = 0
+  let correctedSources = 0
 
   for (const row of ledger.evidence) {
     const key = evidenceKey(row)
     if (!key) continue
+    const correctionTarget = clean(row.corrects_evidence_key)
+
+    if (correctionTarget) {
+      if (key !== correctionTarget || !ledgerEvidenceByKey.has(correctionTarget)) {
+        invalidCorrections.push({
+          type: 'evidence',
+          record_id: clean(row.record_id),
+          key,
+          correction_target: correctionTarget,
+          reason: key !== correctionTarget ? 'identity-key-mismatch' : 'missing-earlier-ledger-target',
+        })
+        continue
+      }
+      ledgerEvidenceByKey.set(key, row)
+      correctedEvidence += 1
+      continue
+    }
+
     if (evidenceKeys.has(key)) {
       duplicateEvidence.push({
         record_id: clean(row.record_id),
@@ -134,25 +157,51 @@ for (const manifestName of manifests) {
         doi: clean(row.doi),
         key,
       })
+      // Preserve the first effective row for later correction targeting, matching runtime dedupe.
+      if (!ledgerEvidenceByKey.has(key)) ledgerEvidenceByKey.set(key, row)
       continue
     }
+
     evidenceKeys.add(key)
+    ledgerEvidenceByKey.set(key, row)
     admittedEvidence += 1
   }
 
   for (const row of ledger.sources) {
     const key = sourceKey(row)
     if (!key) continue
+    const sourceId = clean(row.source_id)
+    const correctionTarget = clean(row.corrects_source_id)
+
+    if (correctionTarget) {
+      if (!sourceId || sourceId !== correctionTarget || !ledgerSourceById.has(correctionTarget)) {
+        invalidCorrections.push({
+          type: 'source',
+          source_id: sourceId,
+          key,
+          correction_target: correctionTarget,
+          reason: sourceId !== correctionTarget ? 'source-id-mismatch' : 'missing-earlier-ledger-target',
+        })
+        continue
+      }
+      ledgerSourceById.set(sourceId, row)
+      correctedSources += 1
+      continue
+    }
+
     if (sourceKeys.has(key)) {
       duplicateSources.push({
-        source_id: clean(row.source_id),
+        source_id: sourceId,
         pmid: clean(row.pmid),
         doi: clean(row.doi),
         key,
       })
+      if (sourceId && !ledgerSourceById.has(sourceId)) ledgerSourceById.set(sourceId, row)
       continue
     }
+
     sourceKeys.add(key)
+    if (sourceId) ledgerSourceById.set(sourceId, row)
     admittedSources += 1
   }
 
@@ -164,14 +213,17 @@ for (const manifestName of manifests) {
         evidence: ledger.evidence.length,
         sources: ledger.sources.length,
       },
-      admitted: {
-        evidence: admittedEvidence,
-        sources: admittedSources,
+      accepted: {
+        evidence_additions: admittedEvidence,
+        evidence_corrections: correctedEvidence,
+        source_additions: admittedSources,
+        source_corrections: correctedSources,
       },
       duplicates: {
         evidence: duplicateEvidence,
         sources: duplicateSources,
       },
+      invalid_corrections: invalidCorrections,
     }
     break
   }
@@ -183,13 +235,19 @@ console.log(JSON.stringify(targetReport, null, 2))
 
 if (
   args.failOnPartial &&
-  (targetReport.raw.evidence !== targetReport.admitted.evidence ||
-   targetReport.raw.sources !== targetReport.admitted.sources)
+  (
+    targetReport.duplicates.evidence.length > 0 ||
+    targetReport.duplicates.sources.length > 0 ||
+    targetReport.invalid_corrections.length > 0 ||
+    targetReport.accepted.evidence_additions + targetReport.accepted.evidence_corrections !== targetReport.raw.evidence ||
+    targetReport.accepted.source_additions + targetReport.accepted.source_corrections !== targetReport.raw.sources
+  )
 ) {
   console.error(
-    `[enrichment-admission] ${targetName} is not fully additive: ` +
-    `evidence ${targetReport.admitted.evidence}/${targetReport.raw.evidence}, ` +
-    `sources ${targetReport.admitted.sources}/${targetReport.raw.sources}`,
+    `[enrichment-admission] ${targetName} contains silently discarded or invalid rows: ` +
+    `evidence additions=${targetReport.accepted.evidence_additions}, corrections=${targetReport.accepted.evidence_corrections}, raw=${targetReport.raw.evidence}; ` +
+    `source additions=${targetReport.accepted.source_additions}, corrections=${targetReport.accepted.source_corrections}, raw=${targetReport.raw.sources}; ` +
+    `duplicate evidence=${targetReport.duplicates.evidence.length}, duplicate sources=${targetReport.duplicates.sources.length}, invalid corrections=${targetReport.invalid_corrections.length}`,
   )
   process.exitCode = 1
 }
