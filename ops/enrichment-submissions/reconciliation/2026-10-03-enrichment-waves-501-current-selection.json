@@ -4,8 +4,8 @@
   "program": {
     "range": "501-1000",
     "target_findings": 500,
-    "current_findings": 175,
-    "last_wave": 675
+    "current_findings": 200,
+    "last_wave": 700
   },
   "policy": "research authoring index only; not runtime admission",
   "waves": [
@@ -1232,6 +1232,181 @@
       "entity_slug": "selenium",
       "pmid": "28992632",
       "focus": "Older metabolic-disease RCT meta-analysis of glucose/lipid profiles; retained as historical evidence to compare with later contradictory selenium syntheses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 676,
+      "entity_slug": "herb-drug-interactions",
+      "pmid": "38504455",
+      "focus": "2024 30-year historical assessment of clinically relevant botanical-drug interactions; mechanism and clinical-evidence strength remain interaction-specific.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 677,
+      "entity_slug": "herb-drug-interactions",
+      "pmid": "30660822",
+      "focus": "Systematic review/meta-analysis of clinical herb-drug interaction studies; clinically important St John's wort, echinacea and green-tea interactions illustrate transporter/enzyme-specific risk.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 678,
+      "entity_slug": "natural-product-drug-interactions",
+      "pmid": "16175124",
+      "focus": "Systematic review of 47 clinical pharmacokinetic interaction trials; strongest evidence centered on St John's wort, with limited inference for most botanicals.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 679,
+      "entity_slug": "botanical-drug-interactions",
+      "pmid": "26438626",
+      "focus": "Clinical/pharmacokinetic review highlights major gaps between in-vitro predictions and human interaction trials; preclinical enzyme effects must not be treated as proven clinical interactions.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 680,
+      "entity_slug": "green-tea-extract",
+      "pmid": "32140423",
+      "focus": "USP comprehensive hepatotoxicity review; concentrated extract, fasting/bolus exposure and interindividual susceptibility are key context, distinct from brewed tea.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 681,
+      "entity_slug": "green-tea-extract",
+      "pmid": "27188915",
+      "focus": "Systematic review of 34 RCTs found few mostly mild liver-enzyme adverse events and no serious hepatic events; useful RCT counterweight to case-report hepatotoxicity evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 682,
+      "entity_slug": "turmeric-curcumin",
+      "pmid": "32656820",
+      "focus": "Italian phytovigilance plus systematic case review linked high-bioavailability turmeric/curcumin supplements with acute hepatitis; concomitant exposures and case-report causality limitations retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 683,
+      "entity_slug": "green-tea-extract",
+      "pmid": "29580974",
+      "focus": "Systematic safety review of 159 human intervention studies; hepatic risk concentrated in high-bolus catechin-rich extracts and differed from brewed tea/food exposures.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 684,
+      "entity_slug": "turmeric-curcumin",
+      "pmid": "42364655",
+      "focus": "2026 USP safety review concluded clinically apparent hepatotoxicity is rare but real enough to justify cautionary labeling; idiosyncratic/genetic susceptibility and concomitant products retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 685,
+      "entity_slug": "kava",
+      "pmid": "16011454",
+      "focus": "Systematic kava safety review covering hepatotoxicity, adverse effects, interactions and preparation issues; product/extract type and causality uncertainty remain explicit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 686,
+      "entity_slug": "kratom",
+      "pmid": "41803068",
+      "focus": "2026 systematic review of 31 studies/32 liver-injury cases; predominantly cholestatic injury, frequent incomplete exposure data/polysubstance use, and several transplant cases; case evidence does not establish incidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 687,
+      "entity_slug": "ashwagandha",
+      "pmid": "42367407",
+      "focus": "2026 scoping review of 25 reported liver-injury patients; cholestatic/mixed patterns predominated, with case-series evidence and product/concomitant-exposure limitations.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 688,
+      "entity_slug": "st-johns-wort",
+      "pmid": "15231618",
+      "focus": "Systematic review of prospective clinical trials found repeated reductions in systemic bioavailability of conventional drugs during St John's wort exposure; interaction evidence is extract/hyperforin dependent.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 689,
+      "entity_slug": "st-johns-wort",
+      "pmid": "17010103",
+      "focus": "31-study CYP3A systematic review; high-hyperforin extracts consistently induced CYP3A while low-hyperforin extracts showed less/no effect, making constituent standardization central.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 690,
+      "entity_slug": "ginkgo-biloba",
+      "pmid": "21923430",
+      "focus": "18-RCT/1,985-participant meta-analysis of hemostasis outcomes found no clear increased bleeding-risk signal with standardized Ginkgo extract—counterweight to bleeding case reports.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 691,
+      "entity_slug": "licorice",
+      "pmid": "28660884",
+      "focus": "18-study meta-analysis linked chronic glycyrrhizic-acid-containing licorice exposure with increased BP and reduced potassium/renin/aldosterone; cardiovascular-risk context retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 692,
+      "entity_slug": "ginkgo-biloba",
+      "pmid": "40198642",
+      "focus": "2025 clinical interaction/coagulation analysis found associations between Ginkgo-drug interactions, bleeding symptoms and abnormal coagulation, with medication-specific patterns.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 693,
+      "entity_slug": "black-cohosh",
+      "pmid": "21228727",
+      "focus": "Meta-analysis of five randomized trials of isopropanolic black-cohosh extract found no adverse liver-function effect, an important formulation-specific counterweight to spontaneous reports.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 694,
+      "entity_slug": "herb-drug-interactions",
+      "pmid": "19719333",
+      "focus": "Updated systematic review of seven popular herbs documented extensive St John's wort interactions and more limited evidence for ginkgo, ginseng, garlic, echinacea, saw palmetto and kava.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 695,
+      "entity_slug": "black-cohosh",
+      "pmid": "21677326",
+      "focus": "Causality-focused survey of purported black-cohosh liver-injury cases found major case-quality limitations and no confirmed causality under liver-specific assessment methods.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 696,
+      "entity_slug": "medicinal-edible-fruit-safety",
+      "pmid": "38851470",
+      "focus": "2024 systematic review of medicinal/edible fruit adverse events; serious events were present and were often associated with excess exposure or young children; species identity preserved.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 697,
+      "entity_slug": "adaptogen-heavy-metals",
+      "pmid": "41300272",
+      "focus": "2025 analytical safety study documented lead/nickel contamination in tested adaptogenic supplements, demonstrating product-quality risk rather than intrinsic botanical pharmacology.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 698,
+      "entity_slug": "herb-induced-liver-injury",
+      "pmid": "34307603",
+      "focus": "Systematic review/meta-analysis of 936 reported HILI cases across 79 herbs/products; causality and incidence limitations retained while high-frequency implicated products are mapped.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 699,
+      "entity_slug": "supplement-liver-injury",
+      "pmid": "36515339",
+      "focus": "Pooled analysis of 428 herbal/dietary-supplement liver-injury cases; severe outcomes occurred, but case-report aggregation cannot estimate population incidence.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 700,
+      "entity_slug": "black-cohosh",
+      "pmid": "12544678",
+      "focus": "Systematic safety review found clinical adverse events generally rare/mild/reversible while serious spontaneous reports existed with uncertain causality; historical safety context retained.",
       "state": "reviewed_receipt_pending_final_admission"
     }
   ]
