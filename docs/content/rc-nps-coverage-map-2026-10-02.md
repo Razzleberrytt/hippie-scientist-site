@@ -5,7 +5,7 @@
 ## Masterclass upgrade status
 
 - [x] P0 masterclass monographs complete — all P0 profiles have now received the deep monograph pass
-- [ ] P1 masterclass monographs complete
+- [x] P1 masterclass monographs complete — all P1 profiles passed the deep structural audit
 - [ ] Dependence/withdrawal/addiction-support pass complete
 - [ ] History/legal/regulatory pass complete
 - [ ] Primary-source/PMID reference-density pass complete
@@ -48,7 +48,7 @@
 - [x] Evidence asymmetry is preserved: sparse-human-evidence compounds such as MGM-16 are not padded with borrowed claims from related drugs.
 - [x] Product pages keep laboratory-confirmed contents, public-health suspicion, label claims, and self-reported effects in separate evidence lanes.
 - [x] No consumer dose charts, potency-conversion tables, synthesis/sourcing instructions, test-evasion guidance, or DIY detox/induction protocols were introduced.
-- [ ] **Global RC/NPS masterclass program is not complete.** P0/P1 and remaining family/individual profiles below still require the next deep-upgrade waves.
+- [ ] **Global RC/NPS masterclass program is not complete.** P0 and P1 are complete; remaining unchecked individual profiles and global cross-library passes still require deep-upgrade waves.
 
 **Wave-1 acceptance rule:** each page must address identity, history, pharmacology, metabolism/PK, human evidence, acute toxicity, fatalities where applicable, interactions, tolerance, physical dependence, withdrawal, addiction/use-disorder education, treatment/support, testing/detection, counterfeit or product-identity risk, forensic interpretation, dated legal/regulatory status, myths, evidence gaps, FAQs, and a dense primary-source reference ledger. Sections may be explicitly marked "not established" when the evidence does not exist.
 
@@ -240,6 +240,15 @@ P0 — completed on branch:
 - [x] 3-MMC
 - [x] 4-MMC
 - [x] 2C-B-FLY
+
+### Masterclass wave 2 — P1 audit result — complete
+
+- [x] **15/15 P1 pages passed the structural module audit on 2026-10-03.**
+- [x] Each page explicitly addresses or explicitly marks as not established: history, pharmacology, metabolism/PK, human evidence, acute toxicity, fatalities, interactions, tolerance, dependence, withdrawal, treatment/support, testing, forensic interpretation, legal status, myths, special populations, evidence gaps, and answer-engine questions.
+- [x] Sparse-evidence profiles such as 1cP-LSD and 6-MAPB explicitly state when isolated human fatalities, PK, dependence incidence, or withdrawal data are not established.
+- [x] Analytical ambiguity is preserved where material: FXE vs 2F-2-oxo-PCE, alpha-PHP vs alpha-PiHP, 5-APB vs 6-APB, 6-MAPB positional isomers, and ADB-BUTINACA/ADB-BINACA naming.
+- [x] Product-mislabeling evidence is separated from molecule-specific causation.
+- [x] No consumer dosing, redosing, potency-conversion, synthesis, sourcing, test-evasion, or DIY detox protocols were introduced.
 
 P1 — completed on branch:
 - [x] Ethylbromazolam
