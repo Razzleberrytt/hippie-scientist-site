@@ -14,7 +14,7 @@ import {
 const HUB_PATH = '/guides/substance-use'
 const HUB_TITLE = 'Substance Use, Withdrawal & Recovery — Evidence Hub'
 const HUB_DESCRIPTION =
-  'Evidence-based guides on dependence, withdrawal, recovery, overdose risk, alcohol, opioids, kratom-derived opioids, research chemicals, novel psychoactive substances, tianeptine, and harm-reduction research.'
+  'Evidence-based guides on dependence, withdrawal, recovery, alcohol, benzodiazepines, opioids, kratom-derived opioids, research chemicals, novel psychoactive substances, tianeptine, and harm-reduction research.'
 const REVIEW_DATE = '2026-10-03'
 
 export const metadata: Metadata = {
@@ -37,6 +37,11 @@ export const metadata: Metadata = {
 }
 
 const START_HERE = [
+  {
+    href: '/articles/benzodiazepine-zdrug-withdrawal-recovery-guide/',
+    title: 'Benzodiazepine & Z-Drug Withdrawal: Complete Evidence Guide',
+    desc: 'Dependence vs addiction, short- vs long-acting differences, seizures and delirium, tapering evidence, Z-drugs, protracted symptoms, and recovery.',
+  },
   {
     href: '/articles/alcohol-withdrawal-recovery-guide/',
     title: 'Alcohol Withdrawal & Recovery: Complete Evidence Guide',
