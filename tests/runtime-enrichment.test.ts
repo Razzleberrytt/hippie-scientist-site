@@ -126,12 +126,21 @@ describe('manifest-backed additive enrichment ledgers', () => {
     }
   })
 
-  it('enforces global enrichment evidence record IDs in the parser boundary', () => {
+  it('enforces global enrichment evidence IDs and reviewed correction semantics in the parser boundary', () => {
     const parser = fs.readFileSync(path.join(root, 'scripts', 'data', 'workbook-parser.mjs'), 'utf8')
     expect(parser).toContain('duplicate enrichment evidence record_id across manifests')
     expect(parser).toContain('enrichment evidence row is missing record_id')
+    expect(parser).toContain('enrichment evidence correction target was not loaded earlier')
+    expect(parser).toContain('enrichment evidence correction prior identity mismatch')
+    expect(parser).toContain('expected_prior_evidence')
     expect(parser).toContain('enrichment source correction prior identity mismatch')
     expect(parser).toContain('expected_prior_identity')
+  })
+
+  it('exports enrichment certainty and safety caveats into public claim rows', () => {
+    const generator = fs.readFileSync(path.join(root, 'scripts', 'data', 'build-runtime-from-workbook.mjs'), 'utf8')
+    expect(generator).toContain("evidence_grade: clean(first(row, ['evidence_grade', 'evidence grade']))")
+    expect(generator).toContain("safety_note: compact(first(row, ['safety_note', 'safety note', 'safety_notes', 'safety notes']))")
   })
 
   it('applies reviewed net-new rows to the proposal-aware virtual workbook', async () => {
@@ -183,6 +192,32 @@ describe('manifest-backed additive enrichment ledgers', () => {
     expect(String(corrected9809861.author_or_label || '').trim()).toBe('Lader M, Scotto JC.')
     expect(String(corrected9809861.title || '').trim()).toBe(
       'A multicentre double-blind comparison of hydroxyzine, buspirone and placebo in patients with generalized anxiety disorder',
+    )
+
+    const correctedLTheanine = enriched.Sheets.Evidence_Register.find(
+      (row: any) =>
+        String(row.entity_slug || '').trim() === 'l-theanine' &&
+        String(row.pmid || '').trim() === '40056718',
+    )
+    expect(correctedLTheanine).toBeTruthy()
+    expect(String(correctedLTheanine.supported_claim_language || '')).toContain(
+      'small improvements in subjective sleep-onset latency',
+    )
+    expect(String(correctedLTheanine.safety_note || '')).toContain(
+      'universal insomnia-treatment',
+    )
+
+    const correctedSaffron = enriched.Sheets.Evidence_Register.find(
+      (row: any) =>
+        String(row.entity_slug || '').trim() === 'saffron' &&
+        String(row.pmid || '').trim() === '41693488',
+    )
+    expect(correctedSaffron).toBeTruthy()
+    expect(String(correctedSaffron.supported_claim_language || '')).toContain(
+      'clinician-rated HDRS and HARS outcomes and POMS were not significantly improved',
+    )
+    expect(String(correctedSaffron.evidence_grade || '')).toContain(
+      'moderate certainty by GRADE',
     )
 
     const clean = (value: unknown) => String(value ?? '').replace(/\\s+/g, ' ').trim()
