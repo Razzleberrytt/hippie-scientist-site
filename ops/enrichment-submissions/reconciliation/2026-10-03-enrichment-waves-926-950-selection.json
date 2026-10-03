@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-926-950-selection",
+  "continuation_of": "2026-10-03-enrichment-waves-901-925-selection",
+  "program": {
+    "range": "501-1000",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 450,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 1000"
+  },
+  "source_provenance": [
+    "PubMed systematic reviews/meta-analyses; exact PMID verification and full-history dedupe through Wave 925"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 1000 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "source_identity_integrity": true,
+    "validation_strategy": "full-history PMID/entity screening during authoring; full repository validation only after Wave 1000"
+  },
+  "waves": [
+    {
+      "wave": 926,
+      "entity_slug": "endometriosis-supplements",
+      "pmid": "40288359",
+      "focus": "Nine-RCT/545-participant review of supplements for endometriosis-associated pain; pelvic pain, dysmenorrhea and dyspareunia were not significantly improved overall, with trial trustworthiness concerns.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 927,
+      "entity_slug": "osteoarthritis-supplement-network",
+      "pmid": "40425393",
+      "focus": "Network meta-analysis of dietary supplements for osteoarthritis; rankings are indirect, product-specific and not evidence of category-wide superiority.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 928,
+      "entity_slug": "antioxidant-supplements-endometriosis",
+      "pmid": "38221738",
+      "focus": "Systematic review/meta-analysis of antioxidant supplementation for dysmenorrhea/endometriosis-related pain; heterogeneous compounds and small trials require intervention-specific interpretation.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 929,
+      "entity_slug": "endometriosis-dietary-interventions",
+      "pmid": "39358652",
+      "focus": "Systematic review of 11 RCTs/716 participants; positive dietary/supplement signals are limited by heterogeneous interventions and moderate-to-high risk of bias.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 930,
+      "entity_slug": "vitamin-d",
+      "pmid": "42443965",
+      "focus": "2026 NAFLD/MASLD meta-analysis; ALT and alkaline-phosphatase signals with AST/GGT nulls, preserving disease and surrogate-enzyme boundaries.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 931,
+      "entity_slug": "migraine-supplement-network",
+      "pmid": "42707444",
+      "focus": "2026 network meta-analysis of 14 RCTs/791 adults across vitamins, magnesium, CoQ10, probiotics and combinations; rankings remain exploratory and indirect.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 932,
+      "entity_slug": "fatty-acid-supplements",
+      "pmid": "39823374",
+      "focus": "2025 migraine systematic review/meta-analysis; fatty-acid composition, intervention duration and migraine outcomes must remain explicit.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 933,
+      "entity_slug": "green-tea",
+      "pmid": "33737989",
+      "focus": "Systematic review/meta-analysis of green-tea interventions for oral/periodontal health; evidence was insufficient for first-line dental use.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 934,
+      "entity_slug": "vitamin-c",
+      "pmid": "39201285",
+      "focus": "2024 systematic review of vitamin C in periodontal/oral health; high heterogeneity across 16 studies/17,853 participants limits uniform clinical claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 935,
+      "entity_slug": "probiotics",
+      "pmid": "39407177",
+      "focus": "2024 network meta-analysis of probiotics adjunctive to nonsurgical periodontal therapy; strain/product rankings are indirect and outcome-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 936,
+      "entity_slug": "collagen-supplements",
+      "pmid": "37432180",
+      "focus": "26-RCT/1,721-participant skin-aging meta-analysis; hydration/elasticity/wrinkle signals coexist with design, publication and funding concerns.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 937,
+      "entity_slug": "hydrolyzed-collagen",
+      "pmid": "33742704",
+      "focus": "19-trial/1,125-participant skin meta-analysis; hydration/elasticity signals are historical positive evidence with product and trial-quality limitations.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 938,
+      "entity_slug": "green-tea",
+      "pmid": "33729563",
+      "focus": "Systematic review/meta-analysis of green tea as an adjunct in periodontal therapy; adjunctive context and local/systemic preparations remain distinct.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 939,
+      "entity_slug": "collagen-supplements",
+      "pmid": "40826844",
+      "focus": "Ten-RCT/646-participant collagen-based skin meta-analysis; hydration and elasticity signals with predominantly female samples and moderate heterogeneity.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 940,
+      "entity_slug": "vitamin-c",
+      "pmid": "39768921",
+      "focus": "2024 systematic review of ascorbic acid and periodontal/oral outcomes; dietary exposure, supplementation, periodontal status and biomarker outcomes remain separated.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 941,
+      "entity_slug": "probiotics",
+      "pmid": "40186219",
+      "focus": "2025 meta-analysis of 24 studies in gingivitis/periodontitis; effects differed by condition and outcome, and several gingivitis measures were not significantly improved.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 942,
+      "entity_slug": "probiotics",
+      "pmid": "34391565",
+      "focus": "Historical 24-RCT adjunctive periodontal meta-analysis; short-term CAL/PPD/BOP signals were not consistently maintained at six months.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 943,
+      "entity_slug": "hydrolyzed-collagen",
+      "pmid": "42342959",
+      "focus": "2026 systematic review of 25 skin RCTs; efficacy and safety were inconsistent across products, doses, durations and measurement instruments.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 944,
+      "entity_slug": "probiotics",
+      "pmid": "41969406",
+      "focus": "2026 umbrella review of 11 oral-health probiotic meta-analyses; inherited methodological quality and strain/outcome heterogeneity prevent a generic oral-health claim.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 945,
+      "entity_slug": "ginkgo-biloba",
+      "pmid": "20236541",
+      "focus": "Historical dementia meta-analysis of nine trials/2,372 participants; cognitive signal with activities-of-daily-living null, retained against newer evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 946,
+      "entity_slug": "chamomile",
+      "pmid": "38784853",
+      "focus": "2024 systematic review of 10 oral-chamomile anxiety trials; most trials reported improvement but heterogeneity and limited pooled certainty require caution.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 947,
+      "entity_slug": "hyaluronic-acid-oral",
+      "pmid": "40911749",
+      "focus": "2025 seven-RCT oral hyaluronic-acid meta-analysis; hydration, elasticity and wrinkle-depth signals with firmness, wrinkle-volume and transepidermal-water-loss nulls.",
+      "state": "research_only_pending_entity_resolution"
+    },
+    {
+      "wave": 948,
+      "entity_slug": "riboflavin",
+      "pmid": "41769676",
+      "focus": "2026 migraine systematic review/dose-response meta-analysis of 12 trials/749 participants; frequency and duration improved with very high heterogeneity; study exposure is not a dosing recommendation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 949,
+      "entity_slug": "migraine-supplements",
+      "pmid": "39404918",
+      "focus": "Twenty-two-trial GRADE meta-analysis across magnesium, CoQ10, riboflavin, ALA, probiotics, vitamin D and omega-3; supplement-specific effects and omega-3 nulls retained.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 950,
+      "entity_slug": "n-acetylcysteine",
+      "pmid": "42510611",
+      "focus": "2026 endometriosis systematic review; non-postoperative pain/NSAID/endometrioma signals contrasted with a postoperative randomized comparison showing no added benefit, while fertility evidence remained preliminary.",
+      "state": "reviewed_receipt_pending_final_admission"
+    }
+  ]
+}
