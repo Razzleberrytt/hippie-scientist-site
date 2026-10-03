@@ -140,6 +140,22 @@ Canonical materialization receipt: PR #6022 committed the reviewed workbook and 
 
 Tracking: enrichment batching `#6198`; 50-wave follow-on planning `#6200`; canonical citation-integrity repairs `#6197` (magnesium) and `#6201` (taurine/citrulline-malate).
 
+## Oct. 2 research enrichment Waves 51–100
+
+- Ledger: `2026-10-02-enrichment-waves-51-100.json`
+- Manifest: `2026-10-02-enrichment-waves-51-100-manifest.json`
+- 50 additional enrichment waves authored before repository-wide verification
+- 50 reviewed evidence additions
+- 50 net-new source identities after pre-staging PMID/DOI/title dedupe
+- 0 entity-context rows
+- 0 relationships
+- Coverage expands sleep, cognition, pain, respiratory/immune evidence, exercise/performance, sexual health, glycemic and cardiometabolic markers, osteoarthritis, urinary prevention, liver evidence, deficiency-related fatigue, and hormonal biomarker claims.
+- Negative and null findings are deliberately retained, including null primary cognition outcomes, little-to-no benefit findings, and weak/very-low-certainty syntheses.
+- Combination products, branded extracts, medication-like botanicals, formulation boundaries, population limits, sponsorship/context, and biomarker-vs-clinical distinctions remain explicit.
+- The five 10-wave authoring ledgers were removed after consolidation so every source/evidence identity is admitted exactly once.
+- The batch is evidence-only and cannot alter publishing, indexing, recommendation, monetization, or governance state.
+- Full repository validation is intentionally run once on the consolidated Waves 51–100 PR head.
+
 ## Regression contract
 
 `tests/runtime-enrichment.test.ts` validates every manifest-backed batch, verifies each digest before decoding, checks reviewed counts, requires globally unique evidence record IDs, allows repeat source identities to deduplicate deterministically across batches, enforces the entity-context allowlist, verifies virtual-workbook growth, and prevents every medication batch from carrying publication/governance fields.
