@@ -8,6 +8,7 @@ import type { Heading } from '@/components/articles'
 import References from '@/components/References'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 
+// Canonical recovery route: deepen this page in place rather than creating duplicate withdrawal intent.
 export const metadata: Metadata = buildPageMetadata({
   title: 'Kratom & 7-OH Withdrawal and Recovery: 2026 Evidence Review',
   description:
