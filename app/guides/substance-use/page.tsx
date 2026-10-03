@@ -102,6 +102,52 @@ const KRATOM_CLUSTER = [
   },
 ]
 
+const PRODUCT_ALERTS = [
+  {
+    href: '/articles/buzzers-cats-claw-hidden-opioids/',
+    title: 'Buzzers Cat’s Claw: What Testing Found',
+    desc: 'Utah laboratory findings of MGM-15 and mitragynine pseudoindoxyl, with product-label and overdose context.',
+  },
+  {
+    href: '/articles/cats-claw-kava-hidden-opioids/',
+    title: 'Cat’s Claw & Kava Products With Hidden Opioids',
+    desc: 'Poison-center warnings, brand-level uncertainty, testing limits, and why genuine botanicals are a separate question.',
+  },
+]
+
+const DESIGNER_BENZOS = [
+  {
+    href: '/articles/designer-benzodiazepines-research-chemicals/',
+    title: 'Designer Benzodiazepines (RC Benzos)',
+    desc: 'The evidence map: counterfeit pills, overdose, withdrawal, detection limits, and links to individual compounds.',
+  },
+  {
+    href: '/articles/bromazolam/',
+    title: 'Bromazolam',
+    desc: 'Current North American forensic trends, counterfeit-tablet context, and frequent fentanyl co-detection.',
+  },
+  {
+    href: '/articles/clobromazolam-phenazolam/',
+    title: 'Phenazolam / Clobromazolam',
+    desc: 'An emerging 2025–2026 signal with Australian emergency detections and rising U.S. forensic prevalence.',
+  },
+  {
+    href: '/articles/clonazolam/',
+    title: 'Clonazolam',
+    desc: 'Severe intoxication, amnesia, fatal cases, dependence, withdrawal, and current federal status.',
+  },
+  {
+    href: '/articles/flualprazolam/',
+    title: 'Flualprazolam',
+    desc: 'Counterfeit alprazolam outbreaks, clinical intoxication, fatal polysubstance cases, and toxicology.',
+  },
+  {
+    href: '/articles/rare-designer-benzodiazepines-evidence-map/',
+    title: 'Rare RC Benzo Evidence Map',
+    desc: 'N-Ethyl-nitrazepam, adinazolam, cloniprazepam and other names where online discussion outruns human evidence.',
+  },
+]
+
 const DEPENDENCE = [
   {
     href: '/guides/other/kratom-7oh-withdrawal-management/',
@@ -143,7 +189,7 @@ const EMERGING = [
   },
 ]
 
-const HUB_ITEMS = [...START_HERE, ...KRATOM_CLUSTER, ...DEPENDENCE, ...EMERGING]
+const HUB_ITEMS = [...START_HERE, ...KRATOM_CLUSTER, ...PRODUCT_ALERTS, ...DESIGNER_BENZOS, ...DEPENDENCE, ...EMERGING]
 
 function Card({ href, title, desc }: { href: string; title: string; desc: string }) {
   return (
@@ -238,6 +284,32 @@ export default function SubstanceUseHub() {
         </div>
         <div className="grid gap-4 md:grid-cols-2">
           {KRATOM_CLUSTER.map((item) => <Card key={item.href} {...item} />)}
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <div className="max-w-3xl">
+          <p className="eyebrow-label">Product alerts</p>
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink">When a botanical label does not match the pharmacology</h2>
+          <p className="mt-3 text-muted">
+            These pages separate confirmed laboratory findings from brand rumors, partial COAs, and online speculation.
+          </p>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2">
+          {PRODUCT_ALERTS.map((item) => <Card key={item.href} {...item} />)}
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <div className="max-w-3xl">
+          <p className="eyebrow-label">Designer benzodiazepines</p>
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink">RC benzos, counterfeit pills & emerging toxicology</h2>
+          <p className="mt-3 text-muted">
+            Reddit and drug forums help identify emerging names; poison centers, analytical toxicology, clinical cases, and regulatory records determine what the site treats as evidence.
+          </p>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2">
+          {DESIGNER_BENZOS.map((item) => <Card key={item.href} {...item} />)}
         </div>
       </section>
 
