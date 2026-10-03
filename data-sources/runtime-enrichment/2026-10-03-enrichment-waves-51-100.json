@@ -1567,19 +1567,6 @@
       "status": "published"
     },
     {
-      "source_id": "pmid-12612144",
-      "pmid": "12612144",
-      "author_or_label": "PubMed indexed source PMID 12612144",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/12612144/",
-      "entity_slugs": "chromium",
-      "used_for": "citation integrity for glucose-control claims",
-      "citation_or_note": "PMID 12612144 is a processed-tomato/lycopene study rather than a chromium intervention and therefore cannot support chromium glucose-control efficacy. Any existing linkage between this PMID and chromium should be quarantined or corrected.",
-      "status": "published"
-    },
-    {
       "source_id": "pmid-38163998",
       "pmid": "38163998",
       "doi": "10.1210/clinem/dgad762",
@@ -1907,20 +1894,6 @@
       "status": "published"
     },
     {
-      "source_id": "pmid-24533610",
-      "pmid": "24533610",
-      "doi": "10.1080/07315724.2014.870013",
-      "author_or_label": "PubMed indexed source PMID 24533610",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/24533610/",
-      "entity_slugs": "glucomannan",
-      "used_for": "weight loss in overweight and obesity",
-      "citation_or_note": "A meta-analysis of randomized trials found no statistically significant weight-loss advantage for glucomannan over placebo. This null evidence should be prominent on any weight-management profile rather than relying on fiber satiety mechanisms.",
-      "status": "published"
-    },
-    {
       "source_id": "pmid-27188915",
       "pmid": "27188915",
       "author_or_label": "PubMed indexed source PMID 27188915",
@@ -1931,47 +1904,6 @@
       "entity_slugs": "green-tea-extract",
       "used_for": "liver-related adverse events",
       "citation_or_note": "A systematic review of 34 randomized trials found liver-related adverse events were rare but occurred more often in green-tea-extract groups than controls, with wide uncertainty because events were sparse. Rare does not mean impossible, especially for concentrated extracts.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-16129715",
-      "pmid": "16129715",
-      "doi": "10.1038/oby.2005.162",
-      "author_or_label": "PubMed indexed source PMID 16129715",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/16129715/",
-      "entity_slugs": "forskolin",
-      "used_for": "body composition and weight-related outcomes",
-      "citation_or_note": "A small 12-week randomized trial in 30 overweight or obese men reported changes in body-fat measures with a standardized forskolin extract, but the sample was tiny and male-only. This cannot establish dependable weight-loss efficacy for the general population.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-9313662",
-      "pmid": "9313662",
-      "author_or_label": "PubMed indexed source PMID 9313662",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/9313662/",
-      "entity_slugs": "beta-sitosterol",
-      "used_for": "lower urinary tract symptoms from benign prostatic hyperplasia",
-      "citation_or_note": "A multicenter placebo-controlled trial found improvement in symptom scores, urinary flow, and residual urine with a chemically defined beta-sitosterol phytosterol preparation in men with BPH. The result is indication- and preparation-specific.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-17121765",
-      "pmid": "17121765",
-      "doi": "10.1093/qjmed/hcl118",
-      "author_or_label": "PubMed indexed source PMID 17121765",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/17121765/",
-      "entity_slugs": "bromelain",
-      "used_for": "knee osteoarthritis symptoms",
-      "citation_or_note": "A placebo-controlled pilot study found no significant bromelain benefit on WOMAC pain, stiffness, function, or quality-of-life outcomes in moderate-to-severe knee osteoarthritis. This direct null trial should remain visible beside anti-inflammatory mechanism claims.",
       "status": "published"
     },
     {
@@ -2097,20 +2029,6 @@
       "entity_slugs": "ginger",
       "used_for": "nausea and vomiting during pregnancy",
       "citation_or_note": "A 2024 umbrella review found that most included meta-analyses favored ginger for pregnancy-related nausea or found effects comparable with conventional treatments, with no clear pooled serious-safety signal. However, the meta-analyses were rated critically low to low quality and the underlying studies were heterogeneous.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-37818728",
-      "pmid": "37818728",
-      "doi": "10.1002/ptr.8026",
-      "author_or_label": "PubMed indexed source PMID 37818728",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37818728/",
-      "entity_slugs": "cinnamon-extract",
-      "used_for": "glycemic control in type 2 diabetes",
-      "citation_or_note": "A 24-trial meta-analysis reported reductions in fasting glucose, HOMA-IR, and HbA1c with cinnamon supplementation, while fasting insulin was not significantly changed. Cinnamon species, extract identity, dose, background therapy, and trial heterogeneity prevent a generic diabetes-treatment claim.",
       "status": "published"
     },
     {
