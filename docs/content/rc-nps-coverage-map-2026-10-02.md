@@ -269,6 +269,14 @@ P1 — completed on branch:
 
 ### Masterclass wave 3 — active
 
+#### Wave 3B — legacy / lower-visibility designer benzodiazepines
+
+- [x] Metizolam — deep masterclass pass complete; controlled human analytical evidence + 2026 DFSA case + testing/withdrawal/legal modules
+- [x] Phenazepam — deep masterclass pass complete; human PK + prolonged intoxication + impaired driving + postmortem + 2024 mass-poisoning + DEA/UN control history
+- [x] Meclonazepam — deep masterclass pass complete; controlled human psychomotor trial + metabolism + intoxication surveillance + withdrawal/testing/legal modules
+- [x] **Wave 3B audit: 3/3 pages upgraded from baseline summaries to the permanent monograph architecture.**
+- [ ] Continue Wave 3 with evidence-supported existing profiles before creating sparse new routes
+
 - [x] MDPHP — masterclass pass complete
 - [x] MDPiHP — emerging-evidence masterclass pass complete
 - [ ] Remaining high-risk P2 profiles — prioritize existing pages with human toxicology/forensic evidence before creating new routes
