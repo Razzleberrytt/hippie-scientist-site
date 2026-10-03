@@ -164,10 +164,10 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 - [ ] 4F-alpha-PHP
 
 ### Psychedelics
-- [x] 1P-LSD — /articles/1p-lsd/
-- [x] 4-AcO-DMT — /articles/4-aco-dmt/
-- [x] 5-MeO-MiPT — /articles/5-meo-mipt/
-- [x] 4-HO-MET — /articles/4-ho-met/
+- [x] 1P-LSD — /articles/1p-lsd/ — masterclass pass complete 2026-10-03
+- [x] 4-AcO-DMT — /articles/4-aco-dmt/ — sparse-evidence masterclass pass complete 2026-10-03
+- [x] 5-MeO-MiPT — /articles/5-meo-mipt/ — masterclass pass complete 2026-10-03
+- [x] 4-HO-MET — /articles/4-ho-met/ — masterclass pass complete 2026-10-03
 - [x] 1cP-LSD — /articles/1cp-lsd/
 - [x] AL-LAD — /articles/al-lad/
 - [ ] PRO-LAD
@@ -297,10 +297,14 @@ P1 — completed on branch:
 - [x] 5-MAPB — full masterclass pass complete; confirmed human poisoning, metabolism, serotonergic toxicity, testing and dated regulatory status integrated
 - [x] Dicloqualone / SL-164 — full masterclass pass complete; prolonged delirium/myoclonus cases, product mislabeling, opioid-mixture evidence and advanced testing integrated
 - [x] 2-Methoxyqualone — sparse-evidence masterclass pass complete; seized-material and authentic human-hair evidence integrated without borrowing methaqualone pharmacology
+- [x] 1P-LSD — full masterclass pass complete; controlled two-volunteer human PK, rapid LSD conversion, analytical stability and global surveillance integrated
+- [x] 4-AcO-DMT — sparse-evidence masterclass pass complete; human-liver-microsome metabolism and prodrug evidence boundaries made explicit
+- [x] 5-MeO-MiPT — full masterclass pass complete; real-case human metabolism, intoxication evidence, receptor pharmacology and cardiorespiratory toxicology integrated
+- [x] 4-HO-MET — full masterclass pass complete; authentic human metabolism, plasma toxicology and LC-vs-GC detection limits integrated
 
 P2:
 - [x] Existing evidence-bearing RC-benzo batch 1: metizolam, phenazepam, meclonazepam, etizolam, diclazepam, flubromazepam, flunitrazolam, pyrazolam, and rilmazafone upgraded in place on 2026-10-03.
-- [x] Follow-on evidence-bearing batch 2: desalkylgidazepam/bromonordiazepam, phenazolam/clobromazolam refresh, NEP/N-ethylpentedrone, 5-MAPB, dicloqualone/SL-164, and 2-methoxyqualone upgraded to masterclass architecture on 2026-10-03.
+- [x] Follow-on evidence-bearing batch 2: desalkylgidazepam/bromonordiazepam, phenazolam/clobromazolam refresh, NEP/N-ethylpentedrone, 5-MAPB, dicloqualone/SL-164, 2-methoxyqualone, 1P-LSD, 4-AcO-DMT, 5-MeO-MiPT, and 4-HO-MET upgraded to masterclass architecture on 2026-10-03.
 - [ ] Continue auditing existing evidence-bearing profiles before creating new low-evidence routes.
 - lower-prevalence, historical, or poorly sourced names remain in discovery until forensic/clinical evidence supports a useful page.
 
