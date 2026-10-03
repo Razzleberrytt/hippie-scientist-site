@@ -227,19 +227,19 @@
       "safety_note": "Do not infer a consumer dose from the studied exposure."
     },
     {
-      "record_id": "wave66_pelargonium_sidoides_19435703",
-      "entity_slug": "pelargonium-sidoides",
-      "entity_name": "Pelargonium Sidoides",
-      "effect_or_condition": "acute respiratory/bronchitis Cochrane evidence",
-      "evidence_type": "systematic_review",
-      "study_type": "Cochrane systematic review",
-      "population": "human participants represented in the cited clinical evidence; retain source-specific population boundaries from the reviewed receipt",
-      "pmid": "19435703",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/19435703/",
-      "source_id": "pmid-19435703",
-      "supported_claim_language": "Acute respiratory/bronchitis Cochrane evidence; possible symptom benefit; product-specific.",
-      "evidence_grade": "reviewed reconciliation evidence; retain the source-specific certainty and limitations stated in the claim",
-      "safety_note": "Preserve the studied formulation or preparation boundary. Do not infer a consumer dose from the studied exposure."
+      "record_id": "wave66_rhodiola_41080184",
+      "entity_slug": "rhodiola",
+      "entity_name": "Rhodiola",
+      "effect_or_condition": "endurance and exercise performance",
+      "evidence_type": "systematic_review_meta_analysis",
+      "study_type": "meta-analysis of randomized controlled trials",
+      "population": "physically active participants represented in randomized Rhodiola endurance studies",
+      "pmid": "41080184",
+      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/41080184/",
+      "source_id": "pmid-41080184",
+      "supported_claim_language": "A randomized-trial meta-analysis reported an endurance-performance signal for Rhodiola, but the evidence should remain athletic-context specific and performance endpoints should remain distinct from biomarker changes.",
+      "evidence_grade": "systematic review/meta-analysis of randomized trials; context-specific performance evidence",
+      "safety_note": "Preserve extract identity, training status, exposure duration, and performance endpoint. Do not infer a consumer dose from studied exposures."
     },
     {
       "record_id": "wave67_andrographis_paniculata_18425900",
@@ -964,17 +964,17 @@
       "status": "published"
     },
     {
-      "source_id": "pmid-19435703",
-      "pmid": "19435703",
+      "source_id": "pmid-41080184",
+      "pmid": "41080184",
       "doi": "",
-      "author_or_label": "PubMed indexed source PMID 19435703",
+      "author_or_label": "PubMed indexed source PMID 41080184",
       "year": "",
       "journal": "",
       "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/19435703/",
-      "entity_slugs": "pelargonium-sidoides",
-      "used_for": "acute respiratory/bronchitis Cochrane evidence",
-      "citation_or_note": "Acute respiratory/bronchitis Cochrane evidence; possible symptom benefit; product-specific.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41080184/",
+      "entity_slugs": "rhodiola",
+      "used_for": "endurance and exercise performance",
+      "citation_or_note": "RCT meta-analysis; preserve athletic context and distinguish performance endpoints from biomarkers.",
       "status": "published"
     },
     {
