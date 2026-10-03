@@ -129,8 +129,8 @@ Canonical materialization receipt: PR #6022 committed the reviewed workbook and 
 - Ledger: `2026-10-02-enrichment-waves-01-50.json`
 - Manifest: `2026-10-02-enrichment-waves-01-50-manifest.json`
 - 50 enrichment waves completed before repository-wide verification
-- 123 unique evidence rows after deterministic last-revision dedupe
-- 95 unique source rows after stable PMID/source-ID dedupe
+- 123 reviewed evidence rows: 121 net-new additions + 2 fail-closed same-identity evidence corrections
+- 93 net-new source identities after cross-batch PMID/DOI/title dedupe
 - 0 entity-context rows
 - 0 relationships
 - Coverage spans sleep, stress/anxiety, cognition, exercise/performance, metabolic and cardiovascular biomarkers, GI, women's health, osteoarthritis, safety/interactions, retraction handling, and formulation/species identity.
@@ -139,21 +139,6 @@ Canonical materialization receipt: PR #6022 committed the reviewed workbook and 
 - Full repository validation is intentionally run once after consolidation rather than once per wave.
 
 Tracking: enrichment batching `#6198`; 50-wave follow-on planning `#6200`; canonical citation-integrity repairs `#6197` (magnesium) and `#6201` (taurine/citrulline-malate).
-
-## Oct. 2 fifty-wave enrichment program
-
-- Wave 01 ledger: `2026-10-02-supplement-evidence-enrichment.json`
-- Waves 02–50 ledger: `2026-10-02-enrichment-waves-02-50.json`
-- Waves 02–50 manifest: `2026-10-02-enrichment-waves-02-50-manifest.json`
-- 123 staged evidence rows across both Oct. 2 ledgers
-- 95 unique staged source identities across both Oct. 2 ledgers
-- 0 entity-context rows
-- 0 relationships
-- 0 publishing/indexing/recommendation/monetization changes
-- Coverage spans sleep, stress/anxiety, cognition, safety/interactions, metabolic and cardiovascular biomarkers, performance, gastrointestinal outcomes, women's health, osteoarthritis, formulation/species identity, and citation-integrity safeguards.
-- Null findings, mixed endpoints, retractions, low-certainty results, product-specific evidence, and population boundaries remain explicit rather than being filtered out.
-
-The bulk ledger is hash-pinned at `b78a5876ef232d25b5591a50c3b5e94737372127d5d4c3821fc7b42aaa0c38cc`. Expensive repository-wide verification was intentionally deferred until the entire 50-wave batch was assembled.
 
 ## Regression contract
 
