@@ -14,7 +14,7 @@ import {
 const HUB_PATH = '/guides/substance-use'
 const HUB_TITLE = 'Substance Use, Withdrawal & Recovery — Evidence Hub'
 const HUB_DESCRIPTION =
-  'Evidence-based guides on dependence, withdrawal, recovery, cannabis, nicotine, stimulants, alcohol, benzodiazepines, opioids, kratom-derived opioids, research chemicals, novel psychoactive substances, tianeptine, and harm-reduction research.'
+  'Evidence-based guides on dependence, withdrawal, recovery, gabapentinoids, cannabis, nicotine, stimulants, alcohol, benzodiazepines, opioids, kratom-derived opioids, research chemicals, novel psychoactive substances, tianeptine, and harm-reduction research.'
 const REVIEW_DATE = '2026-10-03'
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: HUB_TITLE,
     description:
-      'Research-first coverage of dependence, withdrawal, recovery, cannabis, nicotine, stimulants, overdose risk, emerging opioids, kratom alkaloids, tianeptine, and harm reduction.',
+      'Research-first coverage of dependence, withdrawal, recovery, gabapentinoids, cannabis, nicotine, stimulants, overdose risk, emerging opioids, kratom alkaloids, tianeptine, and harm reduction.',
     url: `${SITE_URL}${HUB_PATH}/`,
     type: 'website',
     images: ['/og-default.jpg'],
@@ -32,11 +32,16 @@ export const metadata: Metadata = {
   twitter: buildTwitterMetadata({
     title: HUB_TITLE,
     description:
-      'Research-first coverage of dependence, withdrawal, recovery, cannabis, nicotine, stimulants, alcohol, benzodiazepines, opioids, emerging substances, research chemicals, and harm reduction.',
+      'Research-first coverage of dependence, withdrawal, recovery, gabapentinoids, cannabis, nicotine, stimulants, alcohol, benzodiazepines, opioids, emerging substances, research chemicals, and harm reduction.',
   }),
 }
 
 const START_HERE = [
+  {
+    href: '/articles/gabapentinoid-withdrawal-recovery-guide/',
+    title: 'Gabapentin & Pregabalin Withdrawal: Complete Evidence Guide',
+    desc: 'Dependence, withdrawal symptoms and timelines, gabapentin-vs-pregabalin differences, renal clearance, seizure/delirium red flags, tapering evidence, opioid/CNS-depressant risk, misuse, and recovery.',
+  },
   {
     href: '/articles/cannabis-withdrawal-recovery-guide/',
     title: 'Cannabis Withdrawal & Recovery: Complete Evidence Guide',
