@@ -47,6 +47,8 @@ const KNOWN_ENTITY_ALIASES = new Map([
   ['cacao', ['cacao', 'theobromine']],
   ['kanna', ['kanna', 'sceletium']],
   ['kava', ['kava', 'kavalactones']],
+  ['adb-butinaca', ['adb-butinaca', 'adb butinaca']],
+  ['mdmb-4en-pinaca', ['mdmb-4en-pinaca', 'mdmb 4en pinaca']],
   ['mugwort', ['mugwort']],
   ['reishi', ['reishi']],
   ['yerba-mate', ['yerba mate']],
