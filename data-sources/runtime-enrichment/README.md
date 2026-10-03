@@ -140,6 +140,21 @@ Canonical materialization receipt: PR #6022 committed the reviewed workbook and 
 
 Tracking: enrichment batching `#6198`; canonical magnesium citation-integrity follow-up `#6197`; follow-on planning `#6200`.
 
+## Oct. 2 fifty-wave enrichment program
+
+- Wave 01 ledger: `2026-10-02-supplement-evidence-enrichment.json`
+- Waves 02–50 ledger: `2026-10-02-enrichment-waves-02-50.json`
+- Waves 02–50 manifest: `2026-10-02-enrichment-waves-02-50-manifest.json`
+- 123 staged evidence rows across both Oct. 2 ledgers
+- 95 unique staged source identities across both Oct. 2 ledgers
+- 0 entity-context rows
+- 0 relationships
+- 0 publishing/indexing/recommendation/monetization changes
+- Coverage spans sleep, stress/anxiety, cognition, safety/interactions, metabolic and cardiovascular biomarkers, performance, gastrointestinal outcomes, women's health, osteoarthritis, formulation/species identity, and citation-integrity safeguards.
+- Null findings, mixed endpoints, retractions, low-certainty results, product-specific evidence, and population boundaries remain explicit rather than being filtered out.
+
+The bulk ledger is hash-pinned at `b78a5876ef232d25b5591a50c3b5e94737372127d5d4c3821fc7b42aaa0c38cc`. Expensive repository-wide verification was intentionally deferred until the entire 50-wave batch was assembled.
+
 ## Regression contract
 
 `tests/runtime-enrichment.test.ts` validates every manifest-backed batch, verifies each digest before decoding, checks reviewed counts, requires globally unique evidence record IDs, allows repeat source identities to deduplicate deterministically across batches, enforces the entity-context allowlist, verifies virtual-workbook growth, and prevents every medication batch from carrying publication/governance fields.
