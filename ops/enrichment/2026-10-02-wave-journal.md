@@ -1,6 +1,6 @@
 # Research enrichment waves — 2026-10-02
 
-This journal records the batch-first enrichment pass requested for The Hippie Scientist. Repository-wide verification is intentionally deferred until after Wave 50; source boundaries, null findings, uncertainty, formulation identity, and population limits were captured during authoring.
+This journal records the batch-first enrichment pass requested for The Hippie Scientist. Repository-wide verification is intentionally deferred until the active enrichment block is consolidated; source boundaries, null findings, uncertainty, formulation identity, and population limits are captured during authoring.
 
 ## Completed waves
 
@@ -10,24 +10,34 @@ This journal records the batch-first enrichment pass requested for The Hippie Sc
 - Waves 22–31 — performance/metabolic/cardiovascular: citrulline malate, vitamin D, beetroot nitrate, astaxanthin, spirulina, curcumin, garlic, aged garlic, ginger, olive leaf
 - Waves 32–41 — longevity/metabolic/women's health/GI: NMN, resveratrol, omega-3, alpha-lipoic acid, acetyl-L-carnitine, pomegranate, peppermint oil, black cohosh, red clover, soy
 - Waves 42–50 — menopause, osteoarthritis, glycemia, cognition-null, safety and final calibrations: evening primrose, Boswellia, aloe vera, taurine, cacao, saffron safety, ashwagandha glucose, garlic glycemic, curcumin OA
+- Waves 51–60 — under-covered canonical entities and explicit null/attribution evidence: 5-HTP, hops, L-tryptophan, lemon balm, Magnolia officinalis, N-acetylcysteine, oral GABA, spermidine, Nigella sativa, sulforaphane
+- Waves 61–70 — product-specific, medication-like, pain, cognition, respiratory, sleep, and stimulant evidence: Shilajit, Huperzine A, palmitoylethanolamide, theacrine, agmatine sulfate, lemon verbena, elderberry, Mucuna pruriens, caffeine, melatonin
+- Waves 71–80 — metabolic, immune/respiratory, exercise, joint, urinary, liver, and null-evidence expansion: berberine, kanna, reishi, beta-alanine, collagen peptides, echinacea, cranberry, milk thistle, saw palmetto, andrographis
+- Waves 81–90 — glycemic, PCOS, osteoarthritis, blood-pressure, fatigue/deficiency, and cardiometabolic synthesis: fenugreek, inositol, glucosamine, chondroitin, hibiscus, cinnamon extract, quercetin, iron, chromium, green tea extract
+- Waves 91–100 — lipid fibers, resistance-training adjuncts, metabolic botanicals, sexual-health claims, hormonal and exercise evidence: beta-glucans, glucomannan, HMB, artichoke extract, maca, DHEA, Cordyceps, Tongkat Ali, moringa, folate
 
 ## Consolidated state
 
-- Waves completed: **50 / 50**
-- Canonical consolidated ledger: `data-sources/runtime-enrichment/2026-10-02-enrichment-waves-01-50.json`
-- Reviewed evidence records in the batch: **123** (**121 net-new additions + 2 reviewed same-identity corrections**)
-- Net-new source identities after cross-batch dedupe: **93**
-- Duplicate retry revisions removed during consolidation: **17**
-- New entity-context rows: 0
-- New relationship rows: 0
-- Governance/indexing/recommendation/monetization fields changed by the ledger: 0
-- Admission semantics: corrections replace earlier enrichment evidence fail-closed; duplicate source identities are omitted rather than silently discarded
-- Full repository verification: **running on the final consolidated pass**
+- Waves 01–50: **merged to `main` in PR #6199**
+- Waves 51–100: **consolidated on `data/research-enrichment-2026-10-02-waves-51-100`**
+- Waves completed in the continuing program: **100 / 100**
+- Waves 01–50 canonical ledger: `data-sources/runtime-enrichment/2026-10-02-enrichment-waves-01-50.json`
+- Waves 51–100 canonical continuation ledger: `data-sources/runtime-enrichment/2026-10-02-enrichment-waves-51-100.json`
+- Waves 51–100 manifest: `data-sources/runtime-enrichment/2026-10-02-enrichment-waves-51-100-manifest.json`
+- Waves 51–100 reviewed additions: **50 evidence rows + 50 new source identities**
+- Consolidated Waves 51–100 ledger SHA-256: `31e7fa1bdcc958a7c088d38edeb287ff3256777f994d7499edc41eeb83ffb855`
+- Consolidated ledger bytes: **106,901**
+- Cross-batch duplicate check before consolidation: **clean**
+- Temporary 10-wave authoring ledgers/manifests: **removed after consolidation**
+- New entity-context rows in Waves 51–100: 0
+- New relationship rows in Waves 51–100: 0
+- Governance/indexing/recommendation/monetization fields changed by Waves 51–100: 0
+- Full repository verification for the continuation batch: **next, on the final consolidated PR head**
 
 ## Batch rule
 
-No consumer dose recommendations are inferred from trial exposures. Combination products remain combination evidence. Biomarkers and surrogate outcomes remain distinct from clinical outcomes. Safety and null findings stay first-class records. Species, formulation, extract, age group, disease population, route, and retraction boundaries are preserved where relevant.
+No consumer dose recommendations are inferred from trial exposures. Combination products remain combination evidence. Biomarkers and surrogate outcomes remain distinct from clinical outcomes. Safety and null findings stay first-class records. Species, formulation, extract, age group, disease population, route, medication-like botanical effects, attrition, and retraction boundaries are preserved where relevant.
 
 ## Next step
 
-Run the final consolidation verification once: manifest integrity, canonical entity resolution, evidence/source dedupe against the workbook, source-of-truth guard, schema/data validation, focused enrichment tests, then the normal CI/build/site-health gates. Do not re-expand into per-wave verification.
+Run the admission audit, manifest integrity, canonical entity resolution, evidence/source dedupe against the workbook, source-of-truth guard, schema/data validation, focused enrichment tests, and normal CI/build/site-health gates once on the final consolidated head.
