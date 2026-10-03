@@ -10,20 +10,20 @@
       "ops/enrichment/research-batch-2026-09-20-08.json",
       "ops/enrichment/research-batch-2026-09-20-09.json"
     ],
-    "review_note": "Waves 51-100 are complete as a batch-first research and reconciliation pass. Final publication-quality review withheld 49 receipt-only rows whose population and supported-claim fields still contained editorial placeholders rather than source-specific reader-ready evidence. Those receipts remain documented in the selection/journal for later materialization. The authoritative runtime ledger admits only 30 fully materialized evidence rows with explicit population/outcome boundaries and matching source records. Duplicate or noncanonical identities remain excluded, including elderberry PMID 30670267, Pelargonium PMID 19435703, and already-canonical Rhodiola PMID 41080184."
+    "review_note": "Waves 51-100 are complete as a batch-first research and reconciliation pass. Final publication-quality review withheld 49 receipt-only rows whose population and supported-claim fields still contained editorial placeholders rather than source-specific reader-ready evidence. Those receipts remain documented in the selection/journal for later materialization. The authoritative runtime ledger admits only 30 fully materialized evidence rows with explicit population/outcome boundaries and matching source records. Duplicate or noncanonical identities remain excluded, including elderberry PMID 30670267, Pelargonium PMID 19435703, and already-canonical Rhodiola PMID 41080184. Final consolidated admission audit identified and removed six already-canonical identities: magnesium PMID 41000008, berberine PMID 40740996, melatonin PMID 41014554, creatine PMID 41558805, ginkgo PMID 41641880, and passionflower PMID 11679026. The sealed ledger therefore contains 73 net-new evidence rows and 73 net-new source rows."
   },
   "counts": {
     "entity_context_rows": 0,
-    "evidence_rows": 30,
-    "source_rows": 30,
+    "evidence_rows": 73,
+    "source_rows": 73,
     "relationship_rows": 0
   },
   "wave_coverage": {
     "first_wave": 51,
     "last_wave": 100,
     "completed_waves": 50,
-    "evidence_records": 30,
-    "unique_source_records": 30
+    "evidence_records": 73,
+    "unique_source_records": 73
   },
   "policy": {
     "entity_creation": "forbidden",
@@ -36,13 +36,13 @@
   },
   "ledger": {
     "file": "2026-10-02-enrichment-waves-51-100.json",
-    "sha256": "e40349a98c3f38ee53014a4114c3b8b83673356dcac7cf260255421910bc0533",
-    "bytes": 65441
+    "sha256": "4f3d09e1bcd632c9372c5de3cf5aae0ac52d22b6bf9d9216dfdbef8525b465c0",
+    "bytes": 51402
   },
   "admission": {
-    "evidence_additions": 30,
+    "evidence_additions": 73,
     "evidence_corrections": 0,
-    "source_additions": 30,
+    "source_additions": 73,
     "source_corrections": 0
   }
 }
