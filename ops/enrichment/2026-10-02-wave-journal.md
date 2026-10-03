@@ -38,6 +38,17 @@ This journal records the batch-first enrichment pass requested for The Hippie Sc
 - Wave 30 — ginger low-certainty blood-pressure + migraine evidence
 - Wave 31 — olive leaf versus pomace cardiometabolic identity separation
 
+- Wave 32 — NMN blood-pressure context + short-term safety ceiling
+- Wave 33 — resveratrol ApoB/ApoA-I null cardiometabolic counter-evidence
+- Wave 34 — omega-3 depression formulation dependence + healthy-cognition null
+- Wave 35 — alpha-lipoic-acid diabetic-neuropathy route firewall
+- Wave 36 — acetyl-L-carnitine neuropathic-pain + depression population boundaries
+- Wave 37 — Nigella sativa metabolic + blood-pressure biomarker calibration
+- Wave 38 — pomegranate blood-pressure evidence with juice/extract separation
+- Wave 39 — enteric-coated peppermint-oil IBS formulation-specific evidence
+- Wave 40 — black-cohosh mixed menopause evidence + provenance-sensitive liver safety
+- Wave 41 — red-clover inconsistent vasomotor evidence / isoflavone-product boundary
+
 ## Batch rule
 
 No consumer dose recommendations are inferred from trial exposures. Combination products remain combination evidence. Biomarkers and surrogate outcomes remain distinct from clinical outcomes. Safety and null findings stay first-class records.
