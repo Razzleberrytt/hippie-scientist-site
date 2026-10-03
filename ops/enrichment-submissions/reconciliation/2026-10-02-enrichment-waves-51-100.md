@@ -89,4 +89,8 @@ The authoritative runtime ledger therefore contains **30 reader-ready evidence r
 
 ## Supplemental consolidation
 
-During the consolidated validation window, three concurrently staged mini-batches for Waves 71–100 were detected. Their standalone manifests overlapped this authoritative 51–100 batch, but their research content did not overlap the existing 1–50 or 51–100 ledgers by entity + PMID/DOI identity. The 30 reviewed evidence/source receipts were therefore folded into this ledger before the mini-batches were removed. The consolidated ledger now carries **79 reviewed evidence rows and 79 source rows** across the 50 completed review waves; the canonical admission audit determines the final net-new count.
+During the consolidated validation window, three concurrently staged mini-batches for Waves 71–100 were detected. Their standalone manifests overlapped this authoritative 51–100 batch, but their research content did not overlap the existing 1–50 or 51–100 ledgers by entity + PMID/DOI identity. The 30 reviewed evidence/source receipts were therefore folded into this ledger before the mini-batches were removed. The supplemental fold produced 79 reviewed candidate rows. Canonical admission identified six already-covered identities, leaving the sealed consolidated ledger at **73 net-new evidence rows and 73 net-new source rows** across the 50 completed review waves.
+
+## Final admission result
+
+The exact-head admission audit accepted **73 / 79** folded evidence identities and **73 / 79** source identities. Six already-canonical receipts were removed rather than silently discarded: magnesium PMID `41000008`, berberine PMID `40740996`, melatonin PMID `41014554`, creatine PMID `41558805`, ginkgo PMID `41641880`, and passionflower PMID `11679026`. No invalid corrections were reported.
