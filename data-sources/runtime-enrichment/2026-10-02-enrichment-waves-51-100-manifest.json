@@ -5,22 +5,25 @@
     "input_files": [
       "ops/enrichment-submissions/reconciliation/2026-09-10-enrichment-batch-23.md",
       "ops/enrichment-submissions/reconciliation/2026-09-06-full-corpus-inventory.md",
-      "ops/enrichment-submissions/reconciliation/2026-10-02-enrichment-waves-51-100-selection.json"
+      "ops/enrichment-submissions/reconciliation/2026-10-02-enrichment-waves-51-100-selection.json",
+      "ops/enrichment/research-batch-2026-09-20-07.json",
+      "ops/enrichment/research-batch-2026-09-20-08.json",
+      "ops/enrichment/research-batch-2026-09-20-09.json"
     ],
-    "review_note": "Batch-first materialization of Waves 51-100 from already-vetted reconciliation receipts. The duplicate Saw Palmetto receipt sharing PMID 17556649 and already-canonical elderberry PMID 30670267 were excluded; two vetted Sage human-evidence receipts filled those slots. Claims retain negative/null findings, preparation/species boundaries, prevention-vs-treatment distinctions, surrogate-outcome limits, and safety/interaction context. During canonical entity validation, Pelargonium PMID 19435703 was excluded because pelargonium-sidoides is not an accepted Entity_Master slug; vetted Rhodiola endurance PMID 41080184 replaced that wave. Final admission audit confirmed Rhodiola PMID 41080184 already existed canonically, so Wave 66 is retained as a completed dedupe/reconciliation wave but contributes no duplicate runtime row."
+    "review_note": "Batch-first materialization of Waves 51-100 from already-vetted reconciliation receipts. The duplicate Saw Palmetto receipt sharing PMID 17556649 and already-canonical elderberry PMID 30670267 were excluded; two vetted Sage human-evidence receipts filled those slots. Claims retain negative/null findings, preparation/species boundaries, prevention-vs-treatment distinctions, surrogate-outcome limits, and safety/interaction context. During canonical entity validation, Pelargonium PMID 19435703 was excluded because pelargonium-sidoides is not an accepted Entity_Master slug; vetted Rhodiola endurance PMID 41080184 replaced that wave. Final admission audit confirmed Rhodiola PMID 41080184 already existed canonically, so Wave 66 is retained as a completed dedupe/reconciliation wave but contributes no duplicate runtime row. Thirty additional reviewed receipts from concurrently staged 71-100 mini-batches were folded into this single authoritative ledger before validation; overlapping mini-manifests are superseded."
   },
   "counts": {
     "entity_context_rows": 0,
-    "evidence_rows": 49,
-    "source_rows": 49,
+    "evidence_rows": 79,
+    "source_rows": 79,
     "relationship_rows": 0
   },
   "wave_coverage": {
     "first_wave": 51,
     "last_wave": 100,
     "completed_waves": 50,
-    "evidence_records": 49,
-    "unique_source_records": 49
+    "evidence_records": 79,
+    "unique_source_records": 79
   },
   "policy": {
     "entity_creation": "forbidden",
@@ -33,13 +36,13 @@
   },
   "ledger": {
     "file": "2026-10-02-enrichment-waves-51-100.json",
-    "sha256": "e5c6752d93bb0f24dc4fa567bb28d64995f3560eac3bfd74773b75ffeecec1ce",
-    "bytes": 72361
+    "sha256": "f3f546885b1a7c4f43d2cb3314c706ba93bf6b8d574abc7569cde86f89b7ea3d",
+    "bytes": 137719
   },
   "admission": {
-    "evidence_additions": 49,
+    "evidence_additions": 79,
     "evidence_corrections": 0,
-    "source_additions": 49,
+    "source_additions": 79,
     "source_corrections": 0
   }
 }
