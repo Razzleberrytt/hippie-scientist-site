@@ -10,39 +10,39 @@
       "ops/enrichment/research-batch-2026-09-20-08.json",
       "ops/enrichment/research-batch-2026-09-20-09.json"
     ],
-    "review_note": "Batch-first materialization of Waves 51-100 from already-vetted reconciliation receipts. The duplicate Saw Palmetto receipt sharing PMID 17556649 and already-canonical elderberry PMID 30670267 were excluded; two vetted Sage human-evidence receipts filled those slots. Claims retain negative/null findings, preparation/species boundaries, prevention-vs-treatment distinctions, surrogate-outcome limits, and safety/interaction context. During canonical entity validation, Pelargonium PMID 19435703 was excluded because pelargonium-sidoides is not an accepted Entity_Master slug; vetted Rhodiola endurance PMID 41080184 replaced that wave. Final admission audit confirmed Rhodiola PMID 41080184 already existed canonically, so Wave 66 is retained as a completed dedupe/reconciliation wave but contributes no duplicate runtime row. Thirty additional reviewed receipts from concurrently staged 71-100 mini-batches were folded into this single authoritative ledger before validation; overlapping mini-manifests are superseded."
+    "review_note": "Waves 51-100 are complete as a batch-first research and reconciliation pass. Final publication-quality review withheld 49 receipt-only rows whose population and supported-claim fields still contained editorial placeholders rather than source-specific reader-ready evidence. Those receipts remain documented in the selection/journal for later materialization. The authoritative runtime ledger admits only 30 fully materialized evidence rows with explicit population/outcome boundaries and matching source records. Duplicate or noncanonical identities remain excluded, including elderberry PMID 30670267, Pelargonium PMID 19435703, and already-canonical Rhodiola PMID 41080184."
   },
   "counts": {
     "entity_context_rows": 0,
-    "evidence_rows": 79,
-    "source_rows": 79,
+    "evidence_rows": 30,
+    "source_rows": 30,
     "relationship_rows": 0
   },
   "wave_coverage": {
     "first_wave": 51,
     "last_wave": 100,
     "completed_waves": 50,
-    "evidence_records": 79,
-    "unique_source_records": 79
+    "evidence_records": 30,
+    "unique_source_records": 30
   },
   "policy": {
     "entity_creation": "forbidden",
     "governance_override": "forbidden",
     "publication_promotion": "forbidden",
     "recommendation_promotion": "forbidden",
-    "evidence_merge": "append-only; canonical entity+PMID duplicates excluded before materialization",
-    "claim_calibration": "retain negative/null evidence, uncertainty, endpoint distinctions, species/formulation/population limits, and safety/interaction context",
+    "evidence_merge": "append-only; only source-specific reader-ready rows are runtime-materialized; receipt-only placeholders remain research documentation",
+    "claim_calibration": "retain negative/null evidence, uncertainty, endpoint distinctions, species/formulation/population limits, safety/interaction context, and source-specific reader-facing claim language",
     "verification_strategy": "batch-first; run admission audit and full repository gates only after Waves 51-100 consolidation"
   },
   "ledger": {
     "file": "2026-10-02-enrichment-waves-51-100.json",
-    "sha256": "f3f546885b1a7c4f43d2cb3314c706ba93bf6b8d574abc7569cde86f89b7ea3d",
-    "bytes": 137719
+    "sha256": "e40349a98c3f38ee53014a4114c3b8b83673356dcac7cf260255421910bc0533",
+    "bytes": 65441
   },
   "admission": {
-    "evidence_additions": 79,
+    "evidence_additions": 30,
     "evidence_corrections": 0,
-    "source_additions": 79,
+    "source_additions": 30,
     "source_corrections": 0
   }
 }
