@@ -10,20 +10,20 @@
       "ops/enrichment-submissions/reconciliation/2026-09-10-enrichment-batch-25.md",
       "Current PubMed-linked references already curated in site content"
     ],
-    "review_note": "Batch-first consolidation of enrichment Waves 1-50. The batch contains 121 net-new evidence rows plus 2 reviewed same-identity evidence corrections; duplicate source identities already present in earlier enrichment were removed. Findings preserve null/mixed outcomes, certainty, population/formulation boundaries, safety/interaction context, and fail-closed correction semantics."
+    "review_note": "Batch-first consolidation of enrichment Waves 1-50 after cross-batch admission audit. Rows already present in the canonical workbook or earlier enrichment were removed instead of being silently discarded. The retained batch contains 83 net-new evidence additions plus 2 reviewed same-identity evidence corrections and 79 net-new source identities."
   },
   "counts": {
     "entity_context_rows": 0,
-    "evidence_rows": 123,
-    "source_rows": 93,
+    "evidence_rows": 85,
+    "source_rows": 79,
     "relationship_rows": 0
   },
   "wave_coverage": {
     "first_wave": 1,
     "last_wave": 50,
     "completed_waves": 50,
-    "evidence_records": 123,
-    "unique_source_records": 93
+    "evidence_records": 85,
+    "unique_source_records": 79
   },
   "policy": {
     "entity_creation": "forbidden",
@@ -35,13 +35,15 @@
   },
   "ledger": {
     "file": "2026-10-02-enrichment-waves-01-50.json",
-    "sha256": "385a6230011eb339f26b6c186f5f8852b7479b39519d1089efa0fb3c675f4b95",
-    "bytes": 196341
+    "sha256": "838659b5a6e8d27198cb984d54f38d06648abf75395e62d475211ef5398bfb29",
+    "bytes": 146707
   },
   "admission": {
-    "evidence_additions": 121,
+    "evidence_additions": 83,
     "evidence_corrections": 2,
-    "source_additions": 93,
-    "source_corrections": 0
+    "source_additions": 79,
+    "source_corrections": 0,
+    "already_present_evidence_omitted": 38,
+    "already_present_sources_omitted": 14
   }
 }
