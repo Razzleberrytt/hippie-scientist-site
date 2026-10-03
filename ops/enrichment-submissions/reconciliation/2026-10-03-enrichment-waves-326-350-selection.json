@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-326-350-selection",
+  "continuation_of": "2026-10-03-enrichment-waves-301-325-selection",
+  "program": {
+    "range": "301-500",
+    "pass_size": 25,
+    "target_findings": 200,
+    "progress_after_pass": 50,
+    "merge_policy": "accumulate eight 25-finding passes; consolidate, admit, validate, and merge once after 200"
+  },
+  "source_provenance": [
+    "ops/enrichment/research-batch-2026-09-12-03b.json",
+    "ops/enrichment/research-batch-2026-09-12-04a.json",
+    "ops/enrichment/research-batch-2026-09-12-04b.json",
+    "ops/enrichment/research-batch-2026-09-12-05a.json",
+    "ops/enrichment/research-batch-2026-09-12-05b.json",
+    "ops/enrichment/research-batch-2026-09-12-06.json",
+    "ops/enrichment/research-batch-2026-09-20-07.json",
+    "ops/enrichment/research-batch-2026-09-20-08.json",
+    "ops/enrichment/research-batch-2026-09-20-09.json",
+    "ops/enrichment/research-batch-2026-09-20-10.json"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "validation_strategy": "cheap duplicate/entity screening during authoring; expensive repository-wide validation only after Wave 500"
+  },
+  "waves": [
+    {
+      "wave": 326,
+      "entity_slug": "curcumin",
+      "pmid": "38857152",
+      "focus": "Eight-RCT anxiety meta-analysis (567 participants); pooled symptom signal with very high heterogeneity, so direction and certainty remain separate.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 327,
+      "entity_slug": "curcumin",
+      "pmid": "40308636",
+      "focus": "2025 nine-RCT cognition meta-analysis (501 participants); global-cognition signal concentrated in longer studies and adults 60+, making duration and age explicit modifiers.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 328,
+      "entity_slug": "nigella-sativa",
+      "pmid": "40714301",
+      "focus": "2025 GRADE synthesis of 82 RCTs/5,026 participants; cardiometabolic biomarker signals across widely varying forms, doses and durations; surrogate-outcome boundary retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 329,
+      "entity_slug": "nigella-sativa",
+      "pmid": "41112345",
+      "focus": "2025 pediatric systematic review of 15 trials; no significant pooled side-effect increase but limited pediatric evidence and no established pediatric dose/formulation inference.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 330,
+      "entity_slug": "ginger",
+      "pmid": "41123858",
+      "focus": "2025 GRADE meta-analysis of 29 RCTs; CRP/TNF-alpha/IL-6 and oxidative-stress biomarker improvements, not direct proof of disease prevention or treatment.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 331,
+      "entity_slug": "ginger",
+      "pmid": "41101746",
+      "focus": "2025 36-RCT GRADE review; waist/body-fat and adiponectin signals while body weight/BMI were null—explicit counterweight to broad weight-loss claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 332,
+      "entity_slug": "cranberry",
+      "pmid": "41704730",
+      "focus": "2026 inflammation meta-analysis; overall CRP and IL-6 null with high heterogeneity plus subgroup increases in CRP/IL-6 in selected populations/formulations.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 333,
+      "entity_slug": "milk-thistle",
+      "pmid": "41199840",
+      "focus": "2025 network meta-analysis of 18 RCTs/2,177 breast-cancer patients; silymarin signal for grade >=2 radiation dermatitis but no superiority for severe grade >=3 dermatitis.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 334,
+      "entity_slug": "cranberry",
+      "pmid": "42137440",
+      "focus": "2026 ten-study synthesis; BMI signal with body-weight/waist nulls and overall liver-enzyme nulls, including subgroup AST increase requiring caution.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 335,
+      "entity_slug": "fenugreek",
+      "pmid": "42514462",
+      "focus": "2026 50-RCT systematic review; glycemic effects more consistent than body-weight/BMI effects, with substantial heterogeneity across seed powder, seed extract and leaf extract.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 336,
+      "entity_slug": "panax-ginseng",
+      "pmid": "40646515",
+      "focus": "2025 vascular and GRADE syntheses; FMD/NO/PWV and selected inflammatory/adiponectin signals, augmentation-index and anthropometric nulls retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 337,
+      "entity_slug": "chamomile",
+      "pmid": "40665590",
+      "focus": "2025 oral/mucosal-health systematic review; mucositis/pain/inflammation signals with antimicrobial and gingival-index nulls and limited trial counts.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 338,
+      "entity_slug": "curcumin",
+      "pmid": "40105038",
+      "focus": "2025 14-RCT meta-analysis in postmenopausal women; BP, antioxidant-capacity and vasomotor findings remain population-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 339,
+      "entity_slug": "curcumin",
+      "pmid": "40579315",
+      "focus": "2025 cognition synthesis; global cognition null despite working-memory/processing-speed subgroup signals, plus higher adverse-event incidence versus controls.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 340,
+      "entity_slug": "saffron",
+      "pmid": "37484523",
+      "focus": "Sleep systematic review of five trials/379 participants; preliminary duration/quality signals with a small evidence base.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 341,
+      "entity_slug": "curcumin",
+      "pmid": "41211694",
+      "focus": "2026 T2D-specific body-composition review; weight/BMI/waist evidence stays diabetes-population specific pending exact quantitative extraction.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 342,
+      "entity_slug": "curcumin",
+      "pmid": "42005325",
+      "focus": "2026 34-RCT dose-response meta-analysis in prediabetes/T2D; glucose/HbA1c/insulin/HOMA-IR signals with HOMA-B null and formulation/health-status modifiers.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 343,
+      "entity_slug": "ginger",
+      "pmid": "42178586",
+      "focus": "2026 umbrella review of 36 publications/296 trials/43,570 participants; CRP/IL-6 and oxidative-stress consistency is biomarker-level, not clinical-outcome proof.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 344,
+      "entity_slug": "ashwagandha",
+      "pmid": "42356302",
+      "focus": "2026 exercise meta-analysis of 13 RCTs/599 participants; objective performance evidence concentrated in young/athletic populations.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 345,
+      "entity_slug": "magnesium",
+      "pmid": "41000008",
+      "focus": "38-RCT BP meta-analysis/2,709 participants; modest SBP/DBP reductions with stronger hypertensive/hypomagnesemic subgroup signals, normotensive null and no clear dose-response.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 346,
+      "entity_slug": "berberine",
+      "pmid": "40740996",
+      "focus": "Placebo-controlled metabolic-syndrome meta-analysis; TG/FPG/waist/LDL/TC signals with HDL and BP nulls, short-duration differences and no excess pooled safety signal.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 347,
+      "entity_slug": "melatonin",
+      "pmid": "41014554",
+      "focus": "2026 scoping review of 57 reviews/227 meta-analyses; most inactive-comparator syntheses favored melatonin but methodology quality and sleep-outcome definitions were highly variable.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 348,
+      "entity_slug": "creatine",
+      "pmid": "41558805",
+      "focus": "2026 psychiatric systematic review; five RCTs, all adjunctive and short term, with one strong MDD augmentation signal, other null trials, and hypomania/mania safety events in a small subset.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 349,
+      "entity_slug": "ginkgo-biloba",
+      "pmid": "41641880",
+      "focus": "2026 Cochrane review of 82 studies/10,613 participants; small low-certainty dementia signals, little/no effect in MCI, and overall adverse-event rates near placebo.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 350,
+      "entity_slug": "zingiberaceae",
+      "pmid": "42199754",
+      "focus": "2026 18-RCT cognition review spanning curcumin/turmeric/ginger; memory signal but executive/global/attention nulls and very uncertain heterogeneous evidence; category-level only.",
+      "state": "research_only_category_firewall"
+    }
+  ]
+}

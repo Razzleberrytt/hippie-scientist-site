@@ -1,0 +1,46 @@
+# Research enrichment Waves 451–475 — 2026-10-03
+
+Pass 7 of the second 200-finding continuation program (Waves 301–500).
+
+## Operating rule
+
+This pass reconciles previously canonical human evidence into the enrichment-wave research/admission ledger. It does not claim that the publications themselves are newly discovered.
+
+Priority is meta-analysis/systematic-review evidence first, followed by newer/diverse randomized human evidence. Preserve exact intervention identity, formulation, population, comparator, outcome, null/mixed findings, adverse-event context and source-attribution boundaries. No entity creation, governance override, publication/indexing promotion, recommendation promotion, monetization mutation or consumer-dose inference is authorized.
+
+Full admission/runtime/build/site-health/Atomic/CI verification remains deferred until Wave 500.
+
+## Pass 7 — Waves 451–475
+
+1. **andrographis — PMID 15095142** — systematic-review human evidence covering immunity; immunity, inflammation. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+2. **devils-claw — PMID 11406863** — systematic-review human evidence covering pain, inflammation. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+3. **gaba — PMID 41554764** — Source-integrity firewall: this record is a specific probiotic/GABA-producing sleep intervention and must not be converted into evidence for generic oral GABA.
+4. **boswellia — PMID 40554037** — randomized human evidence covering osteoarthritis_pain. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+5. **citrulline-malate — PMID 39408204** — randomized human evidence covering blood_flow, performance. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+6. **fucoxanthin — PMID 37405785** — randomized human evidence covering metabolic_syndrome. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+7. **banaba-leaf-extract — PMID 34726501** — randomized human evidence covering metabolic_syndrome. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+8. **astaxanthin — PMID 34376917** — randomized human evidence covering eye_health, inflammation. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+9. **citicoline — PMID 33978188** — randomized human evidence covering focus, cognition. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+10. **boswellia — PMID 32848497** — randomized human evidence covering joints, inflammation. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+11. **ashwagandha — PMID 32540634** — randomized human evidence covering sleep_quality. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+12. **passionflower-extract — PMID 31714321** — randomized human evidence covering sleep_parameters. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+13. **beta-glucans — PMID 30198828** — randomized human evidence covering immunity, heart_health. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+14. **magnesium — PMID 29679349** — randomized human evidence covering stress_response. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+15. **arabinoxylan — PMID 29456638** — randomized human evidence covering immunity. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+16. **saffron-extract — PMID 28735826** — randomized human evidence covering negative_mood. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+17. **milk-thistle — PMID 28419855** — randomized human evidence covering nash_histology. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+18. **fenugreek — PMID 28266134** — randomized human evidence covering metabolism, testosterone. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+19. **uc-ii-collagen — PMID 27551171** — randomized human evidence covering knee_osteoarthritis. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+20. **ashwagandha — PMID 26609282** — randomized human evidence covering stress_response; strength_output. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+21. **shilajit — PMID 26395129** — randomized human evidence covering energy, testosterone. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+22. **probiotics — PMID 25808252** — randomized human evidence covering anxiety_score. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+23. **turmeric — PMID 24672232** — randomized human evidence covering pain. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+24. **vitamin-d — PMID 24191306** — randomized human evidence covering mood. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+25. **uc-ii-collagen — PMID 24153020** — randomized human evidence covering joints, inflammation. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.
+
+## Pass disposition
+
+- Findings selected: **25 / 25**
+- Program progress: **175 / 200**
+- Source identities were unused by prior enrichment waves.
+- Runtime/public promotion remains deferred until final Wave-500 consolidation.
