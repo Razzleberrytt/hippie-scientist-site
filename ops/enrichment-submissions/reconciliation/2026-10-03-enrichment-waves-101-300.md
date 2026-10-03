@@ -38,3 +38,8 @@ The consolidated run preserves:
 7. Merge only after the required final head is clean.
 
 Research-only, product-level, unresolved-entity, combination-only, correction-only, and cross-entity safety receipts remain durable research records rather than being forced into generic public claims.
+
+
+## Exact-head validation note
+
+After automatic synchronization with current `main`, this consolidation receives a normal branch commit so required pull-request workflows execute against the current enrichment head rather than stopping in GitHub's `action_required` state for the bot-authored sync commit.
