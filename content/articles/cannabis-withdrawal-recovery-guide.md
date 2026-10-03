@@ -193,6 +193,18 @@ references:
     year: "2008"
     pmid: "17643868"
     url: "https://pubmed.ncbi.nlm.nih.gov/17643868/"
+  - title: "High-Potency Cannabis Use and Health: A Systematic Review of Observational and Experimental Studies"
+    authors: "Lake S, Murray CH, Henry B, et al."
+    year: "2025"
+    pmid: "40134269"
+    doi: "10.1176/appi.ajp.20240269"
+    url: "https://pubmed.ncbi.nlm.nih.gov/40134269/"
+  - title: "Cannabinoid hyperemesis syndrome: A review"
+    authors: "Jiménez-Castillo RA, Arumugam S, Remes-Troche JM, Venkatesan T"
+    year: "2025"
+    pmid: "40517066"
+    doi: "10.1016/j.rgmxen.2025.02.002"
+    url: "https://pubmed.ncbi.nlm.nih.gov/40517066/"
 ---
 
 Cannabis withdrawal is a **real, clinically recognized syndrome** that can follow abrupt cessation or a major reduction in frequent THC exposure. It is usually uncomfortable rather than medically dangerous. The most common symptoms are irritability or anger, anxiety, restlessness, disturbed sleep and vivid dreaming, depressed mood, reduced appetite, and craving. Headache, sweating, chills, shakiness, physical tension, and stomach discomfort can also occur [1–4].
@@ -201,7 +213,7 @@ A large meta-analysis estimated that cannabis withdrawal syndrome occurs in roug
 
 The typical syndrome starts within **24–48 hours**, often peaks around **days 2–6**, and improves over the following one to three weeks. Heavy daily users can have sleep, mood, appetite, or craving symptoms that persist longer [1,3]. Recovery is not a universal THC-clearance clock, and there is no scientifically validated day when everyone’s endocannabinoid system is “reset.”
 
-## The short answer
+## Executive summary
 
 - Cannabis withdrawal is most likely after frequent, prolonged THC exposure is stopped or sharply reduced.
 - Symptoms usually begin within one to two days and are often strongest during the first week [1,3].
@@ -212,7 +224,7 @@ The typical syndrome starts within **24–48 hours**, often peaks around **days 
 - Medication trials have produced useful symptom signals, but no drug has become a reliably effective, broadly approved CUD treatment [8–10,15–20].
 - Withdrawal management and long-term recovery are not the same job.
 
-## Emergency and do-not-miss symptoms
+## Do-not-miss: symptoms that need urgent evaluation
 
 Cannabis withdrawal by itself is not usually a seizure-delirium syndrome like severe alcohol or benzodiazepine withdrawal. Still, some presentations should not be managed as “just weed withdrawal.”
 
@@ -361,6 +373,8 @@ Vape devices can make repeated dosing easy and discreet. A person may use small 
 
 Oral THC has slower onset and longer-lasting effects, with substantial interindividual variability. The lag between ingestion and peak effect changes intoxication dynamics, but current evidence does not support an “edible withdrawal syndrome” with its own universally distinct timeline.
 
+A 2025 systematic review of high-potency cannabis found suggestive associations between higher-potency exposure and problematic cannabis use/CUD outcomes, while emphasizing that the underlying evidence was largely observational and overall certainty was very low [29]. That supports taking potency seriously without pretending that concentrate percentage alone predicts a person's withdrawal severity or duration.
+
 The safest conclusion is that **frequency, cumulative exposure, product potency, and individual susceptibility matter more than the marketing category alone**.
 
 ## CBD is not the same exposure as THC
@@ -385,7 +399,9 @@ Cannabis withdrawal syndrome (CWS) and cannabinoid hyperemesis syndrome (CHS) ca
 
 **CHS** is characterized by recurrent severe nausea, vomiting, and abdominal pain associated with chronic cannabis exposure. Symptoms often drive emergency-department visits and can cause dehydration or electrolyte problems.
 
-A person with repeated vomiting should not assume it is simply a normal withdrawal symptom—especially if vomiting is severe, persistent, or preventing hydration.
+A 2025 CHS review describes the syndrome as recurrent disabling vomiting associated with chronic heavy cannabis exposure and emphasizes sustained cannabis cessation as central to long-term resolution [30]. CHS can be diagnostically difficult because cyclic vomiting and other gastrointestinal disorders can look similar.
+
+A person with repeated vomiting should not assume it is simply a normal withdrawal symptom—especially if vomiting is severe, persistent, or preventing hydration. Conversely, mild nausea during withdrawal does not by itself establish CHS.
 
 ## Cannabis plus tobacco: overlapping withdrawals
 
@@ -644,7 +660,9 @@ The safer approach is supportive cessation care with pregnancy-aware clinical fo
 
 Modern products can contain much higher THC concentrations than historical cannabis.
 
-Higher potency can increase intoxication intensity and may support faster tolerance or more severe dependence in some patterns of use. But the evidence does not permit a simple rule such as “80% THC means twice as long a withdrawal.”
+Higher potency can increase intoxication intensity and may support greater tolerance or more problematic patterns of use in some people. A 2025 systematic review found the most consistent signal in the “problem cannabis use” domain, but certainty was very low and much of the evidence was cross-sectional [29]. It therefore does **not** establish a direct potency-to-withdrawal-severity equation.
+
+The evidence does not permit a simple rule such as “80% THC means twice as long a withdrawal.”
 
 Exposure depends on:
 
@@ -801,7 +819,8 @@ Withdrawal-associated psychosis appears possible but rare [21]. In people with p
 | Contingency management improves abstinence-related outcomes | Moderate to high | 2024 systematic review/meta-analysis [13] | Program design and durability vary |
 | Withdrawal-associated psychosis can occur | Low but clinically important | Systematic review/case series [21] | Rare; evidence is mostly case-level/observational |
 | Continued cannabis use after psychosis worsens relapse outcomes | Moderate | Systematic review/meta-analysis [22] | Observational confounding remains possible |
-| CHS and cannabis withdrawal are the same syndrome | Unsupported | ED review [23] | They can overlap in chronic users but have different patterns |
+| Higher-potency cannabis is associated with more problematic cannabis-use outcomes | Low to moderate signal | 2025 systematic review [29] | Overall certainty was very low; this does not prove a potency-to-withdrawal timeline |
+| CHS and cannabis withdrawal are the same syndrome | Unsupported | ED review and 2025 CHS review [23,30] | They can occur in the same chronic user but have different patterns and management implications |
 
 ## Evidence gaps
 
