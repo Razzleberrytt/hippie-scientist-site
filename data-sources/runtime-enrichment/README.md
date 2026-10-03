@@ -159,14 +159,14 @@ The bulk ledger is hash-pinned at `b78a5876ef232d25b5591a50c3b5e94737372127d5d4c
 
 - Ledger: `2026-10-03-enrichment-waves-51-100.json`
 - Manifest: `2026-10-03-enrichment-waves-51-100-manifest.json`
-- 77 evidence rows
-- 76 unique source identities
+- 85 unique evidence rows after entity/source identity dedupe
+- 84 unique source identities
 - 50 completed waves
 - 0 entity-context rows
 - 0 relationships
 - 0 publishing/indexing/recommendation/monetization changes
-- Coverage emphasizes sleep/neurochemistry, metabolic health, cognition, micronutrients, performance, GI/urologic evidence, musculoskeletal evidence, formulation/strain identity, source-integrity corrections, null findings, and safety counterweights.
-- The ledger is hash-pinned at `8629547618c263f8141875a759e3aea839c977f7bec3ae6bbc91d7635d80a05a`.
+- Coverage emphasizes sleep/neurochemistry, metabolic health, cognition, micronutrients, performance, GI/urologic evidence, musculoskeletal evidence, formulation/strain identity, citation-integrity corrections, null findings, and safety counterweights.
+- The ledger is hash-pinned at `7ec6fca0618a4fab16fa93d6954d79db19cede8289412907af7f7d728fd632ea`.
 
 Heavy repository-wide verification is intentionally deferred until the entire Waves 51–100 batch is ready as one unit.
 
