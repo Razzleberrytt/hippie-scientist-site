@@ -42,7 +42,7 @@ sitemap_included: true
 ai_assisted: true
 references:
   - title: "Medications for Opioid Use Disorder, Opioid Withdrawal, and Opioid Overdose: A Review"
-    authors: "JAMA review"
+    authors: "Harris MTH, Weinstein ZM, Walley AY"
     year: "2026"
     pmid: "41671014"
     url: "https://pubmed.ncbi.nlm.nih.gov/41671014/"
@@ -132,7 +132,7 @@ references:
     year: "2017"
     url: "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/08/opioid-use-and-opioid-use-disorder-in-pregnancy"
   - title: "Trends in Tramadol: Pharmacology, Metabolism, and Misuse"
-    authors: "Grond S, Sablotzki A"
+    authors: "Miotto K, Cho AK, Khalil MA, Blanco K, Sasaki JD, Rawson R"
     year: "2017"
     pmid: "27861439"
     url: "https://pubmed.ncbi.nlm.nih.gov/27861439/"
