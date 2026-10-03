@@ -127,7 +127,7 @@ const DESIGNER_BENZOS = [
     desc: 'Current North American forensic trends, counterfeit-tablet context, and frequent fentanyl co-detection.',
   },
   {
-    href: '/articles/clobromazolam-phenazolam/',
+    href: '/articles/phenazolam/',
     title: 'Phenazolam / Clobromazolam',
     desc: 'An emerging 2025–2026 signal with Australian emergency detections and rising U.S. forensic prevalence.',
   },
