@@ -15,13 +15,14 @@ This journal records the batch-first enrichment pass requested for The Hippie Sc
 
 - Waves completed: **50 / 50**
 - Canonical consolidated ledger: `data-sources/runtime-enrichment/2026-10-02-enrichment-waves-01-50.json`
-- Unique evidence records after last-revision dedupe: **123**
-- Unique source records after PMID/source-ID dedupe: **95**
+- Reviewed evidence records in the batch: **123** (**121 net-new additions + 2 reviewed same-identity corrections**)
+- Net-new source identities after cross-batch dedupe: **93**
 - Duplicate retry revisions removed during consolidation: **17**
 - New entity-context rows: 0
 - New relationship rows: 0
 - Governance/indexing/recommendation/monetization fields changed by the ledger: 0
-- Full repository verification: **deferred until the final consolidated pass**
+- Admission semantics: corrections replace earlier enrichment evidence fail-closed; duplicate source identities are omitted rather than silently discarded
+- Full repository verification: **running on the final consolidated pass**
 
 ## Batch rule
 
