@@ -143,7 +143,50 @@ const EMERGING = [
   },
 ]
 
-const HUB_ITEMS = [...START_HERE, ...KRATOM_CLUSTER, ...DEPENDENCE, ...EMERGING]
+const RESEARCH_CHEMICALS = [
+  {
+    href: '/articles/research-chemicals-nps-guide/',
+    title: 'Research Chemicals & NPS Evidence Map',
+    desc: 'Start here for designer benzos, cathinones, dissociatives, psychedelics, nitazenes, synthetic cannabinoids, and benzofuran entactogens.',
+  },
+  {
+    href: '/articles/designer-benzodiazepines-research-chemicals/',
+    title: 'Designer Benzodiazepines',
+    desc: 'Bromazolam, clonazolam, flualprazolam and related RC benzos: counterfeit pills, blackouts, dependence, withdrawal, and toxicology.',
+  },
+  {
+    href: '/articles/synthetic-cathinones-rc-stimulants/',
+    title: 'Synthetic Cathinones & RC Stimulants',
+    desc: 'NEP, alpha-PiHP, MDPHP and related stimulants: cardiovascular toxicity, psychosis, seizures, and compulsive-use risk.',
+  },
+  {
+    href: '/articles/rc-dissociatives-ketamine-pcp-analogues/',
+    title: 'RC Dissociatives',
+    desc: '2F-DCK, DCK, O-PCE, FXE, DMXE and PCP/PCE analogues, separated by the strength of their actual human evidence.',
+  },
+  {
+    href: '/articles/rc-psychedelics-tryptamines-lysergamides/',
+    title: 'RC Psychedelics',
+    desc: '1P-LSD, 4-AcO-DMT, 5-MeO-MiPT and other lysergamides/tryptamines, with human evidence kept separate from assumptions.',
+  },
+  {
+    href: '/articles/nitazene-opioids/',
+    title: 'Nitazene Opioids',
+    desc: 'Isotonitazene, protonitazene, metonitazene and related high-potency synthetic opioids, overdose risk, naloxone, and testing gaps.',
+  },
+  {
+    href: '/articles/synthetic-cannabinoids-spice/',
+    title: 'Synthetic Cannabinoids / Spice',
+    desc: 'Modern high-potency SCRAs such as MDMB-4en-PINACA and ADB-BUTINACA, including seizures, coma, psychosis, and hidden exposure.',
+  },
+  {
+    href: '/articles/benzofurans-entactogens/',
+    title: 'Benzofurans & RC Entactogens',
+    desc: '6-APB, 5-APB, 5-MAPB and related serotonergic stimulants, with toxicity and product-identity limits.',
+  },
+]
+
+const HUB_ITEMS = [...START_HERE, ...KRATOM_CLUSTER, ...DEPENDENCE, ...RESEARCH_CHEMICALS, ...EMERGING]
 
 function Card({ href, title, desc }: { href: string; title: string; desc: string }) {
   return (
@@ -252,6 +295,19 @@ export default function SubstanceUseHub() {
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {DEPENDENCE.map((item) => <Card key={item.href} {...item} />)}
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <div className="max-w-3xl">
+          <p className="eyebrow-label">Research chemicals & NPS</p>
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink">Know the class before trusting the label</h2>
+          <p className="mt-3 text-muted">
+            These pages organize rapidly changing research-chemical markets by pharmacology and verified toxicology. Reddit and forum reports are used as discovery signals, while claims about identity, toxicity, and deaths are grounded in analytical, clinical, forensic, poison-center, and regulatory evidence.
+          </p>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2">
+          {RESEARCH_CHEMICALS.map((item) => <Card key={item.href} {...item} />)}
         </div>
       </section>
 
