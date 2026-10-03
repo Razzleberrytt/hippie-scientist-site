@@ -222,11 +222,11 @@ describe('manifest-backed additive enrichment ledgers', () => {
       'moderate certainty by GRADE',
     )
 
-    const clean = (value: unknown) => String(value ?? '').replace(/\\s+/g, ' ').trim()
+    const clean = (value: unknown) => String(value ?? '').replace(/\s+/g, ' ').trim()
     const slug = (value: unknown) => clean(value)
       .toLowerCase()
       .normalize('NFKD')
-      .replace(/[\\u0300-\\u036f]/g, '')
+      .replace(/[\u0300-\u036f]/g, '')
       .replace(/&/g, ' and ')
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/-+/g, '-')
