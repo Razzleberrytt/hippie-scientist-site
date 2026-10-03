@@ -14,7 +14,7 @@ import {
 const HUB_PATH = '/guides/substance-use'
 const HUB_TITLE = 'Substance Use, Withdrawal & Recovery — Evidence Hub'
 const HUB_DESCRIPTION =
-  'Evidence-based guides on dependence, withdrawal, recovery, alcohol, benzodiazepines, opioids, kratom-derived opioids, emerging substances, and harm-reduction research.'
+  'Evidence-based guides on dependence, withdrawal, recovery, alcohol, benzodiazepines, opioids, kratom-derived opioids, research chemicals, novel psychoactive substances, tianeptine, and harm-reduction research.'
 const REVIEW_DATE = '2026-10-03'
 
 export const metadata: Metadata = {
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   twitter: buildTwitterMetadata({
     title: HUB_TITLE,
     description:
-      'Research-first coverage of dependence, withdrawal, recovery, alcohol, opioids, emerging substances, and harm reduction.',
+      'Research-first coverage of dependence, withdrawal, recovery, alcohol, opioids, emerging substances, research chemicals, and harm reduction.',
   }),
 }
 
@@ -96,6 +96,11 @@ const KRATOM_CLUSTER = [
     desc: 'A potent semi-synthetic kratom-derived opioid with very limited human safety data.',
   },
   {
+    href: '/articles/mgm-16/',
+    title: 'MGM-16',
+    desc: 'A fluorinated 7-OH/MGM-15 derivative with potent preclinical opioid activity, no established human dose, and current federal Schedule I status.',
+  },
+  {
     href: '/articles/mitragynine-pseudoindoxyl/',
     title: 'Mitragynine Pseudoindoxyl',
     desc: 'A potent kratom metabolite/derivative with emerging human withdrawal case reports and major product-quality uncertainty.',
@@ -153,7 +158,75 @@ const EMERGING = [
   },
 ]
 
-const HUB_ITEMS = [...START_HERE, ...KRATOM_CLUSTER, ...DEPENDENCE, ...EMERGING]
+const RESEARCH_CHEMICALS = [
+  {
+    href: '/articles/research-chemicals-nps-guide/',
+    title: 'Research Chemicals & NPS Evidence Map',
+    desc: 'Start here for designer benzos, cathinones, dissociatives, psychedelics, nitazenes, synthetic cannabinoids, and benzofuran entactogens.',
+  },
+  {
+    href: '/articles/designer-benzodiazepines-research-chemicals/',
+    title: 'Designer Benzodiazepines',
+    desc: 'Bromazolam, clonazolam, flualprazolam and related RC benzos: counterfeit pills, blackouts, dependence, withdrawal, and toxicology.',
+  },
+  {
+    href: '/articles/synthetic-cathinones-rc-stimulants/',
+    title: 'Synthetic Cathinones & RC Stimulants',
+    desc: 'NEP, alpha-PiHP, MDPHP and related stimulants: cardiovascular toxicity, psychosis, seizures, and compulsive-use risk.',
+  },
+  {
+    href: '/articles/non-cathinone-rc-stimulants/',
+    title: 'Other RC Stimulants',
+    desc: '4F-MPH, 3-FPM and related non-cathinone stimulants, with clinical poisonings kept separate from online “functional stimulant” claims.',
+  },
+  {
+    href: '/articles/rc-dissociatives-ketamine-pcp-analogues/',
+    title: 'RC Dissociatives',
+    desc: '2F-DCK, DCK, O-PCE, FXE, DMXE and PCP/PCE analogues, separated by the strength of their actual human evidence.',
+  },
+  {
+    href: '/articles/rc-psychedelics-tryptamines-lysergamides/',
+    title: 'RC Psychedelics',
+    desc: '1P-LSD, 4-AcO-DMT, 5-MeO-MiPT and other lysergamides/tryptamines, with human evidence kept separate from assumptions.',
+  },
+  {
+    href: '/articles/nitazene-opioids/',
+    title: 'Nitazene Opioids',
+    desc: 'Isotonitazene, protonitazene, metonitazene and related high-potency synthetic opioids, overdose risk, naloxone, and testing gaps.',
+  },
+  {
+    href: '/articles/designer-synthetic-opioids-beyond-nitazenes/',
+    title: 'Designer Opioids Beyond Nitazenes',
+    desc: 'U-47700, brorphine and AP-237/AP-238 analogues: respiratory depression, fatal casework, counterfeit products, naloxone and testing gaps.',
+  },
+  {
+    href: '/articles/synthetic-cannabinoids-spice/',
+    title: 'Synthetic Cannabinoids / Spice',
+    desc: 'Modern high-potency SCRAs such as MDMB-4en-PINACA and ADB-BUTINACA, including seizures, coma, psychosis, and hidden exposure.',
+  },
+  {
+    href: '/articles/benzofurans-entactogens/',
+    title: 'Benzofurans & RC Entactogens',
+    desc: '6-APB, 5-APB, 5-MAPB and related serotonergic stimulants, with toxicity and product-identity limits.',
+  },
+  {
+    href: '/articles/cats-claw-kava-hidden-opioids/',
+    title: 'Cat’s Claw & Kava Products With Hidden Opioids',
+    desc: 'Official testing and poison-center warnings around Buzzers, Homiez, MGM-15, mitragynine pseudoindoxyl, and misleading botanical labels.',
+  },
+  {
+    href: '/articles/novel-sedatives-qualone-analogues/',
+    title: 'Novel Sedatives & Quaalude Analogues',
+    desc: 'Dicloqualone, 2-methoxyqualone and other non-benzo depressants where market availability has outrun human safety data.',
+  },
+  {
+    href: '/articles/orphine-opioids/',
+    title: 'Orphine Opioids',
+    desc: 'Cychlorphine, chlorphine, spirochlorphine and the newer synthetic-opioid family emerging after the nitazene wave.',
+  },
+]
+
+const HUB_ITEMS = [...START_HERE, ...KRATOM_CLUSTER, ...DEPENDENCE, ...RESEARCH_CHEMICALS, ...EMERGING]
 
 function Card({ href, title, desc }: { href: string; title: string; desc: string }) {
   return (
@@ -240,7 +313,7 @@ export default function SubstanceUseHub() {
       <section className="space-y-4">
         <div className="max-w-3xl">
           <p className="eyebrow-label">Kratom-derived opioid cluster</p>
-          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink">Mitragynine, 7-OH, MGM-15 and related compounds</h2>
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink">Mitragynine, 7-OH, MGM-15, MGM-16 and related compounds</h2>
           <p className="mt-3 text-muted">
             This cluster deliberately separates whole-leaf kratom, naturally occurring alkaloids, metabolites, concentrates,
             and semi-synthetic derivatives instead of treating them as one exposure.
@@ -262,6 +335,19 @@ export default function SubstanceUseHub() {
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {DEPENDENCE.map((item) => <Card key={item.href} {...item} />)}
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <div className="max-w-3xl">
+          <p className="eyebrow-label">Research chemicals & NPS</p>
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink">Know the class before trusting the label</h2>
+          <p className="mt-3 text-muted">
+            These pages organize rapidly changing research-chemical markets by pharmacology and verified toxicology. Reddit and forum reports are used as discovery signals, while claims about identity, toxicity, and deaths are grounded in analytical, clinical, forensic, poison-center, and regulatory evidence.
+          </p>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2">
+          {RESEARCH_CHEMICALS.map((item) => <Card key={item.href} {...item} />)}
         </div>
       </section>
 

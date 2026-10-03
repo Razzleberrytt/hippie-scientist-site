@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-01",
+  "generatedAt": "2026-10-03",
   "rules": [
     {
       "id": "esbuild-build-tooling-only-2026-06",
@@ -130,6 +130,17 @@
       ],
       "followUpIssueUrl": "https://github.com/github/advisory-database/issues/8898",
       "rationale": "The current lockfile contains brace-expansion 1.1.18, 2.1.4 and 5.0.9. All are on patched lines for CVE-2026-14257: maintained 1.x and 2.x lines received the EXPANSION_MAX_LENGTH backport, while 5.0.9 is newer than the listed 5.0.8 patch. GitHub advisory GHSA-mh99-v99m-4gvg still publishes a flat <=5.0.7 affected range that incorrectly flags patched older-major backports; github/advisory-database#8898 documents the metadata defect. This narrow exception exists only for that advisory metadata mismatch and expires quickly pending correction. It does not cover other brace-expansion advisories or any other package."
+    },
+    {
+      "id": "braces-unpatched-build-tooling-only-2026-10",
+      "package": "braces",
+      "severity": "high",
+      "expiresOn": "2026-10-17",
+      "advisoryUrls": [
+        "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
+      ],
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/6212",
+      "rationale": "braces 3.0.3 is the current npm release, while GHSA-vfj7-8cjw-p6xm / CVE-2026-93687 affects <=3.0.3 and currently lists no patched release. In this repository the affected package is reached through micromatch in trusted development/lint tooling (including fast-glob/@next/eslint-plugin-next and lint-staged), is not shipped in the static site output, and no production route evaluates attacker-controlled glob patterns. This narrow advisory-specific exception is temporary until an upstream patched release is available; issue #6212 owns removal and revalidation."
     }
   ],
   "_informational": {

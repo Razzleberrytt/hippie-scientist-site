@@ -110,6 +110,7 @@ function changedFilesSince(ref) {
       cwd: ROOT,
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'pipe'],
+      maxBuffer: 64 * 1024 * 1024,
     })
     return new Set(output.split(/\r?\n/).map((line) => line.trim()).filter(Boolean))
   } catch (error) {
@@ -124,7 +125,7 @@ function addedLinesSince(ref) {
     const output = execFileSync(
       'git',
       ['diff', '--unified=0', '--diff-filter=ACMR', `${ref}...HEAD`, '--', ...SCAN_PATHS],
-      { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] },
+      { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], maxBuffer: 64 * 1024 * 1024 },
     )
     const added = new Map()
     let currentFile = null
