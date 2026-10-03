@@ -80,22 +80,6 @@
       "correction_reason": "Refresh the earlier enrichment row with reviewed GRADE certainty, very-high heterogeneity, and self-report versus clinician-rated endpoint discordance."
     },
     {
-      "record_id": "wave02_ashwagandha_mental_health_41644067",
-      "entity_slug": "ashwagandha",
-      "entity_name": "Ashwagandha",
-      "effect_or_condition": "stress, anxiety, and depressive symptoms in adults",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and dose-response meta-analysis of randomized controlled trials",
-      "population": "adults across randomized ashwagandha trials",
-      "sample_size": "22 randomized controlled trials",
-      "pmid": "41644067",
-      "doi": "10.1016/j.ctim.2026.103325",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/41644067/",
-      "supported_claim_language": "A 2026 dose-response meta-analysis of 22 randomized trials reported signals across selected stress, anxiety, and depressive-symptom outcomes, but the trials were heterogeneous in extract identity, dose, duration, population, and endpoint. The evidence should remain outcome- and preparation-specific rather than supporting a generic mental-health treatment claim.",
-      "evidence_grade": "systematic review/meta-analysis; heterogeneous evidence",
-      "safety_note": "Do not infer a universal dose from pooled exposure ranges; extract standardization and thyroid, liver, pregnancy, sedative, glucose-lowering, and blood-pressure context remain separate safety questions."
-    },
-    {
       "record_id": "wave02_ashwagandha_safety_42198398",
       "entity_slug": "ashwagandha",
       "entity_name": "Ashwagandha",
@@ -109,36 +93,6 @@
       "supported_claim_language": "A recent systematic review summarized tolerability across 23 studies and 2,317 participants exposed to standardized ashwagandha root extracts. This supports a bounded short-term tolerability statement for studied preparations, not a blanket long-term safety conclusion across products or populations.",
       "evidence_grade": "systematic review",
       "safety_note": "Keep preparation, study duration, pregnancy, thyroid, liver, autoimmune, sedative and medication-interaction boundaries explicit."
-    },
-    {
-      "record_id": "wave03_valerian_umbrella_38359657",
-      "entity_slug": "valerian",
-      "entity_name": "Valerian",
-      "effect_or_condition": "insomnia and sleep quality",
-      "evidence_type": "umbrella_review",
-      "study_type": "umbrella review",
-      "population": "adults represented in systematic reviews of valerian sleep trials",
-      "pmid": "38359657",
-      "doi": "10.1016/j.euroneuro.2024.01.008",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/38359657/",
-      "supported_claim_language": "A 2024 umbrella review concluded that valerian's overall safety profile appeared generally favorable but that efficacy for insomnia was not established. Subjective sleep-quality signals were more favorable than quantitative or objective sleep measures.",
-      "evidence_grade": "umbrella review",
-      "safety_note": "Preparation identity varies substantially across valerian products; combination products and subjective sleep signals should not be attributed to valerian generally."
-    },
-    {
-      "record_id": "wave04_chamomile_sleep_39106912",
-      "entity_slug": "matricaria-chamomilla",
-      "entity_name": "Chamomile",
-      "effect_or_condition": "sleep quality and insomnia-related outcomes",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis of clinical trials",
-      "population": "participants in clinical chamomile sleep trials",
-      "pmid": "39106912",
-      "doi": "10.1016/j.ctim.2024.103071",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/39106912/",
-      "supported_claim_language": "A 2024 systematic review and meta-analysis found improvement in some subjective sleep domains, particularly awakenings or staying asleep, while total sleep time, sleep efficiency, daytime functioning, and other outcomes were not consistently improved.",
-      "evidence_grade": "systematic review/meta-analysis; outcome-specific evidence",
-      "safety_note": "Tea, extracts, capsules, and multi-ingredient formulas are not interchangeable, and objective sleep data remain limited."
     },
     {
       "record_id": "wave04_chamomile_anxiety_31006899",
@@ -214,20 +168,6 @@
       "safety_note": "Preserve exact mushroom preparation, fruiting-body or mycelium identity, duration, and study population."
     },
     {
-      "record_id": "wave07_lions_mane_acute_null_40276537",
-      "entity_slug": "lions-mane",
-      "entity_name": "Lion's Mane",
-      "effect_or_condition": "acute cognitive performance",
-      "evidence_type": "randomized_controlled_trial",
-      "study_type": "randomized placebo-controlled double-blind crossover acute study",
-      "population": "healthy younger adults",
-      "pmid": "40276537",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/40276537/",
-      "supported_claim_language": "A 2025 acute crossover study using a specified 3 g 10:1 fruiting-body preparation was largely null across broad cognitive outcomes. This negative acute evidence should remain visible alongside chronic or exploratory positive findings.",
-      "evidence_grade": "randomized crossover trial; mostly null",
-      "safety_note": "Do not combine acute and chronic evidence as if they test the same intervention question."
-    },
-    {
       "record_id": "wave08_gotu_kola_cognition_28878245",
       "entity_slug": "gotu-kola",
       "entity_name": "Gotu Kola",
@@ -296,36 +236,6 @@
       "supported_claim_language": "A systematic review found mixed physical-performance results with Rhodiola rosea. Trained status, preparation, exposure duration, and outcome choice materially affected interpretation.",
       "evidence_grade": "systematic review; mixed evidence",
       "safety_note": "Do not convert mixed exercise findings into a general ergogenic claim."
-    },
-    {
-      "record_id": "wave17_coq10_depression_41294251",
-      "entity_slug": "coenzyme-q10",
-      "entity_name": "Coenzyme Q10",
-      "effect_or_condition": "depressive symptoms",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis",
-      "population": "participants in CoQ10 trials assessing depression-related outcomes",
-      "sample_size": "5 randomized trials; 474 participants",
-      "pmid": "41294251",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/41294251/",
-      "supported_claim_language": "A recent synthesis of five randomized trials reported a depressive-symptom signal for CoQ10, while fatigue was not significantly improved. The finding is symptom- and population-specific rather than evidence of antidepressant equivalence.",
-      "evidence_grade": "systematic review/meta-analysis",
-      "safety_note": "Preserve condition, concomitant treatment, dose/formulation, and the null fatigue result."
-    },
-    {
-      "record_id": "wave17_coq10_blood_pressure_40495903",
-      "entity_slug": "coenzyme-q10",
-      "entity_name": "Coenzyme Q10",
-      "effect_or_condition": "blood pressure",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis of randomized trials",
-      "population": "adults in CoQ10 blood-pressure trials",
-      "sample_size": "45 randomized trials",
-      "pmid": "40495903",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/40495903/",
-      "supported_claim_language": "A large randomized-trial synthesis reported a small pooled systolic blood-pressure reduction, while diastolic pressure and heart rate were not significantly changed. Biomarker-level effects should not be represented as cardiovascular-event prevention.",
-      "evidence_grade": "systematic review/meta-analysis; endpoint-specific",
-      "safety_note": "Preserve baseline blood pressure, medication use, formulation, and the null diastolic/heart-rate findings."
     },
     {
       "record_id": "wave18_psyllium_ibs_42600900",
@@ -427,21 +337,6 @@
       "supported_claim_language": "Systematic evidence suggests possible benefits on selected cognitive measures, but study populations, preparations, indications, and outcome domains vary. The evidence does not support a universal healthy-adult nootropic claim.",
       "evidence_grade": "systematic review; heterogeneous populations",
       "safety_note": "Preserve citicoline identity, clinical population, duration, cognitive domain, and concomitant treatment context."
-    },
-    {
-      "record_id": "wave12_holy_basil_stress_36185698",
-      "entity_slug": "holy-basil",
-      "entity_name": "Holy Basil",
-      "effect_or_condition": "stress and mood-related outcomes",
-      "evidence_type": "randomized_controlled_trial",
-      "study_type": "randomized controlled trial",
-      "population": "stressed adults receiving standardized Ocimum tenuiflorum extract",
-      "sample_size": "100 participants",
-      "pmid": "36185698",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/36185698/",
-      "supported_claim_language": "A randomized trial in 100 stressed adults reported improvements on selected stress and mood-related outcomes with a standardized Ocimum tenuiflorum extract. The result is extract- and population-specific and does not establish a generic adaptogen effect.",
-      "evidence_grade": "human randomized trial; product-specific",
-      "safety_note": "Preserve standardized-extract identity, treatment duration, and the stressed-adult population."
     },
     {
       "record_id": "wave13_kava_anxiety_22903681",
@@ -570,93 +465,6 @@
       "safety_note": "Preserve uncertainty while flagging anticoagulant/antiplatelet co-use as a meaningful caution."
     },
     {
-      "record_id": "wave17_psyllium_ibs_42600900",
-      "entity_slug": "psyllium",
-      "entity_name": "Psyllium",
-      "effect_or_condition": "irritable bowel syndrome symptom response",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis",
-      "population": "adults with irritable bowel syndrome",
-      "pmid": "42600900",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/42600900/",
-      "supported_claim_language": "Recent synthesis reports a beneficial IBS symptom-response signal for psyllium, but this is a gastrointestinal disease-specific outcome and should not be generalized into a broad wellness claim.",
-      "evidence_grade": "systematic review/meta-analysis; condition-specific",
-      "safety_note": "Preserve IBS diagnosis, fiber form, dose titration, hydration, and tolerability context."
-    },
-    {
-      "record_id": "wave17_psyllium_lipids_41366295",
-      "entity_slug": "psyllium",
-      "entity_name": "Psyllium",
-      "effect_or_condition": "blood lipids",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis of randomized trials",
-      "population": "participants in psyllium lipid trials",
-      "sample_size": "41 randomized controlled trials",
-      "pmid": "41366295",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/41366295/",
-      "supported_claim_language": "A 41-trial synthesis reported reductions in LDL and total cholesterol with psyllium. Effects are biomarker outcomes and should not be converted into cardiovascular-event prevention claims.",
-      "evidence_grade": "systematic review/meta-analysis",
-      "safety_note": "Keep lipid biomarkers separate from clinical cardiovascular outcomes; preserve formulation and dose context."
-    },
-    {
-      "record_id": "wave17_psyllium_glycemic_38844885",
-      "entity_slug": "psyllium",
-      "entity_name": "Psyllium",
-      "effect_or_condition": "glycemic outcomes",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis",
-      "population": "people with diabetes, prediabetes, or other glycemic-risk states",
-      "pmid": "38844885",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/38844885/",
-      "supported_claim_language": "Meta-analytic evidence reports improvements in glucose and HbA1c in some populations, but baseline metabolic status, formulation, dose, and co-treatment matter. This does not imply replacement for diabetes therapy.",
-      "evidence_grade": "systematic review/meta-analysis; population-specific",
-      "safety_note": "Preserve diabetes/prediabetes status and medication context."
-    },
-    {
-      "record_id": "wave18_zinc_body_composition_41617950",
-      "entity_slug": "zinc",
-      "entity_name": "Zinc",
-      "effect_or_condition": "body composition and adipokines",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis of randomized trials",
-      "population": "participants in zinc supplementation trials",
-      "sample_size": "41 randomized controlled trials / 44 effect sizes",
-      "pmid": "41617950",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/41617950/",
-      "supported_claim_language": "A 41-trial synthesis found most body-composition and adipokine endpoints were null, with only small changes in selected weight or waist measures. The largely null pattern should be retained rather than summarized as a weight-loss effect.",
-      "evidence_grade": "systematic review/meta-analysis; mostly null",
-      "safety_note": "Do not frame small anthropometric changes as established fat-loss efficacy."
-    },
-    {
-      "record_id": "wave18_zinc_glycemic_42594341",
-      "entity_slug": "zinc",
-      "entity_name": "Zinc",
-      "effect_or_condition": "glycemic biomarkers",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis",
-      "population": "participants in randomized zinc trials assessing glycemic outcomes",
-      "pmid": "42594341",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/42594341/",
-      "supported_claim_language": "Recent meta-analytic evidence evaluates zinc supplementation and glycemic biomarkers. Any pooled signal should remain biomarker-specific and contingent on baseline status rather than implying diabetes treatment.",
-      "evidence_grade": "systematic review/meta-analysis",
-      "safety_note": "Baseline zinc status, diabetes status, dose, duration, and co-treatment should remain explicit."
-    },
-    {
-      "record_id": "wave19_selenium_graves_42355878",
-      "entity_slug": "selenium",
-      "entity_name": "Selenium",
-      "effect_or_condition": "Graves orbitopathy activity and quality of life",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis of randomized trials",
-      "population": "people with Graves orbitopathy",
-      "sample_size": "5 randomized controlled trials / 303 participants",
-      "pmid": "42355878",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/42355878/",
-      "supported_claim_language": "A five-trial synthesis in Graves orbitopathy reported improvement in clinical activity score, while quality-of-life and visual-function outcomes were not clearly improved. This condition-specific signal should not become a general thyroid-health claim.",
-      "evidence_grade": "systematic review/meta-analysis; condition-specific",
-      "safety_note": "Preserve Graves-orbitopathy population, baseline selenium status, and outcome discordance."
-    },
-    {
       "record_id": "wave20_citicoline_adhd_42538853",
       "entity_slug": "citicoline",
       "entity_name": "Citicoline",
@@ -685,36 +493,6 @@
       "supported_claim_language": "A recent review covering phosphatidylserine and citicoline includes controlled ADHD and adult studies, but ingredient, age, formulation, and outcome differences prevent a single pooled nootropic conclusion.",
       "evidence_grade": "systematic review; mixed populations",
       "safety_note": "Keep phosphatidylserine-specific evidence separate from citicoline and preserve pediatric-versus-adult boundaries."
-    },
-    {
-      "record_id": "wave21_coq10_depression_41294251",
-      "entity_slug": "coenzyme-q10",
-      "entity_name": "Coenzyme Q10",
-      "effect_or_condition": "depressive symptoms and fatigue",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis of randomized trials",
-      "population": "participants in CoQ10 trials reporting depression or fatigue",
-      "sample_size": "5 randomized controlled trials / 474 participants",
-      "pmid": "41294251",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/41294251/",
-      "supported_claim_language": "A five-trial synthesis reported a depressive-symptom signal with CoQ10, while fatigue was not significantly improved. The discordant outcomes should remain visible rather than being collapsed into a generic mood-and-energy benefit.",
-      "evidence_grade": "systematic review/meta-analysis; mixed outcomes",
-      "safety_note": "Preserve disease populations, dose/formulation, and the null fatigue result."
-    },
-    {
-      "record_id": "wave21_coq10_bp_40495903",
-      "entity_slug": "coenzyme-q10",
-      "entity_name": "Coenzyme Q10",
-      "effect_or_condition": "blood pressure and heart rate",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis of randomized trials",
-      "population": "participants in CoQ10 blood-pressure trials",
-      "sample_size": "45 randomized controlled trials",
-      "pmid": "40495903",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/40495903/",
-      "supported_claim_language": "A 45-trial synthesis reported a small systolic blood-pressure reduction, while diastolic pressure and heart rate were not significantly improved. Biomarker effects should not be translated into cardiovascular-event prevention.",
-      "evidence_grade": "systematic review/meta-analysis; endpoint-specific",
-      "safety_note": "Keep systolic, diastolic, and heart-rate outcomes separate and preserve clinical-significance uncertainty."
     },
     {
       "record_id": "wave22_phosphatidylserine_cognition_30833704",
@@ -890,21 +668,6 @@
       "safety_note": "Preserve raw garlic versus aged/standardized extract differences and bleeding, gastrointestinal, and medication-interaction context."
     },
     {
-      "record_id": "wave29_aged_garlic_markers_40628369",
-      "entity_slug": "garlic",
-      "entity_name": "Garlic",
-      "effect_or_condition": "cardiometabolic biomarkers with aged garlic preparations",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis",
-      "population": "adults receiving aged garlic preparations",
-      "sample_size": "19 trials",
-      "pmid": "40628369",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/40628369/",
-      "supported_claim_language": "A 19-trial aged-garlic synthesis reported small pooled reductions in systolic blood pressure and LDL cholesterol. These biomarker findings should not be converted into cardiovascular-event prevention claims.",
-      "evidence_grade": "systematic review/meta-analysis; small biomarker effects",
-      "safety_note": "Keep aged-garlic extract distinct from other garlic forms. Earlier PMID 39437887 is retracted and must remain quarantined."
-    },
-    {
       "record_id": "wave30_ginger_blood_pressure_42566667",
       "entity_slug": "ginger",
       "entity_name": "Ginger",
@@ -933,36 +696,6 @@
       "supported_claim_language": "A 30-trial synthesis found that olive-leaf and olive-pomace interventions should not be treated as equivalent. Some cardiometabolic or inflammatory signals favored leaf preparations, glycemic outcomes were null overall, and pomace did not show consistent cardiometabolic benefit.",
       "evidence_grade": "systematic review/meta-analysis; preparation-specific mixed evidence",
       "safety_note": "Keep leaf and pomace evidence separate and preserve endpoint-specific nulls, product standardization, dose, and medication context."
-    },
-    {
-      "record_id": "wave22_citrulline_malate_performance_42356270",
-      "entity_slug": "citrulline-malate",
-      "entity_name": "Citrulline Malate",
-      "effect_or_condition": "exercise performance and perceived exertion",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis of randomized trials",
-      "population": "exercise participants across randomized citrulline-malate trials",
-      "sample_size": "30 randomized trials; 138 effect sizes; 644 participants",
-      "pmid": "42356270",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/42356270/",
-      "supported_claim_language": "A recent synthesis of 30 randomized trials found a very small performance effect (g≈0.16) while perceived exertion was not significantly improved. GRADE certainty was low to very low, so the finding should not be framed as a robust ergogenic effect.",
-      "evidence_grade": "systematic review/meta-analysis; low-to-very-low certainty",
-      "safety_note": "Preserve exact citrulline-malate formulation, dose, exercise mode, training status, and low certainty."
-    },
-    {
-      "record_id": "wave23_vitamin_d_cardiometabolic_42521227",
-      "entity_slug": "vitamin-d",
-      "entity_name": "Vitamin D",
-      "effect_or_condition": "cardiometabolic biomarkers",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis of randomized trials",
-      "population": "adults across randomized vitamin D supplementation trials",
-      "sample_size": "45 randomized controlled trials",
-      "pmid": "42521227",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/42521227/",
-      "supported_claim_language": "A 45-trial synthesis reported modest changes in selected LDL, systolic blood pressure, glucose, and HbA1c outcomes. The magnitude and clinical significance were uncertain, and biomarker changes do not establish prevention or treatment of cardiometabolic disease.",
-      "evidence_grade": "systematic review/meta-analysis; modest biomarker effects",
-      "safety_note": "Baseline vitamin-D status, dose, calcium co-use, population, and clinical endpoint boundaries remain important."
     },
     {
       "record_id": "wave23_vitamin_d_cognition_42100929",
@@ -1007,66 +740,6 @@
       "safety_note": "Preserve nitrate content, baseline blood pressure, medication use, and blood-pressure endpoint definitions."
     },
     {
-      "record_id": "wave25_astaxanthin_oxidative_41710469",
-      "entity_slug": "astaxanthin",
-      "entity_name": "Astaxanthin",
-      "effect_or_condition": "oxidative-stress and exercise-injury biomarkers",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis of randomized trials",
-      "population": "participants in randomized astaxanthin supplementation trials",
-      "sample_size": "7 randomized trials; 188 participants",
-      "pmid": "41710469",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/41710469/",
-      "supported_claim_language": "A seven-trial synthesis found a reduction in AOPP, while most other oxidative-stress and exercise-injury biomarkers were not significantly improved. The evidence is small and biomarker-heavy rather than proof of meaningful clinical benefit.",
-      "evidence_grade": "systematic review/meta-analysis; small evidence base",
-      "safety_note": "Preserve 4–28 mg/day studied exposure range as research context only, not a universal dose recommendation."
-    },
-    {
-      "record_id": "wave26_spirulina_inflammation_41873104",
-      "entity_slug": "spirulina",
-      "entity_name": "Spirulina",
-      "effect_or_condition": "inflammatory biomarkers",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis of randomized trials",
-      "population": "participants in randomized spirulina trials",
-      "sample_size": "8 randomized controlled trials",
-      "pmid": "41873104",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/41873104/",
-      "supported_claim_language": "An eight-trial synthesis reported a very small CRP reduction, while TNF-α and IL-6 were not significantly improved. The pattern does not justify a broad anti-inflammatory claim.",
-      "evidence_grade": "systematic review/meta-analysis; mixed biomarker outcomes",
-      "safety_note": "Preserve product quality, species/product identity, dose, duration, and biomarker-versus-clinical-outcome distinction."
-    },
-    {
-      "record_id": "wave27_curcumin_critical_illness_41652864",
-      "entity_slug": "curcumin",
-      "entity_name": "Curcumin",
-      "effect_or_condition": "critical-illness biomarkers and ICU outcomes",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis of trials",
-      "population": "critically ill patients",
-      "sample_size": "7 trials; 571 participants",
-      "pmid": "41652864",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/41652864/",
-      "supported_claim_language": "A seven-trial synthesis in critically ill patients reported signals in selected ALT, bilirubin, SOFA-score, and ICU-stay outcomes. These findings are population-specific and should not be generalized to healthy adults or routine supplement use.",
-      "evidence_grade": "systematic review/meta-analysis; critically ill population",
-      "safety_note": "Keep ICU population, co-treatment, formulation, route, and surrogate/clinical endpoint distinctions explicit."
-    },
-    {
-      "record_id": "wave28_garlic_multimetabolic_40580481",
-      "entity_slug": "garlic",
-      "entity_name": "Garlic",
-      "effect_or_condition": "lipid, glycemic, blood-pressure, and inflammatory biomarkers",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "large systematic review and meta-analysis of randomized trials",
-      "population": "participants across randomized garlic intervention trials",
-      "sample_size": "108 randomized controlled trials; 7,137 participants",
-      "pmid": "40580481",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/40580481/",
-      "supported_claim_language": "A large 108-trial synthesis reported improvements in several lipid, glycemic, blood-pressure, and inflammatory markers, while several anthropometric and adipokine endpoints were not significant. Endpoint-specificity and preparation heterogeneity are essential.",
-      "evidence_grade": "large systematic review/meta-analysis; heterogeneous preparations",
-      "safety_note": "Do not convert pooled biomarker changes into disease-prevention claims; preserve garlic preparation identity and bleeding/medication context."
-    },
-    {
       "record_id": "wave29_aged_garlic_cardiometabolic_40628369",
       "entity_slug": "aged-garlic-extract",
       "entity_name": "Aged Garlic Extract",
@@ -1096,21 +769,6 @@
       "safety_note": "Data-integrity guard: exclude the retracted source from pooled claims, citation exports, and confidence scoring."
     },
     {
-      "record_id": "wave30_ginger_bp_42566667",
-      "entity_slug": "ginger",
-      "entity_name": "Ginger",
-      "effect_or_condition": "blood pressure",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis of randomized trials",
-      "population": "participants in randomized ginger supplementation trials",
-      "sample_size": "12 randomized controlled trials",
-      "pmid": "42566667",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/42566667/",
-      "supported_claim_language": "A 12-trial synthesis reported reductions in systolic and diastolic blood pressure, but certainty was low. The result should remain a modest biomarker signal rather than a hypertension-treatment claim.",
-      "evidence_grade": "systematic review/meta-analysis; low certainty",
-      "safety_note": "Preserve preparation, baseline blood pressure, antihypertensive use, dose, and duration."
-    },
-    {
       "record_id": "wave30_ginger_migraine_42601183",
       "entity_slug": "ginger",
       "entity_name": "Ginger",
@@ -1124,21 +782,6 @@
       "supported_claim_language": "An eight-trial synthesis reported a low-certainty preventive or adjunctive migraine signal. This does not establish ginger as a replacement for standard acute or preventive migraine therapy.",
       "evidence_grade": "systematic review/meta-analysis; low certainty",
       "safety_note": "Preserve adjunctive context, migraine subtype, preparation, and medication co-use."
-    },
-    {
-      "record_id": "wave31_olive_leaf_42303499",
-      "entity_slug": "olive-leaf-extract",
-      "entity_name": "Olive Leaf Extract",
-      "effect_or_condition": "cardiometabolic and inflammatory biomarkers",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis of randomized trials",
-      "population": "participants in olive leaf or olive pomace intervention trials",
-      "sample_size": "30 randomized controlled trials; 1,726 participants",
-      "pmid": "42303499",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/42303499/",
-      "supported_claim_language": "A 30-trial synthesis found selected cardiometabolic and inflammatory signals for olive leaf interventions, while glycemic outcomes were not consistently improved. Olive pomace showed a different pattern and should not be merged with olive-leaf evidence.",
-      "evidence_grade": "systematic review/meta-analysis; ingredient-specific mixed outcomes",
-      "safety_note": "Keep olive leaf and pomace as distinct intervention identities and preserve biomarker-specific nulls."
     },
     {
       "record_id": "wave32_nmn_blood_pressure_41901064",
@@ -1282,21 +925,6 @@
       "safety_note": "Preserve isoflavone exposure, hormone-sensitive-condition context, and product variability."
     },
     {
-      "record_id": "wave32_nmn_bp_41901064",
-      "entity_slug": "nmn",
-      "entity_name": "Nicotinamide Mononucleotide",
-      "effect_or_condition": "blood pressure",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis of randomized trials",
-      "population": "participants with elevated blood pressure",
-      "sample_size": "10 randomized controlled trials; 349 participants",
-      "pmid": "41901064",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/41901064/",
-      "supported_claim_language": "A 10-trial synthesis in 349 participants with elevated blood pressure evaluated NMN supplementation. Any blood-pressure signal remains population- and formulation-specific and should not be generalized to healthy longevity use or to other NAD-related compounds.",
-      "evidence_grade": "systematic review/meta-analysis; limited population-specific evidence",
-      "safety_note": "NMN must remain distinct from nicotinamide riboside, niacin, and generic NAD+ products."
-    },
-    {
       "record_id": "wave32_nmn_safety_42514320",
       "entity_slug": "nmn",
       "entity_name": "Nicotinamide Mononucleotide",
@@ -1341,34 +969,6 @@
       "safety_note": "Keep EPA/DHA ratio, psychiatric diagnosis, concomitant treatment, and bleeding/anticoagulant context explicit."
     },
     {
-      "record_id": "wave34_omega3_cognition_null_31947489",
-      "entity_slug": "omega-3",
-      "entity_name": "Omega-3 Fatty Acids",
-      "effect_or_condition": "cognitive enhancement in healthy adults",
-      "evidence_type": "systematic_review",
-      "study_type": "systematic review",
-      "population": "healthy adults in omega-3 cognition trials",
-      "pmid": "31947489",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/31947489/",
-      "supported_claim_language": "Systematic evidence does not establish broad cognitive enhancement from omega-3 supplementation in healthy adults. This null/uncertain evidence should remain visible beside disease-specific or deficiency-related research.",
-      "evidence_grade": "systematic review; insufficient broad cognition evidence",
-      "safety_note": "Do not transfer disease-population findings or observational fish-intake associations into healthy-adult supplement claims."
-    },
-    {
-      "record_id": "wave35_alpha_lipoic_neuropathy_24996083",
-      "entity_slug": "alpha-lipoic-acid",
-      "entity_name": "Alpha-Lipoic Acid",
-      "effect_or_condition": "diabetic neuropathy symptoms",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis",
-      "population": "people with diabetic peripheral neuropathy",
-      "pmid": "24996083",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/24996083/",
-      "supported_claim_language": "Systematic evidence supports symptom improvement in some diabetic-neuropathy trials, but route and formulation heterogeneity are substantial. Intravenous and oral evidence should not be pooled conceptually as interchangeable supplement evidence.",
-      "evidence_grade": "systematic review/meta-analysis; route-dependent",
-      "safety_note": "Preserve diabetes status, route, dose, duration, glucose-lowering medication context, and clinical symptom endpoints."
-    },
-    {
       "record_id": "wave36_alcar_neuropathic_pain_23588724",
       "entity_slug": "acetyl-l-carnitine",
       "entity_name": "Acetyl-L-Carnitine",
@@ -1395,76 +995,6 @@
       "supported_claim_language": "Randomized-trial synthesis suggests possible depressive-symptom improvement with acetyl-L-carnitine in selected clinical populations, but adjunctive versus monotherapy status and population differences limit generalization.",
       "evidence_grade": "systematic review/meta-analysis; population-specific",
       "safety_note": "Keep psychiatric diagnosis, age, concomitant treatment, and treatment duration explicit."
-    },
-    {
-      "record_id": "wave37_pomegranate_bp_38410857",
-      "entity_slug": "pomegranate",
-      "entity_name": "Pomegranate",
-      "effect_or_condition": "blood pressure",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis",
-      "population": "participants in pomegranate juice or extract trials",
-      "pmid": "38410857",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/38410857/",
-      "supported_claim_language": "Recent synthesis reports a possible modest blood-pressure reduction with pomegranate interventions, but studies vary in juice versus extract, dose, duration, and baseline risk. Product identity should remain explicit.",
-      "evidence_grade": "systematic review/meta-analysis; heterogeneous products",
-      "safety_note": "Do not treat juice and concentrated extracts as interchangeable; preserve medication and glycemic context."
-    },
-    {
-      "record_id": "wave38_peppermint_ibs_35942669",
-      "entity_slug": "peppermint-oil",
-      "entity_name": "Peppermint Oil",
-      "effect_or_condition": "irritable bowel syndrome symptoms",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis of randomized trials",
-      "population": "adults with irritable bowel syndrome",
-      "pmid": "35942669",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/35942669/",
-      "supported_claim_language": "Meta-analytic randomized evidence supports symptom improvement in IBS with peppermint-oil preparations, particularly enteric-coated products. The result is formulation- and diagnosis-specific rather than evidence for peppermint generally.",
-      "evidence_grade": "systematic review/meta-analysis; formulation-specific",
-      "safety_note": "Enteric coating, reflux/GERD risk, product composition, and IBS diagnosis are key boundaries."
-    },
-    {
-      "record_id": "wave39_black_cohosh_menopause_25577791",
-      "entity_slug": "black-cohosh",
-      "entity_name": "Black Cohosh",
-      "effect_or_condition": "menopausal symptoms",
-      "evidence_type": "systematic_review",
-      "study_type": "systematic review",
-      "population": "peri- and postmenopausal participants in black-cohosh trials",
-      "pmid": "25577791",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/25577791/",
-      "supported_claim_language": "Systematic evidence for black cohosh and menopausal symptoms is mixed across preparations and symptom endpoints. Product identity and extract standardization are central, and the evidence does not support a universal menopause benefit.",
-      "evidence_grade": "systematic review; mixed evidence",
-      "safety_note": "Preserve preparation identity and avoid inferring estrogenic mechanisms or hormone effects without direct evidence."
-    },
-    {
-      "record_id": "wave39_black_cohosh_liver_38107145",
-      "entity_slug": "black-cohosh",
-      "entity_name": "Black Cohosh",
-      "effect_or_condition": "liver injury and adverse-event causality",
-      "evidence_type": "safety_review",
-      "study_type": "review of adverse-event and hepatotoxicity reports",
-      "population": "black-cohosh users represented in adverse-event literature",
-      "pmid": "38107145",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/38107145/",
-      "supported_claim_language": "A recent safety review highlights uncertainty around reported hepatotoxicity and causality because product composition and provenance vary. Liver-safety signals should be retained without overstating that all black-cohosh products cause liver injury.",
-      "evidence_grade": "safety review; causality uncertain",
-      "safety_note": "Product identity, adulteration, comedications, liver history, and causality assessment should remain explicit."
-    },
-    {
-      "record_id": "wave40_red_clover_menopause_18159070",
-      "entity_slug": "red-clover",
-      "entity_name": "Red Clover",
-      "effect_or_condition": "vasomotor menopausal symptoms",
-      "evidence_type": "systematic_review",
-      "study_type": "systematic review of randomized trials",
-      "population": "menopausal participants using red-clover isoflavone preparations",
-      "pmid": "18159070",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/18159070/",
-      "supported_claim_language": "Systematic evidence found inconsistent effects of red-clover preparations on vasomotor symptoms. Isoflavone content, preparation, baseline symptom burden, and trial duration differ substantially.",
-      "evidence_grade": "systematic review; inconsistent evidence",
-      "safety_note": "Preserve isoflavone composition and hormone-sensitive-condition context."
     },
     {
       "record_id": "wave41_soy_isoflavone_menopause_31955493",
@@ -1583,20 +1113,6 @@
       "safety_note": "Preserve preparation, diabetes status, glucose-lowering medication use, bleeding risk, and biomarker-specific nulls."
     },
     {
-      "record_id": "wave50_curcumin_oa_umbrella_42254374",
-      "entity_slug": "curcumin",
-      "entity_name": "Curcumin",
-      "effect_or_condition": "osteoarthritis symptoms",
-      "evidence_type": "umbrella_review",
-      "study_type": "umbrella review of systematic reviews/meta-analyses",
-      "population": "people with osteoarthritis represented in curcumin/turmeric evidence syntheses",
-      "pmid": "42254374",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/42254374/",
-      "supported_claim_language": "A recent umbrella review summarizes curcumin evidence for osteoarthritis, but formulation and bioavailability strategies differ substantially across trials. Symptom signals should remain osteoarthritis- and formulation-specific rather than becoming a general anti-inflammatory claim.",
-      "evidence_grade": "umbrella review; formulation-dependent",
-      "safety_note": "Preserve curcumin formulation, piperine or enhanced-bioavailability coformulation, comparator, anticoagulant context, and osteoarthritis diagnosis."
-    },
-    {
       "record_id": "wave42_evening_primrose_menopause_32343352",
       "entity_slug": "evening-primrose",
       "entity_name": "Evening Primrose Oil",
@@ -1609,50 +1125,6 @@
       "supported_claim_language": "Evidence for common menopause indications is limited, and breast-pain findings are mixed. Traditional use should not be presented as established efficacy.",
       "evidence_grade": "systematic evidence; limited/mixed",
       "safety_note": "Preserve indication, product identity, duration, bleeding/seizure-risk context, and concomitant medicine use."
-    },
-    {
-      "record_id": "wave43_boswellia_osteoarthritis_38365549",
-      "entity_slug": "boswellia",
-      "entity_name": "Boswellia",
-      "effect_or_condition": "osteoarthritis pain, stiffness, and function",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis of randomized trials",
-      "population": "people with osteoarthritis",
-      "sample_size": "9 randomized trials; 712 participants",
-      "pmid": "38365549",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/38365549/",
-      "supported_claim_language": "A nine-trial synthesis reported improvements in osteoarthritis pain, stiffness, and function, with important standardized-extract subgrouping. The evidence is indication- and extract-specific.",
-      "evidence_grade": "systematic review/meta-analysis; extract-specific",
-      "safety_note": "Preserve Boswellia species/extract, AKBA standardization where relevant, comparator, duration, and GI/medication tolerability."
-    },
-    {
-      "record_id": "wave44_aloe_vera_glycemia_27009750",
-      "entity_slug": "aloe-vera",
-      "entity_name": "Aloe vera",
-      "effect_or_condition": "glucose and HbA1c in prediabetes or diabetes",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review/meta-analysis",
-      "population": "people with prediabetes or diabetes",
-      "sample_size": "8 trials; 470 participants",
-      "pmid": "27009750",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/27009750/",
-      "supported_claim_language": "Eight trials involving 470 people with prediabetes or diabetes showed some glucose and HbA1c signals, but preparations were heterogeneous and uncertainty remains. This does not establish aloe as diabetes treatment.",
-      "evidence_grade": "systematic review/meta-analysis; heterogeneous preparations",
-      "safety_note": "Oral aloe preparations differ substantially; preserve laxative/anthraquinone exposure, product purification, medication, electrolyte, kidney, and GI context."
-    },
-    {
-      "record_id": "wave45_taurine_cognition_40320621",
-      "entity_slug": "taurine",
-      "entity_name": "Taurine",
-      "effect_or_condition": "cognitive outcomes",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis",
-      "population": "human participants across taurine cognition studies",
-      "pmid": "40320621",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/40320621/",
-      "supported_claim_language": "A recent cognition synthesis did not find a significant overall cognitive benefit from taurine. Any subgroup or domain-specific signals should remain subordinate to the null overall result.",
-      "evidence_grade": "systematic review/meta-analysis; overall null",
-      "safety_note": "Preserve population, dose, duration, cognitive domain, and source identity; do not attach citrulline-malate trials to taurine."
     },
     {
       "record_id": "wave46_alpha_gpc_acute_39683633",
@@ -1697,21 +1169,6 @@
       "supported_claim_language": "A 2026 scoping review found only three supplemental-glycine sleep trials. Small studies suggest possible subjective sleep benefits, but the evidence base remains too small to establish glycine as a treatment for chronic insomnia or to define an optimal dose.",
       "evidence_grade": "scoping review; very limited direct sleep evidence",
       "safety_note": "Keep standalone glycine distinct from collagen and magnesium glycinate, and do not convert repeated study doses into a universal recommendation."
-    },
-    {
-      "record_id": "wave47_glycine_systematic_37851316",
-      "entity_slug": "glycine",
-      "entity_name": "Glycine",
-      "effect_or_condition": "human physiological and sleep outcomes",
-      "evidence_type": "systematic_review",
-      "study_type": "systematic review",
-      "population": "human adults exposed to glycine in clinical research",
-      "pmid": "37851316",
-      "doi": "10.1007/s11357-023-00970-8",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/37851316/",
-      "supported_claim_language": "A systematic review of glycine in human adults identifies sleep-related studies but also highlights the small evidence base and limitations in study quality. Sleep claims should remain low-confidence and outcome-specific.",
-      "evidence_grade": "systematic review; limited/high-risk-of-bias sleep literature",
-      "safety_note": "Preserve study size, subjective versus objective outcomes, population, and exposure context."
     },
     {
       "record_id": "wave48_tryptophan_sleep_33942088",
@@ -1782,20 +1239,6 @@
       "supported_claim_language": "A small randomized trial evaluated thyroid indices in people with subclinical hypothyroidism. The condition-specific findings should not become a general thyroid-support claim but do reinforce that thyroid physiology and thyroid-medication interactions are relevant safety context.",
       "evidence_grade": "small randomized trial; condition-specific",
       "safety_note": "People with thyroid disorders or taking thyroid medication require caution; preserve small sample size, diagnosis, extract, and monitoring context."
-    },
-    {
-      "record_id": "wave50_saffron_safety_42057871",
-      "entity_slug": "saffron",
-      "entity_name": "Saffron",
-      "effect_or_condition": "adverse events across clinical evidence",
-      "evidence_type": "systematic_safety_review",
-      "study_type": "systematic review of adverse events from clinical trials and case reports",
-      "population": "people exposed to saffron preparations in clinical evidence",
-      "pmid": "42057871",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/42057871/",
-      "supported_claim_language": "A 2026 safety review synthesizes adverse events from saffron clinical trials and case reports. Safety should remain dose-, formulation-, population-, and provenance-specific rather than being collapsed into a generic 'safe' label.",
-      "evidence_grade": "systematic safety review",
-      "safety_note": "Preserve dose, preparation, pregnancy/bleeding context, concomitant medicines, case-report causality limits, and trial duration."
     }
   ],
   "sources": [
@@ -1828,20 +1271,6 @@
       "status": "published"
     },
     {
-      "source_id": "pmid-41644067",
-      "pmid": "41644067",
-      "doi": "10.1016/j.ctim.2026.103325",
-      "author_or_label": "PubMed indexed source PMID 41644067",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41644067/",
-      "entity_slugs": "ashwagandha",
-      "used_for": "stress, anxiety, and depressive symptoms in adults",
-      "citation_or_note": "A 2026 dose-response meta-analysis of 22 randomized trials reported signals across selected stress, anxiety, and depressive-symptom outcomes, but the trials were heterogeneous in extract identity, dose, duration, population, and endpoint. The evidence should remain outcome- and preparation-specific rather than supporting a generic mental-health treatment claim.",
-      "status": "published"
-    },
-    {
       "source_id": "pmid-42198398",
       "pmid": "42198398",
       "doi": "",
@@ -1853,34 +1282,6 @@
       "entity_slugs": "ashwagandha",
       "used_for": "short-term tolerability of standardized root extracts",
       "citation_or_note": "A recent systematic review summarized tolerability across 23 studies and 2,317 participants exposed to standardized ashwagandha root extracts. This supports a bounded short-term tolerability statement for studied preparations, not a blanket long-term safety conclusion across products or populations.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-38359657",
-      "pmid": "38359657",
-      "doi": "10.1016/j.euroneuro.2024.01.008",
-      "author_or_label": "PubMed indexed source PMID 38359657",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38359657/",
-      "entity_slugs": "valerian",
-      "used_for": "insomnia and sleep quality",
-      "citation_or_note": "A 2024 umbrella review concluded that valerian's overall safety profile appeared generally favorable but that efficacy for insomnia was not established. Subjective sleep-quality signals were more favorable than quantitative or objective sleep measures.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-39106912",
-      "pmid": "39106912",
-      "doi": "10.1016/j.ctim.2024.103071",
-      "author_or_label": "PubMed indexed source PMID 39106912",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39106912/",
-      "entity_slugs": "matricaria-chamomilla",
-      "used_for": "sleep quality and insomnia-related outcomes",
-      "citation_or_note": "A 2024 systematic review and meta-analysis found improvement in some subjective sleep domains, particularly awakenings or staying asleep, while total sleep time, sleep efficiency, daytime functioning, and other outcomes were not consistently improved.",
       "status": "published"
     },
     {
@@ -1954,20 +1355,6 @@
       "status": "published"
     },
     {
-      "source_id": "pmid-40276537",
-      "pmid": "40276537",
-      "doi": "",
-      "author_or_label": "PubMed indexed source PMID 40276537",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40276537/",
-      "entity_slugs": "lions-mane",
-      "used_for": "acute cognitive performance",
-      "citation_or_note": "A 2025 acute crossover study using a specified 3 g 10:1 fruiting-body preparation was largely null across broad cognitive outcomes. This negative acute evidence should remain visible alongside chronic or exploratory positive findings.",
-      "status": "published"
-    },
-    {
       "source_id": "pmid-28878245",
       "pmid": "28878245",
       "doi": "",
@@ -2035,20 +1422,6 @@
       "entity_slugs": "rhodiola",
       "used_for": "physical performance",
       "citation_or_note": "A systematic review found mixed physical-performance results with Rhodiola rosea. Trained status, preparation, exposure duration, and outcome choice materially affected interpretation.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-36185698",
-      "pmid": "36185698",
-      "doi": "",
-      "author_or_label": "PubMed indexed source PMID 36185698",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/36185698/",
-      "entity_slugs": "holy-basil",
-      "used_for": "stress and mood-related outcomes",
-      "citation_or_note": "A randomized trial in 100 stressed adults reported stress- and mood-related signals with a standardized Ocimum tenuiflorum extract. The evidence is extract- and population-specific and should not be generalized to culinary basil or all holy-basil products. || A randomized trial in 100 stressed adults reported improvements on selected stress and mood-related outcomes with a standardized Ocimum tenuiflorum extract. The result is extract- and population-specific and does not establish a generic adaptogen effect.",
       "status": "published"
     },
     {
@@ -2178,34 +1551,6 @@
       "status": "published"
     },
     {
-      "source_id": "pmid-41294251",
-      "pmid": "41294251",
-      "doi": "",
-      "author_or_label": "PubMed indexed source PMID 41294251",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41294251/",
-      "entity_slugs": "coenzyme-q10",
-      "used_for": "depressive symptoms | depressive symptoms and fatigue",
-      "citation_or_note": "A recent synthesis of five randomized trials reported a depressive-symptom signal for CoQ10, while fatigue was not significantly improved. The finding is symptom- and population-specific rather than evidence of antidepressant equivalence. || A five-trial synthesis reported a depressive-symptom signal with CoQ10, while fatigue was not significantly improved. The discordant outcomes should remain visible rather than being collapsed into a generic mood-and-energy benefit.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-40495903",
-      "pmid": "40495903",
-      "doi": "",
-      "author_or_label": "PubMed indexed source PMID 40495903",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40495903/",
-      "entity_slugs": "coenzyme-q10",
-      "used_for": "blood pressure | blood pressure and heart rate",
-      "citation_or_note": "A large randomized-trial synthesis reported a small pooled systolic blood-pressure reduction, while diastolic pressure and heart rate were not significantly changed. Biomarker-level effects should not be represented as cardiovascular-event prevention. || A 45-trial synthesis reported a small systolic blood-pressure reduction, while diastolic pressure and heart rate were not significantly improved. Biomarker effects should not be translated into cardiovascular-event prevention.",
-      "status": "published"
-    },
-    {
       "source_id": "pmid-42600900",
       "pmid": "42600900",
       "doi": "",
@@ -2301,19 +1646,6 @@
       "entity_slugs": "cdp-choline",
       "used_for": "cognitive outcomes",
       "citation_or_note": "Systematic evidence suggests possible benefits on selected cognitive measures, but study populations, preparations, indications, and outcome domains vary. The evidence does not support a universal healthy-adult nootropic claim.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-41366295",
-      "pmid": "41366295",
-      "author_or_label": "PubMed indexed source PMID 41366295",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41366295/",
-      "entity_slugs": "psyllium",
-      "used_for": "blood lipids",
-      "citation_or_note": "A 41-trial synthesis reported reductions in LDL and total cholesterol with psyllium. Effects are biomarker outcomes and should not be converted into cardiovascular-event prevention claims.",
       "status": "published"
     },
     {
@@ -2498,20 +1830,6 @@
       "status": "published"
     },
     {
-      "source_id": "pmid-40628369",
-      "pmid": "40628369",
-      "doi": "",
-      "author_or_label": "PubMed indexed source PMID 40628369",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40628369/",
-      "entity_slugs": "garlic|aged-garlic-extract",
-      "used_for": "cardiometabolic biomarkers with aged garlic preparations | blood pressure and LDL cholesterol",
-      "citation_or_note": "A 19-trial aged-garlic synthesis reported small pooled reductions in systolic blood pressure and LDL cholesterol. These biomarker findings should not be converted into cardiovascular-event prevention claims. || A 19-trial synthesis reported small reductions in systolic blood pressure and LDL cholesterol with aged garlic extract. These biomarker effects are formulation-specific and do not establish cardiovascular-event reduction.",
-      "status": "published"
-    },
-    {
       "source_id": "pmid-42566667",
       "pmid": "42566667",
       "doi": "",
@@ -2590,19 +1908,6 @@
       "entity_slugs": "beetroot-nitrate",
       "used_for": "blood pressure",
       "citation_or_note": "Recent pooled evidence evaluates beetroot or dietary nitrate interventions for blood pressure. Findings should remain tied to nitrate-containing preparations and should not be generalized to ordinary beet foods or nitrate-free products.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-41652864",
-      "pmid": "41652864",
-      "author_or_label": "PubMed indexed source PMID 41652864",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41652864/",
-      "entity_slugs": "curcumin",
-      "used_for": "critical-illness biomarkers and ICU outcomes",
-      "citation_or_note": "A seven-trial synthesis in critically ill patients reported signals in selected ALT, bilirubin, SOFA-score, and ICU-stay outcomes. These findings are population-specific and should not be generalized to healthy adults or routine supplement use.",
       "status": "published"
     },
     {
@@ -2773,20 +2078,6 @@
       "status": "published"
     },
     {
-      "source_id": "pmid-35942669",
-      "pmid": "35942669",
-      "doi": "",
-      "author_or_label": "PubMed indexed source PMID 35942669",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/35942669/",
-      "entity_slugs": "peppermint-oil",
-      "used_for": "irritable bowel syndrome symptoms",
-      "citation_or_note": "Meta-analytic evidence supports symptom improvement in IBS with enteric-coated peppermint-oil preparations. The coating and product formulation are central to the evidence and should not be generalized to peppermint tea or non-enteric products. || Meta-analytic randomized evidence supports symptom improvement in IBS with peppermint-oil preparations, particularly enteric-coated products. The result is formulation- and diagnosis-specific rather than evidence for peppermint generally.",
-      "status": "published"
-    },
-    {
       "source_id": "pmid-25577791",
       "pmid": "25577791",
       "doi": "",
@@ -2852,19 +2143,6 @@
       "entity_slugs": "evening-primrose",
       "used_for": "menopausal symptoms and breast pain | menopausal symptoms and breast-pain indications",
       "citation_or_note": "Systematic evidence for evening primrose oil in common menopausal indications is limited, and evidence for breast-pain outcomes is mixed. Traditional popularity should not be treated as established clinical efficacy. || Evidence for common menopause indications is limited, and breast-pain findings are mixed. Traditional use should not be presented as established efficacy.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-38365549",
-      "pmid": "38365549",
-      "author_or_label": "PubMed indexed source PMID 38365549",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/38365549/",
-      "entity_slugs": "boswellia-serrata|boswellia",
-      "used_for": "osteoarthritis pain, stiffness, and function",
-      "citation_or_note": "A nine-trial synthesis reported improvements in pain, stiffness, and function with Boswellia preparations, but standardized-extract subgrouping and formulation differences are important. The evidence is osteoarthritis-specific and should not become a general anti-inflammatory claim. || A nine-trial synthesis reported improvements in osteoarthritis pain, stiffness, and function, with important standardized-extract subgrouping. The evidence is indication- and extract-specific.",
       "status": "published"
     },
     {
@@ -2946,19 +2224,6 @@
       "status": "published"
     },
     {
-      "source_id": "pmid-42254374",
-      "pmid": "42254374",
-      "author_or_label": "PubMed indexed source PMID 42254374",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42254374/",
-      "entity_slugs": "curcumin",
-      "used_for": "osteoarthritis symptoms",
-      "citation_or_note": "A recent umbrella review summarizes curcumin evidence for osteoarthritis, but formulation and bioavailability strategies differ substantially across trials. Symptom signals should remain osteoarthritis- and formulation-specific rather than becoming a general anti-inflammatory claim.",
-      "status": "published"
-    },
-    {
       "source_id": "pmid-39683633",
       "pmid": "39683633",
       "doi": "",
@@ -2998,20 +2263,6 @@
       "entity_slugs": "glycine",
       "used_for": "sleep-related outcomes",
       "citation_or_note": "A 2026 scoping review found only three supplemental-glycine sleep trials. Small studies suggest possible subjective sleep benefits, but the evidence base remains too small to establish glycine as a treatment for chronic insomnia or to define an optimal dose.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-37851316",
-      "pmid": "37851316",
-      "doi": "10.1007/s11357-023-00970-8",
-      "author_or_label": "PubMed indexed source PMID 37851316",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/37851316/",
-      "entity_slugs": "glycine",
-      "used_for": "human physiological and sleep outcomes",
-      "citation_or_note": "A systematic review of glycine in human adults identifies sleep-related studies but also highlights the small evidence base and limitations in study quality. Sleep claims should remain low-confidence and outcome-specific.",
       "status": "published"
     },
     {
