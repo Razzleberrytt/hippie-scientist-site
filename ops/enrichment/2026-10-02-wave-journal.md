@@ -19,19 +19,20 @@ This journal records the batch-first enrichment pass requested for The Hippie Sc
 ## Consolidated state
 
 - Waves 01–50: **merged to `main` in PR #6199**
-- Waves 51–100: **authored on `data/research-enrichment-2026-10-02-waves-51-100` and ready for consolidation**
+- Waves 51–100: **consolidated on `data/research-enrichment-2026-10-02-waves-51-100`**
 - Waves completed in the continuing program: **100 / 100**
 - Waves 01–50 canonical ledger: `data-sources/runtime-enrichment/2026-10-02-enrichment-waves-01-50.json`
-- Waves 51–60 staged ledger: `data-sources/runtime-enrichment/2026-10-02-enrichment-waves-51-60.json`
-- Waves 61–70 staged ledger: `data-sources/runtime-enrichment/2026-10-02-enrichment-waves-61-70.json`
-- Waves 71–80 staged ledger: `data-sources/runtime-enrichment/2026-10-02-enrichment-waves-71-80.json`
-- Waves 81–90 staged ledger: `data-sources/runtime-enrichment/2026-10-02-enrichment-waves-81-90.json`
-- Waves 91–100 staged ledger: `data-sources/runtime-enrichment/2026-10-02-enrichment-waves-91-100.json`
-- Waves 51–100 authored additions: **50 evidence rows + 50 new source identities**
+- Waves 51–100 canonical continuation ledger: `data-sources/runtime-enrichment/2026-10-02-enrichment-waves-51-100.json`
+- Waves 51–100 manifest: `data-sources/runtime-enrichment/2026-10-02-enrichment-waves-51-100-manifest.json`
+- Waves 51–100 reviewed additions: **50 evidence rows + 50 new source identities**
+- Consolidated Waves 51–100 ledger SHA-256: `31e7fa1bdcc958a7c088d38edeb287ff3256777f994d7499edc41eeb83ffb855`
+- Consolidated ledger bytes: **106,901**
+- Cross-batch duplicate check before consolidation: **clean**
+- Temporary 10-wave authoring ledgers/manifests: **removed after consolidation**
 - New entity-context rows in Waves 51–100: 0
 - New relationship rows in Waves 51–100: 0
 - Governance/indexing/recommendation/monetization fields changed by Waves 51–100: 0
-- Full repository verification for the continuation batch: **deferred until Waves 51–100 are consolidated**
+- Full repository verification for the continuation batch: **next, on the final consolidated PR head**
 
 ## Batch rule
 
@@ -39,4 +40,4 @@ No consumer dose recommendations are inferred from trial exposures. Combination 
 
 ## Next step
 
-Consolidate Waves 51–100 into the continuation ledger and run the admission audit, manifest integrity, canonical entity resolution, evidence/source dedupe against the workbook, source-of-truth guard, schema/data validation, focused enrichment tests, and normal CI/build/site-health gates once at the end.
+Run the admission audit, manifest integrity, canonical entity resolution, evidence/source dedupe against the workbook, source-of-truth guard, schema/data validation, focused enrichment tests, and normal CI/build/site-health gates once on the final consolidated head.
