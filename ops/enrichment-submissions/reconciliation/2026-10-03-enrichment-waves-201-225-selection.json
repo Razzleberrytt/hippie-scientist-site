@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-201-225-selection",
+  "continuation_of": "2026-10-03-enrichment-waves-176-200-selection",
+  "program": {
+    "range": "101-300",
+    "pass_size": 25,
+    "target_findings": 200,
+    "progress_after_pass": 125,
+    "merge_policy": "accumulate eight 25-finding passes; consolidate and validate once after 200"
+  },
+  "source_provenance": [
+    "ops/enrichment-submissions/reconciliation/2026-09-10-enrichment-batch-23.md",
+    "ops/enrichment-submissions/reconciliation/2026-09-09-enrichment-batch-22.md"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until 200-findings consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "validation_strategy": "cheap duplicate/entity screening during authoring; defer repository-wide validation until Wave 300"
+  },
+  "waves": [
+    {
+      "wave": 201,
+      "entity_slug": "olive-leaf-extract",
+      "pmid": "40990594",
+      "focus": "multicenter DB-RCT, 621 participants, 12 weeks; modest 24-h SBP effect with secondary metabolic endpoints and extract-specific boundary.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 202,
+      "entity_slug": "st-johns-wort",
+      "pmid": "18254000",
+      "focus": "Cochrane major-depression review; comparator, trial quality and standardized-preparation boundaries retained.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 203,
+      "entity_slug": "st-johns-wort",
+      "pmid": "20166070",
+      "focus": "depression SR/MA; heterogeneity and product standardization limits remain visible.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 204,
+      "entity_slug": "st-johns-wort",
+      "pmid": "16728550",
+      "focus": "clinical interaction review documenting CYP/P-gp induction; safety evidence is first-class.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 205,
+      "entity_slug": "saw-palmetto",
+      "pmid": "17556649",
+      "focus": "BPH systematic review; limited clinically important urinary benefit and preparation-specificity.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 206,
+      "entity_slug": "black-cohosh",
+      "pmid": "22526720",
+      "focus": "menopausal vasomotor RCT review; mixed evidence and preparation variability.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 207,
+      "entity_slug": "black-cohosh",
+      "pmid": "18996653",
+      "focus": "menopause review; inconsistent efficacy, with liver-safety evidence kept separate from efficacy.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 208,
+      "entity_slug": "evening-primrose",
+      "pmid": "12614179",
+      "focus": "atopic-eczema systematic review with insufficient benefit; historical null/counterweight.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 209,
+      "entity_slug": "evening-primrose",
+      "pmid": "18343326",
+      "focus": "cyclical mastalgia review; limited indication-specific evidence.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 210,
+      "entity_slug": "cranberry",
+      "pmid": "37025731",
+      "focus": "recurrent-UTI Cochrane review; preventive population/formulation/adherence specificity and no active-UTI treatment inference.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 211,
+      "entity_slug": "cranberry",
+      "pmid": "17636757",
+      "focus": "older UTI-prevention review; historical heterogeneity and uncertainty retained.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 212,
+      "entity_slug": "d-mannose",
+      "pmid": "38587814",
+      "focus": "recurrent-UTI prevention systematic review; limited heterogeneous evidence.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 213,
+      "entity_slug": "d-mannose",
+      "pmid": "31860221",
+      "focus": "randomized prevention evidence; possible benefit but small studies/comparator differences and low certainty.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 214,
+      "entity_slug": "echinacea",
+      "pmid": "25106650",
+      "focus": "common-cold systematic review; inconsistent across species, preparations and outcomes.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 215,
+      "entity_slug": "echinacea",
+      "pmid": "17044450",
+      "focus": "respiratory randomized evidence; prevention, incidence and symptom-duration endpoints stay separate.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 216,
+      "entity_slug": "andrographis-paniculata",
+      "pmid": "18425900",
+      "focus": "upper-respiratory-infection systematic review; preparation/method heterogeneity retained.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 217,
+      "entity_slug": "andrographis-paniculata",
+      "pmid": "22419337",
+      "focus": "common-cold randomized review; limited certainty and no chronic-respiratory generalization.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 218,
+      "entity_slug": "elderberry",
+      "pmid": "31452297",
+      "focus": "upper-respiratory symptom systematic review; possible duration signal with limited high-quality trials.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 219,
+      "entity_slug": "licorice",
+      "pmid": "17944136",
+      "focus": "DGL GI review; mixed evidence and strict DGL-vs-glycyrrhizin-containing licorice firewall.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 220,
+      "entity_slug": "licorice",
+      "pmid": "21511308",
+      "focus": "hypertension/hypokalemia/fluid-retention safety evidence; glycyrrhizin dose/formulation dependent.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 221,
+      "entity_slug": "ginkgo-biloba",
+      "pmid": "21649643",
+      "focus": "dementia RCT review; uncertain clinical benefit and standardized-extract boundary.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 222,
+      "entity_slug": "ginkgo-biloba",
+      "pmid": "21508585",
+      "focus": "cognitive-impairment evidence; no transfer to healthy-nootropic claims.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 223,
+      "entity_slug": "ginkgo-biloba",
+      "pmid": "19548453",
+      "focus": "tinnitus systematic review with insufficient meaningful benefit; indication-specific null.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 224,
+      "entity_slug": "panax-ginseng",
+      "pmid": "15235891",
+      "focus": "acute cognition randomized evidence; domain-specific, short-term, no long-term neuroprotection inference.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 225,
+      "entity_slug": "panax-ginseng",
+      "pmid": "17617791",
+      "focus": "glycemic systematic review; heterogeneous species/preparations/metabolic status and endpoints.",
+      "state": "review_ready_for_materialization"
+    }
+  ]
+}

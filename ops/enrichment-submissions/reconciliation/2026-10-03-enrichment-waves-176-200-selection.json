@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-176-200-selection",
+  "continuation_of": "2026-10-03-enrichment-waves-151-175-selection",
+  "program": {
+    "range": "101-300",
+    "pass_size": 25,
+    "target_findings": 200,
+    "progress_after_pass": 100,
+    "merge_policy": "accumulate eight 25-finding passes; consolidate and validate once after 200"
+  },
+  "source_provenance": [
+    "ops/enrichment-submissions/reconciliation/2026-09-06-enrichment-batch-20.md",
+    "ops/enrichment-submissions/reconciliation/2026-09-06-enrichment-batch-21.md",
+    "ops/enrichment-submissions/reconciliation/2026-09-09-enrichment-batch-22.md"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until 200-findings consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "validation_strategy": "cheap duplicate/entity screening during authoring; defer repository-wide validation until Wave 300"
+  },
+  "waves": [
+    {
+      "wave": 176,
+      "entity_slug": "acetyl-l-carnitine",
+      "pmid": "42261369",
+      "focus": "2026 mood-disorder SR/MA; preserve heterogeneous diagnoses/regimens, adjunct-vs-monotherapy status, and risk-of-bias boundaries.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 177,
+      "entity_slug": "saffron",
+      "pmid": "38424688",
+      "focus": "46-RCT neurological/psychiatric systematic review; outcome-by-outcome certainty, formulation, combinations and heterogeneity remain explicit.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 178,
+      "entity_slug": "zinc",
+      "pmid": "41651464",
+      "focus": "CKD-specific zinc evidence; cannot be inherited by healthy populations or generic zinc claims.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 179,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "42192187",
+      "focus": "large metabolic RCT synthesis; biomarker endpoints remain distinct from disease-treatment claims.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 180,
+      "entity_slug": "vitamin-d",
+      "pmid": "41478593",
+      "focus": "MASLD-specific evidence; disease/population boundary prevents generic metabolic claims.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 181,
+      "entity_slug": "vitamin-d",
+      "pmid": "42355996",
+      "focus": "PMS-specific evidence; do not generalize to depression, dysmenorrhea or other mood indications.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 182,
+      "entity_slug": "omega-3",
+      "pmid": "42137868",
+      "focus": "13 RCTs/2,451 cognition synthesis with I² 96%; signal attenuated after excluding high-risk studies.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 183,
+      "entity_slug": "anthocyanins",
+      "pmid": "42547104",
+      "focus": "cohort disease-risk associations and randomized FMD/insulin findings remain separated; sponsor provenance retained.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 184,
+      "entity_slug": "anthocyanins",
+      "pmid": "41619973",
+      "focus": "impaired-glucose-tolerance RCT; preparation/remission definition require exact extraction and IGT remission is not diabetes prevention/treatment.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 185,
+      "entity_slug": "probiotics",
+      "pmid": "42289829",
+      "focus": "umbrella review of 128 biotics SR/MAs; strain/population variability and pediatric sepsis safety concerns retained.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 186,
+      "entity_slug": "phytosterols",
+      "pmid": "42275989",
+      "focus": "phytosterol/stanol umbrella evidence is category-level and must not be inherited by beta-sitosterol or individual products without identity match.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 187,
+      "entity_slug": "n-acetyl-cysteine",
+      "pmid": "42473447",
+      "focus": "14 RCTs/2,856 in COPD; exacerbation findings stay COPD- and regimen-specific.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 188,
+      "entity_slug": "n-acetyl-cysteine",
+      "pmid": "39504621",
+      "focus": "12 RCTs/904 depression; modest adjunctive psychiatric effect with diagnosis/co-treatment boundaries.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 189,
+      "entity_slug": "n-acetyl-cysteine",
+      "pmid": "42055451",
+      "focus": "chemotherapy-induced peripheral neuropathy context only; no transfer to idiopathic neuropathy.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 190,
+      "entity_slug": "quercetin",
+      "pmid": "41404533",
+      "focus": "MASLD RCT synthesis; liver/lipid/CRP signals with anthropometric nulls; disease-specific.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 191,
+      "entity_slug": "quercetin",
+      "pmid": "31114281",
+      "focus": "9 RCTs/525; weight, BMI, waist and WHR null—counterweight to weight-loss marketing.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 192,
+      "entity_slug": "quercetin",
+      "pmid": "31092175",
+      "focus": "8 RCTs; small systolic-BP signal while DBP/endothelial markers were non-significant; surrogate limits retained.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 193,
+      "entity_slug": "inositol",
+      "pmid": "41947399",
+      "focus": "PCOS phenotype-response evidence; stereoisomer/formulation and PCOS boundaries remain attached.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 194,
+      "entity_slug": "inositol",
+      "pmid": "41163174",
+      "focus": "18 RCTs/898 cardiometabolic synthesis; modest changes with high heterogeneity and low/very-low anthropometric certainty.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 195,
+      "entity_slug": "omega-3",
+      "pmid": "41655662",
+      "focus": "prenatal omega-3 and offspring cognition; prenatal exposure/developmental outcomes must not be merged with adult cognition.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 196,
+      "entity_slug": "milk-thistle",
+      "pmid": "12427501",
+      "focus": "14 placebo-controlled liver-disease trials; mortality and most liver outcomes null, small ALT signal not robust in higher-quality/longer trials.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 197,
+      "entity_slug": "magnesium",
+      "pmid": "33865376",
+      "focus": "3 RCTs/151 older adults with insomnia; sleep-onset latency signal with small, age-specific evidence base.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 198,
+      "entity_slug": "rhodiola",
+      "pmid": "41906501",
+      "focus": "review spanning Rhodiola and Withania psychometrics; only Rhodiola-specific findings may attach to Rhodiola.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 199,
+      "entity_slug": "ashwagandha",
+      "pmid": "42593642",
+      "focus": "proprietary low-dose extract RCT in 60 stressed adults for 28 days; short-duration/product/industry provenance retained.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 200,
+      "entity_slug": "olive-leaf-extract",
+      "pmid": "36271405",
+      "focus": "12 studies/819; triglyceride/SBP signals with low/very-low certainty for several other biomarkers; hypertension subgroup boundaries.",
+      "state": "review_ready_for_materialization"
+    }
+  ]
+}

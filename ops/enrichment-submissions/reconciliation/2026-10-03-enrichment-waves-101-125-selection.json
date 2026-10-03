@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-101-125-selection",
+  "base_main": "86d5e7d52e7c3a290f3cd6ac0893a79c15b32ead",
+  "program": {
+    "range": "101-300",
+    "pass_size": 25,
+    "target_findings": 200,
+    "merge_policy": "accumulate eight 25-finding passes; consolidate, run admission/runtime/repository gates, then merge once after 200"
+  },
+  "source_provenance": [
+    "ops/enrichment-submissions/reconciliation/2026-09-06-full-corpus-inventory.md"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until 200-findings consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "validation_strategy": "pass-first; cheap duplicate/entity screening during authoring; defer expensive repository-wide validation until 200-finding consolidation"
+  },
+  "waves": [
+    {
+      "wave": 101,
+      "entity_slug": "probiotics",
+      "pmid": "42010690",
+      "focus": "prebiotic/probiotic/synbiotic interventions for anxiety and depression; GRADE meta-analysis",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 102,
+      "entity_slug": "probiotics",
+      "pmid": "42495752",
+      "focus": "2026 depression probiotic systematic review/meta-analysis; preserve strain/population heterogeneity",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 103,
+      "entity_slug": "probiotics",
+      "pmid": "42580083",
+      "focus": "probiotics in multiple sclerosis; preserve disease-specific and strain-specific boundaries",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 104,
+      "entity_slug": "probiotics",
+      "pmid": "41449894",
+      "focus": "12 RCTs/1,113 participants; fecal Lactobacillus/Bifidobacterium and fasting glucose; microbiome endpoints distinct from clinical efficacy",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 105,
+      "entity_slug": "probiotics",
+      "pmid": "41773190",
+      "focus": "athlete biotics umbrella/re-analysis; immune/inflammatory biomarkers, not performance efficacy",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 106,
+      "entity_slug": "probiotics",
+      "pmid": "42451071",
+      "focus": "early-life probiotic/synbiotic respiratory-infection prevention in children <=24 months; strain-specific",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 107,
+      "entity_slug": "green-tea-extract",
+      "pmid": "42155001",
+      "focus": "substrate-utilization evidence; explicitly not proof of fat loss",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 108,
+      "entity_slug": "grape-seed-extract",
+      "pmid": "42364670",
+      "focus": "proanthocyanidin/GSPE review; only one human RCT among 15 studies, 54 athletes, OPC 210 mg/day for 9 days; very-low certainty",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 109,
+      "entity_slug": "ashwagandha",
+      "pmid": "42602386",
+      "focus": "pediatric ADHD randomized trial; age/safety-specific extraction required before any claim",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 110,
+      "entity_slug": "curcumin",
+      "pmid": "42472817",
+      "focus": "depression GRADE systematic review/meta-analysis; keep formulation and psychiatric-population boundaries",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 111,
+      "entity_slug": "probiotics",
+      "pmid": "41561940",
+      "focus": "pediatric asthma; 6 RCTs/731; immune-biomarker signals but clinical outcomes null; TSA inconclusive; very-low certainty",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 112,
+      "entity_slug": "probiotics",
+      "pmid": "40342899",
+      "focus": "pediatric asthma; 8 RCTs/902; acute episode RR signal and FEV1/FVC signal; reconcile rather than overwrite PMID 41561940",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 113,
+      "entity_slug": "probiotics",
+      "pmid": "42477222",
+      "focus": "pediatric functional abdominal pain disorders; 21 trials/1,899; modest pain/episode signals; complete resolution 35.3% vs 22.8%, NNT ~7; responder-threshold advantage null",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 114,
+      "entity_slug": "probiotics",
+      "pmid": "41883407",
+      "focus": "pediatric functional abdominal pain network meta-analysis; strain-specific and heterogeneous",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 115,
+      "entity_slug": "probiotics",
+      "pmid": "42383034",
+      "focus": "knee osteoarthritis probiotic evidence; exploratory strain-specific efficacy with no significant adverse-event difference",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 116,
+      "entity_slug": "probiotics",
+      "pmid": "41495831",
+      "focus": "healthy-population gut-diversity evidence; 47 studies, 22 quantitative, 1,068 participants; Shannon and several alpha-diversity metrics null",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 117,
+      "entity_slug": "gotu-kola",
+      "pmid": "41901080",
+      "focus": "Centella asiatica CA-HE50 300 mg/day for 6 months, n=80; MPOD improved; surrogate ophthalmic endpoint, not AMD treatment/prevention; product-specific",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 118,
+      "entity_slug": "perilla",
+      "pmid": "41901135",
+      "focus": "Perilla frutescens var. acuta leaf ethanol extract 500 mg/day for 12 weeks, n=100; K-MMSE-2/ADAS-Cog improved; amyloid-beta and BDNF null; product-specific",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 119,
+      "entity_slug": "curcumin",
+      "pmid": "42597400",
+      "focus": "mixed hot-water + supercritical CO2 Curcuma longa extract, n=40, 24 weeks; selected attention/orientation endpoints positive among many; small/multiple-endpoint caution",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 120,
+      "entity_slug": "ashwagandha",
+      "pmid": "41725116",
+      "focus": "300 mg twice daily for 8 weeks, n=50 older adults; OPQOL/ESS/fitness signals; extract/provenance-specific",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 121,
+      "entity_slug": "ashwagandha",
+      "pmid": "41815853",
+      "focus": "proprietary Ashwa APB, n=141 with moderate stress/anxiety; two 300 mg twice-daily formulations vs placebo for 8 weeks; product-specific",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 122,
+      "entity_slug": "ashwagandha",
+      "pmid": "42105298",
+      "focus": "Phase III Ashwagen 300 mg twice daily stress/anxiety trial in adults with hypertension/cardiometabolic risk, n=60; exact source-specific results required",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 123,
+      "entity_slug": "probiotics",
+      "pmid": "42316023",
+      "focus": "synbiotic oxidative-stress meta-analysis; 18 RCTs; biomarker effects, GRADE very low-to-moderate; retracted/serious-concern trials excluded",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 124,
+      "entity_slug": "ginkgo-biloba",
+      "pmid": "42051256",
+      "focus": "standardized injectable Ginkgo preparation (SXNI), 22 trials/2,375; route-specific and must remain separate from oral Ginkgo",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 125,
+      "entity_slug": "lutein",
+      "pmid": "42028334",
+      "focus": "lutein/carotenoid randomized-trial meta-analysis in AMD; ophthalmic disease-specific; exact intervention-node attribution required",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    }
+  ]
+}
