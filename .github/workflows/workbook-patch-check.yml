@@ -58,7 +58,6 @@ jobs:
             public/data/compounds.json \
             scripts/ci/prepare-entity-row-review.mjs \
             scripts/ci/sync-proposed-compound-runtime.mjs \
-            scripts/data/build-runtime-from-workbook.mjs \
             scripts/data/edit-entity-master-cell.mjs \
             | grep -q .; then
             echo "required=true" >> "$GITHUB_OUTPUT"
