@@ -57,7 +57,7 @@ const FAQS = [
   {
     question: 'Is 7-OH federally Schedule I right now?',
     answer:
-      'The federal status is changing quickly. DEA published a July 6, 2026 notice of intent to temporarily schedule 7-OH above a specified threshold, with a separate notice for three related synthetic substances. That notice states control begins only when a temporary scheduling order is published. This page records the status located in our August 15, 2026 regulatory review and should not be used as legal advice.',
+      'The federal status now differs by substance. DEA temporarily placed mitragynine pseudoindoxyl, MGM-15, and MGM-16 into Schedule I effective August 26, 2026. The separate threshold-based process for 7-OH itself began with a July notice of intent; in our October 3, 2026 review, we located the later HHS comment-period extension but not a published temporary scheduling order for thresholded 7-OH. Verify current DEA/Federal Register status before making legal decisions.',
   },
   {
     question: 'When should someone seek urgent medical care during suspected 7-OH withdrawal?',
@@ -69,7 +69,7 @@ const FAQS = [
 const REFS = [
   {
     n: 1,
-    text: 'FDA. Products Containing 7-OH Can Cause Serious Harm. Current consumer safety communication, accessed August 15, 2026.',
+    text: 'FDA. Products Containing 7-OH Can Cause Serious Harm. Current consumer safety communication, accessed October 3, 2026.',
     url: 'https://www.fda.gov/consumers/consumer-updates/products-containing-7-oh-can-cause-serious-harm',
   },
   {
@@ -168,7 +168,7 @@ const REFS = [
     n: 17,
     text: 'FDA. FDA Seizes 7-OH Opioids to Protect American Consumers. December 2, 2025.',
     url: 'https://www.fda.gov/news-events/press-announcements/fda-seizes-7-oh-opioids-protect-american-consumers',
-  },,
+  },
   {
     n: 18,
     text: 'Stanciu CN, Gnanasegaram SA, Ahmed S, Penders T. Kratom Withdrawal: A Systematic Review with Case Series. J Psychoactive Drugs. 2019. PMID 30614408.',
@@ -259,6 +259,16 @@ const REFS = [
     url: 'https://pubmed.ncbi.nlm.nih.gov/30786220/',
     pmid: '30786220',
     doi: '10.1080/15563650.2019.1569236',
+  },
+  {
+    n: 32,
+    text: 'DEA. Schedules of Controlled Substances: Temporary Placement of Mitragynine Pseudoindoxyl, MGM-15, and MGM-16 in Schedule I. Temporary scheduling order, effective August 26, 2026; scheduled through August 26, 2028 unless extended or made permanent.',
+    url: 'https://public-inspection.federalregister.gov/2026-17429.pdf',
+  },
+  {
+    n: 33,
+    text: 'HHS/OASH. Temporary Placement of 7-Hydroxymitragynine Above a Specified Threshold in Schedule I; Request for Information; Extension of Comment Period. Federal Register publication August 26, 2026.',
+    url: 'https://public-inspection.federalregister.gov/2026-17409.pdf',
   }
 ]
 
@@ -291,7 +301,7 @@ export default function Page() {
         />
 
         <header className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
-          <p className="eyebrow-label">Emerging opioid safety · Literature checked August 15, 2026</p>
+          <p className="eyebrow-label">Emerging opioid safety · Literature checked October 3, 2026</p>
           <h1 className="mt-2 text-3xl font-semibold text-ink sm:text-4xl">
             Kratom & 7-OH Withdrawal and Recovery: What the 2026 Evidence Actually Shows
           </h1>
@@ -299,7 +309,7 @@ export default function Page() {
             Kratom leaf, extracts, and concentrated or semi-synthetic 7-hydroxymitragynine products sit on the same broad pharmacologic family tree but can create materially different exposures. This review separates those products, maps dependence and withdrawal evidence, follows recovery beyond the acute syndrome, and tracks current product chemistry and regulation without inventing a universal taper, dose conversion, or withdrawal clock.
           </p>
           <div className="mt-5 flex flex-wrap gap-2 text-xs font-semibold">
-            <span className="rounded-full bg-brand-50 px-3 py-1.5 text-brand-900">31-source evidence ledger</span>
+            <span className="rounded-full bg-brand-50 px-3 py-1.5 text-brand-900">33-source evidence ledger</span>
             <span className="rounded-full bg-brand-50 px-3 py-1.5 text-brand-900">2026 clinical cases included</span>
             <span className="rounded-full bg-brand-50 px-3 py-1.5 text-brand-900">Regulatory status dated</span>
             <span className="rounded-full bg-brand-50 px-3 py-1.5 text-brand-900">No DIY taper protocol</span>
@@ -334,7 +344,7 @@ export default function Page() {
             <div className="card-premium p-5">
               <p className="text-xs font-semibold uppercase tracking-wide text-brand-700">Regulation</p>
               <p className="mt-2 text-sm text-muted">
-                DEA began a temporary Schedule I process in July 2026 for 7-OH above a proposed threshold and separately for three related synthetic substances [2–5].
+                DEA began a threshold-based temporary-scheduling process for 7-OH in July 2026; separately, mitragynine pseudoindoxyl, MGM-15, and MGM-16 were placed into temporary Schedule I effective August 26, 2026 [2–5,32,33].
               </p>
             </div>
           </div>
@@ -439,20 +449,23 @@ export default function Page() {
         </section>
 
         <section id="regulatory" className="scroll-mt-20 prose-section space-y-4">
-          <h2 className="text-2xl font-semibold text-ink">Federal regulatory snapshot — reviewed August 15, 2026</h2>
+          <h2 className="text-2xl font-semibold text-ink">Federal regulatory snapshot — reviewed October 3, 2026</h2>
           <p className="text-muted leading-relaxed">
             FDA states that added or enhanced 7-OH is not lawful as a dietary-supplement ingredient or conventional-food ingredient and that there are no FDA-approved drugs containing 7-OH [1,16]. FDA issued warning letters in 2025 and later announced seizure of about 73,000 units of concentrated 7-OH products valued at roughly $1 million [16,17].
           </p>
           <p className="text-muted leading-relaxed">
-            DEA’s July 6, 2026 notice of intent proposes temporary Schedule I control for 7-OH above a defined threshold. The proposed threshold includes botanical kratom above 0.050% 7-OH by dry weight and certain alternative/processed materials above 0.050% or above 1 mg of 7-OH per article [4,5]. The agencies explicitly said the action was designed not to capture ordinary botanical leaf with naturally occurring trace 7-OH [2–5].
+            Federal control now differs by substance. DEA's August 26, 2026 temporary scheduling order placed <strong>mitragynine pseudoindoxyl, MGM-15, and MGM-16</strong> into Schedule I, effective that day and scheduled to remain in effect through August 26, 2028 unless extended or made permanent [32].
+          </p>
+          <p className="text-muted leading-relaxed">
+            <strong>Thresholded 7-OH itself is a separate proceeding.</strong> DEA's July 6 notice of intent proposed temporary Schedule I control for 7-OH above a defined threshold, while HHS sought information on the threshold and later extended that comment process [4,5,33]. In our October 3, 2026 review, we located the notice of intent and the August comment-period extension but did not locate a later published temporary scheduling order putting thresholded 7-OH itself into effect.
           </p>
           <div className="rounded-2xl border border-sky-900/15 bg-sky-50 p-5 text-sm text-sky-950">
-            <p className="font-semibold">Intent is not the same as an effective order.</p>
+            <p className="font-semibold">Do not collapse these legal categories.</p>
             <p className="mt-2">
-              The July notice states that temporary control takes effect only when the scheduling order is published in the Federal Register and that the order would not be issued before August 5, 2026 [5]. In our August 15 regulatory search, we located the notice of intent but did not locate a later published temporary order. Because this can change at any time, verify the current DEA/Federal Register status before making legal decisions.
+              Mitragynine pseudoindoxyl, MGM-15, and MGM-16 are temporarily Schedule I under the August 26 order [32]. The proposed threshold-based treatment of 7-OH is a separate federal action [4,5,33]. Ordinary botanical kratom, concentrated 7-OH products, and the three scheduled synthetic/semisynthetic derivatives therefore should not be described as though they share one identical federal status.
             </p>
           </div>
-          <p className="text-sm text-muted">State and local restrictions can be different from federal status. This page deliberately does not publish a static “legal states” list that can become wrong between updates.</p>
+          <p className="text-sm text-muted">State and local restrictions can differ from federal status. This page deliberately does not publish a static “legal states” list that can become wrong between updates.</p>
         </section>
 
         <section id="care" className="scroll-mt-20 prose-section space-y-4">
