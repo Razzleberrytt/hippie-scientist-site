@@ -703,6 +703,7 @@ export default async function CompoundPage({ params }: PageProps) {
     .slice(0, 8)
 
   const displayName = formatDisplayLabel(compound.name || compound.slug)
+  const profileHeading = normalizedSlug === 'boswellia' ? 'Boswellia compounds' : displayName
   const profileDecision = buildProfileDecision(compound as Record<string, unknown>, 'compound')
   const profileDecisionClaimedHrefs = getProfileDecisionClaimedHrefs(profileDecision)
   const quickSummary = firstSentences(summary, 1) || 'Compound profile with safety, mechanism, and fit context.'
@@ -888,7 +889,7 @@ export default async function CompoundPage({ params }: PageProps) {
               <div className="space-y-1">
                 <p className="hs-label">Compound Profile</p>
                 <h1 className="font-semibold tracking-tight text-ink">
-                  {displayName}
+                  {profileHeading}
                 </h1>
                 {compound.compoundClass || compound.class ? (
                   <p className="text-sm italic text-muted">{compound.compoundClass || compound.class}</p>
