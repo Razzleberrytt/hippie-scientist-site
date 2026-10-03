@@ -274,7 +274,7 @@ P1 — completed on branch:
 - [x] Meclonazepam — full masterclass pass complete; antiparasitic history, human metabolite work and STRIDA intoxication evidence integrated
 - [x] MDPHP — masterclass pass complete
 - [x] MDPiHP — emerging-evidence masterclass pass complete
-- [ ] Remaining high-risk P2 profiles — prioritize existing pages with human toxicology/forensic evidence before creating new routes
+- [ ] Remaining high-risk P2 profiles — prioritize existing pages with human toxicology/forensic evidence before creating new routes; metizolam, phenazepam, and meclonazepam completed 2026-10-03
 - [ ] Wave 3 structural audit
 - [x] 25E-NBOH — masterclass pass complete
 - [x] 3-FPM — masterclass pass complete
