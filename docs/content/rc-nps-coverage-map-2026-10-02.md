@@ -272,6 +272,10 @@ P1 — completed on branch:
 - [x] Metizolam — full masterclass pass complete; human metabolism + 2026 DFSA evidence preserved without potency overreach
 - [x] Phenazepam — full masterclass pass complete; human DUID, prolonged-toxicity, fatality and 2016 international-control evidence integrated
 - [x] Meclonazepam — full masterclass pass complete; antiparasitic history, human metabolite work and STRIDA intoxication evidence integrated
+- [x] Etizolam — full masterclass pass complete; controlled human PK, counterfeit-tablet evidence, opioid-related deaths and 2026 federal Schedule I status integrated
+- [x] Flubromazepam — full masterclass pass complete; >100-hour persistence evidence, prolonged detection and mixed-opioid fatality interpretation integrated
+- [x] Diclazepam — full masterclass pass complete; active delorazepam/lorazepam/lormetazepam metabolites, DFSA evidence and 2026 federal Schedule I status integrated
+- [x] Pyrazolam — full masterclass pass complete; 2026 acute poisoning, immunoassay limitations and postmortem interpretation integrated
 - [x] Flubromazepam — full masterclass pass complete; >100 h human persistence, mixed-opioid fatality and 2026 prolonged-coma evidence integrated
 - [x] Diclazepam — full masterclass pass complete; active metabolites, human PK, DFSA testing limits and 2026 U.S. Schedule I status integrated
 - [x] Pyrazolam — full masterclass pass complete; human urinary metabolism, STRIDA and 2025 acute-poisoning evidence integrated
