@@ -6,7 +6,7 @@
 
 - [x] P0 masterclass monographs complete — all P0 profiles have now received the deep monograph pass
 - [x] P1 masterclass monographs complete — all P1 profiles passed the deep structural audit
-- [ ] Dependence/withdrawal/addiction-support pass complete
+- [ ] Dependence/withdrawal/addiction-support pass complete — **class-level withdrawal/recovery backbone completed 2026-10-03; compound-level cross-link/support normalization remains**
 - [ ] History/legal/regulatory pass complete
 - [ ] Primary-source/PMID reference-density pass complete
 - [ ] Toxicology/testing/forensic-interpretation pass complete
@@ -83,6 +83,21 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 | Benzofuran entactogens | /articles/benzofurans-entactogens/ | branch-ready |
 | Non-benzo / qualone sedatives | /articles/novel-sedatives-qualone-analogues/ | branch-ready |
 | Mislabeled botanical / smoke-shop opioid products | /articles/cats-claw-kava-hidden-opioids/ | branch-ready |
+
+### Withdrawal/recovery category backbone — class coverage complete
+
+- [x] Designer benzodiazepines → [Benzodiazepine & Z-Drug Withdrawal & Recovery](/articles/benzodiazepine-zdrug-withdrawal-recovery-guide/)
+- [x] Synthetic opioids / nitazenes / orphines → [Opioid Withdrawal & Recovery](/articles/opioid-withdrawal-recovery-guide/)
+- [x] Synthetic cathinones / RC stimulants → [Stimulant Withdrawal & Recovery](/articles/stimulant-withdrawal-recovery-guide/)
+- [x] Synthetic cannabinoids / Spice / K2 → [Synthetic Cannabinoid Withdrawal & Recovery](/articles/synthetic-cannabinoid-withdrawal-recovery-guide/) — added 2026-10-03
+- [x] Dissociatives / ketamine-PCP analogues → [Dissociative Withdrawal & Recovery](/articles/dissociative-withdrawal-recovery-guide/) — added 2026-10-03
+- [x] Psychedelics / tryptamines / lysergamides → [Psychedelic Withdrawal & Recovery](/articles/psychedelic-withdrawal-recovery-guide/) — added 2026-10-03
+- [x] Benzofurans / entactogens → [Entactogen & Benzofuran Withdrawal & Recovery](/articles/entactogen-benzofuran-withdrawal-recovery-guide/) — added 2026-10-03
+- [x] Non-benzo sedatives / qualone analogues → [Novel Sedative & Qualone Withdrawal & Recovery](/articles/novel-sedative-qualone-withdrawal-recovery-guide/) — added 2026-10-03
+- [x] RC/NPS overview now exposes a single withdrawal/recovery-by-class index.
+- [ ] Normalize compound-level links, use-disorder language, support resources, and explicit “not established” withdrawal statements across remaining canonical profiles.
+
+**Editorial rule:** a class recovery page does not imply every member has a proven physical withdrawal syndrome. Psychedelic and dissociative pages explicitly preserve low/uncertain physical-withdrawal evidence while covering psychiatric, cognitive, medical, and relapse-recovery risks.
 
 ## Priority individual profiles — current wave
 
