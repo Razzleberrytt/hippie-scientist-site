@@ -135,8 +135,8 @@ const KRATOM_CLUSTER = [
 const DEPENDENCE = [
   {
     href: '/guides/other/kratom-7oh-withdrawal-management/',
-    title: 'Kratom & 7-OH Withdrawal: Evidence and Clinical Context',
-    desc: 'What is known about tolerance, dependence, withdrawal, and when medical assessment matters.',
+    title: 'Kratom & 7-OH Withdrawal & Recovery: Masterclass Guide',
+    desc: 'Dependence, withdrawal symptoms and timing, concentrated 7-OH versus botanical kratom, treatment evidence, longer recovery, product uncertainty, and current federal status.',
   },
   {
     href: '/novel-psychoactive-substances/harm-reduction-considerations-for-kratom-derived-semi-synthetic-opioids/',
