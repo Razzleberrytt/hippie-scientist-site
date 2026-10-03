@@ -280,7 +280,7 @@ P1 — completed on branch:
 - [x] Flunitrazolam — full masterclass pass complete; controlled human analytical exposure, urine/oral-fluid detection and metabolism evidence integrated without inventing toxicity thresholds
 - [x] MDPHP — masterclass pass complete
 - [x] MDPiHP — emerging-evidence masterclass pass complete
-- [ ] Remaining high-risk P2 profiles — prioritize existing pages with human toxicology/forensic evidence before creating new routes; nine evidence-bearing designer-benzodiazepine profiles completed in this Wave-3 batch on 2026-10-03
+- [ ] Remaining high-risk P2 profiles — prioritize existing pages with human toxicology/forensic evidence before creating new routes; ten evidence-bearing designer-benzodiazepine profiles completed in this Wave-3 batch on 2026-10-03
 - [ ] Wave 3 structural audit
 - [x] 25E-NBOH — masterclass pass complete
 - [x] 3-FPM — masterclass pass complete
