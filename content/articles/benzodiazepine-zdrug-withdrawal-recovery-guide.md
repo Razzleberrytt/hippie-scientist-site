@@ -505,6 +505,26 @@ Evidence and modern guidance consistently point to several factors:
 
 No risk factor guarantees severe withdrawal, and the absence of one does not guarantee a painless taper.
 
+## When outpatient tapering may not be enough
+
+Most benzodiazepine tapers can be managed in outpatient care, but the safest setting changes when the likely consequences of a failed or interrupted taper become more dangerous [1].
+
+Higher-acuity or medically managed care may be appropriate when there is:
+
+- current severe or rapidly escalating withdrawal;
+- a history of withdrawal seizure or delirium;
+- unstable medical or psychiatric illness;
+- imminent suicide or self-harm risk;
+- simultaneous alcohol, barbiturate, GHB/GBL, or other dangerous sedative withdrawal;
+- very high or uncertain exposure, including unregulated/counterfeit benzodiazepines;
+- repeated inability to maintain a safe outpatient taper;
+- inability to take medication reliably or return for monitoring;
+- a home environment that makes safe medication management impossible.
+
+The setting decision should not be reduced to a single withdrawal score. The 2025 guideline emphasizes seizure/delirium risk, medical instability, co-occurring substance use, and the ability to monitor and respond to symptoms [1].
+
+Hospitalization also creates its own risk if a chronic benzodiazepine is accidentally omitted. A good inpatient plan therefore includes accurate medication reconciliation **and** an explicit decision about whether the goal is continuation, stabilization, or supervised withdrawal.
+
 ## Why “just stop and see what happens” is a bad experiment
 
 Unlike a medication with no meaningful withdrawal physiology, a benzodiazepine cannot always be tested with a casual drug holiday.
@@ -836,7 +856,7 @@ A rapid forced taper can worsen severe anxiety, insomnia, or another underlying 
 
 Benzodiazepines differ substantially in metabolism.
 
-Diazepam, alprazolam, and clonazepam rely more on hepatic oxidative pathways than drugs such as lorazepam and oxazepam, which are primarily glucuronidated.
+Diazepam, alprazolam, and clonazepam rely more on hepatic oxidative pathways than drugs such as lorazepam and oxazepam, which are primarily glucuronidated [1,36].
 
 That matters when considering accumulation, sedation, and cross-tapering in significant liver disease.
 
