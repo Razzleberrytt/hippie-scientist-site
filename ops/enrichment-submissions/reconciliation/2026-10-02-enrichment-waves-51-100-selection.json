@@ -12,7 +12,8 @@
     "publication_promotion": "forbidden",
     "recommendation_promotion": "forbidden",
     "dose_inference": "forbidden",
-    "validation_strategy": "batch-first; defer repository-wide validation until the 50-wave runtime ledger is consolidated"
+    "validation_strategy": "batch-first; defer repository-wide validation until the 50-wave runtime ledger is consolidated",
+    "runtime_materialization": "Only reader-ready source-specific evidence rows enter the runtime ledger; editorial receipt summaries remain research documentation."
   },
   "exclusions": [
     {
@@ -39,7 +40,7 @@
       "pmid": "18254000",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/18254000/",
       "review_note": "major depression; Cochrane review; preserve comparator, quality and standardized-preparation boundaries",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 52,
@@ -47,7 +48,7 @@
       "pmid": "20166070",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/20166070/",
       "review_note": "depression meta-analysis; preserve heterogeneity and product-standardization limits",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 53,
@@ -55,7 +56,7 @@
       "pmid": "16728550",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/16728550/",
       "review_note": "drug-interaction review; CYP/P-gp induction is first-class safety evidence",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 54,
@@ -63,7 +64,7 @@
       "pmid": "17556649",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/17556649/",
       "review_note": "BPH systematic review; limited clinically important urinary benefit; preparation-specific",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 55,
@@ -71,7 +72,7 @@
       "pmid": "24836739",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/24836739/",
       "review_note": "systematic review of human Salvia cognition studies; preserve species/preparation heterogeneity",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 56,
@@ -79,7 +80,7 @@
       "pmid": "22526720",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/22526720/",
       "review_note": "menopausal vasomotor symptoms; mixed randomized evidence and preparation variability",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 57,
@@ -87,7 +88,7 @@
       "pmid": "18996653",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/18996653/",
       "review_note": "menopause review; inconsistent efficacy; keep liver-safety evidence separate",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 58,
@@ -95,7 +96,7 @@
       "pmid": "12614179",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/12614179/",
       "review_note": "atopic eczema systematic review; insufficient benefit; retain as null/counterweight",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 59,
@@ -103,7 +104,7 @@
       "pmid": "18343326",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/18343326/",
       "review_note": "cyclical mastalgia review; limited indication-specific evidence",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 60,
@@ -111,7 +112,7 @@
       "pmid": "37025731",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/37025731/",
       "review_note": "recurrent UTI prevention Cochrane review; population/formulation/adherence specific; not active-UTI treatment",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 61,
@@ -119,7 +120,7 @@
       "pmid": "17636757",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/17636757/",
       "review_note": "older UTI-prevention review; heterogeneous preventive effects; preserve historical uncertainty",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 62,
@@ -127,7 +128,7 @@
       "pmid": "38587814",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/38587814/",
       "review_note": "recurrent UTI prevention systematic review; limited and heterogeneous evidence",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 63,
@@ -135,7 +136,7 @@
       "pmid": "31860221",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/31860221/",
       "review_note": "randomized prevention evidence; possible benefit but small studies/comparator differences",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 64,
@@ -143,7 +144,7 @@
       "pmid": "25106650",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/25106650/",
       "review_note": "common-cold systematic review; inconsistent across species/preparations/outcomes",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 65,
@@ -151,7 +152,7 @@
       "pmid": "17044450",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/17044450/",
       "review_note": "respiratory randomized evidence; keep prevention, incidence and symptom duration separate",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 66,
@@ -159,7 +160,7 @@
       "pmid": "41080184",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/41080184/",
       "review_note": "canonical admission audit confirmed this vetted Rhodiola PMID is already represented; Wave 66 closes as a dedupe/reconciliation wave with no net-new runtime row",
-      "state": "reviewed_existing_coverage_not_materialized"
+      "state": "reviewed_deduped_already_canonical"
     },
     {
       "wave": 67,
@@ -167,7 +168,7 @@
       "pmid": "18425900",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/18425900/",
       "review_note": "upper respiratory infection systematic review; preparation and method heterogeneity",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 68,
@@ -175,7 +176,7 @@
       "pmid": "22419337",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/22419337/",
       "review_note": "common-cold randomized review; limited certainty; no chronic-disease generalization",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 69,
@@ -183,7 +184,7 @@
       "pmid": "31452297",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/31452297/",
       "review_note": "upper-respiratory symptom systematic review; possible duration benefit; limited high-quality trials",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 70,
@@ -191,7 +192,7 @@
       "pmid": "18350281",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/18350281/",
       "review_note": "randomized double-blind crossover human cognition trial; preparation/population/endpoint specific",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 71,
@@ -199,7 +200,7 @@
       "pmid": "17944136",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/17944136/",
       "review_note": "deglycyrrhizinated licorice GI review; mixed evidence; DGL distinct from glycyrrhizin-containing licorice",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 72,
@@ -207,7 +208,7 @@
       "pmid": "21511308",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/21511308/",
       "review_note": "blood-pressure/hypokalemia/fluid-retention safety evidence; dose/formulation dependent",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 73,
@@ -215,7 +216,7 @@
       "pmid": "21649643",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/21649643/",
       "review_note": "dementia systematic review; uncertain clinical benefit; standardized-extract boundary",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 74,
@@ -223,7 +224,7 @@
       "pmid": "21508585",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/21508585/",
       "review_note": "cognitive-impairment evidence; do not transfer to healthy-nootropic claims",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 75,
@@ -231,7 +232,7 @@
       "pmid": "19548453",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/19548453/",
       "review_note": "tinnitus systematic review; insufficient meaningful benefit",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 76,
@@ -239,7 +240,7 @@
       "pmid": "15235891",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/15235891/",
       "review_note": "acute cognition randomized evidence; domain-specific and short-term",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 77,
@@ -247,7 +248,7 @@
       "pmid": "17617791",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/17617791/",
       "review_note": "glycemic systematic review; heterogeneous species/preparations/metabolic status",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 78,
@@ -255,7 +256,7 @@
       "pmid": "20420942",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/20420942/",
       "review_note": "fatigue systematic review; small heterogeneous trials",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 79,
@@ -263,7 +264,7 @@
       "pmid": "23270713",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/23270713/",
       "review_note": "exercise-performance randomized evidence; mixed; separate performance from subjective fatigue",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 80,
@@ -271,7 +272,7 @@
       "pmid": "19933124",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/19933124/",
       "review_note": "sexual-function systematic review; limited evidence and small samples",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 81,
@@ -279,7 +280,7 @@
       "pmid": "21116021",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/21116021/",
       "review_note": "menopause randomized evidence; limited; do not generalize sexual-function evidence",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 82,
@@ -287,7 +288,7 @@
       "pmid": "25753475",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/25753475/",
       "review_note": "systematic review; insufficient support for testosterone/erectile-function claims",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 83,
@@ -295,7 +296,7 @@
       "pmid": "23712493",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/23712493/",
       "review_note": "lactation systematic review; limited evidence and methodological weaknesses",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 84,
@@ -303,7 +304,7 @@
       "pmid": "23483826",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/23483826/",
       "review_note": "glycemic systematic review; possible endpoint changes but variable quality/preparation",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 85,
@@ -311,7 +312,7 @@
       "pmid": "32891299",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/32891299/",
       "review_note": "glycemic systematic review; limited human evidence; separate animal/mechanistic findings",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 86,
@@ -319,7 +320,7 @@
       "pmid": "34217503",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/34217503/",
       "review_note": "lipid/metabolic human evidence; limited and heterogeneous",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 87,
@@ -327,7 +328,7 @@
       "pmid": "31548990",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/31548990/",
       "review_note": "type-2-diabetes meta-analysis; some glycemic signals; heterogeneous interventions",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 88,
@@ -335,7 +336,7 @@
       "pmid": "28673472",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/28673472/",
       "review_note": "metabolic-syndrome randomized evidence; small studies; surrogate outcomes",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 89,
@@ -343,7 +344,7 @@
       "pmid": "25248694",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/25248694/",
       "review_note": "blood-pressure synthesis; possible reductions with substantial heterogeneity",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 90,
@@ -351,7 +352,7 @@
       "pmid": "23196448",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/23196448/",
       "review_note": "blood-pressure meta-analysis; modest endpoint-specific effects",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 91,
@@ -359,7 +360,7 @@
       "pmid": "19577412",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/19577412/",
       "review_note": "endothelial/cardiovascular biomarker randomized evidence; surrogate outcomes only",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 92,
@@ -367,7 +368,7 @@
       "pmid": "29205182",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/29205182/",
       "review_note": "metabolic systematic review; mixed biomarker effects",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 93,
@@ -375,7 +376,7 @@
       "pmid": "19877098",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/19877098/",
       "review_note": "hypertension randomized evidence; modest BP signal; preparation-specific",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 94,
@@ -383,7 +384,7 @@
       "pmid": "24617892",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/24617892/",
       "review_note": "cardiometabolic human evidence; variable populations/preparations",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 95,
@@ -391,7 +392,7 @@
       "pmid": "21479771",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/21479771/",
       "review_note": "weight meta-analysis; small heterogeneous effects; reject fat-burner framing",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 96,
@@ -399,7 +400,7 @@
       "pmid": "28417035",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/28417035/",
       "review_note": "hepatotoxicity systematic review; concentrated-extract safety warning distinct from brewed tea",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 97,
@@ -407,7 +408,7 @@
       "pmid": "30309580",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/30309580/",
       "review_note": "knee-OA systematic review/meta-analysis; formulation-sensitive symptom evidence",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 98,
@@ -415,7 +416,7 @@
       "pmid": "30709537",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/30709537/",
       "review_note": "inflammatory-marker meta-analysis; surrogate outcomes and heterogeneous formulations",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 99,
@@ -423,7 +424,7 @@
       "pmid": "25705405",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/25705405/",
       "review_note": "osteoarthritis randomized evidence; possible pain/function benefit; standardized-extract boundary",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     },
     {
       "wave": 100,
@@ -431,7 +432,7 @@
       "pmid": "17348898",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/17348898/",
       "review_note": "OA/low-back-pain systematic review; some pain evidence with trial-quality/extract limitations",
-      "state": "selected_deduped_pending_runtime_materialization"
+      "state": "reviewed_receipt_withheld_pending_source_specific_materialization"
     }
   ]
 }
