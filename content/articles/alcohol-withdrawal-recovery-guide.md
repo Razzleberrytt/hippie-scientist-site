@@ -94,7 +94,7 @@ references:
     pmid: "37923363"
     url: "https://pubmed.ncbi.nlm.nih.gov/37923363/"
   - title: "Phenobarbital Versus Benzodiazepine-Based Pathways for Alcohol Withdrawal Syndrome in Critically Ill Adults: A Systematic Review and Meta-Analysis"
-    authors: "Systematic review and meta-analysis"
+    authors: "Rizwan ZM, Brown D, Barry S, Guppy K, Gerberi DJ, Gajic O, Herasevich S"
     year: "2026"
     pmid: "42634386"
     url: "https://pubmed.ncbi.nlm.nih.gov/42634386/"
@@ -114,17 +114,17 @@ references:
     pmid: "38306946"
     url: "https://pubmed.ncbi.nlm.nih.gov/38306946/"
   - title: "Alcohol-Related and Non-Alcohol-Related Wernicke Encephalopathy: A Systematic Review and Meta-Analysis of Epidemiology and Clinical Features"
-    authors: "Systematic review and meta-analysis"
-    year: "2025"
+    authors: "Puertas-Miranda D, Diaz-Avila EG, Llamas-Alonso C, Novo-Veleiro I, Chamorro AJ, Marcos M"
+    year: "2026"
     pmid: "40911513"
     url: "https://pubmed.ncbi.nlm.nih.gov/40911513/"
   - title: "What is the impact of thiamine deficiency on cognitive function in patients with alcohol use disorder? A systematic review"
-    authors: "Systematic review"
+    authors: "Teixeira J, Pereira I, Castanho M, Simoes do Couto F"
     year: "2025"
     pmid: "39818490"
     url: "https://pubmed.ncbi.nlm.nih.gov/39818490/"
   - title: "Alcohol Withdrawal Seizures: Neurobiological Mechanisms, Clinical Predictors, and Evidence-Based Management"
-    authors: "Review"
+    authors: "Skryabin V, Malygina A, Sokolova S"
     year: "2026"
     pmid: "42095715"
     url: "https://pubmed.ncbi.nlm.nih.gov/42095715/"
@@ -144,7 +144,7 @@ references:
     pmid: "37934220"
     url: "https://pubmed.ncbi.nlm.nih.gov/37934220/"
   - title: "Comparative Effectiveness of Naltrexone Formulations in Alcohol Use Disorder: An Updated Meta-Analysis"
-    authors: "Updated meta-analysis"
+    authors: "Nunez NA, Ali HM, Hassett L, Singh B"
     year: "2026"
     pmid: "41821994"
     url: "https://pubmed.ncbi.nlm.nih.gov/41821994/"
@@ -234,6 +234,11 @@ references:
     authors: "World Health Organization"
     year: "2023"
     url: "https://www.who.int/teams/mental-health-and-substance-use/treatment-care/mental-health-gap-action-programme/evidence-centre/alcohol-use-disorders/psychosocial-interventions-for-management-of-alcohol-dependence"
+  - title: "Applying a Modified Version of the Prediction of Alcohol Withdrawal Severity Scale in a Canadian Community Withdrawal Management Setting"
+    authors: "Community withdrawal-management validation study"
+    year: "2025"
+    pmid: "40328513"
+    url: "https://pubmed.ncbi.nlm.nih.gov/40328513/"
 ---
 
 ## Executive summary
@@ -452,7 +457,7 @@ The Prediction of Alcohol Withdrawal Severity Scale (PAWSS) was designed for a d
 
 The original development work identified historical and clinical features associated with seizures, hallucinosis, and withdrawal delirium [5]. In a prospective validation study of 403 medically ill inpatients, a cutoff of 4 had high sensitivity and specificity for complicated withdrawal in that population [6]. A 2026 emergency/trauma-center implementation study also reported favorable operational outcomes after PAWSS screening [7].
 
-PAWSS should still be interpreted in context. Validation in one population does not guarantee identical performance in every emergency, detox, outpatient, or community setting. A 2025 community-withdrawal study found that modified versions and different cutoffs may perform differently.
+PAWSS should still be interpreted in context. Validation in one population does not guarantee identical performance in every emergency, detox, outpatient, or community setting. A 2025 community-withdrawal study found that modified versions and different cutoffs may perform differently [41].
 
 The key distinction is:
 
