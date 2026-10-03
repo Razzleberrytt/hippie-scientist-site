@@ -23,20 +23,20 @@
       "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-301-500.md",
       "ops/enrichment-submissions/reconciliation/2026-10-03-waves-301-500-pmid-revalidation.json"
     ],
-    "review_note": "Eight 25-finding passes produced 200 unique research receipts. Runtime materialization is intentionally limited to 12 net-new, source-specific, reader-ready evidence rows on existing canonical entities. One otherwise strong Panax-ginseng source is withheld because repository research artifacts contain a conflicting PMID-to-DOI identity. The remaining receipts stay research-only until source-specific promotion is legal."
+    "review_note": "Eight 25-finding passes produced 200 unique research receipts. Final admission retains 7 net-new source-specific evidence rows and 6 net-new source rows. Five already-covered evidence identities and six already-covered source identities were pruned instead of relying on silent runtime deduplication. Nigella sativa PMID 40714301 retains its net-new evidence row while reusing canonical PMID/DOI provenance. Panax-ginseng PMID 40646515 remains withheld because repository research artifacts contain a conflicting PMID-to-DOI identity. Other receipts remain research-only until source-specific promotion is legal."
   },
   "counts": {
     "entity_context_rows": 0,
-    "evidence_rows": 12,
-    "source_rows": 12,
+    "evidence_rows": 7,
+    "source_rows": 6,
     "relationship_rows": 0
   },
   "wave_coverage": {
     "first_wave": 301,
     "last_wave": 500,
     "completed_waves": 200,
-    "evidence_records": 12,
-    "unique_source_records": 12
+    "evidence_records": 7,
+    "unique_source_records": 6
   },
   "policy": {
     "entity_creation": "forbidden",
@@ -49,13 +49,13 @@
   },
   "ledger": {
     "file": "2026-10-03-enrichment-waves-301-500.json",
-    "sha256": "24175e2e7c1e7df424e113b203ff766d0ad00696e166e7c51b180f9fb61061f3",
-    "bytes": 24578
+    "sha256": "752df8000ca3b015051c1a823ab9b57c80d8a56de0b215317e3d13a8cdefe584",
+    "bytes": 13089
   },
   "admission": {
-    "evidence_additions": 12,
+    "evidence_additions": 7,
     "evidence_corrections": 0,
-    "source_additions": 12,
+    "source_additions": 6,
     "source_corrections": 0
   }
 }
