@@ -14,7 +14,7 @@ import {
 const HUB_PATH = '/guides/substance-use'
 const HUB_TITLE = 'Substance Use, Withdrawal & Recovery — Evidence Hub'
 const HUB_DESCRIPTION =
-  'Evidence-based guides on dependence, withdrawal, recovery, alcohol, benzodiazepines, opioids, kratom-derived opioids, research chemicals, novel psychoactive substances, tianeptine, and harm-reduction research.'
+  'Evidence-based guides on dependence, withdrawal, recovery, stimulants, alcohol, benzodiazepines, opioids, kratom-derived opioids, research chemicals, novel psychoactive substances, tianeptine, and harm-reduction research.'
 const REVIEW_DATE = '2026-10-03'
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: HUB_TITLE,
     description:
-      'Research-first coverage of dependence, withdrawal, recovery, overdose risk, emerging opioids, kratom alkaloids, tianeptine, and harm reduction.',
+      'Research-first coverage of dependence, withdrawal, recovery, stimulants, overdose risk, emerging opioids, kratom alkaloids, tianeptine, and harm reduction.',
     url: `${SITE_URL}${HUB_PATH}/`,
     type: 'website',
     images: ['/og-default.jpg'],
@@ -32,11 +32,16 @@ export const metadata: Metadata = {
   twitter: buildTwitterMetadata({
     title: HUB_TITLE,
     description:
-      'Research-first coverage of dependence, withdrawal, recovery, alcohol, opioids, emerging substances, research chemicals, and harm reduction.',
+      'Research-first coverage of dependence, withdrawal, recovery, stimulants, alcohol, benzodiazepines, opioids, emerging substances, research chemicals, and harm reduction.',
   }),
 }
 
 const START_HERE = [
+  {
+    href: '/articles/stimulant-withdrawal-recovery-guide/',
+    title: 'Stimulant Withdrawal & Recovery: Complete Evidence Guide',
+    desc: 'Methamphetamine, cocaine, amphetamines, the crash, depression and suicide risk, psychosis, sleep and cognition, contingency management, medications, opioid co-exposure, and long-term recovery.',
+  },
   {
     href: '/articles/benzodiazepine-zdrug-withdrawal-recovery-guide/',
     title: 'Benzodiazepine & Z-Drug Withdrawal: Complete Evidence Guide',
