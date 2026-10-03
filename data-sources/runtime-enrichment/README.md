@@ -152,7 +152,7 @@ Tracking: enrichment batching `#6198`; 50-wave follow-on planning `#6200`; canon
 - Excludes a duplicate Saw Palmetto receipt sharing PMID `17556649`, elderberry PMID `30670267` already present in public claims, noncanonical Pelargonium PMID `19435703`, and Rhodiola PMID `41080184` after the admission audit confirmed that identity was already canonical
 - Coverage includes depression/interaction safety, menopause, UTI prevention, respiratory infections, cognition, fatigue/performance, sexual function, lactation, glycemia, blood pressure, metabolic biomarkers, osteoarthritis, and liver safety
 - Null/insufficient findings, species/formulation boundaries, prevention-vs-treatment distinctions, surrogate-outcome limits, and interaction/safety context remain first-class
-- 30 unique reviewed receipts recovered from overlapping 71–100 mini-batches were folded into this authoritative ledger before those mini-manifests were removed
+- 30 reviewed receipts recovered from overlapping 71–100 mini-batches were folded into this authoritative ledger; six already-canonical identities were then removed by the admission audit, preserving 24 additional net-new supplemental receipts
 - Full repository verification runs once on the consolidated exact head
 
 
