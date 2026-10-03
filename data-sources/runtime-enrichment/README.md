@@ -160,3 +160,20 @@ Tracking: enrichment batching `#6198`; 50-wave follow-on planning `#6200`; canon
 - The other completed research receipts remain research-only where source-specific materialization, entity resolution, formulation attribution, correction handling, or cross-entity safety handling is not yet legal.
 - Null, negative, mixed, low-certainty, population-specific, route-specific, strain-specific, formulation-specific, and safety findings remain first-class.
 - No publication, indexing, recommendation, monetization, or governance fields are changed by this batch.
+
+
+## Oct. 3 research enrichment Waves 301-500
+
+- Research program: eight passes of 25 findings, **200 completed waves**
+- Consolidated selection: `ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-301-500-selection.json`
+- Research journal: `ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-301-500.md`
+- Runtime ledger: `2026-10-03-enrichment-waves-301-500.json`
+- Manifest: `2026-10-03-enrichment-waves-301-500-manifest.json`
+- 12 independently revalidated, source-specific runtime evidence rows
+- 12 runtime source rows
+- 0 entity-context rows
+- 0 relationships
+- A Panax ginseng candidate (PMID 40646515) was withheld because repository research artifacts attach conflicting DOI identities; it remains fail-closed pending identity reconciliation.
+- The remaining research receipts stay research-only or pending where source-specific materialization, entity resolution, formulation/product attribution, route handling, correction/retraction handling, or cross-entity safety handling is not yet legal.
+- Null, negative, mixed, low-certainty, population-specific, route-specific, formulation-specific, product-specific, identity-integrity and safety findings remain first-class.
+- No publication, indexing, recommendation, monetization, or governance fields are changed by this batch.
