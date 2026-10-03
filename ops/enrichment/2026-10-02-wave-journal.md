@@ -16,6 +16,17 @@ This journal records the batch-first enrichment pass requested for The Hippie Sc
 - Wave 10 — bacopa chronic memory evidence / acute-nootropic boundary
 - Wave 11 — rhodiola fatigue + performance mixed evidence
 
+- Wave 12 — holy basil standardized-extract stress evidence
+- Wave 13 — kava anxiety evidence + liver-safety counterweight
+- Wave 14 — passionflower anxiety + heterogeneous sleep evidence
+- Wave 15 — St. John's wort depression evidence + CYP/P-gp interaction layer
+- Wave 16 — ginkgo dementia evidence + healthy-adult null + bleeding context
+- Wave 17 — CoQ10 depression + blood-pressure endpoint calibration
+- Wave 18 — psyllium IBS + glycemic + modest anthropometric evidence
+- Wave 19 — zinc mostly-null body-composition synthesis + glycemic evidence
+- Wave 20 — selenium Graves-orbitopathy condition-specific synthesis
+- Wave 21 — citicoline/CDP-choline cognition evidence with population boundaries
+
 ## Batch rule
 
 No consumer dose recommendations are inferred from trial exposures. Combination products remain combination evidence. Biomarkers and surrogate outcomes remain distinct from clinical outcomes. Safety and null findings stay first-class records.
