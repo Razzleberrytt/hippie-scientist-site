@@ -129,8 +129,9 @@ Canonical materialization receipt: PR #6022 committed the reviewed workbook and 
 - Ledger: `2026-10-02-enrichment-waves-01-50.json`
 - Manifest: `2026-10-02-enrichment-waves-01-50-manifest.json`
 - 50 enrichment waves completed before repository-wide verification
-- 123 reviewed evidence rows: 121 net-new additions + 2 fail-closed same-identity evidence corrections
-- 93 net-new source identities after cross-batch PMID/DOI/title dedupe
+- 85 retained evidence rows after cross-batch admission audit: 83 net-new additions + 2 fail-closed same-identity evidence corrections
+- 79 net-new source identities after cross-batch PMID/DOI/title dedupe
+- 38 already-covered evidence rows and 14 already-covered source rows were omitted instead of being silently deduplicated at runtime
 - 0 entity-context rows
 - 0 relationships
 - Coverage spans sleep, stress/anxiety, cognition, exercise/performance, metabolic and cardiovascular biomarkers, GI, women's health, osteoarthritis, safety/interactions, retraction handling, and formulation/species identity.
