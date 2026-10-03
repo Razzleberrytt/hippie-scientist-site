@@ -205,6 +205,18 @@ references:
     pmid: "40517066"
     doi: "10.1016/j.rgmxen.2025.02.002"
     url: "https://pubmed.ncbi.nlm.nih.gov/40517066/"
+  - title: "Cannabis and sleep architecture: A systematic review and meta-analysis"
+    authors: "Systematic review and meta-analysis authors"
+    year: "2025"
+    pmid: "40967124"
+    doi: "10.1016/j.smrv.2025.102164"
+    url: "https://pubmed.ncbi.nlm.nih.gov/40967124/"
+  - title: "Cannabis cessation and neurocognitive recovery: Patterns, predictors, and clinical implications-a systematic review"
+    authors: "Systematic review authors"
+    year: "2026"
+    pmid: "41872072"
+    url: "https://pubmed.ncbi.nlm.nih.gov/41872072/"
+
 ---
 
 Cannabis withdrawal is a **real, clinically recognized syndrome** that can follow abrupt cessation or a major reduction in frequent THC exposure. It is usually uncomfortable rather than medically dangerous. The most common symptoms are irritability or anger, anxiety, restlessness, disturbed sleep and vivid dreaming, depressed mood, reduced appetite, and craving. Headache, sweating, chills, shakiness, physical tension, and stomach discomfort can also occur [1–4].
@@ -608,6 +620,8 @@ That creates a feedback loop: poor sleep increases distress, distress increases 
 
 The evidence supports taking sleep seriously. It does not support promising that sleep will normalize on one exact night.
 
+A 2025 systematic review and meta-analysis of polysomnographic studies found inconsistent effects of active cannabis on overall sleep architecture, but **withdrawal was consistently associated with sleep disruption**, including shorter total sleep, longer sleep-onset latency, and REM rebound [31]. That is a much stronger evidence statement than the common internet claim that cannabis simply “suppresses REM” in everyone.
+
 Persistent insomnia deserves evaluation for primary insomnia, sleep apnea, restless legs, mood disorders, stimulant use, caffeine, nicotine withdrawal, or other contributors.
 
 ## Mood and anxiety after stopping
@@ -747,7 +761,9 @@ People often worry that reduced motivation or pleasure means their brain is perm
 
 Early withdrawal can make ordinary activities feel flat compared with a highly practiced drug-reward routine. Recovery may also expose depression, sleep loss, boredom, or loss of routine.
 
-Human receptor studies support reversibility of at least some cannabis-related neuroadaptations [6,7]. They do not provide a precise timetable for motivation, and they do not prove that every persistent emotional symptom is cannabinoid-receptor dysfunction.
+Human receptor studies support reversibility of at least some cannabis-related neuroadaptations [6,7]. A 2026 systematic review of 26 cessation studies also found substantial neurocognitive recovery after stopping cannabis, with some cognitive improvement appearing early and additional recovery unfolding over longer follow-up; trajectories varied with age of onset and use intensity [32]. These findings argue against a simplistic “permanent damage” story, but they also do not justify a universal week-by-week recovery clock.
+
+Receptor measures and cognitive-test averages do not provide a precise timetable for motivation in one person, and they do not prove that every persistent emotional symptom is cannabinoid-receptor dysfunction.
 
 ## What “treatment success” can mean
 
@@ -808,7 +824,7 @@ Withdrawal-associated psychosis appears possible but rare [21]. In people with p
 | Cannabis withdrawal is a clinically meaningful syndrome | High | Clinical review and controlled abstinence studies [1,3,4] | Symptom severity varies substantially |
 | About half of regular/dependent users may experience withdrawal | Moderate to high | Meta-analysis of 47 studies [2] | Extreme heterogeneity across populations |
 | Onset is usually 24–48 hours and peak often occurs days 2–6 | High | Clinical review and prospective time-course work [1,3] | Not a precise individual clock |
-| Sleep disturbance and vivid dreams are common | High | Systematic review and withdrawal-scale studies [4,5] | Specific sleep architecture findings are heterogeneous |
+| Sleep disturbance and vivid dreams are common | High | Withdrawal studies plus 2025 sleep systematic review/meta-analysis [4,5,31] | Active-cannabis effects on sleep architecture remain heterogeneous |
 | Chronic cannabis use is associated with reversible CB1-receptor downregulation | Moderate | Human PET studies [6,7] | Receptor measures do not map one-to-one onto symptoms |
 | There is a universal 28-day CB1 reset | Unsupported | No validated clinical evidence | Different PET studies show different recovery timing |
 | No pharmacotherapy is approved specifically for CUD | High | 2025 Cochrane review [8] | Some medications show limited or subgroup signals |
@@ -819,6 +835,7 @@ Withdrawal-associated psychosis appears possible but rare [21]. In people with p
 | Contingency management improves abstinence-related outcomes | Moderate to high | 2024 systematic review/meta-analysis [13] | Program design and durability vary |
 | Withdrawal-associated psychosis can occur | Low but clinically important | Systematic review/case series [21] | Rare; evidence is mostly case-level/observational |
 | Continued cannabis use after psychosis worsens relapse outcomes | Moderate | Systematic review/meta-analysis [22] | Observational confounding remains possible |
+| Neurocognitive recovery can occur after cannabis cessation | Moderate | 2026 systematic review of cessation studies [32] | Recovery varies by domain, age of onset, exposure intensity, and study design |
 | Higher-potency cannabis is associated with more problematic cannabis-use outcomes | Low to moderate signal | 2025 systematic review [29] | Overall certainty was very low; this does not prove a potency-to-withdrawal timeline |
 | CHS and cannabis withdrawal are the same syndrome | Unsupported | ED review and 2025 CHS review [23,30] | They can occur in the same chronic user but have different patterns and management implications |
 
