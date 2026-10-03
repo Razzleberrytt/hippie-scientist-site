@@ -44,6 +44,8 @@ export interface Citation {
   ingredients?: string[]
   conditions?: string[]
   safetyOutcome?: string
+  evidenceGrade?: string
+  safetyNote?: string
 }
 
 interface Props {
@@ -102,6 +104,8 @@ function normalizedStudy(citation: Citation): EvidenceStudyRecord {
     ingredients: citation.ingredients,
     conditions: citation.conditions,
     safetyOutcome: citation.safetyOutcome,
+    evidenceGrade: citation.evidenceGrade,
+    safetyNote: citation.safetyNote,
   }
 }
 
@@ -167,6 +171,8 @@ function previewText(study: EvidenceStudyRecord) {
     study.clinicalMagnitude && `Magnitude: ${study.clinicalMagnitude}`,
     study.replication && `Replication: ${study.replication}`,
     study.limitation && `Limitation: ${study.limitation}`,
+    study.evidenceGrade && `Evidence grade: ${study.evidenceGrade}`,
+    study.safetyNote && `Safety: ${study.safetyNote}`,
   ].filter(Boolean).join(' • ')
 }
 
@@ -230,6 +236,12 @@ function StudyRow({ study, index }: { study: EvidenceStudyRecord; index: number 
         </div>
         {study.limitation ? (
           <p className="mt-2 text-[11px] leading-5 text-muted"><strong>Limitation:</strong> {study.limitation}</p>
+        ) : null}
+        {study.evidenceGrade ? (
+          <p className="mt-2 text-[11px] leading-5 text-muted"><strong>Evidence grade:</strong> {study.evidenceGrade}</p>
+        ) : null}
+        {study.safetyNote ? (
+          <p className="mt-2 text-[11px] leading-5 text-amber-900 dark:text-amber-100"><strong>Safety / caveat:</strong> {study.safetyNote}</p>
         ) : null}
       </td>
       <td className="min-w-[190px] px-3 py-3 align-top sm:px-4">
