@@ -272,9 +272,14 @@ P1 — completed on branch:
 - [x] Metizolam — full masterclass pass complete; human metabolism + 2026 DFSA evidence preserved without potency overreach
 - [x] Phenazepam — full masterclass pass complete; human DUID, prolonged-toxicity, fatality and 2016 international-control evidence integrated
 - [x] Meclonazepam — full masterclass pass complete; antiparasitic history, human metabolite work and STRIDA intoxication evidence integrated
+- [x] Etizolam — masterclass pass complete (2026-10-03)
+- [x] Diclazepam — masterclass pass complete (2026-10-03)
+- [x] Flubromazepam — masterclass pass complete (2026-10-03)
+- [x] Pyrazolam — masterclass pass complete (2026-10-03)
+- [x] Rilmazafone — masterclass pass complete (2026-10-03)
 - [x] MDPHP — masterclass pass complete
 - [x] MDPiHP — emerging-evidence masterclass pass complete
-- [ ] Remaining high-risk P2 profiles — prioritize existing pages with human toxicology/forensic evidence before creating new routes; metizolam, phenazepam, and meclonazepam completed 2026-10-03
+- [ ] Remaining high-risk P2 profiles — prioritize existing pages with human toxicology/forensic evidence before creating new routes; eight evidence-bearing designer-benzodiazepine profiles completed in this Wave-3 batch on 2026-10-03
 - [ ] Wave 3 structural audit
 - [x] 25E-NBOH — masterclass pass complete
 - [x] 3-FPM — masterclass pass complete
@@ -287,7 +292,7 @@ P1 — completed on branch:
 - [x] 3-CMC — masterclass pass complete
 
 P2:
-- [x] Existing evidence-bearing RC-benzo batch 1: metizolam, phenazepam, meclonazepam upgraded in place on 2026-10-03.
+- [x] Existing evidence-bearing RC-benzo batch 1: metizolam, phenazepam, meclonazepam, etizolam, diclazepam, flubromazepam, pyrazolam, and rilmazafone upgraded in place on 2026-10-03.
 - [ ] Continue auditing existing evidence-bearing profiles before creating new low-evidence routes.
 - lower-prevalence, historical, or poorly sourced names remain in discovery until forensic/clinical evidence supports a useful page.
 
