@@ -160,6 +160,11 @@ const RESEARCH_CHEMICALS = [
     desc: 'NEP, alpha-PiHP, MDPHP and related stimulants: cardiovascular toxicity, psychosis, seizures, and compulsive-use risk.',
   },
   {
+    href: '/articles/non-cathinone-rc-stimulants/',
+    title: 'Other RC Stimulants',
+    desc: '4F-MPH, 3-FPM and related non-cathinone stimulants, with clinical poisonings kept separate from online “functional stimulant” claims.',
+  },
+  {
     href: '/articles/rc-dissociatives-ketamine-pcp-analogues/',
     title: 'RC Dissociatives',
     desc: '2F-DCK, DCK, O-PCE, FXE, DMXE and PCP/PCE analogues, separated by the strength of their actual human evidence.',
@@ -173,6 +178,11 @@ const RESEARCH_CHEMICALS = [
     href: '/articles/nitazene-opioids/',
     title: 'Nitazene Opioids',
     desc: 'Isotonitazene, protonitazene, metonitazene and related high-potency synthetic opioids, overdose risk, naloxone, and testing gaps.',
+  },
+  {
+    href: '/articles/designer-synthetic-opioids-beyond-nitazenes/',
+    title: 'Designer Opioids Beyond Nitazenes',
+    desc: 'U-47700, brorphine and AP-237/AP-238 analogues: respiratory depression, fatal casework, counterfeit products, naloxone and testing gaps.',
   },
   {
     href: '/articles/synthetic-cannabinoids-spice/',
@@ -198,11 +208,6 @@ const RESEARCH_CHEMICALS = [
     href: '/articles/orphine-opioids/',
     title: 'Orphine Opioids',
     desc: 'Cychlorphine, chlorphine, spirochlorphine and the newer synthetic-opioid family emerging after the nitazene wave.',
-  },
-  {
-    href: '/articles/cats-claw-kava-hidden-opioids/',
-    title: 'Hidden Opioids in Botanical-Labeled Products',
-    desc: 'Buzzers, Homiez and the 2026 Cat’s Claw/Kava poison-center warnings, with lab-confirmed findings kept separate from suspected contents.',
   },
 ]
 
