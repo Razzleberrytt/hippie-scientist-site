@@ -140,6 +140,20 @@ Canonical materialization receipt: PR #6022 committed the reviewed workbook and 
 
 Tracking: enrichment batching `#6198`; 50-wave follow-on planning `#6200`; canonical citation-integrity repairs `#6197` (magnesium) and `#6201` (taurine/citrulline-malate).
 
+## Oct. 2 research enrichment Waves 51–100
+
+- Ledger: `2026-10-02-enrichment-waves-51-100.json`
+- Manifest: `2026-10-02-enrichment-waves-51-100-manifest.json`
+- 50 additional enrichment waves staged after merged Waves 1–50
+- 50 evidence rows and 50 unique PubMed source identities
+- 0 entity-context rows and 0 relationships
+- Reuses vetted Batch 23 reconciliation research plus two vetted Sage human-evidence receipts
+- Excludes a duplicate Saw Palmetto receipt sharing PMID `17556649` and elderberry PMID `30670267`, which is already canonical
+- Coverage includes depression/interaction safety, menopause, UTI prevention, respiratory infections, cognition, fatigue/performance, sexual function, lactation, glycemia, blood pressure, metabolic biomarkers, osteoarthritis, and liver safety
+- Null/insufficient findings, species/formulation boundaries, prevention-vs-treatment distinctions, surrogate-outcome limits, and interaction/safety context remain first-class
+- Full repository verification is intentionally deferred until this 50-wave batch is consolidated
+
+
 ## Regression contract
 
 `tests/runtime-enrichment.test.ts` validates every manifest-backed batch, verifies each digest before decoding, checks reviewed counts, requires globally unique evidence record IDs, allows repeat source identities to deduplicate deterministically across batches, enforces the entity-context allowlist, verifies virtual-workbook growth, and prevents every medication batch from carrying publication/governance fields.
