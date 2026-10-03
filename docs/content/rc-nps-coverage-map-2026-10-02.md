@@ -55,15 +55,15 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 - [x] MGM-15 — /articles/dihydro-7-hydroxy-mitragynine-mgm-15/
 - [x] MGM-16 — /articles/mgm-16/
 - [x] Mitragynine pseudoindoxyl — /articles/mitragynine-pseudoindoxyl/
-- [ ] Isotonitazene
-- [ ] Metonitazene
+- [x] Isotonitazene — /articles/isotonitazene/
+- [x] Metonitazene — /articles/metonitazene/
 - [ ] Etonitazene
 - [ ] N-pyrrolidino protonitazene
 - [ ] N-pyrrolidino metonitazene
 - [ ] N-desethyl protonitazene
 - [ ] N-desethyl isotonitazene
 - [ ] Brorphine
-- [ ] Cychlorphine / N-propionitrile chlorphine
+- [x] Cychlorphine / N-propionitrile chlorphine — /articles/cychlorphine/
 - [ ] Chlorphine
 - [ ] Spirochlorphine
 - [ ] Spirobrorphine
@@ -74,9 +74,9 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 ### Dissociatives
 - [x] 2F-DCK — /articles/2f-dck/
 - [x] 2F-2oxo-PCE / CanKet — /articles/2f-2oxo-pce-canket/
-- [ ] DCK / deschloroketamine
-- [ ] O-PCE
-- [ ] DMXE
+- [x] DCK / deschloroketamine — /articles/dck/
+- [x] O-PCE — /articles/o-pce/
+- [x] DMXE — /articles/dmxe/
 - [ ] FXE / fluorexetamine
 - [ ] HXE
 - [ ] 3-MeO-PCE
@@ -98,8 +98,8 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 - [ ] MDPHP
 - [ ] MDPiHP
 - [ ] N-ethylhexedrone
-- [ ] 4-MMC
-- [ ] 3-MMC
+- [x] 4-MMC — /articles/4-mmc/
+- [x] 3-MMC — /articles/3-mmc/
 - [ ] 2-MMC
 - [ ] 3-CMC
 - [ ] 2-FMA
@@ -120,7 +120,7 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 - [ ] 4-HO-DET
 - [ ] 4-AcO-DET
 - [ ] 4-HO-DiPT
-- [ ] 2C-B-FLY
+- [x] 2C-B-FLY — /articles/2c-b-fly/
 - [ ] BOH-2C-B
 - [ ] 25B-NBOH
 - [ ] 25C-NBOH
@@ -129,7 +129,7 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 
 ### Synthetic cannabinoids
 - [x] MDMB-4en-PINACA — /articles/mdmb-4en-pinaca/
-- [ ] 5F-ADB / 5F-MDMB-PINACA
+- [x] 5F-ADB / 5F-MDMB-PINACA — /articles/5f-adb/
 - [ ] ADB-BUTINACA
 - [ ] MDMB-BUTINACA
 - [ ] MDMB-PINACA
@@ -160,17 +160,17 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 
 ## Next-wave priority
 
-P0:
-1. Isotonitazene
-2. Metonitazene
-3. Cychlorphine
-4. 5F-ADB
-5. DCK
-8. O-PCE
-9. DMXE
-10. 3-MMC
-11. 4-MMC
-12. 2C-B-FLY
+P0 — completed on branch:
+- [x] Isotonitazene
+- [x] Metonitazene
+- [x] Cychlorphine
+- [x] 5F-ADB
+- [x] DCK
+- [x] O-PCE
+- [x] DMXE
+- [x] 3-MMC
+- [x] 4-MMC
+- [x] 2C-B-FLY
 
 P1:
 - Ethylbromazolam
