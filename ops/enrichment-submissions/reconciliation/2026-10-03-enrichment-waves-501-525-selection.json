@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-501-525-selection",
+  "program": {
+    "range": "501-700",
+    "pass_size": 25,
+    "target_findings": 200,
+    "progress_after_pass": 25,
+    "merge_policy": "accumulate eight 25-finding passes; consolidate, admit, validate, and merge once after 200"
+  },
+  "base_main": "c446a3e4f80f5b4e4d1e00a2c87938306cc09ce4",
+  "source_provenance": [
+    "public/data/claims.json"
+  ],
+  "reconciliation_note": "Pass 1 intentionally captures unused historical randomized human source identities already represented in canonical claim data. These are baseline/history nodes, not freshness signals; later passes prioritize newer evidence and contradiction/safety updates.",
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 700 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "legacy_evidence_requires_current_context": true,
+    "validation_strategy": "cheap duplicate/entity/source screening during authoring; expensive repository-wide validation only after Wave 700"
+  },
+  "waves": [
+    {
+      "wave": 501,
+      "entity_slug": "beta-sitosterol",
+      "pmid": "9313662",
+      "focus": "Legacy prostate-health randomized placebo-controlled evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 502,
+      "entity_slug": "garcinia-cambogia-extract",
+      "pmid": "9820262",
+      "focus": "Legacy weight-loss randomized double-blind placebo-controlled evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 503,
+      "entity_slug": "hmb",
+      "pmid": "10410847",
+      "focus": "Legacy strength-output randomized human evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 504,
+      "entity_slug": "ginger",
+      "pmid": "11275030",
+      "focus": "Legacy nausea randomized double-masked placebo-controlled evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 505,
+      "entity_slug": "vitamin-a",
+      "pmid": "11311045",
+      "focus": "Legacy immune-function randomized human evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 506,
+      "entity_slug": "willow-bark-extract",
+      "pmid": "11752510",
+      "focus": "Legacy pain/inflammation randomized controlled evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 507,
+      "entity_slug": "kava",
+      "pmid": "12131602",
+      "focus": "Legacy anxiety randomized human evidence with mixed-trial context. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 508,
+      "entity_slug": "melatonin",
+      "pmid": "12467979",
+      "focus": "Legacy circadian-rhythm randomized human evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 509,
+      "entity_slug": "chromium",
+      "pmid": "12612144",
+      "focus": "Legacy metabolic-marker randomized human evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 510,
+      "entity_slug": "iron",
+      "pmid": "12706309",
+      "focus": "Legacy fatigue randomized human evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 511,
+      "entity_slug": "ginkgo",
+      "pmid": "12736092",
+      "focus": "Legacy memory randomized human evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 512,
+      "entity_slug": "pelargonium-sidoides",
+      "pmid": "12807337",
+      "focus": "Legacy respiratory/immunity randomized evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 513,
+      "entity_slug": "alpha-lipoic-acid",
+      "pmid": "12874400",
+      "focus": "Legacy neuropathy randomized human evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 514,
+      "entity_slug": "ginseng",
+      "pmid": "12895670",
+      "focus": "Legacy cognitive-performance randomized human evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 515,
+      "entity_slug": "guggul",
+      "pmid": "12915429",
+      "focus": "Legacy negative randomized cardiovascular/lipid evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 516,
+      "entity_slug": "carnitine-l-tartrate",
+      "pmid": "12930169",
+      "focus": "Legacy exercise-recovery randomized human evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 517,
+      "entity_slug": "selenium",
+      "pmid": "14668278",
+      "focus": "Legacy immune-function randomized human evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 518,
+      "entity_slug": "eaa",
+      "pmid": "14671205",
+      "focus": "Legacy muscle-protein-synthesis randomized human evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 519,
+      "entity_slug": "green-tea-extract",
+      "pmid": "15598647",
+      "focus": "Legacy fat-loss randomized human evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 520,
+      "entity_slug": "l-carnitine",
+      "pmid": "15607555",
+      "focus": "Legacy fatigue randomized human evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 521,
+      "entity_slug": "folate",
+      "pmid": "15671130",
+      "focus": "Legacy mood randomized human evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 522,
+      "entity_slug": "iodine",
+      "pmid": "15734706",
+      "focus": "Legacy cognitive-performance randomized human evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 523,
+      "entity_slug": "forskolin",
+      "pmid": "16129715",
+      "focus": "Legacy small inconsistent randomized weight/metabolic evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 524,
+      "entity_slug": "american-ginseng-extract",
+      "pmid": "16332936",
+      "focus": "Legacy immunity/energy randomized human evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 525,
+      "entity_slug": "creatine",
+      "pmid": "16416332",
+      "focus": "Legacy cognitive-performance randomized human evidence. Reconcile the historical human evidence node into the enrichment ledger while preserving the original population, formulation, comparator, duration, outcome and adverse-event boundaries; this receipt does not establish current consensus or authorize dose inference.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    }
+  ]
+}
