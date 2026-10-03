@@ -1,6 +1,6 @@
 # Research enrichment waves — 2026-10-02
 
-This journal records the batch-first enrichment pass requested for The Hippie Scientist. Repository-wide verification is intentionally deferred until after Wave 50; source boundaries, null findings, uncertainty, formulation identity, and population limits were captured during authoring.
+This journal records the batch-first enrichment pass requested for The Hippie Scientist. Repository-wide verification is intentionally deferred until the active enrichment block is consolidated; source boundaries, null findings, uncertainty, formulation identity, and population limits are captured during authoring.
 
 ## Completed waves
 
@@ -10,19 +10,20 @@ This journal records the batch-first enrichment pass requested for The Hippie Sc
 - Waves 22–31 — performance/metabolic/cardiovascular: citrulline malate, vitamin D, beetroot nitrate, astaxanthin, spirulina, curcumin, garlic, aged garlic, ginger, olive leaf
 - Waves 32–41 — longevity/metabolic/women's health/GI: NMN, resveratrol, omega-3, alpha-lipoic acid, acetyl-L-carnitine, pomegranate, peppermint oil, black cohosh, red clover, soy
 - Waves 42–50 — menopause, osteoarthritis, glycemia, cognition-null, safety and final calibrations: evening primrose, Boswellia, aloe vera, taurine, cacao, saffron safety, ashwagandha glucose, garlic glycemic, curcumin OA
+- Waves 51–60 — under-covered canonical entities and explicit null/attribution evidence: 5-HTP, hops, L-tryptophan, lemon balm, Magnolia officinalis, N-acetylcysteine, oral GABA, spermidine, Nigella sativa, sulforaphane
 
 ## Consolidated state
 
-- Waves completed: **50 / 50**
-- Canonical consolidated ledger: `data-sources/runtime-enrichment/2026-10-02-enrichment-waves-01-50.json`
-- Reviewed evidence records in the batch: **123** (**121 net-new additions + 2 reviewed same-identity corrections**)
-- Net-new source identities after cross-batch dedupe: **93**
-- Duplicate retry revisions removed during consolidation: **17**
-- New entity-context rows: 0
-- New relationship rows: 0
-- Governance/indexing/recommendation/monetization fields changed by the ledger: 0
-- Admission semantics: corrections replace earlier enrichment evidence fail-closed; duplicate source identities are omitted rather than silently discarded
-- Full repository verification: **running on the final consolidated pass**
+- Waves 01–50: **merged to `main` in PR #6199**
+- Waves 51–60: **staged on `data/research-enrichment-2026-10-02-waves-51-100`**
+- Waves completed in the continuing program: **60 / 100**
+- Waves 01–50 canonical ledger: `data-sources/runtime-enrichment/2026-10-02-enrichment-waves-01-50.json`
+- Waves 51–60 staged ledger: `data-sources/runtime-enrichment/2026-10-02-enrichment-waves-51-60.json`
+- Waves 51–60 additions: **10 evidence rows + 10 new source identities**
+- New entity-context rows in Waves 51–60: 0
+- New relationship rows in Waves 51–60: 0
+- Governance/indexing/recommendation/monetization fields changed by Waves 51–60: 0
+- Full repository verification for the continuation batch: **deferred until Waves 51–100 are consolidated**
 
 ## Batch rule
 
@@ -30,4 +31,4 @@ No consumer dose recommendations are inferred from trial exposures. Combination 
 
 ## Next step
 
-Run the final consolidation verification once: manifest integrity, canonical entity resolution, evidence/source dedupe against the workbook, source-of-truth guard, schema/data validation, focused enrichment tests, then the normal CI/build/site-health gates. Do not re-expand into per-wave verification.
+Continue Waves 61–100 on the same branch, then consolidate the continuation ledger and run the admission audit, manifest integrity, canonical entity resolution, evidence/source dedupe against the workbook, source-of-truth guard, schema/data validation, focused enrichment tests, and normal CI/build/site-health gates once at the end.
