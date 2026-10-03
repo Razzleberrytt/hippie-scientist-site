@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-376-400-selection",
+  "continuation_of": "2026-10-03-enrichment-waves-351-375-selection",
+  "program": {
+    "range": "301-500",
+    "pass_size": 25,
+    "target_findings": 200,
+    "progress_after_pass": 100,
+    "merge_policy": "accumulate eight 25-finding passes; consolidate, admit, validate, and merge once after 200"
+  },
+  "source_provenance": [
+    "ops/enrichment-submissions/reconciliation/2026-09-06-full-corpus-inventory.md"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "retraction_quarantine": true,
+    "source_identity_integrity": true,
+    "validation_strategy": "cheap duplicate/entity/source screening during authoring; expensive repository-wide validation only after Wave 500"
+  },
+  "waves": [
+    {
+      "wave": 376,
+      "entity_slug": "sage",
+      "pmid": "31987228",
+      "focus": "Salvia officinalis extract in 60 euglycemic women with PCOS for 8 weeks; HOMA-IR/insulin/QUICKI/BMI signals with WHR/SBP nulls; PCOS/formulation specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 377,
+      "entity_slug": "kanna-zembrin",
+      "pmid": "23441963",
+      "focus": "Standardized Zembrin safety/tolerability study in 37 healthy adults over 3 months; no efficacy variables, so safety-only evidence.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 378,
+      "entity_slug": "kanna-zembrin",
+      "pmid": "25389443",
+      "focus": "Proprietary Zembrin crossover study in 21 healthy adults over 3 weeks; selected cognitive/executive signals with small-sample/product boundary.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 379,
+      "entity_slug": "kanna-zembrin",
+      "pmid": "32761980",
+      "focus": "Single-dose Zembrin study in 20 healthy volunteers; one anxiety experiment null with selected subjective/heart-rate interaction signals; acute small-sample evidence.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 380,
+      "entity_slug": "salacia-reticulata",
+      "pmid": "42187323",
+      "focus": "12-week DB-RCT in overweight/obesity; DXA total-fat-mass signal but body-fat-percent coprimary null; retrospective registration and preliminary status preserved.",
+      "state": "research_only_pending_entity_resolution"
+    },
+    {
+      "wave": 381,
+      "entity_slug": "salacia-reticulata",
+      "pmid": "23767865",
+      "focus": "Exact-species older trial in prediabetes/hyperlipidemia using leaf/root-bark preparation; species/preparation firewall retained.",
+      "state": "research_only_pending_entity_resolution"
+    },
+    {
+      "wave": 382,
+      "entity_slug": "salacia-reticulata",
+      "pmid": "37885536",
+      "focus": "Exact-species T2D crossover study using extract biscuit; food-matrix/formulation and diabetes-population boundary retained.",
+      "state": "research_only_pending_entity_resolution"
+    },
+    {
+      "wave": 383,
+      "entity_slug": "salacia-reticulata",
+      "pmid": "15707755",
+      "focus": "Kothala Himbutu tea trial in T2D; exact-species beverage preparation retained separately from extracts.",
+      "state": "research_only_pending_entity_resolution"
+    },
+    {
+      "wave": 384,
+      "entity_slug": "salacia-reticulata-vitamin-d3",
+      "pmid": "25008011",
+      "focus": "Open-label obesity evidence for Salacia plus vitamin D3; combination-only and nonblinded, so no single-ingredient attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 385,
+      "entity_slug": "botanical-neurokinin-formulation",
+      "pmid": "42284819",
+      "focus": "Patented multi-ingredient menopausal VMS product RCT; hot-flash/HFRDIS signals, MENQOL/PSQI nulls, product-level only with sponsor/conflict provenance.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 386,
+      "entity_slug": "source-integrity-citrulline-taurine",
+      "pmid": "20386132",
+      "focus": "Source-integrity correction: PMID 20386132 is a citrulline-malate trial, not taurine; preserve as an anti-contamination receipt.",
+      "state": "research_only_source_integrity"
+    },
+    {
+      "wave": 387,
+      "entity_slug": "retracted-aged-garlic",
+      "pmid": "39437887",
+      "focus": "Retracted aged-garlic meta-analysis; retain only as quarantine metadata and never aggregate into active efficacy evidence.",
+      "state": "retracted_quarantine_only"
+    },
+    {
+      "wave": 388,
+      "entity_slug": "curcumin-piperine",
+      "pmid": "42232574",
+      "focus": "Curcumin-piperine evidence is formulation-specific; piperine-containing products must not be generalized to curcumin alone.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 389,
+      "entity_slug": "nanocurcumin",
+      "pmid": "42171191",
+      "focus": "T2D nanocurcumin evidence; nanoformulation and diabetes population remain explicit and non-interchangeable with generic curcumin.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 390,
+      "entity_slug": "masld-mash-herbal-network",
+      "pmid": "42597704",
+      "focus": "Herbal network meta-analysis in MASLD/MASH focused on liver enzymes/stiffness; multi-intervention disease-specific evidence only.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 391,
+      "entity_slug": "chinese-botanical-injections",
+      "pmid": "41875179",
+      "focus": "72 RCTs/6,351 participants in sepsis; injectable route is fundamental and must not be inherited by oral botanical products.",
+      "state": "research_only_route_firewall"
+    },
+    {
+      "wave": 392,
+      "entity_slug": "qiliqiangxin",
+      "pmid": "41500350",
+      "focus": "Eleven-botanical adjunctive HFrEF formulation; product/composition and adjunct-to-standard-care boundaries retained.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 393,
+      "entity_slug": "huangqi-guizhi-wuwu",
+      "pmid": "42435525",
+      "focus": "Formula evidence in neuropathy-prevention context; multi-herb formulation and indication-specific boundary retained.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 394,
+      "entity_slug": "bojungikki-tang",
+      "pmid": "42499487",
+      "focus": "Scoping review of 47 studies/2,568 participants; traditional multi-herb formula evidence remains product/formula specific.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 395,
+      "entity_slug": "chinese-herbal-harms-reporting",
+      "pmid": "42595882",
+      "focus": "Review of 96 formula RCTs documenting harms-reporting deficiencies; evidence-quality/safety infrastructure, not proof of safety.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 396,
+      "entity_slug": "herbal-decoction-adverse-events",
+      "pmid": "38830449",
+      "focus": "26-RCT active-control AE meta-analysis with lower reported AE risk; comparator/formulation-specific and not proof of intrinsic herbal safety.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 397,
+      "entity_slug": "radiation-oncology-herbal-interactions",
+      "pmid": "42288367",
+      "focus": "Herbal-interaction evidence in radiation oncology; treatment-context safety layer only.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 398,
+      "entity_slug": "supplement-cosmetic-allergens",
+      "pmid": "41101984",
+      "focus": "Emerging supplement/cosmetic allergen evidence; safety/identity layer only, with exposure route and product composition preserved.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 399,
+      "entity_slug": "agastache-rugosa",
+      "pmid": "41817298",
+      "focus": "12-week skin-aging RCT using Agastache alone versus Agastache/Ficus/Lycium combination; industry provenance and arm identity retained.",
+      "state": "research_only_pending_entity_resolution"
+    },
+    {
+      "wave": 400,
+      "entity_slug": "khaya-senegalensis",
+      "pmid": "42312188",
+      "focus": "Khapregesic-specific menopausal-symptom RCT; preparation-specific product evidence with no generic Khaya inheritance.",
+      "state": "research_only_product_level"
+    }
+  ]
+}
