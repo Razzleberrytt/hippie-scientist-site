@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-waves-101-300-pmid-revalidation",
+  "verified_on": "2026-10-03",
+  "rule": "Exact PMID identity, intervention, population, and result direction were rechecked before runtime materialization. Rows not independently source-specific remain research-only.",
+  "sources": [
+    {
+      "wave": 176,
+      "entity_slug": "acetyl-l-carnitine",
+      "pmid": "42261369",
+      "doi": "10.2147/NDT.S586506",
+      "title": "Current Evidence of Acetyl-L-Carnitine Use in Mood Disorders: A Systematic Review and Meta-Analysis",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 179,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "42192187",
+      "doi": "10.1155/jdr/5587445",
+      "title": "Effects of Coenzyme Q10 on Lipid, Glycemic, and Inflammatory Markers in Metabolic Disorders: A Systematic Review and Meta-Analysis",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 187,
+      "entity_slug": "n-acetylcysteine",
+      "pmid": "42473447",
+      "doi": "10.7717/peerj.21448",
+      "title": "The efficacy of N-acetylcysteine in the management of chronic obstructive pulmonary disease: a systematic review and meta-analysis",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 188,
+      "entity_slug": "n-acetylcysteine",
+      "pmid": "39504621",
+      "doi": "10.1016/j.genhosppsych.2024.10.018",
+      "title": "Efficacy of N-acetylcysteine for patients with depression: An updated systematic review and meta-analysis",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 190,
+      "entity_slug": "quercetin",
+      "pmid": "41404533",
+      "doi": "10.1002/fsn3.71358",
+      "title": "Effects of Quercetin on Metabolic Dysfunction-Associated Steatotic Liver Disease: A Systematic Review and Meta-Analysis",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 191,
+      "entity_slug": "quercetin",
+      "pmid": "31114281",
+      "doi": "10.2147/DMSO.S199830",
+      "title": "Clinical effectiveness of quercetin supplementation in the management of weight loss: a pooled analysis of randomized controlled trials",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 192,
+      "entity_slug": "quercetin",
+      "pmid": "31092175",
+      "doi": "10.2174/1381612825666190513095352",
+      "title": "The Effects of Quercetin Supplementation on Blood Pressures and Endothelial Function Among Patients with Metabolic Syndrome and Related Disorders: A Systematic Review and Meta-analysis of Randomized Controlled Trials",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 194,
+      "entity_slug": "inositol",
+      "pmid": "41163174",
+      "doi": "10.1186/s13098-025-01980-6",
+      "title": "Inositol supplementation efficacy in improving key cardiometabolic and anthropometric indices: a GRADE-assessed systematic review and meta-analysis of randomized controlled trials",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 197,
+      "entity_slug": "magnesium",
+      "pmid": "33865376",
+      "doi": "10.1186/s12906-021-03297-z",
+      "title": "Oral magnesium supplementation for insomnia in older adults: a Systematic Review & Meta-Analysis",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 200,
+      "entity_slug": "olive-leaf-extract",
+      "pmid": "36271405",
+      "doi": "10.1186/s13098-022-00920-y",
+      "title": "The effects of olive leaf extract on cardiovascular risk factors in the general adult population: a systematic review and meta-analysis of randomized controlled trials",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 273,
+      "entity_slug": "collagen-peptides",
+      "pmid": "39212129",
+      "doi": "10.55563/clinexprheumatol/kflfr5",
+      "title": "Effect of collagen supplementation on knee osteoarthritis: an updated systematic review and meta-analysis of randomised controlled trials",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 274,
+      "entity_slug": "boswellia-serrata",
+      "pmid": "41082950",
+      "doi": "10.1016/j.ctim.2025.103256",
+      "title": "Evaluating the efficacy and safety of Curcuma longa, Boswellia serrata, and their mixed formulation in treating knee osteoarthritis: A systematic review and network meta-analysis",
+      "decision": "verified_for_runtime_materialization"
+    }
+  ]
+}
