@@ -152,10 +152,11 @@ Tracking: enrichment batching `#6198`; 50-wave follow-on planning `#6200`; canon
 - Research journal: `ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-101-300.md`
 - Runtime ledger: `2026-10-03-enrichment-waves-101-300.json`
 - Manifest: `2026-10-03-enrichment-waves-101-300-manifest.json`
-- 12 independently revalidated, source-specific evidence rows
-- 12 matching source rows
+- 10 net-new, independently revalidated, source-specific evidence rows
+- 9 net-new source rows (one admitted evidence row reuses an existing canonical source)
 - 0 entity-context rows
 - 0 relationships
+- Final admission audit pruned 2 already-covered evidence identities and 3 already-covered source identities rather than silently deduplicating them at runtime.
 - The other completed research receipts remain research-only where source-specific materialization, entity resolution, formulation attribution, correction handling, or cross-entity safety handling is not yet legal.
 - Null, negative, mixed, low-certainty, population-specific, route-specific, strain-specific, formulation-specific, and safety findings remain first-class.
 - No publication, indexing, recommendation, monetization, or governance fields are changed by this batch.
