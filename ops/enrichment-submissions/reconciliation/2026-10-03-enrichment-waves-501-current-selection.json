@@ -4,8 +4,8 @@
   "program": {
     "range": "501-1000",
     "target_findings": 500,
-    "current_findings": 225,
-    "last_wave": 725
+    "current_findings": 250,
+    "last_wave": 750
   },
   "policy": "research authoring index only; not runtime admission",
   "waves": [
@@ -1583,6 +1583,181 @@
       "pmid": "23775705",
       "focus": "Older Cochrane-style common-cold synthesis; possible duration benefit alongside adverse events and major formulation/dose heterogeneity.",
       "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 726,
+      "entity_slug": "ashwagandha",
+      "pmid": "34559859",
+      "focus": "Five-RCT/400-participant sleep meta-analysis; small pooled sleep benefit with stronger subgroup signals in insomnia/longer exposure, but extract/duration heterogeneity and no generic dose recommendation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 727,
+      "entity_slug": "lavender",
+      "pmid": "31743795",
+      "focus": "22-RCT aromatherapy meta-analysis; anxiety and selected physiologic stress signals, with route-specific evidence and substantial contextual heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 728,
+      "entity_slug": "bacopa",
+      "pmid": "24252493",
+      "focus": "Nine-trial cognition meta-analysis; attention-processing-speed signals with standardized-extract and chronic-use boundaries, not proof of broad nootropic enhancement.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 729,
+      "entity_slug": "lavender",
+      "pmid": "40600743",
+      "focus": "2025/2026 review of 11 RCTs/628 adults; lavender essential oil improved pooled sleep-quality scores, but route, blinding and subjective-outcome limits remain.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 730,
+      "entity_slug": "soy-isoflavones",
+      "pmid": "19653225",
+      "focus": "Systematic review of randomized trials for menopausal vasomotor symptoms; inconsistent results and study-quality variation prevent a uniform hot-flash claim.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 731,
+      "entity_slug": "black-cohosh",
+      "pmid": "37192826",
+      "focus": "Updated 22-study/2,310-participant meta-analysis; overall menopausal/hot-flash signals with anxiety/depression nulls and combination-regimen heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 732,
+      "entity_slug": "soy-isoflavones",
+      "pmid": "35651836",
+      "focus": "11-RCT menopause meta-analysis; estradiol/Kupperman signals with hot-flash/FSH/LH nulls and extreme heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 733,
+      "entity_slug": "black-cohosh",
+      "pmid": "20085176",
+      "focus": "Older placebo-controlled meta-analysis suggesting vasomotor improvement but with significant heterogeneity; retained as historical positive evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 734,
+      "entity_slug": "evening-primrose-oil",
+      "pmid": "41883983",
+      "focus": "2025 six-RCT menopause systematic review/meta-analysis; menopausal-symptom evidence remains limited and indication/formulation specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 735,
+      "entity_slug": "red-clover",
+      "pmid": "42269521",
+      "focus": "GRADE-assessed hot-flash systematic review/meta-analysis; red-clover isoflavone efficacy remains formulation/population specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 736,
+      "entity_slug": "black-cohosh",
+      "pmid": "22972105",
+      "focus": "Cochrane review of 16 RCTs/2,027 women; no significant difference versus placebo for hot-flush frequency or menopausal symptom scores, a major counterweight to positive syntheses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 737,
+      "entity_slug": "black-cohosh",
+      "pmid": "18585461",
+      "focus": "Older systematic review of six double-blind RCTs; efficacy inconsistent and uncertain, supporting explicit historical disagreement.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 738,
+      "entity_slug": "red-clover",
+      "pmid": "33920485",
+      "focus": "Eight-trial meta-analysis; modest reduction in daily hot-flash frequency with substantial heterogeneity and formulation/dose dependence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 739,
+      "entity_slug": "black-cohosh-icr",
+      "pmid": "33021111",
+      "focus": "Review/meta-analysis of isopropanolic Cimicifuga racemosa extract; product-specific menopausal evidence with manufacturer-affiliation provenance retained.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 740,
+      "entity_slug": "ginger",
+      "pmid": "31519467",
+      "focus": "2019 CINV systematic review/meta-analysis; selected acute-vomiting/fatigue signals but many nausea/delayed outcomes null, adjunctive oncology context only.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 741,
+      "entity_slug": "ginger",
+      "pmid": "36501010",
+      "focus": "2022 review of 23 CINV RCTs; overall acute/delayed nausea/vomiting largely null, with a limited low-dose/longer-duration acute-vomiting subgroup signal.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 742,
+      "entity_slug": "ginger",
+      "pmid": "30299420",
+      "focus": "Ten-RCT CINV meta-analysis; historical pooled antiemetic evidence retained alongside newer conflicting syntheses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 743,
+      "entity_slug": "ginger",
+      "pmid": "34312974",
+      "focus": "14-study postoperative-nausea/vomiting meta-analysis; selected nausea/rescue-antiemetic outcomes improved while vomiting comparisons were mixed.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 744,
+      "entity_slug": "soy-isoflavones",
+      "pmid": "20199985",
+      "focus": "RCT meta-analysis in menopausal women; spine BMD signal with intervention-duration, geography, dose and preparation heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 745,
+      "entity_slug": "maca",
+      "pmid": "21840656",
+      "focus": "Four-RCT menopause systematic review; limited favorable symptom evidence with small samples, methodological limitations and insufficient safety evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 746,
+      "entity_slug": "soy-isoflavones",
+      "pmid": "36012916",
+      "focus": "18-RCT meta-analysis; modest BMD preservation at lumbar spine/femoral neck/hip with preparation, duration and population modifiers.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 747,
+      "entity_slug": "soy-isoflavones",
+      "pmid": "34067865",
+      "focus": "Bone-turnover-marker meta-analysis in postmenopausal women; osteocalcin/BAP/PYD/DPD pooled changes were not statistically significant.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 748,
+      "entity_slug": "isoflavones",
+      "pmid": "39214463",
+      "focus": "2024 umbrella review of ten RCT meta-analyses; BMD signals across several bone sites, but inherits heterogeneity and quality limits of underlying reviews.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 749,
+      "entity_slug": "soy-isoflavones",
+      "pmid": "20673147",
+      "focus": "Meta-analysis in Western peri/postmenopausal women; isoflavone mixtures did not significantly preserve lumbar-spine BMD, useful counterweight to broader positive syntheses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 750,
+      "entity_slug": "isoflavones",
+      "pmid": "37875614",
+      "focus": "63-RCT postmenopausal BMD meta-analysis; pooled bone-density signals with major intervention, duration and population heterogeneity.",
+      "state": "research_only_category_firewall"
     }
   ]
 }
