@@ -126,12 +126,23 @@ describe('manifest-backed additive enrichment ledgers', () => {
     }
   })
 
-  it('enforces global enrichment evidence record IDs in the parser boundary', () => {
+  it('enforces global enrichment evidence IDs and reviewed correction semantics in the parser boundary', () => {
     const parser = fs.readFileSync(path.join(root, 'scripts', 'data', 'workbook-parser.mjs'), 'utf8')
     expect(parser).toContain('duplicate enrichment evidence record_id across manifests')
     expect(parser).toContain('enrichment evidence row is missing record_id')
+    expect(parser).toContain('enrichment evidence correction target was not loaded earlier')
+    expect(parser).toContain('expected_prior_evidence')
     expect(parser).toContain('enrichment source correction prior identity mismatch')
     expect(parser).toContain('expected_prior_identity')
+    expect(parser).toContain('enrichment evidence correction is missing correction_reason')
+    expect(parser).toContain('enrichment evidence correction prior entity mismatch')
+    expect(parser).toContain('corrects_evidence_key')
+  })
+
+  it('exports enrichment certainty and safety caveats into public claim rows', () => {
+    const generator = fs.readFileSync(path.join(root, 'scripts', 'data', 'build-runtime-from-workbook.mjs'), 'utf8')
+    expect(generator).toContain("evidence_grade: clean(first(row, ['evidence_grade', 'evidence grade']))")
+    expect(generator).toContain("safety_note: compact(first(row, ['safety_note', 'safety note', 'safety_notes', 'safety notes']))")
   })
 
   it('applies reviewed net-new rows to the proposal-aware virtual workbook', async () => {
@@ -185,11 +196,37 @@ describe('manifest-backed additive enrichment ledgers', () => {
       'A multicentre double-blind comparison of hydroxyzine, buspirone and placebo in patients with generalized anxiety disorder',
     )
 
-    const clean = (value: unknown) => String(value ?? '').replace(/\\s+/g, ' ').trim()
+    const correctedLTheanine = enriched.Sheets.Evidence_Register.find(
+      (row: any) =>
+        String(row.entity_slug || '').trim() === 'l-theanine' &&
+        String(row.pmid || '').trim() === '40056718',
+    )
+    expect(correctedLTheanine).toBeTruthy()
+    expect(String(correctedLTheanine.supported_claim_language || '')).toContain(
+      'small improvements in subjective sleep-onset latency',
+    )
+    expect(String(correctedLTheanine.safety_note || '')).toContain(
+      'universal insomnia-treatment',
+    )
+
+    const correctedSaffron = enriched.Sheets.Evidence_Register.find(
+      (row: any) =>
+        String(row.entity_slug || '').trim() === 'saffron' &&
+        String(row.pmid || '').trim() === '41693488',
+    )
+    expect(correctedSaffron).toBeTruthy()
+    expect(String(correctedSaffron.supported_claim_language || '')).toContain(
+      'clinician-rated HDRS and HARS outcomes and POMS were not significantly improved',
+    )
+    expect(String(correctedSaffron.evidence_grade || '')).toContain(
+      'moderate certainty by GRADE',
+    )
+
+    const clean = (value: unknown) => String(value ?? '').replace(/\s+/g, ' ').trim()
     const slug = (value: unknown) => clean(value)
       .toLowerCase()
       .normalize('NFKD')
-      .replace(/[\\u0300-\\u036f]/g, '')
+      .replace(/[\u0300-\u036f]/g, '')
       .replace(/&/g, ' and ')
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/-+/g, '-')
@@ -240,6 +277,17 @@ describe('manifest-backed additive enrichment ledgers', () => {
 
     expect(enriched.Sheets.Evidence_Register.length - raw.getSheetData('Evidence_Register').length)
       .toBe(expectedEvidence)
+
+    for (const row of ledger.evidence.filter((value: any) => value.corrects_evidence_key)) {
+      const resolved: any = enriched.Sheets.Evidence_Register.find(
+        (value: any) => String(value.record_id || '').trim() === String(row.record_id || '').trim(),
+      )
+      expect(resolved, `missing evidence correction ${row.record_id}`).toBeTruthy()
+      expect(String(resolved.supported_claim_language || resolved.claim || '').trim())
+        .toBe(String(row.supported_claim_language || row.claim || '').trim())
+      expect(String(resolved.evidence_grade || '').trim()).toBe(String(row.evidence_grade || '').trim())
+      expect(String(resolved.safety_note || '').trim()).toBe(String(row.safety_note || '').trim())
+    }
     expect(enriched.Sheets.Source_Register.length - raw.getSheetData('Source_Register').length)
       .toBe(expectedSources)
 

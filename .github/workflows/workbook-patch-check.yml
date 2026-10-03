@@ -41,6 +41,30 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
+      - name: Detect proposal-runtime scope
+        id: proposal_scope
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          BASE_REF: ${{ github.base_ref }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin "$BASE_REF"
+          if git diff --name-only "$BASE_SHA" "$HEAD_SHA" -- \
+            data-sources/entity-row-proposals \
+            data-sources/herb_monograph_master.xlsx \
+            public/data/compounds.json \
+            scripts/ci/prepare-entity-row-review.mjs \
+            scripts/ci/sync-proposed-compound-runtime.mjs \
+            scripts/data/edit-entity-master-cell.mjs \
+            | grep -q .; then
+            echo "required=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "required=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
@@ -122,10 +146,25 @@ jobs:
         run: npx vitest run tests/runtime-enrichment.test.ts
 
       - name: Validate proposed compound runtime parity
+        if: github.event_name == 'workflow_dispatch' || steps.proposal_scope.outputs.required == 'true'
         run: node scripts/ci/sync-proposed-compound-runtime.mjs
 
       - name: Guard workbook source of truth
         run: npm run guard:source-of-truth --silent
+
+      - name: Audit changed enrichment admission
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t manifests < <(git diff --name-only "$BASE_SHA" "$HEAD_SHA" -- 'data-sources/runtime-enrichment/*-manifest.json')
+          for manifest in "${manifests[@]}"; do
+            node scripts/data/audit-runtime-enrichment-admission.mjs --manifest "$(basename "$manifest")" --fail-on-partial
+          done
+
 
       - name: Validate patch proposals against current workbook
         id: patch_check

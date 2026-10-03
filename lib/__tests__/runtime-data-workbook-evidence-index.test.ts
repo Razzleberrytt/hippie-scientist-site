@@ -24,6 +24,8 @@ describe('manifest-backed workbook evidence profile index', () => {
         doi: '10.1016/j.psychres.2023.115391',
         source_url: 'https://pubmed.ncbi.nlm.nih.gov/37557058/',
         evidence_tier: 'systematic review/meta-analysis',
+        evidence_grade: 'moderate certainty',
+        safety_note: 'Short-term safety does not establish long-term safety.',
         metadata_source: 'runtime-enrichment',
       },
       {
@@ -56,6 +58,8 @@ describe('manifest-backed workbook evidence profile index', () => {
         url: 'https://pubmed.ncbi.nlm.nih.gov/37557058/',
         studyType: 'systematic review/meta-analysis',
         result: 'Sertraline claim',
+        evidenceGrade: 'moderate certainty',
+        safetyNote: 'Short-term safety does not establish long-term safety.',
         metadataSource: 'runtime-enrichment',
       },
     ])
