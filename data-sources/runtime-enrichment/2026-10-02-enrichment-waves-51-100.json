@@ -36,23 +36,6 @@
       "safety_note": "Strain and formulation differences remain important, and a published correction applies to this article. The corrected article should govern downstream extraction; these biomarker findings do not establish antihypertensive or cardiovascular-disease treatment."
     },
     {
-      "record_id": "wave73_magnesium_blood_pressure_meta_41000008",
-      "entity_slug": "magnesium",
-      "entity_name": "Magnesium",
-      "effect_or_condition": "blood pressure",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis of randomized controlled trials",
-      "population": "adults across randomized trials, including normotensive and hypertensive subgroups",
-      "sample_size": "38 randomized controlled trials; 2,709 participants",
-      "pmid": "41000008",
-      "doi": "10.1161/HYPERTENSIONAHA.125.25129",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/41000008/",
-      "source_id": "pmid-41000008",
-      "supported_claim_language": "A 2025 meta-analysis of 38 randomized trials found modest pooled reductions in systolic and diastolic blood pressure with magnesium, with larger signals in some hypertensive or hypomagnesemic subgroups. The normotensive subgroup did not show a statistically significant systolic reduction and no clear dose-response relationship was established.",
-      "evidence_grade": "systematic review/meta-analysis; heterogeneous modest effect",
-      "safety_note": "Between-study heterogeneity was high. Elemental doses ranged widely, and subgroup findings should not be generalized to normotensive or magnesium-replete adults or converted into an optimal-dose recommendation."
-    },
-    {
       "record_id": "wave74_magnesium_metabolic_crp_41245414",
       "entity_slug": "magnesium",
       "entity_name": "Magnesium",
@@ -87,22 +70,6 @@
       "safety_note": "Strains, doses, and intervention durations varied, and the review found insufficient evidence for firm sleep-quality or oxidative-stress conclusions. Findings are preliminary and not evidence for treatment of diagnosed psychiatric disorders."
     },
     {
-      "record_id": "wave76_berberine_metabolic_syndrome_40740996",
-      "entity_slug": "berberine",
-      "entity_name": "Berberine",
-      "effect_or_condition": "metabolic-syndrome biomarkers",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis of randomized placebo-controlled trials",
-      "population": "participants with metabolic-syndrome components",
-      "pmid": "40740996",
-      "doi": "10.3389/fphar.2025.1572197",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/40740996/",
-      "source_id": "pmid-40740996",
-      "supported_claim_language": "A 2025 placebo-controlled meta-analysis found pooled reductions in triglycerides, fasting glucose, waist circumference, LDL cholesterol, and total cholesterol with purified berberine, while HDL cholesterol and systolic and diastolic blood pressure did not significantly improve.",
-      "evidence_grade": "systematic review/meta-analysis; mixed biomarker outcomes",
-      "safety_note": "These are metabolic biomarkers rather than evidence of reduced clinical cardiovascular or diabetes outcomes. Trial duration and regimens varied, and short-term subgroup signals do not establish a universally optimal dose or long-term safety."
-    },
-    {
       "record_id": "wave77_vitamin_d_depression_meta_41923913",
       "entity_slug": "vitamin-d",
       "entity_name": "Vitamin D",
@@ -135,57 +102,6 @@
       "supported_claim_language": "A 2025 dose-response meta-analysis of 58 randomized trials reported modest pooled signals in several cognitive domains, but certainty ranged from low to moderate and the global-cognition dose-response curve was nonlinear.",
       "evidence_grade": "systematic review/meta-analysis; low-to-moderate certainty by domain",
       "safety_note": "The authors recommended longer, better-designed trials. Dose-response estimates are research context, not firm dosing guidance; population, EPA/DHA composition, baseline status, duration, and cognitive domain remain important."
-    },
-    {
-      "record_id": "wave79_melatonin_review_of_reviews_41014554",
-      "entity_slug": "melatonin",
-      "entity_name": "Melatonin",
-      "effect_or_condition": "sleep-quality outcomes across systematic reviews",
-      "evidence_type": "scoping_review",
-      "study_type": "scoping review of systematic reviews and meta-analyses",
-      "population": "human sleep populations represented across systematic reviews",
-      "sample_size": "57 systematic reviews comprising 227 meta-analyses",
-      "pmid": "41014554",
-      "doi": "10.1002/jcph.70115",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/41014554/",
-      "source_id": "pmid-41014554",
-      "supported_claim_language": "A 2026 scoping review of 57 systematic reviews found that most meta-analyses comparing melatonin with inactive comparators favored melatonin, but sleep-quality definitions and outcomes were highly heterogeneous and only a small minority of reviews met all predefined methodological-rigor criteria.",
-      "evidence_grade": "scoping review of reviews; substantial methodological and outcome heterogeneity",
-      "safety_note": "Adverse events were commonly reported and generally mild, including headache, gastrointestinal symptoms, and dizziness, but inconsistent terminology limited synthesis. This review does not define an individualized dose, formulation, or timing regimen."
-    },
-    {
-      "record_id": "wave80_creatine_psychiatric_review_41558805",
-      "entity_slug": "creatine",
-      "entity_name": "Creatine",
-      "effect_or_condition": "adjunctive treatment in depressive disorders",
-      "evidence_type": "systematic_review",
-      "study_type": "systematic review of randomized controlled trials",
-      "population": "participants with major depressive disorder or bipolar depression",
-      "sample_size": "5 randomized controlled trials reported in 6 articles; creatine n=126, placebo n=112",
-      "pmid": "41558805",
-      "doi": "10.1177/07067437251408171",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/41558805/",
-      "source_id": "pmid-41558805",
-      "supported_claim_language": "A 2026 systematic review found a small psychiatric evidence base in which creatine was studied only as adjunctive treatment. One major-depression trial showed a large augmentation signal, while another adolescent MDD trial and the included bipolar-depression trial were null.",
-      "evidence_grade": "systematic review; small heterogeneous psychiatric evidence base",
-      "safety_note": "The reviewed trials were short and do not establish standalone or long-term psychiatric efficacy. Hypomania or mania occurred in two creatine-treated participants in relevant trials, so bipolar-spectrum safety context should remain explicit. Studied doses are not consumer recommendations."
-    },
-    {
-      "record_id": "wave81_ginkgo_cochrane_cognition_41641880",
-      "entity_slug": "ginkgo-biloba",
-      "entity_name": "Ginkgo biloba",
-      "effect_or_condition": "cognitive impairment and dementia outcomes",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "Cochrane systematic review of randomized studies",
-      "population": "people with cognitive complaints, mild cognitive impairment, or dementia",
-      "sample_size": "82 randomized studies; 10,613 participants; 72 studies with extractable data",
-      "pmid": "41641880",
-      "doi": "10.1002/14651858.CD013661.pub2",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/41641880/",
-      "source_id": "pmid-41641880",
-      "supported_claim_language": "A 2026 Cochrane review found small six-month cognitive and activities-of-daily-living signals in dementia trials, but heterogeneity was very high and certainty was low. For mild cognitive impairment, ginkgo probably has little or no effect on global status, cognition, or activities of daily living at six months.",
-      "evidence_grade": "Cochrane systematic review; low certainty for dementia benefits, null MCI findings",
-      "safety_note": "Overall and serious adverse-event differences were small or uncertain in the reviewed dementia trials. Extract identity, diagnosis, duration, and outcome scale remain important, and these findings do not establish prevention of dementia or broad cognitive enhancement."
     },
     {
       "record_id": "wave82_spirulina_blood_pressure_meta_39529406",
@@ -405,22 +321,6 @@
       "safety_note": "Laboratory stress responses are not equivalent to treatment of an anxiety disorder. Preparation, acute timing, dose, and healthy-volunteer context should remain explicit, and the studied exposure is not consumer dosing guidance."
     },
     {
-      "record_id": "wave95_passionflower_gad_pilot_11679026",
-      "entity_slug": "passionflower",
-      "entity_name": "Passionflower",
-      "effect_or_condition": "generalized anxiety disorder symptoms",
-      "evidence_type": "randomized_controlled_trial",
-      "study_type": "pilot double-blind randomized controlled trial with active comparator",
-      "population": "adults with generalized anxiety disorder",
-      "pmid": "11679026",
-      "doi": "10.1046/j.1365-2710.2001.00367.x",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/11679026/",
-      "source_id": "pmid-11679026",
-      "supported_claim_language": "A small four-week pilot trial in adults with generalized anxiety disorder found improvement with Passiflora incarnata extract and with oxazepam, with a slower onset noted for passionflower.",
-      "evidence_grade": "small pilot randomized trial; preliminary active-comparator evidence",
-      "safety_note": "The trial was small and short and does not establish equivalence to benzodiazepines or broad anxiety-treatment efficacy. Extract identity and sedative or medication-interaction context remain important."
-    },
-    {
       "record_id": "wave96_valerian_sleep_complaints_37899385",
       "entity_slug": "valerian",
       "entity_name": "Valerian",
@@ -533,20 +433,6 @@
       "status": "published"
     },
     {
-      "source_id": "pmid-41000008",
-      "pmid": "41000008",
-      "doi": "10.1161/HYPERTENSIONAHA.125.25129",
-      "author_or_label": "PubMed indexed source PMID 41000008",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41000008/",
-      "entity_slugs": "magnesium",
-      "used_for": "blood pressure",
-      "citation_or_note": "A 2025 meta-analysis of 38 randomized trials found modest pooled reductions in systolic and diastolic blood pressure with magnesium, with larger signals in some hypertensive or hypomagnesemic subgroups. The normotensive subgroup did not show a statistically significant systolic reduction and no clear dose-response relationship was established. || Between-study heterogeneity was high. Elemental doses ranged widely, and subgroup findings should not be generalized to normotensive or magnesium-replete adults or converted into an optimal-dose recommendation.",
-      "status": "published"
-    },
-    {
       "source_id": "pmid-41245414",
       "pmid": "41245414",
       "doi": "10.3389/fnut.2025.1692937",
@@ -575,20 +461,6 @@
       "status": "published"
     },
     {
-      "source_id": "pmid-40740996",
-      "pmid": "40740996",
-      "doi": "10.3389/fphar.2025.1572197",
-      "author_or_label": "PubMed indexed source PMID 40740996",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40740996/",
-      "entity_slugs": "berberine",
-      "used_for": "metabolic-syndrome biomarkers",
-      "citation_or_note": "A 2025 placebo-controlled meta-analysis found pooled reductions in triglycerides, fasting glucose, waist circumference, LDL cholesterol, and total cholesterol with purified berberine, while HDL cholesterol and systolic and diastolic blood pressure did not significantly improve. || These are metabolic biomarkers rather than evidence of reduced clinical cardiovascular or diabetes outcomes. Trial duration and regimens varied, and short-term subgroup signals do not establish a universally optimal dose or long-term safety.",
-      "status": "published"
-    },
-    {
       "source_id": "pmid-41923913",
       "pmid": "41923913",
       "doi": "10.3389/fnut.2026.1772451",
@@ -614,48 +486,6 @@
       "entity_slugs": "omega-3",
       "used_for": "adult cognitive domains",
       "citation_or_note": "A 2025 dose-response meta-analysis of 58 randomized trials reported modest pooled signals in several cognitive domains, but certainty ranged from low to moderate and the global-cognition dose-response curve was nonlinear. || The authors recommended longer, better-designed trials. Dose-response estimates are research context, not firm dosing guidance; population, EPA/DHA composition, baseline status, duration, and cognitive domain remain important.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-41014554",
-      "pmid": "41014554",
-      "doi": "10.1002/jcph.70115",
-      "author_or_label": "PubMed indexed source PMID 41014554",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41014554/",
-      "entity_slugs": "melatonin",
-      "used_for": "sleep-quality outcomes across systematic reviews",
-      "citation_or_note": "A 2026 scoping review of 57 systematic reviews found that most meta-analyses comparing melatonin with inactive comparators favored melatonin, but sleep-quality definitions and outcomes were highly heterogeneous and only a small minority of reviews met all predefined methodological-rigor criteria. || Adverse events were commonly reported and generally mild, including headache, gastrointestinal symptoms, and dizziness, but inconsistent terminology limited synthesis. This review does not define an individualized dose, formulation, or timing regimen.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-41558805",
-      "pmid": "41558805",
-      "doi": "10.1177/07067437251408171",
-      "author_or_label": "PubMed indexed source PMID 41558805",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41558805/",
-      "entity_slugs": "creatine",
-      "used_for": "adjunctive treatment in depressive disorders",
-      "citation_or_note": "A 2026 systematic review found a small psychiatric evidence base in which creatine was studied only as adjunctive treatment. One major-depression trial showed a large augmentation signal, while another adolescent MDD trial and the included bipolar-depression trial were null. || The reviewed trials were short and do not establish standalone or long-term psychiatric efficacy. Hypomania or mania occurred in two creatine-treated participants in relevant trials, so bipolar-spectrum safety context should remain explicit. Studied doses are not consumer recommendations.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-41641880",
-      "pmid": "41641880",
-      "doi": "10.1002/14651858.CD013661.pub2",
-      "author_or_label": "PubMed indexed source PMID 41641880",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41641880/",
-      "entity_slugs": "ginkgo-biloba",
-      "used_for": "cognitive impairment and dementia outcomes",
-      "citation_or_note": "A 2026 Cochrane review found small six-month cognitive and activities-of-daily-living signals in dementia trials, but heterogeneity was very high and certainty was low. For mild cognitive impairment, ginkgo probably has little or no effect on global status, cognition, or activities of daily living at six months. || Overall and serious adverse-event differences were small or uncertain in the reviewed dementia trials. Extract identity, diagnosis, duration, and outcome scale remain important, and these findings do not establish prevention of dementia or broad cognitive enhancement.",
       "status": "published"
     },
     {
@@ -838,20 +668,6 @@
       "entity_slugs": "lemon-balm",
       "used_for": "acute laboratory-induced psychological stress",
       "citation_or_note": "A randomized human laboratory study found that acute Melissa officinalis administration altered selected mood and stress responses during experimentally induced psychological stress. || Laboratory stress responses are not equivalent to treatment of an anxiety disorder. Preparation, acute timing, dose, and healthy-volunteer context should remain explicit, and the studied exposure is not consumer dosing guidance.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-11679026",
-      "pmid": "11679026",
-      "doi": "10.1046/j.1365-2710.2001.00367.x",
-      "author_or_label": "PubMed indexed source PMID 11679026",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/11679026/",
-      "entity_slugs": "passionflower",
-      "used_for": "generalized anxiety disorder symptoms",
-      "citation_or_note": "A small four-week pilot trial in adults with generalized anxiety disorder found improvement with Passiflora incarnata extract and with oxazepam, with a slower onset noted for passionflower. || The trial was small and short and does not establish equivalence to benzodiazepines or broad anxiety-treatment efficacy. Extract identity and sedative or medication-interaction context remain important.",
       "status": "published"
     },
     {
