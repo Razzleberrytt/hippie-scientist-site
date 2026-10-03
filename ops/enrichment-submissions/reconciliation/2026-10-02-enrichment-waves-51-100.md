@@ -69,14 +69,21 @@ Those two slots were replaced with already-vetted Sage human-evidence receipts P
 - Wave 99 — **boswellia-serrata** — PMID `25705405` — osteoarthritis randomized evidence; possible pain/function benefit; standardized-extract boundary.
 - Wave 100 — **devils-claw** — PMID `17348898` — OA/low-back-pain systematic review; some pain evidence with trial-quality/extract limitations.
 
+
+## Final publication-quality gate
+
+The 50-wave research/reconciliation pass is complete, but completion of a review wave is not the same as permission to publish its shorthand receipt as a public evidence claim. Final review identified 49 receipt-only rows whose population and supported-claim fields still contained editorial placeholder language rather than source-specific, reader-ready conclusions. Those 49 receipts remain in this journal and the selection receipt for later source-specific materialization; they are intentionally withheld from runtime.
+
+The authoritative runtime ledger therefore contains **30 reader-ready evidence rows + 30 matching source rows**. These retained rows state concrete populations/outcomes and preserve null findings, heterogeneity, formulation, surrogate-vs-clinical, and safety boundaries. Wave 66 remains complete as a dedupe/reconciliation wave because PMID `41080184` was already canonical and is not duplicated.
+
 ## Current state
 
 - Waves selected and deduped: **50 / 50**
 - Candidate PMIDs reviewed: **50 unique**
-- Base selection admitted before supplemental fold: **49 evidence + 49 sources**
+- Original 49 nonduplicate selection receipts: **reviewed but withheld from runtime pending source-specific materialization**
 - Cheap canonical-claims dedupe: **complete**
-- Runtime ledger materialization before final canonical admission: **79 reviewed evidence rows + 79 source rows**
-- Full admission/build/site-health/Atomic/CI verification: **running on the consolidated batch**
+- Final runtime materialization: **30 reader-ready evidence rows + 30 matching source rows**
+- Full admission/build/site-health/Atomic/CI verification: **runs on the 30-row publish-safe consolidated batch**
 - Primary provenance: `ops/enrichment-submissions/reconciliation/2026-09-10-enrichment-batch-23.md`
 - Replacement provenance: `ops/enrichment-submissions/reconciliation/2026-09-06-full-corpus-inventory.md`
 
