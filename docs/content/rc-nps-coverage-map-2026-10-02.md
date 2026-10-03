@@ -149,8 +149,8 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 - [x] alpha-PVP — /articles/alpha-pvp/
 - [x] alpha-PHP — /articles/alpha-php/
 - [ ] alpha-PiHpP / iso-PV8
-- [ ] MDPHP
-- [ ] MDPiHP
+- [x] MDPHP — /articles/mdphp/ — masterclass pass complete
+- [x] MDPiHP — /articles/mdpihp/ — masterclass pass complete
 - [x] N-ethylhexedrone — /articles/n-ethylhexedrone/
 - [x] 4-MMC — /articles/4-mmc/
 - [x] 3-MMC — /articles/3-mmc/
@@ -266,6 +266,13 @@ P1 — completed on branch:
 - [x] 5-APB
 - [x] 6-MAPB
 - [x] ADB-BUTINACA
+
+### Masterclass wave 3 — active
+
+- [x] MDPHP — masterclass pass complete
+- [x] MDPiHP — emerging-evidence masterclass pass complete
+- [ ] Remaining high-risk P2 profiles — prioritize existing pages with human toxicology/forensic evidence before creating new routes
+- [ ] Wave 3 structural audit
 
 P2:
 - lower-prevalence, historical, or poorly sourced names remain in discovery until forensic/clinical evidence supports a useful page.
