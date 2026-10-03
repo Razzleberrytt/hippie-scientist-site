@@ -12,9 +12,9 @@ import {
 } from '@/lib/seo'
 
 const HUB_PATH = '/guides/substance-use'
-const HUB_TITLE = 'Substance Use, Dependence & Harm Reduction — Evidence Hub'
+const HUB_TITLE = 'Substance Use, Withdrawal & Recovery — Evidence Hub'
 const HUB_DESCRIPTION =
-  'Evidence-based guides on dependence, withdrawal, overdose risk, kratom-derived opioids, tianeptine, novel psychoactive substances, and harm-reduction research.'
+  'Evidence-based guides on dependence, withdrawal, recovery, overdose risk, kratom-derived opioids, tianeptine, novel psychoactive substances, and harm-reduction research.'
 const REVIEW_DATE = '2026-10-03'
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: HUB_TITLE,
     description:
-      'Research-first coverage of dependence, withdrawal, overdose risk, emerging opioids, kratom alkaloids, tianeptine, psychedelics, and harm reduction.',
+      'Research-first coverage of dependence, withdrawal, recovery, overdose risk, emerging opioids, kratom alkaloids, tianeptine, and harm reduction.',
     url: `${SITE_URL}${HUB_PATH}/`,
     type: 'website',
     images: ['/og-default.jpg'],
@@ -37,6 +37,11 @@ export const metadata: Metadata = {
 }
 
 const START_HERE = [
+  {
+    href: '/articles/opioid-withdrawal-recovery-guide/',
+    title: 'Opioid Withdrawal & Recovery: Complete Evidence Guide',
+    desc: 'Shared withdrawal biology, major opioid differences, fentanyl-era complications, acute treatment, post-acute recovery, overdose risk, and evidence-based long-term care.',
+  },
   {
     href: '/articles/mitragynine/',
     title: 'Mitragynine',
@@ -98,11 +103,6 @@ const KRATOM_CLUSTER = [
 ]
 
 const DEPENDENCE = [
-  {
-    href: '/articles/opioid-withdrawal-recovery-guide/',
-    title: 'Opioid Withdrawal & Recovery: Complete Evidence Guide',
-    desc: 'Shared withdrawal biology, major opioid differences, fentanyl-era complications, acute treatment, post-acute recovery, overdose risk, and evidence-based long-term care.',
-  },
   {
     href: '/guides/other/kratom-7oh-withdrawal-management/',
     title: 'Kratom & 7-OH Withdrawal: Evidence and Clinical Context',
