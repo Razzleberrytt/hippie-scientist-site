@@ -10,7 +10,7 @@
       "pmid": "42261369",
       "doi": "10.2147/NDT.S586506",
       "title": "Current Evidence of Acetyl-L-Carnitine Use in Mood Disorders: A Systematic Review and Meta-Analysis",
-      "decision": "verified_for_runtime_materialization"
+      "decision": "verified_but_omitted_already_admitted_evidence_and_source"
     },
     {
       "wave": 179,
@@ -34,7 +34,7 @@
       "pmid": "39504621",
       "doi": "10.1016/j.genhosppsych.2024.10.018",
       "title": "Efficacy of N-acetylcysteine for patients with depression: An updated systematic review and meta-analysis",
-      "decision": "verified_for_runtime_materialization"
+      "decision": "verified_but_omitted_already_admitted_evidence_and_source"
     },
     {
       "wave": 190,
@@ -98,7 +98,7 @@
       "pmid": "41082950",
       "doi": "10.1016/j.ctim.2025.103256",
       "title": "Evaluating the efficacy and safety of Curcuma longa, Boswellia serrata, and their mixed formulation in treating knee osteoarthritis: A systematic review and network meta-analysis",
-      "decision": "verified_for_runtime_materialization"
+      "decision": "verified_evidence_materialized_reusing_already_admitted_source"
     }
   ]
 }
