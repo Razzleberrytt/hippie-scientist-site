@@ -1009,22 +1009,6 @@
       "safety_note": "Preserve strain/product identity, baseline AAD risk, host immune status, antibiotic regimen, and avoid generic 'more CFU is better' claims."
     },
     {
-      "record_id": "wave92_artichoke_lipids_34569671",
-      "entity_slug": "artichoke",
-      "entity_name": "Artichoke",
-      "effect_or_condition": "blood lipids",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and dose-response meta-analysis of randomized trials",
-      "population": "participants in artichoke leaf extract or juice lipid trials",
-      "sample_size": "14 studies; 15 effect sizes",
-      "pmid": "34569671",
-      "doi": "10.1002/ptr.7247",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/34569671/",
-      "supported_claim_language": "A 2021 meta-analysis found reductions in triglycerides, total cholesterol, and LDL cholesterol with artichoke interventions, while HDL cholesterol did not significantly improve for leaf-extract studies. Juice and leaf-extract results should remain separate.",
-      "evidence_grade": "systematic review/meta-analysis; modest heterogeneous biomarker effects",
-      "safety_note": "Preserve artichoke leaf extract versus juice identity, biliary-obstruction/gallstone cautions, Asteraceae allergy context, and biomarker-versus-event distinction."
-    },
-    {
       "record_id": "wave93_betaine_bodycomp_null_34743773",
       "entity_slug": "betaine",
       "entity_name": "Betaine",
