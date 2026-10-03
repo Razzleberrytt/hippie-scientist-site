@@ -285,7 +285,13 @@
       "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/12612144/",
       "supported_claim_language": "PMID 12612144 is a processed-tomato/lycopene study rather than a chromium intervention and therefore cannot support chromium glucose-control efficacy. Any existing linkage between this PMID and chromium should be quarantined or corrected.",
       "evidence_grade": "ineligible source / citation mismatch",
-      "safety_note": "Citation-integrity guard: unrelated interventions must not contribute to evidence grades or consumer-facing claims."
+      "safety_note": "Citation-integrity guard: unrelated interventions must not contribute to evidence grades or consumer-facing claims.",
+      "corrects_evidence_key": "chromium|pmid:12612144",
+      "expected_prior_evidence": {
+        "entity_slug": "chromium",
+        "pmid": "12612144"
+      },
+      "correction_reason": "2026-10-03 reviewed evidence refresh replacing older same-entity/same-source claim study-row-65"
     },
     {
       "record_id": "wave63_inositol_pcos_38163998",
@@ -667,7 +673,13 @@
       "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/24533610/",
       "supported_claim_language": "A meta-analysis of randomized trials found no statistically significant weight-loss advantage for glucomannan over placebo. This null evidence should be prominent on any weight-management profile rather than relying on fiber satiety mechanisms.",
       "evidence_grade": "systematic review/meta-analysis; null weight-loss result",
-      "safety_note": "Preserve GI adverse effects, adequate-fluid administration, swallowing/obstruction precautions, and separation of constipation or glycemic indications from weight-loss efficacy."
+      "safety_note": "Preserve GI adverse effects, adequate-fluid administration, swallowing/obstruction precautions, and separation of constipation or glycemic indications from weight-loss efficacy.",
+      "corrects_evidence_key": "glucomannan|pmid:24533610",
+      "expected_prior_evidence": {
+        "entity_slug": "glucomannan",
+        "pmid": "24533610"
+      },
+      "correction_reason": "2026-10-03 reviewed evidence refresh replacing older same-entity/same-source claim rg-0560"
     },
     {
       "record_id": "wave82_green_tea_liver_safety_27188915",
@@ -698,7 +710,13 @@
       "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/16129715/",
       "supported_claim_language": "A small 12-week randomized trial in 30 overweight or obese men reported changes in body-fat measures with a standardized forskolin extract, but the sample was tiny and male-only. This cannot establish dependable weight-loss efficacy for the general population.",
       "evidence_grade": "small randomized trial; narrow population",
-      "safety_note": "Preserve standardized-extract identity, blood-pressure effects, medication interactions, small sample size, and lack of broad replication."
+      "safety_note": "Preserve standardized-extract identity, blood-pressure effects, medication interactions, small sample size, and lack of broad replication.",
+      "corrects_evidence_key": "forskolin|pmid:16129715",
+      "expected_prior_evidence": {
+        "entity_slug": "forskolin",
+        "pmid": "16129715"
+      },
+      "correction_reason": "2026-10-03 reviewed evidence refresh replacing older same-entity/same-source claim study-row-228"
     },
     {
       "record_id": "wave84_beta_sitosterol_bph_9313662",
@@ -713,7 +731,13 @@
       "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/9313662/",
       "supported_claim_language": "A multicenter placebo-controlled trial found improvement in symptom scores, urinary flow, and residual urine with a chemically defined beta-sitosterol phytosterol preparation in men with BPH. The result is indication- and preparation-specific.",
       "evidence_grade": "randomized controlled trial; BPH-specific",
-      "safety_note": "Do not generalize to prostate-cancer prevention, arbitrary plant sterol mixtures, or untreated urinary obstruction requiring medical evaluation."
+      "safety_note": "Do not generalize to prostate-cancer prevention, arbitrary plant sterol mixtures, or untreated urinary obstruction requiring medical evaluation.",
+      "corrects_evidence_key": "beta-sitosterol|pmid:9313662",
+      "expected_prior_evidence": {
+        "entity_slug": "beta-sitosterol",
+        "pmid": "9313662"
+      },
+      "correction_reason": "2026-10-03 reviewed evidence refresh replacing older same-entity/same-source claim study-row-127"
     },
     {
       "record_id": "wave85_bromelain_oa_null_17121765",
@@ -729,7 +753,13 @@
       "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/17121765/",
       "supported_claim_language": "A placebo-controlled pilot study found no significant bromelain benefit on WOMAC pain, stiffness, function, or quality-of-life outcomes in moderate-to-severe knee osteoarthritis. This direct null trial should remain visible beside anti-inflammatory mechanism claims.",
       "evidence_grade": "small randomized trial; null",
-      "safety_note": "Preserve bleeding/allergy/GI context and do not infer efficacy from pineapple-enzyme mechanisms alone."
+      "safety_note": "Preserve bleeding/allergy/GI context and do not infer efficacy from pineapple-enzyme mechanisms alone.",
+      "corrects_evidence_key": "bromelain|pmid:17121765",
+      "expected_prior_evidence": {
+        "entity_slug": "bromelain",
+        "pmid": "17121765"
+      },
+      "correction_reason": "2026-10-03 reviewed evidence refresh replacing older same-entity/same-source claim study-row-129"
     },
     {
       "record_id": "wave86_saw_palmetto_bph_42157952",
@@ -883,7 +913,13 @@
       "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/37818728/",
       "supported_claim_language": "A 24-trial meta-analysis reported reductions in fasting glucose, HOMA-IR, and HbA1c with cinnamon supplementation, while fasting insulin was not significantly changed. Cinnamon species, extract identity, dose, background therapy, and trial heterogeneity prevent a generic diabetes-treatment claim.",
       "evidence_grade": "systematic review/meta-analysis; mixed glycemic endpoints",
-      "safety_note": "Preserve cinnamon species and coumarin exposure, liver history, glucose-lowering medication use, and do not imply equivalence to diabetes medications."
+      "safety_note": "Preserve cinnamon species and coumarin exposure, liver history, glucose-lowering medication use, and do not imply equivalence to diabetes medications.",
+      "corrects_evidence_key": "cinnamon-extract|pmid:37818728",
+      "expected_prior_evidence": {
+        "entity_slug": "cinnamon-extract",
+        "pmid": "37818728"
+      },
+      "correction_reason": "2026-10-03 reviewed evidence refresh replacing older same-entity/same-source claim study-row-142"
     },
     {
       "record_id": "wave95_fenugreek_t2d_39286181",
