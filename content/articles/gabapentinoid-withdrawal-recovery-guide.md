@@ -264,7 +264,7 @@ Both drugs are renally eliminated, but their absorption differs substantially [4
 | Typical elimination half-life with normal kidney function | Roughly 5–9 hours | Roughly 6 hours |
 | Renal impairment effect | Clearance decreases, half-life rises | Clearance decreases, half-life rises |
 
-These differences help explain why a dose number cannot be converted cleanly from one drug to the other.
+These differences help explain why a dose number cannot be converted cleanly from one drug to the other. Formulation matters too: some extended-release gabapentin products are specifically not substitutable milligram-for-milligram with immediate-release products because their pharmacokinetic profiles differ [1].
 
 Pregabalin’s faster and more predictable absorption is also one reason misuse reviews often report greater abuse liability for pregabalin than gabapentin, though individual risk varies substantially [16–21].
 
