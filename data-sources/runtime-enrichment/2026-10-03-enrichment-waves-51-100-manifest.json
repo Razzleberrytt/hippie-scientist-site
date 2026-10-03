@@ -4,10 +4,11 @@
   "generated_from": {
     "input_files": [
       "existing site article/reference corpus",
-      "governed enrichment/reconciliation corpus",
-      "current PubMed-indexed systematic reviews, meta-analyses, randomized trials, and safety reviews"
+      "ops/enrichment-submissions/reconciliation corpus",
+      "governed enrichment-session evidence",
+      "data-sources/workbook-patches/trust-completeness-batch-1-2026-07-15.json"
     ],
-    "review_note": "Second batch-first structured research enrichment program covering Waves 51-100. Findings preserve null/mixed outcomes, formulation/species/strain identity, deficiency/population boundaries, interaction and toxicity signals, citation mismatches, surrogate-vs-clinical distinctions, and product-specific evidence."
+    "review_note": "Second batch-first structured research enrichment program covering Waves 51-100. Findings preserve null and mixed outcomes, formulation/strain/species identity, deficiency and disease-population boundaries, interaction/toxicity signals, source-identity corrections, surrogate-vs-clinical distinctions, and product-specific evidence. Expensive repository-wide verification remains deferred until the batch follows the validated Waves 1-50 base."
   },
   "counts": {
     "entity_context_rows": 0,
@@ -32,7 +33,7 @@
     "evidence_merge": "append-only; evidence IDs unique; sources deduplicated by PMID/DOI/title identity",
     "source_policy": "docs/enrichment-source-policy.md",
     "claim_calibration": "preserve negative/null evidence, uncertainty, endpoint discordance, strain/species/formulation identity, deficiency and disease-population boundaries, safety interactions, retractions/source mismatches, and biomarker-vs-clinical distinctions; studied exposure is research context rather than consumer dosing advice",
-    "verification_strategy": "batch-first; expensive repository-wide verification deferred until the complete Waves 51-100 batch is frozen"
+    "verification_strategy": "batch-first; expensive repository-wide verification deferred until Waves 51-100 are attached to the validated Waves 1-50 base"
   },
   "ledger": {
     "file": "2026-10-03-enrichment-waves-51-100.json",
