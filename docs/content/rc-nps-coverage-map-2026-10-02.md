@@ -194,13 +194,13 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 
 ### Benzofurans / entactogens
 - [x] 6-APB — /articles/6-apb/
-- [x] 5-MAPB — /articles/5-mapb/
+- [x] 5-MAPB — /articles/5-mapb/ — masterclass pass complete 2026-10-03
 - [x] 5-APB — /articles/5-apb/
 - [x] 6-MAPB — /articles/6-mapb/
 
 ### Non-benzo sedatives / qualone analogues
-- [x] Dicloqualone / SL-164 — /articles/dicloqualone/
-- [x] 2-Methoxyqualone — /articles/2-methoxyqualone/
+- [x] Dicloqualone / SL-164 — /articles/dicloqualone/ — masterclass pass complete 2026-10-03
+- [x] 2-Methoxyqualone — /articles/2-methoxyqualone/ — sparse-evidence masterclass pass complete 2026-10-03
 - [ ] Etaqualone
 - [ ] Mebroqualone
 - [ ] Methylmethaqualone
@@ -294,10 +294,13 @@ P1 — completed on branch:
 - [x] U-47700 — existing monograph audit passed
 - [x] 2-MMC — masterclass pass complete
 - [x] 3-CMC — masterclass pass complete
+- [x] 5-MAPB — full masterclass pass complete; confirmed human poisoning, metabolism, serotonergic toxicity, testing and dated regulatory status integrated
+- [x] Dicloqualone / SL-164 — full masterclass pass complete; prolonged delirium/myoclonus cases, product mislabeling, opioid-mixture evidence and advanced testing integrated
+- [x] 2-Methoxyqualone — sparse-evidence masterclass pass complete; seized-material and authentic human-hair evidence integrated without borrowing methaqualone pharmacology
 
 P2:
 - [x] Existing evidence-bearing RC-benzo batch 1: metizolam, phenazepam, meclonazepam, etizolam, diclazepam, flubromazepam, flunitrazolam, pyrazolam, and rilmazafone upgraded in place on 2026-10-03.
-- [x] Follow-on evidence-bearing batch 2: desalkylgidazepam/bromonordiazepam, phenazolam/clobromazolam refresh, and NEP/N-ethylpentedrone upgraded to full monograph architecture on 2026-10-03.
+- [x] Follow-on evidence-bearing batch 2: desalkylgidazepam/bromonordiazepam, phenazolam/clobromazolam refresh, NEP/N-ethylpentedrone, 5-MAPB, dicloqualone/SL-164, and 2-methoxyqualone upgraded to masterclass architecture on 2026-10-03.
 - [ ] Continue auditing existing evidence-bearing profiles before creating new low-evidence routes.
 - lower-prevalence, historical, or poorly sourced names remain in discovery until forensic/clinical evidence supports a useful page.
 
