@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-02-enrichment-waves-61-70",
+  "generated_from": {
+    "input_files": [
+      "Issue #4441 durable enrichment intake queue",
+      "Session H Sage/Kanna research",
+      "2026-09-06 full-corpus reconciliation",
+      "Session F caffeine evidence calibration"
+    ],
+    "review_note": "Waves 61-70 admit exact-PMID-deduped, already-vetted human evidence for Sage, Kanna, Salacia reticulata, acetyl-L-carnitine, and caffeine. Product/species/population boundaries, null findings, mixed outcomes, and studied-dose limitations are retained."
+  },
+  "counts": {
+    "entity_context_rows": 0,
+    "evidence_rows": 10,
+    "source_rows": 10,
+    "relationship_rows": 0
+  },
+  "wave_coverage": {
+    "first_wave": 61,
+    "last_wave": 70,
+    "completed_waves": 10,
+    "evidence_records": 10,
+    "unique_source_records": 10
+  },
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden",
+    "evidence_merge": "append-only; exact PMID-deduped against post-#6199 main before authoring",
+    "claim_calibration": "retain null/mixed findings, product/species/population limits, short-duration boundaries, sponsor/provenance context, and studied-dose-as-context semantics",
+    "verification_strategy": "batch-first; defer full repository tests and CI until the Waves 51-100 consolidation"
+  },
+  "ledger": {
+    "file": "2026-10-02-enrichment-waves-61-70.json",
+    "sha256": "358e51aa56db78ece7dba61342aa57521436739b9315324692053e495d4141e9",
+    "bytes": 22538
+  },
+  "admission": {
+    "evidence_additions": 10,
+    "evidence_corrections": 0,
+    "source_additions": 10,
+    "source_corrections": 0
+  }
+}
