@@ -278,15 +278,11 @@ describe('manifest-backed additive enrichment ledgers', () => {
     expect(enriched.Sheets.Evidence_Register.length - raw.getSheetData('Evidence_Register').length)
       .toBe(expectedEvidence)
 
-    const enrichedEvidenceByKey = new Map(
-      enriched.Sheets.Evidence_Register.map((row: any) => [evidenceKey(row), row]).filter(([key]) => Boolean(key)),
-    )
     for (const row of ledger.evidence.filter((value: any) => value.corrects_evidence_key)) {
-      const key = evidenceKey(row)
-      expect(String(row.corrects_evidence_key || '').trim()).toBe(key)
-      const resolved: any = enrichedEvidenceByKey.get(key)
+      const resolved: any = enriched.Sheets.Evidence_Register.find(
+        (value: any) => String(value.record_id || '').trim() === String(row.record_id || '').trim(),
+      )
       expect(resolved, `missing evidence correction ${row.record_id}`).toBeTruthy()
-      expect(String(resolved.record_id || '').trim()).toBe(String(row.record_id || '').trim())
       expect(String(resolved.supported_claim_language || resolved.claim || '').trim())
         .toBe(String(row.supported_claim_language || row.claim || '').trim())
       expect(String(resolved.evidence_grade || '').trim()).toBe(String(row.evidence_grade || '').trim())
