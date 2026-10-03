@@ -35,20 +35,20 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 ### Designer benzodiazepines
 - [x] Bromazolam — /articles/bromazolam/
 - [x] Clonazolam — /articles/clonazolam/
-- [x] Phenazolam / clobromazolam — /articles/phenazolam/
-- [x] Desalkylgidazepam / bromonordiazepam — /articles/desalkylgidazepam/
-- [ ] Flualprazolam
-- [ ] Flubromazolam
-- [ ] Flubromazepam
-- [ ] Flunitrazolam
-- [ ] Diclazepam
-- [ ] Pyrazolam
-- [ ] Etizolam
-- [ ] Norflurazepam
+- [x] Phenazolam / clobromazolam — /articles/clobromazolam-phenazolam/
+- [x] Desalkylgidazepam / bromonordiazepam — /articles/desalkylgidazepam-bromonordiazepam/
+- [x] Flualprazolam
+- [x] Flubromazolam
+- [x] Flubromazepam
+- [x] Flunitrazolam
+- [x] Diclazepam
+- [x] Pyrazolam
+- [x] Etizolam
+- [x] Norflurazepam
 - [ ] Fluetizolam
 - [ ] Ethylbromazolam
 - [ ] Ethylflualprazolam
-- [ ] Rilmazafone
+- [x] Rilmazafone
 
 ### Synthetic opioids
 - [x] Protonitazene — /articles/protonitazene/
@@ -165,9 +165,7 @@ P0:
 2. Metonitazene
 3. Cychlorphine
 4. 5F-ADB
-5. Flualprazolam
-6. Flubromazolam
-7. DCK
+5. DCK
 8. O-PCE
 9. DMXE
 10. 3-MMC
@@ -175,10 +173,6 @@ P0:
 12. 2C-B-FLY
 
 P1:
-- Flubromazepam
-- Flunitrazolam
-- Diclazepam
-- Pyrazolam
 - Ethylbromazolam
 - N-pyrrolidino protonitazene
 - N-desethyl protonitazene
