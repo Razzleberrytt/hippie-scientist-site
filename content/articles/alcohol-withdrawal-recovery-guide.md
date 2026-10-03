@@ -522,7 +522,7 @@ This is one reason medication dosing cannot safely be copied from an internet pr
 
 ## Acute management: the first goal is preventing seizures, delirium, injury, and physiologic collapse
 
-Treatment intensity should reflect current severity **and future risk**.
+Treatment intensity should reflect current severity **and future risk**. Comparative pharmacologic evidence continues to support benzodiazepines as the best-established backbone for clinically significant withdrawal while evaluating alternatives and adjuncts by setting and severity rather than treating them as interchangeable [10].
 
 A high-quality withdrawal plan addresses:
 
