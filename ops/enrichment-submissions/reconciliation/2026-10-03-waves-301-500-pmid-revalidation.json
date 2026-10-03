@@ -23,7 +23,8 @@
       "entity_slug": "nigella-sativa",
       "pmid": "40714301",
       "doi": "10.1016/j.phrs.2025.107882",
-      "decision": "verified_for_runtime_materialization"
+      "decision": "verified_evidence_materialized_reusing_canonical_source",
+      "reason": "Final admission audit found the source identity already covered while the Nigella sativa evidence row remained net-new; runtime evidence retains PMID/DOI provenance without adding a duplicate source row."
     },
     {
       "wave": 331,
@@ -58,35 +59,40 @@
       "entity_slug": "magnesium",
       "pmid": "41000008",
       "doi": "10.1161/HYPERTENSIONAHA.125.25129",
-      "decision": "verified_for_runtime_materialization"
+      "decision": "verified_but_omitted_already_admitted_evidence_and_source",
+      "reason": "Final admission audit found this entity+source evidence identity already covered; omitted from the additive runtime ledger rather than relying on silent deduplication."
     },
     {
       "wave": 346,
       "entity_slug": "berberine",
       "pmid": "40740996",
       "doi": "10.3389/fphar.2025.1572197",
-      "decision": "verified_for_runtime_materialization"
+      "decision": "verified_but_omitted_already_admitted_evidence_and_source",
+      "reason": "Final admission audit found this entity+source evidence identity already covered; omitted from the additive runtime ledger rather than relying on silent deduplication."
     },
     {
       "wave": 347,
       "entity_slug": "melatonin",
       "pmid": "41014554",
       "doi": "10.1002/jcph.70115",
-      "decision": "verified_for_runtime_materialization"
+      "decision": "verified_but_omitted_already_admitted_evidence_and_source",
+      "reason": "Final admission audit found this entity+source evidence identity already covered; omitted from the additive runtime ledger rather than relying on silent deduplication."
     },
     {
       "wave": 348,
       "entity_slug": "creatine",
       "pmid": "41558805",
       "doi": "10.1177/07067437251408171",
-      "decision": "verified_for_runtime_materialization"
+      "decision": "verified_but_omitted_already_admitted_evidence_and_source",
+      "reason": "Final admission audit found this entity+source evidence identity already covered; omitted from the additive runtime ledger rather than relying on silent deduplication."
     },
     {
       "wave": 349,
       "entity_slug": "ginkgo-biloba",
       "pmid": "41641880",
       "doi": "10.1002/14651858.CD013661.pub2",
-      "decision": "verified_for_runtime_materialization"
+      "decision": "verified_but_omitted_already_admitted_evidence_and_source",
+      "reason": "Final admission audit found this entity+source evidence identity already covered; omitted from the additive runtime ledger rather than relying on silent deduplication."
     },
     {
       "wave": 336,
