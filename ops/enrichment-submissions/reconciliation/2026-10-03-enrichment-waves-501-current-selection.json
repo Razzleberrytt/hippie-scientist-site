@@ -4,8 +4,8 @@
   "program": {
     "range": "501-1000",
     "target_findings": 500,
-    "current_findings": 325,
-    "last_wave": 825
+    "current_findings": 350,
+    "last_wave": 850
   },
   "policy": "research authoring index only; not runtime admission",
   "waves": [
@@ -2283,6 +2283,181 @@
       "pmid": "42370349",
       "focus": "2026 women-specific systematic review/meta-analysis; time-to-exhaustion, VO2, power, anaerobic performance and body-fat outcomes remain sex- and endpoint-specific.",
       "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 826,
+      "entity_slug": "ashwagandha",
+      "pmid": "42738987",
+      "focus": "Four-RCT resistance-training meta-analysis; bench/lower-body strength and chest-circumference signals, body-fat null, low/very-low GRADE certainty, and HKSJ sensitivity limiting robustness.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 827,
+      "entity_slug": "epicor-postbiotic",
+      "pmid": "42625679",
+      "focus": "Single-dose crossover RCT in 30 healthy adults; rapid cytokine and immune-cell biomarker changes only, with no established clinical immune benefit.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 828,
+      "entity_slug": "shatavari",
+      "pmid": "42571384",
+      "focus": "Proprietary SheVari4 8-week RCT in 60 peri/post-menopausal women; MENQOL and hormone changes reported, with product-specific and short-duration boundaries.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 829,
+      "entity_slug": "shatavari",
+      "pmid": "38725785",
+      "focus": "Multicenter placebo-controlled Shatavari root-extract trial in 70 menopausal women; symptom/QoL improvements with no significant adverse events, but small sample and short follow-up.",
+      "state": "research_only_pending_entity_resolution"
+    },
+    {
+      "wave": 830,
+      "entity_slug": "saffron",
+      "pmid": "42389708",
+      "focus": "Affron RCT in 86 women aged 50–70 with low mood and poor sleep; depression/self-esteem/sleep-impairment signals, while sleep-disturbance and appearance outcomes were null.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 831,
+      "entity_slug": "ashwagandha",
+      "pmid": "42780946",
+      "focus": "Sustained-release AshwaSR 90-day RCT in recreationally active adults; strength/VO2max/QoL improved, but between-group testosterone change was not significant and formulation is proprietary.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 832,
+      "entity_slug": "lemon-balm",
+      "pmid": "41782777",
+      "focus": "Zensera acute RCT in 106 moderately stressed young adults; primary calmness outcome null, with selected executive-function and post-demand calmness-recovery signals.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 833,
+      "entity_slug": "cistanche-ginkgo-combination",
+      "pmid": "41847135",
+      "focus": "30-day RCT in 117 healthy adults; Cistanche+Ginkgo improved multiple memory scores with MRI correlates; combination-only and short-term evidence.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 834,
+      "entity_slug": "boswellia-terminalia-combination",
+      "pmid": "41438191",
+      "focus": "120-day proof-of-concept RCT in 100 adults with subjective memory complaints; cognition/sleep/BDNF signals belong to LN19184 blend only.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 835,
+      "entity_slug": "plant-active-cognition-network",
+      "pmid": "41640686",
+      "focus": "25-study NMA in 1,861 healthy older adults comparing 10 plant-active interventions; rankings are indirect and intervention-specific, not head-to-head proof.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 836,
+      "entity_slug": "botanical-mci-network",
+      "pmid": "41333026",
+      "focus": "19-trial NMA/4,956 participants in MCI; botanical rankings are indirect and heterogeneous, and safety reporting was inconsistent.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 837,
+      "entity_slug": "milk-thistle",
+      "pmid": "39097726",
+      "focus": "24-week silymarin RCT in 83 MASLD patients; liver-stiffness/GGT/ApoB signals with steatosis, most biochemical, anthropometric and fibrosis-index outcomes null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 838,
+      "entity_slug": "camu-camu",
+      "pmid": "39168095",
+      "focus": "Randomized crossover trial in 30 overweight hypertriglyceridemic adults; camu-camu reduced liver fat and AST/ALT versus placebo, with small-sample exploratory microbiome context.",
+      "state": "research_only_pending_entity_resolution"
+    },
+    {
+      "wave": 839,
+      "entity_slug": "ginger",
+      "pmid": "35031435",
+      "focus": "10-trial T2D meta-analysis; FBS/HbA1c and SBP/DBP reductions with very high heterogeneity, while lipid outcomes were null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 840,
+      "entity_slug": "beetroot-nitrate",
+      "pmid": "42815860",
+      "focus": "Older-adult beetroot review; nitrate biomarkers and some functional measures improved, while BP findings were heterogeneous and evidence remained preliminary.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 841,
+      "entity_slug": "live-microbial-aging",
+      "pmid": "42819170",
+      "focus": "24-trial review/1,809 older adults; preliminary cognition/handgrip signals were highly heterogeneous and sensitive to individual studies.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 842,
+      "entity_slug": "restless-legs-supplements",
+      "pmid": "39064758",
+      "focus": "Ten-RCT RLS supplement review/482 participants; magnesium/B6 and other signals coexist with vitamin-D and valerian null/uncertain findings and high risk of bias.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 843,
+      "entity_slug": "probiotics",
+      "pmid": "42032711",
+      "focus": "41-RCT cortisol meta-analysis; modest cortisol reduction with I² 96.9% and very-low GRADE certainty, so no firm stress-treatment inference.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 844,
+      "entity_slug": "creatine",
+      "pmid": "42712402",
+      "focus": "Eleven-RCT older-adult meta-analysis: creatine plus resistance training modestly improved strength, while added muscle-mass and physical-function effects were not significant.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 845,
+      "entity_slug": "rhodiola",
+      "pmid": "42738995",
+      "focus": "Four-week DanceSport RCT; caffeine-containing arms improved Jive outcomes, Rhodiola alone did not, and no caffeine×Rhodiola synergy was established.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 846,
+      "entity_slug": "green-tea-kombucha",
+      "pmid": "42799570",
+      "focus": "12-week runner RCT; primary antioxidant and acute immune/oxidative outcomes were null, with nominal chronic biomarker changes becoming exploratory after multiplicity adjustment.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 847,
+      "entity_slug": "nad-precursors",
+      "pmid": "42774067",
+      "focus": "27-study NMA/1,599 participants; no significant perceived-fatigue or sleep benefit, with domain-specific endurance/cognition signals varying by precursor.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 848,
+      "entity_slug": "beetroot-nitrate",
+      "pmid": "42642885",
+      "focus": "Pilot RCT in 22 older adults with metabolic syndrome; nitrate-rich beetroot juice increased nitrate but had no significant primary cerebral-autoregulation or cognition effect.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 849,
+      "entity_slug": "probiotics",
+      "pmid": "42514426",
+      "focus": "Nine-RCT pediatric ADHD meta-analysis/482 participants; no clear benefit for core ADHD measures, with small exploratory parent-reported behavioral signals and substantial heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 850,
+      "entity_slug": "performance-supplement-network",
+      "pmid": "42821324",
+      "focus": "119-study Bayesian NMA in physically active people/athletes; selected HMB, beta-alanine, creatine, vitamin-D, caffeine and betaine signals, but most pairwise comparisons were low/very-low certainty and rankings were indirect.",
+      "state": "research_only_category_firewall"
     }
   ]
 }
