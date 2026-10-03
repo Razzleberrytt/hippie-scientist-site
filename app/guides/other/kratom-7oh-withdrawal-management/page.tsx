@@ -357,11 +357,12 @@ export default function Page() {
           <h2 className="text-2xl font-semibold text-ink">What changed in 2025–2026</h2>
           <div className="overflow-x-auto rounded-2xl border border-brand-900/10">
             <table className="w-full min-w-[720px] text-left text-sm">
+              <caption className="sr-only">Major kratom and 7-OH evidence, product, and regulatory developments in 2025 and 2026</caption>
               <thead className="bg-brand-50/70 text-ink">
                 <tr>
-                  <th className="p-3">Date</th>
-                  <th className="p-3">Development</th>
-                  <th className="p-3">Why it matters</th>
+                  <th scope="col" className="p-3">Date</th>
+                  <th scope="col" className="p-3">Development</th>
+                  <th scope="col" className="p-3">Why it matters</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-brand-900/10 text-muted">
@@ -516,8 +517,9 @@ export default function Page() {
           </p>
           <div className="overflow-x-auto rounded-2xl border border-brand-900/10">
             <table className="w-full min-w-[760px] text-left text-sm">
+              <caption className="sr-only">Reported kratom and 7-OH withdrawal symptoms by clinical domain</caption>
               <thead className="bg-brand-50/70 text-ink">
-                <tr><th className="p-3">Domain</th><th className="p-3">Reported features</th><th className="p-3">Interpretation</th></tr>
+                <tr><th scope="col" className="p-3">Domain</th><th scope="col" className="p-3">Reported features</th><th scope="col" className="p-3">Interpretation</th></tr>
               </thead>
               <tbody className="divide-y divide-brand-900/10 text-muted">
                 <tr><td className="p-3 font-semibold text-ink">GI</td><td className="p-3">diarrhea, abdominal discomfort, nausea, reduced appetite</td><td className="p-3">dehydration risk rises if fluid intake is poor or vomiting is severe</td></tr>
@@ -544,7 +546,8 @@ export default function Page() {
           </p>
           <div className="overflow-x-auto rounded-2xl border border-brand-900/10">
             <table className="w-full min-w-[760px] text-left text-sm">
-              <thead className="bg-brand-50/70 text-ink"><tr><th className="p-3">Phase</th><th className="p-3">What may occur</th><th className="p-3">Why timing varies</th></tr></thead>
+              <caption className="sr-only">Evidence-bounded phases of kratom and 7-OH withdrawal and recovery</caption>
+              <thead className="bg-brand-50/70 text-ink"><tr><th scope="col" className="p-3">Phase</th><th scope="col" className="p-3">What may occur</th><th scope="col" className="p-3">Why timing varies</th></tr></thead>
               <tbody className="divide-y divide-brand-900/10 text-muted">
                 <tr><td className="p-3">Early</td><td className="p-3">craving, restlessness, anxiety, GI symptoms, aches, sleep disruption may begin as opioid-active exposure falls</td><td className="p-3">product type, repeated dosing, mitragynine/7-OH balance, co-use, metabolism</td></tr>
                 <tr><td className="p-3">Acute</td><td className="p-3">physical and affective symptoms may intensify before gradually improving</td><td className="p-3">dependence severity, long-lived mitragynine exposure, concentrated products, other opioids</td></tr>
@@ -683,7 +686,8 @@ export default function Page() {
           <h2 className="text-2xl font-semibold text-ink">Evidence hierarchy</h2>
           <div className="overflow-x-auto rounded-2xl border border-brand-900/10">
             <table className="w-full min-w-[700px] text-left text-sm">
-              <thead className="bg-brand-50/70 text-ink"><tr><th className="p-3">Claim</th><th className="p-3">Best current evidence</th><th className="p-3">Confidence</th></tr></thead>
+              <caption className="sr-only">Evidence confidence for major kratom and concentrated 7-OH withdrawal and recovery claims</caption>
+              <thead className="bg-brand-50/70 text-ink"><tr><th scope="col" className="p-3">Claim</th><th scope="col" className="p-3">Best current evidence</th><th scope="col" className="p-3">Confidence</th></tr></thead>
               <tbody className="divide-y divide-brand-900/10 text-muted">
                 <tr><td className="p-3">Concentrated 7-OH can produce dependence/withdrawal</td><td className="p-3">Multiple direct cases + 2026 case series + opioid pharmacology</td><td className="p-3 font-semibold">Moderate, converging</td></tr>
                 <tr><td className="p-3">Buprenorphine can be feasible in selected patients</td><td className="p-3">Nine-patient retrospective series + cases</td><td className="p-3 font-semibold">Preliminary</td></tr>
