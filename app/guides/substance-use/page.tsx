@@ -15,7 +15,7 @@ const HUB_PATH = '/guides/substance-use'
 const HUB_TITLE = 'Substance Use, Dependence & Harm Reduction — Evidence Hub'
 const HUB_DESCRIPTION =
   'Evidence-based guides on dependence, withdrawal, overdose risk, kratom-derived opioids, tianeptine, novel psychoactive substances, and harm-reduction research.'
-const REVIEW_DATE = '2026-09-30'
+const REVIEW_DATE = '2026-10-03'
 
 export const metadata: Metadata = {
   title: HUB_TITLE,
@@ -98,6 +98,11 @@ const KRATOM_CLUSTER = [
 ]
 
 const DEPENDENCE = [
+  {
+    href: '/articles/opioid-withdrawal-recovery-guide/',
+    title: 'Opioid Withdrawal & Recovery: Complete Evidence Guide',
+    desc: 'Shared withdrawal biology, major opioid differences, fentanyl-era complications, acute treatment, post-acute recovery, overdose risk, and evidence-based long-term care.',
+  },
   {
     href: '/guides/other/kratom-7oh-withdrawal-management/',
     title: 'Kratom & 7-OH Withdrawal: Evidence and Clinical Context',
