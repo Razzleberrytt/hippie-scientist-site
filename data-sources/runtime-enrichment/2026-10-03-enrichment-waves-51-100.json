@@ -2001,7 +2001,7 @@
       "title": "",
       "url": "https://pubmed.ncbi.nlm.nih.gov/34569671/",
       "entity_slugs": "artichoke",
-      "used_for": "blood lipid biomarkers",
+      "used_for": "blood lipid biomarkers | blood lipids",
       "citation_or_note": "A 2021 meta-analysis reported reductions in triglycerides, total cholesterol, and LDL cholesterol with artichoke interventions, while HDL was not significantly improved in the main supplementation analysis. These are lipid biomarkers and do not establish prevention of cardiovascular events.",
       "status": "published"
     },
@@ -2070,20 +2070,6 @@
       "entity_slugs": "probiotics",
       "used_for": "prevention of antibiotic-associated diarrhea in adults",
       "citation_or_note": "A 42-trial meta-analysis found lower pooled risk of antibiotic-associated diarrhea with probiotics, with moderate-certainty evidence. Benefit varied with baseline risk and the tested species or formulation, so the result does not identify one universally effective strain, CFU target, timing interval, or duration.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-34569671",
-      "pmid": "34569671",
-      "doi": "10.1002/ptr.7247",
-      "author_or_label": "PubMed indexed source PMID 34569671",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34569671/",
-      "entity_slugs": "artichoke",
-      "used_for": "blood lipids",
-      "citation_or_note": "A 2021 meta-analysis found reductions in triglycerides, total cholesterol, and LDL cholesterol with artichoke interventions, while HDL cholesterol did not significantly improve for leaf-extract studies. Juice and leaf-extract results should remain separate.",
       "status": "published"
     },
     {
