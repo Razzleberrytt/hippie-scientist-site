@@ -209,6 +209,33 @@ references:
     authors: "Centers for Disease Control and Prevention"
     year: "2024"
     url: "https://www.cdc.gov/tobacco/about/how-to-quit.html"
+  - title: "Effects of interventions to combat tobacco addiction: Cochrane update of 2021 to 2023 reviews"
+    authors: "Livingstone-Banks J, Lindson N, Hartmann-Boyce J"
+    year: "2024"
+    pmid: "39231467"
+    doi: "10.1111/add.16624"
+    url: "https://pubmed.ncbi.nlm.nih.gov/39231467/"
+  - title: "Nicotine pouches and clinical outcomes related to smoking cessation: A systematic review of randomized trials"
+    authors: "Heshmati J, Shahen S, Bates EL, et al."
+    year: "2025"
+    pmid: "41001885"
+    doi: "10.1111/add.70193"
+    url: "https://pubmed.ncbi.nlm.nih.gov/41001885/"
+  - title: "Oral nicotine pouches for cessation or reduction of use of other tobacco or nicotine products"
+    authors: "Hartmann-Boyce J, Tattan-Birch H, Brown J, et al."
+    year: "2025"
+    pmid: "41130602"
+    doi: "10.1002/14651858.CD016220.pub2"
+    url: "https://pubmed.ncbi.nlm.nih.gov/41130602/"
+  - title: "Oral Nicotine Pouches and Public Health: Evidence from an Updated Scoping Review"
+    authors: "Updated scoping review"
+    year: "2026"
+    pmid: "42702065"
+    url: "https://pubmed.ncbi.nlm.nih.gov/42702065/"
+  - title: "Tips for Coping with Nicotine Withdrawal and Triggers"
+    authors: "National Cancer Institute"
+    year: "2026"
+    url: "https://www.cancer.gov/about-cancer/causes-prevention/risk/tobacco/withdrawal-fact-sheet"
 ---
 
 Nicotine withdrawal is the cluster of symptoms that can appear when a nicotine-dependent person stops or sharply reduces nicotine exposure. It is **real, measurable, and often uncomfortable**, but uncomplicated nicotine withdrawal is not usually medically dangerous in the way alcohol or benzodiazepine withdrawal can be. The main problems are craving, irritability, anxiety or low mood, restlessness, difficulty concentrating, sleep disturbance, increased appetite, and a high risk of returning to nicotine use during the first days and weeks [3–5].
@@ -217,7 +244,7 @@ Recovery is bigger than simply waiting for nicotine to leave the bloodstream. Ni
 
 This page covers cigarettes, vaping, smokeless tobacco, and nicotine pouches separately where the evidence differs. It does **not** assume that all nicotine products produce identical exposure patterns or identical withdrawal.
 
-## The short answer
+## Executive summary
 
 - **Withdrawal can begin within hours** after nicotine exposure falls, is often strongest during the first several days, and usually improves substantially over the next few weeks [3,4].
 - **Cravings can outlast the core physical syndrome.** They may be triggered later by stress, alcohol, meals, driving, social situations, or places strongly associated with nicotine use.
@@ -226,7 +253,7 @@ This page covers cigarettes, vaping, smokeless tobacco, and nicotine pouches sep
 - **A lapse is not proof that treatment failed.** Tobacco dependence is a chronic relapsing condition for many people, and repeated quit attempts are common.
 - **Recovery usually improves health rather than worsening it.** Short-term irritability, anxiety, sleep disruption, and low mood can occur, but smoking cessation is associated with improved mental health over longer follow-up compared with continued smoking [11].
 
-## Emergency and do-not-miss symptoms
+## Do-not-miss: symptoms that need urgent evaluation
 
 Nicotine withdrawal itself is generally not a seizure-delirium syndrome and does not usually require inpatient detoxification.
 
@@ -316,7 +343,7 @@ There is no single clock that fits every person or product.
 | Weeks 2–4 | Core withdrawal usually improves substantially for many people | Dependence severity, product type, treatment, sleep, ongoing intermittent nicotine |
 | Beyond a month | Episodic cravings, cue reactivity, weight/appetite changes, sleep or mood issues may persist in some people | Environment, conditioning, mental health, relapse triggers, ongoing nicotine from another product |
 
-A major review found that anger, anxiety, depression, concentration difficulty, impatience, insomnia, and restlessness typically peak within the first week and often last roughly two to four weeks [3]. Another intensive-monitoring study found several withdrawal measures returning to baseline within about 10 days [4]. Those are population patterns, not deadlines.
+A major review found that anger, anxiety, depression, concentration difficulty, impatience, insomnia, and restlessness typically peak within the first week and often last roughly two to four weeks [3]. Another intensive-monitoring study found several withdrawal measures returning to baseline within about 10 days [4]. NCI patient guidance similarly notes that symptoms are commonly worst during the first week, often peak during the first three days, and then decline over the first month, while some people report symptoms for longer [36]. Those are population patterns, not deadlines.
 
 ## Why one person's withdrawal can be much harder than another's
 
@@ -389,13 +416,19 @@ A 2025 systematic review of pharmacokinetic studies found that nicotine exposure
 
 The important withdrawal implication is straightforward: **a tobacco-free product can still create nicotine dependence**.
 
-What is not yet well established is a pouch-specific withdrawal timeline or an evidence base for pouch-specific cessation treatment comparable with the cigarette literature. Until better studies exist, it is more accurate to use established nicotine-dependence principles while labeling pouch-specific uncertainties.
+What is not yet well established is a pouch-specific withdrawal timeline or an evidence base for pouch-specific cessation treatment comparable with the cigarette literature.
+
+A 2025 systematic review of randomized trials found that nicotine pouches could reduce smoking urges or cigarette consumption in some short studies, but **none of the included trials demonstrated a statistically significant increase in smoking cessation compared with control, snus, or nicotine gum** [33]. A 2025 Cochrane review reached the broader conclusion that evidence is still insufficient to establish oral nicotine pouches as an effective cessation aid [34]. An updated 2026 scoping review likewise emphasized limited long-term evidence and frequent dual use rather than complete switching or cessation [35].
+
+That distinction matters. **A consumer nicotine pouch is not the same thing as nicotine-replacement therapy.** Both can deliver nicotine, but NRT is a regulated cessation treatment with a large smoking-cessation evidence base, while commercial pouches remain much less studied for sustained cessation and long-term health outcomes.
+
+Until better studies exist, the defensible approach is to use established nicotine-dependence principles while labeling pouch-specific uncertainties.
 
 ## "Cold turkey" versus treatment
 
 Stopping nicotine without medication is possible, and many people eventually quit that way. But "possible" is different from "most effective."
 
-For adults who smoke, large evidence syntheses and guidelines support cessation medication and behavioral support. NRT improves long-term smoking abstinence versus control [13]. Behavioral interventions also improve quit outcomes [14]. WHO recommends combining evidence-based behavioral and pharmacologic treatment when appropriate [1].
+For adults who smoke, large evidence syntheses and guidelines support cessation medication and behavioral support. NRT improves long-term smoking abstinence versus control [13]. Behavioral interventions also improve quit outcomes [14]. WHO recommends combining evidence-based behavioral and pharmacologic treatment when appropriate [1]. A 2024 overview of recent Cochrane tobacco-addiction reviews likewise found continued support for established pharmacologic and behavioral cessation strategies rather than relying on willpower alone [32].
 
 A large randomized trial found that an abrupt quit strategy outperformed a planned gradual-reduction strategy when both groups received behavioral support and NRT [20]. That does **not** mean a person who is unwilling to quit abruptly should be denied treatment. Reduction can still be a bridge to cessation, and some modern pharmacotherapy strategies can begin before complete abstinence under appropriate guidance [2].
 
@@ -699,6 +732,8 @@ No validated universal dopamine-reset timeline exists.
 | Varenicline can help some people quit vaping | Moderate | Adult and youth RCTs [24,25] | Trial base is much smaller than cigarette evidence |
 | Counseling and varenicline help smokeless-tobacco cessation | Moderate | Cochrane review [21] | Product types and populations vary |
 | High-strength nicotine pouches can deliver cigarette-range nicotine exposure | Moderate | Pharmacokinetic systematic review [26] | PK exposure is not the same as long-term dependence incidence |
+| Commercial nicotine pouches are established smoking-cessation treatments | **Not established** | 2025 randomized-trial systematic review and Cochrane review [33,34] | Studies are small/heterogeneous and long-term abstinence evidence is limited |
+| Long-term health and cessation outcomes for nicotine pouches are well characterized | **Low / evolving** | 2026 scoping review [35] | Rapidly changing products and limited long-term follow-up |
 | A precise universal "dopamine reset" timeline exists | Unsupported | No validated clinical evidence | Different systems recover at different rates |
 
 ## Evidence gaps
