@@ -127,7 +127,7 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 
 ### Dissociatives
 - [x] 2F-DCK — /articles/2f-dck/
-- [x] 2F-2oxo-PCE / CanKet — /articles/2f-2oxo-pce-canket/
+- [x] 2F-2oxo-PCE / CanKet — /articles/2f-2oxo-pce-canket/ — masterclass pass complete
 - [x] DCK / deschloroketamine — /articles/dck/
 - [x] O-PCE — /articles/o-pce/
 - [x] DMXE — /articles/dmxe/
@@ -144,7 +144,7 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 - [ ] MXiPr
 
 ### Synthetic cathinones / stimulants
-- [x] alpha-PiHP — /articles/alpha-pihp/
+- [x] alpha-PiHP — /articles/alpha-pihp/ — masterclass pass complete
 - [x] NEP / N-ethylpentedrone — /articles/nep-n-ethylpentedrone/
 - [x] alpha-PVP — /articles/alpha-pvp/
 - [x] alpha-PHP — /articles/alpha-php/
@@ -273,6 +273,8 @@ P1 — completed on branch:
 - [x] MDPiHP — emerging-evidence masterclass pass complete
 - [ ] Remaining high-risk P2 profiles — prioritize existing pages with human toxicology/forensic evidence before creating new routes
 - [ ] Wave 3 structural audit
+- [x] α-PiHP — masterclass pass complete
+- [x] 2F-2oxo-PCE / CanKet — masterclass pass complete
 - [x] 2-Methyl-AP-237 / AP-238 — existing monograph audit passed
 - [x] U-47700 — existing monograph audit passed
 - [x] 2-MMC — masterclass pass complete
