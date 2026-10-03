@@ -145,13 +145,14 @@ Tracking: enrichment batching `#6198`; 50-wave follow-on planning `#6200`; canon
 - Ledger: `2026-10-02-enrichment-waves-51-100.json`
 - Manifest: `2026-10-02-enrichment-waves-51-100-manifest.json`
 - 50 additional enrichment waves staged after merged Waves 1–50
-- 49 net-new evidence rows and 49 net-new PubMed source identities from 50 completed review waves
+- 79 reviewed evidence rows and 79 source identities are staged in the consolidated ledger from 50 completed review waves; final net-new totals are enforced by the admission audit
 - 0 entity-context rows and 0 relationships
 - Reuses vetted Batch 23 reconciliation research plus two vetted Sage human-evidence receipts
 - Excludes a duplicate Saw Palmetto receipt sharing PMID `17556649`, elderberry PMID `30670267` already present in public claims, noncanonical Pelargonium PMID `19435703`, and Rhodiola PMID `41080184` after the admission audit confirmed that identity was already canonical
 - Coverage includes depression/interaction safety, menopause, UTI prevention, respiratory infections, cognition, fatigue/performance, sexual function, lactation, glycemia, blood pressure, metabolic biomarkers, osteoarthritis, and liver safety
 - Null/insufficient findings, species/formulation boundaries, prevention-vs-treatment distinctions, surrogate-outcome limits, and interaction/safety context remain first-class
-- Full repository verification is intentionally deferred until this 50-wave batch is consolidated
+- 30 unique reviewed receipts recovered from overlapping 71–100 mini-batches were folded into this authoritative ledger before those mini-manifests were removed
+- Full repository verification runs once on the consolidated exact head
 
 
 ## Regression contract
