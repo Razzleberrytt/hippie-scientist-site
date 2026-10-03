@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-02-enrichment-waves-51-100",
+  "generated_from": {
+    "input_files": [
+      "Waves 51-60 reviewed staging ledger",
+      "Waves 61-70 reviewed staging ledger",
+      "Waves 71-80 reviewed staging ledger",
+      "Waves 81-90 reviewed staging ledger",
+      "Waves 91-100 reviewed staging ledger",
+      "Current public canonical entity runtime",
+      "PubMed metadata and abstracts verified 2026-10-02"
+    ],
+    "review_note": "Canonical consolidation of research enrichment Waves 51-100. All 50 rows target existing entities, passed pre-staging source-identity dedupe against public claims and prior runtime-enrichment data, and preserve null findings, uncertainty, formulation/product/population boundaries, biomarker-vs-clinical distinctions, combination attribution, and safety context."
+  },
+  "counts": {
+    "entity_context_rows": 0,
+    "evidence_rows": 50,
+    "source_rows": 50,
+    "relationship_rows": 0
+  },
+  "wave_coverage": {
+    "first_wave": 51,
+    "last_wave": 100,
+    "completed_waves": 50,
+    "evidence_records": 50,
+    "unique_source_records": 50
+  },
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden",
+    "evidence_merge": "append-only; staging ledgers are removed after consolidation so each evidence/source identity is admitted once",
+    "claim_calibration": "retain positive, negative and null evidence, uncertainty, certainty grades, sponsorship/product boundaries, formulation/species/population limits, biomarker-vs-clinical distinctions, and safety context",
+    "verification_strategy": "run admission audit and full repository CI/build/site-health verification once on the final consolidated PR head"
+  },
+  "ledger": {
+    "file": "2026-10-02-enrichment-waves-51-100.json",
+    "sha256": "31e7fa1bdcc958a7c088d38edeb287ff3256777f994d7499edc41eeb83ffb855",
+    "bytes": 106901
+  },
+  "admission": {
+    "evidence_additions": 50,
+    "evidence_corrections": 0,
+    "source_additions": 50,
+    "source_corrections": 0
+  }
+}
