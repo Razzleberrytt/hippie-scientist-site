@@ -156,6 +156,8 @@ export function buildWorkbookEvidenceIndex(rawClaims: unknown) {
     const url = cleanString(value.source_url)
     if (!title && !pmid && !doi && !url) continue
 
+    const evidenceGrade = cleanString(value.evidence_grade)
+    const safetyNote = cleanString(value.safety_note)
     const source = {
       id: `src_${id}`,
       title,
@@ -163,9 +165,9 @@ export function buildWorkbookEvidenceIndex(rawClaims: unknown) {
       doi,
       url,
       studyType: cleanString(value.evidence_tier),
-      evidenceGrade: cleanString(value.evidence_grade),
       result: cleanString(value.claim),
-      safetyNote: cleanString(value.safety_note),
+      ...(evidenceGrade ? { evidenceGrade } : {}),
+      ...(safetyNote ? { safetyNote } : {}),
       metadataSource: metadataSource || 'workbook-evidence-register',
     }
     const existing = byProfile.get(profileSlug)
