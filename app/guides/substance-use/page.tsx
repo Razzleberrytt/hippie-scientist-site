@@ -184,6 +184,11 @@ const RESEARCH_CHEMICALS = [
     title: 'Benzofurans & RC Entactogens',
     desc: '6-APB, 5-MAPB and related serotonergic stimulants, with toxicity evidence and product-identity limits.',
   },
+  {
+    href: '/articles/novel-sedatives-qualone-analogues/',
+    title: 'Novel Sedatives & Quaalude Analogues',
+    desc: 'Dicloqualone, 2-methoxyqualone and related non-benzo depressants with exceptionally sparse human safety evidence.',
+  },
 ]
 
 const DEPENDENCE = [
