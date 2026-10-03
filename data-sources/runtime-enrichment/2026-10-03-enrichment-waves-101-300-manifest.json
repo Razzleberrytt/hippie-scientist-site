@@ -23,7 +23,7 @@
       "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-101-300.md",
       "ops/enrichment-submissions/reconciliation/2026-10-03-waves-101-300-pmid-revalidation.json"
     ],
-    "review_note": "Eight 25-finding passes completed before full validation. The research corpus contains 200 completed waves. Final runtime materialization contains 10 independently revalidated, source-specific, reader-ready evidence rows on existing canonical entities and 9 runtime source rows; Boswellia PMID 41082950 reuses canonical source provenance through its PMID/DOI/URL without a dangling runtime source_id. The remaining receipts stay research-only until source-specific promotion is legal."
+    "review_note": "Eight 25-finding passes completed before full validation. The research corpus contains 200 completed waves. Final runtime materialization is intentionally limited to 10 net-new, independently revalidated, source-specific, reader-ready evidence rows on existing canonical entities. Nine source rows are net-new in this ledger; the Boswellia evidence retains PMID/DOI/URL provenance while reusing an already-admitted source identity. The remaining receipts stay research-only until source-specific promotion is legal."
   },
   "counts": {
     "entity_context_rows": 0,
