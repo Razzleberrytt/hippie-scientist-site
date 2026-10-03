@@ -89,8 +89,8 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 ### Designer benzodiazepines
 - [x] Bromazolam — /articles/bromazolam/
 - [x] Clonazolam — /articles/clonazolam/
-- [x] Phenazolam / clobromazolam — /articles/clobromazolam-phenazolam/
-- [x] Desalkylgidazepam / bromonordiazepam — /articles/desalkylgidazepam-bromonordiazepam/
+- [x] Phenazolam / clobromazolam — /articles/clobromazolam-phenazolam/ — masterclass pass refreshed 2026-10-03
+- [x] Desalkylgidazepam / bromonordiazepam — /articles/desalkylgidazepam-bromonordiazepam/ — masterclass pass complete 2026-10-03
 - [x] Flualprazolam
 - [x] Flubromazolam
 - [x] Flubromazepam
@@ -145,7 +145,7 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 
 ### Synthetic cathinones / stimulants
 - [x] alpha-PiHP — /articles/alpha-pihp/ — masterclass pass complete
-- [x] NEP / N-ethylpentedrone — /articles/nep-n-ethylpentedrone/
+- [x] NEP / N-ethylpentedrone — /articles/nep-n-ethylpentedrone/ — masterclass pass complete 2026-10-03; NEP/ephylone identity trap explicitly resolved
 - [x] alpha-PVP — /articles/alpha-pvp/
 - [x] alpha-PHP — /articles/alpha-php/
 - [ ] alpha-PiHpP / iso-PV8
@@ -278,9 +278,12 @@ P1 — completed on branch:
 - [x] Pyrazolam — full masterclass pass complete; 2026 acute poisoning, immunoassay limitations and postmortem interpretation integrated
 - [x] Rilmazafone — full masterclass pass complete; prodrug PK, Japanese therapeutic context, mislabeling and fatal toxicology integrated
 - [x] Flunitrazolam — full masterclass pass complete; controlled human analytical exposure, urine/oral-fluid detection and metabolism evidence integrated without inventing toxicity thresholds
+- [x] Desalkylgidazepam / bromonordiazepam — full masterclass pass complete; human metabolism, prolonged elimination, dependence/withdrawal, forensic interpretation and dated 2026 WHO-review status integrated
+- [x] Phenazolam / clobromazolam — masterclass pass refreshed; Australian ED toxicology, U.S. forensic growth, counterfeit identity, dependence/withdrawal and dated 2026 WHO-review status integrated
+- [x] NEP / N-ethylpentedrone — full stimulant masterclass pass complete; 2026 human metabolism and fatal/non-fatal forensic evidence integrated, with exact NEP vs N-ethylpentylone/ephylone legal identity separation
 - [x] MDPHP — masterclass pass complete
 - [x] MDPiHP — emerging-evidence masterclass pass complete
-- [ ] Remaining high-risk P2 profiles — prioritize existing pages with human toxicology/forensic evidence before creating new routes; ten evidence-bearing designer-benzodiazepine profiles completed in this Wave-3 batch on 2026-10-03
+- [ ] Remaining high-risk P2 profiles — prioritize existing pages with human toxicology/forensic evidence before creating new routes; follow-on Wave-3 batch added deep desalkylgidazepam, phenazolam and NEP passes on 2026-10-03
 - [ ] Wave 3 structural audit
 - [x] 25E-NBOH — masterclass pass complete
 - [x] 3-FPM — masterclass pass complete
@@ -294,6 +297,7 @@ P1 — completed on branch:
 
 P2:
 - [x] Existing evidence-bearing RC-benzo batch 1: metizolam, phenazepam, meclonazepam, etizolam, diclazepam, flubromazepam, flunitrazolam, pyrazolam, and rilmazafone upgraded in place on 2026-10-03.
+- [x] Follow-on evidence-bearing batch 2: desalkylgidazepam/bromonordiazepam, phenazolam/clobromazolam refresh, and NEP/N-ethylpentedrone upgraded to full monograph architecture on 2026-10-03.
 - [ ] Continue auditing existing evidence-bearing profiles before creating new low-evidence routes.
 - lower-prevalence, historical, or poorly sourced names remain in discovery until forensic/clinical evidence supports a useful page.
 
