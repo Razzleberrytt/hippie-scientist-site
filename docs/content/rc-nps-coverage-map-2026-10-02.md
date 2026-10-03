@@ -273,6 +273,8 @@ P1 — completed on branch:
 - [x] MDPiHP — emerging-evidence masterclass pass complete
 - [ ] Remaining high-risk P2 profiles — prioritize existing pages with human toxicology/forensic evidence before creating new routes
 - [ ] Wave 3 structural audit
+- [x] 25E-NBOH — masterclass pass complete
+- [x] 3-FPM — masterclass pass complete
 - [x] 5F-MDMB-PICA — masterclass pass complete
 - [x] α-PiHP — masterclass pass complete
 - [x] 2F-2oxo-PCE / CanKet — masterclass pass complete
