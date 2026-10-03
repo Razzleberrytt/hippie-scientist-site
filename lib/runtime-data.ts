@@ -163,7 +163,9 @@ export function buildWorkbookEvidenceIndex(rawClaims: unknown) {
       doi,
       url,
       studyType: cleanString(value.evidence_tier),
+      evidenceGrade: cleanString(value.evidence_grade),
       result: cleanString(value.claim),
+      safetyNote: cleanString(value.safety_note),
       metadataSource: metadataSource || 'workbook-evidence-register',
     }
     const existing = byProfile.get(profileSlug)
