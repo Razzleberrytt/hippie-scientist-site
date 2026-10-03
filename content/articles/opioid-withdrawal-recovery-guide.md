@@ -194,13 +194,22 @@ references:
     year: "2026"
     pmid: "41571617"
     url: "https://pubmed.ncbi.nlm.nih.gov/41571617/"
+  - title: "Clinical Guidelines for Withdrawal Management and Treatment of Drug Dependence in Closed Settings"
+    authors: "World Health Organization"
+    year: "2009"
+    pmid: "26269862"
+    url: "https://pubmed.ncbi.nlm.nih.gov/26269862/"
+  - title: "WHO updates guidelines on opioid dependence treatment and overdose prevention"
+    authors: "World Health Organization"
+    year: "2026"
+    url: "https://www.who.int/news/item/02-04-2026-who-updates-guidelines-on-opioid-dependence-treatment-and-overdose-prevention"
 ---
 
 ## Executive summary
 
 **Opioid withdrawal is one syndrome with many different clocks.** Heroin, oxycodone, fentanyl, methadone, buprenorphine, tramadol, tianeptine, kratom-derived opioids, and high-dose loperamide all interact with opioid biology, but they do not produce identical withdrawal. The shared core comes from neuroadaptation to repeated opioid-receptor signaling. The differences come from pharmacokinetics, receptor affinity and efficacy, active metabolites, tissue storage, route and frequency of use, co-exposures, and whether the drug has important non-opioid pharmacology [1,2,6].
 
-The familiar syndrome can include anxiety, restlessness, yawning, tearing, runny nose, sweating, gooseflesh, enlarged pupils, muscle and bone pain, abdominal cramping, nausea, vomiting, diarrhea, tremor, insomnia, tachycardia, hypertension, and intense craving. Shorter-acting opioids usually produce an earlier, more compressed syndrome; longer-acting opioids tend to start later and last longer [6,19].
+The familiar syndrome can include anxiety, restlessness, yawning, tearing, runny nose, sweating, gooseflesh, enlarged pupils, muscle and bone pain, abdominal cramping, nausea, vomiting, diarrhea, tremor, insomnia, tachycardia, hypertension, and intense craving. Shorter-acting opioids usually produce an earlier, more compressed syndrome; longer-acting opioids tend to start later and last longer [6,33].
 
 But the modern fentanyl era has broken some of the simple rules clinicians once used. Repeated fentanyl exposure can produce unexpectedly prolonged clearance, and patients may have substantial withdrawal or difficulty starting buprenorphine even after waiting periods that historically worked well for heroin [2,7-11]. At the same time, the actual incidence of buprenorphine-precipitated withdrawal varies considerably across studies and is not inevitable [8-11].
 
@@ -266,7 +275,7 @@ Seizures, delirium, profound confusion, extreme hypertension, persistent chest p
 
 A simple rule remains useful: **shorter effective exposure generally means earlier withdrawal; longer effective exposure generally means later and more prolonged withdrawal.** But “half-life” is not the whole story. Active metabolites, repeated dosing, tissue distribution, receptor affinity, and product variability can all distort the expected clock.
 
-Historical data describe heroin withdrawal beginning roughly within hours after the last use, peaking over the next one to several days, and largely resolving over about a week. Methadone withdrawal generally begins later and can persist for substantially longer [6,19].
+Historical guideline data describe short-acting opioid withdrawal beginning within roughly the first day after the last use and resolving over several days, while long-acting opioid withdrawal generally begins later and can persist substantially longer [33]. These are broad population patterns, not a personal countdown, and modern fentanyl exposure can deviate from the older short-acting-opioid model [2,7].
 
 These are population-level patterns, not countdown timers. They should never be used as a home instruction for when to start or stop a medication.
 
@@ -287,7 +296,7 @@ These are population-level patterns, not countdown timers. They should never be 
 
 ## Heroin and short-acting opioids: the classic reference pattern
 
-Heroin has historically been the textbook example of short-acting opioid withdrawal. Symptoms can emerge within hours after the last exposure, often intensify over the first one to three days, and then gradually improve across several more days [6,19].
+Heroin has historically been the textbook example of short-acting opioid withdrawal. WHO guidance describes onset within roughly 8–24 hours and an acute course measured in days rather than weeks, while emphasizing that the exact course varies with the opioid and dependence pattern [33].
 
 Prescription opioids such as immediate-release oxycodone, hydrocodone, morphine, or hydromorphone can produce a broadly similar syndrome when dependence is present. Extended-release formulations, repeated high exposure, renal dysfunction, or active metabolites can lengthen the effective exposure.
 
@@ -507,7 +516,7 @@ A more accurate framing is:
 
 Methadone and buprenorphine are sometimes dismissed as “replacing one opioid with another.” That framing ignores the pharmacology and outcomes.
 
-Stable, clinically managed long-acting treatment reduces withdrawal, craving, chaotic intoxication-withdrawal cycling, illicit opioid exposure, and mortality [1,12,17,18]. A person can be physically dependent on a medication while simultaneously being in sustained recovery from the behavioral disorder and harms associated with uncontrolled opioid use.
+Stable, clinically managed long-acting treatment reduces withdrawal, craving, chaotic intoxication-withdrawal cycling, illicit opioid exposure, and mortality [1,12,17,18]. WHO's April 2026 update reaffirmed strong recommendations for opioid agonist maintenance treatment with methadone and oral buprenorphine [34]. A person can be physically dependent on a medication while simultaneously being in sustained recovery from the behavioral disorder and harms associated with uncontrolled opioid use.
 
 Naltrexone is another FDA-approved OUD medication, but unlike methadone and buprenorphine it is an opioid antagonist. It requires an adequate opioid-free interval before initiation because starting it too soon can precipitate withdrawal. The appropriate interval depends on the prior opioid and should be clinician-managed.
 
