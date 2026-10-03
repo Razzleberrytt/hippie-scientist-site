@@ -2334,45 +2334,6 @@
       "status": "published"
     },
     {
-      "source_id": "doi-10-1002-ptr-7247",
-      "doi": "10.1002/ptr.7247",
-      "author_or_label": "DOI indexed source 10.1002/ptr.7247",
-      "year": "",
-      "journal": "",
-      "title": "Effects of artichoke leaf extract supplementation or artichoke juice consumption on lipid profile: A systematic review and dose-response meta-analysis of randomized controlled trials",
-      "url": "https://doi.org/10.1002/ptr.7247",
-      "entity_slugs": "artichoke",
-      "used_for": "total cholesterol and triglycerides",
-      "citation_or_note": "A systematic review and dose-response meta-analysis reported modest reductions in total cholesterol and triglycerides with artichoke interventions, but trials were heterogeneous and used differing leaf extracts or juice preparations.",
-      "status": "published"
-    },
-    {
-      "source_id": "doi-10-7759-cureus-69212",
-      "doi": "10.7759/cureus.69212",
-      "author_or_label": "DOI indexed source 10.7759/cureus.69212",
-      "year": "",
-      "journal": "",
-      "title": "Efficacy of Protein and Essential Amino Acid Supplementation in Lower Limb Surgeries: A Systematic Review and Meta-Analysis",
-      "url": "https://doi.org/10.7759/cureus.69212",
-      "entity_slugs": "eaa-essential-amino-acids",
-      "used_for": "muscle and recovery outcomes after lower-limb surgery",
-      "citation_or_note": "A 2024 systematic review/meta-analysis evaluated protein and essential-amino-acid supplementation around lower-limb surgery. Findings belong to perioperative rehabilitation contexts and should not be generalized to generic muscle-building claims in healthy people.",
-      "status": "published"
-    },
-    {
-      "source_id": "doi-10-4085-1062-6050-0682-22",
-      "doi": "10.4085/1062-6050-0682.22",
-      "author_or_label": "DOI indexed source 10.4085/1062-6050-0682.22",
-      "year": "",
-      "journal": "",
-      "title": "Oral Rehydration Beverages for Treating Exercise-Associated Dehydration: A Systematic Review, Part I",
-      "url": "https://doi.org/10.4085/1062-6050-0682.22",
-      "entity_slugs": "electrolyte-mix",
-      "used_for": "rehydration after exercise-associated dehydration",
-      "citation_or_note": "A systematic review of oral rehydration beverages found that rehydration performance depends on beverage composition and use conditions rather than on the generic label 'electrolytes.' Sodium, carbohydrate, fluid volume, dehydration severity, and exercise context materially affect interpretation.",
-      "status": "published"
-    },
-    {
       "source_id": "pmid-40324552",
       "pmid": "40324552",
       "author_or_label": "PubMed indexed source PMID 40324552",
