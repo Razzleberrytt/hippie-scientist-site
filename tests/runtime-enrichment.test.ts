@@ -131,12 +131,12 @@ describe('manifest-backed additive enrichment ledgers', () => {
     expect(parser).toContain('duplicate enrichment evidence record_id across manifests')
     expect(parser).toContain('enrichment evidence row is missing record_id')
     expect(parser).toContain('enrichment evidence correction target was not loaded earlier')
-    expect(parser).toContain('enrichment evidence correction prior identity mismatch')
     expect(parser).toContain('expected_prior_evidence')
     expect(parser).toContain('enrichment source correction prior identity mismatch')
     expect(parser).toContain('expected_prior_identity')
-    expect(parser).toContain('reviewed enrichment evidence revision is missing revision_reason')
-    expect(parser).toContain('reviewed_revision')
+    expect(parser).toContain('enrichment evidence correction is missing correction_reason')
+    expect(parser).toContain('enrichment evidence correction prior entity mismatch')
+    expect(parser).toContain('corrects_evidence_key')
   })
 
   it('exports enrichment certainty and safety caveats into public claim rows', () => {
@@ -281,11 +281,11 @@ describe('manifest-backed additive enrichment ledgers', () => {
     const enrichedEvidenceByKey = new Map(
       enriched.Sheets.Evidence_Register.map((row: any) => [evidenceKey(row), row]).filter(([key]) => Boolean(key)),
     )
-    for (const row of ledger.evidence.filter((value: any) => value.reviewed_revision)) {
+    for (const row of ledger.evidence.filter((value: any) => value.corrects_evidence_key)) {
       const key = evidenceKey(row)
-      if (!key) continue
+      expect(String(row.corrects_evidence_key || '').trim()).toBe(key)
       const resolved: any = enrichedEvidenceByKey.get(key)
-      expect(resolved, `missing reviewed revision ${row.record_id}`).toBeTruthy()
+      expect(resolved, `missing evidence correction ${row.record_id}`).toBeTruthy()
       expect(String(resolved.record_id || '').trim()).toBe(String(row.record_id || '').trim())
       expect(String(resolved.supported_claim_language || resolved.claim || '').trim())
         .toBe(String(row.supported_claim_language || row.claim || '').trim())
