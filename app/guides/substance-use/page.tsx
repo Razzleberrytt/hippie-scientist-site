@@ -14,7 +14,7 @@ import {
 const HUB_PATH = '/guides/substance-use'
 const HUB_TITLE = 'Substance Use, Withdrawal & Recovery — Evidence Hub'
 const HUB_DESCRIPTION =
-  'Evidence-based guides on dependence, withdrawal, recovery, overdose risk, kratom-derived opioids, tianeptine, novel psychoactive substances, and harm-reduction research.'
+  'Evidence-based guides on dependence, withdrawal, recovery, overdose risk, alcohol, opioids, kratom-derived opioids, tianeptine, novel psychoactive substances, and harm-reduction research.'
 const REVIEW_DATE = '2026-10-03'
 
 export const metadata: Metadata = {
@@ -32,11 +32,16 @@ export const metadata: Metadata = {
   twitter: buildTwitterMetadata({
     title: HUB_TITLE,
     description:
-      'Research-first coverage of dependence, withdrawal, overdose risk, emerging opioids, kratom alkaloids, tianeptine, psychedelics, and harm reduction.',
+      'Research-first coverage of dependence, withdrawal, recovery, alcohol, opioids, emerging substances, and harm reduction.',
   }),
 }
 
 const START_HERE = [
+  {
+    href: '/articles/alcohol-withdrawal-recovery-guide/',
+    title: 'Alcohol Withdrawal & Recovery: Complete Evidence Guide',
+    desc: 'Life-threatening withdrawal risk, timelines, seizures, delirium, kindling, CIWA-Ar/PAWSS, benzodiazepines, phenobarbital, thiamine, and long-term AUD recovery.',
+  },
   {
     href: '/articles/opioid-withdrawal-recovery-guide/',
     title: 'Opioid Withdrawal & Recovery: Complete Evidence Guide',
@@ -162,7 +167,7 @@ export default function SubstanceUseHub() {
   const collectionId = `${hubUrl}#collection`
   const breadcrumbLd = breadcrumbJsonLd([
     { name: 'Evidence Library', url: canonicalUrl('/guides') },
-    { name: 'Substance Use & Harm Reduction', url: hubUrl },
+    { name: 'Substance Use, Withdrawal & Recovery', url: hubUrl },
   ], { id: breadcrumbId })
   const itemListLd = itemListJsonLd({
     id: itemListId,
@@ -193,7 +198,7 @@ export default function SubstanceUseHub() {
         items={[
           { href: '/', label: 'Home' },
           { href: '/guides/', label: 'Evidence Library' },
-          { label: 'Substance Use & Harm Reduction' },
+          { label: 'Substance Use, Withdrawal & Recovery' },
         ]}
       />
 
@@ -209,7 +214,7 @@ export default function SubstanceUseHub() {
         </p>
         <div className="mt-5 rounded-2xl border border-amber-200 bg-amber-50/70 p-4 text-sm leading-6 text-amber-950">
           <strong>Safety note:</strong> this section is educational, not a detox protocol. Severe sedation, trouble breathing,
-          loss of consciousness, seizures, chest pain, or rapidly worsening symptoms require urgent medical evaluation.
+          loss of consciousness, seizures, delirium/confusion, chest pain, or rapidly worsening symptoms require urgent medical evaluation.
           Dependence and withdrawal questions are safest to handle with qualified medical or addiction-treatment support.
         </div>
       </header>
@@ -219,7 +224,7 @@ export default function SubstanceUseHub() {
           <p className="eyebrow-label">Start here</p>
           <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink">The highest-signal evidence pages</h2>
           <p className="mt-3 text-muted">
-            These pages have the strongest combination of human relevance, current reader demand, and direct dependence or opioid-pharmacology questions.
+            These pages have the strongest combination of human relevance, current reader demand, and direct dependence, withdrawal, recovery, or high-risk pharmacology questions.
           </p>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
