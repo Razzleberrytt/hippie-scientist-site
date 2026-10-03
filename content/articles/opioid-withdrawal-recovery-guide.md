@@ -184,6 +184,16 @@ references:
     authors: "Huo S, London K, Murphy L, et al."
     year: "2025"
     url: "https://www.cdc.gov/mmwr/volumes/74/wr/mm7415a2.htm"
+  - title: "ASAM Clinical Considerations: Buprenorphine Treatment of Opioid Use Disorder for Individuals Using High-potency Synthetic Opioids"
+    authors: "Weimer MB, Herring AA, Kawasaki SS, et al."
+    year: "2023"
+    pmid: "37934520"
+    url: "https://pubmed.ncbi.nlm.nih.gov/37934520/"
+  - title: "Pharmacological treatment strategies to manage precipitated withdrawal following the administration of buprenorphine in opioid use disorder: A systematic review"
+    authors: "Roberts E, Kalk N, Strang J"
+    year: "2026"
+    pmid: "41571617"
+    url: "https://pubmed.ncbi.nlm.nih.gov/41571617/"
 ---
 
 ## Executive summary
@@ -197,6 +207,12 @@ But the modern fentanyl era has broken some of the simple rules clinicians once 
 The most important recovery fact is also the easiest to lose in a “detox” discussion: **ending acute withdrawal is not the same as treating opioid use disorder (OUD).** Detoxification without ongoing treatment leaves relapse risk high, while methadone and buprenorphine treatment are associated with substantially lower mortality [1,12-14]. Loss of tolerance after abstinence makes a return to a previous opioid amount especially dangerous [14,15].
 
 This article explains the shared withdrawal biology, the major differences among opioid classes, what evidence-based medical management can and cannot do, why some “fentanyl withdrawal” is now complicated by non-opioid adulterants such as medetomidine, and what recovery looks like after the acute syndrome ends.
+
+## Do-not-miss: when “withdrawal” needs urgent evaluation
+
+Most uncomplicated opioid withdrawal is intensely uncomfortable rather than directly life-threatening, but **the label “opioid withdrawal” should never be used to explain away a medical emergency**. Urgent assessment is warranted for severe dehydration or inability to keep fluids down, chest pain, severe shortness of breath, seizure, fainting, dangerous heart-rhythm symptoms, severe confusion or delirium, marked fluctuating consciousness, extreme hypertension or tachycardia, pregnancy with significant withdrawal, severe infection or wounds, suicidal thoughts, or symptoms that are rapidly worsening or do not fit an ordinary opioid-withdrawal pattern.
+
+In the current illicit supply, unusually severe autonomic symptoms can also reflect a **second withdrawal syndrome** rather than “extra-bad fentanyl withdrawal.” CDC's 2026 medetomidine alert describes severe hypertension, tachycardia, tremor, chest pain, intractable vomiting, and fluctuating alertness after regular exposure to fentanyl contaminated with medetomidine [29,30]. That distinction can change the required level of care.
 
 ## First: dependence, withdrawal, tolerance, and opioid use disorder are not the same thing
 
@@ -296,7 +312,17 @@ The evidence therefore supports two ideas at once:
 1. precipitated withdrawal is real and can be severe;
 2. fear of precipitated withdrawal should not be turned into the claim that buprenorphine “does not work for fentanyl.”
 
-The correct implication is that fentanyl-era initiation requires individualized clinical assessment rather than rigid internet countdowns.
+The correct implication is that fentanyl-era initiation requires individualized clinical assessment rather than rigid internet countdowns. ASAM's clinical considerations for high-potency synthetic opioid exposure likewise emphasize individualized initiation and stabilization strategies rather than one universal fentanyl protocol [31].
+
+## Spontaneous withdrawal vs precipitated withdrawal
+
+These are related but different events.
+
+**Spontaneous withdrawal** occurs when opioid effect falls because the drug is being cleared, the dose is reduced, or use stops.
+
+**Precipitated withdrawal** occurs when receptor signaling drops abruptly because an antagonist or a high-affinity partial agonist displaces a full agonist before sufficient spontaneous withdrawal has developed. Buprenorphine is the most clinically important example in modern OUD treatment because its high MOR affinity can displace fentanyl, heroin, oxycodone, methadone, or other full agonists.
+
+The distinction matters because the prevention and management questions are different. The 2025 systematic review found reported precipitated-withdrawal incidence ranging from 0% to 13.2% across heterogeneous studies, with inconsistent definitions and generally poor study quality [10]. A 2026 systematic review of treatment strategies for buprenorphine-precipitated withdrawal found the evidence base itself remains limited, which is another reason not to turn case reports into a universal rescue algorithm [32].
 
 ## Methadone: later, longer, and pharmacokinetically variable
 
@@ -523,6 +549,22 @@ Pregnancy is not the setting for a casual detox plan. ACOG recommends opioid ago
 
 Pregnancy also changes pharmacokinetics and clinical priorities. Anyone pregnant and experiencing opioid withdrawal, dependence, or OUD should receive coordinated obstetric and addiction care.
 
+## Special populations and high-risk contexts
+
+Withdrawal and recovery plans change when the surrounding physiology or environment changes.
+
+**Pregnancy and postpartum:** methadone or buprenorphine treatment is generally preferred over withdrawal-only approaches for OUD because return to use is common after withdrawal and can create maternal and fetal risk [19].
+
+**Older adults, frailty, and major medical disease:** dehydration, blood-pressure changes, arrhythmia risk, renal impairment, and medication interactions can make an otherwise typical syndrome more dangerous.
+
+**Kidney or liver disease:** altered clearance of the parent opioid or active metabolites can change both the timing of withdrawal and the safety of medications used to treat it.
+
+**Chronic pain:** withdrawal-associated hyperalgesia can overlap with recurrence of the original pain condition. A recovery plan needs to address pain directly rather than treating every increase in pain as evidence that opioid reduction “failed” [15].
+
+**Polysubstance dependence:** concurrent alcohol, benzodiazepine, barbiturate, gabapentinoid, stimulant, or alpha-2-agonist exposure can radically change the syndrome. Seizure, delirium, severe hypertension, or fluctuating consciousness should not be assumed to be ordinary opioid withdrawal.
+
+**Transitions out of detox, residential care, hospitalization, or incarceration:** reduced tolerance plus renewed access to an unpredictable fentanyl-dominant supply can create a particularly dangerous overdose window. Treatment retention and naloxone access are therefore part of recovery care, not optional extras [12-14].
+
 ## When urgent medical evaluation matters
 
 Seek urgent medical care for any of the following during suspected opioid withdrawal:
@@ -600,6 +642,19 @@ Incomplete and potentially dangerous. Detox manages a phase of physiological dep
 ### “Being dependent on prescribed buprenorphine or methadone means recovery has failed.”
 
 False. Physical dependence is an expected pharmacological state and is not synonymous with uncontrolled compulsive use. Long-term agonist treatment is an evidence-based form of recovery care.
+
+## Evidence ledger
+
+| Claim | Evidence strength | Best evidence on this page | Important limitation |
+|---|---|---|---|
+| Methadone and buprenorphine reduce mortality in OUD | **High** | 2026 JAMA review; systematic review/meta-analysis; post-detox cohort [1,12,13] | Observational mortality studies can retain residual confounding, although findings are consistent across large datasets |
+| Buprenorphine effectively treats opioid withdrawal | **High** | Cochrane review and current clinical guidance [1,3,16] | Optimal initiation strategy varies by opioid exposure and setting |
+| Fentanyl can have prolonged clearance after chronic exposure | **Moderate** | Prospective residential-treatment pharmacokinetic study [7] | Urine detectability is not identical to clinically meaningful receptor occupancy |
+| Buprenorphine-precipitated withdrawal can occur after fentanyl | **Moderate** | Self-report cohort, prospective ED study, systematic review [8-10] | Definitions and settings differ; risk estimates are heterogeneous |
+| Concentrated 7-OH can produce clinically significant opioid-like withdrawal | **Emerging** | Published human case reports [23,24] | Case reports cannot establish incidence, average timeline, or best treatment |
+| Tianeptine can produce opioid-like dependence and withdrawal | **Moderate for signal; low for treatment protocol** | MOR pharmacology plus human case literature [25,26] | U.S. products are heterogeneous and controlled treatment trials are lacking |
+| Medetomidine can add a severe non-opioid withdrawal syndrome to fentanyl exposure | **Moderate and rapidly evolving** | CDC 2026 Health Alert and clinical surveillance [29,30] | Geographic prevalence and individual exposure remain highly variable |
+| A fixed universal “PAWS timeline” exists after opioid withdrawal | **Not established** | Clinical literature supports lingering symptoms, not one standardized timetable | Persistent symptoms overlap with sleep, mood, pain, medical, and environmental factors |
 
 ## Evidence hierarchy for this page
 
