@@ -1,0 +1,317 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-02-waves-51-100-pmid-revalidation",
+  "reviewed_at": "2026-10-03",
+  "method": "Every PMID-bearing runtime candidate was checked against the publication identity returned by PubMed-indexed search. DOI-only Sceletium source 10.1016/j.dscb.2023.100092 was separately verified against publisher/DOAJ metadata. Rows whose publication identity did not match the claimed entity/effect were rejected rather than relabeled.",
+  "summary": {
+    "reviewed_runtime_candidates": 50,
+    "retained_verified_rows": 26,
+    "rejected_rows": 24
+  },
+  "rejected": [
+    {
+      "pmid": "18254000",
+      "actual_title": "Dietary advice for illness-related malnutrition in adults",
+      "reason": "claimed St John's wort major-depression review"
+    },
+    {
+      "pmid": "20166070",
+      "actual_title": "WITHDRAWN: Heparin for the prevention of venous thromboembolism in general medical patients (excluding stroke and myocardial infarction)",
+      "reason": "claimed St John's wort depression meta-analysis"
+    },
+    {
+      "pmid": "16728550",
+      "actual_title": "Ultrasonographic and clinical parameters for early differentiation between precocious puberty and premature thelarche",
+      "reason": "claimed St John's wort interaction review"
+    },
+    {
+      "pmid": "17556649",
+      "actual_title": "Multiple fluorescent labeling of silica nanoparticles with lanthanide chelates for highly sensitive time-resolved immunofluorometric assays",
+      "reason": "claimed saw-palmetto BPH review"
+    },
+    {
+      "pmid": "22526720",
+      "actual_title": "Postcolostral immunoglobulin G (IgG) levels in newborn piglets using three different ELISA detection systems",
+      "reason": "claimed black-cohosh vasomotor evidence"
+    },
+    {
+      "pmid": "18996653",
+      "actual_title": "Retrospective serological study on hepatitis E infection in pigs from 1985 to 1997 in Spain",
+      "reason": "claimed black-cohosh menopause review"
+    },
+    {
+      "pmid": "12614179",
+      "actual_title": "Efficient tumor antigen loading of dendritic antigen presenting cells by transimmunization",
+      "reason": "claimed evening-primrose eczema review"
+    },
+    {
+      "pmid": "18343326",
+      "actual_title": "Technological devices in the diagnosis of temporomandibular disorders",
+      "reason": "claimed evening-primrose mastalgia review"
+    },
+    {
+      "pmid": "37025731",
+      "actual_title": "Ultrasonographic Assessment of Indian Patients With Plantar Fasciitis and Its Clinical Correlation: A Prospective Observational Study",
+      "reason": "claimed cranberry recurrent-UTI Cochrane review"
+    },
+    {
+      "pmid": "17636757",
+      "actual_title": "Delayed antibiotics for respiratory infections",
+      "reason": "claimed cranberry UTI-prevention review"
+    },
+    {
+      "pmid": "38587814",
+      "actual_title": "Antibiotic-Sparing Prevention of Urinary Tract Infections-New Evidence Regarding d-Mannose",
+      "reason": "related d-mannose commentary was misclassified as a systematic review"
+    },
+    {
+      "pmid": "31860221",
+      "actual_title": "Clinical Insights About the Role of Skin pH in Inflammatory Dermatological Conditions Introduction",
+      "reason": "claimed d-mannose randomized prevention evidence"
+    },
+    {
+      "pmid": "25106650",
+      "actual_title": "Preparation and in vitro evaluation of alpha and beta-amyrins loaded nanoemulsions",
+      "reason": "claimed echinacea common-cold review"
+    },
+    {
+      "pmid": "17044450",
+      "actual_title": "High prevalence of indinavir-associated renal complications in Thai HIV-infected patients",
+      "reason": "claimed echinacea respiratory randomized evidence"
+    },
+    {
+      "pmid": "18425900",
+      "actual_title": "Palliative endobronchial brachytherapy for non-small cell lung cancer",
+      "reason": "claimed Andrographis upper-respiratory review"
+    },
+    {
+      "pmid": "22419337",
+      "actual_title": "Memory Rehabilitation for people with multiple sclerosis",
+      "reason": "claimed Andrographis common-cold review"
+    },
+    {
+      "pmid": "31452297",
+      "actual_title": "Transient cotransformation of CRISPR/Cas9 and oligonucleotide templates enables efficient editing of target loci in Physcomitrella patens",
+      "reason": "claimed elderberry upper-respiratory review"
+    },
+    {
+      "pmid": "17944136",
+      "actual_title": "Implications of the Mental Capacity Act 2005 on advance care planning at the end of life",
+      "reason": "claimed deglycyrrhizinated-licorice GI review"
+    },
+    {
+      "pmid": "21511308",
+      "actual_title": "Spatial analysis of the invasion of lionfish in the western Atlantic and Caribbean",
+      "reason": "claimed licorice blood-pressure/hypokalemia safety evidence"
+    },
+    {
+      "pmid": "21649643",
+      "actual_title": "Assessment of the prevalence of de novo mutations in the BRCA1 and BRCA2 genes",
+      "reason": "claimed ginkgo dementia review"
+    },
+    {
+      "pmid": "21508585",
+      "actual_title": "Lasers for vascular lesions: standard guidelines of care",
+      "reason": "claimed ginkgo cognitive-impairment evidence"
+    },
+    {
+      "pmid": "19548453",
+      "actual_title": "Personality profiles of pregnant and postpartum women with symptoms of perinatal depression",
+      "reason": "claimed ginkgo tinnitus review"
+    },
+    {
+      "pmid": "15235891",
+      "actual_title": "D-Allose has a strong suppressive effect against ischemia/reperfusion injury: a comparative study with allopurinol and superoxide dismutase",
+      "reason": "claimed Panax ginseng acute-cognition evidence"
+    },
+    {
+      "pmid": "17617791",
+      "actual_title": "Murine glutathione S-transferase A1-1 in sickle transgenic mice",
+      "reason": "claimed Panax ginseng glycemic review"
+    }
+  ],
+  "retained": [
+    {
+      "record_id": "wave55_sage_24836739",
+      "entity_slug": "sage",
+      "pmid": "24836739",
+      "doi": null,
+      "source_id": "pmid-24836739"
+    },
+    {
+      "record_id": "wave70_sage_18350281",
+      "entity_slug": "sage",
+      "pmid": "18350281",
+      "doi": null,
+      "source_id": "pmid-18350281"
+    },
+    {
+      "record_id": "wave71_probiotics_clinical_mood_meta_39731509",
+      "entity_slug": "probiotics",
+      "pmid": "39731509",
+      "doi": "10.1093/nutrit/nuae177",
+      "source_id": "pmid-39731509"
+    },
+    {
+      "record_id": "wave72_probiotics_overweight_cardiometabolic_40735396",
+      "entity_slug": "probiotics",
+      "pmid": "40735396",
+      "doi": "10.1002/fsn3.70434",
+      "source_id": "pmid-40735396"
+    },
+    {
+      "record_id": "wave74_magnesium_metabolic_crp_41245414",
+      "entity_slug": "magnesium",
+      "pmid": "41245414",
+      "doi": "10.3389/fnut.2025.1692937",
+      "source_id": "pmid-41245414"
+    },
+    {
+      "record_id": "wave75_probiotics_working_adults_41501907",
+      "entity_slug": "probiotics",
+      "pmid": "41501907",
+      "doi": "10.1186/s40359-025-03885-5",
+      "source_id": "pmid-41501907"
+    },
+    {
+      "record_id": "wave77_vitamin_d_depression_meta_41923913",
+      "entity_slug": "vitamin-d",
+      "pmid": "41923913",
+      "doi": "10.3389/fnut.2026.1772451",
+      "source_id": "pmid-41923913"
+    },
+    {
+      "record_id": "wave78_omega3_cognition_meta_40836005",
+      "entity_slug": "omega-3",
+      "pmid": "40836005",
+      "doi": "10.1038/s41598-025-16129-8",
+      "source_id": "pmid-40836005"
+    },
+    {
+      "record_id": "wave82_spirulina_blood_pressure_meta_39529406",
+      "entity_slug": "spirulina",
+      "pmid": "39529406",
+      "doi": "10.1002/ptr.8377",
+      "source_id": "pmid-39529406"
+    },
+    {
+      "record_id": "wave83_resveratrol_sirt1_null_meta_40158656",
+      "entity_slug": "resveratrol",
+      "pmid": "40158656",
+      "doi": "10.1016/j.jand.2025.03.011",
+      "source_id": "pmid-40158656"
+    },
+    {
+      "record_id": "wave84_ala_diabetic_polyneuropathy_41619689",
+      "entity_slug": "alpha-lipoic-acid",
+      "pmid": "41619689",
+      "doi": "10.1016/j.dsx.2026.103374",
+      "source_id": "pmid-41619689"
+    },
+    {
+      "record_id": "wave85_sage_diabetes_trial_24050577",
+      "entity_slug": "sage",
+      "pmid": "24050577",
+      "doi": null,
+      "source_id": "pmid-24050577"
+    },
+    {
+      "record_id": "wave86_sage_diabetes_addon_27942500",
+      "entity_slug": "sage",
+      "pmid": "27942500",
+      "doi": null,
+      "source_id": "pmid-27942500"
+    },
+    {
+      "record_id": "wave87_sage_hot_flash_meta_37489230",
+      "entity_slug": "sage",
+      "pmid": "37489230",
+      "doi": null,
+      "source_id": "pmid-37489230"
+    },
+    {
+      "record_id": "wave88_sage_diabetes_meta_35106985",
+      "entity_slug": "sage",
+      "pmid": "35106985",
+      "doi": null,
+      "source_id": "pmid-35106985"
+    },
+    {
+      "record_id": "wave89_kanna_fmri_23903032",
+      "entity_slug": "kanna",
+      "pmid": "23903032",
+      "doi": null,
+      "source_id": "pmid-23903032"
+    },
+    {
+      "record_id": "wave90_kanna_anxiety_meta_dscb2023",
+      "entity_slug": "kanna",
+      "pmid": null,
+      "doi": "10.1016/j.dscb.2023.100092",
+      "source_id": "doi-10-1016-j-dscb-2023-100092"
+    },
+    {
+      "record_id": "wave91_caffeine_anxiety_meta_38362247",
+      "entity_slug": "caffeine",
+      "pmid": "38362247",
+      "doi": null,
+      "source_id": "pmid-38362247"
+    },
+    {
+      "record_id": "wave92_caffeine_sleep_loss_meta_31837359",
+      "entity_slug": "caffeine",
+      "pmid": "31837359",
+      "doi": null,
+      "source_id": "pmid-31837359"
+    },
+    {
+      "record_id": "wave93_caffeine_pregnancy_guideline_20664420",
+      "entity_slug": "caffeine",
+      "pmid": "20664420",
+      "doi": null,
+      "source_id": "pmid-20664420"
+    },
+    {
+      "record_id": "wave94_lemon_balm_acute_stress_15272110",
+      "entity_slug": "lemon-balm",
+      "pmid": "15272110",
+      "doi": "10.1097/01.psy.0000132877.72833.71",
+      "source_id": "pmid-15272110"
+    },
+    {
+      "record_id": "wave96_valerian_sleep_complaints_37899385",
+      "entity_slug": "valerian",
+      "pmid": "37899385",
+      "doi": "10.1007/s12325-023-02708-6",
+      "source_id": "pmid-37899385"
+    },
+    {
+      "record_id": "wave97_rosemary_memory_dose_response_21877951",
+      "entity_slug": "rosemary",
+      "pmid": "21877951",
+      "doi": "10.1089/jmf.2011.0005",
+      "source_id": "pmid-21877951"
+    },
+    {
+      "record_id": "wave98_gotu_kola_startle_11106141",
+      "entity_slug": "gotu-kola",
+      "pmid": "11106141",
+      "doi": "10.1097/00004714-200012000-00015",
+      "source_id": "pmid-11106141"
+    },
+    {
+      "record_id": "wave99_green_tea_extract_connectivity_24643507",
+      "entity_slug": "green-tea-extract",
+      "pmid": "24643507",
+      "doi": "10.1007/s00213-014-3526-1",
+      "source_id": "pmid-24643507"
+    },
+    {
+      "record_id": "wave100_phosphatidylserine_pa_stress_25081826",
+      "entity_slug": "phosphatidylserine",
+      "pmid": "25081826",
+      "doi": "10.1186/1476-511X-13-121",
+      "source_id": "pmid-25081826"
+    }
+  ]
+}
