@@ -9,9 +9,9 @@ import References from '@/components/References'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: '7-OH Withdrawal: 2026 Evidence & Kratom Differences',
+  title: 'Kratom & 7-OH Withdrawal and Recovery: 2026 Evidence Review',
   description:
-    'Updated 2026 review of concentrated 7-hydroxymitragynine withdrawal: new clinical cases, kratom-vs-7-OH chemistry, product-label data, FDA status, DEA scheduling process, and when medical care matters.',
+    'Masterclass 2026 review of kratom and concentrated 7-hydroxymitragynine withdrawal and recovery: dependence, symptoms, timelines, treatment evidence, product chemistry, relapse risk, and current regulation.',
   path: '/guides/other/kratom-7oh-withdrawal-management/',
 })
 
@@ -19,11 +19,20 @@ const HEADINGS: Heading[] = [
   { id: 'research-brief', text: 'Research Brief', level: 2 },
   { id: 'what-changed', text: 'What Changed in 2025–2026', level: 2 },
   { id: 'not-kratom-leaf', text: 'Concentrated 7-OH Is Not Kratom Leaf', level: 2 },
+  { id: 'dependence-vs-kud', text: 'Dependence Is Not the Same as Kratom Use Disorder', level: 2 },
   { id: 'withdrawal-evidence', text: 'What Withdrawal Evidence Shows', level: 2 },
+  { id: 'symptom-map', text: 'Withdrawal Symptom Map', level: 2 },
+  { id: 'timeline', text: 'Timeline and Pharmacokinetics', level: 2 },
+  { id: 'exposure-types', text: 'Leaf, Extracts, 7-OH and Related Products', level: 2 },
   { id: 'treatment-evidence', text: 'Treatment Evidence: Early, Not Standardized', level: 2 },
+  { id: 'recovery', text: 'Recovery Beyond Acute Withdrawal', level: 2 },
+  { id: 'polysubstance', text: 'Polysubstance and Product-Uncertainty Reality', level: 2 },
+  { id: 'return-to-use', text: 'Return to Use, Tolerance and Overdose Risk', level: 2 },
+  { id: 'special-populations', text: 'Special Populations', level: 2 },
   { id: 'product-quality', text: 'Product Chemistry and Label Accuracy', level: 2 },
   { id: 'regulatory', text: 'Federal Regulatory Snapshot', level: 2 },
   { id: 'care', text: 'When Medical Care Matters', level: 2 },
+  { id: 'myths', text: 'Myths Versus Evidence', level: 2 },
   { id: 'gaps', text: 'Unanswered-Question Ledger', level: 2 },
   { id: 'faq', text: 'Frequently Asked Questions', level: 2 },
   { id: 'references', text: 'References', level: 2 },
@@ -159,7 +168,98 @@ const REFS = [
     n: 17,
     text: 'FDA. FDA Seizes 7-OH Opioids to Protect American Consumers. December 2, 2025.',
     url: 'https://www.fda.gov/news-events/press-announcements/fda-seizes-7-oh-opioids-protect-american-consumers',
+  },,
+  {
+    n: 18,
+    text: 'Stanciu CN, Gnanasegaram SA, Ahmed S, Penders T. Kratom Withdrawal: A Systematic Review with Case Series. J Psychoactive Drugs. 2019. PMID 30614408.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/30614408/',
+    pmid: '30614408',
   },
+  {
+    n: 19,
+    text: 'Singh D, Müller CP, Vicknasingam BK. Kratom (Mitragyna speciosa) dependence, withdrawal symptoms and craving in regular users. Drug Alcohol Depend. 2014;139:132-137. PMID 24698080.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/24698080/',
+    pmid: '24698080',
+    doi: '10.1016/j.drugalcdep.2014.03.017',
+  },
+  {
+    n: 20,
+    text: 'Smith KE, Dunn KE, Rogers JM, Garcia-Romeu A, Strickland JC, Epstein DH. Assessment of Kratom Use Disorder and Withdrawal Among an Online Convenience Sample of US Adults. J Addict Med. 2022. PMID 35220331.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/35220331/',
+    pmid: '35220331',
+    doi: '10.1097/ADM.0000000000000986',
+  },
+  {
+    n: 21,
+    text: 'Smith KE, Epstein DH, Weiss ST. Controversies in Assessment, Diagnosis, and Treatment of Kratom Use Disorder. Curr Psychiatry Rep. 2024;26:487-496. PMID 39134892.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/39134892/',
+    pmid: '39134892',
+    doi: '10.1007/s11920-024-01524-1',
+  },
+  {
+    n: 22,
+    text: 'Broyan VR, Brar JK, Allgaier T, Allgaier JT. Long-term buprenorphine treatment for kratom use disorder: A case series. Subst Abus. 2022;43:763-766. PMID 35112990.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/35112990/',
+    pmid: '35112990',
+    doi: '10.1080/08897077.2021.2010250',
+  },
+  {
+    n: 23,
+    text: 'Weiss ST, Douglas HE, Burns M, et al. Pharmacotherapy for Management of Kratom Use Disorder: A Systematic Literature Review With Survey of Experts. J Addict Med. 2021. PMID 33974767.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/33974767/',
+    pmid: '33974767',
+  },
+  {
+    n: 24,
+    text: 'Huestis MA, et al. Human Mitragynine and 7-Hydroxymitragynine Pharmacokinetics after Single and Multiple Daily Doses of Oral Encapsulated Dried Kratom Leaf Powder. Molecules. 2024. PMID 38474495.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/38474495/',
+    pmid: '38474495',
+  },
+  {
+    n: 25,
+    text: 'Mitragynine and 7-hydroxymitragynine plasma pharmacokinetics in humans after single and 15 multiple oral kratom extract doses. 2026. PMID 42266029.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/42266029/',
+    pmid: '42266029',
+  },
+  {
+    n: 26,
+    text: 'Kratom exposure cases reported to United States Poison Centers: 2016-July 2025. 2026. PMID 42013627.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/42013627/',
+    pmid: '42013627',
+  },
+  {
+    n: 27,
+    text: 'Striley CW, Hoeflich CC, Viegas AT, et al. Health Effects Associated With Kratom and Polysubstance Use: A Narrative Review. Subst Abuse. 2022. PMID 35645563.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/35645563/',
+    pmid: '35645563',
+    doi: '10.1177/11782218221095873',
+  },
+  {
+    n: 28,
+    text: 'Singh D, Narayanan S, Vicknasingam B, et al. Severity of Pain and Sleep Problems during Kratom Cessation among Regular Kratom Users. 2018. PMID 29558272.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/29558272/',
+    pmid: '29558272',
+  },
+  {
+    n: 29,
+    text: 'Wright ME, Ginsberg C, Parkison AM, et al. Outcomes of mothers and newborns to prenatal exposure to kratom: a systematic review. J Perinatol. 2021. PMID 33589723.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/33589723/',
+    pmid: '33589723',
+  },
+  {
+    n: 30,
+    text: 'Eggleston W, Stoppacher R, Suen K, Marraffa JM, Nelson LS. Kratom Use and Toxicities in the United States. Pharmacotherapy. 2019;39:775-777. PMID 31099038.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/31099038/',
+    pmid: '31099038',
+    doi: '10.1002/phar.2280',
+  },
+  {
+    n: 31,
+    text: 'Post S, Spiller HA, Chounthirath T, Smith GA. Kratom exposures reported to United States poison control centers: 2011-2017. Clin Toxicol. 2019;57:847-854. PMID 30786220.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/30786220/',
+    pmid: '30786220',
+    doi: '10.1080/15563650.2019.1569236',
+  }
 ]
 
 export default function Page() {
@@ -169,8 +269,8 @@ export default function Page() {
     <ArticleLayout toc={toc} zone="harm-reduction">
       <div className="space-y-8">
         <AuthorityJsonLd
-          title="7-OH Withdrawal: 2026 Evidence & Kratom Differences"
-          description="Current evidence review of concentrated 7-hydroxymitragynine withdrawal, emerging treatment literature, product chemistry, FDA actions, and the 2026 DEA scheduling process."
+          title="Kratom & 7-OH Withdrawal and Recovery: 2026 Evidence Review"
+          description="Masterclass evidence review of kratom and concentrated 7-hydroxymitragynine withdrawal, treatment, longer recovery, product chemistry, and current regulation."
           url="https://thehippiescientist.net/guides/other/kratom-7oh-withdrawal-management/"
           type="MedicalWebPage"
           breadcrumbs={[
@@ -193,13 +293,13 @@ export default function Page() {
         <header className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
           <p className="eyebrow-label">Emerging opioid safety · Literature checked August 15, 2026</p>
           <h1 className="mt-2 text-3xl font-semibold text-ink sm:text-4xl">
-            7-OH Withdrawal: What the 2026 Evidence Actually Shows
+            Kratom & 7-OH Withdrawal and Recovery: What the 2026 Evidence Actually Shows
           </h1>
           <p className="detail-reading mt-4 max-w-3xl text-muted">
-            Concentrated 7-hydroxymitragynine is increasingly sold under kratom-adjacent branding, but the exposure is not equivalent to traditional kratom leaf. This review tracks the new clinical withdrawal literature, product chemistry, FDA actions, and the still-changing federal scheduling process without inventing a universal taper or withdrawal clock.
+            Kratom leaf, extracts, and concentrated or semi-synthetic 7-hydroxymitragynine products sit on the same broad pharmacologic family tree but can create materially different exposures. This review separates those products, maps dependence and withdrawal evidence, follows recovery beyond the acute syndrome, and tracks current product chemistry and regulation without inventing a universal taper, dose conversion, or withdrawal clock.
           </p>
           <div className="mt-5 flex flex-wrap gap-2 text-xs font-semibold">
-            <span className="rounded-full bg-brand-50 px-3 py-1.5 text-brand-900">17-source ledger</span>
+            <span className="rounded-full bg-brand-50 px-3 py-1.5 text-brand-900">31-source evidence ledger</span>
             <span className="rounded-full bg-brand-50 px-3 py-1.5 text-brand-900">2026 clinical cases included</span>
             <span className="rounded-full bg-brand-50 px-3 py-1.5 text-brand-900">Regulatory status dated</span>
             <span className="rounded-full bg-brand-50 px-3 py-1.5 text-brand-900">No DIY taper protocol</span>
@@ -366,6 +466,188 @@ export default function Page() {
           <p className="text-sm text-muted">
             In the U.S., the federal treatment locator at <a href="https://findtreatment.gov/" target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-800 underline underline-offset-4">FindTreatment.gov</a> can help identify licensed substance-use treatment services. Immediate emergencies require local emergency services.
           </p>
+        </section>
+
+        <section id="dependence-vs-kud" className="scroll-mt-20 prose-section space-y-4">
+          <h2 className="text-2xl font-semibold text-ink">Dependence is not the same as kratom use disorder</h2>
+          <p className="text-muted leading-relaxed">
+            Frequent kratom or 7-OH exposure can produce tolerance and physical dependence, but those findings do not automatically prove a substance use disorder. Physical dependence means the nervous system has adapted enough that reducing exposure can produce withdrawal. A use disorder adds a broader pattern of impaired control, craving, repeated unsuccessful attempts to cut down, continued use despite harm, or disruption of important activities.
+          </p>
+          <p className="text-muted leading-relaxed">
+            This distinction is especially important for kratom because many users report self-treatment of pain, mood symptoms, fatigue, or prior opioid withdrawal. In a U.S. online sample, tolerance and withdrawal were among the most common kratom-use-disorder features, while major social or occupational impairment was less common [20]. A 2024 review emphasized that assessment should not equate any physical dependence with addiction and should account for the reason the person began using kratom [21].
+          </p>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="card-premium p-5">
+              <p className="font-semibold text-ink">Physical dependence can include</p>
+              <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm text-muted">
+                <li>tolerance;</li>
+                <li>withdrawal when use stops;</li>
+                <li>symptom relief after re-exposure.</li>
+              </ul>
+            </div>
+            <div className="card-premium p-5">
+              <p className="font-semibold text-ink">Use disorder adds broader impairment</p>
+              <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm text-muted">
+                <li>loss of control over use;</li>
+                <li>persistent craving or unsuccessful attempts to stop;</li>
+                <li>continued use despite meaningful harm or functional consequences.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="symptom-map" className="scroll-mt-20 prose-section space-y-4">
+          <h2 className="text-2xl font-semibold text-ink">Withdrawal symptom map</h2>
+          <p className="text-muted leading-relaxed">
+            Traditional kratom withdrawal has been described in clinical reports, systematic reviews, community studies in Southeast Asia, and U.S. survey research [18–20]. The syndrome overlaps with opioid withdrawal but is not necessarily identical in severity, timing, or symptom balance.
+          </p>
+          <div className="overflow-x-auto rounded-2xl border border-brand-900/10">
+            <table className="w-full min-w-[760px] text-left text-sm">
+              <thead className="bg-brand-50/70 text-ink">
+                <tr><th className="p-3">Domain</th><th className="p-3">Reported features</th><th className="p-3">Interpretation</th></tr>
+              </thead>
+              <tbody className="divide-y divide-brand-900/10 text-muted">
+                <tr><td className="p-3 font-semibold text-ink">GI</td><td className="p-3">diarrhea, abdominal discomfort, nausea, reduced appetite</td><td className="p-3">dehydration risk rises if fluid intake is poor or vomiting is severe</td></tr>
+                <tr><td className="p-3 font-semibold text-ink">Autonomic</td><td className="p-3">sweating, hot flashes/chills, runny nose, watery eyes, yawning</td><td className="p-3">overlaps with opioid-like withdrawal</td></tr>
+                <tr><td className="p-3 font-semibold text-ink">Musculoskeletal</td><td className="p-3">body aches, muscle pain or spasms, joint pain, physical tension</td><td className="p-3">pain can be withdrawal plus re-emergence of the condition kratom was being used to manage</td></tr>
+                <tr><td className="p-3 font-semibold text-ink">Sleep</td><td className="p-3">insomnia, restless sleep, difficulty settling</td><td className="p-3">sleep disruption can persist after the most obvious physical symptoms improve [28]</td></tr>
+                <tr><td className="p-3 font-semibold text-ink">Mood</td><td className="p-3">irritability, anxiety, tension, sadness or depressed mood</td><td className="p-3">severe or persistent psychiatric symptoms require assessment beyond a withdrawal label</td></tr>
+                <tr><td className="p-3 font-semibold text-ink">Reward/craving</td><td className="p-3">craving, low energy, restlessness, urge to resume use</td><td className="p-3">can drive return to use even after the acute physical syndrome is fading</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="text-sm text-muted">
+            In the 2014 Malaysian community study, more frequent kratom-tea consumption was associated with more severe dependence, withdrawal, and craving [19]. A U.S. survey similarly described moderate withdrawal dominated by GI upset, restlessness, anxiety, irritability, fatigue/low energy, and craving [20]. These populations and products differ, so neither dataset should be treated as a universal U.S. commercial-product timeline.
+          </p>
+        </section>
+
+        <section id="timeline" className="scroll-mt-20 prose-section space-y-4">
+          <h2 className="text-2xl font-semibold text-ink">Timeline and pharmacokinetics: why one clock is misleading</h2>
+          <p className="text-muted leading-relaxed">
+            Kratom withdrawal is often described online with an exact hour-by-hour clock. The human evidence does not support that level of precision. Traditional leaf, concentrated extracts, isolated 7-OH, and products containing other semi-synthetic opioid-active compounds can differ in alkaloid composition and pharmacokinetics.
+          </p>
+          <p className="text-muted leading-relaxed">
+            Controlled human pharmacokinetic work with dried leaf powder found that mitragynine can have a long and variable terminal half-life, while 7-hydroxymitragynine showed a shorter but still exposure-dependent time course [24]. A 2026 human extract study separately characterized mitragynine and 7-OH after concentrated extract exposures [25]. Those studies are valuable for understanding accumulation and exposure; they do not directly establish one withdrawal peak for dependent users.
+          </p>
+          <div className="overflow-x-auto rounded-2xl border border-brand-900/10">
+            <table className="w-full min-w-[760px] text-left text-sm">
+              <thead className="bg-brand-50/70 text-ink"><tr><th className="p-3">Phase</th><th className="p-3">What may occur</th><th className="p-3">Why timing varies</th></tr></thead>
+              <tbody className="divide-y divide-brand-900/10 text-muted">
+                <tr><td className="p-3">Early</td><td className="p-3">craving, restlessness, anxiety, GI symptoms, aches, sleep disruption may begin as opioid-active exposure falls</td><td className="p-3">product type, repeated dosing, mitragynine/7-OH balance, co-use, metabolism</td></tr>
+                <tr><td className="p-3">Acute</td><td className="p-3">physical and affective symptoms may intensify before gradually improving</td><td className="p-3">dependence severity, long-lived mitragynine exposure, concentrated products, other opioids</td></tr>
+                <tr><td className="p-3">Later recovery</td><td className="p-3">sleep, mood, pain, energy, GI function, and craving can recover on different schedules</td><td className="p-3">underlying pain/psychiatric illness, environment, nicotine, other drugs, treatment access</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="text-sm text-muted">
+            The correct evidence statement is therefore a range and a set of modifiers—not a promise that “day three is the worst” or “everything is over by day seven” for every kratom-derived product.
+          </p>
+        </section>
+
+        <section id="exposure-types" className="scroll-mt-20 prose-section space-y-4">
+          <h2 className="text-2xl font-semibold text-ink">Leaf, extracts, 7-OH and related products should not be collapsed together</h2>
+          <p className="text-muted leading-relaxed">
+            “Kratom withdrawal” can refer to very different exposure histories. Traditional leaf or tea contains a broad alkaloid mixture dominated by mitragynine. Standardized or concentrated extracts can deliver much more mitragynine per serving. Purified or semi-synthetic 7-OH products can deliver an opioid-active alkaloid at levels not representative of ordinary leaf. Some newer products may also contain mitragynine pseudoindoxyl or other kratom-derived opioid-active compounds.
+          </p>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="card-premium p-5">
+              <p className="font-semibold text-ink">Traditional leaf/tea</p>
+              <p className="mt-2 text-sm text-muted">Human survey and observational withdrawal literature is broader, but product composition and cultural use patterns differ from the current U.S. concentrate market [18–21].</p>
+            </div>
+            <div className="card-premium p-5">
+              <p className="font-semibold text-ink">Concentrated extracts</p>
+              <p className="mt-2 text-sm text-muted">Higher mitragynine exposure is possible, and 2026 human PK data now exist for concentrated extract [25]. Withdrawal-specific prospective studies remain limited.</p>
+            </div>
+            <div className="card-premium p-5">
+              <p className="font-semibold text-ink">Purified/concentrated 7-OH</p>
+              <p className="mt-2 text-sm text-muted">Direct 2025–2026 clinical cases and a nine-patient series document problematic use and opioid-like withdrawal [6–11].</p>
+            </div>
+            <div className="card-premium p-5">
+              <p className="font-semibold text-ink">Mixed/novel kratom-derived products</p>
+              <p className="mt-2 text-sm text-muted">Label accuracy and hidden semi-synthetic compounds can make the exposure uncertain; product-specific toxicology matters [12–14].</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="recovery" className="scroll-mt-20 prose-section space-y-4">
+          <h2 className="text-2xl font-semibold text-ink">Recovery is more than getting through acute withdrawal</h2>
+          <p className="text-muted leading-relaxed">
+            Acute withdrawal is only one layer of recovery. Kratom is frequently used to self-manage chronic pain, anxiety, low mood, fatigue, or prior opioid withdrawal. When kratom stops, the original condition can reappear at the same time as withdrawal.
+          </p>
+          <h3 className="text-xl font-semibold text-ink">Sleep</h3>
+          <p className="text-muted leading-relaxed">
+            Sleep disruption can be both a withdrawal symptom and a relapse trigger. Malaysian observational data found increased sleep problems during cessation, particularly among heavier tea users, although symptoms were generally characterized as relatively mild in that population [28]. That finding should not be generalized to purified high-potency 7-OH products.
+          </p>
+          <h3 className="text-xl font-semibold text-ink">Pain</h3>
+          <p className="text-muted leading-relaxed">
+            Body aches can be part of withdrawal, while chronic pain may also return when a person stops a product they were using for analgesia. Those are different mechanisms and may require different treatment. A page that labels every post-cessation pain flare as withdrawal can miss the underlying pain disorder.
+          </p>
+          <h3 className="text-xl font-semibold text-ink">Mood, anxiety and energy</h3>
+          <p className="text-muted leading-relaxed">
+            Anxiety, irritability, sadness, fatigue and low energy are reported during withdrawal [19,20]. Persistent severe depression, mania, psychosis, or suicidality should trigger broader psychiatric evaluation rather than an assumption that time alone will fix the problem.
+          </p>
+          <h3 className="text-xl font-semibold text-ink">Craving and cue reactivity</h3>
+          <p className="text-muted leading-relaxed">
+            A person may feel physically better while still experiencing strong urges in the situations where kratom or 7-OH became routine—waking, driving, work breaks, pain flares, stress, or bedtime. Recovery planning has to address those learned patterns as well as the acute syndrome.
+          </p>
+        </section>
+
+        <section id="polysubstance" className="scroll-mt-20 prose-section space-y-4">
+          <h2 className="text-2xl font-semibold text-ink">Polysubstance and product-uncertainty reality</h2>
+          <p className="text-muted leading-relaxed">
+            Kratom-related emergency and poison-center data repeatedly show that co-exposures matter. U.S. poison-center studies found more severe outcomes with multiple-substance exposures, and the literature includes combinations with prescription/illicit opioids, benzodiazepines, alcohol, stimulants, gabapentinoids, nicotine and other sedatives [26,27,30,31].
+          </p>
+          <p className="text-muted leading-relaxed">
+            This changes withdrawal interpretation. A person stopping 7-OH and alcohol, for example, should not be told that all symptoms fit a kratom-derived opioid syndrome: alcohol withdrawal can independently become life-threatening. Likewise, sedation or slowed breathing suggests intoxication or a co-exposure rather than uncomplicated opioid withdrawal.
+          </p>
+          <p className="text-sm text-muted">
+            Product uncertainty adds another layer. When a tablet or gummy is marketed with botanical language but actually contains concentrated 7-OH or another opioid-active derivative, the consumer may not know what dependence they are withdrawing from [12–14].
+          </p>
+        </section>
+
+        <section id="return-to-use" className="scroll-mt-20 prose-section space-y-4">
+          <h2 className="text-2xl font-semibold text-ink">Return to use, reduced tolerance and overdose risk</h2>
+          <p className="text-muted leading-relaxed">
+            Withdrawal itself is not the only safety issue. A period of abstinence can reduce opioid tolerance. Returning to a previously tolerated amount of a concentrated opioid-active product may therefore carry more risk than expected—especially when the actual product concentration is uncertain or when alcohol, benzodiazepines, prescription opioids, illicit opioids, or other sedatives are also present.
+          </p>
+          <p className="text-muted leading-relaxed">
+            Kratom toxicology should also be described carefully. Poison-center data document serious outcomes, including respiratory depression and deaths, but many severe or fatal cases involve polysubstance exposure [26,30,31]. That supports caution without pretending every kratom-associated death is a clean single-compound experiment.
+          </p>
+          <p className="text-sm text-muted">
+            When an opioid exposure is suspected and a person is unresponsive or not breathing normally, opioid-overdose response—including emergency services and naloxone when available—is appropriate harm-reduction context. Naloxone treats opioid receptor-mediated respiratory depression; it is not a treatment for ordinary withdrawal discomfort.
+          </p>
+        </section>
+
+        <section id="special-populations" className="scroll-mt-20 prose-section space-y-4">
+          <h2 className="text-2xl font-semibold text-ink">Special populations</h2>
+          <h3 className="text-xl font-semibold text-ink">Pregnancy and newborn exposure</h3>
+          <p className="text-muted leading-relaxed">
+            Pregnancy deserves a lower threshold for specialist care. A systematic review found only a small case-report literature, but maternal kratom exposure and neonatal withdrawal were repeatedly described [29]. The absence of large trials is not evidence of safety. Abrupt self-directed medication changes during pregnancy are also not a substitute for obstetric and addiction care.
+          </p>
+          <h3 className="text-xl font-semibold text-ink">Chronic pain</h3>
+          <p className="text-muted leading-relaxed">
+            Many people use kratom because conventional pain care was inadequate or because they were trying to reduce prescription-opioid exposure. Recovery planning should address the underlying pain rather than treating abstinence as the only outcome that matters.
+          </p>
+          <h3 className="text-xl font-semibold text-ink">Prior opioid use disorder</h3>
+          <p className="text-muted leading-relaxed">
+            Kratom may have been adopted as self-treatment for opioid withdrawal. Stopping it without a plan can therefore expose two problems: kratom-derived physical dependence and an untreated underlying opioid use disorder. Evidence-based OUD treatment should not be withheld because the current product is sold as “kratom.”
+          </p>
+          <h3 className="text-xl font-semibold text-ink">Adolescents and older adults</h3>
+          <p className="text-muted leading-relaxed">
+            Direct treatment evidence is sparse at both age extremes. Co-medications, cardiovascular risk, falls, cognition, liver/kidney disease, and developmental context can all change the risk-benefit picture. Adult case-series protocols should not be copied automatically.
+          </p>
+        </section>
+
+        <section id="myths" className="scroll-mt-20 prose-section space-y-4">
+          <h2 className="text-2xl font-semibold text-ink">Myths versus evidence</h2>
+          <div className="space-y-4 text-sm text-muted">
+            <div><p className="font-semibold text-ink">Myth: “Natural kratom cannot cause physical dependence.”</p><p className="mt-1">Regular kratom use has been associated with tolerance, craving and withdrawal in multiple human datasets [18–20].</p></div>
+            <div><p className="font-semibold text-ink">Myth: “All 7-OH products are basically strong kratom leaf.”</p><p className="mt-1">Analytical studies show that concentrated/semi-synthetic 7-OH products can be chemically unlike traditional leaf [12,13].</p></div>
+            <div><p className="font-semibold text-ink">Myth: “There is one reliable day-by-day kratom withdrawal timeline.”</p><p className="mt-1">Product type, alkaloid composition, repeated exposure, individual metabolism and co-use vary too much for one validated clock.</p></div>
+            <div><p className="font-semibold text-ink">Myth: “If someone is physically dependent, they necessarily have addiction.”</p><p className="mt-1">Dependence and withdrawal can occur without the broader behavioral impairment required for a use-disorder diagnosis [20,21].</p></div>
+            <div><p className="font-semibold text-ink">Myth: “A successful buprenorphine case report proves a universal induction protocol.”</p><p className="mt-1">Case reports and case series support clinician-managed feasibility, not a one-size-fits-all self-treatment regimen [7,8,22,23].</p></div>
+            <div><p className="font-semibold text-ink">Myth: “Once acute withdrawal ends, recovery is finished.”</p><p className="mt-1">Sleep, pain, mood, craving, function and the original reason for use may continue to need treatment.</p></div>
+          </div>
         </section>
 
         <section id="gaps" className="scroll-mt-20 prose-section space-y-4">
