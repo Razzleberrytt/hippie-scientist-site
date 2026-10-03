@@ -155,6 +155,21 @@ Tracking: enrichment batching `#6198`; 50-wave follow-on planning `#6200`; canon
 
 The bulk ledger is hash-pinned at `b78a5876ef232d25b5591a50c3b5e94737372127d5d4c3821fc7b42aaa0c38cc`. Expensive repository-wide verification was intentionally deferred until the entire 50-wave batch was assembled.
 
+## Oct. 3 enrichment waves 51–100
+
+- Ledger: `2026-10-03-enrichment-waves-51-100.json`
+- Manifest: `2026-10-03-enrichment-waves-51-100-manifest.json`
+- 77 evidence rows
+- 76 unique source identities
+- 50 completed waves
+- 0 entity-context rows
+- 0 relationships
+- 0 publishing/indexing/recommendation/monetization changes
+- Coverage emphasizes sleep/neurochemistry, metabolic health, cognition, micronutrients, performance, GI/urologic evidence, musculoskeletal evidence, formulation/strain identity, source-integrity corrections, null findings, and safety counterweights.
+- The ledger is hash-pinned at `8629547618c263f8141875a759e3aea839c977f7bec3ae6bbc91d7635d80a05a`.
+
+Heavy repository-wide verification is intentionally deferred until the entire Waves 51–100 batch is ready as one unit.
+
 ## Regression contract
 
 `tests/runtime-enrichment.test.ts` validates every manifest-backed batch, verifies each digest before decoding, checks reviewed counts, requires globally unique evidence record IDs, allows repeat source identities to deduplicate deterministically across batches, enforces the entity-context allowlist, verifies virtual-workbook growth, and prevents every medication batch from carrying publication/governance fields.
