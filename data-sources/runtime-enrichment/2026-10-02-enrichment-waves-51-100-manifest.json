@@ -7,7 +7,7 @@
       "ops/enrichment-submissions/reconciliation/2026-09-06-full-corpus-inventory.md",
       "ops/enrichment-submissions/reconciliation/2026-10-02-enrichment-waves-51-100-selection.json"
     ],
-    "review_note": "Batch-first materialization of Waves 51-100 from already-vetted reconciliation receipts. The duplicate Saw Palmetto receipt sharing PMID 17556649 and already-canonical elderberry PMID 30670267 were excluded; two vetted Sage human-evidence receipts filled those slots. Claims retain negative/null findings, preparation/species boundaries, prevention-vs-treatment distinctions, surrogate-outcome limits, and safety/interaction context."
+    "review_note": "Batch-first materialization of Waves 51-100 from already-vetted reconciliation receipts. The duplicate Saw Palmetto receipt sharing PMID 17556649 and already-canonical elderberry PMID 30670267 were excluded; two vetted Sage human-evidence receipts filled those slots. Claims retain negative/null findings, preparation/species boundaries, prevention-vs-treatment distinctions, surrogate-outcome limits, and safety/interaction context. During canonical entity validation, Pelargonium PMID 19435703 was excluded because pelargonium-sidoides is not an accepted Entity_Master slug; vetted Rhodiola endurance PMID 41080184 replaced that wave."
   },
   "counts": {
     "entity_context_rows": 0,
@@ -33,8 +33,8 @@
   },
   "ledger": {
     "file": "2026-10-02-enrichment-waves-51-100.json",
-    "sha256": "3f0b1c70a1346bbc99b1cc6164f4e3b4ac851445db0c5160f3ac393d5d2b3c4e",
-    "bytes": 73918
+    "sha256": "4b20cccaf5627bce2eb21412a600e95e11831ef2e492d9b5ddac34e1f344ea05",
+    "bytes": 73976
   },
   "admission": {
     "evidence_additions": 50,
