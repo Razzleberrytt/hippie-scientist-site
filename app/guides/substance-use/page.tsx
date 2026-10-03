@@ -14,7 +14,7 @@ import {
 const HUB_PATH = '/guides/substance-use'
 const HUB_TITLE = 'Substance Use, Dependence & Harm Reduction — Evidence Hub'
 const HUB_DESCRIPTION =
-  'Evidence-based guides on dependence, withdrawal, overdose risk, kratom-derived opioids, tianeptine, novel psychoactive substances, and harm-reduction research.'
+  'Evidence-based guides on dependence, withdrawal, overdose risk, kratom-derived opioids, research chemicals, novel psychoactive substances, tianeptine, and harm-reduction research.'
 const REVIEW_DATE = '2026-10-02'
 
 export const metadata: Metadata = {
@@ -183,6 +183,11 @@ const RESEARCH_CHEMICALS = [
     href: '/articles/benzofurans-entactogens/',
     title: 'Benzofurans & RC Entactogens',
     desc: '6-APB, 5-APB, 5-MAPB and related serotonergic stimulants, with toxicity and product-identity limits.',
+  },
+  {
+    href: '/articles/cats-claw-kava-hidden-opioids/',
+    title: 'Cat’s Claw & Kava Products With Hidden Opioids',
+    desc: 'Official testing and poison-center warnings around Buzzers, Homiez, MGM-15, mitragynine pseudoindoxyl, and misleading botanical labels.',
   },
   {
     href: '/articles/novel-sedatives-qualone-analogues/',
