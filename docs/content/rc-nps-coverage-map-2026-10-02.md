@@ -154,8 +154,8 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 - [x] N-ethylhexedrone — /articles/n-ethylhexedrone/
 - [x] 4-MMC — /articles/4-mmc/
 - [x] 3-MMC — /articles/3-mmc/
-- [ ] 2-MMC
-- [ ] 3-CMC
+- [x] 2-MMC — /articles/2-mmc/ — masterclass pass complete
+- [x] 3-CMC — /articles/3-cmc/ — masterclass pass complete
 - [ ] 2-FMA
 - [ ] 3-FMA
 - [ ] 4-FMA
@@ -273,6 +273,8 @@ P1 — completed on branch:
 - [x] MDPiHP — emerging-evidence masterclass pass complete
 - [ ] Remaining high-risk P2 profiles — prioritize existing pages with human toxicology/forensic evidence before creating new routes
 - [ ] Wave 3 structural audit
+- [x] 2-MMC — masterclass pass complete
+- [x] 3-CMC — masterclass pass complete
 
 P2:
 - lower-prevalence, historical, or poorly sourced names remain in discovery until forensic/clinical evidence supports a useful page.
