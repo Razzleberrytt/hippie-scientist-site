@@ -2,23 +2,6 @@
   "entities": [],
   "evidence": [
     {
-      "record_id": "wave176_acetyl_l_carnitine_42261369",
-      "entity_slug": "acetyl-l-carnitine",
-      "entity_name": "Acetyl-L-Carnitine",
-      "effect_or_condition": "depressive symptoms in mood disorders",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis of randomized controlled trials",
-      "population": "adults across major depressive disorder and bipolar-disorder studies",
-      "sample_size": "15 studies; 809 participants; 10 studies contributed to meta-analysis",
-      "pmid": "42261369",
-      "doi": "10.2147/NDT.S586506",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/42261369/",
-      "source_id": "pmid-42261369",
-      "supported_claim_language": "A 2026 systematic review of 15 mood-disorder studies involving 809 participants reported lower depressive-symptom scores with acetyl-L-carnitine versus placebo and broadly comparable efficacy to standard antidepressants in the included trials, but diagnoses, designs, and regimens varied.",
-      "evidence_grade": "systematic review/meta-analysis; heterogeneous mood-disorder evidence",
-      "safety_note": "The review reported fewer adverse effects than standard antidepressants, but the evidence does not establish universal antidepressant equivalence or a self-treatment regimen."
-    },
-    {
       "record_id": "wave179_coenzyme_q10_42192187",
       "entity_slug": "coenzyme-q10",
       "entity_name": "Coenzyme Q10",
@@ -51,23 +34,6 @@
       "supported_claim_language": "A 2026 meta-analysis of 14 randomized trials found that N-acetylcysteine was associated with fewer acute COPD exacerbations overall (RR 0.87, 95% CI 0.79 to 0.96); dose-subgroup results were not uniform.",
       "evidence_grade": "systematic review/meta-analysis; COPD-specific evidence",
       "safety_note": "This evidence is specific to COPD and does not establish a general respiratory-prevention benefit or a universal dose-response relationship."
-    },
-    {
-      "record_id": "wave188_n_acetylcysteine_39504621",
-      "entity_slug": "n-acetylcysteine",
-      "entity_name": "N-Acetylcysteine",
-      "effect_or_condition": "depressive symptoms in psychiatric populations",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis of randomized controlled trials",
-      "population": "people with depression across psychiatric diagnoses",
-      "sample_size": "12 randomized controlled trials; 904 participants",
-      "pmid": "39504621",
-      "doi": "10.1016/j.genhosppsych.2024.10.018",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/39504621/",
-      "source_id": "pmid-39504621",
-      "supported_claim_language": "An updated meta-analysis of 12 randomized trials found a small pooled reduction in depressive symptoms with adjunctive N-acetylcysteine versus placebo (SMD -0.24, 95% CI -0.44 to -0.05), with moderate heterogeneity.",
-      "evidence_grade": "systematic review/meta-analysis; small adjunctive effect",
-      "safety_note": "The effect was modest and the authors called for larger trials; the evidence is adjunctive and diagnosis-specific rather than support for replacing established depression treatment."
     },
     {
       "record_id": "wave190_quercetin_41404533",
@@ -208,20 +174,6 @@
   ],
   "sources": [
     {
-      "source_id": "pmid-42261369",
-      "pmid": "42261369",
-      "doi": "10.2147/NDT.S586506",
-      "author_or_label": "PubMed indexed source PMID 42261369",
-      "year": "2026",
-      "journal": "",
-      "title": "Current Evidence of Acetyl-L-Carnitine Use in Mood Disorders: A Systematic Review and Meta-Analysis",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42261369/",
-      "entity_slugs": "acetyl-l-carnitine",
-      "used_for": "depressive symptoms in mood disorders",
-      "citation_or_note": "A 2026 systematic review of 15 mood-disorder studies involving 809 participants reported lower depressive-symptom scores with acetyl-L-carnitine versus placebo and broadly comparable efficacy to standard antidepressants in the included trials, but diagnoses, designs, and regimens varied. || The review reported fewer adverse effects than standard antidepressants, but the evidence does not establish universal antidepressant equivalence or a self-treatment regimen.",
-      "status": "published"
-    },
-    {
       "source_id": "pmid-42192187",
       "pmid": "42192187",
       "doi": "10.1155/jdr/5587445",
@@ -247,20 +199,6 @@
       "entity_slugs": "n-acetylcysteine",
       "used_for": "acute exacerbations in chronic obstructive pulmonary disease",
       "citation_or_note": "A 2026 meta-analysis of 14 randomized trials found that N-acetylcysteine was associated with fewer acute COPD exacerbations overall (RR 0.87, 95% CI 0.79 to 0.96); dose-subgroup results were not uniform. || This evidence is specific to COPD and does not establish a general respiratory-prevention benefit or a universal dose-response relationship.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-39504621",
-      "pmid": "39504621",
-      "doi": "10.1016/j.genhosppsych.2024.10.018",
-      "author_or_label": "PubMed indexed source PMID 39504621",
-      "year": "2024",
-      "journal": "",
-      "title": "Efficacy of N-acetylcysteine for patients with depression: An updated systematic review and meta-analysis",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39504621/",
-      "entity_slugs": "n-acetylcysteine",
-      "used_for": "depressive symptoms in psychiatric populations",
-      "citation_or_note": "An updated meta-analysis of 12 randomized trials found a small pooled reduction in depressive symptoms with adjunctive N-acetylcysteine versus placebo (SMD -0.24, 95% CI -0.44 to -0.05), with moderate heterogeneity. || The effect was modest and the authors called for larger trials; the evidence is adjunctive and diagnosis-specific rather than support for replacing established depression treatment.",
       "status": "published"
     },
     {
@@ -359,20 +297,6 @@
       "entity_slugs": "collagen-peptides",
       "used_for": "pain and function in knee osteoarthritis",
       "citation_or_note": "A 2025 meta-analysis of 11 randomized trials found pooled improvements in knee-osteoarthritis function and pain with oral collagen-based supplements, but heterogeneity was substantial for function and high for pain. || Results should not be treated as uniform across collagen preparations or as evidence of structural disease modification.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-41082950",
-      "pmid": "41082950",
-      "doi": "10.1016/j.ctim.2025.103256",
-      "author_or_label": "PubMed indexed source PMID 41082950",
-      "year": "2026",
-      "journal": "",
-      "title": "Evaluating the efficacy and safety of Curcuma longa, Boswellia serrata, and their mixed formulation in treating knee osteoarthritis: A systematic review and network meta-analysis",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41082950/",
-      "entity_slugs": "boswellia-serrata",
-      "used_for": "pain, stiffness, and function in knee osteoarthritis",
-      "citation_or_note": "A 2026 network meta-analysis found that modified Boswellia serrata formulations improved WOMAC pain, stiffness, and knee-function outcomes; benefits of combined Curcuma-Boswellia products remained insufficiently established. || No significant adverse-event differences were found across network comparisons, but the findings remain formulation-specific and do not establish equivalent effects for generic Boswellia products.",
       "status": "published"
     }
   ],
