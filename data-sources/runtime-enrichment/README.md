@@ -124,22 +124,21 @@ Canonical materialization receipt: PR #6022 committed the reviewed workbook and 
 
 `2026-09-27-source-identity-correction-manifest.json` records the correction provenance, reviewed count, guard policy, and ledger hash.
 
-## Oct. 2 supplement evidence refresh
+## Oct. 2 research enrichment Waves 1–50
 
-- Ledger: `2026-10-02-supplement-evidence-enrichment.json`
-- Targets: `magnesium`, `l-theanine`, `saffron`
-- 4 evidence rows
-- 4 source rows
+- Ledger: `2026-10-02-enrichment-waves-01-50.json`
+- Manifest: `2026-10-02-enrichment-waves-01-50-manifest.json`
+- 50 enrichment waves completed before repository-wide verification
+- 123 unique evidence rows after deterministic last-revision dedupe
+- 95 unique source rows after stable PMID/source-ID dedupe
 - 0 entity-context rows
 - 0 relationships
-- Magnesium is anchored to the 2026 adult RCT systematic review and preserves its low-to-very-low certainty, inconsistent outcomes, and no-routine-insomnia-treatment conclusion.
-- L-theanine adds the 2026 31-RCT cognition/affect meta-analysis plus the 2025 sleep meta-analysis, keeping attention, stress/anxiety, and subjective sleep outcomes separate.
-- Saffron adds the 2026 GRADE-assessed 34-RCT mood meta-analysis and explicitly preserves the disagreement between favorable self-report scales and null clinician-rated scales.
-- The batch is evidence-only and cannot alter publishing, indexing, recommendation, or monetization governance.
+- Coverage spans sleep, stress/anxiety, cognition, exercise/performance, metabolic and cardiovascular biomarkers, GI, women's health, osteoarthritis, safety/interactions, retraction handling, and formulation/species identity.
+- Null and mixed findings remain first-class evidence; studied exposures are not converted into consumer dosing; product, species, population, endpoint, and route boundaries are preserved.
+- The batch is evidence-only and cannot alter publishing, indexing, recommendation, monetization, or governance state.
+- Full repository validation is intentionally run once after consolidation rather than once per wave.
 
-`2026-10-02-supplement-evidence-manifest.json` records the PubMed anchors, reviewed counts, append-only policy, and exact ledger hash.
-
-Tracking: atomic enrichment issue `#6198`; canonical magnesium citation-integrity follow-up `#6197`.
+Tracking: enrichment batching `#6198`; canonical magnesium citation-integrity follow-up `#6197`; follow-on planning `#6200`.
 
 ## Regression contract
 
