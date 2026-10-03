@@ -12,6 +12,20 @@
 - [ ] Toxicology/testing/forensic-interpretation pass complete
 - [ ] Final cross-link / answer-engine pass complete
 
+
+### Global dependence / withdrawal / recovery pass — batch 1 complete (2026-10-03)
+
+- [x] RC/NPS overview now routes withdrawal and recovery by pharmacologic family rather than treating “RC withdrawal” as one syndrome.
+- [x] Stimulant/cathinone recovery layer deepened for 4-FA, 4F-MPH, eutylone, NEP, the non-cathinone stimulant hub, the synthetic-cathinone hub, the benzofuran hub, and 5-MAPB.
+- [x] Stimulant pages now distinguish post-stimulant crash, physical dependence, craving/compulsive use, and stimulant use disorder.
+- [x] Stimulant recovery language is anchored to the 2024 ASAM/AAAP stimulant-use-disorder guideline (PMID 38669101) and SAMHSA treatment routing without implying RC-specific treatment trials.
+- [x] Synthetic-cannabinoid hub now incorporates the 2025 withdrawal systematic review (PMID 40570820), including the possibility of severe withdrawal, while avoiding a universal SCRA timeline.
+- [x] Dissociative hub now distinguishes ketamine-use-disorder evidence from unsupported transfer to newer RC analogues and cites the 2024 ketamine-use-disorder treatment systematic review (PMID 38922637).
+- [x] Psychedelic hub now distinguishes rapid tolerance / lack of a typical classic-psychedelic physical withdrawal syndrome from the broader and less predictable RC-psychedelic market.
+- [x] Novel qualone/sedative hub now explicitly rejects DIY conversion/taper assumptions for poorly characterized sedatives.
+- [x] High-value stimulant/entactogen routes link directly to the dedicated stimulant withdrawal/recovery guide.
+- [ ] Continue individual-profile audit for remaining baseline P2 and lower-prevalence routes before marking the global dependence/withdrawal/addiction-support pass complete.
+
 ### Masterclass wave 1 — highest harm-reduction value
 
 - [x] Bromazolam — full monograph standard applied; 18-source classified reference ledger
