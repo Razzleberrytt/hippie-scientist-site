@@ -379,6 +379,25 @@ function applySourceIdentityCorrections(rows) {
   return resolved
 }
 
+function isReviewedEvidenceRevision(row) {
+  const raw = row?.reviewed_revision
+  const enabled = raw === true || ['1', 'true', 'yes', 'reviewed'].includes(clean(raw).toLowerCase())
+  if (!enabled) return false
+  if (!clean(row?.revision_reason)) {
+    throw new Error(
+      '[workbook-parser] reviewed enrichment evidence revision is missing revision_reason: ' +
+      clean(row?.record_id || row?.entity_slug || '(unknown)'),
+    )
+  }
+  return true
+}
+
+function materializeEvidenceRow(row) {
+  const output = { ...row }
+  delete output.reviewed_revision
+  return output
+}
+
 function relationshipKey(row) {
   const source = slug(first(row, ['source_slug', 'herb_slug', 'herb slug', 'herb', 'herb_name']))
   const target = slug(first(row, ['target_slug', 'compound_slug', 'compound slug', 'compound', 'compound_name']))
@@ -447,8 +466,13 @@ function applyRuntimeEnrichment(sheets) {
   let evidenceAdded = 0
   const claimSheet = findLoadedSheet(sheets, CLAIM_SHEETS)
   if (claimSheet) {
-    const existingKeys = new Set(sheets[claimSheet].map(evidenceKey).filter(Boolean))
-    const additions = []
+    const resolvedRows = [...sheets[claimSheet]]
+    const indexByKey = new Map()
+    for (let index = 0; index < resolvedRows.length; index += 1) {
+      const key = evidenceKey(resolvedRows[index])
+      if (key && !indexByKey.has(key)) indexByKey.set(key, index)
+    }
+
     for (const row of ledger.evidence) {
       const entitySlug = slug(row.entity_slug || row.profile_slug)
       const key = evidenceKey(row)
@@ -457,15 +481,32 @@ function applyRuntimeEnrichment(sheets) {
           `[workbook-parser] enrichment evidence references unknown entity: ${clean(row.entity_slug || row.profile_slug)}`,
         )
       }
-      if (!key || existingKeys.has(key)) continue
-      existingKeys.add(key)
-      additions.push({
-        ...row,
+      if (!key) continue
+
+      const existingIndex = indexByKey.get(key)
+      if (existingIndex !== undefined) {
+        if (!isReviewedEvidenceRevision(row)) continue
+
+        const prior = resolvedRows[existingIndex]
+        const incoming = materializeEvidenceRow(row)
+        resolvedRows[existingIndex] = {
+          ...prior,
+          ...incoming,
+          metadata_source: clean(row.metadata_source) || 'runtime-enrichment',
+        }
+        continue
+      }
+
+      const addition = {
+        ...materializeEvidenceRow(row),
         metadata_source: clean(row.metadata_source) || 'runtime-enrichment',
-      })
+      }
+      indexByKey.set(key, resolvedRows.length)
+      resolvedRows.push(addition)
+      evidenceAdded += 1
     }
-    if (additions.length) sheets[claimSheet] = [...sheets[claimSheet], ...additions]
-    evidenceAdded = additions.length
+
+    sheets[claimSheet] = resolvedRows
   }
 
   let sourcesAdded = 0
