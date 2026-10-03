@@ -4,8 +4,8 @@
   "program": {
     "range": "501-1000",
     "target_findings": 500,
-    "current_findings": 100,
-    "last_wave": 600
+    "current_findings": 125,
+    "last_wave": 625
   },
   "policy": "research authoring index only; not runtime admission",
   "waves": [
@@ -707,6 +707,181 @@
       "entity_slug": "vitamin-c",
       "pmid": "41784995",
       "focus": "2026 umbrella review of six meta-analyses/17 RCTs; modest systolic-BP signal, overall DBP null with diabetes subgroup signal, and low certainty of evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 601,
+      "entity_slug": "probiotics",
+      "pmid": "40697756",
+      "focus": "2025 MASLD meta-analysis of 12 RCTs/657 participants; liver-enzyme and selected metabolic/inflammatory signals remain disease-, strain-, and outcome-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 602,
+      "entity_slug": "curcumin-resveratrol-silymarin",
+      "pmid": "39723101",
+      "focus": "27-study/1,691-participant MASLD comparison of curcumin, resveratrol and silymarin; intervention-specific steatosis/transaminase/metabolic effects must not be collapsed into a generic polyphenol claim.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 603,
+      "entity_slug": "herbal-oral-health",
+      "pmid": "40077632",
+      "focus": "2025 systematic review of 17 human oral-health studies spanning multiple herbal extracts; adjunctive gingivitis/periodontitis evidence is product- and route-specific.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 604,
+      "entity_slug": "curcumin",
+      "pmid": "38213188",
+      "focus": "15-RCT/905-participant NAFLD GRADE review; ALT/AST decreased with curcumin while ALP was null and curcumin-plus-piperine aminotransferase effects were nonsignificant.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 605,
+      "entity_slug": "curcumin",
+      "pmid": "42499105",
+      "focus": "26-RCT/1,266-participant periodontal comparison with chlorhexidine; plaque/gingival/bleeding outcomes similar while chlorhexidine was superior for probing depth/attachment loss overall; very high heterogeneity/risk of bias retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 606,
+      "entity_slug": "probiotics-synbiotics",
+      "pmid": "39166132",
+      "focus": "21-study CKD meta-analysis; modest BUN/CRP signals with heterogeneous renal, uremic-toxin and metabolic outcomes; CKD-specific and strain/intervention-class dependent.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 607,
+      "entity_slug": "curcumin",
+      "pmid": "38232906",
+      "focus": "2024 NAFLD systematic review/meta-analysis of glycemic, lipid, BP, inflammatory and anthropometric outcomes; multi-endpoint evidence remains disease-specific and heterogeneous.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 608,
+      "entity_slug": "curcumin",
+      "pmid": "38965866",
+      "focus": "15-study/835-participant NAFLD meta-regression; AST improved while ALT was null overall, high heterogeneity persisted, and adding piperine did not improve aminotransferases—important counterweight to other syntheses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 609,
+      "entity_slug": "natural-products-nafld",
+      "pmid": "38886838",
+      "focus": "Network meta-analysis comparing seven natural products in NAFLD; indirect rankings and product heterogeneity prevent ingredient-wide superiority claims.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 610,
+      "entity_slug": "probiotics",
+      "pmid": "38643738",
+      "focus": "2024 network meta-analysis of probiotic combinations in NAFLD; strain/composition rankings are indirect and cannot be generalized across probiotics.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 611,
+      "entity_slug": "probiotics",
+      "pmid": "42245504",
+      "focus": "2026 11-RCT/726-participant diabetic-kidney-disease meta-analysis; creatinine/eGFR and related signals remain DKD-, strain-, and duration-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 612,
+      "entity_slug": "probiotics",
+      "pmid": "38968867",
+      "focus": "15-RCT/899-participant NAFLD meta-analysis; ALT/HOMA-IR/insulin improved while fasting glucose, HbA1c, AST, lipids, IL-6 and TNF-alpha were null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 613,
+      "entity_slug": "mafld-supplements-network",
+      "pmid": "41695987",
+      "focus": "2026 Bayesian network meta-analysis of dietary supplements and pharmacologic agents in MAFLD; ranking evidence is indirect and outcome-specific.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 614,
+      "entity_slug": "natural-products-periodontal",
+      "pmid": "41828611",
+      "focus": "2026 review of 90 periodontal RCTs/33 pooled trials across curcumin, resveratrol, propolis, Aloe, green-tea catechins, omega-3 and others; adjunct/route/product boundaries retained.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 615,
+      "entity_slug": "nutritional-interventions-ibs",
+      "pmid": "39110917",
+      "focus": "Umbrella review of randomized evidence in IBS; most nutritional interventions had small low/very-low-certainty effects, with stronger evidence concentrated in probiotics and low-FODMAP diets.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 616,
+      "entity_slug": "probiotics-exercise",
+      "pmid": "39090657",
+      "focus": "Nine-study/615-participant NAFLD meta-analysis of probiotics plus exercise versus exercise alone; selected liver/lipid/HOMA-IR signals with HDL/insulin/FBG nulls; combination-only.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 617,
+      "entity_slug": "vitamin-d",
+      "pmid": "37356648",
+      "focus": "Systematic review of vitamin-D therapy in adults with CKD assessing mortality, cardiovascular, bone and kidney outcomes; CKD-MBD context and clinically important outcomes retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 618,
+      "entity_slug": "pcos-nutraceuticals",
+      "pmid": "41287200",
+      "focus": "2025 78-study PCOS nutraceutical review; fasting-insulin/LH/SHBG signals with inconsistent follicle-count/menstrual outcomes and substantial intervention heterogeneity.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 619,
+      "entity_slug": "aloe-vera",
+      "pmid": "39909775",
+      "focus": "2025 oral-mucositis meta-analysis of randomized trials in cancer therapy; Aloe evidence is cancer-treatment-context and route/formulation specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 620,
+      "entity_slug": "pcos-supplements-network",
+      "pmid": "40611279",
+      "focus": "2025 network meta-analysis of 79 RCTs/5,501 women with PCOS; supplement rankings are endpoint-specific indirect evidence, not head-to-head proof.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 621,
+      "entity_slug": "probiotics",
+      "pmid": "38551321",
+      "focus": "2024 five-study/286-participant psoriasis meta-analysis; PASI/DLQI signals come from a small disease-specific probiotic evidence base.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 622,
+      "entity_slug": "pcos-phytotherapy",
+      "pmid": "40663739",
+      "focus": "2025 systematic review of clinical phytotherapy in PCOS; herb/product-specific findings must remain separated from category-level efficacy.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 623,
+      "entity_slug": "pcos-dietary-supplements",
+      "pmid": "41235304",
+      "focus": "2025 umbrella meta-analysis of dietary supplements in PCOS; pathway-level metabolic/hormonal signals across inositol, probiotics, omega-3, curcumin and others remain intervention-specific.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 624,
+      "entity_slug": "psoriasis-supplements-network",
+      "pmid": "41459063",
+      "focus": "2025 21-RCT/1,463-participant plaque-psoriasis network meta-analysis; no supplement dominated all outcomes and certainty was low-to-moderate.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 625,
+      "entity_slug": "l-carnitine",
+      "pmid": "40436023",
+      "focus": "2025 systematic review/dose-response meta-analysis of fertility outcomes in PCOS; reproductive evidence remains PCOS-specific and distinct from generic carnitine metabolic claims.",
       "state": "reviewed_receipt_pending_final_admission"
     }
   ]
