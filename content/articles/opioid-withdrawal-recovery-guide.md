@@ -147,8 +147,8 @@ references:
     pmid: "30614408"
     url: "https://pubmed.ncbi.nlm.nih.gov/30614408/"
   - title: "A Case of 7-Hydroxymitragynine Use Requiring Inpatient Medically Managed Withdrawal"
-    authors: "Case report"
-    year: "2025"
+    authors: "Wightman RS, Hu D"
+    year: "2026"
     pmid: "40758956"
     url: "https://pubmed.ncbi.nlm.nih.gov/40758956/"
   - title: "Management of acute withdrawal from 7-hydroxymitragynine after high-dose chronic use: A case report"
@@ -721,6 +721,21 @@ False. Physical dependence is an expected pharmacological state and is not synon
 - how novel fentanyl adulterants alter withdrawal across different U.S. drug markets.
 
 This distinction matters. Newer case reports should change vigilance before they change universal treatment rules.
+
+## Research gaps that matter most
+
+The strongest evidence for opioid withdrawal still comes from conventional opioids and established OUD treatments. Several clinically important questions remain unresolved:
+
+- **Fentanyl timelines:** prospective studies are still needed to separate drug detection, tissue release, subjective withdrawal, objective withdrawal scores, and craving across different patterns of illicit fentanyl exposure [2,7].
+- **Precipitated-withdrawal prediction:** studies report meaningfully different incidence estimates, and there is still no validated way to identify exactly who is at highest risk before buprenorphine initiation [8-11,31,32].
+- **Best fentanyl-era buprenorphine initiation strategy:** conventional, low-dose, and higher-dose approaches all have evidence and clinical use, but direct prospective comparisons remain limited [2,10,11,31].
+- **Novel adulterant withdrawal:** medetomidine can create severe autonomic withdrawal distinct from uncomplicated opioid withdrawal, but geographic prevalence, natural history, optimal treatment, and interactions with fentanyl withdrawal remain evolving [29,30].
+- **Concentrated 7-OH and semi-synthetic kratom-derived opioids:** current human evidence is dominated by case reports, so population-level withdrawal severity, duration, dose-response relationships, and best treatment pathways remain unknown [23,24].
+- **Tianeptine:** opioid-like dependence and withdrawal are established clinical signals, but controlled treatment studies and long-term outcome data remain sparse [25,26].
+- **Post-acute symptoms:** persistent sleep, mood, pain, cognitive, and craving symptoms are clinically important, but PAWS lacks standardized diagnostic criteria and better longitudinal studies are needed to separate withdrawal biology from co-occurring psychiatric, sleep, pain, medication, and environmental factors [35].
+- **Recovery after detoxification:** mortality evidence strongly favors continuing treatment for OUD, but health systems still need better evidence on how to make the transition from withdrawal management into durable treatment routine rather than optional [12-14,34].
+
+These gaps should limit certainty, not usefulness. The appropriate response to incomplete evidence is to label uncertainty explicitly and update recommendations as stronger human data emerge.
 
 ## Related evidence on The Hippie Scientist
 
