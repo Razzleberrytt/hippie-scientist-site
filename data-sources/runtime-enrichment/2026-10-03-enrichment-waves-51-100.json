@@ -1157,21 +1157,6 @@
       "safety_note": "Treat strain identity, combination, CFU at end of shelf life, indication, host immune status, and product quality as evidence-critical fields rather than optional metadata."
     },
     {
-      "record_id": "wave91_probiotics_aad_34385227",
-      "entity_slug": "probiotics",
-      "entity_name": "Probiotics",
-      "effect_or_condition": "prevention of antibiotic-associated diarrhea in adults",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "systematic review and meta-analysis of randomized controlled trials",
-      "population": "adults receiving systemic antibiotics",
-      "sample_size": "42 randomized trials",
-      "pmid": "34385227",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/34385227/",
-      "supported_claim_language": "A 42-trial adult meta-analysis found a lower pooled risk of antibiotic-associated diarrhea with probiotics (RR about 0.63), with benefit varying by baseline risk, preparation, and dose within a studied product. This does not establish one universal strain, CFU target, timing interval, or duration.",
-      "evidence_grade": "systematic review/meta-analysis; moderate-certainty pooled preventive signal",
-      "safety_note": "Keep exact strain or combination, formulation, host risk, antibiotic exposure, and immunocompromised/critical-care safety context explicit."
-    },
-    {
       "record_id": "wave91_probiotics_ibs_binfantis_null_28166427",
       "entity_slug": "probiotics",
       "entity_name": "Probiotics",
@@ -2338,7 +2323,7 @@
       "title": "",
       "url": "https://pubmed.ncbi.nlm.nih.gov/39060741/",
       "entity_slugs": "collagen-peptides",
-      "used_for": "adaptations to long-term physical training",
+      "used_for": "adaptations to long-term physical training | training adaptations, fat-free mass, strength, tendon and recovery outcomes",
       "citation_or_note": "A 2024 systematic review/meta-analysis reported selected training-related musculoskeletal signals with collagen-peptide supplementation, but outcome domains and protocols varied. Collagen should not be treated as equivalent to complete high-quality protein for muscle protein synthesis.",
       "status": "published"
     },
@@ -2392,7 +2377,7 @@
       "title": "",
       "url": "https://pubmed.ncbi.nlm.nih.gov/28417035/",
       "entity_slugs": "green-tea-extract",
-      "used_for": "liver injury from concentrated extracts",
+      "used_for": "liver injury from concentrated extracts | liver injury with concentrated green-tea extracts",
       "citation_or_note": "A systematic review of hepatotoxicity evidence supports a clinically meaningful liver-injury warning for concentrated green-tea extracts. Risk from concentrated extracts should remain distinct from ordinary brewed tea exposure.",
       "status": "published"
     },
@@ -2404,8 +2389,8 @@
       "journal": "",
       "title": "",
       "url": "https://pubmed.ncbi.nlm.nih.gov/12427501/",
-      "entity_slugs": "silybum-marianum",
-      "used_for": "alcoholic and viral liver disease outcomes",
+      "entity_slugs": "milk-thistle|silybum-marianum",
+      "used_for": "alcoholic and viral liver disease outcomes | liver disease outcomes",
       "citation_or_note": "A systematic review of 14 placebo-controlled trials found no clear improvement in mortality or most liver outcomes with milk thistle; a small ALT signal was not robust in higher-quality or longer trials. This materially constrains 'liver detox' claims.",
       "status": "published"
     },
@@ -2420,19 +2405,6 @@
       "entity_slugs": "probiotics",
       "used_for": "strain- and disease-specific efficacy",
       "citation_or_note": "A systematic review/meta-analysis emphasizes that probiotic efficacy is strain- and disease-specific. Positive evidence for one strain, combination, or indication should not be inherited by another product merely because both are labeled 'probiotic.'",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-34385227",
-      "pmid": "34385227",
-      "author_or_label": "PubMed indexed source PMID 34385227",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/34385227/",
-      "entity_slugs": "probiotics",
-      "used_for": "prevention of antibiotic-associated diarrhea in adults",
-      "citation_or_note": "A 42-trial adult meta-analysis found a lower pooled risk of antibiotic-associated diarrhea with probiotics (RR about 0.63), with benefit varying by baseline risk, preparation, and dose within a studied product. This does not establish one universal strain, CFU target, timing interval, or duration.",
       "status": "published"
     },
     {
@@ -2488,19 +2460,6 @@
       "status": "published"
     },
     {
-      "source_id": "pmid-39060741",
-      "pmid": "39060741",
-      "author_or_label": "PubMed indexed source PMID 39060741",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39060741/",
-      "entity_slugs": "collagen-peptides",
-      "used_for": "training adaptations, fat-free mass, strength, tendon and recovery outcomes",
-      "citation_or_note": "A 2024 systematic review/meta-analysis found selected training-adjunct signals with collagen peptides across fat-free mass, strength, tendon morphology, and recovery outcomes. This does not make collagen a superior complete protein or establish a universal performance effect.",
-      "status": "published"
-    },
-    {
       "source_id": "pmid-40324552",
       "pmid": "40324552",
       "author_or_label": "PubMed indexed source PMID 40324552",
@@ -2511,45 +2470,6 @@
       "entity_slugs": "collagen-peptides",
       "used_for": "skin hydration, elasticity, and wrinkles",
       "citation_or_note": "A 2025 meta-analysis found that apparent skin benefits were sensitive to funding source and study quality; non-industry-funded and higher-quality subgroups did not show significant benefit for several key outcomes. Sponsorship and study-quality uncertainty should remain prominent.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-21479771",
-      "pmid": "21479771",
-      "author_or_label": "PubMed indexed source PMID 21479771",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/21479771/",
-      "entity_slugs": "green-tea-extract",
-      "used_for": "body weight and weight maintenance",
-      "citation_or_note": "A systematic review/meta-analysis found only small weight-related effects across green-tea catechin/caffeine products, with substantial variation between preparations and populations. The magnitude does not justify a 'fat burner' framing.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-28417035",
-      "pmid": "28417035",
-      "author_or_label": "PubMed indexed source PMID 28417035",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/28417035/",
-      "entity_slugs": "green-tea-extract",
-      "used_for": "liver injury with concentrated green-tea extracts",
-      "citation_or_note": "Systematic hepatotoxicity evidence supports a liver-safety warning for concentrated green-tea extracts, with risk patterns that should not be assumed equivalent to ordinary brewed tea.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-12427501",
-      "pmid": "12427501",
-      "author_or_label": "PubMed indexed source PMID 12427501",
-      "year": "",
-      "journal": "",
-      "title": "",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/12427501/",
-      "entity_slugs": "milk-thistle",
-      "used_for": "liver disease outcomes",
-      "citation_or_note": "A systematic review of 14 placebo-controlled milk-thistle trials found no convincing mortality benefit and mostly null liver-disease outcomes; a small ALT signal was not robust in higher-quality or longer trials. This is an important counterweight to 'liver detox' marketing.",
       "status": "published"
     },
     {
