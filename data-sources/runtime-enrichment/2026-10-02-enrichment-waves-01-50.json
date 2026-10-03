@@ -54,8 +54,7 @@
       "corrects_evidence_key": "l-theanine|pmid:40056718",
       "expected_prior_evidence": {
         "entity_slug": "l-theanine",
-        "pmid": "40056718",
-        "doi": "10.1016/j.smrv.2025.102076"
+        "pmid": "40056718"
       },
       "correction_reason": "Refresh the earlier enrichment row with reviewed 2025 sleep meta-analysis effect sizes and calibrated formulation/insomnia-treatment limitations."
     },
@@ -78,8 +77,7 @@
       "corrects_evidence_key": "saffron|pmid:41693488",
       "expected_prior_evidence": {
         "entity_slug": "saffron",
-        "pmid": "41693488",
-        "doi": "10.1080/1028415X.2025.2602153"
+        "pmid": "41693488"
       },
       "correction_reason": "Refresh the earlier enrichment row with reviewed GRADE certainty, very-high heterogeneity, and self-report versus clinician-rated endpoint discordance."
     },
