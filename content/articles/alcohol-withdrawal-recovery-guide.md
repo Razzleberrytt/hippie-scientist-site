@@ -115,7 +115,7 @@ references:
     url: "https://pubmed.ncbi.nlm.nih.gov/38306946/"
   - title: "Alcohol-Related and Non-Alcohol-Related Wernicke Encephalopathy: A Systematic Review and Meta-Analysis of Epidemiology and Clinical Features"
     authors: "Puertas-Miranda D, Diaz-Avila EG, Llamas-Alonso C, Novo-Veleiro I, Chamorro AJ, Marcos M"
-    year: "2026"
+    year: "2025"
     pmid: "40911513"
     url: "https://pubmed.ncbi.nlm.nih.gov/40911513/"
   - title: "What is the impact of thiamine deficiency on cognitive function in patients with alcohol use disorder? A systematic review"
@@ -239,6 +239,21 @@ references:
     year: "2025"
     pmid: "40328513"
     url: "https://pubmed.ncbi.nlm.nih.gov/40328513/"
+  - title: "Management of Post-Acute Alcohol Withdrawal: A Mixed-Studies Scoping Review"
+    authors: "Bahji A, et al."
+    year: "2022"
+    pmid: "35838423"
+    url: "https://pubmed.ncbi.nlm.nih.gov/35838423/"
+  - title: "Ethanol for the management of alcohol withdrawal syndrome: a systematic review"
+    authors: "Systematic review"
+    year: "2024"
+    pmid: "39559850"
+    url: "https://pubmed.ncbi.nlm.nih.gov/39559850/"
+  - title: "Thiamine Substitution in Alcohol Use Disorder: A Narrative Review of Medical Guidelines"
+    authors: "Latt N, Dore G"
+    year: "2019"
+    pmid: "30897571"
+    url: "https://pubmed.ncbi.nlm.nih.gov/30897571/"
 ---
 
 ## Executive summary
@@ -642,6 +657,14 @@ Alcohol withdrawal delirium may cause:
 
 A patient with chronic heavy alcohol use can have both conditions at once. Treating agitation alone does not correct thiamine deficiency, and giving thiamine alone does not control severe withdrawal.
 
+### Thiamine and glucose: do not delay emergency glucose
+
+A long-standing teaching says glucose must always wait until thiamine has been given. That rule is too rigid.
+
+ASAM recommends giving thiamine to prevent Wernicke encephalopathy in alcohol-withdrawal care but states that **glucose and thiamine can be administered in any order or concurrently** [1]. The practical point is that suspected thiamine deficiency should be treated promptly, but urgently needed glucose for hypoglycemia should not be delayed while waiting for thiamine.
+
+The exact thiamine route and regimen vary by whether clinicians are providing routine prevention, treating a high-risk patient, or treating suspected Wernicke encephalopathy; guideline reviews document substantial variation, which is another reason this page does not publish one universal dose [15-17,44].
+
 ## Hydration, glucose, nutrition, and electrolytes
 
 Supportive care matters, especially in people with vomiting, poor intake, diarrhea, sweating, pancreatitis, liver disease, or prolonged heavy drinking.
@@ -693,6 +716,14 @@ Older adults can be more vulnerable to dehydration, falls, delirium, medication 
 Liver disease complicates both the clinical picture and medication selection. Hepatic encephalopathy can mimic or coexist with withdrawal delirium, and some sedatives have prolonged metabolism in severe liver dysfunction [1,3].
 
 Clinicians may prefer agents with less reliance on hepatic oxidative metabolism and should reassess frequently rather than assuming agitation is “just withdrawal.”
+
+## Why “hair of the dog” is not evidence-based withdrawal treatment
+
+It can seem logical to treat falling alcohol levels by giving more alcohol. Historically, oral or intravenous ethanol has been used in some medical settings, and some people try to self-taper with beer or liquor.
+
+Modern guidance does **not** recommend beverage or intravenous ethanol as a routine treatment for alcohol withdrawal [1]. A 2024 systematic review found the evidence heterogeneous and insufficient to establish therapeutic ethanol as a better or safer strategy than standard withdrawal care [43].
+
+The problem is bigger than dose precision. Alcohol perpetuates intoxication, interacts with other sedatives, impairs judgment, and does not create a reliable bridge into treatment for AUD. A drink that temporarily suppresses tremor does not prove that the underlying withdrawal risk has been safely managed.
 
 ## Why a “detox drink” or supplement cannot substitute for withdrawal treatment
 
@@ -849,7 +880,7 @@ This does not mean all alcohol-related cognitive impairment is caused by thiamin
 
 The phrase **post-acute withdrawal syndrome (PAWS)** is commonly used to describe persistent insomnia, anxiety, dysphoria, fatigue, irritability, cognitive complaints, and craving after acute withdrawal.
 
-The symptoms are clinically plausible and often reported, but the term is less standardized than acute alcohol withdrawal.
+The symptoms are clinically plausible and often reported, but the term is less standardized than acute alcohol withdrawal. A dedicated scoping review found only a small, heterogeneous treatment literature and judged the overall evidence for pharmacologic management of post-acute alcohol-withdrawal symptoms to be low quality [42].
 
 A better evidence-based approach is to:
 
@@ -967,6 +998,14 @@ Unsafe simplification. Wernicke encephalopathy is commonly missed, and the full 
 
 False. Withdrawal management treats the acute physiologic syndrome. AUD requires longitudinal treatment and recovery support [1,2,21-23].
 
+### “A drink is a safe way to treat withdrawal because it stops the shaking.”
+
+Misleading. More alcohol may temporarily suppress withdrawal symptoms, but guidelines do not recommend ethanol as withdrawal treatment, and the evidence base is weak compared with standard medical therapy [1,43].
+
+### “Glucose must never be given until thiamine has gone in first.”
+
+Too absolute. Thiamine should be given promptly when indicated, but ASAM states glucose and thiamine can be given in any order or concurrently; hypoglycemia treatment should not be delayed [1].
+
 ### “Recovery only counts if someone never drinks again.”
 
 Not under NIAAA's research definition. Recovery incorporates AUD remission and cessation of heavy drinking, while abstinence remains the safest goal for many individuals and clinical situations [23,29].
@@ -987,7 +1026,9 @@ Not under NIAAA's research definition. Recovery incorporates AUD remission and c
 | Wernicke encephalopathy is commonly missed if clinicians wait for the full classic triad | **High** | Systematic reviews/meta-analysis [15,16] | Diagnosis remains clinical and heterogeneous |
 | Naltrexone and acamprosate improve AUD drinking outcomes | **High** | 2023 JAMA systematic review/meta-analysis [21] | Treatment response and contraindications vary |
 | Cognitive recovery can continue for months after stopping heavy alcohol exposure | **Moderate-high** | 2024 longitudinal systematic review [24] | Studies vary in abstinence verification, follow-up, and baseline impairment |
-| A universal fixed PAWS timeline exists | **Not established** | Recovery literature supports persistent symptoms but not one standardized schedule [23-29] | Symptoms overlap with independent disorders and social stressors |
+| A universal fixed PAWS timeline exists | **Not established** | Direct PAWS scoping review plus recovery literature [23-30,42] | Symptoms overlap with independent disorders and social stressors |
+| Beverage/IV ethanol is a preferred withdrawal treatment | **Not supported** | ASAM guideline + 2024 systematic review [1,43] | Historical and heterogeneous studies exist, but standard therapies have stronger evidence |
+| Thiamine must always precede glucose | **Not supported as an absolute rule** | ASAM guideline [1] | Prompt thiamine remains important in patients at risk for deficiency |
 
 ## High-confidence conclusions
 
