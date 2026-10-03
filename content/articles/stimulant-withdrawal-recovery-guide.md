@@ -214,6 +214,10 @@ references:
     authors: "Centers for Disease Control and Prevention"
     year: "2025"
     url: "https://www.cdc.gov/overdose-prevention/about/fentanyl.html"
+  - title: "Drug Overdose Deaths Involving Stimulants — United States, January 2018–June 2024"
+    authors: "Tanz LJ, Miller KD, Dinwiddie AT, et al."
+    year: "2025"
+    url: "https://www.cdc.gov/mmwr/volumes/74/wr/mm7432a1.htm"
 ---
 
 ## Executive summary
@@ -732,7 +736,9 @@ The modern U.S. stimulant supply exists in a polysubstance overdose environment.
 
 CDC notes that cocaine and methamphetamine can be used alongside or exposed to illegally manufactured fentanyl [32-36].
 
-CDC clinical drug-testing data from 2025-2026 show frequent co-detection of illicit stimulants with fentanyl in the sampled treatment population, although those data are not nationally representative [33,34].
+The mortality data make opioid co-exposure impossible to treat as a side issue. In CDC SUDORS data covering January 2021 through June 2024 across 49 states and the District of Columbia, **73.0% of stimulant-involved overdose deaths co-involved opioids**; the proportion was 79.1% for cocaine-involved deaths and 68.8% for methamphetamine-involved deaths [37]. The same report cautions against assuming all of this reflects accidental contamination: available drug-checking data rarely detected opioids in stimulant products, suggesting that intentional co-use of separate stimulant and opioid products accounts for much of the fatal overlap [37].
+
+CDC clinical drug-testing data from 2025-2026 also show frequent co-detection of illicit stimulants with fentanyl in the sampled treatment population, although those data are not nationally representative [33,34].
 
 This matters because:
 - opioid toxicity can cause respiratory depression during what looks like a stimulant crash;
@@ -966,6 +972,7 @@ Potentially dangerous. Opioid co-exposure, head injury, stroke, infection, metab
 | A universal dopamine-recovery timeline exists | **Not established** | Cognitive/imaging reviews [27-30] | Most recovery data are observational/cross-sectional |
 | Medication reliably treats acute methamphetamine withdrawal | **Not established** | 2022 systematic review + Cochrane [4,5] | Trials are small and heterogeneous |
 | Contingency management improves stimulant abstinence during treatment | **High** | Guideline + multiple meta-analyses/systematic reviews [1,17-25] | Effects may attenuate after incentives end; implementation matters |
+| Opioid co-involvement is central to current U.S. stimulant-overdose mortality | **High for mortality surveillance** | CDC SUDORS 2021–June 2024 [37] | Mortality co-involvement does not by itself prove whether opioid exposure was intentional, contaminated, or from another source |
 | Naltrexone+bupropion improves methamphetamine outcomes | **Moderate** | ADAPT-2 and follow-up [9,10] | Absolute response remains modest; off-label |
 | Naltrexone alone is broadly effective for ATS use disorder | **Low / not established** | 2025 meta-analysis [15] | Combination evidence does not transfer to monotherapy |
 | Mirtazapine can reduce methamphetamine use in studied populations | **Moderate, population-specific** | Two randomized trials [11,12] | Generalizability beyond studied populations is uncertain |
