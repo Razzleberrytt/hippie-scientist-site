@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-276-300-selection",
+  "continuation_of": "2026-10-03-enrichment-waves-251-275-selection",
+  "program": {
+    "range": "101-300",
+    "pass_size": 25,
+    "target_findings": 200,
+    "progress_after_pass": 200,
+    "merge_policy": "accumulate eight 25-finding passes; consolidate and validate once after 200"
+  },
+  "source_provenance": [
+    "ops/enrichment-submissions/reconciliation/2026-09-06-enrichment-batch-21.md",
+    "ops/enrichment/research-batch-2026-09-20-07.json",
+    "ops/enrichment/research-batch-2026-09-20-08.json",
+    "ops/enrichment-submissions/reconciliation/2026-09-06-full-corpus-inventory.md"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until 200-findings consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "validation_strategy": "cheap duplicate/entity screening during authoring; defer repository-wide validation until Wave 300"
+  },
+  "waves": [
+    {
+      "wave": 276,
+      "entity_slug": "l-theanine",
+      "pmid": "40056718",
+      "focus": "19 randomized-trial articles/897; modest subjective sleep-domain effects with insufficient pure-L-theanine dose/duration evidence.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 277,
+      "entity_slug": "psyllium",
+      "pmid": "41366295",
+      "focus": "41 RCT articles/2,049 adults; LDL/total-cholesterol reductions, HDL/TG nulls and considerable heterogeneity.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 278,
+      "entity_slug": "berberine",
+      "pmid": "42356246",
+      "focus": "7 RCTs across clinical populations; gut-microbiota shifts are mechanistic/associational and not causal proof of clinical benefit.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 279,
+      "entity_slug": "berberine",
+      "pmid": "41310257",
+      "focus": "adult RCT meta-analysis of obesity indices; anthropometric endpoints/population boundaries retained.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 280,
+      "entity_slug": "l-theanine",
+      "pmid": "42410082",
+      "focus": "31 RCTs/1,168 cognition/affect synthesis; acute attention signal, modest bias-sensitive stress effects, fatigue null and inconsistent anxiety.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 281,
+      "entity_slug": "l-theanine",
+      "pmid": "41176609",
+      "focus": "13 sleep trials/550; studied 50–900 mg/day range is evidence metadata only, with author-industry provenance and no dosing recommendation.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 282,
+      "entity_slug": "bacopa",
+      "pmid": "41678913",
+      "focus": "Bacopa-vs-Ginkgo cognition network/indirect comparison; apparent memory ranking retains indirect-comparison limitations.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 283,
+      "entity_slug": "propolis",
+      "pmid": "42551575",
+      "focus": "18 RCTs/498; inflammatory/oxidative signals heterogeneous/low certainty with origin/phenotype dependence.",
+      "state": "research_only_no_canonical_promotion"
+    },
+    {
+      "wave": 284,
+      "entity_slug": "mpff",
+      "pmid": "42331095",
+      "focus": "5 studies/411 in early chronic venous disease; formulation-specific symptom/QoL evidence with sponsor provenance.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 285,
+      "entity_slug": "syzygium-cumini",
+      "pmid": "42450449",
+      "focus": "13 trials/802 dysglycemia synthesis; FPG signal with extreme heterogeneity and species-specific boundary.",
+      "state": "research_only_pending_entity_resolution"
+    },
+    {
+      "wave": 286,
+      "entity_slug": "green-tea-extract",
+      "pmid": "42160360",
+      "focus": "chicory + green-tea insomnia study; combination-only null evidence cannot be attributed to either ingredient alone.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 287,
+      "entity_slug": "dihydromyricetin",
+      "pmid": "41612982",
+      "focus": "DHM + vitamins C/E + choline MASLD combination; no single-ingredient attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 288,
+      "entity_slug": "shatavari",
+      "pmid": "42537691",
+      "focus": "perimenopausal shatavari root-extract RCT; deeper full-text extraction required before materialization.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 289,
+      "entity_slug": "shatavari",
+      "pmid": "42539366",
+      "focus": "Fenavari standardized shatavari + fenugreek combination RCT; combination-level evidence only.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 290,
+      "entity_slug": "sea-buckthorn",
+      "pmid": "41829976",
+      "focus": "Hippophae rhamnoides fruit-extract constipation RCT; product/indication specific.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 291,
+      "entity_slug": "rosemary",
+      "pmid": "41909864",
+      "focus": "rosemary + ginger pilot RCT for DNA-integrity/oxidative/endothelial biomarkers; combination and biomarker only.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 292,
+      "entity_slug": "amla",
+      "pmid": "41887337",
+      "focus": "AMBER EBUS procedural-cough trial; amla extract versus dextromethorphan/combination/placebo with active-arm boundary.",
+      "state": "research_only_pending_entity_resolution"
+    },
+    {
+      "wave": 293,
+      "entity_slug": "black-cardamom",
+      "pmid": "42027681",
+      "focus": "full-spectrum aqueous Amomum subulatum extract for focus/alertness/executive function; product provenance and quantitative extraction pending.",
+      "state": "research_only_pending_entity_resolution"
+    },
+    {
+      "wave": 294,
+      "entity_slug": "totum-63",
+      "pmid": "42477326",
+      "focus": "636-person prediabetes/early-T2D trial of five-plant polyphenol blend; modest FPG signals, subgroup/null outcomes and AE/SAE context.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 295,
+      "entity_slug": "elaeagnus-cynanchum",
+      "pmid": "41508379",
+      "focus": "NET1701 combination in men with LUTS; IPSS signal with Qmax/PVR null and combination-specificity.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 296,
+      "entity_slug": "elaeagnus-cynanchum",
+      "pmid": "42512876",
+      "focus": "distinct EMF_CWW combination in male climacteric syndrome; AMS/subdomain/ADAM/hormone between-group nulls and long-term-safety unknown.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 297,
+      "entity_slug": "probiotics",
+      "pmid": "40873969",
+      "focus": "published correction to probiotic cardiometabolic meta-analysis; corrected article must govern downstream numeric extraction.",
+      "state": "correction_metadata_only"
+    },
+    {
+      "wave": 298,
+      "entity_slug": "melatonin",
+      "pmid": "40160274",
+      "focus": "sleep-supplement review used as an attribution firewall for multi-ingredient formulations; melatonin and botanicals stay separate.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 299,
+      "entity_slug": "herbal-safety",
+      "pmid": "39208414",
+      "focus": "pharmacovigilance adverse-event reporting synthesis; product detail incompleteness and reporting-rate limitations are safety-quality context.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 300,
+      "entity_slug": "herbal-safety",
+      "pmid": "41322721",
+      "focus": "seed-derived medicinal/edible-herb safety review; pediatric/excess-intake concentration, serious events and causality classifications retained.",
+      "state": "research_only_cross_entity_safety"
+    }
+  ]
+}
