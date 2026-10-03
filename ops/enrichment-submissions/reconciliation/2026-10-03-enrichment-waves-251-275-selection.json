@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-251-275-selection",
+  "continuation_of": "2026-10-03-enrichment-waves-226-250-selection",
+  "program": {
+    "range": "101-300",
+    "pass_size": 25,
+    "target_findings": 200,
+    "progress_after_pass": 175,
+    "merge_policy": "accumulate eight 25-finding passes; consolidate and validate once after 200"
+  },
+  "source_provenance": [
+    "ops/enrichment-submissions/reconciliation/2026-09-10-enrichment-batch-25.md",
+    "ops/enrichment-submissions/reconciliation/2026-09-10-enrichment-batch-26.md",
+    "ops/enrichment-submissions/reconciliation/2026-09-10-enrichment-batch-27.md",
+    "ops/enrichment/research-batch-2026-09-20-10.json",
+    "ops/enrichment/research-batch-2026-09-20-11.json",
+    "ops/enrichment-submissions/reconciliation/2026-09-06-full-corpus-inventory.md"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until 200-findings consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "validation_strategy": "cheap duplicate/entity screening during authoring; defer repository-wide validation until Wave 300"
+  },
+  "waves": [
+    {
+      "wave": 251,
+      "entity_slug": "magnesium",
+      "pmid": "34824499",
+      "focus": "sleep evidence in older adults with complaints; limited/heterogeneous, magnesium form and baseline status matter.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 252,
+      "entity_slug": "magnesium",
+      "pmid": "28445451",
+      "focus": "anxiety review; possible selected-population benefit with variable quality and co-intervention confounding.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 253,
+      "entity_slug": "creatine",
+      "pmid": "37757157",
+      "focus": "adjunctive depression meta-analysis; possible symptom benefit with limited certainty and antidepressant co-treatment boundary.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 254,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "35880278",
+      "focus": "fatigue SR/MA; selected chronic-condition populations and no inference of underlying disease treatment.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 255,
+      "entity_slug": "coenzyme-q10",
+      "pmid": "31725711",
+      "focus": "migraine clinical evidence; possible frequency/duration effects with small trials.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 256,
+      "entity_slug": "flaxseed",
+      "pmid": "39526211",
+      "focus": "hypertensive-population RCT synthesis; whole seed vs oil/lignan preparation boundary.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 257,
+      "entity_slug": "flaxseed",
+      "pmid": "31572890",
+      "focus": "lipid RCT meta-analysis; modest changes with preparation/endpoint heterogeneity.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 258,
+      "entity_slug": "chamomile",
+      "pmid": "23116411",
+      "focus": "GAD randomized evidence; possible benefit with limited sample sizes and standardized-preparation boundary.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 259,
+      "entity_slug": "ashwagandha",
+      "pmid": "41740946",
+      "focus": "hormonal systematic review/meta-analysis; sex, baseline endocrine status, extract and surrogate nature of hormone measures.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 260,
+      "entity_slug": "ashwagandha",
+      "pmid": "42199854",
+      "focus": "20 studies/1,249; domain-specific cognition/physical-function signals with extract/duration boundaries and null body-composition outcomes.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 261,
+      "entity_slug": "ashwagandha",
+      "pmid": "41943502",
+      "focus": "large healthy-adult safety RCT corpus node; standardized-extract/population/duration boundaries and reconciliation with existing safety evidence.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 262,
+      "entity_slug": "ashwagandha",
+      "pmid": "41770039",
+      "focus": "root-extract skin/hair randomized evidence; product, dose/duration and funding require exact source-specific extraction.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 263,
+      "entity_slug": "sage",
+      "pmid": "33466627",
+      "focus": "Cognivia proprietary Salvia combination; combination-specific cognition evidence and no inheritance to generic sage.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 264,
+      "entity_slug": "sage",
+      "pmid": "33615001",
+      "focus": "MenoSan fresh-herb ethanolic Salvia officinalis trial in menopausal women; symptom improvements with GU nulls and product specificity.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 265,
+      "entity_slug": "ginger",
+      "pmid": "42183789",
+      "focus": "allergic-rhinitis node with mixed animal/human evidence; human extraction required before claim materialization.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 266,
+      "entity_slug": "probiotics",
+      "pmid": "41174264",
+      "focus": "bone-health review with published correction provenance that must travel with downstream evidence.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 267,
+      "entity_slug": "probiotics",
+      "pmid": "40892162",
+      "focus": "Bifidobacterium animalis BB-12 safety evidence; strain-specific safety only.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 268,
+      "entity_slug": "probiotics",
+      "pmid": "40643866",
+      "focus": "Lacticaseibacillus rhamnosus safety evidence; strain-specific safety only.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 269,
+      "entity_slug": "green-tea-extract",
+      "pmid": "40722728",
+      "focus": "13-RCT mood review spanning tea, extract, matcha, EGCG and L-theanine; intervention heterogeneity and BDNF null retained.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 270,
+      "entity_slug": "probiotics",
+      "pmid": "42238098",
+      "focus": "39 RCTs/4,094 sleep synthesis; small PSQI/objective signals, insomnia-severity null and very-low/low certainty.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 271,
+      "entity_slug": "anthocyanins",
+      "pmid": "39875765",
+      "focus": "30-RCT cognition/mood review; pooled working-memory/verbal/immediate-memory nulls despite selected qualitative signals.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 272,
+      "entity_slug": "ginger",
+      "pmid": "42601183",
+      "focus": "8 RCTs/594 migraine review; acute/preventive evidence low-to-very-low certainty and too uncertain for established efficacy.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 273,
+      "entity_slug": "collagen-peptides",
+      "pmid": "39212129",
+      "focus": "11 RCTs/870 knee-OA review; pain/function signals with high heterogeneity and oral collagen-preparation boundary.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 274,
+      "entity_slug": "boswellia-serrata",
+      "pmid": "41082950",
+      "focus": "20-RCT knee-OA network meta-analysis of Curcuma/Boswellia/mixed formulations; modified-formulation effects and combination uncertainty preserved.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 275,
+      "entity_slug": "caffeine-l-theanine",
+      "pmid": "40314930",
+      "focus": "50-RCT tea/theanine/caffeine synthesis; acute domain-specific cognition/mood effects and strict tea-vs-isolated-vs-combination identity.",
+      "state": "review_ready_for_materialization"
+    }
+  ]
+}
