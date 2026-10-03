@@ -6,7 +6,7 @@
 
 - [x] P0 masterclass monographs complete — all P0 profiles have now received the deep monograph pass
 - [x] P1 masterclass monographs complete — all P1 profiles passed the deep structural audit
-- [ ] Dependence/withdrawal/addiction-support pass complete
+- [x] Dependence/withdrawal/addiction-support pass complete
 - [ ] History/legal/regulatory pass complete
 - [ ] Primary-source/PMID reference-density pass complete
 - [ ] Toxicology/testing/forensic-interpretation pass complete
@@ -22,7 +22,12 @@
 - [x] Novel sedative/qualone pages now separate sedative dependence from use disorder and explicitly note the lack of randomized methaqualone-dependence treatment evidence.
 - [x] Designer-benzodiazepine stragglers now link to the 2025 multisociety tapering guideline without publishing RC conversion or DIY taper instructions.
 - [x] Top-level RC/NPS guide now explains that there is no single “research chemical withdrawal syndrome” and routes readers to class-specific recovery resources.
-- [ ] **Global dependence/withdrawal/addiction-support pass remains open** until the remaining canonical routes have been audited for explicit coverage or an evidence-based “not established” statement.
+- [x] **Global dependence/withdrawal/addiction-support pass complete (2026-10-03).** All 87 canonical RC/NPS routes from the consolidated expansion were audited: every route now has explicit dependence/withdrawal/recovery coverage or an evidence-based statement that a classic physical-withdrawal syndrome is not established, with support navigation added where clinically relevant.
+
+Batch-1 audit closure:
+- [x] Remaining 57 canonical routes audited after the 30-route upgrade batch.
+- [x] Existing P0/P1/masterclass routes retained when their dependence, withdrawal, use-disorder, and treatment/support coverage was already adequate.
+- [x] `1cp-lsd` received the final recovery/help-navigation patch; no additional low-evidence detox timelines were invented for psychedelic routes.
 
 Batch-1 routes:
 `1p-lsd`, `4-aco-dmt`, `4-ho-met`, `5-meo-mipt`, `rc-psychedelics-tryptamines-lysergamides`,
