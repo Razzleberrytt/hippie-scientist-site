@@ -46,7 +46,7 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 - [x] Etizolam
 - [x] Norflurazepam
 - [ ] Fluetizolam
-- [ ] Ethylbromazolam
+- [x] Ethylbromazolam — /articles/ethylbromazolam/
 - [ ] Ethylflualprazolam
 - [x] Rilmazafone
 
@@ -58,11 +58,11 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 - [x] Isotonitazene — /articles/isotonitazene/
 - [x] Metonitazene — /articles/metonitazene/
 - [ ] Etonitazene
-- [ ] N-pyrrolidino protonitazene
+- [x] N-pyrrolidino protonitazene — /articles/n-pyrrolidino-protonitazene/
 - [ ] N-pyrrolidino metonitazene
-- [ ] N-desethyl protonitazene
+- [x] N-desethyl protonitazene — /articles/n-desethyl-protonitazene/
 - [ ] N-desethyl isotonitazene
-- [ ] Brorphine
+- [x] Brorphine — /articles/brorphine/
 - [x] Cychlorphine / N-propionitrile chlorphine — /articles/cychlorphine/
 - [ ] Chlorphine
 - [ ] Spirochlorphine
@@ -77,10 +77,10 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 - [x] DCK / deschloroketamine — /articles/dck/
 - [x] O-PCE — /articles/o-pce/
 - [x] DMXE — /articles/dmxe/
-- [ ] FXE / fluorexetamine
+- [x] FXE / fluorexetamine — /articles/fluorexetamine-fxe/
 - [ ] HXE
-- [ ] 3-MeO-PCE
-- [ ] 3-HO-PCP
+- [x] 3-MeO-PCE — /articles/3-meo-pce/
+- [x] 3-HO-PCP — /articles/3-ho-pcp/
 - [ ] 3-HO-PCE
 - [ ] 3-Me-PCPy
 - [ ] 3-Me-PCE
@@ -92,12 +92,12 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 ### Synthetic cathinones / stimulants
 - [x] alpha-PiHP — /articles/alpha-pihp/
 - [x] NEP / N-ethylpentedrone — /articles/nep-n-ethylpentedrone/
-- [ ] alpha-PVP
-- [ ] alpha-PHP
+- [x] alpha-PVP — /articles/alpha-pvp/
+- [x] alpha-PHP — /articles/alpha-php/
 - [ ] alpha-PiHpP / iso-PV8
 - [ ] MDPHP
 - [ ] MDPiHP
-- [ ] N-ethylhexedrone
+- [x] N-ethylhexedrone — /articles/n-ethylhexedrone/
 - [x] 4-MMC — /articles/4-mmc/
 - [x] 3-MMC — /articles/3-mmc/
 - [ ] 2-MMC
@@ -114,8 +114,8 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 - [x] 4-AcO-DMT — /articles/4-aco-dmt/
 - [x] 5-MeO-MiPT — /articles/5-meo-mipt/
 - [x] 4-HO-MET — /articles/4-ho-met/
-- [ ] 1cP-LSD
-- [ ] AL-LAD
+- [x] 1cP-LSD — /articles/1cp-lsd/
+- [x] AL-LAD — /articles/al-lad/
 - [ ] PRO-LAD
 - [ ] 4-HO-DET
 - [ ] 4-AcO-DET
@@ -130,7 +130,7 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 ### Synthetic cannabinoids
 - [x] MDMB-4en-PINACA — /articles/mdmb-4en-pinaca/
 - [x] 5F-ADB / 5F-MDMB-PINACA — /articles/5f-adb/
-- [ ] ADB-BUTINACA
+- [x] ADB-BUTINACA — /articles/adb-butinaca/
 - [ ] MDMB-BUTINACA
 - [ ] MDMB-PINACA
 - [ ] MMB-CHMINACA
@@ -141,8 +141,8 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 ### Benzofurans / entactogens
 - [x] 6-APB — /articles/6-apb/
 - [x] 5-MAPB — /articles/5-mapb/
-- [ ] 5-APB
-- [ ] 6-MAPB
+- [x] 5-APB — /articles/5-apb/
+- [x] 6-MAPB — /articles/6-mapb/
 
 ### Non-benzo sedatives / qualone analogues
 - [x] Dicloqualone / SL-164 — /articles/dicloqualone/
@@ -172,22 +172,22 @@ P0 — completed on branch:
 - [x] 4-MMC
 - [x] 2C-B-FLY
 
-P1:
-- Ethylbromazolam
-- N-pyrrolidino protonitazene
-- N-desethyl protonitazene
-- Brorphine
-- 3-HO-PCP
-- 3-MeO-PCE
-- FXE / fluorexetamine
-- alpha-PVP
-- alpha-PHP
-- N-ethylhexedrone
-- 1cP-LSD
-- AL-LAD
-- 5-APB
-- 6-MAPB
-- ADB-BUTINACA
+P1 — completed on branch:
+- [x] Ethylbromazolam
+- [x] N-pyrrolidino protonitazene
+- [x] N-desethyl protonitazene
+- [x] Brorphine
+- [x] 3-HO-PCP
+- [x] 3-MeO-PCE
+- [x] FXE / fluorexetamine
+- [x] alpha-PVP
+- [x] alpha-PHP
+- [x] N-ethylhexedrone
+- [x] 1cP-LSD
+- [x] AL-LAD
+- [x] 5-APB
+- [x] 6-MAPB
+- [x] ADB-BUTINACA
 
 P2:
 - lower-prevalence, historical, or poorly sourced names remain in discovery until forensic/clinical evidence supports a useful page.
