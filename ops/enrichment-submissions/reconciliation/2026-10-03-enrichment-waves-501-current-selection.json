@@ -4,8 +4,8 @@
   "program": {
     "range": "501-1000",
     "target_findings": 500,
-    "current_findings": 350,
-    "last_wave": 850
+    "current_findings": 375,
+    "last_wave": 875
   },
   "policy": "research authoring index only; not runtime admission",
   "waves": [
@@ -2458,6 +2458,181 @@
       "pmid": "42821324",
       "focus": "119-study Bayesian NMA in physically active people/athletes; selected HMB, beta-alanine, creatine, vitamin-D, caffeine and betaine signals, but most pairwise comparisons were low/very-low certainty and rankings were indirect.",
       "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 851,
+      "entity_slug": "chlorella-vulgaris",
+      "pmid": "35331862",
+      "focus": "Ten-RCT/539-participant lipid meta-analysis; total and LDL cholesterol decreased while triglycerides and HDL were null, with weak supplement-characterization reporting across most trials.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 852,
+      "entity_slug": "edible-algae",
+      "pmid": "40726022",
+      "focus": "2025 29-RCT/1,583-participant blood-pressure meta-analysis across edible algae; small pooled BP reductions with high heterogeneity and species-specific differences.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 853,
+      "entity_slug": "cocoa-flavanols",
+      "pmid": "42679502",
+      "focus": "2026 updated RCT meta-analysis of cocoa flavanols for blood pressure and vascular function; BP and vascular indices remain surrogate endpoints with intervention heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 854,
+      "entity_slug": "chlorella",
+      "pmid": "42420253",
+      "focus": "2026 24-study GRADE dose-response meta-analysis; multiple metabolic/anthropometric biomarker signals but most outcome certainty was very low.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 855,
+      "entity_slug": "prebiotics",
+      "pmid": "39800313",
+      "focus": "Eleven-study/546-participant prediabetes meta-analysis; body-fat percentage decreased while fasting glucose, insulin, HbA1c, HOMA-IR and lipid outcomes were null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 856,
+      "entity_slug": "artichoke",
+      "pmid": "41270328",
+      "focus": "2025 cardiometabolic synthesis; BMI/waist, BP, selected lipids and insulin/HOMA-IR improved while weight, hip circumference, HDL, fasting glucose and HbA1c were null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 857,
+      "entity_slug": "spirulina",
+      "pmid": "40655486",
+      "focus": "2025 23-study/1,035-participant review in overweight/obesity; weight/lipid/DBP signals with exercise-combination effects and substantial endpoint heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 858,
+      "entity_slug": "spirulina",
+      "pmid": "34578932",
+      "focus": "Five-RCT/230-participant historical BP meta-analysis; SBP/DBP reductions with small samples and subgroup dependence, useful against newer broader evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 859,
+      "entity_slug": "astaxanthin",
+      "pmid": "41596351",
+      "focus": "2025 human systematic review of oxidative, inflammatory and metabolic outcomes; broad positive narrative signals require trial-level separation rather than a universal efficacy claim.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 860,
+      "entity_slug": "lycopene",
+      "pmid": "37496241",
+      "focus": "GRADE-assessed RCT meta-analysis of lycopene/tomato and cardiovascular risk factors; lipid, glycemic, BP, inflammatory and anthropometric outcomes remain endpoint-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 861,
+      "entity_slug": "astaxanthin",
+      "pmid": "35091276",
+      "focus": "Twelve-RCT/380-participant meta-analysis; oxidative/inflammatory biomarker effects were modest and condition-dependent, without direct clinical-outcome evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 862,
+      "entity_slug": "olive-leaf-extract",
+      "pmid": "41848522",
+      "focus": "2026 11-RCT meta-analysis found no clinically meaningful continuous-intake glycemic or lipid benefit and sparse low-certainty inflammatory evidence—a strong counterweight to earlier positive OLE syntheses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 863,
+      "entity_slug": "cocoa-flavanols",
+      "pmid": "41849087",
+      "focus": "2026 COSMOS cardiovascular-outcome reanalysis using win-ratio methods; outcome-level evidence remains separate from short-term biomarker meta-analyses.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 864,
+      "entity_slug": "inulin-type-fructans",
+      "pmid": "34401107",
+      "focus": "33-RCT meta-analysis; glucose, total cholesterol and triglyceride benefits appeared mainly in diabetes, with weight and insulin null overall and high unexplained heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 865,
+      "entity_slug": "lycopene",
+      "pmid": "41369612",
+      "focus": "2026 umbrella review of tomato-derived lycopene intervention reviews; cardiovascular-risk signals inherit underlying review quality, formulation and outcome heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 866,
+      "entity_slug": "astaxanthin",
+      "pmid": "42100673",
+      "focus": "2026 nine-RCT/403-participant prediabetes/T2D meta-analysis; glycemic/lipid signals with HOMA-IR, weight and BMI nulls.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 867,
+      "entity_slug": "astaxanthin",
+      "pmid": "35631193",
+      "focus": "Seven-study/321-participant metabolic-syndrome-risk review; marginal/selected lipid and BP signals with need for more robust evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 868,
+      "entity_slug": "inulin-type-fructans",
+      "pmid": "38309832",
+      "focus": "55-RCT/2,518-participant cardiovascular-risk meta-analysis; small LDL, triglyceride and weight reductions with little/no effect on most other outcomes and low/very-low certainty.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 869,
+      "entity_slug": "astaxanthin",
+      "pmid": "39269488",
+      "focus": "2025 PCOS systematic review/single-arm meta-analysis; oxidative and reproductive outcomes remain female-PCOS specific and limited by small trial evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 870,
+      "entity_slug": "astaxanthin",
+      "pmid": "38243785",
+      "focus": "2024 RCT meta-analysis of fatigue, motor function and cognition; domain-specific findings remain distinct rather than generalized to global energy/cognitive enhancement.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 871,
+      "entity_slug": "cocoa",
+      "pmid": "38931273",
+      "focus": "2024 31-RCT/1,986-participant cardiometabolic meta-analysis; TC/LDL/glucose/BP signals with weight, BMI, waist, triglyceride, HDL and HbA1c nulls.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 872,
+      "entity_slug": "cocoa",
+      "pmid": "41858752",
+      "focus": "2026 metabolic-syndrome/related-disease meta-analysis; limited triglyceride-focused benefit with duration/disease modifiers and low certainty for broader metabolic claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 873,
+      "entity_slug": "resistant-starch",
+      "pmid": "41080169",
+      "focus": "2025 23-RCT systematic review of adults with metabolic-syndrome-related risks; anthropometric, glycemic, lipid, inflammatory and oxidative outcomes are resistant-starch-type and delivery-context dependent.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 874,
+      "entity_slug": "cocoa",
+      "pmid": "40886195",
+      "focus": "2025 11-RCT/506-participant T2D lipid meta-analysis; triglycerides decreased but other lipids did not, with severe heterogeneity and low-certainty/clinically small effects.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 875,
+      "entity_slug": "oat-beta-glucan",
+      "pmid": "35631184",
+      "focus": "13-RCT/927-participant hypercholesterolemia meta-analysis; total/LDL cholesterol reductions with triglyceride/HDL nulls and source/dose/duration modifiers.",
+      "state": "reviewed_receipt_pending_final_admission"
     }
   ]
 }
