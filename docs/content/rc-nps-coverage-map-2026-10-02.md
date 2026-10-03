@@ -276,9 +276,6 @@ P1 — completed on branch:
 - [x] Flubromazepam — full masterclass pass complete; >100-hour persistence evidence, prolonged detection and mixed-opioid fatality interpretation integrated
 - [x] Diclazepam — full masterclass pass complete; active delorazepam/lorazepam/lormetazepam metabolites, DFSA evidence and 2026 federal Schedule I status integrated
 - [x] Pyrazolam — full masterclass pass complete; 2026 acute poisoning, immunoassay limitations and postmortem interpretation integrated
-- [x] Flubromazepam — full masterclass pass complete; >100 h human persistence, mixed-opioid fatality and 2026 prolonged-coma evidence integrated
-- [x] Diclazepam — full masterclass pass complete; active metabolites, human PK, DFSA testing limits and 2026 U.S. Schedule I status integrated
-- [x] Pyrazolam — full masterclass pass complete; human urinary metabolism, STRIDA and 2025 acute-poisoning evidence integrated
 - [x] Rilmazafone — full masterclass pass complete; prodrug PK, Japanese therapeutic context, mislabeling and fatal toxicology integrated
 - [x] MDPHP — masterclass pass complete
 - [x] MDPiHP — emerging-evidence masterclass pass complete
