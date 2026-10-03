@@ -476,3 +476,23 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /evidence-checker/ /evidence/evidence-checker/ 301
 /build /tools/ 301
 /build/ /tools/ 301
+
+# 2026-10-02 NPS content consolidation: parallel drafts collapsed onto one
+# evidence-rich canonical owner per reader intent.
+/articles/adulterated-cats-claw-kava-opioid-products /articles/cats-claw-kava-hidden-opioids/ 301
+/articles/adulterated-cats-claw-kava-opioid-products/ /articles/cats-claw-kava-hidden-opioids/ 301
+/articles/designer-benzodiazepines /articles/designer-benzodiazepines-research-chemicals/ 301
+/articles/designer-benzodiazepines/ /articles/designer-benzodiazepines-research-chemicals/ 301
+/articles/benzofuran-entactogens /articles/benzofurans-entactogens/ 301
+/articles/benzofuran-entactogens/ /articles/benzofurans-entactogens/ 301
+/articles/research-chemical-dissociatives /articles/rc-dissociatives-ketamine-pcp-analogues/ 301
+/articles/research-chemical-dissociatives/ /articles/rc-dissociatives-ketamine-pcp-analogues/ 301
+/articles/research-chemical-psychedelics /articles/rc-psychedelics-tryptamines-lysergamides/ 301
+/articles/research-chemical-psychedelics/ /articles/rc-psychedelics-tryptamines-lysergamides/ 301
+/articles/synthetic-cannabinoids /articles/synthetic-cannabinoids-spice/ 301
+/articles/synthetic-cannabinoids/ /articles/synthetic-cannabinoids-spice/ 301
+/articles/synthetic-cathinones /articles/synthetic-cathinones-rc-stimulants/ 301
+/articles/synthetic-cathinones/ /articles/synthetic-cathinones-rc-stimulants/ 301
+/articles/research-chemicals-new-psychoactive-substances /articles/research-chemicals-nps-guide/ 301
+/articles/research-chemicals-new-psychoactive-substances/ /articles/research-chemicals-nps-guide/ 301
+
