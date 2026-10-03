@@ -86,6 +86,7 @@ Use canonical, public, indexable URLs. Prefer the most specific page that answer
 - [7-Hydroxymitragynine](https://thehippiescientist.net/articles/7-hydroxymitragynine/)
 - [Tianeptine: opioid activity, dependence, withdrawal and U.S. safety evidence](https://thehippiescientist.net/articles/tianeptine-opioid-dependence-withdrawal-evidence-review/)
 - [MGM-15 / dihydro-7-hydroxymitragynine](https://thehippiescientist.net/articles/dihydro-7-hydroxy-mitragynine-mgm-15/)
+- [MGM-16: opioid pharmacology, risks, and Schedule I status](https://thehippiescientist.net/articles/mgm-16/)
 - [Mitragynine pseudoindoxyl](https://thehippiescientist.net/articles/mitragynine-pseudoindoxyl/)
 - [Corynoxine B opioid and addiction evidence review](https://thehippiescientist.net/articles/corynoxine-b-opioid-addiction-evidence-review/)
 - [Urolithin A: human evidence, muscle outcomes, and mitophagy limits](https://thehippiescientist.net/articles/urolithin-a-human-evidence/)
