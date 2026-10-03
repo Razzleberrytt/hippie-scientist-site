@@ -138,7 +138,7 @@ Canonical materialization receipt: PR #6022 committed the reviewed workbook and 
 - The batch is evidence-only and cannot alter publishing, indexing, recommendation, monetization, or governance state.
 - Full repository validation is intentionally run once after consolidation rather than once per wave.
 
-Tracking: enrichment batching `#6198`; canonical magnesium citation-integrity follow-up `#6197`; follow-on planning `#6200`.
+Tracking: enrichment batching `#6198`; 50-wave follow-on planning `#6200`; canonical citation-integrity repairs `#6197` (magnesium) and `#6201` (taurine/citrulline-malate).
 
 ## Oct. 2 fifty-wave enrichment program
 
