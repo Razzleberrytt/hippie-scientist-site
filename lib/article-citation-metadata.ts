@@ -48,6 +48,8 @@ export type ArticleReferenceInput = {
   pmid?: unknown
   doi?: unknown
   url?: unknown
+  sourceType?: unknown
+  evidenceLevel?: unknown
 }
 
 export type NormalizedArticleReference = {
@@ -60,6 +62,8 @@ export type NormalizedArticleReference = {
   pmid?: string
   doi?: string
   url?: string
+  sourceType?: string
+  evidenceLevel?: string
   sourceId: string
 }
 
@@ -177,6 +181,8 @@ export function normalizeArticleReferences(
       ? ref.year
       : cleanOptionalString(ref.year)
     const explicitUrl = cleanOptionalString(ref.url)
+    const sourceType = cleanOptionalString(ref.sourceType)
+    const evidenceLevel = cleanOptionalString(ref.evidenceLevel)
     const url = evidenceSourceUrl({ pmid, doi, url: explicitUrl })
     const sourceId = evidenceStudyId({ pmid, doi, url, title })
 
@@ -190,6 +196,8 @@ export function normalizeArticleReferences(
       pmid,
       doi,
       url,
+      sourceType,
+      evidenceLevel,
       sourceId,
     }
   })
