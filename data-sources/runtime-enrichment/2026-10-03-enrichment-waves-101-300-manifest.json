@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-101-300",
+  "generated_from": {
+    "input_files": [
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-101-125-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-101-125.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-126-150-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-126-150.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-151-175-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-151-175.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-176-200-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-176-200.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-201-225-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-201-225.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-226-250-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-226-250.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-251-275-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-251-275.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-276-300-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-276-300.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-101-300-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-101-300.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-03-waves-101-300-pmid-revalidation.json"
+    ],
+    "review_note": "Eight 25-finding passes completed before full validation. The research corpus contains 200 completed waves. Final runtime materialization is intentionally limited to 12 independently revalidated, source-specific, reader-ready evidence rows on existing canonical entities; the remaining receipts stay research-only until source-specific promotion is legal."
+  },
+  "counts": {
+    "entity_context_rows": 0,
+    "evidence_rows": 12,
+    "source_rows": 12,
+    "relationship_rows": 0
+  },
+  "wave_coverage": {
+    "first_wave": 101,
+    "last_wave": 300,
+    "completed_waves": 200,
+    "evidence_records": 12,
+    "unique_source_records": 12
+  },
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden",
+    "recommendation_promotion": "forbidden",
+    "evidence_merge": "append-only; only source-specific reader-ready rows are runtime-materialized",
+    "claim_calibration": "retain negative/null evidence, uncertainty, endpoint distinctions, formulation/population limits, safety context, and source-specific claim language",
+    "verification_strategy": "batch-first; admission and repository gates run once after the 200-wave consolidation"
+  },
+  "ledger": {
+    "file": "2026-10-03-enrichment-waves-101-300.json",
+    "sha256": "e54793e93bcb15bbbe521510b4c828062dc25ae38f1d39c331caf1689e939c9c",
+    "bytes": 26919
+  },
+  "admission": {
+    "evidence_additions": 12,
+    "evidence_corrections": 0,
+    "source_additions": 12,
+    "source_corrections": 0
+  }
+}
