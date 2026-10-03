@@ -379,23 +379,77 @@ function applySourceIdentityCorrections(rows) {
   return resolved
 }
 
-function isReviewedEvidenceRevision(row) {
-  const raw = row?.reviewed_revision
-  const enabled = raw === true || ['1', 'true', 'yes', 'reviewed'].includes(clean(raw).toLowerCase())
-  if (!enabled) return false
-  if (!clean(row?.revision_reason)) {
-    throw new Error(
-      '[workbook-parser] reviewed enrichment evidence revision is missing revision_reason: ' +
-      clean(row?.record_id || row?.entity_slug || '(unknown)'),
-    )
-  }
-  return true
-}
-
 function materializeEvidenceRow(row) {
   const output = { ...row }
-  delete output.reviewed_revision
+  delete output.corrects_evidence_key
+  delete output.expected_prior_evidence
+  delete output.correction_reason
   return output
+}
+
+function validateEvidenceCorrection(prior, row, key) {
+  const target = clean(row?.corrects_evidence_key)
+  if (!target) return false
+  if (target !== key) {
+    throw new Error(
+      '[workbook-parser] enrichment evidence correction target does not match row identity: ' +
+      target + ' != ' + key,
+    )
+  }
+
+  const reason = clean(row?.correction_reason)
+  if (!reason) {
+    throw new Error(
+      '[workbook-parser] enrichment evidence correction is missing correction_reason: ' +
+      clean(row?.record_id || key),
+    )
+  }
+
+  const expected = row?.expected_prior_evidence
+  if (!expected || typeof expected !== 'object' || Array.isArray(expected)) {
+    throw new Error(
+      '[workbook-parser] enrichment evidence correction is missing expected_prior_evidence: ' +
+      clean(row?.record_id || key),
+    )
+  }
+
+  const expectedEntity = slug(expected.entity_slug || expected.profile_slug)
+  const priorEntity = slug(first(prior, ['entity_slug', 'profile_slug', 'slug', 'herb_slug', 'compound_slug']))
+  if (expectedEntity && expectedEntity !== priorEntity) {
+    throw new Error(
+      '[workbook-parser] enrichment evidence correction prior entity mismatch for ' + key,
+    )
+  }
+
+  const expectedPmid = clean(expected.pmid).toLowerCase()
+  const priorPmid = clean(first(prior, ['pmid', 'PMID'])).toLowerCase()
+  if (expectedPmid && expectedPmid !== priorPmid) {
+    throw new Error(
+      '[workbook-parser] enrichment evidence correction prior PMID mismatch for ' + key,
+    )
+  }
+
+  const expectedDoi = clean(expected.doi)
+    .toLowerCase()
+    .replace(/^https?:\/\/(?:dx\.)?doi\.org\//, '')
+  const priorDoi = clean(first(prior, ['doi', 'DOI']))
+    .toLowerCase()
+    .replace(/^https?:\/\/(?:dx\.)?doi\.org\//, '')
+  if (expectedDoi && expectedDoi !== priorDoi) {
+    throw new Error(
+      '[workbook-parser] enrichment evidence correction prior DOI mismatch for ' + key,
+    )
+  }
+
+  const expectedRecordId = clean(expected.record_id)
+  const priorRecordId = clean(first(prior, ['record_id', 'claim_id', 'claim id', 'id']))
+  if (expectedRecordId && expectedRecordId !== priorRecordId) {
+    throw new Error(
+      '[workbook-parser] enrichment evidence correction prior record mismatch for ' + key,
+    )
+  }
+
+  return true
 }
 
 function relationshipKey(row) {
@@ -484,10 +538,12 @@ function applyRuntimeEnrichment(sheets) {
       if (!key) continue
 
       const existingIndex = indexByKey.get(key)
+      const correctionTarget = clean(row.corrects_evidence_key)
       if (existingIndex !== undefined) {
-        if (!isReviewedEvidenceRevision(row)) continue
+        if (!correctionTarget) continue
 
         const prior = resolvedRows[existingIndex]
+        validateEvidenceCorrection(prior, row, key)
         const incoming = materializeEvidenceRow(row)
         resolvedRows[existingIndex] = {
           ...prior,
@@ -495,6 +551,13 @@ function applyRuntimeEnrichment(sheets) {
           metadata_source: clean(row.metadata_source) || 'runtime-enrichment',
         }
         continue
+      }
+
+      if (correctionTarget) {
+        throw new Error(
+          '[workbook-parser] enrichment evidence correction target was not loaded earlier: ' +
+          correctionTarget,
+        )
       }
 
       const addition = {
