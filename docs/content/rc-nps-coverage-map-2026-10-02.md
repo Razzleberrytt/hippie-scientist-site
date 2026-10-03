@@ -4,7 +4,7 @@
 
 ## Masterclass upgrade status
 
-- [ ] P0 masterclass monographs complete
+- [x] P0 masterclass monographs complete — all P0 profiles have now received the deep monograph pass
 - [ ] P1 masterclass monographs complete
 - [ ] Dependence/withdrawal/addiction-support pass complete
 - [ ] History/legal/regulatory pass complete
@@ -213,6 +213,21 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 - [ ] KLAZ / other Tennessee-observed brands — discovery only until analytical evidence exists
 
 ## Next-wave priority
+
+### Masterclass wave 2 — P0 audit
+
+- [x] Isotonitazene
+- [x] Metonitazene
+- [x] Cychlorphine
+- [x] 5F-ADB
+- [x] DCK / deschloroketamine
+- [x] O-PCE
+- [x] DMXE
+- [x] 3-MMC
+- [x] 4-MMC
+- [x] 2C-B-FLY
+
+**P0 result:** all ten pages now use the masterclass evidence architecture; sparse-evidence pages explicitly preserve uncertainty instead of borrowing related-drug claims.
 
 P0 — completed on branch:
 - [x] Isotonitazene
