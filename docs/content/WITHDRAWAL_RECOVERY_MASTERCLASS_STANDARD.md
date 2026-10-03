@@ -305,7 +305,7 @@ Priority set:
 1. Opioids — flagship implemented; continue compound-specific spokes
 2. Alcohol — flagship implemented; continue targeted alcohol/AUD spokes
 3. Benzodiazepines and Z-drugs / sedative-hypnotics — flagship implemented; continue individual-compound and novel-benzodiazepine spokes
-4. Stimulants (amphetamine, methamphetamine, cocaine) — flagship implemented; continue stimulant-specific treatment/recovery spokes — flagship implemented; continue compound-specific and treatment spokes
+4. Stimulants (amphetamine, methamphetamine, cocaine) — flagship implemented; continue stimulant-specific treatment/recovery spokes
 5. Nicotine
 6. Cannabis
 7. Kratom / 7-OH and kratom-derived opioids
