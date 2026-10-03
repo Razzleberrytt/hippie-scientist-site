@@ -143,3 +143,14 @@ Tracking: enrichment batching `#6198`; 50-wave follow-on planning `#6200`; canon
 ## Regression contract
 
 `tests/runtime-enrichment.test.ts` validates every manifest-backed batch, verifies each digest before decoding, checks reviewed counts, requires globally unique evidence record IDs, allows repeat source identities to deduplicate deterministically across batches, enforces the entity-context allowlist, verifies virtual-workbook growth, and prevents every medication batch from carrying publication/governance fields.
+
+## Oct. 2 research enrichment Waves 51–100
+
+- Ledger: `2026-10-02-enrichment-waves-51-100.json`
+- Manifest: `2026-10-02-enrichment-waves-51-100-manifest.json`
+- 50 research/reconciliation waves completed after merged Waves 1–50
+- 24 genuinely net-new, source-specific reader-ready evidence rows + 24 matching source rows admitted to runtime
+- 49 receipt-only rows remain research documentation and are withheld until source-specific population, preparation/comparator, duration, outcome, and conclusion fields are materialized
+- 6 otherwise reader-ready candidates were excluded at final admission because their identities already exist canonically
+- 0 entity-context rows and 0 relationships; no publication/indexing/recommendation/monetization/governance promotion
+
