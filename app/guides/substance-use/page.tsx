@@ -166,7 +166,7 @@ export default function SubstanceUseHub() {
   ], { id: breadcrumbId })
   const itemListLd = itemListJsonLd({
     id: itemListId,
-    name: 'Substance Use, Dependence & Harm Reduction Evidence Resources',
+    name: 'Substance Use, Withdrawal & Recovery Evidence Resources',
     path: HUB_PATH,
     items: HUB_ITEMS.map((item) => ({ name: item.title, url: item.href })),
   })
@@ -198,13 +198,13 @@ export default function SubstanceUseHub() {
       />
 
       <header className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-10">
-        <p className="eyebrow-label">Substance use · dependence · withdrawal · harm reduction</p>
+        <p className="eyebrow-label">Substance use · dependence · withdrawal · recovery · harm reduction</p>
         <h1 className="mt-3 max-w-4xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
-          Substance Use, Dependence & Harm Reduction
+          Substance Use, Withdrawal & Recovery
         </h1>
         <p className="mt-5 max-w-3xl text-lg leading-8 text-muted">
           A research-first section for compounds that sit at the intersection of pharmacology, dependence, withdrawal,
-          overdose risk, product uncertainty, and emerging drug markets. The goal is to separate established human evidence
+          recovery, overdose risk, product uncertainty, and emerging drug markets. The goal is to separate established human evidence
           from receptor assays, case reports, marketing claims, and speculation.
         </p>
         <div className="mt-5 rounded-2xl border border-amber-200 bg-amber-50/70 p-4 text-sm leading-6 text-amber-950">
