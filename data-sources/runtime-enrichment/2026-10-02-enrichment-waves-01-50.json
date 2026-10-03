@@ -50,7 +50,13 @@
       "source_id": "pmid-40056718",
       "supported_claim_language": "A 2025 systematic review and meta-analysis reported small improvements in subjective sleep-onset latency (SMD 0.15), daytime dysfunction (SMD 0.33), and overall subjective sleep quality (SMD 0.43) across randomized L-theanine supplementation trials.",
       "evidence_grade": "systematic review/meta-analysis",
-      "safety_note": "The evidence should not be converted into a universal insomnia-treatment, dose, or timing recommendation because studies differed in participants, formulations and intervention context, and the literature included a limited number of pure L-theanine trials."
+      "safety_note": "The evidence should not be converted into a universal insomnia-treatment, dose, or timing recommendation because studies differed in participants, formulations and intervention context, and the literature included a limited number of pure L-theanine trials.",
+      "corrects_evidence_key": "l-theanine|pmid:40056718",
+      "expected_prior_evidence": {
+        "entity_slug": "l-theanine",
+        "pmid": "40056718"
+      },
+      "correction_reason": "Refresh the earlier enrichment row with reviewed 2025 sleep meta-analysis effect sizes and calibrated formulation/insomnia-treatment limitations."
     },
     {
       "record_id": "supp_saffron_mood_grade_meta_2026",
@@ -67,7 +73,13 @@
       "source_id": "pmid-41693488",
       "supported_claim_language": "A 2026 GRADE-assessed meta-analysis of 34 randomized trials found lower self-reported Beck Depression Inventory and Beck Anxiety Inventory scores with saffron, but clinician-rated HDRS and HARS outcomes and POMS were not significantly improved. Heterogeneity was very high for the BDI and BAI analyses, so self-report and clinician-rated findings should remain separate.",
       "evidence_grade": "systematic review/meta-analysis; moderate certainty by GRADE",
-      "safety_note": "This synthesis supports outcome-specific evidence framing rather than a general antidepressant or anxiolytic equivalence claim. The high heterogeneity and disagreement between self-reported and clinician-rated scales require prominent uncertainty."
+      "safety_note": "This synthesis supports outcome-specific evidence framing rather than a general antidepressant or anxiolytic equivalence claim. The high heterogeneity and disagreement between self-reported and clinician-rated scales require prominent uncertainty.",
+      "corrects_evidence_key": "saffron|pmid:41693488",
+      "expected_prior_evidence": {
+        "entity_slug": "saffron",
+        "pmid": "41693488"
+      },
+      "correction_reason": "Refresh the earlier enrichment row with reviewed GRADE certainty, very-high heterogeneity, and self-report versus clinician-rated endpoint discordance."
     },
     {
       "record_id": "wave02_ashwagandha_mental_health_41644067",
