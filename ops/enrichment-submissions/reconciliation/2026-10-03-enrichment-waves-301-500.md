@@ -76,3 +76,14 @@ Research-only states remain first-class. This includes category-level reviews, m
 4. Run runtime integrity and admission audit.
 5. Run Workbook Patch, Atomic, Site Health, Build Quality, full CI/build/SEO on the exact final head.
 6. Merge once, only after required gates are green.
+
+
+## Final admission result
+
+The fail-closed admission audit reduced the provisional runtime subset from 12 evidence / 12 source rows to **7 net-new evidence rows / 6 net-new source rows**.
+
+- Already-covered evidence identities pruned: PMID 41000008 (magnesium), 40740996 (berberine), 41014554 (melatonin), 41558805 (creatine), 41641880 (Ginkgo biloba).
+- Already-covered source identities pruned: those five plus PMID 40714301 (Nigella sativa).
+- Nigella sativa PMID 40714301 remains as net-new evidence with PMID/DOI provenance but does not add a duplicate source row.
+- Panax ginseng PMID 40646515 remains withheld because repo research artifacts contain conflicting DOI identities.
+- The other research receipts remain preserved in the 200-wave corpus and are not promoted merely to increase runtime counts.
