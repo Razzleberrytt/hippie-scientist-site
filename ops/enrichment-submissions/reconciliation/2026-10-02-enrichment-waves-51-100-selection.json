@@ -22,6 +22,10 @@
     {
       "pmid": "30670267",
       "reason": "already present in public/data/claims.json on main"
+    },
+    {
+      "pmid": "19435703",
+      "reason": "pelargonium-sidoides is not a canonical Entity_Master slug accepted by runtime enrichment"
     }
   ],
   "waves": [
@@ -147,10 +151,10 @@
     },
     {
       "wave": 66,
-      "entity_slug": "pelargonium-sidoides",
-      "pmid": "19435703",
-      "source_url": "https://pubmed.ncbi.nlm.nih.gov/19435703/",
-      "review_note": "acute respiratory/bronchitis Cochrane evidence; possible symptom benefit; product-specific",
+      "entity_slug": "rhodiola",
+      "pmid": "41080184",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/41080184/",
+      "review_note": "endurance/exercise performance RCT meta-analysis; preserve athletic context and distinguish performance endpoints from biomarkers",
       "state": "selected_deduped_pending_runtime_materialization"
     },
     {
