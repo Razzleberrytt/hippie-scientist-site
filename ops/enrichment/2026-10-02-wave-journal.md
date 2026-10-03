@@ -11,24 +11,26 @@ This journal records the batch-first enrichment pass requested for The Hippie Sc
 - Waves 32–41 — longevity/metabolic/women's health/GI: NMN, resveratrol, omega-3, alpha-lipoic acid, acetyl-L-carnitine, pomegranate, peppermint oil, black cohosh, red clover, soy
 - Waves 42–50 — menopause, osteoarthritis, glycemia, cognition-null, safety and final calibrations: evening primrose, Boswellia, aloe vera, taurine, cacao, saffron safety, ashwagandha glucose, garlic glycemic, curcumin OA
 - Waves 51–60 — under-covered canonical entities and explicit null/attribution evidence: 5-HTP, hops, L-tryptophan, lemon balm, Magnolia officinalis, N-acetylcysteine, oral GABA, spermidine, Nigella sativa, sulforaphane
+- Waves 61–70 — product-specific, medication-like, pain, cognition, respiratory, sleep, and stimulant evidence: Shilajit, Huperzine A, palmitoylethanolamide, theacrine, agmatine sulfate, lemon verbena, elderberry, Mucuna pruriens, caffeine, melatonin
 
 ## Consolidated state
 
 - Waves 01–50: **merged to `main` in PR #6199**
-- Waves 51–60: **staged on `data/research-enrichment-2026-10-02-waves-51-100`**
-- Waves completed in the continuing program: **60 / 100**
+- Waves 51–70: **staged on `data/research-enrichment-2026-10-02-waves-51-100`**
+- Waves completed in the continuing program: **70 / 100**
 - Waves 01–50 canonical ledger: `data-sources/runtime-enrichment/2026-10-02-enrichment-waves-01-50.json`
 - Waves 51–60 staged ledger: `data-sources/runtime-enrichment/2026-10-02-enrichment-waves-51-60.json`
-- Waves 51–60 additions: **10 evidence rows + 10 new source identities**
-- New entity-context rows in Waves 51–60: 0
-- New relationship rows in Waves 51–60: 0
-- Governance/indexing/recommendation/monetization fields changed by Waves 51–60: 0
+- Waves 61–70 staged ledger: `data-sources/runtime-enrichment/2026-10-02-enrichment-waves-61-70.json`
+- Waves 51–70 additions: **20 evidence rows + 20 new source identities**
+- New entity-context rows in Waves 51–70: 0
+- New relationship rows in Waves 51–70: 0
+- Governance/indexing/recommendation/monetization fields changed by Waves 51–70: 0
 - Full repository verification for the continuation batch: **deferred until Waves 51–100 are consolidated**
 
 ## Batch rule
 
-No consumer dose recommendations are inferred from trial exposures. Combination products remain combination evidence. Biomarkers and surrogate outcomes remain distinct from clinical outcomes. Safety and null findings stay first-class records. Species, formulation, extract, age group, disease population, route, and retraction boundaries are preserved where relevant.
+No consumer dose recommendations are inferred from trial exposures. Combination products remain combination evidence. Biomarkers and surrogate outcomes remain distinct from clinical outcomes. Safety and null findings stay first-class records. Species, formulation, extract, age group, disease population, route, medication-like botanical effects, attrition, and retraction boundaries are preserved where relevant.
 
 ## Next step
 
-Continue Waves 61–100 on the same branch, then consolidate the continuation ledger and run the admission audit, manifest integrity, canonical entity resolution, evidence/source dedupe against the workbook, source-of-truth guard, schema/data validation, focused enrichment tests, and normal CI/build/site-health gates once at the end.
+Continue Waves 71–100 on the same branch, then consolidate the continuation ledger and run the admission audit, manifest integrity, canonical entity resolution, evidence/source dedupe against the workbook, source-of-truth guard, schema/data validation, focused enrichment tests, and normal CI/build/site-health gates once at the end.
