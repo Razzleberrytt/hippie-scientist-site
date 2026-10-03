@@ -503,7 +503,7 @@ Evidence and modern guidance consistently point to several factors:
 - polypharmacy;
 - inconsistent dosing or repeated stop-start cycles [1,4-6,17,39,40].
 
-No risk factor guarantees severe withdrawal, and the absence of one does not guarantee a painless taper.
+No single predictor determines whether withdrawal will become severe, and the absence of recognized predictors does not guarantee a painless taper.
 
 ## When outpatient tapering may not be enough
 
