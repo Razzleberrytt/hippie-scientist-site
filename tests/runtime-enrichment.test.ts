@@ -135,6 +135,8 @@ describe('manifest-backed additive enrichment ledgers', () => {
     expect(parser).toContain('expected_prior_evidence')
     expect(parser).toContain('enrichment source correction prior identity mismatch')
     expect(parser).toContain('expected_prior_identity')
+    expect(parser).toContain('reviewed enrichment evidence revision is missing revision_reason')
+    expect(parser).toContain('reviewed_revision')
   })
 
   it('exports enrichment certainty and safety caveats into public claim rows', () => {
@@ -275,6 +277,21 @@ describe('manifest-backed additive enrichment ledgers', () => {
 
     expect(enriched.Sheets.Evidence_Register.length - raw.getSheetData('Evidence_Register').length)
       .toBe(expectedEvidence)
+
+    const enrichedEvidenceByKey = new Map(
+      enriched.Sheets.Evidence_Register.map((row: any) => [evidenceKey(row), row]).filter(([key]) => Boolean(key)),
+    )
+    for (const row of ledger.evidence.filter((value: any) => value.reviewed_revision)) {
+      const key = evidenceKey(row)
+      if (!key) continue
+      const resolved: any = enrichedEvidenceByKey.get(key)
+      expect(resolved, `missing reviewed revision ${row.record_id}`).toBeTruthy()
+      expect(String(resolved.record_id || '').trim()).toBe(String(row.record_id || '').trim())
+      expect(String(resolved.supported_claim_language || resolved.claim || '').trim())
+        .toBe(String(row.supported_claim_language || row.claim || '').trim())
+      expect(String(resolved.evidence_grade || '').trim()).toBe(String(row.evidence_grade || '').trim())
+      expect(String(resolved.safety_note || '').trim()).toBe(String(row.safety_note || '').trim())
+    }
     expect(enriched.Sheets.Source_Register.length - raw.getSheetData('Source_Register').length)
       .toBe(expectedSources)
 
