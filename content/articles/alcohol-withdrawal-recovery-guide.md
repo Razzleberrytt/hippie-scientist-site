@@ -567,7 +567,7 @@ Phenobarbital has gained substantial attention in emergency and critical-care wi
 
 The evidence is promising but mixed.
 
-A 2024 emergency-department systematic review and meta-analysis found no clear evidence that phenobarbital was uniformly superior to benzodiazepine-based treatment across major outcomes [11]. A 2026 meta-analysis of critically ill adults likewise did not find statistically significant differences in intubation or hospital length of stay between phenobarbital-based and benzodiazepine-based pathways, with considerable heterogeneity among nonrandomized studies [12].
+A 2024 emergency-department systematic review and meta-analysis found no clear evidence that phenobarbital was uniformly superior to benzodiazepine-based treatment across major outcomes [11]. A 2026 meta-analysis of critically ill adults likewise found no statistically significant overall difference in intubation or hospital length of stay; ICU length of stay was modestly shorter with phenobarbital-based pathways, while exploratory phenobarbital-first subgroup findings remained very low-certainty because the included studies were nonrandomized [12].
 
 ASAM supports phenobarbital as an alternative in selected cases and as an adjunct in severe or resistant withdrawal when clinicians are experienced with it and close monitoring is available [1].
 
