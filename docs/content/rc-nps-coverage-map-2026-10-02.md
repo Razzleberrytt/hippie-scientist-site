@@ -15,30 +15,40 @@
 ### Masterclass wave 1 — highest harm-reduction value
 
 - [x] Bromazolam — full monograph standard applied; 18-source classified reference ledger
-- [ ] Buzzers Cat's Claw / hidden opioids
-- [ ] Cat's Claw & Kava hidden-opioid market overview
-- [ ] 7-Hydroxymitragynine
-- [ ] MGM-15 / dihydro-7-hydroxymitragynine
-- [ ] MGM-16
-- [ ] Mitragynine pseudoindoxyl
-- [ ] Nitazene opioid family monograph
-- [ ] Protonitazene
-- [ ] Isotonitazene
-- [ ] Metonitazene
-- [ ] Orphine opioid family monograph
-- [ ] Cychlorphine
-- [ ] Designer benzodiazepine family monograph
-- [ ] Clonazolam
-- [ ] Flualprazolam
-- [ ] Flubromazolam
-- [ ] alpha-PVP
-- [ ] 3-MMC
-- [ ] 4-MMC / mephedrone
-- [ ] 5F-ADB / 5F-MDMB-PINACA
-- [ ] MDMB-4en-PINACA
-- [ ] O-PCE
-- [ ] 2F-DCK
-- [ ] 25I-NBOMe
+- [x] Buzzers Cat's Claw / hidden opioids — masterclass pass complete
+- [x] Cat's Claw & Kava hidden-opioid market overview — masterclass pass complete
+- [x] 7-Hydroxymitragynine — masterclass pass complete
+- [x] MGM-15 / dihydro-7-hydroxymitragynine — masterclass pass complete
+- [x] MGM-16 — sparse-human-evidence masterclass pass complete
+- [x] Mitragynine pseudoindoxyl — masterclass pass complete
+- [x] Nitazene opioid family monograph — masterclass pass complete
+- [x] Protonitazene — masterclass pass complete
+- [x] Isotonitazene — masterclass pass complete
+- [x] Metonitazene — masterclass pass complete
+- [x] Orphine opioid family monograph — masterclass pass complete
+- [x] Cychlorphine — masterclass pass complete
+- [x] Designer benzodiazepine family monograph — masterclass pass complete
+- [x] Clonazolam — masterclass pass complete
+- [x] Flualprazolam — masterclass pass complete
+- [x] Flubromazolam — masterclass pass complete
+- [x] alpha-PVP — masterclass pass complete
+- [x] 3-MMC — masterclass pass complete
+- [x] 4-MMC / mephedrone — masterclass pass complete
+- [x] 5F-ADB / 5F-MDMB-PINACA — masterclass pass complete
+- [x] MDMB-4en-PINACA — masterclass pass complete
+- [x] O-PCE — masterclass pass complete
+- [x] 2F-DCK — masterclass pass complete
+- [x] 25I-NBOMe — masterclass pass complete
+
+### Masterclass wave 1 audit result — complete
+
+- [x] **25/25 priority pages passed the structural module audit on 2026-10-02.**
+- [x] Every page now explicitly addresses or explicitly marks as not established: identity, history, pharmacology, metabolism/PK, human evidence, acute toxicity, fatalities where applicable, interactions, tolerance, dependence, withdrawal, treatment/support, testing/detection, forensic interpretation, legal status, myths, evidence gaps, and answer-engine questions.
+- [x] Thin baseline pages in this wave were replaced with reference-grade monographs rather than padded summaries.
+- [x] Evidence asymmetry is preserved: sparse-human-evidence compounds such as MGM-16 are not padded with borrowed claims from related drugs.
+- [x] Product pages keep laboratory-confirmed contents, public-health suspicion, label claims, and self-reported effects in separate evidence lanes.
+- [x] No consumer dose charts, potency-conversion tables, synthesis/sourcing instructions, test-evasion guidance, or DIY detox/induction protocols were introduced.
+- [ ] **Global RC/NPS masterclass program is not complete.** P0/P1 and remaining family/individual profiles below still require the next deep-upgrade waves.
 
 **Wave-1 acceptance rule:** each page must address identity, history, pharmacology, metabolism/PK, human evidence, acute toxicity, fatalities where applicable, interactions, tolerance, physical dependence, withdrawal, addiction/use-disorder education, treatment/support, testing/detection, counterfeit or product-identity risk, forensic interpretation, dated legal/regulatory status, myths, evidence gaps, FAQs, and a dense primary-source reference ledger. Sections may be explicitly marked "not established" when the evidence does not exist.
 
