@@ -23,7 +23,7 @@
       "ops/enrichment-submissions/reconciliation/2026-10-03-enrichment-waves-101-300.md",
       "ops/enrichment-submissions/reconciliation/2026-10-03-waves-101-300-pmid-revalidation.json"
     ],
-    "review_note": "Eight 25-finding passes completed before full validation. The research corpus contains 200 completed waves. Final admission audit pruned two evidence rows already covered by canonical/earlier enrichment (PMIDs 42261369 and 39504621) and three duplicate source identities (those two plus PMID 41082950). The runtime ledger therefore contains 10 net-new reader-ready evidence additions and 9 net-new source identities; the Boswellia PMID 41082950 evidence reuses its already-admitted source."
+    "review_note": "Eight 25-finding passes completed before full validation. The research corpus contains 200 completed waves. Final admission audit pruned two evidence rows already covered by canonical/earlier enrichment (PMIDs 42261369 and 39504621) and three duplicate source identities (those two plus PMID 41082950). The runtime ledger therefore contains 10 net-new reader-ready evidence additions and 9 net-new source identities; the Boswellia PMID 41082950 evidence reuses its already-admitted source. The Boswellia PMID 41082950 evidence row retains direct PMID/DOI provenance without a local source_id pointer because that source identity is already admitted by an earlier batch."
   },
   "counts": {
     "entity_context_rows": 0,
@@ -49,8 +49,8 @@
   },
   "ledger": {
     "file": "2026-10-03-enrichment-waves-101-300.json",
-    "sha256": "f7f803821d303371da92f61b4f0751c97a401b3bd82164fae315d9e9727a8b02",
-    "bytes": 21236
+    "sha256": "15ed4ca1b23fcc9a37b6e152792bd899015f033d6f515c52948d432b83af7eee",
+    "bytes": 21200
   },
   "admission": {
     "evidence_additions": 10,
