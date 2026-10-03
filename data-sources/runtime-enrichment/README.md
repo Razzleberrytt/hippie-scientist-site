@@ -140,22 +140,6 @@ Canonical materialization receipt: PR #6022 committed the reviewed workbook and 
 
 Tracking: enrichment batching `#6198`; 50-wave follow-on planning `#6200`; canonical citation-integrity repairs `#6197` (magnesium) and `#6201` (taurine/citrulline-malate).
 
-## Oct. 2 research enrichment Waves 51–100
-
-- Ledger: `2026-10-02-enrichment-waves-51-100.json`
-- Manifest: `2026-10-02-enrichment-waves-51-100-manifest.json`
-- 50 additional enrichment waves staged after merged Waves 1–50
-- 50 research/reconciliation waves are complete; final publication-quality review admits 30 reader-ready evidence rows and 30 matching source identities to runtime
-- 0 entity-context rows and 0 relationships
-- 49 receipt-only rows are retained in the research selection/journal but withheld from runtime until their population, preparation/comparator, duration, and conclusion fields are materialized as source-specific reader-ready evidence
-- Reuses vetted Batch 23 reconciliation research plus two vetted Sage human-evidence receipts
-- Excludes a duplicate Saw Palmetto receipt sharing PMID `17556649`, elderberry PMID `30670267` already present in public claims, noncanonical Pelargonium PMID `19435703`, and Rhodiola PMID `41080184` after the admission audit confirmed that identity was already canonical
-- Coverage includes depression/interaction safety, menopause, UTI prevention, respiratory infections, cognition, fatigue/performance, sexual function, lactation, glycemia, blood pressure, metabolic biomarkers, osteoarthritis, and liver safety
-- Null/insufficient findings, species/formulation boundaries, prevention-vs-treatment distinctions, surrogate-outcome limits, and interaction/safety context remain first-class
-- 30 reviewed receipts recovered from overlapping 71–100 mini-batches were folded into this authoritative ledger; six already-canonical identities were then removed by the admission audit, preserving 24 additional net-new supplemental receipts
-- Full repository verification runs once on the consolidated exact head
-
-
 ## Regression contract
 
 `tests/runtime-enrichment.test.ts` validates every manifest-backed batch, verifies each digest before decoding, checks reviewed counts, requires globally unique evidence record IDs, allows repeat source identities to deduplicate deterministically across batches, enforces the entity-context allowlist, verifies virtual-workbook growth, and prevents every medication batch from carrying publication/governance fields.
