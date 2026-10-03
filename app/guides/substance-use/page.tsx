@@ -38,6 +38,11 @@ export const metadata: Metadata = {
 
 const START_HERE = [
   {
+    href: '/articles/opioid-withdrawal-recovery-comparison/',
+    title: 'Opioid Withdrawal & Recovery',
+    desc: 'Flagship comparison of withdrawal biology, heroin/fentanyl/prescription-opioid differences, methadone and buprenorphine, atypical opioid-active drugs, treatment evidence, recovery, and overdose risk after tolerance falls.',
+  },
+  {
     href: '/articles/mitragynine/',
     title: 'Mitragynine',
     desc: 'The main kratom alkaloid: pharmacology, human data, metabolism, safety, and what evidence does and does not support.',
@@ -217,7 +222,7 @@ export default function SubstanceUseHub() {
             These pages have the strongest combination of human relevance, current reader demand, and direct dependence or opioid-pharmacology questions.
           </p>
         </div>
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {START_HERE.map((item) => <Card key={item.href} {...item} />)}
         </div>
       </section>
