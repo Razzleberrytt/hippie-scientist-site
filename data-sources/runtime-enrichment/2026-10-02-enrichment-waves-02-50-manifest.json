@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-02-enrichment-waves-02-50",
+  "generated_from": {
+    "input_files": [
+      "ops/enrichment-submissions/reconciliation/2026-09-06-full-corpus-inventory.md",
+      "ops/enrichment-submissions/reconciliation/2026-09-06-enrichment-batch-20.md",
+      "ops/enrichment-submissions/reconciliation/2026-09-10-enrichment-batch-24.md",
+      "ops/enrichment-submissions/reconciliation/2026-09-10-enrichment-batch-25.md",
+      "existing site article/reference research"
+    ],
+    "review_note": "Batch-first structured research promotion across Waves 02-50. Findings preserve null/mixed outcomes, formulation/species/population boundaries, safety signals, retractions, biomarker-vs-clinical distinctions, and uncertainty. Repository-wide verification intentionally deferred until the complete 50-wave batch is assembled."
+  },
+  "counts": {
+    "entity_context_rows": 0,
+    "evidence_rows": 119,
+    "source_rows": 91,
+    "relationship_rows": 0,
+    "evidence_rows_after_canonical_dedupe": 119,
+    "source_rows_after_batch_identity_dedupe": 91,
+    "live_relationship_rows_new_after_dedupe": 0
+  },
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden",
+    "evidence_merge": "append-only; evidence IDs unique; sources deduplicated by PMID/DOI/title identity",
+    "source_policy": "docs/enrichment-source-policy.md",
+    "claim_calibration": "preserve nulls, mixed findings, retractions, certainty, risk-of-bias, heterogeneity, endpoint discordance, species/formulation identity, and population boundaries; trial exposure is research context rather than consumer dosing advice"
+  },
+  "ledger": {
+    "file": "2026-10-02-enrichment-waves-02-50.json",
+    "sha256": "b78a5876ef232d25b5591a50c3b5e94737372127d5d4c3821fc7b42aaa0c38cc",
+    "bytes": 178287
+  }
+}
