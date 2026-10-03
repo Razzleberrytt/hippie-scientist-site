@@ -201,6 +201,8 @@ function readEnrichmentLedger() {
     for (const key of ENRICHMENT_ARRAY_KEYS) merged[key].push(...parsed[key])
   }
 
+  merged.evidence = applyEvidenceCorrections(merged.evidence)
+
   const seenEvidenceIds = new Set()
   for (const row of merged.evidence) {
     const recordId = clean(row.record_id)
@@ -229,6 +231,67 @@ function evidenceKey(row) {
     .toLowerCase()
   const source = pmid ? `pmid:${pmid}` : doi ? `doi:${doi}` : title ? `title:${title}` : ''
   return entity && source ? `${entity}|${source}` : ''
+}
+
+
+function applyEvidenceCorrections(rows) {
+  const resolved = []
+  const indexByEvidenceKey = new Map()
+
+  for (const rawRow of rows) {
+    const key = evidenceKey(rawRow)
+    const correctionTarget = clean(rawRow?.corrects_evidence_key)
+
+    if (!correctionTarget) {
+      if (key) indexByEvidenceKey.set(key, resolved.length)
+      resolved.push(rawRow)
+      continue
+    }
+
+    if (!key || key !== correctionTarget) {
+      throw new Error(
+        '[workbook-parser] enrichment evidence correction must preserve evidence identity key: ' +
+        (key || '(blank)') + ' -> ' + correctionTarget,
+      )
+    }
+
+    const index = indexByEvidenceKey.get(correctionTarget)
+    if (index === undefined) {
+      throw new Error(
+        '[workbook-parser] enrichment evidence correction target was not loaded earlier: ' +
+        correctionTarget,
+      )
+    }
+
+    const prior = resolved[index]
+    const expected = rawRow?.expected_prior_evidence
+    if (!expected || typeof expected !== 'object' || Array.isArray(expected)) {
+      throw new Error(
+        '[workbook-parser] enrichment evidence correction is missing expected_prior_evidence: ' +
+        correctionTarget,
+      )
+    }
+
+    for (const field of ['entity_slug', 'pmid', 'doi']) {
+      const expectedValue = clean(expected[field]).toLowerCase()
+      if (!expectedValue) continue
+      if (clean(prior?.[field]).toLowerCase() !== expectedValue) {
+        throw new Error(
+          '[workbook-parser] enrichment evidence correction prior identity mismatch for ' +
+          correctionTarget + '.' + field,
+        )
+      }
+    }
+
+    const replacement = { ...rawRow }
+    delete replacement.corrects_evidence_key
+    delete replacement.expected_prior_evidence
+    delete replacement.correction_reason
+    resolved[index] = replacement
+    indexByEvidenceKey.set(key, index)
+  }
+
+  return resolved
 }
 
 function sourceKey(row) {
