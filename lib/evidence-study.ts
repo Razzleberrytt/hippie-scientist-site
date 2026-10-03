@@ -51,6 +51,8 @@ export type EvidenceStudyRecord = {
   ingredients?: string[]
   conditions?: string[]
   safetyOutcome?: string
+  evidenceGrade?: string
+  safetyNote?: string
 }
 
 export type EvidenceStudyClassDefinition = {
