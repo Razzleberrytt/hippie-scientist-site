@@ -12,6 +12,37 @@
 - [ ] Toxicology/testing/forensic-interpretation pass complete
 - [ ] Final cross-link / answer-engine pass complete
 
+### Masterclass wave 1 — highest harm-reduction value
+
+- [x] Bromazolam — full monograph standard applied; 18-source classified reference ledger
+- [ ] Buzzers Cat's Claw / hidden opioids
+- [ ] Cat's Claw & Kava hidden-opioid market overview
+- [ ] 7-Hydroxymitragynine
+- [ ] MGM-15 / dihydro-7-hydroxymitragynine
+- [ ] MGM-16
+- [ ] Mitragynine pseudoindoxyl
+- [ ] Nitazene opioid family monograph
+- [ ] Protonitazene
+- [ ] Isotonitazene
+- [ ] Metonitazene
+- [ ] Orphine opioid family monograph
+- [ ] Cychlorphine
+- [ ] Designer benzodiazepine family monograph
+- [ ] Clonazolam
+- [ ] Flualprazolam
+- [ ] Flubromazolam
+- [ ] alpha-PVP
+- [ ] 3-MMC
+- [ ] 4-MMC / mephedrone
+- [ ] 5F-ADB / 5F-MDMB-PINACA
+- [ ] MDMB-4en-PINACA
+- [ ] O-PCE
+- [ ] 2F-DCK
+- [ ] 25I-NBOMe
+
+**Wave-1 acceptance rule:** each page must address identity, history, pharmacology, metabolism/PK, human evidence, acute toxicity, fatalities where applicable, interactions, tolerance, physical dependence, withdrawal, addiction/use-disorder education, treatment/support, testing/detection, counterfeit or product-identity risk, forensic interpretation, dated legal/regulatory status, myths, evidence gaps, FAQs, and a dense primary-source reference ledger. Sections may be explicitly marked "not established" when the evidence does not exist.
+
+
 
 Purpose: maintain one durable safety-first inventory for research chemicals and adjacent gray-market products. Community/forum discussion is used only to discover names and reader questions. Scientific claims must come from analytical testing, poison-center data, clinical/forensic toxicology, peer-reviewed pharmacology, or primary regulatory sources.
 
