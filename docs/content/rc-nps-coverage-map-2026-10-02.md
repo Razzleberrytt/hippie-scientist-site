@@ -121,8 +121,8 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 - [ ] Chlorphine
 - [ ] Spirochlorphine
 - [ ] Spirobrorphine
-- [ ] 2-Methyl-AP-237
-- [ ] U-47700 / related U-series opioids
+- [x] 2-Methyl-AP-237 — /articles/2-methyl-ap-237/ — masterclass audit passed
+- [x] U-47700 / related U-series opioids — /articles/u-47700/ — U-47700 masterclass audit passed
 - [ ] O-desmethyltramadol (ODSMT) — only if framed separately from approved-drug metabolism
 
 ### Dissociatives
@@ -273,6 +273,8 @@ P1 — completed on branch:
 - [x] MDPiHP — emerging-evidence masterclass pass complete
 - [ ] Remaining high-risk P2 profiles — prioritize existing pages with human toxicology/forensic evidence before creating new routes
 - [ ] Wave 3 structural audit
+- [x] 2-Methyl-AP-237 / AP-238 — existing monograph audit passed
+- [x] U-47700 — existing monograph audit passed
 - [x] 2-MMC — masterclass pass complete
 - [x] 3-CMC — masterclass pass complete
 
