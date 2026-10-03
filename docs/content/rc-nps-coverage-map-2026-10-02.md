@@ -269,6 +269,9 @@ P1 — completed on branch:
 
 ### Masterclass wave 3 — active
 
+- [x] Metizolam — full masterclass pass complete; human metabolism + 2026 DFSA evidence preserved without potency overreach
+- [x] Phenazepam — full masterclass pass complete; human DUID, prolonged-toxicity, fatality and 2016 international-control evidence integrated
+- [x] Meclonazepam — full masterclass pass complete; antiparasitic history, human metabolite work and STRIDA intoxication evidence integrated
 - [x] MDPHP — masterclass pass complete
 - [x] MDPiHP — emerging-evidence masterclass pass complete
 - [ ] Remaining high-risk P2 profiles — prioritize existing pages with human toxicology/forensic evidence before creating new routes
@@ -284,6 +287,8 @@ P1 — completed on branch:
 - [x] 3-CMC — masterclass pass complete
 
 P2:
+- [x] Existing evidence-bearing RC-benzo batch 1: metizolam, phenazepam, meclonazepam upgraded in place on 2026-10-03.
+- [ ] Continue auditing existing evidence-bearing profiles before creating new low-evidence routes.
 - lower-prevalence, historical, or poorly sourced names remain in discovery until forensic/clinical evidence supports a useful page.
 
 ## Product-evidence rule
