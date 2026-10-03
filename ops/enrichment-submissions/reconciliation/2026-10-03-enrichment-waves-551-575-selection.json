@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-551-575-selection",
+  "continuation_of": "2026-10-03-enrichment-waves-526-550-selection",
+  "program": {
+    "range": "501-700",
+    "pass_size": 25,
+    "target_findings": 200,
+    "progress_after_pass": 75,
+    "merge_policy": "accumulate eight 25-finding passes; consolidate, admit, validate, and merge once after 200"
+  },
+  "source_provenance": [
+    "public/data/claims.json",
+    "PubMed-indexed human evidence verified 2026-10-03"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 700 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "legacy_evidence_requires_current_context": true,
+    "validation_strategy": "cheap duplicate/entity/source screening during authoring; expensive repository-wide validation only after Wave 700"
+  },
+  "waves": [
+    {
+      "wave": 551,
+      "entity_slug": "ginger",
+      "pmid": "12542115",
+      "focus": "Legacy randomized human nausea evidence; retain indication, pregnancy/clinical context if applicable, formulation and comparator boundaries.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 552,
+      "entity_slug": "vitamin-b12",
+      "pmid": "16549418",
+      "focus": "Legacy randomized human fatigue evidence; preserve baseline B12 status and deficiency-vs-nondeficiency boundaries.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 553,
+      "entity_slug": "l-theanine",
+      "pmid": "16930802",
+      "focus": "Legacy randomized human stress-response evidence; acute/chronic exposure and healthy-population boundaries remain explicit.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 554,
+      "entity_slug": "bcaas",
+      "pmid": "17095909",
+      "focus": "Legacy randomized exercise-performance evidence; preserve training context, outcome type and comparator.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 555,
+      "entity_slug": "bromelain",
+      "pmid": "17121765",
+      "focus": "Legacy randomized pilot evidence for inflammatory/pain outcomes; preparation, co-intervention and small-sample limits retained.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 556,
+      "entity_slug": "iron",
+      "pmid": "17344500",
+      "focus": "Legacy randomized cognition evidence; iron status, deficiency risk and population boundaries are essential.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 557,
+      "entity_slug": "glucosamine",
+      "pmid": "17470980",
+      "focus": "Legacy large randomized osteoarthritis evidence with mixed symptomatic outcomes; formulation-specificity retained.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 558,
+      "entity_slug": "nac",
+      "pmid": "17507892",
+      "focus": "Legacy randomized oxidative-stress evidence; clinical context and biomarker-vs-clinical endpoint distinction retained.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 559,
+      "entity_slug": "white-kidney-bean-extract",
+      "pmid": "17658120",
+      "focus": "Legacy limited randomized weight/metabolic evidence; proprietary preparation and short-duration boundaries retained.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 560,
+      "entity_slug": "maca",
+      "pmid": "18072817",
+      "focus": "Legacy randomized libido/energy evidence; sex, population and preparation boundaries retained.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 561,
+      "entity_slug": "l-theanine",
+      "pmid": "18296328",
+      "focus": "Legacy randomized anxiety-score evidence; small-trial, population and dosing-context boundaries retained.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 562,
+      "entity_slug": "berberine",
+      "pmid": "18442638",
+      "focus": "Legacy randomized metabolic-marker evidence; disease population and comparator boundaries retained.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 563,
+      "entity_slug": "omega-3",
+      "pmid": "18497367",
+      "focus": "Legacy randomized triglyceride evidence; EPA/DHA composition and baseline triglyceride status remain attached.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 564,
+      "entity_slug": "passionflower",
+      "pmid": "18499602",
+      "focus": "Legacy randomized anxiety evidence; extract identity, comparator and short-duration limits retained.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 565,
+      "entity_slug": "bacopa",
+      "pmid": "18611150",
+      "focus": "Legacy randomized memory evidence; extract identity, chronic exposure and cognitive-domain boundaries retained.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 566,
+      "entity_slug": "caffeine-l-theanine",
+      "pmid": "18681988",
+      "focus": "Legacy randomized focus/energy evidence; combination-only evidence cannot be attributed to caffeine or L-theanine alone.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 567,
+      "entity_slug": "iron",
+      "pmid": "18711167",
+      "focus": "Legacy randomized energy/blood-health evidence; baseline iron status and deficiency context retained.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 568,
+      "entity_slug": "glucomannan",
+      "pmid": "18842808",
+      "focus": "Legacy randomized weight/gut-health evidence; formulation, energy-intake context and mixed weight outcomes retained.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 569,
+      "entity_slug": "lions-mane",
+      "pmid": "18844328",
+      "focus": "Legacy small randomized cognition evidence; species/product identity and small-sample limits retained.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 570,
+      "entity_slug": "vitamin-c",
+      "pmid": "19147492",
+      "focus": "Legacy randomized fatigue evidence; baseline vitamin-C status and clinical context retained.",
+      "state": "legacy_rct_reconciliation_pending_final_admission"
+    },
+    {
+      "wave": 571,
+      "entity_slug": "lavender",
+      "pmid": "40600743",
+      "focus": "2026 systematic review/meta-analysis of lavender essential oil for adult sleep; essential-oil route is separate from oral Silexan or generic lavender exposure.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 572,
+      "entity_slug": "saffron",
+      "pmid": "41693488",
+      "focus": "2026 GRADE-assessed meta-analysis of 34 RCTs for depression/anxiety/mood; large heterogeneity means pooled benefits require certainty and scale-specific calibration.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 573,
+      "entity_slug": "glucosamine",
+      "pmid": "42643227",
+      "focus": "2026 umbrella review for knee osteoarthritis; integrates conflicting review-level efficacy, formulation differences and safety rather than assuming class-wide benefit.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 574,
+      "entity_slug": "chamomile",
+      "pmid": "39106912",
+      "focus": "2024 sleep systematic review/meta-analysis; PSQI improved but heterogeneity was very high, while daytime function and sleep efficiency were largely null/mixed.",
+      "state": "review_ready_for_final_admission"
+    },
+    {
+      "wave": 575,
+      "entity_slug": "lions-mane",
+      "pmid": "40959699",
+      "focus": "2025 systematic review combining a small human RCT/pilot evidence base with extensive preclinical literature; human cognition claims must remain separated from laboratory mechanisms.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    }
+  ]
+}
