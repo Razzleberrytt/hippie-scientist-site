@@ -7,24 +7,20 @@
       "governed enrichment/reconciliation corpus",
       "current PubMed-indexed systematic reviews, meta-analyses, randomized trials, and safety reviews"
     ],
-    "review_note": "Second batch-first structured research enrichment program covering Waves 51-100. Findings preserve null/mixed outcomes, formulation/species/strain identity, deficiency/population boundaries, interaction and toxicity signals, citation mismatches, surrogate-vs-clinical distinctions, product-specific evidence, and targeted reviewed same-source corrections."
+    "review_note": "Second batch-first structured research enrichment program covering Waves 51-100. The batch contains 79 net-new evidence rows plus 6 reviewed same-identity evidence corrections; duplicate source identities already present before this batch were removed. Findings preserve null/mixed outcomes, formulation/species/strain identity, deficiency/population boundaries, safety/interaction signals, citation integrity, and product-specific evidence."
   },
   "counts": {
     "entity_context_rows": 0,
     "evidence_rows": 85,
-    "source_rows": 84,
-    "relationship_rows": 0,
-    "source_rows_after_batch_identity_dedupe": 84,
-    "live_relationship_rows_new_after_dedupe": 0,
-    "reviewed_correction_rows": 6,
-    "estimated_net_new_evidence_rows_against_current_claims": 79
+    "source_rows": 78,
+    "relationship_rows": 0
   },
   "wave_coverage": {
     "first_wave": 51,
     "last_wave": 100,
     "completed_waves": 50,
     "evidence_records": 85,
-    "unique_source_records": 84
+    "unique_source_records": 78
   },
   "policy": {
     "entity_creation": "forbidden",
@@ -37,7 +33,13 @@
   },
   "ledger": {
     "file": "2026-10-03-enrichment-waves-51-100.json",
-    "sha256": "313b4fa619b7a5deaecd4c7a7465ea391b0b25580f9aa3f3d18be0bf0b38758d",
-    "bytes": 155161
+    "sha256": "f45c0d80949db3592200d89d70c6204401c635834ddbcdaf95197292b72ac433",
+    "bytes": 150980
+  },
+  "admission": {
+    "evidence_additions": 79,
+    "evidence_corrections": 6,
+    "source_additions": 78,
+    "source_corrections": 0
   }
 }
