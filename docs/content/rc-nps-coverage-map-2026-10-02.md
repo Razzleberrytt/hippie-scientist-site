@@ -1,5 +1,18 @@
 # RC / NPS coverage map — 2026-10-02
 
+> **Status semantics changed:** a checked box below means the canonical route/article exists and has baseline evidence coverage. It does **not** mean the article has passed the Masterclass Monograph standard. All P0/P1 pages now require a second deep-upgrade pass under `docs/content/rc-nps-masterclass-monograph-standard.md`.
+
+## Masterclass upgrade status
+
+- [ ] P0 masterclass monographs complete
+- [ ] P1 masterclass monographs complete
+- [ ] Dependence/withdrawal/addiction-support pass complete
+- [ ] History/legal/regulatory pass complete
+- [ ] Primary-source/PMID reference-density pass complete
+- [ ] Toxicology/testing/forensic-interpretation pass complete
+- [ ] Final cross-link / answer-engine pass complete
+
+
 Purpose: maintain one durable safety-first inventory for research chemicals and adjacent gray-market products. Community/forum discussion is used only to discover names and reader questions. Scientific claims must come from analytical testing, poison-center data, clinical/forensic toxicology, peer-reviewed pharmacology, or primary regulatory sources.
 
 ## Editorial rules
