@@ -27,6 +27,17 @@ This journal records the batch-first enrichment pass requested for The Hippie Sc
 - Wave 20 — selenium Graves-orbitopathy condition-specific synthesis
 - Wave 21 — citicoline/CDP-choline cognition evidence with population boundaries
 
+- Wave 22 — phosphatidylserine age-related cognition evidence ceiling
+- Wave 23 — citrulline-malate performance effect + null exertion / low GRADE
+- Wave 24 — vitamin D cardiometabolic biomarkers + depression + cognition calibration
+- Wave 25 — beetroot/nitrate blood pressure + performance, nitrate-exposure firewall
+- Wave 26 — astaxanthin oxidative-marker synthesis with mostly-null endpoints
+- Wave 27 — spirulina CRP signal with null TNF-alpha/IL-6 counterweight
+- Wave 28 — curcumin osteoarthritis + metabolic-marker formulation boundaries
+- Wave 29 — garlic broad cardiometabolic synthesis + aged-garlic specific evidence/retraction firewall
+- Wave 30 — ginger low-certainty blood-pressure + migraine evidence
+- Wave 31 — olive leaf versus pomace cardiometabolic identity separation
+
 ## Batch rule
 
 No consumer dose recommendations are inferred from trial exposures. Combination products remain combination evidence. Biomarkers and surrogate outcomes remain distinct from clinical outcomes. Safety and null findings stay first-class records.
