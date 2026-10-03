@@ -4,8 +4,8 @@
   "program": {
     "range": "501-1000",
     "target_findings": 500,
-    "current_findings": 250,
-    "last_wave": 750
+    "current_findings": 275,
+    "last_wave": 775
   },
   "policy": "research authoring index only; not runtime admission",
   "waves": [
@@ -1758,6 +1758,181 @@
       "pmid": "37875614",
       "focus": "63-RCT postmenopausal BMD meta-analysis; pooled bone-density signals with major intervention, duration and population heterogeneity.",
       "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 751,
+      "entity_slug": "probiotics",
+      "pmid": "41827145",
+      "focus": "2026 IBS umbrella review of 27 systematic reviews; modest symptom signals but predominantly low/very-low certainty, high review overlap, and generally weak methodology.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 752,
+      "entity_slug": "probiotics",
+      "pmid": "40551240",
+      "focus": "2025 umbrella meta-analysis across gastrointestinal disorders; diarrhea/nausea/epigastric-pain/bloating signals remain disorder-, strain-, duration-, and formulation-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 753,
+      "entity_slug": "constipation-dietary-management",
+      "pmid": "40888045",
+      "focus": "2025 evidence review of chronic-constipation diet/supplement strategies; psyllium, specific probiotics, magnesium oxide and selected foods show differing evidence strength, not category equivalence.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 754,
+      "entity_slug": "constipation-supplements",
+      "pmid": "37243443",
+      "focus": "Systematic review/meta-analysis of food/vitamin/mineral supplements for chronic constipation; magnesium oxide improved several outcomes while senna/kiwifruit evidence was limited by few trials.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 755,
+      "entity_slug": "probiotics-diet-ibs",
+      "pmid": "39862384",
+      "focus": "2025 network meta-analysis comparing probiotics, dietary management and combinations in IBS; indirect rankings and heterogeneous interventions remain research-only.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 756,
+      "entity_slug": "herbal-functional-dyspepsia",
+      "pmid": "34851546",
+      "focus": "49-RCT/6,987-participant meta-analysis of herbal therapies for functional dyspepsia; broad category evidence requires product-level separation.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 757,
+      "entity_slug": "non-chinese-herbal-dyspepsia",
+      "pmid": "37323050",
+      "focus": "Cochrane review of non-Chinese herbal medicines for functional dyspepsia; individual botanicals showed mixed benefits/nulls and adverse-event differences, preventing a generic herbal claim.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 758,
+      "entity_slug": "probiotics",
+      "pmid": "38446227",
+      "focus": "13-RCT/930-participant ulcerative-colitis meta-analysis; active-disease remission signal did not reach significance, maintenance/response/mucosal healing were null, while relapse prevention in remission showed benefit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 759,
+      "entity_slug": "gerd-diet-nutraceuticals",
+      "pmid": "36513474",
+      "focus": "Systematic review/meta-analysis of dietary, nutraceutical and probiotic GERD interventions; evidence was sparse and highly heterogeneous, with only selected interventions showing signals.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 760,
+      "entity_slug": "curcumin",
+      "pmid": "39612780",
+      "focus": "Updated placebo-controlled RCT meta-analysis of curcumin adjunctive therapy in IBD; UC response/remission signals with heterogeneity, but Crohn disease outcomes were not superior to placebo.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 761,
+      "entity_slug": "probiotics",
+      "pmid": "35745212",
+      "focus": "Ten-RCT/757-participant IBS-C meta-analysis; stool consistency and fecal bacterial counts improved, while abdominal pain, bloating, quality of life and adverse events were null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 762,
+      "entity_slug": "probiotics",
+      "pmid": "37541528",
+      "focus": "Large 82-RCT/10,332-participant IBS meta-analysis; effects differed materially by strain and outcome, with certainty ranging from moderate to very low.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 763,
+      "entity_slug": "probiotics",
+      "pmid": "38479936",
+      "focus": "2024 20-study/3,011-participant IBS meta-analysis; global symptom and quality-of-life signals remain limited by heterogeneous probiotic formulations.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 764,
+      "entity_slug": "pro-pre-synbiotics",
+      "pmid": "37995508",
+      "focus": "2024 network meta-analysis of adjunctive probiotic/prebiotic/synbiotic formulations in mild-moderate UC; formulation rankings are indirect and disease-specific.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 765,
+      "entity_slug": "probiotics",
+      "pmid": "37686889",
+      "focus": "81-RCT/9,253-participant IBS network meta-analysis; apparent strain/mixture rankings are outcome-specific and not direct head-to-head proof.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 766,
+      "entity_slug": "siho-sogan-san",
+      "pmid": "37127143",
+      "focus": "12-study/867-participant functional-dyspepsia meta-analysis; traditional multi-herb formula evidence remains formula- and comparator-specific.",
+      "state": "research_only_product_level"
+    },
+    {
+      "wave": 767,
+      "entity_slug": "probiotics",
+      "pmid": "39106167",
+      "focus": "2024 IBD overview plus updated RCT meta-analysis; benefit appeared more consistent in UC/pouchitis than Crohn disease, with low overall certainty.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 768,
+      "entity_slug": "uc-dietary-supplements-network",
+      "pmid": "42100281",
+      "focus": "2026 24-RCT/1,491-participant UC network meta-analysis across 14 dietary supplements; efficacy rankings remain indirect, outcome-specific and limited by trial number/quality.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 769,
+      "entity_slug": "curcumin",
+      "pmid": "40196017",
+      "focus": "2025 13-placebo-controlled-RCT IBD meta-analysis; adjunctive curcumin improved selected UC outcomes but not Crohn clinical/endoscopic remission.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 770,
+      "entity_slug": "probiotics",
+      "pmid": "36831029",
+      "focus": "33-study/2,713-participant IBD systematic review; probiotic benefit was more consistent for UC than Crohn disease, with formulation-specific differences.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 771,
+      "entity_slug": "microbiome-targeted-ibd",
+      "pmid": "39482823",
+      "focus": "2024 network meta-analysis of prebiotics/probiotics/synbiotics/FMT as IBD adjuncts; intervention-class and disease-type distinctions remain explicit.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 772,
+      "entity_slug": "probiotics",
+      "pmid": "41029747",
+      "focus": "2025 umbrella meta-analysis of IBD relapse/recurrence/remission; relapse signal versus placebo but not mesalazine, and no consistent remission benefit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 773,
+      "entity_slug": "plant-derived-ibs",
+      "pmid": "41599795",
+      "focus": "2026 review positioning plant-derived IBS treatments against guideline evidence; peppermint oil has the most consistent botanical support while many other extracts are mixed/null.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 774,
+      "entity_slug": "probiotics-gi-qol",
+      "pmid": "39371511",
+      "focus": "2024 systematic review of probiotic effects on quality of life across GI diseases; disease, strain, and QoL instrument heterogeneity prevent a general probiotic QoL claim.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 775,
+      "entity_slug": "functional-dyspepsia-nutraceuticals",
+      "pmid": "41936486",
+      "focus": "2026 narrative evidence synthesis of diet/nutraceutical approaches in functional dyspepsia; peppermint-caraway, ginger, STW-5, curcumin and selected probiotics remain product/phenotype specific.",
+      "state": "research_only_evidence_quality"
     }
   ]
 }
