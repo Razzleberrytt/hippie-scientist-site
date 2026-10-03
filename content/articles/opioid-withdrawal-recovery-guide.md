@@ -67,8 +67,8 @@ references:
     pmid: "39657683"
     url: "https://pubmed.ncbi.nlm.nih.gov/39657683/"
   - title: "Dependence, withdrawal and rebound of CNS drugs: an update and regulatory considerations for new drugs development"
-    authors: "Reidenberg MM, et al."
-    year: "2020"
+    authors: "Lerner A, Klein M"
+    year: "2019"
     pmid: "32954266"
     url: "https://pubmed.ncbi.nlm.nih.gov/32954266/"
   - title: "Protracted renal clearance of fentanyl in persons with opioid use disorder"
@@ -203,6 +203,35 @@ references:
     authors: "World Health Organization"
     year: "2026"
     url: "https://www.who.int/news/item/02-04-2026-who-updates-guidelines-on-opioid-dependence-treatment-and-overdose-prevention"
+  - title: "Post-acute Withdrawal Syndrome"
+    authors: "Case report and literature review"
+    year: "2023"
+    pmid: "36731102"
+    url: "https://pubmed.ncbi.nlm.nih.gov/36731102/"
+  - title: "Sleep disturbance as a therapeutic target to improve opioid use disorder treatment"
+    authors: "Narrative review"
+    year: "2021"
+    pmid: "34110889"
+    url: "https://pubmed.ncbi.nlm.nih.gov/34110889/"
+  - title: "Treatment of Opioid Use Disorder Before, During, and After Pregnancy"
+    authors: "Centers for Disease Control and Prevention"
+    year: "2026"
+    url: "https://www.cdc.gov/opioid-use-during-pregnancy/treatment/"
+  - title: "Opioid withdrawal: role in addiction and neural mechanisms"
+    authors: "Review"
+    year: "2023"
+    pmid: "37162529"
+    url: "https://pubmed.ncbi.nlm.nih.gov/37162529/"
+  - title: "Hyperalgesia in Patients With a History of Opioid Use Disorder: A Systematic Review and Meta-Analysis"
+    authors: "Systematic review and meta-analysis"
+    year: "2024"
+    pmid: "39141367"
+    url: "https://pubmed.ncbi.nlm.nih.gov/39141367/"
+  - title: "Withdrawal Signs and Symptoms Among Patients Positive for Fentanyl With and Without Xylazine"
+    authors: "Alexander R, Agwuncha C, Wilson C, et al."
+    year: "2025"
+    pmid: "39629828"
+    url: "https://pubmed.ncbi.nlm.nih.gov/39629828/"
 ---
 
 ## Executive summary
@@ -241,7 +270,7 @@ This distinction matters because two people can experience similar withdrawal wh
 
 Most clinically important opioid withdrawal revolves around adaptation to **mu-opioid receptor (MOR)** signaling. Acute MOR activation suppresses neuronal excitability and neurotransmitter release in multiple brain and peripheral systems. With repeated exposure, the nervous system compensates. Intracellular signaling, noradrenergic tone, stress systems, reward circuitry, pain processing, gastrointestinal function, sleep regulation, and autonomic control all adapt to the continuing presence of the opioid [1,2,6].
 
-When opioid signaling suddenly falls, those compensatory systems are temporarily unopposed. A useful example is the noradrenergic system: rebound sympathetic activity contributes to sweating, anxiety, restlessness, tachycardia, elevated blood pressure, tremor, and other “revved up” features. This is one reason alpha-2 adrenergic agonists such as clonidine and lofexidine can reduce some withdrawal symptoms even though they do not treat the underlying OUD [3-5].
+When opioid signaling suddenly falls, those compensatory systems are temporarily unopposed. Modern neurobiological reviews emphasize that withdrawal involves interacting reward, stress, amygdala, mesolimbic, autonomic, and hormonal systems rather than one single “withdrawal center” [38]. A useful example is the noradrenergic system: rebound sympathetic activity contributes to sweating, anxiety, restlessness, tachycardia, elevated blood pressure, tremor, and other “revved up” features. This is one reason alpha-2 adrenergic agonists such as clonidine and lofexidine can reduce some withdrawal symptoms even though they do not treat the underlying OUD [3-5].
 
 The gastrointestinal tract also rebounds. Opioids suppress gut motility; withdrawal can produce cramping, nausea, vomiting, and diarrhea. Pain sensitivity may increase. Sleep becomes fragmented. Reward and stress circuits may remain dysregulated after the most obvious autonomic symptoms have faded, which helps explain why craving, low mood, sleep difficulty, and reduced stress tolerance can outlast the acute phase.
 
@@ -322,6 +351,12 @@ The evidence therefore supports two ideas at once:
 2. fear of precipitated withdrawal should not be turned into the claim that buprenorphine “does not work for fentanyl.”
 
 The correct implication is that fentanyl-era initiation requires individualized clinical assessment rather than rigid internet countdowns. ASAM's clinical considerations for high-potency synthetic opioid exposure likewise emphasize individualized initiation and stabilization strategies rather than one universal fentanyl protocol [31].
+
+### Xylazine is a different evidence problem from medetomidine
+
+Xylazine is another non-opioid alpha-2 adrenergic agonist detected in portions of the illicit fentanyl supply. Evidence for a distinct human xylazine-withdrawal syndrome remains less settled than many online descriptions imply. In a 2025 retrospective cohort of 71 fentanyl-positive patients receiving medically monitored withdrawal care, average COWS scores and heart rate did not significantly differ between patients with and without xylazine detected, although some blood-pressure and treatment-completion differences were observed [40].
+
+That does **not** prove xylazine cannot contribute to withdrawal. It shows that the clinical syndrome is not yet well defined. It should also not be conflated with the newer CDC-described **medetomidine** problem, where severe autonomic findings including hypertension and tachycardia prompted a specific 2026 health alert [29,30].
 
 ## Spontaneous withdrawal vs precipitated withdrawal
 
@@ -481,7 +516,7 @@ The visible autonomic syndrome often resolves before a person feels “normal.�
 
 ### Sleep
 
-Insomnia, fragmented sleep, restless sleep, and vivid dreams can persist after diarrhea, sweating, and acute pain have improved. Sleep disruption can amplify anxiety, pain sensitivity, irritability, and craving.
+Insomnia, fragmented sleep, restless sleep, and vivid dreams can persist after diarrhea, sweating, and acute pain have improved. A dedicated review of sleep in OUD describes clinically important links among poor sleep, stress reactivity, negative affect, pain, craving, and treatment outcomes [36]. Sleep disruption can therefore amplify anxiety, pain sensitivity, irritability, and craving rather than functioning as a trivial leftover symptom.
 
 ### Mood and stress tolerance
 
@@ -489,7 +524,7 @@ Dysphoria, anxiety, irritability, emotional flattening, and reduced stress toler
 
 ### Pain
 
-Pain can rebound after opioids are reduced. In some people this reflects recurrence of the original pain condition; in others withdrawal-associated hyperalgesia contributes. CDC notes that pain can temporarily worsen during opioid tapering and may diminish over time [15].
+Pain can rebound after opioids are reduced. In some people this reflects recurrence of the original pain condition; in others withdrawal-associated changes in pain sensitivity may contribute. CDC notes that pain can temporarily worsen during opioid tapering and may diminish over time [15]. A 2024 systematic review and meta-analysis found greater cold-pain sensitivity in people with a history of OUD than in controls, but could not establish that opioid exposure itself was the sole cause [39]. That uncertainty argues against labeling every pain flare “opioid-induced hyperalgesia” without considering the original pain disorder, sleep, mood, injury, and other causes.
 
 ### Gastrointestinal recovery
 
@@ -501,7 +536,7 @@ Craving is not evidence that “detox failed.” Learned cues, stress, reward ci
 
 ## Is “post-acute withdrawal syndrome” real?
 
-The phrase **post-acute withdrawal syndrome (PAWS)** is widely used, but it is less standardized scientifically than acute opioid withdrawal. Studies do describe prolonged craving, negative mood, sleep disturbance, and physiological changes after heroin cessation, and clinical experience clearly recognizes persistent symptoms in some patients.
+The phrase **post-acute withdrawal syndrome (PAWS)** is widely used, but it is less standardized scientifically than acute opioid withdrawal. A 2023 review emphasized that PAWS is under-researched, lacks accepted diagnostic criteria, and does not even have universally agreed terminology [35]. Studies do describe prolonged craving, negative mood, sleep disturbance, and physiological changes after opioid cessation, and clinical experience clearly recognizes persistent symptoms in some patients.
 
 What the evidence does **not** support is a universal internet timeline in which every person passes through fixed “day 30,” “day 60,” and “day 90” neurochemical stages.
 
@@ -554,7 +589,7 @@ Naloxone reverses opioid-induced respiratory depression. If someone is unrespons
 
 ## Pregnancy requires a different standard
 
-Pregnancy is not the setting for a casual detox plan. ACOG recommends opioid agonist pharmacotherapy—methadone or buprenorphine—for pregnant people with OUD and considers it preferable to medically supervised withdrawal because relapse rates after withdrawal are high and relapse can worsen maternal and fetal outcomes [19].
+Pregnancy is not the setting for a casual detox plan. ACOG recommends opioid agonist pharmacotherapy—methadone or buprenorphine—for pregnant people with OUD and considers it preferable to medically supervised withdrawal because relapse rates after withdrawal are high and relapse can worsen maternal and fetal outcomes [19]. CDC's May 2026 guidance likewise states that quickly stopping opioids during pregnancy is not recommended and identifies methadone and buprenorphine as recommended medications for OUD during pregnancy [37].
 
 Pregnancy also changes pharmacokinetics and clinical priorities. Anyone pregnant and experiencing opioid withdrawal, dependence, or OUD should receive coordinated obstetric and addiction care.
 
