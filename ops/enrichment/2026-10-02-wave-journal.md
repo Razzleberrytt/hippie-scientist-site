@@ -49,6 +49,20 @@ This journal records the batch-first enrichment pass requested for The Hippie Sc
 - Wave 40 — black-cohosh mixed menopause evidence + provenance-sensitive liver safety
 - Wave 41 — red-clover inconsistent vasomotor evidence / isoflavone-product boundary
 
+- Wave 42 — evening-primrose menopause/breast-pain limited-evidence boundary
+- Wave 43 — Boswellia osteoarthritis standardized-extract evidence
+- Wave 44 — oral aloe-vera glycemic evidence with preparation/safety boundary
+- Wave 45 — taurine cognition overall-null synthesis + source-identity guard
+- Wave 46 — Alpha-GPC small acute RCT + noncausal long-term stroke safety signal
+- Wave 47 — glycine 2026 three-trial sleep evidence ceiling + systematic-review context
+- Wave 48 — tryptophan endpoint-specific sleep synthesis + insomnia-guideline counterweight
+- Wave 49 — lemon-balm specialized-extract crossover signal + human-review evidence ceiling
+- Wave 50 — safety/integrity sweep: ashwagandha thyroid context + saffron adverse-event synthesis
+
 ## Batch rule
 
 No consumer dose recommendations are inferred from trial exposures. Combination products remain combination evidence. Biomarkers and surrogate outcomes remain distinct from clinical outcomes. Safety and null findings stay first-class records.
+
+## Wave 50 checkpoint
+
+Waves 1–50 are authored. Consolidation now means deduplication, source-identity repair/quarantine, manifest creation, and then one repository-wide verification pass.
