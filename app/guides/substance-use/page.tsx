@@ -14,7 +14,7 @@ import {
 const HUB_PATH = '/guides/substance-use'
 const HUB_TITLE = 'Substance Use, Dependence & Harm Reduction — Evidence Hub'
 const HUB_DESCRIPTION =
-  'Evidence-based guides on dependence, withdrawal, overdose risk, kratom-derived opioids, tianeptine, novel psychoactive substances, and harm-reduction research.'
+  'Evidence-based guides on dependence, withdrawal, overdose risk, kratom-derived opioids, research chemicals, tianeptine, novel psychoactive substances, and harm-reduction research.'
 const REVIEW_DATE = '2026-10-02'
 
 export const metadata: Metadata = {
@@ -148,6 +148,44 @@ const DESIGNER_BENZOS = [
   },
 ]
 
+const RESEARCH_CHEMICALS = [
+  {
+    href: '/articles/research-chemicals-nps-guide/',
+    title: 'Research Chemicals & NPS Evidence Map',
+    desc: 'A safety-first map of designer benzos, synthetic opioids, cathinones, dissociatives, psychedelics, synthetic cannabinoids, and benzofurans.',
+  },
+  {
+    href: '/articles/synthetic-cathinones-rc-stimulants/',
+    title: 'Synthetic Cathinones & RC Stimulants',
+    desc: 'NEP, alpha-PiHP and related stimulants: cardiovascular toxicity, psychosis, seizures, and compulsive-use risk.',
+  },
+  {
+    href: '/articles/rc-dissociatives-ketamine-pcp-analogues/',
+    title: 'RC Dissociatives',
+    desc: '2F-DCK, O-PCE, DCK, FXE, DMXE and PCP/PCE analogues, separated by the strength of their human evidence.',
+  },
+  {
+    href: '/articles/rc-psychedelics-tryptamines-lysergamides/',
+    title: 'RC Psychedelics',
+    desc: '1P-LSD, 4-AcO-DMT, 5-MeO-MiPT and other lysergamides/tryptamines, with pharmacology separated from real human evidence.',
+  },
+  {
+    href: '/articles/nitazene-opioids/',
+    title: 'Nitazene & Emerging Synthetic Opioids',
+    desc: 'Protonitazene, isotonitazene, cychlorphine and related opioids: overdose, naloxone, testing gaps, and rapidly changing markets.',
+  },
+  {
+    href: '/articles/synthetic-cannabinoids-spice/',
+    title: 'Synthetic Cannabinoids / Spice',
+    desc: 'MDMB-4en-PINACA, ADB-BUTINACA and related SCRAs: seizures, coma, psychosis, and hidden exposure in vapes or mislabeled products.',
+  },
+  {
+    href: '/articles/benzofurans-entactogens/',
+    title: 'Benzofurans & RC Entactogens',
+    desc: '6-APB, 5-MAPB and related serotonergic stimulants, with toxicity evidence and product-identity limits.',
+  },
+]
+
 const DEPENDENCE = [
   {
     href: '/guides/other/kratom-7oh-withdrawal-management/',
@@ -189,7 +227,7 @@ const EMERGING = [
   },
 ]
 
-const HUB_ITEMS = [...START_HERE, ...KRATOM_CLUSTER, ...PRODUCT_ALERTS, ...DESIGNER_BENZOS, ...DEPENDENCE, ...EMERGING]
+const HUB_ITEMS = [...START_HERE, ...KRATOM_CLUSTER, ...PRODUCT_ALERTS, ...DESIGNER_BENZOS, ...RESEARCH_CHEMICALS, ...DEPENDENCE, ...EMERGING]
 
 function Card({ href, title, desc }: { href: string; title: string; desc: string }) {
   return (
@@ -310,6 +348,19 @@ export default function SubstanceUseHub() {
         </div>
         <div className="grid gap-4 md:grid-cols-2">
           {DESIGNER_BENZOS.map((item) => <Card key={item.href} {...item} />)}
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <div className="max-w-3xl">
+          <p className="eyebrow-label">Research chemicals & broader NPS</p>
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink">Map the drug class before trusting the product name</h2>
+          <p className="mt-3 text-muted">
+            These pages cover the rest of the fast-moving RC market beyond benzodiazepines. Online discussion is used to spot emerging names, while analytical toxicology, clinical cases, poison-center data, and peer-reviewed pharmacology determine the conclusions.
+          </p>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2">
+          {RESEARCH_CHEMICALS.map((item) => <Card key={item.href} {...item} />)}
         </div>
       </section>
 
