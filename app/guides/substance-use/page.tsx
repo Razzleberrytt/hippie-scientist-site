@@ -15,7 +15,7 @@ const HUB_PATH = '/guides/substance-use'
 const HUB_TITLE = 'Substance Use, Dependence & Harm Reduction — Evidence Hub'
 const HUB_DESCRIPTION =
   'Evidence-based guides on dependence, withdrawal, overdose risk, kratom-derived opioids, tianeptine, novel psychoactive substances, and harm-reduction research.'
-const REVIEW_DATE = '2026-09-30'
+const REVIEW_DATE = '2026-10-02'
 
 export const metadata: Metadata = {
   title: HUB_TITLE,
@@ -79,6 +79,11 @@ const KRATOM_CLUSTER = [
     href: '/articles/dihydro-7-hydroxy-mitragynine-mgm-15/',
     title: 'MGM-15 / Dihydro-7-Hydroxymitragynine',
     desc: 'A potent semi-synthetic kratom-derived opioid with very limited human safety data.',
+  },
+  {
+    href: '/articles/mgm-16/',
+    title: 'MGM-16',
+    desc: 'A fluorinated 7-OH/MGM-15 derivative with potent preclinical opioid activity, no established human dose, and current federal Schedule I status.',
   },
   {
     href: '/articles/mitragynine-pseudoindoxyl/',
@@ -225,7 +230,7 @@ export default function SubstanceUseHub() {
       <section className="space-y-4">
         <div className="max-w-3xl">
           <p className="eyebrow-label">Kratom-derived opioid cluster</p>
-          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink">Mitragynine, 7-OH, MGM-15 and related compounds</h2>
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink">Mitragynine, 7-OH, MGM-15, MGM-16 and related compounds</h2>
           <p className="mt-3 text-muted">
             This cluster deliberately separates whole-leaf kratom, naturally occurring alkaloids, metabolites, concentrates,
             and semi-synthetic derivatives instead of treating them as one exposure.
