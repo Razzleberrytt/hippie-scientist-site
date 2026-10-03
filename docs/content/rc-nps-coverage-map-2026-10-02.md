@@ -6,11 +6,22 @@
 
 - [x] P0 masterclass monographs complete — all P0 profiles have now received the deep monograph pass
 - [x] P1 masterclass monographs complete — all P1 profiles passed the deep structural audit
-- [ ] Dependence/withdrawal/addiction-support pass complete
+- [x] Dependence/withdrawal/addiction-support pass complete — 87-route cluster audit completed 2026-10-03; 22 legacy/baseline routes or hubs were deepened where explicit modules were missing or too thin
 - [ ] History/legal/regulatory pass complete
 - [ ] Primary-source/PMID reference-density pass complete
 - [ ] Toxicology/testing/forensic-interpretation pass complete
 - [ ] Final cross-link / answer-engine pass complete
+
+### Global dependence / withdrawal / addiction-support audit — complete
+
+- [x] **87/87 RC/NPS article routes from the consolidated cluster were manually audited on 2026-10-03** for tolerance/dependence, withdrawal, addiction/use-disorder framing, and treatment/recovery support.
+- [x] **22 legacy/baseline routes or family hubs were patched** because those modules were missing, too implicit, or not linked into the recovery system.
+- [x] Psychedelic pages now distinguish rapid tolerance from physical dependence and explicitly state when a classic dangerous withdrawal syndrome is not established rather than inventing one.
+- [x] Stimulant/entactogen pages now separate tolerance, stimulant use disorder, crash/withdrawal, and recovery support and link to the stimulant withdrawal/recovery guide where appropriate.
+- [x] Designer-benzodiazepine baselines now distinguish physical dependence from use disorder and link to the benzodiazepine/Z-drug withdrawal guide without publishing DIY taper or equivalence instructions.
+- [x] Opioid-family profiles retain opioid-specific dependence, withdrawal, relapse/loss-of-tolerance and treatment framing and link to the opioid withdrawal/recovery system where applicable.
+- [x] Synthetic-cannabinoid, dissociative, qualone/sedative, and top-level RC/NPS hubs now contain explicit recovery/support framing rather than leaving readers at acute-toxicity information.
+- [x] No recreational dosing, redosing, sourcing, synthesis, potency-conversion, test-evasion, or DIY detox/taper instructions were introduced.
 
 ### Masterclass wave 1 — highest harm-reduction value
 
