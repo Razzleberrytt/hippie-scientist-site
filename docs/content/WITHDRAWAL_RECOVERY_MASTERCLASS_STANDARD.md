@@ -297,6 +297,7 @@ Every major category should receive a flagship withdrawal + recovery page, even 
 - **Opioids — flagship implemented:** `/articles/opioid-withdrawal-recovery-guide/` (2026-10-03).
 - **Alcohol — flagship implemented:** `/articles/alcohol-withdrawal-recovery-guide/` (2026-10-03).
 - **Benzodiazepines/Z-drugs — flagship implemented:** `/articles/benzodiazepine-zdrug-withdrawal-recovery-guide/` (2026-10-03).
+- **Stimulants — flagship implemented:** `/articles/stimulant-withdrawal-recovery-guide/` (2026-10-03).
 - Existing kratom/7-OH and tianeptine withdrawal coverage remains eligible for dedicated Masterclass recovery upgrades rather than being treated as complete solely because a page exists.
 
 Priority set:
@@ -304,7 +305,7 @@ Priority set:
 1. Opioids — flagship implemented; continue compound-specific spokes
 2. Alcohol — flagship implemented; continue targeted alcohol/AUD spokes
 3. Benzodiazepines and Z-drugs / sedative-hypnotics — flagship implemented; continue individual-compound and novel-benzodiazepine spokes
-4. Stimulants (amphetamine, methamphetamine, cocaine)
+4. Stimulants (amphetamine, methamphetamine, cocaine) — flagship implemented; continue compound-specific and treatment spokes
 5. Nicotine
 6. Cannabis
 7. Kratom / 7-OH and kratom-derived opioids
