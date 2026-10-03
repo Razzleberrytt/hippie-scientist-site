@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-476-500-selection",
+  "continuation_of": "2026-10-03-enrichment-waves-451-475-selection",
+  "program": {
+    "range": "301-500",
+    "pass_size": 25,
+    "target_findings": 200,
+    "progress_after_pass": 200,
+    "merge_policy": "accumulate eight 25-finding passes; consolidate, admit, validate, and merge once after 200"
+  },
+  "source_provenance": [
+    "public/data/claims.json"
+  ],
+  "reconciliation_note": "These source identities were already represented in canonical claim data but had not been covered by the enrichment-wave ledger. This pass adds research/admission coverage without treating the underlying publication as newly discovered.",
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "validation_strategy": "cheap duplicate/entity/source screening during authoring; expensive repository-wide validation only after Wave 500"
+  },
+  "waves": [
+    {
+      "wave": 476,
+      "entity_slug": "collagen-peptides",
+      "pmid": "23949208",
+      "focus": "randomized human evidence covering skin_hair_nails, joints. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 477,
+      "entity_slug": "magnesium",
+      "pmid": "23853635",
+      "focus": "randomized human evidence covering sleep_quality; sleep_latency. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 478,
+      "entity_slug": "curcumin",
+      "pmid": "23832433",
+      "focus": "randomized human evidence covering mood; depression. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 479,
+      "entity_slug": "tongkat-ali",
+      "pmid": "23754792",
+      "focus": "randomized human evidence covering testosterone, stress. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 480,
+      "entity_slug": "ashwagandha",
+      "pmid": "23439798",
+      "focus": "randomized human evidence covering anxiety, stress; stress_response. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 481,
+      "entity_slug": "resveratrol",
+      "pmid": "23347199",
+      "focus": "randomized human evidence covering blood_flow. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 482,
+      "entity_slug": "artichoke-extract",
+      "pmid": "22746542",
+      "focus": "randomized human evidence covering heart_health, metabolism. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 483,
+      "entity_slug": "glycine",
+      "pmid": "22592091",
+      "focus": "randomized human evidence covering sleep_quality; cognitive_performance. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 484,
+      "entity_slug": "resveratrol",
+      "pmid": "22271614",
+      "focus": "randomized human evidence covering metabolic_markers; cognitive_performance. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 485,
+      "entity_slug": "vitamin-b12",
+      "pmid": "22221769",
+      "focus": "randomized human evidence covering cognitive_performance. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 486,
+      "entity_slug": "l-theanine",
+      "pmid": "22214254",
+      "focus": "randomized human evidence covering sleep_quality. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 487,
+      "entity_slug": "msm",
+      "pmid": "21708034",
+      "focus": "randomized human evidence covering joints, pain. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 488,
+      "entity_slug": "olive-leaf-extract",
+      "pmid": "21443487",
+      "focus": "randomized human evidence covering heart_health, metabolism. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 489,
+      "entity_slug": "berberine",
+      "pmid": "21346706",
+      "focus": "randomized human evidence covering insulin_sensitivity. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 490,
+      "entity_slug": "lavender-extract",
+      "pmid": "21170695",
+      "focus": "randomized human evidence covering anxiety_score. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 491,
+      "entity_slug": "l-theanine",
+      "pmid": "21040626",
+      "focus": "randomized human evidence covering cognitive_performance. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 492,
+      "entity_slug": "bacopa-monnieri",
+      "pmid": "20590480",
+      "focus": "randomized human evidence covering focus, cognition. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 493,
+      "entity_slug": "rhodiola",
+      "pmid": "20378318",
+      "focus": "randomized human evidence covering cognitive_performance. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 494,
+      "entity_slug": "melatonin",
+      "pmid": "20091037",
+      "focus": "randomized human evidence covering sleep_quality. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 495,
+      "entity_slug": "beetroot",
+      "pmid": "19910809",
+      "focus": "randomized human evidence covering exercise_performance. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 496,
+      "entity_slug": "hawthorn-extract",
+      "pmid": "19789403",
+      "focus": "randomized human evidence covering heart_failure_function. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 497,
+      "entity_slug": "creatine",
+      "pmid": "19773644",
+      "focus": "randomized human evidence covering cognitive_performance; fatigue. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 498,
+      "entity_slug": "curcumin",
+      "pmid": "19594223",
+      "focus": "randomized human evidence covering inflammation_markers. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 499,
+      "entity_slug": "quercetin",
+      "pmid": "19589961",
+      "focus": "randomized human evidence covering exercise_performance; immune_function. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 500,
+      "entity_slug": "peppermint-oil",
+      "pmid": "19507027",
+      "focus": "randomized human evidence covering abdominal_pain. Reconcile this source into the enrichment evidence ledger while preserving exact intervention identity, formulation, population, comparator, endpoint, null/mixed findings and safety limits; no stronger consumer claim is authorized here.",
+      "state": "reviewed_receipt_pending_final_admission"
+    }
+  ]
+}
