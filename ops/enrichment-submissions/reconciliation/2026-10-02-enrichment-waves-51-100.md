@@ -14,7 +14,7 @@ This is the next batch-first enrichment pass after merged PR #6199 (Waves 1–50
 
 The source batch contained a second Saw Palmetto receipt pointing to the same PMID `17556649`; that duplicate receipt was not admitted as a separate wave.
 Elderberry PMID `30670267` is already present in `public/data/claims.json`, so it was excluded from this batch.
-Those two slots were replaced with already-vetted Sage human-evidence receipts PMID `24836739` and PMID `18350281`. During canonical entity validation, Pelargonium PMID `19435703` was also removed because `pelargonium-sidoides` is not an Entity_Master slug accepted by runtime enrichment; vetted Rhodiola endurance PMID `41080184` replaced that wave.
+Those two slots were replaced with already-vetted Sage human-evidence receipts PMID `24836739` and PMID `18350281`. During canonical entity validation, Pelargonium PMID `19435703` was removed because `pelargonium-sidoides` is not an Entity_Master slug accepted by runtime enrichment. Wave 66 then reviewed vetted Rhodiola endurance PMID `41080184`; the admission audit confirmed that identity was already represented canonically, so Wave 66 closes as a dedupe/reconciliation wave with no duplicate runtime row.
 
 ## Waves
 
@@ -33,7 +33,7 @@ Those two slots were replaced with already-vetted Sage human-evidence receipts P
 - Wave 63 — **d-mannose** — PMID `31860221` — randomized prevention evidence; possible benefit but small studies/comparator differences.
 - Wave 64 — **echinacea** — PMID `25106650` — common-cold systematic review; inconsistent across species/preparations/outcomes.
 - Wave 65 — **echinacea** — PMID `17044450` — respiratory randomized evidence; keep prevention, incidence and symptom duration separate.
-- Wave 66 — **rhodiola** — PMID `41080184` — endurance/exercise performance RCT meta-analysis; preserve athletic context and distinguish performance endpoints from biomarkers.
+- Wave 66 — **rhodiola** — PMID `41080184` — reviewed for endurance/exercise performance; canonical admission audit confirmed the evidence/source identity already existed, so no duplicate runtime row was added.
 - Wave 67 — **andrographis-paniculata** — PMID `18425900` — upper respiratory infection systematic review; preparation and method heterogeneity.
 - Wave 68 — **andrographis-paniculata** — PMID `22419337` — common-cold randomized review; limited certainty; no chronic-disease generalization.
 - Wave 69 — **elderberry** — PMID `31452297` — upper-respiratory symptom systematic review; possible duration benefit; limited high-quality trials.
@@ -72,9 +72,10 @@ Those two slots were replaced with already-vetted Sage human-evidence receipts P
 ## Current state
 
 - Waves selected and deduped: **50 / 50**
-- Candidate PMIDs: **50 unique**
+- Candidate PMIDs reviewed: **50 unique**
+- Net-new runtime rows after canonical admission: **49 evidence + 49 sources**
 - Cheap canonical-claims dedupe: **complete**
-- Runtime ledger materialization: **next**
-- Full admission/build/site-health/Atomic/CI verification: **deferred until consolidation**
+- Runtime ledger materialization: **49 net-new evidence rows + 49 net-new source rows**
+- Full admission/build/site-health/Atomic/CI verification: **running on the consolidated batch**
 - Primary provenance: `ops/enrichment-submissions/reconciliation/2026-09-10-enrichment-batch-23.md`
 - Replacement provenance: `ops/enrichment-submissions/reconciliation/2026-09-06-full-corpus-inventory.md`
