@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-02-enrichment-waves-01-50",
+  "generated_from": {
+    "input_files": [
+      "Existing site article/reference corpus",
+      "ops/enrichment-submissions/reconciliation/2026-09-06-full-corpus-inventory.md",
+      "ops/enrichment-submissions/reconciliation/2026-09-06-enrichment-batch-20.md",
+      "ops/enrichment-submissions/reconciliation/2026-09-10-enrichment-batch-24.md",
+      "ops/enrichment-submissions/reconciliation/2026-09-10-enrichment-batch-25.md",
+      "Current PubMed-linked references already curated in site content"
+    ],
+    "review_note": "Batch-first consolidation of enrichment Waves 1-50. Findings preserve null/mixed outcomes, study certainty, population boundaries, exact botanical/compound identity, formulation boundaries, retraction handling, and safety/interaction context. Repository-wide validation intentionally deferred until after consolidation."
+  },
+  "counts": {
+    "entity_context_rows": 0,
+    "evidence_rows": 123,
+    "source_rows": 95,
+    "relationship_rows": 0
+  },
+  "wave_coverage": {
+    "first_wave": 1,
+    "last_wave": 50,
+    "completed_waves": 50,
+    "evidence_records": 123,
+    "unique_source_records": 95
+  },
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden",
+    "evidence_merge": "append-only; one canonical last-revision row per record_id; sources deduplicated by stable source_id/PMID",
+    "claim_calibration": "retain negative/null evidence, uncertainty, GRADE/quality constraints, endpoint discordance, species/formulation/population limits, and safety context; never convert studied exposures into universal consumer dosing",
+    "verification_strategy": "batch-first; full repository tests and CI run once after Waves 1-50 consolidation"
+  },
+  "ledger": {
+    "file": "2026-10-02-enrichment-waves-01-50.json",
+    "sha256": "d7ab2b8a31c102d036900ef305aac5fe97d8e2f657f6f614169d29bb750aac6c",
+    "bytes": 197440
+  }
+}
