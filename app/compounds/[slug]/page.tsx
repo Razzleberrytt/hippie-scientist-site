@@ -703,6 +703,7 @@ export default async function CompoundPage({ params }: PageProps) {
     .slice(0, 8)
 
   const displayName = formatDisplayLabel(compound.name || compound.slug)
+  // Keep the compound profile's H1 distinct from the Boswellia serrata herb profile.
   const profileHeading = normalizedSlug === 'boswellia' ? 'Boswellia compounds' : displayName
   const profileDecision = buildProfileDecision(compound as Record<string, unknown>, 'compound')
   const profileDecisionClaimedHrefs = getProfileDecisionClaimedHrefs(profileDecision)
