@@ -4,27 +4,26 @@
   "generated_from": {
     "input_files": [
       "existing site article/reference corpus",
-      "ops/enrichment-submissions/reconciliation corpus",
-      "governed enrichment-session evidence",
-      "current PubMed-linked references already curated in site content"
+      "governed enrichment/reconciliation corpus",
+      "current PubMed-indexed systematic reviews, meta-analyses, randomized trials, and safety reviews"
     ],
-    "review_note": "Second batch-first structured research enrichment program covering Waves 51-100. Findings preserve null and mixed outcomes, formulation and strain identity, deficiency/population boundaries, interaction and toxicity signals, source-identity corrections, surrogate-vs-clinical distinctions, and product-specific evidence."
+    "review_note": "Second batch-first structured research enrichment program covering Waves 51-100. Findings preserve null/mixed outcomes, formulation/species/strain identity, deficiency/population boundaries, interaction and toxicity signals, citation mismatches, surrogate-vs-clinical distinctions, and product-specific evidence."
   },
   "counts": {
     "entity_context_rows": 0,
-    "evidence_rows": 77,
-    "source_rows": 76,
+    "evidence_rows": 91,
+    "source_rows": 87,
     "relationship_rows": 0,
-    "evidence_rows_after_canonical_dedupe": 77,
-    "source_rows_after_batch_identity_dedupe": 76,
+    "evidence_rows_after_canonical_dedupe": 91,
+    "source_rows_after_batch_identity_dedupe": 87,
     "live_relationship_rows_new_after_dedupe": 0
   },
   "wave_coverage": {
     "first_wave": 51,
     "last_wave": 100,
     "completed_waves": 50,
-    "evidence_records": 77,
-    "unique_source_records": 76
+    "evidence_records": 91,
+    "unique_source_records": 87
   },
   "policy": {
     "entity_creation": "forbidden",
@@ -37,7 +36,7 @@
   },
   "ledger": {
     "file": "2026-10-03-enrichment-waves-51-100.json",
-    "sha256": "8629547618c263f8141875a759e3aea839c977f7bec3ae6bbc91d7635d80a05a",
-    "bytes": 139646
+    "sha256": "a455b5bf1528a7f79d66f57c2b9de8c2b8009536f5df601f146774a81e7cecd7",
+    "bytes": 162939
   }
 }
