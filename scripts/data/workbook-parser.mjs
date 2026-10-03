@@ -201,6 +201,8 @@ function readEnrichmentLedger() {
     for (const key of ENRICHMENT_ARRAY_KEYS) merged[key].push(...parsed[key])
   }
 
+  merged.evidence = applyEvidenceCorrections(merged.evidence)
+
   const seenEvidenceIds = new Set()
   for (const row of merged.evidence) {
     const recordId = clean(row.record_id)
@@ -229,6 +231,67 @@ function evidenceKey(row) {
     .toLowerCase()
   const source = pmid ? `pmid:${pmid}` : doi ? `doi:${doi}` : title ? `title:${title}` : ''
   return entity && source ? `${entity}|${source}` : ''
+}
+
+
+function applyEvidenceCorrections(rows) {
+  const resolved = []
+  const indexByEvidenceKey = new Map()
+
+  for (const rawRow of rows) {
+    const key = evidenceKey(rawRow)
+    const correctionTarget = clean(rawRow?.corrects_evidence_key)
+
+    if (!correctionTarget) {
+      if (key) indexByEvidenceKey.set(key, resolved.length)
+      resolved.push(rawRow)
+      continue
+    }
+
+    if (!key || key !== correctionTarget) {
+      throw new Error(
+        '[workbook-parser] enrichment evidence correction must preserve evidence identity key: ' +
+        (key || '(blank)') + ' -> ' + correctionTarget,
+      )
+    }
+
+    const index = indexByEvidenceKey.get(correctionTarget)
+    if (index === undefined) {
+      throw new Error(
+        '[workbook-parser] enrichment evidence correction target was not loaded earlier: ' +
+        correctionTarget,
+      )
+    }
+
+    const prior = resolved[index]
+    const expected = rawRow?.expected_prior_evidence
+    if (!expected || typeof expected !== 'object' || Array.isArray(expected)) {
+      throw new Error(
+        '[workbook-parser] enrichment evidence correction is missing expected_prior_evidence: ' +
+        correctionTarget,
+      )
+    }
+
+    for (const field of ['entity_slug', 'pmid', 'doi']) {
+      const expectedValue = clean(expected[field]).toLowerCase()
+      if (!expectedValue) continue
+      if (clean(prior?.[field]).toLowerCase() !== expectedValue) {
+        throw new Error(
+          '[workbook-parser] enrichment evidence correction prior identity mismatch for ' +
+          correctionTarget + '.' + field,
+        )
+      }
+    }
+
+    const replacement = { ...rawRow }
+    delete replacement.corrects_evidence_key
+    delete replacement.expected_prior_evidence
+    delete replacement.correction_reason
+    resolved[index] = replacement
+    indexByEvidenceKey.set(key, index)
+  }
+
+  return resolved
 }
 
 function sourceKey(row) {
@@ -316,6 +379,79 @@ function applySourceIdentityCorrections(rows) {
   return resolved
 }
 
+function materializeEvidenceRow(row) {
+  const output = { ...row }
+  delete output.corrects_evidence_key
+  delete output.expected_prior_evidence
+  delete output.correction_reason
+  return output
+}
+
+function validateEvidenceCorrection(prior, row, key) {
+  const target = clean(row?.corrects_evidence_key)
+  if (!target) return false
+  if (target !== key) {
+    throw new Error(
+      '[workbook-parser] enrichment evidence correction target does not match row identity: ' +
+      target + ' != ' + key,
+    )
+  }
+
+  const reason = clean(row?.correction_reason)
+  if (!reason) {
+    throw new Error(
+      '[workbook-parser] enrichment evidence correction is missing correction_reason: ' +
+      clean(row?.record_id || key),
+    )
+  }
+
+  const expected = row?.expected_prior_evidence
+  if (!expected || typeof expected !== 'object' || Array.isArray(expected)) {
+    throw new Error(
+      '[workbook-parser] enrichment evidence correction is missing expected_prior_evidence: ' +
+      clean(row?.record_id || key),
+    )
+  }
+
+  const expectedEntity = slug(expected.entity_slug || expected.profile_slug)
+  const priorEntity = slug(first(prior, ['entity_slug', 'profile_slug', 'slug', 'herb_slug', 'compound_slug']))
+  if (expectedEntity && expectedEntity !== priorEntity) {
+    throw new Error(
+      '[workbook-parser] enrichment evidence correction prior entity mismatch for ' + key,
+    )
+  }
+
+  const expectedPmid = clean(expected.pmid).toLowerCase()
+  const priorPmid = clean(first(prior, ['pmid', 'PMID'])).toLowerCase()
+  if (expectedPmid && expectedPmid !== priorPmid) {
+    throw new Error(
+      '[workbook-parser] enrichment evidence correction prior PMID mismatch for ' + key,
+    )
+  }
+
+  const expectedDoi = clean(expected.doi)
+    .toLowerCase()
+    .replace(/^https?:\/\/(?:dx\.)?doi\.org\//, '')
+  const priorDoi = clean(first(prior, ['doi', 'DOI']))
+    .toLowerCase()
+    .replace(/^https?:\/\/(?:dx\.)?doi\.org\//, '')
+  if (expectedDoi && expectedDoi !== priorDoi) {
+    throw new Error(
+      '[workbook-parser] enrichment evidence correction prior DOI mismatch for ' + key,
+    )
+  }
+
+  const expectedRecordId = clean(expected.record_id)
+  const priorRecordId = clean(first(prior, ['record_id', 'claim_id', 'claim id', 'id']))
+  if (expectedRecordId && expectedRecordId !== priorRecordId) {
+    throw new Error(
+      '[workbook-parser] enrichment evidence correction prior record mismatch for ' + key,
+    )
+  }
+
+  return true
+}
+
 function relationshipKey(row) {
   const source = slug(first(row, ['source_slug', 'herb_slug', 'herb slug', 'herb', 'herb_name']))
   const target = slug(first(row, ['target_slug', 'compound_slug', 'compound slug', 'compound', 'compound_name']))
@@ -384,8 +520,13 @@ function applyRuntimeEnrichment(sheets) {
   let evidenceAdded = 0
   const claimSheet = findLoadedSheet(sheets, CLAIM_SHEETS)
   if (claimSheet) {
-    const existingKeys = new Set(sheets[claimSheet].map(evidenceKey).filter(Boolean))
-    const additions = []
+    const resolvedRows = [...sheets[claimSheet]]
+    const indexByKey = new Map()
+    for (let index = 0; index < resolvedRows.length; index += 1) {
+      const key = evidenceKey(resolvedRows[index])
+      if (key && !indexByKey.has(key)) indexByKey.set(key, index)
+    }
+
     for (const row of ledger.evidence) {
       const entitySlug = slug(row.entity_slug || row.profile_slug)
       const key = evidenceKey(row)
@@ -394,15 +535,41 @@ function applyRuntimeEnrichment(sheets) {
           `[workbook-parser] enrichment evidence references unknown entity: ${clean(row.entity_slug || row.profile_slug)}`,
         )
       }
-      if (!key || existingKeys.has(key)) continue
-      existingKeys.add(key)
-      additions.push({
-        ...row,
+      if (!key) continue
+
+      const existingIndex = indexByKey.get(key)
+      const correctionTarget = clean(row.corrects_evidence_key)
+      if (existingIndex !== undefined) {
+        if (!correctionTarget) continue
+
+        const prior = resolvedRows[existingIndex]
+        validateEvidenceCorrection(prior, row, key)
+        const incoming = materializeEvidenceRow(row)
+        resolvedRows[existingIndex] = {
+          ...prior,
+          ...incoming,
+          metadata_source: clean(row.metadata_source) || 'runtime-enrichment',
+        }
+        continue
+      }
+
+      if (correctionTarget) {
+        throw new Error(
+          '[workbook-parser] enrichment evidence correction target was not loaded earlier: ' +
+          correctionTarget,
+        )
+      }
+
+      const addition = {
+        ...materializeEvidenceRow(row),
         metadata_source: clean(row.metadata_source) || 'runtime-enrichment',
-      })
+      }
+      indexByKey.set(key, resolvedRows.length)
+      resolvedRows.push(addition)
+      evidenceAdded += 1
     }
-    if (additions.length) sheets[claimSheet] = [...sheets[claimSheet], ...additions]
-    evidenceAdded = additions.length
+
+    sheets[claimSheet] = resolvedRows
   }
 
   let sourcesAdded = 0

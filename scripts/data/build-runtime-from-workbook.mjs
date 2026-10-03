@@ -804,11 +804,13 @@ function claimRow(row) {
   return stripRecord({
     id: id || pmid,
     title,
-    claim: compact(first(row, ['claim', 'finding', 'summary', 'conclusion', 'supported_claim_language'])),
+    claim: compact(first(row, ['supported_claim_language', 'claim', 'finding', 'summary', 'conclusion'])),
     pmid,
     doi: clean(first(row, ['doi', 'DOI'])),
     source_url: clean(first(row, ['source_url', 'url', 'link', 'url_or_source'])),
     evidence_tier: clean(first(row, ['evidence_tier', 'study_type', 'evidence_type'])),
+    evidence_grade: clean(first(row, ['evidence_grade', 'evidence grade'])),
+    safety_note: compact(first(row, ['safety_note', 'safety note', 'safety_notes', 'safety notes'])),
     profile_slug: slug(first(row, ['profile_slug', 'slug', 'herb_slug', 'compound_slug', 'entity_slug'])),
     metadata_source: clean(first(row, ['metadata_source', 'metadata source'])),
   })

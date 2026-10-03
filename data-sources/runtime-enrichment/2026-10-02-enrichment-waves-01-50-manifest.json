@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-02-enrichment-waves-01-50",
+  "generated_from": {
+    "input_files": [
+      "Existing site article/reference corpus",
+      "ops/enrichment-submissions/reconciliation/2026-09-06-full-corpus-inventory.md",
+      "ops/enrichment-submissions/reconciliation/2026-09-06-enrichment-batch-20.md",
+      "ops/enrichment-submissions/reconciliation/2026-09-10-enrichment-batch-24.md",
+      "ops/enrichment-submissions/reconciliation/2026-09-10-enrichment-batch-25.md",
+      "Current PubMed-linked references already curated in site content"
+    ],
+    "review_note": "Batch-first consolidation of enrichment Waves 1-50. The batch contains 121 net-new evidence rows plus 2 reviewed same-identity evidence corrections; duplicate source identities already present in earlier enrichment were removed. Findings preserve null/mixed outcomes, certainty, population/formulation boundaries, safety/interaction context, and fail-closed correction semantics."
+  },
+  "counts": {
+    "entity_context_rows": 0,
+    "evidence_rows": 123,
+    "source_rows": 93,
+    "relationship_rows": 0
+  },
+  "wave_coverage": {
+    "first_wave": 1,
+    "last_wave": 50,
+    "completed_waves": 50,
+    "evidence_records": 123,
+    "unique_source_records": 93
+  },
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden",
+    "evidence_merge": "append-only by default; targeted same-entity/same-source replacement only when corrects_evidence_key, expected_prior_evidence, and correction_reason are present and validated",
+    "claim_calibration": "retain negative/null evidence, uncertainty, GRADE/quality constraints, endpoint discordance, species/formulation/population limits, and safety context; evidence_grade and safety_note must survive public claim/profile export",
+    "verification_strategy": "batch-first; full repository tests and CI run once after Waves 1-50 consolidation"
+  },
+  "ledger": {
+    "file": "2026-10-02-enrichment-waves-01-50.json",
+    "sha256": "385a6230011eb339f26b6c186f5f8852b7479b39519d1089efa0fb3c675f4b95",
+    "bytes": 196341
+  },
+  "admission": {
+    "evidence_additions": 121,
+    "evidence_corrections": 2,
+    "source_additions": 93,
+    "source_corrections": 0
+  }
+}
