@@ -14,7 +14,7 @@ This is the next batch-first enrichment pass after merged PR #6199 (Waves 1–50
 
 The source batch contained a second Saw Palmetto receipt pointing to the same PMID `17556649`; that duplicate receipt was not admitted as a separate wave.
 Elderberry PMID `30670267` is already present in `public/data/claims.json`, so it was excluded from this batch.
-Those two slots were replaced with already-vetted Sage human-evidence receipts PMID `24836739` and PMID `18350281`.
+Those two slots were replaced with already-vetted Sage human-evidence receipts PMID `24836739` and PMID `18350281`. During canonical entity validation, Pelargonium PMID `19435703` was also removed because `pelargonium-sidoides` is not an Entity_Master slug accepted by runtime enrichment; vetted Rhodiola endurance PMID `41080184` replaced that wave.
 
 ## Waves
 
@@ -33,7 +33,7 @@ Those two slots were replaced with already-vetted Sage human-evidence receipts P
 - Wave 63 — **d-mannose** — PMID `31860221` — randomized prevention evidence; possible benefit but small studies/comparator differences.
 - Wave 64 — **echinacea** — PMID `25106650` — common-cold systematic review; inconsistent across species/preparations/outcomes.
 - Wave 65 — **echinacea** — PMID `17044450` — respiratory randomized evidence; keep prevention, incidence and symptom duration separate.
-- Wave 66 — **pelargonium-sidoides** — PMID `19435703` — acute respiratory/bronchitis Cochrane evidence; possible symptom benefit; product-specific.
+- Wave 66 — **rhodiola** — PMID `41080184` — endurance/exercise performance RCT meta-analysis; preserve athletic context and distinguish performance endpoints from biomarkers.
 - Wave 67 — **andrographis-paniculata** — PMID `18425900` — upper respiratory infection systematic review; preparation and method heterogeneity.
 - Wave 68 — **andrographis-paniculata** — PMID `22419337` — common-cold randomized review; limited certainty; no chronic-disease generalization.
 - Wave 69 — **elderberry** — PMID `31452297` — upper-respiratory symptom systematic review; possible duration benefit; limited high-quality trials.
