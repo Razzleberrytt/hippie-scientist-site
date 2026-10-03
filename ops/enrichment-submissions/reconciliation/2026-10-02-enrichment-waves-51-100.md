@@ -73,9 +73,13 @@ Those two slots were replaced with already-vetted Sage human-evidence receipts P
 
 - Waves selected and deduped: **50 / 50**
 - Candidate PMIDs reviewed: **50 unique**
-- Net-new runtime rows after canonical admission: **49 evidence + 49 sources**
+- Base selection admitted before supplemental fold: **49 evidence + 49 sources**
 - Cheap canonical-claims dedupe: **complete**
-- Runtime ledger materialization: **49 net-new evidence rows + 49 net-new source rows**
+- Runtime ledger materialization before final canonical admission: **79 reviewed evidence rows + 79 source rows**
 - Full admission/build/site-health/Atomic/CI verification: **running on the consolidated batch**
 - Primary provenance: `ops/enrichment-submissions/reconciliation/2026-09-10-enrichment-batch-23.md`
 - Replacement provenance: `ops/enrichment-submissions/reconciliation/2026-09-06-full-corpus-inventory.md`
+
+## Supplemental consolidation
+
+During the consolidated validation window, three concurrently staged mini-batches for Waves 71–100 were detected. Their standalone manifests overlapped this authoritative 51–100 batch, but their research content did not overlap the existing 1–50 or 51–100 ledgers by entity + PMID/DOI identity. The 30 reviewed evidence/source receipts were therefore folded into this ledger before the mini-batches were removed. The consolidated ledger now carries **79 reviewed evidence rows and 79 source rows** across the 50 completed review waves; the canonical admission audit determines the final net-new count.
