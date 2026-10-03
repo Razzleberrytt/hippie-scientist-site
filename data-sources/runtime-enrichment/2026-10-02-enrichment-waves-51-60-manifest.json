@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-02-enrichment-waves-51-60",
+  "generated_from": {
+    "input_files": [
+      "Existing site article/reference corpus",
+      "PubMed metadata and abstracts verified 2026-10-02",
+      "Current public canonical entity runtime"
+    ],
+    "review_note": "Batch-first continuation after merged Waves 1-50. Waves 51-60 add ten evidence/source anchors for existing canonical entities, emphasizing mixed/null findings, combination-product attribution, formulation boundaries, and non-treatment framing."
+  },
+  "counts": {
+    "entity_context_rows": 0,
+    "evidence_rows": 10,
+    "source_rows": 10,
+    "relationship_rows": 0
+  },
+  "wave_coverage": {
+    "first_wave": 51,
+    "last_wave": 60,
+    "completed_waves": 10,
+    "evidence_records": 10,
+    "unique_source_records": 10
+  },
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden",
+    "evidence_merge": "append-only; no duplicate source/evidence identities detected in public claims or data-sources before staging",
+    "claim_calibration": "retain negative/null evidence, uncertainty, combination-product attribution, formulation/population limits, and safety context",
+    "verification_strategy": "batch-first; defer full repository CI/build/site-health verification until the larger Waves 51-100 consolidation"
+  },
+  "ledger": {
+    "file": "2026-10-02-enrichment-waves-51-60.json",
+    "sha256": "1efadaf8b00ce376faf066c32df33c3664af2d00beb1a93c20f1630c78031060",
+    "bytes": 21039
+  },
+  "admission": {
+    "evidence_additions": 10,
+    "evidence_corrections": 0,
+    "source_additions": 10,
+    "source_corrections": 0
+  }
+}
