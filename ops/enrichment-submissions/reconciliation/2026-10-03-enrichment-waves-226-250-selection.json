@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-226-250-selection",
+  "continuation_of": "2026-10-03-enrichment-waves-201-225-selection",
+  "program": {
+    "range": "101-300",
+    "pass_size": 25,
+    "target_findings": 200,
+    "progress_after_pass": 150,
+    "merge_policy": "accumulate eight 25-finding passes; consolidate and validate once after 200"
+  },
+  "source_provenance": [
+    "ops/enrichment-submissions/reconciliation/2026-09-10-enrichment-batch-23.md",
+    "ops/enrichment-submissions/reconciliation/2026-09-10-enrichment-batch-24.md",
+    "ops/enrichment-submissions/reconciliation/2026-09-10-enrichment-batch-25.md"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until 200-findings consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "validation_strategy": "cheap duplicate/entity screening during authoring; defer repository-wide validation until Wave 300"
+  },
+  "waves": [
+    {
+      "wave": 226,
+      "entity_slug": "rhodiola",
+      "pmid": "20420942",
+      "focus": "fatigue systematic review; small heterogeneous trials and occupational/athletic context.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 227,
+      "entity_slug": "rhodiola",
+      "pmid": "23270713",
+      "focus": "exercise-performance randomized evidence; mixed results and performance-vs-subjective-fatigue separation.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 228,
+      "entity_slug": "maca",
+      "pmid": "19933124",
+      "focus": "sexual-function systematic review; limited evidence and small samples.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 229,
+      "entity_slug": "maca",
+      "pmid": "21116021",
+      "focus": "menopause randomized evidence; limited and not transferable from sexual-function evidence.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 230,
+      "entity_slug": "tribulus-terrestris",
+      "pmid": "25753475",
+      "focus": "insufficient evidence for testosterone/erectile-function claims; negative/uncertain counterweight.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 231,
+      "entity_slug": "fenugreek",
+      "pmid": "23712493",
+      "focus": "lactation systematic review; limited milk-volume evidence, methodological weaknesses and separate lactation safety review required.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 232,
+      "entity_slug": "fenugreek",
+      "pmid": "23483826",
+      "focus": "glycemic systematic review; possible glucose changes with variable quality/preparations.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 233,
+      "entity_slug": "moringa",
+      "pmid": "32891299",
+      "focus": "glycemic systematic review; limited human evidence and strict human-vs-preclinical boundary.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 234,
+      "entity_slug": "moringa",
+      "pmid": "34217503",
+      "focus": "lipid/metabolic human evidence; limited and heterogeneous.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 235,
+      "entity_slug": "nigella-sativa",
+      "pmid": "31548990",
+      "focus": "T2D meta-analysis; selected glycemic signals with heterogeneous seed/oil/extract interventions.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 236,
+      "entity_slug": "nigella-sativa",
+      "pmid": "28673472",
+      "focus": "metabolic-syndrome randomized evidence; small studies and surrogate outcomes.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 237,
+      "entity_slug": "nigella-sativa",
+      "pmid": "25248694",
+      "focus": "blood-pressure synthesis; possible reductions with substantial heterogeneity and preparation/baseline-BP boundaries.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 238,
+      "entity_slug": "grape-seed-extract",
+      "pmid": "23196448",
+      "focus": "BP meta-analysis; modest endpoint-specific effects with extract standardization requirements.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 239,
+      "entity_slug": "pycnogenol",
+      "pmid": "19577412",
+      "focus": "endothelial/cardiovascular biomarker RCT evidence; surrogate outcomes only.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 240,
+      "entity_slug": "grape-seed-extract",
+      "pmid": "29205182",
+      "focus": "metabolic systematic review; mixed biomarker effects and nulls retained.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 241,
+      "entity_slug": "hibiscus-sabdariffa",
+      "pmid": "19877098",
+      "focus": "hypertension randomized evidence; modest BP signal, preparation-specific and short-duration.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 242,
+      "entity_slug": "hibiscus-sabdariffa",
+      "pmid": "24617892",
+      "focus": "cardiometabolic human evidence; variable populations/preparations and tea-vs-extract firewall.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 243,
+      "entity_slug": "green-tea-extract",
+      "pmid": "21479771",
+      "focus": "weight meta-analysis; small heterogeneous effects across catechin/caffeine products and no fat-burner framing.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 244,
+      "entity_slug": "green-tea-extract",
+      "pmid": "28417035",
+      "focus": "hepatotoxicity systematic review; concentrated-extract safety warning distinct from brewed tea.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 245,
+      "entity_slug": "curcumin",
+      "pmid": "30309580",
+      "focus": "knee-OA systematic review/meta-analysis; formulation-sensitive symptom evidence.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 246,
+      "entity_slug": "curcumin",
+      "pmid": "30709537",
+      "focus": "inflammatory-marker meta-analysis; surrogate outcomes and heterogeneous formulations.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 247,
+      "entity_slug": "devils-claw",
+      "pmid": "15846623",
+      "focus": "older OA/back-pain systematic review; some pain evidence with small/variable trials.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 248,
+      "entity_slug": "arnica",
+      "pmid": "17103330",
+      "focus": "topical pain RCT evidence includes homeopathic and non-homeopathic preparations; topical formulations must not be merged with oral arnica.",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 249,
+      "entity_slug": "gotu-kola",
+      "pmid": "26666655",
+      "focus": "small human Centella anxiety evidence; acute-testing context and limited certainty.",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 250,
+      "entity_slug": "l-theanine",
+      "pmid": "36828547",
+      "focus": "human sleep synthesis; possible sleep-quality effects with heterogeneous endpoints/formulations and no insomnia-treatment inference.",
+      "state": "review_ready_for_materialization"
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-151-175-selection",
+  "continuation_of": "2026-10-03-enrichment-waves-126-150-selection",
+  "program": {
+    "range": "101-300",
+    "pass_size": 25,
+    "target_findings": 200,
+    "progress_after_pass": 75,
+    "merge_policy": "accumulate eight 25-finding passes; consolidate and validate once after 200"
+  },
+  "source_provenance": [
+    "ops/enrichment-submissions/reconciliation/2026-09-10-enrichment-batch-24.md",
+    "ops/enrichment-submissions/reconciliation/2026-09-10-enrichment-batch-25.md",
+    "ops/enrichment-submissions/reconciliation/2026-09-06-full-corpus-inventory.md"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until 200-findings consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "validation_strategy": "cheap duplicate/entity screening during authoring; defer repository-wide validation until Wave 300"
+  },
+  "waves": [
+    {
+      "wave": 151,
+      "entity_slug": "rhodiola",
+      "pmid": "38291714",
+      "focus": "randomized-trial synthesis of Rhodiola for fatigue/stress-related outcomes; preserve extract identity, endpoint differences, and heterogeneous quality",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 152,
+      "entity_slug": "rhodiola",
+      "pmid": "36100472",
+      "focus": "depressive-symptom systematic review/meta-analysis; keep mild/subthreshold populations separate from diagnosed major depression and preserve adjunct/monotherapy distinctions",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 153,
+      "entity_slug": "hibiscus-sabdariffa",
+      "pmid": "37345741",
+      "focus": "blood-pressure systematic review/meta-analysis; preserve tea/extract identity, baseline BP, dosing/duration heterogeneity, and lack of cardiovascular-event evidence",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 154,
+      "entity_slug": "green-tea-extract",
+      "pmid": "38562679",
+      "focus": "catechin/EGCG randomized-trial synthesis for blood-pressure/cardiometabolic endpoints; keep extract/catechin products distinct from brewed tea",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 155,
+      "entity_slug": "green-tea-extract",
+      "pmid": "37207188",
+      "focus": "green-tea catechin/caffeine weight-outcome synthesis; generally small preparation-dependent effects; not standalone weight-loss treatment evidence",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 156,
+      "entity_slug": "cranberry",
+      "pmid": "37737531",
+      "focus": "recurrent UTI prevention evidence; preserve population, adherence and formulation differences; not treatment of active infection",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 157,
+      "entity_slug": "d-mannose",
+      "pmid": "38924440",
+      "focus": "randomized evidence for recurrent UTI prevention remains limited/inconsistent; prevention-versus-treatment boundary",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 158,
+      "entity_slug": "echinacea",
+      "pmid": "28406931",
+      "focus": "common-cold prevention/treatment synthesis with mixed effects across preparations, outcomes and timing",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 159,
+      "entity_slug": "saw-palmetto",
+      "pmid": "29127377",
+      "focus": "Cochrane evidence indicating little or no meaningful urinary-symptom improvement versus placebo for typical saw-palmetto preparations; important null/counterweight",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 160,
+      "entity_slug": "pygeum",
+      "pmid": "11349412",
+      "focus": "older BPH systematic review suggesting possible modest urinary-symptom benefit but small trials and limited long-term evidence",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 161,
+      "entity_slug": "pumpkin-seed-oil",
+      "pmid": "35206390",
+      "focus": "lower-urinary-tract/BPH evidence for pumpkin-seed preparations; heterogeneous seed-oil/extract/product identity prevents generic treatment claim",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 162,
+      "entity_slug": "nettle-root",
+      "pmid": "16118856",
+      "focus": "BPH evidence includes combination products and older trials; isolated nettle-root efficacy remains uncertain",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 163,
+      "entity_slug": "maca",
+      "pmid": "19586488",
+      "focus": "systematic review of sexual function/libido; limited evidence with few trials and methodological limitations",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 164,
+      "entity_slug": "maca",
+      "pmid": "38151493",
+      "focus": "menopausal-symptom human evidence remains small and heterogeneous; symptoms distinct from hormone-level claims",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 165,
+      "entity_slug": "tribulus-terrestris",
+      "pmid": "36398399",
+      "focus": "sexual-function systematic review/meta-analysis; insufficient/inconsistent meaningful erectile-function evidence; preserve counterweight to testosterone marketing",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 166,
+      "entity_slug": "fenugreek",
+      "pmid": "30965583",
+      "focus": "standardized-extract randomized evidence for sexual-function outcomes; proprietary extract and healthy/male population limits; culinary fenugreek not interchangeable",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 167,
+      "entity_slug": "ashwagandha",
+      "pmid": "33331579",
+      "focus": "male-fertility evidence in stressed/infertile men; semen/hormonal outcomes are population-, extract-, duration-, and surrogate-specific",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 168,
+      "entity_slug": "valerian",
+      "pmid": "23843413",
+      "focus": "valerian+hops sleep trials are combination-product evidence and cannot be attributed to valerian alone",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 169,
+      "entity_slug": "bacopa",
+      "pmid": "19336217",
+      "focus": "controlled chronic-use human evidence with selected memory outcomes; preserve extract identity and delayed/chronic rather than acute nootropic framing",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 170,
+      "entity_slug": "ginkgo-biloba",
+      "pmid": "19807940",
+      "focus": "randomized healthy-adult evidence does not establish broad cognitive enhancement; retain null/counterweight evidence",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 171,
+      "entity_slug": "ginkgo-biloba",
+      "pmid": "19160171",
+      "focus": "dementia cognition/function evidence is mixed and standardized-extract/disease-population specific",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 172,
+      "entity_slug": "panax-ginseng",
+      "pmid": "22179287",
+      "focus": "controlled-trial review with possible domain-specific acute cognitive signals; limited evidence and acute-vs-chronic boundary",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 173,
+      "entity_slug": "panax-ginseng",
+      "pmid": "23403007",
+      "focus": "chronic-fatigue systematic review; limited/inconsistent evidence with fatigue diagnosis/context and preparation identity attached",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 174,
+      "entity_slug": "american-ginseng-extract",
+      "pmid": "19043942",
+      "focus": "acute cognitive-performance randomized evidence in healthy adults; species, formulation, and acute time-course firewall",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 175,
+      "entity_slug": "l-theanine",
+      "pmid": "24791768",
+      "focus": "controlled human stress/attention evidence; isolated L-theanine versus tea and acute-versus-chronic exposure remain distinct",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    }
+  ]
+}

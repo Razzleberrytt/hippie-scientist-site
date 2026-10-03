@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-03-enrichment-waves-126-150-selection",
+  "continuation_of": "2026-10-03-enrichment-waves-101-125-selection",
+  "program": {
+    "range": "101-300",
+    "pass_size": 25,
+    "target_findings": 200,
+    "progress_after_pass": 50,
+    "merge_policy": "accumulate eight 25-finding passes; consolidate and validate once after 200"
+  },
+  "source_provenance": [
+    "ops/enrichment-submissions/reconciliation/2026-09-09-enrichment-batch-22.md",
+    "ops/enrichment-submissions/reconciliation/2026-09-06-full-corpus-inventory.md"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until 200-findings consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "validation_strategy": "cheap duplicate/entity screening during authoring; defer repository-wide validation until Wave 300"
+  },
+  "waves": [
+    {
+      "wave": 126,
+      "entity_slug": "lavender",
+      "pmid": "31655395",
+      "focus": "large review across inhalation and oral lavender studies; route and Silexan identity must remain distinct",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 127,
+      "entity_slug": "saffron",
+      "pmid": "25384672",
+      "focus": "clinical systematic review of saffron for depression; preserve extract source, standardization, duration, safety, and trial limitations",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 128,
+      "entity_slug": "lavender",
+      "pmid": "34775136",
+      "focus": "anxiety/depression meta-analysis; route and participant health state contribute to heterogeneity; avoid route-free efficacy claim",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 129,
+      "entity_slug": "saffron",
+      "pmid": "32221179",
+      "focus": "12-study depression synthesis; placebo benefit and broad comparability to antidepressants in included trials with adverse-event incidence not significantly different; preserve trial limits",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 130,
+      "entity_slug": "panax-ginseng",
+      "pmid": "39474788",
+      "focus": "human cognition systematic review/meta-analysis; preserve ginseng species/preparation and healthy-vs-impaired population boundaries",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 131,
+      "entity_slug": "ginger",
+      "pmid": "22951628",
+      "focus": "pregnancy nausea/vomiting systematic review; pregnancy-specific antiemetic evidence only",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 132,
+      "entity_slug": "garlic",
+      "pmid": "25837272",
+      "focus": "seven randomized placebo-controlled hypertension trials; BP signal with need for stronger long-term trials; formulation/population specific",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 133,
+      "entity_slug": "beetroot-nitrate",
+      "pmid": "29141968",
+      "focus": "beetroot juice blood-pressure meta-analysis; preserve juice/nitrate intervention identity and subgroup heterogeneity",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 134,
+      "entity_slug": "echinacea",
+      "pmid": "41234257",
+      "focus": "pediatric respiratory-infection review; five pediatric studies with symptom-duration/antibiotic-use signals and risk-of-bias concerns",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 135,
+      "entity_slug": "bacopa",
+      "pmid": "22747190",
+      "focus": "six 12-week randomized human trials using several Bacopa extracts; memory-focused outcomes; extract and duration firewall",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 136,
+      "entity_slug": "garlic",
+      "pmid": "25239480",
+      "focus": "nine double-blind hypertension trials/482 participants; BP reductions with high heterogeneity",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 137,
+      "entity_slug": "ginger",
+      "pmid": "42322087",
+      "focus": "2026 umbrella review/meta-synthesis for pregnancy nausea/vomiting; pregnancy-specific review-level evidence",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 138,
+      "entity_slug": "ginger",
+      "pmid": "31935866",
+      "focus": "systematic review of 109 randomized-trial papers; indication-by-indication interpretation required; no broad all-purpose ginger efficacy claim",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 139,
+      "entity_slug": "ginger",
+      "pmid": "38625733",
+      "focus": "chemotherapy-induced nausea/vomiting systematic review/meta-analysis; oncology-treatment context only",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 140,
+      "entity_slug": "panax-ginseng",
+      "pmid": "36730693",
+      "focus": "19-RCT fatigue synthesis; overall pooled fatigue reduction not significant, with small subgroup signals; preserve overall null",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 141,
+      "entity_slug": "panax-ginseng",
+      "pmid": "29624410",
+      "focus": "systematic review of fatigue evidence; modest/promising evidence with limited eligible studies and low reported adverse-event burden",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 142,
+      "entity_slug": "ginseng-panax-red",
+      "pmid": "22139546",
+      "focus": "red ginseng in type 2 diabetes; four RCTs with no convincing fasting-glucose or insulin benefit; retain as formulation-specific counterweight",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 143,
+      "entity_slug": "panax-ginseng",
+      "pmid": "27822924",
+      "focus": "fatigue and physical-performance meta-analysis; subjective fatigue and objective performance must remain separate",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 144,
+      "entity_slug": "curcumin",
+      "pmid": "30156145",
+      "focus": "26-trial metabolic-syndrome/related-disorder synthesis; glycemic and lipid endpoints remain phenotype- and formulation-specific",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 145,
+      "entity_slug": "curcumin",
+      "pmid": "37471428",
+      "focus": "umbrella review/update for Curcuma longa-related glucose outcomes in T2DM, prediabetes, and metabolic syndrome; preparation identity and review overlap must be preserved",
+      "state": "reviewed_receipt_pending_source_specific_materialization"
+    },
+    {
+      "wave": 146,
+      "entity_slug": "pomegranate",
+      "pmid": "37461211",
+      "focus": "14 trials/573 participants; pooled systolic blood-pressure signal with duration/dose variation; juice-specific intervention",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 147,
+      "entity_slug": "peppermint-oil",
+      "pmid": "9672344",
+      "focus": "historical eight-RCT IBS meta-analysis; possible symptom relief but substantial methodological limitations and insufficient certainty",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 148,
+      "entity_slug": "fenugreek",
+      "pmid": "37762302",
+      "focus": "10 RCTs/706 participants with type 2 diabetes; several glycemic/lipid signals while HOMA-IR, LDL, and BMI were null; mild GI effects reported",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 149,
+      "entity_slug": "hawthorn",
+      "pmid": "12798455",
+      "focus": "adjunctive hawthorn evidence in NYHA I-III chronic heart failure; 13 qualifying trials, 8 trials/632 in meta-analysis; preserve adjunctive-use boundary",
+      "state": "review_ready_for_materialization"
+    },
+    {
+      "wave": 150,
+      "entity_slug": "artichoke",
+      "pmid": "34569671",
+      "focus": "14 studies/15 effect sizes; lipid changes with juice-versus-extract differences by outcome; preparation-specific",
+      "state": "review_ready_for_materialization"
+    }
+  ]
+}
