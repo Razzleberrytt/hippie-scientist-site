@@ -21,6 +21,11 @@ export const metadata: Metadata = buildPageMetadata({
 
 const FAQS = [
   {
+    question: 'Does creatine help brain fog?',
+    answer:
+      'There is no single validated “brain fog” outcome, so the answer depends on what is causing the cognitive complaint. Creatine has modest evidence for selected memory, attention-time, and processing-speed outcomes, plus small early evidence during acute sleep deprivation. Those findings do not establish creatine as a general treatment for brain fog from insomnia, depression, menopause, medication effects, illness, or another cause.',
+  },
+  {
     question: 'Does creatine improve cognition?',
     answer:
       'A 2024 meta-analysis of 16 randomized trials and 492 adults found modest improvements in memory, attention time, and processing speed, but not overall cognition or executive function. The result is domain-specific rather than evidence that creatine universally makes healthy people smarter.',
@@ -114,7 +119,7 @@ export default function CreatineBrainPage() {
       />
 
       <section className="max-w-4xl space-y-5">
-        <p className="eyebrow-label">2026 Evidence Review · Updated August 16, 2026</p>
+        <p className="eyebrow-label">2026 Evidence Review · Updated October 4, 2026</p>
         <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-5xl">
           Creatine for Brain Health: Where the Evidence Is Real—and Where the Hype Runs Ahead
         </h1>
@@ -140,7 +145,7 @@ export default function CreatineBrainPage() {
       </section>
 
       <LegacyGuideQuickAnswer referencesHref="#references">
-        <p>The brain evidence is <strong>promising but domain-specific</strong>. A 2024 meta-analysis of 16 randomized trials / 492 adults found modest benefits for memory, attention time, and processing-speed time, but not overall cognition or executive function [1]. In depression, an 11-trial / 1,093-participant meta-analysis found a pooled signal, but certainty was very low and the average effect was below the review&rsquo;s prespecified minimal important difference [4]. Acute sleep-deprivation findings are interesting but sparse [2,3], and psychiatric use has context-specific safety boundaries [5].</p>
+        <p>The brain evidence is <strong>promising but domain-specific</strong>. “Brain fog” is a nonspecific symptom label rather than one validated trial endpoint, so evidence for memory, processing speed, depression, menopause, or acute sleep deprivation should not be collapsed into a universal brain-fog treatment claim. A 2024 meta-analysis of 16 randomized trials / 492 adults found modest benefits for memory, attention time, and processing-speed time, but not overall cognition or executive function [1]. In depression, an 11-trial / 1,093-participant meta-analysis found a pooled signal, but certainty was very low and the average effect was below the review&rsquo;s prespecified minimal important difference [4]. Acute sleep-deprivation findings are interesting but sparse [2,3], and psychiatric use has context-specific safety boundaries [5].</p>
       </LegacyGuideQuickAnswer>
 
       <section id="creatine-brain-outcomes" data-answer-engine-table="true" className="card-premium max-w-4xl scroll-mt-24 space-y-5 border-l-4 border-brand-700 bg-brand-50/30 p-6">
