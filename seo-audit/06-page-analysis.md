@@ -24,7 +24,7 @@ All NOT in sitemap, NOT HTML, depth=1. Appear to be broken herb species slugs.
 ## External URLs in Crawl (Wasting Budget)
 
 - pubmed.ncbi.nlm.nih.gov URLs crawled as internal pages
-- amazon.com affiliate links (tag=razzleberr0e2-20) crawled as internal pages
+- amazon.com affiliate links (tag=razzleberry02-20) crawled as internal pages
 - These inflate crawl counts and waste crawl budget
 
 ## Pages Not in Sitemap (746 total, Sample)
