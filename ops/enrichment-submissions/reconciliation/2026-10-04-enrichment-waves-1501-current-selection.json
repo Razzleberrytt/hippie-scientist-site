@@ -6,7 +6,7 @@
     "range": "1501-2000",
     "pass_size": 25,
     "target_findings": 500,
-    "progress_after_pass": 350,
+    "progress_after_pass": 400,
     "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2000"
   },
   "source_provenance": [
@@ -2476,6 +2476,356 @@
       "pmid": "42298535",
       "focus": "In-vitro endodontic study found NAC medicament altered sealer penetration relative to calcium hydroxide; local dental material interaction is not evidence for systemic NAC effects.",
       "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1851,
+      "entity_slug": "beta-alanine-plyometric-swimmers",
+      "pmid": "42218755",
+      "focus": "Randomized 8-week study in 30 trained male swimmers found upper-body plyometric training improved performance in both training groups, while beta-alanine produced greater gains in selected power/endurance measures and altered testosterone, cortisol and IgA; co-training design prevents pure supplement attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1852,
+      "entity_slug": "carnosine-endurance-rct",
+      "pmid": "42308284",
+      "focus": "Placebo-controlled trial in 299 adults found 12 weeks of carnosine produced only selective age/sex-specific endurance signals and no consistent grip-strength benefit; overall effects were limited rather than broadly ergogenic.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1853,
+      "entity_slug": "beta-alanine-glutamine-muscle-brain-review",
+      "pmid": "42322395",
+      "focus": "Mechanistic review proposes beta-alanine/carnosine buffering and glutamine metabolism as interacting components of muscle-brain crosstalk, but the neuroprotection framework is largely mechanistic and requires direct human validation.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1854,
+      "entity_slug": "ergogenic-aids-perceived-effort-review",
+      "pmid": "42338317",
+      "focus": "Narrative review identifies beta-alanine, caffeine and carbohydrate mouth rinse as better-supported ergogenic strategies while characterizing BCAA, citrulline, taurine and probiotics as less directly established for perceived-effort-mediated endurance effects.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1855,
+      "entity_slug": "masters-athletes-supplements-review",
+      "pmid": "42385164",
+      "focus": "Narrative review maps protein, caffeine, creatine, beta-alanine, nitrates and peptide-related supplements in older/Masters athletes; useful evidence mapping but not a substitute for intervention-specific systematic review.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1856,
+      "entity_slug": "citrulline-hypertension-exercise-crossover",
+      "pmid": "42313111",
+      "focus": "Crossover trial in 12 untreated hypertensive men found six days of L-citrulline improved autonomic recovery and reduced resting/post-exercise blood pressure responses after high-intensity exercise; very small male-only study needs replication.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1857,
+      "entity_slug": "citrulline-exercise-muscle-review",
+      "pmid": "42315852",
+      "focus": "Review describes possible L-citrulline effects on exercise performance, protein synthesis and muscle metabolism but identifies major gaps around strategy, transport, mitochondria and gut-muscle mechanisms.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1858,
+      "entity_slug": "citrulline-maternal-neonatal-review",
+      "pmid": "42356310",
+      "focus": "Perinatal review describes strong metabolic/NO rationale for L-citrulline but emphasizes that adequately powered clinical trials are still needed before routine maternal or neonatal use can be recommended.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1859,
+      "entity_slug": "citrulline-pediatric-vascular-review",
+      "pmid": "42356513",
+      "focus": "Pediatric vascular review summarizes L-citrulline as an investigational nitric-oxide-supporting therapy in systemic/pulmonary vascular disease; disease-specific pharmacotherapy evidence should not be generalized to wellness supplementation.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1860,
+      "entity_slug": "citrulline-older-women-exercise-review",
+      "pmid": "42423997",
+      "focus": "Review suggests exercise plus L-citrulline may support vascular and muscle outcomes in postmenopausal/older women, but explicitly calls for larger high-quality RCTs and long-term clinical confirmation.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1861,
+      "entity_slug": "citrulline-melas-phase1",
+      "pmid": "42520344",
+      "focus": "Phase-I study in 10 adults with MELAS found no dose-limiting toxicity across tested L-citrulline doses and exploratory cerebral-blood-flow increases, while high doses raised guanidino compounds; efficacy requires a placebo-controlled trial.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1862,
+      "entity_slug": "hmb-critical-illness-factorial-rct",
+      "pmid": "41102810",
+      "focus": "Multicenter 2x2 factorial RCT in 266 ICU adults found resistance training improved function and longer-term outcomes, whereas HMB only modestly improved phase angle and fatigue with no benefit on most outcomes and no synergy with training.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1863,
+      "entity_slug": "hmb-older-adults-meta",
+      "pmid": "41305674",
+      "focus": "Systematic review/meta-analysis evaluates HMB added to resistance training in older adults across muscle quality, body composition and physical function; retain as category-level synthesis pending source-specific effect extraction.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1864,
+      "entity_slug": "creatine-hmb-older-adults-crossover",
+      "pmid": "41511610",
+      "focus": "Randomized crossover trial in 30 active older adults found creatine plus HMB during supervised multicomponent training improved mobility and selected metabolic outcomes versus placebo; combined supplements and exercise prevent component-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1865,
+      "entity_slug": "hmb-cirrhosis-pilot-rct",
+      "pmid": "41544700",
+      "focus": "Pilot RCT in 21 adults with decompensated cirrhosis found HMB-containing oral nutrition did not significantly improve muscle mass or grip strength versus control, despite within-group improvements in phase angle, arm circumference and chair-stand time.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1866,
+      "entity_slug": "prebiotic-hmb-sarcopenia-rct",
+      "pmid": "41627702",
+      "focus": "Thirty-day RCT in older adults with sarcopenia found HMB improved selected muscle measures and adding fructooligosaccharides produced larger intestinal-barrier/inflammatory changes; combination design and short duration limit inference.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1867,
+      "entity_slug": "hmb-muscle-transcriptome",
+      "pmid": "41683256",
+      "focus": "Acute human muscle-biopsy study found HMB altered hundreds of transcripts related to protein turnover, amino-acid transport and signaling; transcriptomic response is mechanistic evidence, not proof of long-term functional benefit.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1868,
+      "entity_slug": "hmb-bcaa-hemodialysis-crossover",
+      "pmid": "41683304",
+      "focus": "Double-blind crossover study in 24 hemodialysis patients found an HMB+BCAA+zinc medical food improved muscle-thickness/body-composition and selected inflammatory markers but not short-term physical performance; multi-ingredient evidence.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1869,
+      "entity_slug": "creatine-hmb-redox-secondary",
+      "pmid": "41712056",
+      "focus": "Secondary analysis of a 30-person crossover trial found nominal creatine+HMB effects on glutathione-centered redox measures that did not survive false-discovery correction; exploratory correlations should not be presented as established antioxidant benefit.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1870,
+      "entity_slug": "hmb-protein-weightloss-rct",
+      "pmid": "42444106",
+      "focus": "Double-blind RCT in 102 adults with obesity found a protein/CaHMB supplement preserved skeletal muscle and improved fat-loss measures during energy restriction versus maltodextrin, but protein co-formulation prevents isolation of HMB-specific effects.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1871,
+      "entity_slug": "hmb-t2d-masld-observational",
+      "pmid": "42763880",
+      "focus": "Small nonrandomized study in older adults with obesity, T2D and MASLD found heterogeneous muscle-mass changes during HMB-containing nutrition and no statistically significant overall gain; authors characterize the result as negative and exploratory.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1872,
+      "entity_slug": "caffeine-morning-sprint-null",
+      "pmid": "42588165",
+      "focus": "Double-blind crossover study in 17 low-caffeine-consuming men found 300 mg morning caffeine lowered perceived exertion but did not clearly improve repeated sprint, strength, jump, mood or physiologic outcomes under standardized chronobiological conditions.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1873,
+      "entity_slug": "caffeine-adolescent-risk-null",
+      "pmid": "42656491",
+      "focus": "Sleep-manipulation plus double-blind caffeine study in 41 adolescents found no clear practically meaningful average change in value-based risk decisions from caffeine, sleep restriction or their interaction.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1874,
+      "entity_slug": "caffeine-migraine-triggers-meta",
+      "pmid": "42662243",
+      "focus": "Meta-analysis found caffeine was self-reported as a migraine trigger by about 12% of participants, but heterogeneity exceeded 95% and observational self-report cannot justify universal caffeine avoidance.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1875,
+      "entity_slug": "caffeine-intraocular-pressure-meta",
+      "pmid": "42666870",
+      "focus": "Meta-analysis of randomized studies found acute caffeine, especially above 100 mg, transiently increased intraocular pressure in healthy and glaucomatous populations; clinically relevant safety context for susceptible users.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1876,
+      "entity_slug": "caffeine-repeated-sprint-3h",
+      "pmid": "42679046",
+      "focus": "Randomized double-blind crossover trial in 12 adults found a single pre-exercise caffeine dose modestly improved repeated-sprint power for up to 3.5 hours while increasing noradrenaline/heart rate and reducing perceived exertion and muscle pain.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1877,
+      "entity_slug": "caffeine-fat-oxidation-field",
+      "pmid": "42686132",
+      "focus": "Randomized field crossover trial in 14 trained runners found caffeine increased fat oxidation and reduced perceived exertion during one hour of outdoor running at Fatmax without changing total energy expenditure.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1878,
+      "entity_slug": "caffeine-mouth-rinse-network-meta",
+      "pmid": "42688491",
+      "focus": "Network meta-analysis of 57 studies found caffeine and carbohydrate mouth rinses improved selected endurance outcomes versus placebo, but caffeine, carbohydrate and menthol did not significantly differ from one another and rankings were outcome-specific.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1879,
+      "entity_slug": "caffeine-eccentric-load-recovery",
+      "pmid": "42704769",
+      "focus": "Double-blind crossover experiments found caffeine increased eccentric loading and subsequent torque reduction when exercise load could rise, but not when load was fixed, suggesting ergogenic output can indirectly increase post-exercise muscle-function loss.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1880,
+      "entity_slug": "caffeine-gum-meta",
+      "pmid": "42714767",
+      "focus": "Meta-analysis of 25 studies found caffeine gum produced statistically significant but trivial average performance improvements with low-to-very-low certainty and subgroup-dependent effects; practical significance remains modest.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1881,
+      "entity_slug": "caffeine-jump-conditioning-null",
+      "pmid": "42739014",
+      "focus": "Randomized crossover trial in 30 male basketball players found 3 mg/kg caffeine did not clearly improve countermovement-jump response after individualized drop-jump conditioning; an isolated subgroup/timepoint signal was exploratory.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1882,
+      "entity_slug": "caffeine-eeg-systematic-review",
+      "pmid": "42739069",
+      "focus": "Systematic review of 48 human EEG studies found no single reproducible electrophysiological signature of caffeine; alpha/slow-frequency changes were state- and method-dependent and should not be interpreted as direct cognitive improvement.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1883,
+      "entity_slug": "caffeine-oral-contraceptive-fat-oxidation",
+      "pmid": "42744289",
+      "focus": "Randomized crossover study in 13 sedentary women using oral contraceptives found caffeinated coffee increased changes in fat oxidation during/after exercise versus decaf, but the sample was very small and focused on substrate use rather than performance.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1884,
+      "entity_slug": "caffeine-military-sleep-loss-meta",
+      "pmid": "42761483",
+      "focus": "Meta-analysis of seven randomized military studies found acute caffeine improved vigilance, response speed, complex cognition and task performance during sleep loss, with the most consistent effects on vigilance/response outcomes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1885,
+      "entity_slug": "caffeine-female-strength-cycle",
+      "pmid": "42766797",
+      "focus": "Double-blind crossover trial in 16 resistance-trained women found caffeine increased knee-extensor peak torque, with exploratory evidence that menstrual phase modified some strength effects; most other neuromuscular outcomes showed no phase interaction.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1886,
+      "entity_slug": "caffeine-crossfit-meta",
+      "pmid": "42796953",
+      "focus": "Three-level meta-analysis of seven CrossFit studies found a small favorable effect of acute caffeine on performance and higher lactate, with no clear moderation by training status or delivery protocol; evidence remains limited and male-dominant.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1887,
+      "entity_slug": "blackcurrant-caffeine-running",
+      "pmid": "42797046",
+      "focus": "Four-arm crossover trial found caffeine improved repeated-sprint running and reduced perceived exertion while acute blackcurrant powder did not, and combining them produced no additive performance benefit.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1888,
+      "entity_slug": "nmes-protein-scoping-review",
+      "pmid": "42431175",
+      "focus": "Scoping review of ten RCTs suggests neuromuscular electrical stimulation plus protein may improve muscle mass/strength in older or mobility-limited adults, but most studies were only fair quality and combined-intervention effects cannot isolate protein.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1889,
+      "entity_slug": "whey-exercise-older-adults-review",
+      "pmid": "42500242",
+      "focus": "Narrative review supports whey-plus-exercise for muscle/physical outcomes in older adults but finds cognitive and injury-prevention evidence limited and inconsistent, with many outcomes secondary rather than prespecified.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1890,
+      "entity_slug": "whey-mediterranean-cognition-observational",
+      "pmid": "42534743",
+      "focus": "Retrospective study associated whey plus a Mediterranean-style diet with better muscle and selected cognitive outcomes in sarcopenic older adults, but nonrandomized diet co-intervention prevents causal whey-specific inference.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1891,
+      "entity_slug": "almond-vs-whey-postmenopause-crossover",
+      "pmid": "42582257",
+      "focus": "Nine-person randomized crossover trial found almond- and whey-protein beverages produced comparable acute appetite, GI and hydration responses in postmenopausal women; tiny sample and acute endpoints limit broader conclusions.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1892,
+      "entity_slug": "plant-protein-leucine-whey-mps-null",
+      "pmid": "42607838",
+      "focus": "Randomized metabolic study in 45 older men found 20 g of soy-pea protein, leucine-fortified plant protein, or whey did not increase muscle-protein-synthesis rates versus postabsorptive values; protein quality differences did not rescue the low-dose anabolic response.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1893,
+      "entity_slug": "protein-gut-microbiome-scoping",
+      "pmid": "42623696",
+      "focus": "Scoping review of 14 adult studies found protein supplements produced inconsistent, mostly modest microbiome/metabolite changes and no consistent gut-barrier or inflammatory effect; co-interventions were common and isolated protein effects remain unclear.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1894,
+      "entity_slug": "native-type2-collagen-joint-rct",
+      "pmid": "41787523",
+      "focus": "Six-month double-blind RCT in 74 healthy adults with exercise-related joint discomfort found undenatured type-II collagen improved selected KOOS domains earlier than placebo and altered recovery time/CTX-II in subgroups; subgroup dependence warrants caution.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1895,
+      "entity_slug": "low-mw-collagen-skin-hair-rct",
+      "pmid": "41788055",
+      "focus": "Randomized placebo-controlled trial in 114 women found a specific low-molecular-weight fish collagen peptide improved cellulite, skin elasticity/roughness and hair diameter over 24 weeks; effects are formulation-specific and cosmetic rather than general collagen equivalence.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1896,
+      "entity_slug": "gelatin-muscle-recovery-pilot-null",
+      "pmid": "42228163",
+      "focus": "Pilot double-blind RCT in 22 adults found gelatin did not produce significant group-by-time improvements in soreness, torque or collagen-turnover markers after eccentric exercise; selected pairwise signals were exploratory.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1897,
+      "entity_slug": "collagen-skin-review",
+      "pmid": "42451143",
+      "focus": "Narrative review finds oral collagen has the most consistent signals for skin hydration/elasticity and wrinkle appearance but highlights short duration, heterogeneous products, multi-ingredient formulas and industry funding as major confidence limits.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1898,
+      "entity_slug": "carb-electrolyte-rehydration-review",
+      "pmid": "38116803",
+      "focus": "Systematic review of 19 studies found carbohydrate-electrolyte beverages generally rehydrated exercise-associated dehydration better than water, with substantial protocol variability and no single universal formulation established.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1899,
+      "entity_slug": "personalized-hydration-heat-rct",
+      "pmid": "38732589",
+      "focus": "Randomized crossover study in 12 participants found a sweat-loss-personalized hydration strategy improved fluid replacement and prolonged high-intensity exercise in heat versus ad-lib commercial electrolyte drink; the strategy changed both fluid volume and sodium replacement.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1900,
+      "entity_slug": "bcaa-electrolyte-21k-rct",
+      "pmid": "39599586",
+      "focus": "Randomized 21-km running study in 14 trained men found a BCAA-containing electrolyte beverage improved hydration/potassium balance and post-run soreness/strength versus some comparators but did not improve final-5-km completion time; multi-ingredient beverage evidence.",
+      "state": "research_only_combination_firewall"
     }
   ]
 }
