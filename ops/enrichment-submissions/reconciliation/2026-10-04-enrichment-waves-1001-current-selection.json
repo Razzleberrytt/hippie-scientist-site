@@ -4,8 +4,8 @@
   "program": {
     "range": "1001-1500",
     "target_findings": 500,
-    "current_findings": 50,
-    "last_wave": 1050
+    "current_findings": 75,
+    "last_wave": 1075
   },
   "policy": "research authoring index only; not runtime admission; final Wave-1500 consolidation required",
   "waves": [
@@ -358,6 +358,181 @@
       "pmid": "41692009",
       "focus": "Systematic review of clinical and experimental poisoning evidence found toxin-specific, mostly adjunctive signals for L-carnitine/acetyl-L-carnitine, with no basis to replace established antidotes/supportive care; heterogeneous toxins and mixed human/preclinical evidence require category-level handling.",
       "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1051,
+      "entity_slug": "natural-health-product-drug-interactions",
+      "pmid": "42105017",
+      "focus": "New Zealand general-population analysis found substantial concurrent natural-health-product and medicine use, including potential interactions involving fish oil, coenzyme Q10, turmeric and glucosamine; one fish-oil/warfarin combination was rated potentially significant, and coding of supplement exposures was often incomplete.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 1052,
+      "entity_slug": "melatonin",
+      "pmid": "41481289",
+      "focus": "Systematic review of melatonin use in children age 0-6 found rising prescribing, extended use and overdose exposures; short trials in neurologic conditions suggested sleep-onset benefit with few adverse events, but long-term outcomes and efficacy in typically developing young children were absent.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1053,
+      "entity_slug": "cancer-supportive-supplements",
+      "pmid": "41482855",
+      "focus": "Umbrella review covering 52 reviews, 250 RCTs and 18 supplements found most evidence low/critically-low quality, with only selected moderate-certainty supportive-care benefits and dose-related or serious adverse events for some vitamins/minerals; broad category evidence only.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1054,
+      "entity_slug": "vitamin-d",
+      "pmid": "41737411",
+      "focus": "Twenty-study/1,737-participant GDM meta-analysis found improvements in glycemic markers and several pregnancy/neonatal outcomes with vitamin D, but substantial heterogeneity and methodological limitations make these exploratory disease-specific findings.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1055,
+      "entity_slug": "vitamin-d",
+      "pmid": "42021229",
+      "focus": "Pulmonary-tuberculosis meta-analysis found higher sputum-smear conversion and fewer adverse events with adjunctive vitamin D but no significant culture-conversion benefit; outcome-specific certainty and route/duration heterogeneity prevent a broad TB-treatment claim.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1056,
+      "entity_slug": "vitamin-d",
+      "pmid": "42189368",
+      "focus": "Critical ASD review found inconsistent observational status data and mixed RCT results; only one high-dose trial showed broad symptom improvements while other trials were marginal/null, leading the authors to reject vitamin D as a general ASD-targeted intervention.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1057,
+      "entity_slug": "vitamin-d",
+      "pmid": "42272678",
+      "focus": "Umbrella review of 21 asthma syntheses found a possible exacerbation-risk reduction with vitamin D but inconsistent effects on symptom control, lung function and inflammatory outcomes; evidence certainty was frequently low/very low and primary-study overlap was substantial.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1058,
+      "entity_slug": "vitamin-d",
+      "pmid": "42293210",
+      "focus": "Eight-RCT/617-participant hemodialysis meta-analysis found lower CRP and iPTH and slightly higher albumin with nutritional vitamin D, with no significant increase in overall adverse reactions, hypercalcemia or hyperphosphatemia; dialysis-specific evidence only.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1059,
+      "entity_slug": "vitamin-d",
+      "pmid": "42320168",
+      "focus": "Systematic review of 11 high-dose vitamin-D RCTs in multiple sclerosis found serum-level and immunologic changes with rare transient calcium disturbances, but clinical and MRI benefits were inconsistent; high-dose safety conclusions require monitored trial context.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1060,
+      "entity_slug": "vitamin-d",
+      "pmid": "42389475",
+      "focus": "Umbrella review of nine tuberculosis systematic reviews found consistently null primary outcomes for culture conversion, time to conversion and mortality, with subgroup signals considered hypothesis-generating; strong counterweight to routine adjunctive vitamin-D claims in unselected TB.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1061,
+      "entity_slug": "vitamin-d",
+      "pmid": "42528624",
+      "focus": "Umbrella review in diabetic kidney disease found low-certainty reductions in surrogate urinary albumin/protein markers but no consistent benefit for eGFR, creatinine, kidney replacement therapy, mortality or cardiovascular events, with safety inadequately reported.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1062,
+      "entity_slug": "omega3-vitamin-d-chemotherapy",
+      "pmid": "42588106",
+      "focus": "Systematic review of 10 prospective breast-cancer chemotherapy trials found inconsistent efficacy across DHA/EPA combinations with or without vitamin D/GLA, no consistent treatment-response or survival benefit, and low-to-very-low certainty; co-supplementation prevents ingredient-level attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1063,
+      "entity_slug": "supplement-doping-risk",
+      "pmid": "42639281",
+      "focus": "Structured sports-nutrition review identified highest contamination/ADRV risk in multi-ingredient pre-workouts, weight-loss, muscle-building and testosterone-boosting products and emphasized third-party certification, product verification and documentation; product-quality/safety infrastructure evidence only.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1064,
+      "entity_slug": "vitamin-d",
+      "pmid": "42704968",
+      "focus": "Five-year randomized Finnish trial in 2,495 largely vitamin-D-sufficient older adults found neither 1,600 nor 3,200 IU/day reduced fracture risk; the lower-dose arm had more fractures than placebo, directly arguing against high-dose fracture-prevention claims in replete populations.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1065,
+      "entity_slug": "vitamin-c",
+      "pmid": "42246021",
+      "focus": "Fourteen-study hemodialysis meta-analysis found modest hemoglobin/TSAT improvements and lower weight-adjusted ESA requirements with ascorbic acid, but certainty was low, heterogeneity high, and long-term safety/patient-centered outcomes unestablished.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1066,
+      "entity_slug": "antioxidants-breast-cancer",
+      "pmid": "42123930",
+      "focus": "Systematic review of nutritional antioxidants in breast cancer highlighted a double-edged interaction with therapy: selected supplements may reduce toxicities, while antioxidant use during oxidative cytotoxic treatment may theoretically or observationally compromise treatment effects; broad mechanistic/clinical category evidence.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 1067,
+      "entity_slug": "supplement-contamination-sport",
+      "pmid": "41829906",
+      "focus": "Forensic systematic review/meta-analysis linked supplement contamination to a meaningful share of unintentional anti-doping violations and described cardiovascular risks from performance-enhancing substances; contamination estimates and nutrition alternatives remain sport-regulatory context rather than product efficacy evidence.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1068,
+      "entity_slug": "supplement-adulteration",
+      "pmid": "41908212",
+      "focus": "Systematic review of 44 empirical studies estimated roughly 9-15% of tested supplements contained prohibited or undeclared pharmacological substances, especially stimulants/anabolic agents in pre-workout, weight-loss and muscle-building products; product-integrity safety evidence only.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1069,
+      "entity_slug": "creatine",
+      "pmid": "42124755",
+      "focus": "Systematic review of five adolescent/youth creatine studies found no consistent short-term renal, hepatic or cardiometabolic safety signals or serious attributed adverse events, but the evidence base was small and lacked long standardized follow-up.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1070,
+      "entity_slug": "caffeine",
+      "pmid": "42033594",
+      "focus": "Meta-analysis of 48 athlete studies found higher odds of headache, abdominal discomfort, tachycardia, insomnia, anxiety, nervousness and increased urination with acute caffeine, with several side effects increasing with dose; safety effects remain distinct from ergogenic benefit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1071,
+      "entity_slug": "caffeine",
+      "pmid": "42588143",
+      "focus": "Systematic review/meta-analysis in adolescent athletes found only a small uncertain acute physical-performance benefit, sparse cognitive evidence and inconsistent adverse-event reporting; current evidence did not support routine caffeine use in youth sport.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1072,
+      "entity_slug": "omega-3",
+      "pmid": "41692069",
+      "focus": "Thirteen-study hemodialysis review found selected CRP reductions with omega-3 formulations but substantial heterogeneity and poor adverse-event reporting; reported events were mostly mild, while optimal formulation/composition remains uncertain.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1073,
+      "entity_slug": "saw-palmetto",
+      "pmid": "42157952",
+      "focus": "Systematic review of recent Serenoa repens evidence found symptom improvements in some BPH/LUTS studies and generally favorable tolerability, but extract/formulation, combination-treatment and study-design heterogeneity substantially limited comparability.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1074,
+      "entity_slug": "antioxidants-dietary-therapies-epilepsy",
+      "pmid": "41601892",
+      "focus": "Umbrella meta-analysis found dietary therapies such as low-glycemic-index treatment reduced seizure frequency while antioxidant adjuncts did not show significant efficacy; adverse events increased overall, especially with ketogenic diets, so this remains broad category evidence.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1075,
+      "entity_slug": "thiamin",
+      "pmid": "41277404",
+      "focus": "Six-RCT/438-participant septic-shock meta-analysis found lower in-hospital mortality and renal-replacement-therapy use with thiamin; critically ill population and treatment-context boundaries prevent extrapolation to general supplementation.",
+      "state": "reviewed_receipt_pending_final_admission"
     }
   ]
 }
