@@ -1747,19 +1747,14 @@
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42812771",
-      "category": "cardiometabolic",
-      "title": "Ferroptosis in smoke inhalation injury: from mechanisms to potential therapeutic targets.",
-      "pub_date": "2026",
-      "journal": "Front Cell Dev Biol",
-      "pub_type": "Review",
-      "doi": "10.3389/fcell.2026.1832061",
-      "pmcid": "PMC13620227",
-      "categories": [
-        "cardiometabolic"
-      ],
-      "selection_score": 13,
-      "primary_category": "cardiometabolic",
+      "pmid": "42532103",
+      "category": "cognition_focus",
+      "title": "Ginkgo biloba Leaf Extracts in Global Dementia and Mild Cognitive Impairment Guidelines. A Review.",
+      "pub_date": "2026 Jul 30",
+      "journal": "Planta Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1055/a-2895-5345",
+      "pmcid": null,
       "wave": 2603,
       "state": "selected_pending_exact_abstract_verification"
     },
@@ -1783,36 +1778,26 @@
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42797224",
-      "category": "cardiometabolic",
-      "title": "Targeted Delivery of Specialized Pro-Resolving Mediators (SPMs) for Improved Treatments of Inflammatory Diseases and Cancer.",
-      "pub_date": "2026 Aug 23",
-      "journal": "Pharmaceutics",
+      "pmid": "42539704",
+      "category": "cognition_focus",
+      "title": "Creatine monohydrate supplementation for recovery from muscle disuse: Timing matters.",
+      "pub_date": "2026 Sep",
+      "journal": "Sports Med Health Sci",
       "pub_type": "Review",
-      "doi": "10.3390/pharmaceutics18091048",
-      "pmcid": "PMC13610412",
-      "categories": [
-        "cardiometabolic"
-      ],
-      "selection_score": 13,
-      "primary_category": "cardiometabolic",
+      "doi": "10.1016/j.smhs.2026.05.006",
+      "pmcid": "PMC13424173",
       "wave": 2605,
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42795302",
-      "category": "cardiometabolic",
-      "title": "Siberian Sturgeon (Acipenser baerii, Brandt, 1869) the Relationship Between Genetic Resources and Acclimatization: Ecology, Conservation, and the Nutritional Significance of Meat and Caviar.",
-      "pub_date": "2026 Aug 28",
-      "journal": "Life (Basel)",
+      "pmid": "42616216",
+      "category": "cognition_focus",
+      "title": "Bacopa monnieri and Alzheimer's disease: mechanistic convergence, cognitive outcomes and translational perspectives.",
+      "pub_date": "2026 Sep",
+      "journal": "Inflammopharmacology",
       "pub_type": "Review",
-      "doi": "10.3390/life16091437",
-      "pmcid": "PMC13608066",
-      "categories": [
-        "cardiometabolic"
-      ],
-      "selection_score": 13,
-      "primary_category": "cardiometabolic",
+      "doi": "10.1007/s10787-026-02369-1",
+      "pmcid": null,
       "wave": 2606,
       "state": "selected_pending_exact_abstract_verification"
     },
@@ -1835,19 +1820,14 @@
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42794580",
-      "category": "cardiometabolic",
-      "title": "Statins and Myasthenia Gravis: Clinical Implications and Pathogenesis.",
-      "pub_date": "2026 Sep 13",
-      "journal": "Int J Mol Sci",
+      "pmid": "42774343",
+      "category": "metabolic",
+      "title": "Berberine as a multitarget modulator of metabolic inflammation: molecular mechanisms, circadian regulation, and translational perspectives.",
+      "pub_date": "2026",
+      "journal": "Front Pharmacol",
       "pub_type": "Review",
-      "doi": "10.3390/ijms27188150",
-      "pmcid": "PMC13607078",
-      "categories": [
-        "cardiometabolic"
-      ],
-      "selection_score": 13,
-      "primary_category": "cardiometabolic",
+      "doi": "10.3389/fphar.2026.1935151",
+      "pmcid": "PMC13594412",
       "wave": 2608,
       "state": "selected_pending_exact_abstract_verification"
     },
@@ -1957,19 +1937,14 @@
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42824012",
-      "category": "cognition_focus",
-      "title": "Case Report: Massive sustained-release valproate overdose with prolonged gastric tablet retention and partial pharmacobezoar formation managed by endoscopic removal and delayed extracorporeal therapy.",
-      "pub_date": "2026",
-      "journal": "Front Pharmacol",
-      "pub_type": "Journal Article",
-      "doi": "10.3389/fphar.2026.1923807",
-      "pmcid": "PMC13626886",
-      "categories": [
-        "cognition_focus"
-      ],
-      "selection_score": 17,
-      "primary_category": "cognition_focus",
+      "pmid": "42734836",
+      "category": "cardiometabolic",
+      "title": "Omega-3 and Omega-6 Fatty Acids and Cardiovascular Outcomes in Diabetes - A Review of Current Evidence.",
+      "pub_date": "2026 Sep 14",
+      "journal": "Curr Diab Rep",
+      "pub_type": "Review",
+      "doi": "10.1007/s11892-026-01644-3",
+      "pmcid": null,
       "wave": 2615,
       "state": "selected_pending_exact_abstract_verification"
     },
@@ -1991,19 +1966,14 @@
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42711208",
-      "category": "cognition_focus",
-      "title": "Safety of lipid-lowering therapies: it is time for a \"DOCebo\" effect.",
-      "pub_date": "2026 Aug 18",
-      "journal": "Nutr Metab Cardiovasc Dis",
-      "pub_type": "Journal Article",
-      "doi": "10.1016/j.numecd.2026.104964",
-      "pmcid": null,
-      "categories": [
-        "cognition_focus"
-      ],
-      "selection_score": 17,
-      "primary_category": "cognition_focus",
+      "pmid": "42653650",
+      "category": "cannabinoid_safety",
+      "title": "Neuropharmacology of Cannabinoids: A Comprehensive Review of Preclinical and Clinical Evidence for Hemp-Derived Extracts and Active Compounds.",
+      "pub_date": "2026 Jul 24",
+      "journal": "Pharmaceuticals (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/ph19081151",
+      "pmcid": "PMC13516590",
       "wave": 2617,
       "state": "selected_pending_exact_abstract_verification"
     },
@@ -2025,19 +1995,14 @@
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42619712",
-      "category": "cognition_focus",
-      "title": "Early Amyloid-β Toxicity Disrupts Nervous System Connectivity During Aging in Caenorhabditis elegans.",
-      "pub_date": "2026 Jul 29",
-      "journal": "bioRxiv",
-      "pub_type": "Preprint",
-      "doi": "10.64898/2026.07.27.740981",
-      "pmcid": "PMC13483939",
-      "categories": [
-        "cognition_focus"
-      ],
-      "selection_score": 17,
-      "primary_category": "cognition_focus",
+      "pmid": "42709244",
+      "category": "stress_anxiety",
+      "title": "Effects of inhaled lavender essential oil on sleep quality, pain, and anxiety in ICU patients after curative hepatocellular carcinoma resection: a quasi-experimental study.",
+      "pub_date": "2026 Sep 8",
+      "journal": "Support Care Cancer",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s00520-026-11184-x",
+      "pmcid": null,
       "wave": 2619,
       "state": "selected_pending_exact_abstract_verification"
     },
@@ -2059,19 +2024,14 @@
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42795429",
-      "category": "cognition_focus",
-      "title": "Acute Salivary Biomarker, Cognitive, and Tennis Performance Responses to Tennis-Specific Exercise Versus HIIT: A Randomized Crossover Study.",
-      "pub_date": "2026 Sep 18",
-      "journal": "Life (Basel)",
+      "pmid": "42520100",
+      "category": "withdrawal_nps",
+      "title": "Mapping the Evidence on Kratom Use, Health Outcomes, and Policy Gaps in the United States: A Scoping Review.",
+      "pub_date": "2026 Jul 28",
+      "journal": "Subst Use Misuse",
       "pub_type": "Journal Article",
-      "doi": "10.3390/life16091565",
-      "pmcid": "PMC13608874",
-      "categories": [
-        "cognition_focus"
-      ],
-      "selection_score": 16,
-      "primary_category": "cognition_focus",
+      "doi": "10.1080/10826084.2026.2697988",
+      "pmcid": null,
       "wave": 2621,
       "state": "selected_pending_exact_abstract_verification"
     },
@@ -2093,53 +2053,38 @@
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42723148",
-      "category": "cognition_focus",
-      "title": "No Influence of Sleep Quality and Chronotype on the Effects of Mental Fatigue: Evidence From an Exploratory Analysis.",
-      "pub_date": "2026 Oct",
-      "journal": "Eur J Sport Sci",
-      "pub_type": "Randomized Controlled Trial",
-      "doi": "10.1002/ejsc.70247",
-      "pmcid": "PMC13562610",
-      "categories": [
-        "cognition_focus"
-      ],
-      "selection_score": 16,
-      "primary_category": "cognition_focus",
+      "pmid": "42309612",
+      "category": "withdrawal_nps",
+      "title": "A review on Mitragyna alkaloids pharmacology, biosynthesis and biotechnological insights.",
+      "pub_date": "2026 Jun",
+      "journal": "J Genet Eng Biotechnol",
+      "pub_type": "Review",
+      "doi": "10.1016/j.jgeb.2026.100710",
+      "pmcid": "PMC13191265",
       "wave": 2623,
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42565694",
-      "category": "cognition_focus",
-      "title": "[Contralateral venous thrombosis and intracerebral hemorrhage after resection of parasagittal meningioma: a case report and systematic review].",
-      "pub_date": "2026",
-      "journal": "Zh Vopr Neirokhir Im N N Burdenko",
-      "pub_type": "English Abstract",
-      "doi": "10.17116/neiro20269004152",
-      "pmcid": null,
-      "categories": [
-        "cognition_focus"
-      ],
-      "selection_score": 16,
-      "primary_category": "cognition_focus",
+      "pmid": "42756867",
+      "category": "cardiometabolic",
+      "title": "Micronutrients in Cardiovascular Disease: A Comprehensive Review of Vitamins, Trace Minerals, and Electrolytes.",
+      "pub_date": "2026 Sep-Oct",
+      "journal": "Niger Med J",
+      "pub_type": "Journal Article",
+      "doi": "10.71480/nmj.v67i5.1505",
+      "pmcid": "PMC13583631",
       "wave": 2624,
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42826818",
-      "category": "cognition_focus",
-      "title": "Microglial GPR56 in synaptic pruning: mechanisms, comparative receptor biology, and context-dependent roles in brain disorders.",
-      "pub_date": "2026 Oct 2",
-      "journal": "Biochim Biophys Acta Mol Cell Res",
+      "pmid": "42661783",
+      "category": "cannabinoid_safety",
+      "title": "Cannabinoid efficacy for pain: dose, chronicity and route.",
+      "pub_date": "2026",
+      "journal": "Front Neurosci",
       "pub_type": "Review",
-      "doi": "10.1016/j.bbamcr.2026.120231",
-      "pmcid": null,
-      "categories": [
-        "cognition_focus"
-      ],
-      "selection_score": 13,
-      "primary_category": "cognition_focus",
+      "doi": "10.3389/fnins.2026.1888863",
+      "pmcid": "PMC13518349",
       "wave": 2625,
       "state": "selected_pending_exact_abstract_verification"
     },
