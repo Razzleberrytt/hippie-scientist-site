@@ -48,6 +48,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
+| #6324 | Validate and land enrichment waves 1501–2000 | A | In review — admitted for implementation by PR #6323; exact-head validation required | P1 | 3/4/3/5/0.75/2 | 67.5 | 2026-10-04T18:00:00Z — exact base `2a9aa816383f9d84e5059342dd6aa04b038a75db` | 500 contiguous unique receipts; admit only source-specific canonical rows; preserve all research-only firewalls; required exact-head gates green before merge |
 
 
 
@@ -89,7 +90,6 @@ Authority/Content is occupied by #6324; Discovery/SEO and Revenue/Conversion are
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
-| #6324 | Validate and land enrichment waves 1501–2000 | A | In review — admitted for implementation by PR #6323; exact-head validation required | P1 | 3/4/3/5/0.75/2 | 67.5 | 2026-10-04T18:00:00Z — exact base `2a9aa816383f9d84e5059342dd6aa04b038a75db` | 500 contiguous unique receipts; admit only source-specific canonical rows; preserve all research-only firewalls; required exact-head gates green before merge |
 | #5076 | Add reusable post-answer sleep research next-action path | R conversion / L4 | Completed 2026-09-04; retired from actionable queue | — | — | — | Canonical component plus three representative integrations are on `main`; stale fourth-integration PR #5430 closed | Outcomes remain `Unknown`; any further page integration requires a fresh admitted ticket |
 | #4987 | Require real evidence receipts for approval and source counts | A / L2 | Completed 2026-09-28; PR #6057 merged | — | — | — | Exact-head CI/Atomic/Project Control/Site Health/Build Quality green | Claim/source namespaces separated; sourceCount cannot self-attest; generic approval/recommendation requires approved claim→source receipt |
 | #6056 | Contain legacy Tyrosine citation contamination | A / L2 | Retired — merged in PR #6066 | Scientific integrity | — | — | Completed; no overlap with #6051 | Legacy herb grade/citations/dosing held across public indexes + runtime; compound:l-tyrosine preserved |
