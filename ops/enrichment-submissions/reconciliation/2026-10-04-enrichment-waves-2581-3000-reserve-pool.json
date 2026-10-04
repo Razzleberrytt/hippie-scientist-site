@@ -5,7 +5,23 @@
   "verified_replacement_pmids_excluded": 20,
   "total_reserve": 1322,
   "selection_policy": "Unused candidate PMIDs only; prioritize PMCID then DOI; exact PubMed abstract verification still required before counting.",
-  "consumed_pmids": [],
+  "consumed_pmids": [
+    "42733589",
+    "42781235",
+    "42812065",
+    "42665423",
+    "42757066",
+    "42756867",
+    "42796943",
+    "42795582",
+    "42796942",
+    "42783786",
+    "42817260",
+    "42793276",
+    "42793967",
+    "42716578",
+    "42794467"
+  ],
   "candidates": [
     {
       "pmid": "42733589",
