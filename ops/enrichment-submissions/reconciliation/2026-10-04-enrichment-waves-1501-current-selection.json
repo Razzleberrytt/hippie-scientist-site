@@ -6,7 +6,7 @@
     "range": "1501-2000",
     "pass_size": 25,
     "target_findings": 500,
-    "progress_after_pass": 475,
+    "progress_after_pass": 500,
     "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2000"
   },
   "source_provenance": [
@@ -3351,6 +3351,181 @@
       "pmid": "39840022",
       "focus": "Pilot double-blind trial in 70 veterans tested prebiotic fiber alongside CBT for PTSD and found microbiome associations plus possible benefit in a subset; proof-of-concept design does not establish broad PTSD efficacy.",
       "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1976,
+      "entity_slug": "beetroot-female-endurance-athletes-rct",
+      "pmid": "39796497",
+      "focus": "Small randomized trial in 18 female endurance athletes found acute beetroot juice improved selected ventilatory variables and increased VO2max modestly versus placebo; sample size was very small and results are specific to trained women.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1977,
+      "entity_slug": "protein-basketball-congested-schedule-rct",
+      "pmid": "39796561",
+      "focus": "Double-blind crossover trial in 18 male basketball players found milk-protein supplementation increased erythrocyte glutathione but did not accelerate recovery of muscle function across a congested three-game schedule; playing time was a stronger recovery determinant.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1978,
+      "entity_slug": "acute-supplements-young-athletes-review",
+      "pmid": "39770925",
+      "focus": "Systematic review of 16 studies found limited, mixed evidence for acute carbohydrate, beetroot and sodium-citrate use in young athletes, highlighting the thin evidence base and need for age-specific guidance rather than extrapolation from adults.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1979,
+      "entity_slug": "prebiotics-iron-fortification-liver-renal-rct",
+      "pmid": "39707781",
+      "focus": "Double-blind randomized fortification trial in iron-deficient women found some prebiotic-plus-iron flour combinations increased liver-function and renal markers, suggesting that fortification safety outcomes can vary by compound and matrix.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 1980,
+      "entity_slug": "oral-probiotic-pregnancy-vulvovaginal-infection-null",
+      "pmid": "39771026",
+      "focus": "Multicenter double-blind RCT found a defined oral multi-strain probiotic did not reduce vulvovaginal infections during pregnancy and did not colonize the vagina with the administered strains; direct product-specific null evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1981,
+      "entity_slug": "cocoa-flavanol-gut-microbiota-null",
+      "pmid": "39776521",
+      "focus": "Randomized double-blind crossover study in eight healthy adults found short-term high-dose cocoa flavanols did not clearly increase Bifidobacterium or Lactobacillus and were not consistent with a prebiotic effect; tiny mechanistic null.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1982,
+      "entity_slug": "probiotic-zinc-hepatic-encephalopathy-rct",
+      "pmid": "39803228",
+      "focus": "Open-label randomized trial in cirrhosis found probiotic with or without zinc did not reduce hepatic-encephalopathy recurrence, ammonia or MELD score, though quality-of-life and selected sleep outcomes improved; recurrence null is clinically important.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1983,
+      "entity_slug": "synbiotic-periodontal-t2d-rct",
+      "pmid": "39811858",
+      "focus": "Double-blind RCT in type 2 diabetes with periodontal disease tested synbiotic supplementation alongside nonsurgical periodontal therapy; combination with standard periodontal treatment limits attribution of metabolic and inflammatory changes to the synbiotic alone.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1984,
+      "entity_slug": "resistant-starch-prebiotic-metformin-t2d-rct",
+      "pmid": "39835082",
+      "focus": "Double-blind RCT in 70 adults with type 2 diabetes on metformin found a branded resistant-starch prebiotic improved fasting/postprandial glucose and GLP-1 but not HbA1c, insulin or HOMA-IR over 12 weeks; product-specific adjunctive evidence.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1985,
+      "entity_slug": "anti-inflammatory-diets-supplements-schizophrenia-review",
+      "pmid": "39839138",
+      "focus": "Systematic review found mixed evidence for anti-inflammatory diets, probiotics, fish oil and vitamin D in schizophrenia-related metabolic and symptom outcomes; heterogeneity and adherence barriers preclude broad recommendations.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1986,
+      "entity_slug": "probiotic-caloric-restriction-obesity-rct",
+      "pmid": "39842252",
+      "focus": "Double-blind RCT in men with obesity evaluated probiotic supplementation during 30% caloric restriction; any body-composition or psychobiological effects must be interpreted as adjunctive to a strong diet intervention.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1987,
+      "entity_slug": "probiotics-mci-alzheimers-meta-null",
+      "pmid": "40034358",
+      "focus": "Systematic review/meta-analysis of 10 RCTs found probiotics did not significantly improve MMSE, MoCA, memory, attention, language or visuospatial outcomes in MCI/Alzheimer's disease; domain effects were heterogeneous and nonsignificant.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1988,
+      "entity_slug": "rhodiola-polysaccharides-preclinical-review",
+      "pmid": "38960222",
+      "focus": "Review of Rhodiola polysaccharides focuses on extraction, structure and predominantly preclinical bioactivities; useful chemistry/mechanistic context but not evidence for human efficacy.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1989,
+      "entity_slug": "ginkgo-donepezil-vascular-dementia-meta",
+      "pmid": "39021830",
+      "focus": "Meta-analysis of 15 RCTs reported better cognitive and daily-function outcomes with Ginkgo extract plus donepezil versus donepezil alone in vascular dementia, but combination therapy and source-trial quality constrain inference about Ginkgo alone.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1990,
+      "entity_slug": "ginkgo-ischemic-cerebrovascular-rct",
+      "pmid": "39340861",
+      "focus": "Randomized trial in 120 older patients with ischemic cerebrovascular disease reported better neurologic, inflammatory and hemorheology outcomes with Ginkgo extract added to conventional care; adjunctive design limits monotherapy inference.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1991,
+      "entity_slug": "egb761-alzheimers-narrative-review",
+      "pmid": "39422946",
+      "focus": "Narrative review emphasizes that most positive Ginkgo dementia evidence applies to the standardized EGb 761 extract rather than generic Ginkgo products; clinical heterogeneity and incomplete mechanism remain key boundaries.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1992,
+      "entity_slug": "bacopa-schizophrenia-systematic-review",
+      "pmid": "39498770",
+      "focus": "Systematic review found only nine eligible Bacopa-related schizophrenia studies and a mixture of mechanistic/preclinical and limited clinical evidence; claims of symptom benefit require much stronger human replication.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1993,
+      "entity_slug": "vitamin-d-addiction-scoping-review",
+      "pmid": "40083958",
+      "focus": "Scoping review found inverse associations between vitamin D status and several addictive/impulse-control conditions but substantial methodological limitations and sparse intervention evidence; deficiency association should not be treated as treatment efficacy.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1994,
+      "entity_slug": "vitamin-d-pregnancy-depression-cohort-null",
+      "pmid": "40226727",
+      "focus": "Prospective pregnancy cohort found serum vitamin D levels were not significantly associated with depressive symptoms across pregnancy after adjustment; a change-score signal attenuated with covariate control.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1995,
+      "entity_slug": "calcium-oxalate-stone-prevention-review",
+      "pmid": "40458577",
+      "focus": "Systematic review identified several non-guideline therapies with urinary-risk or stone-formation signals, including cranberry juice, magnesium compounds, EPA, probiotics and herbs, but intervention diversity and limited replication prevent simple recommendations.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1996,
+      "entity_slug": "bariatric-surgery-medication-supplement-pk-meta",
+      "pmid": "38710656",
+      "focus": "Systematic review/meta-analysis found bariatric surgery altered pharmacokinetics for some drugs and supplements but not consistently for calcium, ferritin or zinc; heterogeneity and missing data made most supplement-PK conclusions uncertain.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1997,
+      "entity_slug": "iron-pregnancy-uspstf-evidence-review",
+      "pmid": "39163033",
+      "focus": "USPSTF evidence review found routine iron supplementation reduced maternal iron deficiency and iron-deficiency anemia at term but did not clearly improve major maternal or infant clinical outcomes; screening evidence remained absent.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1998,
+      "entity_slug": "vitamin-d-prediabetes-prevention-meta",
+      "pmid": "39421597",
+      "focus": "Meta-analysis of 11 RCTs in prediabetes found vitamin D modestly reduced progression to type 2 diabetes and increased regression to normoglycemia, though the effect size was small and clinical applicability depends on population and regimen.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1999,
+      "entity_slug": "iron-absorption-infants-systematic-review",
+      "pmid": "39599621",
+      "focus": "Systematic review of isotopically measured iron absorption in infants and young children supports current supplementation guidance and identifies ascorbic acid as an absorption enhancer, while lactoferrin/prebiotic strategies remain promising but insufficiently established.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2000,
+      "entity_slug": "inverse-publication-bias-safety-meta-epidemiology",
+      "pmid": "39456055",
+      "focus": "Empirical analysis of 277 adverse-event meta-analyses found inverse publication bias in roughly 14-16% and showed poor-to-moderate agreement of visual assessments, reinforcing that safety evidence synthesis requires direction-aware bias checks and qualitative review.",
+      "state": "research_only_evidence_quality"
     }
   ]
 }
