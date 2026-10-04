@@ -19,6 +19,19 @@
       "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
     },
     {
+      "wave": 2567,
+      "pmid": "42653650",
+      "replaces_rejected_pmid": "42794674",
+      "doi": "10.3390/ph19081151",
+      "title": "Neuropharmacology of Cannabinoids: A Comprehensive Review of Preclinical and Clinical Evidence for Hemp-Derived Extracts and Active Compounds.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "Cannabis sativa contains more than 120 phytocannabinoids, with Δ9-tetrahydrocannabinol (THC) and cannabidiol (CBD) being the best characterized. This review synthesizes preclinical and clinical evidence on hemp-derived extracts, cannabinoids, and active compounds. THC primarily acts as a partial agonist at cannabinoid receptor type 1 (CB1) and type 2 (CB2), producing psychoactive, appetite-stimulating, antiemetic, and analgesic effects. CBD is non-intoxicating and has a multimodal profile involving CB1 negative allosteric modulation, CB2 inverse agonism or antagonism, inhibition of anandamide inactivation, and activity at 5-HT1A receptors, transient receptor potential channels, GPR55, and pe",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    },
+    {
       "wave": 2568,
       "pmid": "42784233",
       "doi": "10.3390/pathophysiology33030065",
@@ -29,6 +42,19 @@
       "focus": "Background/Objectives: The increasing therapeutic use of cannabinoid-based formulations highlights the need to better characterize their safety profile, particularly in organs involved in xenobiotic elimination, such as the kidneys. This study evaluated the renal effects of cannabidiol (CBD) and Δ9-tetrahydrocannabinol (Δ9-THC) nanoemulsions following subchronic oral administration in male Wistar rats. Methods: Forty animals (n = 8/group) were randomly allocated into five groups: vehicle control (Licuri oil + Pluronic® F127), CBD 2.5 mg/kg, CBD 5 mg/kg, CBD+THC 2.5 mg/kg, and CBD+THC 5 mg/kg. Treatments were administered daily by oral gavage for 21 consecutive days. Kidney samples were analy",
       "state": "research_only_preclinical",
       "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    },
+    {
+      "wave": 2569,
+      "pmid": "42653735",
+      "replaces_rejected_pmid": "42769824",
+      "doi": "10.3390/ph19081238",
+      "title": "Cannabis and Cannabinoids: The Medical Potential of Cannabidiol in Mental and Neurological Disorders.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "Background/Objectives: Mental and neurological disorders contribute substantially to the global burden of disease, affecting people of all ages and backgrounds. As their prevalence increases with age, their overall impact is expected to grow in the coming decades. Although psychological and pharmacological treatments are available, many patients fail to achieve satisfactory outcomes, underscoring the need for improved therapeutic strategies. Cannabis sativa L. has been used for medicinal purposes for centuries, and cannabidiol (CBD) has attracted increasing attention because of its broad therapeutic potential. Scientific studies indicate that CBD may be beneficial in several mental and neuro",
+      "state": "research_only_human_trial",
+      "evidence_boundary": "Human intervention evidence; no generalization beyond the studied formulation, dose, population, comparator, duration, and outcomes."
     },
     {
       "wave": 2570,
@@ -54,6 +80,19 @@
       "focus": "Postcholecystectomy clip migration (PCCM) is a rare but recognized complication following cholecystectomy. The clinical presentation of PCCM often mimics that of choledocholithiasis, with symptoms including right upper quadrant pain and obstructive jaundice. Although the exact mechanisms underlying clip migration remain unclear, several theories have been proposed in the literature. While most cases occur shortly after the procedure, with clips migrating to the common bile duct (CBD) or, less commonly, to the duodenum; some instances may occasionally present much later, such as the case described here. An 85-year-old female presented with symptoms consistent with CBD obstruction, and the ini",
       "state": "research_only_preclinical",
       "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    },
+    {
+      "wave": 2572,
+      "pmid": "42658415",
+      "replaces_rejected_pmid": "42765009",
+      "doi": "10.1007/s13365-026-01338-2",
+      "title": "Impact of cannabis use on white matter hyperintensities in adults with and without chronic HIV disease.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "White matter hyperintensities (WMH) are prevalent among people living with HIV (PLWH), even with sustained viral suppression on antiretroviral therapy. This study investigated whether cannabis use contributes to additional WMH load among PLWH and its association to neurocognitive function. A total of 296 adult participants, stratified by HIV and cannabis status (74 control, 73 cannabis-only, 76 HIV-only and 73 HIV+cannabis) were enrolled. High resolution anatomical MRI and fluid-attenuated inversion recovery (FLAIR) images were collected, along with a battery of neuropsychological tests. Periventricular (pvWMH) and deep (dWMH) WMH loads were quantified using an automated pipeline. Statistica",
+      "state": "research_only_observational",
+      "evidence_boundary": "Association cannot establish causality; confounding, reverse causation, and measurement error remain possible."
     },
     {
       "wave": 2573,
@@ -120,39 +159,20 @@
   ],
   "rejected": [
     {
-      "wave": 2567,
-      "pmid": "42794674",
-      "category": "cannabinoid_safety",
-      "reason": "Replacement exact PubMed fetch lacked title or abstract.",
-      "replacement_attempt_pmid": "42617216"
-    },
-    {
-      "wave": 2569,
-      "pmid": "42769824",
-      "category": "cannabinoid_safety",
-      "reason": "Replacement exact PubMed fetch lacked title or abstract.",
-      "replacement_attempt_pmid": "42618595"
-    },
-    {
-      "wave": 2572,
-      "pmid": "42765009",
-      "category": "cannabinoid_safety",
-      "reason": "Replacement exact PubMed fetch lacked title or abstract.",
-      "replacement_attempt_pmid": "42632396"
-    },
-    {
       "wave": 2574,
       "pmid": "42761342",
       "category": "cannabinoid_safety",
-      "reason": "Replacement exact PubMed fetch lacked title or abstract.",
-      "replacement_attempt_pmid": "42639023"
+      "reason": "Second replacement exact PubMed fetch lacked title or abstract.",
+      "replacement_attempt_pmid": "42639023",
+      "replacement_attempt_2_pmid": "42659806"
     },
     {
       "wave": 2576,
       "pmid": "42748645",
       "category": "cannabinoid_safety",
-      "reason": "Replacement exact PubMed fetch lacked title or abstract.",
-      "replacement_attempt_pmid": "42641999"
+      "reason": "Second replacement exact PubMed fetch lacked title or abstract.",
+      "replacement_attempt_pmid": "42641999",
+      "replacement_attempt_2_pmid": "42661783"
     }
   ]
 }
