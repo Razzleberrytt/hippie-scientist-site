@@ -150,8 +150,8 @@
       "wave": 2143,
       "entity_slug": "probiotics-augment-non-surgical-periodontal-treatment-randomised",
       "pmid": "42076937",
-      "focus": "Randomized controlled trial on probiotics augment the effect of non-surgical periodontal treatment-a randomised, double-blinded, placebo-controlled reports The tested probiotic supplement resulted in an additional short-term decrease in periodontitis-associated species along with greater improvements in BoP% and PPD ≥ 5 mm. Evidence boundary: the observational design cannot establish causality.",
-      "state": "research_only_observational"
+      "focus": "Randomized controlled trial on probiotics augment the effect of non-surgical periodontal treatment-a randomised, double-blinded, placebo-controlled reports The tested probiotic supplement resulted in an additional short-term decrease in periodontitis-associated species along with greater improvements in BoP% and PPD ≥ 5 mm. Evidence boundary: randomized, double-blind, placebo-controlled human trial; findings remain formulation-, population-, duration-, endpoint-, and adjunctive-treatment-specific.",
+      "state": "research_only_human_trial"
     },
     {
       "wave": 2144,
