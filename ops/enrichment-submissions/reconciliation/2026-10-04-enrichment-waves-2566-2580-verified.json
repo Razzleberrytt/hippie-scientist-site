@@ -43,6 +43,19 @@
       "evidence_boundary": "Primary research remains design-bounded; no recommendation, dose inference, or cross-formulation generalization is permitted."
     },
     {
+      "wave": 2571,
+      "pmid": "42630400",
+      "replaces_rejected_pmid": "42765195",
+      "doi": "10.1155/crgm/7768285",
+      "title": "Spontaneous Migration of a Postcholecystectomy Surgical Clip From the Common Bile Duct to the Cecum Nineteen Years After Surgery: A Case Report.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "Postcholecystectomy clip migration (PCCM) is a rare but recognized complication following cholecystectomy. The clinical presentation of PCCM often mimics that of choledocholithiasis, with symptoms including right upper quadrant pain and obstructive jaundice. Although the exact mechanisms underlying clip migration remain unclear, several theories have been proposed in the literature. While most cases occur shortly after the procedure, with clips migrating to the common bile duct (CBD) or, less commonly, to the duodenum; some instances may occasionally present much later, such as the case described here. An 85-year-old female presented with symptoms consistent with CBD obstruction, and the ini",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    },
+    {
       "wave": 2573,
       "pmid": "42761670",
       "doi": "10.2903/j.efsa.2026.10154",
@@ -51,6 +64,19 @@
       "abstract_verified": true,
       "verification_source": "NCBI PubMed EFetch via Sider Scholar",
       "focus": "Following a request from the European Commission, the EFSA Panel on Nutrition, Novel Foods and Food Allergens (NDA) was asked to deliver an opinion on cannabidiol (CBD) obtained by chemical synthesis as a novel food (NF) pursuant to Regulation (EU) 2015/2283. The NF consists of ≥ 98% (w/w) CBD and is intended to be marketed exclusively dissolved in medium-chain triglyceride (MCT) oil in food supplements at a maximum daily dose of 2 mg. The proposed target population is the general adult population over 25 years old and excluding pregnant and lactating women. The safety of CBD in individuals taking medications cannot be established. The information provided on the production process, composit",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    },
+    {
+      "wave": 2575,
+      "pmid": "42639765",
+      "replaces_rejected_pmid": "42756662",
+      "doi": "10.19852/j.cnki.jtcm.2026.04.003",
+      "title": "Baihe Dihuang decoction activates cannabinoid type 2 receptor to regulate microglial polarization and alleviate anxiety-like behavior in chronic restraint stress mice.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "To investigate the anxiolytic effects of Baihe Dihuang decoction (, BDD) and its underlying molecular mechanisms, focusing on cannabinoid type 2 receptor (CB2R)-mediated regulation of microglial polarization and the toll-like receptor 4 (TLR4)/myeloid differentiation factor 88 (MyD88)/nuclear factor-kappa B (NF-κB) signaling pathway. A total of 60 male C57BL/6J mice were randomly divided into six groups (n= 10 per group): control group, model group, diazepam (2 mg/kg) group, high-dose BDD (16 g/kg) group, low-dose BDD (8 g/kg) group, and high-dose BDD (16 g/kg) combined with CB2R antagonist AM630 (1 mg/kg) group. Except for the control group, all other groups were subjected to chronic restra",
       "state": "research_only_preclinical",
       "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
     },
@@ -65,6 +91,19 @@
       "focus": "Understanding how allosteric modulators influence protein dynamics is essential for guiding drug design. This work analyses a total of 45 μs of classical molecular dynamics simulations for four class A G-protein-coupled receptors (GPCRs), namely the Complement C5a receptor (C5AR1), the Purinergic Receptor P2Y (P2RY1), and the Cannabinoid Receptors 1 and 2 (CNR1/CNR2). Protein dynamics is essential to detect the shallow extrahelical binding sites, such as the one found in P2RY1. Current methods for computing Allosteric Communication Networks (ACNs) produce complex outputs requiring expert interpretation. To address this, we focus on the shortest paths of information transfer between the ortho",
       "state": "research_only_primary",
       "evidence_boundary": "Primary research remains design-bounded; no recommendation, dose inference, or cross-formulation generalization is permitted."
+    },
+    {
+      "wave": 2578,
+      "pmid": "42652086",
+      "replaces_rejected_pmid": "42714782",
+      "doi": "10.3390/biomedicines14081703",
+      "title": "Medical Cannabis During Pregnancy and Breastfeeding: Is the Concern Fully Evidence-Based?",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "Medical cannabis use is steadily increasing worldwide, including among pregnant and breastfeeding women. This Perspective provides an overview of current evidence regarding cannabis exposure during pregnancy and lactation and its implications for clinical decision-making. The available literature indicates relatively consistent evidence linking prenatal Δ9-tetrahydrocannabinol (THC) exposure with adverse perinatal outcomes, including reduced birth weight, increased risk of preterm delivery, and potential neurodevelopmental effects, although the findings remain heterogeneous and often confounded. In contrast, evidence regarding cannabis exposure during breastfeeding is sparse, and long-term i",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
     },
     {
       "wave": 2579,
@@ -84,54 +123,36 @@
       "wave": 2567,
       "pmid": "42794674",
       "category": "cannabinoid_safety",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+      "reason": "Replacement exact PubMed fetch lacked title or abstract.",
+      "replacement_attempt_pmid": "42617216"
     },
     {
       "wave": 2569,
       "pmid": "42769824",
       "category": "cannabinoid_safety",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
-    },
-    {
-      "wave": 2571,
-      "pmid": "42765195",
-      "category": "cannabinoid_safety",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+      "reason": "Replacement exact PubMed fetch lacked title or abstract.",
+      "replacement_attempt_pmid": "42618595"
     },
     {
       "wave": 2572,
       "pmid": "42765009",
       "category": "cannabinoid_safety",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+      "reason": "Replacement exact PubMed fetch lacked title or abstract.",
+      "replacement_attempt_pmid": "42632396"
     },
     {
       "wave": 2574,
       "pmid": "42761342",
       "category": "cannabinoid_safety",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
-    },
-    {
-      "wave": 2575,
-      "pmid": "42756662",
-      "category": "cannabinoid_safety",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+      "reason": "Replacement exact PubMed fetch lacked title or abstract.",
+      "replacement_attempt_pmid": "42639023"
     },
     {
       "wave": 2576,
       "pmid": "42748645",
       "category": "cannabinoid_safety",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
-    },
-    {
-      "wave": 2578,
-      "pmid": "42714782",
-      "category": "cannabinoid_safety",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
-    },
-    {
-      "wave": 2580,
-      "pmid": "42647115",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+      "reason": "Replacement exact PubMed fetch lacked title or abstract.",
+      "replacement_attempt_pmid": "42641999"
     }
   ]
 }
