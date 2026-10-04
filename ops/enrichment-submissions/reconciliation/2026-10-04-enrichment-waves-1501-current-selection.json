@@ -6,7 +6,7 @@
     "range": "1501-2000",
     "pass_size": 25,
     "target_findings": 500,
-    "progress_after_pass": 400,
+    "progress_after_pass": 450,
     "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2000"
   },
   "source_provenance": [
@@ -2826,6 +2826,356 @@
       "pmid": "39599586",
       "focus": "Randomized 21-km running study in 14 trained men found a BCAA-containing electrolyte beverage improved hydration/potassium balance and post-run soreness/strength versus some comparators but did not improve final-5-km completion time; multi-ingredient beverage evidence.",
       "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1901,
+      "entity_slug": "7oh-severe-neurocardiac-toxicity",
+      "pmid": "42534824",
+      "focus": "Case report of large 7-hydroxymitragynine ingestion described profound CNS depression, marked QTc prolongation and prolonged encephalopathy requiring intensive care; polysubstance and psychiatric/infectious contributors make causality multifactorial but the toxicity signal is serious.",
+      "state": "research_only_safety_signal"
+    },
+    {
+      "wave": 1902,
+      "entity_slug": "kratom-evidence-gap-review",
+      "pmid": "42547284",
+      "focus": "Focused clinical review emphasizes that expanding US kratom use is occurring amid unregulated product variability, limited high-quality safety/efficacy data and increasing need for clinician recognition of use, dependence and toxicity.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1903,
+      "entity_slug": "kratom-human-metabolomics",
+      "pmid": "42562516",
+      "focus": "Human cross-sectional metabolomics study of 37 regular kratom users versus 12 controls found distinct plasma metabolite/pathway profiles involving amino-acid, pyruvate, TCA, glycolytic and glutathione metabolism; association does not establish harm or benefit.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1904,
+      "entity_slug": "kratom-global-prevalence-meta",
+      "pmid": "42565818",
+      "focus": "Meta-analysis of 21 studies estimated low general-population but substantially higher high-risk/substance-using kratom prevalence, with major regional and methodological heterogeneity; surveillance evidence, not efficacy or toxicity.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1905,
+      "entity_slug": "kratom-product-evolution-review",
+      "pmid": "42572688",
+      "focus": "Review distinguishes native leaf from increasingly concentrated extracts, isolates and 7-OH-enriched or chemically altered products and argues dependence/overdose risk likely rises as alkaloid concentration and product modification increase.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1906,
+      "entity_slug": "kratom-use-disorder-pregnancy",
+      "pmid": "42576700",
+      "focus": "Perinatal review/case discussion describes maternal and neonatal withdrawal risk and very limited evidence for buprenorphine management of kratom use disorder in pregnancy; only a few pregnancy cases support current practice.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1907,
+      "entity_slug": "kratom-alkaloid-human-pk-method",
+      "pmid": "42605611",
+      "focus": "Validated human plasma assay quantified 12 kratom alkaloids and five mitragynine metabolites, showing rapid absorption and identifying major circulating alkaloids/metabolites in regular users; high-value source-identity and PK evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1908,
+      "entity_slug": "kratom-methamphetamine-craving-crosssectional",
+      "pmid": "42607660",
+      "focus": "Cross-sectional treatment sample of 403 men found kratom-use indicators were not overall risk factors for methamphetamine craving; only a subgroup association with age at first kratom use emerged in those with heroin history.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1909,
+      "entity_slug": "kratom-toxicity-clinical-review",
+      "pmid": "42634663",
+      "focus": "Narrative toxicology review describes opioid-like toxidromes, variable naloxone responsiveness, possible delayed/recurrent respiratory depression, polysubstance amplification and substantial product heterogeneity; clinical management evidence remains case-heavy.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1910,
+      "entity_slug": "kratom-cardiovascular-review",
+      "pmid": "42636328",
+      "focus": "Cardiovascular review integrates ion-channel mechanisms with reported tachycardia, hypertension, QTc prolongation, Brugada patterns, ventricular arrhythmias and cardiac arrest while emphasizing heterogeneous products and confounding co-exposures.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1911,
+      "entity_slug": "acmt-7oh-position-statement",
+      "pmid": "42645738",
+      "focus": "American College of Medical Toxicology position statement identifies public-health risks from 7-hydroxymitragynine and other kratom-associated compounds; authoritative toxicology guidance rather than an efficacy study.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1912,
+      "entity_slug": "kratom-cancer-consumer-survey",
+      "pmid": "42655877",
+      "focus": "Self-selected US survey of 136 kratom consumers found cancer and non-cancer users differed in motivations and patterns, with cancer respondents frequently using kratom for pain/mental-health concerns; perceptions cannot establish effectiveness or safety.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1913,
+      "entity_slug": "kratom-pulmonary-toxicity-systematic",
+      "pmid": "42661120",
+      "focus": "Systematic review of 24 clinical/forensic reports classified kratom-associated diffuse alveolar hemorrhage, ARDS/lung injury, eosinophilic pneumonitis, respiratory depression and postmortem pulmonary edema; evidence remains case/forensic based but clinically important.",
+      "state": "research_only_safety_signal"
+    },
+    {
+      "wave": 1914,
+      "entity_slug": "kratom-hearing-loss-rhabdo-case",
+      "pmid": "42662183",
+      "focus": "Case report describes transient sensorineural hearing loss, rhabdomyolysis, severe AKI and dialysis in a chronic kratom user; sepsis and other clinical factors limit single-agent causal certainty.",
+      "state": "research_only_safety_signal"
+    },
+    {
+      "wave": 1915,
+      "entity_slug": "kratom-ventricular-tachycardia-ecmo",
+      "pmid": "42377231",
+      "focus": "Case report describes seizure-like activity and refractory pulseless ventricular tachycardia after concentrated kratom extract, requiring prolonged resuscitation and VA-ECMO; toxicology confirmed mitragynine.",
+      "state": "research_only_safety_signal"
+    },
+    {
+      "wave": 1916,
+      "entity_slug": "kava-kratom-liquid-shortterm-safety",
+      "pmid": "39807458",
+      "focus": "Six-day randomized double-blind placebo-controlled trial of a commercial kava/kratom liquid blend found mostly mild-to-moderate adverse events and no major laboratory toxicity in healthy adults; short duration and combined-product design cannot establish long-term safety.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1917,
+      "entity_slug": "kava-acute-kidney-injury-case",
+      "pmid": "40343400",
+      "focus": "Case report links very heavy kava tea ingestion with biopsy-proven severe acute tubulointerstitial nephritis, marked creatinine rise, bradycardia and QT prolongation, with recovery after corticosteroids; product analysis found kavalactones without other detected substances.",
+      "state": "research_only_safety_signal"
+    },
+    {
+      "wave": 1918,
+      "entity_slug": "kava-acute-skin-toxicity-letter",
+      "pmid": "40378629",
+      "focus": "Published report documents acute kava-associated skin toxicity; preserve as a rare safety signal while avoiding incidence estimates from case-level evidence.",
+      "state": "research_only_safety_signal"
+    },
+    {
+      "wave": 1919,
+      "entity_slug": "kava-serotonergic-interaction-pediatric",
+      "pmid": "40510098",
+      "focus": "Pediatric case report describes prolonged serotonin-syndrome features during kava use while switching serotonergic antidepressants, with plausible CYP2D6/MAO interaction mechanisms; single-case evidence supports interaction caution, not frequency estimates.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 1920,
+      "entity_slug": "kava-severe-withdrawal-case",
+      "pmid": "40541460",
+      "focus": "Case report describes hallucinations, anxiety, insomnia and myoclonus after stopping heavy kava/kratom beverage use, with GABAergic withdrawal suspected and improvement after phenobarbital/diazepam; mixed-product exposure complicates attribution.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 1921,
+      "entity_slug": "kava-global-systematic-review",
+      "pmid": "40560778",
+      "focus": "Narrative systematic review of 197 records found kava's cultural/economic importance clear but health benefits and harms—including anxiety and liver effects—remain inconsistent and methodologically limited.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1922,
+      "entity_slug": "kava-acute-dermatitis-case-series",
+      "pmid": "40757984",
+      "focus": "Three-patient case series found acute kava reactions resembling DRESS with distinctive sebaceous adenitis/apoptosis on biopsy; rare dermatologic safety signal without incidence data.",
+      "state": "research_only_safety_signal"
+    },
+    {
+      "wave": 1923,
+      "entity_slug": "kava-us-use-patterns-survey",
+      "pmid": "40962124",
+      "focus": "Large US survey estimated 10.7% past-year kava use among respondents and common co-use with prescription/alternative products; perceived relaxation benefits and drowsiness/sweating are self-report observational findings.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1924,
+      "entity_slug": "kava-kratom-sud-assessment",
+      "pmid": "41322679",
+      "focus": "Online survey of adults using kava/kratom found past-year SUD criteria much more common for kratom than kava and substantial co-use; self-selected sampling and DSM-criterion adaptation require cautious interpretation.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1925,
+      "entity_slug": "tianeptine-poison-centers",
+      "pmid": "39724478",
+      "focus": "US poison-center analysis tracked rising tianeptine exposures from 2015–2023 and associated clinical outcomes, providing national toxicovigilance evidence for misuse and toxicity rather than controlled incidence estimates.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1926,
+      "entity_slug": "tianeptine-synthetic-cannabinoid-outbreak",
+      "pmid": "40102319",
+      "focus": "New Jersey poison-center outbreak identified 34 patients with severe toxicity after tianeptine products; product testing found variable composition including synthetic cannabinoids, kava alkaloids and cannabinoids, and many patients required intubation/ICU care.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1927,
+      "entity_slug": "tianeptine-use-patterns-sud-survey",
+      "pmid": "41084181",
+      "focus": "Online survey found tianeptine use uncommon within a gray-market-product sample but frequently associated with rapid tolerance, adverse effects, severe past-year SUD criteria and strong perceived addictiveness/overdose risk; self-selected sample limits prevalence inference.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1928,
+      "entity_slug": "tianeptine-alcohol-use-disorders-case",
+      "pmid": "41127130",
+      "focus": "Case report describes concomitant tianeptine and alcohol use disorders treated with buprenorphine-naloxone; single-patient management evidence supports clinical awareness without establishing an optimal protocol.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1929,
+      "entity_slug": "tianeptine-use-disorder-case-review",
+      "pmid": "41132482",
+      "focus": "Case report and review describes severe tianeptine use disorder with psychiatric deterioration, dependence and withdrawal, emphasizing diagnostic barriers and need for addiction-treatment referral; case-level evidence only.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1930,
+      "entity_slug": "tianeptine-misuse-systematic-review",
+      "pmid": "41136982",
+      "focus": "Systematic review of 25 studies found frequent habitual misuse, overdose, withdrawal and co-use, with naloxone and buprenorphine appearing in reported management; underlying literature is largely case-based and heterogeneous.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1931,
+      "entity_slug": "tianeptine-three-cases-management",
+      "pmid": "42016572",
+      "focus": "Three-case series and review describes rapid tolerance, opioid-like intoxication/withdrawal and use of naloxone, buprenorphine, clonidine and supportive care; treatment conclusions remain limited by case evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1932,
+      "entity_slug": "tianeptine-addiction-systematic-review",
+      "pmid": "42177839",
+      "focus": "Systematic review of 53 publications found opioid-like dependence, withdrawal and overdose, with substantial ICU use in retrospective series and reported fatalities among detailed overdose cases; evidence is dominated by case reports/series.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1933,
+      "entity_slug": "kratom-tianeptine-combined-overdose",
+      "pmid": "42198932",
+      "focus": "Case report describes severe hypoxemic respiratory failure, encephalopathy and pulmonary infiltrates after combined kratom/tianeptine ingestion, improving with naloxone and ICU supportive care; co-exposure prevents single-agent attribution.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 1934,
+      "entity_slug": "tianeptine-reddit-experiences",
+      "pmid": "42412511",
+      "focus": "NLP-assisted qualitative analysis of Reddit posts found increasing discussion of tianeptine dependence, withdrawal and co-ingestion; useful real-world signal but self-reported social-media content cannot estimate clinical incidence.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1935,
+      "entity_slug": "emerging-substances-clinician-knowledge",
+      "pmid": "42459031",
+      "focus": "Survey of addiction-conference clinicians found substantial knowledge gaps around kratom, phenibut and tianeptine despite high concern and support for more research/regulation; clinician-practice context rather than toxicity incidence.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1936,
+      "entity_slug": "tianeptine-methadone-case",
+      "pmid": "42767626",
+      "focus": "Case report describes sustained abstinence from tianeptine after methadone treatment when high-dose buprenorphine had not controlled cravings/withdrawal; illustrates a treatment gap but cannot establish comparative efficacy.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1937,
+      "entity_slug": "eria-jarensis-supplement-mislabeling",
+      "pmid": "40679500",
+      "focus": "Laboratory analysis found none of 12 US sports supplements labeled with Eria jarensis were accurately labeled; several contained undeclared stimulants, including FDA-prohibited DMAA, and caffeine content varied dramatically.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1938,
+      "entity_slug": "supplement-adulteration-lab-review",
+      "pmid": "40700739",
+      "focus": "Review summarizes laboratory risk-mitigation approaches for dietary-supplement adulteration, including identity/purity testing, supplier quality agreements and third-party verification; quality-system evidence rather than clinical efficacy.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1939,
+      "entity_slug": "botanical-authentication-methods-review",
+      "pmid": "40783800",
+      "focus": "Review of authentication methods for botanicals in plant extracts and supplements highlights identity testing as a core defense against substitution and adulteration; methodological quality-control evidence.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1940,
+      "entity_slug": "sports-supplement-anabolic-steroid-adulteration",
+      "pmid": "41097223",
+      "focus": "Review documents the problem of sports supplements adulterated with anabolic steroids and the anti-doping/health consequences of undeclared exposure; product-quality and harm-reduction evidence.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1941,
+      "entity_slug": "rhodiola-us-market-quality",
+      "pmid": "41544018",
+      "focus": "US market analysis found wide deviations in Rhodiola rosavin/salidroside content, probable undisclosed synthetic salidroside in one product and trace metals in tested products; strong formulation/authenticity warning.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1942,
+      "entity_slug": "illicit-supplement-steroid-screening",
+      "pmid": "41937464",
+      "focus": "Analytical study applies LC-MS/MS and LC-QTOF/MS screening for anabolic-androgenic steroids in illicit dietary supplements/counterfeit drugs; useful adulterant-detection and quality-control evidence.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1943,
+      "entity_slug": "cordyceps-online-falsification",
+      "pmid": "41947147",
+      "focus": "Post-market analysis of 65 online Cordyceps products found more than half falsified, 11% unregistered and 6.2% adulterated with corticosteroids, alongside frequent illegal disease claims.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1944,
+      "entity_slug": "weightloss-supplement-diuretic-screening",
+      "pmid": "41955470",
+      "focus": "Validated GC-MS method targets undeclared diuretics in adulterated weight-loss supplements, supporting forensic/product-quality surveillance rather than efficacy claims.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1945,
+      "entity_slug": "green-coffee-supplement-mislabeling",
+      "pmid": "42154619",
+      "focus": "Analysis of 23 green-coffee-bean supplements found wide chlorogenic-acid/caffeine variability, products labeled 50% CGAs with none detected, and decaffeinated products exceeding caffeine thresholds.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1946,
+      "entity_slug": "tadalafil-analogues-herbal-sex-supplements",
+      "pmid": "42350094",
+      "focus": "Analytical chemistry study isolated previously unreported tadalafil analogues illegally added to a male sexual herbal supplement, demonstrating pharmaceutical adulteration of purportedly herbal products.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1947,
+      "entity_slug": "sibutramine-slimming-supplement-cases",
+      "pmid": "42425829",
+      "focus": "Toxicovigilance report documents multiple batches of a slimming supplement adulterated with sibutramine and associated clinical cases; high-value undeclared-drug safety signal.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1948,
+      "entity_slug": "yellow-oleander-misrepresented-supplement",
+      "pmid": "42647950",
+      "focus": "Case report describes yellow-oleander toxicity from a misrepresented dietary supplement, underscoring that botanical/product identity failures can cause severe poisoning independent of labeled intent.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1949,
+      "entity_slug": "turmeric-piperine-dili-case",
+      "pmid": "41281037",
+      "focus": "Case report attributes drug-induced liver injury to a turmeric supplement containing piperine after competing causes were evaluated; single-case evidence supports hepatotoxicity vigilance, especially with bioavailability-enhancing formulations.",
+      "state": "research_only_safety_signal"
+    },
+    {
+      "wave": 1950,
+      "entity_slug": "ashwagandha-reproductive-thyroid-immune-safety-review",
+      "pmid": "41454545",
+      "focus": "Safety review focuses on reproductive, thyroid and immune-system concerns relevant to ashwagandha use as a food/additive, emphasizing unresolved risk questions and the need for population-specific caution.",
+      "state": "research_only_evidence_quality"
     }
   ]
 }
