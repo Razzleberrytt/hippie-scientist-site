@@ -1,20 +1,20 @@
 {
   "version": 2,
-  "base_revision": "85470582cbeaf68fedf9ef6c9386f109b1e281b2",
-  "last_verified": "2026-10-02T16:00:00Z",
-  "ticket": 6021,
-  "lane": "D",
-  "title": "nav: fix misleading Articles breadcrumb destination on focus-cluster pages",
+  "base_revision": "2a9aa816383f9d84e5059342dd6aa04b038a75db",
+  "last_verified": "2026-10-04T18:00:00Z",
+  "ticket": 6324,
+  "lane": "A",
+  "title": "Validate and land enrichment waves 1501–2000",
   "priority": "P1",
   "score_inputs": {
     "businessImpact": 3,
     "userValue": 4,
-    "trafficPotential": 2,
-    "strategicLeverage": 3,
-    "confidence": 1,
-    "effort": 1
+    "trafficPotential": 3,
+    "strategicLeverage": 5,
+    "confidence": 0.75,
+    "effort": 2
   },
-  "score": 72,
-  "note": "Fresh exact-main revalidation after #6185 retirement. Admission only: fix the focus-cluster root breadcrumb label/destination mismatch and add an accessible breadcrumb name while preserving article copy, evidence, safety, metadata, canonicals, redirects, and layout.",
-  "control_issue": 6193
+  "score": 67.5,
+  "note": "Admission only for the bounded Waves 1501–2000 enrichment closeout. Scope is 500 unique research receipts with fail-closed runtime admission on existing canonical entities; preserve null/mixed evidence, formulation/category/combination/observational/safety/retraction boundaries; no entity creation, recommendation promotion, dose inference, or governance override.",
+  "control_issue": 6329
 }
