@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-waves-1001-1500-pmid-revalidation",
+  "verified_on": "2026-10-04",
+  "rule": "Exact PMID identity, canonical entity identity, intervention, population, and result direction were rechecked before runtime materialization. Generated source-registry and normalized-evidence checks were used to reject duplicate source/evidence identities. Missing DOI metadata is left blank rather than inferred.",
+  "sources": [
+    {
+      "wave": 1009,
+      "entity_slug": "fenugreek",
+      "pmid": "42558777",
+      "doi": "",
+      "title": "The Effect of Fenugreek (Trigonella foenum-graecum) Supplementation on Liver Function Enzymes; a Systematic Review and Meta-Analysis of Controlled Clinical Trials.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 1013,
+      "entity_slug": "astaxanthin",
+      "pmid": "42197030",
+      "doi": "",
+      "title": "The Effects of Astaxanthin Supplementation on Exercise Recovery Biomarkers and Exercise Performance: A Systematic Review and Meta-Analysis.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 1023,
+      "entity_slug": "resveratrol",
+      "pmid": "41455817",
+      "doi": "",
+      "title": "The effect of resveratrol supplementation on anthropometric indices, adiponectin and leptin levels in individuals with overweight and obesity: a graded, systematic review and meta-analysis of randomized controlled trials.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 1033,
+      "entity_slug": "melatonin",
+      "pmid": "42070664",
+      "doi": "",
+      "title": "Melatonin supplementation improves insulin resistance markers but not fasting glucose: a systematic review and meta-analysis of randomized controlled trials.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 1039,
+      "entity_slug": "saffron",
+      "pmid": "41693488",
+      "doi": "",
+      "title": "Effect of saffron on depression, anxiety and mood disorder: a GRADE assessed systematic review and meta-analysis of 34 randomized controlled trials.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 1064,
+      "entity_slug": "vitamin-d",
+      "pmid": "42704968",
+      "doi": "",
+      "title": "The effect of vitamin D3 supplementation on fracture incidence in an aging population - The Finnish vitamin D trial.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 1069,
+      "entity_slug": "creatine",
+      "pmid": "42124755",
+      "doi": "",
+      "title": "Evaluating the Safety of Creatine Monohydrate in Adolescents: A Systematic Review of Renal, Hepatic, and Cardiometabolic Outcomes.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 1070,
+      "entity_slug": "caffeine",
+      "pmid": "42033594",
+      "doi": "",
+      "title": "Caffeine Use in Sport: A Systematic Review and Meta-analysis of Acute Side Effects and Implications for Athlete Health and Safety.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 1093,
+      "entity_slug": "n-acetylcysteine",
+      "pmid": "42115982",
+      "doi": "",
+      "title": "N-acetylcysteine for patients with alcohol use disorder, post-traumatic stress disorder, and their co-occurrence: a systematic review of placebo-controlled randomized trials.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 1096,
+      "entity_slug": "taurine",
+      "pmid": "41750826",
+      "doi": "",
+      "title": "Cognitive Effects of Taurine and Related Sulphur-Containing Amino Acids: A Systematic Review of Human Trials and Considerations for Plant-Based Dietary Transitions.",
+      "decision": "verified_for_runtime_materialization"
+    }
+  ]
+}
