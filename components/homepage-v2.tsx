@@ -8,7 +8,7 @@ export default async function HomepageV2() {
   const stats = [
     { value: metrics.publishedArticles, label: 'Published articles' },
     { value: metrics.publishedHerbs, label: 'Published herbs' },
-    { value: metrics.publishedCompounds, label: 'Published compounds' },
+    { value: metrics.totalCompounds, label: 'Compounds tracked' },
     { value: metrics.structuredStudies, label: 'Structured studies' },
   ]
 
