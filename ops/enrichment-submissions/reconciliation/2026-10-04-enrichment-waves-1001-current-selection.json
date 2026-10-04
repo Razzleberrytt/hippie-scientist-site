@@ -4,8 +4,8 @@
   "program": {
     "range": "1001-1500",
     "target_findings": 500,
-    "current_findings": 475,
-    "last_wave": 1475
+    "current_findings": 500,
+    "last_wave": 1500
   },
   "policy": "research authoring index only; not runtime admission; final Wave-1500 consolidation required",
   "waves": [
@@ -3332,6 +3332,181 @@
       "entity_slug": "beetroot-balanced-placebo-cycling",
       "pmid": "41886769",
       "focus": "Balanced-placebo randomized study in trained cyclists found neither actual beetroot juice nor the expectation of receiving beetroot improved 20-minute virtual cycling performance, heart rate, cadence or related outcomes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1476,
+      "entity_slug": "nitrate-menstrual-cycle-muscle",
+      "pmid": "41106856",
+      "focus": "Double-blind crossover study in 12 normally menstruating women found acute nitrate-rich beetroot did not improve maximal power, twitch torque, torque development or relaxation in either early- or late-follicular phase; menstrual-phase effects on twitch kinetics were present independent of supplementation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1477,
+      "entity_slug": "nitrate-fast-slow-muscle-contractility",
+      "pmid": "41430736",
+      "focus": "Randomized crossover study found nitrate altered the torque-frequency relationship in opposite directions in predominantly fast- versus slow-twitch muscle groups without changing peak twitch torque or potentiation; mechanistic contractility evidence only.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1478,
+      "entity_slug": "beetroot-football-anaerobic-power",
+      "pmid": "41620457",
+      "focus": "Small randomized double-blind crossover trial in trained footballers found acute nitrate-rich beetroot increased Wingate peak and mean power and altered post-exercise muscle oxygenation, without changing heart rate or blood pressure.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1479,
+      "entity_slug": "beetroot-vs-creatine-resistance-performance",
+      "pmid": "41702723",
+      "focus": "Very small randomized crossover trial in novice resistance-trained men found creatine improved selected repetition performance while beetroot produced larger velocity and autonomic/oxygenation effects; short exposure and tiny sample make comparative superiority uncertain.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1480,
+      "entity_slug": "nitrate-brown-fat-t2d",
+      "pmid": "41720488",
+      "focus": "Randomized double-blind crossover trial in older adults with type 2 diabetes found 14 days of nitrate-rich beetroot raised plasma nitrate/nitrite but did not increase brown-fat fraction or activation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1481,
+      "entity_slug": "beetroot-soccer-agility",
+      "pmid": "41901071",
+      "focus": "Randomized double-blind crossover trial in soccer players found acute beetroot improved choice-response time and change-of-direction speed after repeated sprints, while simple response time was unchanged.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1482,
+      "entity_slug": "nitrate-aud-cognition-microbiome",
+      "pmid": "41957179",
+      "focus": "Pilot randomized double-blind trial in alcohol-use disorder found two weeks of nitrate-rich beetroot improved a spatial-memory endpoint and altered oral microbiota; mechanistic causality relied partly on germ-free mouse transfer experiments, so clinical conclusions remain preliminary.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1483,
+      "entity_slug": "beetroot-judo-recovery",
+      "pmid": "42151331",
+      "focus": "Randomized crossover trial in elite and recreational judokas found beetroot did not increase total throws but reduced recovery heart rate/SJFT index and altered lactate/tissue oxygenation, with larger responses in recreational athletes.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1484,
+      "entity_slug": "salivary-ph-nitrate-blood-pressure",
+      "pmid": "42314756",
+      "focus": "Small randomized crossover physiology study found sugar-containing acidic gum increased salivary/plasma nitrite and augmented acute blood-pressure lowering after beetroot juice; mechanistic co-exposure finding, not a health recommendation for sugar-containing gum.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1485,
+      "entity_slug": "nitrate-mitochondrial-respiration",
+      "pmid": "42392523",
+      "focus": "Randomized crossover in vivo study plus ex vivo nitrite experiments found nitrate/nitrite did not improve skeletal-muscle mitochondrial respiration or exercise performance in young healthy adults, despite increased tissue nitrate exposure.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1486,
+      "entity_slug": "nitrate-isokinetic-performance",
+      "pmid": "42514447",
+      "focus": "Small randomized double-blind crossover trial found acute nitrate improved selected low- and moderate-velocity isokinetic torque/power variables but not the high-velocity fatigue protocol, EMG activity or post-exercise lactate.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1487,
+      "entity_slug": "nitrate-ramadan-vo2",
+      "pmid": "42613915",
+      "focus": "Small randomized study during Ramadan fasting found dietary nitrate preserved peak oxygen uptake and peak power versus a nonsupplemented control over 10 days; lack of placebo blinding and small sample limit certainty.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1488,
+      "entity_slug": "nitrate-caffeine-arterial-stiffness",
+      "pmid": "42639731",
+      "focus": "Randomized double-blind crossover trial found nitrate-rich beetroot attenuated caffeine-associated increases in arterial stiffness, while blood pressure and flow-mediated dilation were not significantly altered; interaction evidence is acute and context-specific.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1489,
+      "entity_slug": "nitrate-coronary-artery-disease-vascular",
+      "pmid": "42810600",
+      "focus": "Tiny randomized double-blind crossover pilot in eight older adults with coronary artery disease found nitrate-rich beetroot was feasible and improved brachial flow-mediated dilation versus placebo, with negligible effects on stiffness/hemodynamics; requires a powered trial.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1490,
+      "entity_slug": "intradialytic-creatine-safety",
+      "pmid": "42555603",
+      "focus": "Double-blind randomized pilot in hemodialysis found creatine delivered through dialysate was generally tolerated and increased circulating/intra-erythrocytic creatine in a dose-related manner; study assessed feasibility and exposure rather than clinical benefit.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1491,
+      "entity_slug": "multiingredient-creatine-sarcopenia",
+      "pmid": "42653022",
+      "focus": "Eight-week randomized double-blind trial in older adults with sarcopenia found a multi-ingredient whey/BCAA/MCT/creatine/resveratrol/vitamin-D supplement produced a modest appendicular-muscle-mass increase without a significant between-group handgrip benefit; ingredient attribution is impossible.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1492,
+      "entity_slug": "guanidinoacetic-acid-vs-creatine-older-adults",
+      "pmid": "42669527",
+      "focus": "Exploratory randomized pilot in older adults found guanidinoacetic acid improved handgrip and several bioimpedance muscle/hydration measures more than equimolar creatine, but the sample was tiny and confidence intervals were wide.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1493,
+      "entity_slug": "creatine-formulations-soccer",
+      "pmid": "42720250",
+      "focus": "Four-week randomized soccer study reported greater short-term performance gains with several creatine formulations versus placebo and apparent advantages for ethyl-ester/HCl forms over monohydrate; formulation-superiority claims need independent replication and rigorous verification.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1494,
+      "entity_slug": "creatine-patellar-tendinopathy-rehab",
+      "pmid": "42730713",
+      "focus": "Triple-blind randomized rehabilitation study in athletes with patellar tendinopathy found pain, tendon thickness and strength improved over time in both creatine and placebo groups; evidence for a creatine-specific acceleration of recovery was limited.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1495,
+      "entity_slug": "creatine-colorectal-cancer-rehab",
+      "pmid": "42455839",
+      "focus": "Pilot randomized trial in colorectal-cancer survivors found hybrid resistance training with creatine was feasible and well tolerated, but creatine did not show clear additive effects on body composition, strength or physical function versus training plus placebo.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1496,
+      "entity_slug": "quinoa-postprandial-glycemia-satiety",
+      "pmid": "42587871",
+      "focus": "Randomized crossover pilot in healthy young adults found cooked quinoa produced lower postprandial glucose responses and better subjective satiety than white bread at matched available-carbohydrate doses; acute food-comparison evidence only.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1497,
+      "entity_slug": "cricket-powder-microbiome-ldl",
+      "pmid": "42699313",
+      "focus": "Exploratory randomized crossover trial in adults with high/borderline LDL found cricket powder caused selective microbiome shifts without changing overall diversity, SCFAs or blood lipids; GI tolerance was maintained and clinical metabolic benefit was not demonstrated.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1498,
+      "entity_slug": "potassium-nitrate-doms",
+      "pmid": "42516638",
+      "focus": "Small randomized double-blind crossover trial found a single potassium-nitrate dose reduced delayed muscle tenderness after eccentric exercise but did not improve isometric force or elbow range of motion.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1499,
+      "entity_slug": "cocoa-flavanols-sitting-young",
+      "pmid": "41158002",
+      "focus": "Randomized double-blind crossover study in healthy young men found high-flavanol cocoa prevented brachial and femoral endothelial-function declines during two hours of sitting, without improving sitting-related blood pressure or microvascular changes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1500,
+      "entity_slug": "cocoa-flavanols-sitting-older",
+      "pmid": "41527842",
+      "focus": "Randomized double-blind crossover study in healthy older adults found acute high-flavanol cocoa prevented sitting-induced brachial and femoral flow-mediated-dilation declines but did not prevent blood-pressure increases or microvascular changes.",
       "state": "reviewed_receipt_pending_final_admission"
     }
   ]
