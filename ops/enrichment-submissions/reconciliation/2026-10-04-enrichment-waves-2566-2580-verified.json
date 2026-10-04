@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "range": "2566-2580",
+  "sources": [
+    "NCBI PubMed EFetch via Sider Scholar"
+  ],
+  "dedupe_basis": "Master selection excludes 2,435 prior PMIDs and is unique within the 500-entry batch.",
+  "rows": [
+    {
+      "wave": 2566,
+      "pmid": "42796655",
+      "doi": "10.3390/pathogens15090887",
+      "title": "Interaction of β-Caryophyllene with a Simplified Membrane Model and Its Growth-Inhibitory Effect Against Escherichia coli ATCC 25922.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "The increasing prevalence of antimicrobial resistance in bacteria highlights the need for alternative membrane-active compounds with favorable safety profiles. β-Caryophyllene (BCP), a bicyclic sesquiterpene, has demonstrated antimicrobial effects; however, its biological responses in Gram-negative bacteria and associated membrane interactions remain insufficiently characterized. In this study, the growth inhibitory effect of BCP against E. coli ATCC 25922 was evaluated through OD595 growth kinetics, while hemocompatibility was assessed using sheep erythrocytes, and cannabidiol (CBD) was included as a comparative control. To investigate membrane-associated effects, differential scanning calo",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    },
+    {
+      "wave": 2568,
+      "pmid": "42784233",
+      "doi": "10.3390/pathophysiology33030065",
+      "title": "Subchronic Exposure to Low-Dose Cannabidiol (CBD) and Δ9-Tetrahydrocannabinol (Δ9-THC) Nanoemulsions Suggests Low Renal Toxicity: A Preliminary Study.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "Background/Objectives: The increasing therapeutic use of cannabinoid-based formulations highlights the need to better characterize their safety profile, particularly in organs involved in xenobiotic elimination, such as the kidneys. This study evaluated the renal effects of cannabidiol (CBD) and Δ9-tetrahydrocannabinol (Δ9-THC) nanoemulsions following subchronic oral administration in male Wistar rats. Methods: Forty animals (n = 8/group) were randomly allocated into five groups: vehicle control (Licuri oil + Pluronic® F127), CBD 2.5 mg/kg, CBD 5 mg/kg, CBD+THC 2.5 mg/kg, and CBD+THC 5 mg/kg. Treatments were administered daily by oral gavage for 21 consecutive days. Kidney samples were analy",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    },
+    {
+      "wave": 2570,
+      "pmid": "42769758",
+      "doi": "10.2903/j.efsa.2026.10319",
+      "title": "Safety of Cannabis sativaL. extract as a novel food pursuant to Regulation (EU) 2015/2283.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "Following a request from the European Commission, the EFSA Panel on Nutrition, Novel Foods and Food Allergens (NDA) was asked to deliver an opinion on Cannabis sativa L. extract as a novel food (NF) pursuant to Regulation (EU) 2015/2283. The NF consists of 57%-65% w/w cannabidiol (CBD) and 9%-17% w/w of other cannabinoids. The NF is produced via supercritical CO2 extraction followed by winterisation, decarboxylation, purification and high-vacuum distillation. It is intended to be used as an ingredient in food supplements at a maximum intake of 30 mg/day. The proposed target population is the adult population, excluding pregnant and lactating women. During the risk assessment, the Panel ident",
+      "state": "research_only_primary",
+      "evidence_boundary": "Primary research remains design-bounded; no recommendation, dose inference, or cross-formulation generalization is permitted."
+    },
+    {
+      "wave": 2573,
+      "pmid": "42761670",
+      "doi": "10.2903/j.efsa.2026.10154",
+      "title": "Safety of synthetic cannabidiol as a novel food pursuant to regulation (EU) 2015/2283.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "Following a request from the European Commission, the EFSA Panel on Nutrition, Novel Foods and Food Allergens (NDA) was asked to deliver an opinion on cannabidiol (CBD) obtained by chemical synthesis as a novel food (NF) pursuant to Regulation (EU) 2015/2283. The NF consists of ≥ 98% (w/w) CBD and is intended to be marketed exclusively dissolved in medium-chain triglyceride (MCT) oil in food supplements at a maximum daily dose of 2 mg. The proposed target population is the general adult population over 25 years old and excluding pregnant and lactating women. The safety of CBD in individuals taking medications cannot be established. The information provided on the production process, composit",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    },
+    {
+      "wave": 2577,
+      "pmid": "42734521",
+      "doi": "10.1021/acs.jcim.6c00526",
+      "title": "Residue Interaction Network Reveals Allosteric Pathways Linking Orthosteric and Intracellular Sites in Class A GPCRs.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "Understanding how allosteric modulators influence protein dynamics is essential for guiding drug design. This work analyses a total of 45 μs of classical molecular dynamics simulations for four class A G-protein-coupled receptors (GPCRs), namely the Complement C5a receptor (C5AR1), the Purinergic Receptor P2Y (P2RY1), and the Cannabinoid Receptors 1 and 2 (CNR1/CNR2). Protein dynamics is essential to detect the shallow extrahelical binding sites, such as the one found in P2RY1. Current methods for computing Allosteric Communication Networks (ACNs) produce complex outputs requiring expert interpretation. To address this, we focus on the shortest paths of information transfer between the ortho",
+      "state": "research_only_primary",
+      "evidence_boundary": "Primary research remains design-bounded; no recommendation, dose inference, or cross-formulation generalization is permitted."
+    },
+    {
+      "wave": 2579,
+      "pmid": "42711610",
+      "doi": "10.1208/s12248-026-01281-4",
+      "title": "Predicting Cannabidiol Pharmacokinetics in Older Adults Via Physiologically Based Pharmacokinetic Modeling.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "Cannabidiol (CBD) use continues to increase, particularly among older adults. However, knowledge of CBD disposition in this ever-growing and understudied population, along with the relative contributions of cytochrome P450 (CYP) and uridine 5'-diphospho-glucuronosyltransferase (UGT) enzymes to CBD metabolism, remain limited. Inclusion of UGT activators (e.g., alamethicin, MgCl2) may alter in vitro estimates of enzyme contributions. CBD has also been reported to produce time-dependent inhibition (TDI) of certain CYPs, potentially affecting its own disposition. We combined in vitro data with physiologically based pharmacokinetic (PBPK) modeling to further characterize TDI and reversible CYP in",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    }
+  ],
+  "rejected": [
+    {
+      "wave": 2567,
+      "pmid": "42794674",
+      "category": "cannabinoid_safety",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    },
+    {
+      "wave": 2569,
+      "pmid": "42769824",
+      "category": "cannabinoid_safety",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    },
+    {
+      "wave": 2571,
+      "pmid": "42765195",
+      "category": "cannabinoid_safety",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    },
+    {
+      "wave": 2572,
+      "pmid": "42765009",
+      "category": "cannabinoid_safety",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    },
+    {
+      "wave": 2574,
+      "pmid": "42761342",
+      "category": "cannabinoid_safety",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    },
+    {
+      "wave": 2575,
+      "pmid": "42756662",
+      "category": "cannabinoid_safety",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    },
+    {
+      "wave": 2576,
+      "pmid": "42748645",
+      "category": "cannabinoid_safety",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    },
+    {
+      "wave": 2578,
+      "pmid": "42714782",
+      "category": "cannabinoid_safety",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    },
+    {
+      "wave": 2580,
+      "pmid": "42647115",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    }
+  ]
+}
