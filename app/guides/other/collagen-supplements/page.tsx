@@ -20,6 +20,11 @@ export const metadata: Metadata = buildPageMetadata({
 
 const FAQS = [
   {
+    question: 'Do collagen supplements work?',
+    answer:
+      'Sometimes, for specific outcomes and preparations. Knee-osteoarthritis trials show the clearest clinical symptom signal in this guide. Skin studies are often positive in aggregate, but confidence drops when funding source and study quality are considered. Bone and connective-tissue findings are promising but do not establish fracture prevention, and collagen is not nutritionally equivalent to a complete leucine-rich protein for muscle-protein synthesis. “Collagen works” is therefore too broad without naming the outcome and product type.',
+  },
+  {
     question: 'Do collagen supplements improve skin?',
     answer:
       'The total literature is positive, but confidence is disputed. A 2026 umbrella review reported favorable skin hydration and elasticity outcomes across prior meta-analyses, while a 2025 meta-analysis that stratified trials by funding source and study quality found no significant hydration, elasticity, or wrinkle benefit in non-industry-funded studies and no significant benefit across the higher-quality subgroup. A separate 2026 systematic review found many positive individual trials but rated most included studies at high risk of bias. The safest conclusion is “possible modest skin benefit, with important sponsorship and study-quality uncertainty,” not “high-certainty anti-aging effect.”',
@@ -88,7 +93,7 @@ export default function CollagenGuidePage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Collagen Supplements' }]} />
 
       <section className="space-y-5 max-w-4xl">
-        <p className="eyebrow-label">Evidence Review · 12 References · Updated August 22, 2026</p>
+        <p className="eyebrow-label">Evidence Review · 12 References · Updated October 4, 2026</p>
         <h1 className="text-5xl font-bold tracking-tight text-ink">Collagen Supplements: The Evidence Is Stronger for Some Claims—and Much More Disputed for Skin Than Marketing Suggests</h1>
         <p className="text-lg leading-8 text-muted">
           Collagen has an unusually large supplement literature, but a large literature is not the same thing as a settled literature. Skin meta-analyses disagree sharply once funding source and trial quality are examined. Osteoarthritis evidence is more consistent. Bone outcomes are promising but not fracture evidence. And muscle research shows an important split: collagen is a relatively poor complete protein for acute muscle-protein synthesis, yet collagen peptides may still influence connective tissue and some training adaptations.
@@ -97,7 +102,7 @@ export default function CollagenGuidePage() {
       </section>
 
       <LegacyGuideQuickAnswer referencesHref="#references">
-        <p><strong>Collagen is not one evidence claim.</strong> For skin, pooled results are often positive, but a 2025 meta-analysis found no significant hydration, elasticity, or wrinkle benefit in non-industry-funded studies and no significant benefit in higher-quality studies [2]; a 2026 review also rated most included skin RCTs at high risk of bias [3]. For osteoarthritis, evidence is more convincing: a 35-RCT trial-sequential meta-analysis found small-to-moderate pain and function benefits without higher adverse-event or withdrawal risk [5]. Collagen is inferior to whey for acute muscle-protein synthesis [9], but longer-term collagen + training studies show possible small benefits for fat-free mass, strength, tendon morphology, and recovery [10-12].</p>
+        <p><strong>Do collagen supplements work? Sometimes—for specific outcomes and preparations, not as one universal claim.</strong> For skin, pooled results are often positive, but a 2025 meta-analysis found no significant hydration, elasticity, or wrinkle benefit in non-industry-funded studies and no significant benefit in higher-quality studies [2]; a 2026 review also rated most included skin RCTs at high risk of bias [3]. For osteoarthritis, evidence is more convincing: a 35-RCT trial-sequential meta-analysis found small-to-moderate pain and function benefits without higher adverse-event or withdrawal risk [5]. Collagen is inferior to whey for acute muscle-protein synthesis [9], but longer-term collagen + training studies show possible small benefits for fat-free mass, strength, tendon morphology, and recovery [10-12].</p>
       </LegacyGuideQuickAnswer>
 
       <section id="collagen-evidence" data-answer-engine-table="true" className="card-premium scroll-mt-24 p-6 space-y-4 max-w-5xl">
