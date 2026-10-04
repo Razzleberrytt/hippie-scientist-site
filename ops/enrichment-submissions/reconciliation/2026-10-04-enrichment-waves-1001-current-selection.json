@@ -8,8 +8,11 @@
     "last_wave": 1500,
     "status": "consolidated_runtime_materialized_pending_repository_validation",
     "runtime_admission": {
-      "evidence_rows": 10,
-      "source_rows": 10
+      "evidence_rows": 9,
+      "source_rows": 9,
+      "pruned_duplicate_pmids": [
+        "41693488"
+      ]
     }
   },
   "policy": "research authoring index only; not runtime admission; final Wave-1500 consolidation required",
