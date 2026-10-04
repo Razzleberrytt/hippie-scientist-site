@@ -83,14 +83,14 @@ describe('production deployment handoff contract', () => {
     expect(workflow).toContain('echo "reusable=true" >> "$GITHUB_OUTPUT"')
     expect(workflow).toContain("if: steps.governed-verify.outputs.reusable != 'true' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'")
     expect(workflow).toContain("METRICOOL_PUBLIC_MEDIA_ROOT: ${{ steps.governed-verify.outputs.reusable == 'true' && 'out/media/distribution/metricool' || 'public/media/distribution/metricool' }}")
-    expect(ci).toContain('AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}')
+    expect(ci).toContain('AMAZON_AFFILIATE_TAG: razzleberr0e2-20')
   })
 
   it('passes the same Amazon affiliate tag into the production build, output verification, and affiliate audit', () => {
     const workflow = read('.github/workflows/deploy.yml')
     const ci = read('.github/workflows/ci.yml')
 
-    const tagBinding = 'AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}'
+    const tagBinding = 'AMAZON_AFFILIATE_TAG: razzleberr0e2-20'
     expect(workflow.split(tagBinding).length - 1).toBeGreaterThanOrEqual(3)
 
     const auditStep = workflow.slice(workflow.indexOf('- name: Verify Amazon affiliate tag (production safety)'))
