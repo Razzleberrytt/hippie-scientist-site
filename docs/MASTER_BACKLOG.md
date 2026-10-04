@@ -48,11 +48,11 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6324 / PR #6323 | Close Waves 1501–2000 with fail-closed runtime enrichment | A / L2 | In review — 500 unique research receipts consolidated; 9 source-specific runtime rows admitted; 491 remain research-only | P1 | — | — | 2026-10-04 — exact base `87d5b6d2f516c18f4ff3ed9fad8dfc27d77a8697`; no entity creation or firewall bypass | 500 contiguous/unique PMIDs; manifest digest/count integrity; canonical-only admission; category/formulation boundaries preserved; exact-head repository gates green; review threads resolved before merge |
+| #6324 | Validate and land enrichment waves 1501–2000 | A | In review — admitted for implementation by PR #6323; exact-head validation required | P1 | 3/4/3/5/0.75/2 | 67.5 | 2026-10-04T18:00:00Z — exact base `2a9aa816383f9d84e5059342dd6aa04b038a75db` | 500 contiguous unique receipts; admit only source-specific canonical rows; preserve all research-only firewalls; required exact-head gates green before merge |
 
 
 
-**Current admission (verified 2026-10-04):** Normal implementation WIP is **1/3**. Authority/Content is occupied by #6324 / PR #6323 for the bounded Waves 1501–2000 runtime-admission closeout. Discovery/SEO is free because #6021 / PR #6195 merged on 2026-10-02; Revenue/Conversion remains free. #6324 is limited to manifest-backed additive evidence on existing canonical entities and may not bypass research-only category/formulation/combination/safety boundaries.
+**Current admission (verified 2026-10-04):** Normal implementation WIP is **1/3**. Authority/Content is occupied by #6324 for the bounded Waves 1501–2000 enrichment closeout. Discovery/SEO and Revenue/Conversion are free. #6324 is admitted against exact main base `2a9aa816383f9d84e5059342dd6aa04b038a75db`; scientific/runtime promotion remains fail-closed.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
@@ -60,7 +60,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ### Verified completion refresh — 2026-10-02
 
-- **#6021 / PR #6195 — retired 2026-10-02:** merged as `a1463e8010cfb2c30126bd06671451e23b19b703`; focus-cluster breadcrumbs now point to Guides and expose an accessible breadcrumb name. The Discovery/SEO slot is free.
+- **#6021 / PR #6195 — completed:** merged as `a1463e8010cfb2c30126bd06671451e23b19b703`; breadcrumb destination/label and accessibility repair are on `main`. The Discovery/SEO slot is free; external outcomes remain **Unknown**.
 
 - **#6185 / PR #6190 — completed:** merged as `0657391a3bb73916f18bd0df42542363dcdc07d3`; bounded UI-contract drift now fails before broad validation, exact-head governed static exports are reused by downstream build-dependent checks, P0 Visual Proof is required for every retained visual trigger including low-risk visual-path tests, and artifact mismatch/miss still falls back to a full build. Exact-head CI/full tests/a11y/data/security, production build/output/SEO, Build Quality, Atomic, Site Health, Build Check, Production Content Lint, Lighthouse, P0 visual proof, governed export reuse, and review resolution passed. External business impact remains **Unknown**.
 
@@ -86,7 +86,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Discovery/SEO is occupied by #6021; Revenue/Conversion and Authority/Content are free. Normal WIP is 1/3. No additional candidate is admitted by vacancy alone. Further work requires the normal scored, freshness, dependency, experiment, non-overlap, and admission gates. External outcomes for #6021 remain Unknown until observed.
+Authority/Content is occupied by #6324; Discovery/SEO and Revenue/Conversion are free. No additional candidate is admitted by vacancy alone.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|

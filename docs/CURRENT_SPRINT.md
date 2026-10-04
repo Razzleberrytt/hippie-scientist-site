@@ -5,7 +5,7 @@
 **Updated:** 2026-10-04
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (verified 2026-10-04):** Normal implementation WIP is **1/3**. Authority/Content is occupied by #6324 / PR #6323 for the bounded Waves 1501–2000 runtime-admission closeout. Discovery/SEO is free because #6021 / PR #6195 merged on 2026-10-02; Revenue/Conversion remains free. #6324 is admitted against exact base main `87d5b6d2f516c18f4ff3ed9fad8dfc27d77a8697`. Scope is limited to manifest-backed additive enrichment on existing canonical entities, with entity creation, governance override, publication promotion, recommendation promotion, and category-firewall bypass forbidden.
+**Current admission (verified 2026-10-04):** Normal implementation WIP is **1/3**. Authority/Content is occupied by #6324 for the bounded Waves 1501–2000 enrichment closeout. Discovery/SEO and Revenue/Conversion are free. #6324 is admitted against exact main base `2a9aa816383f9d84e5059342dd6aa04b038a75db`; entity creation, governance override, publication promotion, recommendation promotion, and category-firewall bypass remain forbidden.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -53,7 +53,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| A | #6324 / PR #6323 | data: close Waves 1501–2000 with fail-closed runtime enrichment | In review — 500 unique research receipts consolidated; 9 source-specific runtime rows admitted; 491 remain research-only | P1 | — | 2026-10-04 — admitted on exact base `87d5b6d2f516c18f4ff3ed9fad8dfc27d77a8697` |
+| A | #6324 | Validate and land enrichment waves 1501–2000 | In review — admitted for implementation by PR #6323; exact-head validation required | P1 | 67.5 | 2026-10-04T18:00:00Z — exact-base admission against `2a9aa816383f9d84e5059342dd6aa04b038a75db` |
 
 
 
@@ -61,19 +61,13 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 **Security follow-up #5456:** Open — permanent MDX/TOML dependency-chain removal remains unresolved. Temporary build-tool containment expires 2026-10-07; no extension is authorized by this reconciliation.
 
-**Authority prerequisite #5081:** Blocked on a fresh non-overlapping governor lease. Authority/Content is free after #6116 merged, but that free slot does not waive #5081's prerequisite.
+**Authority prerequisite #5081:** Blocked on a fresh non-overlapping governor lease. Authority/Content is currently occupied by #6324; that does not waive #5081's prerequisite.
 
-Research-only enrichment staging is not canonical implementation admission. #6324 is the bounded exception because this PR materializes reviewed runtime evidence; it owns the Authority/Content slot until merge. No new work may overlap an active normal-lane owner.
-
-### Governed enrichment admission — #6324 / PR #6323
-
-- **Owner / lane:** Authority/Content (L2 factual/provenance); P1 scientific-integrity closeout.
-- **Scope:** Waves 1501–2000 only; 500 research receipts; existing canonical entities only.
-- **Acceptance:** 500 contiguous waves with 500 unique in-cycle PMIDs; exact manifest digest/count integrity; no canonical-entity creation; category/formulation/combination/observational/safety-only firewalls preserved; admitted rows source-specific and deduped; workbook/source-of-truth, admission audit, Atomic, Site Health, Build Quality, full tests/a11y, production build/output/SEO, link audit, and security gates green; all review threads resolved before merge.
-- **Current evidence:** 9 runtime evidence rows + 9 source rows admitted; 491 receipts remain research-only. PMID 39703988 is explicitly category-firewalled and excluded from runtime.
-- **Business impact:** `Unknown`; this is evidence-integrity/data coverage work, not proof of traffic, conversion, or revenue lift.
+Research-only enrichment staging is not canonical implementation admission. #6324 is now the admitted Authority/Content closeout for the reviewed Waves 1501–2000 batch. No new work may overlap an active normal-lane owner.
 
 ### Verified completion refresh — 2026-10-02
+
+- **#6021 / PR #6195 — completed:** merged as `a1463e8010cfb2c30126bd06671451e23b19b703`; the focus-cluster breadcrumb now points to Guides and exposes an accessible breadcrumb name. Discovery/SEO ownership is retired; external engagement/business impact remains **Unknown**.
 
 - **#6185 / PR #6190 — completed:** merged as `0657391a3bb73916f18bd0df42542363dcdc07d3`; bounded UI-contract changes now fail stale source/copy contracts before broad validation, exact-head governed static exports are reused by Build Check, Lighthouse, Production Content Lint, and P0 Visual Proof, fallback rebuilds remain fail-closed on artifact miss/mismatch, and P0 is required whenever its retained path trigger applies (including low-risk visual-path tests). Exact-head full Vitest/a11y, native node tests, canonical data, workbook/runtime-trust/security, production build/output/SEO, Build Quality, Atomic, Site Health, governed consumer reuse, Lighthouse, P0 visual proof, and review resolution passed. External traffic, conversion, ranking, and revenue impact remain **Unknown**.
 
