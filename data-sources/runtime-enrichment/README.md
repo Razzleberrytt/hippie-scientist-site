@@ -179,3 +179,19 @@ Tracking: enrichment batching `#6198`; 50-wave follow-on planning `#6200`; canon
 - The remaining research receipts stay research-only or pending where source-specific materialization, entity resolution, formulation/product attribution, route handling, correction/retraction handling, or cross-entity safety handling is not yet legal.
 - Null, negative, mixed, low-certainty, population-specific, route-specific, formulation-specific, product-specific, identity-integrity and safety findings remain first-class.
 - No publication, indexing, recommendation, monetization, or governance fields are changed by this batch.
+
+
+## Oct. 4 research enrichment Waves 1001-1500
+
+- Research program: twenty passes of 25 findings, **500 completed waves**
+- Consolidated selection: `ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1001-1500-selection.json`
+- Research journal: `ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1001-1500.md`
+- Runtime ledger: `2026-10-04-enrichment-waves-1001-1500.json`
+- Manifest: `2026-10-04-enrichment-waves-1001-1500-manifest.json`
+- **10** net-new, independently revalidated, source-specific evidence rows
+- **10** net-new source rows
+- 0 entity-context rows
+- 0 relationships
+- Final admission remains deliberately conservative: the other 490 findings stay as durable research receipts behind category, formulation, combination, observational, safety-only, product-quality, retraction, or evidence-quality boundaries.
+- Null, negative, mixed, population-specific, performance-versus-biomarker, and safety findings remain first-class.
+- No publication, indexing, recommendation, monetization, or governance fields are changed by this batch.
