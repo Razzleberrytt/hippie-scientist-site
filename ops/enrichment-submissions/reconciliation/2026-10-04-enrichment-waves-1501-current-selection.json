@@ -6,7 +6,7 @@
     "range": "1501-2000",
     "pass_size": 25,
     "target_findings": 500,
-    "progress_after_pass": 125,
+    "progress_after_pass": 150,
     "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2000"
   },
   "source_provenance": [
@@ -901,6 +901,181 @@
       "pmid": "40126033",
       "focus": "Meta-analysis of 145 RCTs and 5,205 participants found flavan-3-ol-rich foods/supplements modestly reduced office and ambulatory blood pressure, with larger effects at higher baseline pressure; interventions spanned cocoa, tea, grape, apple and isolated compounds.",
       "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1626,
+      "entity_slug": "quercetin-vaccine-immune-response",
+      "pmid": "41759822",
+      "focus": "Four-week randomized double-blind trial in 50 older or metabolically at-risk adults found quercetin glycoside preconditioning did not improve SARS-CoV-2 booster neutralizing antibodies, spike-specific IgG, or CD4/CD8 T-cell responses versus placebo; useful direct null immune evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1627,
+      "entity_slug": "turmeric-curcumin-oral-mucositis",
+      "pmid": "41804916",
+      "focus": "Systematic review of nine RCTs and 503 head-and-neck-cancer patients found turmeric/curcumin preparations showed potential for prevention or treatment of therapy-related oral mucositis, but routes included oral products, mouthwashes and gels and certainty varied.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1628,
+      "entity_slug": "compound-fish-oil-hypertension-microcirculation",
+      "pmid": "41914515",
+      "focus": "Three-week triple-blind pilot RCT in 64 hypertensive adults found a compound fish-oil product improved selected coronary Doppler velocities but not blood pressure, skin or brain microcirculation; omega-3, resveratrol, astaxanthin and CoQ10 were co-formulated.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1629,
+      "entity_slug": "curcumin-endothelial-inflammation-review",
+      "pmid": "41978084",
+      "focus": "Broad review maps curcumin evidence across endothelial function, lipid metabolism, inflammation and neuroprotection, but mixes mechanistic and clinical literature and therefore cannot supply a single quantitative efficacy estimate.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1630,
+      "entity_slug": "mixodin-migraine-inflammation",
+      "pmid": "42021338",
+      "focus": "Eight-week randomized double-blind trial in 60 migraine patients found a curcumin-gingerol-piperine blend reduced hs-CRP, nitric oxide and headache severity but not headache frequency or duration; multicomponent formulation prevents curcumin-only attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1631,
+      "entity_slug": "curcumin-radiation-injury-meta",
+      "pmid": "42050478",
+      "focus": "GRADE-based meta-analysis found curcumin reduced severe radiation-injury incidence and severity/pain scores but not overall radiation-injury incidence; heterogeneous oncology settings and formulations limit generalization.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1632,
+      "entity_slug": "curcumin-masld-review",
+      "pmid": "42059434",
+      "focus": "Systematic review of curcumin in MASLD highlights anti-inflammatory, oxidative, metabolic and mitochondrial mechanisms alongside clinical evidence, while explicitly flagging low bioavailability, combination-therapy complexity and lack of standardized protocols.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1633,
+      "entity_slug": "turmeric-functional-food-review",
+      "pmid": "42075010",
+      "focus": "Comprehensive turmeric review integrates botany, traditional use, phytochemistry, pharmacokinetics and clinical literature; low bioavailability and limited therapeutic efficacy remain major translational constraints despite extensive mechanistic evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1634,
+      "entity_slug": "resveratrol-diabetes-pancreatic-axis",
+      "pmid": "42099770",
+      "focus": "Systematic review found resveratrol evidence for glycemic, inflammatory, oxidative and pancreatic effects is driven heavily by experimental and type-2-diabetes literature, with direct evidence for pancreatogenic diabetes remaining scarce.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1635,
+      "entity_slug": "curcumin-mafld-anthropometrics-umbrella",
+      "pmid": "42116302",
+      "focus": "Umbrella meta-analysis found curcumin did not significantly improve BMI or waist circumference in MAFLD and produced only a small weight reduction; evidence strength for anthropometric benefit was low to moderate.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1636,
+      "entity_slug": "resveratrol-beta-glucan-nasal-spray-wheezing",
+      "pmid": "42159960",
+      "focus": "Pilot randomized double-blind trial in 82 preschool children with recurrent wheezing found a resveratrol plus beta-glucan nasal spray was safe but missed its primary respiratory-symptom endpoint; secondary trends favoring the product were not statistically definitive.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1637,
+      "entity_slug": "inapra-immunonutrition-pediatric-allergy",
+      "pmid": "42202393",
+      "focus": "Six-month multicenter pilot RCT in 40 children with asthma and allergic rhinitis found a multicomponent postbiotic/immunonutrition product improved prespecified symptom-control measures versus placebo; seven active components prevent single-ingredient attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1638,
+      "entity_slug": "vitamin-d-resveratrol-sarcopenic-obesity-gap",
+      "pmid": "42221760",
+      "focus": "Systematic review found zero eligible phenotype-defined RCTs testing isolated vitamin D or resveratrol in adults with rigorously defined sarcopenic obesity, documenting a genuine evidence gap despite strong mechanistic rationale.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1639,
+      "entity_slug": "curcumin-benign-prostatic-hyperplasia-meta",
+      "pmid": "42247029",
+      "focus": "Meta-analysis of six comparative studies and 697 men with BPH found adjunct curcumin improved symptom scores and selected urinary/prostate measures, but substantial heterogeneity and concomitant alpha-blocker/5-alpha-reductase-inhibitor use constrain independent-effect claims.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1640,
+      "entity_slug": "anthocyanin-curcumin-resveratrol-metabolic-review",
+      "pmid": "42280140",
+      "focus": "Systematic review of 105 studies found outcome-specific metabolic signals for anthocyanins, curcumin and resveratrol, with resveratrol results especially inconsistent; evidence should stay compound-specific rather than pooled as generic antioxidant efficacy.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1641,
+      "entity_slug": "complementary-blend-knee-osteoarthritis-null",
+      "pmid": "42331134",
+      "focus": "Twelve-week double-blind ATLAS RCT in 84 adults with knee osteoarthritis found a Boswellia/pine-bark/MSM/curcumin/piperine combination produced no pain benefit over placebo and had a similar adverse-event profile.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1642,
+      "entity_slug": "resveratrol-periodontal-review",
+      "pmid": "42384081",
+      "focus": "Systematic review of 16 preclinical and six clinical studies found resveratrol consistently improved periodontal outcomes in animals but clinical trials were small, heterogeneous and short, with no clinical study assessing radiographic bone loss.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1643,
+      "entity_slug": "resveratrol-periodontal-smokers",
+      "pmid": "42401785",
+      "focus": "Randomized clinical evidence examined systemic resveratrol as an adjunct to periodontal treatment in smokers; this receipt remains indication- and co-treatment-specific pending broader replication.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1644,
+      "entity_slug": "resveratrol-periodontal-meta",
+      "pmid": "42451212",
+      "focus": "Systematic review/meta-analysis evaluated adjunct resveratrol for periodontal disease; pooled periodontal findings should remain adjunctive-treatment evidence rather than proof of general systemic anti-inflammatory benefit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1645,
+      "entity_slug": "quercetin-autoimmune-disease-review",
+      "pmid": "42467366",
+      "focus": "Systematic review of 13 mechanistic and human studies found quercetin showed anti-inflammatory and immunomodulatory signals across autoimmune conditions, but few clinical trials and heterogeneous diseases/designs prevent broad therapeutic conclusions.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1646,
+      "entity_slug": "microbiota-interventions-pediatric-type1-diabetes",
+      "pmid": "42184054",
+      "focus": "Systematic review/meta-analysis evaluated microbiota-modulating interventions in pediatric type 1 diabetes; diverse probiotic, prebiotic and synbiotic strategies require category-level interpretation rather than strain-independent efficacy claims.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1647,
+      "entity_slug": "prosynbiotics-kenyan-infants-inflammation",
+      "pmid": "42208544",
+      "focus": "Randomized four-arm phase-II trial in Kenyan infants tested pro/synbiotic strategies for systemic inflammation and gut health; population, formulation and early-life context must remain explicit when interpreting immune effects.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1648,
+      "entity_slug": "probiotics-pediatric-allergic-rhinitis-meta",
+      "pmid": "42209809",
+      "focus": "Meta-analysis of 14 RCTs and 1,739 children found probiotics improved nasal/eye symptoms and quality of life in allergic rhinitis, but heterogeneity exceeded 90% for major clinical outcomes, limiting strain-independent conclusions.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1649,
+      "entity_slug": "multistrain-probiotic-copd",
+      "pmid": "42286603",
+      "focus": "Eight-week randomized placebo-controlled COPD trial found a multistrain probiotic reduced IL-6 and improved CAT scores, while between-group spirometric differences were not significant and IL-17/TGF-beta were unchanged.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1650,
+      "entity_slug": "vsl3-ulcerative-colitis-ibs-symptoms",
+      "pmid": "42514326",
+      "focus": "Exploratory randomized double-blind placebo-controlled trial evaluated VSL#3 for abdominal pain and bloating in ulcerative-colitis remission with IBS-like symptoms; findings remain product- and phenotype-specific.",
+      "state": "research_only_formulation_firewall"
     }
   ]
 }
