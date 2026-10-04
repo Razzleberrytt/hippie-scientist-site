@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-2251-2275-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-2226-2250-selection",
+  "program": {
+    "range": "2001-2500",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 275,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2500"
+  },
+  "source_provenance": [
+    "NCBI PubMed ESearch + exact EFetch abstract verification",
+    "cumulative PMID collision index through Wave 2250"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe and exact abstract verification during authoring; expensive repository-wide validation only after Wave 2500"
+  },
+  "waves": [
+    {
+      "wave": 2251,
+      "entity_slug": "gut-microbiota-probiotics-influenza-narrative-review-mechanisms",
+      "pmid": "42198756",
+      "focus": "Review on gut microbiota and probiotics in influenza: a narrative review of mechanisms reports This review examines the communication and regulatory mechanisms between the gut microbiota and pulmonary mucosal surfaces during influenza virus infection, emphasizing how gut microbial. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2252,
+      "entity_slug": "management-vitamin-d-chronic-kidney-disease",
+      "pmid": "42202097",
+      "focus": "Review on management of vitamin d in chronic kidney disease reports Given the kidneys' critical role in vitamin D metabolism and homeostasis, deficiency is highly prevalent in this population and has been linked to adverse. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2253,
+      "entity_slug": "creatine-supplementation-intestinal-health-narrative-review-its",
+      "pmid": "42202735",
+      "focus": "Review on role of creatine supplementation in intestinal health: a narrative review of reports Based on the data found, creatine supplementation demonstrated therapeutic potential in restoring intestinal homeostasis, as well as significant antioxidant and anti-inflammatory activity. Therefore, this. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2254,
+      "entity_slug": "valorizing-renewable-biomass-into-potential-prebiotic-oligosaccharides",
+      "pmid": "42203116",
+      "focus": "Review on valorizing renewable biomass into potential prebiotic oligosaccharides: enzymatic, microbial, and synthetic reports We also discuss recent developments in enzyme engineering, bioprocess optimization, and microbial co-culture systems aimed at enhancing product yield and specificity. This review highlights. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2255,
+      "entity_slug": "dietary-berberine-supplementation-improves-select-physiological-psychological",
+      "pmid": "42204774",
+      "focus": "Randomized controlled trial on dietary berberine supplementation improves select physiological and psychological responses during exertional reports Dietary berberine supplementation improved mean body temperature, heart rate, respiratory rate, and perceptual responses during exertional heat stress. Many of these changes were of. Evidence boundary: the finding is limited to the studied population, intervention, duration, and endpoints.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2256,
+      "entity_slug": "magnesium-sulfate-prevent-perioperative-atrial-fibrillation-cardiac",
+      "pmid": "42206948",
+      "focus": "Randomized controlled trial on magnesium sulfate to prevent perioperative atrial fibrillation in cardiac surgery: a reports In this randomized trial, perioperative magnesium infusion targeting serum concentrations of 1.5-2.0 mmol/L did not reduce POAF after cardiac surgery. These findings do not. Evidence boundary: the finding is limited to the studied population, intervention, duration, and endpoints.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2257,
+      "entity_slug": "biological-clinical-significance-iron-pseudomonas-aeruginosa-biofilms",
+      "pmid": "42207121",
+      "focus": "Review on biological and clinical significance of iron in pseudomonas aeruginosa biofilms reports This mini-review presents the current state of the field in understanding the specific impacts of iron on P. aeruginosa biofilm formation, and we propose. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2258,
+      "entity_slug": "correlation-between-urinary-6-sulfatoxymelatonin-actigraphy-data",
+      "pmid": "42207368",
+      "focus": "Observational study on correlation between urinary 6-sulfatoxymelatonin and actigraphy data in a clinical population reports The moderate, context-dependent correlations underscore that these tools are not redundant but capture distinct aspects of sleep-wake regulation. In a heterogeneous clinical population, this. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2259,
+      "entity_slug": "addressing-evidence-gap-ergogenic-caffeine-cycling-performance",
+      "pmid": "42208612",
+      "focus": "Meta-analysis on addressing the evidence gap: ergogenic effects of caffeine on cycling performance reports \" The limited clinical trials and inadequate menstrual cycle assessments preclude definitive conclusions regarding the effect of the menstrual cycle phases. These findings support. Evidence boundary: pooled inference depends on included populations, formulations, endpoints, and study quality.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2260,
+      "entity_slug": "combination-deferoxamine-deferiprone-demonstrates-superior-efficiency-compared",
+      "pmid": "42208642",
+      "focus": "Meta-analysis on combination of deferoxamine and deferiprone demonstrates superior efficiency compared to monotherapies reports The combination of Deferoxamine and Deferiprone demonstrated comparatively greater efficacy than the other evaluated regimens in decreasing cardiac iron overload. However, this finding should. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2261,
+      "entity_slug": "vitamin-d-deficiency-pain-severity-endometriosis-phenotype",
+      "pmid": "42210340",
+      "focus": "Observational study on vitamin d deficiency and pain severity in endometriosis: a phenotype-based retrospective reports Lower serum vitamin D levels are significantly associated with greater pain severity in women with endometriosis, with a stronger association observed in the DIE. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2262,
+      "entity_slug": "systematic-review-meta-analysis-vitamin-d-status",
+      "pmid": "42210828",
+      "focus": "Meta-analysis on a systematic review and meta-analysis of vitamin d status of apparently reports 2 ng/mL, influenced by one high outlier study). These findings reveal a high prevalence of vitamin D deficiency among healthy adults, particularly in the. Evidence boundary: the observational design cannot establish causality.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2263,
+      "entity_slug": "probiotics-alleviate-oral-microbiota-disruptions-induced-by",
+      "pmid": "42211655",
+      "focus": "Randomized controlled trial on probiotics alleviate oral microbiota disruptions induced by helicobacter pylori eradication with reports In conclusion, H. pylori infection disrupts oral microbiota, and 14-day VA therapy induces transient microbial perturbations. Adjunctive probiotics partially mitigate these disruptions, supporting oral. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2264,
+      "entity_slug": "habitual-caffeine-use-strength-power-muscular-endurance",
+      "pmid": "42213969",
+      "focus": "Randomized controlled trial on the effect of habitual caffeine use on strength, power, and muscular reports Caffeine had no significant effect on performance, and no condition × group interaction was detected. Lower dose caffeine supplementation did not enhance performance outcomes. Evidence boundary: the finding is limited to the studied population, intervention, duration, and endpoints.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2265,
+      "entity_slug": "curcumin-neurological-diseases-from-molecular-mechanisms-translational",
+      "pmid": "42214228",
+      "focus": "Review on curcumin for neurological diseases: from molecular mechanisms to translational strategies reports This review summarizes the molecular mechanisms, structural modifications, and delivery strategies of curcumin, with a focus on its application in neurological diseases. This provides. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2266,
+      "entity_slug": "microbial-biotransformation-polyphenols-bioactive-substrates-implications-metabolite",
+      "pmid": "42214685",
+      "focus": "Review on microbial biotransformation of polyphenols and bioactive substrates: implications for metabolite-guided synbiotics reports Metabolite-guided synbiotics represent a promising paradigm for precision nutrition by enhancing the consistency and efficacy of bioactive compound metabolism. Integration of metagenomics, metabolomics, and. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2267,
+      "entity_slug": "engineering-probiotics-through-tailored-processing-encapsulation-superior",
+      "pmid": "42215193",
+      "focus": "Review on engineering probiotics through tailored processing and encapsulation for superior viability and reports Based on this analysis, we proposed next-generation paradigms for processing probiotics, including material-process-strain co-design, integrated process engineering, and AI-driven optimization of formulations and dynamic. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2268,
+      "entity_slug": "inositol-hexaphosphate-as-metabolic-rheostat-reprogramming-plasticity",
+      "pmid": "42216532",
+      "focus": "Review on inositol hexaphosphate as a metabolic rheostat: reprogramming and plasticity in stem reports Its pleiotropic effects are also implicated in neurodegeneration, hearing loss, and metabolic syndromes. Future studies should focus on defining IP6-regulated metabolic checkpoints, identifying direct. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2269,
+      "entity_slug": "ginseng-polysaccharides-comprehensive-review-extraction-structure-vivo",
+      "pmid": "42216899",
+      "focus": "Review on ginseng polysaccharides: a comprehensive review of extraction, structure, in vivo fate reports We also discuss its potential in functional food development and outline future perspectives, including structure-activity relationships, microbial metabolism networks, and delivery challenges. This review. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2270,
+      "entity_slug": "benefits-12-week-self-paced-training-combined",
+      "pmid": "42217742",
+      "focus": "Randomized controlled trial on benefits of 12-week self-paced training combined with melatonin supplementation on oxidative reports Concurrent training combined with melatonin supplementation showed greater anti-inflammatory, antioxidant and hypolipidemic effects than each intervention alone, and was more beneficial than training alone. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2271,
+      "entity_slug": "iron-dysregulation-central-nervous-system-implications-autism",
+      "pmid": "42219438",
+      "focus": "Review on iron dysregulation in the central nervous system: implications for autism spectrum reports This review integrates molecular, developmental, and clinical evidence to highlight the role of iron dysregulation in ASD with a focus on iron imbalance at. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2272,
+      "entity_slug": "rethinking-probiotics-breaking-lactobacillus-bifidobacterium-duopoly-management",
+      "pmid": "42219654",
+      "focus": "Review on rethinking probiotics: breaking the lactobacillus-bifidobacterium duopoly in the management of dysbiosis reports Using dysbiosis and allergic disease as illustrative case studies, we integrate clinical evidence and mechanistic insights to evaluate emerging microbiota-based strategies, including next-generation probiotics. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2273,
+      "entity_slug": "association-between-selenium-ferritin-haemoglobin-levels-development",
+      "pmid": "42219830",
+      "focus": "Observational study on association between selenium, ferritin, and haemoglobin levels and the development of reports Elevated ferritin and decreased Hb levels were independently associated with the development of PE. Se was associated with PE in univariate analysis but did. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2274,
+      "entity_slug": "lipid-based-nanocarriers-curcumin-delivery-promising-strategy",
+      "pmid": "42220974",
+      "focus": "Review on lipid-based nanocarriers for curcumin delivery: a promising strategy in the management reports These platforms can enhance the solubility, stability, absorption, and pharmacokinetic performance of curcumin and, in selected cases, facilitate more efficient accumulation at inflamed sites. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2275,
+      "entity_slug": "emerging-nanomaterials-can-even-treat-chronic-wounds",
+      "pmid": "42220975",
+      "focus": "Review on emerging nanomaterials can even treat chronic wounds: a review of evidence reports Rigorous biosafety evaluations and clinically relevant preclinical models are also imperative. In conclusion, magnesium-based materials stand as a highly promising and versatile strategy for. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_cross_entity_safety"
+    }
+  ]
+}

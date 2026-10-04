@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "batch_id": "2026-10-04-enrichment-waves-2001-current-selection",
+  "batch_id": "2026-10-04-enrichment-waves-2001-2500-selection",
   "continuation_of": "2026-10-04-enrichment-waves-1501-2000-selection",
   "program": {
     "range": "2001-2500",
