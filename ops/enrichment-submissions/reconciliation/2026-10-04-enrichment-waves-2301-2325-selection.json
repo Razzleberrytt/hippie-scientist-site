@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-2301-2325-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-2276-2300-selection",
+  "program": {
+    "range": "2001-2500",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 325,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2500"
+  },
+  "source_provenance": [
+    "NCBI PubMed ESearch + exact EFetch abstract verification",
+    "cumulative PMID collision index through Wave 2250"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe and exact abstract verification during authoring; expensive repository-wide validation only after Wave 2500"
+  },
+  "waves": [
+    {
+      "wave": 2301,
+      "entity_slug": "molecular-mechanisms-iron-metabolism-ferroptosis-cardiovascular-diseases",
+      "pmid": "42246156",
+      "focus": "Review on molecular mechanisms of iron metabolism and ferroptosis in cardiovascular diseases and reports Therefore, the present review summarized the relationship between ferroptosis and various CVDs, including myocardial diseases, heart failure, atherosclerosis, myocardial ischemia, reperfusion injury, hypertension and. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2302,
+      "entity_slug": "comprehensive-approach-skin-protection-against-ultraviolet-radiation",
+      "pmid": "42246335",
+      "focus": "Review on a comprehensive approach to skin protection against ultraviolet radiation: integrating sunscreens reports This review explores an integrative approach to photoprotection that combines traditional mineral and chemical UV filters with emerging protective strategies, including antioxidants, oral supplementation. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2303,
+      "entity_slug": "randomized-controlled-clinical-evaluation-anti-gingivitis-desensitizing",
+      "pmid": "42247364",
+      "focus": "Randomized controlled trial on a randomized controlled clinical evaluation of anti-gingivitis and desensitizing efficacy of reports The topical application followed by brushing method (Group 3) demonstrated significantly greater efficacy in reducing dentin hypersensitivity, plaque accumulation, and gingival inflammation than both. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2304,
+      "entity_slug": "caffeine-gum-same-day-subsequent-neuromuscular-performance",
+      "pmid": "42247558",
+      "focus": "Randomized controlled trial on effects of caffeine gum on same-day and subsequent neuromuscular performance under reports Within a standardized RP context, CAF3 and CAF6 caffeine gum were associated with improved same-day neuromuscular performance and higher RP barbell velocity compared with. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2305,
+      "entity_slug": "magnesium-sulfate-neuroprotection-approach-addressing-clinical-questions",
+      "pmid": "42248515",
+      "focus": "Review on magnesium sulfate for neuroprotection: approach to addressing clinical questions reports Herein we will compare and contrast the clinical trials evaluating magnesium for fetal neuroprotection, and provide guidance about the rationale for our approach to. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2306,
+      "entity_slug": "unveiling-nutraceutical-potential-yam-dioscorea-alata-l",
+      "pmid": "42250036",
+      "focus": "Review on unveiling the nutraceutical potential of yam dioscorea alata l.: a comprehensive reports Moreover, its cultivation and utilization may contribute to food security and public health (SDG 2 and 3). Further, phytochemical and clinical studies are required. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2307,
+      "entity_slug": "polyphenols-as-next-generation-prebiotics-targeting-intestinal",
+      "pmid": "42250389",
+      "focus": "Review on polyphenols as next-generation prebiotics targeting intestinal mucosal tolerance reports This integrated mode of action clearly distinguishes polyphenols from classical carbohydrate-based prebiotics, positioning them within a candidate functional category capable of targeting immune pathways. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 2308,
+      "entity_slug": "ferro-aging-novel-paradigm-linking-iron-overload",
+      "pmid": "42250782",
+      "focus": "Review on ferro-aging: a novel paradigm linking iron overload, lipid peroxidation and cellular reports Targeting iron homeostasis, lipid peroxidation, senescent cells, and mitochondrial function provides promising anti-aging interventions. This review clarifies the connotation and mechanism of ferro-aging, and. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2309,
+      "entity_slug": "preoperative-iv-iron-postoperative-blood-transfusion-reduction",
+      "pmid": "42251415",
+      "focus": "Meta-analysis on preoperative iv iron and postoperative blood transfusion reduction in non-anaemic patients reports In non-anaemic adult patients undergoing cardiac surgery, preoperative IV iron administration significantly reduces the incidence of postoperative RBC transfusion and the total volume of. Evidence boundary: pooled inference depends on included populations, formulations, endpoints, and study quality.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2310,
+      "entity_slug": "lactobacillus-containing-probiotics-clinical-pregnancy-infertile-women",
+      "pmid": "42251807",
+      "focus": "Meta-analysis on lactobacillus-containing probiotics and clinical pregnancy in infertile women undergoing art: a reports Lactobacillus-containing probiotics may be associated with improved clinical pregnancy in women undergoing ART, particularly in trials using courses longer than two weeks. Larger, well-blinded. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2311,
+      "entity_slug": "outcomes-patients-high-risk-plaques-treated-bioresorbable",
+      "pmid": "42252499",
+      "focus": "Clinical trial on outcomes of patients with high-risk plaques treated with a bioresorbable magnesium reports In this sub-analysis of the BIOMAG-I trial, the DREAMS 3G bioresorbable magnesium scaffold demonstrated favorable performance, with low LLL and a low rate of. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2312,
+      "entity_slug": "superoxide-dismutase-centered-modulation-by-curcumin-cardiovascular",
+      "pmid": "42252558",
+      "focus": "Review on superoxide dismutase-centered modulation by curcumin in cardiovascular diseases: mechanistic insights and reports However, despite robust preclinical evidence, clinical validation remains limited. This review synthesizes current mechanistic and translational evidence, positioning SOD as the central mediator of. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2313,
+      "entity_slug": "correction-ineffective-erythropoiesis-normalization-iron-homeostasis-after",
+      "pmid": "42252696",
+      "focus": "Clinical trial on correction of ineffective erythropoiesis and normalization of iron homeostasis after exagamglogene reports (CLIMB THAL-111 and CLIMB-131; Clinical Trials. gov numbers NCT03655678 and NCT04208529). Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2314,
+      "entity_slug": "neuropsychiatric-creatine-what-does-preclinical-clinical-evidence",
+      "pmid": "42257668",
+      "focus": "Review on [neuropsychiatric effects of creatine: what does the preclinical and clinical evidence reports These results have been obtained from studies with observational and experimental design and from systematic reviews with meta-analysis. Further studies are required to validate. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2315,
+      "entity_slug": "neurovascular-immune-mediator-dynamics-migraine-state-dependent",
+      "pmid": "42257903",
+      "focus": "Randomized controlled trial on neurovascular-immune mediator dynamics in migraine: state-dependent effects of caffeine reports Migraine is characterized by dynamic, phase-dependent neurovascular and inflammatory alterations. Acute caffeine administration modulates key mediators, promoting a shift toward a more vasoconstrictive vascular. Evidence boundary: the finding is limited to the studied population, intervention, duration, and endpoints.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2316,
+      "entity_slug": "omega-3-fatty-acids-fibrates-pcsk9-inhibitors",
+      "pmid": "42259404",
+      "focus": "Review on effect of omega-3 fatty acids, fibrates and pcsk9 inhibitors on atherosclerotic reports PCSK9 inhibitors produce robust plaque regression related to achieved LDL-cholesterol levels, with IVUS evidence from GLAGOV and OCT evidence from HUYGENS demonstrating both volumetric. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2317,
+      "entity_slug": "local-curcumin-turmeric-derived-delivery-adjunctive-scaling",
+      "pmid": "42260483",
+      "focus": "Meta-analysis on local curcumin/turmeric-derived delivery adjunctive to scaling and root planing for periodontitis reports Locally delivered curcumin/turmeric-derived formulations used adjunctively with SRP may provide a modest improvement in PPD reduction; however, the findings should be interpreted cautiously because. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2318,
+      "entity_slug": "caffeine-headache-exploring-multifaceted-relationship",
+      "pmid": "42260758",
+      "focus": "Review on caffeine and headache: exploring the multifaceted relationship reports Caffeine plays a complex role in headache disorders, acting as both a therapeutic agent and a potential trigger. Its effects depend on dosage, timing. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2319,
+      "entity_slug": "clinical-trial-predicting-response-iron-therapy-patients",
+      "pmid": "42261111",
+      "focus": "Randomized controlled trial on clinical trial: predicting response to iron therapy in patients with active reports Baseline hepcidin supports route selection for iron therapy: higher levels favour IV iron, while lower levels indicate likely oral response. Ferritin-based indices, notably transferrin/log10(ferritin). Evidence boundary: the finding is limited to the studied population, intervention, duration, and endpoints.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2320,
+      "entity_slug": "vitamin-d-deficiency-pregnant-women-obstetric-implications",
+      "pmid": "42261719",
+      "focus": "Systematic review on vitamin d deficiency in pregnant women: obstetric implications and clinical management reports Vitamin D assessment and individualized supplementation should be integrated into routine prenatal care. Obstetricians should implement screening protocols particularly for high-risk pregnant women. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2321,
+      "entity_slug": "assessment-tolerability-efficacy-supplementation-containing-micronized-emulsified",
+      "pmid": "42261729",
+      "focus": "Observational study on assessment of the tolerability and efficacy of supplementation containing micronized and reports Dietary supplementation with micronized and emulsified ferric pyrophosphate is effective in iron deficiency, in terms of improving laboratory test results and reducing the severity. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2322,
+      "entity_slug": "sex-differences-omega-3-omega-6-pufa",
+      "pmid": "42264150",
+      "focus": "Meta-analysis on sex differences in omega-3 and omega-6 pufa status: a systematic review reports Higher DPAn-3 and lower DHA in males point to important biological differences in this portion of the n-3 PUFA biosynthesis pathway that require further. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2323,
+      "entity_slug": "enteral-iron-dose-iron-storage-intestinal-barrier",
+      "pmid": "42264152",
+      "focus": "Randomized controlled trial on enteral iron dose effect on iron storage, intestinal barrier, and gut reports Enteral iron supplementation at 6 mg/kg/d is associated with improved iron status and lower intestinal barrier dysfunction, without evidence of harms on gut microbiome. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2324,
+      "entity_slug": "12-month-probiotic-supplementation-bone-mineral-density",
+      "pmid": "42264450",
+      "focus": "Randomized controlled trial on effects of 12-month probiotic supplementation on bone mineral density and bone reports In early postmenopausal females, 12-mo supplementation with a lactobacilli-based probiotic does not attenuate bone loss and was associated with a small but statistically significant. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2325,
+      "entity_slug": "curcuminoids-allergic-rhinitis-diseases-systematic-review-meta",
+      "pmid": "42265805",
+      "focus": "Meta-analysis on effects of curcuminoids on allergic rhinitis diseases: a systematic review and reports Curcuminoids showed beneficial effects in animal models of allergic rhinitis, while current human evidence is limited and inconclusive. Further well-designed clinical trials are needed. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    }
+  ]
+}

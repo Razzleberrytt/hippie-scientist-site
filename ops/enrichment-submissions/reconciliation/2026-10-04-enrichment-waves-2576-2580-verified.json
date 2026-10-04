@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2576-2580",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2576,
+      "pmid": "42748645",
+      "title": "Tolerance, physical dependence, and Δ(9)-THC-like interoceptive effects of cannabinol in mice.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Tolerance and dependence findings are from short repeated-dose mouse experiments; human dependence liability, exposure thresholds, and clinical relevance remain uncertain."
+    },
+    {
+      "wave": 2577,
+      "pmid": "42734521",
+      "title": "Residue Interaction Network Reveals Allosteric Pathways Linking Orthosteric and Intracellular Sites in Class A GPCRs.",
+      "abstract_verified": true,
+      "state": "research_only_in_silico",
+      "evidence_boundary": "The work is molecular-dynamics modeling of GPCR allostery, including cannabinoid receptors; it is mechanistic and does not establish compound efficacy or clinical effects."
+    },
+    {
+      "wave": 2578,
+      "pmid": "42714782",
+      "title": "Interactions of ACEA and WIN 55,212-2 mesylate with temozolomide and cisplatin in neuroblastoma and glioblastoma cell lines: an isobolographic analysis.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Results are from tumor cell-line assays using cannabinoid receptor agonists with chemotherapy; they are not evidence for clinical cannabinoid treatment or supplement use."
+    },
+    {
+      "wave": 2579,
+      "pmid": "42711610",
+      "title": "Predicting Cannabidiol Pharmacokinetics in Older Adults Via Physiologically Based Pharmacokinetic Modeling.",
+      "abstract_verified": true,
+      "state": "research_only_modeling",
+      "evidence_boundary": "PBPK predictions integrate in vitro and modeled physiology; they are useful for hypothesis generation but require prospective human validation, especially in older adults with comorbidities."
+    },
+    {
+      "wave": 2580,
+      "pmid": "42647115",
+      "title": "Why Serum Magnesium Fails: A Narrative Review of Magnesium Biochemistry, Compartmental Exchange, and Endpoint Selection for Supplementation Trials.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "This narrative review focuses on magnesium biomarkers and trial endpoint selection; it informs interpretation of supplementation studies but does not establish efficacy for any clinical outcome."
+    }
+  ]
+}

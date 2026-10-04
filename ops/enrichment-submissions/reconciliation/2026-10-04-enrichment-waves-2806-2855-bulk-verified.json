@@ -1,0 +1,513 @@
+{
+  "schema_version": 1,
+  "range": "2806-2855",
+  "rows": [
+    {
+      "wave": 2806,
+      "pmid": "42764115",
+      "doi": "10.1016/j.exer.2026.111242",
+      "title": "NAD(+)-sirtuin-mitochondrial quality control in lens epithelial cells: a candidate modulatory network in crystalline lens aging.",
+      "category": "mitochondrial_energy",
+      "abstract_verified": false,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": null,
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "needs_pubmed_fallback"
+    },
+    {
+      "wave": 2807,
+      "pmid": "42760790",
+      "doi": "10.1002/cam4.72275",
+      "title": "Metabolic Reprogramming of Cancer Stem Cells: Targeting Lipid Flux and Mitochondrial Plasticity to Overcome Therapeutic Resistance.",
+      "category": "mitochondrial_energy",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "ABSTRACT Cancer stem cells (CSCs) are increasingly recognized as metabolically plastic subpopulations within malignant tissues that drive tumor initiation, metastatic dissemination, and relapse after therapy. Although traditional models of cancer metabolism have emphasized aerobic glycolysis, CSCs rarely exhibit a single, clearly defined bioenergetic phenotype. Rather, they dynamically remodel glucose utilization, oxidative phosphorylation, redox regulation, de novo fatty acid synthesis, lipid uptake, lipid sequestration, and fatty acid oxidation in response to hypoxic conditions, nutrient restriction, stromal interactions, and therapeutic perturbations. This review focuses on two interconnected aspects of metabolic flexibility: lipid flux and mitochondrial plasticity. We examine how de novo lipogenesis, CD36‐mediated fatty acid uptake, fatty acid‐binding protein trafficking, cholesterol biosynthesis, and lipid‐droplet turnover contribute to stemness, membrane remodeling, metastatic po",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2808,
+      "pmid": "42749043",
+      "doi": "10.1016/j.pneurobio.2026.102952",
+      "title": "The dimorphic brain in ischemic stroke: How sex and age shape molecular pathophysiology and therapeutic responsiveness.",
+      "category": "mitochondrial_energy",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Ischemic stroke remains a leading cause of global mortality and disability, exhibiting marked sexual dimorphism in incidence, severity, and functional outcomes. While epidemiological disparities are well-documented, emerging evidence indicates that these differences are rooted in sex-specific molecular and cellular programs that evolve across the lifespan. This review synthesizes the complex interplay between biological sex and aging in stroke pathophysiology, emphasizing how chromosomal complement and hormonal status dictate the brain's differential response to ischemia. Within the salvageable penumbra, programmed cell death pathways diverge sharply, with male-specific PARP-1-mediated parthanatos contrasting against a caspase-dependent apoptotic bias in premenopausal females. Mitochondrial bioenergetics, Drp1 dynamics, and the NAD⁺-sirtuin axis act as central hubs for this sex-dependent vulnerability. This framework leads into the catastrophic transition following reproductive senesce",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2809,
+      "pmid": "42398703",
+      "doi": "10.1016/j.cct.2026.108399",
+      "title": "Rationale, design, and statistical analysis plan for a randomized, double-blind, placebo-controlled trial of Limosilactobacillus reuteri to support mother-infant bonding and maternal socioemotional functioning in postpartum women at increased risk for postpartum depression.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "BACKGROUND Postpartum depression (PPD) is common and can impair early mother-infant bonding. Oxytocin (OXT) supports socioemotional adaptation, yet intranasal OXT yields supraphysiological exposure and mixed results. The probiotic Limosilactobacillus reuteri (L. reuteri) increases endogenous oxytocin levels in rodents, suggesting that it may enhance OXT signaling via gut-brain pathways in humans. We designed a proof-of-concept trial to test whether postpartum L. reuteri improves early mother-infant bonding and maternal mental health, impulse control, and emotion recognition. METHODS In this randomized, double-blind, placebo-controlled trial, mothers aged ≥18 years at elevated PPD risk (history of depression, prior PPD, and/or increased prenatal depressive symptoms) received 6 weeks of once-daily L. reuteri or placebo, stratified by delivery mode (vaginal/Cesarean section). The primary endpoint is mother-infant bonding quality at Week 6; secondary endpoints include maternal mental healt",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2810,
+      "pmid": "42760956",
+      "doi": "10.3389/fnut.2026.1856471",
+      "title": "Psychobiotic, nutritional, and behavioral interventions targeting the microbiome-gut-brain axis in depression, anxiety, and stress: a scoping review.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Probiotics and psychobiotics are increasingly investigated as microbiome-gut-brain axis (MGBA)-targeted strategies for managing depression, anxiety, and stress-related symptoms, but human evidence remains fragmented across intervention types and biomarker domains. We conducted a scoping review of human intervention studies to map MGBA-targeted psychobiotic, nutritional, dietary, and behavioral interventions, with a specific focus on symptom-biomarker bridging evidence. Searches of major biomedical and multidisciplinary databases combined key terms for the microbiome/gut-brain axis, depression/anxiety/stress, probiotics/psychobiotics, dietary or behavioral interventions, and biomarker domains. The search yielded 1,390 records; 72 full-text reports were assessed; 32 original reports were retained after report-level adjudication; and, after study-family consolidation, 30 independent human studies were included in the study-level synthesis. Studies were classified as direct bridge, paralle",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2811,
+      "pmid": "42602095",
+      "doi": "10.1177/09727531261444529",
+      "title": "Neuroinflammation, HPA Axis Dysregulation, Cytokine Activity and Nutritional Modulation in Depression: A PRISMA-compliant Systematic Review.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Background Depression is increasingly recognized as a multisystem disorder involving interconnected neuroinflammatory, neuroendocrine, metabolic and gut–brain mechanisms rather than isolated neurotransmitter abnormalities. Emerging evidence suggests that dysregulation of cytokine activity, hypothalamic–pituitary–adrenal (HPA) axis function, oxidative stress, mitochondrial dysfunction and gut microbiota collectively contribute to depressive pathophysiology. This review aimed to synthesise current evidence on these biological interactions and evaluate the potential role of nutritional modulation in influencing these pathways. Summary A PRISMA-informed systematic review was conducted using PubMed, Scopus, Web of Science, Embase, PsycINFO and Google Scholar for studies published between 2010 and 2025. Thirty-five eligible studies were included. The evidence demonstrates a self-reinforcing biological network in which chronic stress activates the HPA axis, leading to glucocorticoid receptor ",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2812,
+      "pmid": "42563813",
+      "doi": "10.7586/jkbns.25.092",
+      "title": "Effects of vitamin D supplementation on depression in adult women: a systematic review of randomized controlled trials.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Purpose This systematic review evaluated the effects of vitamin D supplementation on depressive symptoms in adult women by synthesizing evidence from randomized controlled trials (RCTs). Methods This review was conducted in accordance with PRISMA 2020 guidelines. PubMed/MEDLINE, Web of Science, PsycINFO, and CINAHL were searched for RCTs published between January 2020 and November 2025. Eligible studies included women aged ≥ 18 years, vitamin D supplementation as the primary intervention, and assessment of depressive symptoms using validated instruments. Two independent reviewers performed study screening, data extraction, and quality assessment using the Cochrane risk of bias 2.0 tool. Results Four RCTs (n = 18,628 participants) were included. Three trials enrolled women with type 2 diabetes or prediabetes and concomitant vitamin D deficiency, whereas one large trial enrolled adults aged ≥ 50 years without baseline depression. Interventions ranged from 2,000 IU daily to 50,000 IU week",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2813,
+      "pmid": "42518548",
+      "doi": "10.1002/hsr2.72622",
+      "title": "Pre-Eclampsia Among Pregnant Women in Ghana: A Systematic Review & Meta-Analysis of the Current Prevalence, Risk Factors, and Perinatal Outcomes.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Pre‐eclampsia (PE) is a major hypertensive disorder during pregnancy, contributing significantly to maternal and perinatal mortality, especially in low‐ and middle‐income countries. While primary studies on PE have been conducted in Ghana and meta‐analyses exist for sub‐Saharan Africa broadly, no review has synthesized Ghana‐specific evidence to produce a pooled prevalence estimate. This study aimed to provide a comprehensive summary of the prevalence, risk factors, and outcomes associated with PE among pregnant women in Ghana.",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2815,
+      "pmid": "42649572",
+      "doi": "10.1097/AJP.0000000000001415",
+      "title": "The Role of Stress-related Biomarkers, Immune-inflammatory Pathways, and Genetic Polymorphisms in Cognitive-behavioral Therapies for Chronic Low Back Pain and Depression: Results from a Randomized Controlled Trial (the IMPACT study).",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "OBJECTIVES This study aimed to (a) evaluate the effects of Acceptance and Commitment Therapy (ACT) and Behavioral Activation Therapy for Depression (BATD) on immune-inflammatory biomarkers in patients with chronic low back pain and comorbid depression, and (b) explore whether these biomarkers and genetic polymorphisms in BDNF and FKBP5 predict treatment response. METHODS A total of 114 female participants (mean age=57.5 y) were randomized to a group-based therapy delivered via videoconference (ACT or BATD, both added to treatment-as-usual [TAU]) or TAU alone. Serum IL-6, CXCL-8, TNF-α, IL-1β, IL-10, high-sensitivity CRP, cortisol, vitamin D, and hair cortisol and cortisone were assessed at baseline and post-treatment, whereas BDNF and FKBP5 genotypes were assessed at baseline only. Clinical outcomes included pain interference, pain intensity, depressive symptoms, anxiety, stress, and pain catastrophizing. RESULTS Psychological interventions did not significantly change biomarker levels",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2816,
+      "pmid": "42521749",
+      "doi": "10.1038/s43856-026-01800-6",
+      "title": "Probiotic effects on brain health are both transient and sustained for several weeks after discontinuation: a randomised controlled trial.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Modulating the gut-brain axis via probiotic supplementation has emerged as attractive strategy to promote brain health, but its long-term effects are largely unknown. This study with 32 community-dwelling self-reported healthy older adults (68.0 ± 5.4 years, 21 f/11 m, without contraindications for study examinations) assesses whether probiotic effects persist after intake cessation using brain imaging, targeting function (exploratory outcome of main study, primary outcome of report) and structure, and questionnaires for psychological assessments (exploratory). The 4-6 weeks discontinuation follow-up was performed after assessing immediate effects of a six-week randomised, blinded (investigators, nurses, participants), placebo-controlled parallel trial with two different formulations of Lacticaseibacillus rhamnosus HN001 of identical appearance/taste, in autumn 2023 in Örebro, Sweden. Trial status: completed; participants analysed (of randomised) per group: n = 8(29) encapsulated probi",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2817,
+      "pmid": "42520986",
+      "doi": "10.1016/j.bbi.2026.106922",
+      "title": "Omega-3 fatty acids, specialized pro-resolving mediators, and depression: A mechanistic meta-analysis of precursors and clinical implications.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "BACKGROUND Omega-3 polyunsaturated fatty acids (n-3 PUFAs), especially eicosapentaenoic acid (EPA), exhibit adjunctive antidepressant efficacy despite negligible detectable levels in the brain. Emerging evidence implicates specialized pro‑resolving mediators (SPMs); bioactive n-3 PUFA metabolites offer a coherent pathway by actively resolving inflammation, enhancing tissue repair, and supporting neuronal function. To test whether n‑3 PUFA supplementation activates pro‑resolving biology in humans, this meta‑analysis quantified effects on circulating SPM precursors. METHODS We systematically searched PubMed, EMBASE, Web of Science, GOED, and the Cochrane Library (up to May 18, 2026) to identify RCTs examining the impact of n-3 PUFAs supplementation on circulating SPM precursors 18-hydroxyeicosapentaenoic acid (18-HEPE) and 17-hydroxydocosahexaenoic acid (17-HDHA). Meta-analysis was performed using Review Manager 5.4.1 with random-effects models. RESULTS Eleven RCTs, comprising 810 partic",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2818,
+      "pmid": "42517234",
+      "doi": "10.1111/jsr.70411",
+      "title": "Sleep-Related and Chronobiology Traits and Health-Related Phenotypes: A Phenome-Wide Mendelian Randomisation Study.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Sleep-related and chronotype traits have been shown to impact health in observational studies. To identify whether these associations are potentially causal, we conducted phenome-wide Mendelian randomisation analyses of short sleep, insomnia symptoms, total sleep duration, long sleep, snoring, daytime sleepiness and morning chronotype with a broad range of health-related phenotypes. We assessed the association between the genetic predisposition to these traits and the occurrence of 702 health-related phenotypes, using summary statistics of the largest genome-wide association studies in European individuals. Results that were significant (multiple comparisons: False Discovery Rate) and valid (robust genetic instruments, unaffected by horizontal pleiotropy) were validated using data from the second largest European genome-wide association study. Genetically determined short sleep was associated with increased risks of attention-deficit/hyperactivity disorder and neuroticism, musculoskele",
+      "evidence_boundary": "Observational evidence cannot establish causality and is vulnerable to confounding.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2819,
+      "pmid": "42500638",
+      "doi": "10.4103/ija.ija_457_26",
+      "title": "Dexmedetomidine versus magnesium sulphate as adjuvants to ropivacaine in ilioinguinal-iliohypogastric nerve block for inguinal hernia repair: A randomised controlled trial.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Background and Aims: Ultrasound-guided ilioinguinal–iliohypogastric nerve block (II–IHNB) provides effective analgesia for inguinal hernia surgery; however, the duration of analgesia with local anaesthetic alone is limited. This study compared dexmedetomidine and magnesium sulphate as adjuvants to ropivacaine for II–IHNB. Methods: In this randomised controlled trial, 120 patients were allocated into three groups (n = 40 each). Group A received 0.5% ropivacaine, group B received ropivacaine with magnesium sulphate (5 mg/kg), and group C received ropivacaine with dexmedetomidine (1 µg/kg). The primary outcome was time to first rescue analgesia. Secondary outcomes included visual analogue scale (VAS) scores, 24-hour opioid consumption, sedation, haemodynamic parameters, and adverse events. Results: The time to first rescue analgesia was significantly longer in group C than in group A, with a median difference of 1080 min [95% confidence interval (CI): 923–1125 min; P < 0.001]. The total 2",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2821,
+      "pmid": "42481375",
+      "doi": "10.1016/j.ebiom.2026.106380",
+      "title": "Genetic architecture of a Circadian Imbalance Index: genome-wide association, phenome-wide association, and Mendelian randomisation analyses.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Summary Background Circadian disruption affects multiple aspects of human health, but the genetic architecture of individual susceptibility remains unclear. We examined the genetics of the Circadian Imbalance Index (CII), an additive 0–5 score combining evening chronotype, short/long sleep, high neuroticism, atypical caffeinated coffee intake, and low vitamin D. Methods We ran a genome-wide association study (GWAS) of CII in 312,935 European-ancestry UK Biobank participants, compared signals with component-specific and leave-one-component-out (LOCO) GWASs, and tested sex and shift work interactions. CII polygenic score (PRS) PheWAS analyses were evaluated in Mass General Brigham Biobank (N = 50,908) and All of US (N = 98,182), with component-weighted PRS sensitivity analyses. Replication was assessed in Nurses’ Health Study II women (N = 11,344). We estimated genetic correlations and performed bidirectional two-sample Mendelian randomisation (MR) with MR-Egger, weighted median and LOCO",
+      "evidence_boundary": "Interpret within the source design, tested exposure, population, endpoints, and follow-up.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2822,
+      "pmid": "42443992",
+      "doi": "10.1186/s40814-026-01881-z",
+      "title": "PROTECTIVE-D-a feasibility randomised controlled trial examining the effect of a positive mood intervention and vitamin D supplementation on the immunological responses to influenza vaccination in older adults.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "BACKGROUND The effectiveness of vaccines in protecting against disease wanes with increasing age. There is some evidence that psychological wellness and vitamin D supplementation can increase vaccine effectiveness in older people. This study was designed to pilot the acceptability of, and compliance with, study procedures intended for a future large randomised controlled trial (RCT). The procedures included a positive mood intervention (PMI), the use of vitamin D supplements and self-collection of finger-prick blood samples. METHODS Twenty-eight adults aged > 65 years were randomised to one of four conditions: (1) PMI and vitamin D supplements, (2) PMI only, (3) Vitamin D supplements only and (4) Usual care. Blood samples were taken before vaccination with the standard seasonal influenza vaccine and again after 28 days. Vitamin D levels and antibodies to influenza were compared before and after the participants received the allocated intervention. RESULTS Good compliance with study pro",
+      "evidence_boundary": "Observational evidence cannot establish causality and is vulnerable to confounding.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2823,
+      "pmid": "42423005",
+      "doi": "10.1017/S0007114526107703",
+      "title": "Does a diverse whole-food plant-based dietary intervention improve gut microbiome composition, gut symptoms, energy and hunger in healthy adults? A randomised controlled trial.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Diets low in diverse fibre-rich plant foods contribute to the rise of chronic disease. The BIOME study (NCT06231706; 6-week parallel randomised controlled trial) in 399 adults (35-65 years; BMI 18·5-40 kg/m2; fibre intake < 20 g/d) investigated a whole-food plant blend containing > 30 ingredients, rich in (poly)phenols, fibre and micronutrients. Participants were randomised (1:1:1) to the blend (30 g/d), an isoenergetic control (bread croutons, 28 g/d) or probiotic (Lactobacillus rhamnosus, 15bn CFU/d). Analysts were blinded to allocation. The primary outcome was change in 'favourable' and 'unfavourable' gut microbiome species (ZOE Microbiome Health Ranking 2025); secondary outcomes included blood metabolites, symptoms, stool output, anthropometry, hunger, sleep, energy and mood. A crossover sub-study explored postprandial glucose, hunger and mood. Of 349 participants analysed (fifty excluded), self-reported adherence was > 98 %. The 30+ plant blend resulted in more species changing re",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2824,
+      "pmid": "42411087",
+      "doi": "10.2174/0113816128426426251022072809",
+      "title": "Curcumin and Cognitive Health: Insights from Randomized Controlled Trials.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Curcumin has garnered attention for its potential neuroprotective effects, attributed to its antioxidant and anti-inflammatory properties. This review summarizes the results of Randomized Controlled Trials (RCTs) evaluating the impact of curcumin supplementation on cognitive function in adults. Several studies have reported that curcumin supplementation could improve cognitive domains, including memory, attention, and processing speed. Nano-formulations of curcumin provide better bioavailability and improved bioactivities. Curcumin supplementation (Longvida®, Theracurmin®, and CurQfen®) has shown significant benefits for cognitive function in humans. Studies have reported improvements in working memory, attention, mood, and cerebral blood flow, particularly in older adults. Some trials also demonstrate reductions in neuroinflammatory markers and amyloid/tau deposition. However, results across studies are heterogeneous, potentially due to variations in curcumin formulations, dosages, st",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2825,
+      "pmid": "42401022",
+      "doi": "10.1016/j.psychres.2026.117318",
+      "title": "Comparative efficacy and acceptability of pharmacological interventions for postpartum depression: a systematic review and network meta-analysis.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "BACKGROUND Pharmacological treatment for postpartum depression (PPD) have mainly involved conventional antidepressants, RCTs have also evaluated rapid-acting glutamatergic agents, neuroactive steroids, hormonal therapies, and botanical preparations. An updated comparative synthesis of these treatments is therefore needed. OBJECTIVES To synthesize RCT evidence and compare the efficacy, response, remission, acceptability, and safety of pharmacological interventions for PPD. DATA COLLECTION AND ANALYSIS Two reviewers independently extracted data and assessed risk of bias. A frequentist random-effects network meta-analysis was conducted to integrate direct and indirect evidence across interventions. MAIN RESULTS 18 trials (N = 1722) were included. Compared with placebo, saffron (SMD -1.07, 95% CI -1.52 to -0.61), fluoxetine (SMD -0.95, 95% CI -1.43 to -0.47), esketamine (SMD -0.63, 95% CI -0.89 to -0.37), brexanolone, and zuranolone showed signals of improvement in depressive symptom sever",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2826,
+      "pmid": "42781384",
+      "doi": "10.3389/fnut.2026.1926500",
+      "title": "Lipid metabolism dysregulation in late-life depression: peripheral metabolic disturbance, central lipid alterations, and dietary modulation.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Late-life depression involves neurodegeneration, inflammation, metabolic disruption, and psychosocial stress. Lipid metabolism has drawn increasing attention in this field. This review examines three interconnected aspects: peripheral metabolic disturbance, potential central lipid alterations, and dietary lipid regulation. Peripherally, adverse lipid profiles and lipidomic shifts correlate with depressive symptoms, cognitive decline, and cardiometabolic load. Mechanisms include inflammation, membrane remodeling, mitochondrial dysfunction, and oxidative stress. Centrally, the disorder may involve aberrant membrane phospholipid metabolism, brain region–specific lipid alterations, and apolipoprotein E–mediated transport disruption, affecting myelin integrity, synaptic plasticity, neuroinflammation, and cerebrovascular function. Evidence regarding dietary lipids remains mixed: omega-3 supplementation has not shown a consistent preventive benefit, whereas high-fat, fried, and Western dietar",
+      "evidence_boundary": "Observational evidence cannot establish causality and is vulnerable to confounding.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2827,
+      "pmid": "42652792",
+      "doi": "10.3390/jcm15166390",
+      "title": "The Gut-Brain Axis in Fetal Alcohol Spectrum Disorder (FASD): Why the Gut Shapes Behavior, Depression, and Self-Injurious Behavior in Children with Prenatal Alcohol Exposure-A Narrative Review with a Proposal for Staged Nutritional and Microbiological Intervention.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Prenatal alcohol exposure (PAE) leads to fetal alcohol spectrum disorder (FASD), the most common preventable cause of neurodevelopmental impairment. The classical narrative attributes the clinical picture of FASD exclusively to direct ethanol-induced brain injury. In the present review, we argue that this perspective is incomplete and leads to diagnostic errors, most often to the misdiagnosis of ADHD in children who in fact have FASD. We propose that, alongside the direct neurotoxicity of ethanol, an important and clinically under-recognized complementary mechanism is gut–brain axis dysfunction: alcohol damages the enteric nervous system and enteric glial cells, induces dysbiosis with deep deficits of butyrate and other short-chain fatty acids (SCFAs), damages the enterochromaffin cells responsible for 90% of peripheral serotonin production, and—through translocation of lipopolysaccharide (LPS) and activation of the Toll-like receptor 4 (TLR4)—sustains a neuroinflammatory brain signatu",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2828,
+      "pmid": "42645143",
+      "doi": "10.3390/clinpract16080147",
+      "title": "Vitamin D and Postpartum Depression: A Narrative Review.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Background/objective: Postpartum depression (PPD) is a significant public health issue affecting about 19% of mothers globally. It has well-documented impacts on maternal well-being, mother–infant relationships, and child developmental outcomes. At the same time, the level of vitamin D deficiency in women of reproductive age is very high (affecting 60–87 percent of pregnant women globally). The review aims to synthesize current evidence and highlight priority research areas to improve maternal mental health outcomes. Methods: A systematic literature search of PubMed, Scopus, and Google Scholar (2015–2026) was conducted, followed by narrative synthesis of mechanistic, observational, and interventional evidence. Results: Adequate vitamin D status may contribute to a reduced risk of postpartum depression through multiple interacting pathways, including serotonin synthesis and metabolism (via tryptophan hydroxylase 2 (TPH2) and monoamine oxidase-A (MAO-A) regulation), neuroplasticity via b",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2829,
+      "pmid": "42632744",
+      "doi": "10.1016/j.foodres.2026.119908",
+      "title": "Modulating stress responses via the microbiota-gut-brain axis: a pathway-focused review of GABA, 5-HT, and kynurenine metabolites.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Stress is a major risk factor for human anxiety, depression, and other neuropsychiatric disorders, yet nutritional strategies that target upstream biological mechanisms remain insufficiently developed. Growing evidence indicates that host-microbiota co-regulated metabolites act as functional mediators within the microbiota-gut-brain axis, shaping individual vulnerability or resilience to stress. In this review, we synthesize current preclinical and human evidence with a focus on three metabolite systems of high mechanistic relevance-γ-aminobutyric acid, serotonin, and kynurenine-pathway metabolites. We discuss how microbial activity, host metabolism, and dietary inputs interact to modulate brain-relevant signaling under stress. We highlight neuroendocrine, neuroimmune, and neural pathways through which these systems may act, including stress-induced disruptions in intestinal and blood-brain barrier integrity and amplification of inflammatory signaling. Evidence across models suggests t",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2830,
+      "pmid": "42631216",
+      "doi": "10.3389/fnut.2026.1878417",
+      "title": "Eicosapentaenoic acid in emotional well-being and brain aging: evidence boundaries, clinical heterogeneity, and a peripheral-to-central resolution-biology framework.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Emotional well-being and brain aging are increasingly understood as overlapping outcomes shaped by inflammatory, neuroimmune, vascular, and metabolic processes. This structured critical narrative review evaluates eicosapentaenoic acid (EPA) as a mechanistically distinct omega-3 fatty acid while explicitly separating EPA-specific evidence from mixed omega-3, fish-intake, and biomarker-status evidence. Particular attention is given to EPA-derived specialized pro-resolving mediators, especially E-series resolvins, and to the hypothesis that EPA may influence brain-relevant outcomes through peripheral inflammatory resolution, endothelial signaling, blood-brain barrier function, neurovascular pathways, and the peripheral immune-brain axis. The current evidence is heterogeneous and differs substantially in directness. EPA-predominant evidence is most developed for depressive symptoms, whereas brain-aging and imaging evidence is often based on fish intake, total omega-3 exposure, or red blood",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2831,
+      "pmid": "42606611",
+      "doi": "10.1007/s11033-026-12593-1",
+      "title": "The NO-cGMP signaling pathway and depression: mechanisms and therapeutic prospects.",
+      "category": "mood",
+      "abstract_verified": false,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": null,
+      "evidence_boundary": "Interpret within the source design, tested exposure, population, endpoints, and follow-up.",
+      "state": "needs_pubmed_fallback"
+    },
+    {
+      "wave": 2832,
+      "pmid": "42603926",
+      "doi": "10.1007/s13197-026-06765-x",
+      "title": "Camel milk-based probiotics: functional properties, gut health benefits, and emerging implications for the gut-brain axis-a comprehensive review.",
+      "category": "mood",
+      "abstract_verified": false,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": null,
+      "evidence_boundary": "Review-level synthesis supports context and hypothesis generation but does not by itself establish clinical efficacy.",
+      "state": "needs_pubmed_fallback"
+    },
+    {
+      "wave": 2833,
+      "pmid": "42601961",
+      "doi": "10.3389/fnut.2026.1894055",
+      "title": "Plant-derived bioactives in depression-related and antidepressant-associated sexual dysfunction: a narrative review.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Sexual dysfunction related to depression and antidepressant treatment is clinically important yet underrecognized, affecting adherence, intimate functioning and quality of life. Depression can impair desire, arousal, orgasm and satisfaction before pharmacotherapy, while serotonergic antidepressants may further disturb these domains during treatment, complicating causal attribution and underscoring the need to distinguish depression-related sexual dysfunction from antidepressant-associated sexual dysfunction (AISD). Plant-derived bioactives have attracted interest because several engage systems relevant to both mood and sexual response, including monoaminergic, inflammatory/oxidative, HPA-axis, autonomic and nitric oxide-mediated vascular pathways. We conducted a narrative review based on targeted searches of PubMed/MEDLINE, Web of Science and Scopus through June 2026, synthesizing mechanistic and clinical evidence for selected candidates by phenotype specificity to separate direct AISD",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2834,
+      "pmid": "42595199",
+      "doi": "10.1016/j.phrs.2026.108390",
+      "title": "Natural products for depression: Preclinical insights into microbiota-gut-brain axis modulation and pharmacological potential.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "The microbiota-gut-brain axis (MGBA) is progressively associated with the pathophysiology of depression. This analysis consolidates existing preclinical findings on MGBA mechanisms associated with depression and assesses natural-product therapies through three key metabolite-related pathways: bile acid-responsive signaling via the farnesoid X receptor, G protein-coupled bile acid receptor 1, vitamin D receptor, and pregnane X receptor; metabolites from the kynurenine pathway and their connection to N-methyl-D-aspartate receptor signaling; and microbial indole-aryl hydrocarbon receptor signaling. Bile acid-responsive receptors and signaling pathways are examined as a system connecting microbiota-altered bile acid profiles to receptor-specific impacts on bile acid equilibrium, epithelial barrier integrity, immune modulation, metabolic signaling, and subsequent neuroplasticity-related reactions. These metabolite-associated domains converge with extensive MGBA mechanisms, encompassing shor",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2835,
+      "pmid": "42484803",
+      "doi": "10.1007/s13668-026-00786-w",
+      "title": "Magnesium: Hype and Health Benefits.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Magnesium plays an indispensable role in human health and is intricately involved in many crucial physiological and metabolic pathways. True biochemical magnesium deficiency is rarely encountered in clinical practice but subclinical and functional deficiency of magnesium appears to be more common and is reported in many chronic health disorders. Estimating magnesium status is challenging and best evaluated by a combination of serum magnesium, urinary magnesium, and dietary magnesium intake. Many randomized controlled trials (RCTs) have demonstrated the efficacy of magnesium supplementation in various chronic disorders such as constipation, dyspepsia, mood disorders, metabolic diseases, and bone health. However, magnesium supplements are heavily advertised for several purported and hyped benefits, which require more high-quality evidence to support these claims. Caution should be exerted when supplementing magnesium to people who are predisposed to adverse effects, such as in renal insu",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2836,
+      "pmid": "42480723",
+      "doi": "10.1016/j.jad.2026.122287",
+      "title": "Gut microbiome variability and brain structure and function in unipolar and bipolar depression: A review.",
+      "category": "mood",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "INTRODUCTION Depression is a multifactorial disorder with significant global health impact. Neuroimaging advances have provided insights into neural mechanisms underlying depression, while gut microbiome alterations have been linked to brain structure and function. This review summarizes evidence on the association between gut microbiome variability and brain structural and functional changes in Major Depressive Disorder (MDD) and Bipolar Depression (BD). METHODS A bibliographic search was conducted on PubMed, Scopus and Web of Science for original studies investigating correlations between gut microbiome and brain structure and function. RESULTS Three studies investigated probiotic interventions in MDD, showing significant associations with increased gray matter volume (GMV) in the calcarine sulcus, reduced putamen and hippocampal activation, and altered fronto-limbic functional connectivity, especially within the precuneus and superior parietal lobule. Also, observational studies in ",
+      "evidence_boundary": "Observational evidence cannot establish causality and is vulnerable to confounding.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2841,
+      "pmid": "42824546",
+      "doi": "10.1007/s43465-026-01810-5",
+      "title": "Diagnostic Performance of Serum Creatine Kinase and Lactate in Acute Compartment Syndrome of the Extremities: A Systematic Review and Meta-analysis.",
+      "category": "performance",
+      "abstract_verified": false,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": null,
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "needs_pubmed_fallback"
+    },
+    {
+      "wave": 2845,
+      "pmid": "42824997",
+      "doi": "10.3389/fpls.2026.1894587",
+      "title": "Integrating drip fertigation and nitrification inhibitors for rhizosphere-scale control of nitrogen transformations.",
+      "category": "performance",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Reactive nitrogen (Nr) losses from fertilized agricultural soils remain one of the dominant drivers of groundwater nitrate contamination and nitrous oxide (N 2 O) emissions, yet mitigation strategies are largely designed around input optimization rather than control of in-soil nitrogen transformations. Drip fertigation and nitrification inhibitors (NIs) have independently shown potential to improve nitrogen efficiency, however their integrated effects remain fragmented across irrigation and inhibitor-focused literature. Consequently, an integrated mechanistic framework explaining how drip irrigation-induced microenvironments regulate NI performance and nitrogen transformation is lacking. Here, we argue that the integration of drip fertigation with NIs, hereafter referred to as drip-NIs integration, is best understood as rhizosphere process control rather than input management: drip defines a bounded reaction-transport domain, and NIs slow down the conversion of ammonium (NH 4 + ) to ni",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    }
+  ],
+  "missing_after_bulk_lookup": [
+    {
+      "wave": 2814,
+      "pmid": "42766151",
+      "doi": "10.1080/1028415X.2026.2729710",
+      "title": "Effect of probiotic supplementation on psychological stress in healthy adults with moderate stress levels: a randomised, double-blind, placebo-controlled clinical trial.",
+      "category": "mood"
+    },
+    {
+      "wave": 2820,
+      "pmid": "42490724",
+      "doi": "10.47626/2237-6089-2025-1280",
+      "title": "Impact of Vitamin D during Pregnancy towards Postpartum Depression: A Meta-Analysis of Dose-response Association and Intervention.",
+      "category": "mood"
+    },
+    {
+      "wave": 2837,
+      "pmid": "42816732",
+      "doi": "10.1186/s40798-026-01116-8",
+      "title": "Strategic Application of Post-exercise Cold-Water Immersion to Enhance Performance Recovery and Adaptation: An Umbrella Review of 15 Published Systematic Reviews with Meta-analysis.",
+      "category": "performance"
+    },
+    {
+      "wave": 2838,
+      "pmid": "42826085",
+      "doi": "10.1080/15502783.2026.2735569",
+      "title": "Creatine supplementation in soccer players: a systematic review.",
+      "category": "performance"
+    },
+    {
+      "wave": 2839,
+      "pmid": "42814293",
+      "doi": "10.1007/s12012-026-10199-4",
+      "title": "Intravenous Mitochondrial Injection Attenuates Methanol-Induced Cardiotoxicity Through Restoration of Mitochondrial Function and Suppression of Oxidative Stress.",
+      "category": "performance"
+    },
+    {
+      "wave": 2840,
+      "pmid": "42803209",
+      "doi": "10.1002/acr.80172",
+      "title": "Real-world safety of concomitant colchicine and statin therapy.",
+      "category": "performance"
+    },
+    {
+      "wave": 2842,
+      "pmid": "42809192",
+      "doi": "10.1007/s11255-026-05410-y",
+      "title": "Impact of neuromuscular electrical stimulation on physical performance, muscle strength, and body composition in hemodialysis patients: a meta-analysis of randomized and quasi-randomized controlled trials.",
+      "category": "performance"
+    },
+    {
+      "wave": 2843,
+      "pmid": "42829854",
+      "doi": "10.1002/smll.75961",
+      "title": "Aqueous Zinc-Sulfur Batteries From Sulfur Conversion to Device Integration.",
+      "category": "performance"
+    },
+    {
+      "wave": 2844,
+      "pmid": "42825455",
+      "doi": "10.1039/d6nr03333d",
+      "title": "Copper tungstate photoanodes: recent progress and prospects for efficient solar water splitting.",
+      "category": "performance"
+    },
+    {
+      "wave": 2846,
+      "pmid": "42824840",
+      "doi": "10.1039/d6ra06707g",
+      "title": "Recent advances in sodium-sulfur batteries: cyclability and stability through electrolyte and separator engineering.",
+      "category": "performance"
+    },
+    {
+      "wave": 2847,
+      "pmid": "42817880",
+      "doi": "10.1039/d6cc04009h",
+      "title": "Advanced carbon architectures for Pt-based oxygen reduction electrocatalysts in polymer electrolyte membrane fuel cells.",
+      "category": "performance"
+    },
+    {
+      "wave": 2848,
+      "pmid": "42813445",
+      "doi": "10.1039/d6cc05378e",
+      "title": "Electrocatalytic nitrate reduction to ammonia: catalyst design, electrolyte engineering and application scenarios.",
+      "category": "performance"
+    },
+    {
+      "wave": 2849,
+      "pmid": "42811671",
+      "doi": "10.1002/smll.75966",
+      "title": "Recent Advances in Presodiation Strategies for Hard Carbon in Sodium-Ion Batteries: Mechanisms of SEI Regulation and Electrochemical Performance.",
+      "category": "performance"
+    },
+    {
+      "wave": 2850,
+      "pmid": "42811160",
+      "doi": "10.1038/s41570-026-00878-9",
+      "title": "Operando and multiscale insights into the solid electrolyte interphase in lithium-mediated nitrogen reduction.",
+      "category": "performance"
+    },
+    {
+      "wave": 2851,
+      "pmid": "42803103",
+      "doi": "10.1039/d6cs00312e",
+      "title": "Toward practical all-solid-state lithium-sulfur batteries: from reaction mechanisms to engineering strategies.",
+      "category": "performance"
+    },
+    {
+      "wave": 2852,
+      "pmid": "42829877",
+      "doi": "10.1002/smll.76103",
+      "title": "Halogen-Bond Dimensionality Controls π-π Packing to Unlock Ultrahigh Second-Harmonic Generation and Giant Birefringence.",
+      "category": "performance"
+    },
+    {
+      "wave": 2853,
+      "pmid": "42829860",
+      "doi": "10.1002/smll.76063",
+      "title": "Seawater-Operable Photoelectrochemical Solar-Blind UV Detectors Enabled by Epitaxial Perovskite Oxide Heterostructures.",
+      "category": "performance"
+    },
+    {
+      "wave": 2854,
+      "pmid": "42829851",
+      "doi": "10.1002/smll.76081",
+      "title": "Photo-Induced Electrochromism: Toward a Self-Coloring Smart Window.",
+      "category": "performance"
+    },
+    {
+      "wave": 2855,
+      "pmid": "42829839",
+      "doi": "10.1002/smll.76059",
+      "title": "Pristine Poly(3-hexylthiophene) as an On-Demand Conductive Binder and Redox Mediator for Carbon-Additive-Free, High-Volumetric-Energy-Density, LiFePO(4) Cathodes without Calendaring.",
+      "category": "performance"
+    }
+  ]
+}

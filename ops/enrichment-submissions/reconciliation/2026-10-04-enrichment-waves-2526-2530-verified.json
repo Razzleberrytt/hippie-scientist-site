@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "range": "2526-2530",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2526,
+      "pmid": "42652552",
+      "title": "Preventing Hip (Proximal Femoral) Fractures: An Evidence-Based Review for Clinicians.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "Integrated prevention review; calcium/vitamin D effects are context-dependent and should not be separated from broader falls and fracture-prevention strategies."
+    },
+    {
+      "wave": 2527,
+      "pmid": "42641586",
+      "title": "Biological rhythms, sleep disturbances, and the skin - a narrative review.",
+      "abstract_verified": true,
+      "state": "research_only_replacement",
+      "replaces_rejected_pmid": "42652002",
+      "evidence_boundary": "Narrative association/mechanism review; circadian disruption and skin outcomes require further causal study."
+    },
+    {
+      "wave": 2528,
+      "pmid": "42645661",
+      "title": "Advanced glycation end products and PTSD: molecular insights and dietary approaches for neuropsychiatric health.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "Mechanistic and nutritional proposals are hypothesis-generating; clinical treatment implications remain unproven."
+    },
+    {
+      "wave": 2529,
+      "pmid": "42802241",
+      "title": "Medicinal-plant immunity and specialized metabolism in plant-pathogen interactions: mechanisms and applications.",
+      "abstract_verified": true,
+      "state": "research_only_plant_science",
+      "evidence_boundary": "Plant-production biology is relevant to medicinal-plant quality and consistency, not direct human efficacy."
+    },
+    {
+      "wave": 2530,
+      "pmid": "42738789",
+      "title": "Safety and Efficacy of Natural and Conventional Psychiatric Treatments: A Comparative Review of Mushroom-Derived Compounds and Medicinal Plants in the Management of Mental Disorders.",
+      "abstract_verified": true,
+      "state": "research_only_safety_review",
+      "evidence_boundary": "Most natural compounds remain investigational; interaction and intoxication risks preclude substitution for established treatment."
+    }
+  ],
+  "rejected": [
+    {
+      "wave": 2527,
+      "pmid": "42652002",
+      "reason": "PubMed EFetch returned no title or abstract; rejected fail-closed before enrichment."
+    }
+  ]
+}

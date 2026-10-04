@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2541-2545",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2541,
+      "pmid": "42800688",
+      "title": "Hepatoprotective Potential of Radix Astragali, a Qi-tonifying Traditional Herb: Modulation of Hepatocyte Energy Metabolism and Oxidative Homeostasis.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical_review",
+      "evidence_boundary": "Mechanistic hepatoprotection evidence is largely preclinical; clinical relevance and active-compound attribution remain uncertain."
+    },
+    {
+      "wave": 2542,
+      "pmid": "42797001",
+      "title": "Anthocyanin-Induced Alterations in Substrate Oxidation During Exercise: A Narrative Review.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "Best evidence is concentrated in blackcurrant extract studies; effects may not generalize to other anthocyanin sources or populations."
+    },
+    {
+      "wave": 2543,
+      "pmid": "42796583",
+      "title": "Ginsenoside Rg2 from Panax spp.: Diverse Biological Activities, Mechanisms and Prospect.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical_review",
+      "evidence_boundary": "Broad pharmacology is primarily preclinical, with only preliminary safety information and no established clinical efficacy."
+    },
+    {
+      "wave": 2544,
+      "pmid": "42794746",
+      "title": "Advances in Research on Panax Ginseng-Derived EV-like Particles.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical_review",
+      "evidence_boundary": "EV-like particle evidence is preclinical; standardization, long-term safety, and clinical translation remain unresolved."
+    },
+    {
+      "wave": 2545,
+      "pmid": "42794343",
+      "title": "Natural Polysaccharide-Based Biomaterials for Skin Wound Healing: Immunomodulatory Mechanisms and Macrophage M2 Polarization.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical_review",
+      "evidence_boundary": "Biomaterial and macrophage-polarization evidence is largely preclinical and not direct evidence for oral supplement efficacy."
+    }
+  ]
+}

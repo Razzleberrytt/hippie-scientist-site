@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2531-2535",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2531,
+      "pmid": "42828078",
+      "title": "A Systematic Review on Green Synthesized Selenium Nanoparticles as Antioxidant and Antidiabetic Agents: Mechanistic Insights and Therapeutic Potential.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical_synthesis",
+      "evidence_boundary": "Predominantly assay/preclinical evidence; therapeutic claims are not established in humans."
+    },
+    {
+      "wave": 2532,
+      "pmid": "42819301",
+      "title": "Protective effect of Panax ginseng on AlCl₃-induced liver, kidney, and testis toxicity in male albino rats: biochemical, histopathological, and molecular study.",
+      "abstract_verified": true,
+      "state": "research_only_animal",
+      "evidence_boundary": "Rat toxicology model; cannot be generalized to human efficacy or dosing."
+    },
+    {
+      "wave": 2533,
+      "pmid": "42796460",
+      "title": "Therapeutic Effects of Ganoderma lucidum Against Aβ-Induced Neurotoxicity in SH-SY5Y Cells: In Vitro Evidence and Computational Validation of Human Protein Targets.",
+      "abstract_verified": true,
+      "state": "research_only_in_vitro",
+      "evidence_boundary": "Cell-culture and computational findings support mechanistic plausibility only, not clinical efficacy."
+    },
+    {
+      "wave": 2534,
+      "pmid": "42777982",
+      "title": "Panaxytriol up-regulates CYP2B6 expression through PXR and CAR and their interactions with RXRα and SRC-1.",
+      "abstract_verified": true,
+      "state": "research_only_interaction_signal",
+      "evidence_boundary": "In-vitro CYP2B6 induction suggests interaction potential; clinical magnitude and relevance remain unestablished."
+    },
+    {
+      "wave": 2535,
+      "pmid": "42758440",
+      "title": "Modulation of Nrf2/TNF-α and TLR4/TGF-β1 Signaling Pathways by Nigella Sativa Oil and Echinacea Purpurea Extract Attenuates Cyclosporine A-Induced Nephrotoxicity and Immunotoxicity.",
+      "abstract_verified": true,
+      "state": "research_only_animal_combination",
+      "evidence_boundary": "Rat combination study; ingredient-specific and human clinical effects cannot be inferred."
+    }
+  ]
+}

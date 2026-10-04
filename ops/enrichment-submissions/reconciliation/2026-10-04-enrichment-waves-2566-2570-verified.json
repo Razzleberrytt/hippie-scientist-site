@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2566-2570",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2566,
+      "pmid": "42796655",
+      "title": "Interaction of β-Caryophyllene with a Simplified Membrane Model and Its Growth-Inhibitory Effect Against Escherichia coli ATCC 25922.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Antibacterial and membrane-interaction findings are in vitro/model-system evidence; they do not establish therapeutic efficacy, achievable exposure, or safety in humans."
+    },
+    {
+      "wave": 2567,
+      "pmid": "42794674",
+      "title": "In Silico Exploration of Cannabidiol Interactions with Outer Membrane Proteins in Salmonella Typhimurium LT2.",
+      "abstract_verified": true,
+      "state": "research_only_in_silico",
+      "evidence_boundary": "The findings are computational docking predictions without direct biological validation; they should be treated as hypothesis-generating rather than evidence of antimicrobial efficacy."
+    },
+    {
+      "wave": 2568,
+      "pmid": "42784233",
+      "title": "Subchronic Exposure to Low-Dose Cannabidiol (CBD) and Δ(9)-Tetrahydrocannabinol (Δ(9)-THC) Nanoemulsions Suggests Low Renal Toxicity: A Preliminary Study.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Renal safety findings come from a short-duration rat study using specific nanoemulsions and doses; they cannot establish long-term human renal safety or generalize to other formulations."
+    },
+    {
+      "wave": 2569,
+      "pmid": "42769824",
+      "title": "Safety of cannabidiol isolated from Cannabis sativa L. as a novel food pursuant to Regulation (EU) 2015/2283.",
+      "abstract_verified": true,
+      "state": "research_only_regulatory_safety",
+      "evidence_boundary": "This EFSA novel-food assessment is product- and use-condition-specific and explicitly identifies data gaps; it is not a blanket safety determination for all CBD products or populations."
+    },
+    {
+      "wave": 2570,
+      "pmid": "42769758",
+      "title": "Safety of Cannabis sativaL. extract as a novel food pursuant to Regulation (EU) 2015/2283.",
+      "abstract_verified": true,
+      "state": "research_only_regulatory_safety",
+      "evidence_boundary": "This EFSA assessment applies to a defined multi-cannabinoid extract, proposed intake, and adult target population; conclusions do not automatically transfer to other extracts, doses, or vulnerable groups."
+    }
+  ]
+}

@@ -1,0 +1,4529 @@
+{
+  "schema_version": 1,
+  "shard": 4,
+  "excluded_through_wave": 2500,
+  "excluded_unique_pmids": 2435,
+  "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
+  "candidates": [
+    {
+      "pmid": "42718667",
+      "category": "cardiometabolic",
+      "title": "Sustainable bioremediation of undiluted matured compost leachate and enhanced lipid partitioning in Desmodesmus sp.: a zero-dilution approach for circular bioeconomy.",
+      "pub_date": "2026",
+      "journal": "Front Microbiol",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fmicb.2026.1872485",
+      "pmcid": "PMC13553773"
+    },
+    {
+      "pmid": "42719660",
+      "category": "cardiometabolic",
+      "title": "Posterior Reversible Encephalopathy Syndrome (PRES) Associated With Eclampsia in a Pregnant Adolescent: A Case Report.",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "doi": "10.7759/cureus.114255",
+      "pmcid": "PMC13555745"
+    },
+    {
+      "pmid": "42719899",
+      "category": "cardiometabolic",
+      "title": "Synergistic effects of berberine and adipose stem cells in a silk fibroin-PEG hydrogel for diabetic wound healing via macrophage polarization modulation.",
+      "pub_date": "2026",
+      "journal": "Regen Biomater",
+      "pub_type": "Journal Article",
+      "doi": "10.1093/rb/rbag151",
+      "pmcid": "PMC13557628"
+    },
+    {
+      "pmid": "42720376",
+      "category": "cardiometabolic",
+      "title": "Regio- and Enantioselective Oxidation of Eicosapentaenoic and Arachidonic Acids by Human CYP2E1: A Comparative Mechanistic Study.",
+      "pub_date": "2026 Sep 10",
+      "journal": "J Phys Chem B",
+      "pub_type": "Comparative Study",
+      "doi": "10.1021/acs.jpcb.6c04304",
+      "pmcid": null
+    },
+    {
+      "pmid": "42721532",
+      "category": "cardiometabolic",
+      "title": "Mitochondria-targeted antioxidants (MitoQ and Mito-TEMPO) versus untargeted antioxidants (SOD and CoQ10) improve post-thaw quality of rooster sperm by mitigating mitochondrial oxidative damage.",
+      "pub_date": "2026 Sep 6",
+      "journal": "Theriogenology",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.theriogenology.2026.118173",
+      "pmcid": null
+    },
+    {
+      "pmid": "42721760",
+      "category": "cardiometabolic",
+      "title": "Comprehensive characterization of the pecten oculi of the laughing dove (Spilopelia senegalensis) using light microscopy, scanning electron microscopy, energy-dispersive X-ray spectroscopy, and immunofluorescence.",
+      "pub_date": "2026 Sep 9",
+      "journal": "Tissue Cell",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.tice.2026.103948",
+      "pmcid": null
+    },
+    {
+      "pmid": "42722804",
+      "category": "cardiometabolic",
+      "title": "Metal Homeostasis Imbalance as Potentially Contributing Mechanism in Onset of Cardiac Disorders in Individuals with Chronic Obstructive Pulmonary Disease and Chronic Kidney Disease.",
+      "pub_date": "2026 Sep 10",
+      "journal": "Biol Trace Elem Res",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s12011-026-05330-z",
+      "pmcid": null
+    },
+    {
+      "pmid": "42723099",
+      "category": "cardiometabolic",
+      "title": "Association of persistent oxidative stress markers with coronary artery abnormalities in Kawasaki disease patients on follow-up.",
+      "pub_date": "2026 Sep 4",
+      "journal": "Pediatr Rheumatol Online J",
+      "pub_type": "Journal Article",
+      "doi": "10.1186/s12969-026-01249-w",
+      "pmcid": "PMC13563887"
+    },
+    {
+      "pmid": "42724008",
+      "category": "cardiometabolic",
+      "title": "Berberine Attenuates Hepatic Sinusoidal Obstruction Syndrome by Inhibiting Endothelial-mediated Neutrophil Recruitment and Activation.",
+      "pub_date": "2026 Aug 28",
+      "journal": "J Clin Transl Hepatol",
+      "pub_type": "Journal Article",
+      "doi": "10.14218/JCTH.2026.00024",
+      "pmcid": "PMC13558250"
+    },
+    {
+      "pmid": "42724861",
+      "category": "cardiometabolic",
+      "title": "Posterior Reversible Encephalopathy Syndrome Associated With Severe Proton Pump Inhibitor-Induced Hypomagnesemia: A Rare Case.",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "doi": "10.7759/cureus.114348",
+      "pmcid": "PMC13561132"
+    },
+    {
+      "pmid": "42729720",
+      "category": "cardiometabolic",
+      "title": "Residual nitrite dynamics, bioactive responses, and lipid oxidation in beef sausages formulated with fermented radish and beetroot powders during refrigerated storage.",
+      "pub_date": "2026 Oct",
+      "journal": "Food Chem X",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.fochx.2026.104363",
+      "pmcid": "PMC13563550"
+    },
+    {
+      "pmid": "42729939",
+      "category": "cardiometabolic",
+      "title": "Thyroid Storm Presenting With Refractory Atrial Arrhythmia and Tachycardia-Induced Dilated Cardiomyopathy: A Case Report.",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "doi": "10.7759/cureus.114394",
+      "pmcid": "PMC13563265"
+    },
+    {
+      "pmid": "42730342",
+      "category": "cardiometabolic",
+      "title": "Vitamin A-Modified Berberine Liposomes Potentiate Anti-Fibrotic Effects Through Enhanced Hepatic Stellate Cell Uptake.",
+      "pub_date": "2026",
+      "journal": "Int J Nanomedicine",
+      "pub_type": "Journal Article",
+      "doi": "10.2147/IJN.S629505",
+      "pmcid": "PMC13565399"
+    },
+    {
+      "pmid": "42731298",
+      "category": "cardiometabolic",
+      "title": "Balancing efficacy and risk: A toxicological review and safety transformation of Berberis plants and their alkaloids.",
+      "pub_date": "2026 Sep 7",
+      "journal": "Phytomedicine",
+      "pub_type": "Review",
+      "doi": "10.1016/j.phymed.2026.158782",
+      "pmcid": null
+    },
+    {
+      "pmid": "42734836",
+      "category": "cardiometabolic",
+      "title": "Omega-3 and Omega-6 Fatty Acids and Cardiovascular Outcomes in Diabetes - A Review of Current Evidence.",
+      "pub_date": "2026 Sep 14",
+      "journal": "Curr Diab Rep",
+      "pub_type": "Review",
+      "doi": "10.1007/s11892-026-01644-3",
+      "pmcid": null
+    },
+    {
+      "pmid": "42735213",
+      "category": "cardiometabolic",
+      "title": "Exploring the placental lipidome in physically active versus inactive pregnancies.",
+      "pub_date": "2026 Oct 1",
+      "journal": "J Appl Physiol (1985)",
+      "pub_type": "Journal Article",
+      "doi": "10.1152/japplphysiol.00357.2026",
+      "pmcid": null
+    },
+    {
+      "pmid": "42735786",
+      "category": "cardiometabolic",
+      "title": "NAMPT activation protects against myocardial ischemia/reperfusion injury via FSP1-CoQ10 ferroptosis defense.",
+      "pub_date": "2026 Sep 14",
+      "journal": "Life Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.lfs.2026.124684",
+      "pmcid": null
+    },
+    {
+      "pmid": "42737370",
+      "category": "cardiometabolic",
+      "title": "Sensory and Nutritional Profiling of Commercial Mussels (Mytilus galloprovincialis and Mytilus edulis) Across Different European Marine Origins.",
+      "pub_date": "2026 Sep 3",
+      "journal": "Foods",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/foods15173128",
+      "pmcid": "PMC13564763"
+    },
+    {
+      "pmid": "42737591",
+      "category": "cardiometabolic",
+      "title": "Physiological and Biochemical Responses of Nitraria tangutorum to Long-Term Saline Irrigation in an Arid Coal-Mining Restoration Area.",
+      "pub_date": "2026 Aug 28",
+      "journal": "Int J Mol Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/ijms27177694",
+      "pmcid": "PMC13565838"
+    },
+    {
+      "pmid": "42737759",
+      "category": "cardiometabolic",
+      "title": "Nutritional Prevention of Oxidative Stress-Induced Cardiotoxicity in Pediatric Cardio-Oncology: Molecular Mechanisms and Translational Perspectives-A Narrative Review.",
+      "pub_date": "2026 Sep 2",
+      "journal": "Int J Mol Sci",
+      "pub_type": "Review",
+      "doi": "10.3390/ijms27177863",
+      "pmcid": "PMC13565883"
+    },
+    {
+      "pmid": "42737951",
+      "category": "cardiometabolic",
+      "title": "Dietary Reactive Oxygen Species and Oxidative Stress: Pathogenic Mechanisms Linking Food and Feed Exposure to Disease in Humans and Companion Animals.",
+      "pub_date": "2026 Sep 3",
+      "journal": "Biology (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/biology15171519",
+      "pmcid": "PMC13565285"
+    },
+    {
+      "pmid": "42739013",
+      "category": "cardiometabolic",
+      "title": "Dietary Nitrate Bioactivation at the Diet-Microbiota-Host Interface: The Enterosalivary Cycle, Food Matrix, Microbial Determinants and Health Implications-A Narrative Review Supported by a Structured Literature Search.",
+      "pub_date": "2026 Aug 29",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "doi": "10.3390/nu18172841",
+      "pmcid": "PMC13567488"
+    },
+    {
+      "pmid": "42741071",
+      "category": "cardiometabolic",
+      "title": "Multi-omics reveals the associations between cecal candidate bacteria and muscle fatty acid composition variations in Daheng and Luning chickens.",
+      "pub_date": "2026",
+      "journal": "Front Microbiol",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fmicb.2026.1907226",
+      "pmcid": "PMC13572627"
+    },
+    {
+      "pmid": "42744582",
+      "category": "cardiometabolic",
+      "title": "Hypohidrosis, electrolyte imbalance, lacrimal gland dysfunction, ichthyosis and xerostomia syndrome caused by a novel claudin-10 variant in an adult with hypokalaemic metabolic alkalosis.",
+      "pub_date": "2026 Sep 15",
+      "journal": "BMJ Case Rep",
+      "pub_type": "Case Reports",
+      "doi": "10.1136/bcr-2026-275838",
+      "pmcid": null
+    },
+    {
+      "pmid": "42746103",
+      "category": "cardiometabolic",
+      "title": "Enhanced antioxidant and anti-inflammatory activities of BerbiQ compared with berberine and silymarin: integrated in vitro and in silico investigations.",
+      "pub_date": "2026",
+      "journal": "In Silico Pharmacol",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s40203-026-00733-1",
+      "pmcid": "PMC13575084"
+    },
+    {
+      "pmid": "42747303",
+      "category": "cardiometabolic",
+      "title": "Lipid source and kibble matrix determine oxidative stability and n-3 fatty acid loss in coated extruded dog food.",
+      "pub_date": "2026 Sep 16",
+      "journal": "J Anim Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.1093/jas/skag297",
+      "pmcid": null
+    },
+    {
+      "pmid": "42748620",
+      "category": "cardiometabolic",
+      "title": "Improved flexible silane/Schiff base coating with better biocompatibility for magnesium vascular implants applications.",
+      "pub_date": "2026 Sep 9",
+      "journal": "Colloids Surf B Biointerfaces",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.colsurfb.2026.116167",
+      "pmcid": null
+    },
+    {
+      "pmid": "42749432",
+      "category": "cardiometabolic",
+      "title": "Genome-wide variation analysis of two Salvia hispanica L. genotypes and implication for associations with metabolic and adaptive traits.",
+      "pub_date": "2026 Sep",
+      "journal": "J Genet Eng Biotechnol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.jgeb.2026.100762",
+      "pmcid": "PMC13382293"
+    },
+    {
+      "pmid": "42750845",
+      "category": "cardiometabolic",
+      "title": "Dual role of ferroptosis in embryonic development, cascade amplification regulatory mechanism and targeted intervention.",
+      "pub_date": "2026",
+      "journal": "Front Cell Dev Biol",
+      "pub_type": "Review",
+      "doi": "10.3389/fcell.2026.1912633",
+      "pmcid": "PMC13578633"
+    },
+    {
+      "pmid": "42750924",
+      "category": "cardiometabolic",
+      "title": "Glucagon-like peptide-1 receptor agonists as adjunctive therapy in refractory hypertriglyceridemia following recurrent pancreatitis.",
+      "pub_date": "2026 Oct",
+      "journal": "JCEM Case Rep",
+      "pub_type": "Journal Article",
+      "doi": "10.1210/jcemcr/luag274",
+      "pmcid": "PMC13579051"
+    },
+    {
+      "pmid": "42751143",
+      "category": "cardiometabolic",
+      "title": "Mitochondria-associated endoplasmic reticulum membranes in canine and feline diabetic kidney disease: mechanistic links and nutritional implications.",
+      "pub_date": "2026",
+      "journal": "Front Vet Sci",
+      "pub_type": "Review",
+      "doi": "10.3389/fvets.2026.1848289",
+      "pmcid": "PMC13579256"
+    },
+    {
+      "pmid": "42753038",
+      "category": "cardiometabolic",
+      "title": "Polyunsaturated Fatty Acids and Diabetic Kidney Disease: What have We Learned so Far?",
+      "pub_date": "2026 Sep 17",
+      "journal": "Curr Nutr Rep",
+      "pub_type": "Review",
+      "doi": "10.1007/s13668-026-00800-1",
+      "pmcid": "PMC13585881"
+    },
+    {
+      "pmid": "42753339",
+      "category": "cardiometabolic",
+      "title": "Development and validation of a modified Dietary Approaches to Stop Hypertension (mDASH) index in the community-based Framingham Heart Study Second Generation cohort.",
+      "pub_date": "2026 Aug 19",
+      "journal": "Clin Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.clnu.2026.106766",
+      "pmcid": null
+    },
+    {
+      "pmid": "42753341",
+      "category": "cardiometabolic",
+      "title": "Whole-body Omega-3 and Omega-6 fatty-acid reserves in healthy controls and fatal COVID-19: Evidence of systemic long-chain n-3 depletion.",
+      "pub_date": "2026 Sep 2",
+      "journal": "Clin Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.clnu.2026.106777",
+      "pmcid": null
+    },
+    {
+      "pmid": "42754664",
+      "category": "cardiometabolic",
+      "title": "Resolving Cancer: Specialized Pro-resolving Mediators as Host-Directed Regulators of Tumor Progression and Therapy Response.",
+      "pub_date": "2026 Sep 18",
+      "journal": "Curr Top Microbiol Immunol",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/82_2026_356",
+      "pmcid": null
+    },
+    {
+      "pmid": "42754848",
+      "category": "cardiometabolic",
+      "title": "The effect of antibacterial mouthwash on blood pressure in humans: a scoping review.",
+      "pub_date": "2026 Sep 16",
+      "journal": "BMC Cardiovasc Disord",
+      "pub_type": "Scoping Review",
+      "doi": "10.1186/s12872-026-06572-4",
+      "pmcid": "PMC13584244"
+    },
+    {
+      "pmid": "42755402",
+      "category": "cardiometabolic",
+      "title": "Fermented Beetroot Supplementation Increases Urinary NOx and Reduces Thromboxane B(2) in eNOS-Deficient Mice.",
+      "pub_date": "2026 Sep 18",
+      "journal": "J Med Food",
+      "pub_type": "Journal Article",
+      "doi": "10.1177/1096620X261489409",
+      "pmcid": null
+    },
+    {
+      "pmid": "42756867",
+      "category": "cardiometabolic",
+      "title": "Micronutrients in Cardiovascular Disease: A Comprehensive Review of Vitamins, Trace Minerals, and Electrolytes.",
+      "pub_date": "2026 Sep-Oct",
+      "journal": "Niger Med J",
+      "pub_type": "Journal Article",
+      "doi": "10.71480/nmj.v67i5.1505",
+      "pmcid": "PMC13583631"
+    },
+    {
+      "pmid": "42757174",
+      "category": "cardiometabolic",
+      "title": "Immune effects of lipids isolated from Oncorhynchus mykiss eggs on cyclophosphamide-induced immunosuppression in mice.",
+      "pub_date": "2026",
+      "journal": "Front Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fnut.2026.1842601",
+      "pmcid": "PMC13584738"
+    },
+    {
+      "pmid": "42757463",
+      "category": "cardiometabolic",
+      "title": "Arginine metabolism, polyamine homeostasis and ferroptosis in cancer: Molecular links and therapeutic opportunities (Review).",
+      "pub_date": "2026 Nov",
+      "journal": "Mol Med Rep",
+      "pub_type": "Review",
+      "doi": "10.3892/mmr.2026.14022",
+      "pmcid": "PMC13601864"
+    },
+    {
+      "pmid": "42757589",
+      "category": "cardiometabolic",
+      "title": "Plant-based diets, cognitive function, and Alzheimer's disease.",
+      "pub_date": "2026 Sep 18",
+      "journal": "Food Funct",
+      "pub_type": "Review",
+      "doi": "10.1039/d6fo01946c",
+      "pmcid": null
+    },
+    {
+      "pmid": "42759233",
+      "category": "cardiometabolic",
+      "title": "Severe atomoxetine overdose presenting with status epilepticus and wide-complex ventricular tachycardia.",
+      "pub_date": "2026 Sep 14",
+      "journal": "Am J Emerg Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.ajem.2026.09.021",
+      "pmcid": null
+    },
+    {
+      "pmid": "42759776",
+      "category": "cardiometabolic",
+      "title": "Oxidative lipoprotein remodelling in atherogenesis: Mechanistic insights and therapeutic potential.",
+      "pub_date": "2027 Jan",
+      "journal": "Biochim Biophys Acta Mol Basis Dis",
+      "pub_type": "Review",
+      "doi": "10.1016/j.bbadis.2026.168470",
+      "pmcid": null
+    },
+    {
+      "pmid": "42761608",
+      "category": "cardiometabolic",
+      "title": "Computational evaluation of EPA-PC binding to GCase in neuronopathic Gaucher disease.",
+      "pub_date": "2026 Dec",
+      "journal": "Curr Res Struct Biol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.crstbi.2026.100198",
+      "pmcid": "PMC13586883"
+    },
+    {
+      "pmid": "42761873",
+      "category": "cardiometabolic",
+      "title": "Venoarterial extracorporeal membrane oxygenation for peripartum cardiomyopathy complicated by severe preeclampsia: a case report with 5-year follow-up.",
+      "pub_date": "2026",
+      "journal": "Front Med (Lausanne)",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fmed.2026.1952278",
+      "pmcid": "PMC13587794"
+    },
+    {
+      "pmid": "42765071",
+      "category": "cardiometabolic",
+      "title": "Coenzyme Q10 supplementation enhances HSP70 gene expression and preserves mitochondrial function in cryopreserved Peranakan Ettawa goat spermatozoa.",
+      "pub_date": "2026 Aug 31",
+      "journal": "Vet World",
+      "pub_type": "Journal Article",
+      "doi": "10.14202/vetworld.2026.3443-3456",
+      "pmcid": "PMC13590165"
+    },
+    {
+      "pmid": "42766258",
+      "category": "cardiometabolic",
+      "title": "Hemp seed oil ameliorates DSS-induced ulcerative colitis in mice by altering transcriptomics and metabolomics.",
+      "pub_date": "2026 Sep 21",
+      "journal": "J Nat Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s11418-026-02082-x",
+      "pmcid": null
+    },
+    {
+      "pmid": "42768472",
+      "category": "cardiometabolic",
+      "title": "The health burden of incarceration: cardiovascular risk in a Nigerian prison population.",
+      "pub_date": "2026 Sep 22",
+      "journal": "Int J Prison Health (2024)",
+      "pub_type": "Journal Article",
+      "doi": "10.1108/IJOPH-07-2025-0057",
+      "pmcid": null
+    },
+    {
+      "pmid": "42770049",
+      "category": "cardiometabolic",
+      "title": "Evaluating the Therapeutic Potential of Antioxidants in Polyendocrine Metabolic Ovarian Syndrome (PMOS)-Associated Infertility.",
+      "pub_date": "2026",
+      "journal": "Int J Womens Health",
+      "pub_type": "Review",
+      "doi": "10.2147/IJWH.S619132",
+      "pmcid": "PMC13592358"
+    },
+    {
+      "pmid": "42770359",
+      "category": "cardiometabolic",
+      "title": "Ferroptosis in Neurodegenerative Diseases: Iron Dysregulation, GPX4/FSP1 Signaling, and Emerging Neuroprotective Strategies.",
+      "pub_date": "2026 Sep 17",
+      "journal": "Curr Neurovasc Res",
+      "pub_type": "Journal Article",
+      "doi": "10.2174/0115672026502165260904054005",
+      "pmcid": null
+    },
+    {
+      "pmid": "42772360",
+      "category": "cardiometabolic",
+      "title": "Ecotoxicological links between trace elements, fatty acids, and oxidative stress in atlantic and mediterranean shearwaters.",
+      "pub_date": "2026 Sep 23",
+      "journal": "Environ Res",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.envres.2026.125700",
+      "pmcid": null
+    },
+    {
+      "pmid": "42774343",
+      "category": "cardiometabolic",
+      "title": "Berberine as a multitarget modulator of metabolic inflammation: molecular mechanisms, circadian regulation, and translational perspectives.",
+      "pub_date": "2026",
+      "journal": "Front Pharmacol",
+      "pub_type": "Review",
+      "doi": "10.3389/fphar.2026.1935151",
+      "pmcid": "PMC13594412"
+    },
+    {
+      "pmid": "42775207",
+      "category": "cardiometabolic",
+      "title": "Hepatorenal protective effect of berberine-loaded Ag-ZnO nanoparticles in mitigating carbon tetrachloride (direct) and alloxan-induced oxidative stress (indirect) in albino rat models.",
+      "pub_date": "2026 Sep 22",
+      "journal": "RSC Adv",
+      "pub_type": "Journal Article",
+      "doi": "10.1039/d6ra05117k",
+      "pmcid": "PMC13595586"
+    },
+    {
+      "pmid": "42775666",
+      "category": "cardiometabolic",
+      "title": "Serum fatty acid profile and desaturase activity in hypertensive patients with and without metabolic syndrome.",
+      "pub_date": "2026 Sep 18",
+      "journal": "J Hypertens",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/HJH.0000000000004398",
+      "pmcid": null
+    },
+    {
+      "pmid": "42776853",
+      "category": "cardiometabolic",
+      "title": "Reversing the Reverse: Nitrate-Enhanced Tc-99m MIBI MPS Unmasking Microvascular Dysfunction in Takayasu Arteritis.",
+      "pub_date": "2026 Sep 23",
+      "journal": "Clin Nucl Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/RLU.0000000000006628",
+      "pmcid": null
+    },
+    {
+      "pmid": "42779184",
+      "category": "cardiometabolic",
+      "title": "EXPRESS: NEUROPROTECTIVE EFFICACY OF AN OMEGA-3 DIGLYCERIDE EMULSION IN A PIGLET MODEL OF NEWBORN HYPOXIC-ISCHEMIC BRAIN DAMAGE.",
+      "pub_date": "2026 Sep 23",
+      "journal": "J Cereb Blood Flow Metab",
+      "pub_type": "Journal Article",
+      "doi": "10.1177/0271678X261494381",
+      "pmcid": null
+    },
+    {
+      "pmid": "42780926",
+      "category": "cardiometabolic",
+      "title": "Spontaneous fermentation of Tunisian dromedary milk: VASE™-GC-MS volatile profiling, physicochemical and mineral composition, bioactivities, and lactic acid bacteria enumeration.",
+      "pub_date": "2026",
+      "journal": "Front Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fnut.2026.1897549",
+      "pmcid": "PMC13599402"
+    },
+    {
+      "pmid": "42781384",
+      "category": "cardiometabolic",
+      "title": "Lipid metabolism dysregulation in late-life depression: peripheral metabolic disturbance, central lipid alterations, and dietary modulation.",
+      "pub_date": "2026",
+      "journal": "Front Nutr",
+      "pub_type": "Review",
+      "doi": "10.3389/fnut.2026.1926500",
+      "pmcid": "PMC13598959"
+    },
+    {
+      "pmid": "42782716",
+      "category": "cardiometabolic",
+      "title": "Comparative Study of Efficacy of Preemptive Use of Opioid-free Anesthesia Using Paracetamol, Magnesium Sulfate, Lignocaine, Dexamethasone versus Intravenous Fentanyl for Attenuating Hemodynamic Response, Perioperative Analgesia, and Postoperative Recovery Profile during Laparoscopic Cholecystectomy: A Randomized Parallel Group Trial.",
+      "pub_date": "2026 Sep 24",
+      "journal": "Ann Afr Med",
+      "pub_type": "Journal Article",
+      "doi": "10.4103/aam.aam_461_26",
+      "pmcid": null
+    },
+    {
+      "pmid": "42783381",
+      "category": "cardiometabolic",
+      "title": "Precision Nutraceuticals and Biomarkers of Healthy Aging: A Scoping Review of Human Studies on Nutrigenomic-Based Interventions.",
+      "pub_date": "2026 Aug 23",
+      "journal": "Med Sci (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/medsci14050508",
+      "pmcid": "PMC13609879"
+    },
+    {
+      "pmid": "42783411",
+      "category": "cardiometabolic",
+      "title": "A Six-Week Multimodal Functional Training Program Improves Physical Function and Modulates Redox Homeostasis in Older Women.",
+      "pub_date": "2026 Sep 1",
+      "journal": "Med Sci (Basel)",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/medsci14050538",
+      "pmcid": "PMC13609585"
+    },
+    {
+      "pmid": "42783450",
+      "category": "cardiometabolic",
+      "title": "The Possible Hematological Cost of Metabolic Success: Do Incretin-Based Therapies Silently Trigger Anemia?",
+      "pub_date": "2026 Sep 17",
+      "journal": "Med Sci (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/medsci14050577",
+      "pmcid": "PMC13609229"
+    },
+    {
+      "pmid": "42785536",
+      "category": "cardiometabolic",
+      "title": "DHA in Alzheimer's disease: The translational gap between mechanistic complexity and clinical inconsistency.",
+      "pub_date": "2026 Sep 24",
+      "journal": "Pharmacol Res",
+      "pub_type": "Review",
+      "doi": "10.1016/j.phrs.2026.108479",
+      "pmcid": null
+    },
+    {
+      "pmid": "42786653",
+      "category": "cardiometabolic",
+      "title": "Targeted Metabolomics Reveals a Metabolic Signature Derived From the Stimulation of Cells With the Specific AT(2)R Agonist C21.",
+      "pub_date": "2026 Nov",
+      "journal": "Acta Physiol (Oxf)",
+      "pub_type": "Journal Article",
+      "doi": "10.1111/apha.70314",
+      "pmcid": null
+    },
+    {
+      "pmid": "42787599",
+      "category": "cardiometabolic",
+      "title": "Precision dietary strategies for enriching animal-derived foods with antioxidants and omega-3 fatty acids.",
+      "pub_date": "2026 Sep",
+      "journal": "Vet Anim Sci",
+      "pub_type": "Review",
+      "doi": "10.1016/j.vas.2026.100791",
+      "pmcid": "PMC13601910"
+    },
+    {
+      "pmid": "42789241",
+      "category": "cardiometabolic",
+      "title": "Pharmacological targeting of ferroptosis in cancer: mechanisms, tumor immunity, and translational challenges.",
+      "pub_date": "2026 Sep 25",
+      "journal": "Pharmacol Rep",
+      "pub_type": "Review",
+      "doi": "10.1007/s43440-026-00910-1",
+      "pmcid": null
+    },
+    {
+      "pmid": "42790704",
+      "category": "cardiometabolic",
+      "title": "Effects of diet, smoking and chronic alcohol misuse on plasma lipid profiles and n-6 essential fatty acid metabolism in males and females.",
+      "pub_date": "2026 Oct 1",
+      "journal": "J Lipid Res",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.jlr.2026.101134",
+      "pmcid": null
+    },
+    {
+      "pmid": "42790830",
+      "category": "cardiometabolic",
+      "title": "Berberine induces pleiotropic beneficial effects via hormesis.",
+      "pub_date": "2026 Sep 25",
+      "journal": "Pharmacol Res",
+      "pub_type": "Review",
+      "doi": "10.1016/j.phrs.2026.109638",
+      "pmcid": null
+    },
+    {
+      "pmid": "42791965",
+      "category": "cardiometabolic",
+      "title": "Multifunctional Roles of Magnesium Ions in Modulating Bone Regeneration-Related Cells.",
+      "pub_date": "2026 Sep 21",
+      "journal": "Bioengineering (Basel)",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/bioengineering13091093",
+      "pmcid": "PMC13603632"
+    },
+    {
+      "pmid": "42792136",
+      "category": "cardiometabolic",
+      "title": "Dates, Polyunsaturated Fatty Acids, Dietary Fiber, and Probiotics as Potential Complementary Modulators of Gut Microbiota and Oxidative Stress: An Integrative Review.",
+      "pub_date": "2026 Aug 31",
+      "journal": "Antioxidants (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/antiox15091097",
+      "pmcid": "PMC13603659"
+    },
+    {
+      "pmid": "42792191",
+      "category": "cardiometabolic",
+      "title": "Oxidative Stress in Vascular Aging: Therapeutic Potential of the Antioxidant Paradox. A State-of-the-Art Review.",
+      "pub_date": "2026 Sep 10",
+      "journal": "Antioxidants (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/antiox15091152",
+      "pmcid": "PMC13603535"
+    },
+    {
+      "pmid": "42792223",
+      "category": "cardiometabolic",
+      "title": "Oxidative Stability and Nanoencapsulation of Marine Omega-3 LC-PUFAs for Sustainable Aquaculture and Human Health.",
+      "pub_date": "2026 Sep 17",
+      "journal": "Antioxidants (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/antiox15091184",
+      "pmcid": "PMC13603150"
+    },
+    {
+      "pmid": "42792232",
+      "category": "cardiometabolic",
+      "title": "Molecular Mechanisms of Obesity-Associated Oxidative Stress and Therapeutic Strategies.",
+      "pub_date": "2026 Sep 18",
+      "journal": "Antioxidants (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/antiox15091193",
+      "pmcid": "PMC13603301"
+    },
+    {
+      "pmid": "42792833",
+      "category": "cardiometabolic",
+      "title": "Enhanced External Counterpulsation Versus Standard Medical Therapy for Chronic Refractory Angina: A Systematic Review and Meta-Analysis.",
+      "pub_date": "2026 Sep 17",
+      "journal": "Biomedicines",
+      "pub_type": "Review",
+      "doi": "10.3390/biomedicines14092093",
+      "pmcid": "PMC13604707"
+    },
+    {
+      "pmid": "42793126",
+      "category": "cardiometabolic",
+      "title": "Modulation of Polyunsaturated Fatty Acid Production and Nutritional Lipid Quality Indices in Rhodotorula mucilaginosa 6S Using Molasses as a Sustainable Carbon Source.",
+      "pub_date": "2026 Sep 8",
+      "journal": "Biomolecules",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/biom16091294",
+      "pmcid": "PMC13604044"
+    },
+    {
+      "pmid": "42794053",
+      "category": "cardiometabolic",
+      "title": "Development of a Plant Bioactive-Rich Tahini-Based Powder Enriched with Pea Protein and Coconut Milk Powder: Antioxidant Properties, Nutritional Characterization, In Vitro INFOGEST Static Digestion.",
+      "pub_date": "2026 Sep 16",
+      "journal": "Foods",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/foods15183268",
+      "pmcid": "PMC13606603"
+    },
+    {
+      "pmid": "42794458",
+      "category": "cardiometabolic",
+      "title": "Gut, Oral, and Fungal Microbiota in Hypertension: A Multi-Compartment Systematic Review.",
+      "pub_date": "2026 Sep 9",
+      "journal": "Int J Mol Sci",
+      "pub_type": "Systematic Review",
+      "doi": "10.3390/ijms27188029",
+      "pmcid": "PMC13607618"
+    },
+    {
+      "pmid": "42794467",
+      "category": "cardiometabolic",
+      "title": "Docosahexaenoic Acid Enhances the Cytotoxic Effects of Enzalutamide and the PARP Inhibitor in Castration-Resistant Prostate Cancer Cell Lines.",
+      "pub_date": "2026 Sep 9",
+      "journal": "Int J Mol Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/ijms27188037",
+      "pmcid": "PMC13607705"
+    },
+    {
+      "pmid": "42794540",
+      "category": "cardiometabolic",
+      "title": "Coptidis Rhizoma for Obesity, Diabetes, and Dyslipidemia: An Integrated Meta-Analysis and In Silico Study.",
+      "pub_date": "2026 Sep 11",
+      "journal": "Int J Mol Sci",
+      "pub_type": "Systematic Review",
+      "doi": "10.3390/ijms27188109",
+      "pmcid": "PMC13606907"
+    },
+    {
+      "pmid": "42794580",
+      "category": "cardiometabolic",
+      "title": "Statins and Myasthenia Gravis: Clinical Implications and Pathogenesis.",
+      "pub_date": "2026 Sep 13",
+      "journal": "Int J Mol Sci",
+      "pub_type": "Review",
+      "doi": "10.3390/ijms27188150",
+      "pmcid": "PMC13607078"
+    },
+    {
+      "pmid": "42794785",
+      "category": "cardiometabolic",
+      "title": "AMPK-Directed Therapeutics for MASLD: Mechanistic Rationale, Activator Classes, and Clinical Translation.",
+      "pub_date": "2026 Sep 19",
+      "journal": "Int J Mol Sci",
+      "pub_type": "Review",
+      "doi": "10.3390/ijms27188358",
+      "pmcid": "PMC13607399"
+    },
+    {
+      "pmid": "42795302",
+      "category": "cardiometabolic",
+      "title": "Siberian Sturgeon (Acipenser baerii, Brandt, 1869) the Relationship Between Genetic Resources and Acclimatization: Ecology, Conservation, and the Nutritional Significance of Meat and Caviar.",
+      "pub_date": "2026 Aug 28",
+      "journal": "Life (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/life16091437",
+      "pmcid": "PMC13608066"
+    },
+    {
+      "pmid": "42796958",
+      "category": "cardiometabolic",
+      "title": "Relationships Between Omega-3 Index and Cardiometabolic Disease Risk Factors in Collegiate Athletes.",
+      "pub_date": "2026 Sep 11",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/nu18182974",
+      "pmcid": "PMC13610564"
+    },
+    {
+      "pmid": "42797026",
+      "category": "cardiometabolic",
+      "title": "SuboptimalDietaryPatterns and Estimated Cardiovascular Disease Mortality Burden in China: A Repeated Cross-Sectional Comparative Risk Assessment.",
+      "pub_date": "2026 Sep 17",
+      "journal": "Nutrients",
+      "pub_type": "Comparative Study",
+      "doi": "10.3390/nu18183043",
+      "pmcid": "PMC13610869"
+    },
+    {
+      "pmid": "42797224",
+      "category": "cardiometabolic",
+      "title": "Targeted Delivery of Specialized Pro-Resolving Mediators (SPMs) for Improved Treatments of Inflammatory Diseases and Cancer.",
+      "pub_date": "2026 Aug 23",
+      "journal": "Pharmaceutics",
+      "pub_type": "Review",
+      "doi": "10.3390/pharmaceutics18091048",
+      "pmcid": "PMC13610412"
+    },
+    {
+      "pmid": "42797275",
+      "category": "cardiometabolic",
+      "title": "Harnessing Medicinal Plants Through Advanced Drug Delivery: A New Era in Type 2 Diabetes Management.",
+      "pub_date": "2026 Sep 1",
+      "journal": "Pharmaceutics",
+      "pub_type": "Review",
+      "doi": "10.3390/pharmaceutics18091100",
+      "pmcid": "PMC13610769"
+    },
+    {
+      "pmid": "42797416",
+      "category": "cardiometabolic",
+      "title": "Trimetazidine in Chronic Coronary Syndrome and Coronary Artery Disease: A Narrative Review of Clinical Efficacy, Safety, and Current Guideline Position.",
+      "pub_date": "2026 Aug 29",
+      "journal": "Pharmaceuticals (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/ph19091370",
+      "pmcid": "PMC13610195"
+    },
+    {
+      "pmid": "42798115",
+      "category": "cardiometabolic",
+      "title": "Genetically predicted circulating polyunsaturated fatty acids and Crohn's disease susceptibility: A two-sample mendelian randomization study.",
+      "pub_date": "2026 Sep 25",
+      "journal": "Medicine (Baltimore)",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/MD.0000000000050897",
+      "pmcid": "PMC13619288"
+    },
+    {
+      "pmid": "42798482",
+      "category": "cardiometabolic",
+      "title": "A six-metabolite signature characterizes metabolically unhealthy obesity and reveals hidden metabolic risk within metabolically healthy obesity.",
+      "pub_date": "2026",
+      "journal": "Front Endocrinol (Lausanne)",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fendo.2026.1910610",
+      "pmcid": "PMC13612310"
+    },
+    {
+      "pmid": "42798526",
+      "category": "cardiometabolic",
+      "title": "Serum magnesium and major adverse cardiovascular events in patients with diabetic foot ulcers: a retrospective cohort study.",
+      "pub_date": "2026",
+      "journal": "Front Endocrinol (Lausanne)",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fendo.2026.1938560",
+      "pmcid": "PMC13612363"
+    },
+    {
+      "pmid": "42798689",
+      "category": "cardiometabolic",
+      "title": "The effects of coenzyme Q10 supplementation on exercise-induced oxidative stress and related physiological outcomes in athletes: a systematic review and meta-analysis.",
+      "pub_date": "2026 Oct",
+      "journal": "3 Biotech",
+      "pub_type": "Review",
+      "doi": "10.1007/s13205-026-05076-4",
+      "pmcid": "PMC13612792"
+    },
+    {
+      "pmid": "42805980",
+      "category": "cardiometabolic",
+      "title": "Repeat administration of magnesium for an exacerbation of postpartum preeclampsia: a national survey.",
+      "pub_date": "2026 Dec",
+      "journal": "J Matern Fetal Neonatal Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/14767058.2026.2738315",
+      "pmcid": null
+    },
+    {
+      "pmid": "42807157",
+      "category": "cardiometabolic",
+      "title": "A Randomized, Double-Blind, Placebo-Controlled Trial Comparing the Effects of Commercially Available Ubiquinone, Ubiquinol, and Geranylgeraniol Dietary Supplements on Plasma CoQ10 Concentrations.",
+      "pub_date": "2026",
+      "journal": "J Nutr Metab",
+      "pub_type": "Journal Article",
+      "doi": "10.1155/jnme/5589963",
+      "pmcid": "PMC13617315"
+    },
+    {
+      "pmid": "42807527",
+      "category": "cardiometabolic",
+      "title": "Four months of DHA and whey protein supplementation in semi-professional female soccer players: a prospective non-randomized controlled study of omega-3 status, hematological outcomes, and physical performance.",
+      "pub_date": "2026",
+      "journal": "Front Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fnut.2026.1886305",
+      "pmcid": "PMC13617132"
+    },
+    {
+      "pmid": "42810089",
+      "category": "cardiometabolic",
+      "title": "Cooked yolk fatty acid and metabolomic profiles reveal a greater docosahexaenoic acid proportion in one green-shell crossbred hen combination.",
+      "pub_date": "2026 Sep 20",
+      "journal": "Poult Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.psj.2026.107804",
+      "pmcid": null
+    },
+    {
+      "pmid": "42812376",
+      "category": "cardiometabolic",
+      "title": "Progression of coronary artery calcification in chronic kidney disease: nonlinear associations with serum magnesium and parathyroid hormone.",
+      "pub_date": "2026",
+      "journal": "Front Med (Lausanne)",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fmed.2026.1910302",
+      "pmcid": "PMC13619518"
+    },
+    {
+      "pmid": "42812771",
+      "category": "cardiometabolic",
+      "title": "Ferroptosis in smoke inhalation injury: from mechanisms to potential therapeutic targets.",
+      "pub_date": "2026",
+      "journal": "Front Cell Dev Biol",
+      "pub_type": "Review",
+      "doi": "10.3389/fcell.2026.1832061",
+      "pmcid": "PMC13620227"
+    },
+    {
+      "pmid": "42813156",
+      "category": "cardiometabolic",
+      "title": "Associations Among Glycemic Variability, Hypomagnesemia, Thyroid Function, and Albuminuria in Patients With Type 2 Diabetes Mellitus: A Cross-Sectional Study.",
+      "pub_date": "2026 Sep",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "doi": "10.7759/cureus.117117",
+      "pmcid": "PMC13623270"
+    },
+    {
+      "pmid": "42814137",
+      "category": "cardiometabolic",
+      "title": "Dysregulated Resolution of Inflammation in Atherosclerosis: Mechanistic Insights and Therapeutic Opportunities.",
+      "pub_date": "2026 Oct 1",
+      "journal": "Curr Top Microbiol Immunol",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/82_2026_361",
+      "pmcid": null
+    },
+    {
+      "pmid": "42814674",
+      "category": "cardiometabolic",
+      "title": "Erratum.",
+      "pub_date": "2026",
+      "journal": "Kidney Blood Press Res",
+      "pub_type": "Published Erratum",
+      "doi": "10.1159/kbr/adjag008",
+      "pmcid": null
+    },
+    {
+      "pmid": "42815684",
+      "category": "cardiometabolic",
+      "title": "DHA increases Angptl4 gene expression and reduces LPL activity in a PPARγ-dependent manner in adipocytes.",
+      "pub_date": "2026 Sep 30",
+      "journal": "Biochim Biophys Acta Mol Cell Biol Lipids",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.bbalip.2026.159774",
+      "pmcid": null
+    },
+    {
+      "pmid": "42816355",
+      "category": "cardiometabolic",
+      "title": "[A Case of Nephrotic Syndrome Developing Early After Initiation of Fruquintinib Therapy].",
+      "pub_date": "2026",
+      "journal": "Yakugaku Zasshi",
+      "pub_type": "English Abstract",
+      "doi": "10.1248/yakushi.26-00022",
+      "pmcid": null
+    },
+    {
+      "pmid": "42817971",
+      "category": "cardiometabolic",
+      "title": "Single-cell transcriptomics reveals cell-type-specific circadian rhythms and their disruption by acute misalignment in mouse aorta.",
+      "pub_date": "2026 Sep 21",
+      "journal": "bioRxiv",
+      "pub_type": "Preprint",
+      "doi": "10.64898/2026.09.03.749170",
+      "pmcid": "PMC13621996"
+    },
+    {
+      "pmid": "42818559",
+      "category": "cardiometabolic",
+      "title": "Inflammatory Proteomic Network Architecture of Visceral Adiposity and Cardiometabolic Traits.",
+      "pub_date": "2026 Sep 28",
+      "journal": "Res Sq",
+      "pub_type": "Preprint",
+      "doi": "10.21203/rs.3.rs-11156776/v1",
+      "pmcid": "PMC13622987"
+    },
+    {
+      "pmid": "42818883",
+      "category": "cardiometabolic",
+      "title": "Omega-3 Supplementation with Lipid Biomarker Assessment in Youth with Migraine: A Quasi-Randomized Controlled Feasibility Trial.",
+      "pub_date": "2026 Sep 11",
+      "journal": "medRxiv",
+      "pub_type": "Preprint",
+      "doi": "10.64898/2026.09.09.26362637",
+      "pmcid": "PMC13622780"
+    },
+    {
+      "pmid": "42819357",
+      "category": "cardiometabolic",
+      "title": "Polyunsaturated fatty acids and psychotic disorders: integrating mechanistic, genetic, and clinical evidence.",
+      "pub_date": "2026",
+      "journal": "Front Nutr",
+      "pub_type": "Review",
+      "doi": "10.3389/fnut.2026.1929742",
+      "pmcid": "PMC13625677"
+    },
+    {
+      "pmid": "42820227",
+      "category": "cardiometabolic",
+      "title": "Contributions of diet and lifestyle to sex differences in ischaemic heart disease burden in Central Europe: an analysis of the Global Burden of Disease Study 2023.",
+      "pub_date": "2026 Nov",
+      "journal": "Lancet Reg Health Eur",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.lanepe.2026.101846",
+      "pmcid": "PMC13626789"
+    },
+    {
+      "pmid": "42821044",
+      "category": "cardiometabolic",
+      "title": "Disorganized bone collagen fibers in early-stage type 2 diabetes mellitus and its association with adipose tissue redistribution.",
+      "pub_date": "2026 Oct 1",
+      "journal": "Eur Radiol Exp",
+      "pub_type": "Journal Article",
+      "doi": "10.1186/s41747-026-00820-0",
+      "pmcid": "PMC13631147"
+    },
+    {
+      "pmid": "42822582",
+      "category": "cardiometabolic",
+      "title": "Diet and Risk of Cardiovascular Disease.",
+      "pub_date": "2026 Oct 1",
+      "journal": "Am J Med",
+      "pub_type": "Review",
+      "doi": "10.1016/j.amjmed.2026.09.031",
+      "pmcid": null
+    },
+    {
+      "pmid": "42822834",
+      "category": "cardiometabolic",
+      "title": "Pasture-Raised Red Meat Compared with Plant-Based Meat Alternatives Within Healthy Dietary Patterns: Effects on Polyunsaturated Fatty Acid Status and Cardiometabolic Health in a Randomized Dietary Intervention.",
+      "pub_date": "2026 Oct 1",
+      "journal": "Am J Clin Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.ajcnut.2026.101564",
+      "pmcid": null
+    },
+    {
+      "pmid": "42824366",
+      "category": "cardiometabolic",
+      "title": "The effects of dialysate acids and divalent ions on calcification and cardiovascular outcomes: old wisdom and new developments.",
+      "pub_date": "2026 Oct",
+      "journal": "Clin Kidney J",
+      "pub_type": "Review",
+      "doi": "10.1093/ckj/sfag313",
+      "pmcid": "PMC13627828"
+    },
+    {
+      "pmid": "42826855",
+      "category": "cardiometabolic",
+      "title": "Oral dual-targeted nanosystem for ameliorating colonic barrier injury and secondary liver injury.",
+      "pub_date": "2026 Oct 2",
+      "journal": "Nanomedicine",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.nano.2026.103033",
+      "pmcid": null
+    },
+    {
+      "pmid": "42827864",
+      "category": "cardiometabolic",
+      "title": "Novel bioactive compounds in the treatment of osteoporosis: chemistry-driven discovery from preclinical validation to clinical translation.",
+      "pub_date": "2026",
+      "journal": "Front Chem",
+      "pub_type": "Review",
+      "doi": "10.3389/fchem.2026.1917991",
+      "pmcid": "PMC13630783"
+    },
+    {
+      "pmid": "42828013",
+      "category": "cardiometabolic",
+      "title": "The Lipid Switch: Ultra-High Dose Omega Fatty Acids Determine MYCN Neuroblastoma Fate and Implicate Substrate-Level Oxylipin Competition.",
+      "pub_date": "2026 Sep 11",
+      "journal": "ACS Pharmacol Transl Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.1021/acsptsci.6c00098",
+      "pmcid": "PMC13632703"
+    },
+    {
+      "pmid": "42731681",
+      "category": "mitochondrial_energy",
+      "title": "Feedstock-specific effects of sulfur-rich vegetable fractions on food waste anaerobic digestion: Sulfide-associated redox perturbation and adaptive microbial reassembly.",
+      "pub_date": "2026 Sep 12",
+      "journal": "Bioresour Technol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.biortech.2026.135833",
+      "pmcid": null
+    },
+    {
+      "pmid": "42733040",
+      "category": "mitochondrial_energy",
+      "title": "Fetal hypoxia causes oocyte oxidative stress damage via the Sirt3/Sod2 pathway and can be alleviated by nicotinamide mononucleotide.",
+      "pub_date": "2026 Sep 18",
+      "journal": "Zool Res",
+      "pub_type": "Journal Article",
+      "doi": "10.24272/j.issn.2095-8137.2025.579",
+      "pmcid": null
+    },
+    {
+      "pmid": "42734723",
+      "category": "mitochondrial_energy",
+      "title": "Significance of NAD anabolism profiles in neurological diseases.",
+      "pub_date": "2026 Sep 14",
+      "journal": "Metab Brain Dis",
+      "pub_type": "Review",
+      "doi": "10.1007/s11011-026-01988-5",
+      "pmcid": null
+    },
+    {
+      "pmid": "42737984",
+      "category": "mitochondrial_energy",
+      "title": "Beyond NAD Depletion: SARM1-Induced ATP Collapse Involves Direct ATP Degradation and Mitochondrial Dysfunction and Is Pharmacologically Reversible.",
+      "pub_date": "2026 Sep 4",
+      "journal": "Biology (Basel)",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/biology15171552",
+      "pmcid": "PMC13565343"
+    },
+    {
+      "pmid": "42738809",
+      "category": "mitochondrial_energy",
+      "title": "Association of Hypoxia-Induced Lactate Accumulation with AARS2 Expression, PDHA1/CPT2 Lactylation, and Energy Metabolism in Yak Skeletal Muscle Cells.",
+      "pub_date": "2026 Aug 23",
+      "journal": "Cells",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/cells15171515",
+      "pmcid": "PMC13564726"
+    },
+    {
+      "pmid": "42739057",
+      "category": "mitochondrial_energy",
+      "title": "Nicotinamide Supplementation in Glaucoma: A Systematic Review of Human Studies.",
+      "pub_date": "2026 Sep 3",
+      "journal": "Nutrients",
+      "pub_type": "Systematic Review",
+      "doi": "10.3390/nu18172885",
+      "pmcid": "PMC13567524"
+    },
+    {
+      "pmid": "42739504",
+      "category": "mitochondrial_energy",
+      "title": "Impaired Photorespiratory Metabolism Underlies the Decline in CO(2) Assimilation Induced by Alternative Oxidase Inhibition in Rumex K-1 Leaves.",
+      "pub_date": "2026 Sep 7",
+      "journal": "Plants (Basel)",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/plants15172737",
+      "pmcid": "PMC13568075"
+    },
+    {
+      "pmid": "42744694",
+      "category": "mitochondrial_energy",
+      "title": "Cable bacteria use extracellular electron transfer.",
+      "pub_date": "2026 Sep 15",
+      "journal": "Trends Biochem Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.tibs.2026.08.007",
+      "pmcid": null
+    },
+    {
+      "pmid": "42744962",
+      "category": "mitochondrial_energy",
+      "title": "Association between whole-blood NAD+ concentration and frailty in community-dwelling older adults: the Itabashi Longitudinal Study on Aging.",
+      "pub_date": "2026 Sep 16",
+      "journal": "Geroscience",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s11357-026-02545-9",
+      "pmcid": null
+    },
+    {
+      "pmid": "42746003",
+      "category": "mitochondrial_energy",
+      "title": "The Methionine-Mitochondria Axis in Cancer: Metabolic Cross-Talk and Therapeutic Vulnerabilities.",
+      "pub_date": "2026",
+      "journal": "Curr Pharmacol Rep",
+      "pub_type": "Review",
+      "doi": "10.1007/s40495-026-00481-y",
+      "pmcid": "PMC13574905"
+    },
+    {
+      "pmid": "42746219",
+      "category": "mitochondrial_energy",
+      "title": "Microbiota-mitochondria axis in neurodegenerative disorders and retinal dysfunction: mechanisms and emerging therapeutic opportunities.",
+      "pub_date": "2026",
+      "journal": "Front Pharmacol",
+      "pub_type": "Review",
+      "doi": "10.3389/fphar.2026.1889898",
+      "pmcid": "PMC13575618"
+    },
+    {
+      "pmid": "42747012",
+      "category": "mitochondrial_energy",
+      "title": "Targeted NAD(+) Metabolic Reprogramming Enables Functional Endometrial Regeneration and Fertility Restoration in Intrauterine Adhesions.",
+      "pub_date": "2026 Sep 16",
+      "journal": "Small",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/smll.75782",
+      "pmcid": null
+    },
+    {
+      "pmid": "42747679",
+      "category": "mitochondrial_energy",
+      "title": "Cardiac fibrosis: mechanistic insights and translational advances.",
+      "pub_date": "2026 Sep 16",
+      "journal": "Mol Biomed",
+      "pub_type": "Review",
+      "doi": "10.1186/s43556-026-00587-1",
+      "pmcid": "PMC13582753"
+    },
+    {
+      "pmid": "42747743",
+      "category": "mitochondrial_energy",
+      "title": "Zileuton protects pancreatic stellate cells from oxidative stress and ferroptosis by modulating the Nrf2 pathway and mitochondrial activity.",
+      "pub_date": "2026 Sep 16",
+      "journal": "J Physiol Biochem",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s13105-026-01224-9",
+      "pmcid": "PMC13582277"
+    },
+    {
+      "pmid": "42748828",
+      "category": "mitochondrial_energy",
+      "title": "Non-clinical safety evaluation of coenzyme I (NAD⁺): A GLP-compliant systematic study.",
+      "pub_date": "2026 Sep 16",
+      "journal": "Biomed Pharmacother",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.biopha.2026.119934",
+      "pmcid": null
+    },
+    {
+      "pmid": "42749043",
+      "category": "mitochondrial_energy",
+      "title": "The dimorphic brain in ischemic stroke: How sex and age shape molecular pathophysiology and therapeutic responsiveness.",
+      "pub_date": "2026 Sep 16",
+      "journal": "Prog Neurobiol",
+      "pub_type": "Review",
+      "doi": "10.1016/j.pneurobio.2026.102952",
+      "pmcid": null
+    },
+    {
+      "pmid": "42749212",
+      "category": "mitochondrial_energy",
+      "title": "SEC-seq reveals translation-focused metabolic strategies for high IgG productivity in clonal CHO cells.",
+      "pub_date": "2026 Sep 16",
+      "journal": "Metab Eng",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.ymben.2026.102554",
+      "pmcid": null
+    },
+    {
+      "pmid": "42749227",
+      "category": "mitochondrial_energy",
+      "title": "Pharmacological antagonism of HTR2B reduces ERK and STAT3 activation and prevents renal fibrosis during the development of Adenine-Induced CKD in rats.",
+      "pub_date": "2026 Sep 16",
+      "journal": "Biochem Pharmacol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.bcp.2026.118482",
+      "pmcid": null
+    },
+    {
+      "pmid": "42749280",
+      "category": "mitochondrial_energy",
+      "title": "Hypercapnia Induces Mitochondrial Adaptations and Alters Glutamine Metabolism to Drive a Distinct Metabolic Phenotype in Monocytes.",
+      "pub_date": "2026 Sep 16",
+      "journal": "Immunol Cell Biol",
+      "pub_type": "Journal Article",
+      "doi": "10.1111/imcb.70162",
+      "pmcid": null
+    },
+    {
+      "pmid": "42750761",
+      "category": "mitochondrial_energy",
+      "title": "The protective effect of chemical and natural compounds against amiodarone induced toxicity: A systematic review.",
+      "pub_date": "2026 Dec",
+      "journal": "Biochem Biophys Rep",
+      "pub_type": "Review",
+      "doi": "10.1016/j.bbrep.2026.102759",
+      "pmcid": "PMC13578413"
+    },
+    {
+      "pmid": "42751163",
+      "category": "mitochondrial_energy",
+      "title": "Glutaric acidemia type 2 presenting as a surgical acute abdomen: a case of unnecessary exploratory laparotomy in an adult.",
+      "pub_date": "2026",
+      "journal": "Arch Clin Cases",
+      "pub_type": "Journal Article",
+      "doi": "10.22551/2026.52.1303.10350",
+      "pmcid": "PMC13579283"
+    },
+    {
+      "pmid": "42751848",
+      "category": "mitochondrial_energy",
+      "title": "Symptomatic and Ultrasonographic Improvement in Rheumatoid Arthritis Temporally Associated with Intravenous NAD(+) Therapy: A Case Report.",
+      "pub_date": "2026 Sep",
+      "journal": "ACR Open Rheumatol",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/acr2.90151",
+      "pmcid": "PMC13583921"
+    },
+    {
+      "pmid": "42752401",
+      "category": "mitochondrial_energy",
+      "title": "Transient Endothelial Damage Following FS-LASIK Combined With Corneal Cross-Linking Surgery: Case Report.",
+      "pub_date": "2026 Sep 17",
+      "journal": "Am J Case Rep",
+      "pub_type": "Case Reports",
+      "doi": "10.12659/AJCR.952499",
+      "pmcid": "PMC13596016"
+    },
+    {
+      "pmid": "42752582",
+      "category": "mitochondrial_energy",
+      "title": "Arginine Kinase 1 supports energy homeostasis in Drosophila flight muscle development.",
+      "pub_date": "2026 Sep",
+      "journal": "PLoS Genet",
+      "pub_type": "Journal Article",
+      "doi": "10.1371/journal.pgen.1012304",
+      "pmcid": "PMC13585230"
+    },
+    {
+      "pmid": "42753204",
+      "category": "mitochondrial_energy",
+      "title": "Intercellular Concentration Gradients of 3-Phosphoglycerate and Triose-Phosphate Demonstrate Operation of an Energy Shuttle in NAD-Malic Enzyme and Phosphoenolypyruvate Carboxykinase C4 Subtypes.",
+      "pub_date": "2026 Sep 17",
+      "journal": "J Exp Bot",
+      "pub_type": "Journal Article",
+      "doi": "10.1093/jxb/erag470",
+      "pmcid": null
+    },
+    {
+      "pmid": "42753315",
+      "category": "mitochondrial_energy",
+      "title": "Resistance to atrial fibrillation domestication and mitochondrial dysfunction in sheep: a potential key role of the TCA cycle and mitochondrial redox state.",
+      "pub_date": "2026 Sep 10",
+      "journal": "Redox Biol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.redox.2026.104391",
+      "pmcid": "PMC13602041"
+    },
+    {
+      "pmid": "42754180",
+      "category": "mitochondrial_energy",
+      "title": "Assessing oxidative stress in retinal tissue using multispectral autofluorescence imaging.",
+      "pub_date": "2026 Sep 18",
+      "journal": "Free Radic Biol Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.freeradbiomed.2026.09.017",
+      "pmcid": null
+    },
+    {
+      "pmid": "42754265",
+      "category": "mitochondrial_energy",
+      "title": "Targeting phospholipase Pla2g15 reduces long-chain BMP phospholipids abundance and senescence in kidney cells.",
+      "pub_date": "2026 Sep 16",
+      "journal": "Aging (Albany NY)",
+      "pub_type": "Journal Article",
+      "doi": "10.18632/aging.206415",
+      "pmcid": null
+    },
+    {
+      "pmid": "42757697",
+      "category": "mitochondrial_energy",
+      "title": "BBOX1 Deficiency Exacerbates Liver Fibrosis Through Carnitine Biosynthesis Disruption Rescued by Carnitine Supplementation.",
+      "pub_date": "2026 Oct",
+      "journal": "Liver Int",
+      "pub_type": "Journal Article",
+      "doi": "10.1111/liv.70889",
+      "pmcid": null
+    },
+    {
+      "pmid": "42759178",
+      "category": "mitochondrial_energy",
+      "title": "PDE5 inhibition restores mitochondrial function and improves neurobehavioral outcomes after repeated mild blast TBI.",
+      "pub_date": "2026 Sep 18",
+      "journal": "Neurotherapeutics",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.neurot.2026.e01076",
+      "pmcid": "PMC13627102"
+    },
+    {
+      "pmid": "42759323",
+      "category": "mitochondrial_energy",
+      "title": "The effects of hyperbaric oxygen therapy and mitochondrial transplantation on cisplatin toxicity.",
+      "pub_date": "2026 Sep 18",
+      "journal": "Exp Mol Pathol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.yexmp.2026.105076",
+      "pmcid": null
+    },
+    {
+      "pmid": "42759761",
+      "category": "mitochondrial_energy",
+      "title": "Berbamine alleviates chronic inflammatory pain via microglial inhibition and oxidative stress reduction in the anterior cingulate cortex.",
+      "pub_date": "2026 Nov 10",
+      "journal": "Eur J Pharmacol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.ejphar.2026.179348",
+      "pmcid": null
+    },
+    {
+      "pmid": "42759777",
+      "category": "mitochondrial_energy",
+      "title": "Imeglimin provides dual hepatic and skeletal muscle protection in experimental MASH-associated sarcopenia.",
+      "pub_date": "2027 Jan",
+      "journal": "Biochim Biophys Acta Mol Basis Dis",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.bbadis.2026.168468",
+      "pmcid": null
+    },
+    {
+      "pmid": "42760790",
+      "category": "mitochondrial_energy",
+      "title": "Metabolic Reprogramming of Cancer Stem Cells: Targeting Lipid Flux and Mitochondrial Plasticity to Overcome Therapeutic Resistance.",
+      "pub_date": "2026 Sep",
+      "journal": "Cancer Med",
+      "pub_type": "Review",
+      "doi": "10.1002/cam4.72275",
+      "pmcid": "PMC13589168"
+    },
+    {
+      "pmid": "42762603",
+      "category": "mitochondrial_energy",
+      "title": "CPT1A alters granulosa cell proliferation and steroidogenic activity in association with fatty acid oxidation during goat follicular development.",
+      "pub_date": "2026 Sep 19",
+      "journal": "Theriogenology",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.theriogenology.2026.118198",
+      "pmcid": null
+    },
+    {
+      "pmid": "42763438",
+      "category": "mitochondrial_energy",
+      "title": "Black Sea picocyanobacteria exploit ancestral traits for energy and chlorophyll production in dark anoxia.",
+      "pub_date": "2026 Jan",
+      "journal": "ISME Commun",
+      "pub_type": "Journal Article",
+      "doi": "10.1093/ismeco/ycag159",
+      "pmcid": "PMC13588713"
+    },
+    {
+      "pmid": "42764081",
+      "category": "mitochondrial_energy",
+      "title": "Preliminary findings on the enhancement of skeletal muscle structure and function in aged male mice by P7C3 activation of nicotinamide phosphoribosyl transferase (NAMPT).",
+      "pub_date": "2026 Sep 20",
+      "journal": "Exp Gerontol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.exger.2026.113327",
+      "pmcid": null
+    },
+    {
+      "pmid": "42764115",
+      "category": "mitochondrial_energy",
+      "title": "NAD(+)-sirtuin-mitochondrial quality control in lens epithelial cells: a candidate modulatory network in crystalline lens aging.",
+      "pub_date": "2026 Sep 20",
+      "journal": "Exp Eye Res",
+      "pub_type": "Review",
+      "doi": "10.1016/j.exer.2026.111242",
+      "pmcid": null
+    },
+    {
+      "pmid": "42766034",
+      "category": "mitochondrial_energy",
+      "title": "Mitochondrial dysfunction drives metabolic reprogramming in Gitelman syndrome: insights from proteomics and isogenic modeling.",
+      "pub_date": "2026 Sep 21",
+      "journal": "Hum Genet",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s00439-026-02880-z",
+      "pmcid": "PMC13593708"
+    },
+    {
+      "pmid": "42766322",
+      "category": "mitochondrial_energy",
+      "title": "Retbindin Dynamically Redistributes to Preserve Retinal Flavin-Dependent Homeostasis in Response to Riboflavin Availability and Circadian Demand.",
+      "pub_date": "2026 Sep 30",
+      "journal": "FASEB J",
+      "pub_type": "Journal Article",
+      "doi": "10.1096/fj.202601497RR",
+      "pmcid": "PMC13592420"
+    },
+    {
+      "pmid": "42766809",
+      "category": "mitochondrial_energy",
+      "title": "Sorbitol dehydrogenase aids grain-fill and integrates carbohydrate metabolism with redox in the hypoxic maize endosperm.",
+      "pub_date": "2026 Sep 21",
+      "journal": "Plant Cell",
+      "pub_type": "Journal Article",
+      "doi": "10.1093/plcell/koag293",
+      "pmcid": null
+    },
+    {
+      "pmid": "42769337",
+      "category": "mitochondrial_energy",
+      "title": "Myosteatosis in type 1 diabetes: immunometabolic mechanisms, biomarkers, and therapeutic targets.",
+      "pub_date": "2026",
+      "journal": "Front Endocrinol (Lausanne)",
+      "pub_type": "Review",
+      "doi": "10.3389/fendo.2026.1900161",
+      "pmcid": "PMC13591146"
+    },
+    {
+      "pmid": "42770008",
+      "category": "mitochondrial_energy",
+      "title": "The role of exercise in modulating NAD+ metabolic enzymes: mechanisms and health benefits.",
+      "pub_date": "2026",
+      "journal": "Front Sports Act Living",
+      "pub_type": "Review",
+      "doi": "10.3389/fspor.2026.1863337",
+      "pmcid": "PMC13592037"
+    },
+    {
+      "pmid": "42772384",
+      "category": "mitochondrial_energy",
+      "title": "Biochar-based sustained coenzyme delivery for enhanced petroleum hydrocarbon biodegradation.",
+      "pub_date": "2026 Sep 22",
+      "journal": "Bioresour Technol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.biortech.2026.135915",
+      "pmcid": null
+    },
+    {
+      "pmid": "42773285",
+      "category": "mitochondrial_energy",
+      "title": "Bioadaptive spatiotemporal nanomedicine promotes metabolic recovery after myocardial infarction through NAD(+) and UCP2 regulation.",
+      "pub_date": "2026 Sep 22",
+      "journal": "Nat Cardiovasc Res",
+      "pub_type": "Journal Article",
+      "doi": "10.1038/s44161-026-00874-8",
+      "pmcid": null
+    },
+    {
+      "pmid": "42774678",
+      "category": "mitochondrial_energy",
+      "title": "Development and biomarker-based validation of a novel feed formulation for managing production diseases in dairy buffaloes.",
+      "pub_date": "2026",
+      "journal": "Front Vet Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fvets.2026.1937866",
+      "pmcid": "PMC13595057"
+    },
+    {
+      "pmid": "42776599",
+      "category": "mitochondrial_energy",
+      "title": "Metabolism of Nicotinamide Adenine Dinucleotide+ in Atherosclerosis: Mechanisms and Nutritional Modulation.",
+      "pub_date": "2026 Sep 23",
+      "journal": "Nutr Rev",
+      "pub_type": "Journal Article",
+      "doi": "10.1093/nutrit/nuag128",
+      "pmcid": null
+    },
+    {
+      "pmid": "42778275",
+      "category": "mitochondrial_energy",
+      "title": "Evolving thiazole synthases for expression in plants.",
+      "pub_date": "2026",
+      "journal": "Methods Enzymol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/bs.mie.2026.06.013",
+      "pmcid": null
+    },
+    {
+      "pmid": "42778960",
+      "category": "mitochondrial_energy",
+      "title": "Gut microbiota-derived riboflavin mediates protective effects of MUC2 in acute pancreatitis via CD40-macrophage pathway.",
+      "pub_date": "2026 Aug 12",
+      "journal": "Microbiome",
+      "pub_type": "Journal Article",
+      "doi": "10.1186/s40168-026-02375-z",
+      "pmcid": "PMC13602806"
+    },
+    {
+      "pmid": "42781074",
+      "category": "mitochondrial_energy",
+      "title": "Therapeutic Targeting of Inflammaging and Emerging Strategies for Managing Age-Related Multimorbidity: A Narrative Review.",
+      "pub_date": "2026",
+      "journal": "Clin Interv Aging",
+      "pub_type": "Review",
+      "doi": "10.2147/CIA.S620882",
+      "pmcid": "PMC13599794"
+    },
+    {
+      "pmid": "42781918",
+      "category": "mitochondrial_energy",
+      "title": "Sirtuin signaling as therapeutic targets of immunosenescence.",
+      "pub_date": "2026 Sep 25",
+      "journal": "Expert Opin Ther Targets",
+      "pub_type": "Review",
+      "doi": "10.1080/14728222.2026.2737637",
+      "pmcid": null
+    },
+    {
+      "pmid": "42782782",
+      "category": "mitochondrial_energy",
+      "title": "Mitochondrial Modulation as a Therapeutic Entry Point in Neurodegeneration.",
+      "pub_date": "2026 Sep 17",
+      "journal": "Cells",
+      "pub_type": "Review",
+      "doi": "10.3390/cells15181683",
+      "pmcid": "PMC13605330"
+    },
+    {
+      "pmid": "42783548",
+      "category": "mitochondrial_energy",
+      "title": "Diaphragmatic Mitochondrial Myopathy in a Patient-Derived Mouse Model of Barth Syndrome.",
+      "pub_date": "2026 Sep 3",
+      "journal": "J Dev Biol",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/jdb14030040",
+      "pmcid": "PMC13608765"
+    },
+    {
+      "pmid": "42783748",
+      "category": "mitochondrial_energy",
+      "title": "Sex-Associated Effects of Thioredoxin Reductase Inhibition in Hyperoxia-Induced Lung Injury in Adult Mice.",
+      "pub_date": "2026 Aug 28",
+      "journal": "Metabolites",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/metabo16090623",
+      "pmcid": "PMC13609309"
+    },
+    {
+      "pmid": "42784515",
+      "category": "mitochondrial_energy",
+      "title": "Mitochondrial NADP(H)-dependent de novo dTMP biosynthesis counteracts the cytotoxicity of PARP inhibitors.",
+      "pub_date": "2026 Sep 29",
+      "journal": "Proc Natl Acad Sci U S A",
+      "pub_type": "Journal Article",
+      "doi": "10.1073/pnas.2607452123",
+      "pmcid": "PMC13624625"
+    },
+    {
+      "pmid": "42785431",
+      "category": "mitochondrial_energy",
+      "title": "Mitochondrial DNA released by Biliary Epithelial Cells enhances inflammation in Biliary Atresia through the cGAS-STING-NF-κB pathway.",
+      "pub_date": "2026 Sep 24",
+      "journal": "Cell Mol Gastroenterol Hepatol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.jcmgh.2026.101901",
+      "pmcid": null
+    },
+    {
+      "pmid": "42785591",
+      "category": "mitochondrial_energy",
+      "title": "Improved xylose utilization and ethanol fermentation performance with ultracentrifugation-assisted adaptive evolution of Saccharomyces cerevisiae.",
+      "pub_date": "2026 Sep 24",
+      "journal": "J Biotechnol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.jbiotec.2026.09.016",
+      "pmcid": null
+    },
+    {
+      "pmid": "42787547",
+      "category": "mitochondrial_energy",
+      "title": "Narrative review of intravenous NAD(+) and NAD(+) precursors in wellness and translational medicine.",
+      "pub_date": "2026",
+      "journal": "Front Aging",
+      "pub_type": "Review",
+      "doi": "10.3389/fragi.2026.1887175",
+      "pmcid": "PMC13601825"
+    },
+    {
+      "pmid": "42788273",
+      "category": "mitochondrial_energy",
+      "title": "Trimester-specific associations of methyl-donor nutrients and prenatal dietary patterns with adolescent blood leukocyte circadian gene DNA methylation.",
+      "pub_date": "2026 Sep 25",
+      "journal": "J Dev Orig Health Dis",
+      "pub_type": "Journal Article",
+      "doi": "10.1017/S2040174426100786",
+      "pmcid": null
+    },
+    {
+      "pmid": "42789063",
+      "category": "mitochondrial_energy",
+      "title": "Unravelling deregulated metabolites in seminal plasma of infertile men: a systematic review and bioinformatic analysis.",
+      "pub_date": "2026 Sep 25",
+      "journal": "J Mol Med (Berl)",
+      "pub_type": "Review",
+      "doi": "10.1007/s00109-026-02719-0",
+      "pmcid": null
+    },
+    {
+      "pmid": "42790117",
+      "category": "mitochondrial_energy",
+      "title": "Self-assembled ruthenium(II) nanostructures disrupt electron transport and energy metabolism in MRSA via bacterial interfacial interactions.",
+      "pub_date": "2026 Sep 24",
+      "journal": "J Colloid Interface Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.jcis.2026.141677",
+      "pmcid": null
+    },
+    {
+      "pmid": "42792118",
+      "category": "mitochondrial_energy",
+      "title": "Paeonol and Its Metabolites Alleviate LPS/D-GalN-Induced Acute Liver Injury in Mice: Potential Involvement of NDUFS7 and Macrophage Mitochondrial Function.",
+      "pub_date": "2026 Aug 28",
+      "journal": "Antioxidants (Basel)",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/antiox15091079",
+      "pmcid": "PMC13603529"
+    },
+    {
+      "pmid": "42792130",
+      "category": "mitochondrial_energy",
+      "title": "Bacillus amyloliquefaciens Alleviates Clothianidin-Induced Liver Oxidative Stress and Growth Suppression in Goslings.",
+      "pub_date": "2026 Aug 31",
+      "journal": "Antioxidants (Basel)",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/antiox15091092",
+      "pmcid": "PMC13603244"
+    },
+    {
+      "pmid": "42792518",
+      "category": "mitochondrial_energy",
+      "title": "SIRT1 in Senescence: Mitochondria and Immune Crosstalk.",
+      "pub_date": "2026 Sep 8",
+      "journal": "Biology (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/biology15181573",
+      "pmcid": "PMC13603675"
+    },
+    {
+      "pmid": "42793029",
+      "category": "mitochondrial_energy",
+      "title": "Epigenomic Remodeling by Lipid Metabolism: A Cross-Disease Perspective on Cancer and Brain Disorders.",
+      "pub_date": "2026 Sep 17",
+      "journal": "Genes (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/genes17091134",
+      "pmcid": "PMC13606253"
+    },
+    {
+      "pmid": "42793087",
+      "category": "mitochondrial_energy",
+      "title": "Selective Redox Tuning Enables Potent Intracellular Reduction of Nicotinamide Cytosine Dinucleotide.",
+      "pub_date": "2026 Aug 29",
+      "journal": "Biomolecules",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/biom16091255",
+      "pmcid": "PMC13604149"
+    },
+    {
+      "pmid": "42793315",
+      "category": "mitochondrial_energy",
+      "title": "Endocrine and Molecular Mechanisms of Oocyte Aging: From Gonadotropin Signaling to Metabolic and Microenvironmental Dysfunction.",
+      "pub_date": "2026 Sep 19",
+      "journal": "Curr Issues Mol Biol",
+      "pub_type": "Review",
+      "doi": "10.3390/cimb48090959",
+      "pmcid": "PMC13605071"
+    },
+    {
+      "pmid": "42797366",
+      "category": "mitochondrial_energy",
+      "title": "Translational Pharmaceutical Perspectives on Quinones as Antioxidant and Antidiabetic Agents in Diabetes and Its Complications.",
+      "pub_date": "2026 Sep 20",
+      "journal": "Pharmaceutics",
+      "pub_type": "Review",
+      "doi": "10.3390/pharmaceutics18091191",
+      "pmcid": "PMC13609996"
+    },
+    {
+      "pmid": "42797459",
+      "category": "mitochondrial_energy",
+      "title": "Oxidative Stress as a Pathophysiological Core of Obesity: Preclinical Evidence for Antioxidant-Based Therapy Strategies.",
+      "pub_date": "2026 Sep 7",
+      "journal": "Pharmaceuticals (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/ph19091414",
+      "pmcid": "PMC13610611"
+    },
+    {
+      "pmid": "42798317",
+      "category": "mitochondrial_energy",
+      "title": "Ricinine toxicity in susceptible lepidoptera involves perturbations in β-nicotinamide adenine dinucleotide metabolism.",
+      "pub_date": "2026",
+      "journal": "Front Physiol",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fphys.2026.1947596",
+      "pmcid": "PMC13612192"
+    },
+    {
+      "pmid": "42798953",
+      "category": "mitochondrial_energy",
+      "title": "Serum Metabolomic Profiling Reveals Potential Mechanisms and Biomarkers of Seladelpar Treatment in Patients With Primary Biliary Cholangitis.",
+      "pub_date": "2026",
+      "journal": "PPAR Res",
+      "pub_type": "Journal Article",
+      "doi": "10.1155/ppar/2362528",
+      "pmcid": "PMC13613439"
+    },
+    {
+      "pmid": "42801052",
+      "category": "mitochondrial_energy",
+      "title": "Mitochondrial-Targeted Phytochemicals in Reproductive Aging: Mechanisms and Translational Potential.",
+      "pub_date": "2026 Jan-Dec",
+      "journal": "Reprod Med Biol",
+      "pub_type": "Review",
+      "doi": "10.1002/rmb2.70086",
+      "pmcid": "PMC13615305"
+    },
+    {
+      "pmid": "42801704",
+      "category": "mitochondrial_energy",
+      "title": "Glutaminolysis Blockade-Empowered Bimodal Nanodepot for Spatially Complementary Sono-Thermal Ablation via PANoptosis and STING Activation Against Large Tumors.",
+      "pub_date": "2026 Sep 27",
+      "journal": "Adv Sci (Weinh)",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/advs.77933",
+      "pmcid": "PMC13616403"
+    },
+    {
+      "pmid": "42803826",
+      "category": "mitochondrial_energy",
+      "title": "Knockout of mitochondrial dicarboxylate carriers AtDIC1 and AtDIC3 affects germination, biomass accumulation, and carbon partitioning in Arabidopsis thaliana.",
+      "pub_date": "2026 Sep 28",
+      "journal": "Plant Cell Rep",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s00299-026-04000-7",
+      "pmcid": "PMC13619700"
+    },
+    {
+      "pmid": "42804455",
+      "category": "mitochondrial_energy",
+      "title": "Food consumption patterns and nutrient adequacy across lifecycle stages in Bangladesh.",
+      "pub_date": "2026",
+      "journal": "PLoS One",
+      "pub_type": "Journal Article",
+      "doi": "10.1371/journal.pone.0359205",
+      "pmcid": "PMC13618963"
+    },
+    {
+      "pmid": "42805300",
+      "category": "mitochondrial_energy",
+      "title": "Synergistic Effects of L-Carnitine and Moderate-Intensity Exercise on Testicular Damage Induced by Varicocele: Implications for miR-570, Irisin, Hsp70-2a, and Hsp90 Crosstalk.",
+      "pub_date": "2026 Sep 28",
+      "journal": "F S Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.xfss.2026.09.002",
+      "pmcid": null
+    },
+    {
+      "pmid": "42805426",
+      "category": "mitochondrial_energy",
+      "title": "Mitochondrial Reverse Electron Transfer Contributes to Oxidative Damage in Sepsis-Induced Cardiomyopathy.",
+      "pub_date": "2026 Sep 28",
+      "journal": "Free Radic Biol Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.freeradbiomed.2026.09.027",
+      "pmcid": null
+    },
+    {
+      "pmid": "42805585",
+      "category": "mitochondrial_energy",
+      "title": "Ferroptosis regulates metabolic inflammation-driven tumorigenesis in obesity-related gastric cancer.",
+      "pub_date": "2026 Sep 28",
+      "journal": "Cell Mol Gastroenterol Hepatol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.jcmgh.2026.101900",
+      "pmcid": null
+    },
+    {
+      "pmid": "42806865",
+      "category": "mitochondrial_energy",
+      "title": "AARS2-SIRT5-Driven DLD K445 Lactylation Promotes Cuproptosis Resistance in Glioblastoma Stem Cells.",
+      "pub_date": "2026 Sep 29",
+      "journal": "Adv Sci (Weinh)",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/advs.78046",
+      "pmcid": "PMC13621201"
+    },
+    {
+      "pmid": "42807121",
+      "category": "mitochondrial_energy",
+      "title": "Mitochondrial Dysfunction in Type 2 Diabetes and Metabolic Syndrome: Mechanisms, Biomarkers, and Emerging Therapies.",
+      "pub_date": "2026",
+      "journal": "Diabetes Metab Syndr Obes",
+      "pub_type": "Review",
+      "doi": "10.2147/DMSO.S627029",
+      "pmcid": "PMC13616595"
+    },
+    {
+      "pmid": "42809065",
+      "category": "mitochondrial_energy",
+      "title": "PDK4-Associated Metabolic Reprogramming Contributes to Lactate Accumulation and Parthanatos-Related Changes in Septic Cardiomyocytes.",
+      "pub_date": "2026 Sep 29",
+      "journal": "Cardiovasc Drugs Ther",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s10557-026-07970-8",
+      "pmcid": null
+    },
+    {
+      "pmid": "42810240",
+      "category": "mitochondrial_energy",
+      "title": "SUMOylation of PGAM2 regulates mitochondrial metabolism and cuproptosis-related damage during boar sperm cryoinjury.",
+      "pub_date": "2026 Sep 19",
+      "journal": "Theriogenology",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.theriogenology.2026.118191",
+      "pmcid": null
+    },
+    {
+      "pmid": "42811292",
+      "category": "mitochondrial_energy",
+      "title": "Label-free optical biomarker for prostate cancer diagnosis.",
+      "pub_date": "2026 Aug 17",
+      "journal": "Mol Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1186/s10020-026-01605-2",
+      "pmcid": "PMC13625252"
+    },
+    {
+      "pmid": "42811963",
+      "category": "mitochondrial_energy",
+      "title": "The Protective Effect of Venetoclax on the Calcium-Induced Mitochondrial Pore and ROS Production as a New Possible Factor Contributing to Drug Resistance.",
+      "pub_date": "2026 Sep 20",
+      "journal": "Front Biosci (Landmark Ed)",
+      "pub_type": "Journal Article",
+      "doi": "10.31083/FBL55451",
+      "pmcid": null
+    },
+    {
+      "pmid": "42811977",
+      "category": "mitochondrial_energy",
+      "title": "Mechanism of the NAMPT-SIRT2-Lactate Axis in Senescence of Human Nucleus Pulposus Cells.",
+      "pub_date": "2026 Sep 17",
+      "journal": "Front Biosci (Landmark Ed)",
+      "pub_type": "Journal Article",
+      "doi": "10.31083/FBL51724",
+      "pmcid": null
+    },
+    {
+      "pmid": "42812837",
+      "category": "mitochondrial_energy",
+      "title": "Gut and skin microbiome-metabolome pathways in vitiligo: from dysbiosis to immune activation and melanocyte dysfunction.",
+      "pub_date": "2026",
+      "journal": "Front Immunol",
+      "pub_type": "Review",
+      "doi": "10.3389/fimmu.2026.1952635",
+      "pmcid": "PMC13620461"
+    },
+    {
+      "pmid": "42812867",
+      "category": "mitochondrial_energy",
+      "title": "Effects of candesartan on cellular redox status and bioenergetics of cardiac tissue in normal and chronically stressed rats.",
+      "pub_date": "2026",
+      "journal": "Front Pharmacol",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fphar.2026.1876050",
+      "pmcid": "PMC13621241"
+    },
+    {
+      "pmid": "42813448",
+      "category": "mitochondrial_energy",
+      "title": "Mitochondrial-targeted DNA nanostructures deliver NAD(+) to attenuate mitochondrial oxidative injury in renal ischemia-reperfusion.",
+      "pub_date": "2026 Sep 30",
+      "journal": "J Mater Chem B",
+      "pub_type": "Journal Article",
+      "doi": "10.1039/d6tb01300g",
+      "pmcid": null
+    },
+    {
+      "pmid": "42814283",
+      "category": "mitochondrial_energy",
+      "title": "Therapeutic Timing at Mitochondrial Redox-Autophagy-Mitophagy Checkpoints in Age-Related Hearing Loss.",
+      "pub_date": "2026 Sep 30",
+      "journal": "Mol Neurobiol",
+      "pub_type": "Review",
+      "doi": "10.1007/s12035-026-06234-8",
+      "pmcid": "PMC13627268"
+    },
+    {
+      "pmid": "42814413",
+      "category": "mitochondrial_energy",
+      "title": "scH16S-Seq Maps Klebsiella pneumoniae-Associated Myeloid States and Reveals a CD38-NAD Immunometabolic Axis That Impairs Lysosomal Acidification in Sepsis.",
+      "pub_date": "2026 Sep 30",
+      "journal": "Adv Sci (Weinh)",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/advs.78127",
+      "pmcid": "PMC13626163"
+    },
+    {
+      "pmid": "42814517",
+      "category": "mitochondrial_energy",
+      "title": "Magnesium Phosphate Composite Hydrogel Dressing Promotes Diabetic Wound Repair Through Anti-Inflammatory, Antioxidant, Angiogenic, and Metabolic Regulatory Mechanisms.",
+      "pub_date": "2026 Sep 30",
+      "journal": "Adv Healthc Mater",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/adhm.71782",
+      "pmcid": null
+    },
+    {
+      "pmid": "42814831",
+      "category": "mitochondrial_energy",
+      "title": "Remodeling of mitochondrial dynamics by metabolic pathways couples to oncogenic growth in GNAS (Gα(s)) mutant pancreas cancer.",
+      "pub_date": "2026 Oct 2",
+      "journal": "Sci Adv",
+      "pub_type": "Journal Article",
+      "doi": "10.1126/sciadv.aeh7186",
+      "pmcid": "PMC13626046"
+    },
+    {
+      "pmid": "42815445",
+      "category": "mitochondrial_energy",
+      "title": "Expanding the epilepsy spectrum in primary coenzyme Q10 deficiency with COQ4 variants - Case series and literature review.",
+      "pub_date": "2026 Sep 24",
+      "journal": "Seizure",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.seizure.2026.09.020",
+      "pmcid": null
+    },
+    {
+      "pmid": "42817126",
+      "category": "mitochondrial_energy",
+      "title": "Effect of L-carnitine and Mildronate on Cognitive Recovery after Traumatic Brain Injury: Assessment of the Role of Mitochondrial Function, Angiogenesis, and Neuroinflammation.",
+      "pub_date": "2026 Sep 29",
+      "journal": "Curr Neuropharmacol",
+      "pub_type": "Journal Article",
+      "doi": "10.2174/011570159X475297260924122654",
+      "pmcid": null
+    },
+    {
+      "pmid": "42817158",
+      "category": "mitochondrial_energy",
+      "title": "Neonatal high-dose riboflavin attenuates abdominal adiposity and binge eating associated with adipose metabolic remodeling in experimental cerebral palsy.",
+      "pub_date": "2026 Sep 30",
+      "journal": "Nutr Neurosci",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/1028415X.2026.2738370",
+      "pmcid": null
+    },
+    {
+      "pmid": "42818236",
+      "category": "mitochondrial_energy",
+      "title": "ALDH1B1 promotes mitochondrial γ-butyrobetaine biosynthesis and fatty acid oxidation in colorectal cancer.",
+      "pub_date": "2026 Sep 25",
+      "journal": "bioRxiv",
+      "pub_type": "Preprint",
+      "doi": "10.64898/2026.09.24.753323",
+      "pmcid": "PMC13622191"
+    },
+    {
+      "pmid": "42819058",
+      "category": "mitochondrial_energy",
+      "title": "Relative Validity of Food Frequency Questionnaires in Adult Populations: A Systematic Review and Meta-Analysis.",
+      "pub_date": "2026 Oct",
+      "journal": "Food Sci Nutr",
+      "pub_type": "Review",
+      "doi": "10.1002/fsn3.72381",
+      "pmcid": "PMC13624932"
+    },
+    {
+      "pmid": "42820368",
+      "category": "mitochondrial_energy",
+      "title": "Enhanced Extracellular Matrix Synthesis-Related Responses Induced by Ubiquinol-10 Derivatives in Human Dermal Fibroblasts.",
+      "pub_date": "2026 Sep-Oct",
+      "journal": "Biofactors",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/biof.70154",
+      "pmcid": null
+    },
+    {
+      "pmid": "42824438",
+      "category": "mitochondrial_energy",
+      "title": "TRPV1 mediates mitochondrial dysfunction in hyperthermia-induced ameloblast mineralization defects.",
+      "pub_date": "2026",
+      "journal": "Front Cell Dev Biol",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fcell.2026.1903038",
+      "pmcid": "PMC13627420"
+    },
+    {
+      "pmid": "42825090",
+      "category": "mitochondrial_energy",
+      "title": "Effects of Different Dietary Starch Levels on Growth and Energy Metabolism of Juvenile Chinese Mitten Crab (Eriocheir sinensis) Based on Metabolomic Analysis.",
+      "pub_date": "2026",
+      "journal": "Aquac Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.1155/anu/2505201",
+      "pmcid": "PMC13629289"
+    },
+    {
+      "pmid": "42825473",
+      "category": "mitochondrial_energy",
+      "title": "Proteomic and bioinformatic profiling of the aging mouse heart-diaphragm system.",
+      "pub_date": "2026 Oct 2",
+      "journal": "Eur J Transl Myol",
+      "pub_type": "Journal Article",
+      "doi": "10.4081/ejtm.2026.16061",
+      "pmcid": null
+    },
+    {
+      "pmid": "42826097",
+      "category": "mitochondrial_energy",
+      "title": "Lacticaseibacillus rhamnosus GG enhances gefitinib efficacy and reduces treatment-related toxicity via propionyl-L-carnitine regulation.",
+      "pub_date": "2026 Oct 1",
+      "journal": "Cell Rep",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.celrep.2026.118068",
+      "pmcid": null
+    },
+    {
+      "pmid": "42827376",
+      "category": "mitochondrial_energy",
+      "title": "REST in the Central Nervous System: Context-Dependent Regulation of Neuronal Homeostasis and Disease.",
+      "pub_date": "2026 Oct",
+      "journal": "Int J Dev Neurosci",
+      "pub_type": "Review",
+      "doi": "10.1002/jdn.70186",
+      "pmcid": null
+    },
+    {
+      "pmid": "42827934",
+      "category": "mitochondrial_energy",
+      "title": "VARS2 deficiency drives seronegative myasthenia gravis pathology via mitochondrial, immune, and neuromuscular dysregulation.",
+      "pub_date": "2026",
+      "journal": "Front Immunol",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fimmu.2026.1861435",
+      "pmcid": "PMC13631004"
+    },
+    {
+      "pmid": "42827958",
+      "category": "mitochondrial_energy",
+      "title": "Multi-omics profiling identifies intestinal microbial shifts and tissue-specific immunometabolic changes associated with experimental Nocardia seriolae challenge in hybrid sturgeon (Acipenser baerii♀ × Acipenser schrenckii♂).",
+      "pub_date": "2026",
+      "journal": "Front Microbiol",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fmicb.2026.1956937",
+      "pmcid": "PMC13631057"
+    },
+    {
+      "pmid": "42828176",
+      "category": "mitochondrial_energy",
+      "title": "Immunometabolic reprogramming in osteoporosis-osteoarthritis comorbidity: from inflammaging to osteochondral unit degeneration.",
+      "pub_date": "2026",
+      "journal": "Front Immunol",
+      "pub_type": "Review",
+      "doi": "10.3389/fimmu.2026.1941310",
+      "pmcid": "PMC13631757"
+    },
+    {
+      "pmid": "42829114",
+      "category": "mitochondrial_energy",
+      "title": "Role of sirtuin 7 (SIRT7) in hepatic physiology and pathophysiology: mechanism, prospective and therapeutic potential.",
+      "pub_date": "2026 Oct 3",
+      "journal": "Biochem Pharmacol",
+      "pub_type": "Review",
+      "doi": "10.1016/j.bcp.2026.118519",
+      "pmcid": null
+    },
+    {
+      "pmid": "42829919",
+      "category": "mitochondrial_energy",
+      "title": "Conjugated Polymer-Microbe Interactions Trigger Regulatory Reprogramming for Enhanced Bioelectrocatalysis.",
+      "pub_date": "2026 Oct 4",
+      "journal": "Adv Sci (Weinh)",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/advs.77927",
+      "pmcid": null
+    },
+    {
+      "pmid": "42829935",
+      "category": "mitochondrial_energy",
+      "title": "Epithelial SLC25A20 Deficiency Drives Immunosuppressive Neutrophil Remodeling via ARG1 Palmitoylation to Promote Colorectal Cancer.",
+      "pub_date": "2026 Oct 4",
+      "journal": "Adv Sci (Weinh)",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/advs.78114",
+      "pmcid": null
+    },
+    {
+      "pmid": "42777355",
+      "category": "immune_respiratory",
+      "title": "Effects of Hiroshimana old pickle containing lactic acid bacteria as a potential probiotic source for broiler chicks.",
+      "pub_date": "2026 Aug 25",
+      "journal": "Poult Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.psj.2026.107704",
+      "pmcid": "PMC13625774"
+    },
+    {
+      "pmid": "42777364",
+      "category": "immune_respiratory",
+      "title": "Combined Bifidobacterium bifidum and Bacillus toyonensis supplementation in drinking water improves productive efficiency, physiological status, and meat quality in broiler chickens.",
+      "pub_date": "2026 Sep 21",
+      "journal": "Poult Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.psj.2026.107807",
+      "pmcid": null
+    },
+    {
+      "pmid": "42777782",
+      "category": "immune_respiratory",
+      "title": "Trace Element Changes in Goat Milk Following Experimentally Induced Intramammary Infection With Biofilm Positive and Negative Strains of Staphylococcus aureus.",
+      "pub_date": "2026 Sep",
+      "journal": "Vet Med Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/vms3.71250",
+      "pmcid": "PMC13600767"
+    },
+    {
+      "pmid": "42778011",
+      "category": "immune_respiratory",
+      "title": "Mechanisms and precision intervention strategies of time-dependent dynamic regulation of matrix metalloproteinase-mediated cerebrovascular barrier disruption and neurovascular unit remodeling in stroke.",
+      "pub_date": "2026 Sep 23",
+      "journal": "Exp Neurol",
+      "pub_type": "Review",
+      "doi": "10.1016/j.expneurol.2026.116039",
+      "pmcid": null
+    },
+    {
+      "pmid": "42778087",
+      "category": "immune_respiratory",
+      "title": "Bifidobacteria and Clostridioides difficile infection: review of emerging therapeutic perspectives.",
+      "pub_date": "2026 Sep 23",
+      "journal": "Anaerobe",
+      "pub_type": "Review",
+      "doi": "10.1016/j.anaerobe.2026.103085",
+      "pmcid": null
+    },
+    {
+      "pmid": "42779739",
+      "category": "immune_respiratory",
+      "title": "Shigella flexneri undergoes niche-specific adaptation during infection.",
+      "pub_date": "2026 Sep 17",
+      "journal": "bioRxiv",
+      "pub_type": "Preprint",
+      "doi": "10.64898/2026.09.15.751907",
+      "pmcid": "PMC13596363"
+    },
+    {
+      "pmid": "42779953",
+      "category": "immune_respiratory",
+      "title": "Characterization of Resolved, Localized, and Progressing Infections at the Maternal-Fetal Interface in a Nonhuman Primate Model.",
+      "pub_date": "2026 Sep 17",
+      "journal": "bioRxiv",
+      "pub_type": "Preprint",
+      "doi": "10.64898/2026.09.15.751503",
+      "pmcid": "PMC13596319"
+    },
+    {
+      "pmid": "42779971",
+      "category": "immune_respiratory",
+      "title": "Engineered living materials suppress uropathogenic E. coli growth and invasion of urothelial cells through sustained probiotic release.",
+      "pub_date": "2026 Sep 17",
+      "journal": "bioRxiv",
+      "pub_type": "Preprint",
+      "doi": "10.64898/2026.09.15.751868",
+      "pmcid": "PMC13596384"
+    },
+    {
+      "pmid": "42780490",
+      "category": "immune_respiratory",
+      "title": "Hydrogel-integrated osteogenic microtissues promote repair of infected intervertebral defects through sequential immunomodulation.",
+      "pub_date": "2026 Oct",
+      "journal": "Mater Today Bio",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.mtbio.2026.103657",
+      "pmcid": "PMC13597281"
+    },
+    {
+      "pmid": "42780844",
+      "category": "immune_respiratory",
+      "title": "Type VI secretion system effectors as modulators of host immunometabolism: organelle stress, nutritional immunity, and therapeutic opportunities.",
+      "pub_date": "2026",
+      "journal": "Front Microbiol",
+      "pub_type": "Review",
+      "doi": "10.3389/fmicb.2026.1951748",
+      "pmcid": "PMC13598917"
+    },
+    {
+      "pmid": "42780962",
+      "category": "immune_respiratory",
+      "title": "A polyherbal and probiotic-based immunostimulatory formulation for managing gut dysbiosis in colorectal cancer.",
+      "pub_date": "2026",
+      "journal": "Front Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fnut.2026.1854998",
+      "pmcid": "PMC13599618"
+    },
+    {
+      "pmid": "42780970",
+      "category": "immune_respiratory",
+      "title": "Physician Experiences and Prescribing Preferences for Targeted B-complex and Vitamin C Supplementation in Daily Clinical Practice: A National KAP Survey in India.",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "doi": "10.7759/cureus.115073",
+      "pmcid": "PMC13599604"
+    },
+    {
+      "pmid": "42781235",
+      "category": "immune_respiratory",
+      "title": "Dismantling the eDNA-mediated H(2)S barrier with biohybrids against refractory biofilm infections.",
+      "pub_date": "2027 Feb",
+      "journal": "Bioact Mater",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.bioactmat.2026.08.049",
+      "pmcid": "PMC13598538"
+    },
+    {
+      "pmid": "42781488",
+      "category": "immune_respiratory",
+      "title": "MTHFR gene polymorphisms and their biochemical associations with serum vitamin D and IL-17 in ulcerative colitis.",
+      "pub_date": "2026 May 22",
+      "journal": "J Med Biochem",
+      "pub_type": "Journal Article",
+      "doi": "10.5937/jomb0-62831",
+      "pmcid": "PMC13599542"
+    },
+    {
+      "pmid": "42781666",
+      "category": "immune_respiratory",
+      "title": "Prehabilitation for Pressure Ulcer Surgery: A Practical and Evidence-based Guide.",
+      "pub_date": "2026 Sep",
+      "journal": "Plast Reconstr Surg Glob Open",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/GOX.0000000000008075",
+      "pmcid": "PMC13600586"
+    },
+    {
+      "pmid": "42782738",
+      "category": "immune_respiratory",
+      "title": "Biomarker-Driven Strategies for Stromal Reprogramming in Pancreatic Ductal Adenocarcinoma.",
+      "pub_date": "2026 Sep 10",
+      "journal": "Cells",
+      "pub_type": "Review",
+      "doi": "10.3390/cells15181637",
+      "pmcid": "PMC13605378"
+    },
+    {
+      "pmid": "42783209",
+      "category": "immune_respiratory",
+      "title": "Safety and Effectiveness of Probiotic Preparations: A Contemporary Review.",
+      "pub_date": "2026 Aug 29",
+      "journal": "Diseases",
+      "pub_type": "Review",
+      "doi": "10.3390/diseases14090316",
+      "pmcid": "PMC13605352"
+    },
+    {
+      "pmid": "42783242",
+      "category": "immune_respiratory",
+      "title": "Association of Vitamin D Levels and Systemic Inflammation in Patients with Hashimoto's Thyroiditis.",
+      "pub_date": "2026 Sep 20",
+      "journal": "Diseases",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/diseases14090349",
+      "pmcid": "PMC13605515"
+    },
+    {
+      "pmid": "42784771",
+      "category": "immune_respiratory",
+      "title": "The Role of Vitamin D in Noninfectious Uveitis: A Scoping Review with Transcriptomic and Bioinformatic Insights.",
+      "pub_date": "2026 Sep 24",
+      "journal": "Ocul Immunol Inflamm",
+      "pub_type": "Review",
+      "doi": "10.1080/09273948.2026.2725798",
+      "pmcid": null
+    },
+    {
+      "pmid": "42785032",
+      "category": "immune_respiratory",
+      "title": "Dietary zinc oxide nanoparticles alter tissue-specific shifts in fatty acid and amino acid profiles but do not affect meat quality or targeted rumen bacteria in Haemonchus contortus-infected lambs.",
+      "pub_date": "2026 Sep 23",
+      "journal": "Food Chem",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.foodchem.2026.151233",
+      "pmcid": null
+    },
+    {
+      "pmid": "42785689",
+      "category": "immune_respiratory",
+      "title": "Screening strong anaerobic E. coli promoters to enhance therapeutical protein expression in tumors.",
+      "pub_date": "2026 Sep 24",
+      "journal": "J Control Release",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.jconrel.2026.115407",
+      "pmcid": null
+    },
+    {
+      "pmid": "42787314",
+      "category": "immune_respiratory",
+      "title": "Leukodystrophy in Tanzania: A Case Study Highlighting Diagnostic Dilemmas and Clinical Implications.",
+      "pub_date": "2026 Oct",
+      "journal": "Clin Case Rep",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/ccr3.73584",
+      "pmcid": "PMC13601673"
+    },
+    {
+      "pmid": "42787737",
+      "category": "immune_respiratory",
+      "title": "Nutritional biomarkers regulating tumor immune microenvironment in osteosarcoma and as predictors of immune checkpoint inhibitor responses.",
+      "pub_date": "2026",
+      "journal": "Front Immunol",
+      "pub_type": "Review",
+      "doi": "10.3389/fimmu.2026.1909913",
+      "pmcid": "PMC13603024"
+    },
+    {
+      "pmid": "42787994",
+      "category": "immune_respiratory",
+      "title": "A lesion-responsive ZIF-8/zinc-myricetin nano-biointerface remodels mitochondrial-immune crosstalk for spinal cord repair.",
+      "pub_date": "2026 Dec",
+      "journal": "Mater Today Bio",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.mtbio.2026.103683",
+      "pmcid": "PMC13602714"
+    },
+    {
+      "pmid": "42789724",
+      "category": "immune_respiratory",
+      "title": "A designed ubiquitin-binding protein selectively enriches and visualizes unanchored ubiquitin.",
+      "pub_date": "2026 Sep 25",
+      "journal": "Sci Adv",
+      "pub_type": "Journal Article",
+      "doi": "10.1126/sciadv.aec0818",
+      "pmcid": "PMC13614405"
+    },
+    {
+      "pmid": "42790167",
+      "category": "immune_respiratory",
+      "title": "Small-molecule photosensitizer for enhanced antiangiogenesis and immunosuppressive tumor microenvironment reprogramming in anti-metastatic photodynamic therapy.",
+      "pub_date": "2026 Sep 21",
+      "journal": "Eur J Med Chem",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.ejmech.2026.119354",
+      "pmcid": null
+    },
+    {
+      "pmid": "42792156",
+      "category": "immune_respiratory",
+      "title": "Carnosine Potentiates a Compensatory Mitochondrial-Synaptic Proteomic Response in the ALS Cerebellum.",
+      "pub_date": "2026 Sep 4",
+      "journal": "Antioxidants (Basel)",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/antiox15091117",
+      "pmcid": "PMC13603265"
+    },
+    {
+      "pmid": "42792239",
+      "category": "immune_respiratory",
+      "title": "Combined Probiotics and Antioxidants Attenuate LPS-Induced Acute Intestinal Inflammation via Multi-Pathway Regulation in a Preventive Mouse Model.",
+      "pub_date": "2026 Sep 19",
+      "journal": "Antioxidants (Basel)",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/antiox15091201",
+      "pmcid": "PMC13603274"
+    },
+    {
+      "pmid": "42792613",
+      "category": "immune_respiratory",
+      "title": "Seasonality of Cytokines in Inflammatory Disease: Exploring Molecular Parallels with the Yellow Emperor's Inner Canon.",
+      "pub_date": "2026 Sep 20",
+      "journal": "Biology (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/biology15181668",
+      "pmcid": "PMC13604917"
+    },
+    {
+      "pmid": "42792633",
+      "category": "immune_respiratory",
+      "title": "Photodynamic Therapy in Cancer: Mechanisms, Photosensitizer Technology, Vitamin Modulation, and Rational Combination Design.",
+      "pub_date": "2026 Aug 24",
+      "journal": "Biomedicines",
+      "pub_type": "Review",
+      "doi": "10.3390/biomedicines14091889",
+      "pmcid": "PMC13604474"
+    },
+    {
+      "pmid": "42792635",
+      "category": "immune_respiratory",
+      "title": "Maternal Lactobacillus johnsonii Supplementation Is Associated with Altered Offspring Cecal Microbiome and Reduced Cockroach Allergen-Induced Airway Responses in Mice.",
+      "pub_date": "2026 Aug 25",
+      "journal": "Biomedicines",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/biomedicines14091892",
+      "pmcid": "PMC13604274"
+    },
+    {
+      "pmid": "42792903",
+      "category": "immune_respiratory",
+      "title": "Vaginal Probiotic Potential of Lactobacillus acidophilus: Population Genomic and Phenotypic Analysis.",
+      "pub_date": "2026 Aug 26",
+      "journal": "Genes (Basel)",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/genes17091009",
+      "pmcid": "PMC13606125"
+    },
+    {
+      "pmid": "42793069",
+      "category": "immune_respiratory",
+      "title": "Zinc Supplementation Sustains Diaphragm Contractility and Preserves SERCA2a Expression in Aged Female Rats with Type 2 Diabetes.",
+      "pub_date": "2026 Aug 26",
+      "journal": "Biomolecules",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/biom16091236",
+      "pmcid": "PMC13604116"
+    },
+    {
+      "pmid": "42794178",
+      "category": "immune_respiratory",
+      "title": "High Prevalence of Pseudo-Pelger-Huët Anomaly and Neutrophil Dysplasia in Children with Celiac Disease: A Retrospective Case-Control Study.",
+      "pub_date": "2026 Aug 28",
+      "journal": "Children (Basel)",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/children13091158",
+      "pmcid": "PMC13605250"
+    },
+    {
+      "pmid": "42794187",
+      "category": "immune_respiratory",
+      "title": "Periodic Fever, Aphthous Stomatitis, Pharyngitis, and Cervical Adenitis (PFAPA) Syndrome: An Updated Review with Current Insights into Pathogenesis and Therapeutic Strategies.",
+      "pub_date": "2026 Aug 29",
+      "journal": "Children (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/children13091167",
+      "pmcid": "PMC13605919"
+    },
+    {
+      "pmid": "42794449",
+      "category": "immune_respiratory",
+      "title": "Gut Microbiota as a Molecular Regulator of Mineral Homeostasis in Horses: Mechanisms and Future Perspectives.",
+      "pub_date": "2026 Sep 9",
+      "journal": "Int J Mol Sci",
+      "pub_type": "Review",
+      "doi": "10.3390/ijms27188015",
+      "pmcid": "PMC13607830"
+    },
+    {
+      "pmid": "42794760",
+      "category": "immune_respiratory",
+      "title": "Serum 25-Hydroxyvitamin D Status Across Vertebrate Species: A Comparative Review.",
+      "pub_date": "2026 Sep 19",
+      "journal": "Int J Mol Sci",
+      "pub_type": "Comparative Study",
+      "doi": "10.3390/ijms27188333",
+      "pmcid": "PMC13607220"
+    },
+    {
+      "pmid": "42794916",
+      "category": "immune_respiratory",
+      "title": "Non-Pharmacological Treatments for Oral Carcinogenesis: From Oral Lichen Planus to Oral Squamous Cell Carcinoma.",
+      "pub_date": "2026 Sep 11",
+      "journal": "Cancers (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/cancers18182949",
+      "pmcid": "PMC13604403"
+    },
+    {
+      "pmid": "42795504",
+      "category": "immune_respiratory",
+      "title": "Lactiplantibacillus plantarum GUANKE and Its Metabolite Phenyllactic Acid Reduce Intestinal Klebsiella pneumoniae Dysbacteriosis and Related Gut Inflammatory Injury.",
+      "pub_date": "2026 Aug 31",
+      "journal": "Microorganisms",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/microorganisms14091921",
+      "pmcid": "PMC13609566"
+    },
+    {
+      "pmid": "42795512",
+      "category": "immune_respiratory",
+      "title": "A Butyrate-Producing Probiotic, Clostridium butyricum DMZ-SG06, Improves Growth Performance, Immune Function and Gut Microbiota in Largemouth Bass (Micropterus salmoides).",
+      "pub_date": "2026 Sep 1",
+      "journal": "Microorganisms",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/microorganisms14091931",
+      "pmcid": "PMC13609853"
+    },
+    {
+      "pmid": "42795640",
+      "category": "immune_respiratory",
+      "title": "Gut-on-Chip Models for Host-Microbiome Studies: A Systematic Review.",
+      "pub_date": "2026 Sep 15",
+      "journal": "Microorganisms",
+      "pub_type": "Review",
+      "doi": "10.3390/microorganisms14092059",
+      "pmcid": "PMC13609488"
+    },
+    {
+      "pmid": "42796662",
+      "category": "immune_respiratory",
+      "title": "The Modulatory Role of Vitamin D in the Molecular Mechanisms of Sepsis and Infections with Focus on Viral Pathogenesis: A Narrative Review.",
+      "pub_date": "2026 Aug 25",
+      "journal": "Pathogens",
+      "pub_type": "Review",
+      "doi": "10.3390/pathogens15090894",
+      "pmcid": "PMC13609947"
+    },
+    {
+      "pmid": "42796707",
+      "category": "immune_respiratory",
+      "title": "ACE2-like Catalytic Activity in Anti-SARS-CoV-2 Spike Protein Monoclonal Antibodies.",
+      "pub_date": "2026 Sep 4",
+      "journal": "Pathogens",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/pathogens15090939",
+      "pmcid": "PMC13610406"
+    },
+    {
+      "pmid": "42797001",
+      "category": "immune_respiratory",
+      "title": "Anthocyanin-Induced Alterations in Substrate Oxidation During Exercise: A Narrative Review.",
+      "pub_date": "2026 Sep 15",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "doi": "10.3390/nu18183018",
+      "pmcid": "PMC13610498"
+    },
+    {
+      "pmid": "42797015",
+      "category": "immune_respiratory",
+      "title": "Microbiome-Derived Metabolic Signaling in the Gut-Skin Axis: Implications for Nutricosmetics and Healthy Skin Aging.",
+      "pub_date": "2026 Sep 16",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "doi": "10.3390/nu18183032",
+      "pmcid": "PMC13610648"
+    },
+    {
+      "pmid": "42797017",
+      "category": "immune_respiratory",
+      "title": "Nutritional Status and Caregiver Knowledge in Pediatric Cystic Fibrosis Management.",
+      "pub_date": "2026 Sep 16",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/nu18183034",
+      "pmcid": "PMC13610496"
+    },
+    {
+      "pmid": "42797072",
+      "category": "immune_respiratory",
+      "title": "A Dominant Probiotic from the Traditional Chinese Fermented Food Douzhier Exhibits Anti-Influenza Activity.",
+      "pub_date": "2026 Sep 21",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/nu18183089",
+      "pmcid": "PMC13610886"
+    },
+    {
+      "pmid": "42797090",
+      "category": "immune_respiratory",
+      "title": "Primary Hyperparathyroidism in Celiac Disease: Diagnostic Challenges and Therapeutic Strategies.",
+      "pub_date": "2026 Sep 21",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "doi": "10.3390/nu18183107",
+      "pmcid": "PMC13610584"
+    },
+    {
+      "pmid": "42797461",
+      "category": "immune_respiratory",
+      "title": "Cooperation or Conflict? Molecular and Physiological Cross-Talk Between the Aryl Hydrocarbon and Vitamin D Receptors.",
+      "pub_date": "2026 Sep 8",
+      "journal": "Pharmaceuticals (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/ph19091416",
+      "pmcid": "PMC13610371"
+    },
+    {
+      "pmid": "42797723",
+      "category": "immune_respiratory",
+      "title": "Contamination Characteristics, Source Apportionment, and Risk Assessment of Heavy Metals in Soil from a Legacy Open Dumpsite on the Qinghai-Xizang Plateau.",
+      "pub_date": "2026 Sep 10",
+      "journal": "Toxics",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/toxics14090804",
+      "pmcid": "PMC13611465"
+    },
+    {
+      "pmid": "42797743",
+      "category": "immune_respiratory",
+      "title": "Associations of Serum Trace-Element Concentrations with Selected Blood Biomarkers: A Secondary Cross-Sectional Analysis of the SPES Cohort.",
+      "pub_date": "2026 Sep 17",
+      "journal": "Toxics",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/toxics14090824",
+      "pmcid": "PMC13611600"
+    },
+    {
+      "pmid": "42798126",
+      "category": "immune_respiratory",
+      "title": "A case report on the management of sepsis complicated by eroded mixed hemorrhoids following breast cancer chemotherapy.",
+      "pub_date": "2026 Sep 25",
+      "journal": "Medicine (Baltimore)",
+      "pub_type": "Case Reports",
+      "doi": "10.1097/MD.0000000000050716",
+      "pmcid": "PMC13619253"
+    },
+    {
+      "pmid": "42799095",
+      "category": "immune_respiratory",
+      "title": "Dietary zinc intake, serum zinc concentrations, and disease activity in children with juvenile idiopathic arthritis: a case-control study.",
+      "pub_date": "2026",
+      "journal": "Front Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fnut.2026.1940130",
+      "pmcid": "PMC13613976"
+    },
+    {
+      "pmid": "42799965",
+      "category": "immune_respiratory",
+      "title": "Oral Administration of a Probiotic Blend Modulates Immuno-Antioxidant Status, Semen Quality, Cytokines, and Endocrine Profiles in Rabbit Bucks.",
+      "pub_date": "2026 Sep 26",
+      "journal": "Probiotics Antimicrob Proteins",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s12602-026-11231-3",
+      "pmcid": null
+    },
+    {
+      "pmid": "42800367",
+      "category": "immune_respiratory",
+      "title": "An intestine-centric view of neurodegeneration: How intestine-derived signals mediate the intestine-brain axis to impact Alzheimer's disease.",
+      "pub_date": "2026 Sep 23",
+      "journal": "J Neuroimmunol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.jneuroim.2026.579102",
+      "pmcid": null
+    },
+    {
+      "pmid": "42800464",
+      "category": "immune_respiratory",
+      "title": "Metabolomic signatures associated with probiotic use in atopic dermatitis: An exploratory study.",
+      "pub_date": "2026 Sep 21",
+      "journal": "J Pharm Biomed Anal",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.jpba.2026.117744",
+      "pmcid": null
+    },
+    {
+      "pmid": "42801349",
+      "category": "immune_respiratory",
+      "title": "Discovery of a novel non-race-specific adult-plant resistance (APR) locus conferring stripe rust immunity in spelt wheat and its suppression in bread wheat.",
+      "pub_date": "2026 Sep 27",
+      "journal": "Theor Appl Genet",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s00122-026-05386-4",
+      "pmcid": null
+    },
+    {
+      "pmid": "42801746",
+      "category": "immune_respiratory",
+      "title": "Pediatric alopecia universalis with poliosis post-psychosocial stress: a case report on methotrexate and adjunctive management.",
+      "pub_date": "2026 Sep 27",
+      "journal": "Acta Dermatovenerol Alp Pannonica Adriat",
+      "pub_type": "Case Reports",
+      "doi": null,
+      "pmcid": null
+    },
+    {
+      "pmid": "42801985",
+      "category": "immune_respiratory",
+      "title": "Ingested microplastics and the gut-brain axis: A systematic review of mechanistic pathways and neurobiological impacts in human and preclinical models.",
+      "pub_date": "2026 Sep 27",
+      "journal": "Neurotoxicol Teratol",
+      "pub_type": "Review",
+      "doi": "10.1016/j.ntt.2026.107721",
+      "pmcid": null
+    },
+    {
+      "pmid": "42803549",
+      "category": "immune_respiratory",
+      "title": "Lactiplantibacillus plantarum Lp05 ensures immune developmental safety and protects against colitis via promoting Treg differentiation in mice.",
+      "pub_date": "2026 Sep 28",
+      "journal": "Microbiol Spectr",
+      "pub_type": "Journal Article",
+      "doi": "10.1128/spectrum.00043-26",
+      "pmcid": null
+    },
+    {
+      "pmid": "42803642",
+      "category": "immune_respiratory",
+      "title": "γ-Fe(2)O(3) nanozyme-based dual colorimetric sensor for hydrogen peroxide and vitamin C detection: application to dermatological vitamin C serum samples.",
+      "pub_date": "2026 Sep 28",
+      "journal": "Anal Methods",
+      "pub_type": "Journal Article",
+      "doi": "10.1039/d6ay01656a",
+      "pmcid": null
+    },
+    {
+      "pmid": "42804040",
+      "category": "immune_respiratory",
+      "title": "Exploring whole-genome analysis of a gamma-aminobutyric acid -producing marine Lactiplantibacillus plantarum: genomic insights into neuroactive and probiotic potential.",
+      "pub_date": "2026 Sep 28",
+      "journal": "World J Microbiol Biotechnol",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s11274-026-05275-4",
+      "pmcid": null
+    },
+    {
+      "pmid": "42804059",
+      "category": "immune_respiratory",
+      "title": "Protective effect of Glutamicibacter sp. ZY1 against Vibrio parahaemolyticus YDE17 pathogenicity in the clam Ruditapes philippinarum.",
+      "pub_date": "2026 Sep 28",
+      "journal": "World J Microbiol Biotechnol",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s11274-026-05285-2",
+      "pmcid": null
+    },
+    {
+      "pmid": "42804366",
+      "category": "immune_respiratory",
+      "title": "Comparative bioactivity screening and chitosan nanoparticle formulation of pharmacy-grade medicinal tea extracts used for common cold.",
+      "pub_date": "2026 Sep 28",
+      "journal": "Int J Environ Health Res",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/09603123.2026.2739939",
+      "pmcid": null
+    },
+    {
+      "pmid": "42804643",
+      "category": "immune_respiratory",
+      "title": "Zinc mediates the allosteric activation of Shiftless to suppress programmed -1 ribosomal frameshifting.",
+      "pub_date": "2026 Oct 6",
+      "journal": "Proc Natl Acad Sci U S A",
+      "pub_type": "Journal Article",
+      "doi": "10.1073/pnas.2608087123",
+      "pmcid": null
+    },
+    {
+      "pmid": "42804957",
+      "category": "immune_respiratory",
+      "title": "Regulatory effect of surface functionalized medical zinc alloy on the growth and inflammatory response of vascular endothelial cells.",
+      "pub_date": "2026 Sep 23",
+      "journal": "Tissue Cell",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.tice.2026.103990",
+      "pmcid": null
+    },
+    {
+      "pmid": "42806508",
+      "category": "immune_respiratory",
+      "title": "Alterations in trace element homeostasis in dogs with parvoviral enteritis.",
+      "pub_date": "2026 Sep 28",
+      "journal": "Vet Rec",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/vetr.71215",
+      "pmcid": null
+    },
+    {
+      "pmid": "42806592",
+      "category": "immune_respiratory",
+      "title": "Interface-Regulated Humidity-Sensing Transparent Flexible Film: Antibacterial Properties Facilitate Human-Computer Interaction and Health Monitoring.",
+      "pub_date": "2026 Sep 29",
+      "journal": "ACS Appl Mater Interfaces",
+      "pub_type": "Journal Article",
+      "doi": "10.1021/acsami.6c16733",
+      "pmcid": null
+    },
+    {
+      "pmid": "42806690",
+      "category": "immune_respiratory",
+      "title": "Biotechnological Approaches to Probiotics and Postbiotics through the Gut-Brain Axis Modulation.",
+      "pub_date": "2026 Jan 6",
+      "journal": "Iran Biomed J",
+      "pub_type": "Journal Article",
+      "doi": "10.22034/IBJ.30.4.193",
+      "pmcid": null
+    },
+    {
+      "pmid": "42806817",
+      "category": "immune_respiratory",
+      "title": "Dietary Echinacea purpurea Attenuates Oxidative Stress and Alters Cytokine Gene Expression Among Heat-Stressed Broiler Chickens at High Altitude.",
+      "pub_date": "2026 Nov",
+      "journal": "Vet Med Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/vms3.71234",
+      "pmcid": "PMC13620839"
+    },
+    {
+      "pmid": "42806823",
+      "category": "immune_respiratory",
+      "title": "Protective Effects of Lactobacillus-Derived Probiotics and Postbiotics on Renal and Reproductive Function in Escherichia coli-Infected Rats.",
+      "pub_date": "2026 Nov",
+      "journal": "Vet Med Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/vms3.71258",
+      "pmcid": "PMC13620837"
+    },
+    {
+      "pmid": "42807267",
+      "category": "immune_respiratory",
+      "title": "Effects of dietary supplementation with bacteriocin-like inhibitory substance-producing Weissella cibaria XN-2a on growth performance, immune responses, and gut microbiota in crucian carp (Carassius auratus).",
+      "pub_date": "2026",
+      "journal": "Front Microbiol",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fmicb.2026.1953174",
+      "pmcid": "PMC13617438"
+    },
+    {
+      "pmid": "42807356",
+      "category": "immune_respiratory",
+      "title": "Role of essential and trace elements in chronic myeloid leukemia: associations with serum trace element profiles and hematological parameters.",
+      "pub_date": "2026",
+      "journal": "Front Aging",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fragi.2026.1920709",
+      "pmcid": "PMC13617648"
+    },
+    {
+      "pmid": "42808188",
+      "category": "immune_respiratory",
+      "title": "Machine learning insights into the burden and risk factors of lower respiratory infections in East Asia (1990-2033).",
+      "pub_date": "2026 Sep",
+      "journal": "J Int Med Res",
+      "pub_type": "Journal Article",
+      "doi": "10.1177/03000605261467663",
+      "pmcid": null
+    },
+    {
+      "pmid": "42808367",
+      "category": "immune_respiratory",
+      "title": "Engineered probiotic biointerfaces: Construction principles, microscopic characterisation and biomedical functions.",
+      "pub_date": "2026 Sep 29",
+      "journal": "J Microsc",
+      "pub_type": "Review",
+      "doi": "10.1111/jmi.70182",
+      "pmcid": null
+    },
+    {
+      "pmid": "42809174",
+      "category": "immune_respiratory",
+      "title": "Lactiplantibacillus plantarum as a Biosafe Microbial Bridge in the Gut-Environment Continuum.",
+      "pub_date": "2026 Sep 29",
+      "journal": "Probiotics Antimicrob Proteins",
+      "pub_type": "Review",
+      "doi": "10.1007/s12602-026-11222-4",
+      "pmcid": null
+    },
+    {
+      "pmid": "42810464",
+      "category": "immune_respiratory",
+      "title": "Visualizing intestinal colonization of GFP-displayed Lactobacillus plantarum PO23 and its effects on intestinal morphology and immunity in Paralichthys olivaceus.",
+      "pub_date": "2026 Sep 29",
+      "journal": "Fish Shellfish Immunol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.fsi.2026.111746",
+      "pmcid": null
+    },
+    {
+      "pmid": "42810521",
+      "category": "immune_respiratory",
+      "title": "Intracellular Zn(2+) levels regulate susceptibility to hepatitis B virus infection by modulating NTCP-mediated viral entry.",
+      "pub_date": "2026 Sep 29",
+      "journal": "Antiviral Res",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.antiviral.2026.106542",
+      "pmcid": null
+    },
+    {
+      "pmid": "42812079",
+      "category": "immune_respiratory",
+      "title": "Study on the Correlation Between Sperm Mitochondrial Membrane Potential, Seminal Plasma Elastase, Seminal Plasma Zinc, and Pregnancy Outcomes of In Vitro Fertilization-Embryo Transfer in Male Infertility Patients.",
+      "pub_date": "2026 Sep 22",
+      "journal": "Br J Hosp Med (Lond)",
+      "pub_type": "Journal Article",
+      "doi": "10.31083/BJHM58284",
+      "pmcid": null
+    },
+    {
+      "pmid": "42812349",
+      "category": "immune_respiratory",
+      "title": "Vitamin D status in patients with arthritis and osteoporosis: a comparative analysis of inpatient and outpatient cohorts.",
+      "pub_date": "2026",
+      "journal": "Front Endocrinol (Lausanne)",
+      "pub_type": "Comparative Study",
+      "doi": "10.3389/fendo.2026.1803333",
+      "pmcid": "PMC13619813"
+    },
+    {
+      "pmid": "42812403",
+      "category": "immune_respiratory",
+      "title": "Vitamin D signaling in thymic development and longevity.",
+      "pub_date": "2026",
+      "journal": "Front Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fnut.2026.1961627",
+      "pmcid": "PMC13619959"
+    },
+    {
+      "pmid": "42812452",
+      "category": "immune_respiratory",
+      "title": "Topical maternal breast milk versus commercial topical products for diaper dermatitis in infants: a systematic review.",
+      "pub_date": "2026 Sep 28",
+      "journal": "J Res Nurs",
+      "pub_type": "Review",
+      "doi": "10.1177/17449871261481751",
+      "pmcid": "PMC13619984"
+    },
+    {
+      "pmid": "42812824",
+      "category": "immune_respiratory",
+      "title": "Bacterial consortium construction for inhibition of Salmonella in chickens.",
+      "pub_date": "2026",
+      "journal": "Front Microbiol",
+      "pub_type": "Review",
+      "doi": "10.3389/fmicb.2026.1895137",
+      "pmcid": "PMC13622505"
+    },
+    {
+      "pmid": "42813438",
+      "category": "immune_respiratory",
+      "title": "Familial occurrence of multiple sclerosis - current state of knowledge.",
+      "pub_date": "2026 Sep 30",
+      "journal": "Neurol Neurochir Pol",
+      "pub_type": "Journal Article",
+      "doi": "10.5603/pjnns.112253",
+      "pmcid": null
+    },
+    {
+      "pmid": "42813499",
+      "category": "immune_respiratory",
+      "title": "Interventions for treatment of herpes labialis (cold sores on the lips).",
+      "pub_date": "2026 Sep 30",
+      "journal": "Cochrane Database Syst Rev",
+      "pub_type": "Review",
+      "doi": "10.1002/14651858.CD015216.pub2",
+      "pmcid": "PMC13625171"
+    },
+    {
+      "pmid": "42814711",
+      "category": "immune_respiratory",
+      "title": "Unravelling the synergistic potential of Olibanum extract and Bacillus clausii in combating intestinal cryptosporidiosis in immunosuppressed mice.",
+      "pub_date": "2026 Sep",
+      "journal": "PLoS Negl Trop Dis",
+      "pub_type": "Journal Article",
+      "doi": "10.1371/journal.pntd.0014734",
+      "pmcid": "PMC13626359"
+    },
+    {
+      "pmid": "42814834",
+      "category": "immune_respiratory",
+      "title": "Chemo-metallo nanodrivers for spatiotemporally controlled in situ vaccination.",
+      "pub_date": "2026 Oct 2",
+      "journal": "Sci Adv",
+      "pub_type": "Journal Article",
+      "doi": "10.1126/sciadv.aee4577",
+      "pmcid": "PMC13626044"
+    },
+    {
+      "pmid": "42815179",
+      "category": "immune_respiratory",
+      "title": "The C2H2 zinc-finger protein CaZAT11 positively regulates cold tolerance in pepper and physically interacts with CaSTOP1.",
+      "pub_date": "2026 Sep 28",
+      "journal": "Plant Physiol Biochem",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.plaphy.2026.111793",
+      "pmcid": null
+    },
+    {
+      "pmid": "42815193",
+      "category": "immune_respiratory",
+      "title": "NLRP3 inflammasome activation and impaired Treg-mediated immune tolerance are associated with spontaneous preterm birth: A case-control study with in vitro probiotic metabolite intervention.",
+      "pub_date": "2026 Sep 28",
+      "journal": "J Reprod Immunol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.jri.2026.104970",
+      "pmcid": null
+    },
+    {
+      "pmid": "42818749",
+      "category": "immune_respiratory",
+      "title": "Toxoplasma gondii GRA66 prevents premature egress driven by the host phospholipase RARRES3, independently of RNF213.",
+      "pub_date": "2026 Sep 13",
+      "journal": "bioRxiv",
+      "pub_type": "Preprint",
+      "doi": "10.64898/2026.09.12.751112",
+      "pmcid": "PMC13622661"
+    },
+    {
+      "pmid": "42819320",
+      "category": "immune_respiratory",
+      "title": "Deep learning-based visual diagnosis of Huanglongbing and zinc deficiency in citrus leaves for sustainable and precision orchard management.",
+      "pub_date": "2026",
+      "journal": "Front Plant Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fpls.2026.1853541",
+      "pmcid": "PMC13623935"
+    },
+    {
+      "pmid": "42819763",
+      "category": "immune_respiratory",
+      "title": "Association of Serum Vitamin D Level and Hematological Inflammatory Indices in Participants of the MASHAD Study.",
+      "pub_date": "2026 Oct",
+      "journal": "Health Sci Rep",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/hsr2.73142",
+      "pmcid": "PMC13624846"
+    },
+    {
+      "pmid": "42819850",
+      "category": "immune_respiratory",
+      "title": "Structure-Biofunction Relationships in Nanoparticle-Reinforced PVA/Alginate Hydrogels for Infection-Controlled Tissue-Contact Applications.",
+      "pub_date": "2026 Sep 1",
+      "journal": "ACS Omega",
+      "pub_type": "Journal Article",
+      "doi": "10.1021/acsomega.6c02968",
+      "pmcid": "PMC13625111"
+    },
+    {
+      "pmid": "42820108",
+      "category": "immune_respiratory",
+      "title": "Metalloimmunotherapies: metal-driven regulatory networks in the immune microenvironment.",
+      "pub_date": "2026",
+      "journal": "Front Immunol",
+      "pub_type": "Review",
+      "doi": "10.3389/fimmu.2026.1901186",
+      "pmcid": "PMC13626021"
+    },
+    {
+      "pmid": "42822127",
+      "category": "immune_respiratory",
+      "title": "Glucose-unlocked near-infrared plasmonic nanoheterojunction for enzymatic-thermal coupling therapy of infected wounds.",
+      "pub_date": "2026 Sep 28",
+      "journal": "J Colloid Interface Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.jcis.2026.141713",
+      "pmcid": null
+    },
+    {
+      "pmid": "42824202",
+      "category": "immune_respiratory",
+      "title": "Dietary supplementation with Lactobacillus plantarum and Bacillus velezensis improves growth performance, antioxidant capacity, immunity and intestinal microbiota in growing-finishing pigs.",
+      "pub_date": "2026",
+      "journal": "Front Microbiol",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fmicb.2026.1913467",
+      "pmcid": "PMC13627412"
+    },
+    {
+      "pmid": "42824401",
+      "category": "immune_respiratory",
+      "title": "Storage temperature as a determinant of probiotic long-term stability in commercial dietary supplements.",
+      "pub_date": "2026",
+      "journal": "Front Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fnut.2026.1933900",
+      "pmcid": "PMC13627402"
+    },
+    {
+      "pmid": "42824603",
+      "category": "immune_respiratory",
+      "title": "A nutritionally balanced menu for emergencies: beyond the COVID-19 pandemic.",
+      "pub_date": "2026",
+      "journal": "Front Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fnut.2026.1855250",
+      "pmcid": "PMC13628644"
+    },
+    {
+      "pmid": "42824986",
+      "category": "immune_respiratory",
+      "title": "Nano zinc supplementation in broiler nutrition: current evidence, mechanisms of action, and future perspectives.",
+      "pub_date": "2026",
+      "journal": "Front Vet Sci",
+      "pub_type": "Review",
+      "doi": "10.3389/fvets.2026.1925519",
+      "pmcid": "PMC13628597"
+    },
+    {
+      "pmid": "42825189",
+      "category": "immune_respiratory",
+      "title": "Zinc ion-releasing immunomodulatory hydrogels for enhanced wound healing.",
+      "pub_date": "2026",
+      "journal": "Regen Biomater",
+      "pub_type": "Journal Article",
+      "doi": "10.1093/rb/rbag147",
+      "pmcid": "PMC13629550"
+    },
+    {
+      "pmid": "42825850",
+      "category": "immune_respiratory",
+      "title": "Vitamin D status and supplementation as potential modifiers of allergen immunotherapy outcomes in respiratory allergy: A structured narrative review.",
+      "pub_date": "2026 Oct 2",
+      "journal": "Immunol Res",
+      "pub_type": "Review",
+      "doi": "10.1007/s12026-026-09854-3",
+      "pmcid": "PMC13633359"
+    },
+    {
+      "pmid": "42825902",
+      "category": "immune_respiratory",
+      "title": "Impact of Vitamin D and Curcumin on CD4+ and CD8+ T cells Expressing CXCR3, CCR4, and CCR6 Chemokine Receptors in Patients with Relapsing-remitting Multiple Sclerosis.",
+      "pub_date": "2026 Aug 12",
+      "journal": "Iran J Allergy Asthma Immunol",
+      "pub_type": "Journal Article",
+      "doi": "10.18502/ijaai.v25is11.22490",
+      "pmcid": null
+    },
+    {
+      "pmid": "42825912",
+      "category": "immune_respiratory",
+      "title": "Associations between Inflammatory Markers, Micronutrients, and Disease Severity in COVID-19 Patients with Type 2 Diabetes Mellitus.",
+      "pub_date": "2026 Aug 12",
+      "journal": "Iran J Allergy Asthma Immunol",
+      "pub_type": "Review",
+      "doi": "10.18502/ijaai.v25is11.22481",
+      "pmcid": null
+    },
+    {
+      "pmid": "42827167",
+      "category": "immune_respiratory",
+      "title": "Effects of Post-infection Supplementation with Lactiplantibacillus plantarum CRD7 and Lacticaseibacillus rhamnosus CRD11 on Helicobacter pylori Virulence Gene Expression in a Rat Model of Gastric Infection.",
+      "pub_date": "2026 Oct 2",
+      "journal": "Curr Microbiol",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s00284-026-05112-9",
+      "pmcid": null
+    },
+    {
+      "pmid": "42827912",
+      "category": "immune_respiratory",
+      "title": "Mapping research hotspots and trends in gut microbiota and autoimmune diseases since the 21st century: a bibliometric visualization analysis based on two databases.",
+      "pub_date": "2026",
+      "journal": "Front Immunol",
+      "pub_type": "Systematic Review",
+      "doi": "10.3389/fimmu.2026.1793126",
+      "pmcid": "PMC13631007"
+    },
+    {
+      "pmid": "42827943",
+      "category": "immune_respiratory",
+      "title": "Gut microbial allies and adversaries in SARS-CoV-2 infection.",
+      "pub_date": "2026 Dec",
+      "journal": "Curr Res Microb Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.crmicr.2026.100661",
+      "pmcid": "PMC13632531"
+    },
+    {
+      "pmid": "42828074",
+      "category": "immune_respiratory",
+      "title": "Bacterial extracellular vesicles as central mediators of microbiota-host communication.",
+      "pub_date": "2026",
+      "journal": "Front Microbiol",
+      "pub_type": "Review",
+      "doi": "10.3389/fmicb.2026.1910885",
+      "pmcid": "PMC13631488"
+    },
+    {
+      "pmid": "42828482",
+      "category": "immune_respiratory",
+      "title": "RBM6 Facilitates RLR-Mediated Antiviral Responses by Promoting K63-Linked Ubiquitination of MAVS.",
+      "pub_date": "2026 Oct",
+      "journal": "J Med Virol",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/jmv.71173",
+      "pmcid": null
+    },
+    {
+      "pmid": "42828674",
+      "category": "immune_respiratory",
+      "title": "Engineered Bacillus subtilis Spores Surface-Displaying a PRRSV GP3/GP4/GP5 Fusion Antigen: A Preliminary Immunogenicity Evaluation in Mice and Piglets.",
+      "pub_date": "2026 Oct 3",
+      "journal": "Probiotics Antimicrob Proteins",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s12602-026-11221-5",
+      "pmcid": null
+    },
+    {
+      "pmid": "42828779",
+      "category": "immune_respiratory",
+      "title": "Rust Fungi Secretomes Contain Structurally Diverse Effector Families Including Cysteine-Rich Metal-Binding Proteins.",
+      "pub_date": "2026 Oct 3",
+      "journal": "Mol Plant Microbe Interact",
+      "pub_type": "Journal Article",
+      "doi": "10.1094/MPMI-06-26-0062-R",
+      "pmcid": null
+    },
+    {
+      "pmid": "42829259",
+      "category": "immune_respiratory",
+      "title": "Infant dermatitis induces long-lasting innate immune imprinting associated with the exacerbated adult atopic dermatitis-like skin inflammation.",
+      "pub_date": "2026 Oct 3",
+      "journal": "Allergol Int",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.alit.2026.08.005",
+      "pmcid": null
+    },
+    {
+      "pmid": "42829422",
+      "category": "immune_respiratory",
+      "title": "Microbiome signatures and mechanistic pathways in pediatric obesity: from early-life risk to precision interventions.",
+      "pub_date": "2026 Oct 3",
+      "journal": "World J Pediatr",
+      "pub_type": "Review",
+      "doi": "10.1007/s12519-026-01094-7",
+      "pmcid": null
+    },
+    {
+      "pmid": "42609475",
+      "category": "cannabinoid_safety",
+      "title": "Quantitative electroencephalography as a next-generation tool in neurodiagnostics: significance, clinical applications, and practical interpretative frameworks.",
+      "pub_date": "2026",
+      "journal": "Front Neurosci",
+      "pub_type": "Review",
+      "doi": "10.3389/fnins.2026.1834391",
+      "pmcid": "PMC13478133"
+    },
+    {
+      "pmid": "42611266",
+      "category": "cannabinoid_safety",
+      "title": "Poorly labeled CBD and related cannabinoid oils marketed in Europe: a hidden risk for consumers? Insights from a long-term study.",
+      "pub_date": "2026 Aug 18",
+      "journal": "Anal Bioanal Chem",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s00216-026-06734-5",
+      "pmcid": null
+    },
+    {
+      "pmid": "42613673",
+      "category": "cannabinoid_safety",
+      "title": "A randomised, double-blind, placebo-controlled crossover trial on cannabinoid-based medication for behavioural disorders in old patients with severe dementia: the study results.",
+      "pub_date": "2026 Aug 3",
+      "journal": "Age Ageing",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "doi": "10.1093/ageing/afag239",
+      "pmcid": "PMC13483985"
+    },
+    {
+      "pmid": "42617216",
+      "category": "cannabinoid_safety",
+      "title": "Links between cannabinoid hyperemesis syndrome symptoms and drug use, mental health problems, antisocial behavior, and personality in a national survey of adults in the United States.",
+      "pub_date": "2026 Oct 1",
+      "journal": "Drug Alcohol Depend",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.drugalcdep.2026.113323",
+      "pmcid": null
+    },
+    {
+      "pmid": "42618595",
+      "category": "cannabinoid_safety",
+      "title": "Glucocorticoid-endocannabinoid crosstalk in the ventrolateral periaqueductal gray (vlPAG) promotes pain resolution.",
+      "pub_date": "2026 Aug 19",
+      "journal": "Neuropsychopharmacology",
+      "pub_type": "Journal Article",
+      "doi": "10.1038/s41386-026-02529-5",
+      "pmcid": "PMC13552490"
+    },
+    {
+      "pmid": "42618986",
+      "category": "cannabinoid_safety",
+      "title": "Peripheral cannabinoid-1 receptor antagonists in clinical development: therapeutic potential for the management of obesity and related metabolic disorders.",
+      "pub_date": "2026 Jul-Aug",
+      "journal": "Expert Opin Investig Drugs",
+      "pub_type": "Review",
+      "doi": "10.1080/13543784.2026.2713043",
+      "pmcid": null
+    },
+    {
+      "pmid": "42623795",
+      "category": "cannabinoid_safety",
+      "title": "Pharmacological treatments of REM sleep behaviour disorder in synucleinopathies: a systematic review of effectiveness and safety.",
+      "pub_date": "2026 Dec",
+      "journal": "Sleep Med",
+      "pub_type": "Review",
+      "doi": "10.1016/j.sleep.2026.109154",
+      "pmcid": null
+    },
+    {
+      "pmid": "42623982",
+      "category": "cannabinoid_safety",
+      "title": "Does co-administration of cannabidiol (CBD) influence the plasma availability of delta-9-tetrahydrocannabinol (THC) and its active metabolite in humans? A systematic review and meta-analysis.",
+      "pub_date": "2026 Nov",
+      "journal": "Neurosci Biobehav Rev",
+      "pub_type": "Systematic Review",
+      "doi": "10.1016/j.neubiorev.2026.106910",
+      "pmcid": null
+    },
+    {
+      "pmid": "42627450",
+      "category": "cannabinoid_safety",
+      "title": "Pharmacokinetics, Safety, and Dosing of Antiseizure Medications in Patients with Renal or Hepatic Impairment.",
+      "pub_date": "2026 Sep",
+      "journal": "Clin Pharmacokinet",
+      "pub_type": "Review",
+      "doi": "10.1007/s40262-026-01691-9",
+      "pmcid": null
+    },
+    {
+      "pmid": "42630256",
+      "category": "cannabinoid_safety",
+      "title": "Anticonvulsant effects, safety, and sex-dependent molecular signatures of cannabidiol treatment in a preclinical model of audiogenic epilepsy.",
+      "pub_date": "2026",
+      "journal": "Front Pharmacol",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fphar.2026.1745696",
+      "pmcid": "PMC13493383"
+    },
+    {
+      "pmid": "42630400",
+      "category": "cannabinoid_safety",
+      "title": "Spontaneous Migration of a Postcholecystectomy Surgical Clip From the Common Bile Duct to the Cecum Nineteen Years After Surgery: A Case Report.",
+      "pub_date": "2026",
+      "journal": "Case Rep Gastrointest Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1155/crgm/7768285",
+      "pmcid": "PMC13494345"
+    },
+    {
+      "pmid": "42630944",
+      "category": "cannabinoid_safety",
+      "title": "Distal cholangiocarcinoma arising in a Choi Type I septate common bile duct: a case report.",
+      "pub_date": "2026 Aug",
+      "journal": "J Surg Case Rep",
+      "pub_type": "Journal Article",
+      "doi": "10.1093/jscr/rjag574",
+      "pmcid": "PMC13494897"
+    },
+    {
+      "pmid": "42632396",
+      "category": "cannabinoid_safety",
+      "title": "Integrated network pharmacology and lipidomics provide insights into potential mechanisms underlying the effects of cannabidiol in a rat model of autism.",
+      "pub_date": "2026 Nov",
+      "journal": "Psychiatry Res",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.psychres.2026.117405",
+      "pmcid": null
+    },
+    {
+      "pmid": "42639023",
+      "category": "cannabinoid_safety",
+      "title": "Multiple binding modes underlie Cannabis sativa cannabinoids recognition by peroxisome proliferator-activated receptor gamma.",
+      "pub_date": "2026",
+      "journal": "Front Bioinform",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fbinf.2026.1893303",
+      "pmcid": "PMC13500514"
+    },
+    {
+      "pmid": "42639765",
+      "category": "cannabinoid_safety",
+      "title": "Baihe Dihuang decoction activates cannabinoid type 2 receptor to regulate microglial polarization and alleviate anxiety-like behavior in chronic restraint stress mice.",
+      "pub_date": "2026 Aug",
+      "journal": "J Tradit Chin Med",
+      "pub_type": "Journal Article",
+      "doi": "10.19852/j.cnki.jtcm.2026.04.003",
+      "pmcid": "PMC13494881"
+    },
+    {
+      "pmid": "42641999",
+      "category": "cannabinoid_safety",
+      "title": "A microfluidic and mechanistic modeling approach to enhance oral bioavailability of cannabidiol via poloxamer-coated camel milk exosomes.",
+      "pub_date": "2026 Oct 5",
+      "journal": "Int J Pharm",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.ijpharm.2026.127347",
+      "pmcid": null
+    },
+    {
+      "pmid": "42644517",
+      "category": "cannabinoid_safety",
+      "title": "Effects of Cannabidiol-Rich Cannabis Oil on Facial Expression Recognition and Theory of Mind in Children With Autism Spectrum Disorder: A Randomized Clinical Trial.",
+      "pub_date": "2026 Aug 26",
+      "journal": "Autism Res",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/aur.70353",
+      "pmcid": null
+    },
+    {
+      "pmid": "42652086",
+      "category": "cannabinoid_safety",
+      "title": "Medical Cannabis During Pregnancy and Breastfeeding: Is the Concern Fully Evidence-Based?",
+      "pub_date": "2026 Jul 29",
+      "journal": "Biomedicines",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/biomedicines14081703",
+      "pmcid": "PMC13509917"
+    },
+    {
+      "pmid": "42653071",
+      "category": "cannabinoid_safety",
+      "title": "Safety and Efficacy Assessment of Cannabis Plant Compared to Atorvastatin for Lipid Lowering in Diabetic and Obese Wistar Male Rats.",
+      "pub_date": "2026 Aug 21",
+      "journal": "Life (Basel)",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/life16081383",
+      "pmcid": "PMC13514640"
+    },
+    {
+      "pmid": "42653650",
+      "category": "cannabinoid_safety",
+      "title": "Neuropharmacology of Cannabinoids: A Comprehensive Review of Preclinical and Clinical Evidence for Hemp-Derived Extracts and Active Compounds.",
+      "pub_date": "2026 Jul 24",
+      "journal": "Pharmaceuticals (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/ph19081151",
+      "pmcid": "PMC13516590"
+    },
+    {
+      "pmid": "42653735",
+      "category": "cannabinoid_safety",
+      "title": "Cannabis and Cannabinoids: The Medical Potential of Cannabidiol in Mental and Neurological Disorders.",
+      "pub_date": "2026 Aug 6",
+      "journal": "Pharmaceuticals (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/ph19081238",
+      "pmcid": "PMC13516537"
+    },
+    {
+      "pmid": "42658415",
+      "category": "cannabinoid_safety",
+      "title": "Impact of cannabis use on white matter hyperintensities in adults with and without chronic HIV disease.",
+      "pub_date": "2026 Aug 27",
+      "journal": "J Neurovirol",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s13365-026-01338-2",
+      "pmcid": "PMC13522075"
+    },
+    {
+      "pmid": "42659806",
+      "category": "cannabinoid_safety",
+      "title": "Next-generation hybrid nanosystems for cannabidiol: From molecular challenges to site-specific preclinical applications.",
+      "pub_date": "2026 Oct",
+      "journal": "Biomed Pharmacother",
+      "pub_type": "Review",
+      "doi": "10.1016/j.biopha.2026.119877",
+      "pmcid": null
+    },
+    {
+      "pmid": "42661597",
+      "category": "cannabinoid_safety",
+      "title": "Placebo and nocebo effects on pain through the lens of the predictive brain: Neurobiological mechanisms and translational implications.",
+      "pub_date": "2026 Aug 28",
+      "journal": "Exp Physiol",
+      "pub_type": "Review",
+      "doi": "10.1113/EP093418",
+      "pmcid": "PMC13522961"
+    },
+    {
+      "pmid": "42661783",
+      "category": "cannabinoid_safety",
+      "title": "Cannabinoid efficacy for pain: dose, chronicity and route.",
+      "pub_date": "2026",
+      "journal": "Front Neurosci",
+      "pub_type": "Review",
+      "doi": "10.3389/fnins.2026.1888863",
+      "pmcid": "PMC13518349"
+    },
+    {
+      "pmid": "42662497",
+      "category": "cannabinoid_safety",
+      "title": "Quality by Design-Driven Formulation Development of Cannabidiol Orally Disintegrating Tablets.",
+      "pub_date": "2026",
+      "journal": "Scientifica (Cairo)",
+      "pub_type": "Journal Article",
+      "doi": "10.1155/sci5/3553253",
+      "pmcid": "PMC13519653"
+    },
+    {
+      "pmid": "42663925",
+      "category": "cannabinoid_safety",
+      "title": "Selective and Time-Dependent Alterations in Cytochrome P450 (CYP) Enzyme Activity and Expression by Major Phytocannabinoids.",
+      "pub_date": "2026 Aug 28",
+      "journal": "Eur J Drug Metab Pharmacokinet",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s13318-026-01031-z",
+      "pmcid": null
+    },
+    {
+      "pmid": "42666469",
+      "category": "cannabinoid_safety",
+      "title": "A comparative network analysis to explore cancer patient experiences with cannabis.",
+      "pub_date": "2026",
+      "journal": "Front Psychiatry",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fpsyt.2026.1737119",
+      "pmcid": "PMC13522202"
+    },
+    {
+      "pmid": "42667399",
+      "category": "cannabinoid_safety",
+      "title": "A study on the directed engineering and multiple transformations of cannabidiolic acid synthase to enhance the expression level of the recombinant enzyme.",
+      "pub_date": "2026 Aug 29",
+      "journal": "Arch Microbiol",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s00203-026-05097-w",
+      "pmcid": null
+    },
+    {
+      "pmid": "42675819",
+      "category": "cannabinoid_safety",
+      "title": "Potential Iatrogenic Harms From Medicinal Cannabis Prescribing in Australia: A Case Series.",
+      "pub_date": "2026 Sep",
+      "journal": "Drug Alcohol Rev",
+      "pub_type": "Journal Article",
+      "doi": "10.1111/dar.70255",
+      "pmcid": "PMC13530416"
+    },
+    {
+      "pmid": "42677623",
+      "category": "cannabinoid_safety",
+      "title": "Allosteric Modulation of the CB1 Receptor by a Juniper Berry Seasoning Extract: Deoxypodophyllotoxin as the Major Active Constituent.",
+      "pub_date": "2026 Aug 26",
+      "journal": "J Agric Food Chem",
+      "pub_type": "Journal Article",
+      "doi": "10.1021/acs.jafc.6c02831",
+      "pmcid": null
+    },
+    {
+      "pmid": "42678518",
+      "category": "cannabinoid_safety",
+      "title": "Effects of delta-9 tetrahydrocannabinol and cannabidiol on cognitive outcomes following acute use of cannabis for chronic pain.",
+      "pub_date": "2026 Sep 1",
+      "journal": "Psychopharmacology (Berl)",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s00213-026-07157-x",
+      "pmcid": null
+    },
+    {
+      "pmid": "42679687",
+      "category": "cannabinoid_safety",
+      "title": "Effects of simulated exogenous and endogenous lipid microenvironments on cannabidiol disposition and cytochrome P450 2C19-mediated drug interactions: New mechanistic insights.",
+      "pub_date": "2026 Sep",
+      "journal": "Drug Metab Dispos",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.dmd.2026.100375",
+      "pmcid": null
+    },
+    {
+      "pmid": "42683034",
+      "category": "cannabinoid_safety",
+      "title": "Duodenal Perforation From Dislodged Prophylactic Pancreatic Stent Following ERCP for Hilar Cholangiocarcinoma: A Rare Adverse Event.",
+      "pub_date": "2026",
+      "journal": "J Community Hosp Intern Med Perspect",
+      "pub_type": "Journal Article",
+      "doi": "10.55729/2000-9666.1610",
+      "pmcid": "PMC13532666"
+    },
+    {
+      "pmid": "42689154",
+      "category": "cannabinoid_safety",
+      "title": "Safety and Efficacy of Single-Session Endoscopic Retrograde Cholangiopancreatography and Laparoscopic Cholecystectomy for the Treatment of Concomitant Gallbladder and Common Bile Duct Stones: A Single-Centre Experience.",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "doi": "10.7759/cureus.113857",
+      "pmcid": "PMC13536976"
+    },
+    {
+      "pmid": "42690319",
+      "category": "cannabinoid_safety",
+      "title": "Cannabigerol and standardized full-spectrum cannabis extract effects in acute and chronic inflammatory pain models.",
+      "pub_date": "2026 Sep 3",
+      "journal": "Psychopharmacology (Berl)",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s00213-026-07156-y",
+      "pmcid": null
+    },
+    {
+      "pmid": "42692325",
+      "category": "cannabinoid_safety",
+      "title": "Cannabigerol, a minor phytocannabinoid, prevents behavioral changes induced by psychotomimetic drugs.",
+      "pub_date": "2026 Aug 30",
+      "journal": "Prog Neuropsychopharmacol Biol Psychiatry",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.pnpbp.2026.111903",
+      "pmcid": null
+    },
+    {
+      "pmid": "42697348",
+      "category": "cannabinoid_safety",
+      "title": "Immunoregulatory effects of DHEA and EPEA on activated microglia in vitro: The role of cannabinoid receptors.",
+      "pub_date": "2026 Sep 4",
+      "journal": "Cell Signal",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.cellsig.2026.112878",
+      "pmcid": null
+    },
+    {
+      "pmid": "42697776",
+      "category": "cannabinoid_safety",
+      "title": "Current role of cannabis in therapeutics: A critical perspective.",
+      "pub_date": "2026 Sep 4",
+      "journal": "Farm Hosp",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.farma.2026.08.002",
+      "pmcid": null
+    },
+    {
+      "pmid": "42698223",
+      "category": "cannabinoid_safety",
+      "title": "Mucus-Penetrating Nanostructured Lipid Carriers: An Effective Approach for Cannabidiol to Pass Across the Nasal Mucus-Mucosal Barrier.",
+      "pub_date": "2026 Sep",
+      "journal": "J Biomed Mater Res A",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "doi": "10.1002/jbm.a.70133",
+      "pmcid": null
+    },
+    {
+      "pmid": "42699503",
+      "category": "cannabinoid_safety",
+      "title": "Lemmel syndrome: the role of prudent radiological evaluation - a case report.",
+      "pub_date": "2026 Sep",
+      "journal": "Int J Surg Case Rep",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/RC9.0000000000000773",
+      "pmcid": "PMC13544773"
+    },
+    {
+      "pmid": "42704497",
+      "category": "cannabinoid_safety",
+      "title": "Efficacy and safety of cannabinoid-based interventions for behavioral and cognitive symptoms in dementia: systematic review and meta-analysis.",
+      "pub_date": "2026 Sep 7",
+      "journal": "Neurol Sci",
+      "pub_type": "Meta-Analysis",
+      "doi": "10.1007/s10072-026-09347-z",
+      "pmcid": null
+    },
+    {
+      "pmid": "42705415",
+      "category": "cannabinoid_safety",
+      "title": "Acetaminophen alters endogenous lipid signaling and attenuates pathological pain through a mechanism requiring diacylglycerol lipase, monoacylglycerol lipase and cannabinoid CB1 receptors in mice.",
+      "pub_date": "2026 Sep 7",
+      "journal": "Neuropharmacology",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.neuropharm.2026.111176",
+      "pmcid": null
+    },
+    {
+      "pmid": "42708340",
+      "category": "cannabinoid_safety",
+      "title": "Cannabidiol reverses mechanical hypersensitivity in a mouse model of apical periodontitis.",
+      "pub_date": "2026 Sep 8",
+      "journal": "Pain",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/j.pain.0000000000004121",
+      "pmcid": null
+    },
+    {
+      "pmid": "42709344",
+      "category": "cannabinoid_safety",
+      "title": "Phytocannabinoids and bone health.",
+      "pub_date": "2026 Sep 8",
+      "journal": "Curr Osteoporos Rep",
+      "pub_type": "Review",
+      "doi": "10.1007/s11914-026-00982-1",
+      "pmcid": "PMC13553617"
+    },
+    {
+      "pmid": "42709924",
+      "category": "cannabinoid_safety",
+      "title": "Greener Choices in Biliary Imaging: A Prospective Carbon Footprint Comparison of EUS versus MRCP for Intermediate-Likelihood Choledocholithiasis.",
+      "pub_date": "2026 Sep 8",
+      "journal": "Clin Transl Gastroenterol",
+      "pub_type": "Journal Article",
+      "doi": "10.14309/ctg.0000000000001098",
+      "pmcid": null
+    },
+    {
+      "pmid": "42711610",
+      "category": "cannabinoid_safety",
+      "title": "Predicting Cannabidiol Pharmacokinetics in Older Adults Via Physiologically Based Pharmacokinetic Modeling.",
+      "pub_date": "2026 Sep 8",
+      "journal": "AAPS J",
+      "pub_type": "Journal Article",
+      "doi": "10.1208/s12248-026-01281-4",
+      "pmcid": null
+    },
+    {
+      "pmid": "42714779",
+      "category": "cannabinoid_safety",
+      "title": "Cognitive Side Effects of Antiseizure Medications in Adults with Epilepsy: An Update with a Focus on New Therapeutic Agents.",
+      "pub_date": "2026 Sep 9",
+      "journal": "CNS Drugs",
+      "pub_type": "Review",
+      "doi": "10.1007/s40263-026-01331-7",
+      "pmcid": null
+    },
+    {
+      "pmid": "42714782",
+      "category": "cannabinoid_safety",
+      "title": "Interactions of ACEA and WIN 55,212-2 mesylate with temozolomide and cisplatin in neuroblastoma and glioblastoma cell lines: an isobolographic analysis.",
+      "pub_date": "2026 Sep 9",
+      "journal": "Pharmacol Rep",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s43440-026-00898-8",
+      "pmcid": null
+    },
+    {
+      "pmid": "42719704",
+      "category": "cannabinoid_safety",
+      "title": "Cholangitis, Choledocholithiasis and a Cholecystocolonic Fistula: A Case Report on a Rare Triple Surgical Challenge.",
+      "pub_date": "2026",
+      "journal": "Case Rep Surg",
+      "pub_type": "Journal Article",
+      "doi": "10.1155/cris/1989959",
+      "pmcid": "PMC13555818"
+    },
+    {
+      "pmid": "42722055",
+      "category": "cannabinoid_safety",
+      "title": "Diminazene aceturate-induced relaxation in isolated rat thoracic aorta: Contribution of cannabinoid and vanilloid signaling.",
+      "pub_date": "2026 Oct 28",
+      "journal": "Eur J Pharmacol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.ejphar.2026.179326",
+      "pmcid": null
+    },
+    {
+      "pmid": "42722230",
+      "category": "cannabinoid_safety",
+      "title": "Combined Cannabidiol and Δ(9)-Tetrahydrocannabinol Modulate Inflammation and Nociceptive Signaling in Human Dental Pulp Cells.",
+      "pub_date": "2026 Sep 10",
+      "journal": "J Endod",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.joen.2026.09.003",
+      "pmcid": null
+    },
+    {
+      "pmid": "42724108",
+      "category": "cannabinoid_safety",
+      "title": "UK Medical Cannabis Registry: An Updated Analysis of Inflammatory Arthritis.",
+      "pub_date": "2026",
+      "journal": "Clin Med Insights Arthritis Musculoskelet Disord",
+      "pub_type": "Journal Article",
+      "doi": "10.1177/11795441261480709",
+      "pmcid": "PMC13558946"
+    },
+    {
+      "pmid": "42726817",
+      "category": "cannabinoid_safety",
+      "title": "Endoscopic retrograde cholangiopancreatography and endoscopic sphincterotomy for sphincter of Oddi dysfunction: short-term results.",
+      "pub_date": "2026",
+      "journal": "Pol Merkur Lekarski",
+      "pub_type": "Journal Article",
+      "doi": "10.36740/Merkur202604103",
+      "pmcid": null
+    },
+    {
+      "pmid": "42728455",
+      "category": "cannabinoid_safety",
+      "title": "Cannabinoid type 1 receptor availability imaging in attention-deficit/hyperactivity disorder using [(18)F]MK-9470 positron emission tomography: study protocol of the CB1-ADHD study.",
+      "pub_date": "2026 Sep 12",
+      "journal": "EJNMMI Rep",
+      "pub_type": "Journal Article",
+      "doi": "10.1186/s41824-026-00322-7",
+      "pmcid": "PMC13569728"
+    },
+    {
+      "pmid": "42728549",
+      "category": "cannabinoid_safety",
+      "title": "Potential Role of CYP3A4 in Determining In Vivo Exposure to Cannabidiol (CBD) and its Active Metabolite 7-OH-CBD: Evidence from an In Vitro Study.",
+      "pub_date": "2026 Sep 11",
+      "journal": "Eur J Drug Metab Pharmacokinet",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s13318-026-01032-y",
+      "pmcid": null
+    },
+    {
+      "pmid": "42729764",
+      "category": "cannabinoid_safety",
+      "title": "Evaluation of Phytocannabinoids as Antitumor Agents against Ovarian Cancer Cells in Combination with Carboplatin.",
+      "pub_date": "2026 Sep 8",
+      "journal": "ACS Omega",
+      "pub_type": "Journal Article",
+      "doi": "10.1021/acsomega.6c04745",
+      "pmcid": "PMC13563602"
+    },
+    {
+      "pmid": "42733562",
+      "category": "cannabinoid_safety",
+      "title": "Targeting LKB1-inactivated lung cancers with a stapled peptide inhibitor of the CRTC-CREB pathway.",
+      "pub_date": "2026 Sep 17",
+      "journal": "Mol Ther Oncol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.omton.2026.201331",
+      "pmcid": "PMC13571231"
+    },
+    {
+      "pmid": "42734521",
+      "category": "cannabinoid_safety",
+      "title": "Residue Interaction Network Reveals Allosteric Pathways Linking Orthosteric and Intracellular Sites in Class A GPCRs.",
+      "pub_date": "2026 Sep 14",
+      "journal": "J Chem Inf Model",
+      "pub_type": "Journal Article",
+      "doi": "10.1021/acs.jcim.6c00526",
+      "pmcid": "PMC13580027"
+    },
+    {
+      "pmid": "42734663",
+      "category": "cannabinoid_safety",
+      "title": "Anandamide blocks spatial memory reconsolidation in male rats through a CB1 receptor dependent mechanism.",
+      "pub_date": "2026 Sep 14",
+      "journal": "Psychopharmacology (Berl)",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s00213-026-07161-1",
+      "pmcid": null
+    },
+    {
+      "pmid": "42737454",
+      "category": "cannabinoid_safety",
+      "title": "Medical Cannabis and the Hallmarks of Cancer: A Critical Narrative Review.",
+      "pub_date": "2026 Aug 23",
+      "journal": "Int J Mol Sci",
+      "pub_type": "Review",
+      "doi": "10.3390/ijms27177549",
+      "pmcid": "PMC13565641"
+    },
+    {
+      "pmid": "42738921",
+      "category": "cannabinoid_safety",
+      "title": "Kava (Piper methysticum G. Forst) for Substance Use Disorders: A Review of Mechanism, Pharmacology, Clinical Evidence, and Therapeutic Potential.",
+      "pub_date": "2026 Aug 22",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "doi": "10.3390/nu18172747",
+      "pmcid": "PMC13567056"
+    },
+    {
+      "pmid": "42741330",
+      "category": "cannabinoid_safety",
+      "title": "Comparative transcriptome analysis reveals putative transcription factors components of the regulatory network for cannabidiol biosynthesis in Cannabis sativa L.",
+      "pub_date": "2026",
+      "journal": "Front Plant Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fpls.2026.1914974",
+      "pmcid": "PMC13572606"
+    },
+    {
+      "pmid": "42744343",
+      "category": "cannabinoid_safety",
+      "title": "The anterior cingulate cortex mediates cisplatin-induced mechanical allodynia and represents a target for cannabigerol antinociception.",
+      "pub_date": "2026 Jan-Dec",
+      "journal": "Mol Pain",
+      "pub_type": "Journal Article",
+      "doi": "10.1177/17448069261491110",
+      "pmcid": "PMC13583285"
+    },
+    {
+      "pmid": "42745018",
+      "category": "cannabinoid_safety",
+      "title": "The Endocannabinoid System in Endometriosis-Associated Pain: Mechanisms, Molecular Targets, and Therapeutic Implications.",
+      "pub_date": "2026 Sep 15",
+      "journal": "Reprod Sci",
+      "pub_type": "Review",
+      "doi": "10.1007/s43032-026-02201-9",
+      "pmcid": null
+    },
+    {
+      "pmid": "42745361",
+      "category": "cannabinoid_safety",
+      "title": "(+)-Trans-Cannabidiol Is an Agonist at Human CB(2) Receptors.",
+      "pub_date": "2026 Oct",
+      "journal": "Pharmacol Res Perspect",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/prp2.70325",
+      "pmcid": "PMC13578601"
+    },
+    {
+      "pmid": "42748645",
+      "category": "cannabinoid_safety",
+      "title": "Tolerance, physical dependence, and Δ(9)-THC-like interoceptive effects of cannabinol in mice.",
+      "pub_date": "2026 Sep 6",
+      "journal": "Drug Alcohol Depend",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.drugalcdep.2026.113341",
+      "pmcid": null
+    },
+    {
+      "pmid": "42751849",
+      "category": "cannabinoid_safety",
+      "title": "Nanostructured lipid carriers for intranasal cannabidiol delivery in Dravet and Lennox-Gastaut syndromes: bridging preclinical promise to clinical translation.",
+      "pub_date": "2026 Sep 17",
+      "journal": "Ther Deliv",
+      "pub_type": "Review",
+      "doi": "10.1080/20415990.2026.2731738",
+      "pmcid": null
+    },
+    {
+      "pmid": "42753475",
+      "category": "cannabinoid_safety",
+      "title": "Exploring the potential benefits of combining cannabidiol and beta-caryophyllene for neuropathic and inflammatory pain: A systematic review.",
+      "pub_date": "2026 Sep 11",
+      "journal": "Phytomedicine",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.phymed.2026.158798",
+      "pmcid": null
+    },
+    {
+      "pmid": "42755155",
+      "category": "cannabinoid_safety",
+      "title": "Temporal Changes in Biliary Duct Diameter with Correlated Bilirubin Levels in Confirmed Choledocholithiasis: A Prospective 3 Time-Point Observational Ultrasound Study.",
+      "pub_date": "2026 Sep 17",
+      "journal": "J Ultrasound Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/jum.70487",
+      "pmcid": null
+    },
+    {
+      "pmid": "42755825",
+      "category": "cannabinoid_safety",
+      "title": "Novel pharmacotherapies for opioid use disorder and opioid withdrawal.",
+      "pub_date": "2026",
+      "journal": "Front Psychiatry",
+      "pub_type": "Review",
+      "doi": "10.3389/fpsyt.2026.1909149",
+      "pmcid": "PMC13581858"
+    },
+    {
+      "pmid": "42756662",
+      "category": "cannabinoid_safety",
+      "title": "Modulation of spatial learning and memory by cannabinoid-estrogen interaction in an AD-like cognitive impairment: The role of cannabinoid receptors and BDNF protein.",
+      "pub_date": "2026 Dec",
+      "journal": "IBRO Neurosci Rep",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.ibneur.2026.09.002",
+      "pmcid": "PMC13584061"
+    },
+    {
+      "pmid": "42757353",
+      "category": "cannabinoid_safety",
+      "title": "Efficacy of Cannabinoids in Improving Nutritional Outcomes in Chemotherapy Patients: A Scoping Review.",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Review",
+      "doi": "10.7759/cureus.114757",
+      "pmcid": "PMC13585438"
+    },
+    {
+      "pmid": "42759806",
+      "category": "cannabinoid_safety",
+      "title": "Cannabidiol modulates the brain rhythms within the hippocampal-prelimbic pathway in reinstatement of extinguished methamphetamine-induced conditioned place preference.",
+      "pub_date": "2026 Sep 18",
+      "journal": "Neuroscience",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.neuroscience.2026.09.025",
+      "pmcid": null
+    },
+    {
+      "pmid": "42761342",
+      "category": "cannabinoid_safety",
+      "title": "Comparative in vitro safety assessments of synthetized and plant-derived cannabidiol (CBD), and pharmacokinetics of synthetized CBD: evidence of similar toxicological profiles and accumulation upon repeated oral administration.",
+      "pub_date": "2026",
+      "journal": "Front Toxicol",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/ftox.2026.1844643",
+      "pmcid": "PMC13586287"
+    },
+    {
+      "pmid": "42761670",
+      "category": "cannabinoid_safety",
+      "title": "Safety of synthetic cannabidiol as a novel food pursuant to regulation (EU) 2015/2283.",
+      "pub_date": "2026 Sep",
+      "journal": "EFSA J",
+      "pub_type": "Journal Article",
+      "doi": "10.2903/j.efsa.2026.10154",
+      "pmcid": "PMC13586991"
+    },
+    {
+      "pmid": "42761727",
+      "category": "cannabinoid_safety",
+      "title": "Procedural Challenges in the Analysis of Toxic Metals in Electronic Cannabinoid Delivery System Aerosols Produced for Vaping Cannabinoids.",
+      "pub_date": "2026 Sep 1",
+      "journal": "J Test Eval",
+      "pub_type": "Journal Article",
+      "doi": "10.1520/jte20250320",
+      "pmcid": "PMC13588543"
+    },
+    {
+      "pmid": "42762707",
+      "category": "cannabinoid_safety",
+      "title": "Use of cannabidiol products in Canada, United States, Australia, Aotearoa New Zealand, United Kingdom and Germany: products, sources and reasons for use.",
+      "pub_date": "2026 Sep 19",
+      "journal": "Int J Drug Policy",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.drugpo.2026.105506",
+      "pmcid": null
+    },
+    {
+      "pmid": "42763829",
+      "category": "cannabinoid_safety",
+      "title": "α1-Antitrypsin attenuates microglial NLR family pyrin domain containing 3 inflammasome activation via cannabinoid receptor 2 signaling to ameliorate α-synucleinopathy-related behavioral deficits.",
+      "pub_date": "2026 Sep 20",
+      "journal": "Mol Biomed",
+      "pub_type": "Journal Article",
+      "doi": "10.1186/s43556-026-00583-5",
+      "pmcid": "PMC13590469"
+    },
+    {
+      "pmid": "42765009",
+      "category": "cannabinoid_safety",
+      "title": "Repeated whole-body inhalation of cannabidiol vapor induces progressive pulmonary inflammatory and vascular remodeling without systemic toxicity in Sprague-Dawley rats.",
+      "pub_date": "2026 Aug 31",
+      "journal": "Vet World",
+      "pub_type": "Journal Article",
+      "doi": "10.14202/vetworld.2026.3701-3715",
+      "pmcid": "PMC13590172"
+    },
+    {
+      "pmid": "42765078",
+      "category": "cannabinoid_safety",
+      "title": "Self-Administered Dietary Supplements, Herbal Products, and Ergogenic Aids Before Plastic Surgery: A Narrative Review and the PLASTIC-S Perioperative Management Framework.",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Review",
+      "doi": "10.7759/cureus.114938",
+      "pmcid": "PMC13590108"
+    },
+    {
+      "pmid": "42765195",
+      "category": "cannabinoid_safety",
+      "title": "Effectiveness and safety of cannabidiol in adult patients with epilepsy: A multicenter, retrospective study.",
+      "pub_date": "2026 Sep 21",
+      "journal": "Epilepsia Open",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/epi4.70331",
+      "pmcid": "PMC13591235"
+    },
+    {
+      "pmid": "42767712",
+      "category": "cannabinoid_safety",
+      "title": "Vulnerability in the womb: Charting the effects of prenatal cannabinoid exposure to mitigate developmental actions on dopamine metabolic capacities and circuits.",
+      "pub_date": "2026",
+      "journal": "Int Rev Neurobiol",
+      "pub_type": "Review",
+      "doi": "10.1016/bs.irn.2026.08.020",
+      "pmcid": null
+    },
+    {
+      "pmid": "42767823",
+      "category": "cannabinoid_safety",
+      "title": "[Anxiety-like behaviors induced by chronic administration of the synthetic cannabinoid 4F-ABUTINACA in rats and the underlying mechanisms].",
+      "pub_date": "2026 Sep 21",
+      "journal": "Zhejiang Da Xue Xue Bao Yi Xue Ban",
+      "pub_type": "Journal Article",
+      "doi": "10.3724/zdxbyxb-2025-0891",
+      "pmcid": null
+    },
+    {
+      "pmid": "42769758",
+      "category": "cannabinoid_safety",
+      "title": "Safety of Cannabis sativaL. extract as a novel food pursuant to Regulation (EU) 2015/2283.",
+      "pub_date": "2026 Sep",
+      "journal": "EFSA J",
+      "pub_type": "Journal Article",
+      "doi": "10.2903/j.efsa.2026.10319",
+      "pmcid": "PMC13591333"
+    },
+    {
+      "pmid": "42769824",
+      "category": "cannabinoid_safety",
+      "title": "Safety of cannabidiol isolated from Cannabis sativa L. as a novel food pursuant to Regulation (EU) 2015/2283.",
+      "pub_date": "2026 Sep",
+      "journal": "EFSA J",
+      "pub_type": "Journal Article",
+      "doi": "10.2903/j.efsa.2026.10318",
+      "pmcid": "PMC13591334"
+    },
+    {
+      "pmid": "42771648",
+      "category": "cannabinoid_safety",
+      "title": "Evaluating the impact of cannabinoid extracts on chronic pain and quality of life in endometriosis patients - a pilot study.",
+      "pub_date": "2026",
+      "journal": "PLoS One",
+      "pub_type": "Observational Study",
+      "doi": "10.1371/journal.pone.0356768",
+      "pmcid": "PMC13596799"
+    },
+    {
+      "pmid": "42773392",
+      "category": "cannabinoid_safety",
+      "title": "Transcriptional and epigenetic regulation of the cannabinoid receptor type-1 (CB1R) in health and disease: an overview.",
+      "pub_date": "2026 Sep 22",
+      "journal": "Pharmacol Rep",
+      "pub_type": "Review",
+      "doi": "10.1007/s43440-026-00901-2",
+      "pmcid": null
+    },
+    {
+      "pmid": "42773786",
+      "category": "cannabinoid_safety",
+      "title": "Efficacy and Safety of Cannabinoid-Based Interventions for Low Back Pain and Migraine: A Systematic Review of Randomized Controlled Trials.",
+      "pub_date": "2026 Sep 22",
+      "journal": "Cannabis Cannabinoid Res",
+      "pub_type": "Review",
+      "doi": "10.1177/25785125261490003",
+      "pmcid": null
+    },
+    {
+      "pmid": "42781598",
+      "category": "cannabinoid_safety",
+      "title": "Wernicke Encephalopathy Secondary to Cannabinoid Hyperemesis Syndrome in a 15-Year-Old Male Patient: A Case Report.",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "doi": "10.7759/cureus.115093",
+      "pmcid": "PMC13600471"
+    },
+    {
+      "pmid": "42783432",
+      "category": "cannabinoid_safety",
+      "title": "Cannabigerol at the Interface of the Gut Microbiota and EndoCannabinoidome: Mechanistic Insights into Inflammation and Pain Modulation.",
+      "pub_date": "2026 Sep 10",
+      "journal": "Med Sci (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/medsci14050560",
+      "pmcid": "PMC13609727"
+    },
+    {
+      "pmid": "42783473",
+      "category": "cannabinoid_safety",
+      "title": "Cannabis and Wound Healing: A Narrative Review of Current Evidence and Applications to Facial Plastic Surgery.",
+      "pub_date": "2026 Aug 24",
+      "journal": "J Pers Med",
+      "pub_type": "Review",
+      "doi": "10.3390/jpm16090442",
+      "pmcid": "PMC13608392"
+    },
+    {
+      "pmid": "42784233",
+      "category": "cannabinoid_safety",
+      "title": "Subchronic Exposure to Low-Dose Cannabidiol (CBD) and Δ(9)-Tetrahydrocannabinol (Δ(9)-THC) Nanoemulsions Suggests Low Renal Toxicity: A Preliminary Study.",
+      "pub_date": "2026 Sep 1",
+      "journal": "Pathophysiology",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/pathophysiology33030065",
+      "pmcid": "PMC13610427"
+    },
+    {
+      "pmid": "42785538",
+      "category": "cannabinoid_safety",
+      "title": "Cannabinoids as context-dependent modulators of the adenosine A(3) receptors: Potential orthosteric and allosteric mechanisms.",
+      "pub_date": "2026 Sep 24",
+      "journal": "Pharmacol Res",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.phrs.2026.109641",
+      "pmcid": null
+    },
+    {
+      "pmid": "42790169",
+      "category": "cannabinoid_safety",
+      "title": "Phytocannabinoid cannabidiol (CBD) in neurodegenerative diseases: From polypharmacology to drug development.",
+      "pub_date": "2026 Sep 23",
+      "journal": "Eur J Med Chem",
+      "pub_type": "Review",
+      "doi": "10.1016/j.ejmech.2026.119360",
+      "pmcid": null
+    },
+    {
+      "pmid": "42790688",
+      "category": "cannabinoid_safety",
+      "title": "Persistent brain alterations after adolescent exposure to the synthetic cannabinOid 5F-MDMB-PICA in male mice: a metabolomic fingerprint.",
+      "pub_date": "2026 Sep 25",
+      "journal": "Toxicology",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.tox.2026.154595",
+      "pmcid": null
+    },
+    {
+      "pmid": "42791631",
+      "category": "cannabinoid_safety",
+      "title": "Cannabis-based medicines: On the topic of intoxication.",
+      "pub_date": "2026 Sep 25",
+      "journal": "Br J Clin Pharmacol",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/bcp.70840",
+      "pmcid": null
+    },
+    {
+      "pmid": "42793092",
+      "category": "cannabinoid_safety",
+      "title": "Cannabinoids in Cancer: Molecular Mechanisms of Tumor Cell Death and Translational Opportunities.",
+      "pub_date": "2026 Aug 31",
+      "journal": "Biomolecules",
+      "pub_type": "Review",
+      "doi": "10.3390/biom16091260",
+      "pmcid": "PMC13604820"
+    },
+    {
+      "pmid": "42793382",
+      "category": "cannabinoid_safety",
+      "title": "Investigating Neuropharmacological Features of the Cortical Activity of Cannabidiol GWP42003 P-A Phase 1 Clinical Trial.",
+      "pub_date": "2026 Sep 9",
+      "journal": "Brain Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/brainsci16090957",
+      "pmcid": "PMC13604680"
+    },
+    {
+      "pmid": "42794674",
+      "category": "cannabinoid_safety",
+      "title": "In Silico Exploration of Cannabidiol Interactions with Outer Membrane Proteins in Salmonella Typhimurium LT2.",
+      "pub_date": "2026 Sep 16",
+      "journal": "Int J Mol Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/ijms27188247",
+      "pmcid": "PMC13607420"
+    },
+    {
+      "pmid": "42796655",
+      "category": "cannabinoid_safety",
+      "title": "Interaction of β-Caryophyllene with a Simplified Membrane Model and Its Growth-Inhibitory Effect Against Escherichia coli ATCC 25922.",
+      "pub_date": "2026 Aug 24",
+      "journal": "Pathogens",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/pathogens15090887",
+      "pmcid": "PMC13610198"
+    },
+    {
+      "pmid": "42797351",
+      "category": "cannabinoid_safety",
+      "title": "Studying Peripheral Neuropathy and Associated Neuropathic Pain in HIV-1 Transgenic Rats: Evaluation of the Therapeutic Effect of Cannabidiol and Beta-Caryophyllene.",
+      "pub_date": "2026 Sep 17",
+      "journal": "Pharmaceutics",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/pharmaceutics18091176",
+      "pmcid": "PMC13610690"
+    },
+    {
+      "pmid": "42798297",
+      "category": "cannabinoid_safety",
+      "title": "Cannabidiol in Adults With Lennox-Gastaut Syndrome: Real-World Experience.",
+      "pub_date": "2026 Oct",
+      "journal": "Eur J Neurol",
+      "pub_type": "Journal Article",
+      "doi": "10.1111/ene.70760",
+      "pmcid": "PMC13615429"
+    },
+    {
+      "pmid": "42801722",
+      "category": "cannabinoid_safety",
+      "title": "Cannabinoid CB1 Receptor in Nociceptors Mediates Postoperative Analgesia via ASIC3 Inhibition.",
+      "pub_date": "2026 Sep 27",
+      "journal": "Adv Sci (Weinh)",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/advs.77925",
+      "pmcid": "PMC13616247"
+    },
+    {
+      "pmid": "42802502",
+      "category": "cannabinoid_safety",
+      "title": "Cannabidiol in small animal practice: current evidence, clinical applications and practical recommendations for dogs and cats.",
+      "pub_date": "2026 Sep 27",
+      "journal": "J Small Anim Pract",
+      "pub_type": "Review",
+      "doi": "10.1111/jsap.70208",
+      "pmcid": null
+    },
+    {
+      "pmid": "42805931",
+      "category": "cannabinoid_safety",
+      "title": "Subchronic Exposure to Cannabis-Based Nanoemulsions Induces Histopathological and Molecular Alterations in the Rat Submandibular Gland.",
+      "pub_date": "2026 Sep 28",
+      "journal": "J Appl Toxicol",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/jat.70454",
+      "pmcid": null
+    },
+    {
+      "pmid": "42806606",
+      "category": "cannabinoid_safety",
+      "title": "Novel targets in headache: A narrative review.",
+      "pub_date": "2026 Sep 28",
+      "journal": "Headache",
+      "pub_type": "Review",
+      "doi": "10.1111/head.70202",
+      "pmcid": null
+    },
+    {
+      "pmid": "42807438",
+      "category": "cannabinoid_safety",
+      "title": "Functionalized Colloidal Hydroxyapatite for Combined Delivery of Cannabidiol and Epirubicin: Characterization, Biomimetic Membrane Interaction, and Cytotoxicity Studies.",
+      "pub_date": "2026",
+      "journal": "Nanotechnol Sci Appl",
+      "pub_type": "Journal Article",
+      "doi": "10.2147/NSA.S617933",
+      "pmcid": "PMC13617019"
+    },
+    {
+      "pmid": "42811661",
+      "category": "cannabinoid_safety",
+      "title": "Emerging therapies for pericarditis: from anti-IL-1 agents to novel therapeutic options.",
+      "pub_date": "2026 Oct 3",
+      "journal": "Expert Opin Emerg Drugs",
+      "pub_type": "Review",
+      "doi": "10.1080/14728214.2026.2726141",
+      "pmcid": null
+    },
+    {
+      "pmid": "42813543",
+      "category": "cannabinoid_safety",
+      "title": "Pharmacokinetics of Buccally Administered Cannabidiol and Oral Carprofen During Single- and Repeated-Dose Administration in Dogs.",
+      "pub_date": "2026 Sep 30",
+      "journal": "J Vet Pharmacol Ther",
+      "pub_type": "Journal Article",
+      "doi": "10.1111/jvp.70114",
+      "pmcid": null
+    },
+    {
+      "pmid": "42813605",
+      "category": "cannabinoid_safety",
+      "title": "Effects of Δ(9)-tetrahydrocannabinol on affiliative social behaviour: A systematic review of rodent studies.",
+      "pub_date": "2026 Sep 30",
+      "journal": "J Psychopharmacol",
+      "pub_type": "Review",
+      "doi": "10.1177/02698811261478615",
+      "pmcid": null
+    },
+    {
+      "pmid": "42813647",
+      "category": "cannabinoid_safety",
+      "title": "Global Regulatory Frameworks for Cannabinoids and Cannabis-Based Medicinal Products: A Comprehensive Review of Contemporary Approaches and Challenges.",
+      "pub_date": "2026 Sep 25",
+      "journal": "Curr Rev Clin Exp Pharmacol",
+      "pub_type": "Journal Article",
+      "doi": "10.2174/0127724328501726260907075438",
+      "pmcid": null
+    },
+    {
+      "pmid": "42817139",
+      "category": "cannabinoid_safety",
+      "title": "Plant-derived Bioactive Compounds in Schizophrenia: Pharmacological Mechanisms and Emerging Drug Targets.",
+      "pub_date": "2026 Sep 29",
+      "journal": "Curr Drug Targets",
+      "pub_type": "Journal Article",
+      "doi": "10.2174/0113894501514494260916073129",
+      "pmcid": null
+    },
+    {
+      "pmid": "42822008",
+      "category": "cannabinoid_safety",
+      "title": "Respiratory depression with concomitant use of opioids and cannabinoids: a case report.",
+      "pub_date": "2026 Oct 1",
+      "journal": "Postgrad Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/00325481.2026.2739680",
+      "pmcid": null
+    },
+    {
+      "pmid": "42825602",
+      "category": "cannabinoid_safety",
+      "title": "Cannabinoid actions in a nonsurgical mouse model of sensitized dural nociceptors.",
+      "pub_date": "2026 Sep 30",
+      "journal": "Pain",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/j.pain.0000000000004111",
+      "pmcid": null
+    },
+    {
+      "pmid": "42826598",
+      "category": "cannabinoid_safety",
+      "title": "Acidic cannabinoids in brain disorders: Neurobiological mechanisms, preclinical evidence, and translational challenges.",
+      "pub_date": "2026 Oct 2",
+      "journal": "Neurosci Biobehav Rev",
+      "pub_type": "Review",
+      "doi": "10.1016/j.neubiorev.2026.107005",
+      "pmcid": null
+    },
+    {
+      "pmid": "42827137",
+      "category": "cannabinoid_safety",
+      "title": "Cannabinoid modulation of central amygdala population dynamics during threat investigation.",
+      "pub_date": "2026 Oct 2",
+      "journal": "Nat Commun",
+      "pub_type": "Journal Article",
+      "doi": "10.1038/s41467-026-77957-4",
+      "pmcid": "PMC13633270"
+    }
+  ]
+}

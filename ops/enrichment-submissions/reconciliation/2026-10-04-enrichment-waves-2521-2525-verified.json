@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2521-2525",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2521,
+      "pmid": "42661815",
+      "title": "Potential effects of β-hydroxy-β-methylbutyrate and exercise on brain aging and age-related disorders: implications for immunometabolic regulation and muscle-brain-immune crosstalk.",
+      "abstract_verified": true,
+      "state": "research_only_combination_firewall",
+      "evidence_boundary": "Direct CNS evidence is limited; many studies use multicomponent interventions, so HMB-specific effects cannot be isolated."
+    },
+    {
+      "wave": 2522,
+      "pmid": "42661660",
+      "title": "The role of hormonal and nutritional biomarkers in predicting immune checkpoint inhibitor efficacy: current limitations and future prospects.",
+      "abstract_verified": true,
+      "state": "research_only_perspective",
+      "evidence_boundary": "Host-directed biomarker/intervention concepts remain heterogeneous and largely observational or preclinical."
+    },
+    {
+      "wave": 2523,
+      "pmid": "42654291",
+      "title": "Beyond Bone Health: Exploring the \"Heart-Brain-Bone\" Axis Modulated by Lipid-Soluble Nutrients (Omega-3, Vitamin D3, and Vitamin K2).",
+      "abstract_verified": true,
+      "state": "research_only_combination_firewall",
+      "evidence_boundary": "The proposed axis is conceptual; no adequately powered RCT establishes superiority of the combined omega-3/D3/K2 regimen."
+    },
+    {
+      "wave": 2524,
+      "pmid": "42654202",
+      "title": "Krill Oil in Human Nutrition and Healthy Aging: A Narrative Review of Implications for Intrinsic Capacity and Nutrient Bioavailability.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "Narrative synthesis and compositional plausibility do not establish broad healthy-aging clinical benefit."
+    },
+    {
+      "wave": 2525,
+      "pmid": "42654174",
+      "title": "Food-Derived Omega-3 Fatty Acids and Cognitive Aging: Integrating Nutritional Neuroscience and Geroscience.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "Observational signals are more consistent than RCT findings; heterogeneity prevents firm efficacy conclusions."
+    }
+  ]
+}
