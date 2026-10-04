@@ -1514,19 +1514,14 @@
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42797416",
-      "category": "cardiometabolic",
-      "title": "Trimetazidine in Chronic Coronary Syndrome and Coronary Artery Disease: A Narrative Review of Clinical Efficacy, Safety, and Current Guideline Position.",
-      "pub_date": "2026 Aug 29",
-      "journal": "Pharmaceuticals (Basel)",
-      "pub_type": "Review",
-      "doi": "10.3390/ph19091370",
-      "pmcid": "PMC13610195",
-      "categories": [
-        "cardiometabolic"
-      ],
-      "selection_score": 18,
-      "primary_category": "cardiometabolic",
+      "pmid": "42613673",
+      "category": "cannabinoid_safety",
+      "title": "A randomised, double-blind, placebo-controlled crossover trial on cannabinoid-based medication for behavioural disorders in old patients with severe dementia: the study results.",
+      "pub_date": "2026 Aug 3",
+      "journal": "Age Ageing",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "doi": "10.1093/ageing/afag239",
+      "pmcid": "PMC13483985",
       "wave": 2587,
       "state": "selected_pending_exact_abstract_verification"
     },
@@ -1583,53 +1578,38 @@
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42792833",
-      "category": "cardiometabolic",
-      "title": "Enhanced External Counterpulsation Versus Standard Medical Therapy for Chronic Refractory Angina: A Systematic Review and Meta-Analysis.",
-      "pub_date": "2026 Sep 17",
-      "journal": "Biomedicines",
-      "pub_type": "Review",
-      "doi": "10.3390/biomedicines14092093",
-      "pmcid": "PMC13604707",
-      "categories": [
-        "cardiometabolic"
-      ],
-      "selection_score": 17,
-      "primary_category": "cardiometabolic",
+      "pmid": "42644517",
+      "category": "cannabinoid_safety",
+      "title": "Effects of Cannabidiol-Rich Cannabis Oil on Facial Expression Recognition and Theory of Mind in Children With Autism Spectrum Disorder: A Randomized Clinical Trial.",
+      "pub_date": "2026 Aug 26",
+      "journal": "Autism Res",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/aur.70353",
+      "pmcid": null,
       "wave": 2591,
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42759233",
-      "category": "cardiometabolic",
-      "title": "Severe atomoxetine overdose presenting with status epilepticus and wide-complex ventricular tachycardia.",
-      "pub_date": "2026 Sep 14",
-      "journal": "Am J Emerg Med",
+      "pmid": "42793382",
+      "category": "cannabinoid_safety",
+      "title": "Investigating Neuropharmacological Features of the Cortical Activity of Cannabidiol GWP42003 P-A Phase 1 Clinical Trial.",
+      "pub_date": "2026 Sep 9",
+      "journal": "Brain Sci",
       "pub_type": "Journal Article",
-      "doi": "10.1016/j.ajem.2026.09.021",
-      "pmcid": null,
-      "categories": [
-        "cardiometabolic"
-      ],
-      "selection_score": 17,
-      "primary_category": "cardiometabolic",
+      "doi": "10.3390/brainsci16090957",
+      "pmcid": "PMC13604680",
       "wave": 2592,
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42822834",
-      "category": "cardiometabolic",
-      "title": "Pasture-Raised Red Meat Compared with Plant-Based Meat Alternatives Within Healthy Dietary Patterns: Effects on Polyunsaturated Fatty Acid Status and Cardiometabolic Health in a Randomized Dietary Intervention.",
-      "pub_date": "2026 Oct 1",
-      "journal": "Am J Clin Nutr",
+      "pmid": "42829743",
+      "category": "inflammation_pain",
+      "title": "Efficacy of ginger and fennel in relieving primary dysmenorrhea: A triple-blind crossover controlled trial.",
+      "pub_date": "2026",
+      "journal": "J Educ Health Promot",
       "pub_type": "Journal Article",
-      "doi": "10.1016/j.ajcnut.2026.101564",
-      "pmcid": null,
-      "categories": [
-        "cardiometabolic"
-      ],
-      "selection_score": 16,
-      "primary_category": "cardiometabolic",
+      "doi": "10.4103/jehp.jehp_391_25",
+      "pmcid": "PMC13633784",
       "wave": 2593,
       "state": "selected_pending_exact_abstract_verification"
     },
@@ -1651,36 +1631,26 @@
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42807527",
-      "category": "cardiometabolic",
-      "title": "Four months of DHA and whey protein supplementation in semi-professional female soccer players: a prospective non-randomized controlled study of omega-3 status, hematological outcomes, and physical performance.",
+      "pmid": "42729312",
+      "category": "sleep",
+      "title": "Synergistic effects of intradialytic concurrent training and melatonin supplementation on immune cell adaptations in hemodialysis patients.",
       "pub_date": "2026",
-      "journal": "Front Nutr",
+      "journal": "Front Pharmacol",
       "pub_type": "Journal Article",
-      "doi": "10.3389/fnut.2026.1886305",
-      "pmcid": "PMC13617132",
-      "categories": [
-        "cardiometabolic"
-      ],
-      "selection_score": 16,
-      "primary_category": "cardiometabolic",
+      "doi": "10.3389/fphar.2026.1880592",
+      "pmcid": "PMC13562045",
       "wave": 2595,
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42807157",
-      "category": "cardiometabolic",
-      "title": "A Randomized, Double-Blind, Placebo-Controlled Trial Comparing the Effects of Commercially Available Ubiquinone, Ubiquinol, and Geranylgeraniol Dietary Supplements on Plasma CoQ10 Concentrations.",
-      "pub_date": "2026",
-      "journal": "J Nutr Metab",
+      "pmid": "42464773",
+      "category": "stress_anxiety",
+      "title": "Withania somnifera (Ashwagandha) as an Adjunctive Treatment to Antipsychotic Medications for Patients With Schizophrenia.",
+      "pub_date": "2026 Jul 17",
+      "journal": "J Clin Psychopharmacol",
       "pub_type": "Journal Article",
-      "doi": "10.1155/jnme/5589963",
-      "pmcid": "PMC13617315",
-      "categories": [
-        "cardiometabolic"
-      ],
-      "selection_score": 16,
-      "primary_category": "cardiometabolic",
+      "doi": "10.1097/JCP.0000000000002229",
+      "pmcid": null,
       "wave": 2596,
       "state": "selected_pending_exact_abstract_verification"
     },
@@ -1702,20 +1672,14 @@
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42782716",
-      "category": "mood",
-      "title": "Comparative Study of Efficacy of Preemptive Use of Opioid-free Anesthesia Using Paracetamol, Magnesium Sulfate, Lignocaine, Dexamethasone versus Intravenous Fentanyl for Attenuating Hemodynamic Response, Perioperative Analgesia, and Postoperative Recovery Profile during Laparoscopic Cholecystectomy: A Randomized Parallel Group Trial.",
-      "pub_date": "2026 Sep 24",
-      "journal": "Ann Afr Med",
-      "pub_type": "Journal Article",
-      "doi": "10.4103/aam.aam_461_26",
+      "pmid": "42163019",
+      "category": "stress_anxiety",
+      "title": "Theanine: a phytochemical candidate for neural protection.",
+      "pub_date": "2026 May 20",
+      "journal": "J Sci Food Agric",
+      "pub_type": "Review",
+      "doi": "10.1002/jsfa.70740",
       "pmcid": null,
-      "categories": [
-        "mood",
-        "cardiometabolic"
-      ],
-      "selection_score": 16,
-      "primary_category": "cardiometabolic",
       "wave": 2598,
       "state": "selected_pending_exact_abstract_verification"
     },
@@ -1737,19 +1701,14 @@
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42824366",
-      "category": "cardiometabolic",
-      "title": "The effects of dialysate acids and divalent ions on calcification and cardiovascular outcomes: old wisdom and new developments.",
-      "pub_date": "2026 Oct",
-      "journal": "Clin Kidney J",
-      "pub_type": "Review",
-      "doi": "10.1093/ckj/sfag313",
-      "pmcid": "PMC13627828",
-      "categories": [
-        "cardiometabolic"
-      ],
-      "selection_score": 13,
-      "primary_category": "cardiometabolic",
+      "pmid": "42662821",
+      "category": "sleep",
+      "title": "Dietary melatonin, chronotype, and night eating syndrome in relation to sleep quality among adults.",
+      "pub_date": "2026",
+      "journal": "Front Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fnut.2026.1890075",
+      "pmcid": "PMC13520769",
       "wave": 2600,
       "state": "selected_pending_exact_abstract_verification"
     },
