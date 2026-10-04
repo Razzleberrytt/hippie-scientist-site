@@ -31,6 +31,19 @@
       "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
     },
     {
+      "wave": 2553,
+      "pmid": "42738626",
+      "replaces_rejected_pmid": "42828551",
+      "doi": "10.3390/molecules31172963",
+      "title": "Organ-Resolved Salicylate-Phenylpropanoid Metabolite Profiling of Echinacea purpurea, E. pallida, and E. tennesseensis Tissues Extracted with 50% Aqueous Methanol by LC-MS/MS and LC-HRMS.",
+      "category": "botanicals_mushrooms",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "Salicylic acid (SA) is a central plant defense hormone, but its occurrence and metabolic context in Echinacea tissues have not been systematically characterized. This study aimed to characterize endogenous free SA, salicylate-associated features, and their organ-level distributions in selected specimens of Echinacea purpurea, E. pallida, and E. tennesseensis, and to evaluate free SA variability among individual E. purpurea flower heads. Targeted LC-MS/MS and retrospective LC-HRMS profiling were used to examine free SA, preservative panel analytes, salicylate-related pathway features, phenylpropanoid/caffeic acid derivatives, and flavonoid-related metabolites across roots, stems, leaves, and ",
+      "state": "research_only_primary",
+      "evidence_boundary": "Primary research remains design-bounded; no recommendation, dose inference, or cross-formulation generalization is permitted."
+    },
+    {
       "wave": 2555,
       "pmid": "42826594",
       "doi": "10.1016/j.micres.2026.128745",
@@ -39,6 +52,32 @@
       "abstract_verified": true,
       "verification_source": "NCBI PubMed EFetch via Sider Scholar",
       "focus": "Nitrogen metabolism is fundamental to fungal growth, development, and the biosynthesis of bioactive metabolites. The GATA transcription factor AreA plays a pivotal regulatory role in nitrogen metabolite repression. While the molecular mechanisms by which AreA responds to nitrogen sources have been relatively well elucidated in ascomycetes, they remain poorly understood in basidiomycetes. Here, using the macrofungus Ganoderma lucidum as a model, we elucidated a molecular mechanism by which an N-acetyltransferase (Nat) influences AreA nuclear entry under non-preferred nitrogen sources, thereby promoting nitrogen catabolic gene expression and the utilization of non-preferred nitrogen sources. T",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    },
+    {
+      "wave": 2558,
+      "pmid": "42613673",
+      "replaces_rejected_pmid": "42773786",
+      "doi": "10.1093/ageing/afag239",
+      "title": "A randomised, double-blind, placebo-controlled crossover trial on cannabinoid-based medication for behavioural disorders in old patients with severe dementia: the study results.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "Behavioural and psychological symptoms of dementia (BPSD) are frequent in patients with severe dementia and represent a major clinical challenge. Cannabinoid-based medications (CBM) have been proposed as a possible therapeutic option, but clinical evidence is still limited. We performed a multicenter, randomised, double-blind, placebo-controlled crossover trial in five long-term care facilities in Geneva, Switzerland. Patients with severe dementia received oral Δ9-tetrahydrocannabinol (THC) and cannabidiol (CBD) oil (1:2 ratio, up to 20 mg/40 mg daily) and placebo in two 8-week periods separated by a 1-week washout. The primary outcome was agitation measured by the Cohen-Mansfield Agitation ",
+      "state": "research_only_human_trial",
+      "evidence_boundary": "Human intervention evidence; no generalization beyond the studied formulation, dose, population, comparator, duration, and outcomes."
+    },
+    {
+      "wave": 2560,
+      "pmid": "42630256",
+      "replaces_rejected_pmid": "42623982",
+      "doi": "10.3389/fphar.2026.1745696",
+      "title": "Anticonvulsant effects, safety, and sex-dependent molecular signatures of cannabidiol treatment in a preclinical model of audiogenic epilepsy.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "Roughly one-third of patients with epilepsy remain drug resistant, underscoring the need for novel therapeutic strategies. Although cannabidiol (CBD) has recently been approved for specific epileptic encephalopathies, its anticonvulsant mechanisms and the influence of biological sex on treatment response remain incompletely understood. In this preclinical study, we evaluated the efficacy, tolerability, pharmacokinetics, and molecular effects of CBD in the GASH/Sal hamster, a genetic model of audiogenic generalized tonic-clonic seizures. Animals received intraperitoneal CBD (200 mg/kg) either acutely or chronically for 14 days. CBD concentrations were measured in serum and brain, while seizur",
       "state": "research_only_preclinical",
       "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
     },
@@ -67,6 +106,19 @@
       "evidence_boundary": "Evidence synthesis inherits heterogeneity and limitations of included studies; ingredient/formulation/population attribution remains explicit."
     },
     {
+      "wave": 2564,
+      "pmid": "42630944",
+      "replaces_rejected_pmid": "42813543",
+      "doi": "10.1093/jscr/rjag574",
+      "title": "Distal cholangiocarcinoma arising in a Choi Type I septate common bile duct: a case report.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "Septate common bile duct (CBD) is a rare congenital anomaly resulting from incomplete recanalization of the primitive biliary tract. Although often asymptomatic, it predisposes to bile stasis, chronic inflammation, and potential malignant transformation. Distal cholangiocarcinoma arising in association with a septate CBD is exceptionally rare. We report the case of an 84-year-old male presenting with progressive jaundice, right hypochondrial pain, anorexia, and 20 kg weight loss over 2 months. Examination revealed icterus and a palpable non-tender mass. Laboratory studies showed marked hyperbilirubinemia (total bilirubin 11 mg/dl). Ultrasonography demonstrated a 2.5 × 2.0 cm mass in the CBD/",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    },
+    {
       "wave": 2565,
       "pmid": "42807438",
       "doi": "10.2147/NSA.S617933",
@@ -81,49 +133,40 @@
   ],
   "rejected": [
     {
-      "wave": 2553,
-      "pmid": "42828551",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
-    },
-    {
       "wave": 2554,
       "pmid": "42827952",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+      "reason": "Replacement exact PubMed fetch lacked title or abstract.",
+      "category": "botanicals_mushrooms",
+      "replacement_attempt_pmid": "42738974"
     },
     {
       "wave": 2556,
       "pmid": "42824329",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+      "reason": "Replacement exact PubMed fetch lacked title or abstract.",
+      "category": "botanicals_mushrooms",
+      "replacement_attempt_pmid": "42741161"
     },
     {
       "wave": 2557,
       "pmid": "42704497",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
-    },
-    {
-      "wave": 2558,
-      "pmid": "42773786",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+      "reason": "Replacement exact PubMed fetch lacked title or abstract.",
+      "category": "cannabinoid_safety",
+      "replacement_attempt_pmid": "42609475"
     },
     {
       "wave": 2559,
       "pmid": "42623795",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
-    },
-    {
-      "wave": 2560,
-      "pmid": "42623982",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+      "reason": "Replacement exact PubMed fetch lacked title or abstract.",
+      "category": "cannabinoid_safety",
+      "replacement_attempt_pmid": "42618595"
     },
     {
       "wave": 2561,
       "pmid": "42755825",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
-    },
-    {
-      "wave": 2564,
-      "pmid": "42813543",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+      "reason": "Replacement exact PubMed fetch lacked title or abstract.",
+      "category": "cannabinoid_safety",
+      "replacement_attempt_pmid": "42630400"
     }
-  ]
+  ],
+  "replacement_policy": "Failed exact-PubMed records are replaced only from the unused candidate reserve after hard PMID dedupe."
 }
