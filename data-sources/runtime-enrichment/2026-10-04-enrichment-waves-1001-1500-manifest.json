@@ -73,7 +73,7 @@
   },
   "ledger": {
     "file": "2026-10-04-enrichment-waves-1001-1500.json",
-    "sha256": "94e4b685056be0ff17381f1df027a22e592aa572f42d4ac81a8a986a9c09f54e",
+    "sha256": "33dda09efcee3ded4781d071546a6964e5704fa9c53b5608cd1f82eef84b968a",
     "bytes": 19137
   },
   "admission": {
