@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-1701-1725-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-1676-1700-selection",
+  "program": {
+    "range": "1501-2000",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 225,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2000"
+  },
+  "source_provenance": [
+    "Sider Scholar + NCBI PubMed exact-source verification",
+    "cumulative PMID collision index covering prior enrichment waves and current branch"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2000 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe/source verification during authoring; expensive repository-wide validation only after Wave 2000"
+  },
+  "waves": [
+    {
+      "wave": 1701,
+      "entity_slug": "probiotics-ibs-updated-meta",
+      "pmid": "41820241",
+      "focus": "Updated meta-analysis of 40 IBS probiotic RCTs found improvement in symptom-severity scores but not quality of life; trial-sequential analysis showed the evidence had not yet reached required information size for firm benefit or futility.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1702,
+      "entity_slug": "multistrain-probiotic-metformin-gi-tolerance",
+      "pmid": "41852479",
+      "focus": "Randomized controlled evidence found a multistrain probiotic reduced gastrointestinal side effects in women with elevated HOMA-IR receiving metformin; benefits are adjunctive and product-specific rather than proof of class-wide probiotic efficacy.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1703,
+      "entity_slug": "probiotic-subclinical-gi-students",
+      "pmid": "41857208",
+      "focus": "Eight-week placebo-controlled RCT evaluated a defined probiotic intervention for subclinical gastrointestinal symptoms in students; population and formulation specificity should be preserved rather than generalized to IBS or chronic GI disease.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1704,
+      "entity_slug": "weizmannia-coagulans-bc99-constipation",
+      "pmid": "41886091",
+      "focus": "Eight-week double-blind RCT in adults with constipation found Weizmannia coagulans BC99 improved bowel frequency, stool characteristics and transit-related measures with microbiome/SCFA changes; findings are strain-specific.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1705,
+      "entity_slug": "multistrain-probiotic-metformin-multiomics",
+      "pmid": "41985330",
+      "focus": "Post-hoc multi-omics analysis of the randomized ProGasMet trial linked improved metformin tolerance from a multistrain probiotic to bile-acid and selected microbiome/metabolome changes, without global diversity differences; mechanistic findings remain exploratory.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1706,
+      "entity_slug": "bifidobacterium-bifidum-g91-t2d-gi",
+      "pmid": "42017290",
+      "focus": "Open-label randomized trial found Bifidobacterium bifidum G9-1 improved gastrointestinal symptoms in type 2 diabetes; lack of blinding and strain-specific design limit broader probiotic inference.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1707,
+      "entity_slug": "spore-forming-probiotic-functional-constipation",
+      "pmid": "42030329",
+      "focus": "Randomized double-blind placebo-controlled trial found a spore-forming probiotic blend improved bowel habits and physical well-being in adults with functional constipation; multistrain/blend findings cannot be transferred to other probiotics.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1708,
+      "entity_slug": "l-plantarum-z6-infant-constipation",
+      "pmid": "42068035",
+      "focus": "Randomized placebo-controlled trial in 100 infants with functional constipation found Lactiplantibacillus plantarum Z6 improved bowel frequency, stool scores and constipation severity with microbiome changes; infant and strain specificity remain explicit.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1709,
+      "entity_slug": "probiotics-after-bariatric-surgery",
+      "pmid": "42091844",
+      "focus": "RCT in 200 bariatric-surgery patients found six months of probiotic supplementation improved quality-of-life, bowel-habit, excess-weight-loss and fecal-calprotectin outcomes versus standard care, but products and surgery context limit generalization.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1710,
+      "entity_slug": "l-plantarum-lp05-hpylori-adjunct",
+      "pmid": "42117710",
+      "focus": "Double-blind RCT in 72 H. pylori-positive adults found L. plantarum Lp05 did not improve eradication rate but reduced selected GI adverse symptoms and attenuated antibiotic-associated dysbiosis during quadruple therapy.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1711,
+      "entity_slug": "gutbio-plus-chronic-constipation",
+      "pmid": "42152386",
+      "focus": "Single-center randomized placebo-controlled study found a multispecies Lactobacillus/Bifidobacterium product improved complete spontaneous bowel movements and constipation symptoms, but the open-label description and unbalanced allocation warrant caution.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1712,
+      "entity_slug": "microbiota-modulation-chemo-gi-toxicity-meta",
+      "pmid": "42185245",
+      "focus": "Meta-analysis of 29 RCTs found probiotics and synbiotics reduced chemotherapy-associated diarrhea, while evidence for prebiotics alone was limited; category-level findings span diverse strains, cancer regimens and formulations.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1713,
+      "entity_slug": "heyndrickxia-coagulans-tbc169-constipation",
+      "pmid": "42226670",
+      "focus": "Double-blind trial in 140 middle-aged/older adults found a Heyndrickxia coagulans TBC169 plus fiber synbiotic improved constipation and quality-of-life measures versus fiber alone; no baseline stool samples made microbiome findings exploratory.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1714,
+      "entity_slug": "saccharomyces-boulardii-hpylori-meta",
+      "pmid": "42470702",
+      "focus": "Meta-analysis found Saccharomyces boulardii added to H. pylori eradication therapy modestly improved eradication and reduced diarrhea, nausea and epigastric pain, while several other adverse symptoms were unchanged.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1715,
+      "entity_slug": "b-animalis-cp9-healthy-infants",
+      "pmid": "42528393",
+      "focus": "Three-month double-blind RCT in healthy infants found B. animalis subsp. lactis CP-9 increased Bifidobacterium abundance and improved stool/tolerability measures without treatment-related adverse changes; safety/benefits are strain- and age-specific.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1716,
+      "entity_slug": "multibifidobacterium-short-term-travel",
+      "pmid": "42533554",
+      "focus": "Five-day double-blind RCT in 74 travelers found a multi-Bifidobacterium product changed selected post-travel taxa and symptom patterns while alpha/beta diversity remained stable; travel-context and blend specificity limit generalization.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1717,
+      "entity_slug": "heyndrickxia-coagulans-idcc1201-functional-bowel",
+      "pmid": "42588089",
+      "focus": "Eight-week double-blind RCT found H. coagulans IDCC1201 improved selected bloating, post-defecation discomfort and quality-of-life measures in functional bowel disorders, with modest microbiome/metabolome changes; strain-specific evidence.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1718,
+      "entity_slug": "prebiotic-fiber-bread-older-adults",
+      "pmid": "42594505",
+      "focus": "12-week feasibility RCT in older adults with low fiber intake found prebiotic-fiber bread produced mostly null cognitive, mood, GI and biomarker outcomes, with a selective hostility signal and an unexpected HDL direction; useful null/mixed evidence.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1719,
+      "entity_slug": "probiotic-consolidation-rifaximin-ibs-d",
+      "pmid": "42609157",
+      "focus": "Multicenter randomized trial in rifaximin-responsive IBS-D found four weeks of Bacillus subtilis/Enterococcus faecium consolidation reduced relapse versus no further treatment and improved stool frequency/consistency; open-label adjunctive design limits probiotic-only inference.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1720,
+      "entity_slug": "probiotic-long-term-safety-at-risk-meta",
+      "pmid": "42682452",
+      "focus": "Meta-analysis of five studies and 920 at-risk participants found no clear increase in reported adverse events but concluded long-term probiotic safety cannot be established because adverse-event reporting was inconsistent and rare/strain-specific harms were not assessable.",
+      "state": "research_only_safety_signal"
+    },
+    {
+      "wave": 1721,
+      "entity_slug": "sourdough-versus-yeast-bread-gut",
+      "pmid": "42739025",
+      "focus": "Small double-blind crossover RCT in 20 healthy adults found sourdough bread reduced diarrhea-domain symptoms versus baker's-yeast bread and altered selected taxa, but overall IBS-like symptom improvement was borderline and exposure lasted only one week.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1722,
+      "entity_slug": "microbiota-dependent-fiber-response",
+      "pmid": "40914513",
+      "focus": "Randomized crossover proof-of-concept study in 23 healthy adults found arabinoxylan and inulin produced microbiota-type-dependent short-chain-fatty-acid responses, supporting personalized rather than universal assumptions about fermentable-fiber effects.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1723,
+      "entity_slug": "probiotic-pathogen-exclusion-meta",
+      "pmid": "41829966",
+      "focus": "Meta-analysis reported a pooled pathogen-exclusion signal from probiotic interventions, but only four studies contributed quantitative data and multiple genera/strains were pooled; strain-specific replication remains necessary.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1724,
+      "entity_slug": "early-life-microbiota-neurodevelopment-meta",
+      "pmid": "41972726",
+      "focus": "Systematic review/meta-analysis of infant probiotic, prebiotic and synbiotic RCTs evaluated neurodevelopment/behavior, emphasizing that human evidence remains heterogeneous despite stronger mechanistic animal data; interventions should not be pooled into generic gut-brain efficacy.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1725,
+      "entity_slug": "zinc-probiotic-acute-watery-diarrhea",
+      "pmid": "42033762",
+      "focus": "Prospective randomized comparative pediatric study found low-dose zinc with or without probiotics had similar overall diarrhea duration to standard-dose zinc, although early resolution differed across groups; combined-treatment design prevents probiotic-only attribution.",
+      "state": "research_only_combination_firewall"
+    }
+  ]
+}
