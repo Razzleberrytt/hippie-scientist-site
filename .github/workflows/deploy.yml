@@ -236,18 +236,18 @@ jobs:
         if: steps.governed-verify.outputs.reusable != 'true'
         env:
           COMMIT_HASH: ${{ env.DEPLOY_SHA }}
-          AMAZON_AFFILIATE_TAG: razzleberr0e2-20
+          AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}
           SKIP_NEXT_BUILD_TYPECHECK: ${{ (steps.governed-verify.outputs.reusable == 'true' || steps.deploy-auth.outputs.skip_redundant_validation == 'true') && '1' || '' }}
         run: npm run build:deploy
 
       - name: Verify build output
         env:
-          AMAZON_AFFILIATE_TAG: razzleberr0e2-20
+          AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}
         run: npm run verify:output
 
       - name: Verify Amazon affiliate tag (production safety)
         env:
-          AMAZON_AFFILIATE_TAG: razzleberr0e2-20
+          AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}
         run: npm run audit:affiliate-tag-production
 
       - name: Validate deployment secrets
