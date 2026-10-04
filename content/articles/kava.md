@@ -3,7 +3,7 @@ slug: kava
 title: "Kava for Anxiety: Does It Work for Social Anxiety? Evidence & Liver Safety"
 description: "Evidence-first 2026 review of kava for anxiety: the negative 171-person GAD trial, older mixed RCTs, social-anxiety and kava-drink evidence gaps, liver injury, interactions, and why water extracts are not risk-free."
 date: '2026-06-08'
-updatedAt: '2026-08-22'
+updatedAt: '2026-10-04'
 author: Will
 category: Anxiety & Sleep
 keywords:
@@ -24,6 +24,32 @@ tags:
   - evidence review
 profile_status: published
 ai_assisted: true
+keyTakeaways:
+  - "Kava has a real but inconsistent human anxiety literature: older reviews and some smaller trials found short-term anxiolytic signals, while the largest modern 16-week randomized trial in 171 adults with generalized anxiety disorder found no significant benefit over placebo."
+  - "The core clinical evidence is mainly about generalized or nonspecific anxiety, not diagnosed social anxiety disorder, so kava-drink claims for social anxiety are not directly established."
+  - "Standardized extracts, aqueous root preparations, traditional beverages, and arbitrary retail kava products are not interchangeable interventions; results from one preparation should not be transferred automatically to another."
+  - "Kava has a clinically important liver-safety history, and water-extracted or 'noble' kava should not be described as risk-free; medication interactions, sedation, product quality, and individual vulnerability also matter."
+  - "The evidence does not establish a universal 30–60 minute clinical onset, benzodiazepine equivalence, negligible dependence risk, or a single evidence-based product/dose for treating anxiety disorders."
+citationQuestions:
+  - "Does kava actually work for anxiety?"
+  - "Does kava treat generalized anxiety disorder?"
+  - "Does kava work for social anxiety?"
+  - "Do kava drinks work the same as standardized extracts?"
+  - "What did the largest modern kava anxiety trial find?"
+  - "Can kava cause liver injury?"
+  - "Is water-extracted or noble kava free of liver risk?"
+  - "What are the main medication and sedation concerns with kava?"
+  - "How quickly does kava work for anxiety?"
+  - "Is kava comparable to benzodiazepines for anxiety?"
+canonicalConcepts:
+  - "kava"
+  - "Piper methysticum"
+  - "kavalactones"
+  - "generalized anxiety disorder"
+  - "social anxiety"
+  - "herbal anxiolytics"
+  - "hepatotoxicity"
+  - "herb-drug interactions"
 references:
   - title: "Kava for generalised anxiety disorder: A 16-week double-blind, randomised, placebo-controlled study"
     year: "2020"
