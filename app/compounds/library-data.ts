@@ -1,9 +1,16 @@
 import type { RuntimeRecord } from '../../types/content'
 
 import { getAllCompounds } from '@/lib/server/runtime-data'
-import { selectPublishedCompounds } from './library-selector'
+import { selectCanonicalCompounds, selectPublishedCompounds } from './library-selector'
+
+async function loadRuntimeCompounds(): Promise<RuntimeRecord[]> {
+  return (await getAllCompounds()) as unknown as RuntimeRecord[]
+}
+
+export async function loadCanonicalCompounds(): Promise<RuntimeRecord[]> {
+  return selectCanonicalCompounds(await loadRuntimeCompounds())
+}
 
 export async function loadPublishedCompounds(): Promise<RuntimeRecord[]> {
-  const compounds = (await getAllCompounds()) as unknown as RuntimeRecord[]
-  return selectPublishedCompounds(compounds)
+  return selectPublishedCompounds(await loadRuntimeCompounds())
 }
