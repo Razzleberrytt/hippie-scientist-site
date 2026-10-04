@@ -4,8 +4,8 @@
   "program": {
     "range": "1001-1500",
     "target_findings": 500,
-    "current_findings": 150,
-    "last_wave": 1150
+    "current_findings": 175,
+    "last_wave": 1175
   },
   "policy": "research authoring index only; not runtime admission; final Wave-1500 consolidation required",
   "waves": [
@@ -1058,6 +1058,181 @@
       "pmid": "42558317",
       "focus": "Meta-analysis of oral antioxidant RCTs in IVF/ICSI reported improved pregnancy and selected laboratory outcomes plus a live-birth signal, but regimens were heterogeneous, study count limited and certainty insufficient for a single antioxidant or standardized protocol recommendation.",
       "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1151,
+      "entity_slug": "omega-3-inositol-youth",
+      "pmid": "42462928",
+      "focus": "Open-label randomized comparison in emotionally dysregulated youth found omega-3 plus inositol and N-acetylcysteine each produced modest mania/depression improvements without a clear overall between-group winner; autism-trait status appeared to modify some NAC responses, so the combination cannot be attributed to omega-3 alone.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1152,
+      "entity_slug": "melatonin",
+      "pmid": "42533530",
+      "focus": "Small double-blind placebo-controlled trial in 40 patients receiving adjuvant breast-cancer chemotherapy found melatonin improved selected sleep-quality measures across treatment, while anxiety/depression signals were phase-dependent and the disease-specific sample limits generalization.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1153,
+      "entity_slug": "creatine-cognition-aging",
+      "pmid": "42578920",
+      "focus": "Twelve-week randomized creatine trial in middle-aged and older adults reported gains in lean mass, strength and selected cognitive/memory measures with and without exercise/diet intervention; cognitive and biomarker findings were explicitly exploratory and the exercise-versus-nonexercise allocation was not randomized.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1154,
+      "entity_slug": "melatonin",
+      "pmid": "42714195",
+      "focus": "Randomized double-blind placebo-controlled trial in 70 head-and-neck cancer patients with sleep disturbance found 14 days of oral melatonin improved PSQI sleep scores and fatigue versus placebo; evidence is short-term and disease-context specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1155,
+      "entity_slug": "guanidinoacetic-acid-creatine",
+      "pmid": "42730704",
+      "focus": "Six-week exploratory trial in 58 healthy adults found guanidinoacetic acid, alone or with creatine, produced selected reaction-time and stress signals while many cognitive domains were unchanged and some sleep effects were potentially undesirable; multi-arm design prevents simple creatine attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1156,
+      "entity_slug": "matcha-green-tea-stress",
+      "pmid": "42775228",
+      "focus": "Systematic evidence map of matcha and green-tea bioactives found lower caffeine-plus-EGCG to theanine-plus-arginine preparations were more consistently associated with cortisol-related stress signals, but evidence mixed human, animal and in-vitro studies and GRADE certainty was low to very low.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1157,
+      "entity_slug": "panax-ginseng-fatigue",
+      "pmid": "41838185",
+      "focus": "Randomized double-blind placebo-controlled trial in 65 gastrointestinal-cancer survivors found four weeks of standardized Panax ginseng reduced cancer-related fatigue and improved several daily-function domains, with no treatment-related adverse events reported; findings remain short-term and population-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1158,
+      "entity_slug": "bacopa-monnieri",
+      "pmid": "42102930",
+      "focus": "Small exploratory MRS study in older adults assigned to Bacopa formulations or ghee reported preliminary neurometabolite and cognitive changes after three months; intervention groups were tiny and the study was not a definitive efficacy trial.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1159,
+      "entity_slug": "silexan-lavender",
+      "pmid": "42550483",
+      "focus": "Pre-planned item-level analysis from a 498-participant randomized trial found the proprietary lavender-oil preparation Silexan improved several MADRS symptom items versus placebo with a profile broadly similar to sertraline; this is formulation-specific and secondary/exploratory evidence.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1160,
+      "entity_slug": "saffron-low-mood",
+      "pmid": "42465135",
+      "focus": "Randomized double-blind placebo-controlled trial in 56 adults with low mood found a standardized saffron formulation improved mood, affect, DASS-21, sleep quality and cortisol over 56 days; small sample size and proprietary formulation require cautious generalization.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1161,
+      "entity_slug": "saffron-sleep-sarcoidosis",
+      "pmid": "42483079",
+      "focus": "Single-blind randomized trial in pulmonary sarcoidosis found 60 days of saffron plus sleep-hygiene counseling improved PSQI, daytime sleepiness, fatigue and quality-of-life measures versus counseling alone; disease context and lack of double blinding limit generalization.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1162,
+      "entity_slug": "ashwagandha-long-term-safety",
+      "pmid": "42694770",
+      "focus": "Large multicenter randomized double-blind placebo-controlled trial after COVISHIELD vaccination found 24 weeks of standardized ashwagandha had safety and tolerability comparable to placebo, while exploratory immunogenicity and breakthrough-infection outcomes showed no clear intervention benefit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1163,
+      "entity_slug": "probiotic-prebiotic-synbiotic-cognition",
+      "pmid": "42806137",
+      "focus": "Systematic review of 14 older-adult studies found probiotic, prebiotic and synbiotic interventions sometimes improved cognition, with a small pooled global-cognition signal in a subgroup; intervention heterogeneity and limited high-quality evidence prevent class-wide efficacy claims.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1164,
+      "entity_slug": "multi-strain-probiotic",
+      "pmid": "42811022",
+      "focus": "Open-label 12-week pilot in 30 adults with depressive and anxiety symptoms reported large within-person improvements during multi-strain probiotic use, but the absence of a placebo or control group prevents causal attribution.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1165,
+      "entity_slug": "theanine-gaba-magnesium-same-sleep",
+      "pmid": "42742055",
+      "focus": "Three-week randomized double-blind placebo-controlled menopause trial found a multi-ingredient supplement containing L-theanine, GABA, magnesium, SAM-e and propyl gallate improved sleep disturbance, sleep-related impairment, total sleep time and sleep efficiency; ingredient-specific attribution is not possible.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1166,
+      "entity_slug": "chamomile-lavender-vetiver-aromatherapy",
+      "pmid": "42630137",
+      "focus": "Randomized placebo-controlled trial in intensive-care nurses found bedtime aromatherapy massage with chamomile-lavender or vetiver improved fatigue and PSQI sleep scores more than jojoba placebo over four weeks; results apply to an olfactory/topical intervention rather than oral supplementation.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1167,
+      "entity_slug": "lavender-bergamot-herbal-sachet",
+      "pmid": "42644519",
+      "focus": "Open-label randomized hemodialysis trial found a combined lavender/bergamot essential-oil plus herbal-sachet intervention improved self-reported sleep and anxiety versus usual care over three months; combined exposure and inability to blind prevent single-ingredient attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1168,
+      "entity_slug": "nutritional-interventions-schizophrenia",
+      "pmid": "42547027",
+      "focus": "Systematic review of nine schizophrenia RCTs found selected metabolic, inflammatory and neuropsychiatric signals across probiotics, vitamin combinations, omega-3 and plant-derived bioactives, but substantial intervention heterogeneity and short follow-up preclude a unified nutritional recommendation.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1169,
+      "entity_slug": "nutrition-neuroinflammation-ad-mci",
+      "pmid": "42661181",
+      "focus": "Systematic review of 22 clinical and preclinical studies found omega-3, ketogenic, B-vitamin, vitamin D and microbiota-targeted interventions can modulate neuroinflammatory biomarkers, but evidence strength varied widely and much of the ketogenic/mechanistic support was preclinical.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1170,
+      "entity_slug": "coq10-taurine-stress",
+      "pmid": "42514298",
+      "focus": "Small randomized double-blind placebo-controlled trial in 24 under-19 soccer players found CoQ10 and taurine produced different oxidative, inflammatory and hormonal biomarker patterns during repeated match simulations; tiny groups and biomarker focus do not establish broad performance superiority.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1171,
+      "entity_slug": "omega-3-pediatric-ist",
+      "pmid": "42518088",
+      "focus": "Randomized trial in 60 children with inappropriate sinus tachycardia found three months of omega-3 improved heart-rate and heart-rate-variability measures versus standard follow-up, while anxiety scores did not differ; findings are condition-specific and require replication.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1172,
+      "entity_slug": "l-theanine-caffeine-adhd",
+      "pmid": "42096377",
+      "focus": "Double-blind three-way crossover trial in 21 adolescents with ADHD found an acute L-theanine-plus-caffeine combination reduced false alarms and altered P3b measures versus placebo, while hits and discrimination sensitivity were unchanged and only methylphenidate improved overall reaction time; combination attribution remains explicit.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1173,
+      "entity_slug": "melissa-phospholipids-cortisol",
+      "pmid": "42232738",
+      "focus": "Secondary analysis in a predefined 12-person subpopulation receiving a phospholipid-based Melissa officinalis formulation found salivary cortisol fell over three weeks alongside improved sleep and mood measures; tiny uncontrolled secondary analysis is hypothesis-generating only.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1174,
+      "entity_slug": "ashwagandha-menopause-sleep",
+      "pmid": "42742071",
+      "focus": "Randomized double-blind placebo-controlled trial in 66 postmenopausal women found 12 weeks of ashwagandha root extract improved PSQI sleep quality, menopausal symptoms, body-fat percentage and several quality-of-life domains, while bone mineral density did not differ; single-center population limits generalization.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1175,
+      "entity_slug": "rhodiola-football-performance",
+      "pmid": "41829897",
+      "focus": "Small randomized double-blind placebo-controlled trial in 24 competitive male football players reported improved intermittent performance, selected sprint and decision-making outcomes and lower post-exercise lactate after four weeks of Rhodiola rosea; numerous endpoints and tiny groups make the findings exploratory.",
+      "state": "research_only_evidence_quality"
     }
   ]
 }
