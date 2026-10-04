@@ -20,7 +20,7 @@ const SLUG = 'l-theanine'
 const TITLE = 'L-Theanine: What the Evidence Supports for Focus, Stress, Anxiety, and Sleep'
 const DESCRIPTION =
   'An evidence-first L-theanine guide updated for 2026: attention, stress, anxiety, sleep, caffeine combinations, studied doses, safety limits, and what current trials do not establish.'
-const DATE = '2026-08-11'
+const DATE = '2026-10-04'
 const AUTHOR = 'Will'
 const READING_TIME = '11 min read'
 const TAGS = ['l-theanine', 'focus', 'stress', 'anxiety', 'sleep', 'caffeine']
@@ -33,6 +33,11 @@ export const metadata = buildPageMetadata({
 })
 
 const FAQS = [
+  {
+    question: 'What is L-theanine?',
+    answer:
+      'L-theanine is a non-protein amino acid found naturally in tea leaves, especially Camellia sinensis. It is studied both as an isolated supplement and as one bioactive compound in tea. It is chemically distinct from caffeine, and evidence for isolated L-theanine should not be generalized automatically to every tea extract or multi-ingredient calm, focus, or sleep product.',
+  },
   {
     question: 'What does the best current evidence support for L-theanine?',
     answer:
