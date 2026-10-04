@@ -153,4 +153,4 @@ Passionflower is well tolerated at standard doses. The most common side effects 
 - [Kava for Anxiety & Sleep](/articles/kava/)
 - [Valerian Root for Sleep](/articles/valerian-root/)
 - [Ashwagandha: Benefits, Dosage & Evidence](/articles/ashwagandha/)
-- [L-Theanine: Calm Focus Guide](/articles/l-theanine/)
+- [L-Theanine: Calm Focus Guide](/guides/herbs/l-theanine/)
