@@ -4,8 +4,8 @@
   "program": {
     "range": "1001-1500",
     "target_findings": 500,
-    "current_findings": 425,
-    "last_wave": 1425
+    "current_findings": 450,
+    "last_wave": 1450
   },
   "policy": "research authoring index only; not runtime admission; final Wave-1500 consolidation required",
   "waves": [
@@ -2983,6 +2983,181 @@
       "pmid": "42176989",
       "focus": "Secondary analysis of a postpartum randomized cohort found maternal serum vitamins A, E and K and breastmilk A/E were generally adequate while vitamin-D sufficiency was less consistent; this informs postpartum status and milk transfer rather than a supplementation effect.",
       "state": "research_only_observational"
+    },
+    {
+      "wave": 1426,
+      "entity_slug": "sweetened-cola-hormonal-response",
+      "pmid": "41016269",
+      "focus": "Randomized crossover trial in 20 healthy adults found sucrose produced the largest acute glucose/insulin response, while aspartame/acesulfame-K resembled carbonated water and sucrose/stevia produced distinct pancreatic-polypeptide and later glucose responses; small acute physiology study only.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1427,
+      "entity_slug": "allulose-tagatose-glycemic-meta",
+      "pmid": "41985675",
+      "focus": "Systematic review/meta-analysis of controlled human trials found allulose and tagatose lowered postprandial glucose and insulin, while longer-term cardiometabolic and body-composition effects were limited or uncertain; heterogeneity was substantial for some outcomes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1428,
+      "entity_slug": "erythritol-sucrose-sucralose-reward",
+      "pmid": "42184911",
+      "focus": "Randomized double-blind crossover study found erythritol, sucrose and sucralose produced similar learned liking/wanting responses despite different metabolic hormone effects; reward findings were small-sample and mechanistic.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1429,
+      "entity_slug": "sweet-protein-glycemia",
+      "pmid": "42208445",
+      "focus": "Randomized crossover trial in 19 healthy adults found the sweet protein sweelin did not increase glucose, insulin or GLP-1 relative to stevia and produced far lower responses than dextrose; this is acute formulation-specific metabolic evidence.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1430,
+      "entity_slug": "allulose-tolerance-safety",
+      "pmid": "42375569",
+      "focus": "Thirty-day randomized double-blind study in 50 healthy adults found D-allulose produced frequent but generally mild transient GI symptoms and no clinically significant laboratory toxicity; short duration and limited population constrain a general long-term safety conclusion.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1431,
+      "entity_slug": "sweeteners-short-term-metabolic",
+      "pmid": "42514406",
+      "focus": "Fourteen-day randomized crossover trial found sucrose, saccharin and steviol-glycoside beverages produced broadly similar glucose-regulation outcomes in healthy adults, with some within-condition changes and higher triglycerides after sucrose; no consistent superiority of noncaloric sweeteners was shown.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1432,
+      "entity_slug": "stevia-acute-endocrine",
+      "pmid": "42680068",
+      "focus": "Randomized crossover study across normal-weight, overweight and type-2-diabetes cohorts found acute stevia did not materially alter glycemia, gut hormones, appetite or subsequent energy intake versus water, nor modify glucose responses when co-ingested with glucose.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1433,
+      "entity_slug": "erythritol-plasma-weightloss-observational",
+      "pmid": "42759771",
+      "focus": "Secondary observational analysis within a randomized weight-loss trial found decreases in endogenous plasma erythritol tracked with improved estimated cardiovascular risk and atherogenic lipids; association does not establish effects of consuming erythritol.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1434,
+      "entity_slug": "blueberry-leaf-tea-sleep",
+      "pmid": "41683277",
+      "focus": "Two-week randomized double-blind placebo-controlled trial in adults with poor sleep found fermented blueberry-leaf tea improved sleep efficiency and wake-after-sleep-onset but not sleep latency, total sleep time or subjective sleep measures; small short-duration functional-food evidence.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1435,
+      "entity_slug": "yogurt-oats-gut-microbiome",
+      "pmid": "41687784",
+      "focus": "Randomized crossover study in 119 healthy adults found yogurt transiently increased yogurt-associated microbes, while adding oats produced little broad effect on SCFAs or host health markers; the healthy microbiome was largely resilient and individual responses varied.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1436,
+      "entity_slug": "fermented-whey-frailty",
+      "pmid": "41805014",
+      "focus": "Ten-week randomized blinded trial in 45 older adults found fermented whey protein improved selected physical-performance and skeletal-muscle-mass outcomes versus dextrin placebo, but the formulation also materially increased vitamin/mineral intake, limiting protein-fermentation attribution.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1437,
+      "entity_slug": "dairy-cognition-older-adults",
+      "pmid": "41822303",
+      "focus": "Systematic review/meta-analysis found randomized dairy interventions improved selected global cognition, memory and processing-speed outcomes in older adults, while observational studies were neutral; product heterogeneity and fermented/fortified subgroups complicate category-wide claims.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1438,
+      "entity_slug": "fermented-milk-protein-children-performance",
+      "pmid": "41929774",
+      "focus": "Pilot randomized double-blind trial in prepubertal boys found fermented and non-fermented milk protein improved short-sprint performance versus placebo, with no consistent fermented-protein superiority and no clear lean-mass advantage; exploratory microbiome findings were noncausal.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1439,
+      "entity_slug": "brewers-spent-grain-metabolic-gut",
+      "pmid": "41940993",
+      "focus": "Small randomized trial in adults with metabolic impairment found brewer's-spent-grain biscuits increased fiber intake and shifted selected gut taxa/metabolites, while fermented BSG increased HDL; most other metabolic outcomes were unchanged.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1440,
+      "entity_slug": "kefir-gut-microbiota-review",
+      "pmid": "42036973",
+      "focus": "Systematic review of eight human intervention studies found kefir produced modest, heterogeneous microbiome changes, with some increases in Bifidobacterium and transient kefir-associated taxa; direct functional or clinical evidence remained limited.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1441,
+      "entity_slug": "red-ginseng-complex-hangover",
+      "pmid": "42112120",
+      "focus": "Randomized double-blind crossover trial found a multi-ingredient Korean red-ginseng complex accelerated early ethanol/acetaldehyde clearance and improved hangover symptom scores; proprietary combination prevents attribution to ginseng alone and does not make alcohol use safe.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1442,
+      "entity_slug": "lactiplantibacillus-k014-safety",
+      "pmid": "42124006",
+      "focus": "Six-month randomized double-blind placebo-controlled trial in healthy adults found Lactiplantibacillus plantarum K014 was well tolerated with no probiotic-related adverse events; GI/common-cold signals were exploratory efficacy observations.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1443,
+      "entity_slug": "fermented-noni-immune-markers",
+      "pmid": "42280334",
+      "focus": "Randomized double-blind trial in adults with recurrent URTIs found fermented noni polysaccharides did not significantly improve the primary NK-cell-activity endpoints in modified intention-to-treat analysis or reduce URTI incidence; per-protocol immune-marker signals were secondary.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1444,
+      "entity_slug": "postbiotic-fermented-milk-constipation",
+      "pmid": "42451118",
+      "focus": "Randomized double-blind placebo-controlled trial in 100 adults with functional constipation found a heat-inactivated fermented-milk postbiotic did not improve bowel-movement frequency, transit time, symptoms or quality of life versus placebo despite exploratory neurotransmitter-biomarker changes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1445,
+      "entity_slug": "postbiotic-oat-microbiome",
+      "pmid": "42486470",
+      "focus": "Four-week randomized double-blind trial of a fermented pasteurized oat postbiotic found selective species-level microbiome changes without alpha/beta-diversity shifts; cortisol, IL-8 and well-being signals were exploratory and no clinical efficacy was established.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1446,
+      "entity_slug": "lactococcus-cremoris-sleep",
+      "pmid": "42593206",
+      "focus": "Eight-week randomized double-blind placebo-controlled trial in 105 adults dissatisfied with sleep found Lactococcus cremoris YRC3780 improved Athens Insomnia Scale scores and selected sleep-onset/daytime-sleepiness items; strain-specific replication remains important.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1447,
+      "entity_slug": "fermented-dairy-cardiometabolic",
+      "pmid": "42733680",
+      "focus": "Twelve-week randomized trial in adults with overweight/obesity and elevated triglycerides found full-fat fermented dairy modestly reduced waist circumference versus nondairy control, while insulin sensitivity and most other cardiometabolic markers were unchanged.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1448,
+      "entity_slug": "edible-birds-nest-metabolomics",
+      "pmid": "42409548",
+      "focus": "Twelve-week randomized double-blind trial in healthy women found edible bird's nest produced dose- and time-dependent metabolomic shifts in amino-acid and lipid pathways; clinical significance and health outcomes were not established.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1449,
+      "entity_slug": "heat-treated-lp-lm1004-immune",
+      "pmid": "42487409",
+      "focus": "Randomized clinical trial found heat-treated Lactiplantibacillus plantarum LM1004 increased NK-cell activity and altered microbiome-related endpoints, while mechanistic ecosystem data came from simulation; immune-marker improvement does not establish reduced infection risk.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1450,
+      "entity_slug": "lacticaseibacillus-hp7-helicobacter",
+      "pmid": "42671007",
+      "focus": "Randomized double-blind placebo-controlled trial in adults with H. pylori infection found high-dose Lacticaseibacillus paracasei HP7 reduced urea-breath-test values and modestly improved selected gastric markers/symptoms, but complete eradication was uncommon and it is not a replacement for established therapy.",
+      "state": "research_only_formulation_firewall"
     }
   ]
 }
