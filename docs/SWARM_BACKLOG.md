@@ -1,8 +1,8 @@
 # Site Swarm — Extensive Backlog Inventory
 
 **Status:** Durable candidate feeder; not direct execution authority  
-**Updated:** 2026-09-30  
-**Current citation snapshot:** 2026-09-17 — 29,591 Bing AI citations across 133 cited URLs  
+**Updated:** 2026-10-04  
+**Current citation snapshot:** 2026-10-04 — 42,446 Bing AI citations across 166 cited URLs (`config/ai-citation-swarm-priorities.json`)  
 **Execution authority:** `docs/CURRENT_SPRINT.md` only  
 **Ranked feeder:** `docs/MASTER_BACKLOG.md`  
 **WIP:** maximum 3 normal implementation workstreams — Discovery/SEO, Revenue/Conversion, Authority/Content — one active item per workstream.
@@ -62,7 +62,7 @@ At the start of a run, read the current main SHA, owned PR head/status and incid
 
 ## Route-level winner program — 90 candidates
 
-Each cited route intentionally receives three different candidate jobs: **D** protects discovery/intent/canonical identity, **R** audits the post-answer journey, and **A** audits evidence/safety freshness. These are separate tickets, not permission to edit the same route in parallel. Route-level citation counts are historical candidate context, not present-tense execution priority; any Discovery/SEO promotion from this table must pass the fresh search-opportunity rules above.
+Each cited route intentionally receives three different candidate jobs: **D** protects discovery/intent/canonical identity, **R** audits the post-answer journey, and **A** audits evidence/safety freshness. These are separate tickets, not permission to edit the same route in parallel. Route-level citation counts are historical candidate context, not present-tense execution priority; any Discovery/SEO promotion from this table must pass the fresh search-opportunity rules above. The per-row citation numbers below are retained as historical feeder provenance unless a row is explicitly refreshed; agents must use the dated scheduler manifest above—not these old row counts—for current citation-aware scheduling.
 
 | ID | WS | Priority | State | Page / signal | Candidate task |
 |---|---|---|---|---|---|
