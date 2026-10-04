@@ -4,8 +4,8 @@
   "program": {
     "range": "1001-1500",
     "target_findings": 500,
-    "current_findings": 400,
-    "last_wave": 1400
+    "current_findings": 425,
+    "last_wave": 1425
   },
   "policy": "research authoring index only; not runtime admission; final Wave-1500 consolidation required",
   "waves": [
@@ -2808,6 +2808,181 @@
       "pmid": "42762034",
       "focus": "Exploratory metabolomics analysis from a tiny randomized prostate-cancer trial found one year of soy protein shifted global metabolomic patterns, but only one metabolite survived multiple-comparison correction; clinical significance was not established.",
       "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1401,
+      "entity_slug": "iv-vitamin-c-nasopharyngeal-chemotherapy",
+      "pmid": "41973719",
+      "focus": "Randomized double-blind trial in nasopharyngeal-cancer chemoradiotherapy found intravenous vitamin C did not reduce gastrointestinal treatment toxicities, although platelet-count decline was attenuated; supportive hematologic signal without broad toxicity reduction.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1402,
+      "entity_slug": "vitamin-c-deficiency-scurvy-vulnerability",
+      "pmid": "42514284",
+      "focus": "Systematic review/meta-analysis of contemporary scurvy in high-income countries found cases clustered in vulnerable people with restrictive diets, neurodevelopmental disorders, medical complexity and psychosocial risk; useful deficiency-risk context rather than supplementation efficacy.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1403,
+      "entity_slug": "ayurvedic-formulation-vitamin-ce-vascular",
+      "pmid": "42195225",
+      "focus": "Twelve-month randomized trial in high-cardiovascular-risk adults found an Ayurvedic herbal formulation improved endothelium-independent dilation versus placebo, while vitamin C/E did not clearly outperform placebo on the main vascular endpoints; multi-arm comparison does not support a C/E vascular benefit.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1404,
+      "entity_slug": "high-dose-iv-vitamin-c-severe-burns",
+      "pmid": "42267875",
+      "focus": "Multicenter phase-3 VICTORY trial in severe burns was stopped early for futility/harm: high-dose intravenous vitamin C did not improve discharge or organ outcomes and the primary mortality/persistent-organ-dysfunction composite numerically favored placebo.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1405,
+      "entity_slug": "high-dose-iv-vitamin-c-cardiac-arrest",
+      "pmid": "42301311",
+      "focus": "Multicenter randomized VITaCCA trial found intravenous vitamin C did not improve post-cardiac-arrest organ dysfunction; the 10-g dose produced worse R-SOFA change, renal function, troponin release and neurological outcomes than placebo.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1406,
+      "entity_slug": "ascorbate-rich-fruit-iron-bioavailability",
+      "pmid": "42349680",
+      "focus": "Systematic review/meta-analysis of 15 interventions found ascorbate-rich fruits consumed with meals improved ferritin, hemoglobin and transferrin-receptor measures, while direct fractional iron-absorption evidence was not clearly significant; food-matrix evidence should not be reduced to isolated vitamin C dosing.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1407,
+      "entity_slug": "vitamin-c-t2d-proteomics",
+      "pmid": "42373594",
+      "focus": "Small double-blind crossover T2D trial found four months of vitamin C altered multiple plasma proteins and pathways related to innate immunity and metabolism; proteomic changes were mechanistic and do not by themselves establish clinical benefit.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1408,
+      "entity_slug": "iv-vitamin-c-sepsis-umbrella",
+      "pmid": "42384633",
+      "focus": "Umbrella review of 31 sepsis/septic-shock reviews found vitamin-C combination regimens did not reduce mortality and hemodynamic improvements were modest; monotherapy mortality signals were low-to-moderate certainty and highly context-dependent.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1409,
+      "entity_slug": "iv-vitamin-c-kidney-biopsy",
+      "pmid": "42399956",
+      "focus": "Large randomized trial in 710 CKD patients undergoing kidney biopsy found perioperative intravenous vitamin C did not reduce perirenal hematoma size, pain or bleeding complications, arguing against routine prophylactic use in this setting.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1410,
+      "entity_slug": "high-dose-vitamin-c-severe-covid-mortality",
+      "pmid": "42446912",
+      "focus": "Meta-analysis of eight randomized COVID-19 trials involving 2,104 patients found no significant mortality reduction with high-dose vitamin C overall; study-level heterogeneity prevents a definitive benefit claim.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1411,
+      "entity_slug": "fruit-vegetable-berry-powder-cardiovascular",
+      "pmid": "42738920",
+      "focus": "Small open-label randomized trial in older adults found a commercial fruit/vegetable/berry powder was metabolically tolerated and improved selected oxidative and blood-pressure markers, but several effects attenuated after covariate adjustment and the formulation is proprietary.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1412,
+      "entity_slug": "iv-vitamin-c-sepsis-meta-analysis",
+      "pmid": "42761050",
+      "focus": "Updated meta-analysis of 14 sepsis/septic-shock RCTs found a mortality signal for intravenous vitamin C, but evidence quality was low and the apparent benefit was driven by single-center rather than multicenter trials; larger low-bias trials remain inconclusive.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1413,
+      "entity_slug": "oral-vitamin-c-clonal-cytopenia",
+      "pmid": "42764731",
+      "focus": "Phase-2 placebo-controlled EVITA trial found oral vitamin C did not change the primary clonal-growth endpoint in CCUS/lower-risk myeloid disease; exploratory cytokine, serious-adverse-event and survival signals require phase-3 confirmation.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1414,
+      "entity_slug": "vitamin-e-diabetic-neuropathy",
+      "pmid": "41528693",
+      "focus": "Meta-analysis of five RCTs found tocotrienol-rich vitamin E produced small improvements in selected nerve-conduction velocities in diabetic neuropathy, while nerve amplitudes and HbA1c were unchanged; functional pain/gait outcomes remain insufficient.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1415,
+      "entity_slug": "fermented-milk-fat-soluble-vitamin-bioavailability",
+      "pmid": "41765411",
+      "focus": "Randomized crossover study in 20 healthy men found co-ingestion with non-fat fermented milk increased short-term bioavailability markers for vitamins A, D, E and K versus water; this is a food-matrix absorption finding, not evidence of superior clinical outcomes.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1416,
+      "entity_slug": "vitamin-e-oral-mucositis",
+      "pmid": "41886966",
+      "focus": "Systematic review/meta-analysis of 14 trials/715 patients found vitamin E was associated with less severe antineoplastic-treatment oral mucositis, with similar direction in pediatric and adult subgroups; formulation and administration differences across trials still matter.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1417,
+      "entity_slug": "vitamin-e-cerebrovascular-function",
+      "pmid": "41964896",
+      "focus": "Systematic review found no qualifying human clinical studies of vitamin E on cerebrovascular function; positive effects came entirely from heterogeneous preclinical models, so human cerebrovascular benefit is unestablished.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1418,
+      "entity_slug": "vitamin-e-nafld-active-comparator",
+      "pmid": "42039690",
+      "focus": "Randomized pilot comparing ketotifen with vitamin E in NAFLD found ketotifen produced greater improvements on several steatosis, glycemic and inflammatory measures; the active-comparator design does not establish vitamin E efficacy against placebo.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1419,
+      "entity_slug": "vitamin-e-masld-lifestyle-comparison",
+      "pmid": "42237829",
+      "focus": "Three-arm randomized MASLD study found vitamin E and saroglitazar were not significantly better than lifestyle intervention alone for liver-stiffness, fibrosis-score or most secondary outcomes over 24 weeks.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1420,
+      "entity_slug": "vitamin-e-meal-sequence-bioavailability",
+      "pmid": "42435810",
+      "focus": "Human pharmacokinetic study found vitamin E absorption depended on meal timing/second-meal fat exposure and was reduced in women with obesity/MASLD; evidence informs absorption physiology rather than supplement efficacy.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1421,
+      "entity_slug": "vegan-multinutrient-omega3-vitd-status",
+      "pmid": "42480243",
+      "focus": "Four-month double-blind RCT in healthy vegans found a multinutrient plus omega-3 supplement increased omega-3 index and 25-OH-vitamin D, while doubling the omega-3/vitamin-D dose conferred no significant additional biomarker advantage; clinical endpoints were not tested.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1422,
+      "entity_slug": "tocotrienol-influenza-vaccine-response",
+      "pmid": "42579941",
+      "focus": "Randomized placebo-controlled trial in 150 healthy adults found palm tocotrienol-rich fraction increased influenza-vaccine antibody and selected Th1/antioxidant responses across doses; immune-marker enhancement does not establish lower infection risk.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1423,
+      "entity_slug": "nutritional-supplements-covid-network",
+      "pmid": "42582094",
+      "focus": "Network meta-analysis of COVID-19 nutrition RCTs found different supplements affected different inflammatory markers with mostly low or very-low certainty; heterogeneous interventions and surrogate outcomes preclude a single best-supplement recommendation.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1424,
+      "entity_slug": "supplements-preeclampsia-network",
+      "pmid": "42397815",
+      "focus": "Network meta-analysis suggested calcium, vitamin D and several multi-nutrient combinations may reduce preeclampsia risk, but indirect ranking evidence and combination regimens prevent attribution to vitamin C/E or any single ingredient.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1425,
+      "entity_slug": "fat-soluble-vitamins-breastfeeding-status",
+      "pmid": "42176989",
+      "focus": "Secondary analysis of a postpartum randomized cohort found maternal serum vitamins A, E and K and breastmilk A/E were generally adequate while vitamin-D sufficiency was less consistent; this informs postpartum status and milk transfer rather than a supplementation effect.",
+      "state": "research_only_observational"
     }
   ]
 }
