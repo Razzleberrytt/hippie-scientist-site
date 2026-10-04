@@ -4,8 +4,8 @@
   "program": {
     "range": "1001-1500",
     "target_findings": 500,
-    "current_findings": 350,
-    "last_wave": 1350
+    "current_findings": 375,
+    "last_wave": 1375
   },
   "policy": "research authoring index only; not runtime admission; final Wave-1500 consolidation required",
   "waves": [
@@ -2458,6 +2458,181 @@
       "pmid": "42716224",
       "focus": "Double-blind RCT in 110 pregnant women found equimolar 5-MTHF and folic acid produced comparable RBC-folate gains and homocysteine reductions; plasma 5-MTHF and unmetabolized-folate differences were borderline or nonsignificant after adjustment.",
       "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1351,
+      "entity_slug": "vitamin-d-shift-workers-adiposity",
+      "pmid": "42659412",
+      "focus": "Four-month randomized double-blind placebo-controlled trial in 198 male shift workers found vitamin D raised serum 25(OH)D but did not reduce central adiposity; biomarker correction did not translate into an obesity benefit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1352,
+      "entity_slug": "vitamin-k2-d3-severe-coronary-calcification",
+      "pmid": "42661461",
+      "focus": "DANCODE multicenter double-blind randomized trial found vitamin K2 plus D3 slowed severe coronary-calcification progression over 24 months, but the imaging effect does not establish fewer cardiovascular events.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1353,
+      "entity_slug": "targeted-vitamin-d-post-mi",
+      "pmid": "42702500",
+      "focus": "TARGET-D randomized trial found titrated vitamin D management after myocardial infarction did not significantly reduce major adverse cardiovascular events; one recurrent-MI secondary signal does not overturn the primary null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1354,
+      "entity_slug": "vitamin-d-biofortified-eggs-chicken",
+      "pmid": "42716471",
+      "focus": "Randomized winter feeding trial found 25(OH)D3-biofortified chicken and eggs prevented seasonal vitamin-D decline, but standard vitamin D3 supplementation increased serum 25(OH)D more.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1355,
+      "entity_slug": "vitamin-d-prediabetes-dose-network",
+      "pmid": "42721218",
+      "focus": "Network meta-analysis of 21 prediabetes RCTs produced different dose rankings across glycemic outcomes; indirect comparisons and sparse low-dose evidence make apparent optimal-dose signals exploratory.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1356,
+      "entity_slug": "vitamin-d3-dha-mci",
+      "pmid": "42738950",
+      "focus": "Twelve-month randomized four-arm trial in older adults with MCI found vitamin D3, DHA and their combination improved selected cognitive and pyroptosis measures, with the combination appearing stronger; combination superiority needs independent replication.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1357,
+      "entity_slug": "vitamin-d3-omega3-adrd-biomarkers",
+      "pmid": "42746141",
+      "focus": "VITAL secondary analysis found neither vitamin D3 nor marine omega-3 significantly reduced selected Alzheimer-related plasma biomarkers over four years; subgroup signals were uncorrected and hypothesis-generating.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1358,
+      "entity_slug": "vitamin-d-athletic-performance-inflammation",
+      "pmid": "42760983",
+      "focus": "Short randomized double-blind trial found vitamin D changed selected inflammatory responses but did not improve repeated Wingate anaerobic performance.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1359,
+      "entity_slug": "vitamin-d-melanoma",
+      "pmid": "42770385",
+      "focus": "Meta-analysis of five randomized trials found vitamin D supplementation did not reduce melanoma incidence or recurrence; randomized evidence is currently neutral.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1360,
+      "entity_slug": "vitamin-d-probiotic-cardiometabolic",
+      "pmid": "42778435",
+      "focus": "Meta-analysis of vitamin D plus probiotic/synbiotic co-supplementation found a modest fasting-insulin signal while HOMA-IR, glucose, lipids and anthropometrics were null overall; combination evidence remains limited.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1361,
+      "entity_slug": "vitamin-d-benign-breast-disease-metabolic",
+      "pmid": "42785554",
+      "focus": "Randomized placebo-controlled trial in premenopausal women with benign breast disease found cholecalciferol improved selected insulin-sensitivity indices but not fasting glucose, lipids or anthropometrics between groups.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1362,
+      "entity_slug": "omega3-omega9-pediatric-insulin-resistance",
+      "pmid": "42654225",
+      "focus": "Triple-blind pediatric trial found within-group metabolic improvements during omega-3/omega-9 interventions, but intervention assignment did not independently predict response and between-group differences were absent.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1363,
+      "entity_slug": "curcumin-omega3-lung-chemoprevention",
+      "pmid": "42649879",
+      "focus": "Tiny randomized phase-II pilot found curcumin plus omega-3 was well tolerated but did not significantly change primary pulmonary-nodule imaging endpoints; no chemopreventive efficacy was established.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1364,
+      "entity_slug": "omega3-omega6-autism-cytokines",
+      "pmid": "42730828",
+      "focus": "Double-blind randomized trial in young children with autism found omega-3/omega-6 supplementation had no overall effect on cytokines or autism-related behaviors; sex-specific findings were exploratory.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1365,
+      "entity_slug": "omega3-muscle-mass-strength",
+      "pmid": "42735611",
+      "focus": "Systematic review and meta-analysis found no clear benefit of isolated omega-3 supplementation on fat-free mass or muscle strength in healthy adults, with very-low-certainty evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1366,
+      "entity_slug": "omega3-autism-meta-analysis",
+      "pmid": "42738993",
+      "focus": "Updated randomized-trial meta-analysis found small statistical improvements in irritability and communication but no significant effects across several other autism behavioral domains; clinical relevance remains uncertain.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1367,
+      "entity_slug": "omega3-schizophrenia-adjunct",
+      "pmid": "42793353",
+      "focus": "Systematic review/meta-analysis found no significant pooled benefit of adjunctive omega-3 on PANSS total, clinical response or discontinuation outcomes in schizophrenia.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1368,
+      "entity_slug": "omega3-youth-migraine",
+      "pmid": "42796966",
+      "focus": "Quasi-randomized pilot found omega-3 changed whole-blood EPA/DHA and fatty-acid ratios but did not improve patient-reported migraine pain, disability or distress.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1369,
+      "entity_slug": "liposomal-omega3-pharmacokinetics",
+      "pmid": "42821481",
+      "focus": "Randomized pharmacokinetic comparison of liposomal and non-liposomal omega-3 formulations informs formulation/exposure differences, not clinical superiority.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1370,
+      "entity_slug": "collagen-post-hip-arthroplasty-bone",
+      "pmid": "41905472",
+      "focus": "Randomized double-blind trial after total hip arthroplasty found hydrolyzed collagen did not alter postoperative bone-turnover biomarkers versus placebo; one pain signal was secondary.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1371,
+      "entity_slug": "fava-bean-protein-heat-exercise",
+      "pmid": "41917722",
+      "focus": "Small randomized crossover study found fava-bean protein altered thermoregulatory and intestinal-damage markers during exercise in heat but did not improve graded exercise time or GI symptoms.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1372,
+      "entity_slug": "whey-resistance-training-t2d",
+      "pmid": "41931150",
+      "focus": "Secondary analysis of a triple-blind RCT found resistance training improved strength across groups while whey protein reduced HOMA-IR without significant HbA1c, fasting-glucose, lipid or hypertrophy benefits.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1373,
+      "entity_slug": "almonds-anxiety-depression-gut-brain",
+      "pmid": "42463057",
+      "focus": "Twelve-week randomized trial found almonds did not improve the primary anxiety/depression score or microbiome/SCFA outcomes versus control, though stool hardness and some functional-impairment analyses favored almonds.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1374,
+      "entity_slug": "plant-vs-animal-protein-long-term",
+      "pmid": "41994089",
+      "focus": "Meta-analysis of 18 RCTs found no meaningful long-term differences between plant- and animal-protein supplementation in body composition, strength, physical performance or major cardiometabolic risk factors when protein intake was adequate.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1375,
+      "entity_slug": "presleep-whey-casein-sleep",
+      "pmid": "42413910",
+      "focus": "Very small randomized crossover trial found pre-sleep whey improved several sleep measures and next-day soreness versus isocaloric control but not consistently versus casein; the result is preliminary.",
+      "state": "research_only_evidence_quality"
     }
   ]
 }
