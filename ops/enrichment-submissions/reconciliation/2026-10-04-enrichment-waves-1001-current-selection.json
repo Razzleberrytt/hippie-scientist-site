@@ -4,8 +4,8 @@
   "program": {
     "range": "1001-1500",
     "target_findings": 500,
-    "current_findings": 25,
-    "last_wave": 1025
+    "current_findings": 50,
+    "last_wave": 1050
   },
   "policy": "research authoring index only; not runtime admission; final Wave-1500 consolidation required",
   "waves": [
@@ -183,6 +183,181 @@
       "pmid": "41687812",
       "focus": "Twelve double-blind placebo-controlled exercise trials found no significant IL-6 or malondialdehyde effect and a CRP reduction based on only two small trials; overall recovery biomarker evidence was low-to-very-low certainty and hypothesis-generating.",
       "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1026,
+      "entity_slug": "ginkgo-egb-761",
+      "pmid": "41908799",
+      "focus": "Pooled meta-analysis of four randomized placebo-controlled dementia trials (488 patients) with prior cerebral infarction found statistically significant benefits for cognition, activities of daily living and global clinical impression with proprietary EGb 761; subgroup/proprietary-extract boundaries remain explicit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1027,
+      "entity_slug": "pomegranate",
+      "pmid": "41265522",
+      "focus": "Systematic review of seven rheumatic-disease studies found promising symptom/inflammatory signals in rheumatoid and osteoarthritis populations, but overall certainty was low to very low because of small samples, heterogeneous preparations and short follow-up.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1028,
+      "entity_slug": "ginger",
+      "pmid": "41195902",
+      "focus": "Forty-one-RCT systematic review found pooled improvements in several glycemic, lipid, blood-pressure and inflammatory biomarkers, while multiple other outcomes were null; surrogate-endpoint and baseline-risk modifiers remain explicit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1029,
+      "entity_slug": "ginger",
+      "pmid": "42337792",
+      "focus": "Thirteen-trial type-2-diabetes meta-analysis found statistically significant fasting-glucose, HbA1c, systolic-BP, triglyceride and HDL changes, but HOMA-IR, diastolic BP, total cholesterol, LDL and BMI were null and effect magnitudes were often of limited clinical importance.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1030,
+      "entity_slug": "ginger",
+      "pmid": "42566667",
+      "focus": "GRADE-based 12-RCT blood-pressure meta-analysis found modest SBP/DBP reductions with ginger but rated certainty low because of inconsistency, short duration and limited robustness; dose-response subgroup findings are study evidence rather than dosing guidance.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1031,
+      "entity_slug": "nutritional-supplements-cognition",
+      "pmid": "41764841",
+      "focus": "Network meta-analysis of randomized trials in healthy aging/MCI found domain-specific signals for several nutrient combinations and single nutrients, but rankings were sensitive to sample size/duration and the heterogeneous interventions prevent ingredient-level equivalence claims.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1032,
+      "entity_slug": "vitamin-b12",
+      "pmid": "42227307",
+      "focus": "Cochrane review of 16 randomized trials (4,083 children) evaluated oral vitamin B12 for growth, development and cognition; outcomes varied by endpoint and trial context, requiring age, baseline-status, co-nutrient and duration boundaries rather than a universal pediatric cognition claim.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1033,
+      "entity_slug": "melatonin",
+      "pmid": "42070664",
+      "focus": "Thirty-one-RCT glycemic meta-analysis found no significant fasting-glucose reduction with melatonin, while HbA1c, fasting-insulin and HOMA-IR signals improved; fasting-glucose null and metabolic-population boundaries remain first-class.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1034,
+      "entity_slug": "melatonin",
+      "pmid": "42192324",
+      "focus": "Twelve-trial/1,977-participant cancer-fatigue meta-analysis found a pooled fatigue reduction but very low GRADE certainty and substantial heterogeneity; apparent exposure/duration patterns are not converted into consumer dosing guidance.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1035,
+      "entity_slug": "melatonin",
+      "pmid": "42230276",
+      "focus": "Five randomized trials (323 hemodialysis patients) found improved PSQI and selected sleep domains with melatonin; the disease-specific evidence remains limited in certainty and should not be generalized to primary insomnia.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1036,
+      "entity_slug": "melatonin",
+      "pmid": "42726650",
+      "focus": "Five RCTs/561 breast-cancer radiotherapy patients found less fatigue and improvements in cognitive/global-health measures, with several emotional, social, physical, gastrointestinal, pain and sleep domains null; small samples and heterogeneous regimens limit inference.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1037,
+      "entity_slug": "melatonin",
+      "pmid": "42770627",
+      "focus": "Seven randomized IBS trials (391 adults) found improvements in overall symptom severity, pain frequency and defecation frequency, while quality of life and global sleep quality were not significantly improved; short-term IBS-specific evidence only.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1038,
+      "entity_slug": "ashwagandha",
+      "pmid": "40887707",
+      "focus": "Systematic/ethnobotanical review found historical abortifacient claims vulnerable to citation distortion and available animal/human data did not establish significant teratogenic or abortifacient activity; absence of robust pregnancy-specific controlled evidence keeps reproductive-safety conclusions incomplete.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1039,
+      "entity_slug": "saffron",
+      "pmid": "41693488",
+      "focus": "GRADE-assessed meta-analysis of 34 RCTs/1,769 adults found improvements on self-reported BDI/BAI scores but no significant HDRS, HARS or POMS effects; high heterogeneity and discordance between self- and clinician-rated outcomes constrain broad antidepressant/anxiolytic claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1040,
+      "entity_slug": "polyphenols-soccer-recovery",
+      "pmid": "42197097",
+      "focus": "Eight RCTs in adult male soccer players found inconsistent biomarker/functional recovery effects, with more favorable soreness/well-being trends in selected tart-cherry, beetroot and curcumin studies; certainty was low or very low and remains category-level.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1041,
+      "entity_slug": "black-cohosh",
+      "pmid": "41401209",
+      "focus": "Systematic review of 14 black-cohosh clinical-trial reports found wide variation in CONSORT herbal-intervention and harms-reporting quality; the review chiefly informs evidence quality and adverse-event reporting rather than establishing efficacy.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1042,
+      "entity_slug": "menopause-complementary-therapies",
+      "pmid": "41498229",
+      "focus": "International Menopause Society evidence update reviewed 158 studies and found most complementary-therapy evidence low/very-low certainty, with moderate-certainty support for selected black-cohosh/CHM/acupuncture combinations and vitamin-D outcomes; broad category evidence only.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1043,
+      "entity_slug": "non-soy-menopause-herbs",
+      "pmid": "42451042",
+      "focus": "Thirty-RCT review of 19 non-soy herbal interventions found substantial heterogeneity; most studies reported some symptom improvement but black cohosh and dong quai trials included null findings, preventing a class-wide efficacy conclusion.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1044,
+      "entity_slug": "garlic",
+      "pmid": "40580481",
+      "focus": "Updated meta-analysis of 108 RCTs/7,137 adults found modest pooled improvements across several lipid, glycemic, blood-pressure, inflammatory and oxidative biomarkers, while ApoA1/ApoB, ALT, IL-6, BMI, weight and adiponectin were null; surrogate-outcome boundaries retained.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1045,
+      "entity_slug": "aged-garlic-extract-retraction",
+      "pmid": "42527229",
+      "focus": "2026 retraction notice for a prior aged-garlic-extract blood-pressure meta-analysis; downstream evidence systems must quarantine the retracted synthesis and preserve retraction provenance rather than continuing to cite its pooled estimate.",
+      "state": "retraction_metadata_only"
+    },
+    {
+      "wave": 1046,
+      "entity_slug": "vitamins-endometriosis",
+      "pmid": "41683896",
+      "focus": "Seven-RCT review of vitamin D and vitamins C/E in endometriosis reported selected pain/oxidative-stress signals but no significant pregnancy-rate improvement; multiple vitamins and heterogeneous regimens make this category-level adjunctive evidence.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1047,
+      "entity_slug": "vitamin-e",
+      "pmid": "42092748",
+      "focus": "Twelve-RCT MASLD meta-analysis found a triglyceride reduction with vitamin E but no significant overall total-cholesterol, LDL, HDL or BMI change; disease-specific lipid evidence is mixed and largely surrogate.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1048,
+      "entity_slug": "l-carnitine",
+      "pmid": "40864195",
+      "focus": "Systematic review of nine pediatric dialysis studies (194 patients) found limited, outcome-specific signals for hemoglobin/ESA use and cardiac function, with several lipid/inflammatory/QoL outcomes null; small heterogeneous evidence base limits pediatric inference.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1049,
+      "entity_slug": "l-carnitine",
+      "pmid": "41709059",
+      "focus": "Systematic review across mechanistic and clinical CAD evidence reported possible inflammatory/oxidative and selected clinical signals, but heart-failure and reinfarction results were inconsistent; mixed study designs prevent a high-certainty treatment claim.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1050,
+      "entity_slug": "l-carnitine-acetyl-l-carnitine-toxicity",
+      "pmid": "41692009",
+      "focus": "Systematic review of clinical and experimental poisoning evidence found toxin-specific, mostly adjunctive signals for L-carnitine/acetyl-L-carnitine, with no basis to replace established antidotes/supportive care; heterogeneous toxins and mixed human/preclinical evidence require category-level handling.",
+      "state": "research_only_category_firewall"
     }
   ]
 }
