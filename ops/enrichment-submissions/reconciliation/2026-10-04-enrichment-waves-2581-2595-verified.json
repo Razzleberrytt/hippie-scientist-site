@@ -28,6 +28,19 @@
       "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
     },
     {
+      "wave": 2583,
+      "pmid": "42812065",
+      "pmcid": "PMC13624993",
+      "doi": "10.12122/j.issn.1673-4254.2026.09.19",
+      "title": "黄芪注射液通过多成分靶向CCL2/FOS/PPARG/CXCL8抑制宫颈癌恶性进展",
+      "category": "botanicals_mushrooms",
+      "abstract_verified": true,
+      "verification_source": "NCBI PMC EFetch via Sider Scholar",
+      "focus": "目的预测黄芪注射液在抗宫颈癌中的作用靶标及分子机制。方法通过STRING、Cytoscape构建黄芪注射液与宫颈癌的交集靶点网络，筛选关键靶标；DAVID数据库完成靶点GO功能注释与KEGG通路富集分析；分子对接分析药物活性成分与核心靶点的结合能力；通过CCK-8、细胞克隆、划痕、Transwell检测黄芪注射液对人宫颈癌SiHa细胞增殖、迁移、侵袭影响；Western blotting检测核心靶点FOS、PPARG、CXCL8、CCL2，IL-17通路核心分子NF-κB p65、p-p65、STAT3、p-STAT3及细胞凋亡相关蛋白BAX、BCL2、Caspase-3、cleaved-Caspase-3的表达。考马斯亮蓝与鬼笔环肽染色检测细胞骨架微丝变化；JC-10检测线粒体膜电位；AO/EB染色检测细胞凋亡及细胞膜通透性。构建U14宫颈癌荷瘤小鼠模型，8 只荷瘤小鼠随机分为对照组和黄芪注射液处理组，4只/组；测量肿瘤体积生长情况；HE染色分析肿瘤组织病理学；免疫组织化学染色观察CCL2、PPARG、FOS阳性表达率。结果确定黄芪注射液中5个活性成分与宫颈癌关键靶点CCL2、CXCL8、FOS、PPARG，且分子对接结合能均小于-5 kJ/mol。细胞实验结果显示黄芪注射液能显著抑制宫颈癌细胞的增殖、迁移和侵袭能力（P<0.05），并引起微丝结构改变，诱导细胞发生凋亡，靶点蛋白FOS、CXCL8、CCL2、PPARG、抗凋亡蛋白 BCL2 及磷酸化的p-p65 （Ser536）、p-STAT3 （Tyr705）蛋白表达水平下调（P<0.01），而促凋亡蛋白BAX、cleav",
+      "state": "research_only_primary",
+      "evidence_boundary": "Primary research remains design-bounded; no recommendation, dose inference, or cross-formulation generalization is permitted."
+    },
+    {
       "wave": 2584,
       "pmid": "42665423",
       "doi": "10.21873/invivo.14434",
@@ -38,6 +51,32 @@
       "focus": "Cisplatin is a widely used anti-cancer agent, but it can cause testicular dysfunction, leading to infertility and hypogonadism. Currently, pharmacological agents for preventing testicular dysfunction during chemotherapy are limited. Ramelteon, an insomnia medication that selectively targets melatonin receptor type 1 and type 2, exerts cytoprotective effects across organs via anti-inflammatory and anti-apoptotic mechanisms. Ramelteon has an established safety profile in humans; however, its efficacy against chemotherapy-induced testicular toxicity remains unclear. We therefore examined the protective efficacy of ramelteon against cisplatin-induced testicular dysfunction in a rat model. Male 8",
       "state": "research_only_human_trial",
       "evidence_boundary": "Human intervention evidence; no generalization beyond the studied formulation, dose, population, comparator, duration, and outcomes."
+    },
+    {
+      "wave": 2586,
+      "pmid": "42756867",
+      "pmcid": "PMC13583631",
+      "doi": "10.71480/nmj.v67i5.1505",
+      "title": "Micronutrients in Cardiovascular Disease: A Comprehensive Review of Vitamins, Trace Minerals, and Electrolytes",
+      "category": "cardiometabolic",
+      "abstract_verified": true,
+      "verification_source": "NCBI PMC EFetch via Sider Scholar",
+      "focus": "Cardiovascular disease (CVD) is a leading cause of global mortality, accounting for approximately 17.3 million deaths annually. The antioxidant effects of certain micronutrients may play a role in CVD prevention. This systematic review critically evaluates the evidence on antioxidant vitamins (C, E, carotenoids), B-complex vitamins, vitamin D, trace minerals (iron, copper, zinc, selenium), and electrolytes (sodium, potassium, magnesium, calcium) in cardiovascular health. This scoping review with narrative synthesis was informed by PRISMA principles. PubMed, Scopus, Cochrane Library, and Google Scholar were searched (1980-2024) for English-language human studies on micronutrients and cardiova",
+      "state": "research_only_systematic_review",
+      "evidence_boundary": "Evidence synthesis inherits heterogeneity and limitations of included studies; ingredient/formulation/population attribution remains explicit."
+    },
+    {
+      "wave": 2588,
+      "pmid": "42795582",
+      "pmcid": "PMC13609661",
+      "doi": "10.3390/microorganisms14092001",
+      "title": "Ecological Engineering of the Human Gut Microbiome: A Narrative Review and Framework for Next-Generation Therapeutics",
+      "category": "gut",
+      "abstract_verified": true,
+      "verification_source": "NCBI PMC EFetch via Sider Scholar",
+      "focus": "The human gut microbiome is a complex adaptive ecosystem whose functions arise from interactions among microbial populations rather than from isolated taxa. Nevertheless, many microbiome-directed interventions still rely on administering individual strains, with limited consideration of the ecological processes governing community assembly, succession, and resilience. This review integrates evidence from microbial ecology, comparative genomics, systems biology, mechanistic physiology, and clinical microbiome research to propose a testable framework for ecologically engineering the human gut microbiome. Within this framework, selected spore-forming probiotics are hypothesized to function as t",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
     },
     {
       "wave": 2591,
@@ -78,58 +117,46 @@
   ],
   "rejected": [
     {
-      "wave": 2583,
-      "pmid": "42812065",
-      "category": "botanicals_mushrooms",
-      "reason": "Exact PubMed fetch lacked title/abstract."
-    },
-    {
       "wave": 2585,
       "pmid": "42757066",
       "category": "inflammation_pain",
-      "reason": "Exact PubMed fetch lacked title/abstract."
-    },
-    {
-      "wave": 2586,
-      "pmid": "42756867",
-      "category": "cardiometabolic",
-      "reason": "Exact PubMed fetch lacked title/abstract."
+      "reason": "PMC fallback lacked title/abstract.",
+      "pmcid": "PMC13584096"
     },
     {
       "wave": 2587,
       "pmid": "42796943",
       "category": "cognition_focus",
-      "reason": "Exact PubMed fetch lacked title/abstract."
-    },
-    {
-      "wave": 2588,
-      "pmid": "42795582",
-      "category": "gut",
-      "reason": "Exact PubMed fetch lacked title/abstract."
+      "reason": "PMC fallback lacked title/abstract.",
+      "pmcid": "PMC13610488"
     },
     {
       "wave": 2589,
       "pmid": "42796942",
       "category": "gut",
-      "reason": "Exact PubMed fetch lacked title/abstract."
+      "reason": "PMC fallback lacked title/abstract.",
+      "pmcid": "PMC13609966"
     },
     {
       "wave": 2590,
       "pmid": "42783786",
       "category": "inflammation_pain",
-      "reason": "Exact PubMed fetch lacked title/abstract."
+      "reason": "PMC fallback lacked title/abstract.",
+      "pmcid": "PMC13609467"
     },
     {
       "wave": 2592,
       "pmid": "42793276",
       "category": "botanicals_mushrooms",
-      "reason": "Exact PubMed fetch lacked title/abstract."
+      "reason": "PMC fallback lacked title/abstract.",
+      "pmcid": "PMC13605494"
     },
     {
       "wave": 2594,
       "pmid": "42716578",
       "category": "aging_sarcopenia",
-      "reason": "Exact PubMed fetch lacked title/abstract."
+      "reason": "PMC fallback lacked title/abstract.",
+      "pmcid": "PMC13560994"
     }
   ]
 }
