@@ -2157,19 +2157,14 @@
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42750265",
-      "category": "cognition_focus",
-      "title": "Advancing insights into fibromyalgia: an updated review of diagnosis and differential diagnosis.",
-      "pub_date": "2026 Oct",
-      "journal": "Expert Rev Neurother",
+      "pmid": "42614605",
+      "category": "safety_interactions",
+      "title": "Nutraceutical Intervention of Probiotics in Vision Science: A Systematic Review of Evolving Perspective.",
+      "pub_date": "2026",
+      "journal": "J Ophthalmol",
       "pub_type": "Review",
-      "doi": "10.1080/14737175.2026.2733188",
-      "pmcid": null,
-      "categories": [
-        "cognition_focus"
-      ],
-      "selection_score": 13,
-      "primary_category": "cognition_focus",
+      "doi": "10.1155/joph/5690407",
+      "pmcid": "PMC13482040",
       "wave": 2630,
       "state": "selected_pending_exact_abstract_verification"
     },
@@ -2208,36 +2203,26 @@
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42732346",
-      "category": "cognition_focus",
-      "title": "Early Recognition of Neuroleptic Malignant Syndrome Without Hyperthermia: A Narrative Review.",
-      "pub_date": "2026 Aug",
-      "journal": "Cureus",
+      "pmid": "42795656",
+      "category": "gut",
+      "title": "Non-Conventional Yeasts with Probiotic Potential: Diversity, Functional Role, Sustainable Bioprocessing and Local Relevance.",
+      "pub_date": "2026 Sep 17",
+      "journal": "Microorganisms",
       "pub_type": "Review",
-      "doi": "10.7759/cureus.114485",
-      "pmcid": "PMC13570673",
-      "categories": [
-        "cognition_focus"
-      ],
-      "selection_score": 13,
-      "primary_category": "cognition_focus",
+      "doi": "10.3390/microorganisms14092075",
+      "pmcid": "PMC13609542",
       "wave": 2633,
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42687507",
-      "category": "cognition_focus",
-      "title": "Mild Cognitive Impairment Diagnosis and Care Algorithms and the Role of Digital Interventions: Expert Consensus.",
-      "pub_date": "2026 Sep",
-      "journal": "CNS Neurosci Ther",
+      "pmid": "42783432",
+      "category": "cannabinoid_safety",
+      "title": "Cannabigerol at the Interface of the Gut Microbiota and EndoCannabinoidome: Mechanistic Insights into Inflammation and Pain Modulation.",
+      "pub_date": "2026 Sep 10",
+      "journal": "Med Sci (Basel)",
       "pub_type": "Review",
-      "doi": "10.1002/cns.71085",
-      "pmcid": "PMC13539218",
-      "categories": [
-        "cognition_focus"
-      ],
-      "selection_score": 13,
-      "primary_category": "cognition_focus",
+      "doi": "10.3390/medsci14050560",
+      "pmcid": "PMC13609727",
       "wave": 2634,
       "state": "selected_pending_exact_abstract_verification"
     },
@@ -2431,20 +2416,14 @@
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42801985",
-      "category": "gut",
-      "title": "Ingested microplastics and the gut-brain axis: A systematic review of mechanistic pathways and neurobiological impacts in human and preclinical models.",
-      "pub_date": "2026 Sep 27",
-      "journal": "Neurotoxicol Teratol",
+      "pmid": "42755489",
+      "category": "inflammation_pain",
+      "title": "Curcumin as an adjunct in periodontal therapy: local effects, delivery systems, and clinical perspectives.",
+      "pub_date": "2026",
+      "journal": "Front Dent Med",
       "pub_type": "Review",
-      "doi": "10.1016/j.ntt.2026.107721",
-      "pmcid": null,
-      "categories": [
-        "gut",
-        "immune_respiratory"
-      ],
-      "selection_score": 17,
-      "primary_category": "gut",
+      "doi": "10.3389/fdmed.2026.1861025",
+      "pmcid": "PMC13581582",
       "wave": 2646,
       "state": "selected_pending_exact_abstract_verification"
     },
@@ -2466,54 +2445,38 @@
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42795640",
-      "category": "gut",
-      "title": "Gut-on-Chip Models for Host-Microbiome Studies: A Systematic Review.",
-      "pub_date": "2026 Sep 15",
-      "journal": "Microorganisms",
+      "pmid": "42485365",
+      "category": "withdrawal_nps",
+      "title": "Understanding Kratom: Pharmacology, Risks, and Relevance to South Dakota Providers.",
+      "pub_date": "2025 Dec",
+      "journal": "S D Med",
       "pub_type": "Review",
-      "doi": "10.3390/microorganisms14092059",
-      "pmcid": "PMC13609488",
-      "categories": [
-        "gut",
-        "immune_respiratory"
-      ],
-      "selection_score": 17,
-      "primary_category": "gut",
+      "doi": null,
+      "pmcid": null,
       "wave": 2648,
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42819078",
-      "category": "gut",
-      "title": "Correction: Precision synbiotic intervention with 2'-fucosyllactose and infant-derived Bifidobacterium modulates gut-immune axis and reduces disease risk in toddlers: a randomized controlled trial.",
-      "pub_date": "2026",
-      "journal": "Front Nutr",
-      "pub_type": "Published Erratum",
-      "doi": "10.3389/fnut.2026.1957323",
-      "pmcid": "PMC13624849",
-      "categories": [
-        "gut"
-      ],
-      "selection_score": 16,
-      "primary_category": "gut",
+      "pmid": "42588063",
+      "category": "aging_sarcopenia",
+      "title": "Vitamin D and L-Cysteine as Potential Regulators of Adiponectin in Alzheimer's Disease: A Narrative Review.",
+      "pub_date": "2026 Jul 26",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "doi": "10.3390/nu18152440",
+      "pmcid": "PMC13468465",
       "wave": 2649,
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42829721",
-      "category": "gut",
-      "title": "Mechanisms by Which the Cervicovaginal Microbiota Mediates Endometrial Repair Following Uterine Injury: A Review of Recent Advances.",
-      "pub_date": "2026",
-      "journal": "Int J Gen Med",
+      "pmid": "42589236",
+      "category": "aging_sarcopenia",
+      "title": "Epigenetic Mechanisms of Vitamin D in the Aging Process: A Narrative Review.",
+      "pub_date": "2026 Jul 24",
+      "journal": "Int J Mol Sci",
       "pub_type": "Review",
-      "doi": "10.2147/IJGM.S636969",
-      "pmcid": "PMC13633720",
-      "categories": [
-        "gut"
-      ],
-      "selection_score": 13,
-      "primary_category": "gut",
+      "doi": "10.3390/ijms27156578",
+      "pmcid": "PMC13465677",
       "wave": 2650,
       "state": "selected_pending_exact_abstract_verification"
     },
