@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-2126-2150-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-2101-2125-selection",
+  "program": {
+    "range": "2001-2500",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 150,
+    "merge_policy": "accumulate twenty 25-finding deep passes; consolidate and run heavy validation after Wave 2500"
+  },
+  "source_provenance": [
+    "Direct PubMed/NCBI discovery and abstract verification",
+    "PMID-level dedupe against cumulative Wave 2000 index and rolling deep-state"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "publication_promotion": "forbidden until final admission",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true
+  },
+  "waves": [
+    {
+      "wave": 2126,
+      "entity_slug": "magnesium-cisplatin-nephrotoxicity-meta",
+      "pmid": "42652681",
+      "focus": "Meta-analysis found prophylactic magnesium reduced cisplatin-associated renal injury, with no clear difference across studied magnesium-dose groups; evidence concerns oncology supportive care and should not be generalized to routine magnesium supplementation.",
+      "state": "research_only_population_firewall"
+    },
+    {
+      "wave": 2127,
+      "entity_slug": "lavender-hemodialysis-pain-rls-meta",
+      "pmid": "38022715",
+      "focus": "Meta-analysis found lavender aromatherapy reduced AV-fistula needle-insertion pain and restless-legs severity in hemodialysis patients, but heterogeneity exceeded 90% and pain benefit was not significant versus placebo in subgroup analysis.",
+      "state": "research_only_route_firewall"
+    },
+    {
+      "wave": 2128,
+      "entity_slug": "choline-anxiety-mrs-meta",
+      "pmid": "40913113",
+      "focus": "Magnetic-resonance-spectroscopy meta-analysis found reduced cortical choline-containing compounds across anxiety disorders; the finding is neurometabolic observational evidence and does not establish benefit from choline supplementation.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2129,
+      "entity_slug": "iv-magnesium-spinal-surgery-analgesia-meta",
+      "pmid": "42664719",
+      "focus": "Meta-analysis of 21 RCTs found perioperative IV magnesium modestly reduced pain and opioid use after spinal surgery, while hypotension increased and emergence could be delayed; this is intravenous perioperative evidence, not oral magnesium evidence.",
+      "state": "research_only_route_firewall"
+    },
+    {
+      "wave": 2130,
+      "entity_slug": "greek-yogurt-vs-whey-athletes-rct",
+      "pmid": "41493773",
+      "focus": "Twenty-four-week randomized athlete study found no clear supplementation-group differences in most bone-turnover or inflammatory markers between Greek yogurt and isonitrogenous whey protein; observed temporal changes could not be attributed solely to the supplements.",
+      "state": "research_only_comparator_context"
+    },
+    {
+      "wave": 2131,
+      "entity_slug": "omega3-periodontal-adjunct-meta-2026",
+      "pmid": "42736619",
+      "focus": "Meta-analysis of 15 RCTs found omega-3 added to periodontal scaling/root planing modestly improved pocket depth, attachment, and several gingival measures, but heterogeneity was high and GRADE certainty was very low to low.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2132,
+      "entity_slug": "berberine-oral-disease-review",
+      "pmid": "42465994",
+      "focus": "Review described antimicrobial, anti-inflammatory, bone-regulating, and antitumor mechanisms for berberine across oral diseases, but much of the evidence is mechanistic or delivery-system focused and does not establish oral-supplement clinical efficacy.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2133,
+      "entity_slug": "microbiota-interventions-coronary-disease-meta",
+      "pmid": "42554955",
+      "focus": "Meta-analysis of 13 RCTs found probiotics/prebiotics/synbiotics improved several lipid, glycemic, inflammatory, oxidative, and endothelial biomarkers in coronary disease, but effects were not consistent across outcomes and no intervention class showed established superiority.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 2134,
+      "entity_slug": "calcium-vitamin-d-post-thyroidectomy-network-meta",
+      "pmid": "42397982",
+      "focus": "Network meta-analysis of 20 randomized trials found perioperative calcium plus vitamin D reduced clinical and biochemical hypocalcemia and IV-calcium requirements after thyroidectomy, whereas calcium alone showed no significant benefit; evidence is procedure-specific combination therapy.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2135,
+      "entity_slug": "vitamin-c-stress-responsive-clinical-review",
+      "pmid": "42514388",
+      "focus": "Narrative review distinguished established vitamin-C deficiency correction from uncertain benefits of supraphysiologic supplementation in replete patients and emphasized route, baseline status, formulation, endpoint, and safety context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2136,
+      "entity_slug": "myo-inositol-ivf-meta",
+      "pmid": "40190407",
+      "focus": "Meta-analysis of 11 studies found myo-inositol improved mature-oocyte and fertilization rates in IVF cohorts, particularly PCOS subgroups, while poor-ovarian-response findings were less consistent and stronger prospective randomized evidence is needed.",
+      "state": "research_only_population_firewall"
+    },
+    {
+      "wave": 2137,
+      "entity_slug": "vitamin-d-deficiency-pcos-prevalence-meta",
+      "pmid": "42375776",
+      "focus": "Meta-analysis estimated vitamin-D deficiency in about 58% of women with PCOS, with extreme heterogeneity and geographic/BMI/metabolic associations; prevalence does not establish supplementation efficacy.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2138,
+      "entity_slug": "chm-syndrome-differentiation-meta-epidemiology",
+      "pmid": "41671109",
+      "focus": "Meta-epidemiological analysis of 137 reviews and 2,064 CHM RCTs found no convincing evidence that syndrome differentiation improved treatment effects or side effects, with some subgroups showing smaller effects; this is evidence-methodology rather than herb efficacy.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2139,
+      "entity_slug": "curcumin-knee-osteoarthritis-network-meta",
+      "pmid": "38036015",
+      "focus": "Bayesian network meta-analysis of 23 studies found curcumin reduced knee-osteoarthritis pain and WOMAC scores and reduced rescue-medication use versus placebo, with some combinations showing lower adverse-event rates than NSAIDs; formulations and combination nodes varied.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2140,
+      "entity_slug": "iv-magnesium-general-anesthesia-pain-meta",
+      "pmid": "42653792",
+      "focus": "Meta-analysis of 22 randomized comparisons found IV magnesium reduced early and 24-hour postoperative pain, opioid consumption, and delayed rescue-analgesia need, but heterogeneity was substantial and certainty ranged from very low to moderate.",
+      "state": "research_only_route_firewall"
+    },
+    {
+      "wave": 2141,
+      "entity_slug": "lavender-hemodialysis-anxiety-fatigue-meta",
+      "pmid": "38919308",
+      "focus": "Meta-analysis found lavender aromatherapy reduced anxiety and fatigue in hemodialysis patients, but heterogeneity was around 90% and intervention frequency/dose subgroup findings were inconsistent.",
+      "state": "research_only_route_firewall"
+    },
+    {
+      "wave": 2142,
+      "entity_slug": "egg-choline-betaine-tmao-meta-null",
+      "pmid": "41146117",
+      "focus": "Meta-analysis of six RCTs found egg consumption did not significantly change circulating choline, betaine, or TMAO overall; age and metabolic-status subgroups varied, with moderate certainty and high heterogeneity for some outcomes.",
+      "state": "research_only_food_context"
+    },
+    {
+      "wave": 2143,
+      "entity_slug": "caffeine-pediatric-arrhythmia-review",
+      "pmid": "42360429",
+      "focus": "Systematic review of mostly case reports identified caffeine-associated arrhythmias and ECG abnormalities in adolescents, especially with energy drinks, powders, or tablets; evidence supports a high-dose pediatric safety concern but cannot quantify population-level risk.",
+      "state": "research_only_safety_context"
+    },
+    {
+      "wave": 2144,
+      "entity_slug": "whey-endurance-runner-biomarker-rct-null",
+      "pmid": "41506728",
+      "focus": "Randomized crossover trial in endurance runners found acute post-exercise whey protein did not alter osteokine or inflammatory cytokine responses versus water after exhaustive running.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2145,
+      "entity_slug": "probiotics-pediatric-iron-deficiency-anemia-meta",
+      "pmid": "42597309",
+      "focus": "Meta-analysis of 12 RCTs in Chinese children with iron-deficiency anemia found probiotic adjuncts improved several hematologic and iron markers, but the hemoglobin increase was below the minimal clinically important difference and evidence certainty was low or very low.",
+      "state": "research_only_population_firewall"
+    },
+    {
+      "wave": 2146,
+      "entity_slug": "polyphenols-colorectal-cancer-review",
+      "pmid": "42529805",
+      "focus": "Review found curcumin, resveratrol, and EGCG have strong preclinical colorectal-cancer mechanisms but human trials mainly show biomarker changes without consistent tumor, recurrence, progression-free-survival, or overall-survival benefit; stand-alone treatment use is unsupported.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2147,
+      "entity_slug": "probiotics-synbiotics-pediatric-obesity-meta",
+      "pmid": "42588161",
+      "focus": "Meta-analysis of 16 RCTs found probiotics/synbiotics did not clearly improve BMI z-score, waist circumference, body fat, fasting glucose, insulin, or HOMA-IR in children/adolescents with overweight or obesity; a small BMI reduction had low certainty.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 2148,
+      "entity_slug": "vitamin-d-testosterone-men-meta-null",
+      "pmid": "42451097",
+      "focus": "Meta-analysis of randomized trials found no clear or reproducible effect of vitamin D supplementation on total testosterone, SHBG, free-androgen index, calculated free testosterone, or bioactive testosterone in adult men; certainty was low to very low.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2149,
+      "entity_slug": "iron-formulations-indian-pregnancy-network-meta",
+      "pmid": "42699946",
+      "focus": "Network meta-analysis of 17 Indian pregnancy RCTs found IV iron sucrose produced faster hemoglobin improvement than oral iron and several newer oral formulations outperformed ferrous sulfate, but some rankings were based on small samples and are formulation/population specific.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2150,
+      "entity_slug": "zinc-pregnancy-outcomes-meta",
+      "pmid": "40836314",
+      "focus": "Systematic review of 77 RCTs found zinc monotherapy improved serum zinc and selected fetal/infant outcomes in healthy pregnancies, while zinc added to iron-folate showed no additional benefit; subgroup findings in higher-risk pregnancies remain limited.",
+      "state": "research_only_population_firewall"
+    }
+  ]
+}
