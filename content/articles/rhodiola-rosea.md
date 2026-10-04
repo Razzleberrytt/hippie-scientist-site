@@ -301,7 +301,7 @@ That is too broad. The two botanicals have different trial programs, preparation
 - [Rhodiola Extract vs Powder](/guides/herbs/rhodiola-extract-vs-powder/)
 - [Best Adaptogens for Stress](/guides/stress/best-adaptogens-for-stress/)
 - [Ashwagandha Evidence Guide](/articles/ashwagandha/)
-- [L-Theanine Evidence Guide](/articles/l-theanine/)
+- [L-Theanine Evidence Guide](/guides/herbs/l-theanine/)
 
 ---
 
