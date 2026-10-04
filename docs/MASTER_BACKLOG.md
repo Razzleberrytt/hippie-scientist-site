@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-10-02
+**Updated:** 2026-10-04
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
@@ -48,17 +48,18 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6021 / PR #6195 | nav: fix misleading Articles breadcrumb destination on focus-cluster pages | D | In review — breadcrumb label/a11y repair implemented; exact-head validation pending | P1 | 3/4/2/3/1/1 | 72.0 | 2026-10-02T16:00:00Z — admitted on exact base 85470582cbeaf68fedf9ef6c9386f109b1e281b2 |
 
 
 
-**Current admission (verified 2026-10-02):** Normal implementation WIP is **1/3**. Discovery/SEO is occupied by #6021; Revenue/Conversion and Authority/Content remain free. #6021 is admitted against exact free-base main `85470582cbeaf68fedf9ef6c9386f109b1e281b2` after the separate retirement transaction for #6185. Current defect and non-overlap proof remain valid; fresh score is **72.0**. #5081 remains blocked on its own governor prerequisite.
+**Current admission (verified 2026-10-04):** Normal implementation WIP is **0/3**. #6021 / PR #6195 merged on 2026-10-02 and is retired from `Now`. Discovery/SEO, Revenue/Conversion, and Authority/Content are free pending normal admission. #5081 remains blocked on its own governor prerequisite.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
 **Security follow-up #5456:** Open permanent MDX/TOML dependency-chain removal. Temporary containment expires 2026-10-07; this audit does not extend it.
 
 ### Verified completion refresh — 2026-10-02
+
+- **#6021 / PR #6195 — completed:** merged as `a1463e8010cfb2c30126bd06671451e23b19b703`; breadcrumb destination/label and accessibility repair are on `main`. The Discovery/SEO slot is free; external outcomes remain **Unknown**.
 
 - **#6185 / PR #6190 — completed:** merged as `0657391a3bb73916f18bd0df42542363dcdc07d3`; bounded UI-contract drift now fails before broad validation, exact-head governed static exports are reused by downstream build-dependent checks, P0 Visual Proof is required for every retained visual trigger including low-risk visual-path tests, and artifact mismatch/miss still falls back to a full build. Exact-head CI/full tests/a11y/data/security, production build/output/SEO, Build Quality, Atomic, Site Health, Build Check, Production Content Lint, Lighthouse, P0 visual proof, governed export reuse, and review resolution passed. External business impact remains **Unknown**.
 
