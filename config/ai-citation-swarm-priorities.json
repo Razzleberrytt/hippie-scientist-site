@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "snapshotLabel": "2026-09-17",
-  "source": "Derived from a user-supplied Bing Webmaster Tools AI Page Stats export captured 2026-09-17; raw authenticated export is intentionally not committed.",
-  "measurementBoundary": "Citation counts are evidence of AI reuse, not traffic, ranking, conversion, revenue, or causal lift.",
+  "snapshotLabel": "2026-10-04",
+  "source": "Derived from user-supplied Bing Webmaster Tools AI Page Stats and Grounding Query exports captured 2026-10-04; raw authenticated exports are intentionally not committed.",
+  "measurementBoundary": "Citation counts are evidence of AI reuse, not traffic, ranking, conversion, revenue, or causal lift. Page Stats and Grounding Query exports are overlapping views and are not summed together.",
   "clusterMethod": "Derived topical classification of all 133 cited URLs using route/title heuristics for prioritization only; it is not a scientific taxonomy.",
   "freshnessPolicy": {
     "maxAgeDays": 14,
@@ -10,9 +10,9 @@
     "rule": "Citation demand signals may steer scheduling only while the dated snapshot is fresh. Missing, unparsable, future-dated, invalid, or expired signals fail closed to citation-neutral scheduling and never block unrelated scientific, safety, or governance work."
   },
   "totals": {
-    "citations": 29591,
-    "citedUrls": 133,
-    "topTwoCitationSharePct": 42.5
+    "citations": 42446,
+    "citedUrls": 166,
+    "topTwoCitationSharePct": 40.33
   },
   "capacityPolicy": {
     "citationAdjacentTargetPct": 65,
@@ -20,70 +20,310 @@
     "rule": "Use citation-adjacent work as a strong ROI signal while preserving safety, scientific correctness, governance, blocker, and freshness gates. The target is a coordinator allocation goal, not permission to bypass the authoritative sprint/WIP system."
   },
   "clusters": [
-    { "name": "sleep", "citations": 12514, "citedUrls": 20, "sharePct": 42.29, "priority": 5 },
-    { "name": "stress-anxiety", "citations": 7463, "citedUrls": 10, "sharePct": 25.22, "priority": 5 },
-    { "name": "substance-use-emerging", "citations": 2812, "citedUrls": 5, "sharePct": 9.5, "priority": 5, "reason": "Mitragynine is now the site’s #3 cited URL; adjacent 7-OH, pseudoindoxyl, MGM-15 and 2C-B pages show a strong emerging-substance authority opportunity." },
-    { "name": "general-supplements", "citations": 2423, "citedUrls": 46, "sharePct": 8.19, "priority": 3 },
-    { "name": "adaptogens-nootropics", "citations": 1611, "citedUrls": 9, "sharePct": 5.44, "priority": 4 },
-    { "name": "evidence-safety-trust", "citations": 1446, "citedUrls": 5, "sharePct": 4.89, "priority": 5, "reason": "The supplement-quality guide reached 1,057 citations, making trust/methodology content a proven answer-engine asset." },
-    { "name": "adhd-focus", "citations": 996, "citedUrls": 33, "sharePct": 3.37, "priority": 4, "reason": "Citation breadth remains broad across many ADHD/focus URLs, supporting consolidation and hub-strengthening rather than disconnected expansion." },
-    { "name": "mental-health", "citations": 326, "citedUrls": 5, "sharePct": 1.1, "priority": 2 }
+    {
+      "name": "sleep",
+      "citations": 15020,
+      "citedUrls": 38,
+      "sharePct": 35.39,
+      "priority": 5,
+      "reason": "Sleep remains the largest citation cluster, led by the 9,508-citation natural-sleep-aids page plus strong supplement, herb, valerian, magnesium, and glycine spokes."
+    },
+    {
+      "name": "stress-anxiety",
+      "citations": 11098,
+      "citedUrls": 15,
+      "sharePct": 26.15,
+      "priority": 5,
+      "reason": "The stress winner reached 7,612 citations while anxiety-herb, kava, overthinking, adaptogen, nighttime-stress, passionflower, and rhodiola spokes remain broadly cited."
+    },
+    {
+      "name": "substance-use-emerging",
+      "citations": 4402,
+      "citedUrls": 9,
+      "sharePct": 10.37,
+      "priority": 5,
+      "reason": "Mitragynine reached 3,059 citations with exceptionally low-share generic query headroom; 2C-B, 7-OH, pseudoindoxyl, and MGM-15 support a growing safety-first emerging-substance cluster."
+    },
+    {
+      "name": "general-supplements",
+      "citations": 4075,
+      "citedUrls": 46,
+      "sharePct": 9.6,
+      "priority": 3
+    },
+    {
+      "name": "adaptogens-nootropics",
+      "citations": 2503,
+      "citedUrls": 12,
+      "sharePct": 5.9,
+      "priority": 4,
+      "reason": "Mushroom coffee and lion's mane continue to grow, with additional cognition/adaptogen spokes contributing citation breadth."
+    },
+    {
+      "name": "evidence-safety-trust",
+      "citations": 2404,
+      "citedUrls": 7,
+      "sharePct": 5.66,
+      "priority": 5,
+      "reason": "Supplement quality reached 1,667 citations and remains a proven trust/methodology asset alongside evidence literacy and stacking-safety pages."
+    },
+    {
+      "name": "mental-health",
+      "citations": 1571,
+      "citedUrls": 8,
+      "sharePct": 3.7,
+      "priority": 4,
+      "reason": "The antisocial personality disorder guide rose to 1,382 citations; diagnostic-intent demand is high, so accuracy and anti-self-diagnosis boundaries remain dominant."
+    },
+    {
+      "name": "adhd-focus",
+      "citations": 1373,
+      "citedUrls": 31,
+      "sharePct": 3.23,
+      "priority": 4,
+      "reason": "ADHD/focus remains broad across many cited spokes; L-theanine-for-ADHD rose to 306 citations while the broad focus hub remains comparatively weak, favoring consolidation over page multiplication."
+    }
   ],
   "defendUrls": [
-    { "url": "/guides/sleep/best-natural-sleep-aids-that-work/", "citations": 7725, "priority": 5 },
-    { "url": "/guides/best/supplements-for-stress/", "citations": 4850, "priority": 5 },
-    { "url": "/articles/mitragynine/", "citations": 1932, "priority": 5 },
-    { "url": "/guides/sleep/best-supplements-for-sleep/", "citations": 1346, "priority": 5 },
-    { "url": "/articles/how-to-choose-supplement-quality/", "citations": 1057, "priority": 5 },
-    { "url": "/guides/sleep/best-herbs-for-sleep/", "citations": 1032, "priority": 5 },
-    { "url": "/articles/valerian-root/", "citations": 988, "priority": 5 },
-    { "url": "/guides/anxiety/best-herbs-for-anxiety/", "citations": 888, "priority": 5 },
-    { "url": "/articles/mushroom-coffee-benefits-review/", "citations": 786, "priority": 4 },
-    { "url": "/articles/lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide/", "citations": 604, "priority": 4 },
-    { "url": "/articles/magnesium-types-for-sleep/", "citations": 595, "priority": 4 },
-    { "url": "/articles/kava/", "citations": 585, "priority": 4 },
-    { "url": "/articles/2c-b-effects/", "citations": 517, "priority": 4 },
-    { "url": "/guides/anxiety/best-supplements-for-overthinking/", "citations": 437, "priority": 4 },
-    { "url": "/guides/other/protein-powder-guide/", "citations": 426, "priority": 4 },
-    { "url": "/guides/other/anti-inflammatory-supplements/", "citations": 336, "priority": 4 },
-    { "url": "/guides/anxiety/best-adaptogens-for-stress/", "citations": 326, "priority": 4 },
-    { "url": "/articles/7-hydroxymitragynine/", "citations": 284, "priority": 4 },
-    { "url": "/guides/other/magnesium-types-guide/", "citations": 262, "priority": 4 },
-    { "url": "/guides/other/collagen-supplements/", "citations": 251, "priority": 4 },
-    { "url": "/guides/other/supplement-stacking-safety/", "citations": 219, "priority": 3 },
-    { "url": "/guides/other/nmn-supplements/", "citations": 211, "priority": 3 },
-    { "url": "/guides/mental-health/antisocial-personality-disorder/", "citations": 208, "priority": 3 },
-    { "url": "/guides/adhd/l-theanine-for-adhd/", "citations": 196, "priority": 3 },
-    { "url": "/guides/sleep/glycine-for-sleep/", "citations": 180, "priority": 3 },
-    { "url": "/articles/rhodiola-rosea/", "citations": 170, "priority": 3 },
-    { "url": "/guides/best-supplements-for-focus/", "citations": 168, "priority": 3 },
-    { "url": "/articles/state-of-supplement-evidence-2026/", "citations": 160, "priority": 3 },
-    { "url": "/guides/other/menopause-supplements/", "citations": 140, "priority": 3 },
-    { "url": "/articles/passionflower/", "citations": 123, "priority": 3 }
+    {
+      "url": "/guides/sleep/best-natural-sleep-aids-that-work/",
+      "citations": 9508,
+      "priority": 5
+    },
+    {
+      "url": "/guides/best/supplements-for-stress/",
+      "citations": 7612,
+      "priority": 5
+    },
+    {
+      "url": "/articles/mitragynine/",
+      "citations": 3059,
+      "priority": 5
+    },
+    {
+      "url": "/articles/how-to-choose-supplement-quality/",
+      "citations": 1667,
+      "priority": 5
+    },
+    {
+      "url": "/guides/sleep/best-supplements-for-sleep/",
+      "citations": 1460,
+      "priority": 5
+    },
+    {
+      "url": "/guides/mental-health/antisocial-personality-disorder/",
+      "citations": 1382,
+      "priority": 4
+    },
+    {
+      "url": "/guides/sleep/best-herbs-for-sleep/",
+      "citations": 1346,
+      "priority": 5
+    },
+    {
+      "url": "/guides/anxiety/best-herbs-for-anxiety/",
+      "citations": 1178,
+      "priority": 5
+    },
+    {
+      "url": "/articles/valerian-root/",
+      "citations": 1069,
+      "priority": 5
+    },
+    {
+      "url": "/articles/mushroom-coffee-benefits-review/",
+      "citations": 1068,
+      "priority": 5
+    },
+    {
+      "url": "/articles/lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide/",
+      "citations": 796,
+      "priority": 4
+    },
+    {
+      "url": "/articles/2c-b-effects/",
+      "citations": 701,
+      "priority": 4
+    },
+    {
+      "url": "/guides/other/protein-powder-guide/",
+      "citations": 683,
+      "priority": 4
+    },
+    {
+      "url": "/articles/kava/",
+      "citations": 607,
+      "priority": 4
+    },
+    {
+      "url": "/guides/anxiety/best-supplements-for-overthinking/",
+      "citations": 564,
+      "priority": 4
+    },
+    {
+      "url": "/articles/magnesium-types-for-sleep/",
+      "citations": 516,
+      "priority": 4
+    },
+    {
+      "url": "/guides/other/anti-inflammatory-supplements/",
+      "citations": 469,
+      "priority": 4
+    },
+    {
+      "url": "/guides/other/magnesium-types-guide/",
+      "citations": 403,
+      "priority": 4
+    },
+    {
+      "url": "/guides/other/collagen-supplements/",
+      "citations": 338,
+      "priority": 4
+    },
+    {
+      "url": "/guides/anxiety/best-adaptogens-for-stress/",
+      "citations": 326,
+      "priority": 4
+    },
+    {
+      "url": "/guides/adhd/l-theanine-for-adhd/",
+      "citations": 306,
+      "priority": 4
+    },
+    {
+      "url": "/articles/7-hydroxymitragynine/",
+      "citations": 284,
+      "priority": 4
+    },
+    {
+      "url": "/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/",
+      "citations": 274,
+      "priority": 4
+    },
+    {
+      "url": "/articles/mitragynine-pseudoindoxyl/",
+      "citations": 267,
+      "priority": 4
+    },
+    {
+      "url": "/articles/elderberry/",
+      "citations": 234,
+      "priority": 3
+    },
+    {
+      "url": "/guides/other/nmn-supplements/",
+      "citations": 223,
+      "priority": 3
+    },
+    {
+      "url": "/articles/passionflower/",
+      "citations": 222,
+      "priority": 3
+    },
+    {
+      "url": "/guides/other/creatine-brain-health/",
+      "citations": 221,
+      "priority": 3
+    },
+    {
+      "url": "/guides/other/supplement-stacking-safety/",
+      "citations": 219,
+      "priority": 3
+    },
+    {
+      "url": "/learn/evidence-literacy/",
+      "citations": 216,
+      "priority": 4
+    },
+    {
+      "url": "/guides/sleep/glycine-for-sleep/",
+      "citations": 214,
+      "priority": 3
+    }
   ],
   "entityBoosts": {
-    "valerian": { "priority": 5, "reason": "Valerian-root article has 988 citations and anchors the winning sleep cluster." },
-    "valerian-root": { "priority": 5, "reason": "Direct high-citation page signal." },
-    "kava": { "priority": 4, "reason": "Kava article has 585 citations inside the stress/anxiety cluster." },
-    "rhodiola": { "priority": 4, "reason": "Direct article signal plus stress/adaptogen adjacency." },
-    "rhodiola-rosea": { "priority": 4, "reason": "Direct cited article signal." },
-    "lions-mane": { "priority": 5, "reason": "Lion’s mane article rose to 604 citations and is a proven nootropic/adaptogen citation asset." },
-    "glycine": { "priority": 4, "reason": "Direct cited sleep-guide signal inside the dominant sleep cluster." },
-    "l-theanine": { "priority": 4, "reason": "Multiple cited L-theanine URLs across sleep and ADHD/focus clusters." },
-    "magnesium": { "priority": 5, "reason": "Multiple high-citation magnesium sleep and general guide URLs reinforce a strong cross-cluster signal." },
-    "nmn": { "priority": 3, "reason": "Direct cited guide signal." },
-    "mitragynine": { "priority": 5, "reason": "Mitragynine is the #3 cited page in the 2026-09-17 export with 1,932 citations and anchors the substance-use/emerging cluster." },
-    "7-hydroxymitragynine": { "priority": 4, "reason": "Direct cited article signal plus strong adjacency to the mitragynine anchor; safety/provenance gates remain dominant." },
-    "mitragynine-pseudoindoxyl": { "priority": 3, "reason": "Lower direct citation count but strong adjacency to the mitragynine/7-OH cluster; safety/provenance gates remain dominant." },
-    "mgm-15": { "priority": 3, "reason": "Low direct citations but high-headroom adjacency to the newly proven mitragynine cluster; safety/provenance gates remain dominant." },
-    "tianeptine": { "priority": 3, "reason": "New substance-use hub adjacency; citation priority is exploratory and does not override safety or evidence gates." },
-    "corynoxine-b": { "priority": 3, "reason": "Emerging-substance adjacency with limited human evidence; citation priority is exploratory and safety/provenance gates remain dominant." },
-    "2c-b": { "priority": 4, "reason": "2C-B article has 517 citations; safety/provenance gates remain dominant." }
+    "valerian": {
+      "priority": 5,
+      "reason": "Valerian-root article has 1,069 citations; the leading 'valerian root for sleep' grounding query has 599 citations at only 15.21% citation share."
+    },
+    "valerian-root": {
+      "priority": 5,
+      "reason": "Direct high-citation page plus unusually high-headroom sleep query signal."
+    },
+    "kava": {
+      "priority": 4,
+      "reason": "Kava article has 607 citations inside the strong stress/anxiety cluster; benefit/effect queries still have low-to-moderate citation share."
+    },
+    "rhodiola": {
+      "priority": 4,
+      "reason": "Direct article signal plus adjacency to the 7,612-citation stress winner; scientific and safety gates remain dominant."
+    },
+    "rhodiola-rosea": {
+      "priority": 4,
+      "reason": "Direct cited article signal plus stress/adaptogen adjacency."
+    },
+    "lions-mane": {
+      "priority": 5,
+      "reason": "Lion's mane article reached 796 citations and remains a proven nootropic/adaptogen citation asset."
+    },
+    "glycine": {
+      "priority": 4,
+      "reason": "Direct cited sleep-guide signal inside the dominant sleep cluster."
+    },
+    "l-theanine": {
+      "priority": 4,
+      "reason": "L-theanine-for-ADHD reached 306 citations and multiple low-share L-theanine/ADHD query variants show headroom across ADHD/focus and sleep/stress contexts."
+    },
+    "magnesium": {
+      "priority": 5,
+      "reason": "Multiple cited magnesium sleep and general-guide URLs remain strong, with low-share magnesium-form comparison queries showing additional headroom."
+    },
+    "nmn": {
+      "priority": 3,
+      "reason": "Direct cited guide signal remains material but comparatively stable."
+    },
+    "mitragynine": {
+      "priority": 5,
+      "reason": "Mitragynine reached 3,059 page citations; the generic 'mitragynine' query has 1,921 citations at 7.98% citation share and 'what is mitragynine' has 802 at 21.22%."
+    },
+    "7-hydroxymitragynine": {
+      "priority": 4,
+      "reason": "Direct cited article signal plus strong adjacency to the mitragynine anchor; safety/provenance gates remain dominant."
+    },
+    "mitragynine-pseudoindoxyl": {
+      "priority": 4,
+      "reason": "Pseudoindoxyl reached 267 direct citations and is a growing safety-first spoke beside mitragynine/7-OH; human evidence remains limited."
+    },
+    "mgm-15": {
+      "priority": 3,
+      "reason": "Direct MGM-15 page now has 42 citations plus strong adjacency to the mitragynine/7-OH/pseudoindoxyl cluster; safety/provenance gates remain dominant."
+    },
+    "tianeptine": {
+      "priority": 3,
+      "reason": "Substance-use hub adjacency; citation priority is exploratory and does not override safety or evidence gates."
+    },
+    "corynoxine-b": {
+      "priority": 3,
+      "reason": "Emerging-substance adjacency with limited human evidence; citation priority is exploratory and safety/provenance gates remain dominant."
+    },
+    "2c-b": {
+      "priority": 4,
+      "reason": "2C-B article reached 701 citations and the '2cb drug effects' query has 365 citations at 24.22% share; safety/provenance gates remain dominant."
+    },
+    "mushroom-coffee": {
+      "priority": 5,
+      "reason": "Mushroom coffee review reached 1,068 citations while the 'mushroom coffee benefits' query has 308 citations at 15.29% citation share."
+    },
+    "antisocial-personality-disorder": {
+      "priority": 4,
+      "reason": "ASPD guide reached 1,382 citations with large diagnosis/DSM query demand; mental-health accuracy and anti-self-diagnosis boundaries remain dominant."
+    }
   },
   "executionOrder": [
-    "Protect and minimally perturb the dominant natural-sleep-aids and stress winner pages.",
-    "Prioritize fast-rising citation winners with additive or corrective work: best supplements for sleep, supplement quality, best herbs for sleep, and lion’s mane.",
-    "Build the substance-use/dependence cluster around the 1,932-citation mitragynine anchor while preserving conservative safety, provenance, and human-evidence boundaries.",
+    "Protect and minimally perturb the dominant natural-sleep-aids, stress, mitragynine, supplement-quality, and sleep-supplement winner pages.",
+    "Exploit high-headroom existing intents without multiplying thin pages: generic mitragynine, valerian root for sleep, mushroom coffee benefits, 2C-B effects, natural sleep supplements, and herbs for anxiety.",
+    "Build the substance-use/dependence cluster around the 3,059-citation mitragynine anchor while preserving conservative safety, provenance, legality, and human-evidence boundaries.",
+    "Treat the fast-rising ASPD diagnostic cluster as a high-value mental-health asset with stronger-than-normal anti-self-diagnosis, source-quality, and clinical-boundary gates.",
     "Audit overlapping sleep-supplement and duplicate-intent URLs before creating more adjacent pages.",
     "Strengthen one canonical ADHD hub using the broad cited-spoke footprint rather than adding disconnected pages.",
     "Add careful downstream conversion paths to commercial-adjacent trust/review winners only after the answer/evidence/safety boundary.",
@@ -95,6 +335,7 @@
     "Do not destructively rewrite high-citation passages without a migration/rollback reason and fresh measurement plan.",
     "Keep at least 35 percent of discretionary discovery capacity for exploration so the system can discover new clusters.",
     "Refresh this manifest from a fresh page-level export rather than carrying stale winner assumptions indefinitely.",
-    "Do not promote low-human-evidence psychoactive or opioid-adjacent pages merely because they are citation-adjacent."
+    "Do not promote low-human-evidence psychoactive or opioid-adjacent pages merely because they are citation-adjacent.",
+    "Do not turn mental-health diagnostic query demand into self-diagnosis guidance; preserve clinician-evaluation and differential-diagnosis boundaries."
   ]
 }
