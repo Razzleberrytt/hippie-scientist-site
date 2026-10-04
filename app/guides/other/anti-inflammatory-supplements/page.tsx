@@ -21,6 +21,11 @@ export const metadata: Metadata = buildPageMetadata({
 
 const FAQS = [
   {
+    question: 'What is the strongest anti-inflammatory supplement?',
+    answer:
+      'There is no evidence-based universal “strongest” supplement because studies measure different outcomes: knee-osteoarthritis pain and function, dysmenorrhea pain, inflammatory biomarkers, rheumatoid-arthritis outcomes, cardiovascular endpoints, and more. Curcumin and Boswellia have human knee-OA symptom evidence, ginger has a dysmenorrhea pain signal, omega-3 has condition-specific clinical evidence, and quercetin remains much stronger mechanistically than clinically. Those cannot be reduced to one potency ranking.',
+  },
+  {
     question: 'What is the best natural anti-inflammatory supplement?',
     answer:
       'There is no evidence-based universal winner. Curcumin and Boswellia have human evidence for some knee-osteoarthritis symptoms, omega-3 fatty acids have anti-inflammatory biology plus selected rheumatoid-arthritis and cardiovascular evidence, and ginger has human evidence for primary dysmenorrhea. Those are different outcomes, populations, products, and evidence bases—not one ranking.',
@@ -109,7 +114,7 @@ export default function AntiInflammatoryPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Anti-Inflammatory Supplements' }]} />
 
       <section className="space-y-5 max-w-4xl">
-        <p className="eyebrow-label">Evidence Review · 8 References · Updated August 16, 2026</p>
+        <p className="eyebrow-label">Evidence Review · 8 References · Updated October 4, 2026</p>
         <h1 className="text-5xl font-bold tracking-tight text-ink">Anti-Inflammatory Supplements: What the Evidence Actually Supports</h1>
         <p className="text-lg leading-8 text-muted">
           “Anti-inflammatory” is too broad to rank supplements responsibly. A product can alter an inflammatory pathway or biomarker without improving pain, function, cardiovascular outcomes, or a specific inflammatory disease. This review therefore separates the evidence by <strong>outcome, population, formulation, and study type</strong> rather than declaring one universal best supplement.
@@ -124,7 +129,7 @@ export default function AntiInflammatoryPage() {
 
       <LegacyGuideQuickAnswer referencesHref="#references">
         <p>
-          The most defensible human evidence in this group is <strong>outcome-specific</strong>. Curcumin/turmeric and Boswellia have signals for knee-osteoarthritis symptoms, but results vary by formulation and synthesis [1,4,8]. Omega-3 EPA/DHA has established anti-inflammatory biology and selected clinical evidence, but effects differ by condition and high-dose prescription uses should not be collapsed into a generic supplement recommendation [2,7]. Ginger has a human pain signal for primary dysmenorrhea, with substantial heterogeneity and incomplete safety reporting [3]. Quercetin has interesting inflammatory biology, but the cited literature is much more mechanistic than proof of a specific clinical anti-inflammatory treatment [5].
+          The most defensible human evidence in this group is <strong>outcome-specific</strong>. “Strongest” is not one validated comparison because changing an inflammatory biomarker, reducing pain, improving physical function, and changing a disease outcome are different endpoints. Curcumin/turmeric and Boswellia have signals for knee-osteoarthritis symptoms, but results vary by formulation and synthesis [1,4,8]. Omega-3 EPA/DHA has established anti-inflammatory biology and selected clinical evidence, but effects differ by condition and high-dose prescription uses should not be collapsed into a generic supplement recommendation [2,7]. Ginger has a human pain signal for primary dysmenorrhea, with substantial heterogeneity and incomplete safety reporting [3]. Quercetin has interesting inflammatory biology, but the cited literature is much more mechanistic than proof of a specific clinical anti-inflammatory treatment [5].
         </p>
         <p className="mt-3">
           None of these evidence bases supports a universal “anti-inflammatory stack,” a single consumer dose for “inflammation,” or replacing diagnosis and established treatment of an inflammatory condition with supplements.
