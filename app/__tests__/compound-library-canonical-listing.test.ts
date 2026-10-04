@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 
-import { selectPublishedCompounds } from '../compounds/library-selector'
+import { selectCanonicalCompounds, selectPublishedCompounds } from '../compounds/library-selector'
 import { isRedirectedCompoundDuplicate } from '../../lib/deprecated-compound-canonicals'
 
 const root = process.cwd()
@@ -39,6 +39,24 @@ describe('compound library canonical listings', () => {
 
     expect(isRedirectedCompoundDuplicate('garlic-extract', presentSlugs)).toBe(true)
     expect(isRedirectedCompoundDuplicate('gingerol', presentSlugs)).toBe(true)
+  })
+
+  it('counts canonical compounds regardless of publication status', () => {
+    const compounds = selectCanonicalCompounds([
+      { slug: 'z-tracked', displayName: 'Zed', indexability_status: 'NOINDEX' },
+      { slug: 'hidden', displayName: 'Hidden', indexability_status: 'PUBLISH', runtime_export_decision: 'hide' },
+      { slug: 'berberine', displayName: 'Berberine', indexability_status: 'PUBLISH' },
+      { slug: 'berberine-hcl', displayName: 'Berberine HCl', indexability_status: 'PUBLISH' },
+      { slug: 'garlic-extract', displayName: 'Garlic Extract', indexability_status: 'PUBLISH' },
+      { slug: 'a-tracked', displayName: 'Alpha', indexability_status: 'NEEDS_REVIEW' },
+    ])
+
+    expect(compounds.map((compound) => compound.slug)).toEqual([
+      'a-tracked',
+      'berberine',
+      'hidden',
+      'z-tracked',
+    ])
   })
 
   it('selects only canonical published compounds and sorts them for the library', () => {

@@ -14,15 +14,20 @@ export function getCompoundName(compound: RuntimeRecord) {
   )
 }
 
-export function selectPublishedCompounds(compounds: RuntimeRecord[]): RuntimeRecord[] {
+export function selectCanonicalCompounds(compounds: RuntimeRecord[]): RuntimeRecord[] {
   const presentSlugs = new Set(compounds.map((compound) => String(compound.slug || '')))
 
   return compounds
     .filter(
       (compound) =>
         compound.slug &&
-        getRuntimeVisibility(compound).canIndex &&
         !isRedirectedCompoundDuplicate(String(compound.slug), presentSlugs),
     )
     .sort((a, b) => getCompoundName(a).localeCompare(getCompoundName(b)))
+}
+
+export function selectPublishedCompounds(compounds: RuntimeRecord[]): RuntimeRecord[] {
+  return selectCanonicalCompounds(compounds).filter(
+    (compound) => getRuntimeVisibility(compound).canIndex,
+  )
 }

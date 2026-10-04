@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-1076-1100-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-1051-1075-selection",
+  "program": {
+    "range": "1001-1500",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 100,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 1500"
+  },
+  "source_provenance": [
+    "Sider Scholar/OpenAlex + NCBI PubMed exact-source verification",
+    "collision screening against merged history, pending Waves 501-1000, and active Waves 1001-1075"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 1500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "validation_strategy": "PMID-level dedupe/source verification during authoring; expensive repository-wide validation only after Wave 1500"
+  },
+  "waves": [
+    {
+      "wave": 1076,
+      "entity_slug": "milk-fat-globule-membrane",
+      "pmid": "41599955",
+      "focus": "Meta-analysis of three adult RCTs found small reductions in stress and anxiety with bovine milk-fat-globule-membrane supplementation, while depression effects were nonsignificant; the evidence base is only three trials and remains preliminary.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1077,
+      "entity_slug": "scfa-gut-brain-depression",
+      "pmid": "42021200",
+      "focus": "Systematic review/meta-analysis found lower circulating short-chain fatty acids in depression and six RCTs suggested probiotic/prebiotic interventions can raise fecal SCFAs alongside symptom improvement; biomarker associations do not establish a specific supplement mechanism or strain effect.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1078,
+      "entity_slug": "mitochondrial-nutraceuticals-psychiatry",
+      "pmid": "42253799",
+      "focus": "Systematic review of 122 psychiatric nutraceutical studies found heterogeneous signals across vitamin D, NAC, acetyl-L-carnitine, CoQ10, alpha-lipoic acid, magnesium and B vitamins, with high overall risk of bias and low methodological quality; category-level evidence only.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1079,
+      "entity_slug": "probiotics",
+      "pmid": "42374951",
+      "focus": "Thirteen-RCT/710-participant meta-analysis in major depressive disorder found a small pooled symptom benefit favoring probiotics with moderate heterogeneity; strain/formulation uncertainty prevents generic probiotic equivalence.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1080,
+      "entity_slug": "gotu-kola-phosphatidylcholine-taurine",
+      "pmid": "42391143",
+      "focus": "Scoping review found very limited human mood evidence for gotu kola, phosphatidylcholine and taurine, with most supporting data preclinical and no studies of their combination; evidence is insufficient for quantitative synthesis or product-level claims.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1081,
+      "entity_slug": "microbiota-insomnia-interventions",
+      "pmid": "42509727",
+      "focus": "Systematic review of 56 controlled human/animal studies found sleep-related signals from probiotics, prebiotics, dietary patterns and botanicals, but major intervention heterogeneity and mixed preclinical/human evidence prevent attribution to a single compound or strain.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1082,
+      "entity_slug": "curcumin",
+      "pmid": "41108513",
+      "focus": "Four-RCT schizophrenia meta-analysis found no significant effect on positive or total symptoms, a small low-certainty reduction in negative symptoms, and very uncertain effects on depression/general psychopathology; authors did not recommend clinical implementation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1083,
+      "entity_slug": "nrf2-activators-schizophrenia",
+      "pmid": "42154264",
+      "focus": "Meta-analysis of 16 RCTs across curcumin, ascorbic acid, resveratrol and sulforaphane found non-robust and compound-specific schizophrenia signals; formulation/co-intervention heterogeneity and sparse data for several agents require category-level handling.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1084,
+      "entity_slug": "omega3-vitamin-e-pcos",
+      "pmid": "41664652",
+      "focus": "Network meta-analysis of 25 RCTs in PCOS found potential mood benefits for omega-3 plus vitamin E among several psychological/exercise/drug interventions, while vitamin D plus probiotics was not significantly beneficial; combined-intervention attribution firewall applies.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1085,
+      "entity_slug": "probiotics-pregnancy-postpartum",
+      "pmid": "41783815",
+      "focus": "Four RCTs/1,342 women without diagnosed mental illness found limited strain-specific probiotic signals for perinatal depressive/anxiety symptoms; no prebiotic or synbiotic trials were available and risk of bias was moderate-to-high.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1086,
+      "entity_slug": "probiotics-fibromyalgia",
+      "pmid": "41789223",
+      "focus": "Systematic review of four probiotic studies in fibromyalgia found inconsistent anxiety/depression effects and insufficient safety reporting, so no definitive recommendation for or against probiotics could be made.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1087,
+      "entity_slug": "depression-augmentation-nutraceuticals",
+      "pmid": "42281452",
+      "focus": "Systematic review of non-pharmacological/non-psychological depression augmentation found lower levels of evidence for probiotics than for exercise or bright-light approaches; augmentation evidence remains category-specific and does not establish probiotic monotherapy efficacy.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1088,
+      "entity_slug": "gut-microbiota-ibd-mood",
+      "pmid": "42311388",
+      "focus": "Systematic review of six prospective cohorts and four RCTs in IBD linked dysbiosis with anxiety/depression and found microbiota-targeted interventions sometimes improved symptoms, but interventions included probiotics and fecal microbiota transplantation and remained heterogeneous.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1089,
+      "entity_slug": "scfa-modulation-depression",
+      "pmid": "42674291",
+      "focus": "Meta-analysis of seven intervention RCTs found pooled depressive-symptom improvement from diverse SCFA-modulating strategies, including probiotics, FMT, vagal stimulation and direct butyrate; between-class differences were not significant and the evidence cannot be assigned to one supplement.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1090,
+      "entity_slug": "ginseng",
+      "pmid": "41863264",
+      "focus": "Nine-study/617-participant meta-analysis in MCI/Alzheimer/dementia found modest cognitive-score improvements with ginseng, but effects did not reach clear clinical significance and evidence was limited by small study count and heterogeneity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1091,
+      "entity_slug": "choline-dietary-intake",
+      "pmid": "42735059",
+      "focus": "Dose-response meta-analysis of observational studies associated higher dietary choline intake with lower risk of cognitive decline and Alzheimer-related outcomes, but this is non-randomized dietary evidence and cannot establish supplementation efficacy or an optimal supplemental dose.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1092,
+      "entity_slug": "n-acetylcysteine",
+      "pmid": "40988585",
+      "focus": "Translational Parkinson review found consistent preclinical neuroprotection and small open-label human signals in UPDRS/DAT imaging, but randomized efficacy evidence was lacking; disease-modifying claims remain premature.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1093,
+      "entity_slug": "n-acetylcysteine",
+      "pmid": "42115982",
+      "focus": "Seven placebo-controlled RCTs/566 participants found no consistent NAC benefit for alcohol craving or PTSD severity; a sensitivity-analysis signal emerged only after one study was removed, supporting an overall null/uncertain efficacy interpretation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1094,
+      "entity_slug": "anti-inflammatory-adjuncts-schizophrenia",
+      "pmid": "41559638",
+      "focus": "Meta-analysis of 74 RCTs found apparent adjunctive benefits for several anti-inflammatory agents including NAC and fatty acids, but publication bias, heterogeneity and sensitivity analyses weakened many effects; routine use was not robustly supported.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1095,
+      "entity_slug": "vascular-dementia-cognition-interventions",
+      "pmid": "42635820",
+      "focus": "VaD-focused RCT meta-analysis found small cognitive effects for galantamine/memantine and a fragile very-low-certainty EGb 761 signal, while citicoline and several other interventions remained single-trial/non-poolable; patient-important benefits were uncertain.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1096,
+      "entity_slug": "taurine",
+      "pmid": "41750826",
+      "focus": "Systematic review of eight acute RCTs/244 healthy participants found mostly null or small inconsistent taurine cognition/mood effects; more reliable benefits occurred in caffeine combinations that did not isolate taurine.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1097,
+      "entity_slug": "creatine-hydrochloride",
+      "pmid": "40854087",
+      "focus": "Small four-arm RCT in 36 peri/postmenopausal women found medium-dose creatine hydrochloride improved selected reaction-time, brain-creatine and lipid outcomes versus placebo, but sample size, formulation specificity and exploratory endpoints sharply limit generalization to creatine monohydrate.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1098,
+      "entity_slug": "creatine",
+      "pmid": "41960895",
+      "focus": "Parallel trial in 40 young active adults found creatine monohydrate improved Wingate mean/peak power but did not improve Stroop or Trail cognitive outcomes; useful direct null evidence against broad acute cognition claims in healthy active adults.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1099,
+      "entity_slug": "creatine",
+      "pmid": "42075005",
+      "focus": "Sleep-deprivation crossover trial in 29 healthy adults found a single creatine dose attenuated deterioration in several cognitive tasks during 21 hours of sleep loss; acute sleep-deprivation context and unusually large studied exposure prevent routine cognition/dosing extrapolation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1100,
+      "entity_slug": "omega-3-pufa-adhd",
+      "pmid": "42776218",
+      "focus": "Meta-analysis of 16 pediatric ADHD RCTs found a small borderline overall PUFA benefit with stronger signals on performance-based cognition than subjective ratings; heterogeneity was substantial and PUFA supplementation was not supported as standalone treatment.",
+      "state": "reviewed_receipt_pending_final_admission"
+    }
+  ]
+}
