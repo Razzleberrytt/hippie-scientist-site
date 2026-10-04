@@ -2,12 +2,12 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-10-02
+**Updated:** 2026-10-04
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (verified 2026-10-02):** Normal implementation WIP is **1/3**. Discovery/SEO is occupied by #6021; Revenue/Conversion and Authority/Content remain free. #6021 is admitted against exact free-base main `85470582cbeaf68fedf9ef6c9386f109b1e281b2` after the separate #6185 retirement transaction merged. The current defect remains: the focus-cluster root template labels its `/guides/` breadcrumb parent “Articles” and omits an accessible breadcrumb name. No overlapping open implementation PR exists. Fresh score remains **72.0**. #5081 remains blocked on its own governor prerequisite.
+**Current admission (verified 2026-10-04):** Normal implementation WIP is **1/3**. Authority/Content is occupied by #6324 / PR #6323 for the bounded Waves 1501–2000 runtime-admission closeout. Discovery/SEO is free because #6021 / PR #6195 merged on 2026-10-02; Revenue/Conversion remains free. #6324 is admitted against exact base main `87d5b6d2f516c18f4ff3ed9fad8dfc27d77a8697`. Scope is limited to manifest-backed additive enrichment on existing canonical entities, with entity creation, governance override, publication promotion, recommendation promotion, and category-firewall bypass forbidden.
 
-**Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
+**Control dependencies:**** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
 ## Sprint objective
 
@@ -53,7 +53,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| D | #6021 / PR #6195 | nav: fix misleading Articles breadcrumb destination on focus-cluster pages | In review — breadcrumb label/a11y repair implemented; exact-head validation pending | P1 | 72.0 | 2026-10-02T16:00:00Z — admitted on exact base 85470582cbeaf68fedf9ef6c9386f109b1e281b2 |
+| A | #6324 / PR #6323 | data: close Waves 1501–2000 with fail-closed runtime enrichment | In review — 500 unique research receipts consolidated; 9 source-specific runtime rows admitted; 491 remain research-only | P1 | — | 2026-10-04 — admitted on exact base `87d5b6d2f516c18f4ff3ed9fad8dfc27d77a8697` |
 
 
 
@@ -63,7 +63,15 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 **Authority prerequisite #5081:** Blocked on a fresh non-overlapping governor lease. Authority/Content is free after #6116 merged, but that free slot does not waive #5081's prerequisite.
 
-Research-only enrichment staging is not canonical implementation admission. No new work may overlap an active normal-lane owner.
+Research-only enrichment staging is not canonical implementation admission. #6324 is the bounded exception because this PR materializes reviewed runtime evidence; it owns the Authority/Content slot until merge. No new work may overlap an active normal-lane owner.
+
+### Governed enrichment admission — #6324 / PR #6323
+
+- **Owner / lane:** Authority/Content (L2 factual/provenance); P1 scientific-integrity closeout.
+- **Scope:** Waves 1501–2000 only; 500 research receipts; existing canonical entities only.
+- **Acceptance:** 500 contiguous waves with 500 unique in-cycle PMIDs; exact manifest digest/count integrity; no canonical-entity creation; category/formulation/combination/observational/safety-only firewalls preserved; admitted rows source-specific and deduped; workbook/source-of-truth, admission audit, Atomic, Site Health, Build Quality, full tests/a11y, production build/output/SEO, link audit, and security gates green; all review threads resolved before merge.
+- **Current evidence:** 9 runtime evidence rows + 9 source rows admitted; 491 receipts remain research-only. PMID 39703988 is explicitly category-firewalled and excluded from runtime.
+- **Business impact:** `Unknown`; this is evidence-integrity/data coverage work, not proof of traffic, conversion, or revenue lift.
 
 ### Verified completion refresh — 2026-10-02
 

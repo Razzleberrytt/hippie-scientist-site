@@ -47,20 +47,20 @@
       "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1501-2000.md",
       "ops/enrichment-submissions/reconciliation/2026-10-04-waves-1501-2000-pmid-revalidation.json"
     ],
-    "review_note": "Twenty 25-finding passes produced 500 unique research receipts. Final fail-closed admission retains 10 net-new, independently revalidated, source-specific evidence rows and 10 net-new source rows on existing canonical entities. The remaining receipts stay research-only where category, formulation, combination, observational, safety-only, evidence-quality, product-quality, retraction, or insufficient source-specific boundaries block runtime promotion."
+    "review_note": "Twenty 25-finding passes produced 500 unique research receipts. Final fail-closed admission retains 9 net-new, independently revalidated, source-specific evidence rows and 9 net-new source rows on existing canonical entities. PMID 39703988 remains research_only_category_firewall and is not runtime-materialized. The remaining 491 receipts stay research-only where category, formulation, combination, observational, safety-only, evidence-quality, product-quality, retraction, or insufficient source-specific boundaries block runtime promotion."
   },
   "counts": {
     "entity_context_rows": 0,
-    "evidence_rows": 10,
-    "source_rows": 10,
+    "evidence_rows": 9,
+    "source_rows": 9,
     "relationship_rows": 0
   },
   "wave_coverage": {
     "first_wave": 1501,
     "last_wave": 2000,
     "completed_waves": 500,
-    "evidence_records": 10,
-    "unique_source_records": 10
+    "evidence_records": 9,
+    "unique_source_records": 9
   },
   "policy": {
     "entity_creation": "forbidden",
@@ -73,13 +73,13 @@
   },
   "ledger": {
     "file": "2026-10-04-enrichment-waves-1501-2000.json",
-    "sha256": "dd261a0e0c4e8d9321be9314479ac12ec64db890b2c5bf9fe424b02416b8c127",
-    "bytes": 20337
+    "sha256": "e9314785eaa5b85a84365ced5943fc6779296af5fcbcb3a03e0fb172c4405c88",
+    "bytes": 18212
   },
   "admission": {
-    "evidence_additions": 10,
+    "evidence_additions": 9,
     "evidence_corrections": 0,
-    "source_additions": 10,
+    "source_additions": 9,
     "source_corrections": 0
   }
 }

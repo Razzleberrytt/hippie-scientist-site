@@ -153,23 +153,6 @@
       "supported_claim_language": "A meta-analysis of 10 randomized trials found probiotics did not significantly improve MMSE, MoCA, memory, attention, language, naming, or visuospatial outcomes in mild cognitive impairment or Alzheimer's disease.",
       "evidence_grade": "systematic review/meta-analysis; cognitive efficacy null",
       "safety_note": "Probiotic effects are strain- and population-specific; this null should not be generalized to gastrointestinal indications with separate evidence."
-    },
-    {
-      "record_id": "wave1968_probiotics_39703988",
-      "entity_slug": "probiotics",
-      "entity_name": "Probiotics",
-      "effect_or_condition": "acute and persistent diarrhea in children",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "WHO-commissioned systematic review and meta-analysis of randomized trials",
-      "population": "children from birth through age 10 with acute or persistent diarrhea",
-      "sample_size": "98 studies; 17,236 participants",
-      "pmid": "39703988",
-      "doi": "",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/39703988/",
-      "source_id": "pmid-39703988",
-      "supported_claim_language": "A WHO-commissioned review found probiotics produced a small reduction in acute pediatric diarrhea duration and a modest increase in clinical cure, but heterogeneity was high and certainty was low.",
-      "evidence_grade": "systematic review/meta-analysis; small low-certainty benefit",
-      "safety_note": "Results pooled many different genera, strains, doses, and treatment durations, so the findings do not establish a class-wide pediatric probiotic recommendation."
     }
   ],
   "sources": [
@@ -297,20 +280,6 @@
       "entity_slugs": "probiotics",
       "used_for": "cognition in mild cognitive impairment and Alzheimer's disease",
       "citation_or_note": "A meta-analysis of 10 randomized trials found probiotics did not significantly improve MMSE, MoCA, memory, attention, language, naming, or visuospatial outcomes in mild cognitive impairment or Alzheimer's disease. || Probiotic effects are strain- and population-specific; this null should not be generalized to gastrointestinal indications with separate evidence.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-39703988",
-      "pmid": "39703988",
-      "doi": "",
-      "author_or_label": "PubMed indexed source PMID 39703988",
-      "year": "2024",
-      "journal": "Journal of global health",
-      "title": "Efficacy of probiotics for treatment of acute or persistent diarrhoea in children from birth till 10 years: Systematic review and meta-analysis.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39703988/",
-      "entity_slugs": "probiotics",
-      "used_for": "acute and persistent diarrhea in children",
-      "citation_or_note": "A WHO-commissioned review found probiotics produced a small reduction in acute pediatric diarrhea duration and a modest increase in clinical cure, but heterogeneity was high and certainty was low. || Results pooled many different genera, strains, doses, and treatment durations, so the findings do not establish a class-wide pediatric probiotic recommendation.",
       "status": "published"
     }
   ],

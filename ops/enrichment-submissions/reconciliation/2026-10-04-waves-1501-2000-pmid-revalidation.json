@@ -2,7 +2,7 @@
   "schema_version": 1,
   "batch_id": "2026-10-04-waves-1501-2000-pmid-revalidation",
   "verified_on": "2026-10-04",
-  "rule": "Exact PMID identity, canonical entity identity, intervention, population, and result direction were rechecked before runtime materialization. Repository-wide PMID search on the pre-admission canonical corpus returned no collisions for the admitted subset. Missing DOI metadata is left blank rather than inferred.",
+  "rule": "Exact PMID identity, canonical entity identity, intervention, population, and result direction were rechecked before runtime materialization. Nine source-specific rows were admitted. PMID 39703988 was revalidated but remains research_only_category_firewall and is explicitly not runtime-materialized. Repository-wide PMID search on the pre-admission canonical corpus returned no collisions for the admitted subset. Missing DOI metadata is left blank rather than inferred.",
   "sources": [
     {
       "wave": 1515,
@@ -82,7 +82,7 @@
       "pmid": "39703988",
       "doi": "",
       "title": "Efficacy of probiotics for treatment of acute or persistent diarrhoea in children from birth till 10 years: Systematic review and meta-analysis.",
-      "decision": "verified_for_runtime_materialization"
+      "decision": "research_only_category_firewall_not_materialized"
     }
   ]
 }
