@@ -391,7 +391,7 @@ export default function Page() {
             <strong className="text-ink">Evidence grade: low-to-moderate.</strong> Enough human data to be interesting;
             not enough to promise a universal bedtime dose, a guaranteed 30-minute onset, or treatment of “racing thoughts.”
           </div>
-          <Link href="/compounds/l-theanine/" className="inline-flex font-semibold text-brand-700 hover:underline">Read the L-theanine profile →</Link>
+          <Link href="/guides/herbs/l-theanine/" className="inline-flex font-semibold text-brand-700 hover:underline">Read the L-theanine profile →</Link>
         </section>
 
         <section id="magnesium" className="scroll-mt-20 space-y-4">
