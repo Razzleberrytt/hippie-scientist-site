@@ -70,23 +70,6 @@
       "safety_note": "The fasting-glucose null and heterogeneous populations and regimens should remain explicit; these findings do not establish melatonin as diabetes treatment."
     },
     {
-      "record_id": "wave1039_saffron_41693488",
-      "entity_slug": "saffron",
-      "entity_name": "Saffron",
-      "effect_or_condition": "depression and anxiety symptom scales",
-      "evidence_type": "systematic_review_meta_analysis",
-      "study_type": "GRADE-assessed systematic review and meta-analysis of randomized controlled trials",
-      "population": "adults in randomized placebo-controlled saffron trials",
-      "sample_size": "34 randomized controlled trials; 1,769 participants",
-      "pmid": "41693488",
-      "doi": "",
-      "url_or_source": "https://pubmed.ncbi.nlm.nih.gov/41693488/",
-      "source_id": "pmid-41693488",
-      "supported_claim_language": "A 2026 GRADE-assessed meta-analysis of 34 randomized trials found improvements on self-reported BDI and BAI scores with saffron, while clinician-rated HDRS, HARS, and POMS outcomes were not significantly improved.",
-      "evidence_grade": "systematic review/meta-analysis; moderate-certainty but discordant symptom-scale findings",
-      "safety_note": "Heterogeneity was high and self-reported improvements should not be generalized into a uniform antidepressant or anxiolytic treatment claim."
-    },
-    {
       "record_id": "wave1064_vitamin_d_42704968",
       "entity_slug": "vitamin-d",
       "entity_name": "Vitamin D",
@@ -227,20 +210,6 @@
       "entity_slugs": "melatonin",
       "used_for": "glycemic control and insulin-resistance markers",
       "citation_or_note": "A 2026 meta-analysis of 31 randomized trials found no significant reduction in fasting glucose with melatonin, while HbA1c, fasting insulin, and HOMA-IR showed pooled improvements. || The fasting-glucose null and heterogeneous populations and regimens should remain explicit; these findings do not establish melatonin as diabetes treatment.",
-      "status": "published"
-    },
-    {
-      "source_id": "pmid-41693488",
-      "pmid": "41693488",
-      "doi": "",
-      "author_or_label": "PubMed indexed source PMID 41693488",
-      "year": "2026",
-      "journal": "",
-      "title": "Effect of saffron on depression, anxiety and mood disorder: a GRADE assessed systematic review and meta-analysis of 34 randomized controlled trials.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/41693488/",
-      "entity_slugs": "saffron",
-      "used_for": "depression and anxiety symptom scales",
-      "citation_or_note": "A 2026 GRADE-assessed meta-analysis of 34 randomized trials found improvements on self-reported BDI and BAI scores with saffron, while clinician-rated HDRS, HARS, and POMS outcomes were not significantly improved. || Heterogeneity was high and self-reported improvements should not be generalized into a uniform antidepressant or anxiolytic treatment claim.",
       "status": "published"
     },
     {
