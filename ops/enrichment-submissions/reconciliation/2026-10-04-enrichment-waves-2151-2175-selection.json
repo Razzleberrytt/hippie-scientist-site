@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-2151-2175-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-2126-2150-selection",
+  "program": {
+    "range": "2001-2500",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 175,
+    "merge_policy": "accumulate twenty 25-finding deep passes; consolidate and run heavy validation after Wave 2500"
+  },
+  "source_provenance": [
+    "Direct PubMed/NCBI discovery and abstract verification",
+    "PMID-level dedupe against cumulative Wave 2000 index and rolling deep-state"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "publication_promotion": "forbidden until final admission",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true
+  },
+  "waves": [
+    {
+      "wave": 2151,
+      "entity_slug": "melatonin-cardiac-rhythm-safety-review",
+      "pmid": "42515750",
+      "focus": "Case report plus systematic review identified rare cardiac rhythm/conduction events temporally associated with melatonin, including improvement after discontinuation; evidence is case-level and cannot estimate incidence, but supports a plausible cardiovascular safety signal requiring further study.",
+      "state": "research_only_safety_context"
+    },
+    {
+      "wave": 2152,
+      "entity_slug": "saffron-overweight-diabetes-cardiometabolic-meta",
+      "pmid": "39593185",
+      "focus": "Meta-analysis of 15 RCTs found saffron modestly improved fasting glucose, HbA1c, triglycerides, systolic blood pressure, and AST in overweight diabetic/prediabetic participants, while insulin, HOMA, most lipids, inflammatory markers, and renal markers were not clearly improved.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2153,
+      "entity_slug": "citicoline-ophthalmology-systematic-review",
+      "pmid": "42179665",
+      "focus": "Systematic review found limited clinical evidence suggesting citicoline may have neuroprotective benefits in glaucoma, amblyopia, and ischemic optic neuropathy, but the small and heterogeneous evidence base provides no clear consensus on efficacy, duration, or dosing.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2154,
+      "entity_slug": "vitamin-d-critical-illness-mortality-meta",
+      "pmid": "42440428",
+      "focus": "Meta-analysis of critical-care RCTs reported mortality benefit only in selected subgroups defined by baseline vitamin-D deficiency, administration route, or trial regimen; subgroup-driven findings and mixed routes prevent a general oral-supplement mortality claim.",
+      "state": "research_only_population_firewall"
+    },
+    {
+      "wave": 2155,
+      "entity_slug": "higher-protein-weight-loss-bone-rct",
+      "pmid": "41553490",
+      "focus": "Randomized trial in older adults undergoing caloric restriction plus aerobic exercise found higher protein intake improved hip bone strength at six months in one high-protein arm, but group differences were not sustained at 18 months and the effect occurred within a structured weight-loss intervention.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2156,
+      "entity_slug": "vitamin-d-deficiency-autoimmune-rheumatic-outcomes-meta",
+      "pmid": "42668756",
+      "focus": "Meta-analysis of observational autoimmune-rheumatic cohorts associated vitamin-D deficiency with higher all-cause mortality and greater cardiometabolic/renal burden, while cardiovascular-event and proteinuria estimates were imprecise; causality and supplementation benefit remain unproven.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2157,
+      "entity_slug": "resveratrol-nanoformulations-cancer-review",
+      "pmid": "42542881",
+      "focus": "Review found resveratrol nanoformulations promising in preclinical oncology models but emphasized that human evidence still relies largely on conventional oral/micronized forms and that nanocarrier translation faces manufacturing, safety, delivery, and biomarker-selection barriers.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2158,
+      "entity_slug": "probiotics-adult-allergic-rhinitis-network-meta",
+      "pmid": "42658561",
+      "focus": "Network meta-analysis of 68 adult RCTs found small improvements in allergic-rhinitis symptoms and quality of life with probiotics but no consistent immunologic/inflammatory changes; strain rankings were indirect and should not be treated as head-to-head superiority.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2159,
+      "entity_slug": "probiotics-metabolic-syndrome-meta",
+      "pmid": "42807098",
+      "focus": "Meta-analysis of 12 clinical trials found small probiotic-associated changes in LDL and glucose with mixed or non-significant findings for HDL, triglycerides, and total cholesterol; substantial heterogeneity limits clinical interpretation.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 2160,
+      "entity_slug": "high-dose-vitamin-c-cancer-review",
+      "pmid": "42712808",
+      "focus": "Review found pharmacologic high-dose vitamin C has strong mechanistic and preclinical rationale and mixed adjunctive clinical signals in cancer, but outcomes remain inconsistent and administration is pharmacologic/route-specific rather than equivalent to oral nutritional supplementation.",
+      "state": "research_only_route_firewall"
+    },
+    {
+      "wave": 2161,
+      "entity_slug": "myo-inositol-pcos-art-meta",
+      "pmid": "40989082",
+      "focus": "Meta-analysis of 17 intervention studies in PCOS-assisted reproduction found myo-/D-chiro-inositol improved clinical pregnancy and some embryo/oocyte outcomes, but heterogeneity was high for several ovarian markers and larger rigorous randomized trials are still needed.",
+      "state": "research_only_population_firewall"
+    },
+    {
+      "wave": 2162,
+      "entity_slug": "vitamin-d-deficiency-delayed-tooth-eruption-meta",
+      "pmid": "42377189",
+      "focus": "Meta-analysis found a possible association between low vitamin-D status and delayed tooth eruption in children, but only a few observational studies contributed and heterogeneity exceeded 90%; this does not establish supplementation efficacy.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2163,
+      "entity_slug": "curcumin-diabetes-liver-enzymes-meta",
+      "pmid": "41695557",
+      "focus": "Meta-analysis of 10 RCTs found no significant overall effect of curcumin/turmeric on ALT or AST in prediabetes/diabetes, while GGT decreased; duration, dose, and formulation subgroup signals were exploratory.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2164,
+      "entity_slug": "ginkgo-patent-medicines-hypertension-network-meta",
+      "pmid": "38701296",
+      "focus": "Network meta-analysis of 46 RCTs suggested several ginkgo-based Chinese patent medicines added to conventional therapy improved blood pressure or metabolic markers, but formulations differed, safety reporting was heterogeneous, and included-study quality was low.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2165,
+      "entity_slug": "melatonin-endocrine-disruptor-protection-review",
+      "pmid": "42573120",
+      "focus": "Systematic review described melatonin protection against endocrine-disrupting chemicals across many tissues, but the evidence base combined human, animal, and in-vitro models; the broad protective conclusion is therefore predominantly mechanistic/preclinical rather than established clinical efficacy.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2166,
+      "entity_slug": "saffron-adulteration-authenticity-review",
+      "pmid": "40792566",
+      "focus": "Systematic review estimated substantial global saffron adulteration and documented substitution, dilution, and hazardous synthetic-dye practices, while highlighting DNA, spectroscopic, hyperspectral, and machine-learning authentication methods; this is product-quality and consumer-safety evidence.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 2167,
+      "entity_slug": "choline-preterm-infants-systematic-review",
+      "pmid": "40802301",
+      "focus": "Systematic review found limited evidence on choline supplementation in premature infants and could not establish an optimal parenteral regimen; enteral studies suggest adequate metabolic replacement is possible, but daily supplementation needs remain controversial.",
+      "state": "research_only_population_firewall"
+    },
+    {
+      "wave": 2168,
+      "entity_slug": "caffeine-preterm-infant-administration-review",
+      "pmid": "42778959",
+      "focus": "Systematic review found very uncertain evidence comparing caffeine route or dosing frequency in preterm infants and no eligible evidence for several proposed administration strategies; this concerns neonatal pharmacologic caffeine therapy, not consumer supplementation.",
+      "state": "research_only_route_firewall"
+    },
+    {
+      "wave": 2169,
+      "entity_slug": "leucine-immobilization-rct-null",
+      "pmid": "41580240",
+      "focus": "Double-blind randomized trial found leucine supplementation did not attenuate reduced muscle-protein-synthesis rates or preserve leg muscle mass during three days of immobilization in either young or older adults.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2170,
+      "entity_slug": "vitamin-d-lumbar-fusion-meta",
+      "pmid": "42675950",
+      "focus": "Systematic review/meta-analysis associated better vitamin-D status or supplementation with improved radiographic lumbar-fusion outcomes and lower fusion failure, while patient-reported improvements were inconsistent and below minimal clinically important differences.",
+      "state": "research_only_population_firewall"
+    },
+    {
+      "wave": 2171,
+      "entity_slug": "berberine-drug-interactions-review",
+      "pmid": "42653808",
+      "focus": "Narrative review identified clinically relevant berberine interaction liability through CYP enzymes, transporters, and pharmacodynamic additivity; a human renal-transplant study showed increased cyclosporine exposure, while many other interaction pairs remain mechanistic rather than clinically proven.",
+      "state": "research_only_safety_or_interaction"
+    },
+    {
+      "wave": 2172,
+      "entity_slug": "probiotics-caries-variables-meta",
+      "pmid": "42660271",
+      "focus": "Systematic review/meta-analysis found probiotics reduced salivary mutans streptococci after repeated use but did not identify an optimal strain, dose, or delivery vehicle and showed no clear salivary-buffer benefit; microbial surrogate outcomes should not be equated with proven caries prevention.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2173,
+      "entity_slug": "probiotics-pediatric-uti-meta",
+      "pmid": "42688370",
+      "focus": "Meta-analysis of 13 RCTs found a small reduction in pediatric UTI incidence/recurrence with probiotics, driven more by recurrence than first incidence; heterogeneity was substantial, certainty was low, and no optimal dose or strain was established.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2174,
+      "entity_slug": "echinacea-preparation-dependent-review",
+      "pmid": "42737476",
+      "focus": "Critical review found Echinacea bioactivity varies markedly with plant organ, extraction, processing, and chemical profile; human respiratory-infection evidence appears preparation-specific and does not support treating Echinacea as a uniform therapeutic entity.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2175,
+      "entity_slug": "selenium-gestational-diabetes-meta",
+      "pmid": "41073938",
+      "focus": "Meta-analysis of four small RCTs in gestational diabetes found selenium lowered fasting glucose and newborn hyperbilirubinemia in selected analyses but did not improve HOMA-IR or lipid outcomes; the small evidence base limits confidence and does not justify dose inference.",
+      "state": "research_only_population_firewall"
+    }
+  ]
+}
