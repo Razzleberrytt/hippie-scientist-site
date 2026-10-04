@@ -4,8 +4,8 @@
   "program": {
     "range": "1001-1500",
     "target_findings": 500,
-    "current_findings": 325,
-    "last_wave": 1325
+    "current_findings": 350,
+    "last_wave": 1350
   },
   "policy": "research authoring index only; not runtime admission; final Wave-1500 consolidation required",
   "waves": [
@@ -2283,6 +2283,181 @@
       "pmid": "42829785",
       "focus": "Thirteen-year follow-up of a randomized prenatal vitamin D trial found no lasting benefit of higher-dose gestational vitamin D on offspring bone mineral content, bone density or fracture risk versus standard-dose supplementation.",
       "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1326,
+      "entity_slug": "multivitamin-hypertension-cosmos",
+      "pmid": "41264477",
+      "focus": "Large COSMOS secondary analysis found daily multivitamin-multimineral supplementation did not reduce incident hypertension or two-year blood-pressure change overall; diet-quality and baseline-BP subgroup signals were exploratory and directionally inconsistent.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1327,
+      "entity_slug": "vitamin-e-cognition",
+      "pmid": "41418497",
+      "focus": "Systematic review of 43 clinical studies found the vitamin-E/cognition literature was dominated by dietary exposure and multivitamin studies, with very little isolated-supplement evidence; apparent protective associations may reflect dietary or multi-component synergy rather than vitamin E alone.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1328,
+      "entity_slug": "multivitamin-fat-soluble-deficiency",
+      "pmid": "41565231",
+      "focus": "Four-week double-blind RCT in 155 adults with vitamin A, D or E deficiency found nutrition education plus multivitamin was not superior to nutrition education plus placebo for improving vitamin concentrations or deficiency rates; both groups improved substantially.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1329,
+      "entity_slug": "multivitamin-carotenoid-tocopherol-biomarkers",
+      "pmid": "41587736",
+      "focus": "Two-year COSMOS biomarker substudy found multivitamin supplementation increased total carotenoids, lutein, beta-carotene and alpha-tocopherol concentrations, while several other carotenoids were unchanged; this demonstrates exposure/biomarker effects rather than clinical benefit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1330,
+      "entity_slug": "multivitamin-cocoa-vte",
+      "pmid": "41651011",
+      "focus": "Large COSMOS ancillary analysis found neither cocoa extract nor multivitamin-multimineral supplementation significantly reduced venous thromboembolism, DVT or pulmonary embolism in intention-to-treat analyses; per-protocol and latency patterns were exploratory.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1331,
+      "entity_slug": "multivitamin-epigenetic-aging",
+      "pmid": "41803341",
+      "focus": "Prespecified COSMOS ancillary study found small two-year changes favoring multivitamin supplementation on PCGrimAge and PCPhenoAge epigenetic clocks, while cocoa extract was null; effect sizes were small and clinical relevance remains uncertain.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1332,
+      "entity_slug": "multivitamin-metabolomics-cosmos",
+      "pmid": "41910928",
+      "focus": "COSMOS metabolomics substudy found nominal multivitamin-associated changes in DHA, omega-3, creatinine and multiple disease-risk scores, but none survived false-discovery-rate correction; findings are preliminary rather than validated metabolic benefits.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1333,
+      "entity_slug": "prenatal-5mthf-folic-acid",
+      "pmid": "41971363",
+      "focus": "Twenty-four-week randomized prenatal trial found 6S-5-MTHF maintained total maternal/fetal folate similarly to folic acid while producing less detectable unmetabolized folic acid in maternal blood and placenta; clinical developmental superiority was not tested.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1334,
+      "entity_slug": "cocoa-multivitamin-physical-performance",
+      "pmid": "42004609",
+      "focus": "COSMOS clinic substudy found neither cocoa extract nor multivitamin supplementation improved two-year grip strength, walking speed, SPPB, balance, chair-stand or timed-up-and-go outcomes in older adults.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1335,
+      "entity_slug": "organic-synthetic-multivitamin-bioavailability",
+      "pmid": "42005784",
+      "focus": "Single-blind randomized comparison found organically sourced and synthetic multivitamin-mineral formulations produced broadly comparable acute and 30-day circulating micronutrient profiles, providing no evidence of general bioavailability superiority for the organic formulation.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1336,
+      "entity_slug": "multivitamin-covid-cosmos",
+      "pmid": "42385272",
+      "focus": "COSMOS secondary analysis found daily multivitamin supplementation did not significantly reduce COVID-19 incidence in intention-to-treat analysis; a symptomatic-COVID signal appeared only in adherent per-protocol analysis and remains secondary.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1337,
+      "entity_slug": "prenatal-biotin-multivitamin",
+      "pmid": "42693884",
+      "focus": "Twenty-four-week double-blind prenatal trial found a higher-biotin multivitamin increased maternal and cord-blood biotin biomarkers and reduced a marginal-insufficiency metabolite; cortisol associations were exploratory and no maternal or infant clinical benefit was established.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1338,
+      "entity_slug": "vitamin-d-b12-psychiatric-evidence",
+      "pmid": "42187879",
+      "focus": "Exploratory systematic review/meta-analysis found highly heterogeneous psychiatric evidence for vitamin D and B12; vitamin-D signals attenuated toward null after bias adjustment and B12 supplementation evidence was sparse/null, supporting targeted deficiency assessment rather than routine supplementation.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1339,
+      "entity_slug": "vitamin-b12-chemotherapy-neuropathy",
+      "pmid": "42169581",
+      "focus": "Small double-blind placebo-controlled trial in 40 gynecologic-cancer patients found oral vitamin B12 reduced the incidence of questionnaire-defined chemotherapy-induced peripheral neuropathy, while neurotoxicity quality-of-life scores and adverse effects did not differ; replication is needed.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1340,
+      "entity_slug": "melatonin-vitamind-b12-postoperative-chronotherapy",
+      "pmid": "42230417",
+      "focus": "Tiny randomized crossover dental-surgery pilot replacing nighttime ibuprofen with melatonin, vitamin D and B12 did not improve overall recovery and produced higher pain/swelling on several measures; sex-interaction findings were exploratory and the multi-ingredient design prevents attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1341,
+      "entity_slug": "excess-folic-acid-pregnancy-safety",
+      "pmid": "42248048",
+      "focus": "Systematic review associated excessive folic-acid intake or high blood folate during preconception/pregnancy with gestational diabetes and selected offspring/growth outcomes, but evidence was heterogeneous and largely association-based; it does not establish a causal toxic threshold.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1342,
+      "entity_slug": "vitamin-b12-route-deficiency-anemia",
+      "pmid": "42393020",
+      "focus": "Randomized trial in 153 adults with B12-deficiency anemia found intranasal, intravenous and intramuscular B12 all produced short-term hematologic recovery, with no significant adjusted difference in hemoglobin response by route; some secondary laboratory kinetics differed.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1343,
+      "entity_slug": "vitamin-b9-b12-fortified-flour-cognition",
+      "pmid": "42400612",
+      "focus": "Six-month double-blind community RCT in 472 Ethiopian teenage girls found B9/B12-fortified corn flour did not improve any primary cognitive outcome versus unfortified flour; a stunting-language interaction was secondary and not evidence of benefit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1344,
+      "entity_slug": "high-dose-vitamin-b6-depression",
+      "pmid": "42569537",
+      "focus": "One-month double-blind trial in a mostly female general-population sample found 100 mg/day vitamin B6 reduced depression scores only in preselected participants with elevated baseline symptoms, with no anxiety or stress benefit; subgroup design and high dose require cautious safety-aware interpretation.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1345,
+      "entity_slug": "folic-acid-methotrexate-toxicity",
+      "pmid": "42249242",
+      "focus": "Exploratory randomized rheumatology trial found increasing folic acid from 5 to 10 mg/week did not meaningfully reduce methotrexate-related liver or other toxicity over 12 weeks; a fatigue difference was isolated and secondary.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1346,
+      "entity_slug": "probiotic-iron-folic-acid-anemia",
+      "pmid": "42298087",
+      "focus": "Randomized trial in 248 anemic children found adding Lactobacillus plantarum to iron-folic-acid therapy provided no additional benefit for hemoglobin, iron status, morbidity, adverse effects or gut-health markers versus iron-folic acid alone.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1347,
+      "entity_slug": "lactoferrin-vs-ferrous-sulfate-ida",
+      "pmid": "42302886",
+      "focus": "Large double-blind noninferiority trial in Bangladeshi women with iron-deficiency anemia found both tested bovine-lactoferrin doses were inferior to ferrous sulfate for 12-week hemoglobin recovery, with similar adverse-event rates.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1348,
+      "entity_slug": "prenatal-multimicronutrient-zinc-status",
+      "pmid": "42435808",
+      "focus": "Randomized pregnancy substudy in Ghana found multiple-micronutrient supplementation containing zinc did not significantly improve late-pregnancy plasma zinc or zinc-deficiency prevalence versus iron-folic acid; zinc status worsened across pregnancy in both groups.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1349,
+      "entity_slug": "alpha-lipoic-acid-rpl-sperm",
+      "pmid": "42571056",
+      "focus": "Double-blind trial in couples with recurrent pregnancy loss found alpha-lipoic acid plus folic acid reduced sperm DNA-fragmentation index versus folic-acid control, while between-group sperm concentration, motility and morphology differences were not significant; fertility/live-birth benefit was not established.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1350,
+      "entity_slug": "prenatal-5mthf-vs-folic-acid-bioavailability",
+      "pmid": "42716224",
+      "focus": "Double-blind RCT in 110 pregnant women found equimolar 5-MTHF and folic acid produced comparable RBC-folate gains and homocysteine reductions; plasma 5-MTHF and unmetabolized-folate differences were borderline or nonsignificant after adjustment.",
+      "state": "research_only_formulation_firewall"
     }
   ]
 }
