@@ -31,11 +31,13 @@ function dataset(): PublicEvidenceDataset {
 describe('public site metrics', () => {
   it('uses final public-library inventory counts while preserving evidence-dataset study metrics', () => {
     const metrics = buildPublicSiteMetrics(dataset(), {
+      publishedArticles: 254,
       publishedHerbs: 1,
       publishedCompounds: 2,
     })
 
     expect(metrics).toEqual({
+      publishedArticles: 254,
       publishedHerbs: 1,
       publishedCompounds: 2,
       publishedProfiles: 3,
