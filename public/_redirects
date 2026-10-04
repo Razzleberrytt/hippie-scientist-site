@@ -42,6 +42,10 @@ https://www.thehippiescientist.net/best-supplements-for-focus/ https://thehippie
 https://www.thehippiescientist.net/goals https://thehippiescientist.net/goals/ 301
 https://www.thehippiescientist.net/goals/ https://thehippiescientist.net/goals/ 301
 
+# Preserve the cited legacy L-theanine URL in one hop while the generic host redirect remains below.
+https://www.thehippiescientist.net/articles/l-theanine https://thehippiescientist.net/guides/herbs/l-theanine/ 301
+https://www.thehippiescientist.net/articles/l-theanine/ https://thehippiescientist.net/guides/herbs/l-theanine/ 301
+
 # Canonical: non-www
 https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 
