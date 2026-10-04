@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "batch_id": "2026-10-04-enrichment-waves-2501-3000",
+  "batch_id": "2026-10-04-enrichment-waves-2501-3000-verified-consolidated",
   "range": "2501-3000",
   "pass_size": 25,
   "checkpoints": 20,
@@ -14,13 +14,15 @@
     "prior_pmid_collisions": 0,
     "duplicate_pmids": 0,
     "duplicate_dois": 0,
-    "duplicate_normalized_titles": 0
+    "duplicate_normalized_titles": 0,
+    "unverified_abstracts": 0,
+    "final_site_relevance_flags": 0
   },
   "research_provenance": [
-    "PubMed article identity required for every selected entry",
-    "Discovery and PubMed page retrieval via Exa because connected Amass usage was exhausted and Scite/Elicit connector plans were unavailable",
-    "Hard PMID dedupe against cumulative index through wave 2500 before every pass",
-    "In-pass PMID dedupe and round-robin topic balancing"
+    "Candidate discovery from NCBI PubMed/PMC records surfaced through Sider Scholar",
+    "Exact PubMed/PMC abstract verification via Sider Scholar where available",
+    "Undermind exact DOI/title resolution with full abstracts for bulk verification and source redundancy",
+    "Hard PMID dedupe against the cumulative index through wave 2500 plus in-batch PMID/DOI/title dedupe"
   ],
   "evidence_states": {
     "research_only_safety": 242,
@@ -40,7 +42,31 @@
     "source_identity_integrity": true
   },
   "notes": [
-    "A final duplicate-DOI check caught a reference-list DOI extraction error affecting waves 2852 and 2890; both DOI fields were corrected to the article DOIs before the reconciliation was re-run.",
-    "This cycle records research receipts only. Runtime admission and broader repository-wide validation remain separate fail-closed steps."
+    "This cycle records 500 source-verified research receipts for waves 2501-3000.",
+    "Two within-batch duplicates and two clearly off-topic rows were replaced from a verified spare set before the final audit.",
+    "Runtime admission and expensive repository-wide CI/quality gates remain separate fail-closed steps."
+  ],
+  "repair_count": 4,
+  "repairs": [
+    {
+      "wave": 2529,
+      "reason": "site_relevance_repair",
+      "replacement_pmid": "42760947"
+    },
+    {
+      "wave": 2553,
+      "reason": "within_batch_duplicate",
+      "replacement_pmid": "42614605"
+    },
+    {
+      "wave": 2555,
+      "reason": "site_relevance_repair",
+      "replacement_pmid": "42807196"
+    },
+    {
+      "wave": 2580,
+      "reason": "within_batch_duplicate",
+      "replacement_pmid": "42633491"
+    }
   ]
 }
