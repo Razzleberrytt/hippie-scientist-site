@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2616-2620",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2616,
+      "pmid": "42716295",
+      "title": "Whey protein phospholipid concentrate at the interface of function and health: Heat-induced protein interactions, bioactivity, and choline delivery.",
+      "abstract_verified": true,
+      "state": "research_only_food_science_review",
+      "evidence_boundary": "This work centers on composition, processing, phospholipid/choline delivery, and proposed bioactivity of WPPC; manufacturing and nutrient-delivery data are not direct clinical efficacy evidence."
+    },
+    {
+      "wave": 2617,
+      "pmid": "42653650",
+      "title": "Neuropharmacology of Cannabinoids: A Comprehensive Review of Preclinical and Clinical Evidence for Hemp-Derived Extracts and Active Compounds.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "The review spans THC, CBD, extracts, and other phytocannabinoids across preclinical and clinical evidence; effects, risks, and mechanisms are compound-, dose-, and route-specific."
+    },
+    {
+      "wave": 2618,
+      "pmid": "42687999",
+      "title": "Targeting cellular senescence with Traditional Chinese Medicine: advances in neurodegenerative disorder treatment.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical_review",
+      "evidence_boundary": "The senescence-focused TCM literature is largely mechanistic and preclinical, with heterogeneous multi-component preparations; clinical neurodegenerative efficacy remains unproven."
+    },
+    {
+      "wave": 2619,
+      "pmid": "42709244",
+      "title": "Effects of inhaled lavender essential oil on sleep quality, pain, and anxiety in ICU patients after curative hepatocellular carcinoma resection: a quasi-experimental study.",
+      "abstract_verified": true,
+      "state": "research_only_quasi_experimental",
+      "evidence_boundary": "This nonrandomized sequential-group ICU study is vulnerable to confounding and is specific to postoperative liver-cancer patients and inhaled lavender aromatherapy."
+    },
+    {
+      "wave": 2620,
+      "pmid": "42810842",
+      "title": "A single-center open-label, randomized, parallel-group controlled clinical trial on the long-term effect of the treatment with EGb 761 in blood markers of inflammation and neurodegeneration in patients with mild cognitive impairment: ACE-2020-EGb 761.",
+      "abstract_verified": true,
+      "state": "research_only_human_trial",
+      "evidence_boundary": "The study is single-center and open-label with no-treatment control and uses standardized EGb 761 in MCI; biomarker and cognition findings should not be generalized to all Ginkgo products."
+    }
+  ]
+}
