@@ -291,5 +291,5 @@ Direct combination evidence is insufficient to claim synergy. Separate mechanism
 ## Related evidence guides
 
 - [Lion's Mane: Cognition, Mood & Evidence](/articles/lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide/)
-- [L-Theanine: Calm Focus Evidence Review](/articles/l-theanine/)
+- [L-Theanine: Calm Focus Evidence Review](/guides/herbs/l-theanine/)
 - [Ginkgo Biloba: Cognition & Circulation](/articles/ginkgo-biloba/)
