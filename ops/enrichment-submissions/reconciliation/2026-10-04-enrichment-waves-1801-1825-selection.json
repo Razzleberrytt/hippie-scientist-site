@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-1801-1825-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-1776-1800-selection",
+  "program": {
+    "range": "1501-2000",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 325,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2000"
+  },
+  "source_provenance": [
+    "Sider Scholar + NCBI PubMed exact-source verification",
+    "cumulative PMID collision index covering prior enrichment waves and current branch"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2000 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe/source verification during authoring; expensive repository-wide validation only after Wave 2000"
+  },
+  "waves": [
+    {
+      "wave": 1801,
+      "entity_slug": "pomegranate-igf1-telomere-older-adults",
+      "pmid": "41010500",
+      "focus": "Twelve-week double-blind RCT in 72 adults aged 55-70 found pomegranate extract increased serum IGF-1 but did not significantly change telomere length; biomarker change should not be reframed as demonstrated anti-aging benefit.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1802,
+      "entity_slug": "cocoa-extract-tmao-cosmos-pilot",
+      "pmid": "41127993",
+      "focus": "Pilot analysis of 37 COSMOS participants found cocoa-extract assignment produced only nonsignificant trends toward lower TMAO/choline over one year; tiny biomarker substudy was designed for feasibility/sample-size estimation rather than clinical efficacy.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1803,
+      "entity_slug": "cocoa-flavanols-diastolic-function",
+      "pmid": "41143317",
+      "focus": "Double-blind randomized substudy in 63 healthy older adults found 30 days of cocoa flavanols reduced left-atrial volume and systolic blood pressure with selected ventricular-volume changes but no clear strain/systolic-function effect; imaging surrogate evidence.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1804,
+      "entity_slug": "pomegranate-mouthrinse-gingivitis",
+      "pmid": "41185719",
+      "focus": "Randomized double-blind trial in 60 adults found 30% pomegranate-peel mouthrinse reduced plaque/gingival indices and bacterial counts over 21 days, with some outcomes outperforming chlorhexidine; topical oral formulation evidence does not support systemic pomegranate claims.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1805,
+      "entity_slug": "garlic-cholesterol-mechanisms-review",
+      "pmid": "41273868",
+      "focus": "Systematic mechanistic review maps garlic effects on cholesterol synthesis, absorption, LDL uptake, HDL biology and microbiota, while emphasizing that clinical effects depend on sustained use, preparation and bioactive composition; useful evidence map rather than a single pooled efficacy estimate.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1806,
+      "entity_slug": "garlic-ms-fatigue-rct",
+      "pmid": "41341173",
+      "focus": "Randomized single-blind placebo-controlled trial in adults with multiple sclerosis found four weeks of garlic extract improved fatigue and selected quality-of-life domains versus placebo; short duration and formulation-specific extract warrant replication.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1807,
+      "entity_slug": "pomegranate-tea-covid-rct-null",
+      "pmid": "41473214",
+      "focus": "Double-blind randomized trial in hospitalized COVID-19 patients found pomegranate tea did not significantly improve hospitalization duration, time to improvement, mortality, respiratory-support duration or symptom severity versus placebo.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1808,
+      "entity_slug": "garlic-mouthwash-cariogenic-meta",
+      "pmid": "41485319",
+      "focus": "Systematic review/meta-analysis of nine RCTs found garlic-based mouthrinses had antimicrobial activity against cariogenic organisms, but effects versus chlorhexidine varied by follow-up and heterogeneity was high; certainty was rated low.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1809,
+      "entity_slug": "pomegranate-extract-gut-microbiota-shime",
+      "pmid": "41427997",
+      "focus": "Controlled SHIME gut-model study found a commercial pomegranate extract altered selected microbial taxa and lactate/metabolite patterns in a dose-dependent manner; ex-vivo fermentation evidence should not be presented as a human clinical outcome.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1810,
+      "entity_slug": "celery-cardiometabolic-meta",
+      "pmid": "40765738",
+      "focus": "Meta-analysis of 10 randomized trials found celery preparations reduced blood pressure, fasting glucose and triglycerides while total cholesterol, LDL and HDL were not consistently improved; heterogeneous preparations and subgroup dose signals require caution.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1811,
+      "entity_slug": "creatine-kidney-function-meta",
+      "pmid": "41199218",
+      "focus": "Systematic review/meta-analysis found creatine caused a small rise in serum creatinine but no significant deterioration in GFR, supporting the distinction between creatinine turnover and renal impairment; study durations/populations still limit very-long-term certainty.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1812,
+      "entity_slug": "pediatric-nutraceutical-adverse-event-reporting",
+      "pmid": "40652350",
+      "focus": "Systematic review of 98 pediatric neuropsychiatric nutraceutical/phytoceutical trials found adverse-event monitoring and attribution were inconsistently specified, with GI symptoms and headache most commonly reported; safety-reporting quality itself is a major evidence limitation.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1813,
+      "entity_slug": "artri-king-undeclared-drugs-safety",
+      "pmid": "40663123",
+      "focus": "Systematic review/case series found serious adverse outcomes among users of Artri King, including Cushing syndrome, adrenal insufficiency and worsened hyperglycemia, consistent with FDA warnings about undeclared diclofenac/dexamethasone; product-safety signal only.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1814,
+      "entity_slug": "nutraceuticals-rheumatoid-arthritis-review",
+      "pmid": "41026372",
+      "focus": "Systematic review summarizes probiotics, omega-3s, CoQ10, vitamin D and polyphenols in rheumatoid arthritis, but heterogeneous interventions, microbiome endpoints and clinical outcomes prevent class-wide treatment conclusions.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1815,
+      "entity_slug": "sports-supplements-volleyball-network-meta",
+      "pmid": "41373993",
+      "focus": "Network meta-analysis of 35 RCTs in 838 volleyball athletes ranked β-alanine, creatine and caffeine for selected explosive-performance outcomes, but evidence certainty was low-to-moderate and network rankings should not be treated as universal superiority.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1816,
+      "entity_slug": "multiple-micronutrients-anemia-meta",
+      "pmid": "41451061",
+      "focus": "Meta-analysis of 12 studies found some intermittent/daily multiple-micronutrient regimens reduced anemia or iron-deficiency prevalence but did not consistently increase hemoglobin; certainty ranged from very low to moderate and formulations varied.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1817,
+      "entity_slug": "curcuma-metabolic-syndrome-meta",
+      "pmid": "41517125",
+      "focus": "Large systematic review/meta-analysis of 104 RCTs found standardized turmeric/curcumin supplements improved several glycemic, lipid and inflammatory markers across metabolic conditions, but formulations were highly heterogeneous and often bioavailability-enhanced rather than culinary turmeric.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1818,
+      "entity_slug": "dietary-supplements-androgenetic-alopecia-network-meta",
+      "pmid": "41561175",
+      "focus": "Network meta-analysis of 19 RCTs compared diverse dietary supplements for androgenetic alopecia; small studies, heterogeneous products and limited direct comparisons constrain rankings and safety/efficacy certainty.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1819,
+      "entity_slug": "vitamin-d-diabetes-dose-response-meta",
+      "pmid": "41280391",
+      "focus": "Systematic review/meta-analysis of seven studies found higher vitamin-D regimens raised serum vitamin D and modestly improved HbA1c versus lower doses, while total cholesterol was not significantly different; mixed designs and dose-comparison framing do not justify consumer dosing guidance.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1820,
+      "entity_slug": "curcumin-elderly-cardiometabolic-review",
+      "pmid": "40516827",
+      "focus": "Systematic review of seven RCTs in older adults found curcumin improved selected inflammatory, glycemic, blood-pressure and lipid markers, while other cardiovascular outcomes were inconsistent; formulation/protocol heterogeneity limits broad recommendations.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1821,
+      "entity_slug": "medicine-food-bioactives-parkinsons-review",
+      "pmid": "41356826",
+      "focus": "Review of medicine-food homology bioactives in Parkinson's disease found evidence predominantly preclinical with sparse disease-specific randomized trials and pharmacokinetic limitations for compounds such as curcumin and EGCG; useful translational boundary evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1822,
+      "entity_slug": "nutrition-inflammatory-arthritis-systematic-review",
+      "pmid": "41030267",
+      "focus": "Systematic review of 49 RCTs across rheumatoid, axial spondyloarthritis and psoriatic arthritis found selected diet/supplement signals but substantial heterogeneity prevented meta-analysis; disease-, nutrient- and intervention-specific conclusions must remain separate.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1823,
+      "entity_slug": "antiatherosclerotic-supplements-bleeding-interactions",
+      "pmid": "41155474",
+      "focus": "Safety-focused review highlights potential bleeding and drug-interaction concerns with omega-3s, garlic, nattokinase, ginkgo, ginger, ginseng, curcumin and other nutraceuticals, especially with antithrombotic therapy; interaction context should accompany efficacy claims.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 1824,
+      "entity_slug": "bpc157-sports-medicine-systematic-review",
+      "pmid": "40756949",
+      "focus": "Systematic review found 35 of 36 BPC-157 studies were preclinical and only one clinical study was identified; despite growing use, human efficacy/safety remain poorly characterized and professional-sport use is prohibited.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1825,
+      "entity_slug": "functional-foods-cholesterol-review",
+      "pmid": "40871675",
+      "focus": "Review summarizes plant sterols, viscous fibers, soy protein, red-yeast rice, berberine, garlic and other cholesterol-lowering food/nutraceutical approaches, but its proposed composite index is conceptual and should not be treated as a validated clinical ranking.",
+      "state": "research_only_category_firewall"
+    }
+  ]
+}
