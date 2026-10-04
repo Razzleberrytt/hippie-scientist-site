@@ -188,10 +188,11 @@ Tracking: enrichment batching `#6198`; 50-wave follow-on planning `#6200`; canon
 - Research journal: `ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1001-1500.md`
 - Runtime ledger: `2026-10-04-enrichment-waves-1001-1500.json`
 - Manifest: `2026-10-04-enrichment-waves-1001-1500-manifest.json`
-- **10** net-new, independently revalidated, source-specific evidence rows
-- **10** net-new source rows
+- **9** net-new, independently revalidated, source-specific evidence rows
+- **9** net-new source rows
 - 0 entity-context rows
 - 0 relationships
-- Final admission remains deliberately conservative: the other 490 findings stay as durable research receipts behind category, formulation, combination, observational, safety-only, product-quality, retraction, or evidence-quality boundaries.
+- Canonical-aware admission pruned saffron PMID `41693488` as already covered rather than relying on silent runtime deduplication.
+- Final admission remains deliberately conservative: the other 491 findings stay as durable research receipts behind category, formulation, combination, observational, safety-only, product-quality, retraction, or evidence-quality boundaries.
 - Null, negative, mixed, population-specific, performance-versus-biomarker, and safety findings remain first-class.
 - No publication, indexing, recommendation, monetization, or governance fields are changed by this batch.
