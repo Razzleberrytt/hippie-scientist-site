@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2621-2625",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2621,
+      "pmid": "42520100",
+      "title": "Mapping the Evidence on Kratom Use, Health Outcomes, and Policy Gaps in the United States: A Scoping Review.",
+      "abstract_verified": true,
+      "state": "research_only_scoping_review",
+      "evidence_boundary": "A scoping review maps use patterns, outcomes, and policy gaps but does not provide pooled causal estimates; self-report, product variability, and observational evidence remain major limitations."
+    },
+    {
+      "wave": 2622,
+      "pmid": "42783813",
+      "title": "Acute Responses to Creatine Monohydrate and L-Arginine, Alone and Combined, on Repeated-Sprint Power, Countermovement Jump Height, and Stroop Reaction Time in Recreationally Active Men: A Randomized Double-Blind Crossover Trial.",
+      "abstract_verified": true,
+      "state": "research_only_human_trial",
+      "evidence_boundary": "This acute crossover trial involved 18 recreationally active men and single-dose conditions; short-term task effects do not establish chronic performance or cognitive benefit."
+    },
+    {
+      "wave": 2623,
+      "pmid": "42309612",
+      "title": "A review on Mitragyna alkaloids pharmacology, biosynthesis and biotechnological insights.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "The review spans multiple Mitragyna species, alkaloids, pharmacology, and biotechnology; evidence is heterogeneous and should not be generalized to standardized kratom products or clinical outcomes."
+    },
+    {
+      "wave": 2624,
+      "pmid": "42756867",
+      "title": "Micronutrients in Cardiovascular Disease: A Comprehensive Review of Vitamins, Trace Minerals, and Electrolytes.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "The review aggregates many vitamins, trace minerals, and electrolytes across heterogeneous human evidence; associations and deficiency correction should not be conflated with blanket supplementation benefit."
+    },
+    {
+      "wave": 2625,
+      "pmid": "42661783",
+      "title": "Cannabinoid efficacy for pain: dose, chronicity and route.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "Analgesic effects and adverse effects vary materially by cannabinoid, dose, route, chronicity, and composition; preclinical THC findings and clinical cannabis evidence are not interchangeable."
+    }
+  ]
+}

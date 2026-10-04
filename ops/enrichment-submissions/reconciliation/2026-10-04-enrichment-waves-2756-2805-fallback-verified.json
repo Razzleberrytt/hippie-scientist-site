@@ -1,0 +1,314 @@
+{
+  "schema_version": 1,
+  "range": "2756-2805",
+  "source": "NCBI PubMed exact fallback plus fail-closed replacements",
+  "rows": [
+    {
+      "wave": 2756,
+      "pmid": "42828220",
+      "state": "research_only_meta_analysis",
+      "focus": "Systematic review/meta-analysis found iron deficiency anemia can falsely elevate HbA1c and that iron therapy often lowers measured HbA1c.",
+      "evidence_boundary": "Assay interference varies by anemia definition and HbA1c method; changes in HbA1c do not necessarily represent changes in glycemia."
+    },
+    {
+      "wave": 2757,
+      "pmid": "42817826",
+      "state": "research_only_rct",
+      "focus": "Randomized double-blind trial of a cholecalciferol-phosphate skin patch found it safe but did not significantly improve vitamin D status in humans.",
+      "evidence_boundary": "Patch formulation and exposure are specific; negative findings should not be generalized to oral vitamin D."
+    },
+    {
+      "wave": 2758,
+      "pmid": "42815577",
+      "state": "research_only_meta_analysis",
+      "focus": "Systematic review/meta-analysis of vitamin D supplementation for bone health in non-White adults found limited evidence for meaningful BMD or fracture benefit.",
+      "evidence_boundary": "Trials were heterogeneous in ethnicity, dose, duration, baseline status, and co-interventions."
+    },
+    {
+      "wave": 2759,
+      "pmid": "42809706",
+      "state": "research_only_posthoc_rct",
+      "focus": "Post hoc DPVD analysis found metabolic trajectory modified lumbar-spine BMD response to eldecalcitol in adults with prediabetes.",
+      "evidence_boundary": "Post hoc analysis of an active vitamin D analog; not equivalent to general vitamin D supplementation."
+    },
+    {
+      "wave": 2760,
+      "pmid": "42828539",
+      "state": "research_only_mechanistic_review",
+      "focus": "Review of vitamin D3–Nrf2 signaling across oxidative, inflammatory, metabolic, hepatic, and cardiovascular disease models.",
+      "evidence_boundary": "Mechanistic synthesis does not establish clinical benefit from supplementation."
+    },
+    {
+      "wave": 2761,
+      "pmid": "42828327",
+      "state": "research_only_scoping_review",
+      "focus": "Scoping review of nutrition in pregnancy with inflammatory gut disease highlighted magnesium, folate, and B12 deficiencies but found no direct intervention studies linking supplementation to fetal outcomes.",
+      "evidence_boundary": "Only five studies met inclusion criteria and evidence was primarily observational."
+    },
+    {
+      "wave": 2762,
+      "pmid": "42827737",
+      "state": "research_only_public_health_review",
+      "focus": "Narrative review described undernutrition, anemia, overweight/obesity, food insecurity, and disruption of iron-folate programs among Indonesian youth during COVID-19.",
+      "evidence_boundary": "Country- and pandemic-specific narrative synthesis; not intervention efficacy evidence."
+    },
+    {
+      "wave": 2763,
+      "pmid": "42827680",
+      "state": "research_only_review",
+      "focus": "Review of iron, copper, zinc, and calcium homeostasis emphasized both deficiency and toxicity and the narrow therapeutic window for trace elements.",
+      "evidence_boundary": "Broad physiology/diagnostic review; treatment is metal- and disease-specific."
+    },
+    {
+      "wave": 2764,
+      "pmid": "42825811",
+      "state": "research_only_clinical_review",
+      "focus": "Phenotype-guided review of vitamin B12 deficiency and unexpectedly elevated B12 in early childhood emphasized maternal status, MMA/homocysteine, and neurologic risk.",
+      "evidence_boundary": "Pediatric clinical guidance; replacement route and urgency depend on phenotype and cause."
+    },
+    {
+      "wave": 2765,
+      "pmid": "42668015",
+      "state": "research_only_replacement_rct",
+      "replaces_rejected_pmid": "42824309",
+      "focus": "Small randomized double-blind crossover trial found grape-seed extract did not change post-exercise hypotension but showed exploratory favorable ambulatory BP, FMD, and exercise-BP signals.",
+      "evidence_boundary": "Only 10 participants; exploratory vascular findings require larger confirmation."
+    },
+    {
+      "wave": 2766,
+      "pmid": "42820058",
+      "state": "research_only_review",
+      "focus": "Focused review of six RCTs and four observational studies found magnesium evidence more consistent for recovery/soreness and inflammatory markers than direct ergogenic performance.",
+      "evidence_boundary": "Heterogeneous formulations, doses, baseline magnesium status, and populations limit conclusions."
+    },
+    {
+      "wave": 2767,
+      "pmid": "42644892",
+      "state": "research_only_replacement_evidence_synthesis",
+      "replaces_rejected_pmid": "42817185",
+      "focus": "Synthesis of 25 meta-analyses found flavanone intake associated with favorable cardiovascular, lipid, blood-pressure, glucose, and CRP outcomes, with heterogeneous evidence.",
+      "evidence_boundary": "Umbrella-style synthesis inherits limitations and heterogeneity of underlying meta-analyses."
+    },
+    {
+      "wave": 2768,
+      "pmid": "42811967",
+      "state": "research_only_review",
+      "focus": "Review of sex-hormone regulation of hepcidin proposed cycle-dependent iron regulation and a biomarker-timing framework.",
+      "evidence_boundary": "Predicted cycle-level hepcidin patterns are not consistently demonstrated; synchronized supplementation remains hypothetical."
+    },
+    {
+      "wave": 2769,
+      "pmid": "42810570",
+      "state": "research_only_mechanistic_review",
+      "focus": "Review of the FGL1-hepcidin axis linked iron homeostasis with hypoxia, inflammation, erythropoietic stress, and immune-checkpoint biology.",
+      "evidence_boundary": "Mechanistic/biomarker review; therapeutic applications remain investigational."
+    },
+    {
+      "wave": 2771,
+      "pmid": "42646316",
+      "state": "research_only_replacement_pilot",
+      "replaces_rejected_pmid": "42829384",
+      "focus": "Repeated-measures crossover pilot found nitrate- and betalain-rich beetroot juices raised nitrate/nitrite and lowered systolic BP versus placebo, with formulation-dependent vascular effects.",
+      "evidence_boundary": "Small healthy-adult pilot; cannot establish long-term cardiometabolic benefit."
+    },
+    {
+      "wave": 2772,
+      "pmid": "42829133",
+      "state": "research_only_animal",
+      "focus": "Mouse study found zinc deficiency worsened cisplatin kidney injury through impaired AMPK/SIRT1/PGC-1α adaptation, Nrf2 defenses, and increased oxidative stress/apoptosis.",
+      "evidence_boundary": "Animal deficiency model; does not establish zinc supplementation as nephroprotection in patients receiving cisplatin."
+    },
+    {
+      "wave": 2773,
+      "pmid": "42829093",
+      "state": "research_only_observational",
+      "focus": "Retrospective cohort found elevated serum B12 without supplementation associated with malignancy, particularly solid tumors.",
+      "evidence_boundary": "Association does not establish causality; elevated B12 may reflect underlying disease, transport, liver, or renal abnormalities."
+    },
+    {
+      "wave": 2774,
+      "pmid": "42828923",
+      "state": "research_only_preclinical_nanomedicine",
+      "focus": "Biogenic selenium nanoparticles inhibited platelet activation and thrombosis in ex vivo/in vivo models while prolonging bleeding time.",
+      "evidence_boundary": "Nanoparticle antithrombotic platform is not equivalent to dietary selenium supplementation and bleeding liability requires definition."
+    },
+    {
+      "wave": 2775,
+      "pmid": "42828222",
+      "state": "research_only_diagnostic",
+      "focus": "Cross-platform study found substantial method-dependent differences in vitamin B12 reference intervals and deficiency classification, with only low-to-moderate correlation with holotranscobalamin.",
+      "evidence_boundary": "Analytical-platform study informs interpretation, not supplementation efficacy."
+    },
+    {
+      "wave": 2776,
+      "pmid": "42650289",
+      "state": "research_only_replacement_review",
+      "replaces_rejected_pmid": "42828173",
+      "focus": "Review of curcumin in type 2 diabetes found mechanistic and clinical biomarker signals but emphasized modest effects, formulation heterogeneity, low bioavailability, and lack of disease-modifying outcomes.",
+      "evidence_boundary": "Curcumin should be considered investigational/adjunctive rather than a replacement for evidence-based diabetes care."
+    },
+    {
+      "wave": 2777,
+      "pmid": "42827970",
+      "state": "research_only_cross_sectional",
+      "focus": "Latent-class analysis of 1,117 pernicious-anemia society respondents identified high-, moderate-, and low-burden symptom profiles independent of intrinsic-factor antibody status.",
+      "evidence_boundary": "Self-reported historical survey data and selection bias limit generalizability; symptom clusters do not validate treatment frequency."
+    },
+    {
+      "wave": 2778,
+      "pmid": "42827819",
+      "state": "research_only_case_report",
+      "focus": "Case report described severe isolated neuropsychiatric symptoms with profound B12 deficiency that improved after B12 replacement.",
+      "evidence_boundary": "Single case cannot estimate frequency or establish that B12 deficiency explains most isolated psychiatric presentations."
+    },
+    {
+      "wave": 2782,
+      "pmid": "42653208",
+      "state": "research_only_replacement_review",
+      "replaces_rejected_pmid": "42829919",
+      "focus": "Review of tea bioactives in obesity found strongest human evidence for modest green-tea catechin/caffeine effects, while many mechanistic claims remain preclinical.",
+      "evidence_boundary": "Effects are modest, heterogeneous, preparation-dependent, and do not support tea as primary obesity treatment."
+    },
+    {
+      "wave": 2783,
+      "pmid": "42653890",
+      "state": "research_only_replacement_review",
+      "replaces_rejected_pmid": "42819058",
+      "focus": "Quercetin review found modest human blood-pressure signals in metabolic syndrome but heterogeneous effects on glucose, lipids, inflammation, weight, and endothelial outcomes.",
+      "evidence_boundary": "Clinical evidence is formulation-, dose-, population-, and duration-dependent and remains incomplete."
+    },
+    {
+      "wave": 2785,
+      "pmid": "42675145",
+      "state": "research_only_replacement_observational",
+      "replaces_rejected_pmid": "42790117",
+      "focus": "Cross-sectional study in adults with obesity linked higher dietary polyphenol intake with depot-specific expression of PI3K/Akt/PTEN insulin-signaling genes.",
+      "evidence_boundary": "Cross-sectional gene-expression associations cannot establish causal metabolic benefit."
+    },
+    {
+      "wave": 2786,
+      "pmid": "42789063",
+      "state": "research_only_systematic_review",
+      "focus": "Systematic review of seminal-plasma metabolomics identified recurring changes in carnitine, amino acids, sugars, and fatty-acid oxidation pathways in male infertility.",
+      "evidence_boundary": "Biomarker/metabolomics synthesis does not establish supplement efficacy."
+    },
+    {
+      "wave": 2787,
+      "pmid": "42621960",
+      "state": "research_only_replacement_review",
+      "replaces_rejected_pmid": "42784515",
+      "focus": "Review of Clerodendrum species summarized preclinical glucose, lipid, inflammatory, and cardiovascular signals relevant to metabolic syndrome.",
+      "evidence_boundary": "Human studies are sparse; efficacy and safety remain unconfirmed clinically."
+    },
+    {
+      "wave": 2790,
+      "pmid": "42829114",
+      "state": "research_only_preclinical_review",
+      "focus": "Review of SIRT7 in hepatic metabolism, mitochondrial function, steatosis, fibrosis, and stress adaptation found evidence predominantly from cell and animal models.",
+      "evidence_boundary": "No selective SIRT7 activator has demonstrated clinical efficacy in liver disease."
+    },
+    {
+      "wave": 2792,
+      "pmid": "42661785",
+      "state": "research_only_replacement_animal",
+      "replaces_rejected_pmid": "42827376",
+      "focus": "Flavonoid-rich Potentilla discolor improved glucose markers, organ injury, gut microbiota, and fecal metabolites in db/db mice.",
+      "evidence_boundary": "Mouse/FMT/metabolomics evidence cannot establish human antidiabetic efficacy."
+    },
+    {
+      "wave": 2793,
+      "pmid": "42814283",
+      "state": "research_only_review",
+      "focus": "Review proposed stage-specific NAD+-SIRT3, NRF2, autophagy, and mitophagy targets for age-related hearing loss.",
+      "evidence_boundary": "Timing framework is translational and largely preclinical; human intervention evidence is insufficient."
+    },
+    {
+      "wave": 2795,
+      "pmid": "42807121",
+      "state": "research_only_review",
+      "focus": "Review of mitochondrial dysfunction in type 2 diabetes emphasized that NAD+ precursors, targeted antioxidants, and mitophagy enhancers remain investigational despite mechanistic target engagement.",
+      "evidence_boundary": "Dedicated mitochondrial modulators lack demonstrated glycemic or clinical benefit in adequately powered trials."
+    },
+    {
+      "wave": 2796,
+      "pmid": "42801052",
+      "state": "research_only_review",
+      "focus": "Review of resveratrol, quercetin, EGCG, astaxanthin, lycopene, berberine, and CoQ10 as mitochondrial-targeted phytochemicals in reproductive aging.",
+      "evidence_boundary": "Mechanistic and preclinical evidence is stronger than clinical evidence; large trials are needed."
+    },
+    {
+      "wave": 2798,
+      "pmid": "42630882",
+      "state": "research_only_replacement_preclinical",
+      "replaces_rejected_pmid": "42793315",
+      "focus": "Wogonoside improved steatohepatitis, insulin resistance, mitochondrial stress, lipid dysregulation, and ferroptosis markers in mouse and HepG2 models.",
+      "evidence_boundary": "Preclinical MASH evidence cannot establish clinical efficacy or dosing."
+    },
+    {
+      "wave": 2802,
+      "pmid": "42781918",
+      "state": "research_only_review",
+      "focus": "Review of sirtuins, NAD+ decline, and immunosenescence concluded NAD+ precursors and sirtuin activators remain promising but investigational, with little robust human outcome evidence.",
+      "evidence_boundary": "No established anti-aging indication; long-term safety and clinically meaningful immune endpoints remain insufficient."
+    },
+    {
+      "wave": 2803,
+      "pmid": "42781074",
+      "state": "research_only_review",
+      "focus": "Inflammaging review covered senolytics, NAD+ precursors, sirtuin biology, anti-inflammatory therapies, and lifestyle interventions for age-related multimorbidity.",
+      "evidence_boundary": "Many geroscience interventions are early-phase or investigational; biomarker changes are not proven healthspan extension."
+    }
+  ],
+  "rejected": [
+    {
+      "wave": 2765,
+      "pmid": "42824309",
+      "reason": "Ovarian-cancer biomarker-treatment review; micronutrient keyword/category collision."
+    },
+    {
+      "wave": 2767,
+      "pmid": "42817185",
+      "reason": "Primary topic was HIV sleep-disorder management; iron mention was peripheral."
+    },
+    {
+      "wave": 2771,
+      "pmid": "42829384",
+      "reason": "Multiple-myeloma ferroptosis/metabolism paper; not micronutrient supplementation evidence."
+    },
+    {
+      "wave": 2776,
+      "pmid": "42828173",
+      "reason": "Iron used to optimize antibody-production cell culture; out of site scope."
+    },
+    {
+      "wave": 2782,
+      "pmid": "42829919",
+      "reason": "Polymer-microbe bioelectrocatalysis paper; out of supplement/health evidence scope."
+    },
+    {
+      "wave": 2783,
+      "pmid": "42819058",
+      "reason": "Food-frequency questionnaire validation paper; not enrichment evidence for compounds or interventions."
+    },
+    {
+      "wave": 2785,
+      "pmid": "42790117",
+      "reason": "Ruthenium antibacterial nanostructure paper; unrelated to nutritional mitochondrial evidence."
+    },
+    {
+      "wave": 2787,
+      "pmid": "42784515",
+      "reason": "PARP-inhibitor mitochondrial dTMP cell-biology paper; supplement keyword collision."
+    },
+    {
+      "wave": 2792,
+      "pmid": "42827376",
+      "reason": "General REST transcription-factor review; no relevant performance/supplement exposure."
+    },
+    {
+      "wave": 2798,
+      "pmid": "42793315",
+      "reason": "General oocyte-aging mechanism review duplicated stronger phytochemical-specific reproductive-aging coverage."
+    }
+  ]
+}

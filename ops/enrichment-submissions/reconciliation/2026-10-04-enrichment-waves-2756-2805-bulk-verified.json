@@ -1,0 +1,458 @@
+{
+  "schema_version": 1,
+  "range": "2756-2805",
+  "rows": [
+    {
+      "wave": 2761,
+      "pmid": "42828327",
+      "doi": "10.7759/cureus.115649",
+      "title": "Exploring the Effect of Nutrition on Fetal Development in Pregnant Patients With Inflammatory Gut Diseases: A Scoping Review.",
+      "category": "micronutrients",
+      "abstract_verified": false,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": null,
+      "evidence_boundary": "Review-level synthesis supports context and hypothesis generation but does not by itself establish clinical efficacy.",
+      "state": "needs_pubmed_fallback"
+    },
+    {
+      "wave": 2762,
+      "pmid": "42827737",
+      "doi": "10.1016/j.cdnut.2026.109515",
+      "title": "The Triple Burden of Malnutrition among Children and Adolescents in Indonesia during the COVID-19 Pandemic: A Narrative Review.",
+      "category": "micronutrients",
+      "abstract_verified": false,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": null,
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "needs_pubmed_fallback"
+    },
+    {
+      "wave": 2766,
+      "pmid": "42820058",
+      "doi": "10.7759/cureus.115503",
+      "title": "From Ion to Iron: A Focused Narrative Literature Review of Magnesium Supplementation for Muscle Strength and Recovery.",
+      "category": "micronutrients",
+      "abstract_verified": false,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": null,
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "needs_pubmed_fallback"
+    },
+    {
+      "wave": 2770,
+      "pmid": "42829709",
+      "doi": "10.1093/tas/txag141",
+      "title": "Effects of early gestational parenteral iron administration on maternal iron biomarkers and reproductive performance in sows under commercial conditions.",
+      "category": "micronutrients",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "This study evaluated the effects of early-gestation parenteral iron dextran administration on maternal iron status and reproductive performance in sows under commercial conditions. A total of 235 TN70 sows (parities 1 to 9, average parity 4.2) were enrolled in early gestation (30 ± 2 days of gestation) and followed through pre-weaning (19 ± 2 days of lactation). Sows were allotted by parity and initial blood hemoglobin (Hb) to one of three parenteral iron dextran treatments initiated at enrollment: 0 mg (CONFe; n = 77), administered without injection; 2,500 mg (MODFe; n = 79), administered as a single 12.5-mL intramuscular injection; or 5,000 mg (HIGHFe; n = 79), administered as two 12.5-mL intramuscular injections (2,500 mg per injection), with injections administered into the trapezius muscle. Blood Hb was measured on days 30 (enrollment) and 112 ± 2 days of gestation (pre-farrow) and day 19 ± 2 days of lactation (pre-weaning) using a HemoCue Hb 201+ system via ear-vein sampling. A s",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2778,
+      "pmid": "42827819",
+      "doi": "10.7759/cureus.115632",
+      "title": "A Case of Isolated Abnormal Behavior Associated With Vitamin B12 Deficiency.",
+      "category": "micronutrients",
+      "abstract_verified": false,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": null,
+      "evidence_boundary": "Interpret within the source design, tested exposure, population, endpoints, and follow-up.",
+      "state": "needs_pubmed_fallback"
+    },
+    {
+      "wave": 2779,
+      "pmid": "42827651",
+      "doi": "10.3389/fnut.2026.1928365",
+      "title": "Improvement of residual dizziness associated with a low-dose vitamin D-calcium combination (Caltrate D) supplementation in female patients with benign paroxysmal positional vertigo after successful repositioning: an 8-week retrospective study.",
+      "category": "micronutrients",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Residual dizziness (RD) is a common and debilitating symptom following successful canalith repositioning procedure (CRP) for benign paroxysmal positional vertigo (BPPV). Currently, no effective pharmacological treatment exists for this condition. Our previous work identified low serum 25-hydroxyvitamin D [25(OH)D] as an independent risk factor for RD. This study therefore evaluated whether 8-week supplementation with Caltrate D was associated with improvement in RD. Female patients with primary BPPV who achieved successful CRP but still complained of RD at day 7 post-CRP and had serum 25(OH)D < 20 ng/mL were enrolled. Patients who took Caltrate D for 8 weeks formed the treatment group, while those who received no vitamin D or calcium supplementation served as the control group. The primary outcome was the improvement rate of the Dizziness Handicap Inventory (DHI) total score at 4 and 8 weeks. Secondary outcomes included duration of RD. Forty-three patients in the treatment group and 48",
+      "evidence_boundary": "Observational evidence cannot establish causality and is vulnerable to confounding.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2780,
+      "pmid": "42827597",
+      "doi": "10.3389/fneur.2026.1865876",
+      "title": "A predictive model of serum calcium and 25-hydroxyvitamin D for recurrence of benign paroxysmal positional vertigo in the elderly: a single-center follow-up cohort study.",
+      "category": "micronutrients",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "To investigate the predictive value of serum calcium and 25-hydroxyvitamin D (25-OH-VD) on recurrence after canalith repositioning procedure (CRP) in elderly patients with benign paroxysmal positional vertigo (BPPV), and to establish a quantitative prediction model. A single-center follow-up cohort study was conducted involving 286 elderly BPPV patients (age≥60 years) treated with CRP from January 2020 to June 2025. Patients were followed for 1 year and divided into a non-recurrence group ( n = 213) and a recurrence group ( n = 73) based on recurrence status. Additionally, 60 healthy elderly individuals served as controls for comparing baseline biochemical levels. Fasting serum 25-OH-VD and calcium levels were measured. Pearson correlation analysis evaluated the relationship between variables. Receiver operating characteristic (ROC) curves assessed predictive performance, and multivariate logistic regression identified independent risk factors to establish a predictive model. Serum cal",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2781,
+      "pmid": "42739057",
+      "doi": "10.3390/nu18172885",
+      "title": "Nicotinamide Supplementation in Glaucoma: A Systematic Review of Human Studies.",
+      "category": "mitochondrial_energy",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Background/Objectives: Nicotinamide (NAM), a form of vitamin B3 and precursor of nicotinamide adenine dinucleotide (NAD), has emerged as a potential metabolic and neuroprotective strategy in glaucoma. This systematic review aimed to evaluate the available human evidence on NAM-containing and NAD-targeted strategies in glaucoma, integrating interventional, observational, and mechanistic evidence with particular attention to clinical outcomes, methodological quality, and safety. Methods: A systematic literature search was conducted in PubMed, Scopus, and the Cochrane Central Register of Controlled Trials (CENTRAL), with the search updated through 22 August 2026. Eligible studies included randomized and non-randomized interventional studies evaluating NAM-containing or NAD-targeted supplementation strategies, as well as observational human studies investigating NAM/NAD-related biomarkers or mitochondrial metabolic alterations in relation to glaucoma. Risk of bias was assessed according to",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2784,
+      "pmid": "42798317",
+      "doi": "10.3389/fphys.2026.1947596",
+      "title": "Ricinine toxicity in susceptible lepidoptera involves perturbations in β-nicotinamide adenine dinucleotide metabolism.",
+      "category": "mitochondrial_energy",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Ricinine, a plant-derived alkaloid, exhibits potent insecticidal activity; however, the molecular mechanisms underlying its differential toxicity among insect species remain largely elusive. This study employed integrated metabolomics and transcriptomics to investigate the adaptation strategies of three lepidopteran insects with distinct host plant ranges— Bombyx mori ( B. mori ), Spodoptera litura ( S. litura ), and Samia cynthia ricini ( S. cynthia ricini ) to ricinine. The three species exhibited sharply divergent toxicological responses: ricinine caused acute lethality in B. mori , severely inhibited the growth of S. litura , but induced no significant adverse effects in S. cynthia ricini . Untargeted metabolomics and transcriptomics revealed that ricinine treatment provoked the most severe metabolic disruption in B. mori , followed by S. litura , while the impact on S. cynthia ricini was minimal. Moreover, the species showed largely species-specific pathway-enrichment patterns, in",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2788,
+      "pmid": "42759323",
+      "doi": "10.1016/j.yexmp.2026.105076",
+      "title": "The effects of hyperbaric oxygen therapy and mitochondrial transplantation on cisplatin toxicity.",
+      "category": "mitochondrial_energy",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Cisplatin is an effective chemotherapeutic agent with dose-limiting toxicity in non-target tissues. Hyperbaric oxygen therapy (HBOT) and mitochondrial transplantation (MitoTr) have been explored as supportive strategies in preclinical models. We examined whether HBOT and/or MitoTr modulate cisplatin-associated reductions in MTT metabolic activity and oxidative balance in healthy human mesenchymal stem cells (hMSCs) under incubator versus hyperbaric conditions. Bone marrow-derived hMSCs were seeded at 5 × 103 cells/well and exposed to cisplatin at an experimentally determined MTT-based LD50 (148 μM; 150 μM used). A delayed adjunctive intervention protocol was applied after LD50-level exposure: cisplatin or vehicle for 24 h, followed by 4 h MitoTr co-incubation (10× or 100× cell-number-scaled dose), then three HBOT sessions (90 min, 2.1 ATA) or matched incubator control. Endpoints were MTT absorbance (NAD(P)H-dependent oxidoreductase activity), total antioxidant status, total oxidant sta",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2789,
+      "pmid": "42748828",
+      "doi": "10.1016/j.biopha.2026.119934",
+      "title": "Non-clinical safety evaluation of coenzyme I (NAD⁺): A GLP-compliant systematic study.",
+      "category": "mitochondrial_energy",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Nicotinamide adenine dinucleotide (NAD⁺) is a core coenzyme in cellular energy metabolism and redox homeostasis, with pharmacological effects in cardiovascular and neurodegenerative diseases and in aging. Its non-clinical safety was evaluated through GLP-compliant studies that included safety pharmacology (single intramuscular injection, 3-30 mg/kg, Beagle dogs, telemetry), acute toxicity (single intramuscular injection, 45-180 mg/kg, SD rats), repeated-dose toxicity (10-100 mg/kg intramuscular, once daily for 4 weeks plus a 4-week recovery, SD rats), muscular irritation (intramuscular, 14 consecutive days, New Zealand rabbits), in vitro hemolysis (2% rabbit erythrocytes), and active systemic anaphylaxis (intramuscular sensitization, intravenous challenge, Hartley guinea pigs). In safety pharmacology, 3 mg/kg was the safe dose; 10 and 30 mg/kg caused increased heart rate, shortened PR and QT intervals, and decreased blood pressure (no significant difference in QTcF). The acute toxicity",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2791,
+      "pmid": "42828176",
+      "doi": "10.3389/fimmu.2026.1941310",
+      "title": "Immunometabolic reprogramming in osteoporosis-osteoarthritis comorbidity: from inflammaging to osteochondral unit degeneration.",
+      "category": "mitochondrial_energy",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Osteoporosis (OP) and osteoarthritis (OA) are common and highly co-occurring degenerative bone diseases in the elderly population, and their comorbidity mechanisms cannot be fully explained by traditional factors such as mechanical load, changes in bone mass, or hormonal imbalance. OP is primarily characterized by systemic decrease in bone mass and reduced bone strength, while OA is mainly manifested by cartilage degeneration within specific joints, synovial inflammation, and abnormal subchondral bone remodeling. Although both are influenced by aging, inflammation, and metabolic abnormalities, there are significant differences in their affected areas and pathological processes. In recent years, increasing evidence suggests that immunosenescence, chronic low-grade inflammation, and structural-functional imbalance of the osteochondral unit may constitute an important pathological basis for the progression of both diseases. Immunometabolic reprogramming is gradually being recognized as a ",
+      "evidence_boundary": "Observational evidence cannot establish causality and is vulnerable to confounding.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2794,
+      "pmid": "42812837",
+      "doi": "10.3389/fimmu.2026.1952635",
+      "title": "Gut and skin microbiome-metabolome pathways in vitiligo: from dysbiosis to immune activation and melanocyte dysfunction.",
+      "category": "mitochondrial_energy",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Vitiligo is an autoimmune depigmenting disorder driven by genetic susceptibility, oxidative stress, immune dysregulation, and progressive melanocyte loss. Emerging microbiome–metabolome evidence suggests that gut and skin dysbiosis may contribute to disease progression through the gut–skin axis. This review integrates current evidence linking microbial imbalance with immune activation and melanocyte dysfunction in vitiligo. Studies in patients and experimental vitiligo models show altered gut and skin microbial diversity, enrichment of inflammation-associated taxa, depletion of commensal bacteria, impaired short-chain fatty acid biosynthesis, and disruption of tryptophan–indole, kynurenine, bile acid, taurine, riboflavin, and oxidative stress-related metabolic pathways. These alterations may weaken epithelial barrier integrity, impair immune tolerance, promote systemic low-grade inflammation, and increase melanocyte vulnerability to mitochondrial dysfunction, reactive oxygen species ac",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2797,
+      "pmid": "42797459",
+      "doi": "10.3390/ph19091414",
+      "title": "Oxidative Stress as a Pathophysiological Core of Obesity: Preclinical Evidence for Antioxidant-Based Therapy Strategies.",
+      "category": "mitochondrial_energy",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Obesity is increasingly recognized as a complex metabolic disorder characterized by persistent redox imbalance, rather than merely excess body weight. Its pathophysiology extends beyond energy imbalance to encompass chronic redox disruption. Expansion of adipose tissue, particularly in visceral depots, exceeds mitochondrial capacity, impairs antioxidant defenses such as superoxide dismutase, catalase, and glutathione peroxidase, and perpetuates chronic low-grade inflammation via nuclear factor kappa B (NF-kB) and nicotinamide adenine dinucleotide phosphate (NADPH) oxidase pathways. This review synthesizes preclinical evidence for diverse interventions, including vitamins A, B, C, E, and D; minerals such as zinc and selenium; amino acids such as N-acetylcysteine (NAC), L-carnitine, and taurine; various antioxidant compounds; and approved drugs including metformin, exenatide, fenofibrate, and orlistat. Despite differing structures and mechanisms, these interventions converge on restoring",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2799,
+      "pmid": "42792518",
+      "doi": "10.3390/biology15181573",
+      "title": "SIRT1 in Senescence: Mitochondria and Immune Crosstalk.",
+      "category": "mitochondrial_energy",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Cellular senescence is one of the hallmarks of aging. These growth-arrested cells actively secrete inflammatory mediators that reshape the tissue microenvironment and fuel age-related pathology. Sirtuin 1 (SIRT1) is an NAD+-dependent deacetylase that regulates senescence largely through its control over mitochondrial integrity and inflammatory signaling. SIRT1 levels and activity fall with age, and this decline directly promotes senescence. SIRT1 maintains mitochondrial function through three interconnected pathways: PGC-1α-driven mitochondria biogenesis, FOXO-dependent antioxidant defense, and mitophagic clearance of damaged organelles. When SIRT1 activity is in an unsteady state, mitochondria become unhealthy. This leads to excessive ROS generation and the leakage of mitochondrial DNA (mtDNA) into the cytosol, which activates the innate immune pathway, consequently resulting in the production of inflammatory cytokines that further inhibit SIRT1. This self-amplifying loop drives cells",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2800,
+      "pmid": "42787547",
+      "doi": "10.3389/fragi.2026.1887175",
+      "title": "Narrative review of intravenous NAD(+) and NAD(+) precursors in wellness and translational medicine.",
+      "category": "mitochondrial_energy",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Nicotinamide adenine dinucleotide (NAD + ) is a major coenzyme critically involved in cellular metabolism, mitochondrial function, DNA repair, and stress-response signaling. Age-associated decline in NAD + levels has generated interest in NAD + -augmenting strategies; however, recent large-scale human data indicate that whole-blood NAD + concentrations do not decline with healthy aging per se . Despite increasing commercial use of IV NAD + therapy in wellness settings, the clinical evidence supporting its efficacy and long-term safety remains limited. Literature published between January 2018 and March 2026 was identified via PubMed and Google Scholar searches. Search terms were applied symmetrically across all target compounds and administration routes. Studies were included if they reported human clinical data on IV NAD + or IV NAD + precursor administration, or if they provided directly relevant mechanistic or safety evidence. Mechanistic and foundational studies published before 20",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2801,
+      "pmid": "42782782",
+      "doi": "10.3390/cells15181683",
+      "title": "Mitochondrial Modulation as a Therapeutic Entry Point in Neurodegeneration.",
+      "category": "mitochondrial_energy",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Mitochondrial dysfunction is a recurrent but context-dependent feature of neurodegenerative disease, and its position in the pathogenic cascade differs fundamentally between disorders. This narrative review argues that this heterogeneity, rather than mitochondrial biology itself, determines therapeutic tractability. We synthesize evidence on mitochondrial regulation of neuronal development, organelle quality control, redox signaling and neuroinflammation; on oxidative biomarkers, whose clinical use remains constrained by limited disease specificity, methodological heterogeneity and insufficient longitudinal validation; and on therapeutic strategies ranging from antioxidants and NAD+ augmentation to mitochondrial genome engineering, targeted delivery and organelle transfer. A consistent pattern emerges across these domains: broadly acting interventions have repeatedly failed in sporadic disease, whereas the strongest translational signals arise where mitochondrial dysfunction is genetic",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2803,
+      "pmid": "42781074",
+      "doi": "10.2147/CIA.S620882",
+      "title": "Therapeutic Targeting of Inflammaging and Emerging Strategies for Managing Age-Related Multimorbidity: A Narrative Review.",
+      "category": "mitochondrial_energy",
+      "abstract_verified": false,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": null,
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "needs_pubmed_fallback"
+    },
+    {
+      "wave": 2804,
+      "pmid": "42770008",
+      "doi": "10.3389/fspor.2026.1863337",
+      "title": "The role of exercise in modulating NAD+ metabolic enzymes: mechanisms and health benefits.",
+      "category": "mitochondrial_energy",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Nicotinamide adenine dinucleotide (NAD+) is a critical coenzyme in cellular metabolism, acting as a substrate for NAD+-dependent enzymes such as sirtuins, poly(ADP-ribose) polymerases (PARPs), and CD38, which are involved in essential cellular processes including DNA repair, gene expression, and mitochondrial function. Exercise has been identified as a potent modulator of NAD+ metabolism and also influencing the expression and activity of enzymes involved in NAD+ biosynthesis and consumption. Our review focuses on the molecular mechanisms through which exercise regulates NAD+ metabolic enzymes, more in relation to aerobic and resistance exercise. Evidence indicates that exercise enhances the activity of key enzymes, such as nicotinamide phosphoribosyltransferase (NAMPT) and sirtuins, thereby improving mitochondrial efficiency, oxidative metabolism, and cellular homeostasis. Additionally, exercise has also been shown to mitigate the age-related decline in NAD+ levels, offering a potenti",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2805,
+      "pmid": "42769337",
+      "doi": "10.3389/fendo.2026.1900161",
+      "title": "Myosteatosis in type 1 diabetes: immunometabolic mechanisms, biomarkers, and therapeutic targets.",
+      "category": "mitochondrial_energy",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Myosteatosis, defined as pathological lipid accumulation within and between skeletal muscle fibers, is increasingly recognized as a determinant of impaired muscle quality, metabolic inflexibility, and adverse clinical outcomes. Although well described in ageing, obesity, and cancer, its relevance to type 1 diabetes (T1D) remains underexplored. T1D is characterized by lifelong insulin deficiency, persistent autoimmune activation, and glycemic variability, conditions that profoundly disrupt cellular energy metabolism and substrate utilization in skeletal muscle, even in the absence of obesity or overt sarcopenia. This review integrates evidence from human imaging, metabolic phenotyping, immunological profiling, and multi-omics analyses to define myosteatosis as an immunometabolic phenotype in T1D. Central to this framework is dysregulation of the AMP-activated protein kinase (AMPK)-peroxisome proliferator-activated receptor (PPAR)-mitochondrial axis, which normally coordinates fatty-acid",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    }
+  ],
+  "missing_after_bulk_lookup": [
+    {
+      "wave": 2756,
+      "pmid": "42828220",
+      "doi": "10.11613/BM.2026.030503",
+      "title": "Interference of iron deficiency in glycated hemoglobin testing and its clinical implications: a systematic review and meta-analysis.",
+      "category": "micronutrients"
+    },
+    {
+      "wave": 2757,
+      "pmid": "42817826",
+      "doi": "10.1093/bjd/ljag421",
+      "title": "A UV-Free Strategy for Vitamin D Synthesis in Skin: Concept Verification and a Randomised Double-Blind Placebo-Controlled Clinical Trial of a Cholecalciferol Phosphate Patch (TransVitD).",
+      "category": "micronutrients"
+    },
+    {
+      "wave": 2758,
+      "pmid": "42815577",
+      "doi": "10.1016/j.ajcnut.2026.101548",
+      "title": "Effect of vitamin D supplementation on bone health in Black, Asian and other non-White Ethnic adults: a systematic review and meta-analysis.",
+      "category": "micronutrients"
+    },
+    {
+      "wave": 2759,
+      "pmid": "42809706",
+      "doi": "10.1210/clinem/dgag396",
+      "title": "Metabolic status modifies skeletal response to active vitamin D: A post hoc analysis of the DPVD randomized trial.",
+      "category": "micronutrients"
+    },
+    {
+      "wave": 2760,
+      "pmid": "42828539",
+      "doi": "10.1007/s00210-026-05968-5",
+      "title": "The interplay between vitamin D3 and Nrf2 signaling: mechanistic insights and therapeutic potentials.",
+      "category": "micronutrients"
+    },
+    {
+      "wave": 2763,
+      "pmid": "42827680",
+      "doi": "10.1002/mco2.71021",
+      "title": "Iron and Other Metal Ions in Human Health and Disease.",
+      "category": "micronutrients"
+    },
+    {
+      "wave": 2764,
+      "pmid": "42825811",
+      "doi": "10.1007/s00431-026-07464-7",
+      "title": "Vitamin B12 in early childhood: a phenotype-guided approach to deficiency and unexpectedly elevated concentrations.",
+      "category": "micronutrients"
+    },
+    {
+      "wave": 2765,
+      "pmid": "42824309",
+      "doi": "10.2147/IJWH.S571328",
+      "title": "Biomarker-Driven Treatments for Ovarian Cancer: Moving Beyond HRD?",
+      "category": "micronutrients"
+    },
+    {
+      "wave": 2767,
+      "pmid": "42817185",
+      "doi": "10.1097/MCP.0000000000001303",
+      "title": "Sleep disorders in patients with HIV.",
+      "category": "micronutrients"
+    },
+    {
+      "wave": 2768,
+      "pmid": "42811967",
+      "doi": "10.31083/FBL54404",
+      "title": "Cyclical Iron Homeostasis: The Role of Sex Hormones in Female Iron Regulation.",
+      "category": "micronutrients"
+    },
+    {
+      "wave": 2769,
+      "pmid": "42810570",
+      "doi": "10.1016/j.cca.2026.122859",
+      "title": "FGL1-hepcidin axis in iron homeostasis and disease.",
+      "category": "micronutrients"
+    },
+    {
+      "wave": 2771,
+      "pmid": "42829384",
+      "doi": "10.1007/s10495-026-02449-1",
+      "title": "Metabolic vulnerabilities in multiple myeloma: targeting iron and amino acid metabolism to induce ferroptosis.",
+      "category": "micronutrients"
+    },
+    {
+      "wave": 2772,
+      "pmid": "42829133",
+      "doi": "10.1016/j.cbi.2026.112355",
+      "title": "Zinc Deficiency Exacerbates Cisplatin-Induced Acute Kidney Injury by Impairing Metabolic Adaptation and Antioxidant Defenses.",
+      "category": "micronutrients"
+    },
+    {
+      "wave": 2773,
+      "pmid": "42829093",
+      "doi": "10.1016/j.clinbiochem.2026.111214",
+      "title": "Association between elevated serum cobalamin concentrations and malignancy: a retrospective cohort study from the western Cape, South Africa.",
+      "category": "micronutrients"
+    },
+    {
+      "wave": 2774,
+      "pmid": "42828923",
+      "doi": "10.1016/j.colsurfb.2026.116216",
+      "title": "Biogenic selenium nanoparticles as dual-action antithrombotic agents: Targeting platelet activation cascades and thrombus formation.",
+      "category": "micronutrients"
+    },
+    {
+      "wave": 2775,
+      "pmid": "42828222",
+      "doi": "10.11613/BM.2026.030705",
+      "title": "Determination of method-specific reference intervals for vitamin B12 and its correlation with holotranscobalamin.",
+      "category": "micronutrients"
+    },
+    {
+      "wave": 2776,
+      "pmid": "42828173",
+      "doi": "10.1016/j.bbrep.2026.102799",
+      "title": "Optimization of PEI-mediated transient transfection for antibody production in Expi293F cells by iron ion supplementation.",
+      "category": "micronutrients"
+    },
+    {
+      "wave": 2777,
+      "pmid": "42827970",
+      "doi": "10.3389/fmed.2026.1927721",
+      "title": "Patient-reported symptom profiles in vitamin B(12) deficiency and pernicious anemia: a cross-sectional study using latent class analysis.",
+      "category": "micronutrients"
+    },
+    {
+      "wave": 2782,
+      "pmid": "42829919",
+      "doi": "10.1002/advs.77927",
+      "title": "Conjugated Polymer-Microbe Interactions Trigger Regulatory Reprogramming for Enhanced Bioelectrocatalysis.",
+      "category": "mitochondrial_energy"
+    },
+    {
+      "wave": 2783,
+      "pmid": "42819058",
+      "doi": "10.1002/fsn3.72381",
+      "title": "Relative Validity of Food Frequency Questionnaires in Adult Populations: A Systematic Review and Meta-Analysis.",
+      "category": "mitochondrial_energy"
+    },
+    {
+      "wave": 2785,
+      "pmid": "42790117",
+      "doi": "10.1016/j.jcis.2026.141677",
+      "title": "Self-assembled ruthenium(II) nanostructures disrupt electron transport and energy metabolism in MRSA via bacterial interfacial interactions.",
+      "category": "mitochondrial_energy"
+    },
+    {
+      "wave": 2786,
+      "pmid": "42789063",
+      "doi": "10.1007/s00109-026-02719-0",
+      "title": "Unravelling deregulated metabolites in seminal plasma of infertile men: a systematic review and bioinformatic analysis.",
+      "category": "mitochondrial_energy"
+    },
+    {
+      "wave": 2787,
+      "pmid": "42784515",
+      "doi": "10.1073/pnas.2607452123",
+      "title": "Mitochondrial NADP(H)-dependent de novo dTMP biosynthesis counteracts the cytotoxicity of PARP inhibitors.",
+      "category": "mitochondrial_energy"
+    },
+    {
+      "wave": 2790,
+      "pmid": "42829114",
+      "doi": "10.1016/j.bcp.2026.118519",
+      "title": "Role of sirtuin 7 (SIRT7) in hepatic physiology and pathophysiology: mechanism, prospective and therapeutic potential.",
+      "category": "mitochondrial_energy"
+    },
+    {
+      "wave": 2792,
+      "pmid": "42827376",
+      "doi": "10.1002/jdn.70186",
+      "title": "REST in the Central Nervous System: Context-Dependent Regulation of Neuronal Homeostasis and Disease.",
+      "category": "performance"
+    },
+    {
+      "wave": 2793,
+      "pmid": "42814283",
+      "doi": "10.1007/s12035-026-06234-8",
+      "title": "Therapeutic Timing at Mitochondrial Redox-Autophagy-Mitophagy Checkpoints in Age-Related Hearing Loss.",
+      "category": "mitochondrial_energy"
+    },
+    {
+      "wave": 2795,
+      "pmid": "42807121",
+      "doi": "10.2147/DMSO.S627029",
+      "title": "Mitochondrial Dysfunction in Type 2 Diabetes and Metabolic Syndrome: Mechanisms, Biomarkers, and Emerging Therapies.",
+      "category": "mitochondrial_energy"
+    },
+    {
+      "wave": 2796,
+      "pmid": "42801052",
+      "doi": "10.1002/rmb2.70086",
+      "title": "Mitochondrial-Targeted Phytochemicals in Reproductive Aging: Mechanisms and Translational Potential.",
+      "category": "mitochondrial_energy"
+    },
+    {
+      "wave": 2798,
+      "pmid": "42793315",
+      "doi": "10.3390/cimb48090959",
+      "title": "Endocrine and Molecular Mechanisms of Oocyte Aging: From Gonadotropin Signaling to Metabolic and Microenvironmental Dysfunction.",
+      "category": "mitochondrial_energy"
+    },
+    {
+      "wave": 2802,
+      "pmid": "42781918",
+      "doi": "10.1080/14728222.2026.2737637",
+      "title": "Sirtuin signaling as therapeutic targets of immunosenescence.",
+      "category": "mitochondrial_energy"
+    }
+  ]
+}

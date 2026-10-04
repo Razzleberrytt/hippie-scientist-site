@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2626-2630",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2626,
+      "pmid": "42820327",
+      "title": "Potential of Ginkgo biloba Extract to Intervene in Chronic Inflammation-Related Diseases.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "The review spans standardized Ginkgo extracts and multiple inflammation-related diseases across preclinical and clinical evidence; formulation and disease heterogeneity prevent broad efficacy claims."
+    },
+    {
+      "wave": 2627,
+      "pmid": "42796929",
+      "title": "Energy Drink Use and Adolescent Sleep Debt: Implications for Obesity, Cognition, and Physical Activity.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "The adolescent evidence is largely observational and behavioral; energy-drink use may be both a marker and contributor to sleep debt, so causality and ingredient-specific effects remain uncertain."
+    },
+    {
+      "wave": 2628,
+      "pmid": "42794738",
+      "title": "The Gut-Heart Axis in Cardiovascular Disease: Microbial Metabolites, Mediterranean and Traditional Turkish Dietary Patterns, and Personalized Medicine.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "The review integrates microbiome metabolites and dietary-pattern evidence; associations and mechanistic pathways do not establish efficacy for a particular probiotic, prebiotic, or supplement."
+    },
+    {
+      "wave": 2629,
+      "pmid": "42787667",
+      "title": "Acute caffeine strategies for improving performance in combat sports: a structured narrative review.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "Acute performance responses depend on sport, caffeine dose, timing, delivery form, training status, and habitual intake; findings do not establish chronic benefit or a universal protocol."
+    },
+    {
+      "wave": 2630,
+      "pmid": "42614605",
+      "title": "Nutraceutical Intervention of Probiotics in Vision Science: A Systematic Review of Evolving Perspective.",
+      "abstract_verified": true,
+      "state": "research_only_systematic_review",
+      "evidence_boundary": "Gut-eye and ocular-microbiome evidence is evolving and heterogeneous across strains, conditions, and study designs; it does not establish class-wide probiotic efficacy for eye disease."
+    }
+  ]
+}
