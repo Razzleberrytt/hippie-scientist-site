@@ -3,7 +3,7 @@ slug: rhodiola-rosea
 title: "Rhodiola Rosea: What the Human Evidence Supports in 2026"
 description: "Evidence-first review of Rhodiola rosea for fatigue, stress-related performance, and endurance, including mixed trial results, extract directness, safety limits, and what studies do not establish."
 date: '2026-06-06'
-updatedAt: '2026-08-12'
+updatedAt: '2026-10-04'
 author: Will
 category: Adaptogens
 keywords:
@@ -23,6 +23,30 @@ tags:
   - evidence review
 profile_status: published
 ai_assisted: false
+keyTakeaways:
+  - "Rhodiola rosea has mixed human evidence for fatigue and stress-related performance: several small standardized-extract trials are positive, but the broader systematic-review literature is contradictory and includes trials that favored placebo."
+  - "A 2012 systematic review found major risk-of-bias and reporting problems across the fatigue literature, so positive historical trials should not be converted into a strong class-wide efficacy claim."
+  - "A later 42-day randomized nursing-student trial found fatigue outcomes that favored placebo, making negative evidence an important part of the current synthesis."
+  - "A separate 2025 meta-analysis suggests small endurance-performance benefits in mostly young healthy participants; that evidence domain is not proof that Rhodiola treats burnout, depression, brain fog, or chronic fatigue."
+  - "SHR-5 and other standardized extracts are specific interventions, and current evidence does not establish a universal dose, same-day onset, cycling schedule, or equivalence across retail Rhodiola products."
+citationQuestions:
+  - "Does Rhodiola rosea help fatigue?"
+  - "What does the systematic-review evidence say about Rhodiola?"
+  - "Are all Rhodiola fatigue trials positive?"
+  - "Does Rhodiola improve mental performance under stress?"
+  - "Does Rhodiola improve endurance?"
+  - "Does Rhodiola treat burnout or brain fog?"
+  - "How quickly does Rhodiola work?"
+  - "What dose of Rhodiola has been studied?"
+  - "Does Rhodiola need to be cycled?"
+  - "Is SHR-5 evidence applicable to every Rhodiola product?"
+canonicalConcepts:
+  - "Rhodiola rosea"
+  - "SHR-5"
+  - "fatigue"
+  - "stress-related performance"
+  - "endurance"
+  - "adaptogens"
 references:
   - title: "Rhodiola rosea for physical and mental fatigue: a systematic review"
     authors: "Ishaque S, Shamseer L, Bukutu C, Vohra S"
