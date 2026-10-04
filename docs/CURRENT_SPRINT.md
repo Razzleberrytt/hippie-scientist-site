@@ -7,7 +7,7 @@
 **WIP cap:** 3
 **Current admission (verified 2026-10-04):** Normal implementation WIP is **1/3**. Authority/Content is occupied by #6324 / PR #6323 for the bounded Waves 1501–2000 runtime-admission closeout. Discovery/SEO is free because #6021 / PR #6195 merged on 2026-10-02; Revenue/Conversion remains free. #6324 is admitted against exact base main `87d5b6d2f516c18f4ff3ed9fad8dfc27d77a8697`. Scope is limited to manifest-backed additive enrichment on existing canonical entities, with entity creation, governance override, publication promotion, recommendation promotion, and category-firewall bypass forbidden.
 
-**Control dependencies:**** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
+**Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
 ## Sprint objective
 
