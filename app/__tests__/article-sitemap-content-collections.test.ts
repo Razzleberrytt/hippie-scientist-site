@@ -4,6 +4,8 @@ import sitemap from '../sitemap'
 import { normalizeVisibilityRoute } from '@/lib/sitemap-route-visibility'
 
 describe('article sitemap content-collection discovery', () => {
+  // The dynamic article route is built from content/articles + content/blog, so
+  // sitemap coverage must follow those live source directories before legacy JSON.
   it('advertises the live mitragynine monograph even when legacy article JSON lacks it', async () => {
     const entries = await sitemap()
     const paths = new Set(
