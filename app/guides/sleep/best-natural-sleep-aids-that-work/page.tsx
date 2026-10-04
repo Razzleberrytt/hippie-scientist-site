@@ -448,7 +448,7 @@ export default function Page() {
             <strong>Verdict:</strong> “Valerian may help some people feel that they slept better” is more defensible than
             “valerian treats insomnia.” Those are not the same claim.
           </div>
-          <Link href="/herbs/valerian/" className="inline-flex font-semibold text-brand-700 hover:underline">Read the valerian profile →</Link>
+          <Link href="/articles/valerian-root/" className="inline-flex font-semibold text-brand-700 hover:underline">Read the valerian sleep evidence review →</Link>
         </section>
 
         <section id="passionflower" className="scroll-mt-20 space-y-4">
@@ -589,7 +589,7 @@ export default function Page() {
             <Link href="/guides/sleep/glycine-for-sleep/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Glycine for Sleep →</Link>
             <Link href="/guides/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Melatonin vs Valerian vs Magnesium →</Link>
             <Link href="/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Stress &amp; Anxiety at Night →</Link>
-            <Link href="/herbs/valerian/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Valerian Evidence Profile →</Link>
+            <Link href="/articles/valerian-root/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Valerian Sleep Evidence Review →</Link>
             <Link href="/guides/sleep/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Sleep Guides →</Link>
           </div>
         </section>
