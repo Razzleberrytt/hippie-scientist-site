@@ -107,6 +107,19 @@
       "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
     },
     {
+      "wave": 2574,
+      "pmid": "42617216",
+      "replaces_rejected_pmid": "42761342",
+      "doi": "10.1016/j.drugalcdep.2026.113323",
+      "title": "Links between cannabinoid hyperemesis syndrome symptoms and drug use, mental health problems, antisocial behavior, and personality in a national survey of adults in the United States.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "Cannabinoid hyperemesis syndrome (CHS) is characterized by episodes of severe nausea, vomiting, and abdominal pain among those with heavy cannabis use. We estimated differences between those reporting CHS symptoms and those who use cannabis daily and less frequently on drug use, psychiatric symptoms, other health aliments, antisocial behavior, and personality. The National Firearms, Alcohol, Cannabis, and Suicide survey was administered to 7034 US adults (3427 male, 3607 female) in 2025. Survey items assessed substance use, common psychiatric symptoms, personality traits, and symptoms of CHS. Those with CHS symptoms reported the highest rates and greatest variety of drug use compared to othe",
+      "state": "research_only_observational",
+      "evidence_boundary": "Association cannot establish causality; confounding, reverse causation, and measurement error remain possible."
+    },
+    {
       "wave": 2575,
       "pmid": "42639765",
       "replaces_rejected_pmid": "42756662",
@@ -116,6 +129,19 @@
       "abstract_verified": true,
       "verification_source": "NCBI PubMed EFetch via Sider Scholar",
       "focus": "To investigate the anxiolytic effects of Baihe Dihuang decoction (, BDD) and its underlying molecular mechanisms, focusing on cannabinoid type 2 receptor (CB2R)-mediated regulation of microglial polarization and the toll-like receptor 4 (TLR4)/myeloid differentiation factor 88 (MyD88)/nuclear factor-kappa B (NF-κB) signaling pathway. A total of 60 male C57BL/6J mice were randomly divided into six groups (n= 10 per group): control group, model group, diazepam (2 mg/kg) group, high-dose BDD (16 g/kg) group, low-dose BDD (8 g/kg) group, and high-dose BDD (16 g/kg) combined with CB2R antagonist AM630 (1 mg/kg) group. Except for the control group, all other groups were subjected to chronic restra",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    },
+    {
+      "wave": 2576,
+      "pmid": "42618595",
+      "replaces_rejected_pmid": "42748645",
+      "doi": "10.1038/s41386-026-02529-5",
+      "title": "Glucocorticoid-endocannabinoid crosstalk in the ventrolateral periaqueductal gray (vlPAG) promotes pain resolution.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "Inflammation is a primary response to injury. Here, we show that inflammation plays a critical role in engaging the endocannabinoid system in the ventrolateral periaqueductal gray (vlPAG) to activate the descending pain modulatory circuit to inhibit pain. Inflammation-induced increases in corticosterone activate glucocorticoid receptors to increase the synthesis of 2-arachidonylglycerol (2-AG). Retrograde transmission of 2-AG stimulates presynaptic cannabinoid 1 receptors to inhibit GABA release in the vlPAG, producing anti-hyperalgesia. Conversely, blocking both glucocorticoid and cannabinoid receptor activity impairs recovery from hyperalgesia, highlighting the beneficial role of endocanna",
       "state": "research_only_preclinical",
       "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
     },
@@ -155,24 +181,20 @@
       "focus": "Cannabidiol (CBD) use continues to increase, particularly among older adults. However, knowledge of CBD disposition in this ever-growing and understudied population, along with the relative contributions of cytochrome P450 (CYP) and uridine 5'-diphospho-glucuronosyltransferase (UGT) enzymes to CBD metabolism, remain limited. Inclusion of UGT activators (e.g., alamethicin, MgCl2) may alter in vitro estimates of enzyme contributions. CBD has also been reported to produce time-dependent inhibition (TDI) of certain CYPs, potentially affecting its own disposition. We combined in vitro data with physiologically based pharmacokinetic (PBPK) modeling to further characterize TDI and reversible CYP in",
       "state": "research_only_preclinical",
       "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
-    }
-  ],
-  "rejected": [
-    {
-      "wave": 2574,
-      "pmid": "42761342",
-      "category": "cannabinoid_safety",
-      "reason": "Second replacement exact PubMed fetch lacked title or abstract.",
-      "replacement_attempt_pmid": "42639023",
-      "replacement_attempt_2_pmid": "42659806"
     },
     {
-      "wave": 2576,
-      "pmid": "42748645",
-      "category": "cannabinoid_safety",
-      "reason": "Second replacement exact PubMed fetch lacked title or abstract.",
-      "replacement_attempt_pmid": "42641999",
-      "replacement_attempt_2_pmid": "42661783"
+      "wave": 2580,
+      "pmid": "42641586",
+      "replaces_rejected_pmid": "42647115",
+      "doi": "10.1016/j.smrv.2026.102360",
+      "title": "Biological rhythms, sleep disturbances, and the skin - a narrative review.",
+      "category": "sleep",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "Sleep, circadian rhythms, light exposure, and environmental factors are increasingly recognized as important regulators of skin physiology. The skin contains peripheral clocks and exhibits circadian rhythmicity in barrier function, immune activity, pigmentation, temperature, blood flow, and repair processes. This review aims to summarize the current evidence linking sleep disturbances, circadian regulation, light exposure, seasonal variation, environmental temperature, and circadian desynchronization with skin physiology and some dermatoses. Sleep loss and disturbances in sleep duration may alter immune function and impair skin barrier integrity, potentially contributing to inflammatory derm",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
     }
-  ]
+  ],
+  "rejected": []
 }
