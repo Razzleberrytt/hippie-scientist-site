@@ -42,7 +42,8 @@
       "pmid": "41693488",
       "doi": "",
       "title": "Effect of saffron on depression, anxiety and mood disorder: a GRADE assessed systematic review and meta-analysis of 34 randomized controlled trials.",
-      "decision": "verified_for_runtime_materialization"
+      "decision": "verified_but_omitted_already_admitted_evidence_and_source",
+      "reason": "Final canonical-aware admission audit found saffron PMID 41693488 already covered in the virtual workbook; omitted from this additive ledger rather than relying on silent runtime deduplication."
     },
     {
       "wave": 1064,
