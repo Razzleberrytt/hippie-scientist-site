@@ -3,7 +3,7 @@
   "snapshotLabel": "2026-10-04",
   "source": "Derived from user-supplied Bing Webmaster Tools AI Page Stats and Grounding Query exports captured 2026-10-04; raw authenticated exports are intentionally not committed.",
   "measurementBoundary": "Citation counts are evidence of AI reuse, not traffic, ranking, conversion, revenue, or causal lift. Page Stats and Grounding Query exports are overlapping views and are not summed together.",
-  "clusterMethod": "Derived topical classification of all 133 cited URLs using route/title heuristics for prioritization only; it is not a scientific taxonomy.",
+  "clusterMethod": "Derived topical classification of all 166 cited URLs using route/title heuristics for prioritization only; it is not a scientific taxonomy.",
   "freshnessPolicy": {
     "maxAgeDays": 14,
     "staleBehavior": "citation-neutral",
