@@ -4,8 +4,8 @@
   "program": {
     "range": "1001-1500",
     "target_findings": 500,
-    "current_findings": 200,
-    "last_wave": 1200
+    "current_findings": 225,
+    "last_wave": 1225
   },
   "policy": "research authoring index only; not runtime admission; final Wave-1500 consolidation required",
   "waves": [
@@ -1408,6 +1408,181 @@
       "pmid": "42791348",
       "focus": "Meta-analysis of 32 RCTs/4,010 patients found Lactobacillus added to H. pylori eradication therapy modestly increased eradication success and reduced adverse events overall, with benefits varying by antibiotic regimen and age; evidence concerns adjunctive treatment, not probiotic monotherapy.",
       "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1201,
+      "entity_slug": "epa-dha-cardiovascular-af",
+      "pmid": "42144851",
+      "focus": "Meta-analysis of 25 RCTs/25,578 patients with established cardiovascular disease found combined EPA+DHA did not significantly reduce major adverse cardiovascular events or atrial fibrillation/postoperative atrial fibrillation; formulation, dose and background therapy may explain heterogeneity, but pooled clinical benefit was neutral.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1202,
+      "entity_slug": "omega-3-metabolic-syndrome-psychosis",
+      "pmid": "42190369",
+      "focus": "Systematic review/meta-analysis of placebo-controlled trials in psychotic disorders found omega-3 supplementation did not consistently improve BMI, waist circumference, glucose, lipids or blood pressure; isolated subgroup signals did not survive pooled analysis.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1203,
+      "entity_slug": "probiotic-plant-sterol-celiac-lipids",
+      "pmid": "42197276",
+      "focus": "Nine-week randomized double-blind placebo-controlled pilot in adults with coeliac disease and hypercholesterolemia found a combined Lactiplantibacillus-plus-plant-sterol/stanol formulation improved selected lipid and microbiome measures; small pilot design and combination exposure prevent ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1204,
+      "entity_slug": "vitamin-d-ckd-anemia",
+      "pmid": "42252089",
+      "focus": "Meta-analysis of 12 older RCTs/779 patients with CKD-associated anemia reported higher hemoglobin and lower erythropoietin requirements with vitamin D supplementation, but the evidence corpus ended in 2018 and authors called for larger modern multicenter trials.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1205,
+      "entity_slug": "nutraceuticals-endothelial-function",
+      "pmid": "42277453",
+      "focus": "Network meta-analysis comparing nutraceutical interventions for flow-mediated dilation in cardiovascular disease/hypertension ranked magnesium and vitamin D3 highly, with signals for flaxseed, barberry, folic acid and omega-3; indirect network rankings and variable certainty are not head-to-head proof.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1206,
+      "entity_slug": "probiotic-triglycerides",
+      "pmid": "42280356",
+      "focus": "Randomized double-blind placebo-controlled 12-week trial in adults with mild hypertriglyceridemia found a two-strain probiotic combination reduced triglycerides and LDL from baseline and altered selected glucose/microbiome measures; per-protocol analysis and formulation specificity limit generalization.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1207,
+      "entity_slug": "omega-3-hemodialysis",
+      "pmid": "42321661",
+      "focus": "Meta-analysis of randomized trials in hemodialysis patients found omega-3 supplementation did not reduce all-cause mortality but was associated with lower cardiovascular mortality, myocardial infarction and vascular-access events; much of the event signal was concentrated in one large trial.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1208,
+      "entity_slug": "omega-3-oral-nutrition-heart-failure",
+      "pmid": "42451160",
+      "focus": "Open-label randomized 24-week trial in 38 heart-failure patients compared Mediterranean diet alone with diet plus omega-3-enriched oral nutritional supplements and found complex lipidomic changes that varied by sarcopenia status; combination exposure and small sample preclude omega-3-only attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1209,
+      "entity_slug": "omega-3-diabetic-kidney-disease",
+      "pmid": "42517346",
+      "focus": "Multimodal study combining Mendelian randomization, proteomic mediation and meta-analysis of 12 RCTs linked higher omega-3 status with lower DKD risk and reported selected supplementation benefits, but causal-genetic, mechanistic and trial evidence should remain analytically distinct.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1210,
+      "entity_slug": "vitamin-d-cardiac-remodeling-ckd",
+      "pmid": "42572961",
+      "focus": "Systematic review/meta-analysis in CKD found higher observational vitamin-D status correlated with lower left-ventricular mass, but supplementation did not significantly improve LV mass index or ejection fraction; a possible septal-thickness signal was based on limited inconsistent evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1211,
+      "entity_slug": "magnesium-cardiometabolic",
+      "pmid": "42588058",
+      "focus": "Dose-response meta-analysis of 78 RCTs found small average improvements in several cardiometabolic markers with magnesium, including blood pressure, glucose, HbA1c, HOMA-IR, LDL, triglycerides and IL-6, while many anthropometric, liver, kidney and inflammatory outcomes were null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1212,
+      "entity_slug": "probiotics-diabetic-nephropathy",
+      "pmid": "42824281",
+      "focus": "Meta-analysis and trial-sequential analysis of nine RCTs/644 participants with diabetic nephropathy found probiotics improved several creatinine, metabolic and inflammatory outcomes, but did not significantly improve eGFR or 24-hour proteinuria; renal-function claims should preserve these mixed endpoints.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1213,
+      "entity_slug": "probiotics-synbiotics-masld",
+      "pmid": "42712386",
+      "focus": "Meta-analysis of 30 RCT publications/1,516 patients with MASLD found adjunctive probiotics/synbiotics improved ALT, AST, TNF-alpha and selected glucose/lipid markers, while triglycerides and overall HOMA-IR were null; subgroup effects varied by age, region, duration and diabetes status.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1214,
+      "entity_slug": "iron-folic-acid-adolescent-girls",
+      "pmid": "42745534",
+      "focus": "Cluster-randomized school trial in 306 adolescent girls in Ethiopia found weekly iron-folic acid supplementation reduced reported morbidity symptoms at later follow-up points, while growth-related effects were not broadly established; population and deficiency context remain essential.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1215,
+      "entity_slug": "iron-pregnancy-route",
+      "pmid": "42776532",
+      "focus": "Updated systematic review/meta-analysis of randomized trials compared intravenous with oral iron for pregnancy iron-deficiency anemia across maternal hematologic, transfusion, reaction and neonatal outcomes; evidence concerns treatment route in diagnosed anemia, not routine supplementation of iron-replete pregnancies.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1216,
+      "entity_slug": "iron-deficiency-neurophysiology",
+      "pmid": "42796938",
+      "focus": "Systematic mechanistic review across the lifespan found iron deficiency commonly associated with altered EEG/ERP patterns and delayed neural processing, with treatment-responsiveness evidence heterogeneous; electrophysiologic associations do not by themselves establish cognitive benefit from supplementation in iron-replete people.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1217,
+      "entity_slug": "vitamin-d-thyroid-association",
+      "pmid": "42826330",
+      "focus": "Meta-analysis of 38 observational studies found lower serum vitamin D levels in thyroid disease, particularly autoimmune thyroid disorders, but the evidence is associative and cannot establish that vitamin D supplementation prevents or treats thyroid disease.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1218,
+      "entity_slug": "vitamin-d-preeclampsia-prevention",
+      "pmid": "42827236",
+      "focus": "Network meta-analysis of eight randomized trials/4,078 high-risk pregnancies found some higher-dose vitamin-D regimens associated with lower estimated preeclampsia risk, but dose/regimen networks were sparse and indirect; no consumer dosing inference is authorized.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1219,
+      "entity_slug": "prenatal-vitamin-d-child-cognition",
+      "pmid": "42149595",
+      "focus": "Post-hoc secondary analysis of a randomized pregnancy vitamin-D trial assessed offspring neuropsychological performance at age 10; because cognition was a later secondary endpoint and participants were unblinded years earlier, findings require cautious interpretation rather than broad prenatal-cognition claims.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1220,
+      "entity_slug": "folic-acid-unmetabolized",
+      "pmid": "42739064",
+      "focus": "Systematic review found replacing folic acid with 5-MTHF reduced circulating unmetabolized folic acid in a small trial set, while erythrocyte-folate results were discordant and observational UMFA-outcome associations were inconsistent and confounded; clinical harm from UMFA remains unresolved.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1221,
+      "entity_slug": "probiotic-zinc-vitamin-b-food-allergy",
+      "pmid": "42760882",
+      "focus": "Randomized trial in 796 children with food allergy found a combined compound-probiotic, zinc and vitamin-B product plus hydrolyzed formula improved several allergy and immune markers versus formula alone; multi-component design prevents attribution to probiotics, zinc or B vitamins individually.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1222,
+      "entity_slug": "folinic-acid-fraa-pregnancy",
+      "pmid": "42796952",
+      "focus": "Preschool follow-up of a very small prenatal pilot RCT in folate-receptor-alpha-autoantibody-positive pregnancies reported fewer ASD diagnoses after folinic acid versus folic acid, but only 16 families were reassessed and confidence intervals were extremely wide; provocative pilot evidence only.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1223,
+      "entity_slug": "choline-fasd-biomarkers",
+      "pmid": "42797005",
+      "focus": "Pilot biomarker analysis from a randomized choline trial in 24 children with fetal alcohol spectrum disorder found no robust treatment-specific biomarker pattern after multiple-testing correction; brain-derived extracellular-vesicle changes were largely time effects rather than differential choline effects.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1224,
+      "entity_slug": "vitamin-d-elderly-mortality",
+      "pmid": "42823826",
+      "focus": "Reanalysis-style review of low-risk double-blind RCTs in adults aged 75+ found a small mortality signal favoring vitamin D, but no individual trial was confirmatory and the authors characterized the result as an evidence signal requiring confirmation.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1225,
+      "entity_slug": "selenium-cardiovascular-status",
+      "pmid": "42741176",
+      "focus": "Systematic/bibliometric review found biologically coherent links between selenium status and cardiovascular pathways, but supplementation trials were generally neutral or inconclusive and the translational evidence remained fragmented; status associations must not be converted into routine supplementation claims.",
+      "state": "research_only_observational"
     }
   ]
 }
