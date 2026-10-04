@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-waves-1501-2000-pmid-revalidation",
+  "verified_on": "2026-10-04",
+  "rule": "Exact PMID identity, canonical entity identity, intervention, population, and result direction were rechecked before runtime materialization. Repository-wide PMID search on the pre-admission canonical corpus returned no collisions for the admitted subset. Missing DOI metadata is left blank rather than inferred.",
+  "sources": [
+    {
+      "wave": 1515,
+      "entity_slug": "magnesium",
+      "pmid": "41680812",
+      "doi": "",
+      "title": "Secondary prevention of leg cramps using compression stockings or magnesium supplements: a three-arm randomized clinical trial.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 1593,
+      "entity_slug": "beetroot-nitrate",
+      "pmid": "40573069",
+      "doi": "",
+      "title": "Effects of Beetroot Juice on Physical Performance in Professional Athletes and Healthy Individuals: An Umbrella Review.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 1836,
+      "entity_slug": "n-acetylcysteine",
+      "pmid": "42015439",
+      "doi": "",
+      "title": "N-acetylcysteine as Prophylaxis Against Contrast-Induced Nephropathy: A Meta-Analysis.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 1875,
+      "entity_slug": "caffeine",
+      "pmid": "42666870",
+      "doi": "",
+      "title": "Caffeine Intake Effects on Intraocular Pressure in Healthy and Glaucomatous Populations: A Systematic Review and Meta-Analysis.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 1997,
+      "entity_slug": "iron",
+      "pmid": "39163033",
+      "doi": "",
+      "title": "Screening and Supplementation for Iron Deficiency and Iron Deficiency Anemia During Pregnancy: Updated Evidence Report and Systematic Review for the US Preventive Services Task Force.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 1998,
+      "entity_slug": "vitamin-d",
+      "pmid": "39421597",
+      "doi": "",
+      "title": "Role of vitamin D in prevention of type 2 diabetes mellitus: A systematic review and meta-analysis.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 1955,
+      "entity_slug": "vitamin-c",
+      "pmid": "40765927",
+      "doi": "",
+      "title": "Efficacy of vitamin C with Fe supplementation in patients with iron deficiency anemia: a systematic review and meta-analysis.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 1967,
+      "entity_slug": "l-carnitine",
+      "pmid": "39687901",
+      "doi": "",
+      "title": "Effects of L-carnitine supplementation on lipid profile in adult patients under hemodialysis: a systematic review and meta-analysis of RCTs.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 1987,
+      "entity_slug": "probiotics",
+      "pmid": "40034358",
+      "doi": "",
+      "title": "The effect of probiotics on select cognitive domains in mild cognitive impairment and Alzheimer's disease: A systematic review and meta-analysis.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 1968,
+      "entity_slug": "probiotics",
+      "pmid": "39703988",
+      "doi": "",
+      "title": "Efficacy of probiotics for treatment of acute or persistent diarrhoea in children from birth till 10 years: Systematic review and meta-analysis.",
+      "decision": "verified_for_runtime_materialization"
+    }
+  ]
+}
