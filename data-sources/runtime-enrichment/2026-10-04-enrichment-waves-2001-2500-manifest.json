@@ -47,7 +47,7 @@
       "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-2001-2500.md",
       "ops/enrichment-submissions/reconciliation/2026-10-04-waves-2001-2500-pmid-revalidation.json"
     ],
-    "review_note": "Twenty 25-finding passes produced 500 unique, exact-PubMed-verified research receipts. Final fail-closed admission retains 9 source-specific runtime evidence rows on existing canonical entities. The remaining 491 receipts stay research-only after canonical/entity/formulation/combination/route/observational/evidence-quality review."
+    "review_note": "Twenty 25-finding passes produced 500 unique, exact-PubMed-verified research receipts. Final fail-closed admission retains 9 source-specific runtime evidence rows on existing canonical entities. The remaining 491 receipts stay research-only after canonical/entity/formulation/combination/route/observational/evidence-quality review. Review repair canonicalized the vitamin B12 runtime identity to existing canonical slug `cobalamin`."
   },
   "counts": {
     "entity_context_rows": 0,
@@ -73,13 +73,13 @@
   },
   "ledger": {
     "file": "2026-10-04-enrichment-waves-2001-2500.json",
-    "sha256": "e89529b1f7d1ebb0b7cb4d5563ebc777dc39fe2d3ee58cf11b2a1c4841151da1",
-    "bytes": 18158
+    "sha256": "19c457377fe47c26e7c94bc7fbc63f4d1dd6abf0cda5499356904928480364bb",
+    "bytes": 18152
   },
   "admission": {
     "evidence_additions": 9,
-    "evidence_corrections": 0,
+    "evidence_corrections": 1,
     "source_additions": 9,
-    "source_corrections": 0
+    "source_corrections": 1
   }
 }
