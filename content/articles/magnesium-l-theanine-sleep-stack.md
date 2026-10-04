@@ -153,6 +153,6 @@ Magnesium + L-theanine is a popular idea with plausible biology, but popularity 
 ## Related Articles
 
 - [Magnesium Glycinate: Full Evidence Guide](/articles/magnesium-glycinate/)
-- [L-Theanine: Evidence Guide](/articles/l-theanine/)
+- [L-Theanine: Evidence Guide](/guides/herbs/l-theanine/)
 - [Supplement Combination Safety](/guides/other/supplement-stacking-safety/)
 - [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality/)
