@@ -4,8 +4,8 @@
   "program": {
     "range": "1001-1500",
     "target_findings": 500,
-    "current_findings": 450,
-    "last_wave": 1450
+    "current_findings": 475,
+    "last_wave": 1475
   },
   "policy": "research authoring index only; not runtime admission; final Wave-1500 consolidation required",
   "waves": [
@@ -3158,6 +3158,181 @@
       "pmid": "42671007",
       "focus": "Randomized double-blind placebo-controlled trial in adults with H. pylori infection found high-dose Lacticaseibacillus paracasei HP7 reduced urea-breath-test values and modestly improved selected gastric markers/symptoms, but complete eradication was uncommon and it is not a replacement for established therapy.",
       "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1451,
+      "entity_slug": "curcumin-hashimoto-antiinflammatory-diet",
+      "pmid": "41329567",
+      "focus": "Twelve-week randomized double-blind trial in Hashimoto thyroiditis found curcumin added to an anti-inflammatory diet reduced anti-TPO more than diet plus placebo, while adjusted thyroid-hormone and lipid differences were not significant; combined-diet context limits curcumin-only inference.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1452,
+      "entity_slug": "curcumin-turmeric-blood-pressure-diabetes",
+      "pmid": "41388744",
+      "focus": "Meta-analysis of 15 RCTs in prediabetes/type 2 diabetes found a modest systolic-blood-pressure reduction with curcumin/turmeric but no significant overall diastolic effect; formulation and dose subgroup signals require caution.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1453,
+      "entity_slug": "turmeric-formulation-safety-tolerance",
+      "pmid": "41459382",
+      "focus": "Five-week randomized double-blind placebo-controlled safety trial in healthy adults found a highly bioavailable turmeric formulation was well tolerated without clinically significant GI, laboratory, vital-sign or adverse-event differences versus placebo.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1454,
+      "entity_slug": "curcumin-egcg-mood-bdnf",
+      "pmid": "41830024",
+      "focus": "Eight-week randomized double-blind placebo-controlled trial found combined curcumin plus EGCG did not improve mood disturbance, sleep or serum BDNF beyond placebo despite within-group improvements in both arms.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1455,
+      "entity_slug": "curcuminoids-menopause-vasomotor",
+      "pmid": "41877056",
+      "focus": "Pilot randomized double-blind placebo-controlled trial in 40 postmenopausal women found curcuminoids reduced weekly hot-flash frequency, while global menopause quality-of-life measures were less consistently improved; proof-of-concept signal needs larger replication.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1456,
+      "entity_slug": "meriva-gastric-chemoprevention",
+      "pmid": "42077070",
+      "focus": "Phase-IIa randomized double-blind trial in gastric premalignant conditions found a bioavailable curcumin formulation reduced gastric-body IL-1β but did not improve histology, DNA-damage or most other inflammatory endpoints; biomarker signal does not establish cancer prevention.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1457,
+      "entity_slug": "curcumin-obese-t2d-inflammation",
+      "pmid": "42123439",
+      "focus": "Twelve-month randomized placebo-controlled trial in adults with obesity and type 2 diabetes reported improvements in inflammatory, oxidative-stress and glycemic markers with curcumin; single-trial biomarker-heavy evidence needs independent replication and clinical-outcome confirmation.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1458,
+      "entity_slug": "curcumin-piperine-prediabetes",
+      "pmid": "42153019",
+      "focus": "Triple-blind randomized trial in prediabetes found curcumin plus piperine did not significantly improve fasting glucose, HbA1c or anthropometrics; apparent CRP and insulin/HOMA differences disappeared after adjustment.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1459,
+      "entity_slug": "nanoliposomal-curcumin-bioavailability",
+      "pmid": "42225688",
+      "focus": "Small randomized double-blind pharmacokinetic trial found a double-layered nano-liposomal curcumin formulation produced far higher dose-normalized plasma and urinary exposure than conventional curcumin; PK superiority does not establish superior clinical efficacy.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1460,
+      "entity_slug": "curcumin-high-altitude-body-composition",
+      "pmid": "42231385",
+      "focus": "Randomized trial during high-altitude acclimatization found curcumin modestly reduced body-fat percentage and altered gut-microbiome composition, while lean-mass changes were not clearly different between groups; microbiome associations were noncausal.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1461,
+      "entity_slug": "korean-red-ginseng-diabetic-retinopathy",
+      "pmid": "42395017",
+      "focus": "Small randomized double-blind trial in diabetic retinopathy found Korean red ginseng changed selected deep-capillary OCTA perfusion metrics without improving visual acuity, macular thickness, retinopathy stage or edema incidence; surrogate microvascular evidence only.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1462,
+      "entity_slug": "ashwagandha-liver-injury-rucam",
+      "pmid": "42529606",
+      "focus": "Case report with updated RUCAM assessment documented probable cholestatic herb-induced liver injury after ashwagandha exposure; useful safety signal but not an incidence estimate or proof of typical risk.",
+      "state": "research_only_safety_signal"
+    },
+    {
+      "wave": 1463,
+      "entity_slug": "beetroot-nitrate-dose-response-cardiovascular",
+      "pmid": "41704173",
+      "focus": "Randomized double-blind crossover trial found acute nitrate-rich beetroot improved arterial stiffness across tested doses, while endothelial function and aortic systolic pressure showed dose-specific effects; brachial pressure and cGMP were unchanged.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1464,
+      "entity_slug": "beetroot-postmenopause-muscle-quality",
+      "pmid": "41830030",
+      "focus": "Twelve-week randomized double-blind trial in 20 postmenopausal women found nitrate-rich beetroot extract improved morphological muscle quality and rate-of-force development, while maximal strength and functional muscle-quality effects were less clear; very small sample.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1465,
+      "entity_slug": "saffron-osteoarthritis",
+      "pmid": "40965059",
+      "focus": "Randomized double-blind osteoarthritis trial found saffron reduced IL-1β and NSAID use while both groups improved in pain and physical activity; small sample, differential dropout and self-reported adherence limit confidence in analgesic efficacy.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1466,
+      "entity_slug": "saffron-pms-dysmenorrhea-meta",
+      "pmid": "41151539",
+      "focus": "Systematic review/meta-analysis of randomized trials found saffron improved pooled PMS and dysmenorrhea symptom scores, but the evidence base was small and likely sensitive to trial quality and formulation differences.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1467,
+      "entity_slug": "saffron-parkinsons",
+      "pmid": "41439298",
+      "focus": "Triple-blind randomized placebo-controlled trial in Parkinson disease reported improvements in CRP, mood, sleep, fatigue, cognition and quality-of-life domains with saffron; broad multi-endpoint findings warrant replication before strong clinical claims.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1468,
+      "entity_slug": "berberine-sex-specific-lipids",
+      "pmid": "42470424",
+      "focus": "Analysis based on two placebo-controlled berberine trials found reductions in apoB, LDL, triglycerides and lipoprotein(a), with larger lipid responses in women and opposite testosterone-direction signals by sex; cross-trial sex comparisons remain exploratory.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1469,
+      "entity_slug": "cinnamon-exercise-overweight-women",
+      "pmid": "42683508",
+      "focus": "Small randomized trial found exercise improved anthropometric and reproductive-hormone measures in overweight/obese women, while adding cinnamon produced no clear additional benefit except chest circumference; no convincing hormone-specific cinnamon effect.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1470,
+      "entity_slug": "htd1801-berberine-udca-t2d-masld",
+      "pmid": "42249406",
+      "focus": "Phase-Ib randomized trial found a berberine-ursodeoxycholic-acid compound was generally tolerated and produced dose-related glucose, lipid and liver-enzyme changes over 28 days; combination drug exposure prevents attribution to berberine alone and clinical durability is unknown.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1471,
+      "entity_slug": "berberine-schizophrenia-metabolic-syndrome",
+      "pmid": "42433212",
+      "focus": "Meta-analysis of three RCTs found adjunctive berberine improved weight, BMI, waist circumference, triglycerides, total cholesterol and fasting glucose in schizophrenia with metabolic syndrome, while several other metabolic outcomes were null; evidence base is small.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1472,
+      "entity_slug": "berberine-mulberry-chromium-obesity",
+      "pmid": "42738972",
+      "focus": "Twelve-week randomized double-blind trial found a fixed combination of berberine, white-mulberry extract and chromium improved BIA-derived body composition and OGTT insulin sensitivity versus placebo; no single-agent arms permit component attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1473,
+      "entity_slug": "beetroot-resistance-training-mobility",
+      "pmid": "41408034",
+      "focus": "Pilot randomized double-blind trial found nitrate-rich beetroot plus resistance training improved gait speed, stride length and timed-up-and-go more than training plus nitrate-depleted placebo; sample was small and other training outcomes were similar.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1474,
+      "entity_slug": "beetroot-resistance-training-muscle-vascular",
+      "pmid": "41525148",
+      "focus": "Randomized 12-week resistance-training trial found nitrate-rich beetroot did not add significant benefits for lean mass, muscle cross-sectional area, strength, flow-mediated dilation, angiogenesis or muscle molecular markers versus nitrate-depleted placebo.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1475,
+      "entity_slug": "beetroot-balanced-placebo-cycling",
+      "pmid": "41886769",
+      "focus": "Balanced-placebo randomized study in trained cyclists found neither actual beetroot juice nor the expectation of receiving beetroot improved 20-minute virtual cycling performance, heart rate, cadence or related outcomes.",
+      "state": "reviewed_receipt_pending_final_admission"
     }
   ]
 }
