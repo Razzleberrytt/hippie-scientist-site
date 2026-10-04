@@ -51,7 +51,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 
 
-**Current admission (verified 2026-10-04):** Normal implementation WIP is **0/3**. #6021 / PR #6195 merged on 2026-10-02 and is retired from `Now`. Discovery/SEO, Revenue/Conversion, and Authority/Content are free pending normal admission. #5081 remains blocked on its own governor prerequisite.
+**Current admission (verified 2026-10-04):** Normal implementation WIP is **1/3**. Authority/Content is occupied by #6324 for the bounded Waves 1501–2000 enrichment closeout. Discovery/SEO and Revenue/Conversion are free. #6324 is admitted against exact main base `2a9aa816383f9d84e5059342dd6aa04b038a75db`; scientific/runtime promotion remains fail-closed.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
@@ -85,10 +85,11 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Discovery/SEO is occupied by #6021; Revenue/Conversion and Authority/Content are free. Normal WIP is 1/3. No additional candidate is admitted by vacancy alone. Further work requires the normal scored, freshness, dependency, experiment, non-overlap, and admission gates. External outcomes for #6021 remain Unknown until observed.
+Authority/Content is occupied by #6324; Discovery/SEO and Revenue/Conversion are free. No additional candidate is admitted by vacancy alone.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
+| #6324 | Validate and land enrichment waves 1501–2000 | A | In review — admitted for implementation by PR #6323; exact-head validation required | P1 | 3/4/3/5/0.75/2 | 67.5 | 2026-10-04T18:00:00Z — exact base `2a9aa816383f9d84e5059342dd6aa04b038a75db` | 500 contiguous unique receipts; admit only source-specific canonical rows; preserve all research-only firewalls; required exact-head gates green before merge |
 | #5076 | Add reusable post-answer sleep research next-action path | R conversion / L4 | Completed 2026-09-04; retired from actionable queue | — | — | — | Canonical component plus three representative integrations are on `main`; stale fourth-integration PR #5430 closed | Outcomes remain `Unknown`; any further page integration requires a fresh admitted ticket |
 | #4987 | Require real evidence receipts for approval and source counts | A / L2 | Completed 2026-09-28; PR #6057 merged | — | — | — | Exact-head CI/Atomic/Project Control/Site Health/Build Quality green | Claim/source namespaces separated; sourceCount cannot self-attest; generic approval/recommendation requires approved claim→source receipt |
 | #6056 | Contain legacy Tyrosine citation contamination | A / L2 | Retired — merged in PR #6066 | Scientific integrity | — | — | Completed; no overlap with #6051 | Legacy herb grade/citations/dosing held across public indexes + runtime; compound:l-tyrosine preserved |
