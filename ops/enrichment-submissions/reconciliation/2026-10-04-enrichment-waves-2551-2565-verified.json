@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "range": "2551-2565",
+  "sources": [
+    "NCBI PubMed EFetch via Sider Scholar"
+  ],
+  "dedupe_basis": "Master selection excludes 2,435 prior PMIDs and is unique within the 500-entry batch.",
+  "rows": [],
+  "rejected": [
+    {
+      "wave": 2551,
+      "pmid": "42774472",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    },
+    {
+      "wave": 2552,
+      "pmid": "42766259",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    },
+    {
+      "wave": 2553,
+      "pmid": "42828551",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    },
+    {
+      "wave": 2554,
+      "pmid": "42827952",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    },
+    {
+      "wave": 2555,
+      "pmid": "42826594",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    },
+    {
+      "wave": 2556,
+      "pmid": "42824329",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    },
+    {
+      "wave": 2557,
+      "pmid": "42704497",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    },
+    {
+      "wave": 2558,
+      "pmid": "42773786",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    },
+    {
+      "wave": 2559,
+      "pmid": "42623795",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    },
+    {
+      "wave": 2560,
+      "pmid": "42623982",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    },
+    {
+      "wave": 2561,
+      "pmid": "42755825",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    },
+    {
+      "wave": 2562,
+      "pmid": "42627450",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    },
+    {
+      "wave": 2563,
+      "pmid": "42813605",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    },
+    {
+      "wave": 2564,
+      "pmid": "42813543",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    },
+    {
+      "wave": 2565,
+      "pmid": "42807438",
+      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+    }
+  ]
+}
