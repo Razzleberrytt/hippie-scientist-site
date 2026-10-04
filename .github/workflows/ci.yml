@@ -447,7 +447,7 @@ jobs:
         if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         env:
           COMMIT_HASH: ${{ steps.context.outputs.source_sha }}
-          AMAZON_AFFILIATE_TAG: razzleberr0e2-20
+          AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}
           SKIP_NEXT_BUILD_TYPECHECK: '1'
         run: npm run build:deploy
 
@@ -458,7 +458,7 @@ jobs:
       - name: Verify Amazon affiliate destination integrity
         if: steps.impact.outputs.docs_only != 'true' && steps.impact.outputs.validation_only != 'true'
         env:
-          AMAZON_AFFILIATE_TAG: razzleberr0e2-20
+          AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}
         run: npm run audit:affiliate-tag-production
 
       - name: Run supplemental release-quality validators
