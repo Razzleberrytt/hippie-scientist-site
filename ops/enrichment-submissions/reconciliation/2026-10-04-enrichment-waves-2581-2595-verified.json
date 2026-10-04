@@ -53,6 +53,19 @@
       "evidence_boundary": "Human intervention evidence; no generalization beyond the studied formulation, dose, population, comparator, duration, and outcomes."
     },
     {
+      "wave": 2585,
+      "pmid": "42757066",
+      "pmcid": "PMC13584096",
+      "doi": "10.1016/j.jobcr.2026.101537",
+      "title": "Effects of Boswellia serrata on cell viability, scratch wound closure, and gene expression in human gingival fibroblasts",
+      "category": "inflammation_pain",
+      "abstract_verified": true,
+      "verification_source": "Undermind exact metadata lookup + full abstract",
+      "focus": "Objectives Boswellia serrata, traditionally used for treating inflammatory conditions, has demonstrated anti-inflammatory and antimicrobial properties, but its direct effects on human gingival fibroblasts (HGFs) remain unexplored. Therefore, the aim of this study was to evaluate the effects of methanolic B. serrata extract on human gingival fibroblast cell viability and scratch wound closure and to analyze the expression of key wound healing-related genes. Materials and methods HGF-1 cells were treated with various concentrations of B. serrata extract. Cell viability was assessed using MTT assay, while in vitro scratch assay was used to evaluate wound closure. Additionally, expression of COL",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    },
+    {
       "wave": 2586,
       "pmid": "42756867",
       "pmcid": "PMC13583631",
@@ -66,6 +79,19 @@
       "evidence_boundary": "Evidence synthesis inherits heterogeneity and limitations of included studies; ingredient/formulation/population attribution remains explicit."
     },
     {
+      "wave": 2587,
+      "pmid": "42796943",
+      "pmcid": "PMC13610488",
+      "doi": "10.3390/nu18182960",
+      "title": "Creatine Use Among Women Across Reported Duration-of-Use Groups: A Platform-Based Cross-Sectional Survey of Supplementation Behaviors, Motivations, Knowledge, and Experiences",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind exact metadata lookup + full abstract",
+      "focus": "Background: Creatine is now discussed beyond sports performance and within women’s health, cognition, fatigue, and healthy-aging contexts. However, little is known about the characteristics of women who use creatine or whether these characteristics differ across durations of use. This study characterized women reporting current or past-12-month creatine use in a large cross-sectional sample and benchmarked findings against men. Methods: In a cross-sectional, supplement-platform convenience survey (approximately 2.0% response rate; a secondary analysis of a previously reported cohort), 2094 current or recent creatine users (1055 women, 1039 men; mean age 53 years [54.0 in women and 52.5 in me",
+      "state": "research_only_observational",
+      "evidence_boundary": "Association cannot establish causality; confounding, reverse causation, and measurement error remain possible."
+    },
+    {
       "wave": 2588,
       "pmid": "42795582",
       "pmcid": "PMC13609661",
@@ -75,6 +101,32 @@
       "abstract_verified": true,
       "verification_source": "NCBI PMC EFetch via Sider Scholar",
       "focus": "The human gut microbiome is a complex adaptive ecosystem whose functions arise from interactions among microbial populations rather than from isolated taxa. Nevertheless, many microbiome-directed interventions still rely on administering individual strains, with limited consideration of the ecological processes governing community assembly, succession, and resilience. This review integrates evidence from microbial ecology, comparative genomics, systems biology, mechanistic physiology, and clinical microbiome research to propose a testable framework for ecologically engineering the human gut microbiome. Within this framework, selected spore-forming probiotics are hypothesized to function as t",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    },
+    {
+      "wave": 2589,
+      "pmid": "42796942",
+      "pmcid": "PMC13609966",
+      "doi": "10.3390/nu18182959",
+      "title": "Evaluation of the Intervention Effect of Bifidobacterium longum on Constipation in Sleep-Deprived Mice",
+      "category": "gut",
+      "abstract_verified": true,
+      "verification_source": "Undermind exact metadata lookup + full abstract",
+      "focus": "Background/Objectives: It remains unclear whether sleep deprivation induces constipation. This study aimed to evaluate the intervention effects of Bifidobacterium longum 151-1 and BN-BB01 on constipation induced by sleep deprivation in mice, and to explore the underlying mechanism from the perspective of the gut-brain axis, so as to provide a theoretical basis for probiotic intervention in sleep-related gastrointestinal dysfunction. Methods: A mouse model of sleep deprivation was established via the multiple platform water environment method. Through the detection and analysis of relevant indicators, the effects of sleep deprivation on intestinal function in mice were systematically investig",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    },
+    {
+      "wave": 2590,
+      "pmid": "42783786",
+      "pmcid": "PMC13609467",
+      "doi": "10.3390/metabo16090661",
+      "title": "Bioactive Constituents of Ginger and Potential Mechanisms Underlying Its Anti-Rheumatoid Arthritis Effects: Integrated Efficacy Evaluation, Chemical Profiling, Network Pharmacology, and Molecular Dynamics Simulation",
+      "category": "inflammation_pain",
+      "abstract_verified": true,
+      "verification_source": "Undermind exact metadata lookup + full abstract",
+      "focus": "Background/Objectives: Rheumatoid arthritis (RA) is a chronic autoimmune inflammatory disease, and ginger contains phenolic constituents with anti-inflammatory potential. This study evaluated the antiarthritic efficacy of ginger ethanolic extract (GE) and explored its potential mechanisms through integrated pharmacological and computational approaches. Methods: GE was prepared by 70% ethanol reflux extraction and administered to adjuvant-induced arthritis (AIA) rats, with methotrexate as a positive control. Body weight; paw swelling; arthritis index; spleen index; and serum interleukin-6 (IL-6), interleukin-1β (IL-1β), tumor necrosis factor-α (TNF-α), and prostaglandin E2 (PGE2) were measure",
       "state": "research_only_preclinical",
       "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
     },
@@ -91,6 +143,19 @@
       "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
     },
     {
+      "wave": 2592,
+      "pmid": "42793276",
+      "pmcid": "PMC13605494",
+      "doi": "10.3390/cimb48090920",
+      "title": "Antidepressant Effects of 20-Glucoginsenoside Rf in an L-AAA-Induced Mouse Model with Glial-Associated Molecular Alterations",
+      "category": "botanicals_mushrooms",
+      "abstract_verified": true,
+      "verification_source": "Undermind exact metadata lookup + full abstract",
+      "focus": "Major depressive disorder (MDD) is a leading contributor to disability worldwide, yet current antidepressant treatments remain limited by incomplete remission, treatment resistance, and adverse effects. 20-glucoginsenoside Rf (20-gluco-Rf), a trace bioactive saponin derived from Panax ginseng, has not been sufficiently investigated in depression-related experimental models. In this study, we evaluated the antidepressant potential of 20-gluco-Rf in a mouse model established by prefrontal cortex (PFC) infusion of L-alpha-aminoadipic acid (L-AAA), an astrocyte-selective gliotoxin. Oral administration of 20-gluco-Rf, vehicle, or fluoxetine was initiated before L-AAA infusion into the PFC. 20-Glu",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    },
+    {
       "wave": 2593,
       "pmid": "42793967",
       "doi": "10.3390/foods15183181",
@@ -101,6 +166,19 @@
       "focus": "Medicine and Food Homology (MFH) substances are often limited by bitter off-flavors that may limit consumer acceptance. This study employed a multimethod approach integrating electronic nose (E-nose), sensory evaluation, electronic tongue (E-tongue), gas chromatography-ion mobility spectrometry (GC-IMS), and electroencephalography (EEG) to investigate bitterness perception in five representative MFH extracts (Chenpi, Lotus leaf, Sichuan pepper, Gardenia, and American ginseng). Sensory and E-tongue analyses revealed discrepancies between perceived and chemically measured bitterness. GC-IMS identified distinct volatile fingerprints, highlighting differences in aroma composition among samples. ",
       "state": "research_only_preclinical",
       "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    },
+    {
+      "wave": 2594,
+      "pmid": "42716578",
+      "pmcid": "PMC13560994",
+      "doi": "10.1136/bmjresp-2026-004661",
+      "title": "Short-term exposure to heat associated with lower lung function in older adults: analysis of the Lung VITAL cohort",
+      "category": "aging_sarcopenia",
+      "abstract_verified": true,
+      "verification_source": "Undermind exact metadata lookup + full abstract",
+      "focus": "Abstract Background High temperatures are associated with respiratory symptoms, hospitalisations and mortality. Yet, the effects on lung function are not well described. The aim of this study was to determine associations of acute exposure to high temperatures with lung function in adults. Methods We included 1923 study participants from Lung VITamin D and OmegA-3 TriaL (VITAL) cohort, an ancillary study of VITAL, who underwent spirometry (two per participant) between 2010 and 2018. We assigned daily mean temperature, relative humidity, air pollution to geocoded participant home addresses. Forced expiratory volume in 1 s (FEV1), forced vital capacity (FVC) and forced expiratory flow (FEF25–7",
+      "state": "research_only_observational",
+      "evidence_boundary": "Association cannot establish causality; confounding, reverse causation, and measurement error remain possible."
     },
     {
       "wave": 2595,
@@ -115,48 +193,5 @@
       "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
     }
   ],
-  "rejected": [
-    {
-      "wave": 2585,
-      "pmid": "42757066",
-      "category": "inflammation_pain",
-      "reason": "PMC fallback lacked title/abstract.",
-      "pmcid": "PMC13584096"
-    },
-    {
-      "wave": 2587,
-      "pmid": "42796943",
-      "category": "cognition_focus",
-      "reason": "PMC fallback lacked title/abstract.",
-      "pmcid": "PMC13610488"
-    },
-    {
-      "wave": 2589,
-      "pmid": "42796942",
-      "category": "gut",
-      "reason": "PMC fallback lacked title/abstract.",
-      "pmcid": "PMC13609966"
-    },
-    {
-      "wave": 2590,
-      "pmid": "42783786",
-      "category": "inflammation_pain",
-      "reason": "PMC fallback lacked title/abstract.",
-      "pmcid": "PMC13609467"
-    },
-    {
-      "wave": 2592,
-      "pmid": "42793276",
-      "category": "botanicals_mushrooms",
-      "reason": "PMC fallback lacked title/abstract.",
-      "pmcid": "PMC13605494"
-    },
-    {
-      "wave": 2594,
-      "pmid": "42716578",
-      "category": "aging_sarcopenia",
-      "reason": "PMC fallback lacked title/abstract.",
-      "pmcid": "PMC13560994"
-    }
-  ]
+  "rejected": []
 }
