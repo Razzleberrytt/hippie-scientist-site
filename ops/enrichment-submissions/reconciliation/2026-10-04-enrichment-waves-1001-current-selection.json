@@ -4,8 +4,8 @@
   "program": {
     "range": "1001-1500",
     "target_findings": 500,
-    "current_findings": 375,
-    "last_wave": 1375
+    "current_findings": 400,
+    "last_wave": 1400
   },
   "policy": "research authoring index only; not runtime admission; final Wave-1500 consolidation required",
   "waves": [
@@ -2632,6 +2632,181 @@
       "entity_slug": "presleep-whey-casein-sleep",
       "pmid": "42413910",
       "focus": "Very small randomized crossover trial found pre-sleep whey improved several sleep measures and next-day soreness versus isocaloric control but not consistently versus casein; the result is preliminary.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1376,
+      "entity_slug": "oat-beta-glucan-bread-cardiometabolic",
+      "pmid": "42806701",
+      "focus": "Controlled dietary study found oat beta-glucan-enriched bread added to a hypocaloric Mediterranean diet improved selected glucose, LDL/non-HDL cholesterol, fat-mass and inflammatory/oxidative markers more than control bread; combined diet context prevents attributing all effects to beta-glucan alone.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1377,
+      "entity_slug": "fiber-t2d-hypertension-blood-pressure",
+      "pmid": "42796927",
+      "focus": "Secondary analysis of a small randomized trial found both soluble oat beta-glucan and insoluble cellulose groups reduced systolic blood pressure similarly in adults with type 2 diabetes and hypertension; no between-group advantage was shown and microbiome correlations were exploratory.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1378,
+      "entity_slug": "vitamin-c-bacterial-vaginosis",
+      "pmid": "42829769",
+      "focus": "Meta-analysis of six randomized trials found vitamin C improved vaginal pH and clue-cell outcomes but not discharge or Whiff-test outcomes; trial quality and heterogeneity limit confidence in clinical efficacy.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1379,
+      "entity_slug": "whole-egg-carotenoid-bioavailability",
+      "pmid": "42808212",
+      "focus": "Small randomized crossover feeding trial found co-consuming whole egg with a vegetable meal increased carotenoid absorption in pre- and postmenopausal women, while vitamin-D2 absorption from the meal was not clearly improved; this is food-matrix bioavailability evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1380,
+      "entity_slug": "mixed-fiber-functional-constipation",
+      "pmid": "42369644",
+      "focus": "Randomized double-blind placebo-controlled trial in 54 adults found a mixed soluble/insoluble fiber formulation increased bowel movements and improved stool form, bloating, distension, heaviness and flatulence over four weeks, with no reported adverse events.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1381,
+      "entity_slug": "dextrin-konjac-alcohol-exposure",
+      "pmid": "42522936",
+      "focus": "Acute randomized crossover trial in 20 healthy adults found a dextrin-konjac fiber beverage reduced blood and breath alcohol exposure after drinking; evidence is proof-of-concept for delayed ethanol transport, not a strategy to make alcohol use safe.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1382,
+      "entity_slug": "gum-arabic-glycemic-lipids",
+      "pmid": "42571068",
+      "focus": "Meta-analysis of six RCTs found gum arabic modestly reduced BMI, weight and fasting glucose, but fasting-glucose heterogeneity was very high and the evidence base was small and short-term.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1383,
+      "entity_slug": "short-chain-fatty-acid-delivery",
+      "pmid": "42575284",
+      "focus": "Randomized crossover physiology trial showed small-intestinal versus colonic short-chain-fatty-acid delivery produced different systemic SCFA, GLP-1, PYY and appetite responses without changing glucose or C-peptide; mechanistic delivery-site evidence only.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1384,
+      "entity_slug": "fructanase-inulin-gi-tolerance",
+      "pmid": "42580594",
+      "focus": "Randomized double-blind crossover study found fructanase given with an acute inulin challenge reduced several later GI symptoms but not the primary 0-8-hour overall abdominal-symptom endpoint or breath gases; benefit was partial and context-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1385,
+      "entity_slug": "scfos-child-tolerance",
+      "pmid": "42710411",
+      "focus": "Short randomized pediatric tolerance trial found high daily short-chain fructo-oligosaccharide intake was generally tolerated with mild gas and softer stools, but a minority at the higher intake reported diarrhea; useful tolerance rather than efficacy evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1386,
+      "entity_slug": "sprouted-fenugreek-flatbread-glycemic",
+      "pmid": "42738984",
+      "focus": "Small randomized crossover pilot in healthy young adults found sprouted-fenugreek-enriched flatbread attenuated postprandial glucose and insulin responses versus control bread; functional-food evidence needs replication in metabolic-risk populations.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1387,
+      "entity_slug": "high-fiber-pregnancy-weight-gain",
+      "pmid": "42815196",
+      "focus": "Pilot randomized pregnancy trial found a high-fiber food/snack plus behavioral intervention reduced gestational weight gain and fat accrual versus usual care; small analyzed sample and multi-component dietary intervention limit attribution to fiber alone.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1388,
+      "entity_slug": "bifidobacterium-high-protein-athletes",
+      "pmid": "42046285",
+      "focus": "Exploratory randomized double-blind placebo-controlled trial in male athletes consuming high protein found no overall probiotic benefit across GI, microbiome or metabolite outcomes; apparent symptom/metabolite effects occurred only in post-hoc microbiota-defined subgroups.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1389,
+      "entity_slug": "whey-resistance-masld-irisin",
+      "pmid": "42075090",
+      "focus": "Small randomized MASLD trial under severe calorie restriction found resistance exercise increased irisin and whey plus exercise increased muscle mass, but short duration and three-way lifestyle intervention prevent a whey-specific liver-benefit claim.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1390,
+      "entity_slug": "whey-musculoskeletal-tissue-synthesis",
+      "pmid": "42142739",
+      "focus": "Exploratory randomized tracer study in older adults undergoing knee arthroplasty found two weeks of added whey protein did not change synthesis rates across muscle, bone, cartilage, tendon, ligament, meniscus or periarticular tissues.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1391,
+      "entity_slug": "supplements-exercise-women-musculoskeletal",
+      "pmid": "42158825",
+      "focus": "Meta-analysis of 14 RCTs in women found protein/amino-acid/creatine supplementation added to exercise did not significantly improve major muscle-mass measures overall; selected strength outcomes showed small benefits.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1392,
+      "entity_slug": "protein-probiotic-performance-meta",
+      "pmid": "42389694",
+      "focus": "Bayesian meta-analysis of 20 RCTs found protein-plus-probiotic supplementation showed a positive signal for physical performance but near-null overall body-composition effects; strain, protein and population heterogeneity limit generalization.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1393,
+      "entity_slug": "preop-whey-gynecologic-surgery",
+      "pmid": "42401710",
+      "focus": "Randomized double-blind trial in 52 well-nourished gynecologic-tumor patients found three days of preoperative whey reduced early postoperative nausea/vomiting and accelerated selected recovery milestones; single small perioperative study needs replication.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1394,
+      "entity_slug": "whey-post-bariatric-surgery",
+      "pmid": "42415904",
+      "focus": "Meta-analysis of five RCTs found postoperative whey supplementation may preserve fat-free mass and alter weight/fat-loss trajectories after bariatric surgery, while lipid effects were limited; evidence certainty ranged from moderate to very low.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1395,
+      "entity_slug": "whey-herpes-zoster-recovery",
+      "pmid": "42482061",
+      "focus": "Small randomized trial in 40 herpes-zoster patients found whey added to standard therapy shortened recovery/scabbing time and improved pain, quality of life and selected nutritional/immune markers; disease-specific adjunctive evidence requires replication.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1396,
+      "entity_slug": "protein-hemodialysis-malnutrition",
+      "pmid": "42566136",
+      "focus": "Randomized single-center hemodialysis trial found a vitamin/mineral/casein supplement improved malnutrition-risk score within the intervention group, with less certain effects on body weight and secondary body-composition outcomes; multi-component formulation limits protein-only attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1397,
+      "entity_slug": "high-quality-protein-lipids-obesity",
+      "pmid": "42632112",
+      "focus": "Meta-analysis of 32 RCTs found high-quality protein supplementation modestly reduced LDL and total cholesterol in overweight/obese adults but not triglycerides or HDL; lipid effects weakened after excluding high-risk-of-bias studies.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1398,
+      "entity_slug": "soy-vs-casein-advanced-glycation",
+      "pmid": "42739097",
+      "focus": "Sixteen-week randomized trial in older adults found soy or casein supplementation within a healthy diet did not materially change overall circulating or skin advanced-glycation products; isolated marker differences were small and exploratory.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1399,
+      "entity_slug": "pollock-protein-low-intensity-training",
+      "pmid": "42742972",
+      "focus": "Tiny randomized double-blind trial in older adults found Alaska pollock protein and whey produced broadly similar strength adaptations during low-intensity resistance training; pollock-specific motor-unit and blood-pressure signals were exploratory.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1400,
+      "entity_slug": "soy-protein-prostate-cancer-metabolomics",
+      "pmid": "42762034",
+      "focus": "Exploratory metabolomics analysis from a tiny randomized prostate-cancer trial found one year of soy protein shifted global metabolomic patterns, but only one metabolite survived multiple-comparison correction; clinical significance was not established.",
       "state": "research_only_evidence_quality"
     }
   ]
