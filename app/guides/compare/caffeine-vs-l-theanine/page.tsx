@@ -115,7 +115,7 @@ export default function CaffeineVsLTheaninePage() {
           <p className="text-sm leading-7 text-muted">
             L-theanine is usually framed around relaxed attention rather than stimulation. It may be especially useful when the focus problem is overstimulation, stress reactivity, or a caffeine response that feels too sharp.
           </p>
-          <Link href="/compounds/l-theanine/" className="chip-readable">Explore L-theanine</Link>
+          <Link href="/guides/herbs/l-theanine/" className="chip-readable">Explore L-theanine</Link>
         </article>
       </section>
 

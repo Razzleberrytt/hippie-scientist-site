@@ -83,6 +83,27 @@ function readMdxRecords(relativePath: string): (SitemapSourceItem & Record<strin
   }
 }
 
+function readArticleCollectionRecords(relativePath: string): (SitemapSourceItem & Record<string, any>)[] {
+  const dirPath = path.join(process.cwd(), relativePath);
+  if (!existsSync(dirPath)) return [];
+
+  try {
+    return readdirSync(dirPath)
+      .filter((fileName) => /\.(?:md|mdx)$/i.test(fileName))
+      .map((fileName) => {
+        const filePath = path.join(dirPath, fileName);
+        const fileContent = readFileSync(filePath, 'utf8');
+        const { data } = matter(fileContent);
+        return {
+          slug: fileName.replace(/\.(?:md|mdx)$/i, ''),
+          ...data,
+        };
+      });
+  } catch {
+    return [];
+  }
+}
+
 // Discovers App Router article pages by scanning app/articles/ for subdirectories
 // that contain a page.tsx. This picks up cluster articles that have no .md counterpart
 // in content/articles/ without requiring a hardcoded list.
@@ -511,6 +532,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     'public/data/summary-indexes/compounds-summary.json',
   );
 
+  const articleMonographs = readArticleCollectionRecords('content/articles');
+  const contentBlogPosts = readArticleCollectionRecords('content/blog');
   const blogPosts = readJsonArray<SitemapSourceItem>('data/blog/posts.json');
   const articlesData = readJsonArray<SitemapSourceItem>('data/articles/articles.json');
   const routeManifest = readJsonArray<SitemapSourceItem & { route?: string; segment?: string }>('public/data/runtime-manifests/route-manifest.json');
@@ -714,19 +737,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const articleSlugs = new Set<string>();
 
-  articlesData.forEach((article) => {
-    if (!article.slug) return;
+  const addArticleRecord = (article: SitemapSourceItem & Record<string, any>) => {
+    if (!article.slug || articleSlugs.has(article.slug)) return;
     articleSlugs.add(article.slug);
+    addRoute(
+      `/articles/${article.slug}`,
+      'monthly',
+      0.75,
+      getSitemapLastModified(article, ['date']),
+      article,
+    );
+  };
 
-    addRoute(`/articles/${article.slug}`, 'monthly', 0.75, getSitemapLastModified(article, ['date']), article);
-  });
+  // The live /articles/[slug] route is built from content/articles and content/blog.
+  // Read those same source directories first so a newly published monograph cannot
+  // render publicly while remaining invisible to the sitemap merely because a
+  // legacy JSON registry has not been refreshed yet.
+  articleMonographs.forEach(addArticleRecord);
+  contentBlogPosts.forEach(addArticleRecord);
 
-  blogPosts.forEach((post) => {
-    if (!post.slug) return;
-    if (articleSlugs.has(post.slug)) return;
-
-    addRoute(`/articles/${post.slug}`, 'monthly', 0.75, getSitemapLastModified(post, ['date']), post);
-  });
+  // Legacy registries remain compatibility fallbacks for older article records.
+  articlesData.forEach((article) => addArticleRecord(article));
+  blogPosts.forEach((post) => addArticleRecord(post));
 
   getAllFocusClusterArticles().forEach((article) => {
     addFocusClusterRoute(`/${article.slug}`, getSitemapLastModified(article, ['dateModified']));

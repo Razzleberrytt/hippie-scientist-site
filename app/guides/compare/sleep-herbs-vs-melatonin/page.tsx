@@ -246,7 +246,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
           <p className="text-sm leading-7 text-muted">
             Long-term safety is also uncertain. Product variability makes it especially important not to transfer one extract’s result to every valerian capsule, tea, or combination formula.
           </p>
-          <Link href="/herbs/valerian/" className="chip-readable">Valerian profile →</Link>
+          <Link href="/articles/valerian-root/" className="chip-readable">Valerian sleep evidence review →</Link>
         </div>
       </section>
 
