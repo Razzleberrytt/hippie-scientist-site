@@ -29,6 +29,11 @@ describe('L-theanine canonical internal-link consolidation', () => {
     const redirects = read('public/_redirects')
     expect(redirects).toContain('/articles/l-theanine /guides/herbs/l-theanine/ 301')
     expect(redirects).toContain('/articles/l-theanine/ /guides/herbs/l-theanine/ 301')
+    expect(redirects).toContain('https://www.thehippiescientist.net/articles/l-theanine https://thehippiescientist.net/guides/herbs/l-theanine/ 301')
+    expect(redirects).toContain('https://www.thehippiescientist.net/articles/l-theanine/ https://thehippiescientist.net/guides/herbs/l-theanine/ 301')
+    expect(redirects.indexOf('https://www.thehippiescientist.net/articles/l-theanine/')).toBeLessThan(
+      redirects.indexOf('https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301'),
+    )
   })
 
   it('keeps intent-specific spokes distinct from the umbrella page', () => {
