@@ -4,8 +4,8 @@
   "program": {
     "range": "1001-1500",
     "target_findings": 500,
-    "current_findings": 125,
-    "last_wave": 1125
+    "current_findings": 150,
+    "last_wave": 1150
   },
   "policy": "research authoring index only; not runtime admission; final Wave-1500 consolidation required",
   "waves": [
@@ -883,6 +883,181 @@
       "pmid": "42148901",
       "focus": "Randomized double-blind trial in 12 trained male sprinters found beetroot juice markedly raised salivary nitrate/nitrite but did not improve jump height, 60/100-m sprint performance or most neuromuscular measures; direct biomarker-performance null.",
       "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1126,
+      "entity_slug": "pcos-comparative-metabolic-therapies",
+      "pmid": "42490840",
+      "focus": "Network meta-analysis of 16 PCOS RCTs found GLP-1 receptor agonist plus metformin most effective for weight/BMI, while inositol-containing strategies were less prominent and none of the compared interventions significantly improved HOMA-IR; comparative pharmacologic context, not an inositol efficacy endorsement.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1127,
+      "entity_slug": "soy-isoflavones",
+      "pmid": "42032055",
+      "focus": "Meta-analysis of 13 RCTs/1,325 postmenopausal women found soy isoflavones improved vaginal dryness and urogenital symptoms, while vasomotor and psychological outcomes were nonsignificant and heterogeneity exceeded 90%; formulation/population boundaries remain explicit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1128,
+      "entity_slug": "vitamin-d",
+      "pmid": "41901143",
+      "focus": "Systematic review of 11 PCOS studies found deficiency common and supplementation effects on insulin sensitivity and reproductive outcomes modest/inconsistent; correction of deficiency may complement care but vitamin D was not supported as stand-alone PCOS or fertility therapy.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1129,
+      "entity_slug": "vitamin-d",
+      "pmid": "42199796",
+      "focus": "Meta-analysis of 11 RCTs/992 reproductive-age women found no overall effect of vitamin D supplementation on anti-Müllerian hormone, with substantial heterogeneity; open-label subgroup findings did not override the double-blind null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1130,
+      "entity_slug": "selenium-pregnancy",
+      "pmid": "41596613",
+      "focus": "Systematic review found lower maternal selenium concentrations associated with miscarriage in observational studies, but randomized interventional evidence was absent and confounding substantial; no causal supplementation claim is authorized.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1131,
+      "entity_slug": "selenium-pregnancy",
+      "pmid": "41683301",
+      "focus": "Systematic review of selenium exposure and congenital anomalies found mixed observational associations by anomaly type, with only one randomized trial identified; evidence is confounded and insufficient to define an optimal supplemental selenium level in pregnancy.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1132,
+      "entity_slug": "myo-inositol-selenium",
+      "pmid": "42122912",
+      "focus": "Meta-analysis of three studies/288 Hashimoto patients with subclinical hypothyroidism found myo-inositol plus selenium lowered TSH more than selenium alone, while T3/T4/TPOAb were not significantly different and the tiny evidence base limits confidence.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1133,
+      "entity_slug": "phytoestrogens-menopause",
+      "pmid": "42500528",
+      "focus": "Meta-analysis/trial-sequential analysis of 16 phytoestrogen RCTs found improvement in selected menopausal psychological symptoms, but effects varied by symptom and menopausal stage and some significant outcomes failed sequential correction; category-level evidence only.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1134,
+      "entity_slug": "menopause-dietary-interventions",
+      "pmid": "42790873",
+      "focus": "Systematic review of 15 RCTs found soy-based dietary patterns may reduce hot-flash frequency/severity, while overall vasomotor and psychological effects were inconsistent and certainty very low; whole-food/dietary evidence is not equivalent to supplement-only efficacy.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1135,
+      "entity_slug": "omega-3-pregnancy",
+      "pmid": "41773213",
+      "focus": "Meta-analysis of 23 pregnancy studies found modest increases in gestational weight gain and infant birth size plus lower preterm-birth risk with omega-3 supplementation, but sensitivity analyses weakened some outcomes and effects remained outcome-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1136,
+      "entity_slug": "dha-pregnancy",
+      "pmid": "42494300",
+      "focus": "Meta-analysis of 21 prenatal DHA RCTs found no significant benefit across measured offspring neurodevelopmental domains, with only a modest birth-weight increase among growth outcomes; direct counterweight to broad prenatal cognition claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1137,
+      "entity_slug": "omega-3-pregnancy-oxylipins",
+      "pmid": "42715778",
+      "focus": "Systematic review found only two pregnancy studies linking omega-3 interventions/exposure with LC-MS oxylipin profiling, leaving mechanistic relationships with gestational length and preterm birth insufficient and hypothesis-generating.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1138,
+      "entity_slug": "astaxanthin",
+      "pmid": "41714744",
+      "focus": "Male-infertility meta-analysis found no significant improvement in human semen parameters with astaxanthin despite strong animal-model effects; human fertility outcomes such as pregnancy were not assessed, so clinical efficacy is unsupported.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1139,
+      "entity_slug": "vitamin-e",
+      "pmid": "42165159",
+      "focus": "Meta-analysis of five studies after varicocelectomy found no consistent additional benefit of vitamin E on sperm concentration or motility, with heterogeneous morphology/pregnancy reporting; useful null evidence against routine postoperative vitamin-E claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1140,
+      "entity_slug": "male-infertility-nutraceuticals",
+      "pmid": "42206761",
+      "focus": "Meta-analysis of 41 RCTs in idiopathic male infertility found antioxidant-associated improvements in semen parameters, but prediction intervals crossed the null, heterogeneity exceeded 80%, certainty was very low, and live-birth evidence was inadequate.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1141,
+      "entity_slug": "pcos-mineral-supplements",
+      "pmid": "41580698",
+      "focus": "Meta-analysis of 11 RCTs/618 women with PCOS pooled magnesium, chromium, zinc, selenium and chromium-picolinate interventions and found improved glycemic/selected lipid measures, but the mixed-mineral design prevents attributing effects to any single mineral.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1142,
+      "entity_slug": "micronutrients-immune-aging",
+      "pmid": "42254024",
+      "focus": "Nine-RCT meta-analysis in older adults found small pooled immune-function improvements across diverse micronutrients, with vitamin D, vitamin E and multivitamin subgroup signals; heterogeneous multi-nutrient evidence should not be reduced to a single supplement claim.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1143,
+      "entity_slug": "female-infertility-supplements",
+      "pmid": "42356328",
+      "focus": "Systematic review/meta-analysis found no high-certainty evidence that dietary supplements improve female infertility outcomes versus placebo; secondary signals for NAC, myo-inositol, vitamin D/E and combinations were hypothesis-generating and at higher risk of bias.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1144,
+      "entity_slug": "iodine-pregnancy",
+      "pmid": "42359139",
+      "focus": "Meta-analysis in iodine-deficient pregnant women found iodine supplementation lowered TSH and thyroglobulin, with subgroup differences by region, trimester, regimen and iodine form; biochemical improvement does not establish universal dosing outside deficiency context.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1145,
+      "entity_slug": "prenatal-micronutrient-status",
+      "pmid": "42359342",
+      "focus": "Systematic review of 22 studies linked maternal B12, vitamin D and folate status with child neurodevelopment, but 18 of 22 studies were observational and heterogeneity precluded quantitative synthesis; strongest causal inference remains limited.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1146,
+      "entity_slug": "preconception-nutrition-interventions",
+      "pmid": "42684922",
+      "focus": "Systematic review/meta-analysis of 24 preconception studies found selected maternal/neonatal benefits from lifestyle and nutritional interventions, but mixed study designs, heterogeneous interventions and outcome-specific pooling constrain causal supplement claims.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1147,
+      "entity_slug": "gdm-nutrient-supplements",
+      "pmid": "41921332",
+      "focus": "Network meta-analysis of 11 GDM RCTs ranked different supplements favorably for different birth outcomes, but no single intervention improved all maternal/newborn outcomes and several rankings were based on wide credible intervals; network rankings remain exploratory.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1148,
+      "entity_slug": "resveratrol",
+      "pmid": "42150354",
+      "focus": "ART meta-analysis found resveratrol improved fertilization rate but did not significantly improve biochemical/clinical pregnancy, live birth, oocyte count or embryo outcomes overall; fertility-establishment and live-birth nulls remain first-class.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1149,
+      "entity_slug": "melatonin-pcos-art",
+      "pmid": "42510627",
+      "focus": "Systematic review reported favorable ART-related signals with melatonin in PCOS, including endometrial thickness, oocyte/embryo quality and pregnancy measures, but heterogeneous observational/clinical evidence and regimen variation limit confidence; no consumer dosing inference.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1150,
+      "entity_slug": "antioxidants-art",
+      "pmid": "42558317",
+      "focus": "Meta-analysis of oral antioxidant RCTs in IVF/ICSI reported improved pregnancy and selected laboratory outcomes plus a live-birth signal, but regimens were heterogeneous, study count limited and certainty insufficient for a single antioxidant or standardized protocol recommendation.",
+      "state": "research_only_category_firewall"
     }
   ]
 }
