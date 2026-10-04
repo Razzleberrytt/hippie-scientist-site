@@ -6,7 +6,7 @@
     "range": "1501-2000",
     "pass_size": 25,
     "target_findings": 500,
-    "progress_after_pass": 275,
+    "progress_after_pass": 300,
     "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2000"
   },
   "source_provenance": [
@@ -1950,6 +1950,181 @@
       "entity_slug": "flaxseed-migraine-rct",
       "pmid": "41478596",
       "focus": "RCT in 68 migraine patients found eight weeks of flaxseed powder improved headache severity, sleep and headache-related quality of life but not headache frequency or duration; small single trial requires replication.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1776,
+      "entity_slug": "psyllium-cellulose-inulin-gas-rct",
+      "pmid": "41636227",
+      "focus": "Randomized healthy-human trial examined whether gel-forming psyllium/modified cellulose alters colonic gas production during inulin co-administration; formulation-mechanism evidence should remain separate from broad clinical fiber claims.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1777,
+      "entity_slug": "inulin-type1-diabetes-pilot",
+      "pmid": "41636295",
+      "focus": "Pilot RCT in 49 adults with type 1 diabetes found inulin modestly reduced body weight and insulin requirement but did not improve HbA1c/CGM metrics or increase Akkermansia; small metabolic signal with clear null outcomes.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1778,
+      "entity_slug": "kefir-adhd-rct",
+      "pmid": "41286799",
+      "focus": "Six-week double-blind RCT in children with ADHD found kefir did not improve primary ADHD symptoms or overall microbiome diversity; actigraphy showed less wake time while self-reported sleep problems worsened, yielding mixed sleep evidence.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1779,
+      "entity_slug": "kefir-healthy-young-adults-rct",
+      "pmid": "41314291",
+      "focus": "RCT in 65 healthy young adults found kefir improved gastrointestinal symptoms and selected biochemical markers, but sleep, mental-health, immunity and inflammation changes were not significantly different; small healthy-population study.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1780,
+      "entity_slug": "kefir-postbiotic-muscle-rct",
+      "pmid": "41470885",
+      "focus": "Double-blind RCT found a kefir-derived postbiotic preparation modestly improved dominant-hand grip strength and selected biomarkers/microbiota without improving lean mass or non-dominant grip strength; product-specific pilot evidence.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1781,
+      "entity_slug": "kefir-probiotic-autism-null-between-group",
+      "pmid": "41547752",
+      "focus": "Double-blind RCT in 182 children with ASD found within-group adaptive/behavioral improvements with kefir-derived probiotics but no statistically significant between-group primary-outcome differences; biomarker/microbiome changes do not rescue the null comparative result.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1782,
+      "entity_slug": "l-paragasseri-yogurt-stress-sleep",
+      "pmid": "41679635",
+      "focus": "Double-blind RCT during academic stress found yogurt containing L. paragasseri OLL2716 improved selected subjective/objective sleep measures and stress biomarkers versus placebo yogurt; strain- and food-matrix-specific evidence.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1783,
+      "entity_slug": "bb12-yogurt-aad-null",
+      "pmid": "41699149",
+      "focus": "Randomized double-blind pediatric trial found B. animalis BB-12 yogurt did not prevent antibiotic-associated diarrhea when the prescribed antibiotics caused little microbiome disruption; context-dependent direct null.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1784,
+      "entity_slug": "milk-kefir-exercise-recovery",
+      "pmid": "41800708",
+      "focus": "Crossover study compared milk and kefir as post-exercise recovery beverages in young female athletes; food-matrix comparative evidence should not be generalized to isolated probiotic or kefir supplements without endpoint-specific extraction.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1785,
+      "entity_slug": "probiotic-yogurt-biomarkers-meta",
+      "pmid": "41802686",
+      "focus": "Meta-analysis found probiotic yogurt modestly increased fecal acetate and IL-10 versus conventional yogurt but did not clearly improve other SCFAs, CRP or oxidative-stress markers; certainty was very low and clinical relevance uncertain.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1786,
+      "entity_slug": "protein-yogurt-whey-older-adults",
+      "pmid": "42151371",
+      "focus": "Randomized strength-training study found protein yogurt and whey produced comparable muscle gains but different microbiome shifts in older adults; food-matrix microbiome differences did not establish superior functional efficacy.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1787,
+      "entity_slug": "yogurt-bb536-multimodal-aging",
+      "pmid": "42377118",
+      "focus": "Exploratory RCT tested a multimodal exercise/diet program including daily B. longum BB536 yogurt against aging-biomarker outcomes; combined intervention prevents attribution of epigenetic-aging changes to yogurt or probiotic alone.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1788,
+      "entity_slug": "inulin-rheumatoid-arthritis-rct",
+      "pmid": "40841439",
+      "focus": "Triple-blind RCT in 60 people with rheumatoid arthritis found inulin improved CRP and several disease-activity/quality-of-life measures versus maltodextrin, while pain intensity and ESR were not significantly different; disease-specific small trial.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1789,
+      "entity_slug": "inulin-ibs-c-rct",
+      "pmid": "41034384",
+      "focus": "Small placebo-controlled RCT in constipation-predominant IBS found inulin/oligofructose improved symptom severity and quality-of-life measures; sample size was only 34 and replication is needed.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1790,
+      "entity_slug": "inulin-obesity-brain-metabolites",
+      "pmid": "41057493",
+      "focus": "Randomized pediatric obesity study examined inulin-related gut-microbiota metabolites linked to brain function; mechanistic metabolite shifts should not be equated with demonstrated cognitive benefit.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1791,
+      "entity_slug": "inulin-functional-constipation-rct",
+      "pmid": "41233756",
+      "focus": "Double-blind crossover trial in 39 adults found chicory inulin improved stool frequency, abdominal symptoms and quality of life with bifidogenic/butyrate-producer shifts, but carry-over effects complicated interpretation.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1792,
+      "entity_slug": "synbiotic-visceral-fat-rct",
+      "pmid": "41512635",
+      "focus": "Double-blind RCT in 112 adults found a multi-strain/inulin/FOS/chrysanthemum synbiotic modestly reduced visceral-fat area, especially in exploratory subgroups, without significant BMI, waist or blood-biochemistry changes; multi-component evidence.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1793,
+      "entity_slug": "fiber-bmd-observational-meta",
+      "pmid": "41739242",
+      "focus": "Meta-analysis of observational studies associated higher dietary fiber intake with slightly higher bone mineral density; observational design cannot establish supplementation benefit or fracture prevention.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1794,
+      "entity_slug": "fiber-endometriosis-review",
+      "pmid": "41754207",
+      "focus": "Up-to-date review examines mechanistic and clinical links between dietary fiber and endometriosis; preserve as evidence mapping rather than direct therapeutic efficacy.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1795,
+      "entity_slug": "green-tea-inulin-visceral-obesity",
+      "pmid": "41830022",
+      "focus": "Double-blind RCT of green-tea catechin plus inulin improved insulin resistance but not visceral fat and produced exploratory microbiome signals; combination design prevents inulin-only attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1796,
+      "entity_slug": "oat-bran-post-bariatric-rct",
+      "pmid": "41832846",
+      "focus": "RCT in 63 post-bariatric patients found oat-bran fiber altered gut taxa, gut hormones and selected glycemic/lipid markers, while between-group excess-weight-loss difference was not significant; surgery-specific adjunct evidence.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1797,
+      "entity_slug": "inulin-psoriasis-protocol",
+      "pmid": "41840402",
+      "focus": "INGUTSKIN protocol describes an eight-week double-blind placebo-controlled trial of chicory inulin-type fructans for mild psoriasis and gut-skin-axis biomarkers; no efficacy result is available yet.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1798,
+      "entity_slug": "psyllium-schizophrenia-feasibility",
+      "pmid": "41956574",
+      "focus": "Pilot feasibility study evaluated nurse-led psyllium supplementation for metabolic health in hospitalized people with schizophrenia; feasibility/context evidence should not be treated as definitive metabolic efficacy.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1799,
+      "entity_slug": "fiber-gestational-diabetes-rct",
+      "pmid": "41982769",
+      "focus": "Small RCT in high-risk pregnancy found soluble fiber improved glycemic excursions and short-term gestational weight gain but did not significantly reduce GDM incidence; zero preterm births versus 12% control is intriguing but requires replication.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1800,
+      "entity_slug": "inulin-fos-anxiety-students-rct",
+      "pmid": "41989194",
+      "focus": "Randomized trial examined inulin/FOS supplementation and GAD-7 anxiety scores in college students; preserve as direct gut-brain intervention evidence with outcome-specific interpretation rather than broad anxiolytic claims.",
       "state": "reviewed_receipt_pending_final_admission"
     }
   ]
