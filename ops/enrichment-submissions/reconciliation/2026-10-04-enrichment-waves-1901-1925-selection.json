@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-1901-1925-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-1876-1900-selection",
+  "program": {
+    "range": "1501-2000",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 425,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2000"
+  },
+  "source_provenance": [
+    "Sider Scholar + NCBI PubMed exact-source verification",
+    "repository-wide PMID collision screening against prior enrichment waves and active Waves 1501-1900"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2000 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe/source verification during authoring; expensive repository-wide validation only after Wave 2000"
+  },
+  "waves": [
+    {
+      "wave": 1901,
+      "entity_slug": "7oh-severe-neurocardiac-toxicity",
+      "pmid": "42534824",
+      "focus": "Case report of large 7-hydroxymitragynine ingestion described profound CNS depression, marked QTc prolongation and prolonged encephalopathy requiring intensive care; polysubstance and psychiatric/infectious contributors make causality multifactorial but the toxicity signal is serious.",
+      "state": "research_only_safety_signal"
+    },
+    {
+      "wave": 1902,
+      "entity_slug": "kratom-evidence-gap-review",
+      "pmid": "42547284",
+      "focus": "Focused clinical review emphasizes that expanding US kratom use is occurring amid unregulated product variability, limited high-quality safety/efficacy data and increasing need for clinician recognition of use, dependence and toxicity.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1903,
+      "entity_slug": "kratom-human-metabolomics",
+      "pmid": "42562516",
+      "focus": "Human cross-sectional metabolomics study of 37 regular kratom users versus 12 controls found distinct plasma metabolite/pathway profiles involving amino-acid, pyruvate, TCA, glycolytic and glutathione metabolism; association does not establish harm or benefit.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1904,
+      "entity_slug": "kratom-global-prevalence-meta",
+      "pmid": "42565818",
+      "focus": "Meta-analysis of 21 studies estimated low general-population but substantially higher high-risk/substance-using kratom prevalence, with major regional and methodological heterogeneity; surveillance evidence, not efficacy or toxicity.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1905,
+      "entity_slug": "kratom-product-evolution-review",
+      "pmid": "42572688",
+      "focus": "Review distinguishes native leaf from increasingly concentrated extracts, isolates and 7-OH-enriched or chemically altered products and argues dependence/overdose risk likely rises as alkaloid concentration and product modification increase.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1906,
+      "entity_slug": "kratom-use-disorder-pregnancy",
+      "pmid": "42576700",
+      "focus": "Perinatal review/case discussion describes maternal and neonatal withdrawal risk and very limited evidence for buprenorphine management of kratom use disorder in pregnancy; only a few pregnancy cases support current practice.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1907,
+      "entity_slug": "kratom-alkaloid-human-pk-method",
+      "pmid": "42605611",
+      "focus": "Validated human plasma assay quantified 12 kratom alkaloids and five mitragynine metabolites, showing rapid absorption and identifying major circulating alkaloids/metabolites in regular users; high-value source-identity and PK evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1908,
+      "entity_slug": "kratom-methamphetamine-craving-crosssectional",
+      "pmid": "42607660",
+      "focus": "Cross-sectional treatment sample of 403 men found kratom-use indicators were not overall risk factors for methamphetamine craving; only a subgroup association with age at first kratom use emerged in those with heroin history.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1909,
+      "entity_slug": "kratom-toxicity-clinical-review",
+      "pmid": "42634663",
+      "focus": "Narrative toxicology review describes opioid-like toxidromes, variable naloxone responsiveness, possible delayed/recurrent respiratory depression, polysubstance amplification and substantial product heterogeneity; clinical management evidence remains case-heavy.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1910,
+      "entity_slug": "kratom-cardiovascular-review",
+      "pmid": "42636328",
+      "focus": "Cardiovascular review integrates ion-channel mechanisms with reported tachycardia, hypertension, QTc prolongation, Brugada patterns, ventricular arrhythmias and cardiac arrest while emphasizing heterogeneous products and confounding co-exposures.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1911,
+      "entity_slug": "acmt-7oh-position-statement",
+      "pmid": "42645738",
+      "focus": "American College of Medical Toxicology position statement identifies public-health risks from 7-hydroxymitragynine and other kratom-associated compounds; authoritative toxicology guidance rather than an efficacy study.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1912,
+      "entity_slug": "kratom-cancer-consumer-survey",
+      "pmid": "42655877",
+      "focus": "Self-selected US survey of 136 kratom consumers found cancer and non-cancer users differed in motivations and patterns, with cancer respondents frequently using kratom for pain/mental-health concerns; perceptions cannot establish effectiveness or safety.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1913,
+      "entity_slug": "kratom-pulmonary-toxicity-systematic",
+      "pmid": "42661120",
+      "focus": "Systematic review of 24 clinical/forensic reports classified kratom-associated diffuse alveolar hemorrhage, ARDS/lung injury, eosinophilic pneumonitis, respiratory depression and postmortem pulmonary edema; evidence remains case/forensic based but clinically important.",
+      "state": "research_only_safety_signal"
+    },
+    {
+      "wave": 1914,
+      "entity_slug": "kratom-hearing-loss-rhabdo-case",
+      "pmid": "42662183",
+      "focus": "Case report describes transient sensorineural hearing loss, rhabdomyolysis, severe AKI and dialysis in a chronic kratom user; sepsis and other clinical factors limit single-agent causal certainty.",
+      "state": "research_only_safety_signal"
+    },
+    {
+      "wave": 1915,
+      "entity_slug": "kratom-ventricular-tachycardia-ecmo",
+      "pmid": "42377231",
+      "focus": "Case report describes seizure-like activity and refractory pulseless ventricular tachycardia after concentrated kratom extract, requiring prolonged resuscitation and VA-ECMO; toxicology confirmed mitragynine.",
+      "state": "research_only_safety_signal"
+    },
+    {
+      "wave": 1916,
+      "entity_slug": "kava-kratom-liquid-shortterm-safety",
+      "pmid": "39807458",
+      "focus": "Six-day randomized double-blind placebo-controlled trial of a commercial kava/kratom liquid blend found mostly mild-to-moderate adverse events and no major laboratory toxicity in healthy adults; short duration and combined-product design cannot establish long-term safety.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1917,
+      "entity_slug": "kava-acute-kidney-injury-case",
+      "pmid": "40343400",
+      "focus": "Case report links very heavy kava tea ingestion with biopsy-proven severe acute tubulointerstitial nephritis, marked creatinine rise, bradycardia and QT prolongation, with recovery after corticosteroids; product analysis found kavalactones without other detected substances.",
+      "state": "research_only_safety_signal"
+    },
+    {
+      "wave": 1918,
+      "entity_slug": "kava-acute-skin-toxicity-letter",
+      "pmid": "40378629",
+      "focus": "Published report documents acute kava-associated skin toxicity; preserve as a rare safety signal while avoiding incidence estimates from case-level evidence.",
+      "state": "research_only_safety_signal"
+    },
+    {
+      "wave": 1919,
+      "entity_slug": "kava-serotonergic-interaction-pediatric",
+      "pmid": "40510098",
+      "focus": "Pediatric case report describes prolonged serotonin-syndrome features during kava use while switching serotonergic antidepressants, with plausible CYP2D6/MAO interaction mechanisms; single-case evidence supports interaction caution, not frequency estimates.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 1920,
+      "entity_slug": "kava-severe-withdrawal-case",
+      "pmid": "40541460",
+      "focus": "Case report describes hallucinations, anxiety, insomnia and myoclonus after stopping heavy kava/kratom beverage use, with GABAergic withdrawal suspected and improvement after phenobarbital/diazepam; mixed-product exposure complicates attribution.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 1921,
+      "entity_slug": "kava-global-systematic-review",
+      "pmid": "40560778",
+      "focus": "Narrative systematic review of 197 records found kava's cultural/economic importance clear but health benefits and harms—including anxiety and liver effects—remain inconsistent and methodologically limited.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1922,
+      "entity_slug": "kava-acute-dermatitis-case-series",
+      "pmid": "40757984",
+      "focus": "Three-patient case series found acute kava reactions resembling DRESS with distinctive sebaceous adenitis/apoptosis on biopsy; rare dermatologic safety signal without incidence data.",
+      "state": "research_only_safety_signal"
+    },
+    {
+      "wave": 1923,
+      "entity_slug": "kava-us-use-patterns-survey",
+      "pmid": "40962124",
+      "focus": "Large US survey estimated 10.7% past-year kava use among respondents and common co-use with prescription/alternative products; perceived relaxation benefits and drowsiness/sweating are self-report observational findings.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1924,
+      "entity_slug": "kava-kratom-sud-assessment",
+      "pmid": "41322679",
+      "focus": "Online survey of adults using kava/kratom found past-year SUD criteria much more common for kratom than kava and substantial co-use; self-selected sampling and DSM-criterion adaptation require cautious interpretation.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1925,
+      "entity_slug": "tianeptine-poison-centers",
+      "pmid": "39724478",
+      "focus": "US poison-center analysis tracked rising tianeptine exposures from 2015–2023 and associated clinical outcomes, providing national toxicovigilance evidence for misuse and toxicity rather than controlled incidence estimates.",
+      "state": "research_only_observational"
+    }
+  ]
+}

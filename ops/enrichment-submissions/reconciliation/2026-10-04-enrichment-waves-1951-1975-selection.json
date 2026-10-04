@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-1951-1975-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-1926-1950-selection",
+  "program": {
+    "range": "1501-2000",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 475,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2000"
+  },
+  "source_provenance": [
+    "Sider Scholar + NCBI PubMed exact-source verification",
+    "cumulative PMID collision index covering prior enrichment waves and current branch"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2000 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe/source verification during authoring; expensive repository-wide validation only after Wave 2000"
+  },
+  "waves": [
+    {
+      "wave": 1951,
+      "entity_slug": "vitamin-d-cirrhosis-glycemic-rct",
+      "pmid": "39882304",
+      "focus": "Double-blind RCT in 60 patients with cirrhosis found weekly vitamin D increased 25(OH)D and modestly improved fasting glucose and HOMA-IR over 12 weeks; cirrhosis-specific metabolic evidence does not generalize to healthy adults.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1952,
+      "entity_slug": "vitamin-d-knee-osteoarthritis-overview",
+      "pmid": "39931432",
+      "focus": "Overview of systematic reviews/meta-analyses on vitamin D for knee osteoarthritis found most reviews were low or very low quality with high risk of bias and low-certainty evidence, underscoring major uncertainty despite frequent clinical use.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1953,
+      "entity_slug": "zinc-vitamin-e-cabg-inflammatory-markers",
+      "pmid": "40071246",
+      "focus": "Secondary analysis of a randomized CABG trial found zinc plus vitamin E did not significantly change testosterone but reduced early IL-6 and later TLR-4 expression; combination therapy and perioperative context prevent nutrient-specific inference.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1954,
+      "entity_slug": "alternate-day-oral-iron-ida-rct",
+      "pmid": "40224710",
+      "focus": "Randomized trial in women with iron-deficiency anemia found alternate-day oral iron produced a larger short-term hemoglobin rise and fewer adverse effects than daily dosing, with no clear compliance difference; regimen-specific treatment evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1955,
+      "entity_slug": "vitamin-c-plus-iron-ida-meta",
+      "pmid": "40765927",
+      "focus": "Systematic review/meta-analysis found adding vitamin C to oral iron produced only a small, likely clinically insignificant hemoglobin/ferritin advantage; authors concluded routine adjunctive vitamin C is not supported.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1956,
+      "entity_slug": "cistanche-ginkgo-cognitive-rct",
+      "pmid": "38972848",
+      "focus": "Ninety-day double-blind RCT in 100 middle-aged/older adults found a combined Cistanche tubulosa plus Ginkgo biloba product improved several cognitive and memory measures versus placebo; combination exposure prevents ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1957,
+      "entity_slug": "saffron-type1diabetes-combination-rct",
+      "pmid": "38999837",
+      "focus": "Six-month double-blind trial in type 1 diabetes tested a product containing saffron plus probiotics, prebiotics and magnesium; between-group metabolic effects were limited, with triglycerides differing while most glycemic endpoints did not.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1958,
+      "entity_slug": "ashwagandha-anxiety-insomnia-meta",
+      "pmid": "39083548",
+      "focus": "Meta-analysis of five ashwagandha RCTs found improvements in anxiety and several sleep outcomes, but heterogeneity was extreme for anxiety and the evidence base remained small; extract/formulation differences matter.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1959,
+      "entity_slug": "ashwagandha-tryptophan-enriched-milk-sleep",
+      "pmid": "39189195",
+      "focus": "Ninety-day double-blind trial found ashwagandha-enriched milk, with or without tryptophan, improved subjective sleep more than control milk; adding tryptophan did not clearly outperform ashwagandha alone.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1960,
+      "entity_slug": "saffron-repeated-sprint-null",
+      "pmid": "39227898",
+      "focus": "Double-blind crossover trial in 22 active young men found acute saffron did not improve repeated-sprint performance, lactate, heart rate, perceived exertion or affect versus placebo; useful direct null evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1961,
+      "entity_slug": "shoden-ashwagandha-high-stress-rct",
+      "pmid": "39286132",
+      "focus": "Sixty-day double-blind RCT in 60 high-stress participants found low-dose standardized ashwagandha extract reduced anxiety, perceived stress and cortisol versus placebo; product-standardization and small sample remain important.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1962,
+      "entity_slug": "phosphatidylserine-mci-multiingredient-rct",
+      "pmid": "39317299",
+      "focus": "Twelve-month double-blind RCT in 190 adults with mild cognitive impairment found a multi-ingredient supplement containing phosphatidylserine, ALA, Ginkgo flavonoids and B vitamins improved selected cognitive tests and biomarkers; no single ingredient can be isolated.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1963,
+      "entity_slug": "adhd-dietary-supplements-systematic-review",
+      "pmid": "39429382",
+      "focus": "Systematic review of 14 ADHD RCTs found mixed signals across vitamin D, magnesium, saffron, marine oils, probiotics and dietary strategies; intervention diversity and short follow-up preclude broad supplement recommendations.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1964,
+      "entity_slug": "citrulline-vs-citrulline-malate-null-rct",
+      "pmid": "39662304",
+      "focus": "Double-blind crossover trial in 43 trained adults found neither L-citrulline nor citrulline malate improved maximal strength, ballistic performance, strength endurance, exertion or affect versus placebo; malate showed no additive benefit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1965,
+      "entity_slug": "weizmannia-coagulans-bc99-protein-strength",
+      "pmid": "39683384",
+      "focus": "Twelve-week double-blind trial in 72 male physical-education students found protein plus W. coagulans BC99 improved strength, muscle mass and digestion-related biomarkers versus protein alone; strain-plus-protein context limits probiotic class inference.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1966,
+      "entity_slug": "creatine-acute-stroke-rct-null",
+      "pmid": "39683542",
+      "focus": "Double-blind RCT in 30 older adults hospitalized for acute stroke found seven days of creatine did not improve function, strength, muscle mass or 90-day outcomes versus placebo, though it altered progranulin; direct clinical null.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1967,
+      "entity_slug": "l-carnitine-hemodialysis-lipids-meta-null",
+      "pmid": "39687901",
+      "focus": "Meta-analysis of 28 RCTs in hemodialysis patients found L-carnitine did not significantly improve triglycerides, cholesterol fractions, BMI or blood pressure, regardless of oral versus IV route; strong category-level null evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1968,
+      "entity_slug": "probiotics-pediatric-diarrhea-meta",
+      "pmid": "39703988",
+      "focus": "WHO-commissioned systematic review/meta-analysis of 98 studies found probiotics slightly increased clinical cure and shortened acute pediatric diarrhea by about half a day, but heterogeneity was very high and certainty low.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1969,
+      "entity_slug": "pro-pre-synbiotics-anemia-meta",
+      "pmid": "39716076",
+      "focus": "Systematic review/meta-analysis of randomized trials evaluated probiotics, prebiotics and synbiotics for anemia and iron-related outcomes; small heterogeneous trials support only cautious adjunctive interpretation rather than replacement of standard iron therapy.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1970,
+      "entity_slug": "synbiotic-vs-probiotic-type2diabetes-rct",
+      "pmid": "39719724",
+      "focus": "Double-blind RCT in 120 adults with type 2 diabetes found a B. animalis plus GOS synbiotic modestly lowered fasting glucose more than placebo and probiotic alone, while most other glycemic endpoints did not differ between groups.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1971,
+      "entity_slug": "l-paracasei-peritoneal-dialysis-microbiome",
+      "pmid": "39732948",
+      "focus": "Double-blind trial in peritoneal-dialysis patients found L. paracasei N1115 plus FOS altered gut composition and improved selected GI symptoms but did not significantly increase SCFAs versus placebo; probiotic-plus-prebiotic formulation evidence.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1972,
+      "entity_slug": "probiotics-diabetes-esrd-hemodialysis-rct",
+      "pmid": "39735058",
+      "focus": "Double-blind placebo-controlled trial in diabetic hemodialysis patients found 12-week probiotics improved HOMA-IR and several oxidative/glycemic markers with minor GI adverse events; small disease-specific RCT requires replication.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1973,
+      "entity_slug": "kombucha-human-microbiome-controlled-study",
+      "pmid": "39738315",
+      "focus": "Small controlled clinical study in healthy adults found four weeks of kombucha caused only modest microbiome shifts and no clear improvement in inflammatory biomarkers; fasting insulin/HOMA-IR increased within the kombucha group.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1974,
+      "entity_slug": "pediococcus-acidilactici-depression-rct",
+      "pmid": "39741947",
+      "focus": "Four-week randomized placebo-controlled trial in 39 adults with depressive disorder found P. acidilactici CCFM6432 improved depression, anxiety, sleep and GI symptom scores with microbiome/metabolite changes; tiny strain-specific trial.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1975,
+      "entity_slug": "prebiotic-fiber-ptsd-pilot-rct",
+      "pmid": "39840022",
+      "focus": "Pilot double-blind trial in 70 veterans tested prebiotic fiber alongside CBT for PTSD and found microbiome associations plus possible benefit in a subset; proof-of-concept design does not establish broad PTSD efficacy.",
+      "state": "research_only_combination_firewall"
+    }
+  ]
+}

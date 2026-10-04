@@ -57,6 +57,17 @@ describe('production affiliate destination audit', () => {
     expect(result.stdout).toContain('every parseable clickable Amazon link uses the configured production tag OK')
   })
 
+  it('migrates the retired production tag to the current Associates tag', () => {
+    const result = runFixture(
+      ['https://www.amazon.com/dp/B000TEST?tag=razzleberr0e2-20'],
+      { expectedTag: 'razzleberry02-20' },
+    )
+
+    expect(result.status).toBe(0)
+    expect(result.stdout).toContain('expected production tag source: AMAZON_AFFILIATE_TAG')
+    expect(result.stdout).toContain('[affiliate-tag] OK')
+  })
+
   it('uses the existing affiliate config fallback when no environment override is set', () => {
     const result = runFixture(
       ['https://www.amazon.com/dp/B000TEST?tag=repo-fallback-20'],
