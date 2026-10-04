@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-2501-3000",
+  "range": "2501-3000",
+  "pass_size": 25,
+  "checkpoints": 20,
+  "entries": 500,
+  "prior_unique_pmids": 2435,
+  "new_unique_pmids": 500,
+  "cumulative_unique_pmids": 2935,
+  "verification": {
+    "contiguous_waves": true,
+    "unique_waves": 500,
+    "prior_pmid_collisions": 0,
+    "duplicate_pmids": 0,
+    "duplicate_dois": 0,
+    "duplicate_normalized_titles": 0
+  },
+  "research_provenance": [
+    "PubMed article identity required for every selected entry",
+    "Discovery and PubMed page retrieval via Exa because connected Amass usage was exhausted and Scite/Elicit connector plans were unavailable",
+    "Hard PMID dedupe against cumulative index through wave 2500 before every pass",
+    "In-pass PMID dedupe and round-robin topic balancing"
+  ],
+  "evidence_states": {
+    "research_only_safety": 242,
+    "research_only_human_trial": 204,
+    "research_only_review": 42,
+    "research_only": 12
+  },
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden unless separately runtime-admitted",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true
+  },
+  "notes": [
+    "A final duplicate-DOI check caught a reference-list DOI extraction error affecting waves 2852 and 2890; both DOI fields were corrected to the article DOIs before the reconciliation was re-run.",
+    "This cycle records research receipts only. Runtime admission and broader repository-wide validation remain separate fail-closed steps."
+  ]
+}
