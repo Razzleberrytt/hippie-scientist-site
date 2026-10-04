@@ -6,7 +6,7 @@
     "range": "1501-2000",
     "pass_size": 25,
     "target_findings": 500,
-    "progress_after_pass": 25,
+    "progress_after_pass": 50,
     "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2000"
   },
   "source_provenance": [
@@ -200,6 +200,181 @@
       "entity_slug": "melatoninergic-icu-delirium-dose-response",
       "pmid": "42310686",
       "focus": "Updated 24-RCT dose-response meta-analysis found melatoninergic agonists reduced ICU delirium incidence, with a similar signal in the melatonin subgroup, but mortality and adverse-event rates were unchanged; pooled duration and dose modeling is research context and must not be converted into dosing guidance.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1526,
+      "entity_slug": "ashwagandha-pediatric-cognition-sleep",
+      "pmid": "41889719",
+      "focus": "Eight-week randomized double-blind trial in 85 healthy children with parent-reported attention, concentration or memory concerns found standardized ashwagandha root extract improved selected computerized cognitive outcomes and parent-reported sleep, with no significant adverse-event signal; pediatric findings and multiple secondary endpoints require cautious interpretation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1527,
+      "entity_slug": "alpha-linolenic-acid-tobacco-craving",
+      "pmid": "42003149",
+      "focus": "Single-blind randomized placebo-controlled study in 83 regular tobacco users reported lower tobacco-use frequency, dependence and craving after six months of alpha-linolenic-acid supplementation; cessation-clinic context, self-reported tobacco outcomes and the specific ALA formulation limit general omega-3 attribution.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1528,
+      "entity_slug": "curcumin-youth-bipolar-depression",
+      "pmid": "42015491",
+      "focus": "Open-label eight-week pilot of adjunctive curcumin in only six youths with treatment-resistant bipolar depression reported improvement in global depression and illness severity with exploratory inflammatory and oxidative-stress biomarker analyses; absence of a control group makes efficacy highly preliminary.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1529,
+      "entity_slug": "probiotic-escitalopram-male-depression-sexual-function",
+      "pmid": "42059569",
+      "focus": "Randomized trial in 240 men with mild-to-moderate depression found a probiotic product added to escitalopram produced larger improvements in depression scores and sexual-function domains than escitalopram alone; absence of a matched placebo, single-clinic population and adjunctive design prevent probiotic-monotherapy attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1530,
+      "entity_slug": "l-plantarum-kabp051-overweight-mood",
+      "pmid": "42065141",
+      "focus": "Twelve-week randomized placebo-controlled trial in 60 healthy overweight or obese adults found strain-specific L. plantarum KABP051 effects on body weight, waist circumference and microbiome composition, with post-hoc signals for fatigue and confusion; mood findings were secondary and strain-specific.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1531,
+      "entity_slug": "polyunsaturated-fatty-acids-mental-disorders-mr",
+      "pmid": "42100925",
+      "focus": "Mendelian-randomization meta-analysis linked genetically predicted omega-3, omega-6 and their ratio with several psychiatric outcomes, but these genetic-instrument associations are not supplementation trials and should not be converted into treatment-effect or dosing claims.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1532,
+      "entity_slug": "pediococcus-acidilactici-pa53-emotional-wellbeing",
+      "pmid": "42235825",
+      "focus": "Eight-week randomized double-blind trial in 75 healthy older adults found Pediococcus acidilactici PA53 improved happiness, gastrointestinal symptoms and PSQI with inflammatory-marker and microbiome changes; stress change was not significant within group, and effects remain specific to this strain and population.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1533,
+      "entity_slug": "heat-treated-l-gasseri-cp2305-acute-stress",
+      "pmid": "42293218",
+      "focus": "Small randomized crossover trial in 28 healthy adults found a single dose of heat-treated L. gasseri CP2305 altered EEG alpha power, HRV and self-reported stress/tension versus placebo; acute postbiotic findings are formulation-specific and do not establish durable clinical anxiolytic benefit.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1534,
+      "entity_slug": "probiotic-geriatric-depression-prodg",
+      "pmid": "42304935",
+      "focus": "Pilot multicentre double-blind trial in 58 adults age 60 and older with moderate depression found modest overall symptom advantages from adjunct L. helveticus plus B. longum, but no significant group-by-time interaction, no added quality-of-life benefit and greater than 50% attrition over 24 weeks.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1535,
+      "entity_slug": "multistrain-probiotic-dietary-intake-depression",
+      "pmid": "42335165",
+      "focus": "ProBioHRV randomized sub-study in 53 participants found no consistent probiotic effect on nutrient intake, dietary variety or diversity, with only exploratory diagnosis- and time-dependent signals; useful null counterweight to claims that probiotics broadly improve eating patterns through the gut-brain axis.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1536,
+      "entity_slug": "probiotic-fiber-obesity-mood-sleep",
+      "pmid": "42356238",
+      "focus": "Eight-week 2x2 factorial RCT in 56 adults with obesity found no probiotic-by-fiber interaction, selective fiber effects on HDL and mood, weak probiotic metabolic effects after multiplicity correction, and no supported between-group sleep benefit; combined supplementation offered no added advantage.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1537,
+      "entity_slug": "magnesium-fluoxetine-cognition-bdnf",
+      "pmid": "42374947",
+      "focus": "Six-week randomized adjunctive study in 40 adults receiving fluoxetine found larger MoCA gains with magnesium, particularly attention and memory, but no significant between-group change in serum BDNF; small sample and concomitant antidepressant therapy prevent magnesium-only cognitive attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1538,
+      "entity_slug": "aromatherapy-chemotherapy-symptoms",
+      "pmid": "42624952",
+      "focus": "Four-arm randomized blinded feasibility trial in 91 chemotherapy patients found inhaled lavender, jojoba, orange or ginger aromatherapy acceptable and feasible with lower composite symptom severity overall, but it was not designed to establish ingredient-specific efficacy and needs confirmatory trials.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1539,
+      "entity_slug": "cerebiome-work-stress-insomnia",
+      "pmid": "42628338",
+      "focus": "Twelve-week double-blind RCT in 70 adults with work-related stress and mild-to-moderate insomnia found the Cerebiome probiotic did not outperform placebo on the primary insomnia outcome, although depressive symptoms showed a modest between-group signal; formulation-specific mood evidence remains secondary.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1540,
+      "entity_slug": "polyphenols-multiple-sclerosis",
+      "pmid": "42356263",
+      "focus": "Systematic review of 13 clinical trials involving 785 people with multiple sclerosis found some nanocurcumin disability signals while EGCG, silymarin, cranberry and other curcumin formulations were largely null on disability, relapse or MRI outcomes; heterogeneity prevented meta-analysis and category transfer.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1541,
+      "entity_slug": "turmeric-curcumin-dialysis-immunosuppressants",
+      "pmid": "42047771",
+      "focus": "Systematic review of 21 human reports found antioxidant and inflammatory signals for turmeric or curcumin in hemodialysis but no consistent lipid-lowering effect; importantly, high-dose turmeric was associated with a food-drug interaction and nephrotoxicity in immunosuppressant users, making interaction context explicit.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 1542,
+      "entity_slug": "vitamin-d-inflammatory-biomarkers-umbrella",
+      "pmid": "42343002",
+      "focus": "Umbrella review covering seven meta-analyses and about 11,600 randomized participants found population-specific reductions in CRP, TNF-alpha, IL-6 and oxidative-stress markers with vitamin D, alongside null findings in several overweight, obese and asthma populations; effects are not universal anti-inflammatory evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1543,
+      "entity_slug": "selenium-zinc-breast-cancer-levels",
+      "pmid": "42390038",
+      "focus": "Meta-analysis of 30 case-control studies found lower plasma selenium, nail selenium and plasma zinc in women with breast cancer than controls, but all included evidence was observational with substantial heterogeneity and residual-confounding risk; this cannot establish prevention or supplementation benefit.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1544,
+      "entity_slug": "sulforaphane-precursor-exercise-recovery",
+      "pmid": "42654196",
+      "focus": "Double-blind crossover trial in 14 healthy adults found two weeks of a sulforaphane-precursor supplement did not improve endurance capacity but attenuated selected post-exercise CK and myoglobin responses and relative oxidative-stress changes; tiny sample and surrogate outcomes limit performance claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1545,
+      "entity_slug": "green-tea-kombucha-weight-cardiometabolic",
+      "pmid": "41957662",
+      "focus": "Ten-week RCT in 59 adults with excess weight found favorable within-group lipid and uric-acid changes when green-tea kombucha accompanied an energy-restricted diet, but between-group changes were not significant for evaluated markers; diet co-intervention prevents independent kombucha efficacy claims.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1546,
+      "entity_slug": "alpha-lipoic-acid-pregabalin-dpn",
+      "pmid": "42056717",
+      "focus": "Multicentre phase-IV trial in 151 patients with painful diabetic neuropathy found pregabalin monotherapy non-inferior to pregabalin plus alpha-lipoic acid for pain reduction overall, with exploratory subgroup differences; combination results do not establish routine added benefit from alpha-lipoic acid.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1547,
+      "entity_slug": "phytochemical-blend-exercise-recovery",
+      "pmid": "42075011",
+      "focus": "Nine-day RCT in 24 healthy adults found a calcium-fructoborate, turmeric and pomegranate blend improved selected perceived pain, recovery and sleep outcomes after muscle-damaging exercise but not neuromuscular, inflammatory, oxidative-stress or muscle-damage biomarkers; ingredient-specific attribution is impossible.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1548,
+      "entity_slug": "green-tea-postmenopausal-metabolic-profile",
+      "pmid": "42228178",
+      "focus": "Meta-analysis of seven randomized trials found green tea modestly lowered total cholesterol in postmenopausal women but did not significantly improve other prespecified metabolic outcomes; evidence quality was low and concentrated-extract hepatic-safety concerns warrant formulation caution.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1549,
+      "entity_slug": "l-baiba-grains-of-paradise-metabolic",
+      "pmid": "42271377",
+      "focus": "Eight-week randomized trial in overweight or obese adults tested L-BAIBA alone and with grains of paradise alongside calorie restriction and exercise; the multicomponent lifestyle context and largely null group-by-time effects require separation of exploratory perceptual/metabolic findings from product efficacy claims.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1550,
+      "entity_slug": "plant-extracts-heart-failure-network-meta",
+      "pmid": "42277690",
+      "focus": "Network meta-analysis of 28 RCTs and 3,650 heart-failure patients compared 15 distinct plant extracts and generated outcome-specific SUCRA rankings, but sparse direct comparisons and major formulation heterogeneity mean rankings cannot establish a single best botanical or justify cross-extract transfer.",
       "state": "research_only_category_firewall"
     }
   ]
