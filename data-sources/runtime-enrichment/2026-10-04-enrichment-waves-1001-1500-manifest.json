@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-1001-1500",
+  "generated_from": {
+    "input_files": [
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1001-1025-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1001-1025.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1026-1050-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1026-1050.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1051-1075-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1051-1075.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1076-1100-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1076-1100.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1101-1125-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1101-1125.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1126-1150-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1126-1150.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1151-1175-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1151-1175.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1176-1200-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1176-1200.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1201-1225-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1201-1225.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1226-1250-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1226-1250.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1251-1275-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1251-1275.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1276-1300-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1276-1300.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1301-1325-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1301-1325.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1326-1350-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1326-1350.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1351-1375-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1351-1375.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1376-1400-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1376-1400.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1401-1425-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1401-1425.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1426-1450-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1426-1450.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1451-1475-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1451-1475.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1476-1500-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1476-1500.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1001-1500-selection.json",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-enrichment-waves-1001-1500.md",
+      "ops/enrichment-submissions/reconciliation/2026-10-04-waves-1001-1500-pmid-revalidation.json"
+    ],
+    "review_note": "Twenty 25-finding passes produced 500 unique research receipts. Final fail-closed admission retains 10 net-new, independently revalidated, source-specific evidence rows and 10 net-new source rows on existing canonical entities. Generated source-registry and normalized-evidence checks found no pre-existing source or same-entity evidence identity for these 10 PMIDs. The remaining receipts stay research-only where category, formulation, combination, observational, safety-only, evidence-quality, or insufficient source-specific boundaries block runtime promotion."
+  },
+  "counts": {
+    "entity_context_rows": 0,
+    "evidence_rows": 10,
+    "source_rows": 10,
+    "relationship_rows": 0
+  },
+  "wave_coverage": {
+    "first_wave": 1001,
+    "last_wave": 1500,
+    "completed_waves": 500,
+    "evidence_records": 10,
+    "unique_source_records": 10
+  },
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden",
+    "recommendation_promotion": "forbidden",
+    "evidence_merge": "append-only; only source-specific reader-ready rows are runtime-materialized",
+    "claim_calibration": "retain negative/null evidence, uncertainty, endpoint distinctions, formulation/population limits, safety context, and source-specific claim language",
+    "verification_strategy": "batch-first; admission and repository gates run once after the 500-wave consolidation"
+  },
+  "ledger": {
+    "file": "2026-10-04-enrichment-waves-1001-1500.json",
+    "sha256": "bd996923788cb57a40093138d41da22b6896192a0f8ef1f8df85467084bc2072",
+    "bytes": 21260
+  },
+  "admission": {
+    "evidence_additions": 10,
+    "evidence_corrections": 0,
+    "source_additions": 10,
+    "source_corrections": 0
+  }
+}
