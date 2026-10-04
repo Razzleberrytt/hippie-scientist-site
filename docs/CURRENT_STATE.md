@@ -54,7 +54,7 @@
 
 ### Conversion and revenue
 
-**Verified:** Affiliate configuration is centralized in `config/affiliate.ts`, supports an environment override, and currently falls back to the Amazon tag `razzleberry02-20`. A source audit found 276 configured affiliate destinations: 30 explicit ASIN links and 246 Amazon search-result fallbacks. Sampled live links carried the configured tag and `sponsored nofollow` treatment.
+**Verified:** Affiliate configuration is centralized in `config/affiliate.ts`, supports an environment override, and currently falls back to the Amazon tag `razzleberr0e2-20`. A source audit found 276 configured affiliate destinations: 30 explicit ASIN links and 246 Amazon search-result fallbacks. Sampled live links carried the configured tag and `sponsored nofollow` treatment.
 
 **Verified:** Global click instrumentation captures affiliate impressions/clicks and sends governed revenue events after consent. Newsletter UI and Cloudflare Pages Functions for Mailchimp subscription and Turnstile/rate-limit protection exist.
 
