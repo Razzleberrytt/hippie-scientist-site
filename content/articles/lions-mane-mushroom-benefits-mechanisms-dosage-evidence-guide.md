@@ -384,6 +384,6 @@ Direct combination evidence is sparse. Mechanistic complementarity is not the sa
 
 - [Bacopa Monnieri: Memory Evidence Guide](/articles/bacopa-monnieri/)
 - [Ginkgo Biloba: Cognition & Circulation](/articles/ginkgo-biloba/)
-- [L-Theanine: Calm Focus Evidence Review](/articles/l-theanine/)
+- [L-Theanine: Calm Focus Evidence Review](/guides/herbs/l-theanine/)
 - [Functional Mushrooms Guide](/articles/functional-mushrooms-guide/)
 - [Mushroom Coffee Review](/articles/mushroom-coffee-benefits-review/)
