@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2596-2600",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2596,
+      "pmid": "42464773",
+      "title": "Withania somnifera (Ashwagandha) as an Adjunctive Treatment to Antipsychotic Medications for Patients With Schizophrenia.",
+      "abstract_verified": true,
+      "state": "research_only_human_trial_null",
+      "evidence_boundary": "This small adjunctive randomized trial found no significant symptom or inflammatory-marker advantage for ashwagandha over placebo; the null result should be preserved and not reframed as efficacy."
+    },
+    {
+      "wave": 2597,
+      "pmid": "42798115",
+      "title": "Genetically predicted circulating polyunsaturated fatty acids and Crohn's disease susceptibility: A two-sample mendelian randomization study.",
+      "abstract_verified": true,
+      "state": "research_only_genetic_inference",
+      "evidence_boundary": "Mendelian-randomization estimates concern genetically proxied circulating fatty-acid levels, not supplementation; assumptions about instrument validity and pleiotropy limit translation to dietary interventions."
+    },
+    {
+      "wave": 2598,
+      "pmid": "42163019",
+      "title": "Theanine: a phytochemical candidate for neural protection.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical_review",
+      "evidence_boundary": "The review emphasizes mechanistic and preclinical neuroprotection literature; human efficacy, clinically relevant exposure, and condition-specific benefit remain insufficiently established."
+    },
+    {
+      "wave": 2599,
+      "pmid": "42827864",
+      "title": "Novel bioactive compounds in the treatment of osteoporosis: chemistry-driven discovery from preclinical validation to clinical translation.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical_review",
+      "evidence_boundary": "The review spans discovery-stage and preclinical bioactives with uneven translational maturity; promising mechanisms are not equivalent to demonstrated fracture prevention or human treatment efficacy."
+    },
+    {
+      "wave": 2600,
+      "pmid": "42662821",
+      "title": "Dietary melatonin, chronotype, and night eating syndrome in relation to sleep quality among adults.",
+      "abstract_verified": true,
+      "state": "research_only_observational",
+      "evidence_boundary": "This cross-sectional dietary-melatonin study can identify associations among intake, chronotype, eating behavior, and sleep quality but cannot establish causality or supplementation efficacy."
+    }
+  ]
+}
