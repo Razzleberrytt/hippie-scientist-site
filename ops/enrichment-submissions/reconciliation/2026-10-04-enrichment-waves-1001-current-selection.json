@@ -5,7 +5,12 @@
     "range": "1001-1500",
     "target_findings": 500,
     "current_findings": 500,
-    "last_wave": 1500
+    "last_wave": 1500,
+    "status": "consolidated_runtime_materialized_pending_repository_validation",
+    "runtime_admission": {
+      "evidence_rows": 10,
+      "source_rows": 10
+    }
   },
   "policy": "research authoring index only; not runtime admission; final Wave-1500 consolidation required",
   "waves": [
