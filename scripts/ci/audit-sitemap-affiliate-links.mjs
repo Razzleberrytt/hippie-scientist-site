@@ -4,7 +4,15 @@ import path from 'node:path'
 import { requireBuildOutput } from '../lib/required-build-output.mjs'
 
 const ROOT = process.cwd()
-const AMAZON_TAG = process.env.AMAZON_AFFILIATE_TAG || 'razzleberr0e2-20' // Central associate tag
+const LEGACY_AMAZON_TAG = 'razzleberry02-20'
+const CURRENT_AMAZON_TAG = 'razzleberr0e2-20'
+const configuredAmazonTag = process.env.AMAZON_AFFILIATE_TAG?.trim() || CURRENT_AMAZON_TAG
+// Keep this deploy audit aligned with config/affiliate.ts and the production
+// affiliate audit: a stale GitHub/Cloudflare variable must not make a valid
+// build fail after the runtime config has already migrated the retired tag.
+const AMAZON_TAG = configuredAmazonTag === LEGACY_AMAZON_TAG
+  ? CURRENT_AMAZON_TAG
+  : configuredAmazonTag
 
 function parseXmlUrls(xmlContent) {
   const urls = []
