@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-1501-current-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-1001-1500-selection",
+  "program": {
+    "range": "1501-2000",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 25,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2000"
+  },
+  "source_provenance": [
+    "Sider Scholar + NCBI PubMed exact-source verification",
+    "repository-wide PMID collision screening against prior enrichment waves, including pending Waves 501-1000"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2000 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe/source verification during authoring; expensive repository-wide validation only after Wave 2000"
+  },
+  "waves": [
+    {
+      "wave": 1501,
+      "entity_slug": "melatonin-cerebral-palsy-sleep",
+      "pmid": "41369870",
+      "focus": "Randomized double-blind trial in 120 children with cerebral palsy and persistent sleep problems found melatonin improved diary-derived total sleep time and sleep-onset latency over 12 weeks with few reported adverse effects; pediatric neurologic-population findings should not be generalized to healthy children or adults.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1502,
+      "entity_slug": "melatonin-glaucoma-sleep",
+      "pmid": "41386535",
+      "focus": "Randomized double-masked crossover trial in 64 adults with advanced glaucoma found no significant melatonin-versus-placebo benefit for subjective or actigraphic sleep outcomes or vision-related quality of life despite within-time improvements in both groups; useful direct null sleep evidence in a visually impaired population.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1503,
+      "entity_slug": "melatonin-advanced-cancer-qol",
+      "pmid": "41421991",
+      "focus": "Multicentre placebo-controlled trial in adults age 70 and older receiving systemic cancer treatment was stopped early for futility and found no significant global quality-of-life benefit from melatonin among compliant participants; supplementation appeared safe, but attrition and advanced-cancer context limit broader inference.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1504,
+      "entity_slug": "dietary-supplements-sleep-meta",
+      "pmid": "41470897",
+      "focus": "Meta-analysis of 28 randomized trials pooled heterogeneous dietary-supplement interventions and reported modest improvements in PSQI, sleep efficiency, total sleep time, latency and WASO, but cross-ingredient category pooling prevents attributing the effect to any one nutrient or product.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1505,
+      "entity_slug": "heat-treated-l-fermentum-ps150-sleep",
+      "pmid": "41515133",
+      "focus": "Eight-week RCT in 84 adults with poor sleep found no significant treatment-by-time effect on primary PSQI or ISI outcomes for heat-treated Limosilactobacillus fermentum PS150; exploratory biomarker and higher-insomnia-severity subgroup signals remain strain/formulation-specific and hypothesis-generating.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1506,
+      "entity_slug": "chamomile-l-theanine-dysmenorrhea",
+      "pmid": "41525193",
+      "focus": "Small randomized double-blind study in 30 young women with primary dysmenorrhea found a chamomile-plus-L-theanine beverage improved several pain, mood and daytime-function measures versus baseline/control, but the multi-ingredient beverage and short exposure prevent attributing effects to either ingredient alone.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1507,
+      "entity_slug": "walnut-peptide-theanine-sleep",
+      "pmid": "41531275",
+      "focus": "Translational study including an eight-week randomized human trial reported improved subjective sleep quality and sleep duration with a walnut-peptide plus theanine combination, alongside animal HPA/GABA findings; the human effect is combination-specific and cannot be assigned to theanine alone.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1508,
+      "entity_slug": "mushroom-blend-stress-fatigue-sleep",
+      "pmid": "41540766",
+      "focus": "Twelve-week randomized placebo-controlled trial in 50 adults found a proprietary mushroom blend improved several anxiety, fatigue, depression and PSQI measures with changes in cortisol, ACTH and CRP; small sample and multicomponent proprietary formulation require a product-specific firewall.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1509,
+      "entity_slug": "melatonin-preoperative-dental-anxiety-sleep",
+      "pmid": "41578909",
+      "focus": "Randomized double-blind trial in 48 third-molar surgery patients found a single preoperative sublingual melatonin dose did not improve perioperative anxiety, psychomotor performance, postoperative sleep or early post-traumatic-stress symptoms versus placebo; useful acute high-exposure null evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1510,
+      "entity_slug": "melatonin-hospital-delirium-restoration",
+      "pmid": "41592826",
+      "focus": "Double-blind RCT in 109 medically hospitalized adults age 65 and older was stopped early for futility and found no significant benefit from short-course melatonin for delirium incidence, sleep duration, 28-day mortality or readmission.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1511,
+      "entity_slug": "melatonin-melatoninergic-icu-delirium",
+      "pmid": "41602948",
+      "focus": "Meta-analysis of 22 ICU randomized trials involving 3,706 patients found melatonin or melatonin-receptor-agonist strategies associated with lower delirium incidence, but no significant effect on delirium duration, ICU stay or mortality; intervention heterogeneity and mixed-agonist evidence constrain melatonin-only inference.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1512,
+      "entity_slug": "melatonin-migraine-prophylaxis",
+      "pmid": "41627537",
+      "focus": "Nine-RCT meta-analysis involving 788 participants found melatonin improved several migraine-frequency, severity and sleep measures versus placebo, while active-comparator results favored amitriptyline on some efficacy endpoints; supports condition-specific adjunctive evidence, not general sleep or analgesic superiority.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1513,
+      "entity_slug": "melatonin-tryptophan-5htp-neurodevelopmental-sleep",
+      "pmid": "41643230",
+      "focus": "Tiny randomized pilot in children under five with neurodevelopmental disorders comparing melatonin plus 5-HTP versus melatonin plus L-tryptophan found no significant between-group sleep differences; a within-group motor-activity signal in 5-HTP completers is hypothesis-generating amid high attrition.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1514,
+      "entity_slug": "melatonin-pediatric-atopic-dermatitis",
+      "pmid": "41647028",
+      "focus": "Meta-analysis of three pediatric atopic-dermatitis RCTs found melatonin shortened sleep-onset latency and modestly lowered clinician-rated severity, but total sleep duration and IgE were not improved and the SCORAD change did not clearly exceed the minimal clinically important difference.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1515,
+      "entity_slug": "magnesium-leg-cramps",
+      "pmid": "41680812",
+      "focus": "Three-arm randomized trial in adults age 50 to 85 with recurrent leg cramps found magnesium hydrochloride did not reduce cramp frequency versus placebo, while compression stockings did; direct null evidence against routine magnesium efficacy for this indication.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1516,
+      "entity_slug": "melatonin-menopause-bone-sleep",
+      "pmid": "41693954",
+      "focus": "Systematic review and meta-analysis in menopausal women found suggestive femoral-neck bone-density benefit but no consistent improvements in sleep, menopausal symptoms, mood, sexual function, BMI or insulin; prevalent combination interventions and heterogeneity prevent isolating melatonin's independent effect.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1517,
+      "entity_slug": "high-dose-melatonin-ocrelizumab-hepatic-safety",
+      "pmid": "41706381",
+      "focus": "Phase I/II adjunctive trial of very-high-dose melatonin with ocrelizumab in primary progressive multiple sclerosis was halted after grade 1 to 2 hypertransaminasemia in three participants; this is regimen-specific cross-therapy safety evidence, not a general low-dose melatonin risk estimate.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 1518,
+      "entity_slug": "melatonin-chronic-kidney-disease",
+      "pmid": "41727206",
+      "focus": "Meta-analysis of 10 chronic-kidney-disease RCTs found melatonin modestly increased HDL, reduced malondialdehyde and improved PSQI, while triglycerides, total and LDL cholesterol and CRP were null; very high heterogeneity for several outcomes limits certainty.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1519,
+      "entity_slug": "melatonin-anxious-children-insomnia",
+      "pmid": "41781909",
+      "focus": "Randomized blinded three-arm study in 72 children with anxiety disorders and insomnia found both melatonin and clonidine improved sleep-habit scores versus placebo with no significant difference between active treatments; pediatric psychiatric context and short follow-up remain explicit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1520,
+      "entity_slug": "melatonin-adult-atopic-dermatitis",
+      "pmid": "41787942",
+      "focus": "Four-week randomized placebo-controlled trial in 80 adults with mild-to-moderate atopic dermatitis found melatonin improved SCORAD, pruritus, sleep and quality-of-life measures but not pain; short duration and disease-specific context limit broader claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1521,
+      "entity_slug": "low-dose-melatonin-climacteric-shift-workers",
+      "pmid": "41841489",
+      "focus": "Small randomized trial in 46 climacteric female nurses working fixed shifts found low-dose melatonin reduced symptom scores and improved reported sleep quality on days off without changing total sleep duration or reproductive hormones; sample size and shift-specific timing matter.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1522,
+      "entity_slug": "magnesium-fluoxetine-depression",
+      "pmid": "41916937",
+      "focus": "Six-week study in 40 adults receiving fluoxetine reported greater HDRS improvement with adjunctive magnesium than fluoxetine alone, while serum serotonin did not change; adjunctive design, small sample and allocation method prevent magnesium-monotherapy attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1523,
+      "entity_slug": "tryptophan-rich-diet-breast-cancer-sleep",
+      "pmid": "42033145",
+      "focus": "Six-week randomized dietary trial in 50 women receiving breast-cancer chemotherapy found a tryptophan-rich meal plan increased actigraphic total sleep time at selected weeks and reduced WASO at selected weeks, without deep-sleep or fatigue benefit; food-pattern intervention cannot be treated as isolated tryptophan-supplement evidence.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1524,
+      "entity_slug": "melatonin-caffeine-athlete-performance",
+      "pmid": "42124027",
+      "focus": "Four-condition crossover trial in 14 trained men found nocturnal melatonin did not improve measured sleep, while morning caffeine drove shuttle-run performance benefits; combination biomarker changes cannot establish an independent melatonin performance effect.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1525,
+      "entity_slug": "melatoninergic-icu-delirium-dose-response",
+      "pmid": "42310686",
+      "focus": "Updated 24-RCT dose-response meta-analysis found melatoninergic agonists reduced ICU delirium incidence, with a similar signal in the melatonin subgroup, but mortality and adverse-event rates were unchanged; pooled duration and dose modeling is research context and must not be converted into dosing guidance.",
+      "state": "research_only_category_firewall"
+    }
+  ]
+}
