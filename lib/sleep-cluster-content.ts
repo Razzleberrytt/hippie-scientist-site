@@ -632,9 +632,9 @@ export const sleepArticleContent: Record<string, SleepArticleContent> = {
     slug: 'best-magnesium-for-sleep',
     eyebrow: 'Sleep product guide',
     tlDr: [
-      'The best magnesium for sleep is usually the product with the right form, a clear elemental dose, and good tolerability, not the biggest front-label number.',
-      'Glycinate or bisglycinate is the default form to compare for sleep. Citrate can work but is more bowel-active; oxide is usually not the first sleep-quality pick.',
-      'This guide uses buying criteria and existing product infrastructure. It does not invent review counts, prices, or unsupported rankings.',
+      'There is no proven universal best magnesium form for sleep. Direct human trials study specific preparations and do not establish a head-to-head form winner.',
+      'Bisglycinate and L-threonate now have form-specific randomized sleep studies, while citrate and oxide answer different absorption, tolerability, or historical-trial questions rather than proving superior sleep efficacy.',
+      'Buying criteria should prioritize transparent elemental-magnesium labeling, preparation match, tolerability, medication safety, quality signals, and cost instead of a form-name ranking.',
     ],
     evidence: evidence(
       'limited',
@@ -647,24 +647,24 @@ export const sleepArticleContent: Record<string, SleepArticleContent> = {
     comparisonRows: [
       {
         name: 'Magnesium glycinate / bisglycinate',
-        evidence: 'Best sleep-oriented default',
-        dose: '100-300 mg elemental magnesium',
-        bestFor: 'Tolerability, evening use, tension',
-        caution: 'Still can loosen stools in sensitive users',
+        evidence: 'Recent placebo-controlled sleep evidence; small effect',
+        dose: 'Study context varies by product and elemental magnesium exposure',
+        bestFor: 'Readers seeking a formulation with direct recent human sleep data',
+        caution: 'No head-to-head proof of superiority over other forms',
       },
       {
-        name: 'Magnesium citrate',
-        evidence: 'Useful but bowel-active',
-        dose: '100-200 mg elemental magnesium',
-        bestFor: 'Users who also want regularity support',
-        caution: 'More likely to cause diarrhea',
+        name: 'Magnesium L-threonate',
+        evidence: 'Separate branded-product sleep trials',
+        dose: 'Study context is preparation-specific',
+        bestFor: 'Readers matching the exact branded-study preparation',
+        caution: 'Industry-linked evidence and no direct comparison with glycinate',
       },
       {
-        name: 'Magnesium oxide',
-        evidence: 'Budget form, less sleep-focused',
-        dose: 'Label-dependent',
-        bestFor: 'Cost-focused users who tolerate it',
-        caution: 'Less desirable when absorption/tolerability matter',
+        name: 'Citrate / oxide / other forms',
+        evidence: 'No direct evidence of universal sleep superiority',
+        dose: 'Depends on elemental exposure, indication, and tolerability',
+        bestFor: 'Other clinical, nutritional, bowel-tolerance, or cost considerations',
+        caution: 'Do not infer sleep efficacy from absorption or mechanism claims alone',
       },
     ],
     sections: [
@@ -679,14 +679,14 @@ export const sleepArticleContent: Record<string, SleepArticleContent> = {
         heading: 'Buying criteria',
         body: [
           'Look for elemental magnesium clearly stated on the Supplement Facts panel. “1,000 mg magnesium glycinate” is not the same thing as 1,000 mg elemental magnesium.',
-          'Prefer glycinate or bisglycinate for sleep-oriented trials. Check serving size, capsules per serving, third-party testing signals, and whether the product includes extra sedating herbs you did not intend to test.',
+          'Do not treat one form name as a universal sleep winner. Check elemental magnesium, the exact preparation used in relevant studies, serving size, tolerability, third-party testing signals, and whether a product adds other active ingredients that make effects harder to interpret.',
         ],
       },
       {
         heading: 'Dosage guidance',
         body: [
-          'A practical sleep trial is 100-300 mg elemental magnesium in the evening. The lower end is enough for many users to assess tolerability.',
-          'Do not combine a high-dose magnesium product with other magnesium-containing laxatives, antacids, or mineral blends without adding up the total intake.',
+          'There is no universal evidence-based magnesium dose for sleep. Trial regimens describe specific preparations, elemental exposures, populations, and durations rather than a personalized bedtime protocol.',
+          'Total supplemental magnesium exposure still matters, especially when a person also uses magnesium-containing laxatives, antacids, or mineral blends. Kidney function and medication spacing can materially change the safety calculation.',
         ],
       },
       {
@@ -699,8 +699,8 @@ export const sleepArticleContent: Record<string, SleepArticleContent> = {
       {
         heading: 'Comparisons and stacking guidance',
         body: [
-          'If magnesium does not match your problem, do not force it. Sleep-onset timing may point more toward the melatonin guide; mental arousal may point toward L-theanine or non-supplement sleep hygiene changes.',
-          'If you add melatonin later, keep magnesium stable and use a low melatonin dose so you can interpret the response.',
+          'Symptoms such as tension, racing thoughts, or sleep-onset difficulty do not reliably predict which supplement will work. Melatonin, magnesium, L-theanine, and non-supplement interventions have different evidence bases and should not be reduced to a symptom quiz.',
+          'Combination products and multi-supplement stacks make both benefits and adverse effects harder to attribute. Chronic insomnia is better addressed through evidence-based insomnia care than by escalating supplement combinations.',
         ],
       },
     ],
@@ -708,7 +708,7 @@ export const sleepArticleContent: Record<string, SleepArticleContent> = {
       {
         question: 'Is magnesium glycinate better than citrate for sleep?',
         answer:
-          'For sleep-oriented use, glycinate or bisglycinate is often the cleaner default because citrate is more bowel-active. Citrate can still be reasonable if regularity support is also desired.',
+          'No. Glycinate or bisglycinate has recent direct placebo-controlled sleep evidence, but there is no head-to-head trial establishing it as superior to citrate, L-threonate, oxide, or another form. Tolerability and bowel effects are practical differences, not proof of better sleep efficacy.',
       },
       {
         question: 'What should I check on a magnesium label?',
