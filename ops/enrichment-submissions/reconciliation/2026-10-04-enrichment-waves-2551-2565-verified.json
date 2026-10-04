@@ -44,6 +44,19 @@
       "evidence_boundary": "Primary research remains design-bounded; no recommendation, dose inference, or cross-formulation generalization is permitted."
     },
     {
+      "wave": 2554,
+      "pmid": "42741353",
+      "replaces_rejected_pmid": "42827952",
+      "doi": "10.1080/12298093.2026.2726644",
+      "title": "Taxonomic Reevaluation of Blackwellomyces Isolates Preserved in Korean Agricultural Culture Collection and Description of Two New Species.",
+      "category": "botanicals_mushrooms",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "Blackwellomyces is a genus of entomopathogenic fungi in the family Cordycipitaceae (Hypocreales, Sordariomycetes, Ascomycota) that primarily infects arthropod larvae, particularly those of Lepidoptera. Despite its ecological significance, this genus remains poorly studied in Korea. During the re-identification of Korean Cordyceps sensu lato isolates preserved in the Korean Agricultural Culture Collection (KACC), 12 strains were found to belong to the genus Blackwellomyces. Accordingly, this study aimed to accurately identify and clarify the taxonomic status of these isolates. The 12 Blackwellomyces strains were identified using molecular markers, including the internal transcribed spacer (IT",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    },
+    {
       "wave": 2555,
       "pmid": "42826594",
       "doi": "10.1016/j.micres.2026.128745",
@@ -54,6 +67,19 @@
       "focus": "Nitrogen metabolism is fundamental to fungal growth, development, and the biosynthesis of bioactive metabolites. The GATA transcription factor AreA plays a pivotal regulatory role in nitrogen metabolite repression. While the molecular mechanisms by which AreA responds to nitrogen sources have been relatively well elucidated in ascomycetes, they remain poorly understood in basidiomycetes. Here, using the macrofungus Ganoderma lucidum as a model, we elucidated a molecular mechanism by which an N-acetyltransferase (Nat) influences AreA nuclear entry under non-preferred nitrogen sources, thereby promoting nitrogen catabolic gene expression and the utilization of non-preferred nitrogen sources. T",
       "state": "research_only_preclinical",
       "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    },
+    {
+      "wave": 2557,
+      "pmid": "42611266",
+      "replaces_rejected_pmid": "42704497",
+      "doi": "10.1007/s00216-026-06734-5",
+      "title": "Poorly labeled CBD and related cannabinoid oils marketed in Europe: a hidden risk for consumers? Insights from a long-term study.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "UHPLC-HRMS analysis of 186 commercial cannabidiol (CBD) and related cannabinoid oils collected over the past decade revealed generally poor labeling accuracy. In total, 49% of products (86 of 181) did not contain the declared amount of CBD. Multivariate analysis of minor cannabinoid profiles enabled classification of the likely CBD source used in the formulations. In addition to trans-Δ9-tetrahydrocannabinol (trans-Δ9-THC), several samples contained other, less frequently monitored psychotropic THC isomers, including cis-Δ9-THC, Δ8-THC, and Δ10-THC. Moreover, hexahydrocannabinol (HHC) was detected in a product marketed as a full-spectrum oil. Considering the potential consumer risk associate",
+      "state": "research_only_primary",
+      "evidence_boundary": "Primary research remains design-bounded; no recommendation, dose inference, or cross-formulation generalization is permitted."
     },
     {
       "wave": 2558,
@@ -80,6 +106,19 @@
       "focus": "Roughly one-third of patients with epilepsy remain drug resistant, underscoring the need for novel therapeutic strategies. Although cannabidiol (CBD) has recently been approved for specific epileptic encephalopathies, its anticonvulsant mechanisms and the influence of biological sex on treatment response remain incompletely understood. In this preclinical study, we evaluated the efficacy, tolerability, pharmacokinetics, and molecular effects of CBD in the GASH/Sal hamster, a genetic model of audiogenic generalized tonic-clonic seizures. Animals received intraperitoneal CBD (200 mg/kg) either acutely or chronically for 14 days. CBD concentrations were measured in serum and brain, while seizur",
       "state": "research_only_preclinical",
       "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    },
+    {
+      "wave": 2561,
+      "pmid": "42618986",
+      "replaces_rejected_pmid": "42755825",
+      "doi": "10.1080/13543784.2026.2713043",
+      "title": "Peripheral cannabinoid-1 receptor antagonists in clinical development: therapeutic potential for the management of obesity and related metabolic disorders.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "Obesity is a chronic metabolic disease associated with insulin resistance, cardiometabolic complications, and increased mortality. Limitations of existing therapies have driven interests in alternative biological targets, including the endocannabinoid system and the cannabinoid-1 receptor (CB1R) signaling pathway. This review examines the rationale for targeting peripheral CB1R signaling and summarizes preclinical and clinical evidence supporting peripherally restricted CB1R antagonists and inverse agonists for obesity and related metabolic disorders. The metabolic effects of CB1R blockade in peripheral tissues are discussed, as well as distinctions between central and peripheral CB1R inhibi",
+      "state": "research_only_human_trial",
+      "evidence_boundary": "Human intervention evidence; no generalization beyond the studied formulation, dose, population, comparator, duration, and outcomes."
     },
     {
       "wave": 2562,
@@ -133,39 +172,20 @@
   ],
   "rejected": [
     {
-      "wave": 2554,
-      "pmid": "42827952",
-      "reason": "Replacement exact PubMed fetch lacked title or abstract.",
-      "category": "botanicals_mushrooms",
-      "replacement_attempt_pmid": "42738974"
-    },
-    {
       "wave": 2556,
       "pmid": "42824329",
-      "reason": "Replacement exact PubMed fetch lacked title or abstract.",
+      "reason": "Second replacement exact PubMed fetch lacked title or abstract.",
       "category": "botanicals_mushrooms",
-      "replacement_attempt_pmid": "42741161"
-    },
-    {
-      "wave": 2557,
-      "pmid": "42704497",
-      "reason": "Replacement exact PubMed fetch lacked title or abstract.",
-      "category": "cannabinoid_safety",
-      "replacement_attempt_pmid": "42609475"
+      "replacement_attempt_pmid": "42741161",
+      "replacement_attempt_2_pmid": "42742469"
     },
     {
       "wave": 2559,
       "pmid": "42623795",
-      "reason": "Replacement exact PubMed fetch lacked title or abstract.",
+      "reason": "Second replacement exact PubMed fetch lacked title or abstract.",
       "category": "cannabinoid_safety",
-      "replacement_attempt_pmid": "42618595"
-    },
-    {
-      "wave": 2561,
-      "pmid": "42755825",
-      "reason": "Replacement exact PubMed fetch lacked title or abstract.",
-      "category": "cannabinoid_safety",
-      "replacement_attempt_pmid": "42630400"
+      "replacement_attempt_pmid": "42618595",
+      "replacement_attempt_2_pmid": "42617216"
     }
   ],
   "replacement_policy": "Failed exact-PubMed records are replaced only from the unused candidate reserve after hard PMID dedupe."
