@@ -201,15 +201,14 @@
     },
     {
       "wave": 2138,
-      "pmid": "42433395",
-      "doi": "10.3389/fpubh.2026.1844881",
-      "entity": "omega-3",
-      "topic": "pediatric-adhd",
-      "title": "Baseline omega-3 nutritional status and supplementation response in pediatric attention-deficit/hyperactivity disorder: a systematic review and biomarker-stratified meta-analysis.",
-      "study": "systematic review/meta-analysis of 7 RCTs",
-      "population": "children and adolescents with ADHD",
-      "finding": "Omega-3 produced a small overall symptom benefit; estimated effects were larger in children with low baseline omega-3 biomarkers and absent in normal/high or unstratified groups.",
-      "safety": "Only seven RCTs contributed and baseline-deficiency definitions differed; biomarker-guided supplementation remains hypothesis-generating.",
+      "pmid": "41829943",
+      "entity": "vitamin-c",
+      "topic": "hemodialysis",
+      "title": "Is the Juice Worth the Squeeze? Vitamin C Supplementation in Hemodialysis Patients: A Systematic Review.",
+      "study": "systematic review of 37 studies",
+      "population": "patients receiving hemodialysis",
+      "finding": "Hemodialysis patients commonly had low vitamin-C intake and blood levels; supplementation showed the clearest benefit for functional iron deficiency and restless-legs symptoms, while effects on inflammation and other comorbidities were inconsistent.",
+      "safety": "Dialysis-specific deficiency and losses make this a special population; current evidence does not justify routine vitamin C for all hemodialysis comorbidities.",
       "state": "research_only_population_firewall"
     },
     {
