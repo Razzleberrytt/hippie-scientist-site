@@ -6,7 +6,7 @@
     "range": "1501-2000",
     "pass_size": 25,
     "target_findings": 500,
-    "progress_after_pass": 150,
+    "progress_after_pass": 175,
     "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2000"
   },
   "source_provenance": [
@@ -1076,6 +1076,181 @@
       "pmid": "42514326",
       "focus": "Exploratory randomized double-blind placebo-controlled trial evaluated VSL#3 for abdominal pain and bloating in ulcerative-colitis remission with IBS-like symptoms; findings remain product- and phenotype-specific.",
       "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1651,
+      "entity_slug": "vitamin-d-ovarian-reserve-chemotherapy",
+      "pmid": "38925607",
+      "focus": "Small randomized phase-II trial in young breast-cancer patients receiving chemotherapy found calcitriol did not significantly preserve AMH/ovarian reserve versus control at six months; the slight AMH recovery signal missed statistical significance.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1652,
+      "entity_slug": "acarbose-myoinositol-pcos",
+      "pmid": "38972164",
+      "focus": "Open-label RCT in 168 women with PCOS found acarbose plus myo-inositol and acarbose plus metformin produced different metabolic/endocrine changes; concomitant acarbose and active-comparator design prevent isolated myo-inositol efficacy claims.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1653,
+      "entity_slug": "vitamin-d-pcos-metabolic-rct",
+      "pmid": "39014475",
+      "focus": "Twelve-week RCT in 60 vitamin-D-deficient/insufficient women with PCOS found supplementation improved selected insulin-resistance, lipid and anthropometric measures, with effects concentrated in obesity/insulin-resistance subgroups and little signal in non-obese participants.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1654,
+      "entity_slug": "antioxidants-ovarian-aging-meta",
+      "pmid": "39019217",
+      "focus": "Meta-analysis of 20 RCTs and 2,617 women with ovarian aging found antioxidants improved several ovarian-stimulation and pregnancy-related outcomes, but interventions ranged across CoQ10, melatonin, myo-inositol and vitamins; category pooling and subgroup-derived regimen claims require caution.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1655,
+      "entity_slug": "myoinositol-assisted-reproduction-meta",
+      "pmid": "39084195",
+      "focus": "Meta-analysis of eight RCTs found myo-inositol slightly increased retrieved-oocyte count but did not improve clinical pregnancy or miscarriage outcomes and concluded no demonstrated benefit for oocyte/embryo quality overall.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1656,
+      "entity_slug": "berberine-pcos-fertility-meta",
+      "pmid": "39236662",
+      "focus": "Meta-analysis of 10 RCTs and 713 women found berberine added to conventional therapy increased ovulation and clinical-pregnancy rates and changed endometrial/hormonal measures, but all findings are adjunctive and require confirmation in higher-quality trials.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1657,
+      "entity_slug": "metformin-inositol-pcos-meta",
+      "pmid": "39331347",
+      "focus": "Meta-analysis of six RCTs and 388 women found metformin plus inositol improved menstrual regularity, hirsutism and LH/FSH ratio versus metformin alone, while BMI, fasting glucose and HOMA-IR were not significantly different.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1658,
+      "entity_slug": "metformin-nanocurcumin-pcos-factorial",
+      "pmid": "39461199",
+      "focus": "Twelve-week factorial double-blind RCT in 200 women with PCOS found combined metformin plus nanocurcumin improved multiple lipid, glucose, hormonal and anthropometric endpoints more than individual arms; formulation and drug-combination effects cannot be assigned to ordinary curcumin.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1659,
+      "entity_slug": "cinnamon-early-postmenopause-symptoms",
+      "pmid": "39579099",
+      "focus": "Two-month triple-blind RCT in 59 analyzed early-postmenopausal women found cinnamon reduced overall Menopause Rating Scale and psychological-symptom scores versus placebo; small single-center trial needs replication.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1660,
+      "entity_slug": "polyphenols-pcos-meta",
+      "pmid": "39682053",
+      "focus": "Meta-analysis of 15 RCTs and 934 women with PCOS found dietary polyphenols improved selected hormonal, insulin, triglyceride and inflammatory/oxidative markers, but heterogeneous compounds and interventions require a category firewall.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1661,
+      "entity_slug": "pcos-ivf-agents-network-meta",
+      "pmid": "39702393",
+      "focus": "Network meta-analysis of 20 RCTs and 1,827 women with PCOS undergoing IVF/ICSI found metformin and myo-inositol reduced ovarian-hyperstimulation risk but did not significantly improve pregnancy outcomes versus controls; metformin increased side effects.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1662,
+      "entity_slug": "myoinositol-pcos-icsi-rct",
+      "pmid": "39718613",
+      "focus": "Prospective randomized study in 60 women with PCOS undergoing ICSI found myo-inositol plus folic acid improved several hormonal/oxidative markers and embryo-quality measures, while retrieved and mature oocyte counts were not significantly improved.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1663,
+      "entity_slug": "female-infertility-supplement-umbrella",
+      "pmid": "39796491",
+      "focus": "Umbrella review found some supplement classes associated with fertility outcomes, but certainty for live birth and pregnancy benefits was generally very low and evidence varied across antioxidants, micronutrients, carnitine, CoQ10, melatonin and inositols.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1664,
+      "entity_slug": "vitamin-d-vaginal-probiotic-implantation-failure",
+      "pmid": "39955996",
+      "focus": "Randomized clinical trial evaluated combined vitamin D supplementation and vaginal probiotics in women with recurrent implantation failure; the factorial contribution of each intervention must remain separated from any combined fertility signal.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1665,
+      "entity_slug": "vitamin-d-pcos-ovulation-rct",
+      "pmid": "40219003",
+      "focus": "Prospective double-blind RCT in women with PCOS found vitamin D treatment improved ovarian morphology, menstrual regularity and ovulation measures over 24 weeks, with a testosterone reduction limited to a higher-LH/FSH subgroup.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1666,
+      "entity_slug": "flaxseed-pcos-endocrine-rct",
+      "pmid": "40260281",
+      "focus": "Open-label RCT in 70 women with PCOS found milled flaxseed increased FSH and reduced LH/FSH ratio but did not significantly change AMH, LH, estradiol, DHEAS or androstenedione; lifestyle modification was co-administered in both arms.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1667,
+      "entity_slug": "curcumin-postmenopause-systematic-review",
+      "pmid": "40943181",
+      "focus": "Systematic review of 12 RCTs found curcumin results in postmenopausal women were conflicting for estradiol, bone and vasomotor outcomes and showed no consistent physical, psychological or sexual-function benefit; longer bioavailable-form studies showed some cardiometabolic signals.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1668,
+      "entity_slug": "curcumin-postmenopause-fatigue-musculoskeletal",
+      "pmid": "40976665",
+      "focus": "Eight-week double-blind RCT in 74 postmenopausal women found curcumin improved musculoskeletal-health scores versus placebo, with fatigue/depression and tolerability assessed as additional outcomes; modest sample and short duration limit certainty.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1669,
+      "entity_slug": "vitamin-d-amh-meta",
+      "pmid": "41437344",
+      "focus": "Meta-analysis of 16 studies and 484 participants found vitamin D supplementation did not significantly change AMH in either randomized or single-arm analyses, providing a direct null against ovarian-reserve biomarker claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1670,
+      "entity_slug": "vitamin-d-pcos-endocrine-meta",
+      "pmid": "41496027",
+      "focus": "Meta-analysis of 10 PCOS studies found vitamin D reduced HOMA-IR, fasting insulin, hs-CRP and total testosterone but did not consistently improve several other endocrine/metabolic outcomes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1671,
+      "entity_slug": "vitamin-d-pcos-ivf-live-birth",
+      "pmid": "41702641",
+      "focus": "Large multicenter double-blind RCT in 876 women with PCOS undergoing IVF found vitamin D corrected serum 25-OHD but did not improve live birth after first embryo transfer versus placebo (52.0% vs 50.2%).",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1672,
+      "entity_slug": "multiple-micronutrients-pregnancy-ethiopia",
+      "pmid": "41871585",
+      "focus": "Pragmatic cluster RCT across 85,698 Ethiopian women found routine antenatal multiple-micronutrient supplementation increased mean birthweight modestly versus iron-folic acid; population-level effectiveness context differs from individualized supplement use.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1673,
+      "entity_slug": "vitamin-d-pregnancy-umbrella-meta",
+      "pmid": "41923026",
+      "focus": "Quantitative umbrella meta-analysis reported prenatal vitamin-D supplementation associated with lower risks of several maternal/neonatal outcomes and modest growth differences, but the synthesis pools heterogeneous regimens and reviews and should not generate dosing guidance.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1674,
+      "entity_slug": "oral-iron-regimens-pregnancy-panda",
+      "pmid": "42024457",
+      "focus": "PANDA dose-finding trial in 135 nonanemic pregnant participants found iron-status biomarkers declined across pregnancy regardless of daily, alternate-day or three-times-weekly ferrous-sulfate regimen, with most participants iron deficient by late second trimester despite supplementation.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1675,
+      "entity_slug": "dha-placentation-deeper-null",
+      "pmid": "42025271",
+      "focus": "Multicenter double-blind DEEPER RCT in 809 pregnant women found early DHA supplementation did not significantly reduce the composite of early preterm birth, early preeclampsia or severe fetal-growth restriction; trial was underpowered because event rates were lower than expected.",
+      "state": "reviewed_receipt_pending_final_admission"
     }
   ]
 }
