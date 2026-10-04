@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-1251-1275-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-1226-1250-selection",
+  "program": {
+    "range": "1001-1500",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 275,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 1500"
+  },
+  "source_provenance": [
+    "Sider Scholar/NCBI PubMed exact-source verification",
+    "collision screening against merged history, pending Waves 501-1000, and active Waves 1001-1250"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 1500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "validation_strategy": "PMID-level dedupe/source verification during authoring; expensive repository-wide validation only after Wave 1500"
+  },
+  "waves": [
+    {
+      "wave": 1251,
+      "entity_slug": "menaquinone7-glycemic-lipids",
+      "pmid": "40054729",
+      "focus": "Meta-analysis of six randomized trials found MK-7 improved selected glycemic measures, but heterogeneity was very high and most other anthropometric/lipid outcomes were null; the small evidence base does not support broad metabolic efficacy claims.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1252,
+      "entity_slug": "menaquinone7-vascular-stiffness-menopause",
+      "pmid": "40077685",
+      "focus": "Post-hoc analysis of a one-year randomized trial in women with low vitamin-K status found MK-7 lowered dp-ucMGP and attenuated vascular-stiffness progression in postmenopausal subgroups, especially those with higher baseline stiffness; subgroup/post-hoc design limits confirmatory inference.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1253,
+      "entity_slug": "vitamin-k2-d3-cardiovascular-inflammation",
+      "pmid": "41100911",
+      "focus": "AVADEC substudy in 388 older men found two years of vitamin K2 plus D3 markedly improved vitamin-K status but did not significantly change epicardial/pericoronary adipose inflammation or systemic inflammatory biomarkers; useful surrogate-target null evidence.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1254,
+      "entity_slug": "vitamin-k2-bone-turnover",
+      "pmid": "41268154",
+      "focus": "Meta-analysis of nine studies/2,570 postmenopausal osteoporosis patients found vitamin K2 improved several bone-turnover biomarkers, including osteocalcin carboxylation, while NTX was unchanged and clinical benefits such as fracture or BMD improvement remain unconfirmed.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1255,
+      "entity_slug": "vitamin-k-glycemic-control",
+      "pmid": "41599883",
+      "focus": "Meta-analysis of eight RCTs in prediabetes/type-2 diabetes found modest reductions in fasting glucose, HbA1c and HOMA-IR with vitamin K, while fasting insulin and HOMA-beta were unchanged; isoform and duration heterogeneity limit treatment claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1256,
+      "entity_slug": "vitamin-k2-exercise-recovery",
+      "pmid": "41843412",
+      "focus": "Twelve-week randomized double-blind trial in 71 young and older adults found vitamin K2 did not improve muscle strength, physical function, soreness or overall inflammatory recovery after muscle-damaging exercise; age-specific electrophysiologic and CK/IL-6 signals were exploratory.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1257,
+      "entity_slug": "menaquinone-producing-probiotics-vitamin-k",
+      "pmid": "42000184",
+      "focus": "Very small double-blind RCT in 20 older adults at cardiovascular risk found menaquinone-producing probiotics improved average dp-ucMGP and serum MK-7 over 12 weeks, but group differences diminished by week 12 and no clinical outcomes were tested.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1258,
+      "entity_slug": "vitamin-k2-overweight-cardiometabolic",
+      "pmid": "42193338",
+      "focus": "Twelve-week randomized double-blind trial in 46 young adults with overweight/obesity found MK-4 lowered total and LDL cholesterol, while body composition, glucose metabolism and vitamin-K-dependent proteins were unchanged; small sample and multiple endpoints require replication.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1259,
+      "entity_slug": "menaquinone7-coronary-calcification",
+      "pmid": "42268593",
+      "focus": "Two-year randomized placebo-controlled trial in symptomatic coronary disease found MK-7 slowed progression of coronary calcium scores relative to placebo while strongly raising circulating MK-7; imaging progression is a surrogate and does not establish reduction in cardiovascular events.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1260,
+      "entity_slug": "creatine-hmb-older-adults",
+      "pmid": "41073834",
+      "focus": "Randomized double-blind crossover trial in 30 physically active older adults found creatine plus HMB during structured training improved several functional-strength/endurance measures, with little clear muscle-mass gain; combination exposure prevents attribution to either ingredient alone.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1261,
+      "entity_slug": "hmb-protein-turnover-older-adults",
+      "pmid": "42124050",
+      "focus": "Double-blind crossover tracer study in 24 older adults found HMB added to a 40-g whey bolus further increased muscle-protein synthesis in older women and suppressed later protein breakdown; acute mechanistic responses do not establish long-term functional benefit.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1262,
+      "entity_slug": "hmb-critical-illness-inflammation",
+      "pmid": "42202485",
+      "focus": "Secondary post-hoc analysis of a critical-care HMB RCT found complex amino-acid and cytokine changes, including several higher pro-inflammatory cytokines in the HMB group; the findings challenge a simple anti-inflammatory narrative and remain exploratory.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1263,
+      "entity_slug": "prebiotic-akkermansia-gut-health",
+      "pmid": "42158814",
+      "focus": "Eight-week randomized trial of a prebiotic blend designed to promote Akkermansia increased its relative abundance and shifted selected taxa, with only a trend toward lower GI discomfort; microbiome changes were clearer than clinical effects.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1264,
+      "entity_slug": "inulin-type1-diabetes-children",
+      "pmid": "42165942",
+      "focus": "Double-blind pilot RCT in 68 children with type-1 diabetes found oligofructose-enriched inulin enriched SCFA-producing taxa but did not significantly improve HbA1c over 12 weeks; microbiome modulation did not translate into short-term glycemic benefit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1265,
+      "entity_slug": "oatmeal-resistant-starch-uric-acid",
+      "pmid": "42171138",
+      "focus": "Eight-week three-arm RCT in 99 young adults found both oatmeal and resistant-starch fiber diets lowered serum uric acid versus control, with a larger reduction in the oatmeal group; multi-omics mediation findings remain mechanistic and population-specific.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1266,
+      "entity_slug": "synbiotic-pediatric-masld",
+      "pmid": "42185448",
+      "focus": "Eight-week double-blind placebo-controlled pediatric MASLD trial found a nine-strain synbiotic improved liver enzymes, lipids, BMI and ultrasound steatosis grade versus prebiotic-only placebo; short duration, combined formulation and surrogate liver measures require cautious interpretation.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1267,
+      "entity_slug": "inulin-fructans-psoriasis-metabolism",
+      "pmid": "42356231",
+      "focus": "Randomized double-blind psoriasis trial found chicory inulin-type fructans did not significantly improve body composition and largely stabilized metabolic variables while placebo worsened on some measures; authors cautioned that placebo composition may explain apparent differences.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1268,
+      "entity_slug": "prebiotics-celiac-disease",
+      "pmid": "42365652",
+      "focus": "Systematic review of 12 celiac-disease studies found prebiotic foods/supplements appeared generally safe and influenced SCFAs, microbiota and selected nutrient markers without compromising mucosal healing; intervention heterogeneity and mixed study designs prevent a class-wide efficacy claim.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1269,
+      "entity_slug": "probiotic-synbiotic-pcos",
+      "pmid": "42420973",
+      "focus": "Meta-analysis of 11 RCTs/780 women with PCOS found probiotics/synbiotics improved selected insulin, testosterone, lipid, BMI and antioxidant outcomes, while fasting glucose, HOMA-IR, several hormones and waist measures were null; effects were outcome-specific rather than global.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1270,
+      "entity_slug": "inulin-functional-food-obesity",
+      "pmid": "42485520",
+      "focus": "Small randomized double-blind placebo-controlled trial in 50 women with obesity found an inulin-enriched tapioca product reduced body weight, body fat and selected lipid measures over 12 weeks; proprietary functional-food format and limited sample require replication.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1271,
+      "entity_slug": "resistant-starch-polydextrose-bile-acids",
+      "pmid": "42489745",
+      "focus": "Randomized controlled factorial trial in healthy adults found resistant starch and polydextrose produced distinct plasma/fecal bile-acid and microbiome associations; mechanistic bile-acid shifts should not be interpreted as proven clinical benefit.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1272,
+      "entity_slug": "resistant-starch-blood-pressure-autonomic",
+      "pmid": "42754828",
+      "focus": "Eight-week double-blind pilot in 30 women at metabolic-syndrome risk found resistant starch lowered systolic pressure within the intervention group, but the adjusted between-group difference was not significant and heart-rate-variability effects were exploratory.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1273,
+      "entity_slug": "garlic-pcos-metabolic-syndrome",
+      "pmid": "40770379",
+      "focus": "Eight-week randomized placebo-controlled trial in 97 women with PCOS and metabolic syndrome found garlic improved several glucose, lipid, blood-pressure, inflammatory and quality-of-life measures; short follow-up and broad multiple-endpoint testing warrant replication.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1274,
+      "entity_slug": "myo-inositol-pregnancy-pcos",
+      "pmid": "40920401",
+      "focus": "Large double-blind placebo-controlled multicenter trial in 464 pregnant people with PCOS found myo-inositol did not reduce the composite risk of gestational diabetes, preeclampsia or preterm birth; strong direct null evidence against routine benefit in this population.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1275,
+      "entity_slug": "inositol-gestational-diabetes-umbrella",
+      "pmid": "41792927",
+      "focus": "Umbrella meta-analysis reported lower gestational-diabetes and selected maternal/neonatal risks with inositol across prior meta-analyses, but the positive pooled signal should be reconciled with newer large direct RCT null findings such as PMID 40920401.",
+      "state": "research_only_evidence_quality"
+    }
+  ]
+}
