@@ -5,18 +5,81 @@
     "NCBI PubMed EFetch via Sider Scholar"
   ],
   "dedupe_basis": "Master selection excludes 2,435 prior PMIDs and is unique within the 500-entry batch.",
-  "rows": [],
-  "rejected": [
+  "rows": [
     {
       "wave": 2551,
       "pmid": "42774472",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+      "doi": "10.3389/fphar.2026.1866260",
+      "title": "Therapeutic effect of ginseng: a non-antibiotic approach to preventing pathogenic bacterial infections and restoring gut microbiota composition.",
+      "category": "botanicals_mushrooms",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "Human health is influenced by various factors, including bacteria that surround us ubiquitously. Bacteria constituting normal microbiota of various human body niches, primarily the gut, can confer beneficial effects by aiding food digestion, improving nutrient production, and preventing pathogen colonization. However, bacteria can also have harmful effects as pathogens, especially when the immune system is compromised due to various diseases. In particular, secondary or co-infections caused by pathogenic bacteria have been shown to significantly contribute to illness severity and increased mortality rates. Ginseng, an herb widely used for various medicinal purposes in Asia, including the tre",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
     },
     {
       "wave": 2552,
       "pmid": "42766259",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
+      "doi": "10.1007/s11418-026-02080-z",
+      "title": "Erinacerins from Hericium erinaceus: a review of their chemistry, bioactivities, and NMR characterization.",
+      "category": "botanicals_mushrooms",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "The medicinal mushroom Hericium erinaceus is a rich source of diverse bioactive secondary metabolites. Erinacerins are a significant class of structurally diverse secondary metabolites, comprising both nitrogen-containing alkaloids bearing an isoindolinone or pyridinone core and non-nitrogenous congeners. This review provides a comprehensive overview of 28 known erinacerins reported from H. erinaceus, detailing their isolation, structural elucidation, and diverse bioactivities. A key focus is directed toward their characterization by NMR spectroscopy, offering a systematic guide for the identification of this class of molecules. The discussion encompasses the reported inhibitory effects of e",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
     },
+    {
+      "wave": 2555,
+      "pmid": "42826594",
+      "doi": "10.1016/j.micres.2026.128745",
+      "title": "An N-acetyltransferase influences AreA nuclear localization and nitrogen utilization in the basidiomycete Ganoderma lucidum.",
+      "category": "botanicals_mushrooms",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "Nitrogen metabolism is fundamental to fungal growth, development, and the biosynthesis of bioactive metabolites. The GATA transcription factor AreA plays a pivotal regulatory role in nitrogen metabolite repression. While the molecular mechanisms by which AreA responds to nitrogen sources have been relatively well elucidated in ascomycetes, they remain poorly understood in basidiomycetes. Here, using the macrofungus Ganoderma lucidum as a model, we elucidated a molecular mechanism by which an N-acetyltransferase (Nat) influences AreA nuclear entry under non-preferred nitrogen sources, thereby promoting nitrogen catabolic gene expression and the utilization of non-preferred nitrogen sources. T",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    },
+    {
+      "wave": 2562,
+      "pmid": "42627450",
+      "doi": "10.1007/s40262-026-01691-9",
+      "title": "Pharmacokinetics, Safety, and Dosing of Antiseizure Medications in Patients with Renal or Hepatic Impairment.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "Ten newer antiseizure medications (ASMs) approved since 2000 and selected for this review (cenobamate, brivaracetam, eslicarbazepine acetate, lacosamide, perampanel, fenfluramine, ganaxolone, cannabidiol, stiripentol, and rufinamide) have broadened treatment options for drug-resistant epilepsy. However, concurrent renal or hepatic impairment alters drug disposition through diminished clearance, shifted protein binding equilibria, accumulation of active metabolites, and variable dialytic removal that standard dosing fails to accommodate. Despite the rising clinical overlap of epilepsy with chronic kidney and liver diseases, consolidated prescribing guidance for these agents in organ-impaired ",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    },
+    {
+      "wave": 2563,
+      "pmid": "42813605",
+      "doi": "10.1177/02698811261478615",
+      "title": "Effects of Δ9-tetrahydrocannabinol on affiliative social behaviour: A systematic review of rodent studies.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "Affiliative social behaviour is critical for survival and well-being and is shaped by complex neurobiological systems, including the endocannabinoid system (ECS). Δ9-tetrahydrocannabinol (THC), the primary psychoactive compound in cannabis, is a partial agonist at cannabinoid receptors and directly modulates ECS signaling. Given increasing cannabis use globally, understanding the effects of THC on social functioning is essential. We conducted a systematic review of preclinical studies indexed in MEDLINE and PsycINFO to examine the effects of THC on social behaviour in wild-type (WT) rodents and rodent social impairment models (SIM). Forty-nine studies encompassing 146 experiments were includ",
+      "state": "research_only_systematic_review",
+      "evidence_boundary": "Evidence synthesis inherits heterogeneity and limitations of included studies; ingredient/formulation/population attribution remains explicit."
+    },
+    {
+      "wave": 2565,
+      "pmid": "42807438",
+      "doi": "10.2147/NSA.S617933",
+      "title": "Functionalized Colloidal Hydroxyapatite for Combined Delivery of Cannabidiol and Epirubicin: Characterization, Biomimetic Membrane Interaction, and Cytotoxicity Studies.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "NCBI PubMed EFetch via Sider Scholar",
+      "focus": "A stable colloidal hydroxyapatite (cHAp) platform was successfully developed for the co-delivery of cannabidiol (CBD), a natural bioactive compound, and epirubicin (EPI), a chemotherapeutic agent, to enhance cytotoxicity against ovarian cancer cells. Colloidal cHAp was synthesized and functionalized with CBD and EPI to obtain a multifunctional drug delivery system. The resulting composite was characterized using high-performance liquid chromatography, UV-Vis spectrometry, transmission and scanning electron microscopies, Fourier-transform infrared spectroscopy, Turbiscan analysis, and differential scanning calorimetry. Drug release in phosphate-buffered saline (PBS, pH 7) was evaluated by dif",
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Preclinical evidence is hypothesis-generating and cannot establish human efficacy, dosing, or safety."
+    }
+  ],
+  "rejected": [
     {
       "wave": 2553,
       "pmid": "42828551",
@@ -25,11 +88,6 @@
     {
       "wave": 2554,
       "pmid": "42827952",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
-    },
-    {
-      "wave": 2555,
-      "pmid": "42826594",
       "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
     },
     {
@@ -63,23 +121,8 @@
       "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
     },
     {
-      "wave": 2562,
-      "pmid": "42627450",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
-    },
-    {
-      "wave": 2563,
-      "pmid": "42813605",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
-    },
-    {
       "wave": 2564,
       "pmid": "42813543",
-      "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
-    },
-    {
-      "wave": 2565,
-      "pmid": "42807438",
       "reason": "Exact PubMed PMID fetch returned no title or abstract; rejected fail-closed."
     }
   ]
