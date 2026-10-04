@@ -36,8 +36,8 @@
       "safety_note": "The study was single-center and small, and the findings are specific to perioperative gastric-cancer care."
     },
     {
-      "record_id": "wave2038_vitamin_b12_41997492",
-      "entity_slug": "vitamin-b12",
+      "record_id": "wave2038_cobalamin_41997492",
+      "entity_slug": "cobalamin",
       "entity_name": "Vitamin B12",
       "effect_or_condition": "common childhood infections",
       "evidence_type": "randomized_controlled_trial",
@@ -193,7 +193,7 @@
       "journal": "The Journal of nutrition",
       "title": "The Effect of Daily Vitamin B-12 Supplementation on the Incidence of Common Childhood Infections in Nepal: Secondary Outcomes from a Double-Blind Randomized Controlled Trial.",
       "url": "https://pubmed.ncbi.nlm.nih.gov/41997492/",
-      "entity_slugs": "vitamin-b12",
+      "entity_slugs": "cobalamin",
       "used_for": "common childhood infections",
       "citation_or_note": "In a 600-infant randomized trial, daily vitamin B12 for 12 months did not reduce common infection incidence or health-clinic visits versus placebo. || This is a secondary-outcome analysis in infants at risk of deficiency and should not be generalized to other vitamin B12 indications.",
       "status": "published"
