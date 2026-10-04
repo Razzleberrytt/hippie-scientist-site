@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-1001-current-selection",
+  "program": {
+    "range": "1001-1500",
+    "target_findings": 500,
+    "current_findings": 25,
+    "last_wave": 1025
+  },
+  "policy": "research authoring index only; not runtime admission; final Wave-1500 consolidation required",
+  "waves": [
+    {
+      "wave": 1001,
+      "entity_slug": "glycine",
+      "pmid": "42687500",
+      "focus": "2026 scoping review mapped 22 trials of supplemental glycine/collagen; all three glycine sleep trials reported at least one favorable sleep outcome, but collagen-to-glycine mediation has not been directly tested and efficacy evidence remains small/mechanistic.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1002,
+      "entity_slug": "phosphatidylserine-dha",
+      "pmid": "42345137",
+      "focus": "Eight-week randomized placebo-controlled trial in 45 medication-naive children with ADHD/subthreshold symptoms; the higher-dose phosphatidylserine plus DHA arm improved selected attention, impulsivity, hyperactivity, reaction-time and Stroop outcomes, but DHA/formulation and pediatric-context boundaries prevent phosphatidylserine-only attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1003,
+      "entity_slug": "phosphatidylserine-taurine-caffeine",
+      "pmid": "42654170",
+      "focus": "Four-arm randomized triple-masked trial in 97 professional male football players; taurine+caffeine+phosphatidylserine combinations improved selected cognitive, psychomotor, sprint and locomotor outcomes, but the multi-ingredient design prevents phosphatidylserine-specific attribution and fatigue-resistance change was not established from baseline.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1004,
+      "entity_slug": "l-theanine",
+      "pmid": "42761839",
+      "focus": "2026 human-evidence review summarizes small cognition, stress/anxiety and sleep-quality signals from randomized evidence, often stronger with caffeine; dose-range summaries are study exposures rather than consumer dosing guidance and heterogeneity/interaction uncertainty remain.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1005,
+      "entity_slug": "hmb",
+      "pmid": "41934514",
+      "focus": "Thirteen-RCT meta-analysis in 561 adults age 50+ found no additional benefit of HMB plus resistance training for fat mass, muscle mass or muscle strength; direct null counterweight to routine HMB adjunct claims in exercisable older adults.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1006,
+      "entity_slug": "whey-hmb-strength-training",
+      "pmid": "42700006",
+      "focus": "Seven-RCT sarcopenia meta-analysis found strength-training plus supplementation improved several functional/body-composition outcomes overall, but subgroup benefit was clearer for whey protein than HMB; combined-intervention evidence cannot be assigned to HMB alone.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1007,
+      "entity_slug": "amino-acid-sarcopenia",
+      "pmid": "41540398",
+      "focus": "Nine-RCT/496-participant sarcopenia meta-analysis found low-to-very-low-certainty improvements in handgrip, gait speed and physical-performance measures when amino-acid-based supplements were added to resistance training, with no clear muscle-mass benefit and substantial intervention heterogeneity.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1008,
+      "entity_slug": "non-antibiotic-ruti-prevention",
+      "pmid": "42133003",
+      "focus": "Systematic review of recurrent-UTI prevention in women found therapy-specific differences: methenamine and vaginal estrogen had stronger support, while D-mannose and cranberry showed mixed efficacy; category evidence must not be collapsed into a generic supplement claim.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1009,
+      "entity_slug": "fenugreek",
+      "pmid": "42558777",
+      "focus": "Sixteen-study/1,171-participant meta-analysis found no significant overall effect of fenugreek on ALT, AST or ALP; an ALP subgroup signal at higher studied exposures does not overturn the overall liver-enzyme null and is not dosing guidance.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1010,
+      "entity_slug": "fenugreek",
+      "pmid": "42688439",
+      "focus": "Thirteen randomized placebo-controlled trials in adult men found a small total-testosterone signal but no stable free-testosterone benefit; all primary evidence was very low certainty and the authors rejected clinical/commercial testosterone-boosting claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1011,
+      "entity_slug": "hydrolyzed-collagen",
+      "pmid": "42666580",
+      "focus": "Systematic review of six human studies found cautiously positive adjunctive signals for pain/function/imaging after tendon or ligament injury/repair, but evidence was sparse, heterogeneous, low certainty and many oral interventions were multicomponent.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1012,
+      "entity_slug": "astaxanthin",
+      "pmid": "41710469",
+      "focus": "Seven-RCT/188-participant meta-analysis found lower advanced oxidation protein products after exercise but no significant changes in several other oxidative, inflammatory or muscle-injury biomarkers; broader physiological/performance benefit remains unconfirmed.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1013,
+      "entity_slug": "astaxanthin",
+      "pmid": "42197030",
+      "focus": "Twenty-four-RCT meta-analysis found lower creatine kinase and LDH with astaxanthin but no significant improvement in VO2max, time-trial performance or maximal workload/power; recovery-biomarker signals remain distinct from performance efficacy.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1014,
+      "entity_slug": "algae-exercise-supplements",
+      "pmid": "42075102",
+      "focus": "Twenty-two-RCT/822-participant review pooled Spirulina, Chlorella, brown-algal polysaccharides and astaxanthin; selected aerobic/recovery signals were species-, dose- and training-context dependent, so the evidence remains category-level rather than transferable across algae products.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1015,
+      "entity_slug": "citicoline-phosphatidylserine",
+      "pmid": "42538853",
+      "focus": "Systematic review of 11 controlled trials across ADHD and adult mental disorders found heterogeneous, inconsistent cognitive effects; current evidence did not support citicoline or phosphatidylserine-containing compounds as established cognitive enhancers.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1016,
+      "entity_slug": "spirulina",
+      "pmid": "41873104",
+      "focus": "Eight-RCT meta-analysis found a small reduction in CRP with Spirulina but no significant TNF-alpha or IL-6 effect, with significant heterogeneity; this supports a narrow biomarker statement rather than a broad anti-inflammatory claim.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1017,
+      "entity_slug": "zinc",
+      "pmid": "42594341",
+      "focus": "Eighteen-RCT/1,023-participant diabetes meta-analysis found improved insulin-resistance and selected inflammatory/oxidative biomarkers, while LDL cholesterol increased modestly; disease-specific surrogate outcomes and mixed lipid direction remain explicit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1018,
+      "entity_slug": "probiotics",
+      "pmid": "41501907",
+      "focus": "Twelve-RCT/3,350-participant meta-analysis in healthy working adults found a small pooled improvement in subclinical depression/anxiety/stress symptoms and lower cortisol, with no CRP effect and insufficient sleep evidence; strain/dose/duration heterogeneity remains substantial.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1019,
+      "entity_slug": "probiotics",
+      "pmid": "41573044",
+      "focus": "Six-RCT/341-participant meta-analysis of probiotic monotherapy in unmedicated depression found a small symptom benefit, but sensitivity analysis excluding industry-funded/adjunctive-agent studies became nonsignificant; formulation and funding-bias boundaries are first-class.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1020,
+      "entity_slug": "probiotics",
+      "pmid": "42032711",
+      "focus": "Forty-one-RCT meta-analysis found a modest cortisol reduction with probiotics, but heterogeneity was extreme and GRADE certainty very low; subgroup strain patterns and exposure ranges are not optimization guidance.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1021,
+      "entity_slug": "gut-microbiota-interventions-mdd",
+      "pmid": "42611838",
+      "focus": "Network meta-analysis of 38 RCTs in major depression found signals across microbiota-based therapies, prebiotics and probiotic categories, but certainty was low-to-moderate and network rankings do not establish superiority of a specific strain or product.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1022,
+      "entity_slug": "probiotics",
+      "pmid": "42778037",
+      "focus": "Ten-RCT/486-participant meta-analysis in depression found lower CRP and TNF-alpha with probiotic supplementation, borderline IL-1beta change, and null IL-6/IL-10; biomarker findings remain distinct from antidepressant efficacy and strain-specific attribution.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1023,
+      "entity_slug": "resveratrol",
+      "pmid": "41455817",
+      "focus": "Twenty-three-RCT/1,005-participant meta-analysis in overweight/obesity found no significant effect on body weight, BMI, fat mass, body-fat percentage, fat-free mass, waist-hip ratio, adiponectin or leptin, with only waist circumference significantly reduced overall.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1024,
+      "entity_slug": "resveratrol",
+      "pmid": "41987155",
+      "focus": "Umbrella review of 45 systematic reviews covering 129 associations found only four high-certainty positive associations, including waist circumference and selected lipid/BP outcomes in specific populations; most health claims remain lower-certainty and population-specific.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1025,
+      "entity_slug": "vitamin-c",
+      "pmid": "41687812",
+      "focus": "Twelve double-blind placebo-controlled exercise trials found no significant IL-6 or malondialdehyde effect and a CRP reduction based on only two small trials; overall recovery biomarker evidence was low-to-very-low certainty and hypothesis-generating.",
+      "state": "reviewed_receipt_pending_final_admission"
+    }
+  ]
+}
