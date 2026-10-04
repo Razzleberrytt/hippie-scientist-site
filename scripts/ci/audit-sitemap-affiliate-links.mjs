@@ -4,7 +4,7 @@ import path from 'node:path'
 import { requireBuildOutput } from '../lib/required-build-output.mjs'
 
 const ROOT = process.cwd()
-const AMAZON_TAG = process.env.AMAZON_AFFILIATE_TAG || 'razzleberry02-20' // Central associate tag
+const AMAZON_TAG = process.env.AMAZON_AFFILIATE_TAG || 'razzleberr0e2-20' // Central associate tag
 
 function parseXmlUrls(xmlContent) {
   const urls = []
