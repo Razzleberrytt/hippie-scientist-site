@@ -6,7 +6,7 @@
     "range": "1501-2000",
     "pass_size": 25,
     "target_findings": 500,
-    "progress_after_pass": 75,
+    "progress_after_pass": 100,
     "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2000"
   },
   "source_provenance": [
@@ -551,6 +551,181 @@
       "pmid": "42738944",
       "focus": "Large crossover study of 51 recreationally active men found morning caffeine did not significantly improve the tested cognitive battery or reactive-agility outcomes versus placebo/no-pill control, providing a useful direct null against blanket morning-performance claims.",
       "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1576,
+      "entity_slug": "beta-alanine-older-adults-cognition-mood",
+      "pmid": "36839281",
+      "focus": "Ten-week double-blind RCT in 100 older adults found no overall MoCA advantage from beta-alanine, although participants with below-normal baseline cognition showed subgroup improvement; mood and physical-function outcomes were largely null.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1577,
+      "entity_slug": "beta-alanine-combat-sports-review",
+      "pmid": "37686787",
+      "focus": "Systematic review of seven combat-sport clinical trials reported some improvements in strength, power, work capacity and sport-specific measures with beta-alanine, but the small heterogeneous evidence base and mixed perceptual/biochemical findings limit broad performance claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1578,
+      "entity_slug": "beta-alanine-brain-mri-older-adults",
+      "pmid": "38971131",
+      "focus": "Small mechanistic trial in only 10 analyzed older adults with lower baseline cognition found beta-alanine increased fractional anisotropy in the hippocampus and amygdala without changing BDNF or inflammatory markers; MRI changes are hypothesis-generating, not clinical proof.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1579,
+      "entity_slug": "beta-alanine-high-intensity-functional-training",
+      "pmid": "39064783",
+      "focus": "Four-week RCT in 27 high-intensity functional-training participants found beta-alanine improved vertical-jump and jumping-power measures but did not clearly alter fatigue, exercise metabolic intensity or perceived intensity.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1580,
+      "entity_slug": "caffeine-beta-alanine-resistance-training",
+      "pmid": "39438314",
+      "focus": "Triple-blind crossover study in 21 resistance-trained men found caffeine, beta-alanine and their combination produced little consistent mechanical advantage during upper-body superset training; beta-alanine alone reduced last-repetition velocity versus placebo on one measure.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1581,
+      "entity_slug": "combat-sport-supplements-network-meta",
+      "pmid": "39747536",
+      "focus": "Bayesian network meta-analysis of 67 RCTs involving 1,026 elite combat-sport athletes compared 26 supplements; rankings varied by outcome and discipline, so indirect SUCRA-style hierarchy should not be translated into a universal best supplement.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1582,
+      "entity_slug": "swimming-supplements-network-meta",
+      "pmid": "39796467",
+      "focus": "Network meta-analysis of swimming interventions found outcome-specific signals for L-arginine, beta-alanine and creatine plus sodium bicarbonate, while several swimming-time outcomes were null; indirect comparisons and sparse networks constrain rankings.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1583,
+      "entity_slug": "beta-alanine-overweight-feasibility",
+      "pmid": "39800667",
+      "focus": "Three-month randomized feasibility trial in 27 adults with overweight or obesity found sustained-release beta-alanine was tolerated and adhered to, but showed low probability of meaningful cardiometabolic, cardiovascular or routine biochemical effects.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1584,
+      "entity_slug": "beta-alanine-hiit-bdnf-stroop",
+      "pmid": "39832765",
+      "focus": "Fourteen-week beta-alanine plus HIIT study in 13 active men found no improvement in serum BDNF or Stroop performance; training improved selected cardiorespiratory outcomes independently, providing direct null cognitive evidence.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1585,
+      "entity_slug": "carnosine-neat-cognition",
+      "pmid": "39919936",
+      "focus": "Post-hoc randomized-trial analysis found carnosine improved selected cognition speed and efficiency outcomes mainly in the youngest adult age stratum; subgroup/post-hoc status means the finding needs prospective confirmation.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1586,
+      "entity_slug": "creatine-beta-alanine-citrulline-basketball",
+      "pmid": "40010353",
+      "focus": "Four-week six-arm basketball trial found sprint-interval training improved performance across groups and supplement arms showed larger changes than placebo on selected outcomes, but small groups and combined creatine/beta-alanine/citrulline conditions complicate ingredient attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1587,
+      "entity_slug": "beta-alanine-distance-runners",
+      "pmid": "40528157",
+      "focus": "Four-week randomized trial in competitive adolescent middle- and long-distance runners found beta-alanine improved time to exhaustion but not aerobic capacity, reinforcing that endurance-test effects do not equal VO2max improvement.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1588,
+      "entity_slug": "beta-alanine-futsal-null",
+      "pmid": "40981477",
+      "focus": "Two-week high-dose beta-alanine RCT in 16 trained futsal players found no significant supplementation-by-time benefit for intermittent endurance, 30-m sprint, lactate or perceived exertion despite overall training/time improvements.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1589,
+      "entity_slug": "beta-alanine-strength-power-dosing-review",
+      "pmid": "40995761",
+      "focus": "Systematic review of nine studies in trained participants suggested beta-alanine strength/power findings may vary with exposure pattern and training metabolic demand, but this literature synthesis is heterogeneous and studied protocols must not become dosing recommendations.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1590,
+      "entity_slug": "betalain-rich-concentrate-running",
+      "pmid": "39994008",
+      "focus": "Triple-blind crossover trial in 17 recreational male runners found an acute betalain-rich concentrate did not improve running economy or VO2max, although heart rate, perceived exertion and post-exercise muscle oxygenation showed selected favorable changes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1591,
+      "entity_slug": "beetroot-caffeine-resistance-performance",
+      "pmid": "40369047",
+      "focus": "Four-condition crossover trial in 13 resistance-trained men found caffeine improved several squat strength/power measures while beetroot juice and combination conditions affected selected endurance outcomes; no uniform additive synergy was established.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1592,
+      "entity_slug": "beetroot-short-term-strength-recovery",
+      "pmid": "40431460",
+      "focus": "Small crossover trial in 12 resistance-trained men reported selected strength, fatigue and recovery benefits after short-term beetroot-juice supplementation, but sample size and multiple endpoints make the magnitude and reproducibility uncertain.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1593,
+      "entity_slug": "beetroot-performance-umbrella-review",
+      "pmid": "40573069",
+      "focus": "Umbrella review of 15 meta-analyses found statistically significant but generally negligible-to-small beetroot-juice effects on strength, VO2max and time-to-exhaustion; effect size and population differences argue against broad performance promises.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1594,
+      "entity_slug": "beta-alanine-caffeine-ocular-pressure",
+      "pmid": "39732141",
+      "focus": "Triple-blind crossover study in 20 young men found caffeine, with or without beta-alanine, acutely raised intraocular pressure at rest while beta-alanine alone did not; exercise subsequently reduced ocular-pressure measures regardless of supplement.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 1595,
+      "entity_slug": "carnosine-beta-alanine-glycemia-meta",
+      "pmid": "40999397",
+      "focus": "Meta-analysis of eight RCTs and 377 participants with prediabetes or type 2 diabetes found carnosine/beta-alanine interventions reduced fasting glucose and HbA1c but not several lipid, insulin or anthropometric outcomes; interventions and populations were heterogeneous.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1596,
+      "entity_slug": "beta-alanine-sodium-bicarbonate-female-basketball",
+      "pmid": "41838453",
+      "focus": "Randomized double-blind trial in 68 highly trained female basketball players found sodium-bicarbonate-containing arms improved initial Wingate peak power, whereas beta-alanine alone did not improve measured physical-capacity outcomes; combination effects require separation.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1597,
+      "entity_slug": "beta-alanine-kickboxing",
+      "pmid": "42127019",
+      "focus": "Four-week double-blind RCT in 28 trained male kickboxers found beta-alanine improved total kickboxing anaerobic work and push-up/pull-up endurance but not jump power, best effort or performance-decrement index.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1598,
+      "entity_slug": "beetroot-endothelial-function-resistance-exercise",
+      "pmid": "40457872",
+      "focus": "Crossover study in 12 young men found beetroot juice prevented an early post-resistance-exercise reduction in flow-mediated dilation without clear differences in blood pressure or several hemodynamic measures; this is an acute vascular surrogate finding.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1599,
+      "entity_slug": "oral-nitrite-older-adults-null",
+      "pmid": "41691463",
+      "focus": "Twelve-week double-blind RCT in 64 sedentary adults age 70 and older found oral nitrite did not improve skeletal-muscle mitochondrial respiration, exercise capacity or physical function despite acute platelet bioenergetic effects.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1600,
+      "entity_slug": "water-polo-ergonutrition-review",
+      "pmid": "40284184",
+      "focus": "Systematic review of water-polo ergonutrition described possible roles for whey protein, beta-alanine, L-arginine, spirulina and other supplements, but the sport-specific evidence base is sparse and heterogeneous and should remain category-level context.",
+      "state": "research_only_category_firewall"
     }
   ]
 }
