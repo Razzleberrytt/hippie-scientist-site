@@ -1,0 +1,2239 @@
+{
+  "scope": "Source articles with category Substance Use & Harm Reduction or Novel Psychoactive Substances",
+  "semantics": "Heading signals and metadata only. Missing signals require manual review; presence is not evidence verification or completion.",
+  "articleCount": 92,
+  "brokenArticleLinkCount": 0,
+  "articles": [
+    {
+      "file": "content\\articles\\1cp-lsd.mdx",
+      "slug": "1cp-lsd",
+      "title": "1cP-LSD: Complete Prodrug Evidence, Toxicology Gaps & Safety Monograph",
+      "words": 1814,
+      "references": 7,
+      "pmids": [
+        "32180350",
+        "33132277",
+        "30617391"
+      ],
+      "missingHeadingSignals": [
+        "pharmacology"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\1p-lsd.mdx",
+      "slug": "1p-lsd",
+      "title": "1P-LSD: Masterclass Monograph — Human Pharmacokinetics, LSD Prodrug Evidence & Safety",
+      "words": 2357,
+      "references": 12,
+      "pmids": [
+        "32415750",
+        "26456305",
+        "31181490",
+        "31756337",
+        "30521880",
+        "41348264"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\2-methoxyqualone.mdx",
+      "slug": "2-methoxyqualone",
+      "title": "2-Methoxyqualone: Emerging Methaqualone-Analogue Masterclass — Evidence, Testing & Unknowns",
+      "words": 2256,
+      "references": 8,
+      "pmids": [
+        "36454416",
+        "36652055",
+        "36889066",
+        "37169943",
+        "36651763",
+        "15846700"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\2-methyl-ap-237.mdx",
+      "slug": "2-methyl-ap-237",
+      "title": "2-Methyl-AP-237 & AP-238: Complete Toxicology, Overdose, Dependence & Safety Monograph",
+      "words": 1966,
+      "references": 12,
+      "pmids": [
+        "35275255",
+        "37264551",
+        "37253676",
+        "34528782",
+        "36103391"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\2-mmc.mdx",
+      "slug": "2-mmc",
+      "title": "2-MMC (2-Methylmethcathinone): Complete Human Toxicology, Metabolism & Safety Monograph",
+      "words": 1622,
+      "references": 11,
+      "pmids": [
+        "41973121",
+        "41428037",
+        "40876068",
+        "37452840",
+        "40103476",
+        "40133647",
+        "40118811",
+        "38669101"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\25e-nboh.mdx",
+      "slug": "25e-nboh",
+      "title": "25E-NBOH (NBOH-2C-E): Complete Toxicology, Metabolism & Safety Monograph",
+      "words": 1979,
+      "references": 11,
+      "pmids": [
+        "38117418",
+        "41812548",
+        "38359493",
+        "35343858",
+        "42515736",
+        "30521880"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [
+        "Locomotor and discriminative stimulus effects of NBOH hallucinogens in rodents"
+      ],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\25i-nbome.mdx",
+      "slug": "25i-nbome",
+      "title": "25I-NBOMe: Complete Toxicology, Seizures, Hyperthermia, Fatalities & Safety Monograph",
+      "words": 2147,
+      "references": 16,
+      "pmids": [
+        "23731373",
+        "25659919",
+        "26400534",
+        "28097528",
+        "32128596",
+        "24457586",
+        "26378143",
+        "27400739",
+        "28472358",
+        "28782580",
+        "20956470",
+        "30521880"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\2c-b-fly.mdx",
+      "slug": "2c-b-fly",
+      "title": "2C-B-FLY: Complete Sparse-Evidence Pharmacology, Mislabeling & Safety Monograph",
+      "words": 1790,
+      "references": 9,
+      "pmids": [
+        "25765500",
+        "30036687",
+        "30521880"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\2f-2oxo-pce-canket.mdx",
+      "slug": "2f-2oxo-pce-canket",
+      "title": "2F-2oxo-PCE (CanKet): Complete Toxicology, FXE Isomer Confusion & Safety Monograph",
+      "words": 2177,
+      "references": 9,
+      "pmids": [
+        "41037199",
+        "42167022",
+        "42091010"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [
+        "Adding the Clues to CanKet's Presence in Toxicological Casework",
+        "2F-2oxo-PCE in drug-infused papers from correctional settings"
+      ],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\2f-dck.mdx",
+      "slug": "2f-dck",
+      "title": "2F-DCK (2-Fluorodeschloroketamine): Complete Toxicology, Deaths, Dependence & Safety Monograph",
+      "words": 1981,
+      "references": 11,
+      "pmids": [
+        "32460225",
+        "38619360",
+        "34049075",
+        "37279563",
+        "34515415",
+        "31881397",
+        "34842064",
+        "39368630",
+        "38778743"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\3-cmc.mdx",
+      "slug": "3-cmc",
+      "title": "3-CMC (3-Chloromethcathinone): Complete Human Toxicology, Metabolism & Safety Monograph",
+      "words": 1788,
+      "references": 12,
+      "pmids": [
+        "41373751",
+        "42642659",
+        "41745805",
+        "36790096",
+        "38862871",
+        "39787719",
+        "41507461",
+        "39081107",
+        "40118811",
+        "38669101"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\3-fpm.mdx",
+      "slug": "3-fpm",
+      "title": "3-FPM (3-Fluorophenmetrazine): Complete Human Toxicology, Pharmacokinetics & Dependence Monograph",
+      "words": 1779,
+      "references": 14,
+      "pmids": [
+        "27491700",
+        "30784204",
+        "27372653",
+        "28988906",
+        "28711979",
+        "29884719",
+        "28985320",
+        "31546164",
+        "26810957",
+        "38669101"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\3-ho-pcp.mdx",
+      "slug": "3-ho-pcp",
+      "title": "3-HO-PCP (3-Hydroxyphencyclidine): Complete Toxicology, Dependence & Safety Monograph",
+      "words": 1495,
+      "references": 7,
+      "pmids": [
+        "31482320",
+        "32311838",
+        "24678061"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\3-meo-pce.mdx",
+      "slug": "3-meo-pce",
+      "title": "3-MeO-PCE (3-Methoxyeticyclidine): Complete Toxicology, Deaths, Metabolism & Safety Monograph",
+      "words": 1641,
+      "references": 8,
+      "pmids": [
+        "34049075",
+        "37125436",
+        "42698019",
+        "26360516",
+        "41361125"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\3-mmc.mdx",
+      "slug": "3-mmc",
+      "title": "3-MMC (Metaphedrone): Complete Human Toxicology, Dependence & Safety Monograph",
+      "words": 1832,
+      "references": 13,
+      "pmids": [
+        "35752518",
+        "25422862",
+        "39719487",
+        "42013732",
+        "38972226",
+        "26989222",
+        "28755886",
+        "30572220",
+        "40876068",
+        "41063204",
+        "38669101"
+      ],
+      "missingHeadingSignals": [
+        "interactions"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\4-aco-dmt.mdx",
+      "slug": "4-aco-dmt",
+      "title": "4-AcO-DMT (Psilacetin): Masterclass Monograph — Metabolism, Psychedelic Risk & Evidence Gaps",
+      "words": 1965,
+      "references": 12,
+      "pmids": [
+        "35312166",
+        "33860183",
+        "33860176",
+        "28569652",
+        "41915186",
+        "30521880",
+        "41348264"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\4-fa.mdx",
+      "slug": "4-fa",
+      "title": "4-FA (4-Fluoroamphetamine): Cerebral Hemorrhage, Cardiac Toxicity & Deaths",
+      "words": 943,
+      "references": 7,
+      "pmids": [
+        "28969928",
+        "36187507",
+        "29737425",
+        "19836170",
+        "39814637",
+        "38669101"
+      ],
+      "missingHeadingSignals": [
+        "toxicity",
+        "withdrawal",
+        "testing",
+        "forensic"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\4-ho-met.mdx",
+      "slug": "4-ho-met",
+      "title": "4-HO-MET (Metocin): Masterclass Monograph — Human Toxicology, Metabolism & Testing",
+      "words": 1794,
+      "references": 13,
+      "pmids": [
+        "30015274",
+        "34100553",
+        "27216487",
+        "24173660",
+        "25877327",
+        "30521880",
+        "41348264"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\4-mmc.mdx",
+      "slug": "4-mmc",
+      "title": "4-MMC (Mephedrone): Complete Human Toxicology, Dependence, Pharmacokinetics & Safety Monograph",
+      "words": 1892,
+      "references": 15,
+      "pmids": [
+        "39031238",
+        "28677506",
+        "32986113",
+        "28828691",
+        "30815856",
+        "25468950",
+        "22573603",
+        "21592252",
+        "29946859",
+        "26502870",
+        "22564711",
+        "30341975",
+        "38669101"
+      ],
+      "missingHeadingSignals": [
+        "tolerance",
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\4f-mph.mdx",
+      "slug": "4f-mph",
+      "title": "4F-MPH (4-Fluoromethylphenidate): Intoxication, Fatality & Stimulant Evidence",
+      "words": 940,
+      "references": 5,
+      "pmids": [
+        "28103426",
+        "30843073",
+        "31424072",
+        "38669101"
+      ],
+      "missingHeadingSignals": [
+        "tolerance",
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\5-apb.mdx",
+      "slug": "5-apb",
+      "title": "5-APB (5-Benzofury): Complete Toxicology, Fatalities, Dependence & Safety Monograph",
+      "words": 1232,
+      "references": 11,
+      "pmids": [
+        "25765500",
+        "23261499",
+        "32875347",
+        "30228015",
+        "25429871",
+        "25447185",
+        "35672476",
+        "33576419",
+        "38669101"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\5-mapb.mdx",
+      "slug": "5-mapb",
+      "title": "5-MAPB: Benzofuran Entactogen Masterclass — Toxicity, Metabolism & Serotonin Risk",
+      "words": 2265,
+      "references": 15,
+      "pmids": [
+        "27156124",
+        "38649548",
+        "25471293",
+        "28601767",
+        "27650729",
+        "27193726",
+        "38272669",
+        "19836170",
+        "39814637",
+        "38669101"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\5-meo-mipt.mdx",
+      "slug": "5-meo-mipt",
+      "title": "5-MeO-MiPT (Moxy): Masterclass Monograph — Toxicology, Metabolism & Serotonergic Risk",
+      "words": 1949,
+      "references": 15,
+      "pmids": [
+        "28677880",
+        "16876302",
+        "38214743",
+        "38280235",
+        "27216487",
+        "38720072",
+        "32936075",
+        "33860176",
+        "30521880",
+        "41348264"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\5f-adb.mdx",
+      "slug": "5f-adb",
+      "title": "5F-ADB (5F-MDMB-PINACA): Complete Fatal Toxicology, Withdrawal & Safety Monograph",
+      "words": 1805,
+      "references": 10,
+      "pmids": [
+        "31302415",
+        "34921326",
+        "35201352",
+        "28302730",
+        "40570820",
+        "40334326",
+        "38915848",
+        "28425681"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\5f-mdmb-pica.mdx",
+      "slug": "5f-mdmb-pica",
+      "title": "5F-MDMB-PICA (5F-MDMB-2201): Complete Fatal Toxicology, Dependence & Safety Monograph",
+      "words": 1965,
+      "references": 14,
+      "pmids": [
+        "32683270",
+        "31461219",
+        "28371476",
+        "33860792",
+        "36652054",
+        "35699867",
+        "38466892",
+        "28214755",
+        "34533608",
+        "27074934",
+        "40570820"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\6-apb.mdx",
+      "slug": "6-apb",
+      "title": "6-APB (Benzofury): Complete Toxicology, Fatalities, 5-HT2B Risk & Dependence Monograph",
+      "words": 1702,
+      "references": 13,
+      "pmids": [
+        "25765500",
+        "23261499",
+        "32875347",
+        "23733714",
+        "33576419",
+        "23861338",
+        "25711990",
+        "31950617",
+        "31838565",
+        "38669101"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\6-mapb.mdx",
+      "slug": "6-mapb",
+      "title": "6-MAPB: Complete Benzofuran Pharmacology, Metabolism & Safety Monograph",
+      "words": 1854,
+      "references": 10,
+      "pmids": [
+        "25711990",
+        "27650729",
+        "32875347",
+        "26327309",
+        "28708288",
+        "38669101"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\7-hydroxymitragynine.mdx",
+      "slug": "7-hydroxymitragynine",
+      "title": "7-Hydroxymitragynine (7-OH): Complete Evidence, Toxicology, Dependence, Withdrawal & Safety Monograph",
+      "words": 4930,
+      "references": 35,
+      "pmids": [
+        "33344889",
+        "41924140",
+        "41106041",
+        "42135874",
+        "41825819",
+        "41065466",
+        "41690384",
+        "41875249",
+        "42225057",
+        "40758956",
+        "42050750",
+        "41189061",
+        "42359792",
+        "42645738",
+        "42605611",
+        "39777518",
+        "42448619",
+        "38481700",
+        "29459087"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\adb-butinaca.mdx",
+      "slug": "adb-butinaca",
+      "title": "ADB-BUTINACA: Complete Fatal Toxicology, Dependence, Withdrawal & Safety Monograph",
+      "words": 2043,
+      "references": 12,
+      "pmids": [
+        "34811926",
+        "34341821",
+        "33807614",
+        "41307856",
+        "42212046",
+        "34533608",
+        "40570820",
+        "40334326"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\al-lad.mdx",
+      "slug": "al-lad",
+      "title": "AL-LAD: Complete LSD-Analogue Pharmacology, Fatality & Safety Monograph",
+      "words": 1530,
+      "references": 10,
+      "pmids": [
+        "27265891",
+        "31050301",
+        "30617391",
+        "35524430",
+        "40180768",
+        "38922764",
+        "30521880"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\alpha-php.mdx",
+      "slug": "alpha-php",
+      "title": "α-PHP (Alpha-Pyrrolidinohexanophenone): Complete Toxicology, Dependence & Safety Monograph",
+      "words": 1661,
+      "references": 11,
+      "pmids": [
+        "38672701",
+        "41830777",
+        "29314710",
+        "26890319",
+        "40118811",
+        "38669101"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\alpha-pihp.mdx",
+      "slug": "alpha-pihp",
+      "title": "α-PiHP (Alpha-Pyrrolidinoisohexanophenone): Complete Human Pharmacology, Fatality & Dependence Monograph",
+      "words": 1642,
+      "references": 12,
+      "pmids": [
+        "41614071",
+        "40381809",
+        "42362749",
+        "36287060",
+        "38491987",
+        "37130049",
+        "41830777",
+        "38996540",
+        "38669101"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\alpha-pvp.mdx",
+      "slug": "alpha-pvp",
+      "title": "α-PVP (Flakka): Complete Toxicology, Psychosis, Dependence & Forensic Safety Monograph",
+      "words": 1734,
+      "references": 9,
+      "pmids": [
+        "27412885",
+        "27185821",
+        "28028802",
+        "29030166",
+        "29540067",
+        "38669101"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\benzofurans-entactogens.mdx",
+      "slug": "benzofurans-entactogens",
+      "title": "Benzofuran RCs & Entactogens: 6-APB, 5-APB, 5-MAPB and Related Compounds",
+      "words": 900,
+      "references": 8,
+      "pmids": [
+        "26530501",
+        "23733714",
+        "27156124",
+        "26327309",
+        "19836170",
+        "39814637",
+        "38669101"
+      ],
+      "missingHeadingSignals": [
+        "history",
+        "metabolism",
+        "toxicity",
+        "interactions",
+        "tolerance",
+        "testing",
+        "forensic",
+        "legal"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\bromazolam.mdx",
+      "slug": "bromazolam",
+      "title": "Bromazolam: Complete Evidence, Toxicology, Dependence, Withdrawal & Safety Monograph",
+      "words": 3544,
+      "references": 18,
+      "pmids": [
+        "41732118",
+        "42057452",
+        "42216246",
+        "40652609",
+        "38679868",
+        "39275788",
+        "38896045",
+        "39191669",
+        "39087263",
+        "38966933",
+        "36715069",
+        "33048135",
+        "40526204",
+        "40437136"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\brorphine.mdx",
+      "slug": "brorphine",
+      "title": "Brorphine: Complete Toxicology, Overdose, Dependence, Withdrawal & Safety Monograph",
+      "words": 2395,
+      "references": 14,
+      "pmids": [
+        "33201526",
+        "34509061",
+        "32744605",
+        "33522844",
+        "34052902",
+        "39154855",
+        "41622550",
+        "37423031"
+      ],
+      "missingHeadingSignals": [
+        "interactions"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\buzzers-cats-claw-hidden-opioids.mdx",
+      "slug": "buzzers-cats-claw-hidden-opioids",
+      "title": "Buzzers Cat’s Claw: Hidden Opioids, Lab Findings, Dependence, Withdrawal & Safety Monograph",
+      "words": 3042,
+      "references": 15,
+      "pmids": [
+        "40936282",
+        "41982589",
+        "33344889",
+        "40373645",
+        "40568898",
+        "41275505",
+        "41926333"
+      ],
+      "missingHeadingSignals": [
+        "pharmacology",
+        "metabolism",
+        "interactions",
+        "testing",
+        "forensic"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\cats-claw-kava-hidden-opioids.mdx",
+      "slug": "cats-claw-kava-hidden-opioids",
+      "title": "Cat’s Claw & Kava Hidden-Opioid Products: Evidence, Overdose, Dependence & Product-Safety Monograph",
+      "words": 2586,
+      "references": 7,
+      "pmids": [
+        "41926333",
+        "40936282",
+        "41982589"
+      ],
+      "missingHeadingSignals": [
+        "pharmacology",
+        "tolerance",
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\clobromazolam-phenazolam.mdx",
+      "slug": "clobromazolam-phenazolam",
+      "title": "Phenazolam (Clobromazolam): Emerging Designer Benzo Masterclass",
+      "words": 2285,
+      "references": 7,
+      "pmids": [
+        "38459915",
+        "40367553",
+        "40526204"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\clonazolam.mdx",
+      "slug": "clonazolam",
+      "title": "Clonazolam: Complete Toxicology, Blackouts, Dependence, Withdrawal & Safety Monograph",
+      "words": 1779,
+      "references": 10,
+      "pmids": [
+        "36988452",
+        "36281064",
+        "32172178",
+        "36516236",
+        "36621072",
+        "34557900",
+        "30430874",
+        "40526204"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\cychlorphine.mdx",
+      "slug": "cychlorphine",
+      "title": "Cychlorphine (N-Propionitrile Chlorphine): Complete Toxicology, Overdose & Safety Monograph",
+      "words": 2023,
+      "references": 9,
+      "pmids": [
+        "42481906",
+        "41347459",
+        "39154855"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [
+        "An Emerging Synthetic Opioid in the Drug Supply: A Case of Opioid Overdose with Biological Confirmation of Cychlorphine"
+      ],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\dck.mdx",
+      "slug": "dck",
+      "title": "Deschloroketamine (DCK/DXE): Complete Toxicology, Dependence & Safety Monograph",
+      "words": 1715,
+      "references": 10,
+      "pmids": [
+        "34519023",
+        "26661982",
+        "31881397",
+        "33971504",
+        "32460225",
+        "38619360",
+        "38786747",
+        "42091010"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\desalkylgidazepam-bromonordiazepam.mdx",
+      "slug": "desalkylgidazepam-bromonordiazepam",
+      "title": "Desalkylgidazepam (Bromonordiazepam): Long-Acting Designer Benzo Masterclass",
+      "words": 2629,
+      "references": 8,
+      "pmids": [
+        "41361117",
+        "40367553",
+        "40526204",
+        "30430874"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\designer-benzodiazepines-research-chemicals.mdx",
+      "slug": "designer-benzodiazepines-research-chemicals",
+      "title": "Designer Benzodiazepines (RC Benzos): Complete Toxicology, Dependence, Withdrawal & Safety Monograph",
+      "words": 2419,
+      "references": 14,
+      "pmids": [
+        "40367553",
+        "30430874",
+        "34208284",
+        "38146763",
+        "39340261",
+        "34557900",
+        "33476376",
+        "34170084",
+        "31971477",
+        "40526204"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\designer-synthetic-opioids-beyond-nitazenes.mdx",
+      "slug": "designer-synthetic-opioids-beyond-nitazenes",
+      "title": "Designer Synthetic Opioids Beyond Fentanyl & Nitazenes: Master Harm-Reduction Monograph",
+      "words": 2136,
+      "references": 13,
+      "pmids": [
+        "36532866",
+        "37221651",
+        "36103391",
+        "31304442",
+        "29042317",
+        "28807672",
+        "33238449",
+        "32639714",
+        "41622550",
+        "39154855",
+        "35275255",
+        "42441761"
+      ],
+      "missingHeadingSignals": [
+        "pharmacology",
+        "metabolism"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\diclazepam.mdx",
+      "slug": "diclazepam",
+      "title": "Diclazepam: Complete Evidence, Active Metabolites, Dependence, Withdrawal & Safety Monograph",
+      "words": 1877,
+      "references": 12,
+      "pmids": [
+        "24604775",
+        "30051661",
+        "31546164",
+        "28160051",
+        "29945197",
+        "30430874",
+        "34208284",
+        "36750450",
+        "39340261",
+        "40526204"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\dicloqualone.mdx",
+      "slug": "dicloqualone",
+      "title": "Dicloqualone (SL-164): Methaqualone-Analogue Masterclass — Toxicology, Delirium & Testing",
+      "words": 2232,
+      "references": 8,
+      "pmids": [
+        "33760714",
+        "34545408",
+        "39228339",
+        "36652055",
+        "36651763",
+        "15846700"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\dihydro-7-hydroxy-mitragynine-mgm-15.mdx",
+      "slug": "dihydro-7-hydroxy-mitragynine-mgm-15",
+      "title": "MGM-15 (Dihydro-7-Hydroxymitragynine): Complete Pharmacology, Dependence, Withdrawal & Safety Monograph",
+      "words": 3180,
+      "references": 16,
+      "pmids": [
+        "40936282",
+        "24345467",
+        "28950813",
+        "41275505",
+        "33344889",
+        "40373645",
+        "40568898",
+        "41982589"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\dissociative-withdrawal-recovery-guide.md",
+      "slug": "dissociative-withdrawal-recovery-guide",
+      "title": "Dissociative Withdrawal & Recovery: Evidence and Safety",
+      "words": 2096,
+      "references": 12,
+      "pmids": [
+        "42385939",
+        "38922637",
+        "40033594",
+        "11476262",
+        "24678061",
+        "30105474",
+        "30196446",
+        "2596441",
+        "6514253",
+        "32259826",
+        "38863566"
+      ],
+      "missingHeadingSignals": [
+        "history",
+        "pharmacology",
+        "metabolism",
+        "legal"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\dmxe.mdx",
+      "slug": "dmxe",
+      "title": "DMXE (Deoxymethoxetamine): Complete Sparse-Evidence Pharmacology & Safety Monograph",
+      "words": 1588,
+      "references": 6,
+      "pmids": [
+        "36344045",
+        "35650087",
+        "23774830",
+        "30196446"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\entactogen-benzofuran-withdrawal-recovery-guide.md",
+      "slug": "entactogen-benzofuran-withdrawal-recovery-guide",
+      "title": "MDMA & Benzofuran Recovery: Evidence and Support",
+      "words": 929,
+      "references": 9,
+      "pmids": [
+        "19681802",
+        "18382220",
+        "24648791",
+        "41255336",
+        "26327309",
+        "23881877",
+        "19836170",
+        "38669101"
+      ],
+      "missingHeadingSignals": [
+        "history",
+        "pharmacology",
+        "metabolism",
+        "humanEvidence",
+        "toxicity",
+        "interactions",
+        "tolerance",
+        "testing",
+        "forensic",
+        "legal"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\ethylbromazolam.mdx",
+      "slug": "ethylbromazolam",
+      "title": "Ethylbromazolam: Emerging Designer Benzodiazepine Toxicology, Counterfeit Pills & Safety Monograph",
+      "words": 1803,
+      "references": 8,
+      "pmids": [
+        "40367553",
+        "40526204"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\etizolam.mdx",
+      "slug": "etizolam",
+      "title": "Etizolam: Complete Evidence, Counterfeit Pills, Dependence, Withdrawal & Safety Monograph",
+      "words": 1712,
+      "references": 12,
+      "pmids": [
+        "2065698",
+        "32243020",
+        "33031544",
+        "34170084",
+        "38676414",
+        "36477341",
+        "39340261",
+        "34208284",
+        "30348014",
+        "40526204"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\eutylone.mdx",
+      "slug": "eutylone",
+      "title": "Eutylone (bk-EBDB): Synthetic Cathinone, Fatalities & Molly Mislabeling",
+      "words": 813,
+      "references": 5,
+      "pmids": [
+        "33325503",
+        "35537301",
+        "37833490",
+        "38669101"
+      ],
+      "missingHeadingSignals": [
+        "withdrawal"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\flualprazolam.mdx",
+      "slug": "flualprazolam",
+      "title": "Flualprazolam: Complete Counterfeit Xanax, Toxicology, Dependence & Safety Monograph",
+      "words": 1625,
+      "references": 11,
+      "pmids": [
+        "32581001",
+        "32104896",
+        "35244711",
+        "32780842",
+        "36454486",
+        "36516236",
+        "34557900",
+        "40526204"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\flubromazepam.mdx",
+      "slug": "flubromazepam",
+      "title": "Flubromazepam: Complete Evidence, Long Persistence, Dependence, Withdrawal & Safety Monograph",
+      "words": 1689,
+      "references": 12,
+      "pmids": [
+        "24259203",
+        "29637722",
+        "29945197",
+        "30430874",
+        "36045516",
+        "28160051",
+        "39340261",
+        "36750450",
+        "40526204"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\flubromazolam.mdx",
+      "slug": "flubromazolam",
+      "title": "Flubromazolam: Complete Prolonged Intoxication, Pharmacokinetics, Dependence & Safety Monograph",
+      "words": 1680,
+      "references": 11,
+      "pmids": [
+        "26585557",
+        "28378533",
+        "27935260",
+        "27863836",
+        "31123661",
+        "38234935",
+        "34557900",
+        "40526204"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\flunitrazolam.mdx",
+      "slug": "flunitrazolam",
+      "title": "Flunitrazolam: Complete Evidence, Metabolism, Detection, Dependence & Safety Monograph",
+      "words": 1801,
+      "references": 12,
+      "pmids": [
+        "30109775",
+        "29462316",
+        "30578721",
+        "39340261",
+        "34208284",
+        "36750450",
+        "39919728",
+        "40526204"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\fluorexetamine-fxe.mdx",
+      "slug": "fluorexetamine-fxe",
+      "title": "Fluorexetamine (FXE/3F-2-oxo-PCE): Complete Toxicology, Isomer Confusion & Safety Monograph",
+      "words": 1666,
+      "references": 7,
+      "pmids": [
+        "42091010"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\isotonitazene.mdx",
+      "slug": "isotonitazene",
+      "title": "Isotonitazene: Complete Toxicology, Overdose, Dependence, Withdrawal & Safety Monograph",
+      "words": 2025,
+      "references": 18,
+      "pmids": [
+        "41490351",
+        "32091095",
+        "33234804",
+        "33497988",
+        "35169852",
+        "38845278",
+        "41371052",
+        "37638699",
+        "38582802",
+        "40810707",
+        "39904921",
+        "40422647",
+        "42484800",
+        "36103391",
+        "42034717"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\mdmb-4en-pinaca.mdx",
+      "slug": "mdmb-4en-pinaca",
+      "title": "MDMB-4en-PINACA: Complete Seizure, Fatal Toxicology, Withdrawal & Safety Monograph",
+      "words": 1911,
+      "references": 13,
+      "pmids": [
+        "41627129",
+        "34850659",
+        "39018467",
+        "40102319",
+        "32997377",
+        "36154844",
+        "33253529",
+        "31848852",
+        "35985137",
+        "40570820",
+        "40334326"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\mdphp.mdx",
+      "slug": "mdphp",
+      "title": "MDPHP: Complete Human Toxicology, Fatalities, Metabolism & Dependence Monograph",
+      "words": 1552,
+      "references": 9,
+      "pmids": [
+        "32476242",
+        "38277706",
+        "35169902",
+        "39604091",
+        "40440133",
+        "41830777",
+        "38669101"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\mdpihp.mdx",
+      "slug": "mdpihp",
+      "title": "MDPiHP: Complete Emerging Stimulant, Human Metabolism & Forensic Safety Monograph",
+      "words": 1546,
+      "references": 5,
+      "pmids": [
+        "41817723",
+        "41830777",
+        "42362749",
+        "38669101"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\meclonazepam.mdx",
+      "slug": "meclonazepam",
+      "title": "Meclonazepam: Complete Evidence, Metabolism, Toxicology, Dependence & Safety Monograph",
+      "words": 1591,
+      "references": 10,
+      "pmids": [
+        "27071765",
+        "28091881",
+        "30348014",
+        "22321778",
+        "39340261",
+        "30367253",
+        "40526204"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\metizolam.mdx",
+      "slug": "metizolam",
+      "title": "Metizolam: Complete Evidence, Metabolism, Toxicology, Dependence & Safety Monograph",
+      "words": 2003,
+      "references": 12,
+      "pmids": [
+        "27671107",
+        "42373881",
+        "30348014",
+        "27535017",
+        "39340261",
+        "34557900",
+        "35294022",
+        "30367253",
+        "34208284",
+        "40526204"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\metonitazene.mdx",
+      "slug": "metonitazene",
+      "title": "Metonitazene: Complete Toxicology, Overdose, Dependence, Withdrawal & Safety Monograph",
+      "words": 1956,
+      "references": 11,
+      "pmids": [
+        "34137194",
+        "36801590",
+        "38582802",
+        "42034717",
+        "41477999",
+        "40422647"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\mgm-16.mdx",
+      "slug": "mgm-16",
+      "title": "MGM-16: Complete Evidence, Opioid Pharmacology, Dependence & Safety Monograph",
+      "words": 3364,
+      "references": 7,
+      "pmids": [
+        "30886001",
+        "24345467",
+        "32930582"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\mitragynine-pseudoindoxyl.mdx",
+      "slug": "mitragynine-pseudoindoxyl",
+      "title": "Mitragynine Pseudoindoxyl: Complete Evidence, Toxicology, Dependence, Withdrawal & Safety Monograph",
+      "words": 3226,
+      "references": 14,
+      "pmids": [
+        "33344889",
+        "40373645",
+        "40568898",
+        "41982589",
+        "41825819"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\n-desethyl-protonitazene.mdx",
+      "slug": "n-desethyl-protonitazene",
+      "title": "N-Desethyl Protonitazene: Metabolite, Standalone Nitazene, Toxicology & Safety Monograph",
+      "words": 1943,
+      "references": 6,
+      "pmids": [
+        "38844019"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\n-ethylhexedrone.mdx",
+      "slug": "n-ethylhexedrone",
+      "title": "N-Ethylhexedrone (NEH/Hexen): Complete Toxicology, Dependence & Safety Monograph",
+      "words": 1642,
+      "references": 11,
+      "pmids": [
+        "40430539",
+        "38794952",
+        "33048166",
+        "31482320",
+        "32905991",
+        "27863142",
+        "31498433",
+        "38669101"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\n-pyrrolidino-protonitazene.mdx",
+      "slug": "n-pyrrolidino-protonitazene",
+      "title": "N-Pyrrolidino Protonitazene (Protonitazepyne): Complete Toxicology, Deaths & Safety Monograph",
+      "words": 1505,
+      "references": 9,
+      "pmids": [
+        "41168532",
+        "40559395",
+        "41107543",
+        "41477999",
+        "39945751"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\nbome-nboh-psychedelics.mdx",
+      "slug": "nbome-nboh-psychedelics",
+      "title": "NBOMe & NBOH Psychedelics: 25I-NBOMe, 25E-NBOH, Seizures & Severe Toxicity",
+      "words": 830,
+      "references": 8,
+      "pmids": [
+        "25659919",
+        "30261175",
+        "38117418",
+        "30521880",
+        "41348264",
+        "35343858",
+        "34843874"
+      ],
+      "missingHeadingSignals": [
+        "history",
+        "pharmacology",
+        "metabolism",
+        "interactions",
+        "tolerance",
+        "testing",
+        "forensic",
+        "legal",
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\nep-n-ethylpentedrone.mdx",
+      "slug": "nep-n-ethylpentedrone",
+      "title": "NEP (N-Ethylpentedrone): Synthetic Cathinone Masterclass — Toxicology, Dependence & Testing",
+      "words": 2925,
+      "references": 18,
+      "pmids": [
+        "41663893",
+        "42228133",
+        "41037943",
+        "41895187",
+        "41579637",
+        "38657324",
+        "40975318",
+        "34849994",
+        "34100120",
+        "37047201",
+        "38669101",
+        "32555667"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\nitazene-opioids.mdx",
+      "slug": "nitazene-opioids",
+      "title": "Nitazene Opioids: Complete Toxicology, Overdose, Dependence, Withdrawal & Safety Monograph",
+      "words": 3637,
+      "references": 31,
+      "pmids": [
+        "42484800",
+        "40422647",
+        "41097311",
+        "40810707",
+        "39828943",
+        "39904921",
+        "41578432",
+        "42757529",
+        "38453524",
+        "39521025",
+        "37658878",
+        "40374158",
+        "38877156",
+        "35477798",
+        "36154843",
+        "39216307",
+        "41168532",
+        "41785913",
+        "41477999",
+        "37221651",
+        "40231744",
+        "39198843",
+        "40783738",
+        "41490351",
+        "38353737"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [
+        "Clinical toxicity of nitazene detections in two Australian emergency department toxicosurveillance systems"
+      ],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\non-cathinone-rc-stimulants.mdx",
+      "slug": "non-cathinone-rc-stimulants",
+      "title": "Non-Cathinone RC Stimulants: 4F-MPH, 3-FPM, Fluoroamphetamines & Related Compounds",
+      "words": 843,
+      "references": 6,
+      "pmids": [
+        "28103426",
+        "30843073",
+        "27491700",
+        "38669101",
+        "32555667"
+      ],
+      "missingHeadingSignals": [
+        "history",
+        "pharmacology",
+        "metabolism",
+        "humanEvidence",
+        "interactions",
+        "tolerance",
+        "forensic",
+        "legal",
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\norflurazepam.mdx",
+      "slug": "norflurazepam",
+      "title": "Norflurazepam: Complete Active-Metabolite, Toxicology, Dependence & Safety Monograph",
+      "words": 2146,
+      "references": 15,
+      "pmids": [
+        "30578721",
+        "2833762",
+        "7285482",
+        "6142469",
+        "6134599",
+        "2633923",
+        "30430874",
+        "38676414",
+        "39340261",
+        "36750450",
+        "40526204"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\novel-sedative-qualone-withdrawal-recovery-guide.md",
+      "slug": "novel-sedative-qualone-withdrawal-recovery-guide",
+      "title": "Qualone Withdrawal & Recovery: Evidence and Safety",
+      "words": 912,
+      "references": 8,
+      "pmids": [
+        "36651763",
+        "26056160",
+        "38898000",
+        "3736882",
+        "15846700",
+        "34396551",
+        "36652055"
+      ],
+      "missingHeadingSignals": [
+        "history",
+        "pharmacology",
+        "metabolism",
+        "humanEvidence",
+        "toxicity",
+        "tolerance",
+        "testing",
+        "forensic",
+        "legal",
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\novel-sedatives-qualone-analogues.mdx",
+      "slug": "novel-sedatives-qualone-analogues",
+      "title": "Novel Sedatives Beyond Benzos: Dicloqualone, 2-Methoxyqualone and RC Quaalude Analogues",
+      "words": 1051,
+      "references": 7,
+      "pmids": [
+        "15846700",
+        "32789477",
+        "23298217",
+        "35932525"
+      ],
+      "missingHeadingSignals": [
+        "history",
+        "pharmacology",
+        "metabolism",
+        "humanEvidence",
+        "toxicity",
+        "interactions",
+        "tolerance",
+        "forensic",
+        "legal",
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\o-pce.mdx",
+      "slug": "o-pce",
+      "title": "O-PCE (2-Oxo-PCE): Complete Intoxication, Metabolism, Dependence & Safety Monograph",
+      "words": 1860,
+      "references": 8,
+      "pmids": [
+        "30081327",
+        "38518457",
+        "33538127",
+        "30365028",
+        "39368630",
+        "38778743"
+      ],
+      "missingHeadingSignals": [
+        "tolerance",
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\orphine-opioids.mdx",
+      "slug": "orphine-opioids",
+      "title": "Orphine Opioids: Complete Cychlorphine, Chlorphine, Spirochlorphine Toxicology & Safety Monograph",
+      "words": 2150,
+      "references": 12,
+      "pmids": [
+        "42481906",
+        "41347459",
+        "39154855",
+        "35072756",
+        "34509061",
+        "33201526",
+        "33522844"
+      ],
+      "missingHeadingSignals": [
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [
+        "An Emerging Synthetic Opioid in the Drug Supply: A Case of Opioid Overdose with Biological Confirmation of Cychlorphine"
+      ],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\phenazepam.mdx",
+      "slug": "phenazepam",
+      "title": "Phenazepam: Complete Evidence, Pharmacology, Toxicology, Dependence & Safety Monograph",
+      "words": 2010,
+      "references": 10,
+      "pmids": [
+        "22390996",
+        "22843017",
+        "24022117",
+        "22407587",
+        "40526204",
+        "30367253"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\protonitazene.mdx",
+      "slug": "protonitazene",
+      "title": "Protonitazene: Complete Toxicology, Overdose, Dependence, Withdrawal & Safety Monograph",
+      "words": 2415,
+      "references": 19,
+      "pmids": [
+        "40631424",
+        "41578432",
+        "40810707",
+        "39828943",
+        "39078080",
+        "39168895",
+        "38844019",
+        "38679851",
+        "38836591",
+        "37700512",
+        "37658878",
+        "38453524",
+        "37952318",
+        "39904921"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [
+        "Clinical toxicity of nitazene detections in two Australian emergency department toxicosurveillance systems"
+      ],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\psychedelic-withdrawal-recovery-guide.md",
+      "slug": "psychedelic-withdrawal-recovery-guide",
+      "title": "Psychedelic Recovery: Persistent Effects and Support",
+      "words": 928,
+      "references": 8,
+      "pmids": [
+        "37284524",
+        "41348264",
+        "37902038",
+        "32194129",
+        "38311046",
+        "41205366",
+        "30521880"
+      ],
+      "missingHeadingSignals": [
+        "history",
+        "pharmacology",
+        "metabolism",
+        "humanEvidence",
+        "toxicity",
+        "interactions",
+        "testing",
+        "forensic",
+        "legal",
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\pyrazolam.mdx",
+      "slug": "pyrazolam",
+      "title": "Pyrazolam: Complete Evidence, Acute Poisoning, Dependence, Withdrawal & Safety Monograph",
+      "words": 1780,
+      "references": 13,
+      "pmids": [
+        "41359103",
+        "28677876",
+        "31546164",
+        "30430874",
+        "26043347",
+        "31971477",
+        "34208284",
+        "36750450",
+        "39340261",
+        "40526204"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\rc-dissociatives-ketamine-pcp-analogues.mdx",
+      "slug": "rc-dissociatives-ketamine-pcp-analogues",
+      "title": "RC Dissociatives: 2F-DCK, DCK, O-PCE, FXE, DMXE and PCP/PCE Analogues",
+      "words": 949,
+      "references": 10,
+      "pmids": [
+        "32460225",
+        "31881397",
+        "38619360",
+        "42385939",
+        "38922637",
+        "36984871",
+        "42178157",
+        "35151938",
+        "35650087"
+      ],
+      "missingHeadingSignals": [
+        "history",
+        "pharmacology",
+        "metabolism",
+        "humanEvidence",
+        "interactions",
+        "tolerance",
+        "support",
+        "forensic",
+        "legal",
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\rc-psychedelics-tryptamines-lysergamides.mdx",
+      "slug": "rc-psychedelics-tryptamines-lysergamides",
+      "title": "RC Psychedelics: 1P-LSD, 4-AcO-DMT, 5-MeO-MiPT and Other Novel Tryptamines/Lysergamides",
+      "words": 1050,
+      "references": 7,
+      "pmids": [
+        "32415750",
+        "28569652",
+        "33860176",
+        "38214743",
+        "30521880",
+        "41348264"
+      ],
+      "missingHeadingSignals": [
+        "pharmacology",
+        "metabolism",
+        "testing",
+        "forensic",
+        "legal"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\research-chemicals-nps-guide.mdx",
+      "slug": "research-chemicals-nps-guide",
+      "title": "Research Chemicals & New Psychoactive Substances: Evidence Map, Major Classes & Risks",
+      "words": 1025,
+      "references": 6,
+      "pmids": [
+        "31747318",
+        "40422647",
+        "26493523"
+      ],
+      "missingHeadingSignals": [
+        "history",
+        "pharmacology",
+        "metabolism",
+        "humanEvidence",
+        "toxicity",
+        "interactions",
+        "tolerance",
+        "support",
+        "testing",
+        "forensic",
+        "legal",
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\rilmazafone.mdx",
+      "slug": "rilmazafone",
+      "title": "Rilmazafone: Complete Prodrug, Metabolism, Fatal Toxicology & Safety Monograph",
+      "words": 1566,
+      "references": 9,
+      "pmids": [
+        "37348041",
+        "3305535",
+        "26498242",
+        "17900408",
+        "3381539",
+        "40526204"
+      ],
+      "missingHeadingSignals": [
+        "pharmacology"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\synthetic-cannabinoid-withdrawal-recovery-guide.md",
+      "slug": "synthetic-cannabinoid-withdrawal-recovery-guide",
+      "title": "Synthetic Cannabinoid Withdrawal & Recovery",
+      "words": 2182,
+      "references": 11,
+      "pmids": [
+        "40570820",
+        "27074934",
+        "30663326",
+        "23609214",
+        "25588420",
+        "26567470",
+        "40334326",
+        "41008366",
+        "38915848",
+        "34791767"
+      ],
+      "missingHeadingSignals": [
+        "history",
+        "pharmacology",
+        "metabolism",
+        "humanEvidence",
+        "interactions",
+        "tolerance",
+        "forensic",
+        "legal"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\synthetic-cannabinoids-spice.mdx",
+      "slug": "synthetic-cannabinoids-spice",
+      "title": "Synthetic Cannabinoids / Spice: MDMB-4en-PINACA, ADB-BUTINACA and Modern High-Potency SCRAs",
+      "words": 879,
+      "references": 9,
+      "pmids": [
+        "32997377",
+        "41627129",
+        "34811926",
+        "42212046",
+        "40570820",
+        "38915848",
+        "42226022",
+        "40407906"
+      ],
+      "missingHeadingSignals": [
+        "history",
+        "pharmacology",
+        "metabolism",
+        "humanEvidence",
+        "interactions",
+        "tolerance",
+        "forensic",
+        "legal",
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\synthetic-cathinones-rc-stimulants.mdx",
+      "slug": "synthetic-cathinones-rc-stimulants",
+      "title": "Synthetic Cathinones & RC Stimulants: NEP, alpha-PiHP, MDPHP and Related Compounds",
+      "words": 973,
+      "references": 8,
+      "pmids": [
+        "34100120",
+        "37047201",
+        "41544778",
+        "41830777",
+        "38669101",
+        "32555667",
+        "42234859"
+      ],
+      "missingHeadingSignals": [
+        "history",
+        "pharmacology",
+        "metabolism",
+        "interactions",
+        "tolerance",
+        "support",
+        "legal",
+        "uncertainty"
+      ],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    },
+    {
+      "file": "content\\articles\\u-47700.mdx",
+      "slug": "u-47700",
+      "title": "U-47700: Complete Toxicology, Overdose, Dependence, Withdrawal & Safety Monograph",
+      "words": 1750,
+      "references": 14,
+      "pmids": [
+        "28911989",
+        "33238449",
+        "32639714",
+        "29040568",
+        "30789871",
+        "30443678",
+        "38831139",
+        "32284916",
+        "28590391",
+        "27905978",
+        "30016012"
+      ],
+      "missingHeadingSignals": [],
+      "brokenArticleLinks": [],
+      "unresolvedRelatedSlugs": [],
+      "placeholderAuthors": [],
+      "referencesMissingUrl": []
+    }
+  ]
+}
