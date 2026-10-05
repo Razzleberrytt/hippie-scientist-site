@@ -3,7 +3,7 @@
   "selection_revision": 2,
   "range": "3541-3550",
   "row_count": 10,
-  "failed_count": 1,
+  "failed_count": 0,
   "rows": [
     {
       "wave": 3541,
@@ -84,14 +84,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 12,
       "primary_category": "botanicals_mushrooms",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3544,
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "focus": null
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "verified_title": "Ganoderma lucidum for Alzheimer's Disease: A Neuroinflammatory and Oxidative Stress Perspective.",
+      "verified_journal": "Journal of ethnopharmacology",
+      "verified_pub_date": "2026-Sep-29",
+      "focus": "Alzheimer's disease (AD) is a progressive neurodegenerative disorder that causes memory loss, cognitive decline, and ultimately dementia. Available pharmacotherapies mainly provide symptomatic relief and do not adequately address the underlying pathology. Ganoderma lucidum (Curtis) P. Karst (G. lucidum) is a widely used medicinal mushroom rich in bioactive compounds, including polysaccharides, triterpenoids, and proteins. These constituents may alleviate the neuroinflammation and oxidative stress involved in AD pathogenesis. This review critically integrates evidence for the therapeutic effects of G. lucidum on AD-associated neuroinflammation and oxidative stress. It has three aims: (1) to examine how G. lucidum may disrupt the bidirectional vicious cycle between neuroinflammation and oxidative stress; (2) to compare the pharmacological profiles of different preparations and purified constituents; and (3) to evaluate AD-specific barriers to translation and inform future clinical development. We searched PubMed, Web of Science, Google Scholar, and CNKI for studies on G. lucidum and AD through 2026 using combinations of the primary term \"Ganoderma lucidum\" with \"Alzheimer's disease,\" \"neuroinflammation,\" \"oxidative stress,\" and related terms. Included were original research, mechanism-based studies, and clinical evidence on G. lucidum bioactives in AD or related models. Evidence was stratified by design robustness and presented as a narrative synthesis. The available evidence indicates that G. lucidum may act on several pathological processes associated with AD. Experimental studies report effects on abnormal amyloid-β (Aβ) aggregation, tau hyperphosphorylation, cholinergic dysfunction, neuroinflammation, oxidative stress, and neuronal apoptosis. These findings illustrate the multi-target pharmacology of traditional Chinese medicines and help explain the potential activity of G. lucidum against AD. G. lucidum has anti-inflammatory, antioxidant, and neuroprotective activities that may be relevant to AD management. This review summarizes its reported effects on AD-related neuroinflammation and oxidative stress and examines the underlying mechanisms. Clinical translation remains limited by poor blood-brain barrier (BBB) permeability, uncertain pharmacokinetics, and non-standardized dosing. Rigorous preclinical studies and controlled early-phase trials are therefore required. Addressing these barriers may inform the potential translation of G. lucidum as an adjunctive strategy in multimodal AD therapy. We also identify key evidence gaps and propose a component-specific framework for future research."
     },
     {
       "wave": 3545,
