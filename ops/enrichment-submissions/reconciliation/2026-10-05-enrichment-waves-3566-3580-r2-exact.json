@@ -3,7 +3,7 @@
   "selection_revision": 2,
   "range": "3566-3580",
   "row_count": 15,
-  "failed_count": 1,
+  "failed_count": 0,
   "rows": [
     {
       "pmid": "42704497",
@@ -64,13 +64,13 @@
       "primary_category": "cannabinoid_safety",
       "selection_score": 8,
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "verified_title": null,
-      "focus": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "state": "verification_exception",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "verified_title": "Psychiatric effects of cannabidiol, cannabinol, and tetrahydrocannabinol: A narrative review of clinical evidence and risk profiles.",
+      "focus": "Cannabinoid products are increasingly used worldwide despite limited psychiatric evidence. This narrative review synthesizes preclinical and clinical evidence on cannabidiol (CBD), cannabinol (CBN), and tetrahydrocannabinol (THC) to clarify their distinct psychiatric profiles and discuss how current evidence may inform ongoing clinical and regulatory discussions. A targeted search of PubMed, Scopus, and Web of Science through March 2026 was conducted, prioritizing randomized controlled trials, systematic reviews, and meta-analyses. While preclinical studies consistently suggest anxiolytic and antidepressant-like effects of CBD, clinical evidence remains inconsistent and fails to establish robust therapeutic efficacy. Recent meta-analyses indicate no consistent clinically meaningful benefit of cannabinoids across major psychiatric disorders, and evidence for CBN remains minimal and insufficient to support any clinical recommendation. In sharp contrast, a robust body of evidence indicates that THC is strongly and dose-dependently associated with adverse psychiatric outcomes-including psychosis, cognitive impairment, mood instability, and suicidality-particularly with early-onset or high-potency use. Overall, current evidence does not support the routine clinical use of cannabinoids for psychiatric indications. Although CBD is an investigational agent with a favorable safety profile, its clinical utility remains unproven, whereas THC exposure carries well-documented risks of psychiatric adverse effects. These findings underscore the importance of cautious, compound-specific, and evidence-based approaches to clinical practice and regulation, particularly within the precautionary frameworks observed in several Asian countries.",
+      "verified_journal": "PCN reports : psychiatry and clinical neurosciences",
+      "verified_pub_date": "2026-Sep",
+      "state": "selected_exact_verified",
       "replacement_for_pmid": "42724054"
     },
     {
