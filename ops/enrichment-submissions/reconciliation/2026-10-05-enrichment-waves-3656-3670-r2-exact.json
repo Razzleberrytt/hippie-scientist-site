@@ -3,7 +3,7 @@
   "selection_revision": 2,
   "range": "3656-3670",
   "row_count": 15,
-  "failed_count": 3,
+  "failed_count": 0,
   "rows": [
     {
       "pmid": "42791778",
@@ -28,9 +28,9 @@
       "focus": "Dietary fiber raw materials for meat rabbits are diverse, yet the effects of their hydration properties and fermentation on growth performance and intestinal health remain insufficiently understood. In this study, we first systematically analyzed 12 commercial fiber raw materials for nutrient composition, hydration properties, and in vitro fermentation characteristics. Principal component analysis (PCA) was employed to reduce the dimensionality of the nutritional and physicochemical parameters, extracting two key dimensions: the first was predominantly defined by fiber fractions and viscosity, while the second was jointly driven by water binding capacity (WBC), water swelling capacity (WSC), gas production, and volatile fatty acid (VFA) generation. Subsequently, based on the similarity of fibers along the first principal component and their gradient distribution along the second, four representative fiber raw materials with graded hydration properties and fermentation were selected for in vivo validation: peanut vine meal (PV) < Pennisetum giganteum meal (PG) < Moringa oleifera leaf meal (MO) < mulberry leaf meal (ML). A total of 96 weaned New Zealand white rabbits were randomly assigned to four groups and fed diets containing PV, PG, MO, or ML, respectively, over a 35-day feeding trial. Growth performance, diarrhea incidence, intestinal morphology, cecal microbiota, and VFA profiles were evaluated. In vivo results showed that MO was associated with optimized cecal microbiota, increased short-chain fatty acids, and reduced diarrhea. In contrast, despite its high in vitro fermentation, ML was associated with intestinal inflammation, decreased short-chain fatty acids, reduced average daily gain and average daily feed intake, elevated branched-chain fatty acids and ammonia nitrogen, and increased diarrhea incidence. Correlation analysis further revealed that enriched Bacteroides was closely associated with reduced growth performance and impaired intestinal health. Collectively, these findings suggest that MO with moderate hydration properties and high fermentation may be more beneficial for optimizing growth performance and intestinal health in meat rabbits than ML with high fermentation alone. This study provides a reference for the rational selection of fiber resources in meat rabbit production."
     },
     {
-      "pmid": "42777294",
-      "doi": "10.1016/j.clnu.2026.106786",
-      "title": "Comment on: Effects of early postoperative synbiotic supplementation on gastrointestinal outcomes after sleeve gastrectomy: A randomized controlled trial.",
+      "pmid": "42751774",
+      "doi": "10.1039/d5fo03175c",
+      "title": "Efficacy of Bifidobacterium animalis subsp. lactate BL-99 in relieving functional constipation: a randomized placebo-controlled clinical trial.",
       "journal": "Clinical nutrition (Edinburgh, Scotland)",
       "pub_date": "2026 Sep 15",
       "pub_type": "Letter",
@@ -40,19 +40,19 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 8,
       "primary_category": "gut",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3657,
-      "abstract_verified": false,
+      "abstract_verified": true,
       "title_match_score": 1,
-      "verified_title": "Comment on: Effects of early postoperative synbiotic supplementation on gastrointestinal outcomes after sleeve gastrectomy: A randomized controlled trial.",
-      "verified_journal": "Clinical nutrition (Edinburgh, Scotland)",
-      "verified_pub_date": "2026-Sep-15",
-      "focus": null
+      "verified_title": "Efficacy of Bifidobacterium animalis subsp. lactate BL-99 in relieving functional constipation: a randomized placebo-controlled clinical trial.",
+      "verified_journal": "Food & function",
+      "verified_pub_date": "2026-Sep-17",
+      "focus": "Current therapies for functional constipation often exhibit limited long-term efficacy. This randomized, double-blind, placebo-controlled trial evaluated Bifidobacterium animalis subsp. lactis BL-99 and reported improvements in constipation symptoms with microbiota changes."
     },
     {
-      "pmid": "42822397",
-      "doi": "10.1016/j.clnu.2026.106794",
-      "title": "Comments on \"Effects of early postoperative synbiotic supplementation on gastrointestinal outcomes after sleeve gastrectomy: A randomized controlled trial\".",
+      "pmid": "42757563",
+      "doi": "10.1002/mnfr.70610",
+      "title": "Postbiotic Intervention Improves Bowel Function and Promotes Systemic Health in Institutionalized Older Adults.",
       "journal": "Clinical nutrition (Edinburgh, Scotland)",
       "pub_date": "2026 Sep 15",
       "pub_type": "Letter",
@@ -62,14 +62,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 8,
       "primary_category": "gut",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3658,
-      "abstract_verified": false,
+      "abstract_verified": true,
       "title_match_score": 1,
-      "verified_title": "Comments on \"Effects of early postoperative synbiotic supplementation on gastrointestinal outcomes after sleeve gastrectomy: A randomized controlled trial\".",
-      "verified_journal": "Clinical nutrition (Edinburgh, Scotland)",
-      "verified_pub_date": "2026-Sep-15",
-      "focus": null
+      "verified_title": "Postbiotic Intervention Improves Bowel Function and Promotes Systemic Health in Institutionalized Older Adults.",
+      "verified_journal": "Molecular nutrition & food research",
+      "verified_pub_date": "2026-Sep",
+      "focus": "A randomized, double-blind intervention in institutionalized older adults found postbiotic supplementation improved bowel regularity, reduced diarrheal episodes and laxative reliance, and was associated with favorable microbiota and inflammatory changes."
     },
     {
       "pmid": "42751421",
@@ -326,14 +326,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 20,
       "primary_category": "immune_respiratory",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3670,
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "focus": null
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "verified_title": "Vitamin D supplementation for managing COVID-19 in patients with vitamin D deficiency: a systematic review and meta-analysis of randomised controlled trials.",
+      "verified_journal": "BMJ open",
+      "verified_pub_date": "2025-Mar-26",
+      "focus": "A systematic review and meta-analysis of nine randomized trials in 870 participants found vitamin D supplementation was associated with lower mortality during follow-up, but the result was not robust in sensitivity and trial-sequential analyses and other major outcomes were not significantly improved."
     }
   ]
 }
