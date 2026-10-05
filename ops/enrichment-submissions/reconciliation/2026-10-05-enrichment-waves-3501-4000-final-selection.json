@@ -40,16 +40,44 @@
     "women_health": 24
   },
   "state_counts": {
-    "selected_exact_verified": 419,
+    "selected_exact_verified": 415,
+    "research_only_exact_verified_review_repair": 4,
     "research_only_exact_verified_final_repair": 20,
-    "research_only_exact_verified": 61
+    "research_only_exact_verified": 59,
+    "research_only_retraction_notice_ineligible": 1,
+    "research_only_retracted_publication_ineligible": 1
   },
+  "retraction_quarantine": [
+    {
+      "wave": 3935,
+      "pmid": "40000146",
+      "state": "research_only_retraction_notice_ineligible",
+      "pub_type": "Retraction Notice",
+      "retraction_relation": {
+        "type": "retraction_notice_for",
+        "related_pmid": "36651329",
+        "related_doi": "10.1111/iwj.14093"
+      }
+    },
+    {
+      "wave": 3936,
+      "pmid": "36651329",
+      "state": "research_only_retracted_publication_ineligible",
+      "pub_type": "Retracted Publication",
+      "retraction_relation": {
+        "type": "retracted_by_notice",
+        "related_pmid": "40000146",
+        "related_doi": "10.1111/iwj.70246"
+      }
+    }
+  ],
   "waves": [
     {
       "wave": 3501,
       "pmid": "42809602",
       "doi": "10.1097/nor.0000000000001238",
       "title": "Effectiveness of Interventions to Prevent Frailty in Older Adults: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Meta-Analysis",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -58,6 +86,7 @@
       "pmid": "42807168",
       "doi": "10.3389/fnut.2026.1917374",
       "title": "Adverse outcomes of sarcopenic obesity in older adults: a scoping review.",
+      "pub_type": "Review",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -66,6 +95,7 @@
       "pmid": "42831056",
       "doi": "10.1016/j.eclinm.2026.104212",
       "title": "Effect of a wearable-based individualised multidomain lifestyle intervention on cognitive and physical function in older adults at risk of decline (INSPIOR): a single-centre, open-label, randomised controlled trial.",
+      "pub_type": "Journal Article",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -74,6 +104,7 @@
       "pmid": "42806732",
       "doi": "10.1080/03007995.2026.2734645",
       "title": "Beyond weight loss: a narrative review of tirzepatide's impact on muscle and lean mass in people with overweight and obesity.",
+      "pub_type": "Review",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -82,6 +113,7 @@
       "pmid": "42809700",
       "doi": "10.1097/ppo.0000000000000850",
       "title": "Tailoring Therapy for Frail and Elderly Myeloma Patients.",
+      "pub_type": "Review",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -90,6 +122,7 @@
       "pmid": "42816429",
       "doi": "10.1002/jcsm.70389",
       "title": "Intramuscular Fat as a Biomarker of Muscle Health: Strengths, Limitations and Open Challenges.",
+      "pub_type": "Review",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -98,6 +131,7 @@
       "pmid": "42819111",
       "doi": "10.3389/fendo.2026.1929487",
       "title": "Muscle-brain crosstalk in sarcopenia and cognitive impairment: endocrine signaling, metabolic regulation, and exercise modulation.",
+      "pub_type": "Review",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -106,6 +140,7 @@
       "pmid": "42823512",
       "doi": "10.1038/s41584-026-01436-9",
       "title": "Single-component imaging and ultrasound-based tools for the assessment of fracture risk.",
+      "pub_type": "Review",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -114,6 +149,7 @@
       "pmid": "42824555",
       "doi": "10.3389/fpubh.2026.1949710",
       "title": "Perioperative nutrition-oriented nursing for older women undergoing cancer surgery: frailty screening, enhanced recovery, and survivorship care.",
+      "pub_type": "Review",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -122,6 +158,7 @@
       "pmid": "42829606",
       "doi": "10.2147/ijgm.s637305",
       "title": "Sleep Disturbances and Sarcopenia in Older Adults: Clinical Associations, Potential Mechanisms, and Management Strategies.",
+      "pub_type": "Review",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -130,6 +167,7 @@
       "pmid": "42811040",
       "doi": "10.1038/s41467-026-77277-7",
       "title": "Multidisciplinary intervention in frail elderly patients with cardiovascular diseases: a multicentre, single-blinded, randomised controlled trial.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -138,6 +176,7 @@
       "pmid": "42801617",
       "doi": "10.1002/advs.77951",
       "title": "Developing Metal-Polyphenol Network-Based Single-Protein Particle Encapsulation System for Sustained Release of Whey Protein to Mitigate Sarcopenia.",
+      "pub_type": "Journal Article",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -146,6 +185,7 @@
       "pmid": "42802037",
       "doi": "10.1111/ggi.70858",
       "title": "White Blood Cell to HDL-C Ratio and Sarcopenia: A Dual-Cohort Analysis Including Exploratory Insights on Hepatitis B History.",
+      "pub_type": "Journal Article",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -154,6 +194,7 @@
       "pmid": "42805127",
       "doi": "10.1016/j.maturitas.2026.109138",
       "title": "Longitudinal trajectories of the C-reactive protein-triglyceride-glucose index and frailty progression in two nationwide prospective cohorts.",
+      "pub_type": "Journal Article",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -162,6 +203,7 @@
       "pmid": "42805797",
       "doi": "10.1111/joor.70329",
       "title": "Heterogeneous Trajectories of Oral Frailty Among Institutionalized Older Adults: A 6-Month Latent Growth Mixture Modelling Study.",
+      "pub_type": "Journal Article",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -170,6 +212,7 @@
       "pmid": "42805971",
       "doi": "10.1038/s41467-026-77032-y",
       "title": "Woven dECM yarn scaffolds enable volumetric muscle loss regeneration via immunomodulation.",
+      "pub_type": "Journal Article",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -178,6 +221,7 @@
       "pmid": "42807263",
       "doi": "10.7759/cureus.115389",
       "title": "Frail, Fluid, and Falsely Accused: Myxedema Ascites in an Older Adult.",
+      "pub_type": "Journal Article",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -186,6 +230,7 @@
       "pmid": "42807335",
       "doi": "10.3389/fcvm.2026.1902415",
       "title": "Prevalence and associated factors of frailty in hospitalized elderly patients with heart failure.",
+      "pub_type": "Journal Article",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -194,6 +239,7 @@
       "pmid": "42807943",
       "doi": "10.2147/cia.s627465",
       "title": "Experiences and Needs Regarding Anti-Inflammatory Dietary Management in Sarcopenia Care: A Qualitative Study from a Multi-Stakeholder Perspective.",
+      "pub_type": "Journal Article",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -202,6 +248,7 @@
       "pmid": "42808017",
       "doi": "10.1002/gin2.70083",
       "title": "Public Engagement to Inform Messaging Aligning With the Muscle-Strengthening Guidelines.",
+      "pub_type": "Journal Article",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -210,6 +257,7 @@
       "pmid": "42810445",
       "doi": "10.1016/j.clnesp.2026.105138",
       "title": "Dietary Variety as a Potential Modifier of Multidomain Intervention Effects on Gait Speed in Older Adults with Mild Cognitive Impairment: A Secondary Analysis of the J-MINT Trial.",
+      "pub_type": "Journal Article",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -218,6 +266,7 @@
       "pmid": "42810599",
       "doi": "10.1016/j.exger.2026.113341",
       "title": "Infectious diseases and sarcopenia-related phenotypes: A phenome-wide Mendelian randomization study with exploratory proteomic analysis.",
+      "pub_type": "Journal Article",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -226,6 +275,7 @@
       "pmid": "42812763",
       "doi": "10.2147/ijgm.s646464",
       "title": "Association Between Nutritional Status and Severe Sarcopenia in Maintenance Hemodialysis Patients: A Multicenter Cross-Sectional Study with Diagnostic Model Development.",
+      "pub_type": "Journal Article",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -234,6 +284,7 @@
       "pmid": "42814901",
       "doi": "10.1519/jsc.0000000000005640",
       "title": "Changes in Strength and Muscle Thickness in Physically Active Males and Females in Response to Resistance Exercise Training: Comparison of Absolute and Relative Change Scores.",
+      "pub_type": "Journal Article",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -242,6 +293,7 @@
       "pmid": "42815069",
       "doi": "10.1016/j.intimp.2026.117499",
       "title": "Cucurbitacin B attenuates LPS-induced skeletal muscle atrophy by inhibiting JAK2/STAT3 and suppressing proteasome activity.",
+      "pub_type": "Journal Article",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -250,6 +302,7 @@
       "pmid": "42820572",
       "doi": "10.1590/1806-9282.20252134",
       "title": "Sarcopenia, its components and fracture risk in people living with human immunodeficiency virus.",
+      "pub_type": "Journal Article",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -258,6 +311,7 @@
       "pmid": "42821209",
       "doi": "10.1007/s11357-026-02520-4",
       "title": "Optimizing frailty care: an analysis of dual exercise targets and cognitive function among frail older adults.",
+      "pub_type": "Journal Article",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -266,14 +320,17 @@
       "pmid": "42823667",
       "doi": "10.1186/s12877-026-08133-y",
       "title": "Effects of an eight-week combined exercise program on functional and sarcopenia-related outcomes in institutionalized older adults with and without Alzheimer's disease: a comparative intervention study.",
+      "pub_type": "Comparative Study",
       "category": "aging_sarcopenia",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_reason": "true_off_domain_title_repair"
     },
     {
       "wave": 3529,
       "pmid": "42823831",
       "doi": "10.1111/acel.70739",
       "title": "Prodh2-Mediated Mitochondrial Stress Drives TNF-α-Induced Myoblast Dysfunction and Sarcopenia in COPD.",
+      "pub_type": "Journal Article",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -282,6 +339,7 @@
       "pmid": "42826314",
       "doi": "10.1097/md.0000000000050951",
       "title": "A Mendelian randomization study reveals TNF-β as a potential protective factor against sarcopenia.",
+      "pub_type": "Journal Article",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -290,6 +348,7 @@
       "pmid": "42827299",
       "doi": "10.1002/jcsm.70401",
       "title": "Vitamin D Ameliorates Skeletal Muscle Atrophy After Spinal Cord Injury by Upregulating TIGAR and Enhancing Mitochondrial Function.",
+      "pub_type": "Journal Article",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -298,6 +357,7 @@
       "pmid": "42828582",
       "doi": "10.1007/s00774-026-01763-7",
       "title": "Treatment-dependent association between sarcopenia and ADL at discharge after osteoporotic vertebral fractures.",
+      "pub_type": "Journal Article",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -306,14 +366,17 @@
       "pmid": "42806518",
       "doi": "10.1002/jcsm.70386",
       "title": "Prevalence and Overlap of Malnutrition, Sarcopenia and Related Nutritional Syndromes in a Large Haemodialysis Population.",
+      "pub_type": "Multicenter Study",
       "category": "aging_sarcopenia",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42810558"
     },
     {
       "wave": 3534,
       "pmid": "42804080",
       "doi": "10.1007/s12325-026-03804-z",
       "title": "Losing Muscle or Restoring Physiology? Reframing the Incretin Therapy Sarcopenia Concern.",
+      "pub_type": "Editorial",
       "category": "aging_sarcopenia",
       "state": "selected_exact_verified"
     },
@@ -322,6 +385,7 @@
       "pmid": "42436634",
       "doi": "10.36721/pjps.2026.39.9.260.1",
       "title": "From raw to steamed Panax notoginseng: A systematic review of saponin transformations and their functional consequences.",
+      "pub_type": "Systematic Review",
       "category": "botanicals_mushrooms",
       "state": "selected_exact_verified"
     },
@@ -330,6 +394,7 @@
       "pmid": "42657013",
       "doi": "10.3389/fphar.2026.1872755",
       "title": "Adulteration prevention-oriented systematic review of chemical constituents in the genus Rhodiola and strategic outlook for species identification based on chemical constituents.",
+      "pub_type": "Review",
       "category": "botanicals_mushrooms",
       "state": "selected_exact_verified"
     },
@@ -338,6 +403,7 @@
       "pmid": "42468722",
       "doi": "10.1016/j.tjnut.2026.101731",
       "title": "The Gut-Brain Axis in Ganoderma lucidum's Antidepressant Effects in Cancer Comorbidity: A Review.",
+      "pub_type": "Review",
       "category": "botanicals_mushrooms",
       "state": "selected_exact_verified"
     },
@@ -346,6 +412,7 @@
       "pmid": "42488829",
       "doi": "10.1016/j.chmed.2026.05.014",
       "title": "Challenges and opportunities for ginseng-based medicines in treating cardiac fibrosis from mechanistic insights to clinical translation.",
+      "pub_type": "Review",
       "category": "botanicals_mushrooms",
       "state": "selected_exact_verified"
     },
@@ -354,6 +421,7 @@
       "pmid": "42595969",
       "doi": "10.1002/ptr.70427",
       "title": "Immunomodulatory Properties of Withania somnifera: Regulation of Innate Immune Cells and Clinical Implications.",
+      "pub_type": "Review",
       "category": "botanicals_mushrooms",
       "state": "selected_exact_verified"
     },
@@ -362,6 +430,7 @@
       "pmid": "42609432",
       "doi": "10.1002/fsn3.72265",
       "title": "Ginseng as a Functional Food Intervention for Interstitial Lung Disease: A Review of the Benefits and Molecular Mechanisms.",
+      "pub_type": "Review",
       "category": "botanicals_mushrooms",
       "state": "selected_exact_verified"
     },
@@ -370,14 +439,17 @@
       "pmid": "42543530",
       "doi": "10.1017/S0007114526108101",
       "title": "Impact of 3-day turmeric supplementation on fasting and postprandial LPS and chylomicron-related markers in patients with IBS: A randomized crossover trial.",
+      "pub_type": "Journal Article",
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42653670"
     },
     {
       "wave": 3542,
       "pmid": "42689185",
       "doi": "10.3389/fnut.2026.1912520",
       "title": "A recent review on ginseng's effects on neurodegenerative diseases: active ingredients, mechanisms of action, applications, and delivery strategies.",
+      "pub_type": "Review",
       "category": "botanicals_mushrooms",
       "state": "selected_exact_verified"
     },
@@ -386,6 +458,7 @@
       "pmid": "42801725",
       "doi": "10.1002/mc.70186",
       "title": "Prevention of Early Onset of Breast Cancer With Ashwagandha.",
+      "pub_type": "Review",
       "category": "botanicals_mushrooms",
       "state": "selected_exact_verified"
     },
@@ -394,6 +467,7 @@
       "pmid": "42810460",
       "doi": "10.1016/j.jep.2026.122442",
       "title": "Ganoderma lucidum for Alzheimer's Disease: A Neuroinflammatory and Oxidative Stress Perspective.",
+      "pub_type": "Review",
       "category": "botanicals_mushrooms",
       "state": "selected_exact_verified"
     },
@@ -402,54 +476,67 @@
       "pmid": "41373984",
       "doi": "10.3390/nu17233694",
       "title": "The Effect of Short-Term Rhodiola rosea Supplementation on Simulated Game Time, Perceived Fatigue, and Performance in Basketball Players.",
+      "pub_type": null,
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42423036"
     },
     {
       "wave": 3546,
       "pmid": "41374026",
       "doi": "10.3390/nu17233736",
       "title": "Dose-Response Effects of Short-Term Rhodiola rosea (Golden Root Extract) Supplementation on Anaerobic Exercise Performance and Cognitive Function in Resistance-Trained Athletes: A Randomized, Crossover, Double-Blind, and Placebo-Controlled Study.",
+      "pub_type": null,
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42426589"
     },
     {
       "wave": 3547,
       "pmid": "42530541",
       "doi": "10.1177/02601060261468994",
       "title": "Dietary intake and blood biomarker changes with a one-week pesco-vegetarian diet intervention supplemented with varying dose of ginger and curcumin: A single-blinded randomized clinical trial.",
+      "pub_type": "Journal Article",
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42429989"
     },
     {
       "wave": 3548,
       "pmid": "41136816",
       "doi": "10.1007/s11655-025-3939-1",
       "title": "Effect and Safety of Phytosomal Curcumin Supplementation on Migraine Patients: A Randomized, Double-Blind and Placebo-Controlled Trial.",
+      "pub_type": null,
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42521176"
     },
     {
       "wave": 3549,
       "pmid": "42582941",
       "doi": "10.22038/ijorl.2026.89875.4010",
       "title": "Effects of Curcumin in Workers with Noise-Induced Hearing Loss: Preliminary Report.",
+      "pub_type": "Journal Article",
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42445674"
     },
     {
       "wave": 3550,
       "pmid": "41599843",
       "doi": "10.3390/nu18020230",
       "title": "Ashwagandha Root Extract Stabilises Physiological Stress Responses in Male and Female Team Sports Athletes During Pre-Season Training.",
+      "pub_type": null,
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42464288"
     },
     {
       "wave": 3551,
       "pmid": "42464773",
       "doi": "10.1097/jcp.0000000000002229",
       "title": "Withania somnifera (Ashwagandha) as an Adjunctive Treatment to Antipsychotic Medications for Patients With Schizophrenia.",
+      "pub_type": "Journal Article",
       "category": "botanicals_mushrooms",
       "state": "selected_exact_verified"
     },
@@ -458,46 +545,57 @@
       "pmid": "41660510",
       "doi": "10.3389/fphar.2026.1724232",
       "title": "Effects of ginseng berry saponins on cardiorespiratory fitness in patients with SCAD: a randomized, double-blinded, placebo-controlled trial.",
+      "pub_type": null,
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42494519"
     },
     {
       "wave": 3553,
       "pmid": "41765966",
       "doi": "10.1038/s41598-026-42095-w",
       "title": "Effect of curcumin on the gut microbiota of patients with ulcerative colitis, Crohn's disease and healthy participants.",
+      "pub_type": null,
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42495314"
     },
     {
       "wave": 3554,
       "pmid": "41156498",
       "doi": "10.3390/nu17203245",
       "title": "Ashwagandha Does Not Enhance the Effect of High-Intensity Interval Training on Selected Energy Metabolism Parameters in Young Healthy Men.",
+      "pub_type": null,
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42619392"
     },
     {
       "wave": 3555,
       "pmid": "41168313",
       "doi": "10.1038/s41598-025-21862-1",
       "title": "Effect of nano-curcumin supplementation on liver fibrosis in patients with NAFLD-associated fibrosis: a double-blind randomized controlled trial.",
+      "pub_type": null,
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42738485"
     },
     {
       "wave": 3556,
       "pmid": "41178944",
       "doi": "10.3389/fnut.2025.1655775",
       "title": "Effects of curcumin on dyslipidemia and body mass index in metabolic disorders: a systematic review and meta-analysis.",
+      "pub_type": null,
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42760454"
     },
     {
       "wave": 3557,
       "pmid": "42534575",
       "doi": "10.1007/s10068-026-02197-7",
       "title": "Validation of Phytolacca americana contamination in commercial root products of Platycodon grandiflorus, Panax ginseng, and Codonopsis lanceolata using species-specific molecular markers.",
+      "pub_type": "Journal Article",
       "category": "botanicals_mushrooms",
       "state": "selected_exact_verified"
     },
@@ -506,14 +604,17 @@
       "pmid": "41766918",
       "doi": "10.3389/frph.2026.1774098",
       "title": "Efficacy and safety of ashwagandha root extract on sexual health in healthy Men: a prospective, randomized, double-blind, placebo-controlled study.",
+      "pub_type": null,
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42564885"
     },
     {
       "wave": 3559,
       "pmid": "42630185",
       "doi": "10.3389/fmed.2026.1810329",
       "title": "The clinical efficacy and mechanism of Rhodiola rosea in treating rheumatoid arthritis in high-altitude areas by regulating the HIF-1α signaling pathway.",
+      "pub_type": "Journal Article",
       "category": "botanicals_mushrooms",
       "state": "selected_exact_verified"
     },
@@ -522,46 +623,57 @@
       "pmid": "41240262",
       "doi": "10.1007/s10787-025-02038-9",
       "title": "Efficacy of curcumin/turmeric on inflammation and oxidative stress in prediabetes and type 2 diabetes: a systematic review and dose-response meta-analysis.",
+      "pub_type": null,
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42768716"
     },
     {
       "wave": 3561,
       "pmid": "41824889",
       "doi": "10.1097/md.0000000000047990",
       "title": "Efficacy and safety of Ashwagandha root extract sustained-release (AshwaSR) capsules in healthy adult, stressed subjects: A randomized, double-blind, placebo-controlled, parallel-group, 3-arm clinical trial.",
+      "pub_type": null,
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42750144"
     },
     {
       "wave": 3562,
       "pmid": "41249015",
       "doi": "10.1002/ptr.70128",
       "title": "Effects of Ashwagandha on Reproductive Health: A Systematic Review of Sex-Specific Hormonal and Fertility Outcomes.",
+      "pub_type": null,
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42793049"
     },
     {
       "wave": 3563,
       "pmid": "41327719",
       "doi": "10.1097/md.0000000000046177",
       "title": "Effect of curcumin on inflammatory markers and disease activity in patients with rheumatoid arthritis: A meta-analysis.",
+      "pub_type": null,
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42803496"
     },
     {
       "wave": 3564,
       "pmid": "41372521",
       "doi": "10.1007/s00011-025-02135-z",
       "title": "Effects of curcumin and Curcuma longa extract on inflammatory biomarkers in patients with rheumatoid arthritis (RA) and systemic lupus erythematosus (SLE): a systematic review and meta-analysis of randomized controlled trials.",
+      "pub_type": null,
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42819834"
     },
     {
       "wave": 3565,
       "pmid": "42544642",
       "doi": "10.1177/17455057261471827",
       "title": "Microneedling-assisted Panax ginseng exosome protocol for vulvovaginal symptoms and vulvar skin tone changes: A preliminary pilot observational study.",
+      "pub_type": "Observational Study",
       "category": "botanicals_mushrooms",
       "state": "selected_exact_verified"
     },
@@ -570,14 +682,17 @@
       "pmid": "42704497",
       "doi": "10.1007/s10072-026-09347-z",
       "title": "Efficacy and safety of cannabinoid-based interventions for behavioral and cognitive symptoms in dementia: systematic review and meta-analysis.",
+      "pub_type": "Meta-Analysis",
       "category": "cannabinoid_safety",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42761342"
     },
     {
       "wave": 3567,
       "pmid": "42793382",
       "doi": "10.3390/brainsci16090957",
       "title": "Investigating Neuropharmacological Features of the Cortical Activity of Cannabidiol GWP42003 P-A Phase 1 Clinical Trial.",
+      "pub_type": "Journal Article",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -586,22 +701,27 @@
       "pmid": "42466383",
       "doi": "10.1002/pcn5.70383",
       "title": "Psychiatric effects of cannabidiol, cannabinol, and tetrahydrocannabinol: A narrative review of clinical evidence and risk profiles.",
+      "pub_type": "Review",
       "category": "cannabinoid_safety",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42724054"
     },
     {
       "wave": 3569,
       "pmid": "42575778",
       "doi": "10.1016/j.jpet.2026.104984",
       "title": "Safety, pharmacodynamics, and pharmacokinetics of oral cannabigerol in healthy adults.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "cannabinoid_safety",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42830317"
     },
     {
       "wave": 3570,
       "pmid": "42745018",
       "doi": "10.1007/s43032-026-02201-9",
       "title": "The Endocannabinoid System in Endometriosis-Associated Pain: Mechanisms, Molecular Targets, and Therapeutic Implications.",
+      "pub_type": "Review",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -610,6 +730,7 @@
       "pmid": "42767712",
       "doi": "10.1016/bs.irn.2026.08.020",
       "title": "Vulnerability in the womb: Charting the effects of prenatal cannabinoid exposure to mitigate developmental actions on dopamine metabolic capacities and circuits.",
+      "pub_type": "Review",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -618,6 +739,7 @@
       "pmid": "42773392",
       "doi": "10.1007/s43440-026-00901-2",
       "title": "Transcriptional and epigenetic regulation of the cannabinoid receptor type-1 (CB1R) in health and disease: an overview.",
+      "pub_type": "Review",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -626,6 +748,7 @@
       "pmid": "42789948",
       "doi": "10.38212/2224-6614.3578",
       "title": "Benefits and risks of consuming Cannabis sativa L. in food.",
+      "pub_type": "Review",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -634,14 +757,17 @@
       "pmid": "42514510",
       "doi": "10.3390/plants15142142",
       "title": "The Pharmacological Activity of Non-Cannabinoid Phytochemicals in Cannabis sativa L.: A Systematic Review.",
+      "pub_type": "Review",
       "category": "cannabinoid_safety",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42472408"
     },
     {
       "wave": 3575,
       "pmid": "42734834",
       "doi": "10.1007/s00586-026-10290-y",
       "title": "Ten-year outcomes of medical cannabis for chronic low back pain: opioid reduction, pain relief, and functional improvement in 1,000 patients.",
+      "pub_type": "Journal Article",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -650,6 +776,7 @@
       "pmid": "42735297",
       "doi": "10.1080/00952990.2026.2717198",
       "title": "Trauma exposure, acculturation stress, and tobacco, alcohol, cannabis, and amphetamine-type stimulant use among Syrian-origin adolescents under temporary protection in Türkiye: a 12-month longitudinal mediation analysis.",
+      "pub_type": "Journal Article",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -658,6 +785,7 @@
       "pmid": "42735776",
       "doi": "10.1016/j.jad.2026.122483",
       "title": "Plasma endocannabinoid levels in bipolar disorder: Differences between manic and euthymic states and the impact of cannabis use.",
+      "pub_type": "Journal Article",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -666,14 +794,17 @@
       "pmid": "42484346",
       "doi": "10.1080/15360288.2026.2704788",
       "title": "Cannabis-Based Medicines for Nociplastic Pain: A Scoping Review of Efficacy, Safety, and Patient Outcomes.",
+      "pub_type": "Review",
       "category": "cannabinoid_safety",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42741330"
     },
     {
       "wave": 3579,
       "pmid": "42748050",
       "doi": "10.1111/1556-4029.70408",
       "title": "HPLC-UV quantitation of synthetically derived THC, THCP, and HHC isomers in commercial vaping liquids and edibles (2019-2024).",
+      "pub_type": "Journal Article",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -682,14 +813,17 @@
       "pmid": "42514343",
       "doi": "10.3390/nu18142274",
       "title": "Effects of Sativex(®) Versus Placebo on Glucagon-like Peptide-1, Total Ghrelin, and Subjective Appetite in Older Adults with Poor Appetite: A Protocolized Secondary Analysis of a Double-Blind, Randomized, Placebo-Controlled Crossover Trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "cannabinoid_safety",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42748512"
     },
     {
       "wave": 3581,
       "pmid": "42753239",
       "doi": "10.1177/15568253261490303",
       "title": "Cannabis Use and Breastfeeding Initiation: Associations with Patterns, Perceived Risk, and Clinical Advice in a Multistate Pregnancy Risk Assessment Monitoring System Study (2017-2021).",
+      "pub_type": "Journal Article",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -698,6 +832,7 @@
       "pmid": "42755144",
       "doi": "10.1177/25785125261489482",
       "title": "THC Labeling Discrepancies Across Cannabis Flower Product Subtypes in a State-Legal Market.",
+      "pub_type": "Journal Article",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -706,6 +841,7 @@
       "pmid": "42759089",
       "doi": "10.1016/j.puhe.2026.106500",
       "title": "Trends and disparities in cannabis use disorder-coded inpatient discharges across 18 U.S. states, 2005-2023.",
+      "pub_type": "Journal Article",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -714,14 +850,17 @@
       "pmid": "42520581",
       "doi": "10.1016/j.eplepsyres.2026.107873",
       "title": "A systematic review of highly purified cannabidiol in developmental and epileptic encephalopathies and complex treatment-resistant epilepsies: Nonseizure outcomes.",
+      "pub_type": "Review",
       "category": "cannabinoid_safety",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42534720"
     },
     {
       "wave": 3585,
       "pmid": "42760787",
       "doi": "10.1111/bjc.70098",
       "title": "Cannabis use disorder, alcohol use disorder, and suicidal ideation within a social determinants of mental health framework: Insights from a network analysis.",
+      "pub_type": "Journal Article",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -730,6 +869,7 @@
       "pmid": "42762707",
       "doi": "10.1016/j.drugpo.2026.105506",
       "title": "Use of cannabidiol products in Canada, United States, Australia, Aotearoa New Zealand, United Kingdom and Germany: products, sources and reasons for use.",
+      "pub_type": "Journal Article",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -738,6 +878,7 @@
       "pmid": "42763468",
       "doi": "10.1177/14550725261488522",
       "title": "Might cannabis Legalization Have Affected Public Health-Relevant Alcohol- and Tobacco-use Outcomes in Canada?",
+      "pub_type": "Journal Article",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -746,6 +887,7 @@
       "pmid": "42776099",
       "doi": "10.1016/j.jadohealth.2026.07.008",
       "title": "Changes in Susceptibility to Cannabis Use From Late Childhood to Early Adolescence.",
+      "pub_type": "Journal Article",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -754,14 +896,17 @@
       "pmid": "42543771",
       "doi": "10.1002/bcp.70719",
       "title": "Efficacy and safety of cannabinoids in the treatment of spasticity in multiple sclerosis: A systematic review of randomized clinical trials.",
+      "pub_type": "Review",
       "category": "cannabinoid_safety",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42777800"
     },
     {
       "wave": 3590,
       "pmid": "42785538",
       "doi": "10.1016/j.phrs.2026.109641",
       "title": "Cannabinoids as context-dependent modulators of the adenosine A(3) receptors: Potential orthosteric and allosteric mechanisms.",
+      "pub_type": "Journal Article",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -770,14 +915,17 @@
       "pmid": "42561565",
       "doi": "10.1016/j.addbeh.2026.108817",
       "title": "Relationships between cannabis and cocaine use in a randomized trial of combined buprenorphine and naltrexone for DSM-IV cocaine dependence.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "cannabinoid_safety",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42796493"
     },
     {
       "wave": 3592,
       "pmid": "42798297",
       "doi": "10.1111/ene.70760",
       "title": "Cannabidiol in Adults With Lennox-Gastaut Syndrome: Real-World Experience.",
+      "pub_type": "Journal Article",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -786,6 +934,7 @@
       "pmid": "42799588",
       "doi": "10.1111/jgs.70748",
       "title": "Modes of Cannabis Use and Mental Health Outcomes Among Older Adults in the United States.",
+      "pub_type": "Journal Article",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -794,6 +943,7 @@
       "pmid": "42803081",
       "doi": "10.1177/29767342261488975",
       "title": "Changes in Symptoms of Cannabis Use Disorder of Ontario Youth Across the COVID-19 Pandemic: A Longitudinal Cohort Study.",
+      "pub_type": "Journal Article",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -802,6 +952,7 @@
       "pmid": "42805506",
       "doi": "10.1016/j.ypmed.2026.108669",
       "title": "Associations of delta-9-tetrahydrocannabinol quantity and Cannabis use frequency with Cannabis use disorder among adults who use Cannabis in the United States.",
+      "pub_type": "Journal Article",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -810,6 +961,7 @@
       "pmid": "42810163",
       "doi": "10.1016/j.yebeh.2026.111323",
       "title": "Use of purified cannabidiol as add-on therapy in children with non-self-limited focal epilepsies of childhood: A multicenter study.",
+      "pub_type": "Journal Article",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -818,6 +970,7 @@
       "pmid": "42813647",
       "doi": "10.2174/0127724328501726260907075438",
       "title": "Global Regulatory Frameworks for Cannabinoids and Cannabis-Based Medicinal Products: A Comprehensive Review of Contemporary Approaches and Challenges.",
+      "pub_type": "Journal Article",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -826,6 +979,7 @@
       "pmid": "42814580",
       "doi": "10.4088/jcp.25m16257",
       "title": "Impact of Cannabis Use on Time to Psychiatric Rehospitalization in Young Adults With Bipolar and Psychotic Disorders: A Survival Analysis.",
+      "pub_type": "Journal Article",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -834,6 +988,7 @@
       "pmid": "42822008",
       "doi": "10.1080/00325481.2026.2739680",
       "title": "Respiratory depression with concomitant use of opioids and cannabinoids: a case report.",
+      "pub_type": "Journal Article",
       "category": "cannabinoid_safety",
       "state": "selected_exact_verified"
     },
@@ -842,6 +997,7 @@
       "pmid": "42521226",
       "doi": "10.6133/apjcn.202608_35(4).0006",
       "title": "Early-life high-dose omega-3 polyunsaturated fatty acid supplementation reduces risk of childhood asthma/wheezing: A meta-analysis of randomized controlled trials.",
+      "pub_type": "Systematic Review",
       "category": "cardiometabolic",
       "state": "selected_exact_verified"
     },
@@ -850,6 +1006,7 @@
       "pmid": "42714408",
       "doi": "10.1161/jaha.126.050377",
       "title": "Study Protocol for a Randomized Controlled Trial Investigating Acute Cardiometabolic Responses to Heat-Ozone Coexposure and the Interventional Role of Omega-3 Eicosapentaenoic Acid: The HOEPA Study.",
+      "pub_type": "Clinical Trial Protocol",
       "category": "cardiometabolic",
       "state": "selected_exact_verified"
     },
@@ -858,6 +1015,7 @@
       "pmid": "42517224",
       "doi": "10.1161/circep.125.014785",
       "title": "Effects of Omega-3 Fatty Acid Treatment on Risk for Atrial Fibrillation: An Updated Meta-Analysis of 35 Trials including 114 592 Individuals.",
+      "pub_type": "Review",
       "category": "cardiometabolic",
       "state": "selected_exact_verified"
     },
@@ -866,6 +1024,7 @@
       "pmid": "42580984",
       "doi": "10.1016/j.numecd.2026.104931",
       "title": "Effect of magnesium supplementation on liver enzymes: a systematic review and meta-analysis of clinical trials.",
+      "pub_type": "Review",
       "category": "cardiometabolic",
       "state": "selected_exact_verified"
     },
@@ -874,6 +1033,7 @@
       "pmid": "42642983",
       "doi": "10.1002/lipd.70079",
       "title": "Dietary Omega-3 and Omega-6 Fatty Acid Intake and Breast Cancer Risk: A Systematic Review and Meta-Analysis of Cohort Studies.",
+      "pub_type": "Review",
       "category": "cardiometabolic",
       "state": "selected_exact_verified"
     },
@@ -882,6 +1042,7 @@
       "pmid": "42522977",
       "doi": "10.1002/lipd.70076",
       "title": "Circulating Omega-3 Fatty Acids and Cardiometabolic Outcomes: A Systematic Review of Publications From UK Biobank.",
+      "pub_type": "Journal Article",
       "category": "cardiometabolic",
       "state": "selected_exact_verified"
     },
@@ -890,6 +1051,7 @@
       "pmid": "42654450",
       "doi": "10.3390/medicina62081553",
       "title": "Effectiveness of Omega-3 Supplementation on Arterial Stiffness: A Systematic Review.",
+      "pub_type": "Journal Article",
       "category": "cardiometabolic",
       "state": "selected_exact_verified"
     },
@@ -898,6 +1060,7 @@
       "pmid": "42782716",
       "doi": "10.4103/aam.aam_461_26",
       "title": "Comparative Study of Efficacy of Preemptive Use of Opioid-free Anesthesia Using Paracetamol, Magnesium Sulfate, Lignocaine, Dexamethasone versus Intravenous Fentanyl for Attenuating Hemodynamic Response, Perioperative Analgesia, and Postoperative Recovery Profile during Laparoscopic Cholecystectomy: A Randomized Parallel Group Trial.",
+      "pub_type": "Journal Article",
       "category": "cardiometabolic",
       "state": "selected_exact_verified"
     },
@@ -906,6 +1069,7 @@
       "pmid": "42523776",
       "doi": "10.3389/fragi.2026.1872170",
       "title": "Omega-3 fatty acids as modulators of advanced glycation end products in aging: mechanistic pathways and clinical implications - a narrative review.",
+      "pub_type": "Review",
       "category": "cardiometabolic",
       "state": "selected_exact_verified"
     },
@@ -914,6 +1078,7 @@
       "pmid": "42647115",
       "doi": "10.1080/27697061.2026.2719468",
       "title": "Why Serum Magnesium Fails: A Narrative Review of Magnesium Biochemistry, Compartmental Exchange, and Endpoint Selection for Supplementation Trials.",
+      "pub_type": "Review",
       "category": "cardiometabolic",
       "state": "selected_exact_verified"
     },
@@ -922,30 +1087,38 @@
       "pmid": "42734836",
       "doi": "10.1007/s11892-026-01644-3",
       "title": "Omega-3 and Omega-6 Fatty Acids and Cardiovascular Outcomes in Diabetes - A Review of Current Evidence.",
+      "pub_type": "Review",
       "category": "cardiometabolic",
       "state": "selected_exact_verified"
     },
     {
       "wave": 3611,
-      "pmid": "42787599",
-      "doi": "10.1016/j.vas.2026.100791",
-      "title": "Precision dietary strategies for enriching animal-derived foods with antioxidants and omega-3 fatty acids.",
+      "pmid": "42602626",
+      "doi": "10.1016/j.cdnut.2026.109439",
+      "title": "Effectiveness of ω-3 Supplementation on Biochemical, Clinical, and Inflammatory Parameters in Patients with Diabetes: A Systematic Review and Meta-analysis.",
+      "pub_type": "Review",
       "category": "cardiometabolic",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_review_repair",
+      "replacement_for_pmid": "42787599",
+      "replacement_reason": "review category-firewall repair: removed livestock/agricultural biofortification review"
     },
     {
       "wave": 3612,
-      "pmid": "42518964",
-      "doi": "10.1155/anrp/5531396",
-      "title": "Comparison on the Effectiveness of Intravenous Magnesium Sulphate and Intravenous Dexmedetomidine in Reducing Emergence Agitation in Adults Undergoing Otorhinolaryngology Surgery.",
+      "pmid": "42775666",
+      "doi": "10.1097/HJH.0000000000004398",
+      "title": "Serum fatty acid profile and desaturase activity in hypertensive patients with and without metabolic syndrome.",
+      "pub_type": "Journal Article",
       "category": "cardiometabolic",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_review_repair",
+      "replacement_for_pmid": "42518964",
+      "replacement_reason": "review category-firewall repair: removed perioperative emergence-agitation magnesium study"
     },
     {
       "wave": 3613,
       "pmid": "42645604",
       "doi": "10.1007/s10142-026-02019-3",
       "title": "Berberine-associated lipid-inflammatory regulation in atherosclerosis: an integrative transcriptomic, single-cell, and in vivo study.",
+      "pub_type": "Journal Article",
       "category": "cardiometabolic",
       "state": "selected_exact_verified"
     },
@@ -954,6 +1127,7 @@
       "pmid": "42711209",
       "doi": "10.1016/j.numecd.2026.104967",
       "title": "Real-world use of Omega-3 fatty acids: a population-based study in an Italian local health unit from Northern Italy.",
+      "pub_type": "Journal Article",
       "category": "cardiometabolic",
       "state": "selected_exact_verified"
     },
@@ -962,6 +1136,7 @@
       "pmid": "42805980",
       "doi": "10.1080/14767058.2026.2738315",
       "title": "Repeat administration of magnesium for an exacerbation of postpartum preeclampsia: a national survey.",
+      "pub_type": "Journal Article",
       "category": "cardiometabolic",
       "state": "selected_exact_verified"
     },
@@ -970,6 +1145,7 @@
       "pmid": "41020743",
       "doi": "10.1002/jcph.70096",
       "title": "Caffeine in Preterm Infants and its Effect on Neonatal Sleep: A Systematic Review.",
+      "pub_type": "Systematic Review",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -978,6 +1154,7 @@
       "pmid": "42331064",
       "doi": "10.1016/j.bbr.2026.116340",
       "title": "Creatine and cognitive function in rodents: A systematic review of behavioral and neurobiological evidence.",
+      "pub_type": "Systematic Review",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -986,6 +1163,7 @@
       "pmid": "39460478",
       "doi": "10.1177/2515690x241293114",
       "title": "The Effects of Coffee/Caffeine in Patients with Multiple Sclerosis; A Systematic Review.",
+      "pub_type": "Systematic Review",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -994,6 +1172,7 @@
       "pmid": "31837359",
       "doi": "10.1016/j.neubiorev.2019.12.008",
       "title": "Effects of acute caffeine consumption following sleep loss on cognitive, physical, occupational and driving performance: A systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1002,6 +1181,7 @@
       "pmid": "33185612",
       "doi": "10.3233/jad-201069",
       "title": "Associations Between Caffeine Consumption, Cognitive Decline, and Dementia: A Systematic Review.",
+      "pub_type": "Systematic Review",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1010,6 +1190,7 @@
       "pmid": "33800853",
       "doi": "10.3390/nu13030868",
       "title": "Caffeine and Cognitive Functions in Sports: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Systematic Review",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1018,14 +1199,17 @@
       "pmid": "41978213",
       "doi": "10.3390/nu18071163",
       "title": "Isomaltulose-Based Stimulant Beverages Can Improve Postprandial Metabolic Responses Without Compromising Cognitive Benefits Associated with Caffeinated Energy Drinks.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "cognition_focus",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_reason": "animal_evidence_repair"
     },
     {
       "wave": 3623,
       "pmid": "35297302",
       "doi": "10.1080/02640414.2021.2003559",
       "title": "Acute caffeine supplementation and live match-play performance in team-sports: A systematic review (2000-2021).",
+      "pub_type": "Systematic Review",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1034,6 +1218,7 @@
       "pmid": "35753391",
       "doi": "10.1016/j.brainres.2022.147990",
       "title": "The effects of caffeine following hypoxic-ischemic encephalopathy: A systematic review of animal studies.",
+      "pub_type": "Systematic Review",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1042,6 +1227,7 @@
       "pmid": "30594211",
       "doi": "10.1186/s12970-018-0267-2",
       "title": "Acute caffeine supplementation in combat sports: a systematic review.",
+      "pub_type": "Systematic Review",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1050,6 +1236,7 @@
       "pmid": "42196950",
       "doi": "10.3390/nu18101489",
       "title": "The Caffeinated Brain Part 1: The Effects of Caffeine on Event-Related Potentials (ERPs)-A Systematic and Mechanistic Review.",
+      "pub_type": "Systematic Review",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1058,6 +1245,7 @@
       "pmid": "42196972",
       "doi": "10.3390/nu18101512",
       "title": "Effects of Caffeine Supplementation on Cognitive Function and Neuromuscular Performance Across Menstrual Cycle Phases in Eumenorrheic Female Athletes: A Randomized, Double-Blind Placebo-Controlled Pilot Trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1066,6 +1254,7 @@
       "pmid": "42679920",
       "doi": "10.1016/j.neuroscience.2026.08.058",
       "title": "Effect of citicoline on cognitive function and functional recovery in patients with mild-to-moderate traumatic brain injury: a randomized placebo-controlled trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1074,6 +1263,7 @@
       "pmid": "39103929",
       "doi": "10.1186/s12993-024-00245-y",
       "title": "Effects of caffeine intake on pupillary parameters in humans: a systematic review and meta-analysis.",
+      "pub_type": "Meta-Analysis",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1082,6 +1272,7 @@
       "pmid": "42179665",
       "doi": "10.14744/bej.2026.93709",
       "title": "The Use of Citicoline in Ophthalmology: A systematic review.",
+      "pub_type": "Review",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1090,6 +1281,7 @@
       "pmid": "42830444",
       "doi": "10.1002/hup.70067",
       "title": "Acute Caffeine Intake Does Not Modulate Active or Reactive Inhibition in Non-Clinical Young Adults, and ADHD Symptoms Do Not Moderate Its Effects.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1098,6 +1290,7 @@
       "pmid": "40255824",
       "doi": "10.7759/cureus.80923",
       "title": "Association Between Caffeine Intake and Alzheimer's Disease Progression: A Systematic Review.",
+      "pub_type": "Review",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1106,6 +1299,7 @@
       "pmid": "38976279",
       "doi": "10.1097/wnf.0000000000000602",
       "title": "Use of Citicoline in Attention-Deficit/Hyperactivity Disorder: A Pilot Study.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1114,6 +1308,7 @@
       "pmid": "42093614",
       "doi": "10.1017/s0007114526107302",
       "title": "Impact of creatine monohydrate supplementation combined with multicomponent training in older adults (≥ 75 years): study protocol of a randomised controlled trial.",
+      "pub_type": "Journal Article",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1122,6 +1317,7 @@
       "pmid": "42355481",
       "doi": "10.3390/life16060954",
       "title": "Dose-Dependent Effects of Acute Caffeine Ingestion on Physical and Cognitive Performance in Trained Female Handball Players: A Randomized Crossover Study.",
+      "pub_type": "Journal Article",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1130,6 +1326,7 @@
       "pmid": "42783813",
       "doi": "10.3390/metabo16090688",
       "title": "Acute Responses to Creatine Monohydrate and L-Arginine, Alone and Combined, on Repeated-Sprint Power, Countermovement Jump Height, and Stroop Reaction Time in Recreationally Active Men: A Randomized Double-Blind Crossover Trial.",
+      "pub_type": "Journal Article",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1138,6 +1335,7 @@
       "pmid": "34693689",
       "doi": "10.17116/jnevro202112109151",
       "title": "[The effect of the use of the drug recognan (citicoline) on the state of higher mental functions in patients with mild cognitive impairment].",
+      "pub_type": "Randomized Controlled Trial",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1146,6 +1344,7 @@
       "pmid": "35111479",
       "doi": "10.7759/cureus.20828",
       "title": "The Cognitive-Enhancing Outcomes of Caffeine and L-theanine: A Systematic Review.",
+      "pub_type": "Review",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1154,6 +1353,7 @@
       "pmid": "34275371",
       "doi": "10.1080/10408398.2021.1949576",
       "title": "Is caffeine mouth rinsing an effective strategy to improve physical and cognitive performance? A systematic review.",
+      "pub_type": "Journal Article",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1162,6 +1362,7 @@
       "pmid": "37029915",
       "doi": "10.1093/nutrit/nuad029",
       "title": "Genetics of caffeine and brain-related outcomes - a systematic review of observational studies and randomized trials.",
+      "pub_type": "Journal Article",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1170,6 +1371,7 @@
       "pmid": "38666339",
       "doi": "10.20960/nh.04820",
       "title": "Can caffeine improve your performance? Psychophysiological effects - A systematic review.",
+      "pub_type": "Journal Article",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1178,6 +1380,7 @@
       "pmid": "39167825",
       "doi": "10.1139/apnm-2024-0228",
       "title": "Exploring the ergogenic potential of carbohydrate-caffeine combined mouth rinse on exercise and cognitive performance: a systematic review.",
+      "pub_type": "Journal Article",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1186,6 +1389,7 @@
       "pmid": "42353204",
       "doi": "10.3390/ijms27125488",
       "title": "From Tradition to Translation: A Critical Appraisal of Bacopa monnieri for Neuroprotection from Preclinical and Clinical Perspectives and Challenges in Utilization.",
+      "pub_type": "Review",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1194,6 +1398,7 @@
       "pmid": "42616216",
       "doi": "10.1007/s10787-026-02369-1",
       "title": "Bacopa monnieri and Alzheimer's disease: mechanistic convergence, cognitive outcomes and translational perspectives.",
+      "pub_type": "Review",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1202,6 +1407,7 @@
       "pmid": "33005155",
       "doi": "10.3389/fpsyt.2020.00849",
       "title": "The Influence of Placebo Effect on Craving and Cognitive Performance in Alcohol, Caffeine, or Nicotine Consumers: A Systematic Review.",
+      "pub_type": "Journal Article",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1210,6 +1416,7 @@
       "pmid": "42260661",
       "doi": "10.1186/s13643-026-03222-w",
       "title": "Caffeine treatment for apnea in infants and children: protocol for a systematic review and meta-analysis.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1218,6 +1425,7 @@
       "pmid": "42136265",
       "doi": "10.2174/011570159x403105251105014447",
       "title": "N-acetylcysteine, Acetyl-L-carnitine, and Citicoline: A Potential Synergism in Neurological and Psychiatric Disorders.",
+      "pub_type": "Journal Article",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1226,6 +1434,7 @@
       "pmid": "42395274",
       "doi": "10.3389/fpubh.2026.1830975",
       "title": "The intervention effect of caffeine oral tablets on mental fatigue induced by nap deprivation: based on assessments of heart rate variability, cognitive performance and subjective fatigue-a pilot study.",
+      "pub_type": "Journal Article",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1234,6 +1443,7 @@
       "pmid": "42429835",
       "doi": "10.1519/jsc.0000000000005606",
       "title": "Ketone Monoester, With and Without Caffeine, Prevents Mental Fatigue and Preserves Cognitive Performance.",
+      "pub_type": "Journal Article",
       "category": "cognition_focus",
       "state": "selected_exact_verified"
     },
@@ -1242,6 +1452,7 @@
       "pmid": "42766151",
       "doi": "10.1080/1028415x.2026.2729710",
       "title": "Effect of probiotic supplementation on psychological stress in healthy adults with moderate stress levels: a randomised, double-blind, placebo-controlled clinical trial.",
+      "pub_type": "Journal Article",
       "category": "gut",
       "state": "selected_exact_verified"
     },
@@ -1250,6 +1461,7 @@
       "pmid": "42770107",
       "doi": "10.4103/ijpvm.ijpvm_246_25",
       "title": "The Effect of Synbiotic Supplementation on Malondialdehyde Levels in Adolescents Exposed to Air Pollution: A Randomized, Single-Blind, Controlled Clinical Trial.",
+      "pub_type": "Journal Article",
       "category": "gut",
       "state": "selected_exact_verified"
     },
@@ -1258,6 +1470,7 @@
       "pmid": "42777267",
       "doi": "10.2196/97873",
       "title": "Preliminary Examination of an Innovative mHealth-Based Dietary Fiber Intervention to Improve Outcomes in Young Adults With Prediabetes: Protocol for a Single-Arm Feasibility Study.",
+      "pub_type": "Clinical Trial Protocol",
       "category": "gut",
       "state": "selected_exact_verified"
     },
@@ -1266,6 +1479,7 @@
       "pmid": "42756190",
       "doi": "10.3389/fnut.2026.1867014",
       "title": "The effects of maternal dietary fiber and short-chain fatty acids on the health of offspring: a mini review.",
+      "pub_type": "Review",
       "category": "gut",
       "state": "selected_exact_verified"
     },
@@ -1274,6 +1488,7 @@
       "pmid": "42819078",
       "doi": "10.3389/fnut.2026.1957323",
       "title": "Correction: Precision synbiotic intervention with 2'-fucosyllactose and infant-derived Bifidobacterium modulates gut-immune axis and reduces disease risk in toddlers: a randomized controlled trial.",
+      "pub_type": "Published Erratum",
       "category": "gut",
       "state": "selected_exact_verified"
     },
@@ -1282,6 +1497,7 @@
       "pmid": "42756390",
       "doi": "10.3389/fnut.2026.1907988",
       "title": "Function-based personalization of dietary fiber selection enhances gut microbial fermentation: a proof-of-concept crossover trial.",
+      "pub_type": "Journal Article",
       "category": "gut",
       "state": "selected_exact_verified"
     },
@@ -1290,6 +1506,7 @@
       "pmid": "42791778",
       "doi": "10.3390/ani16182921",
       "title": "Effects of Dietary Fibers with Different Physicochemical Properties on Intestinal Health and Growth Performance of Meat Rabbits.",
+      "pub_type": "Journal Article",
       "category": "gut",
       "state": "selected_exact_verified"
     },
@@ -1298,22 +1515,27 @@
       "pmid": "42751774",
       "doi": "10.1039/d5fo03175c",
       "title": "Efficacy of Bifidobacterium animalis subsp. lactate BL-99 in relieving functional constipation: a randomized placebo-controlled clinical trial.",
+      "pub_type": "Journal Article",
       "category": "gut",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_reason": "replace_no_abstract_comment"
     },
     {
       "wave": 3658,
       "pmid": "42757563",
       "doi": "10.1002/mnfr.70610",
       "title": "Postbiotic Intervention Improves Bowel Function and Promotes Systemic Health in Institutionalized Older Adults.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "gut",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_reason": "replace_no_abstract_comment"
     },
     {
       "wave": 3659,
       "pmid": "42751421",
       "doi": "10.3389/fped.2026.1819220",
       "title": "Fetal and neonatal effects of N-acetylcysteine for maternal chorioamnionitis: a systematic review.",
+      "pub_type": "Systematic Review",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1322,6 +1544,7 @@
       "pmid": "38654693",
       "doi": "10.1017/s1368980024000934",
       "title": "The role of vitamin D in outcomes of critical care in COVID-19 patients: evidence from an umbrella meta-analysis of interventional and observational studies.",
+      "pub_type": "Systematic Review",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1330,6 +1553,7 @@
       "pmid": "39350561",
       "doi": "10.1002/prp2.70013",
       "title": "Effect of vitamin D supplementation on clinical outcomes in adult patients with COVID-19: A GRADE-assessed systematic review and meta-analysis of randomized controlled trials.",
+      "pub_type": "Systematic Review",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1338,6 +1562,7 @@
       "pmid": "39600723",
       "doi": "10.3389/fnut.2024.1502835",
       "title": "The effect of vitamin D supplementation on antibiotic use: a meta-analysis based on randomized controlled trials.",
+      "pub_type": "Systematic Review",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1346,6 +1571,7 @@
       "pmid": "32342851",
       "doi": "10.4269/ajtmh.19-0718",
       "title": "Zinc Supplementation Reduces Common Cold Duration among Healthy Adults: A Systematic Review of Randomized Controlled Trials with Micronutrients Supplementation.",
+      "pub_type": "Systematic Review",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1354,6 +1580,7 @@
       "pmid": "33921297",
       "doi": "10.3390/nu13041261",
       "title": "Does Evidence Exist to Blunt Inflammatory Response by Nutraceutical Supplementation during COVID-19 Pandemic? An Overview of Systematic Reviews of Vitamin D, Vitamin C, Melatonin, and Zinc.",
+      "pub_type": "Systematic Review",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1362,6 +1589,7 @@
       "pmid": "34728441",
       "doi": "10.1136/bmjopen-2020-047474",
       "title": "Zinc for the prevention or treatment of acute viral respiratory tract infections in adults: a rapid systematic review and meta-analysis of randomised controlled trials.",
+      "pub_type": "Systematic Review",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1370,6 +1598,7 @@
       "pmid": "36130775",
       "doi": "10.1136/bmjgh-2022-008625",
       "title": "Effects of zinc and vitamin A supplementation on prognostic markers and treatment outcomes of adults with pulmonary tuberculosis: a systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1378,6 +1607,7 @@
       "pmid": "41774579",
       "doi": "10.1002/ohn.70182",
       "title": "Vitamin D Status and Supplementation in Chronic Rhinosinusitis: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Meta-Analysis",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1386,6 +1616,7 @@
       "pmid": "42311945",
       "doi": "10.3389/fnut.2026.1816046",
       "title": "Vitamin D levels, general health status, and work productivity among healthcare workers-a scoping review of published literature (2010-2025).",
+      "pub_type": "Systematic Review",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1394,6 +1625,7 @@
       "pmid": "39449666",
       "doi": "10.1093/nutrit/nuae152",
       "title": "Micronutrients, Vitamin D, and Inflammatory Biomarkers in COVID-19: A Systematic Review and Meta-analysis of Causal Inference Studies.",
+      "pub_type": "Meta-Analysis",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1402,6 +1634,7 @@
       "pmid": "40139702",
       "doi": "10.1136/bmjopen-2024-091903",
       "title": "Vitamin D supplementation for managing COVID-19 in patients with vitamin D deficiency: a systematic review and meta-analysis of randomised controlled trials.",
+      "pub_type": "Meta-Analysis",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1410,6 +1643,7 @@
       "pmid": "41525115",
       "doi": "10.7417/ct.2026.1976",
       "title": "Effect of vitamin D as Nutrition Supplement on Patients with Prolonged Ventilation due to Ventilator Associated Pneumonia and Sepsis Followed Severe Traumatic Lung Contusion: A Randomized Controlled Trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1418,6 +1652,7 @@
       "pmid": "41693032",
       "doi": "10.1097/mjt.0000000000002118",
       "title": "Safety and Tolerability of Multimodal Therapy (Ivermectin, Doxycycline, Vitamin C, Vitamin D, and Zinc) With or Without Famotidine in Australian Patients With COVID-19 Infection: A Pilot Cohort Trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1426,6 +1661,7 @@
       "pmid": "41826107",
       "doi": "10.1016/j.tjnut.2026.101398",
       "title": "A Randomized Trial of Vitamin D Supplementation and COVID-19 Clinical Outcomes and Long COVID: The Vitamin D for COVID-19 Trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1434,6 +1670,7 @@
       "pmid": "42480239",
       "doi": "10.1016/j.clnu.2026.106722",
       "title": "Effect of moderate or high versus low dose daily vitamin D on COVID-19 incidence: A double-blind, parallel-group randomized clinical trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1442,6 +1679,7 @@
       "pmid": "42744363",
       "doi": "10.1136/bmjopen-2026-120406",
       "title": "BLIS study: a feasibility randomised controlled trial assessing compliance, acceptability and colonisation with different dosing regimens of the probiotic supplement Streptococcus salivarius K12 (Bactoblis) in adults in England.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1450,6 +1688,7 @@
       "pmid": "38719213",
       "doi": "10.1002/14651858.cd014914.pub2",
       "title": "Zinc for prevention and treatment of the common cold.",
+      "pub_type": "Systematic Review",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1458,6 +1697,7 @@
       "pmid": "38732592",
       "doi": "10.3390/nu16091345",
       "title": "The Efficacy of Multivitamin, Vitamin A, Vitamin B, Vitamin C, and Vitamin D Supplements in the Prevention and Management of COVID-19 and Long-COVID: An Updated Systematic Review and Meta-Analysis of Randomized Clinical Trials.",
+      "pub_type": "Meta-Analysis",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1466,6 +1706,7 @@
       "pmid": "38787821",
       "doi": "10.1371/journal.pone.0303495",
       "title": "Vitamin D supplementation for prevention of acute respiratory infections in older adults: A systematic review and meta-analysis.",
+      "pub_type": "Meta-Analysis",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1474,6 +1715,7 @@
       "pmid": "38794642",
       "doi": "10.3390/nu16101402",
       "title": "Effect of Vitamin D3 Supplementation on Severe COVID-19: A Meta-Analysis of Randomized Clinical Trials.",
+      "pub_type": "Meta-Analysis",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1482,6 +1724,7 @@
       "pmid": "39599582",
       "doi": "10.3390/nu16223794",
       "title": "The Effect of Vitamin D Supplementation Post COVID-19 Infection and Related Outcomes: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Meta-Analysis",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1490,6 +1733,7 @@
       "pmid": "39940396",
       "doi": "10.3390/nu17030540",
       "title": "The Immunomodulatory Activity of High Doses of Vitamin D in Critical Care Patients with Severe SARS-CoV-2 Pneumonia-A Randomized Controlled Trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1498,6 +1742,7 @@
       "pmid": "39950814",
       "doi": "10.1080/00016489.2025.2459344",
       "title": "The auxiliary effect of vitamin D in the treatment of chronic rhinosinusitis with nasal polyposis, a clinical trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1506,6 +1751,7 @@
       "pmid": "40310565",
       "doi": "10.1007/s00394-025-03674-1",
       "title": "Effects of vitamin D supplementation on acute respiratory tract infections in 6-8-year-old children: a randomized clinical trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1514,6 +1760,7 @@
       "pmid": "40539053",
       "doi": "10.3389/fimmu.2025.1593200",
       "title": "Impact of vitamin D supplementation in the prognosis of patients with SARS-CoV2 pneumonia admitted to the intensive care unit - a randomized controlled trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1522,6 +1769,7 @@
       "pmid": "32266964",
       "doi": "10.1002/14651858.cd010205.pub2",
       "title": "Zinc supplementation for the promotion of growth and prevention of infections in infants less than six months of age.",
+      "pub_type": "Systematic Review",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1530,6 +1778,7 @@
       "pmid": "38291897",
       "doi": "10.1093/pubmed/fdae007",
       "title": "Therapeutic high-dose vitamin D for vitamin D-deficient severe COVID-19 disease: randomized, double-blind, placebo-controlled study (SHADE-S).",
+      "pub_type": "Randomized Controlled Trial",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1538,6 +1787,7 @@
       "pmid": "39072958",
       "doi": "10.1111/pcn.13716",
       "title": "Effects of an 8-week high-dose vitamin D supplementation on fatigue and neuropsychiatric manifestations in post-COVID syndrome: A randomized controlled trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1546,6 +1796,7 @@
       "pmid": "39227626",
       "doi": "10.1038/s41598-024-66267-8",
       "title": "Randomized trial of influence of vitamin D on the prevention and improvement of symptomatic COVID-19.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1554,6 +1805,7 @@
       "pmid": "39846976",
       "doi": "10.1684/mrh.2024.0535",
       "title": "Combined oral supplementation with magnesium plus vitamin D alleviates mild to moderate depressive symptoms related to long-COVID: an open-label randomized, controlled clinical trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1562,6 +1814,7 @@
       "pmid": "39039558",
       "doi": "10.1186/s13063-024-08342-z",
       "title": "Update: Vitamin D(3) and calcium carbonate supplementation for adolescents with HIV to reduce musculoskeletal morbidity and immunopathology (VITALITY trial): study protocol for a randomised placebo-controlled trial.",
+      "pub_type": "Clinical Trial Protocol",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1570,6 +1823,7 @@
       "pmid": "39740942",
       "doi": "10.1136/bmjopen-2024-092902",
       "title": "Fish oil and vitamin D in pregnancy for the prevention of early childhood asthma: study protocol for two double-blinded, randomised controlled trials.",
+      "pub_type": "Clinical Trial Protocol",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1578,6 +1832,7 @@
       "pmid": "40535465",
       "doi": "10.1016/j.waojou.2025.101075",
       "title": "The effects of prenatal vitamin D supplementation on respiratory and allergy-related outcomes in children: A systematic review and meta-analysis of randomized controlled trials.",
+      "pub_type": "Review",
       "category": "immune_respiratory",
       "state": "selected_exact_verified"
     },
@@ -1586,6 +1841,7 @@
       "pmid": "40959697",
       "doi": "10.3389/fnut.2025.1563604",
       "title": "The effects of magnesium and vitamin D/E co-supplementation on inflammation markers and lipid metabolism of obese/overweight population: a systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1594,6 +1850,7 @@
       "pmid": "41245414",
       "doi": "10.3389/fnut.2025.1692937",
       "title": "The effect of long-term magnesium intake on inflammatory markers in patients with metabolic syndrome: a systematic review and meta-analysis of randomized controlled trials.",
+      "pub_type": "Systematic Review",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1602,6 +1859,7 @@
       "pmid": "39314013",
       "doi": "10.1002/ptr.8336",
       "title": "Efficacy of Extracts of Oleogum Resin of Boswellia in the Treatment of Knee Osteoarthritis: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Systematic Review",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1610,6 +1868,7 @@
       "pmid": "32680575",
       "doi": "10.1186/s12906-020-02985-6",
       "title": "Effectiveness of Boswellia and Boswellia extract for osteoarthritis patients: a systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1618,6 +1877,7 @@
       "pmid": "33511486",
       "doi": "10.1007/s11926-020-00975-8",
       "title": "Efficacy and Safety of Turmeric Extracts for the Treatment of Knee Osteoarthritis: a Systematic Review and Meta-analysis of Randomised Controlled Trials.",
+      "pub_type": "Systematic Review",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1626,6 +1886,7 @@
       "pmid": "34017975",
       "doi": "10.1042/bsr20210817",
       "title": "The efficacy and safety of Curcuma longa extract and curcumin supplements on osteoarthritis: a systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1634,6 +1895,7 @@
       "pmid": "34537344",
       "doi": "10.1016/j.ctim.2021.102775",
       "title": "The efficacy of high- and low-dose curcumin in knee osteoarthritis: A systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1642,6 +1904,7 @@
       "pmid": "35623903",
       "doi": "10.1002/ptr.7500",
       "title": "Zingiberaceae plants/curcumin consumption and multiple health outcomes: An umbrella review of systematic reviews and meta-analyses of randomized controlled trials in humans.",
+      "pub_type": "Systematic Review",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1650,6 +1913,7 @@
       "pmid": "35935936",
       "doi": "10.3389/fimmu.2022.891822",
       "title": "Efficacy and Safety of Curcumin and Curcuma longa Extract in the Treatment of Arthritis: A Systematic Review and Meta-Analysis of Randomized Controlled Trial.",
+      "pub_type": "Systematic Review",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1658,6 +1922,7 @@
       "pmid": "29622343",
       "doi": "10.1016/j.semarthrit.2018.03.001",
       "title": "Efficacy of curcumin and Boswellia for knee osteoarthritis: Systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1666,6 +1931,7 @@
       "pmid": "42830045",
       "doi": null,
       "title": "EFFECTS OF CURCUMIN ON CLINICAL OUTCOMES AND INFLAMMATORY BIOMARKERS IN KNEE OSTEOARTHRITIS: A RANDOMIZED TRIAL.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1674,6 +1940,7 @@
       "pmid": "38036015",
       "doi": "10.1016/j.jep.2023.117493",
       "title": "Efficacy and safety of curcumin therapy for knee osteoarthritis: A Bayesian network meta-analysis.",
+      "pub_type": "Network Meta-Analysis",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1682,6 +1949,7 @@
       "pmid": "41053771",
       "doi": "10.1186/s12906-025-05096-2",
       "title": "Efficacy and safety of curcumin in patients with hand osteoarthritis: a pilot double-blinded randomised controlled trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1690,6 +1958,7 @@
       "pmid": "35277037",
       "doi": "10.3390/nu14030679",
       "title": "Effect of Magnesium Supplementation on Inflammatory Parameters: A Meta-Analysis of Randomized Controlled Trials.",
+      "pub_type": "Meta-Analysis",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1698,6 +1967,7 @@
       "pmid": "31608447",
       "doi": "10.1111/jphp.13184",
       "title": "Pharmacokinetic assessment of constituents of Boswellia serrata, pine bark extracts, curcumin in combination including methylsulfonylmethane in healthy volunteers.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1706,6 +1976,7 @@
       "pmid": "31868149",
       "doi": "10.2174/1874471013666191223152658",
       "title": "The Effect of Nanocurcumin in Improvement of Knee Osteoarthritis: A Randomized Clinical Trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1714,6 +1985,7 @@
       "pmid": "32180294",
       "doi": "10.1002/ptr.6671",
       "title": "Herbal formulation \"turmeric extract, black pepper, and ginger\" versus Naproxen for chronic knee osteoarthritis: A randomized, double-blind, controlled clinical trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1722,6 +1994,7 @@
       "pmid": "32540725",
       "doi": "10.1016/j.intimp.2020.106607",
       "title": "Significant immunomodulatory properties of curcumin in patients with osteoarthritis; a successful clinical trial in Iran.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1730,6 +2003,7 @@
       "pmid": "33032585",
       "doi": "10.1186/s12906-020-03105-0",
       "title": "The effect of curcumin ointment on knee pain in older adults with osteoarthritis: a randomized placebo trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1738,6 +2012,7 @@
       "pmid": "35010916",
       "doi": "10.3390/nu14010041",
       "title": "An Investigation into the Effects of a Curcumin Extract (Curcugen(®)) on Osteoarthritis Pain of the Knee: A Randomised, Double-Blind, Placebo-Controlled Study.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1746,6 +2021,7 @@
       "pmid": "29316908",
       "doi": "10.1186/s12906-017-2062-z",
       "title": "Efficacy and safety of curcumin and its combination with boswellic acid in osteoarthritis: a comparative, randomized, double-blind, placebo-controlled study.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1754,6 +2030,7 @@
       "pmid": "30975196",
       "doi": "10.1186/s13063-019-3327-2",
       "title": "Safety and efficacy of curcumin versus diclofenac in knee osteoarthritis: a randomized open-label parallel-arm study.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1762,6 +2039,7 @@
       "pmid": "42736619",
       "doi": "10.1111/idh.70166",
       "title": "Effectiveness of Omega-3 Fatty Acids as an Adjunct to Scaling and Root Planing in Periodontitis: A Meta-Analysis of Randomized Controlled Trials.",
+      "pub_type": "Review",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1770,6 +2048,7 @@
       "pmid": "36901908",
       "doi": "10.3390/ijms24054476",
       "title": "Curcumin Supplementation and Human Disease: A Scoping Review of Clinical Trials.",
+      "pub_type": "Scoping Review",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1778,6 +2057,7 @@
       "pmid": "38600329",
       "doi": "10.1208/s12249-024-02789-8",
       "title": "Revolutionizing Knee Osteoarthritis Treatment: Innovative Self-Nano-Emulsifying Polyethylene Glycol Organogel of Curcumin for Effective Topical Delivery.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1786,6 +2066,7 @@
       "pmid": "39586746",
       "doi": "10.18502/ijaai.v23i5.16748",
       "title": "The Immunomodulatory Effects of Curcumin on Forkhead Box O1 and MicroRNA-873 in Patients with Osteoarthritis.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1794,6 +2075,7 @@
       "pmid": "41994034",
       "doi": "10.3389/fpain.2026.1789088",
       "title": "The effect of a topical curcumin formulation (VAS-101) on knee pain in adults with knee osteoarthritis: a randomised, double-blind, placebo-controlled study.",
+      "pub_type": "Journal Article",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1802,6 +2084,7 @@
       "pmid": "33500785",
       "doi": "10.1136/bmjsem-2020-000935",
       "title": "Therapeutic effects of turmeric or curcumin extract on pain and function for individuals with knee osteoarthritis: a systematic review.",
+      "pub_type": "Review",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1810,6 +2093,7 @@
       "pmid": "35399636",
       "doi": "10.1155/2022/6159874",
       "title": "Quality of Evidence Supporting the Role of Curcuma Longa Extract/Curcumin for the Treatment of Osteoarthritis: An Overview of Systematic Reviews.",
+      "pub_type": "Review",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1818,6 +2102,7 @@
       "pmid": "30772789",
       "doi": null,
       "title": "Efficacy and side effect of curcumin for the treatment of osteoarthritis: A meta-analysis of randomized controlled trials.",
+      "pub_type": "Review",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1826,6 +2111,7 @@
       "pmid": "41228407",
       "doi": "10.3390/nu17213334",
       "title": "Synergistic Effects of Exercise and Nano-Curcumin Supplementation in Women with Lifestyle-Related Diseases: A Scoping Review.",
+      "pub_type": "Scoping Review",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1834,6 +2120,7 @@
       "pmid": "40806131",
       "doi": "10.3390/nu17152547",
       "title": "Comparative Effectiveness of Nutritional Supplements in the Treatment of Knee Osteoarthritis: A Network Meta-Analysis.",
+      "pub_type": "Network Meta-Analysis",
       "category": "inflammation_pain",
       "state": "research_only_exact_verified_final_repair"
     },
@@ -1842,6 +2129,7 @@
       "pmid": "31351488",
       "doi": "10.1186/s13075-019-1960-5",
       "title": "Bio-optimized Curcuma longa extract is efficient on knee osteoarthritis pain: a double-blind multicenter randomized placebo controlled three-arm study.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "inflammation_pain",
       "state": "research_only_exact_verified_final_repair"
     },
@@ -1850,6 +2138,7 @@
       "pmid": "38280052",
       "doi": "10.1007/s10549-023-07223-4",
       "title": "Randomized placebo-controlled, double-blind clinical trial of nanoemulsion curcumin in women with aromatase inhibitor-induced arthropathy: an Alliance/NCORP pilot trial.",
+      "pub_type": "Multicenter Study",
       "category": "inflammation_pain",
       "state": "selected_exact_verified"
     },
@@ -1858,6 +2147,7 @@
       "pmid": "41918524",
       "doi": "10.3389/fmicb.2026.1751887",
       "title": "Berberine-gut microbiota interactions based on CiteSpace: current research status and hotspots.",
+      "pub_type": "Systematic Review",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -1866,6 +2156,7 @@
       "pmid": "42517336",
       "doi": "10.1111/cen.70188",
       "title": "Multimodal Therapy With Metformin, Inositol and Dietary Restriction Improves Insulin Resistance and Endocrine Outcomes in Women With Polyendocrine Metabolic Ovarian Syndrome: A Randomized Controlled Trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -1874,6 +2165,7 @@
       "pmid": "41897444",
       "doi": "10.3390/antiox15030297",
       "title": "Myo-Inositol: Pharmacokinetics, Biological Functions, and Therapeutic Potential in Liver Protection: Insights from Preclinical Models.",
+      "pub_type": "Review",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -1882,6 +2174,7 @@
       "pmid": "42163851",
       "doi": "10.2147/dmso.s581925",
       "title": "Chromium as a Modulator of Insulin Receptor Activity: A Systematic Review of Its Role in Metabolic Syndrome and Type 2 Diabetes.",
+      "pub_type": "Review",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -1890,6 +2183,7 @@
       "pmid": "42242341",
       "doi": "10.1016/j.ajog.2026.05.020",
       "title": "The effect of myo-inositol supplementation on gestational diabetes mellitus prevention: a systematic review and meta-analysis.",
+      "pub_type": "Review",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -1898,6 +2192,7 @@
       "pmid": "42368730",
       "doi": "10.1007/s40200-026-01979-4",
       "title": "Effects of alpha-lipoic acid in non-alcoholic fatty liver disease (NAFLD): a systematic review of literature.",
+      "pub_type": "Review",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -1906,6 +2201,7 @@
       "pmid": "41882153",
       "doi": "10.1038/s44325-026-00113-w",
       "title": "Berberine signature and cardiometabolic diseases using randomized controlled trial, cohort study and Mendelian randomization.",
+      "pub_type": "Journal Article",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -1914,6 +2210,7 @@
       "pmid": "42573014",
       "doi": "10.1080/07435800.2026.2713536",
       "title": "Efficacy of L-Arginine, Myoinositol, and Chromium with Letrozole for Ovulation Induction in Polycystic Ovarian Syndrome: A Randomized Comparative Study.",
+      "pub_type": "Journal Article",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -1922,6 +2219,7 @@
       "pmid": "42616201",
       "doi": "10.1007/s44446-026-00084-0",
       "title": "Effect of alpha-lipoic acid supplementation on polycystic ovary syndrome clinical outcome in infertile females treated with letrozole: a randomized controlled trial.",
+      "pub_type": "Journal Article",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -1930,6 +2228,7 @@
       "pmid": "42183921",
       "doi": "10.1007/s12011-026-05161-y",
       "title": "Chromium(III) Beyond Insulin: A Mechanistic Roadmap Across the Energy-Redox-Inflammation Triad in Obesity and Cardiometabolic Disease.",
+      "pub_type": "Review",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -1938,6 +2237,7 @@
       "pmid": "42196997",
       "doi": "10.3390/nu18101538",
       "title": "Alpha-Lipoic Acid and Benfotiamine in Diabetic Peripheral Neuropathy: A Critical Review of Mechanistic Rationale and Clinical Evidence Within a Nutritional Therapeutic Framework.",
+      "pub_type": "Review",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -1946,6 +2246,7 @@
       "pmid": "42398618",
       "doi": "10.1016/j.fct.2026.116267",
       "title": "Dihydroberberine in metabolic disorders: Bioavailability, molecular mechanisms, toxicology, and future perspectives.",
+      "pub_type": "Review",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -1954,6 +2255,7 @@
       "pmid": "42406354",
       "doi": "10.36849/jdd.9783",
       "title": "Myo-Inositol in Pregnancy: Implications for Acne Management.",
+      "pub_type": "Review",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -1962,6 +2264,7 @@
       "pmid": "42451096",
       "doi": "10.3390/nu18132093",
       "title": "Effect of Myo-Inositol Supplementation in Polycystic Ovary Syndrome-Scoping Review.",
+      "pub_type": "Review",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -1970,6 +2273,7 @@
       "pmid": "42549142",
       "doi": "10.3389/fendo.2026.1932302",
       "title": "Correction: Comparative analysis of glucagon-like peptide-1 receptor agonists, metformin, and inositol in improving anthropometric and metabolic outcomes in women with polycystic ovary syndrome: a network meta-analysis.",
+      "pub_type": "Published Erratum",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -1978,6 +2282,7 @@
       "pmid": "41941345",
       "doi": "10.2174/011573403x437559251128090907",
       "title": "Dietary Fiber in the Prevention and Management of Obesity, Diabetes, and Cardiovascular Disease: A Mini Review.",
+      "pub_type": "Journal Article",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -1986,6 +2291,7 @@
       "pmid": "42084620",
       "doi": "10.1007/s00210-026-05407-5",
       "title": "Targeting the PI3K/Akt/mTOR and Nrf2 signaling axis with berberine: a novel strategy for attenuating diabetic cardiomyopathy.",
+      "pub_type": "Journal Article",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -1994,6 +2300,7 @@
       "pmid": "42165798",
       "doi": null,
       "title": "Oral myo-inositol plus D-chiro-inositol (3.6:1) reduces insulin resistance pathway biomarkers in acne-involved skin among subjects with metabolic comorbidities: A gene expression study.",
+      "pub_type": "Journal Article",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -2002,6 +2309,7 @@
       "pmid": "42194129",
       "doi": "10.3390/children13050604",
       "title": "Impact of Adjunctive Myo-Inositol and Magnesium Therapy on Paediatric Overactive Bladder: A Retrospective Analysis.",
+      "pub_type": "Journal Article",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -2010,6 +2318,7 @@
       "pmid": "42195384",
       "doi": "10.3390/life16050829",
       "title": "Effects of Berberine on Growth Performance, Serum Biochemical Parameters, Hepatic Antioxidant Capacity and Metabolism in Monopterus albus.",
+      "pub_type": "Journal Article",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -2018,14 +2327,17 @@
       "pmid": "38673787",
       "doi": "10.3390/ijms25084201",
       "title": "Berberine Effects in Pre-Fibrotic Stages of Non-Alcoholic Fatty Liver Disease-Clinical and Pre-Clinical Overview and Systematic Review of the Literature.",
+      "pub_type": "Systematic Review",
       "category": "metabolic",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42249096"
     },
     {
       "wave": 3748,
       "pmid": "42255444",
       "doi": "10.3389/fendo.2026.1700331",
       "title": "Adjunctive berberine improves hormonal, metabolic, and inflammatory profiles in women with polycystic ovary syndrome: a retrospective case-control study.",
+      "pub_type": "Journal Article",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -2034,6 +2346,7 @@
       "pmid": "42358297",
       "doi": "10.3389/fnut.2026.1745303",
       "title": "Short-chain oat fiber improves gastrointestinal tolerance and regulates glucose metabolism: a two-week open-label study in healthy adults.",
+      "pub_type": "Journal Article",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -2042,6 +2355,7 @@
       "pmid": "42522304",
       "doi": "10.2174/0113816128456434260713163014",
       "title": "Nutritional Adjuvants in Diabetes: Biotin and Chromium Picolinate as Emerging Therapeutic Agents.",
+      "pub_type": "Journal Article",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -2050,22 +2364,27 @@
       "pmid": "40269802",
       "doi": "10.1186/s12906-025-04872-4",
       "title": "Berberine and health outcomes: an overview of systematic reviews.",
+      "pub_type": "Systematic Review",
       "category": "metabolic",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_for_pmid": "42821141"
     },
     {
       "wave": 3752,
       "pmid": "42147097",
       "doi": "10.3389/fendo.2026.1778262",
       "title": "Efficacy and safety of Buyang Huanwu Decoction combined with α-lipoic acid for diabetic peripheral neuropathy: a systematic review with in-depth heterogeneity deconstruction and methodological appraisal.",
+      "pub_type": "Meta-Analysis",
       "category": "metabolic",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_reason": "replace_no_abstract_letter"
     },
     {
       "wave": 3753,
       "pmid": "42334964",
       "doi": "10.1080/01443615.2026.2681759",
       "title": "A 3.6:1 myo-inositol to D-chiro-inositol ratio and antioxidant-based food supplement before IVF improves fertility in women with PCOS: a pilot observational retrospective cohort study.",
+      "pub_type": "Observational Study",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -2074,6 +2393,7 @@
       "pmid": "42507181",
       "doi": "10.1007/s00784-026-07049-6",
       "title": "Evaluation of serum chromium, nickel, and magnesium levels in patients with type 2 diabetes mellitus and periodontitis: A cross-sectional study.",
+      "pub_type": "Observational Study",
       "category": "metabolic",
       "state": "selected_exact_verified"
     },
@@ -2082,6 +2402,7 @@
       "pmid": "32302504",
       "doi": "10.1089/jmf.2019.0233",
       "title": "Vitamin B12 Supplementation in Addition to Folic Acid and Iron Improves Hematological and Biochemical Markers in Pregnancy: A Randomized Controlled Trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "micronutrients",
       "state": "selected_exact_verified"
     },
@@ -2090,6 +2411,7 @@
       "pmid": "35642923",
       "doi": null,
       "title": "Parenteral vs Oral Vitamin B12 in Children With Nutritional Macrocytic Anemia: A Randomized Controlled Trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "micronutrients",
       "state": "selected_exact_verified"
     },
@@ -2098,6 +2420,7 @@
       "pmid": "35992132",
       "doi": "10.3389/fendo.2022.974042",
       "title": "The effect of magnesium alone or its combination with other supplements on the markers of inflammation, OS and metabolism in women with polycystic ovarian syndrome (PCOS): A systematic review.",
+      "pub_type": "Journal Article",
       "category": "micronutrients",
       "state": "selected_exact_verified"
     },
@@ -2106,6 +2429,7 @@
       "pmid": "41862001",
       "doi": "10.1016/j.ajcnut.2026.101281",
       "title": "Comparative efficacy of biweekly preventive supplementation, with multiple micronutrients and iron folic acid or iron folic acid alone, on hemoglobin concentrations and anemia prevalence in children aged 6-59 months: a randomized controlled trial in rural India.",
+      "pub_type": "Comparative Study",
       "category": "micronutrients",
       "state": "selected_exact_verified"
     },
@@ -2114,6 +2438,7 @@
       "pmid": "40021307",
       "doi": "10.1016/s2214-109x(24)00559-x",
       "title": "Comparative effectiveness of daily therapeutic supplementation with multiple micronutrients and iron-folic acid versus iron-folic acid alone in children with mild-to-moderate anaemia in rural India: an open-label, randomised controlled trial.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "micronutrients",
       "state": "selected_exact_verified"
     },
@@ -2122,6 +2447,7 @@
       "pmid": "38051700",
       "doi": "10.1371/journal.pmed.1004260",
       "title": "Maternal B-vitamin and vitamin D status before, during, and after pregnancy and the influence of supplementation preconception and during pregnancy: Prespecified secondary analysis of the NiPPeR double-blind randomized controlled trial.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "micronutrients",
       "state": "selected_exact_verified"
     },
@@ -2130,6 +2456,7 @@
       "pmid": "31296936",
       "doi": "10.1038/s41430-019-0464-3",
       "title": "Anaemia and iron deficiency in pregnancy and adverse perinatal outcomes in Southern India.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "micronutrients",
       "state": "selected_exact_verified"
     },
@@ -2138,6 +2465,7 @@
       "pmid": "32844185",
       "doi": "10.1093/ajcn/nqaa223",
       "title": "Newborn micronutrient status biomarkers in a cluster-randomized trial of antenatal multiple micronutrient compared with iron folic acid supplementation in rural Bangladesh.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "micronutrients",
       "state": "selected_exact_verified"
     },
@@ -2146,6 +2474,7 @@
       "pmid": "33828241",
       "doi": "10.1038/s41430-021-00878-6",
       "title": "Impact of daily-supervised administration of a package of iron and folic acid and vitamin B(12) on hemoglobin levels among adolescent girls (12-19 years): a cluster randomized control trial.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "micronutrients",
       "state": "selected_exact_verified"
     },
@@ -2154,6 +2483,7 @@
       "pmid": "31006806",
       "doi": "10.1093/jn/nxz046",
       "title": "Antenatal Multiple Micronutrient Supplementation Compared to Iron-Folic Acid Affects Micronutrient Status but Does Not Eliminate Deficiencies in a Randomized Controlled Trial Among Pregnant Women of Rural Bangladesh.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "micronutrients",
       "state": "selected_exact_verified"
     },
@@ -2162,6 +2492,7 @@
       "pmid": "38411017",
       "doi": "10.1016/j.clnu.2023.09.009",
       "title": "A nutritional supplement during preconception and pregnancy increases human milk vitamin D but not B-vitamin concentrations.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "micronutrients",
       "state": "selected_exact_verified"
     },
@@ -2170,6 +2501,7 @@
       "pmid": "30153581",
       "doi": "10.1016/j.nut.2018.05.034",
       "title": "Vitamin D deficiency and mild to moderate anemia in young North Indian children: A secondary data analysis.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "micronutrients",
       "state": "selected_exact_verified"
     },
@@ -2178,6 +2510,7 @@
       "pmid": "39667129",
       "doi": "10.1016/j.msard.2024.106212",
       "title": "Coenzyme Q10 supplementation in multiple sclerosis; A systematic review.",
+      "pub_type": "Systematic Review",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2186,6 +2519,7 @@
       "pmid": "41158831",
       "doi": "10.1017/jns.2025.10043",
       "title": "Effects of coenzyme Q10 supplementation on myopathy in statin-treated patients: a systematic review and meta-analysis.",
+      "pub_type": "Meta-Analysis",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2194,6 +2528,7 @@
       "pmid": "39387327",
       "doi": "10.1002/pbc.31369",
       "title": "Feasibility of telehealth exercise and nicotinamide riboside supplementation in survivors of childhood cancer at risk for diabetes: A pilot randomized controlled trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2202,6 +2537,7 @@
       "pmid": "40151031",
       "doi": "10.1080/19390211.2025.2483269",
       "title": "Effects of Coenzyme Q10, Tryptophan, and Magnesium Supplementation on Fatigue in Patients with Fibromyalgia - A Randomized Trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2210,6 +2546,7 @@
       "pmid": "40459998",
       "doi": "10.1111/acel.70093",
       "title": "Nicotinamide Riboside Supplementation Benefits in Patients With Werner Syndrome: A Double-Blind Randomized Crossover Placebo-Controlled Trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2218,6 +2555,7 @@
       "pmid": "38871717",
       "doi": "10.1038/s41467-024-49092-5",
       "title": "Nicotinamide riboside for peripheral artery disease: the NICE randomized clinical trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2226,6 +2564,7 @@
       "pmid": "42478598",
       "doi": "10.1002/alz.71605",
       "title": "A phase-II randomized controlled pilot study of nicotinamide riboside supplementation in older adults with amnestic mild cognitive impairment.",
+      "pub_type": "Clinical Trial, Phase II",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2234,6 +2573,7 @@
       "pmid": "31743252",
       "doi": "10.1097/cnd.0000000000000269",
       "title": "Significance of Asymptomatic Hyper Creatine-Kinase Emia.",
+      "pub_type": "Systematic Review",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2242,6 +2582,7 @@
       "pmid": "32791973",
       "doi": "10.1186/s12882-020-02006-1",
       "title": "Nicotinamide riboside with pterostilbene (NRPT) increases NAD(+) in patients with acute kidney injury (AKI): a randomized, double-blind, placebo-controlled, stepwise safety study of escalating doses of NRPT in patients with AKI.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2250,6 +2591,7 @@
       "pmid": "34444817",
       "doi": "10.3390/nu13082658",
       "title": "Effect of Dietary Coenzyme Q10 Plus NADH Supplementation on Fatigue Perception and Health-Related Quality of Life in Individuals with Myalgic Encephalomyelitis/Chronic Fatigue Syndrome: A Prospective, Randomized, Double-Blind, Placebo-Controlled Trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2258,6 +2600,7 @@
       "pmid": "35813842",
       "doi": "10.1080/15502783.2022.2086015",
       "title": "Royal jelly plus coenzyme Q10 supplementation improves high-intensity interval exercise performance via changes in plasmatic and salivary biomarkers of oxidative stress and muscle damage in swimmers: a randomized, double-blind, placebo-controlled pilot trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2266,6 +2609,7 @@
       "pmid": "31278280",
       "doi": "10.1038/s41598-019-46120-z",
       "title": "Safety and Metabolism of Long-term Administration of NIAGEN (Nicotinamide Riboside Chloride) in a Randomized, Double-Blind, Placebo-controlled Clinical Trial of Healthy Overweight Adults.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2274,6 +2618,7 @@
       "pmid": "41502156",
       "doi": "10.1111/jns.70101",
       "title": "Evaluation of Nicotinamide Riboside in Prevention of Small Nerve Fiber Axon Degeneration and Promotion of Nerve Regeneration.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2282,6 +2627,7 @@
       "pmid": "38684047",
       "doi": "10.1097/jcp.0000000000001845",
       "title": "Discovering the Potential Value of Coenzyme Q10 as an Adjuvant Treatment in Patients With Depression.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2290,6 +2636,7 @@
       "pmid": "41361495",
       "doi": "10.1186/s13102-025-01456-0",
       "title": "Short-term CoQ10 supplementation reduces markers of cardiac stress in soccer players following heavy exercise: A randomized double-blind placebo-controlled trial.",
+      "pub_type": "Journal Article",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2298,6 +2645,7 @@
       "pmid": "36082508",
       "doi": "10.1002/hep.32778",
       "title": "Nicotinamide riboside and pterostilbene reduces markers of hepatic inflammation in NAFLD: A double-blind, placebo-controlled clinical trial.",
+      "pub_type": "Journal Article",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2306,6 +2654,7 @@
       "pmid": "35039056",
       "doi": "10.1186/s13063-021-05968-1",
       "title": "Nicotinamide riboside as a neuroprotective therapy for glaucoma: study protocol for a randomized, double-blind, placebo-control trial.",
+      "pub_type": "Journal Article",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2314,6 +2663,7 @@
       "pmid": "35994177",
       "doi": "10.1007/s10238-022-00871-8",
       "title": "Coenzyme Q10 + alpha lipoic acid for chronic COVID syndrome.",
+      "pub_type": "Review",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2322,6 +2672,7 @@
       "pmid": "40770531",
       "doi": "10.1007/s11357-025-01815-2",
       "title": "Nicotinamide riboside combined with exercise to treat hypertension in middle-aged and older adults: a pilot randomized clinical trial.",
+      "pub_type": "Research Support, N.I.H., Extramural",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2330,6 +2681,7 @@
       "pmid": "30537908",
       "doi": "10.1080/1028415x.2018.1556481",
       "title": "Coenzyme Q10 and neuropsychiatric and neurological disorders: relevance for schizophrenia.",
+      "pub_type": "Review",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2338,6 +2690,7 @@
       "pmid": "37159264",
       "doi": "10.1172/jci.insight.167274",
       "title": "Randomized crossover clinical trial of coenzyme Q10 and nicotinamide riboside in chronic kidney disease.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2346,6 +2699,7 @@
       "pmid": "37994989",
       "doi": "10.1007/s11357-023-00999-9",
       "title": "A randomized placebo-controlled trial of nicotinamide riboside in older adults with mild cognitive impairment.",
+      "pub_type": "Research Support, N.I.H., Extramural",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2354,6 +2708,7 @@
       "pmid": "38016950",
       "doi": "10.1038/s41467-023-43514-6",
       "title": "NR-SAFE: a randomized, double-blind safety trial of high dose nicotinamide riboside in Parkinson's disease.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2362,6 +2717,7 @@
       "pmid": "39548320",
       "doi": "10.1038/s43587-024-00758-1",
       "title": "Effect of nicotinamide riboside on airway inflammation in COPD: a randomized, placebo-controlled trial.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2370,6 +2726,7 @@
       "pmid": "35235774",
       "doi": "10.1016/j.cmet.2022.02.001",
       "title": "The NADPARK study: A randomized phase I trial of nicotinamide riboside supplementation in Parkinson's disease.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2378,6 +2735,7 @@
       "pmid": "35998039",
       "doi": "10.1172/jci.insight.158314",
       "title": "A randomized placebo-controlled trial of nicotinamide riboside and pterostilbene supplementation in experimental muscle injury in elderly individuals.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2386,6 +2744,7 @@
       "pmid": "37254895",
       "doi": "10.4081/ejtm.2023.11253",
       "title": "Effects of concurrent training and CoQ10 on neurotrophic factors and physical function in people with Multiple Sclerosis: a pilot study.",
+      "pub_type": "Journal Article",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2394,6 +2753,7 @@
       "pmid": "37810917",
       "doi": "10.3389/fnut.2023.1232184",
       "title": "Effect of the Mediterranean diet supplemented with nicotinamide riboside and pterostilbene and/or coconut oil on anthropometric variables in amyotrophic lateral sclerosis. A pilot study.",
+      "pub_type": "Journal Article",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2402,6 +2762,7 @@
       "pmid": "29992272",
       "doi": "10.1093/ajcn/nqy132",
       "title": "A randomized placebo-controlled clinical trial of nicotinamide riboside in obese men: safety, insulin-sensitivity, and lipid-mobilizing effects.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2410,6 +2771,7 @@
       "pmid": "42048163",
       "doi": "10.1172/jci.insight.203826",
       "title": "NAD+ augmentation by nicotinamide riboside engages SLIT2/ROBO1 signaling to attenuate Th17 inflammation in psoriasis.",
+      "pub_type": "Research Support, N.I.H., Extramural",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2418,6 +2780,7 @@
       "pmid": "36515353",
       "doi": "10.1111/acel.13754",
       "title": "Oral nicotinamide riboside raises NAD+ and lowers biomarkers of neurodegenerative pathology in plasma extracellular vesicles enriched for neuronal origin.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2426,6 +2789,7 @@
       "pmid": "31710095",
       "doi": "10.1113/jp278752",
       "title": "Nicotinamide riboside does not alter mitochondrial respiration, content or morphology in skeletal muscle from obese and insulin-resistant men.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2434,6 +2798,7 @@
       "pmid": "32320006",
       "doi": "10.1093/ajcn/nqaa072",
       "title": "Nicotinamide riboside supplementation alters body composition and skeletal muscle acetylcarnitine concentrations in healthy obese humans.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2442,6 +2807,7 @@
       "pmid": "33524145",
       "doi": "10.1210/clinem/dgaa960",
       "title": "Nicotinamide Riboside Enhances In Vitro Beta-adrenergic Brown Adipose Tissue Activity in Humans.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "mitochondrial_energy",
       "state": "selected_exact_verified"
     },
@@ -2450,6 +2816,7 @@
       "pmid": "38979505",
       "doi": "10.3389/fpsyt.2024.1368007",
       "title": "Omega-3 PUFAs' efficacy in the therapy of coronary artery disease combined with anxiety or depression: a meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2458,6 +2825,7 @@
       "pmid": "32662591",
       "doi": "10.1002/brb3.1699",
       "title": "Efficacy of probiotics on stress in healthy volunteers: A systematic review and meta-analysis based on randomized controlled trials.",
+      "pub_type": "Systematic Review",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2466,6 +2834,7 @@
       "pmid": "33167948",
       "doi": "10.1186/s12906-020-03102-3",
       "title": "Saffron for mild cognitive impairment and dementia: a systematic review and meta-analysis of randomised clinical trials.",
+      "pub_type": "Systematic Review",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2474,6 +2843,7 @@
       "pmid": "33190574",
       "doi": "10.1080/08039488.2020.1843710",
       "title": "Omega-3 polyunsaturated fatty acid (n-3 PUFA) supplementation for prevention and treatment of perinatal depression: a systematic review and meta-analysis of randomized-controlled trials.",
+      "pub_type": "Systematic Review",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2482,6 +2852,7 @@
       "pmid": "33271210",
       "doi": "10.1016/j.pnpbp.2020.110187",
       "title": "A systematic review of microbiome changes and impact of probiotic supplementation in children and adolescents with neuropsychiatric disorders.",
+      "pub_type": "Systematic Review",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2490,6 +2861,7 @@
       "pmid": "33348198",
       "doi": "10.1016/j.psychres.2020.113652",
       "title": "Efficacy of omega-3 supplementation on sertraline continuous therapy to reduce depression or anxiety symptoms: A systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2498,6 +2870,7 @@
       "pmid": "33629669",
       "doi": "10.1039/d0fo03203d",
       "title": "Efficacy of probiotics in multiple sclerosis: a systematic review of preclinical trials and meta-analysis of randomized controlled trials.",
+      "pub_type": "Systematic Review",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2506,6 +2879,7 @@
       "pmid": "34586262",
       "doi": "10.1590/1413-81232021269.21342020",
       "title": "A systematic review of the effects of probiotics on depression and anxiety: an alternative therapy?",
+      "pub_type": "Systematic Review",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2514,6 +2888,7 @@
       "pmid": "34620373",
       "doi": "10.1016/j.clnesp.2021.07.027",
       "title": "Probiotics for the treatment of depression and anxiety: A systematic review and meta-analysis of randomized controlled trials.",
+      "pub_type": "Systematic Review",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2522,6 +2897,7 @@
       "pmid": "34844479",
       "doi": "10.1177/15347354211061733",
       "title": "The Use of Prebiotic and Probiotic Interventions for Treating Gastrointestinal and Psychosocial Health Symptoms in Cancer Patients and Survivors: A Systematic Review.",
+      "pub_type": "Systematic Review",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2530,6 +2906,7 @@
       "pmid": "34959826",
       "doi": "10.3390/nu13124274",
       "title": "Effect of Crocus sativus (Saffron) Intake on Top of Standard Treatment, on Disease Outcomes and Comorbidities in Patients with Rheumatic Diseases: Synthesis without Meta-Analysis (SWiM) and Level of Adherence to the CONSORT Statement for Randomized Controlled Trials Delivering Herbal Medicine Interventions.",
+      "pub_type": "Systematic Review",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2538,6 +2915,7 @@
       "pmid": "35104631",
       "doi": "10.1016/j.phrs.2022.106100",
       "title": "The effects of omega-3 polyunsaturated fatty acids supplementation in pregnancy, lactation, and infancy: An umbrella review of meta-analyses of randomized trials.",
+      "pub_type": "Systematic Review",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2546,6 +2924,7 @@
       "pmid": "35276981",
       "doi": "10.3390/nu14030621",
       "title": "Effect of Probiotics on Psychiatric Symptoms and Central Nervous System Functions in Human Health and Disease: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Systematic Review",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2554,6 +2933,7 @@
       "pmid": "35339484",
       "doi": "10.1016/j.neubiorev.2022.104634",
       "title": "The health effect of probiotics on high-fat diet-induced cognitive impairment, depression and anxiety: A cross-species systematic review.",
+      "pub_type": "Systematic Review",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2562,6 +2942,7 @@
       "pmid": "29540267",
       "doi": "10.1016/j.nutres.2017.10.013",
       "title": "Systematic review and meta-analysis of omega-3-fatty acids in elderly patients with depression.",
+      "pub_type": "Systematic Review",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2570,6 +2951,7 @@
       "pmid": "30138808",
       "doi": "10.1016/j.jad.2018.07.057",
       "title": "Omega-3 polyunsaturated fatty acids and reduction of depressive symptoms in older adults: A systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2578,6 +2960,7 @@
       "pmid": "30947230",
       "doi": "10.1159/000498862",
       "title": "A Systematic Review of the Effect of Probiotic Supplementation on Schizophrenia Symptoms.",
+      "pub_type": "Systematic Review",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2586,6 +2969,7 @@
       "pmid": "31004628",
       "doi": "10.1016/j.neubiorev.2019.03.023",
       "title": "Prebiotics and probiotics for depression and anxiety: A systematic review and meta-analysis of controlled clinical trials.",
+      "pub_type": "Systematic Review",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2594,6 +2978,7 @@
       "pmid": "40929652",
       "doi": "10.1097/meg.0000000000003062",
       "title": "Comparative effectiveness and safety of probiotics with psychotropic potential in mental health benefits in irritable bowel syndrome: a systematic review and network meta-analysis.",
+      "pub_type": "Network Meta-Analysis",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2602,6 +2987,7 @@
       "pmid": "39731509",
       "doi": "10.1093/nutrit/nuae177",
       "title": "Effects of Prebiotics and Probiotics on Symptoms of Depression and Anxiety in Clinically Diagnosed Samples: Systematic Review and Meta-analysis of Randomized Controlled Trials.",
+      "pub_type": "Meta-Analysis",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2610,6 +2996,7 @@
       "pmid": "40342368",
       "doi": "10.3389/fnut.2025.1567097",
       "title": "Probiotics as technological innovations in psychiatric disorders: patents and research reviews.",
+      "pub_type": "Systematic Review",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2618,6 +3005,7 @@
       "pmid": "40440772",
       "doi": "10.1016/j.jpsychires.2025.05.053",
       "title": "The impact of probiotics, prebiotics, and synbiotics on depression and anxiety symptoms of patients with depression: A systematic review and meta-analysis.",
+      "pub_type": "Meta-Analysis",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2626,14 +3014,17 @@
       "pmid": "31135916",
       "doi": "10.1093/nutrit/nuz023",
       "title": "Effect of saffron supplementation on symptoms of depression and anxiety: a systematic review and meta-analysis.",
+      "pub_type": "Journal Article",
       "category": "mood",
-      "state": "selected_exact_verified"
+      "state": "selected_exact_verified",
+      "replacement_reason": "missing_pubmed_abstract_repair"
     },
     {
       "wave": 3824,
       "pmid": "38959193",
       "doi": "10.1089/cap.2024.0017",
       "title": "Comparative Efficacy of Omega-3 Fatty Acid with Other Interventions for Depression in Children and Adolescents: A Systematic Review and Network Meta-Analysis.",
+      "pub_type": "Network Meta-Analysis",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2642,6 +3033,7 @@
       "pmid": "39661337",
       "doi": "10.1097/yic.0000000000000575",
       "title": "Crocus sativus (saffron) adjunct to risperidone for negative symptoms of schizophrenia: a randomized, double-blind, placebo-controlled trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2650,6 +3042,7 @@
       "pmid": "40077679",
       "doi": "10.3390/nu17050809",
       "title": "The Effects of Combined Scutellaria and Saffron Supplementation on Mood Regulation in Participants with Mild-to-Moderate Depressive Symptoms: A Randomized, Double-Blind, Placebo-Controlled Study.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2658,6 +3051,7 @@
       "pmid": "41047129",
       "doi": "10.1016/j.ajcnut.2025.09.050",
       "title": "Effect of saffron extract supplementation on mood in healthy adults with subclinical symptoms of depression: a randomized, double-blind placebo-controlled study.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2666,6 +3060,7 @@
       "pmid": "31987241",
       "doi": "10.1016/j.ctim.2019.102250",
       "title": "The effects of saffron (Crocus sativus L.) on mental health parameters and C-reactive protein: A meta-analysis of randomized clinical trials.",
+      "pub_type": "Meta-Analysis",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2674,6 +3069,7 @@
       "pmid": "32434488",
       "doi": "10.1186/s12888-020-02656-3",
       "title": "High-dose omega-3 polyunsaturated fatty acid supplementation might be more superior than low-dose for major depressive disorder in early therapy period: a network meta-analysis.",
+      "pub_type": "Network Meta-Analysis",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2682,6 +3078,7 @@
       "pmid": "33191776",
       "doi": "10.3920/bm2020.0063",
       "title": "From probiotics to psychobiotics - the gut-brain axis in psychiatric disorders.",
+      "pub_type": "Systematic Review",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2690,6 +3087,7 @@
       "pmid": "30480773",
       "doi": "10.1002/14651858.cd003402.pub3",
       "title": "Omega-3 fatty acid addition during pregnancy.",
+      "pub_type": "Systematic Review",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2698,6 +3096,7 @@
       "pmid": "31602695",
       "doi": "10.1111/jcpt.13040",
       "title": "A placebo controlled randomized clinical trial of Crocus sativus L. (saffron) on depression and food craving among overweight women with mild to moderate depression.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2706,6 +3105,7 @@
       "pmid": "33925432",
       "doi": "10.3390/nu13051473",
       "title": "Effects of Saffron Extract on Sleep Quality: A Randomized Double-Blind Controlled Clinical Trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2714,6 +3114,7 @@
       "pmid": "33960081",
       "doi": "10.1111/ijcp.14334",
       "title": "Saffron improves life and sleep quality, glycaemic status, lipid profile and liver function in diabetic patients: A double-blind, placebo-controlled, randomised clinical trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "mood",
       "state": "selected_exact_verified"
     },
@@ -2722,6 +3123,7 @@
       "pmid": "41280385",
       "doi": "10.3389/fnut.2025.1669004",
       "title": "The acute effects of caffeine, creatine, and carbohydrate mouth rinse combined with conditioning activity on subsequent sports performance: a systematic review and Bayesian meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "performance",
       "state": "selected_exact_verified"
     },
@@ -2730,6 +3132,7 @@
       "pmid": "35813845",
       "doi": "10.1080/15502783.2022.2079384",
       "title": "Effects of beta-alanine supplementation on body composition: a GRADE-assessed systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "performance",
       "state": "selected_exact_verified"
     },
@@ -2738,6 +3141,7 @@
       "pmid": "41798953",
       "doi": "10.3389/fimmu.2026.1743603",
       "title": "Impact of creatine supplementation on inflammation: evidence from a systematic review and meta-analysis of randomized double-blind placebo trials.",
+      "pub_type": "Meta-Analysis",
       "category": "performance",
       "state": "selected_exact_verified"
     },
@@ -2746,6 +3150,7 @@
       "pmid": "40944139",
       "doi": "10.3390/nu17172748",
       "title": "The Effects of Creatine Supplementation on Upper- and Lower-Body Strength and Power: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Meta-Analysis",
       "category": "performance",
       "state": "selected_exact_verified"
     },
@@ -2754,6 +3159,7 @@
       "pmid": "41579075",
       "doi": "10.1080/15502783.2026.2617283",
       "title": "Short-term creatine supplementation enhances strength, reduces fatigue, and accelerates recovery in resistance-trained athletes: a double-blind, randomized, crossover trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "performance",
       "state": "selected_exact_verified"
     },
@@ -2762,6 +3168,7 @@
       "pmid": "34098531",
       "doi": "10.1123/ijsnem.2021-0038",
       "title": "Individual Participant Data Meta-Analysis Provides No Evidence of Intervention Response Variation in Individuals Supplementing With Beta-Alanine.",
+      "pub_type": "Meta-Analysis",
       "category": "performance",
       "state": "selected_exact_verified"
     },
@@ -2770,6 +3177,7 @@
       "pmid": "41888192",
       "doi": "10.1038/s41598-026-44278-x",
       "title": "Synergistic effects of creatine, carbs, protein on repeated sprint performance.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "performance",
       "state": "selected_exact_verified"
     },
@@ -2778,6 +3186,7 @@
       "pmid": "42043069",
       "doi": "10.3390/sports14040137",
       "title": "Creatine Supplementation Dose and Duration Are Not Associated with Increased Side Effects: A Structured Review and Study-Level Dose-Response Analysis of Randomized Controlled Trials.",
+      "pub_type": "Review",
       "category": "performance",
       "state": "selected_exact_verified"
     },
@@ -2786,6 +3195,7 @@
       "pmid": "40939139",
       "doi": "10.14814/phy2.70539",
       "title": "Muscle creatine levels and sprint performance in young adult vegans and vegetarians after 7 days of creatine monohydrate supplementation.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "performance",
       "state": "selected_exact_verified"
     },
@@ -2794,6 +3204,7 @@
       "pmid": "41388441",
       "doi": "10.1186/s11556-025-00392-9",
       "title": "The impact of creatine supplementation associated with resistance training on muscular strength and lean tissue mass in the aged: a systematic review and meta-analysis.",
+      "pub_type": "Review",
       "category": "performance",
       "state": "selected_exact_verified"
     },
@@ -2802,6 +3213,7 @@
       "pmid": "38952910",
       "doi": "10.5114/biolsport.2024.132997",
       "title": "Sodium bicarbonate and beta-alanine supplementation: Is combining both better than either alone? A systematic review and meta-analysis.",
+      "pub_type": "Review",
       "category": "performance",
       "state": "selected_exact_verified"
     },
@@ -2810,6 +3222,7 @@
       "pmid": "41958909",
       "doi": "10.3389/fnut.2026.1731306",
       "title": "Creatine supplementation on fatigue related to post-COVID-19 condition-fatigue study: a randomized controlled trial.",
+      "pub_type": "Journal Article",
       "category": "performance",
       "state": "selected_exact_verified"
     },
@@ -2818,6 +3231,7 @@
       "pmid": "41601887",
       "doi": "10.3389/fnut.2025.1687719",
       "title": "Creatine supplementation and exercise in aging: a narrative review of the muscle-brain axis and its impact on cognitive and physical health.",
+      "pub_type": "Review",
       "category": "performance",
       "state": "selected_exact_verified"
     },
@@ -2826,6 +3240,7 @@
       "pmid": "41433021",
       "doi": "10.1080/15502783.2025.2586523",
       "title": "Creatine supplementation and resistance training: a comparison between novice and experienced lifters - a systematic review and dose-response meta-analysis.",
+      "pub_type": "Comparative Study",
       "category": "performance",
       "state": "selected_exact_verified"
     },
@@ -2834,6 +3249,7 @@
       "pmid": "41900512",
       "doi": "10.3390/jfmk11010105",
       "title": "Effects of Creatine Monohydrate Gummies on Performance and Body Composition in Female Beach Volleyball Athletes.",
+      "pub_type": "Journal Article",
       "category": "performance",
       "state": "selected_exact_verified"
     },
@@ -2842,6 +3258,7 @@
       "pmid": "41769636",
       "doi": "10.3389/fnut.2026.1742464",
       "title": "Timing-dependent effects of melatonin supplementation on exercise performance and exercise-induced muscle damage: a systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "performance",
       "state": "research_only_exact_verified_final_repair"
     },
@@ -2850,6 +3267,7 @@
       "pmid": "42623982",
       "doi": "10.1016/j.neubiorev.2026.106910",
       "title": "Does co-administration of cannabidiol (CBD) influence the plasma availability of delta-9-tetrahydrocannabinol (THC) and its active metabolite in humans? A systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -2858,6 +3276,7 @@
       "pmid": "40520191",
       "doi": "10.3389/fphar.2025.1541871",
       "title": "Lipid-lowering statins and polyphenol-based supplementation: a scoping review on drug-food interaction potential.",
+      "pub_type": "Systematic Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -2866,6 +3285,7 @@
       "pmid": "40716641",
       "doi": "10.1016/j.clnesp.2025.07.1117",
       "title": "Effects of probiotic supplements on bone mineral density and bone turnover markers in postmenopausal women: A systematic review.",
+      "pub_type": "Systematic Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -2874,6 +3294,7 @@
       "pmid": "41258642",
       "doi": "10.23736/s2724-6329.25.05262-3",
       "title": "Assessing the influence of nutritional supplements on osseointegration outcomes in dental implantology: a systematic review.",
+      "pub_type": "Systematic Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -2882,6 +3303,7 @@
       "pmid": "38868665",
       "doi": "10.3389/fphar.2024.1282831",
       "title": "Systematic review of drug-drug interactions of delta-9-tetrahydrocannabinol, cannabidiol, and Cannabis.",
+      "pub_type": "Systematic Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -2890,6 +3312,7 @@
       "pmid": "32478963",
       "doi": "10.1111/bcp.14404",
       "title": "Warfarin and food, herbal or dietary supplement interactions: A systematic review.",
+      "pub_type": "Systematic Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -2898,6 +3321,7 @@
       "pmid": "33624893",
       "doi": "10.1002/ptr.7050",
       "title": "A systematic review of possible interactions for herbal medicines and dietary supplements used concomitantly with disease-modifying or symptom-alleviating multiple sclerosis drugs.",
+      "pub_type": "Systematic Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -2906,6 +3330,7 @@
       "pmid": "34784871",
       "doi": "10.2174/1570159x19666211116142806",
       "title": "How to Optimize the Effectiveness and Safety of Parkinson's Disease Therapy? - A Systematic Review of Drugs Interactions with Food and Dietary Supplements.",
+      "pub_type": "Systematic Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -2914,6 +3339,7 @@
       "pmid": "35276881",
       "doi": "10.3390/nu14030520",
       "title": "Pharmacokinetic Outcomes of the Interactions of Antiretroviral Agents with Food and Supplements: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Systematic Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -2922,6 +3348,7 @@
       "pmid": "29310724",
       "doi": "10.1017/s0007114517003452",
       "title": "Effect of long-term nutraceutical and dietary supplement use on cognition in the elderly: a 10-year systematic review of randomised controlled trials.",
+      "pub_type": "Systematic Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -2930,6 +3357,7 @@
       "pmid": "41417208",
       "doi": "10.1007/s13318-025-00978-9",
       "title": "The Influence of CBD and THC on Hepatic Enzymes of the Human Cytochrome P450 Complex Family: A Systematic Literature Review.",
+      "pub_type": "Systematic Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -2938,6 +3366,7 @@
       "pmid": "32592183",
       "doi": "10.1111/ane.13305",
       "title": "Cannabidiol efficacy independent of clobazam: Meta-analysis of four randomized controlled trials.",
+      "pub_type": "Meta-Analysis",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -2946,6 +3375,7 @@
       "pmid": "30873598",
       "doi": "10.1002/14651858.cd004905.pub6",
       "title": "Multiple-micronutrient supplementation for women during pregnancy.",
+      "pub_type": "Systematic Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -2954,6 +3384,7 @@
       "pmid": "42473010",
       "doi": "10.1002/bcp.70691",
       "title": "Evaluating the pharmacokinetics, efficacy and safety of low-dose cannabidiol.",
+      "pub_type": "Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -2962,6 +3393,7 @@
       "pmid": "40267977",
       "doi": "10.1055/a-2593-6351",
       "title": "Evidence of Potential Drug Interactions Between Cannabidiol and Other Drugs: A Scoping Review to Guide Pharmaceutical Care.",
+      "pub_type": "Scoping Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -2970,6 +3402,7 @@
       "pmid": "41138659",
       "doi": "10.1016/j.biopha.2025.118673",
       "title": "Perspectives of cannabis-based medicines in a view of pharmacokinetic studies of Δ9-THC and CBD in humans.",
+      "pub_type": "Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -2978,6 +3411,7 @@
       "pmid": "41463324",
       "doi": "10.3390/biom15121668",
       "title": "Pharmacological and Pharmacokinetic Profile of Cannabidiol in Human Epilepsy: A Review of Metabolism, Therapeutic Drug Monitoring, and Interactions with Antiseizure Medications.",
+      "pub_type": "Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -2986,6 +3420,7 @@
       "pmid": "37296021",
       "doi": "10.1016/j.therap.2023.05.003",
       "title": "Cannabidiol and pharmacokinetics drug-drug interactions: Pharmacological toolbox.",
+      "pub_type": "Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -2994,6 +3429,7 @@
       "pmid": "37874128",
       "doi": "10.3238/arztebl.m2023.0223",
       "title": "Drug Interactions of Tetrahydrocannabinol and Cannabidiol in Cannabinoid Drugs.",
+      "pub_type": "Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -3002,6 +3438,7 @@
       "pmid": "38257386",
       "doi": "10.3390/molecules29020473",
       "title": "An Overview of Cannabidiol as a Multifunctional Drug: Pharmacokinetics and Cellular Effects.",
+      "pub_type": "Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -3010,6 +3447,7 @@
       "pmid": "38675145",
       "doi": "10.3390/pharmaceutics16040484",
       "title": "CBD and THC in Special Populations: Pharmacokinetics and Drug-Drug Interactions.",
+      "pub_type": "Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -3018,6 +3456,7 @@
       "pmid": "39029981",
       "doi": "10.1016/bs.irn.2024.05.001",
       "title": "Cannabidiol: Pharmacodynamics and pharmacokinetic in the context of neuropsychiatric disorders.",
+      "pub_type": "Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -3026,6 +3465,7 @@
       "pmid": "41670942",
       "doi": "10.1007/s13346-026-02057-1",
       "title": "Pharmacokinetic studies and synergistic antitumor effects of cannabichromene and cannabidiol in drug-resistant breast cancers.",
+      "pub_type": "Journal Article",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -3034,6 +3474,7 @@
       "pmid": "30776990",
       "doi": "10.1177/0897190019828920",
       "title": "The Potential Clinical Implications and Importance of Drug Interactions Between Anticancer Agents and Cannabidiol in Patients With Cancer.",
+      "pub_type": "Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -3042,6 +3483,7 @@
       "pmid": "32918835",
       "doi": "10.1111/epi.16674",
       "title": "Clinical implications of trials investigating drug-drug interactions between cannabidiol and enzyme inducers or inhibitors or common antiseizure drugs.",
+      "pub_type": "Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -3050,6 +3492,7 @@
       "pmid": "33541771",
       "doi": "10.1016/j.seizure.2020.09.010",
       "title": "Interaction of cannabidiol with other antiseizure medications: A narrative review.",
+      "pub_type": "Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -3058,6 +3501,7 @@
       "pmid": "33801406",
       "doi": "10.3390/ph14030206",
       "title": "Levothyroxine Interactions with Food and Dietary Supplements-A Systematic Review.",
+      "pub_type": "Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -3066,6 +3510,7 @@
       "pmid": "34502487",
       "doi": "10.3390/ijms22179582",
       "title": "Pharmacokinetic Drug-Drug Interactions among Antiepileptic Drugs, Including CBD, Drugs Used to Treat COVID-19 and Nutrients.",
+      "pub_type": "Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -3074,6 +3519,7 @@
       "pmid": "36358521",
       "doi": "10.3390/antiox11112149",
       "title": "The Self-Administered Use of Complementary and Alternative Medicine (CAM) Supplements and Antioxidants in Cancer Therapy and the Critical Role of Nrf-2-A Systematic Review.",
+      "pub_type": "Review",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -3082,6 +3528,7 @@
       "pmid": "37434463",
       "doi": "10.1111/jsr.13939",
       "title": "Efficacy of melatonin and ramelteon for the acute and long-term management of insomnia disorder in adults: A systematic review and meta-analysis.",
+      "pub_type": "Journal Article",
       "category": "sleep",
       "state": "research_only_exact_verified_final_repair"
     },
@@ -3090,6 +3537,7 @@
       "pmid": "36318429",
       "doi": "10.1007/s10461-022-03880-6",
       "title": "Interactions of Antiretroviral Drugs with Food, Beverages, Dietary Supplements, and Alcohol: A Systematic Review and Meta-analyses.",
+      "pub_type": "Journal Article",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -3098,6 +3546,7 @@
       "pmid": "37242184",
       "doi": "10.3390/nu15102298",
       "title": "Knowledge and Beliefs about Herb/Supplement Consumption and Herb/Supplement-Drug Interactions among the General Population, including Healthcare Professionals and Pharmacists: A Systematic Review and Guidelines for a Smart Decision System.",
+      "pub_type": "Journal Article",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -3106,6 +3555,7 @@
       "pmid": "37302723",
       "doi": "10.1053/j.jrn.2023.05.006",
       "title": "Effects of Vitamin D Supplementation in Diabetic Kidney Disease: A Systematic Review.",
+      "pub_type": "Journal Article",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -3114,6 +3564,7 @@
       "pmid": "38433010",
       "doi": "10.1002/ptr.8171",
       "title": "Effects and safety of resveratrol supplementation in older adults: A comprehensive systematic review.",
+      "pub_type": "Journal Article",
       "category": "safety_interactions",
       "state": "selected_exact_verified"
     },
@@ -3122,6 +3573,7 @@
       "pmid": "40387966",
       "doi": "10.1007/s10072-025-08221-8",
       "title": "Exploring the role of melatonin in managing sleep and motor symptoms in Parkinson's disease: a pooled analysis of double-blinded randomized controlled trials.",
+      "pub_type": "Systematic Review",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3130,6 +3582,7 @@
       "pmid": "40914024",
       "doi": "10.1016/j.smrv.2025.102158",
       "title": "Optimizing timing and dose of exogenous melatonin administration in neuropsychiatric pediatric populations: a meta-analysis on sleep outcomes.",
+      "pub_type": "Systematic Review",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3138,6 +3591,7 @@
       "pmid": "41143249",
       "doi": "10.3389/fnagi.2025.1637881",
       "title": "Dysregulation of melatonin rhythm in Parkinson's and Huntington's disease: a systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3146,22 +3600,27 @@
       "pmid": "41185054",
       "doi": "10.1186/s13195-025-01881-w",
       "title": "Effect of melatonin on cognitive function in adults with cognitive impairment: a multi-dimensional meta-analysis of randomized trials.",
+      "pub_type": "Systematic Review",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
     {
       "wave": 3889,
-      "pmid": "38395640",
-      "doi": "10.1016/j.prrv.2024.01.003",
-      "title": "Intravenous magnesium sulfate for asthma exacerbations in children: Systematic review with meta-analysis.",
+      "pmid": "37349103",
+      "doi": "10.1136/bmjopen-2022-068345",
+      "title": "Melatonin effects on sleep quality of COVID-19 patients: a protocol for systematic review and meta-analysis of randomised controlled trials with trial sequential analysis.",
+      "pub_type": "Journal Article",
       "category": "sleep",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_review_repair",
+      "replacement_for_pmid": "38395640",
+      "replacement_reason": "review category-firewall repair: removed pediatric asthma magnesium study from sleep"
     },
     {
       "wave": 3890,
       "pmid": "38456646",
       "doi": "10.1002/nau.25443",
       "title": "Melatonin and melatonin receptor agonists in the treatment of nocturia: A systematic review.",
+      "pub_type": "Systematic Review",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3170,6 +3629,7 @@
       "pmid": "34247796",
       "doi": "10.1016/j.tjog.2021.05.006",
       "title": "Effect of oral magnesium supplementation for relieving leg cramps during pregnancy: A meta-analysis of randomized controlled trials.",
+      "pub_type": "Systematic Review",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3178,6 +3638,7 @@
       "pmid": "35691474",
       "doi": "10.1016/j.neubiorev.2022.104723",
       "title": "Efficacy on sleep parameters and tolerability of melatonin in individuals with sleep or mental disorders: A systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3186,6 +3647,7 @@
       "pmid": "36179487",
       "doi": "10.1016/j.smrv.2022.101692",
       "title": "Efficacy of melatonin for chronic insomnia: Systematic reviews and meta-analyses.",
+      "pub_type": "Systematic Review",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3194,6 +3656,7 @@
       "pmid": "31678660",
       "doi": "10.1016/j.smrv.2019.101218",
       "title": "Magnesium supplementation for the treatment of restless legs syndrome and periodic limb movement disorder: A systematic review.",
+      "pub_type": "Systematic Review",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3202,6 +3665,7 @@
       "pmid": "40588412",
       "doi": "10.1111/jsr.70097",
       "title": "The Effectiveness of Melatonin for Sleep Disturbances in Parkinson' Disease: Systematic Review and Meta-Analysis.",
+      "pub_type": "Meta-Analysis",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3210,6 +3674,7 @@
       "pmid": "42378431",
       "doi": "10.1097/j.pain.0000000000004045",
       "title": "Efficacy and effectiveness of melatonin for the management of musculoskeletal pain: a systematic review and meta-analysis of placebo and active controlled trials.",
+      "pub_type": "Meta-Analysis",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3218,6 +3683,7 @@
       "pmid": "39823958",
       "doi": "10.1016/j.psyneuen.2025.107281",
       "title": "Melatonin secretion across puberty: A systematic review and meta-analysis.",
+      "pub_type": "Meta-Analysis",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3226,6 +3692,7 @@
       "pmid": "40026259",
       "doi": "10.1002/clc.70107",
       "title": "Melatonin as a Novel Drug to Improve Cardiac Function and Quality of Life in Heart Failure Patients: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Meta-Analysis",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3234,6 +3701,7 @@
       "pmid": "40288252",
       "doi": "10.1016/j.sleep.2025.106540",
       "title": "The effect of melatonin on sleep quality and daytime sleepiness in Parkinson's disease: A systematic review and meta-analysis of randomized placebo-controlled trials.",
+      "pub_type": "Meta-Analysis",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3242,6 +3710,7 @@
       "pmid": "40662882",
       "doi": "10.1097/ccm.0000000000006767",
       "title": "Melatonin Use in the ICU: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Meta-Analysis",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3250,6 +3719,7 @@
       "pmid": "38597219",
       "doi": "10.1080/14737175.2024.2341004",
       "title": "Pharmacological interventions to improve sleep in people with Alzheimer's disease: a meta-analysis of randomized controlled trials.",
+      "pub_type": "Journal Article",
       "category": "sleep",
       "state": "research_only_exact_verified_final_repair"
     },
@@ -3258,6 +3728,7 @@
       "pmid": "37406497",
       "doi": "10.1016/j.smrv.2023.101806",
       "title": "Non-pharmacological and melatonin interventions for pediatric sleep initiation and maintenance problems: A systematic review and network meta-analysis.",
+      "pub_type": "Network Meta-Analysis",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3266,6 +3737,7 @@
       "pmid": "36699991",
       "doi": "10.1097/pr9.0000000000001061",
       "title": "Analgesic efficacy of sleep-promoting pharmacotherapy in patients with chronic pain: a systematic review and meta-analysis.",
+      "pub_type": "Review",
       "category": "sleep",
       "state": "research_only_exact_verified_final_repair"
     },
@@ -3274,6 +3746,7 @@
       "pmid": "38888087",
       "doi": "10.1111/jpi.12985",
       "title": "Optimizing the Time and Dose of Melatonin as a Sleep-Promoting Drug: A Systematic Review of Randomized Controlled Trials and Dose-Response Meta-Analysis.",
+      "pub_type": "Meta-Analysis",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3282,6 +3755,7 @@
       "pmid": "41194549",
       "doi": "10.1177/02698811251381261",
       "title": "Effects of a Scutellaria baicalensis/Crataegus laevigata, magnesium and chromium supplement on stressed individuals: A randomised, double-blind, placebo-controlled, crossover trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3290,6 +3764,7 @@
       "pmid": "35565828",
       "doi": "10.3390/nu14091863",
       "title": "Effect of a Combination of Magnesium, B Vitamins, Rhodiola, and Green Tea (L-Theanine) on Chronically Stressed Healthy Individuals-A Randomized, Placebo-Controlled Study.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3298,6 +3773,7 @@
       "pmid": "35631229",
       "doi": "10.3390/nu14102088",
       "title": "Short-Term Magnesium Therapy Alleviates Moderate Stress in Patients with Fibromyalgia: A Randomized Double-Blind Clinical Trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3306,6 +3782,7 @@
       "pmid": "40304216",
       "doi": "10.1002/14651858.cd010145.pub2",
       "title": "Melatonin in cancer treatment.",
+      "pub_type": "Meta-Analysis",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3314,6 +3791,7 @@
       "pmid": "42205627",
       "doi": "10.7759/cureus.107734",
       "title": "Evaluating Whether Melatonin Impacts Postoperative Sleep Following Total Joint Arthroplasty: A Systematic Review and Meta-analysis of Randomized Controlled Trials.",
+      "pub_type": "Review",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3322,6 +3800,7 @@
       "pmid": "38745424",
       "doi": "10.1080/07420528.2024.2353225",
       "title": "The effects of melatonin and magnesium in a novel supplement delivery system on sleep scores, body composition and metabolism in otherwise healthy individuals with sleep disturbances.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3330,6 +3809,7 @@
       "pmid": "39534260",
       "doi": "10.3389/fendo.2024.1370733",
       "title": "Effects of magnesium and potassium supplementation on insomnia and sleep hormones in patients with diabetes mellitus.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3338,6 +3818,7 @@
       "pmid": "42343364",
       "doi": "10.1186/s12912-026-04938-9",
       "title": "Non-pharmacological ICU nursing interventions and melatonin concentrations: a systematic review and meta-analysis of randomized controlled trials.",
+      "pub_type": "Journal Article",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3346,6 +3827,7 @@
       "pmid": "32224987",
       "doi": "10.3390/ijerph17072227",
       "title": "Psychological and Sleep Effects of Tryptophan and Magnesium-Enriched Mediterranean Diet in Women with Fibromyalgia.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3354,22 +3836,27 @@
       "pmid": "35357671",
       "doi": "10.1007/s40263-022-00912-6",
       "title": "Calcium, Magnesium, Potassium and Sodium Oxybates (Xywav(®)) in Sleep Disorders: A Profile of Its Use.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
     {
       "wave": 3915,
-      "pmid": "35584529",
-      "doi": "10.1590/0100-6991e-20222476-en",
-      "title": "Comparative study between manitol and sodium picosulfate with magnesium oxide solutions in the preparation for colonoscopy.",
+      "pmid": "36316858",
+      "doi": "10.1097/md.0000000000031411",
+      "title": "Prophylactic melatonin for delirium in critically ill patients: A systematic review and meta-analysis with trial sequential analysis.",
+      "pub_type": "Journal Article",
       "category": "sleep",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_review_repair",
+      "replacement_for_pmid": "35584529",
+      "replacement_reason": "review category-firewall repair: removed colonoscopy-preparation magnesium study from sleep"
     },
     {
       "wave": 3916,
       "pmid": "36079069",
       "doi": "10.3390/jcm11175138",
       "title": "Use of Melatonin and/on Ramelteon for the Treatment of Insomnia in Older Adults: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Review",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3378,6 +3865,7 @@
       "pmid": "36187327",
       "doi": "10.2147/nss.s381918",
       "title": "Effects of Melatonin Treatment on Perioperative Sleep Quality: A Systematic Review and Meta-Analysis with Trial Sequential Analysis of Randomized Controlled Trials.",
+      "pub_type": "Review",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3386,6 +3874,7 @@
       "pmid": "36584862",
       "doi": "10.1016/j.pnpbp.2022.110695",
       "title": "Melatonin for sleep disorders in people with autism: Systematic review and meta-analysis.",
+      "pub_type": "Journal Article",
       "category": "sleep",
       "state": "selected_exact_verified"
     },
@@ -3394,6 +3883,7 @@
       "pmid": "31758301",
       "doi": "10.1007/s11130-019-00771-5",
       "title": "The Effects of Green Tea Amino Acid L-Theanine Consumption on the Ability to Manage Stress and Anxiety Levels: a Systematic Review.",
+      "pub_type": "Systematic Review",
       "category": "stress_anxiety",
       "state": "selected_exact_verified"
     },
@@ -3402,6 +3892,7 @@
       "pmid": "32379682",
       "doi": "10.1016/j.ctcp.2020.101150",
       "title": "Does aromatherapy with lavender affect physical and psychological symptoms of menopausal women? A systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "stress_anxiety",
       "state": "selected_exact_verified"
     },
@@ -3410,6 +3901,7 @@
       "pmid": "35462027",
       "doi": "10.1016/j.ctim.2022.102836",
       "title": "A systematic review of the effect of lavender on cancer complications.",
+      "pub_type": "Systematic Review",
       "category": "stress_anxiety",
       "state": "selected_exact_verified"
     },
@@ -3418,6 +3910,7 @@
       "pmid": "31792285",
       "doi": "10.1038/s41598-019-54529-9",
       "title": "Efficacy and safety of lavender essential oil (Silexan) capsules among patients suffering from anxiety disorders: A network meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "stress_anxiety",
       "state": "selected_exact_verified"
     },
@@ -3426,6 +3919,7 @@
       "pmid": "41656269",
       "doi": "10.1186/s13063-026-09495-9",
       "title": "Effects of multi-herb and ashwagandha root formulas on stress modulation: a randomized, double-blind, placebo-controlled clinical study.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "stress_anxiety",
       "state": "selected_exact_verified"
     },
@@ -3434,6 +3928,7 @@
       "pmid": "40875185",
       "doi": "10.1007/s12325-025-03327-z",
       "title": "A New Ashwagandha Formulation (Zenroot™) Alleviates Stress and Anxiety Symptoms While Improving Mood and Sleep Quality: A Randomized, Double-Blind, Placebo-Controlled Clinical Study.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "stress_anxiety",
       "state": "selected_exact_verified"
     },
@@ -3442,6 +3937,7 @@
       "pmid": "32088511",
       "doi": "10.1016/j.genhosppsych.2020.02.001",
       "title": "The best route of administration of lavender for anxiety: a systematic review and network meta-analysis.",
+      "pub_type": "Network Meta-Analysis",
       "category": "stress_anxiety",
       "state": "selected_exact_verified"
     },
@@ -3450,6 +3946,7 @@
       "pmid": "40827258",
       "doi": "10.2147/jpr.s533076",
       "title": "The Efficacy of Aromatherapy on Pain and Anxiety During Needle-Related Procedures in Adults: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Review",
       "category": "stress_anxiety",
       "state": "research_only_exact_verified"
     },
@@ -3458,6 +3955,7 @@
       "pmid": "38919308",
       "doi": "10.18502/ijph.v53i3.15135",
       "title": "Effect of Lavender Aromatherapy on Anxiety and Fatigue in Hemodialysis Patients: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Review",
       "category": "stress_anxiety",
       "state": "research_only_exact_verified"
     },
@@ -3466,6 +3964,7 @@
       "pmid": "35080353",
       "doi": "10.1515/jcim-2021-0192",
       "title": "The effect of lavender on mothers sleep quality in the postpartum period: a systematic review and meta-analysis.",
+      "pub_type": "Review",
       "category": "stress_anxiety",
       "state": "research_only_exact_verified"
     },
@@ -3474,6 +3973,7 @@
       "pmid": "34395898",
       "doi": "10.17245/jdapm.2021.21.4.311",
       "title": "Is aromatherapy associated with patient's dental anxiety levels? A systematic review and meta-analysis.",
+      "pub_type": "Review",
       "category": "stress_anxiety",
       "state": "research_only_exact_verified"
     },
@@ -3482,6 +3982,7 @@
       "pmid": "41192533",
       "doi": "10.1016/j.ctim.2025.103279",
       "title": "Effectiveness of aromatherapy on physiological and psychological symptoms during pregnancy: a systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "stress_anxiety",
       "state": "research_only_exact_verified_final_repair"
     },
@@ -3490,6 +3991,7 @@
       "pmid": "35984870",
       "doi": "10.1089/jmf.2022.0042",
       "title": "The Perceived Impact of Ashwagandha on Stress, Sleep Quality, Energy, and Mental Clarity for College Students: Qualitative Analysis of a Double-Blind Randomized Control Trial.",
+      "pub_type": "Journal Article",
       "category": "stress_anxiety",
       "state": "research_only_exact_verified_final_repair"
     },
@@ -3498,6 +4000,7 @@
       "pmid": "37966400",
       "doi": "10.1016/j.jopan.2023.07.016",
       "title": "Effect of Lavender Oil on Preoperative Anxiety: Systematic Review and Meta-analysis.",
+      "pub_type": "Journal Article",
       "category": "stress_anxiety",
       "state": "research_only_exact_verified"
     },
@@ -3506,6 +4009,7 @@
       "pmid": "35757624",
       "doi": "10.3389/fpubh.2022.853056",
       "title": "The Effects of Aromatherapy on Anxiety and Depression in People With Cancer: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Journal Article",
       "category": "stress_anxiety",
       "state": "research_only_exact_verified"
     },
@@ -3514,6 +4018,7 @@
       "pmid": "34309971",
       "doi": "10.1111/ijcp.14593",
       "title": "Effectiveness of aromatherapy inhalation on anxiety and haemodynamic variables for patients with cardiovascular disease: A systematic review and meta-analysis.",
+      "pub_type": "Journal Article",
       "category": "stress_anxiety",
       "state": "research_only_exact_verified"
     },
@@ -3522,22 +4027,37 @@
       "pmid": "40000146",
       "doi": "10.1111/iwj.70246",
       "title": "RETRACTION: Effects of Aromatherapy With Rosa Damascene and Lavender on Pain and Anxiety of Burn Patients: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Retraction Notice",
       "category": "stress_anxiety",
-      "state": "research_only_exact_verified"
+      "state": "research_only_retraction_notice_ineligible",
+      "runtime_eligible": false,
+      "retraction_relation": {
+        "type": "retraction_notice_for",
+        "related_pmid": "36651329",
+        "related_doi": "10.1111/iwj.14093"
+      }
     },
     {
       "wave": 3936,
       "pmid": "36651329",
       "doi": "10.1111/iwj.14093",
       "title": "Effects of aromatherapy with Rosa damascene and lavender on pain and anxiety of burn patients: A systematic review and meta-analysis.",
+      "pub_type": "Retracted Publication",
       "category": "stress_anxiety",
-      "state": "research_only_exact_verified"
+      "state": "research_only_retracted_publication_ineligible",
+      "runtime_eligible": false,
+      "retraction_relation": {
+        "type": "retracted_by_notice",
+        "related_pmid": "40000146",
+        "related_doi": "10.1111/iwj.70246"
+      }
     },
     {
       "wave": 3937,
       "pmid": "38975711",
       "doi": "10.1080/10253890.2024.2375588",
       "title": "Impact of L-theanine and L-tyrosine on markers of stress and cognitive performance in response to a virtual reality based active shooter training drill.",
+      "pub_type": "Research Support, U.S. Gov't, Non-P.H.S.",
       "category": "stress_anxiety",
       "state": "research_only_exact_verified_final_repair"
     },
@@ -3546,6 +4066,7 @@
       "pmid": "32267044",
       "doi": "10.1111/odi.13346",
       "title": "Efficacy of aromatherapy on dental anxiety: A systematic review of randomised and quasi-randomised controlled trials.",
+      "pub_type": "Systematic Review",
       "category": "stress_anxiety",
       "state": "research_only_exact_verified"
     },
@@ -3554,6 +4075,7 @@
       "pmid": "42377287",
       "doi": "10.1016/j.jopan.2026.04.004",
       "title": "Managing Anxiety in Adult Surgical Patients During Preoperative Peripheral IV Insertion: A Systematic Review of Interventions and Outcomes.",
+      "pub_type": "Systematic Review",
       "category": "stress_anxiety",
       "state": "research_only_exact_verified"
     },
@@ -3562,6 +4084,7 @@
       "pmid": "37662591",
       "doi": "10.3389/fnut.2023.1211321",
       "title": "Assessing brain function in stressed healthy individuals following the use of a combination of green tea, Rhodiola, magnesium, and B vitamins: an fMRI study.",
+      "pub_type": "Journal Article",
       "category": "stress_anxiety",
       "state": "research_only_exact_verified_final_repair"
     },
@@ -3570,6 +4093,7 @@
       "pmid": "34562208",
       "doi": "10.1007/s40120-021-00284-x",
       "title": "A Randomized, Triple-Blind, Placebo-Controlled, Crossover Study to Investigate the Efficacy of a Single Dose of AlphaWave(®) L-Theanine on Stress in a Healthy Adult Population.",
+      "pub_type": "Journal Article",
       "category": "stress_anxiety",
       "state": "research_only_exact_verified_final_repair"
     },
@@ -3578,6 +4102,7 @@
       "pmid": "41991056",
       "doi": "10.1016/j.cct.2026.108306",
       "title": "The effect of green tea amino acid L-theanine formulation on markers of stress and quality of sleep (THESleep project) - a study protocol for a pilot randomised control trial.",
+      "pub_type": "Clinical Trial Protocol",
       "category": "stress_anxiety",
       "state": "research_only_exact_verified"
     },
@@ -3586,6 +4111,7 @@
       "pmid": "31987220",
       "doi": "10.1016/j.ctim.2019.102256",
       "title": "The effect of inhalation aromatherapy in patients undergoing cardiac surgery: A systematic review and meta-analysis of randomized controlled trials.",
+      "pub_type": "Systematic Review",
       "category": "stress_anxiety",
       "state": "research_only_exact_verified_final_repair"
     },
@@ -3594,6 +4120,7 @@
       "pmid": "40748423",
       "doi": "10.1007/s12325-025-03292-7",
       "title": "Superior Bioavailability of a Novel 1.5% Ashwagandha Formulation (Zenroot™): A Randomized, Double-Blind, Single-Dose, Comparative, Oral Bioavailability Study in Healthy Adults.",
+      "pub_type": "Comparative Study",
       "category": "stress_anxiety",
       "state": "research_only_exact_verified"
     },
@@ -3602,6 +4129,7 @@
       "pmid": "40977612",
       "doi": "10.1080/15502783.2025.2564238",
       "title": "Performance-enhancing effects of caffeine and L-Theanine among Iranian elite wrestlers: a focus on cognitive and specific physical performance.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "stress_anxiety",
       "state": "research_only_exact_verified"
     },
@@ -3610,6 +4138,7 @@
       "pmid": "38758503",
       "doi": "10.1007/s40120-024-00624-7",
       "title": "Safety and Efficacy of AlphaWave® L-Theanine Supplementation for 28 Days in Healthy Adults with Moderate Stress: A Randomized, Double-Blind, Placebo-Controlled Trial.",
+      "pub_type": "Journal Article",
       "category": "stress_anxiety",
       "state": "research_only_exact_verified"
     },
@@ -3618,6 +4147,7 @@
       "pmid": "37832082",
       "doi": "10.1097/md.0000000000035521",
       "title": "A standardized Ashwagandha root extract alleviates stress, anxiety, and improves quality of life in healthy adults by modulating stress hormones: Results from a randomized, double-blind, placebo-controlled study.",
+      "pub_type": "Journal Article",
       "category": "stress_anxiety",
       "state": "research_only_exact_verified"
     },
@@ -3626,6 +4156,7 @@
       "pmid": "42137907",
       "doi": "10.3389/fpain.2026.1826942",
       "title": "Interventions to reduce pharmacologic opioid exposure in neonatal opioid withdrawal syndrome: a systematic review and meta-analysis of randomized studies.",
+      "pub_type": "Review",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3634,6 +4165,7 @@
       "pmid": "37167985",
       "doi": "10.1016/s2215-0366(23)00095-0",
       "title": "Buprenorphine versus methadone for the treatment of opioid dependence: a systematic review and meta-analysis of randomised and observational studies.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified_final_repair"
     },
@@ -3642,6 +4174,7 @@
       "pmid": "36258676",
       "doi": "10.1177/10600280221130458",
       "title": "Adjunctive Dexmedetomidine in Alcohol Withdrawal Syndrome: A Systematic Review and Meta-analysis of Retrospective Cohort Studies and Randomized Controlled Trials.",
+      "pub_type": "Journal Article",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3650,6 +4183,7 @@
       "pmid": "30937668",
       "doi": "10.1007/s11606-019-04899-7",
       "title": "Symptom-Triggered Therapy for Alcohol Withdrawal Syndrome: a Systematic Review and Meta-analysis of Randomized Controlled Trials.",
+      "pub_type": "Systematic Review",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified_final_repair"
     },
@@ -3658,6 +4192,7 @@
       "pmid": "39338290",
       "doi": "10.3390/ph17091125",
       "title": "Dexmedetomidine as Adjunctive Therapy for the Treatment of Alcohol Withdrawal Syndrome: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Review",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified_final_repair"
     },
@@ -3666,6 +4201,7 @@
       "pmid": "39220152",
       "doi": "10.3389/fped.2024.1416383",
       "title": "Eat, Sleep, Console model for neonatal opioid withdrawal syndrome: a meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3674,6 +4210,7 @@
       "pmid": "37637184",
       "doi": "10.1016/j.imr.2023.100976",
       "title": "Acupuncture-related therapies for protracted opioid abstinence syndrome:A systematic review and meta-analysis.",
+      "pub_type": "Review",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3682,6 +4219,7 @@
       "pmid": "35815384",
       "doi": "10.1111/add.15997",
       "title": "Feasibility and effectiveness of deprescribing benzodiazepines and Z-drugs: systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3690,6 +4228,7 @@
       "pmid": "36788902",
       "doi": "10.7759/cureus.33695",
       "title": "Phenobarbital and Alcohol Withdrawal Syndrome: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Review",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3698,6 +4237,7 @@
       "pmid": "33822427",
       "doi": "10.1111/add.15510",
       "title": "The effectiveness and tolerability of anti-seizure medication in alcohol withdrawal syndrome: a systematic review, meta-analysis and GRADE of the evidence.",
+      "pub_type": "Systematic Review",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3706,6 +4246,7 @@
       "pmid": "33503582",
       "doi": "10.1016/j.drugalcdep.2021.108536",
       "title": "Evaluation of the course and treatment of Alcohol Withdrawal Syndrome with the Clinical Institute Withdrawal Assessment for Alcohol - Revised: A systematic review-based meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3714,6 +4255,7 @@
       "pmid": "32833041",
       "doi": "10.1007/s00134-020-06139-7",
       "title": "Pain management during the withholding and withdrawal of life support in critically ill patients at the end-of-life: a systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3722,6 +4264,7 @@
       "pmid": "32667088",
       "doi": "10.1002/hup.2751",
       "title": "Gabapentinoids for treatment of alcohol use disorder: A systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3730,6 +4273,7 @@
       "pmid": "30522144",
       "doi": "10.1055/a-0795-3689",
       "title": "The Efficacy of Tiapride and Carbamazepine Combination Therapy in Reducing Alcohol Withdrawal Symptoms: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Systematic Review",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3738,6 +4282,7 @@
       "pmid": "42812300",
       "doi": "10.3389/fpubh.2026.1901002",
       "title": "Non-pharmacological interventions for opioid use disorder: protocol for a systematic review and network meta-analysis.",
+      "pub_type": "Journal Article",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3746,6 +4291,7 @@
       "pmid": "36878671",
       "doi": "10.1136/heartjnl-2022-322074",
       "title": "Effect of opioids for breathlessness in heart failure: a systematic review and meta-analysis.",
+      "pub_type": "Journal Article",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3754,6 +4300,7 @@
       "pmid": "37060631",
       "doi": "10.1016/j.ajem.2023.04.002",
       "title": "Evaluation of phenobarbital based approach in treating patient with alcohol withdrawal syndrome: A systematic review and meta-analysis.",
+      "pub_type": "Journal Article",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3762,6 +4309,7 @@
       "pmid": "36402053",
       "doi": "10.1016/j.drugalcdep.2022.109671",
       "title": "Gabapentin to treat acute alcohol withdrawal in hospitalized patients: A systematic review and meta-analysis.",
+      "pub_type": "Journal Article",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3770,6 +4318,7 @@
       "pmid": "42634386",
       "doi": "10.1002/phar.70197",
       "title": "Phenobarbital Versus Benzodiazepine-Based Pathways for Alcohol Withdrawal Syndrome in Critically Ill Adults: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Comparative Study",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3778,6 +4327,7 @@
       "pmid": "42751933",
       "doi": "10.1177/03000605261487272",
       "title": "Cognitive behavioral therapy for insomnia-assisted discontinuation or reduction of benzodiazepine receptor agonists and Z-drugs in chronic insomnia: A systematic review and meta-analysis.",
+      "pub_type": "Meta-Analysis",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3786,6 +4336,7 @@
       "pmid": "42286437",
       "doi": "10.1111/add.70502",
       "title": "Factors associated with the percentage of individuals who initiate and discontinue naltrexone as a relapse prevention pharmacotherapy in opioid use disorder: A systematic review, meta-analysis and meta-regression.",
+      "pub_type": "Meta-Analysis",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3794,6 +4345,7 @@
       "pmid": "41571617",
       "doi": "10.1111/add.70334",
       "title": "Pharmacological treatment strategies to manage precipitated withdrawal following the administration of buprenorphine in opioid use disorder: A systematic review.",
+      "pub_type": "Systematic Review",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified_final_repair"
     },
@@ -3802,6 +4354,7 @@
       "pmid": "42204512",
       "doi": "10.1186/s12884-026-09256-1",
       "title": "The comparative effects of prenatal exposure to methadone versus buprenorphine for opioid use disorder on neonatal outcomes: a systematic review and meta-analysis.",
+      "pub_type": "Comparative Study",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3810,6 +4363,7 @@
       "pmid": "39699576",
       "doi": "10.1080/15360288.2024.2427324",
       "title": "Safety of Naldemedine for Opioid-Induced Constipation - A Systematic Review and Meta-Analysis.",
+      "pub_type": "Meta-Analysis",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3818,6 +4372,7 @@
       "pmid": "40527546",
       "doi": "10.1136/bmj-2024-081336",
       "title": "Comparative effectiveness of interventions to facilitate deprescription of benzodiazepines and other sedative hypnotics: systematic review and meta-analysis.",
+      "pub_type": "Meta-Analysis",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3826,6 +4381,7 @@
       "pmid": "39141367",
       "doi": "10.1001/jamapsychiatry.2024.2176",
       "title": "Hyperalgesia in Patients With a History of Opioid Use Disorder: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Meta-Analysis",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3834,6 +4390,7 @@
       "pmid": "38170803",
       "doi": "10.1097/yic.0000000000000526",
       "title": "Comparative efficacy of various pharmacologic treatments for alcohol withdrawal syndrome: a systematic review and network meta-analysis.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3842,6 +4399,7 @@
       "pmid": "37923363",
       "doi": "10.1111/acem.14825",
       "title": "Phenobarbital treatment of alcohol withdrawal in the emergency department: A systematic review and meta-analysis.",
+      "pub_type": "Research Support, N.I.H., Extramural",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3850,6 +4408,7 @@
       "pmid": "39423192",
       "doi": "10.1371/journal.pone.0300954",
       "title": "Interventions to reduce opioid use for patients with chronic non-cancer pain in primary care settings: A systematic review and meta-analysis.",
+      "pub_type": "Meta-Analysis",
       "category": "withdrawal_nps",
       "state": "research_only_exact_verified"
     },
@@ -3858,6 +4417,7 @@
       "pmid": "40989082",
       "doi": "10.18502/ijrm.v23i5.19260",
       "title": "The effect of myo-inositol on assisted reproductive technology outcomes in women with polycystic ovarian syndrome: A systematic review and meta-analysis of randomized clinical trial studies.",
+      "pub_type": "Review",
       "category": "women_health",
       "state": "research_only_exact_verified"
     },
@@ -3866,6 +4426,7 @@
       "pmid": "39433088",
       "doi": "10.1016/j.advnut.2024.100327",
       "title": "Effect of Soy Isoflavones on Measures of Estrogenicity: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "pub_type": "Research Support, U.S. Gov't, Non-P.H.S.",
       "category": "women_health",
       "state": "research_only_exact_verified"
     },
@@ -3874,6 +4435,7 @@
       "pmid": "38825560",
       "doi": "10.1016/j.explore.2024.05.010",
       "title": "The effect of soy isoflavones given to women in the climacteric period on menopausal symptoms and quality of life: Systematic review and meta-analysis of randomized controlled trials.",
+      "pub_type": "Systematic Review",
       "category": "women_health",
       "state": "research_only_exact_verified"
     },
@@ -3882,6 +4444,7 @@
       "pmid": "38342411",
       "doi": "10.1016/j.jand.2024.02.006",
       "title": "Effect of Unfermented Soy Product Consumption on Blood Lipids in Postmenopausal Women: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "pub_type": "Meta-Analysis",
       "category": "women_health",
       "state": "research_only_exact_verified"
     },
@@ -3890,6 +4453,7 @@
       "pmid": "38044616",
       "doi": "10.5468/ogs.23206",
       "title": "The effect of alpha-lipoic acid supplementation on anthropometric, glycemic, lipid, oxidative stress, and hormonal parameters in individuals with polycystic ovary syndrome: a systematic review and meta-analysis of randomized clinical trials.",
+      "pub_type": "Journal Article",
       "category": "women_health",
       "state": "research_only_exact_verified"
     },
@@ -3898,6 +4462,7 @@
       "pmid": "36703143",
       "doi": "10.1186/s12958-023-01055-z",
       "title": "Inositol is an effective and safe treatment in polycystic ovary syndrome: a systematic review and meta-analysis of randomized controlled trials.",
+      "pub_type": "Journal Article",
       "category": "women_health",
       "state": "research_only_exact_verified"
     },
@@ -3906,6 +4471,7 @@
       "pmid": "35363325",
       "doi": "10.26355/eurrev_202203_28322",
       "title": "Short period-administration of myo-inositol and metformin on hormonal and glycolipid profiles in patients with polycystic ovary syndrome: a systematic review and updated meta-analysis of randomized controlled trials.",
+      "pub_type": "Systematic Review",
       "category": "women_health",
       "state": "research_only_exact_verified"
     },
@@ -3914,6 +4480,7 @@
       "pmid": "35664247",
       "doi": "10.1002/osp4.569",
       "title": "Inositol supplementation and body mass index: A systematic review and meta-analysis of randomized clinical trials.",
+      "pub_type": "Review",
       "category": "women_health",
       "state": "research_only_exact_verified"
     },
@@ -3922,6 +4489,7 @@
       "pmid": "34642749",
       "doi": "10.1093/jn/nxab325",
       "title": "A Meta-Analysis of Randomized Controlled Trials of the Effects of Soy Intake on Inflammatory Markers in Postmenopausal Women.",
+      "pub_type": "Systematic Review",
       "category": "women_health",
       "state": "research_only_exact_verified"
     },
@@ -3930,6 +4498,7 @@
       "pmid": "34455600",
       "doi": "10.1111/1440-1681.13586",
       "title": "The efficacy of soy isoflavones combined with soy protein on serum concentration of interleukin-6 and tumour necrosis factor-α among post-menopausal women? A systematic review and meta-analysis of randomized controlled trials.",
+      "pub_type": "Systematic Review",
       "category": "women_health",
       "state": "research_only_exact_verified"
     },
@@ -3938,6 +4507,7 @@
       "pmid": "33785457",
       "doi": "10.1016/j.ctim.2021.102715",
       "title": "Beneficial effect of soy isoflavones and soy isoflavones plus soy protein on serum concentration of C-reactive protein among postmenopausal women: An updated systematic review and meta-analysis of randomized controlled trials.",
+      "pub_type": "Systematic Review",
       "category": "women_health",
       "state": "research_only_exact_verified"
     },
@@ -3946,6 +4516,7 @@
       "pmid": "34444691",
       "doi": "10.3390/nu13082531",
       "title": "Effects of Soy Protein Containing of Isoflavones and Isoflavones Extract on Plasma Lipid Profile in Postmenopausal Women as a Potential Prevention Factor in Cardiovascular Diseases: Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "pub_type": "Systematic Review",
       "category": "women_health",
       "state": "research_only_exact_verified"
     },
@@ -3954,6 +4525,7 @@
       "pmid": "32881829",
       "doi": "10.1097/gme.0000000000001622",
       "title": "Effect of soy protein containing isoflavones on endothelial and vascular function in postmenopausal women: a systematic review and meta-analysis of randomized controlled trials.",
+      "pub_type": "Systematic Review",
       "category": "women_health",
       "state": "research_only_exact_verified"
     },
@@ -3962,6 +4534,7 @@
       "pmid": "31731772",
       "doi": "10.3390/nu11112790",
       "title": "Soy Products Ameliorate Obesity-Related Anthropometric Indicators in Overweight or Obese Asian and Non-Menopausal Women: A Meta-Analysis of Randomized Controlled Trials.",
+      "pub_type": "Systematic Review",
       "category": "women_health",
       "state": "research_only_exact_verified"
     },
@@ -3970,6 +4543,7 @@
       "pmid": "30592686",
       "doi": "10.1089/jmf.2018.4265",
       "title": "Equol Decreases Hot Flashes in Postmenopausal Women: A Systematic Review and Meta-Analysis of Randomized Clinical Trials.",
+      "pub_type": "Systematic Review",
       "category": "women_health",
       "state": "research_only_exact_verified"
     },
@@ -3978,6 +4552,7 @@
       "pmid": "40718787",
       "doi": "10.7717/peerj.19715",
       "title": "Effects of soy isoflavones on menopausal symptoms in perimenopausal women: a systematic review and meta-analysis.",
+      "pub_type": "Meta-Analysis",
       "category": "women_health",
       "state": "research_only_exact_verified_final_repair"
     },
@@ -3986,6 +4561,7 @@
       "pmid": "30049351",
       "doi": "10.1016/j.maturitas.2018.06.012",
       "title": "Phytoestrogen supplementation and body composition in postmenopausal women: A systematic review and meta-analysis of randomized controlled trials.",
+      "pub_type": "Systematic Review",
       "category": "women_health",
       "state": "research_only_exact_verified"
     },
@@ -3994,6 +4570,7 @@
       "pmid": "30078122",
       "doi": "10.1007/s00404-018-4861-y",
       "title": "Myo-inositol supplementation reduces the amount of gonadotropins and length of ovarian stimulation in women undergoing IVF: a systematic review and meta-analysis of randomized controlled trials.",
+      "pub_type": "Systematic Review",
       "category": "women_health",
       "state": "research_only_exact_verified"
     },
@@ -4002,6 +4579,7 @@
       "pmid": "29765921",
       "doi": "10.6118/jmm.2018.24.1.1",
       "title": "Therapeutic Approaches to Atrophic Vaginitis in Postmenopausal Women: A Systematic Review with a Network Meta-analysis of Randomized Controlled Trials.",
+      "pub_type": "Journal Article",
       "category": "women_health",
       "state": "research_only_exact_verified"
     },
@@ -4010,6 +4588,7 @@
       "pmid": "40430499",
       "doi": "10.3390/ph18050680",
       "title": "Pharmacological and Non-Pharmacological Interventions for Polycystic Ovary Syndrome (PCOS) in Indian Women: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Review",
       "category": "women_health",
       "state": "research_only_exact_verified"
     },
@@ -4018,6 +4597,7 @@
       "pmid": "39834271",
       "doi": "10.1093/fampra/cmae079",
       "title": "The benefits and harms of oral iron supplementation in non-anaemic pregnant women: a systematic review and meta-analysis.",
+      "pub_type": "Meta-Analysis",
       "category": "women_health",
       "state": "research_only_exact_verified_final_repair"
     },
@@ -4026,6 +4606,7 @@
       "pmid": "38025704",
       "doi": "10.7717/peerj.16410",
       "title": "Comparison of nutritional supplements in improving glycolipid metabolism and endocrine function in polycystic ovary syndrome: a systematic review and network meta-analysis.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "category": "women_health",
       "state": "research_only_exact_verified_final_repair"
     },
@@ -4034,6 +4615,7 @@
       "pmid": "30614282",
       "doi": "10.1080/09513590.2018.1540578",
       "title": "Short-term effects of metformin and myo-inositol in women with polycystic ovarian syndrome (PCOS): a meta-analysis of randomized clinical trials.",
+      "pub_type": "Meta-Analysis",
       "category": "women_health",
       "state": "research_only_exact_verified_final_repair"
     },
@@ -4042,6 +4624,7 @@
       "pmid": "38873205",
       "doi": "10.3389/fmed.2024.1375622",
       "title": "Digital versus non-digital health interventions to improve iron supplementation in pregnant women: a systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "women_health",
       "state": "research_only_exact_verified"
     }
