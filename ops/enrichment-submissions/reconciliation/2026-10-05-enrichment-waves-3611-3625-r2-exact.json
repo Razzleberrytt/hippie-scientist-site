@@ -3,7 +3,7 @@
   "selection_revision": 2,
   "range": "3611-3625",
   "row_count": 15,
-  "failed_count": 1,
+  "failed_count": 0,
   "rows": [
     {
       "pmid": "42787599",
@@ -238,14 +238,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 22,
       "primary_category": "cognition_focus",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3621,
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "focus": null
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "verified_title": "Caffeine and Cognitive Functions in Sports: A Systematic Review and Meta-Analysis.",
+      "verified_journal": "Nutrients",
+      "verified_pub_date": "2021-Mar-06",
+      "focus": "Cognitive functions are essential in any form of exercise. Recently, interest has mounted in addressing the relationship between caffeine intake and cognitive performance during sports practice. This review examines this relationship through a structured search of the databases Medline/PubMed and Web of Science for relevant articles published in English from August 1999 to March 2020. The study followed PRISMA guidelines. Inclusion criteria were defined according to the PICOS model. The identified records reported on randomized cross-over studies in which caffeine intake (as drinks, capsules, energy bars, or gum) was compared to an identical placebo situation. There were no filters on participants' training level, gender, or age. For the systematic review, 13 studies examining the impacts of caffeine on objective measures of cognitive performance or self-reported cognitive performance were selected. Five of these studies were also subjected to meta-analysis. After pooling data in the meta-analysis, the significant impacts of caffeine only emerged on attention, accuracy, and speed. The results of the 13 studies, nevertheless, suggest that the intake of a low/moderate dose of caffeine before and/or during exercise can improve self-reported energy, mood, and cognitive functions, such as attention; it may also improve simple reaction time, choice reaction time, memory, or fatigue, however, this may depend on the research protocols."
     },
     {
       "pmid": "35215389",
