@@ -28,17 +28,54 @@
     "unverified_rows": 0
   },
   "finalized_repairs": {
-    "tail_final_repair_rows": 17,
-    "global_audit_repair_rows": 3,
-    "prior_collision_repairs": 2,
-    "verification_exception_replacements": 3,
-    "late_category_firewall_replacements": 4,
-    "cross_file_duplicate_repairs": "completed"
+    "prior_reconciliation_repair_rows": 20,
+    "pr_review_category_firewall_replacements": 4,
+    "retraction_quarantine_rows": 2,
+    "replaced_waves": [
+      3611,
+      3612,
+      3889,
+      3915
+    ],
+    "quarantined_waves": [
+      3935,
+      3936
+    ],
+    "review_repair_receipt": "2026-10-05-enrichment-waves-3611-3936-review-repair-exact.json"
+  },
+  "category_counts": {
+    "aging_sarcopenia": 34,
+    "botanicals_mushrooms": 31,
+    "cannabinoid_safety": 34,
+    "cardiometabolic": 16,
+    "cognition_focus": 34,
+    "gut": 9,
+    "immune_respiratory": 34,
+    "inflammation_pain": 34,
+    "metabolic": 28,
+    "micronutrients": 12,
+    "mitochondrial_energy": 34,
+    "mood": 34,
+    "performance": 16,
+    "safety_interactions": 33,
+    "sleep": 35,
+    "stress_anxiety": 29,
+    "withdrawal_nps": 29,
+    "women_health": 24
+  },
+  "state_counts": {
+    "selected_exact_verified": 415,
+    "research_only_exact_verified_review_repair": 4,
+    "research_only_exact_verified_final_repair": 20,
+    "research_only_exact_verified": 59,
+    "research_only_retraction_notice_ineligible": 1,
+    "research_only_retracted_publication_ineligible": 1
   },
   "artifacts": {
     "finalized_receipt": "2026-10-05-enrichment-waves-3501-4000-verified-consolidated.json",
     "cumulative_index": "2026-10-05-enrichment-waves-3501-4000-pmid-index.json",
-    "initial_selection_ledger": "2026-10-05-enrichment-waves-3501-4000-selection.json"
+    "final_selection": "2026-10-05-enrichment-waves-3501-4000-final-selection.json",
+    "review_repair_receipt": "2026-10-05-enrichment-waves-3611-3936-review-repair-exact.json"
   },
   "authority_note": "The finalized consolidated receipt supersedes stale pending states or superseded rows in earlier selection, aggregate, exact, replacement, and repair artifacts.",
   "policy": {
@@ -47,6 +84,7 @@
     "recommendation_promotion": "forbidden",
     "dose_inference": "forbidden",
     "formulation_firewall": true,
-    "category_firewall": true
+    "category_firewall": true,
+    "retraction_quarantine": true
   }
 }
