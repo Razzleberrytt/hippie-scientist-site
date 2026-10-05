@@ -3,7 +3,7 @@
   "selection_revision": 2,
   "range": "3761-3775",
   "row_count": 15,
-  "failed_count": 2,
+  "failed_count": 0,
   "rows": [
     {
       "pmid": "31296936",
@@ -62,10 +62,10 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 8,
       "primary_category": "micronutrients",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3763,
       "abstract_verified": true,
-      "title_match_score": 0,
+      "title_match_score": 1,
       "verified_title": "Impact of daily-supervised administration of a package of iron and folic acid and vitamin B12 on hemoglobin levels among adolescent girls (12-19 years): a cluster randomized control trial.",
       "verified_journal": "European journal of clinical nutrition",
       "verified_pub_date": "2021-Nov",
@@ -260,14 +260,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 18,
       "primary_category": "mitochondrial_energy",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3772,
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "focus": null
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "verified_title": "Nicotinamide riboside for peripheral artery disease: the NICE randomized clinical trial.",
+      "verified_journal": "Nature communications",
+      "verified_pub_date": "2024-Jun-13",
+      "focus": "People with lower extremity peripheral artery disease (PAD) have increased oxidative stress, impaired mitochondrial activity, and poor walking performance. NAD+ reduces oxidative stress and is an essential cofactor for mitochondrial respiration. Oral nicotinamide riboside (NR) increases bioavailability of NAD+ in humans. Among 90 people with PAD, this randomized double-blind clinical trial assessed whether 6-months of NR, with and without resveratrol, improves 6-min walk distance, compared to placebo, at 6-month follow-up. At 6-month follow-up, compared to placebo, NR significantly improved 6-min walk (+7.0 vs. -10.6 meters, between group difference: +17.6 (90% CI: + 1.8,+∞). Among participants who took at least 75% of study pills, compared to placebo, NR improved 6-min walk by 31.0 meters and NR + resveratrol improved 6-min walk by 26.9 meters. In this work, NR meaningfully improved 6-min walk, and resveratrol did not add benefit to NR alone in PAD. A larger clinical trial to confirm these findings is needed."
     },
     {
       "pmid": "42478598",
