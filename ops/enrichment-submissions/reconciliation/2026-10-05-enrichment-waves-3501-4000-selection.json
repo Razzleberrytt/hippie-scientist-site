@@ -21,7 +21,7 @@
     "within_batch_duplicate_pmids": 0,
     "within_batch_duplicate_dois": 0,
     "within_batch_duplicate_normalized_titles": 0,
-    "replacement_count": 43
+    "replacement_count": 45
   },
   "editorial_gate": {
     "category_specific_title_relevance": true,
@@ -3810,36 +3810,38 @@
       "wave": 3723
     },
     {
-      "pmid": "42819613",
-      "doi": "10.4103/ija.ija_1301_26",
-      "title": "A statistical point for clarification in \"dexmedetomidine versus magnesium sulphate as adjuvants to ropivacaine in ilioinguinal-iliohypogastric nerve block for inguinal hernia repair: A randomised controlled trial\".",
-      "journal": "Indian journal of anaesthesia",
-      "pub_date": "2026 Sep",
-      "pub_type": "Journal Article",
-      "has_abstract": false,
+      "pmid": "42664719",
+      "doi": "10.1016/j.jclinane.2026.112306",
+      "title": "Intravenous magnesium sulfate for analgesia in spinal surgery: a systematic review and meta-analysis of randomized controlled trials.",
+      "journal": "Journal of clinical anesthesia",
+      "pub_date": "2026-Sep",
+      "pub_type": "Meta-Analysis",
+      "has_abstract": true,
       "category": "inflammation_pain",
       "discovery_query": "(curcumin OR turmeric OR boswellia OR omega-3 OR magnesium) AND (pain OR inflammation OR osteoarthritis OR inflammatory) AND (trial OR systematic review OR meta-analysis) AND 2018:2026[pdat]",
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 11,
       "primary_category": "inflammation_pain",
       "state": "selected_pending_exact_abstract_verification",
-      "wave": 3724
+      "wave": 3724,
+      "replacement_reason": "replace_no_abstract_comment"
     },
     {
-      "pmid": "42820146",
-      "doi": "10.4103/ija.ija_1322_26",
-      "title": "Reply to comments on \"dexmedetomidine versus magnesium sulphate as adjuvants to ropivacaine in ilioinguinal-iliohypogastric nerve block for inguinal hernia repair: A randomised controlled trial\".",
-      "journal": "Indian journal of anaesthesia",
-      "pub_date": "2026 Sep",
-      "pub_type": "Journal Article",
-      "has_abstract": false,
+      "pmid": "42760675",
+      "doi": "10.1097/MD.0000000000050686",
+      "title": "High potency and water dispersible Boswellia extract reduces pain and inflammation in subjects with osteoarthritis of the knee: A randomized, double-blind, placebo-controlled trial.",
+      "journal": "Medicine",
+      "pub_date": "2026-Sep-18",
+      "pub_type": "Randomized Controlled Trial",
+      "has_abstract": true,
       "category": "inflammation_pain",
       "discovery_query": "(curcumin OR turmeric OR boswellia OR omega-3 OR magnesium) AND (pain OR inflammation OR osteoarthritis OR inflammatory) AND (trial OR systematic review OR meta-analysis) AND 2018:2026[pdat]",
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 11,
       "primary_category": "inflammation_pain",
       "state": "selected_pending_exact_abstract_verification",
-      "wave": 3725
+      "wave": 3725,
+      "replacement_reason": "replace_no_abstract_comment"
     },
     {
       "pmid": "38280052",
