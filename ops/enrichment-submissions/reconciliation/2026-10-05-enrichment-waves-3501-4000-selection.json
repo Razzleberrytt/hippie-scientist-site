@@ -498,12 +498,12 @@
       "wave": 3527
     },
     {
-      "pmid": "42822349",
-      "doi": "10.1016/j.psj.2026.107856",
-      "title": "IGF2BP1 regulates chicken skeletal muscle development through an m6A-dependent inter-organ regulatory axis.",
-      "journal": "Poultry science",
-      "pub_date": "2026 Sep 28",
-      "pub_type": "Journal Article",
+      "pmid": "42823667",
+      "doi": "10.1186/s12877-026-08133-y",
+      "title": "Effects of an eight-week combined exercise program on functional and sarcopenia-related outcomes in institutionalized older adults with and without Alzheimer's disease: a comparative intervention study.",
+      "journal": "BMC geriatrics",
+      "pub_date": "2026 Aug 31",
+      "pub_type": "Comparative Study",
       "has_abstract": true,
       "category": "aging_sarcopenia",
       "discovery_query": "(sarcopenia OR frailty OR muscle mass) AND (creatine OR protein OR vitamin D OR resistance exercise OR nutrition) AND 2018:2026[pdat]",
@@ -511,7 +511,9 @@
       "selection_score": 10,
       "primary_category": "aging_sarcopenia",
       "state": "selected_pending_exact_abstract_verification",
-      "wave": 3528
+      "wave": 3528,
+      "normalized_title": "effects of an eight week combined exercise program on functional and sarcopenia related outcomes in institutionalized older adults with and without alzheimer s disease a comparative intervention study",
+      "replacement_reason": "true_off_domain_title_repair"
     },
     {
       "pmid": "42823831",
@@ -986,12 +988,12 @@
       "replacement_for_pmid": "42506252"
     },
     {
-      "pmid": "42760454",
-      "title": "A Novel Approach to Evaluating the Synergistic Effect of Curcumin and Cisplatin on Breast Cancer Cells: AgNORs Staining Based on Machine Learning.",
-      "doi": "10.1007/s10278-026-02296-1",
-      "pub_date": "2026 Sep 18",
-      "pub_type": "Journal Article",
-      "journal": "Journal of imaging informatics in medicine",
+      "pmid": "42546933",
+      "title": "Modulation of pancreatic β-cell function by adaptogens: Emerging evidence and integrative therapeutic potential.",
+      "doi": "10.1016/j.fitote.2026.107420",
+      "pub_date": "2026 Sep",
+      "pub_type": "Review",
+      "journal": "Fitoterapia",
       "has_abstract": true,
       "query": "(curcumin OR turmeric) AND (randomized OR systematic review OR meta-analysis OR clinical trial OR safety OR efficacy) AND 2018:2026[pdat]",
       "wave": 3556,
@@ -1006,7 +1008,10 @@
       "verified_journal": "Journal of imaging informatics in medicine",
       "verified_pub_date": "2026-Sep-18",
       "state": "selected_pending_exact_abstract_verification",
-      "replacement_for_pmid": "42513928"
+      "replacement_for_pmid": "42513928",
+      "discovery_query": "(ashwagandha OR rhodiola OR ginseng OR lion's mane OR Hericium OR reishi OR Ganoderma) AND (trial OR systematic review OR meta-analysis OR safety) AND 2018:2026[pdat]",
+      "normalized_title": "modulation of pancreatic β cell function by adaptogens emerging evidence and integrative therapeutic potential",
+      "replacement_reason": "true_off_domain_title_repair"
     },
     {
       "pmid": "42534575",
@@ -1096,12 +1101,12 @@
       "wave": 3561
     },
     {
-      "pmid": "42793049",
-      "title": "Pharmacology-Informed Human Genetic Evaluation of Panax notoginseng Saponin-Related Candidate Genes for Functional Outcome After Ischemic Stroke Using Mendelian Randomization and Colocalization.",
-      "doi": "10.3390/genes17091155",
-      "pub_date": "2026 Sep 20",
-      "pub_type": "Journal Article",
-      "journal": "Genes",
+      "pmid": "42653670",
+      "title": "From Remedy to Therapy: Confronting the Bioavailability Bottleneck in Ganoderma lucidum Translational Research.",
+      "doi": "10.3390/ph19081171",
+      "pub_date": "2026 Jul 27",
+      "pub_type": "Review",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
       "has_abstract": true,
       "query": "(ginseng OR rhodiola OR Hericium OR reishi OR Ganoderma) AND (randomized OR systematic review OR meta-analysis OR clinical trial OR safety OR efficacy) AND 2018:2026[pdat]",
       "wave": 3562,
@@ -1116,7 +1121,10 @@
       "verified_journal": "Genes",
       "verified_pub_date": "2026-Sep-20",
       "state": "selected_pending_exact_abstract_verification",
-      "replacement_for_pmid": "42754989"
+      "replacement_for_pmid": "42754989",
+      "discovery_query": "(ashwagandha OR rhodiola OR ginseng OR lion's mane OR Hericium OR reishi OR Ganoderma) AND (trial OR systematic review OR meta-analysis OR safety) AND 2018:2026[pdat]",
+      "normalized_title": "from remedy to therapy confronting the bioavailability bottleneck in ganoderma lucidum translational research",
+      "replacement_reason": "true_off_domain_title_repair"
     },
     {
       "pmid": "42803496",
@@ -8140,5 +8148,14 @@
       "state": "selected_pending_exact_abstract_verification",
       "wave": 4000
     }
-  ]
+  ],
+  "selection_revision": 2,
+  "revision_note": "Repaired 3 true off-domain selections after full 500-row title/category audit; retained valid human turmeric/curcumin and fish-oil/vitamin-D trials.",
+  "audit": {
+    "title_category_audit": {
+      "rows_checked": 500,
+      "true_off_domain_replacements": 3,
+      "false_positive_flags_retained": 4
+    }
+  }
 }
