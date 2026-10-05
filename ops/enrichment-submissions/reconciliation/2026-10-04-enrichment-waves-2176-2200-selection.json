@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-2176-2200-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-2151-2175-selection",
+  "program": {
+    "range": "2001-2500",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 200,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2500"
+  },
+  "source_provenance": [
+    "NCBI PubMed ESearch + exact EFetch abstract verification",
+    "cumulative PMID collision index through Wave 2000"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe and exact abstract verification during authoring; expensive repository-wide validation only after Wave 2500"
+  },
+  "waves": [
+    {
+      "wave": 2176,
+      "entity_slug": "vitamin-d-fortification-dairy-products-united-kingdom",
+      "pmid": "42097358",
+      "focus": "Review on vitamin d fortification of dairy products in the united kingdom: what reports 5) The retailing and promotion of vitamin D-fortified dairy products are influenced by various factors such as price and customer perceptions. This review further. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2177,
+      "entity_slug": "reimagining-contribution-iron-parkinson-s-disease",
+      "pmid": "42097406",
+      "focus": "Review on reimagining the contribution of iron in parkinson's disease reports By reframing PD as a disorder shaped by dynamic changes in iron availability interacting with dopaminergic demand, this review integrates evidence across iron biology. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2178,
+      "entity_slug": "protective-selenium-mitochondrial-quality-under-exogenous-endogenous",
+      "pmid": "42097476",
+      "focus": "Review on the protective effects of selenium on mitochondrial quality under exogenous and reports Therefore, Se treatment might be considered a therapeutic approach to mitigate the adverse effects of various stressors on mitochondrial quality control and functioning, leading. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2179,
+      "entity_slug": "associations-between-occupational-exposure-chromium-vi-cancers",
+      "pmid": "42097876",
+      "focus": "Meta-analysis on associations between occupational exposure to chromium (vi) and cancers of the reports 60) for mortality. This comprehensive meta-analysis of epidemiological studies did not provide sufficient evidence that occupational Cr(VI) exposure may cause cancer of the oral. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2180,
+      "entity_slug": "mechanisms-thrombocytosis-iron-deficiency-anemia",
+      "pmid": "42097980",
+      "focus": "Review on mechanisms of thrombocytosis in iron-deficiency anemia reports This review synthesizes current evidence on how iron deficiency influences megakaryocytic-erythroid balance, with emphasis on progenitor-level regulation, iron sensing pathways and downstream megakaryocyte maturation. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2181,
+      "entity_slug": "coffee-caffeine-cardiovascular-health-navigating-risks-benefits",
+      "pmid": "42098622",
+      "focus": "Meta-analysis on coffee, caffeine, and cardiovascular health: navigating risks and benefits-an updated systematic reports Higher coffee intake might increase the risk of MI, but can also offer protective effects against stroke and cardiac arrhythmias. Moreover, higher caffeine intake. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2182,
+      "entity_slug": "efficacy-safety-perioperative-magnesium-postoperative-pain-adult",
+      "pmid": "42098865",
+      "focus": "Meta-analysis on efficacy and safety of perioperative magnesium on postoperative pain in adult reports Perioperative magnesium shows small and safe analgesic effects after cardiothoracic surgery, but the clinical relevance remains uncertain due to substantial heterogeneity and variable dosing. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2183,
+      "entity_slug": "vitamin-d-supplementation-preventing-recurrent-benign-paroxysmal",
+      "pmid": "42098930",
+      "focus": "Randomized controlled trial on vitamin d supplementation for preventing recurrent benign paroxysmal positional vertigo: a reports Cholecalciferol supplementation provides sustained, clinically meaningful reduction in BPPV recurrence among vitamin D-deficient patients over 24 months with excellent safety profile. Routine vitamin D. Evidence boundary: the finding is limited to the studied population, intervention, duration, and endpoints.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2184,
+      "entity_slug": "double-edged-sword-iron-regulation-alveolar-lung",
+      "pmid": "42100874",
+      "focus": "Review on a double-edged sword: iron regulation in alveolar lung epithelial repair reports This Review focuses on the effects of iron on alveolar epithelial cell homeostasis and repair and disease pathogenesis. There will be a focus on. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2185,
+      "entity_slug": "folate-global-health-review-series-part-3",
+      "pmid": "42100908",
+      "focus": "Review on folate and global health review series, part 3: syntheses on cardiovascular reports The available evidence on the association between folate status and cardiometabolic outcomes primarily focuses on secondary prevention of cardiometabolic diseases and substantially underrepresents low-. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2186,
+      "entity_slug": "iron-overload-disorders-adults-comprehensive-review-gonadal",
+      "pmid": "42101252",
+      "focus": "Systematic review on iron overload disorders in adults: a comprehensive review of gonadal function reports Future multidisciplinary research should prioritize prospective studies with clearly defined reproductive endpoints and explore optimized chelation strategies to safeguard reproductive potential. Addressing these gaps. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2187,
+      "entity_slug": "molecular-level-host-microbe-interactions-mechanisms-molecules",
+      "pmid": "42101372",
+      "focus": "Review on molecular-level host-microbe interactions: mechanisms, molecules, and modeling toward precision probiotics reports In the future, this work may support advances in precision probiotics by enabling the selection of the right probiotic, or the right bacterial molecule. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2188,
+      "entity_slug": "curcumin-as-ceramide-metabolism-targeting-agent-molecular",
+      "pmid": "42101509",
+      "focus": "Review on curcumin as a ceramide metabolism-targeting agent: molecular mechanisms and therapeutic implications reports ceramidase, and combinational strategies using various chemical agents, ceramides, or ceramide analogs to enhance curcumin's efficacy. Finally, the review concludes with remarks and prospects. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2189,
+      "entity_slug": "next-generation-probiotics-outlook-into-current-applications",
+      "pmid": "42104000",
+      "focus": "Review on next-generation probiotics: an outlook into current applications and future developments reports We showcase how a variety of emerging strategies enable the identification of NGP strains and define consortia featuring therapeutic potentials in metabolic, immune and. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2190,
+      "entity_slug": "vitamin-d-inflammatory-rheumatic-diseases-still-challenge",
+      "pmid": "42104141",
+      "focus": "Review on vitamin d in inflammatory rheumatic diseases: still a challenge reports Vitamin D deficiency is a common and clinically relevant finding in inflammatory rheumatic diseases. While supplementation reliably restores adequate levels and may provide modest. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2191,
+      "entity_slug": "iron-deficiency-vegetarian-athletes-narrative-review",
+      "pmid": "42105036",
+      "focus": "Review on iron deficiency in vegetarian athletes: a narrative review reports However, in high-performance settings, individualized and evidence-based dietary planning remains essential to ensure optimal iron status and sustain athletic performance. Future research should clarify. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2192,
+      "entity_slug": "assessing-postural-loads-musculoskeletal-disorders-saffron-harvesters",
+      "pmid": "42106436",
+      "focus": "Observational study on assessing postural loads and musculoskeletal disorders in saffron harvesters: a prospective reports Overall, the findings underscore the substantial ergonomic burden associated with saffron harvesting and highlight the urgent need for targeted ergonomic interventions. Implementing mechanization strategies. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2193,
+      "entity_slug": "omega-3-fatty-acids-pediatric-acute-lymphocytic",
+      "pmid": "42107536",
+      "focus": "Review on omega-3 fatty acids in pediatric acute lymphocytic leukemia: a scoping review reports While experimental findings suggest cytotoxic effects in leukemic cells and potential modulation of toxicity in normal tissues, clinical data are insufficient to support definitive. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2194,
+      "entity_slug": "iron-sulfur-cofactors-nucleic-acid-metabolism-protein",
+      "pmid": "42107644",
+      "focus": "Review on iron-sulfur cofactors in nucleic acid metabolism and protein synthesis: assembly, delivery reports The coexistence of multiple ISC-dependent enzymes within both cellular and viral replication machineries raises fundamental questions about how these metal cofactors coordinate genome maintenance. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2195,
+      "entity_slug": "nutraceutical-potential-fermented-finger-millet-type-2",
+      "pmid": "42108415",
+      "focus": "Review on nutraceutical potential of fermented finger millet in type 2 diabetes mellitus reports In vivo studies reported that fermented FM products outperform non-fermented forms in lowering fasting blood glucose, improving lipid profiles, and protecting pancreatic beta-cell function. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2196,
+      "entity_slug": "probiotics-colorectal-cancer-mechanisms-biomarkers-adjunct-strategies",
+      "pmid": "42108651",
+      "focus": "Review on probiotics in colorectal cancer: mechanisms, biomarkers, and adjunct strategies reports Mechanistically, probiotics suppress CRC development through multifaceted actions, including directly inhibiting tumor cell growth, reducing inflammation, reinforcing the intestinal barrier, and reprogramming host immunity. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2197,
+      "entity_slug": "protective-probiotics-intestinal-mucosal-injury-dysbiosis-infants",
+      "pmid": "42112337",
+      "focus": "Randomized controlled trial on the protective effect of probiotics on intestinal mucosal injury and dysbiosis reports Infants with CHD undergoing CPB are at risk for intestinal mucosal barrier impairment and gut microbiota perturbation. Probiotics administration may alleviate intestinal injury and. Evidence boundary: the finding is limited to the studied population, intervention, duration, and endpoints.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2198,
+      "entity_slug": "post-activation-performance-enhancement-pape-taurine-combination",
+      "pmid": "42112616",
+      "focus": "Randomized controlled trial on post-activation performance enhancement (pape) and taurine combination improves anaerobic performance in reports In conclusion, the combination of the PAPE protocol with taurine supplementation enhances anaerobic performance, supports neuromuscular function, and promotes metabolic recovery following high-intensity exercise. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2199,
+      "entity_slug": "observed-frequency-increased-iron-indices-associated-factors",
+      "pmid": "42113854",
+      "focus": "Observational study on observed frequency of increased iron indices and associated factors in welders reports Use of respiratory protective equipment was associated with lower frequency. Increased iron indices are common in welders, particularly with longer exposure and pulmonary siderosis. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2200,
+      "entity_slug": "revisiting-vitamin-d-fracture-prevention-era-mega",
+      "pmid": "42114835",
+      "focus": "Review on revisiting the role of vitamin d in fracture prevention in the reports We explore the 'divergent threshold' hypothesis, whereby a serum 25-hydroxyvitamin D level of 20 to 30 ng/mL may be sufficient for skeletal health, whereas. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    }
+  ]
+}

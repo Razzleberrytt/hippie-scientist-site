@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3303,
+      "pmid": "42714630",
+      "doi": "10.1007/s11011-026-01983-w",
+      "category": "mitochondrial_energy",
+      "title": "Coenzyme Q10 supplementation restores mitochondrial respiration in patients with primary CoQ10 deficiency caused by novel COQ2 and COQ4 variants.",
+      "journal": "Metabolic brain disease",
+      "pub_date": "2026-Sep-09",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Patients with genetically confirmed primary CoQ10 deficiency showed impaired mitochondrial respiration; after three months of CoQ10 supplementation, one previously untreated proband showed improved ATP-linked respiration, reduced proton leak, and neurological improvement. Benefit is disease-specific and not generalizable to healthy users."
+    },
+    {
+      "wave": 3322,
+      "pmid": "42268539",
+      "doi": "10.1007/s11695-026-08785-0",
+      "category": "mood",
+      "title": "Vitamin D Deficiency and 3-Year Risk of New-Onset Depression After Metabolic and Bariatric Surgery: A Longitudinal Cohort Study.",
+      "journal": "Obesity surgery",
+      "pub_date": "2026-Jul",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "In a propensity-matched retrospective cohort of 11,805 pairs after metabolic/bariatric surgery, vitamin D deficiency was associated with higher 3-year incident depression risk. This observational association does not establish that vitamin D correction prevents depression."
+    }
+  ]
+}

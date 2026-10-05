@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "part": 7,
+  "rows": [
+    {
+      "wave": 3335,
+      "old_pmid": "42589370",
+      "pmid": "42145430",
+      "category": "mood",
+      "title": "Effect of vitamin D supplementation on fatigue and mood among perimenopausal women.",
+      "abstract_verified": true,
+      "journal": "Bioinformation",
+      "pub_date": "2026",
+      "error": null,
+      "focus": "Perimenopausal women often experience fatigue and mood disturbances, which may be associated with vitamin D deficiency. Therefore, it is of interest to investigate the effect of vitamin D supplementation on fatigue and mood in perimenopausal women with vitamin D deficiency. A randomized, double-blind, placebo-controlled trial included 100 women who received either vitamin D3 or a placebo for 6 months. Results showed significant improvements in both fatigue and mood in the vitamin D group compared to placebo. Multivariate analysis confirmed vitamin D supplementation as a predictor of these improvements. Thus, vitamin D supplementation can effectively alleviate fatigue and improve mood in perimenopausal women with vitamin D deficiency."
+    },
+    {
+      "wave": 3343,
+      "old_pmid": "42625626",
+      "pmid": "42757668",
+      "category": "performance",
+      "title": "Sodium Bicarbonate Supplementation Enhances Repeated High-Intensity Interval Training Performance and Time Above 90% of V ˙ O 2 max in Well-Trained Cyclists.",
+      "abstract_verified": true,
+      "journal": "European journal of sport science",
+      "pub_date": "2026-Oct",
+      "error": null,
+      "focus": "This study investigated the effects of sodium bicarbonate (SB) supplementation on physiological responses and performance during submaximal exercise, high-intensity interval training (HIT) and repeated Wingate sprints in well-trained cyclists. Twenty-four participants (♂ = 15, maximal oxygen uptake [ V ˙ O 2 max] = 72 ± 5 mL·min-1 kg-1; ♀ = 9, V ˙ O 2 max = 57 ± 6 mL·min-1 kg-1) performed one screening and familiarisation session and two experimental sessions in a randomised, double-blind and crossover design. Participants ingested SB (∼0.26 g·kg-1) or an appearance-matched placebo (PLA) 2 hours before the experimental session. Each session consisted of a step-test protocol followed by five 5 min HIT bouts (3 × 40 s maximal efforts with 60 s recovery at power output (PO) equal to 3 mmol·L-1 [blood lactate]) and four 30 sec Wingate sprints. Cycling economy and fractional utilisation of V "
+    },
+    {
+      "wave": 3356,
+      "old_pmid": "42539704",
+      "pmid": "42788859",
+      "category": "performance",
+      "title": "Bicarbonate and Carbohydrate Co-Ingestion During Exercise in a Novel Gel Format Improves Time-Trial Performance After 3 h of Moderate-Intensity Exercise in Trained Cyclists.",
+      "abstract_verified": true,
+      "journal": "Scandinavian journal of medicine & science in sports",
+      "pub_date": "2026-Oct",
+      "error": null,
+      "focus": "Sodium bicarbonate (SB) ingestion may improve high-intensity exercise performance in efforts that range from 1 to 60 min; however, to date, no studies have investigated the effects of SB supplementation during exercise, nor its potential to attenuate the fatigue-induced decline in parameters of the power-duration curve during prolonged exercise (i.e., durability). This study examined the effects of bicarbonate (BI) and carbohydrate (CHO) co-ingestion via a novel gel format during exercise on subsequent sprint and time-trial (TT) performance in cyclists. Eleven trained cyclists took part in this randomized, crossover study. Following one visit to establish a non-fatigued power profile (3 × 6-s sprints, 2-min TT and 12-min TT cycling performance), participants completed two experimental trials consisting of 3 h cycling at 95% gas exchange threshold and ingested CHO at a rate of 80 g·h-1 wi"
+    },
+    {
+      "wave": 3364,
+      "old_pmid": "42713522",
+      "pmid": "42782337",
+      "category": "performance",
+      "title": "Effects of different sodium bicarbonate supplementation strategies on repeated 3-min all-out cycling performance and blood acid-base responses.",
+      "abstract_verified": true,
+      "journal": "European journal of applied physiology",
+      "pub_date": "2026-Sep-24",
+      "error": null,
+      "focus": "This study compared four sodium bicarbonate (SB) supplementation strategies differing in dose and dosing pattern on end-test power (EP), work performed above EP (WEP), and blood acid-base responses during two 3-min all-out cycling tests (3MTs) separated by 70 min. Sixteen trained men completed a randomized crossover study involving four SB conditions: single-dose moderate-SB (SM-SB), multiple-dose moderate-SB (MM-SB), single-dose higher-SB (SH-SB), and multiple-dose higher-SB (MH-SB), and placebo (PLA). The SB conditions comprised 0.3-0.4 g·kg⁻¹ body mass administered as a single or multiple dose. Ninety minutes after supplementation, participants performed two 3MTs separated by 70 min, with blood variables measured before and after each bout and during recovery. Overall WEP showed significant main effects of supplementation condition (F = 4.10, ηp² = 0.11, P < 0.05) and time (F = 13.50,"
+    },
+    {
+      "wave": 3401,
+      "old_pmid": "42794424",
+      "pmid": "41636292",
+      "category": "sleep",
+      "title": "Effects of combined GABA and L-theanine supplementation on sleep quality: an exploratory study.",
+      "abstract_verified": true,
+      "journal": "European review for medical and pharmacological sciences",
+      "pub_date": "2026-Jan",
+      "error": null,
+      "focus": "Sleep disorders are a global issue, and sleep supplements and new devices for daily sleep status assessment are becoming widely available. Gamma-aminobutyric acid (GABA) and L-theanine are dietary supplements commonly used to improve sleep. In this single-arm study, we examined whether combined intake of GABA (700 mg/day) and L-theanine (200 mg/day) improves sleep in adults with sleep problems. Participants received supplements for 4 weeks, and changes in sleep quality were measured using the Pittsburgh Sleep Quality Index (PSQI). Furthermore, sleep-related data measured using the Fitbit Charge 5 were evaluated before and after supplement intake. We obtained results from 19 participants and found a significant improvement in the total PSQI score (mean ± standard deviation), from 9.42 ± 1.80 before to 6.26 ± 1.66 after supplement intake (mean difference, -3.15; 95% confidence interval, -4"
+    },
+    {
+      "wave": 3405,
+      "old_pmid": "42796368",
+      "pmid": "41697399",
+      "category": "sleep",
+      "title": "Magnesium supplements, sleep quality, and nocturnal leg cramps: a combination of cross-sectional and prospective studies.",
+      "abstract_verified": true,
+      "journal": "European journal of nutrition",
+      "pub_date": "2026-Feb-16",
+      "error": null,
+      "focus": "PURPOSE: Many individuals turn to supplements like magnesium, believing them to offer a natural way to improve sleep quality. Yet, research on magnesium’s effects has produced inconsistent results. We assessed the relationships between magnesium supplementation and subjective/ or objective sleep parameters, including night cramps. METHODS: Data from three follow-ups of the population based CoLaus|PsyColaus cohort: 2009–12 (first), 2014–17 (second), and 2018–21 (third). Magnesium supplement use was self-reported, and participants were categorized either as users or non-users. Subjective sleep parameters were measured through questionnaires, and objective sleep parameters with polysomnography. The researchers computed a polygenic risk score (PRS) including five single nucleotide polymorphisms related to magnesium levels. RESULTS: The number and characteristics of the participants in the fi"
+    },
+    {
+      "wave": 3416,
+      "old_pmid": "42662326",
+      "pmid": "42735358",
+      "category": "sleep",
+      "title": "Natural history of sleep before and after total joint arthroplasty is poor and unimproved by melatonin: A randomized controlled study.",
+      "abstract_verified": true,
+      "journal": "SICOT-J",
+      "pub_date": "2026",
+      "error": null,
+      "focus": "Poor sleep has been shown to affect surgical recovery with negative impacts on function and pain. Osteoarthritis can negatively impact sleep, as can surgery, making arthroplasty patients especially at risk for these ill effects both before and after surgery. Our study goals were to monitor sleep recovery and determine if perioperative melatonin could improve sleep quality compared to a placebo. From 2020 to 2023, a cohort of 48 primary total hip arthroplasty (THA) and total knee arthroplasty (TKA) patients were randomized to melatonin (n = 23) or placebo (n = 25) for 7 weeks (1 week preoperatively, 6 weeks postoperatively). Patients were excluded if they already used sleep aids or had a sleep disorder. Sleep questionnaires collecting daily sleep and opioid data were electronically administered pre- and postoperatively up to 3 months. Generalized estimating equations were used to assess l"
+    },
+    {
+      "wave": 3457,
+      "old_pmid": "41886310",
+      "pmid": "41741198",
+      "category": "withdrawal_nps",
+      "title": "Flubromazepam intoxication causing prolonged coma and multifocal cerebral ischaemia.",
+      "abstract_verified": true,
+      "journal": "Practical neurology",
+      "pub_date": "2026-Feb-25",
+      "error": null,
+      "focus": "Intoxication with novel psychoactive substances, such as the designer benzodiazepine flubromazepam, can be diagnostically challenging. A man in his late 50s presented with a persistently decreased level of consciousness and extensive multifocal intracerebral ischaemia on an MR brain scan. After excluding multiple causes, a toxicology screen identified flubromazepam use as the likely explanation. This novel psychoactive substance has an elimination half-life of 106 hours and life-threatening side effects, including hypotension and sedative-hypnotic toxidrome. Flubromazepam is increasingly used, with a significant risk of serious toxicity. Physicians should consider novel psychoactive substance toxicity in patients with unexplained neurological presentations, particularly with decreased consciousness and multifocal intracerebral ischaemia."
+    },
+    {
+      "wave": 3468,
+      "old_pmid": "41506249",
+      "pmid": "41757666",
+      "category": "withdrawal_nps",
+      "title": "[Suspected phenibut poisoning with brainstem involvement].",
+      "abstract_verified": true,
+      "journal": "Ugeskrift for laeger",
+      "pub_date": "2026-Feb-23",
+      "error": null,
+      "focus": "Phenibut (β-phenyl-γ-aminobutyric acid) is a GABA-B agonist associated with sedation, dependency, and withdrawal. In this case report, a young man was admitted unconscious with partial brainstem areflexia. Based on clinical findings, a container of phenibut found on him, and his later statement of ingestion, phenibut intoxication was suspected, and he was admitted to the ICU. He later developed withdrawal symptoms, treated effectively with baclofen. This highlights phenibut as a potential cause of coma and the role of baclofen in withdrawal treatment."
+    },
+    {
+      "wave": 3490,
+      "old_pmid": "42796948",
+      "pmid": "42644398",
+      "category": "women_health",
+      "title": "Utero-placental calcium and magnesium ion channels: A systematic review of obstetric implications of their alterations.",
+      "abstract_verified": true,
+      "journal": "Channels (Austin, Tex.)",
+      "pub_date": "2026-Dec",
+      "error": null,
+      "focus": "Despite the established roles of calcium (Ca2+) and magnesium (Mg2+) in placental function and uterine contractility, limited information exists on how dysregulation of major ion channels contributes to poor pregnancy outcomes. We synthesized data on the consequences of Ca2+ and Mg2+ channelopathies in uterine and placental functions. Using PubMed, Wiley Online, AJOL, and Web of Science databases for article search, a systematic review of forty-nine papers published between 2000 and March 2026 was carried out and reported in accordance with the PRISMA 2020 guideline. Based on the PICO framework, eligible studies involving human, animal, and in vitro designs were chosen and subjected to narrative analysis. L-type and T-type voltage-gated Ca2+ channels, together with transient receptor potential channels, emerged as principal mediators of placental Ca2+ transport and myometrial contractili"
+    },
+    {
+      "wave": 3493,
+      "old_pmid": "42713084",
+      "pmid": "42787649",
+      "category": "women_health",
+      "title": "Magnesium sulfate for severe preeclampsia and eclampsia management at the primary healthcare level in sub-Saharan Africa: a systematic review.",
+      "abstract_verified": true,
+      "journal": "Frontiers in reproductive health",
+      "pub_date": "2026",
+      "error": null,
+      "focus": "Preeclampsia and eclampsia are major causes of maternal and perinatal morbidity and mortality in low- and middle-income countries. Magnesium sulfate (MgSO₄) is the most effective intervention for eclampsia prevention and treatment. However, evidence for its use at the primary healthcare level remains limited as most studies have focused on hospital settings. This systematic review was conducted in accordance with Preferred Reporting Items for Systematic Reviews and Meta-Analyses guidelines. Electronic databases were comprehensively searched for relevant studies published between January 2003 and December 2024. MEDLINE via PubMed, Cochrane Library, African Index Medicus, and Google Scholar were comprehensively searched for relevant studies. Studies reporting the use of MgSO₄ in primary healthcare settings were included. Data were extracted using a standardized data collection form. Seven "
+    },
+    {
+      "wave": 3323,
+      "old_pmid": "42581788",
+      "pmid": "41933624",
+      "category": "mood",
+      "title": "Effect of a six-month vitamin D supplementation on depressive symptoms in patients with major depressive episode (DepFuD): a double-blinded randomised controlled trial.",
+      "abstract_verified": true,
+      "journal": "Journal of affective disorders",
+      "pub_date": "2026-Aug-01",
+      "error": null,
+      "focus": "Initial studies suggest vitamin D (VD) supplementation may aid in treating major depressive disorder, but rigorous randomised controlled trials are needed. DepFuD trial was a six-month, double-blinded, parallel-group, randomised controlled superiority design trial with a 1:1 allocation ratio. Outpatients with mild to severe depression episode, aged 18-65 years, were included. The primary aim was to compare the effects of low-dose versus high-dose VD as adjunctive to participants' existing depression treatments, hypothesising that the high-dose group would show greater symptom reduction over six months. Participants were randomised to receive either 100 μg (4000 IU) or 10 μg (400 IU) of VD (cholecalciferol) daily for six months. The primary outcome was measured by between-group differential change over six months in the Montgomery-Åsberg Depression Rating Scale (MADRS) score (range: 0-60)"
+    },
+    {
+      "wave": 3484,
+      "old_pmid": "42675291",
+      "pmid": "42597074",
+      "category": "women_health",
+      "title": "Effectiveness and Safety of Intravenous Iron Therapy in Outpatient Obstetrical Clinic for Treatment of Iron-Deficiency Anemia During Pregnancy.",
+      "abstract_verified": true,
+      "journal": "Pregnancy (Hoboken, N.J.)",
+      "pub_date": "2025-Sep",
+      "error": null,
+      "focus": "Iron-deficiency anemia (IDA) affects over one-third of pregnant patients globally, contributing to severe maternal morbidity and adverse neonatal outcomes. Oral iron supplementation, while cost-effective, is limited by poor absorption, significant gastrointestinal side effects, and poor adherence. The use of intravenous (IV) iron addresses many of these concerns, including eliminating GI side effects and the need for daily therapy. However, administration of IV iron in pregnant patients is typically restricted to specialized infusion centers or hospitals due to concerns about acute side effects, cost, resource utilization, the need for fetal heart rate monitoring, and extended infusion times. This descriptive study evaluated the implementation, safety, and feasibility of outpatient IV iron infusions for pregnant patients with IDA, with maternal hemoglobin response and outcomes reported a"
+    }
+  ]
+}

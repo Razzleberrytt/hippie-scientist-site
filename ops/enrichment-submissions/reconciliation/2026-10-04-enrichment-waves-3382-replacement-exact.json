@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3382,
+      "pmid": "42739093",
+      "doi": "10.3390/nu18172921",
+      "category": "safety_interactions",
+      "title": "Supplement Safety Knowledge, Information Sources, and Self-Reported Safety-Related Behaviors Among Adults Aged 40 Years and Older: A Pilot Study.",
+      "journal": "Nutrients",
+      "pub_date": "2026-Sep-07",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Cross-sectional pilot survey of 150 adults aged 40 years or older found high supplement use and frequent multi-supplement use. Associations between safety knowledge, information sources, and safety-related behaviors were limited and sensitive to outcome definition; findings are hypothesis-generating because of the modest convenience sample and self-reported measures.",
+      "evidence_boundary": "Observational pilot evidence; does not establish causal effects of information sources or safety knowledge on supplement-related outcomes."
+    }
+  ]
+}

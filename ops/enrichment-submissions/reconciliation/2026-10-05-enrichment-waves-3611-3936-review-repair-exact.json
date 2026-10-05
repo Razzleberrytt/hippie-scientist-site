@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "range": "3611-3936",
+  "reason": "PR #6348 review repairs",
+  "row_count": 4,
+  "replacements": [
+    {
+      "wave": 3611,
+      "replacement_for_pmid": "42787599",
+      "replacement_reason": "review category-firewall repair: removed livestock/agricultural biofortification review",
+      "row": {
+        "wave": 3611,
+        "pmid": "42602626",
+        "doi": "10.1016/j.cdnut.2026.109439",
+        "title": "Effectiveness of ω-3 Supplementation on Biochemical, Clinical, and Inflammatory Parameters in Patients with Diabetes: A Systematic Review and Meta-analysis.",
+        "journal": "Current developments in nutrition",
+        "pub_date": "2026-Aug",
+        "pub_type": "Review",
+        "category": "cardiometabolic",
+        "primary_category": "cardiometabolic",
+        "replacement_for_pmid": "42787599",
+        "replacement_reason": "review category-firewall repair: removed livestock/agricultural biofortification review",
+        "abstract_verified": true,
+        "title_match_score": 1,
+        "focus": "Omega-3 (n-3) polyunsaturated fatty acids, including marine-derived eicosapentaenoic acid and docosahexaenoic acid, as well as plant-derived formulations rich in α-linolenic acid, have been proposed as adjunctive therapy in diabetes because of their potential effects on lipid metabolism, inflammation, oxidative stress, and neuroprotection. Searches were performed in MEDLINE, EMBASE, SCOPUS, Cochrane Central Register of Controlled Trials, Cumulative Index to Nursing and Allied Health Literature, and Web of Science through January 2026. Outcomes included lipid parameters, glycemic markers, inflammatory and oxidative stress biomarkers, and corneal nerve branch density (CNBD). Random-effects models were applied. Eleven trials met the criteria for quantitative synthesis. Pooled analyses showed no significant effects on triglycerides, low-density or high-density lipoprotein cholesterol, glycated hemoglobin, fasting plasma glucose, or inflammatory and oxidative stress biomarkers, with substantial heterogeneity across several outcomes. In contrast, fasting insulin and homeostasis model assessment of insulin resistance were significantly reduced with low heterogeneity, and CNBD showed a consistent improvement with no detectable heterogeneity, suggesting potential benefits for insulin sensitivity and small-fiber nerve integrity. Overall, the certainty of evidence ranged from very low to low, mainly because of heterogeneity, imprecision, and small sample sizes. ω-3 supplementation demonstrated limited effects on most metabolic and inflammatory outcomes in diabetes. Observed improvements in insulin sensitivity indices and CNBD warrant further investigation in adequately powered trials with longer follow-up. These findings should be interpreted as hypothesis-generating rather than confirmatory.",
+        "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13475417/",
+        "pdf_link": "https://doi.org/10.1016/j.cdnut.2026.109439",
+        "state": "research_only_exact_verified_review_repair",
+        "normalized_title": "effectiveness of ω 3 supplementation on biochemical clinical and inflammatory parameters in patients with diabetes a systematic review and meta analysis"
+      }
+    },
+    {
+      "wave": 3612,
+      "replacement_for_pmid": "42518964",
+      "replacement_reason": "review category-firewall repair: removed perioperative emergence-agitation magnesium study",
+      "row": {
+        "pmid": "42775666",
+        "doi": "10.1097/HJH.0000000000004398",
+        "title": "Serum fatty acid profile and desaturase activity in hypertensive patients with and without metabolic syndrome.",
+        "journal": "Journal of hypertension",
+        "pub_date": "2026-Sep-18",
+        "pub_type": "Journal Article",
+        "pmcid": null,
+        "category": "cardiometabolic",
+        "source_query": "(omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR berberine[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR magnesium[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride*[Title/Abstract] OR lipid*[Title/Abstract] OR hypertension[Title/Abstract]) AND 2018:2026[dp]",
+        "state": "research_only_exact_verified_review_repair",
+        "selection_score": 14,
+        "primary_category": "cardiometabolic",
+        "wave": 3612,
+        "abstract_verified": true,
+        "title_match_score": 1,
+        "focus": "Hypertension is a major public health concern. Risk factors for hypertension include dietary factors such as fatty acids (FA), in addition to conditions that contribute to the metabolic syndrome. To assess the associations of FA and FA desaturase activities with hypertension and anthropometric/metabolic parameters, and with the presence of metabolic syndrome. Anthropometric data, circulating FA and a range of metabolic parameters were obtained in fasting normotensive subjects and hypertensive patients (n = 100 and n = 98, respectively) of both sexes. Associations were determined by normotension-to-hypertension comparisons with and without stratification for metabolic syndrome, correlations and logistic regression. To assess reverse causality, sensitivity analyses were performed stratifying by hypertension treatment or excluding recently diagnosed (less than 1 year) patients. Selected FA (C15:0, C17:0, and C20:2ω-6) were consistently associated with low hypertension risk. We also confirmed the association of the FA transC18:1 with high hypertension risk. The direction and strength of those associations persisted after sensitivity analysis. Metabolic syndrome modulated several of the detected associations, as stratifying by metabolic syndrome increased the number of significantly associated FA with hypertension and revealed associations of hypertension with FA desaturases. As C15:0 and C17:0 are mainly of dietary origin, our data underscore the potential for dietary intervention or supplementation in the control of hypertension risk. The FA desaturase Δ9D emerges as a potential target to lower MUFA associated with hypertension risk. Reverse causality driven by treatment or behavioural response to diagnosis played a minor role if any. Our results warrant further studies to assess causality.",
+        "full_text_link": null,
+        "pdf_link": "https://doi.org/10.1097/HJH.0000000000004398",
+        "replacement_for_pmid": "42518964",
+        "replacement_reason": "review category-firewall repair: removed perioperative emergence-agitation magnesium study",
+        "normalized_title": "serum fatty acid profile and desaturase activity in hypertensive patients with and without metabolic syndrome"
+      }
+    },
+    {
+      "wave": 3889,
+      "replacement_for_pmid": "38395640",
+      "replacement_reason": "review category-firewall repair: removed pediatric asthma magnesium study from sleep",
+      "row": {
+        "pmid": "37349103",
+        "doi": "10.1136/bmjopen-2022-068345",
+        "title": "Melatonin effects on sleep quality of COVID-19 patients: a protocol for systematic review and meta-analysis of randomised controlled trials with trial sequential analysis.",
+        "journal": "BMJ open",
+        "pub_date": "2023-Jun-22",
+        "pub_type": "Journal Article",
+        "has_abstract": true,
+        "category": "sleep",
+        "discovery_query": "melatonin sleep systematic review meta-analysis 2018:2026[pdat]",
+        "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
+        "normalized_title": "melatonin effects on sleep quality of covid 19 patients a protocol for systematic review and meta analysis of randomised controlled trials with trial sequential analysis",
+        "selection_score": 115,
+        "wave": 3889,
+        "state": "research_only_exact_verified_review_repair",
+        "abstract_verified": true,
+        "title_match_score": 1,
+        "focus": "Sleep disturbance is one of the common complaints of patients with COVID-19 infection. Melatonin is a physiological indoleamine involved in circadian rhythm regulation and it is currently used for secondary sleep disorders caused by various diseases. Some clinical randomised controlled trials (RCTs) have obtained a small amount of evidence and controversial results in support of their therapeutic effect on sleep disorders, but no studies have summarised and evaluated RCTs in all current databases to obtain conclusive results. Therefore, the aim of this systematic review and meta-analysis was to determine the efficacy and safety of melatonin in the treatment of sleep disturbances in patients with COVID-19. We will search for RCT-type studies of melatonin in the treatment of sleep disturbances in patients with COVID-19. From inception to October 2022 will be available on PubMed/MEDLINE, Web of Science, Embase, CINAHL, PsycINFO, LILACS, SCOPUS, Cochrane Central Register of Controlled Trials, ICTRP, Wanfang Data, VIP database and CNKI, VIP database, China Biomedical Literature Database to search for eligible studies. There are no language and geographical restrictions. Two authors will independently screen and select eligible studies, assess methodological quality and perform data extraction. Two additional authors will independently extract data from each study. Then, meta-analysis will then be carried out using a fixed-effects or random-effects model, using the mean difference for continuous outcomes and the relative risk for dichotomous outcomes. Risk of bias assessment will be assessed using the Cochrane risk-of-bias tool. Heterogeneity between studies was assessed by Cochrane Q-test and I2. The quality of evidence for each outcome will be assessed using the Grading of Recommendations Assessment, Development and Evaluation methodology. Funnel plots, Begg's test and Egger's test will be used to assess the risk of publication bias. Subgroup analysis, data synthesis, meta-analysis and overall incidence of adverse events will be performed using Review Manager V.5.4 software and Stata software. Trial sequential analysis will be performed if appropriate. This study is an extraction review of data from existing studies, and thus it is unnecessary to obtain ethical approval. The results of this systematic review will be published in a peer-reviewed journal. CRD42022359221.",
+        "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10314484/",
+        "pdf_link": "https://doi.org/10.1136/bmjopen-2022-068345",
+        "replacement_for_pmid": "38395640",
+        "replacement_reason": "review category-firewall repair: removed pediatric asthma magnesium study from sleep"
+      }
+    },
+    {
+      "wave": 3915,
+      "replacement_for_pmid": "35584529",
+      "replacement_reason": "review category-firewall repair: removed colonoscopy-preparation magnesium study from sleep",
+      "row": {
+        "pmid": "36316858",
+        "doi": "10.1097/md.0000000000031411",
+        "title": "Prophylactic melatonin for delirium in critically ill patients: A systematic review and meta-analysis with trial sequential analysis.",
+        "journal": "Medicine",
+        "pub_date": "2022-Oct-28",
+        "pub_type": "Journal Article",
+        "has_abstract": true,
+        "category": "sleep",
+        "discovery_query": "melatonin sleep systematic review meta-analysis 2018:2026[pdat]",
+        "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
+        "normalized_title": "prophylactic melatonin for delirium in critically ill patients a systematic review and meta analysis with trial sequential analysis",
+        "selection_score": 106,
+        "wave": 3915,
+        "state": "research_only_exact_verified_review_repair",
+        "abstract_verified": true,
+        "title_match_score": 1,
+        "focus": "Up to 80% of patients in the intensive care unit (ICU) suffer from delirium. Studies on the preventative use of melatonin in the ICU have produced mixed results. We performed a systematic review and meta-analysis to evaluate whether early administration of melatonin reduces the prevalence of delirium in critically ill patients. We searched Medline, Embase, and the Cochrane Library for randomized controlled trials comparing melatonin or melatonin agonists to placebo in ICU setting. The population included adult patients in the ICU. The primary outcome was the prevalence of delirium. Secondary outcomes included duration of delirium, delirium-free day, serum melatonin concentration, need for sedation, duration of mechanical ventilation, hospital and ICU length of stay (LOS), all-cause mortality, sleep quality, and adverse events. Trial sequential analysis (TSA) was performed on the primary outcome to prevent the risk of random error and multiplicity phenomenon as a result of repeated significance testing across all the included trials. Twelve trials with a total of 2538 patients were analyzed. When all trials were pooled, the incidence of delirium in ICU patients who received melatonin was significantly lower than in those who received placebo (risk ratio, 0.77; 95% confidence interval: 0.61-0.96; I2 = 56%). There were no significant differences in secondary outcomes including duration of delirium, duration of mechanical ventilation, ICU LOS, hospital LOS, and mortality. TSA indicated that Z-curve crossed the traditional boundary, but did not cross the monitoring boundary for benefit, which indicated that it is still inconclusive that melatonin affects the incidence of delirium. This meta-analysis found that early administration of melatonin may result in a decreased delirium prevalence in critically ill patients. However, the sensitivity analysis of high-quality studies did not support this finding. In addition, TSA demonstrated that the result may have false-positive error. Therefore, this finding should be interpreted with caution. Further studies are needed to examine the effectiveness of prophylactic melatonin on the prevalence and duration of ICU delirium in the future.",
+        "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9622662/",
+        "pdf_link": "https://doi.org/10.1097/MD.0000000000031411",
+        "replacement_for_pmid": "35584529",
+        "replacement_reason": "review category-firewall repair: removed colonoscopy-preparation magnesium study from sleep"
+      }
+    }
+  ],
+  "retraction_quarantine": [
+    {
+      "wave": 3935,
+      "pmid": "40000146",
+      "state": "research_only_retraction_notice_ineligible",
+      "runtime_eligible": false,
+      "relation": {
+        "type": "retraction_notice_for",
+        "related_pmid": "36651329",
+        "related_doi": "10.1111/iwj.14093"
+      }
+    },
+    {
+      "wave": 3936,
+      "pmid": "36651329",
+      "state": "research_only_retracted_publication_ineligible",
+      "runtime_eligible": false,
+      "relation": {
+        "type": "retracted_by_notice",
+        "related_pmid": "40000146",
+        "related_doi": "10.1111/iwj.70246"
+      }
+    }
+  ],
+  "post_repair_audit": {
+    "rows": 500,
+    "unique_pmids": 500,
+    "duplicate_pmids": 0,
+    "duplicate_dois": 0,
+    "duplicate_normalized_titles": 0,
+    "prior_pmid_collisions": 0,
+    "missing_waves": []
+  }
+}

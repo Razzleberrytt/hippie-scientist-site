@@ -1,20 +1,14 @@
 {
   "version": 2,
-  "base_revision": "85470582cbeaf68fedf9ef6c9386f109b1e281b2",
-  "last_verified": "2026-10-02T16:00:00Z",
-  "ticket": 6021,
-  "lane": "D",
-  "title": "nav: fix misleading Articles breadcrumb destination on focus-cluster pages",
-  "priority": "P1",
-  "score_inputs": {
-    "businessImpact": 3,
-    "userValue": 4,
-    "trafficPotential": 2,
-    "strategicLeverage": 3,
-    "confidence": 1,
-    "effort": 1
-  },
-  "score": 72,
-  "note": "Fresh exact-main revalidation after #6185 retirement. Admission only: fix the focus-cluster root breadcrumb label/destination mismatch and add an accessible breadcrumb name while preserving article copy, evidence, safety, metadata, canonicals, redirects, and layout.",
-  "control_issue": 6193
+  "mode": "existing-owner-reconciliation",
+  "base_revision": "209b461135ca19eaa5f7e765f1e1180ed6ad461b",
+  "last_verified": "2026-10-05",
+  "owners": [
+    {
+      "ticket": 6258,
+      "pr": 6257,
+      "lane": "A"
+    }
+  ],
+  "note": "Reconcile existing RC/NPS owner after verified merged enrichment-owner retirement. #6257 and its closing association with #6258 predate this exact base. #6252/#6254 are consolidated into this one implementation owner, not additional WIP. Normal new-ticket admission remains unchanged."
 }

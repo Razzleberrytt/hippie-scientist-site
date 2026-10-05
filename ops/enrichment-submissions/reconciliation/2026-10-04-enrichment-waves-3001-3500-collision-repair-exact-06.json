@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "part": 6,
+  "rows": [
+    {
+      "wave": 3319,
+      "old_pmid": "42796995",
+      "pmid": "41915083",
+      "doi": "10.1007/s00431-026-07005-2",
+      "category": "mood",
+      "title": "Does inflammation moderate the effect of vitamin D supplementation on depressive symptoms? Results of an interventional study in children and adolescents.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "European journal of nutrition",
+      "pub_date": "2026-Mar-31",
+      "error": null
+    },
+    {
+      "wave": 3322,
+      "old_pmid": "42736760",
+      "pmid": "42253726",
+      "doi": "10.3389/fnut.2026.1845922",
+      "category": "mood",
+      "title": "Association between vitamin D deficiency and the 8-year risk of incident depression in patients with rheumatoid arthritis: a cohort study.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "error": null
+    },
+    {
+      "wave": 3323,
+      "old_pmid": "42739029",
+      "pmid": "42358300",
+      "doi": "10.3389/fnut.2026.1856953",
+      "category": "mood",
+      "title": "Association of vitamin D deficiency with incident depression in patients with hearing impairment: an observational retrospective cohort study.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "error": null
+    },
+    {
+      "wave": 3333,
+      "old_pmid": "42515157",
+      "pmid": "41868894",
+      "doi": "10.3389/fpsyt.2026.1667635",
+      "category": "mood",
+      "title": "Association of vitamin D and N-acetylcysteine supplementation with anxiety, cognition, and biomarkers in generalized anxiety disorder: a retrospective cohort study.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "American journal of translational research",
+      "pub_date": "2026",
+      "error": null
+    },
+    {
+      "wave": 3334,
+      "old_pmid": "42536583",
+      "pmid": "41668811",
+      "doi": "10.3389/fnut.2025.1720023",
+      "category": "mood",
+      "title": "The role of probiotics in modulation of the gut-brain axis: a prospective therapy for depression and mood disorders.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "Frontiers in pharmacology",
+      "pub_date": "2025",
+      "error": null
+    }
+  ]
+}

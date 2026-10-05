@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "row_count": 7,
+  "verified_count": 6,
+  "rows": [
+    {
+      "wave": 3693,
+      "pmid": "42812883",
+      "title": "Molecular mechanisms, pathogenesis and therapeutic advances of Candida albicans in oral candidiasis.",
+      "abstract": "Oral candidiasis (OC), caused mainly by Candida albicans, is a common opportunistic fungal infection and typically affects immunocompromised individuals. The rise in antifungal resistance, biofilm-associated persistence, and immune evasion mechanisms has complicated OC management. This review examines in depth the molecular pathogenesis of C. albicans in OC, including virulence factors associated with adhesion, morphogenesis, quorum sensing, immune evasion, and biofilm formation. The review highlights the central roles of the cAMP-PKA, MAPK, Rim101, and TOR signaling pathways in regulating yeast-to-hyphal transition, virulence, stress adaptation, and biofilm development. In particular, dysregulation of these pathways promotes filamentation and biofilm maturation, contributing to persistent infection and reduced antifungal susceptibility. Conventional antifungal therapies, including azoles, polyenes, and echinocandins, remain important for OC management; however, biofilm-associated tolerance and emerging resistance can limit their effectiveness, emphasizing the need for complementary therapeutic approaches. Emerging strategies, including host-directed therapies, probiotics, photodynamic therapy (PDT), phytotherapeutics, essential oils, phenolic compounds, nanoparticles, and antimicrobial peptides, show promising antibiofilm and adjunctive potential. Clinical and experimental evidence indicates that PDT can reduce Candida burden, while probiotics may reduce oral Candida colonization and interfere with biofilm development. Furthermore, natural products, nanoparticles, and antimicrobial peptides may enhance conventional antifungal activity through complementary mechanisms. The reviewed evidence suggests that targeting fungal virulence and biofilm-associated mechanisms alongside conventional antifungal therapy may provide a more effective strategy for recurrent and drug-resistant OC. Future research should prioritize standardized clinical evaluation of antibiofilm therapies, microbiome-directed interventions, personalized treatment approaches, and combination therapies to improve therapeutic outcomes.",
+      "journal": "Frontiers in cellular and infection microbiology",
+      "pub_date": "2026",
+      "pdf_link": "https://doi.org/10.3389/fcimb.2026.1918424",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13621238/",
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3699,
+      "pmid": "42797458",
+      "title": "Phytochemicals Modulating Receptor Tyrosine Kinase Signaling Networks in Endometriosis.",
+      "abstract": "Endometriosis is a chronic, estrogen-dependent inflammatory condition that is marked by the growth of lesions outside the uterus, along with angiogenesis, fibrosis, immune dysregulation, and pain sensitization. There is now growing evidence that receptor tyrosine kinase (RTK) signaling networks are central to these processes, integrating proliferative, angiogenic, inflammatory, endocrine, and microenvironmental signals. This review summarizes the roles of six major RTK axes in endometriosis and evaluates their receptor-specific mechanisms, therapeutic relevance, and modulation by representative phytochemicals. An English-language literature search of PubMed was conducted with no publication date restrictions using combinations and variations of the following keywords: phytochemicals, endometriosis, EGFR, VEGFR, IGF1R, PDGFR, FGFR, MET, curcumin, resveratrol, epigallocatechin gallate (EGCG), quercetin, naringenin, berberine, apigenin, luteolin, genistein, and baicalein. Additional search terms related to receptor signaling mechanisms, downstream pathways, cellular phenotypes, and therapeutic relevance were also incorporated to ensure comprehensive coverage of the literature. The RTK signaling pathways control stromal activation, lesion survival, angiogenic support, extracellular matrix remodeling, neuroimmune sensitization, and malignant progression. Of the six RTK axes examined, EGFR, VEGFR, and IGF1R have the strongest mechanistic and pharmacological support, whereas PDGFR, FGFR, and MET remain biologically plausible targets. Even though phytochemicals do not consistently act as receptor-selective RTK inhibitors, evidence shows they reduce RTK-centred signaling networks by targeting common downstream hubs. As a result of their effects at the network level, the phytochemicals may help to suppress lesion proliferation, angiogenesis, invasion, fibrosis, inflammation, oxidative stress, and pain sensitization. Endometriosis should be viewed as an RTK-centered network disease rather than a single-pathway disorder. In this context, phytochemicals act as modulators that attenuate signaling hubs, offering a mechanistically aligned strategy for a disease driven by redundancy and microenvironmental crosstalk.",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "pub_date": "2026-Sep-07",
+      "pdf_link": "https://doi.org/10.3390/ph19091413",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13610893/",
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3704,
+      "pmid": "42785100",
+      "title": null,
+      "abstract": null,
+      "journal": null,
+      "pub_date": null,
+      "pdf_link": null,
+      "full_text_link": null,
+      "abstract_verified": false,
+      "state": "verification_failed_needs_replacement"
+    },
+    {
+      "wave": 3706,
+      "pmid": "42792232",
+      "title": "Molecular Mechanisms of Obesity-Associated Oxidative Stress and Therapeutic Strategies.",
+      "abstract": "Obesity is a chronic metabolic disorder characterized by excessive adipose tissue accumulation and associated with systemic oxidative stress, mitochondrial dysfunction, and chronic low-grade inflammation. Adipose tissue dysfunction promotes the overproduction of reactive oxygen species through multiple mechanisms, including NADPH oxidase activation, mitochondrial electron transport chain leakage, and endoplasmic reticulum stress via mitochondria-associated ER membranes. The resulting oxidative stress damages lipids, proteins, and DNA, while activating redox-sensitive signaling pathways that perpetuate inflammation and insulin resistance. Moreover, obesity impairs endogenous antioxidant defense systems, including reduced activity of superoxide dismutase, glutathione peroxidase, and catalase, as well as magnesium deficiency that compromises glutathione synthesis. This review synthesizes current knowledge of molecular mechanisms linking obesity to oxidative stress and discusses key biomarker categories, including lipid peroxidation products, protein oxidation markers, DNA damage markers, adipokine ratios, and microRNAs. We also evaluate therapeutic strategies targeting obesity-associated oxidative stress, with emphasis on lifestyle interventions, pharmacological agents, and dietary compounds including resveratrol, curcumin, lycopene, and astaxanthin. Understanding the relationship between obesity and oxidative stress is essential for developing mechanism-directed therapeutic interventions.",
+      "journal": "Antioxidants (Basel, Switzerland)",
+      "pub_date": "2026-Sep-18",
+      "pdf_link": "https://doi.org/10.3390/antiox15091193",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13603301/",
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3716,
+      "pmid": "42828456",
+      "title": "Curcumin-Loaded Nanospheres Attenuate Fine Dust (PM10)-Induced Cellular Toxicity by Suppressing Reactive Oxygen Species-Dependent Signaling in Human Keratinocytes.",
+      "abstract": "Curcumin has various biological effects, but its poor aqueous solubility limits its practical use. This study investigated the effects of curcumin-loaded nanospheres (CN) on cellular injury induced by fine dust (PM10) in HaCaT human keratinocytes and examined the signaling mechanisms involved. PM10 exposure significantly decreased cell viability, whereas CN at 10-4 μg/mL significantly restored cell viability and showed a protective effect at a lower concentration than unformulated curcumin. PM10 rapidly increased intracellular reactive oxygen species (ROS) levels, followed by activation of extracellular signal-regulated kinase (ERK), p38 mitogen-activated protein kinase (MAPK), and nuclear factor-kappa B (NF-κB). CN reduced ROS generation and inhibited activation of these signaling molecules. CN also restored the altered Bax/Bcl-2 balance, decreased caspase-3 cleavage, and reduced caspase-1-dependent IL-1β processing in PM10-exposed cells. Treatment with NAC and inhibitors of ERK, p38 MAPK, NF-κB, and caspase-1 further reduced PM10-induced cytotoxic and inflammatory responses, supporting the involvement of these pathways. Overall, CN attenuated fine dust-induced cellular toxicity in keratinocytes by suppressing ROS-dependent MAPK/NF-κB signaling and downstream apoptotic and inflammatory responses.",
+      "journal": "Cell biology international",
+      "pub_date": "2026-Oct",
+      "pdf_link": "https://doi.org/10.1002/cbin.70222",
+      "full_text_link": null,
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3720,
+      "pmid": "42814403",
+      "title": "Curcumin from Turmeric Alleviates Lipid Metabolism: Network Pharmacology and Cellular Validation.",
+      "abstract": "Curcumin, the primary active compound in turmeric, a widely used medicinal and edible herb in traditional Chinese medicine, exhibits beneficial effects against lipid metabolic dysfunction (LMD). Nevertheless, its comprehensive regulatory network and precise mechanisms remain unclear. In this study, network pharmacology, molecular docking, and in vitro cellular assays were integrated to elucidate the targets and mechanisms by which curcumin acts against LMD. Seven hub targets were identified: AKT1, ALB, INS, IL6, TP53, TNF, and PPARG. Kyoto Encyclopedia of Genes and Genomes analysis revealed significant enrichment of these hub targets in multiple pathways, with a notable emphasis on non-alcoholic fatty liver disease. Molecular docking confirmed that curcumin exhibited a favorable binding affinity to the hub targets. Cellular experiments using oleic acid-induced human hepatocellular carcinoma HepG2 cells demonstrated that curcumin markedly reduced triglyceride and total cholesterol levels, alleviated lipid droplet accumulation, and significantly modulated the mRNA expression of genes involved in lipid metabolism, anti-oxidant defense, and inflammation. These findings were consistent with predictions from network pharmacology. In summary, curcumin may alleviate OA-induced LMD by synergistically modulating lipid metabolism, inhibiting oxidative damage, and diminishing inflammation. This study provides a comprehensive theoretical basis for the application of curcumin in LMD intervention.",
+      "journal": "The American journal of Chinese medicine",
+      "pub_date": "2026-Sep-30",
+      "pdf_link": "https://doi.org/10.1142/S0192415X26500813",
+      "full_text_link": null,
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3742,
+      "pmid": "42706705",
+      "title": "Dietary alpha-lipoic acid supplementation alleviates high-fat diet-induced hepatic steatosis and inflammation by remodeling the gut microbiota and restoring the primary bile acid pool.",
+      "abstract": "Metabolic dysfunction-associated steatotic liver disease (MASLD) is a prevalent global health concern with limited therapeutic options. Alpha-lipoic acid (ALA), a naturally occurring organosulfur compound with potent antioxidant activity, shows hepatoprotective potential, but its mechanisms along the gut-liver axis remain poorly understood. This study investigated whether ALA ameliorates high-fat diet (HFD)-induced MASLD by repairing the intestinal barrier and restoring gut microbiota-mediated primary bile acid (BA) signaling. In C57BL/6 mice fed an HFD with or without ALA supplementation (60 mg/kg/d) for 12 weeks, ALA significantly attenuated HFD-induced obesity, dyslipidemia, insulin resistance, and hepatic injury (steatosis, apoptosis, oxidative stress), without altering caloric intake. ALA restored intestinal barrier function by up-regulating tight junction proteins (Occludin, ZO-1) and mucin (Muc2), reducing systemic inflammation and metabolic endotoxemia. Integrated 16S rRNA sequencing and targeted BA metabolomics revealed that ALA selectively enriched beneficial gut bacteria (e.g., Akkermansia, Lactobacillus) and reversed HFD-induced depletion of primary BAs including cholic acid (CA) and chenodeoxycholic acid (CDCA). These restored primary BAs were positively correlated with the enriched microbial taxa. These findings elucidate a novel 'gut microbiota-primary bile acid' axis underlying the hepatoprotective effects of dietary ALA, supporting its potential as a functional food component or dietary supplement for MASLD management. © 2026 Society of Chemical Industry.",
+      "journal": "Journal of the science of food and agriculture",
+      "pub_date": "2026-Sep-07",
+      "pdf_link": "https://doi.org/10.1002/jsfa.71071",
+      "full_text_link": null,
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    }
+  ]
+}

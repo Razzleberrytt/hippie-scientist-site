@@ -165,6 +165,10 @@ jobs:
         if: steps.governed-verify.outputs.reusable != 'true' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run audit:high
 
+      - name: Build Content Collections for tests
+        if: steps.governed-verify.outputs.reusable != 'true' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
+        run: npm run content:build
+
       - name: Run test suite
         if: steps.governed-verify.outputs.reusable != 'true' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'
         run: npm run test

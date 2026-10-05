@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-2501-3000-verified-consolidated",
+  "range": "2501-3000",
+  "pass_size": 25,
+  "checkpoints": 20,
+  "entries": 500,
+  "prior_unique_pmids": 2435,
+  "new_unique_pmids": 500,
+  "cumulative_unique_pmids": 2935,
+  "verification": {
+    "contiguous_waves": true,
+    "unique_waves": 500,
+    "prior_pmid_collisions": 0,
+    "duplicate_pmids": 0,
+    "duplicate_dois": 0,
+    "duplicate_normalized_titles": 0,
+    "unverified_abstracts": 0,
+    "final_site_relevance_flags": 0
+  },
+  "research_provenance": [
+    "Candidate discovery from NCBI PubMed/PMC records surfaced through Sider Scholar",
+    "Exact PubMed/PMC abstract verification via Sider Scholar where available",
+    "Undermind exact DOI/title resolution with full abstracts for bulk verification and source redundancy",
+    "Hard PMID dedupe against the cumulative index through wave 2500 plus in-batch PMID/DOI/title dedupe"
+  ],
+  "evidence_states": {
+    "research_only_safety": 242,
+    "research_only_human_trial": 204,
+    "research_only_review": 42,
+    "research_only": 12
+  },
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden unless separately runtime-admitted",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true
+  },
+  "notes": [
+    "This cycle records 500 source-verified research receipts for waves 2501-3000.",
+    "Two within-batch duplicates and two clearly off-topic rows were replaced from a verified spare set before the final audit.",
+    "Runtime admission and expensive repository-wide CI/quality gates remain separate fail-closed steps."
+  ],
+  "repair_count": 4,
+  "repairs": [
+    {
+      "wave": 2529,
+      "reason": "site_relevance_repair",
+      "replacement_pmid": "42760947"
+    },
+    {
+      "wave": 2553,
+      "reason": "within_batch_duplicate",
+      "replacement_pmid": "42614605"
+    },
+    {
+      "wave": 2555,
+      "reason": "site_relevance_repair",
+      "replacement_pmid": "42807196"
+    },
+    {
+      "wave": 2580,
+      "reason": "within_batch_duplicate",
+      "replacement_pmid": "42633491"
+    }
+  ]
+}

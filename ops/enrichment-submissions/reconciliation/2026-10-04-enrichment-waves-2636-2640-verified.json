@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2636-2640",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2636,
+      "pmid": "42645096",
+      "title": "Impact of Coffee Consumption on Fructose-Related Metabolic Alterations: Potential Mechanisms and Implications for Metabolic Diseases.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "The coffee–fructose literature combines mechanistic, animal, and observational evidence; preparation method, dose, dietary context, and residual confounding limit causal conclusions."
+    },
+    {
+      "wave": 2637,
+      "pmid": "42614552",
+      "title": "Reprogramming brain bioenergetics in depression: an integrative framework linking creatine, branched-chain amino acids, and exercise to neuroplasticity, cognitive function, and depression-related outcomes.",
+      "abstract_verified": true,
+      "state": "research_only_combination_review",
+      "evidence_boundary": "The framework combines creatine, BCAAs, and exercise, so any proposed benefit cannot be attributed to a single component; much of the rationale remains mechanistic or adjunctive."
+    },
+    {
+      "wave": 2638,
+      "pmid": "42602094",
+      "title": "Betaine as a regulator of metabolism, epigenetics, and cellular osmoprotection: therapeutic implications in cardiometabolic and renal diseases.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "The review spans nutritional, mechanistic, and clinical contexts with varying betaine exposures and outcomes; broad pathway effects do not establish disease-specific supplementation efficacy."
+    },
+    {
+      "wave": 2639,
+      "pmid": "42594838",
+      "title": "Gut microbiota-derived TMA/TMAO and IRAK4 signaling in type 2 diabetes: Current evidence, knowledge gaps and future therapeutic opportunities.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical_review",
+      "evidence_boundary": "Direct mechanistic linkage among TMA/TMAO, IRAK4, and type 2 diabetes remains limited and much of the evidence is preclinical; intervention claims are premature."
+    },
+    {
+      "wave": 2640,
+      "pmid": "42589428",
+      "title": "Medicinal Value of Camellia sinensis Bioactive Components: Focus on Theaflavins and Tea Polysaccharides.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "The review covers multiple tea constituents and diverse preclinical and clinical endpoints; isolated compounds, extracts, beverages, and doses are not interchangeable."
+    }
+  ]
+}

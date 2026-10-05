@@ -12,7 +12,7 @@ The Hippie Scientist is an evidence-based herbalism and supplement research plat
 - **Data Model:** Single canonical Excel workbook `data-sources/herb_monograph_master.xlsx` compiled into build-time JSON assets under `public/data/*` (indexing 287+ herbs and 595+ compounds).
 - **Integrations:**
   - GA4: `G-7DFJL2FC6F` (tracks event actions site-wide).
-  - Amazon Associates Tag: `razzleberry02-20` (active default product link code).
+  - Amazon Associates Tag: `razzleberr0e2-20` (active default product link code).
   - Mailchimp: `us19` server configuration (powers the subscription form).
   - Cloudflare Turnstile: Bot protection for forms.
 

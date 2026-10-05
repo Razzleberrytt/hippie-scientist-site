@@ -3,7 +3,7 @@ slug: mushroom-coffee-benefits-review
 title: "Mushroom Coffee Benefits: What the Science Actually Says"
 description: "An evidence-based review of mushroom coffee benefits, caffeine, lion's mane, cordyceps, reishi and chaga — including human evidence, safety, dose limitations and how to read a product label."
 date: '2026-06-30'
-updatedAt: '2026-08-22'
+updatedAt: '2026-10-04'
 author: Will
 category: Cognitive health
 keywords:
@@ -25,6 +25,30 @@ tags:
   - evidence review
 profile_status: published
 ai_assisted: true
+keyTakeaways:
+  - "Mushroom coffee is a functional beverage category, not one standardized intervention; formulas can differ substantially in caffeine content, mushroom species, extract form, and disclosed amounts."
+  - "The most predictable immediate alertness effect comes from coffee and caffeine when caffeine is present, not from assuming an acute nootropic effect from the mushroom blend."
+  - "Lion's mane has the most developed human cognition evidence among common mushroom-coffee ingredients, but the evidence remains small, mixed, preparation-specific, and cannot be transferred automatically to every beverage."
+  - "Direct clinical evidence on finished commercial mushroom-coffee blends is sparse, so ingredient studies do not establish that a particular beverage delivers the same benefit."
+  - "Safety depends on the actual formula and person: caffeine exposure, allergies, medication interactions, product quality, and heavy chaga-related oxalate risk can matter."
+citationQuestions:
+  - "What are the evidence-based benefits of mushroom coffee?"
+  - "Is mushroom coffee actually good for you?"
+  - "Is mushroom coffee a scam or does it have real evidence?"
+  - "Does mushroom coffee improve focus or cognition?"
+  - "Is lion's mane coffee proven to improve memory?"
+  - "Is mushroom coffee healthier than regular coffee?"
+  - "Does mushroom coffee contain less caffeine than regular coffee?"
+  - "What should a mushroom coffee label disclose?"
+  - "What are the main side effects and safety concerns with mushroom coffee?"
+canonicalConcepts:
+  - "mushroom coffee"
+  - "functional mushrooms"
+  - "caffeine"
+  - "Hericium erinaceus"
+  - "Ganoderma lucidum"
+  - "Cordyceps"
+  - "Inonotus obliquus"
 references:
   - title: "Benefits, side effects, and uses of Hericium erinaceus as a supplement: a systematic review"
     authors: "Menon A, Jalal A, Arshad Z, Nawaz FA, Kashyap R"

@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2506-2510",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2506,
+      "pmid": "42780265",
+      "title": "Strength training intervention with creatine/whey protein supplementation vs placebo on frailty in older adults with cirrhosis (STRIVE): A Randomized Controlled Trial.",
+      "abstract_verified": true,
+      "state": "research_only_protocol",
+      "evidence_boundary": "Protocol/ongoing trial: no efficacy conclusions should be drawn before outcome data are available."
+    },
+    {
+      "wave": 2507,
+      "pmid": "42601713",
+      "title": "Sarcopenia, unhealthy lifestyle, and vitamin D: A Mendelian randomization study.",
+      "abstract_verified": true,
+      "state": "research_only_genetic_causality",
+      "evidence_boundary": "Mendelian-randomization evidence addresses genetically proxied exposure and is not equivalent to supplementation effects."
+    },
+    {
+      "wave": 2508,
+      "pmid": "42816829",
+      "title": "The role of neuroinflammation in the connections between autism spectrum disorder and Alzheimer's disease and related dementias: A review.",
+      "abstract_verified": true,
+      "state": "research_only_indirect_review",
+      "evidence_boundary": "Narrative review; proposed preventive implications are primarily theoretical and indirect."
+    },
+    {
+      "wave": 2509,
+      "pmid": "42804367",
+      "title": "Musculoskeletal decay and bone-muscle crosstalk during physical disuse: Mechanisms and integrated countermeasures.",
+      "abstract_verified": true,
+      "state": "research_only_combination_firewall",
+      "evidence_boundary": "Multimodal exercise/nutrition review; ingredient-specific attribution is limited."
+    },
+    {
+      "wave": 2510,
+      "pmid": "42797008",
+      "title": "Dietary Patterns, Micronutrient Adequacy, and Metabolic Vulnerability in Alzheimer's Disease: A Critical Narrative Review.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "Mostly observational and narrative evidence; correcting deficiency should not be represented as disease-modifying treatment."
+    }
+  ]
+}

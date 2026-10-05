@@ -186,6 +186,38 @@ export default function LTheanineArticlePage() {
             </div>
           </section>
 
+          <section id="what-is-l-theanine" className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+            <p className="eyebrow-label">Direct answer</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">What is L-theanine?</h2>
+            <div className="mt-3 space-y-3 text-[1.01rem] leading-[1.85] text-muted">
+              <p>
+                <strong className="text-ink">L-theanine is a non-protein amino acid found naturally in tea leaves, especially <em>Camellia sinensis</em>.</strong>{' '}
+                It is studied as an isolated supplement and as one of the bioactive compounds in tea. It is chemically distinct from caffeine, and evidence for L-theanine should not be treated as evidence for every tea extract or multi-ingredient “calm” product.
+              </p>
+              <p>
+                The best current human evidence is outcome-specific rather than universal: short-term attention has the clearest signal, sleep research suggests small subjective benefits, acute-stress findings are modest, and anxiety results are inconsistent. L-theanine is not established as a treatment for an anxiety disorder or chronic insomnia.
+              </p>
+            </div>
+            <div className="mt-5 overflow-x-auto rounded-xl border border-brand-900/10">
+              <table className="w-full min-w-[680px] text-left text-sm">
+                <caption className="sr-only">Direct evidence answers for common L-theanine questions</caption>
+                <thead className="bg-brand-50/70 text-ink">
+                  <tr>
+                    <th scope="col" className="p-3">Question</th>
+                    <th scope="col" className="p-3">Evidence-first answer</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-brand-900/10 text-muted">
+                  <tr><td className="p-3 font-semibold text-ink">What is it?</td><td className="p-3">A tea-derived non-protein amino acid commonly studied for attention, stress, anxiety, sleep, and caffeine pairing.</td></tr>
+                  <tr><td className="p-3 font-semibold text-ink">Strongest current signal</td><td className="p-3">A modest short-term attention and choice-reaction-time effect in randomized human research.</td></tr>
+                  <tr><td className="p-3 font-semibold text-ink">Sleep</td><td className="p-3">Small improvements in some subjective sleep outcomes; pure-L-theanine evidence and the optimal dose and duration remain limited.</td></tr>
+                  <tr><td className="p-3 font-semibold text-ink">Anxiety</td><td className="p-3">Inconsistent overall; current evidence does not establish L-theanine as an anxiety treatment.</td></tr>
+                  <tr><td className="p-3 font-semibold text-ink">With caffeine</td><td className="p-3">Some task-specific cognitive benefits are reported, but there is no established universal ratio or guaranteed protection from jitters or sleep disruption.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
           <section id="outcomes" className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
             <p className="eyebrow-label">Match the claim to the outcome</p>
             <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">What current evidence says by goal</h2>
@@ -357,6 +389,7 @@ export default function LTheanineArticlePage() {
             <nav className="mt-3 space-y-1.5" aria-label="Article sections">
               {[
                 ['#bottom-line', 'Evidence bottom line'],
+                ['#what-is-l-theanine', 'What is L-theanine?'],
                 ['#outcomes', 'Evidence by goal'],
                 ['#evidence', 'Evidence snapshots'],
                 ['#study-context', 'Study-dose context'],
@@ -378,7 +411,7 @@ export default function LTheanineArticlePage() {
               <Link href="/guides/sleep/l-theanine-for-sleep/" className="block text-sm font-medium text-brand-700 hover:underline">L-theanine for sleep →</Link>
               <Link href="/guides/focus/l-theanine-without-caffeine/" className="block text-sm font-medium text-brand-700 hover:underline">L-theanine without caffeine →</Link>
               <Link href="/guides/focus/l-theanine-vs-caffeine-for-focus/" className="block text-sm font-medium text-brand-700 hover:underline">L-theanine vs caffeine →</Link>
-              <Link href="/compounds/l-theanine/" className="block text-sm font-medium text-brand-700 hover:underline">Compound profile →</Link>
+              <Link href="/info/methodology/" className="block text-sm font-medium text-brand-700 hover:underline">How evidence is graded →</Link>
               <Link href="/guides/anxiety/natural-anxiety-relief/" className="block text-sm font-medium text-brand-700 hover:underline">Natural anxiety relief →</Link>
             </div>
           </div>

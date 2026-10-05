@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2631-2635",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2631,
+      "pmid": "42744719",
+      "title": "Evaluating Caffeine Intake and Reduction in Patients with Lower Urinary Tract Symptoms (LUTS).",
+      "abstract_verified": true,
+      "state": "research_only_clinical_framework",
+      "evidence_boundary": "The article proposes a structured exposure-assessment and reduction framework based on guideline consensus; it is not a randomized efficacy trial of caffeine reduction."
+    },
+    {
+      "wave": 2632,
+      "pmid": "42739755",
+      "title": "Ayurveda Treatments for Insomnia: A Narrative Review.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "Ayurvedic insomnia approaches combine herbs, external therapies, and lifestyle regimens with heterogeneous evidence quality; multi-component interventions limit ingredient-specific attribution."
+    },
+    {
+      "wave": 2633,
+      "pmid": "42795656",
+      "title": "Non-Conventional Yeasts with Probiotic Potential: Diversity, Functional Role, Sustainable Bioprocessing and Local Relevance.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical_review",
+      "evidence_boundary": "Most non-Saccharomyces probiotic evidence remains in vitro or animal-based, and safety is strain-specific; clinical efficacy and long-term human safety require direct validation."
+    },
+    {
+      "wave": 2634,
+      "pmid": "42783432",
+      "title": "Cannabigerol at the Interface of the Gut Microbiota and EndoCannabinoidome: Mechanistic Insights into Inflammation and Pain Modulation.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical_review",
+      "evidence_boundary": "The proposed CBG–microbiota–endocannabinoidome interaction is mechanistically plausible but lacks direct experiments establishing the bidirectional pathway or clinical efficacy."
+    },
+    {
+      "wave": 2635,
+      "pmid": "42650476",
+      "title": "Beyond Composition: Processing-Driven Transformations and Functional Trade-Offs of Matcha Tea in Foods.",
+      "abstract_verified": true,
+      "state": "research_only_food_science_review",
+      "evidence_boundary": "The review focuses on processing, stability, food-matrix interactions, and bioaccessibility of matcha constituents; these properties are not equivalent to demonstrated clinical health effects."
+    }
+  ]
+}

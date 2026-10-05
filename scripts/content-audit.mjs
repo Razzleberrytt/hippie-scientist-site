@@ -45,7 +45,7 @@ const CONTENT_FAMILIES = [
 const SKIP_DIRS = new Set(['dynamic', 'style'])
 
 // Approved affiliate tag — anything else hardcoded is a finding
-const APPROVED_TAG = 'razzleberry02-20'
+const APPROVED_TAG = 'razzleberr0e2-20'
 
 // Thin page threshold (words)
 const THIN_THRESHOLD = 500

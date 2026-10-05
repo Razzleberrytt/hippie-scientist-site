@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-3001-3500",
+  "status": "complete_pending_repository_validation",
+  "admission_issue": 6338,
+  "owning_pr": 6339,
+  "branch": "data/enrichment-waves-3001-3500-2026-10-04",
+  "progress": {
+    "raw_pubmed_candidates": 1676,
+    "selected_final": 500,
+    "true_prior_unique_pmids": 2935,
+    "exact_verified_final": 500,
+    "finalized_prior_collision_repairs": 40,
+    "off_category_repairs": 1,
+    "final_prior_collisions": 0,
+    "final_duplicate_pmids": 0,
+    "final_duplicate_dois": 0,
+    "final_duplicate_normalized_titles": 0,
+    "cumulative_unique_pmids": 3435
+  },
+  "completed": [
+    "governance/admission recorded before authoring",
+    "broad discovery plus strict relevance rebuild completed",
+    "500-entry final selection across Waves 3001-3500",
+    "direct PubMed title/abstract verification completed for every final accepted PMID",
+    "finalized prior basis rebuilt from through-2500 index plus finalized 2501-3000 receipts",
+    "40 true prior-PMID collisions replaced and exact-verified",
+    "Wave 3236 off-category battery paper replaced and exact-verified",
+    "final 500-row consolidated verified receipt created",
+    "cumulative PMID index rebuilt to 3,435 unique PMIDs",
+    "final PMID/DOI/normalized-title/prior-collision audit is clean"
+  ],
+  "blocked": [],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden"
+  },
+  "next": [
+    "run expensive repository-wide validation once on PR #6339 exact head",
+    "resolve remaining review threads after confirming repaired artifacts",
+    "merge only after protected gates are green"
+  ],
+  "verification_note": "Amass quota was bypassed with direct NCBI PubMed EFetch via Sider Scholar. Final exclusion/dedupe is grounded in finalized receipts rather than pre-verification selections."
+}

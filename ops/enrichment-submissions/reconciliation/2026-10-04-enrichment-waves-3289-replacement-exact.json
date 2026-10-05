@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3289,
+      "pmid": "42479961",
+      "doi": "10.1080/15502783.2026.2702952",
+      "category": "mitochondrial_energy",
+      "title": "Real-world creatine supplementation: a large-scale cross-sectional study of use, knowledge, and experiences.",
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "pub_date": "2026-Dec-31",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Cross-sectional survey of 2,178 recent creatine users found high continuation intent and satisfaction but substantial gaps between expected and perceived benefits. Self-reported side effects were more common among women, and knowledge about creatine was positively associated with perceived benefit and satisfaction. Observational self-report evidence cannot establish efficacy, optimal dose, or causality."
+    }
+  ]
+}

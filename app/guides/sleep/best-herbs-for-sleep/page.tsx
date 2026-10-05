@@ -217,7 +217,7 @@ export default function BestHerbsForSleepPage() {
                   <td className="py-4 text-muted">Preliminary.</td>
                 </tr>
                 <tr className="align-top">
-                  <td className="py-4 pr-4 font-semibold text-ink">Valerian</td>
+                  <td className="py-4 pr-4 font-semibold text-ink"><Link href="/articles/valerian-root/" className="hover:underline">Valerian</Link></td>
                   <td className="py-4 pr-4 text-muted">2024 umbrella review included 8 systematic reviews and found some subjective sleep-quality signals.</td>
                   <td className="py-4 pr-4 text-muted">No evidence of efficacy for treating insomnia; primary studies were heterogeneous and generally low quality.</td>
                   <td className="py-4 text-muted">Not established for insomnia.</td>
