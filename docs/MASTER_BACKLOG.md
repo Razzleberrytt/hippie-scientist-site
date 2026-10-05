@@ -48,17 +48,18 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6258 / PR #6257 | Complete existing RC/NPS monographs, recovery support and inventory dispositions | A | In review — RC/NPS consolidated closeout; exact-head release validation pending | P1 | 3/4/3/5/0.75/2 | 67.5 | 2026-10-05 — existing-owner reconciliation against `209b461135ca19eaa5f7e765f1e1180ed6ad461b` |
 
 
 
-**Current admission (verified 2026-10-05):** Normal implementation WIP is **1/3**. Existing Authority/Content owner #6258 / PR #6257 is reconciled against exact base `209b461135ca19eaa5f7e765f1e1180ed6ad461b`; its ownership predates that base. This records existing work, not a new ready-next admission. Discovery/SEO and Revenue/Conversion are free.
+**Current admission (verified 2026-10-05):** Normal implementation WIP is **0/3**. #6258 / PR #6257 merged at `6151f17759b09bd0b9a73a605b58b70b813e8dda`; #6249 / PR #6252 and #6253 / PR #6254 were consolidated into that owner. All three normal lanes are free; this receipt admits no new work.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
 **Security follow-up #5456:** Open permanent MDX/TOML dependency-chain removal. Temporary containment expires 2026-10-07; this audit does not extend it.
 
 ### Verified completion refresh — 2026-10-05
+
+- **#6258 / PR #6257 — completed:** RC/NPS consolidated closeout merged at `6151f17759b09bd0b9a73a605b58b70b813e8dda` from exact source `17ea07e9ca2ecd45bbaf60fdd125c71fcfb6f055` on 2026-10-05T12:37:53Z. Includes #6249 / #6253; duplicate PRs #6252/#6254 are closed with their source incorporated. The 92-route inventory, all 45 candidate dispositions, source corrections, recovery/support normalization, tests and evidence limitations are recorded in `docs/content/rc-nps-completion-2026-10-05.md`. Sparse-compound evidence gaps, unverified global legal status and external outcomes remain explicit.
 
 - **#6338 / PR #6339 — completed:** live GitHub merge receipt is `c5179df73b0ad472149b13f595a279ec60af49d5`, merged 2026-10-05T03:41:40Z. Retirement reconciles ownership only; it does not assert measured traffic, revenue, or a new deployment receipt.
 
