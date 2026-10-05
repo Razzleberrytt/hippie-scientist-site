@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3153,
+      "pmid": "42824401",
+      "doi": "10.3389/fnut.2026.1933900",
+      "category": "gut",
+      "title": "Storage temperature as a determinant of probiotic long-term stability in commercial dietary supplements.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "A 12-month longitudinal evaluation of commercial multi-strain probiotic supplements found storage temperature strongly affected viable counts. Refrigeration and freezing preserved viability better than ambient storage; some products failed to meet label-declared counts near minimum durability, and strain-level labeling inconsistencies were observed."
+    }
+  ]
+}

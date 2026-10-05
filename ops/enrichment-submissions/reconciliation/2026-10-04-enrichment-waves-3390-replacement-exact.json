@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3390,
+      "pmid": "42615889",
+      "doi": "10.1080/19440049.2026.2711941",
+      "category": "safety_interactions",
+      "title": "Occurrence of tropane alkaloids, pyrrolizidine alkaloids and mycotoxins in rooibos: a comprehensive safety assessment.",
+      "journal": "Food additives & contaminants. Part A, Chemistry, analysis, control, exposure & risk assessment",
+      "pub_date": "2026-Aug-19",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Analysis of 203 rooibos products from 18 European countries detected pyrrolizidine alkaloids in nearly all samples and widespread Alternaria toxins. Infusion experiments confirmed transfer of several contaminants into brewed tea; mean exposure appeared limited, but highly contaminated products could materially increase cumulative exposure."
+    }
+  ]
+}

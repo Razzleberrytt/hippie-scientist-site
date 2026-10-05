@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "part": 8,
+  "rows": [
+    {
+      "wave": 3416,
+      "old_pmid": "42662326",
+      "pmid": "41969592",
+      "doi": "10.4103/jrpp.jrpp_63_25",
+      "category": "sleep",
+      "title": "Melatonin Supplementation Improves Pain, Sleep Quality, and Total Plasma Antioxidant Capacity in Women with Fibrocystic Breast Disease: A Randomized, Double-blind, Placebo-controlled Trial.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "Journal of research in pharmacy practice",
+      "pub_date": "2026",
+      "focus": "Randomized double-blind placebo-controlled trial in 66 women with fibrocystic breast disease found 12 weeks of melatonin improved sleep quality and breast pain versus placebo; depression, anxiety, hs-CRP, and MDA did not differ significantly."
+    }
+  ]
+}

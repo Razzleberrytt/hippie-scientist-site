@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3252,
+      "pmid": "42790830",
+      "doi": "10.1016/j.phrs.2026.109638",
+      "category": "metabolic",
+      "title": "Berberine induces pleiotropic beneficial effects via hormesis.",
+      "journal": "Pharmacological research",
+      "pub_date": "2026-Sep-25",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Review of berberine’s pleiotropic effects and hormetic dose-response patterns across biomedical models; mechanistic review evidence only, not a basis for consumer dose recommendations."
+    },
+    {
+      "wave": 3264,
+      "pmid": "42799407",
+      "doi": "10.3389/fnut.2026.1903144",
+      "category": "micronutrients",
+      "title": "Vitamin-B12 status among the mother-infant dyad: an explorative overview in a single centre in Lombardy.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Retrospective mother-infant cohort showing strong correlation between maternal and neonatal B12 status, with biochemical normalization after supplementation; observational follow-up evidence with newborn-screening context."
+    },
+    {
+      "wave": 3267,
+      "pmid": "42800946",
+      "doi": "10.18502/jthc.v21i1.21279",
+      "category": "micronutrients",
+      "title": "Association of Vitamin B12 and Folate Deficiency with Vasovagal Syncope: A Case-Control Study.",
+      "journal": "Research in heart yield and translational medicine",
+      "pub_date": "2026",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Adult case-control study found no overall association between B12/folate deficiency and vasovagal syncope, though frequent syncope was associated with lower serum B12; observational association only."
+    },
+    {
+      "wave": 3272,
+      "pmid": "42815968",
+      "doi": "10.6133/apjcn.202610_35(5).0009",
+      "category": "micronutrients",
+      "title": "Iron status from diet and serum in relation to biological aging acceleration: A NHANES cross-sectional study.",
+      "journal": "Asia Pacific journal of clinical nutrition",
+      "pub_date": "2026-Oct",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "NHANES cross-sectional analysis linked dietary, supplemental, and serum iron measures with biological-age metrics; associations are observational and should not be treated as causal or dosing guidance."
+    }
+  ]
+}

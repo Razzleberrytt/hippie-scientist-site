@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "part": 3,
+  "rows": [
+    {
+      "wave": 3066,
+      "old_pmid": "42757353",
+      "pmid": "42799780",
+      "doi": "10.1007/s00590-026-04977-7",
+      "category": "cannabinoid_safety",
+      "title": "Association of cannabis use disorder with clinical outcomes following lumbar spinal fusion: a propensity-matched cohort study.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "European journal of orthopaedic surgery & traumatology : orthopedie traumatologie",
+      "pub_date": "2026-Sep-26",
+      "error": null
+    },
+    {
+      "wave": 3071,
+      "old_pmid": "42783432",
+      "pmid": "42790169",
+      "doi": "10.1016/j.ejmech.2026.119360",
+      "category": "cannabinoid_safety",
+      "title": "Phytocannabinoid cannabidiol (CBD) in neurodegenerative diseases: From polypharmacology to drug development.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "European journal of medicinal chemistry",
+      "pub_date": "2026-Sep-23",
+      "error": null
+    },
+    {
+      "wave": 3072,
+      "old_pmid": "42783473",
+      "pmid": "42751849",
+      "doi": "10.1080/20415990.2026.2731738",
+      "category": "cannabinoid_safety",
+      "title": "Nanostructured lipid carriers for intranasal cannabidiol delivery in Dravet and Lennox-Gastaut syndromes: bridging preclinical promise to clinical translation.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "Therapeutic delivery",
+      "pub_date": "2026-Sep-17",
+      "error": null
+    },
+    {
+      "wave": 3073,
+      "old_pmid": "42793092",
+      "pmid": "42787287",
+      "doi": "10.3389/fpubh.2026.1915903",
+      "category": "cannabinoid_safety",
+      "title": "Pharmacovigilance in medical cannabis therapy among physicians in Poland: pharmacovigilance knowledge, ADR reporting practice and cannabis-related safety reporting.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "Frontiers in public health",
+      "pub_date": "2026",
+      "error": null
+    },
+    {
+      "wave": 3076,
+      "old_pmid": "42796655",
+      "pmid": "42791631",
+      "doi": "10.1002/bcp.70840",
+      "category": "cannabinoid_safety",
+      "title": "Cannabis-based medicines: On the topic of intoxication.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "British journal of clinical pharmacology",
+      "pub_date": "2026-Sep-25",
+      "error": null
+    }
+  ]
+}
