@@ -1,6 +1,6 @@
 ---
 slug: dissociative-withdrawal-recovery-guide
-title: "Dissociative Withdrawal & Recovery: Ketamine, PCP Analogues, Dependence, Craving, Treatment, Bladder Injury, and Long-Term Recovery"
+title: "Dissociative Withdrawal & Recovery: Evidence and Safety"
 description: "A masterclass evidence review of dissociative dependence and recovery covering ketamine, PCP, DCK, 2F-DCK, O-PCE, 3-HO-PCP, 3-MeO-PCE, DMXE, FXE and related NPS: withdrawal evidence, craving, treatment, bladder and GI injury, psychosis, cognitive recovery, and relapse prevention."
 date: "2026-10-03"
 updatedAt: "2026-10-05"

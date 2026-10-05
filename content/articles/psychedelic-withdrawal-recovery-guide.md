@@ -1,6 +1,6 @@
 ---
 slug: psychedelic-withdrawal-recovery-guide
-title: "Psychedelic Withdrawal & Recovery: LSD, Psilocybin, Tryptamines, Lysergamides, HPPD, Psychosis, and Post-Trip Recovery"
+title: "Psychedelic Recovery: Persistent Effects and Support"
 description: "A masterclass evidence review of psychedelic withdrawal and recovery: why classic serotonergic psychedelics usually do not produce a classic physical withdrawal syndrome, rapid tolerance, psychological aftereffects, HPPD, psychosis, sleep, integration, and recovery after difficult experiences."
 date: "2026-10-03"
 updatedAt: "2026-10-05"

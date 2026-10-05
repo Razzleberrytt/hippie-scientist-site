@@ -1,6 +1,6 @@
 ---
 slug: novel-sedative-qualone-withdrawal-recovery-guide
-title: "Novel Sedative & Qualone Withdrawal & Recovery: Methaqualone, Modern Analogues, Dependence, Seizures, Treatment, and Recovery"
+title: "Qualone Withdrawal & Recovery: Evidence and Safety"
 description: "A masterclass evidence review of methaqualone and modern qualone-like sedatives: dependence, withdrawal seizures, GABA-A pharmacology, recovery, treatment evidence, and why newer analogues such as 2-methoxyqualone and dicloqualone cannot inherit a benzodiazepine or methaqualone detox protocol."
 date: "2026-10-03"
 updatedAt: "2026-10-05"
