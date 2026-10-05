@@ -21,7 +21,7 @@
     "within_batch_duplicate_pmids": 0,
     "within_batch_duplicate_dois": 0,
     "within_batch_duplicate_normalized_titles": 0,
-    "replacement_count": 41
+    "replacement_count": 43
   },
   "editorial_gate": {
     "category_specific_title_relevance": true,
@@ -2736,36 +2736,38 @@
       "wave": 3656
     },
     {
-      "pmid": "42777294",
-      "doi": "10.1016/j.clnu.2026.106786",
-      "title": "Comment on: Effects of early postoperative synbiotic supplementation on gastrointestinal outcomes after sleeve gastrectomy: A randomized controlled trial.",
-      "journal": "Clinical nutrition (Edinburgh, Scotland)",
-      "pub_date": "2026 Sep 15",
-      "pub_type": "Letter",
-      "has_abstract": false,
+      "pmid": "42751774",
+      "doi": "10.1039/d5fo03175c",
+      "title": "Efficacy of Bifidobacterium animalis subsp. lactate BL-99 in relieving functional constipation: a randomized placebo-controlled clinical trial.",
+      "journal": "Food & function",
+      "pub_date": "2026 Sep 17",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
       "category": "gut",
       "discovery_query": "(probiotic OR prebiotic OR fiber OR synbiotic) AND (gut OR gastrointestinal OR microbiome OR irritable bowel) AND (trial OR systematic review OR meta-analysis) AND 2018:2026[pdat]",
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 8,
       "primary_category": "gut",
       "state": "selected_pending_exact_abstract_verification",
-      "wave": 3657
+      "wave": 3657,
+      "replacement_reason": "replace_no_abstract_comment"
     },
     {
-      "pmid": "42822397",
-      "doi": "10.1016/j.clnu.2026.106794",
-      "title": "Comments on \"Effects of early postoperative synbiotic supplementation on gastrointestinal outcomes after sleeve gastrectomy: A randomized controlled trial\".",
-      "journal": "Clinical nutrition (Edinburgh, Scotland)",
-      "pub_date": "2026 Sep 15",
-      "pub_type": "Letter",
-      "has_abstract": false,
+      "pmid": "42757563",
+      "doi": "10.1002/mnfr.70610",
+      "title": "Postbiotic Intervention Improves Bowel Function and Promotes Systemic Health in Institutionalized Older Adults.",
+      "journal": "Molecular nutrition & food research",
+      "pub_date": "2026 Sep",
+      "pub_type": "Randomized Controlled Trial",
+      "has_abstract": true,
       "category": "gut",
       "discovery_query": "(probiotic OR prebiotic OR fiber OR synbiotic) AND (gut OR gastrointestinal OR microbiome OR irritable bowel) AND (trial OR systematic review OR meta-analysis) AND 2018:2026[pdat]",
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 8,
       "primary_category": "gut",
       "state": "selected_pending_exact_abstract_verification",
-      "wave": 3658
+      "wave": 3658,
+      "replacement_reason": "replace_no_abstract_comment"
     },
     {
       "pmid": "42751421",
