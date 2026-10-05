@@ -6,51 +6,28 @@
   "branch": "data/enrichment-waves-3501-4000-2026-10-05",
   "target_findings": 500,
   "range": "3501-4000",
-  "progress": {
-    "raw_pubmed_candidates": 1948,
-    "strict_relevance_candidates": 763,
-    "selected_final": 500,
-    "true_prior_unique_pmids": 3435,
-    "exact_verified_final": 500,
-    "final_prior_collisions": 0,
-    "final_duplicate_pmids": 0,
-    "final_duplicate_dois": 0,
-    "final_duplicate_normalized_titles": 0,
-    "cumulative_unique_pmids": 3935
-  },
-  "completed": [
-    "governance/admission recorded before authoring",
-    "broad discovery and strict relevance selection completed",
-    "500-entry final selection across Waves 3501-4000",
-    "direct PubMed title/abstract verification completed for every final accepted PMID",
-    "global dedupe against finalized prior 3,435-PMID ledger completed",
-    "cross-file duplicate and category-firewall repairs completed",
-    "final 500-row consolidated verified receipt created",
-    "cumulative PMID index rebuilt to 3,935 unique PMIDs",
-    "final PMID/DOI/normalized-title/prior-collision audit is clean"
-  ],
-  "blocked": [],
+  "prior_unique_pmids": 3435,
+  "verified_findings": 500,
+  "cumulative_unique_pmids": 3935,
   "integrity": {
-    "synthetic_rows_created": false,
-    "unverified_rows_created": false,
-    "final_exact_verified": true
+    "contiguous_waves": true,
+    "unique_pmids": 500,
+    "within_batch_duplicate_pmids": 0,
+    "within_batch_duplicate_dois": 0,
+    "within_batch_duplicate_normalized_titles": 0,
+    "prior_pmid_collisions": 0,
+    "abstract_verified_500_of_500": true,
+    "exact_title_match_500_of_500": true,
+    "synthetic_rows_created": false
   },
-  "source_access_note": "Initial Amass quota block was superseded by direct NCBI PubMed retrieval/verification via Sider Scholar and direct PubMed exact checks; no synthetic evidence was created.",
-  "authoritative_artifacts": [
-    "2026-10-05-enrichment-waves-3501-4000-verified-consolidated.json",
-    "2026-10-05-enrichment-waves-3501-4000-pmid-index.json",
-    "2026-10-05-enrichment-waves-3501-4000-final-audit.json"
-  ],
+  "artifacts": {
+    "finalized_receipt": "2026-10-05-enrichment-waves-3501-4000-verified-consolidated.json",
+    "cumulative_index": "2026-10-05-enrichment-waves-3501-4000-pmid-index.json",
+    "final_selection": "2026-10-05-enrichment-waves-3501-4000-final-selection.json"
+  },
   "next": [
-    "run expensive repository-wide validation once on the exact final branch head",
-    "resolve any protected-gate failures",
-    "merge only after protected gates are green"
-  ],
-  "policy": {
-    "entity_creation": "forbidden",
-    "governance_override": "forbidden",
-    "publication_promotion": "forbidden",
-    "recommendation_promotion": "forbidden",
-    "dose_inference": "forbidden"
-  }
+    "run repository-wide validation on the finalized branch",
+    "reconcile branch with current main",
+    "open or update PR and land only if required checks are green"
+  ]
 }
