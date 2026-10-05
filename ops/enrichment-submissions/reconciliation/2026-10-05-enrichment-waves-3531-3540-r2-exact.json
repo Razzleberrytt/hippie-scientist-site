@@ -3,7 +3,7 @@
   "selection_revision": 2,
   "range": "3531-3540",
   "row_count": 10,
-  "failed_count": 1,
+  "failed_count": 0,
   "rows": [
     {
       "pmid": "42827299",
@@ -173,14 +173,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 12,
       "primary_category": "botanicals_mushrooms",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3538,
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "focus": null
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "verified_title": "Challenges and opportunities for ginseng-based medicines in treating cardiac fibrosis from mechanistic insights to clinical translation.",
+      "verified_journal": "Chinese herbal medicines",
+      "verified_pub_date": "2026-Jul",
+      "focus": "Cardiac fibrosis, characterized by excessive extracellular matrix (ECM) deposition and progressive myocardial remodeling, is a common pathological outcome of various cardiovascular diseases and lacks effective targeted anti-fibrotic therapies. Panax ginseng and its related preparations, including major ginsenosides (e.g., Rb1, Rg1, and Rg3), standardized extracts, and compound formulas, have garnered growing interest owing to their multi-component, multi-target pharmacological activities and integrative regulatory effects. This review systematically summarizes recent advances in the basic and clinical research of ginseng-based medicines in the prevention and treatment of cardiac fibrosis. Preclinical evidence demonstrates that ginseng and its active constituents attenuate key pathological processes, including oxidative stress, inflammatory responses, apoptosis, and autophagy dysregulation, primarily through modulation of signaling pathways such as TGF-β/Smad, NF-κB, and PI3K/Akt. These regulatory effects collectively contribute to the inhibition of fibroblast activation, reduction of collagen deposition, and improvement of myocardial structure and function. Emerging clinical studies further suggested potential benefits in improving cardiac function and modulating fibrosis-related biomarkers in patients with hypertension, coronary heart disease, and heart failure (HF). Despite these promising findings, several challenges hinder clinical translation, including low oral bioavailability, the mechanistic complexity of compound formulas, and insufficient high-quality clinical evidence. Future investigations should integrate novel drug delivery strategies, systems pharmacology approaches to elucidate holistic mechanisms, and well-designed randomized controlled trials to facilitate the development of ginseng-based medicines as potential therapeutic agents for cardiac fibrosis."
     },
     {
       "pmid": "42595969",
