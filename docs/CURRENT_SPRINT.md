@@ -2,10 +2,10 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-10-04
+**Updated:** 2026-10-05
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (verified 2026-10-04):** Normal implementation WIP is **1/3**. Authority/Content is occupied by #6338 / PR #6339 for the bounded Waves 3001–3500 enrichment closeout. Discovery/SEO and Revenue/Conversion are free. #6338 is admitted against exact main base `0cf99b381284669904074db5d6c3f2b02cafaaea`; entity creation, governance override, publication promotion, recommendation promotion, dose inference, and category-firewall bypass remain forbidden.
+**Current admission (verified 2026-10-05):** Normal implementation WIP is **0/3**. #6258 / PR #6257 merged at `6151f17759b09bd0b9a73a605b58b70b813e8dda`; #6249 / PR #6252 and #6253 / PR #6254 were consolidated into that owner. All three normal lanes are free; this receipt admits no new work.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,11 +49,10 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 0/3
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| A | #6338 / PR #6339 | Validate and land enrichment waves 3001–3500 | In review — 500/500 exact-verified; finalized-prior collision repair complete; repository-wide validation last | P1 | 67.5 | 2026-10-04 — exact-base admission against `0cf99b381284669904074db5d6c3f2b02cafaaea` |
 
 
 
@@ -61,11 +60,15 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 **Security follow-up #5456:** Open — permanent MDX/TOML dependency-chain removal remains unresolved. Temporary build-tool containment expires 2026-10-07; no extension is authorized by this reconciliation.
 
-**Authority prerequisite #5081:** Blocked on a fresh non-overlapping governor lease. Authority/Content is currently occupied by #6338; that does not waive #5081's prerequisite.
+**Authority prerequisite #5081:** Blocked on a fresh non-overlapping governor lease. Authority/Content is free; that does not waive #5081's prerequisite.
 
-Research-only enrichment staging is not canonical implementation admission. #6338 / PR #6339 is the admitted Authority/Content closeout for Waves 3001–3500. No new work may overlap an active normal-lane owner.
+Research-only enrichment staging is not canonical implementation admission. #6338 / PR #6339 is completed; no new work may overlap an active normal-lane owner.
 
-### Verified completion refresh — 2026-10-02
+### Verified completion refresh — 2026-10-05
+
+- **#6258 / PR #6257 — completed:** RC/NPS consolidated closeout merged at `6151f17759b09bd0b9a73a605b58b70b813e8dda` from exact source `17ea07e9ca2ecd45bbaf60fdd125c71fcfb6f055` on 2026-10-05T12:37:53Z. Includes #6249 / #6253; duplicate PRs #6252/#6254 are closed with their source incorporated. The 92-route inventory, all 45 candidate dispositions, source corrections, recovery/support normalization, tests and evidence limitations are recorded in `docs/content/rc-nps-completion-2026-10-05.md`. Sparse-compound evidence gaps, unverified global legal status and external outcomes remain explicit.
+
+- **#6338 / PR #6339 — completed:** live GitHub merge receipt is `c5179df73b0ad472149b13f595a279ec60af49d5`, merged 2026-10-05T03:41:40Z. Retirement reconciles ownership only; it does not assert measured traffic, revenue, or a new deployment receipt.
 
 - **#6021 / PR #6195 — completed:** merged as `a1463e8010cfb2c30126bd06671451e23b19b703`; the focus-cluster breadcrumb now points to Guides and exposes an accessible breadcrumb name. Discovery/SEO ownership is retired; external engagement/business impact remains **Unknown**.
 

@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "repair_of": "2026-10-05-enrichment-waves-3501-3512-exact.json",
+  "row_count": 8,
+  "verified_count": 8,
+  "rows": [
+    {
+      "wave": 3502,
+      "pmid": "42531222",
+      "title": "Type 5 Diabetes Mellitus: Pathophysiology, Clinical Phenotype, and Nutritional Management.",
+      "abstract": "Type 5 Diabetes Mellitus (T5DM) is an emerging diabetes phenotype linked to chronic undernutrition. It predominantly affects young, lean individuals in low- and middle-income countries. After its formal recognition by the International Diabetes Federation in 2025, T5DM resurfaced as a clinically relevant insulin-deficient phenotype. It is now viewed as distinct from classical autoimmune and insulin-resistant forms of diabetes. This review synthesises recent evidence on the epidemiology, pathophysiology, clinical characteristics, and management of T5DM. Recent studies show that T5DM is influenced by early-life nutritional deprivation. This fits within the Developmental Origins of Health and Disease (DOHaD) framework. Undernutrition during key developmental periods harms pancreatic morphogenesis. It creates a permanent reduction of functional beta-cell mass through epigenetic programming. Clinically, T5DM often appears before age 30. Patients have low body mass index, sarcopenia, marked insulinopenia, absence of diabetes-associated autoantibodies, and resistance to ketosis, despite significant hyperglycemia. Diagnostic challenges remain, as patients are frequently misclassified as type 1 or type 2 diabetes. Relying only on body mass index is insufficient. Accurate diagnosis requires a multidimensional assessment including nutritional history, metabolic features, and exclusion of monogenic diabetes. T5DM is a distinct insulin-deficient phenotype caused by chronic undernutrition. Effective management requires more than glycaemic control. Nutritional rehabilitation is key, with a focus on adequate energy intake, high-biological-value protein supplementation, and correction of key micronutrient deficiencies. Given preserved insulin sensitivity, low-dose insulin should be used cautiously to avoid iatrogenic hypoglycemia. Better recognition and tailored management strategies are needed for optimal clinical outcomes.",
+      "journal": "Diabetes/metabolism research and reviews",
+      "pub_date": "2026-Sep",
+      "pdf_link": "https://doi.org/10.1002/dmrr.70212",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13422767/",
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3503,
+      "pmid": "42520997",
+      "title": "Myokines as molecular mediators of the muscle-brain axis: Mechanisms linking sarcopenia to cognitive decline and implications for preventive strategies in ageing - A narrative review.",
+      "abstract": "Sarcopenia and cognitive decline frequently co-occur in older adults, and growing evidence indicates that these conditions share a common biological substrate centred on the muscle-brain axis. In this narrative review we synthesise contemporary mechanistic and translational evidence on how skeletal muscle communicates with the ageing brain through myokines and exerkines - including irisin/FNDC5, brain-derived neurotrophic factor (BDNF), interleukin-6 (IL-6), insulin-like growth factor-1 (IGF-1), cathepsin B, and growth differentiation factor-15 (GDF-15) - and how progressive sarcopenia disrupts this signalling to accelerate cognitive impairment. Database searches in PubMed, Scopus and Web of Science (2000-2026) identified 147 records, of which 68 primary studies and reviews were synthesised under three thematic pillars: (i) the molecular biology of the muscle-brain axis in ageing; (ii) shared pathophysiological mechanisms - mitochondrial dysfunction, neuromuscular junction (NMJ) instability, inflammaging and anabolic resistance - linking sarcopenia to cognitive decline; and (iii) preventive strategies that operate through this axis. Convergent preclinical and emerging human evidence supports the PGC-1α/FNDC5/BDNF pathway as a central mediator of exercise-induced neuroprotection, while chronic IL-6 elevation and IGF-1 decline emerge as bidirectional drivers of muscle and brain ageing. Multicomponent exercise, optimised protein/leucine intake, lecithin and probiotic interventions, repetitive transcranial magnetic stimulation, and pharmacological modulation of AMPK/PGC-1α/SIRT1 signalling all show capacity to reshape the myokine secretome and preserve cognition, though evidence levels vary substantially across intervention categories. We highlight key knowledge gaps - including a translational gap between rodent and human evidence, the absence of validated myokine biomarker panels, and the need for standardised assay protocols - and outline an integrative model to guide future biogerontological research and preventive trials.",
+      "journal": "Experimental gerontology",
+      "pub_date": "2026-Oct-01",
+      "pdf_link": "https://doi.org/10.1016/j.exger.2026.113247",
+      "full_text_link": null,
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3504,
+      "pmid": "42398794",
+      "title": "High-Protein Diets: What to Tell Our Patients.",
+      "abstract": "Protein is a unique, essential component of our diet. There is currently great emphasis on high-protein diets, not only in the commercial food market and on social media but also in the scientific literature, with continuous debate on the need for changing current protein recommendations, in particular for older adults. Here we provide an updated perspective on the debate on high protein intake for maintaining muscle mass and function, with a focus on people who are affected by kidney disease. Several conditions such as aging, inactivity, and many chronic conditions including dialysis-treated chronic kidney disease are characterized by anabolic resistance-the need to ingest higher amounts of protein to maximally stimulate muscle protein synthesis. In addition, sedentariness and inactivity, conditions very common in developed countries, contribute to decreased muscle mass and strength. Protein intake and physical activity are the major anabolic stimuli for muscle health and function; however, protein ingestion is associated with the oxidation of excess amino acids, ureagenesis, and production of toxins. In addition, protein supplementation in the absence of resistance training produces relatively marginal effects on strength and performance in healthy subjects and older adults. On these grounds, for persons who are inactive, muscle mass and function can be better maintained by physical exercise without the use of high-protein diets.",
+      "journal": "American journal of kidney diseases : the official journal of the National Kidney Foundation",
+      "pub_date": "2026-Oct",
+      "pdf_link": "https://doi.org/10.1053/j.ajkd.2026.01.023",
+      "full_text_link": null,
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3505,
+      "pmid": "42476451",
+      "title": "Vitamin D and frailty: Clinical evidence, mechanistic insights, and translational challenges.",
+      "abstract": "Vitamin D is increasingly recognized as a multisystem hormone whose actions converge on physiological domains central to frailty. Low circulating 25-hydroxyvitamin D [25(OH)D] concentrations are associated with sarcopenia, bone loss, immune and cognitive dysfunction, and excess mortality, while observational cohort studies link vitamin D deficiency to frailty onset and progression. Mechanistic evidence provides a biologically coherent framework for these associations. Vitamin D receptor (VDR) signaling regulates myogenic differentiation, neuromuscular junction integrity, osteoblast-osteoclast coupling, and osteocyte-mediated mechanotransduction. It also modulates innate and adaptive immune responses, restrains inflammasome activation, and preserves mitochondrial function and metabolic flexibility. Disruption of VDR signaling promotes muscle atrophy, skeletal fragility, immunosenescence, and impaired bioenergetic capacity, processes that mirror key biological features of frailty. Despite this strong mechanistic plausibility, randomized controlled trials have largely yielded neutral results in community-dwelling adults with adequate vitamin D status. Clinical benefits appear confined to individuals with deficiency or heightened vulnerability, whereas intermittent high-dose bolus regimens have been associated with increased risks of falls and fractures. These discordant findings reflect persistent methodological limitations, including heterogeneous frailty definitions, insufficient follow-up duration, inter-assay variability in 25(OH)D measurement, and uncertainty regarding thresholds relevant to non-skeletal outcomes. In this narrative review, we integrate clinical, epidemiological, and mechanistic evidence to position vitamin D as a biomarker and potential modulator of vulnerability within a broader geroscience framework.",
+      "journal": "Metabolism: clinical and experimental",
+      "pub_date": "2026-Oct",
+      "pdf_link": "https://doi.org/10.1016/j.metabol.2026.156697",
+      "full_text_link": null,
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3506,
+      "pmid": "42550411",
+      "title": "Eldecalcitol in older adults with kidney vulnerability: a narrative review of risk-based use, dose adjustment, and monitoring.",
+      "abstract": "Eldecalcitol is an active vitamin D analogue used for osteoporosis in Japan. Its usual dose is 0.75 μg/day, but calcium-related adverse effects can become clinically important when reduced kidney reserve, frailty, low body weight, poor intake, dehydration risk, interacting medicines, or unreliable follow-up coexist. This narrative review synthesizes trial, post-marketing, pharmacovigilance, and real-world monitoring evidence to define a practical safety framework. Eldecalcitol reduces vertebral fractures compared with alfacalcidol, whereas hip-fracture protection has not been established; therefore, its role should be determined by the patient's fracture pattern, treatment objective, kidney function, and availability of alternatives with established hip-fracture efficacy. Before treatment, clinicians should confirm osteoporosis, measure total serum calcium with albumin (and use albumin-adjusted calcium where appropriate), and assess serum creatinine with reported eGFR. Primary hyperparathyroidism and other metabolic bone disorders should be considered when baseline findings are atypical. Creatinine-based eGFR is the pragmatic minimum standard; cystatin C is most useful when low muscle mass or discordance makes kidney reserve uncertain. A lower dose of 0.5 μg/day is a dose-adjustment or re-challenge option after calcium normalization; it does not remove the need for calcium surveillance and clinical reassessment, and long-term fracture-prevention efficacy at that dose is not established. Eldecalcitol should be withheld during poor intake, dehydration, or acute illness and reconsidered when calcium rises or kidney function deteriorates. Safe use therefore requires risk-based selection rather than passive routine-dose prescribing, planned biochemical follow-up, and explicit treatment reassessment.",
+      "journal": "Clinical and experimental nephrology",
+      "pub_date": "2026-Oct",
+      "pdf_link": "https://doi.org/10.1007/s10157-026-02930-w",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9063410/",
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3507,
+      "pmid": "42425749",
+      "title": "Life-course nutrition strategies for Korean middle-aged adults across biological transitions, nutritional burdens, and a community-linked precision nutrition model: a narrative review.",
+      "abstract": "To describe the nutritional challenges faced by Korean middle-aged adults (40-64 years) from a life-course and biological transition perspective and to propose systems-based precision nutrition strategies for this critical stage of the lifespan. In this narrative review, PubMed, Medline, and Web of Science were searched for articles published between January 2010 and November 2025 using terms such as \"middle aged nutrition,\" \"healthy aging,\" \"life course nutrition,\" \"sarcopenia,\" \"precision nutrition,\" and \"chronic diseases.\" Policy documents and major national cohort and intervention studies were also reviewed. Middle-aged adults in Korea have a high prevalence of chronic disease beginning in their 40s, showing \"the triple burden of malnutrition:\" obesity, insufficient micronutrients, and sarcopenia onset, along with excessive sodium and sugar consumption combined with socioeconomic factors like living alone. Nutrient and dietary approaches, such as high protein (1.2-1.5 g/kg/d), leucine, dairy products and fruits, anti-inflammatory foods intake, Dietary Approaches to Stop Hypertension (DASH) or Mediterranean diets plus lifestyle modification at public health centers (Korean Diabetes Prevention Study) for cardiometabolic risks, Mediterranean-DASH Intervention for Neurodegenerative Delay diet for cognition maintenance, could greatly impact health trajectories. Korean middle-aged adults experience a triple burden of malnutrition on top of nonlinear biological aging shifts, which together accelerate cardiometabolic, musculoskeletal, and cognitive risks. Implementing targeted dietary strategies within a systems-based, community-linked precision nutrition model is essential to reshape health trajectories and promote healthy longevity in this population.",
+      "journal": "Korean journal of community nutrition",
+      "pub_date": "2026-Jun",
+      "pdf_link": "https://doi.org/10.5720/kjcn.2026.00206",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13471142/",
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3508,
+      "pmid": "42590168",
+      "title": "Micronutrients and ICU-Acquired Weakness: A Narrative Review.",
+      "abstract": "Intensive Care Unit-Acquired Weakness (ICU-AW) is a secondary neuromuscular disorder diagnosed during a critical illness and related to ICU stay and intensive treatments, once other possible etiologies have been excluded. Micronutrients are essential components of human nutrition that are needed in small amounts to maintain pivotal organ functions, but their role in critical care nutrition and in prevention and treatment of ICU-AW is unclear. This narrative review aimed to provide a synthesis of the current evidence on the potential role of micronutrients in ICU-AW, with a glance at what is known in medical settings outside the ICU. Available evidence is fragmented, showing controversial results. Studies on vitamin K1 and vitamin D suggest potential benefits on handgrip strength, skeletal muscle mass and mobility, while Coenzyme Q10 may have a role in improving skeletal muscle composition. Moreover, zinc homeostasis may influence muscle degradation, whereas copper levels may represent a risk factor. Evidence on iron and carnitine showed uncertain results. Conversely, more robust evidence on muscle weakness is available for medical settings outside the ICU. Larger observational studies and RCTs are needed to further evaluate the possible efficacy of micronutrient supplementation in the critical care setting.",
+      "journal": "Journal of clinical medicine",
+      "pub_date": "2026-Aug-04",
+      "pdf_link": "https://doi.org/10.3390/jcm15156066",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13467528/",
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3512,
+      "pmid": "42785008",
+      "title": "Leucine-enriched chocolate supplementation in patients undergoing assessment for liver transplant: a randomized, double-masked, multicenter clinical trial.",
+      "abstract": "We conducted a randomized, double-masked, multicenter clinical trial to evaluate the incremental effect of leucine (LEU)-enriched chocolate supplementation (7.5 g of LEU/d for 12 wk) in addition to an active nutrition intervention on muscle strength in patients undergoing liver transplant (LTx) assessment. Adult patients of both sexes with a diagnosis of cirrhosis and with a pre-LTx protocol completed or in progress at three LTx outpatient clinics were included. Clinical, nutritional, and functional data were collected at baseline (T0), after 6 wk (T6), and after 12 wk (T12). Data were analyzed according to the intention-to-treat approach. The effects of time and treatment on the primary and secondary outcomes were assessed using adjusted Generalized Estimating Equations models. The sample comprised 49 patients, 77.6% male, with a median age of 53.0 (47.0-60.0) years. No significant treatment effects were observed on muscle strength or on the secondary outcomes. However, dry body mass index (Δ 0.2 [-0.5 to 1.1] kg/m²), mid-arm circumference (Δ 0.5 [0.0-1.5] cm), triceps skinfold thickness (Δ 1.6 [0.0-2.7] mm), and adductor pollicis muscle thickness (Δ 0.7 [-0.8 to 2.8] mm) significantly increased over time, regardless of group allocation. LEU supplementation had no significant effect on muscle strength in patients with cirrhosis. However, the nutritional intervention and chocolate consumption over 12 wk increased anthropometric markers of muscle mass and adiposity. The study was registered in the Brazilian Registry of Clinical Trials (REBEC-RBR-9snttn).",
+      "journal": "Nutrition (Burbank, Los Angeles County, Calif.)",
+      "pub_date": "2026-Sep-23",
+      "pdf_link": "https://doi.org/10.1016/j.nut.2026.113408",
+      "full_text_link": null,
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    }
+  ]
+}

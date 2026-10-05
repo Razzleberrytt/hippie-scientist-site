@@ -1,0 +1,2981 @@
+{
+  "schema_version": 1,
+  "queries": [
+    "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]",
+    "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]",
+    "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+  ],
+  "row_count": 297,
+  "rows": [
+    {
+      "pmid": "37009462",
+      "title": "Natural bioactive compounds in Alzheimer's disease: From the perspective of type 3 diabetes mellitus.",
+      "doi": "10.3389/fnagi.2023.1130253",
+      "pub_date": "2023",
+      "pub_type": "Review",
+      "journal": "Frontiers in aging neuroscience",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "37044233",
+      "title": "Banxia Xiexin decoction alleviates AS co-depression disease by regulating the gut microbiome-lipid metabolic axis.",
+      "doi": "10.1016/j.jep.2023.116468",
+      "pub_date": "2023 Sep 15",
+      "pub_type": "Journal Article",
+      "journal": "Journal of ethnopharmacology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "37183391",
+      "title": "Impact of Berberine or Berberine Combination Products on Lipoprotein, Triglyceride and Biological Safety Marker Concentrations in Patients with Hyperlipidemia: A Systematic Review and Meta-Analysis.",
+      "doi": "10.1080/19390211.2023.2212762",
+      "pub_date": "2024",
+      "pub_type": "Journal Article",
+      "journal": "Journal of dietary supplements",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "37213227",
+      "title": "Hydrogel with ROS scavenging effect encapsulates BR@Zn-BTB nanoparticles for accelerating diabetic mice wound healing via multimodal therapy.",
+      "doi": "10.1016/j.isci.2023.106775",
+      "pub_date": "2023 Jun 16",
+      "pub_type": "Journal Article",
+      "journal": "iScience",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "37356455",
+      "title": "Evaluation of the efficacy of an antioxidant combination for the modulation of metabolic, endocrine, and clinical parameters in patients with polycystic ovary syndrome.",
+      "doi": "10.1080/09513590.2023.2227277",
+      "pub_date": "2023 Jun 19",
+      "pub_type": "Journal Article",
+      "journal": "Gynecological endocrinology : the official journal of the International Society of Gynecological Endocrinology",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "37366197",
+      "title": "Clinical usefulness of nutraceutics with acetyl-L-carnitine, α-lipoic acid, phosphatidylserine, curcumin, C, E and B-group vitamins in patients awaiting for carpal tunnel release during COVID-19 pandemic: a randomized controlled open label prospective study.",
+      "doi": "10.23750/abm.v94iS2.12513",
+      "pub_date": "2023 Jun 23",
+      "pub_type": "Journal Article",
+      "journal": "Acta bio-medica : Atenei Parmensis",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "37397902",
+      "title": "Evaluating treatment options for cardiovascular autonomic neuropathy in patients with diabetes mellitus: a systematic review.",
+      "doi": "10.1007/s13340-023-00629-x",
+      "pub_date": "2023 Jul",
+      "pub_type": "Review",
+      "journal": "Diabetology international",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "37409712",
+      "title": "Effect of MetioNac® in patients with metabolic syndrome who are at risk of metabolic dysfunction associated fatty liver disease: a randomized controlled trial.",
+      "doi": "10.20960/nh.04635",
+      "pub_date": "2023 Aug 28",
+      "pub_type": "Journal Article",
+      "journal": "Nutricion hospitalaria",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "37421347",
+      "title": "Effects of adjuvant berberine therapy on acute ischemic stroke: A meta-analysis.",
+      "doi": "10.1002/ptr.7920",
+      "pub_date": "2023 Sep",
+      "pub_type": "Review",
+      "journal": "Phytotherapy research : PTR",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "37498100",
+      "title": "Mapping of Dietary Interventions Beneficial in the Prevention of Secondary Health Conditions in Spinal Cord Injured Population: A Systematic Review.",
+      "doi": "10.1007/s12603-023-1937-6",
+      "pub_date": "2023",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "The journal of nutrition, health & aging",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "37522683",
+      "title": "Berberine phospholipid exerts a positive effect on the glycemic profile of overweight subjects with impaired fasting blood glucose (IFG): a randomized double-blind placebo-controlled clinical trial.",
+      "doi": "10.26355/eurrev_202307_33142",
+      "pub_date": "2023 Jul",
+      "pub_type": "Journal Article",
+      "journal": "European review for medical and pharmacological sciences",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "37598753",
+      "title": "Overall and Sex-Specific Effect of Berberine on Glycemic and Insulin-Related Traits: a Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "doi": "10.1016/j.tjnut.2023.08.016",
+      "pub_date": "2023 Oct",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "The Journal of nutrition",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "37611246",
+      "title": "Pilot study on the efficacy and safety of berberine in people with metabolic syndrome and human immunodeficiency virus infection.",
+      "doi": "10.1177/09564624231196600",
+      "pub_date": "2023 Dec",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "International journal of STD & AIDS",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "37630823",
+      "title": "Effects of Oral Alpha-Lipoic Acid Treatment on Diabetic Polyneuropathy: A Meta-Analysis and Systematic Review.",
+      "doi": "10.3390/nu15163634",
+      "pub_date": "2023 Aug 18",
+      "pub_type": "Journal Article",
+      "journal": "Nutrients",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "37652508",
+      "title": "Comparing the Influences of Metformin and Berberine on the Intestinal Microbiota of Rats With Nonalcoholic Steatohepatitis.",
+      "doi": "10.21873/invivo.13308",
+      "pub_date": "2023 Sep-Oct",
+      "pub_type": "Journal Article",
+      "journal": "In vivo (Athens, Greece)",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "37654090",
+      "title": "The role of diet and non-pharmacologic supplements in the treatment of chronic neuropathic pain: A systematic review.",
+      "doi": "10.1111/papr.13291",
+      "pub_date": "2024 Jan",
+      "pub_type": "Journal Article",
+      "journal": "Pain practice : the official journal of World Institute of Pain",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "37678556",
+      "title": "Randomized, double-blind, controlled trial of a combination of alpha-lipoic acid and pregabalin for neuropathic pain: the PAIN-CARE trial.",
+      "doi": "10.1097/j.pain.0000000000003038",
+      "pub_date": "2024 Feb 1",
+      "pub_type": "Journal Article",
+      "journal": "Pain",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "37679692",
+      "title": "Efficacy and safety of HIMABERB® Berberine on glycemic control in patients with prediabetes: double-blind, placebo-controlled, and randomized pilot trial.",
+      "doi": "10.1186/s12902-023-01442-y",
+      "pub_date": "2023 Sep 7",
+      "pub_type": "Journal Article",
+      "journal": "BMC endocrine disorders",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "37686725",
+      "title": "Novel Multi-Ingredient Supplement Facilitates Weight Loss and Improves Body Composition in Overweight and Obese Individuals: A Randomized, Double-Blind, Placebo-Controlled Clinical Trial.",
+      "doi": "10.3390/nu15173693",
+      "pub_date": "2023 Aug 23",
+      "pub_type": "Journal Article",
+      "journal": "Nutrients",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "37732047",
+      "title": "Three arms, double-blind, non-inferiority, randomized clinical study testing the lipid-lowering effect of a novel dietary supplement containing red yeast rice and artichoke extracts compared to Armolipid Plus(®) and placebo.",
+      "doi": "10.5114/aoms/167969",
+      "pub_date": "2023",
+      "pub_type": "Journal Article",
+      "journal": "Archives of medical science : AMS",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "37757497",
+      "title": "The potential of targeting cuproptosis in the treatment of kidney renal clear cell carcinoma.",
+      "doi": "10.1016/j.biopha.2023.115522",
+      "pub_date": "2023 Nov",
+      "pub_type": "Review",
+      "journal": "Biomedicine & pharmacotherapy = Biomedecine & pharmacotherapie",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "37759972",
+      "title": "Effect of Alpha Lipoic Acid Supplementation on Oxidative Stress and Lipid Parameters in Women Diagnosed with Low-Grade Squamous Intraepithelial Lesions (LSILs): A Double-Blind, Randomized, Placebo-Controlled Trial.",
+      "doi": "10.3390/antiox12091670",
+      "pub_date": "2023 Aug 25",
+      "pub_type": "Journal Article",
+      "journal": "Antioxidants (Basel, Switzerland)",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "37933068",
+      "title": "Effectiveness of alpha-lipoic acid in patients with neuropathic pain associated with type I and type II diabetes mellitus: A systematic review and meta-analysis.",
+      "doi": "10.1097/MD.0000000000035368",
+      "pub_date": "2023 Nov 3",
+      "pub_type": "Journal Article",
+      "journal": "Medicine",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "38016844",
+      "title": "The Effect of Berberine Supplementation on Glycemic Control and Inflammatory Biomarkers in Metabolic Disorders: An Umbrella Meta-analysis of Randomized Controlled Trials.",
+      "doi": "10.1016/j.clinthera.2023.10.019",
+      "pub_date": "2024 Feb",
+      "pub_type": "Journal Article",
+      "journal": "Clinical therapeutics",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "38073545",
+      "title": "Research progress of natural active compounds on improving podocyte function to reduce proteinuria in diabetic kidney disease.",
+      "doi": "10.1080/0886022X.2023.2290930",
+      "pub_date": "2023",
+      "pub_type": "Review",
+      "journal": "Renal failure",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "38074133",
+      "title": "Effect of Berberine Phytosome on reproductive, dermatologic, and metabolic characteristics in women with polycystic ovary syndrome: a controlled, randomized, multi-centric, open-label clinical trial.",
+      "doi": "10.3389/fphar.2023.1269605",
+      "pub_date": "2023",
+      "pub_type": "Journal Article",
+      "journal": "Frontiers in pharmacology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "38089157",
+      "title": "Effect of dietary supplementation with a new nutraceutical formulation on cardiometabolic risk factors: a double-blind, placebo-controlled, randomized clinical study.",
+      "doi": "10.5114/amsad/166571",
+      "pub_date": "2023",
+      "pub_type": "Journal Article",
+      "journal": "Archives of medical sciences. Atherosclerotic diseases",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "38092540",
+      "title": "Effect of acupuncture and moxibustion on intestinal flora in the rats with diarrhea-predominant irritable bowel syndrome based on 16S rDNA technique.",
+      "doi": "10.13703/j.0255-2930.20230630-k0002",
+      "pub_date": "2023 Dec 12",
+      "pub_type": "Journal Article",
+      "journal": "Zhongguo zhen jiu = Chinese acupuncture & moxibustion",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "38181528",
+      "title": "Berberine modulates the immunometabolism and differentiation of CD4(+) T cells alleviating experimental arthritis by suppression of M1-exo-miR155.",
+      "doi": "10.1016/j.phymed.2023.155255",
+      "pub_date": "2024 Feb",
+      "pub_type": "Journal Article",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "38205823",
+      "title": "Alpha-lipoic acid for diabetic peripheral neuropathy.",
+      "doi": "10.1002/14651858.CD012967.pub2",
+      "pub_date": "2024 Jan 11",
+      "pub_type": "Journal Article",
+      "journal": "The Cochrane database of systematic reviews",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "38245327",
+      "title": "Pathogenetic treatments for diabetic peripheral neuropathy.",
+      "doi": "10.1016/j.diabres.2023.110764",
+      "pub_date": "2023 Dec",
+      "pub_type": "Review",
+      "journal": "Diabetes research and clinical practice",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "38275993",
+      "title": "A Mechanistic Review on How Berberine Use Combats Diabetes and Related Complications: Molecular, Cellular, and Metabolic Effects.",
+      "doi": "10.3390/ph17010007",
+      "pub_date": "2023 Dec 20",
+      "pub_type": "Review",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "38295879",
+      "title": "Ranking Alpha Lipoic Acid and Gamma Linolenic Acid in Terms of Efficacy and Safety in the Management of Adults With Diabetic Peripheral Neuropathy: A Systematic Review and Network Meta-analysis.",
+      "doi": "10.1016/j.jcjd.2024.01.007",
+      "pub_date": "2024 Jun",
+      "pub_type": "Network Meta-Analysis",
+      "journal": "Canadian journal of diabetes",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "38330524",
+      "title": "Disease-modifying therapies for diabetic peripheral neuropathy: A systematic review and meta-analysis of randomized controlled trials.",
+      "doi": "10.1016/j.jdiacomp.2024.108691",
+      "pub_date": "2024 Feb",
+      "pub_type": "Journal Article",
+      "journal": "Journal of diabetes and its complications",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "38342946",
+      "title": "The efficacy of combining adjuvants with non-surgical periodontal therapy in individuals with type 2 diabetes: A Bayesian network meta-analysis.",
+      "doi": "10.1111/jcpe.13946",
+      "pub_date": "2024 May",
+      "pub_type": "Network Meta-Analysis",
+      "journal": "Journal of clinical periodontology",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "38385486",
+      "title": "Anti-seizure Effects and Mechanisms of Berberine: A Systematic Review.",
+      "doi": "10.2174/0113892010283237240107121749",
+      "pub_date": "2024",
+      "pub_type": "Journal Article",
+      "journal": "Current pharmaceutical biotechnology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "38429794",
+      "title": "The clinical efficacy and safety of berberine in the treatment of non-alcoholic fatty liver disease: a meta-analysis and systematic review.",
+      "doi": "10.1186/s12967-024-05011-2",
+      "pub_date": "2024 Mar 1",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "Journal of translational medicine",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "38547616",
+      "title": "A promising therapy for fatty liver disease: PCSK9 inhibitors.",
+      "doi": "10.1016/j.phymed.2024.155505",
+      "pub_date": "2024 Jun",
+      "pub_type": "Review",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "38622529",
+      "title": "In silico analysis of intestinal microbial instability and symptomatic markers in mice during the acute phase of severe burns.",
+      "doi": "10.1186/s12866-024-03266-9",
+      "pub_date": "2024 Apr 15",
+      "pub_type": "Journal Article",
+      "journal": "BMC microbiology",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "38643475",
+      "title": "[Diabetic cardiovascular autonomic neuropathy: clinical significance, diagnosis and therapy].",
+      "doi": "10.1556/650.2024.33027",
+      "pub_date": "2024 Apr 21",
+      "pub_type": "Review",
+      "journal": "Orvosi hetilap",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "38659110",
+      "title": "Dietary supplements: clinical cholesterol-lowering efficacy and potential mechanisms of action.",
+      "doi": "10.1080/09637486.2024.2342301",
+      "pub_date": "2024 Jun",
+      "pub_type": "Review",
+      "journal": "International journal of food sciences and nutrition",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "38673787",
+      "title": "Berberine Effects in Pre-Fibrotic Stages of Non-Alcoholic Fatty Liver Disease-Clinical and Pre-Clinical Overview and Systematic Review of the Literature.",
+      "doi": "10.3390/ijms25084201",
+      "pub_date": "2024 Apr 10",
+      "pub_type": "Systematic Review",
+      "journal": "International journal of molecular sciences",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "38698274",
+      "title": "Multi-nutrients and periodontal disease - a new adjunct to improving treatment outcomes? A randomised placebo-control clinical trial.",
+      "doi": "10.1038/s41432-024-01010-w",
+      "pub_date": "2024 Jun",
+      "pub_type": "Journal Article",
+      "journal": "Evidence-based dentistry",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "38764099",
+      "title": "[Clinical effect of acupuncture combined with medication on diabetic peripheral neuropathy and its influence on serum lipid metabolism].",
+      "doi": "10.13703/j.0255-2930.20230711-k0007",
+      "pub_date": "2024 May 12",
+      "pub_type": "English Abstract",
+      "journal": "Zhongguo zhen jiu = Chinese acupuncture & moxibustion",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "38886838",
+      "title": "Effects of different natural products in patients with non-alcoholic fatty liver disease-A network meta-analysis of randomized controlled trials.",
+      "doi": "10.1002/ptr.8182",
+      "pub_date": "2024 Jul",
+      "pub_type": "Network Meta-Analysis",
+      "journal": "Phytotherapy research : PTR",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39038553",
+      "title": "Hepatoprotective potential of alpha-lipoic acid against gliclazide-induced liver injury in high-glucose-exposed human liver cells and experimental type 2 diabetic rats.",
+      "doi": "10.1016/j.bcp.2024.116447",
+      "pub_date": "2024 Sep",
+      "pub_type": "Journal Article",
+      "journal": "Biochemical pharmacology",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39042390",
+      "title": "Does berberine impact anthropometric, hepatic, and metabolic parameters in patients with metabolic dysfunction-associated fatty liver disease? Randomized, double-blind placebo-controlled trial.",
+      "doi": "10.26402/jpp.2024.3.06",
+      "pub_date": "2024 Jun",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Journal of physiology and pharmacology : an official journal of the Polish Physiological Society",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39064727",
+      "title": "Comparative Effects of Gymnema sylvestre and Berberine on Adipokines, Body Composition, and Metabolic Parameters in Obese Patients: A Randomized Study.",
+      "doi": "10.3390/nu16142284",
+      "pub_date": "2024 Jul 16",
+      "pub_type": "Comparative Study",
+      "journal": "Nutrients",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39107107",
+      "title": "Inflammatory markers and noncoding-RNAs responses to low and high compressions of HIIT with or without berberine supplementation in middle-aged men with prediabetes.",
+      "doi": "10.14814/phy2.16146",
+      "pub_date": "2024 Aug",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Physiological reports",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39114278",
+      "title": "A Comprehensive Review of Safety, Efficacy, and Indications for the Use of Alpha-Lipoic Acid and Acetyl-L-Carnitine in Neuropathic Pain.",
+      "doi": null,
+      "pub_date": "2024 Jul",
+      "pub_type": "Review",
+      "journal": "Integrative medicine (Encinitas, Calif.)",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39147245",
+      "title": "Influence of maternal α-lipoic acid supplementation in Sprague Dawley rats on maternal and fetal metabolic health in pregnancies complicated by obesity.",
+      "doi": "10.1016/j.jnutbio.2024.109731",
+      "pub_date": "2024 Dec",
+      "pub_type": "Research Support, N.I.H., Extramural",
+      "journal": "The Journal of nutritional biochemistry",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39167283",
+      "title": "Berberine Inhibits Ferroptosis and Stabilizes Atherosclerotic Plaque through NRF2/SLC7A11/GPX4 Pathway.",
+      "doi": "10.1007/s11655-024-3666-z",
+      "pub_date": "2024 Oct",
+      "pub_type": "Journal Article",
+      "journal": "Chinese journal of integrative medicine",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39297910",
+      "title": "A Clinicians Guide to Recommending Common Cholesterol-Lowering Dietary Supplements.",
+      "doi": "10.1007/s40256-024-00681-1",
+      "pub_date": "2024 Nov",
+      "pub_type": "Review",
+      "journal": "American journal of cardiovascular drugs : drugs, devices, and other interventions",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39339645",
+      "title": "Efficacy and Safety of the Combination of Palmitoylethanolamide, Superoxide Dismutase, Alpha Lipoic Acid, Vitamins B12, B1, B6, E, Mg, Zn and Nicotinamide for 6 Months in People with Diabetic Neuropathy.",
+      "doi": "10.3390/nu16183045",
+      "pub_date": "2024 Sep 10",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Nutrients",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39340853",
+      "title": "Effect analysis of tanshinone IIA sulfonate sodium combined with a-lipoic acid in patients with diabetes peripheral neuropathy.",
+      "doi": null,
+      "pub_date": "2024 May",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Pakistan journal of pharmaceutical sciences",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39381438",
+      "title": "Causal relationship between fertility nutrients supplementation and PCOS risk: a Mendelian randomization study.",
+      "doi": "10.3389/fendo.2024.1420004",
+      "pub_date": "2024",
+      "pub_type": "Journal Article",
+      "journal": "Frontiers in endocrinology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39413860",
+      "title": "Effects of Alpha-Lipoic Acid Supplementation on Weight Loss, Inflammatory, Lipid, and Hematological Levels in Patients With Chronic Kidney Disease: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "doi": "10.1053/j.jrn.2024.08.004",
+      "pub_date": "2025 Mar",
+      "pub_type": "Meta-Analysis",
+      "journal": "Journal of renal nutrition : the official journal of the Council on Renal Nutrition of the National Kidney Foundation",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39469366",
+      "title": "A Study to Evaluate the Effect of Alpha-Lipoic Acid on Neuropathic Symptoms in Diabetic Neuropathy Patients on Gabapentin or Pregabalin.",
+      "doi": "10.7759/cureus.70299",
+      "pub_date": "2024 Sep",
+      "pub_type": "Journal Article",
+      "journal": "Cureus",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39479350",
+      "title": "Analysis of MDA, SOD, TAOC, MNCV, SNCV, and TSS scores in patients with diabetes peripheral neuropathy.",
+      "doi": "10.1515/biol-2022-0945",
+      "pub_date": "2024",
+      "pub_type": "Journal Article",
+      "journal": "Open life sciences",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39497372",
+      "title": "Comparative efficacy and safety of Chinese patent medicines as an adjunctive therapy for diabetic peripheral neuropathy: systematic review and network meta-analysis of randomized controlled trials.",
+      "doi": "10.1080/13880209.2024.2422084",
+      "pub_date": "2024 Dec",
+      "pub_type": "Network Meta-Analysis",
+      "journal": "Pharmaceutical biology",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39537003",
+      "title": "Can Lifestyle and Behavioral Interventions Improve Weight Management in Individuals With Spinal Cord Injury? A Systematic Review and Meta-analysis.",
+      "doi": "10.1016/j.apmr.2024.10.014",
+      "pub_date": "2025 Apr",
+      "pub_type": "Meta-Analysis",
+      "journal": "Archives of physical medicine and rehabilitation",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39637953",
+      "title": "Effects of α-lipoic acid (LA) supplementation in high-fat diet on the growth, glycolipid metabolism and liver health of largemouth bass (Micropterus salmoides).",
+      "doi": "10.1016/j.fsi.2024.110072",
+      "pub_date": "2025 Feb",
+      "pub_type": "Review",
+      "journal": "Fish & shellfish immunology",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39640489",
+      "title": "Effects of administering berberine alone or in combination on type 2 diabetes mellitus: a systematic review and meta-analysis.",
+      "doi": "10.3389/fphar.2024.1455534",
+      "pub_date": "2024",
+      "pub_type": "Review",
+      "journal": "Frontiers in pharmacology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39641383",
+      "title": "A randomized, double-blind, placebo controlled study to evaluate the effect of alpha-lipoic acid on inhibition of ADP-and collagen-induced platelet aggregation ex vivo in diabetic neuropathy patients on gabapentin or pregabalin.",
+      "doi": "10.4103/jpgm.jpgm_310_24",
+      "pub_date": "2024 Oct 1",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Journal of postgraduate medicine",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39660039",
+      "title": "SAS macro programme for Bang's Blinding Index to assess and visualise the success of blinding in randomised controlled trials.",
+      "doi": "10.1136/gpsych-2024-101578",
+      "pub_date": "2024",
+      "pub_type": "Review",
+      "journal": "General psychiatry",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39675585",
+      "title": "The function and mechanism of clinical trial agent CPI-613 in multiple myeloma.",
+      "doi": "10.1016/j.bcp.2024.116717",
+      "pub_date": "2025 Feb",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "Biochemical pharmacology",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39676803",
+      "title": "Effect of three-week exercise program on muscle strength and joint mobility in patients with diabetic polyneuropathy: Randomized controlled trial.",
+      "doi": "10.4239/wjd.v15.i12.2311",
+      "pub_date": "2024 Dec 15",
+      "pub_type": "Review",
+      "journal": "World journal of diabetes",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39869240",
+      "title": "Effects of lipoic acid on production performance, meat quality, serum biochemistry and antioxidant function in heat-stressed broilers.",
+      "doi": "10.1007/s11250-025-04280-3",
+      "pub_date": "2025 Jan 27",
+      "pub_type": "Journal Article",
+      "journal": "Tropical animal health and production",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39871906",
+      "title": "Effect of alpha-lipoic acid and Silybum marianum supplementation with a Mediterranean diet on metabolic dysfunction-associated steatosis.",
+      "doi": "10.4254/wjh.v17.i1.101704",
+      "pub_date": "2025 Jan 27",
+      "pub_type": "Journal Article",
+      "journal": "World journal of hepatology",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39940310",
+      "title": "Evaluating Bioactive-Substance-Based Interventions for Adults with MASLD: Results from a Systematic Scoping Review.",
+      "doi": "10.3390/nu17030453",
+      "pub_date": "2025 Jan 26",
+      "pub_type": "Scoping Review",
+      "journal": "Nutrients",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39943692",
+      "title": "The Pharmacokinetic Interaction Between Metformin and the Natural Product Goldenseal Is Metformin Dose-Dependent: A Three-Arm Crossover Study in Adults With Type 2 Diabetes.",
+      "doi": "10.1111/cts.70120",
+      "pub_date": "2025 Feb",
+      "pub_type": "Research Support, N.I.H., Extramural",
+      "journal": "Clinical and translational science",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39963561",
+      "title": "The effectiveness of antioxidant agents in delaying progression of diabetic nephropathy: A systematic review of randomized controlled trials.",
+      "doi": "10.34172/bi.30129",
+      "pub_date": "2025",
+      "pub_type": "Review",
+      "journal": "BioImpacts : BI",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39990611",
+      "title": "Potential pharmacological effect of Quercetin Phytosome™ in the management of hyperuricemia: results from real-life clinical studies.",
+      "doi": "10.3389/fnut.2025.1519459",
+      "pub_date": "2025",
+      "pub_type": "Journal Article",
+      "journal": "Frontiers in nutrition",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "39998703",
+      "title": "The efficacy and safety of berberine in combination with cinnamon supplementation in patients with type 2 diabetes: a randomized clinical trial.",
+      "doi": "10.1007/s00394-025-03618-9",
+      "pub_date": "2025 Feb 25",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "European journal of nutrition",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40005694",
+      "title": "Post-COVID-19 Small Fiber Neuropathy as a New Emerging Quality of Life-Threatening Disease: A Systematic Review.",
+      "doi": "10.3390/microorganisms13020328",
+      "pub_date": "2025 Feb 2",
+      "pub_type": "Review",
+      "journal": "Microorganisms",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40029660",
+      "title": "Berberine Ursodeoxycholate for the Treatment of Type 2 Diabetes: A Randomized Clinical Trial.",
+      "doi": "10.1001/jamanetworkopen.2024.62185",
+      "pub_date": "2025 Mar 3",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "JAMA network open",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40047964",
+      "title": "Effects of lipoic acid on performance, slaughter performance, intestinal digestive enzymes and apparent digestibility of nutrients in heat-stressed broilers.",
+      "doi": "10.1007/s11250-025-04345-3",
+      "pub_date": "2025 Mar 6",
+      "pub_type": "Journal Article",
+      "journal": "Tropical animal health and production",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40050870",
+      "title": "Nonpharmaceutical treatment of distal sensorimotor polyneuropathy in diabetic patients: an unblinded randomized clinical trial.",
+      "doi": "10.1186/s12906-025-04830-0",
+      "pub_date": "2025 Mar 6",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "BMC complementary medicine and therapies",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40080240",
+      "title": "Management of Oxidative Stress and Inflammation in Patients with Symptomatic Dry Eye Disease Treated with a Preservative-Free Ophthalmic Emulsion Combining Alpha-Lipoic Acid and High Molecular Weight Sodium Hyaluronate.",
+      "doi": "10.1007/s12325-025-03139-1",
+      "pub_date": "2025 May",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "Advances in therapy",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40089262",
+      "title": "Pharmacological landscape of endoplasmic reticulum stress: Uncovering therapeutic avenues for metabolic diseases.",
+      "doi": "10.1016/j.ejphar.2025.177509",
+      "pub_date": "2025 Jul 5",
+      "pub_type": "Review",
+      "journal": "European journal of pharmacology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40093018",
+      "title": "Comprehensive treatment of diabetic endothelial dysfunction based on pathophysiological mechanism.",
+      "doi": "10.3389/fmed.2025.1509884",
+      "pub_date": "2025",
+      "pub_type": "Review",
+      "journal": "Frontiers in medicine",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40108906",
+      "title": "The Green Path to Liver Health: Herbal Solutions for Non-alcoholic Steatohepatitis.",
+      "doi": "10.2174/011871529X360903250211101856",
+      "pub_date": "2025",
+      "pub_type": "Systematic Review",
+      "journal": "Cardiovascular & hematological disorders drug targets",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40134249",
+      "title": "Alpha Lipoic Acid Supplementation and Iron Homeostasis: A Comprehensive Systematic Review and Meta-Analysis of Randomized Controlled Clinical Trials.",
+      "doi": "10.31083/IJVNR36623",
+      "pub_date": "2024 Dec 27",
+      "pub_type": "Meta-Analysis",
+      "journal": "International journal for vitamin and nutrition research. Internationale Zeitschrift fur Vitamin- und Ernahrungsforschung. Journal international de vitaminologie et de nutrition",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40150966",
+      "title": "Influence of Maternal Alpha-Lipoic Acid Supplementation on Postpartum Body Weight and Metabolic Health in Rats with Obesity.",
+      "doi": "10.1080/19390211.2025.2483267",
+      "pub_date": "2025",
+      "pub_type": "Journal Article",
+      "journal": "Journal of dietary supplements",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40180416",
+      "title": "Alpha-lipoic acid on intermediate disease markers in overweight or obese adults: a systematic review and meta-analysis.",
+      "doi": "10.1136/bmjopen-2024-088363",
+      "pub_date": "2025 Apr 3",
+      "pub_type": "Meta-Analysis",
+      "journal": "BMJ open",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40258699",
+      "title": "HTD1801 demonstrates promising potential for histologic improvements in metabolic dysfunction-associated steatohepatitis in both a preclinical and phase 2 study.",
+      "doi": "10.3350/cmh.2025.0145",
+      "pub_date": "2025 Jul",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Clinical and molecular hepatology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40269802",
+      "title": "Berberine and health outcomes: an overview of systematic reviews.",
+      "doi": "10.1186/s12906-025-04872-4",
+      "pub_date": "2025 Apr 23",
+      "pub_type": "Systematic Review",
+      "journal": "BMC complementary medicine and therapies",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40278369",
+      "title": "A 30-Day Randomized Crossover Human Study on the Safety and Tolerability of a New Micellar Berberine Formulation with Improved Bioavailability.",
+      "doi": "10.3390/metabo15040240",
+      "pub_date": "2025 Apr 1",
+      "pub_type": "Journal Article",
+      "journal": "Metabolites",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40280372",
+      "title": "Research progress of effective components of traditional Chinese medicine in intervening apoptosis of renal tubular epithelial cells in diabetic kidney disease.",
+      "doi": "10.1016/j.jep.2025.119874",
+      "pub_date": "2025 May 28",
+      "pub_type": "Systematic Review",
+      "journal": "Journal of ethnopharmacology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40308825",
+      "title": "Combining nutraceuticals and a mediterranean diet for managing metabolic dysfunction associated with steatotic liver disease.",
+      "doi": "10.4254/wjh.v17.i4.104622",
+      "pub_date": "2025 Apr 27",
+      "pub_type": "Letter",
+      "journal": "World journal of hepatology",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40439602",
+      "title": "Clinical Efficacy of Curcumin, Resveratrol, Silymarin, and Berberine on Cardio-Metabolic Risk Factors Among Patients With Type 2 Diabetes Mellitus: A Systemic Review and Bayesian Network Meta-Analysis.",
+      "doi": "10.1002/ptr.8431",
+      "pub_date": "2025 Dec",
+      "pub_type": "Network Meta-Analysis",
+      "journal": "Phytotherapy research : PTR",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40454396",
+      "title": "Devimistat plus chemotherapy vs chemotherapy alone for older relapsed or refractory patients with AML: results of the ARMADA trial.",
+      "doi": "10.1016/j.bneo.2024.100009",
+      "pub_date": "2024 Jun",
+      "pub_type": "Journal Article",
+      "journal": "Blood neoplasia",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40501262",
+      "title": "Systematic evaluation of the effectiveness of Xuesaitong combined with nutraceutical drugs in the treatment of diabetic peripheral neuropathy.",
+      "doi": null,
+      "pub_date": "2025 Mar-Apr",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Pakistan journal of pharmaceutical sciences",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40506769",
+      "title": "Berberine as a multi-target therapeutic agent for obesity: from pharmacological mechanisms to clinical evidence.",
+      "doi": "10.1186/s40001-025-02738-6",
+      "pub_date": "2025 Jun 12",
+      "pub_type": "Review",
+      "journal": "European journal of medical research",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40647331",
+      "title": "l-Carnitine and Alpha-Lipoic Acid Fail to Improve Anaerobic and Aerobic Performance in Trained Cyclists Despite a Reduction in Blood Lactate Concentration.",
+      "doi": "10.3390/nu17132227",
+      "pub_date": "2025 Jul 4",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Nutrients",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40739586",
+      "title": "The effects of Gegen Qinlian decoction and its main constituents on glucolipid metabolic disorders in diabetes: an overview of systematic reviews and meta-analysis.",
+      "doi": "10.1186/s13643-025-02914-z",
+      "pub_date": "2025 Jul 30",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "Systematic reviews",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40740996",
+      "title": "Efficacy and safety of berberine on the components of metabolic syndrome: a systematic review and meta-analysis of randomized placebo-controlled trials.",
+      "doi": "10.3389/fphar.2025.1572197",
+      "pub_date": "2025",
+      "pub_type": "Systematic Review",
+      "journal": "Frontiers in pharmacology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40765177",
+      "title": "Metabolic Reprogramming in Pheochromocytoma and Paraganglioma: Insights From Untargeted NMR Metabolomics Presurgical and Postsurgical intervention.",
+      "doi": "10.1002/mrc.70019",
+      "pub_date": "2025 Oct",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "Magnetic resonance in chemistry : MRC",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40795648",
+      "title": "Antagonistic effect of increasing dietary zinc on the efficiency of microbial phytase on calcium, phosphorus, and zinc digestibility and status in pigs: a meta-analysis.",
+      "doi": "10.1016/j.animal.2025.101604",
+      "pub_date": "2025 Sep",
+      "pub_type": "Meta-Analysis",
+      "journal": "Animal : an international journal of animal bioscience",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40803223",
+      "title": "Comparison of relative calcium bioavailability based on bone ash and apparent ileal Ca digestibility in broiler chickens.",
+      "doi": "10.1016/j.psj.2025.105274",
+      "pub_date": "2025 Nov",
+      "pub_type": "Comparative Study",
+      "journal": "Poultry science",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40806666",
+      "title": "New Perspectives on Nutraceutical Insulin Sensitizing Agents in the Treatment of Psoriasis and Other Dermatological Diseases.",
+      "doi": "10.3390/ijms26157538",
+      "pub_date": "2025 Aug 4",
+      "pub_type": "Review",
+      "journal": "International journal of molecular sciences",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40819458",
+      "title": "Dietary arginine silicate inositol supplementation supports egg quality and bone metabolism in late phase laying hens.",
+      "doi": "10.1016/j.psj.2025.105673",
+      "pub_date": "2025 Nov",
+      "pub_type": "Journal Article",
+      "journal": "Poultry science",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40829428",
+      "title": "Effect of berberine on LPS-induced intestinal epithelial injury and m(6)A methylation in broilers.",
+      "doi": "10.1016/j.psj.2025.105677",
+      "pub_date": "2025 Nov",
+      "pub_type": "Journal Article",
+      "journal": "Poultry science",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40831184",
+      "title": "The positive effects of super-dosing phytase on the growth performance of growing pigs are mainly due to increased dietary digestible phosphorus.",
+      "doi": "10.1093/jas/skaf283",
+      "pub_date": "2025 Jan 4",
+      "pub_type": "Journal Article",
+      "journal": "Journal of animal science",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40836248",
+      "title": "Phytic Acid in Wheat Grains: A Bioactive Component With Dual Roles in Food and Health.",
+      "doi": "10.1111/1541-4337.70257",
+      "pub_date": "2025 Sep",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "Comprehensive reviews in food science and food safety",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40848486",
+      "title": "Effects of phytase supplementation on energy and nutrient availability, and phytate degradation in turkeys.",
+      "doi": "10.1016/j.psj.2025.105309",
+      "pub_date": "2025 Nov",
+      "pub_type": "Journal Article",
+      "journal": "Poultry science",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40853095",
+      "title": "Unlocking Relief: Investigating the Impact of a Fixed Combination of Acetyl-L-Carnitine and Palmitoylethanolamide on Traumatic Acute Low Back Pain.",
+      "doi": "10.1111/ene.70334",
+      "pub_date": "2025 Aug",
+      "pub_type": "Observational Study",
+      "journal": "European journal of neurology",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40869469",
+      "title": "Obesity as a Part of Polycysric Ovary Syndrome (PCOS)-A Review of Pathophysiology and Comprehensive Therapeutic Strategies.",
+      "doi": "10.3390/jcm14165642",
+      "pub_date": "2025 Aug 9",
+      "pub_type": "Review",
+      "journal": "Journal of clinical medicine",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40891298",
+      "title": "Association between metabolites and hepatocellular carcinoma: findings from a two-sample Mendelian randomization study.",
+      "doi": "10.17998/jlc.2025.08.26",
+      "pub_date": "2025 Sep",
+      "pub_type": "Journal Article",
+      "journal": "Journal of liver cancer",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40891644",
+      "title": "Targeting Oxidative Stress With Combination Treatment of Alpha-Lipoic Acid and Antiseizure Drugs in Rodent Model: A Systematic Review.",
+      "doi": "10.1002/jbt.70488",
+      "pub_date": "2025 Sep",
+      "pub_type": "Systematic Review",
+      "journal": "Journal of biochemical and molecular toxicology",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40898314",
+      "title": "Untargeted metabolomics reveals changes in boar sperm and seminal plasma metabolites associated with sexual maturity.",
+      "doi": "10.1186/s40104-025-01258-x",
+      "pub_date": "2025 Sep 3",
+      "pub_type": "Journal Article",
+      "journal": "Journal of animal science and biotechnology",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40913113",
+      "title": "Transdiagnostic reduction in cortical choline-containing compounds in anxiety disorders: a (1)H-magnetic resonance spectroscopy meta-analysis.",
+      "doi": "10.1038/s41380-025-03206-7",
+      "pub_date": "2025 Dec",
+      "pub_type": "Systematic Review",
+      "journal": "Molecular psychiatry",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40914496",
+      "title": "Effects of antioxidants on oxidative stress in adult patients with coronary artery disease: A systematic review.",
+      "doi": "10.1016/j.clnesp.2025.08.037",
+      "pub_date": "2025 Oct",
+      "pub_type": "Systematic Review",
+      "journal": "Clinical nutrition ESPEN",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40920401",
+      "title": "Myo-inositol Supplementation to Prevent Pregnancy Complications in Polycystic Ovary Syndrome: A Randomized Clinical Trial.",
+      "doi": "10.1001/jama.2025.13668",
+      "pub_date": "2025 Oct 7",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "JAMA",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40932674",
+      "title": "Adolescent hyperandrogenism: diagnostic challenges and therapeutic approaches.",
+      "doi": "10.1007/s12519-025-00972-w",
+      "pub_date": "2025 Oct",
+      "pub_type": "Review",
+      "journal": "World journal of pediatrics : WJP",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40947814",
+      "title": "Metabolic signatures and a diagnostic model for citrin deficiency based on urinary organic acids.",
+      "doi": "10.1002/ctm2.70467",
+      "pub_date": "2025 Sep",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "Clinical and translational medicine",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40949129",
+      "title": "Biochemical changes associated with non-alcoholic fatty liver disease in response to berberine treatment: a systematic review and meta-analysis of clinical and preclinical research.",
+      "doi": "10.3389/fphar.2025.1460643",
+      "pub_date": "2025",
+      "pub_type": "Systematic Review",
+      "journal": "Frontiers in pharmacology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40952131",
+      "title": "Impact of obesity on human brain metabolites: a systematic review on magnetic resonance spectroscopy studies.",
+      "doi": "10.1080/1028415X.2025.2559874",
+      "pub_date": "2026 Mar",
+      "pub_type": "Systematic Review",
+      "journal": "Nutritional neuroscience",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40982577",
+      "title": "Changes in the gut microbiota in mice exposed to chronic intermittent hypoxia.",
+      "doi": "10.1099/jmm.0.002069",
+      "pub_date": "2025 Sep",
+      "pub_type": "Journal Article",
+      "journal": "Journal of medical microbiology",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40989082",
+      "title": "The effect of myo-inositol on assisted reproductive technology outcomes in women with polycystic ovarian syndrome: A systematic review and meta-analysis of randomized clinical trial studies.",
+      "doi": "10.18502/ijrm.v23i5.19260",
+      "pub_date": "2025 May",
+      "pub_type": "Review",
+      "journal": "International journal of reproductive biomedicine",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "40992260",
+      "title": "Massage therapy modulates energy metabolism and alleviates skeletal muscle spasms in rats.",
+      "doi": "10.1016/j.tice.2025.103151",
+      "pub_date": "2026 Feb",
+      "pub_type": "Journal Article",
+      "journal": "Tissue & cell",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41009767",
+      "title": "Metabolomics in Multiple Sclerosis: Advances, Challenges, and Clinical Perspectives-A Systematic Review.",
+      "doi": "10.3390/ijms26189207",
+      "pub_date": "2025 Sep 20",
+      "pub_type": "Systematic Review",
+      "journal": "International journal of molecular sciences",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41024889",
+      "title": "Silymarin-alpha lipoic acid and metabolic dysfunction-associated steatotic liver disease: Insights and methodological considerations.",
+      "doi": "10.4254/wjh.v17.i9.110162",
+      "pub_date": "2025 Sep 27",
+      "pub_type": "Letter",
+      "journal": "World journal of hepatology",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41052827",
+      "title": "Expression of concern 'Randomized, triple-blind, placebo-controlled clinical trial examining the effects of alpha-lipoic acid supplement on the spermatogram and seminal oxidative stress in infertile men' [Fertil Steril 2015; 104:318-24].",
+      "doi": "10.1016/j.fertnstert.2025.07.033",
+      "pub_date": "2025 Oct",
+      "pub_type": "Expression of Concern",
+      "journal": "Fertility and sterility",
+      "has_abstract": false,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41058457",
+      "title": "PREVENTION OF PACLITAXEL-INDUCED MOTOR NEUROPATHY OF FIBULAR AND TIBIAL NERVES WITH ALPHA-LIPOIC ACID AND IPIDACRIN HYDROCHLORIDE IN BREAST CANCER PATIENTS.",
+      "doi": "10.15407/exp-oncology.2025.02.230",
+      "pub_date": "2025 Oct 7",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Experimental oncology",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41077538",
+      "title": "Effects of alpha-lipoic acid supplementation on cardiometabolic risk factors: A systematic review and dose-response meta-analysis.",
+      "doi": "10.1016/j.numecd.2025.104370",
+      "pub_date": "2026 Feb",
+      "pub_type": "Meta-Analysis",
+      "journal": "Nutrition, metabolism, and cardiovascular diseases : NMCD",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41079751",
+      "title": "Pharmacokinetics and safety of a fixed-dose combination of pregabalin and thioctic acid in healthy volunteers: a randomized, open-label, phase 1 crossover study.",
+      "doi": "10.3389/fphar.2025.1692519",
+      "pub_date": "2025",
+      "pub_type": "Journal Article",
+      "journal": "Frontiers in pharmacology",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41082172",
+      "title": "Alpha-Lipoic acid in the management of restless legs syndrome in patients with diabetic neuropathy: A possible novel therapeutic approach.",
+      "doi": "10.1007/s12020-025-04463-w",
+      "pub_date": "2025 Dec",
+      "pub_type": "Observational Study",
+      "journal": "Endocrine",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41087955",
+      "title": "Potential biomarkers for tuberculous meningitis diagnosis using metabolomics and proteomics: a systematic review.",
+      "doi": "10.1186/s12879-025-11740-6",
+      "pub_date": "2025 Oct 14",
+      "pub_type": "Systematic Review",
+      "journal": "BMC infectious diseases",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41089338",
+      "title": "Berberine's impact on health: Comprehensive biological, pharmacological, and nutritional perspectives.",
+      "doi": "10.1016/j.metop.2025.100399",
+      "pub_date": "2025 Dec",
+      "pub_type": "Review",
+      "journal": "Metabolism open",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41094697",
+      "title": "Exploring the role of gut microbiota in inflammatory bowel disease patients comorbid with non-alcoholic fatty liver disease.",
+      "doi": "10.1186/s13099-025-00752-x",
+      "pub_date": "2025 Oct 15",
+      "pub_type": "Journal Article",
+      "journal": "Gut pathogens",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41096620",
+      "title": "Using (1)H-Magnetic Resonance Spectroscopy to Evaluate the Efficacy of Pharmacological Treatments in Parkinson's Disease: A Systematic Review.",
+      "doi": "10.3390/ijms26199351",
+      "pub_date": "2025 Sep 25",
+      "pub_type": "Journal Article",
+      "journal": "International journal of molecular sciences",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41098674",
+      "title": "The role of the myo-inositol for the prevention of the gestational diabetes mellitus: systematic review.",
+      "doi": "10.61622/rbgo/2025rbgo29",
+      "pub_date": "2025",
+      "pub_type": "Systematic Review",
+      "journal": "Revista brasileira de ginecologia e obstetricia : revista da Federacao Brasileira das Sociedades de Ginecologia e Obstetricia",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41102784",
+      "title": "Integrating single-cell RNA sequencing and Mendelian randomization analysis to identify potential drug targets for dilated cardiomyopathy.",
+      "doi": "10.1186/s41065-025-00539-9",
+      "pub_date": "2025 Oct 16",
+      "pub_type": "Journal Article",
+      "journal": "Hereditas",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41107518",
+      "title": "Author Correction: Effect of dietary myo-inositol supplementation on the insulin resistance and the prevention of gestational diabetes mellitus: an open-label, randomized controlled trial.",
+      "doi": "10.1007/s00404-025-08208-y",
+      "pub_date": "2025 Nov",
+      "pub_type": "Published Erratum",
+      "journal": "Archives of gynecology and obstetrics",
+      "has_abstract": false,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41124864",
+      "title": "Integrated pharmacokinetic properties and tissue distribution of Corydalis saxicola Bunting total alkaloids in HFHCD-induced mice: Implications for pharmacokinetic variability in MASH treatment.",
+      "doi": "10.1016/j.biopha.2025.118665",
+      "pub_date": "2025 Nov",
+      "pub_type": "Journal Article",
+      "journal": "Biomedicine & pharmacotherapy = Biomedecine & pharmacotherapie",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41163174",
+      "title": "Inositol supplementation efficacy in improving key cardiometabolic and anthropometric indices: a GRADE-assessed systematic review and meta-analysis of randomized controlled trials.",
+      "doi": "10.1186/s13098-025-01980-6",
+      "pub_date": "2025 Oct 29",
+      "pub_type": "Review",
+      "journal": "Diabetology & metabolic syndrome",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41191982",
+      "title": "The role of oral alpha-lipoic acid as an adjuvant antioxidant therapy in diabetic nephropathy among children and adolescents with type 1 diabetes: a randomized controlled trial.",
+      "doi": "10.1016/j.jdiacomp.2025.109201",
+      "pub_date": "2026 Jan",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Journal of diabetes and its complications",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41196448",
+      "title": "Dexmedetomidine protects against postoperative neurocognitive disorder by mitigating mitochondrial dysfunction through regulating the IP3R-GRP75-VDAC1 complex-mediated calcium transport.",
+      "doi": "10.1007/s12026-025-09705-7",
+      "pub_date": "2025 Nov 6",
+      "pub_type": "Journal Article",
+      "journal": "Immunologic research",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41207983",
+      "title": "Impact of Immune Cells on IgA Vasculitis via Metabolites and Inflammatory Cytokines.",
+      "doi": "10.1007/s10875-025-01946-3",
+      "pub_date": "2025 Nov 10",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "Journal of clinical immunology",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41223157",
+      "title": "Effects of primary calcium source on phytase efficiency in weaned piglets.",
+      "doi": "10.1093/jas/skaf396",
+      "pub_date": "2025 Jan 4",
+      "pub_type": "Journal Article",
+      "journal": "Journal of animal science",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41225692",
+      "title": "Drug Repurposing for Reducing the Size of Benign Thyroid Nodules: A Systematic Review.",
+      "doi": "10.1210/clinem/dgaf616",
+      "pub_date": "2026 Jan 21",
+      "pub_type": "Systematic Review",
+      "journal": "The Journal of clinical endocrinology and metabolism",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41231541",
+      "title": "Zinc absorption from breakfast flakes produced from sprouted or hydrothermally processed wheat: a randomized cross-over human intervention study.",
+      "doi": "10.1039/d5fo03650j",
+      "pub_date": "2025 Dec 8",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Food & function",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41235304",
+      "title": "Efficacy of dietary supplements as an adjunctive therapy for polycystic ovary syndrome: an umbrella meta-analysis.",
+      "doi": "10.3389/fnut.2025.1705284",
+      "pub_date": "2025",
+      "pub_type": "Systematic Review",
+      "journal": "Frontiers in nutrition",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41256904",
+      "title": "Efficacy and Safety of Roflumilast versus Alpha-Lipoic Acid in Type 2 Diabetes with Neuropathy: A Comparative Clinical Study.",
+      "doi": "10.2147/DMSO.S548285",
+      "pub_date": "2025",
+      "pub_type": "Journal Article",
+      "journal": "Diabetes, metabolic syndrome and obesity : targets and therapy",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41287200",
+      "title": "The effect of nutraceutical interventions on reproductive health outcomes in women with polycystic ovary syndrome: A systematic review and meta-analysis.",
+      "doi": "10.1111/dom.70307",
+      "pub_date": "2026 Feb",
+      "pub_type": "Meta-Analysis",
+      "journal": "Diabetes, obesity & metabolism",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41291157",
+      "title": "Hepatocyte nuclear factor 1 in renal lipid metabolism: molecular mechanisms and therapeutic potentials.",
+      "doi": "10.1007/s10565-025-10097-5",
+      "pub_date": "2025 Nov 26",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "Cell biology and toxicology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41297722",
+      "title": "Gegen Qinlian decoction ameliorates insulin resistance in type 2 diabetes: A systematic review and meta-analysis of RCTs with mechanistic insights into SIRT1/AMPK pathway activation.",
+      "doi": "10.1016/j.jep.2025.120960",
+      "pub_date": "2026 Mar 1",
+      "pub_type": "Meta-Analysis",
+      "journal": "Journal of ethnopharmacology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41305635",
+      "title": "The Influence of Berberine on Vascular Function Parameters, Among Them VEGF, in Individuals with MAFLD: A Double-Blind, Randomized, Placebo-Controlled Trial.",
+      "doi": "10.3390/nu17223585",
+      "pub_date": "2025 Nov 16",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Nutrients",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41310257",
+      "title": "The effect of berberine on obesity indices: a systematic review and meta-analysis.",
+      "doi": "10.1038/s41366-025-01943-x",
+      "pub_date": "2026 Jan",
+      "pub_type": "Systematic Review",
+      "journal": "International journal of obesity (2005)",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41314295",
+      "title": "Myo-Inositol Intake during Pregnancy Alleviates Inflammation and Oxidative Stress in Sows and Improves Skeletal Muscle Development Characteristics in Offspring.",
+      "doi": "10.1016/j.tjnut.2025.11.019",
+      "pub_date": "2026 Jan",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "The Journal of nutrition",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41344090",
+      "title": "Effects of dietary phosphorus and myo-inositol supplementation on NaPi-IIb and TRPV6 protein expression in duodenal apical membranes of laying hens from two strains.",
+      "doi": "10.1016/j.psj.2025.106171",
+      "pub_date": "2026 Jan",
+      "pub_type": "Journal Article",
+      "journal": "Poultry science",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41356118",
+      "title": "Berberine in diabetic nephropathy: mechanistic overview.",
+      "doi": "10.1007/s13340-025-00859-1",
+      "pub_date": "2026 Jan",
+      "pub_type": "Review",
+      "journal": "Diabetology international",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41363914",
+      "title": "Effect of Insulin Sensitizers on Glycemic and Lipid Profile in Patients with Polycystic Ovary Syndrome (PCOS).",
+      "doi": "10.2478/prilozi-2025-0022",
+      "pub_date": "2025 Nov 1",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Prilozi (Makedonska akademija na naukite i umetnostite. Oddelenie za medicinski nauki)",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41373599",
+      "title": "Targeting Ferroptosis in Nasopharyngeal Carcinoma: Mechanisms, Resistance, and Precision Therapeutic Opportunities.",
+      "doi": "10.3390/ijms262311439",
+      "pub_date": "2025 Nov 26",
+      "pub_type": "Review",
+      "journal": "International journal of molecular sciences",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41391359",
+      "title": "Phytate degradation and pre-cecal phosphorus digestibility of raw vs. crimped-ensiled faba beans (Vicia faba L.) fed to broiler chickens.",
+      "doi": "10.1016/j.psj.2025.106157",
+      "pub_date": "2026 Feb",
+      "pub_type": "Journal Article",
+      "journal": "Poultry science",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41400270",
+      "title": "Impact of Alpha Lipoic Acid as an Adjuvant Therapy on Inflammation and Fibrosis in Type 2 Diabetic Patients with Ischemic Cardiomyopathy: A Randomized Controlled Trial.",
+      "doi": "10.1080/19390211.2025.2601020",
+      "pub_date": "2026",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Journal of dietary supplements",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41418633",
+      "title": "High-fat Diet-associated Digestive Cancers: Mechanisms, Natural Product-based Therapies, and Drug Development.",
+      "doi": "10.1016/j.phymed.2025.157574",
+      "pub_date": "2026 Jan",
+      "pub_type": "Systematic Review",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41420373",
+      "title": "A comprehensive compendium of berberine: sources, chemistry, and pharmacological activities.",
+      "doi": "10.1002/jsfa.70394",
+      "pub_date": "2026 Jul",
+      "pub_type": "Review",
+      "journal": "Journal of the science of food and agriculture",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41420798",
+      "title": "Palmatine Attenuates Lipopolysaccharide-Induced Acute Lung Injury Via Suppression of NLRP3 Inflammasome Activation, Pyroptosis, and Metabolic Remodeling.",
+      "doi": "10.1007/s10753-025-02358-6",
+      "pub_date": "2025 Dec 20",
+      "pub_type": "Journal Article",
+      "journal": "Inflammation",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41432790",
+      "title": "Protective effects of dietary Cucurbita pepo on oxidative damage, histopathological alterations, and endoplasmic reticulum stress in the brain and gills of Oreochromis niloticus exposed to trace elements.",
+      "doi": "10.1007/s11259-025-11019-w",
+      "pub_date": "2025 Dec 23",
+      "pub_type": "Journal Article",
+      "journal": "Veterinary research communications",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41456539",
+      "title": "Myo-inositol in reproductive management of women with PCOS: holy grail for medical practice or demon for scientific evidence?",
+      "doi": "10.1016/j.rbmo.2025.105269",
+      "pub_date": "2026 Feb",
+      "pub_type": "Journal Article",
+      "journal": "Reproductive biomedicine online",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41483330",
+      "title": "Integrated genome-wide association study (GWAS) and metabolomics identify genetic and metabolic drivers of stripe rust resistance in wheat from the Western Himalayas.",
+      "doi": "10.1007/s10142-025-01799-4",
+      "pub_date": "2026 Jan 2",
+      "pub_type": "Journal Article",
+      "journal": "Functional & integrative genomics",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41486384",
+      "title": "In silico characterization and molecular docking of the MIOX gene in Nile tilapia (Oreochromis niloticus).",
+      "doi": "10.1007/s10695-025-01626-4",
+      "pub_date": "2026 Jan 5",
+      "pub_type": "Journal Article",
+      "journal": "Fish physiology and biochemistry",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41489236",
+      "title": "Expression of Concern on \"Effects of inositol on ovarian function and metabolic factors in women with PCOS: a randomized double blind placebo-controlled trial\".",
+      "doi": "10.26355/eurrev_202512_37562",
+      "pub_date": "2025 Dec",
+      "pub_type": "Expression of Concern",
+      "journal": "European review for medical and pharmacological sciences",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41489728",
+      "title": "Docosahexaenoic acid modulates myo-inositol and myo-inositol biosynthetic genes expression: implications for bipolar disorder.",
+      "doi": "10.1007/s43440-025-00815-5",
+      "pub_date": "2026 Apr",
+      "pub_type": "Journal Article",
+      "journal": "Pharmacological reports : PR",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41497562",
+      "title": "Effect of Myo-Inositol Treatment on Serum Asprosin Levels of Pregnant Women: A Prospective Randomized Controlled Pilot Study.",
+      "doi": "10.1155/jp/8816154",
+      "pub_date": "2025",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Journal of pregnancy",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41519831",
+      "title": "Identification of key miRNAs and target genes in psoriasis vulgaris and obesity co-morbidity.",
+      "doi": "10.1186/s40001-026-03837-8",
+      "pub_date": "2026 Jan 10",
+      "pub_type": "Journal Article",
+      "journal": "European journal of medical research",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41525464",
+      "title": "Alterations in brain metabolites in rats with experimental periodontitis: A metabolomic approach.",
+      "doi": "10.1002/jper.70069",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "journal": "Journal of periodontology",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41533751",
+      "title": "Effects of Food Bioactive Compounds on Oxidative Stress and the Antioxidant Defense System in Type 2 Diabetes: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "doi": "10.1093/nutrit/nuaf292",
+      "pub_date": "2026 Jan 14",
+      "pub_type": "Journal Article",
+      "journal": "Nutrition reviews",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41539918",
+      "title": "The complex relationship between cardiologists and lipid-lowering dietary supplements: Hate or love?",
+      "doi": "10.1016/j.numecd.2025.104533",
+      "pub_date": "2026 May",
+      "pub_type": "Review",
+      "journal": "Nutrition, metabolism, and cardiovascular diseases : NMCD",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41543854",
+      "title": "Berberine and Adiposity in Diabetes-Free Individuals With Obesity and MASLD: A Randomized Clinical Trial.",
+      "doi": "10.1001/jamanetworkopen.2025.54152",
+      "pub_date": "2026 Jan 2",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "JAMA network open",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41544413",
+      "title": "Investigating the mechanism of berberine in inhibiting periodontitis progression using machine learning, molecular docking, and experimental validation.",
+      "doi": "10.1016/j.archoralbio.2025.106496",
+      "pub_date": "2026 Mar",
+      "pub_type": "Journal Article",
+      "journal": "Archives of oral biology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41544724",
+      "title": "Tianjing Zelan formula improves polycystic ovary syndrome by regulating steroid biosynthesis and arachidonic acid metabolism.",
+      "doi": "10.1016/j.jep.2026.121214",
+      "pub_date": "2026 Apr 24",
+      "pub_type": "Journal Article",
+      "journal": "Journal of ethnopharmacology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41549129",
+      "title": "INPP5D Upregulation by Minocycline Mitigates Sepsis-Associated Neuroinflammation and Neuronal Dysfunction Via Microglial Autophagy and Antioxidant Pathways.",
+      "doi": "10.1007/s10753-025-02413-2",
+      "pub_date": "2026 Jan 19",
+      "pub_type": "Journal Article",
+      "journal": "Inflammation",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41571161",
+      "title": "Decreased levels of N-Acetylaspartyglutamate, myo-inositol, and syllo-inositol, in cortical brain regions of women exposed to adverse childhood experiences.",
+      "doi": "10.1016/j.mri.2026.110621",
+      "pub_date": "2026 May",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "Magnetic resonance imaging",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41581718",
+      "title": "Genomic and AI-driven discovery in chronic prostatitis: Causal role of ITPR3 and therapeutic repurposing of raloxifene.",
+      "doi": "10.1016/j.ejphar.2026.178598",
+      "pub_date": "2026 Feb 15",
+      "pub_type": "Journal Article",
+      "journal": "European journal of pharmacology",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41618210",
+      "title": "Effect of alpha-lipoic acid on salivary secretion in patients undergoing head and neck radiotherapy: a randomized clinical trial.",
+      "doi": "10.1186/s12885-026-15571-9",
+      "pub_date": "2026 Jan 31",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "BMC cancer",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41618368",
+      "title": "Effects of Ziziphus jujuba, metformin, and myoinositol on pregnancy rates and metabolic parameters in infertile women with PCOS: a randomized controlled trial.",
+      "doi": "10.1186/s13048-025-01867-0",
+      "pub_date": "2026 Jan 30",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Journal of ovarian research",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41619689",
+      "title": "Effectiveness of alpha lipoic acid supplementation on biochemical, clinical, and inflammatory parameters in patients with diabetic polyneuropathy: A systematic review and meta-analysis.",
+      "doi": "10.1016/j.dsx.2026.103374",
+      "pub_date": "2026 Feb",
+      "pub_type": "Meta-Analysis",
+      "journal": "Diabetes & metabolic syndrome",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41642425",
+      "title": "Exploring the relationship between Alzheimer's disease and colorectal/breast cancers using SEER database, Mendelian randomization, and transcriptomic data.",
+      "doi": "10.1007/s12672-025-04136-0",
+      "pub_date": "2026 Feb 5",
+      "pub_type": "Journal Article",
+      "journal": "Discover oncology",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41643432",
+      "title": "Effects of dietary myo-inositol supplementation on the expression of fibroblast growth factor 23 (FGF23) and αKlotho in two commercial laying hen strains.",
+      "doi": "10.1016/j.psj.2026.106522",
+      "pub_date": "2026 Apr",
+      "pub_type": "Journal Article",
+      "journal": "Poultry science",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41663782",
+      "title": "Lithium and the Brain-Bone Axis: A Bridge between Osteoporosis and Alzheimer's Disease.",
+      "doi": "10.1007/s11914-026-00954-5",
+      "pub_date": "2026 Feb 10",
+      "pub_type": "Review",
+      "journal": "Current osteoporosis reports",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41663849",
+      "title": "GABPB1 activates transcription of ITPR3 and EMT in OSCC progression.",
+      "doi": "10.1007/s10142-026-01830-2",
+      "pub_date": "2026 Feb 10",
+      "pub_type": "Journal Article",
+      "journal": "Functional & integrative genomics",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41679103",
+      "title": "Neurometabolics of the anterior cingulate cortex (ACC) in major depressive disorder (MDD): A systematic review and meta-analysis.",
+      "doi": "10.1016/j.nicl.2026.103959",
+      "pub_date": "2026",
+      "pub_type": "Meta-Analysis",
+      "journal": "NeuroImage. Clinical",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41679269",
+      "title": "Effects of different dietary methionine and cysteine ratios on growth performance and intestinal development of broilers from brain-gut peptide secretion perspective.",
+      "doi": "10.5713/ab.250787",
+      "pub_date": "2026 Jun",
+      "pub_type": "Journal Article",
+      "journal": "Animal bioscience",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41683214",
+      "title": "Assessing Nutraceuticals for Hepatic Steatosis: A Standardized In Vitro Approach.",
+      "doi": "10.3390/nu18030388",
+      "pub_date": "2026 Jan 24",
+      "pub_type": "Systematic Review",
+      "journal": "Nutrients",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41706352",
+      "title": "Bioactive Substances Characterization in Probiotic-Fermented Guava (Psidium guajava L.) Juice and Systematic Evaluation of its Anti-Hyperglycemic Activity.",
+      "doi": "10.1007/s11130-025-01466-w",
+      "pub_date": "2026 Feb 18",
+      "pub_type": "Journal Article",
+      "journal": "Plant foods for human nutrition (Dordrecht, Netherlands)",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41740185",
+      "title": "Examining oxidative stress as a mechanistic link between sleep irregularity and cardiovascular risk in young adults with chronic anxiety.",
+      "doi": "10.1152/ajpheart.00006.2026",
+      "pub_date": "2026 Apr 1",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "American journal of physiology. Heart and circulatory physiology",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41742988",
+      "title": "The Effect of Myo-Inositol Supplementation During Pregnancy on Fetal and Maternal Outcomes: Results of the Myo-Inositol for the Prevention of Gestational Diabetes Mellitus (MiGDM) Randomized Double-Blind, Placebo-Controlled Pilot Trial.",
+      "doi": "10.7759/cureus.102259",
+      "pub_date": "2026 Jan",
+      "pub_type": "Journal Article",
+      "journal": "Cureus",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41757236",
+      "title": "Effects of inositol in women with polycystic ovary syndrome: an umbrella review of meta-analyses from randomized controlled trials.",
+      "doi": "10.3389/fendo.2026.1741509",
+      "pub_date": "2026",
+      "pub_type": "Meta-Analysis",
+      "journal": "Frontiers in endocrinology",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41773614",
+      "title": "Retraction Note: Treatment of lean PCOS teenagers: a follow-up comparison between Myo-Inositol and oral contraceptives.",
+      "doi": "10.26355/eurrev_202602_37681",
+      "pub_date": "2026 Feb",
+      "pub_type": "Retraction Notice",
+      "journal": "European review for medical and pharmacological sciences",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41788111",
+      "title": "Therapeutic and Diagnostic Landscape of Diabetic Neuropathy: A Systematic Review of Clinical Studies.",
+      "doi": "10.7759/cureus.102825",
+      "pub_date": "2026 Feb",
+      "pub_type": "Review",
+      "journal": "Cureus",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41790217",
+      "title": "The protective role of α-lipoic acid in hypothyroidism-related ovarian damage.",
+      "doi": "10.1007/s00210-026-05163-6",
+      "pub_date": "2026 May",
+      "pub_type": "Journal Article",
+      "journal": "Naunyn-Schmiedeberg's archives of pharmacology",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41792927",
+      "title": "Efficacy of inositol supplementation for the prevention and treatment of gestational diabetes in pregnant women: Results from an umbrella meta-analysis.",
+      "doi": "10.1002/ijgo.70854",
+      "pub_date": "2026 Aug",
+      "pub_type": "Systematic Review",
+      "journal": "International journal of gynaecology and obstetrics: the official organ of the International Federation of Gynaecology and Obstetrics",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41795462",
+      "title": "Dual-targeting strategies for cancer and diabetes: Converging pharmacological pathways and repurposed therapies.",
+      "doi": "10.1016/j.mam.2026.101464",
+      "pub_date": "2026 Jun",
+      "pub_type": "Review",
+      "journal": "Molecular aspects of medicine",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41799384",
+      "title": "Pharmacological advances in multi-targeted strategies for type 2 diabetes mellitus: a systematic perspective based on traditional Chinese medicine.",
+      "doi": "10.3389/fphar.2025.1732134",
+      "pub_date": "2025",
+      "pub_type": "Review",
+      "journal": "Frontiers in pharmacology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41799535",
+      "title": "An overview on phytotherapeutics for metabolic syndrome: A journey from traditional knowledge to modern clinical validation.",
+      "doi": "10.1007/s40200-026-01913-8",
+      "pub_date": "2026 Jun",
+      "pub_type": "Review",
+      "journal": "Journal of diabetes and metabolic disorders",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41809439",
+      "title": "Combination therapy with pregabalin and thioctic acid offers safer pain control in diabetic neuropathy: a multicenter, double-blind, non-inferiority trial.",
+      "doi": "10.1093/braincomms/fcag058",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "journal": "Brain communications",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41816004",
+      "title": "Sex and age differences in brain metabolism and cognition in adolescents.",
+      "doi": "10.1162/IMAG.a.1159",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "journal": "Imaging neuroscience (Cambridge, Mass.)",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41832920",
+      "title": "Neuroprotective Effects of the Combination of Green Tea, Saffron, Docosahexaenoic Acid, and α-Lipoic Acid in an In Vitro Model of Parkinson's Disease.",
+      "doi": "10.1007/s12035-026-05800-4",
+      "pub_date": "2026 Mar 15",
+      "pub_type": "Journal Article",
+      "journal": "Molecular neurobiology",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41833114",
+      "title": "Comparative evaluation of phytate and phytase addition on growth performance and nutrient utilization efficiency in broilers and ducks.",
+      "doi": "10.1016/j.psj.2026.106637",
+      "pub_date": "2026 Jun",
+      "pub_type": "Comparative Study",
+      "journal": "Poultry science",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41846074",
+      "title": "Dietary effect of nano-encapsulated probiotics and alpha-lipoic acid in improving blood parameters, immunity, gut health, gene expression, and growth performance in heat-stressed broilers.",
+      "doi": "10.1016/j.psj.2026.106711",
+      "pub_date": "2026 Jun",
+      "pub_type": "Journal Article",
+      "journal": "Poultry science",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41865610",
+      "title": "Myo-inositol elevation as an in vivo marker of reactive gliosis in pediatric Friedreich ataxia: evidence from HERMES-edited MR spectroscopy.",
+      "doi": "10.1016/j.nicl.2026.103983",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "journal": "NeuroImage. Clinical",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41871887",
+      "title": "Effects of Nutritional Supplement Intake on Pregnancy Outcomes in Overweight and Obese Women: A Systematic Review and Meta-Analysis.",
+      "doi": "10.1111/jog.70244",
+      "pub_date": "2026 Mar",
+      "pub_type": "Meta-Analysis",
+      "journal": "The journal of obstetrics and gynaecology research",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41882153",
+      "title": "Berberine signature and cardiometabolic diseases using randomized controlled trial, cohort study and Mendelian randomization.",
+      "doi": "10.1038/s44325-026-00113-w",
+      "pub_date": "2026 Mar 25",
+      "pub_type": "Journal Article",
+      "journal": "NPJ cardiovascular health",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41897444",
+      "title": "Myo-Inositol: Pharmacokinetics, Biological Functions, and Therapeutic Potential in Liver Protection: Insights from Preclinical Models.",
+      "doi": "10.3390/antiox15030297",
+      "pub_date": "2026 Feb 27",
+      "pub_type": "Review",
+      "journal": "Antioxidants (Basel, Switzerland)",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41900910",
+      "title": "Treatment with Kinase Inhibitors Plus Myo-Inositol as Re-Differentiating Agents in Iodine-Refractory Thyroid Cancers.",
+      "doi": "10.3390/life16030391",
+      "pub_date": "2026 Feb 28",
+      "pub_type": "Journal Article",
+      "journal": "Life (Basel, Switzerland)",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41918524",
+      "title": "Berberine-gut microbiota interactions based on CiteSpace: current research status and hotspots.",
+      "doi": "10.3389/fmicb.2026.1751887",
+      "pub_date": "2026",
+      "pub_type": "Systematic Review",
+      "journal": "Frontiers in microbiology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41935358",
+      "title": "Evaluation of Alpha-Lipoic Acid and B Vitamins on Quality of Life and Metabolic Parameters among Diabetic Patients with Symptomatic Distal Symmetric Polyneuropathy: A Randomized Controlled Trial.",
+      "doi": "10.2174/0115733998451787260317083008",
+      "pub_date": "2026",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Current diabetes reviews",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41939765",
+      "title": "Mapping the knowledge domain: a bibliometric analysis of global research on traditional Chinese medicine for non-alcoholic fatty liver disease (2000-2024).",
+      "doi": "10.3389/fmed.2026.1744929",
+      "pub_date": "2026",
+      "pub_type": "Systematic Review",
+      "journal": "Frontiers in medicine",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41947399",
+      "title": "Metabolic Phenotype Predicts Biochemical Response to Inositol Supplementation in Polycystic Ovary Syndrome: A Systematic Review and Meta-Analysis.",
+      "doi": "10.1111/cen.70140",
+      "pub_date": "2026 Aug",
+      "pub_type": "Meta-Analysis",
+      "journal": "Clinical endocrinology",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41957664",
+      "title": "MIND-NL diet adherence moderates the relation of low-grade systemic inflammation with neuroinflammatory metabolites and cognitive functioning: an exploratory cross-sectional study in older adults.",
+      "doi": "10.1186/s12974-026-03773-8",
+      "pub_date": "2026 Apr 9",
+      "pub_type": "Journal Article",
+      "journal": "Journal of neuroinflammation",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41958469",
+      "title": "Weight loss and metabolic improvements dominate the microbiome response in the MIND diet intervention: a randomized controlled trial.",
+      "doi": "10.1002/trc2.70239",
+      "pub_date": "2026 Apr-Jun",
+      "pub_type": "Journal Article",
+      "journal": "Alzheimer's & dementia (New York, N. Y.)",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41963763",
+      "title": "Phytochemicals in arthritis management: insight into pharmacodynamic potency with pharmacokinetic profile.",
+      "doi": "10.1007/s10787-026-02194-6",
+      "pub_date": "2026 May",
+      "pub_type": "Review",
+      "journal": "Inflammopharmacology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41973047",
+      "title": "Effects of lipoic acid on muscle quality in finishing pigs under diquat-induced oxidative stress challenge.",
+      "doi": "10.1080/1745039X.2026.2653547",
+      "pub_date": "2026 Jun-Aug",
+      "pub_type": "Journal Article",
+      "journal": "Archives of animal nutrition",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "41979234",
+      "title": "Efficacy and Safety of Glimepiride, Voglibose, and Metformin ER in Type 2 Diabetes: A Randomized, Active-Controlled Study.",
+      "doi": "10.1111/1753-0407.70217",
+      "pub_date": "2026 Apr",
+      "pub_type": "Clinical Trial, Phase IV",
+      "journal": "Journal of diabetes",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42011624",
+      "title": "[Shared mechanisms of obesity and male infertility and prediction of natural therapeutics based on machine learning and single-cell sequencing].",
+      "doi": "10.19540/j.cnki.cjcmm.20251114.901",
+      "pub_date": "2026 Mar",
+      "pub_type": "Journal Article",
+      "journal": "Zhongguo Zhong yao za zhi = Zhongguo zhongyao zazhi = China journal of Chinese materia medica",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42019472",
+      "title": "Xylanase and phytase as modulators of gut microbiota and phytate degradation in wheat-based diets for meat quail.",
+      "doi": "10.1016/j.psj.2026.106935",
+      "pub_date": "2026 Jul",
+      "pub_type": "Journal Article",
+      "journal": "Poultry science",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42026060",
+      "title": "Reduction of glycation stress as a geroscience intervention: protocol for a pilot RCT in postmenopausal women.",
+      "doi": "10.1038/s41514-026-00373-x",
+      "pub_date": "2026 Apr 23",
+      "pub_type": "Journal Article",
+      "journal": "npj aging",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42039234",
+      "title": "Crisugabalin Combined with Acetyl-Levo-Carnitine for Diabetic Peripheral Neuropathic Pain: A Phase 2 Randomized Controlled Trial.",
+      "doi": "10.2147/JPR.S588472",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "journal": "Journal of pain research",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42039854",
+      "title": "Natural Bioactive-Based Advanced Wound Dressings for Diabetic Wound Healing: A Systematic Review of Emerging Biomaterial Platforms.",
+      "doi": "10.2147/IJN.S588990",
+      "pub_date": "2026",
+      "pub_type": "Systematic Review",
+      "journal": "International journal of nanomedicine",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42043671",
+      "title": "Berberine Ameliorates Atherosclerosis by Promoting Mitochondrial Biogenesis via SIRT1/PGC-1α Signaling Pathway.",
+      "doi": "10.1007/s11655-026-4037-8",
+      "pub_date": "2026 Apr 27",
+      "pub_type": "Journal Article",
+      "journal": "Chinese journal of integrative medicine",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42056717",
+      "title": "Efficacy and Safety of Pregabalin and Alpha-Lipoic Acid Combination in Patients With Painful Diabetic Peripheral Neuropathy: A Randomized, Open-Label, Non-Inferiority, Phase IV Clinical Trial and Subgroup Analysis (OPTIMUM Study).",
+      "doi": "10.1111/dom.70795",
+      "pub_date": "2026 Jul",
+      "pub_type": "Equivalence Trial",
+      "journal": "Diabetes, obesity & metabolism",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42083350",
+      "title": "Beyond Conventional Therapy: A Comprehensive Review of Herbal, Traditional, and Emerging Interventions for Polycystic Ovary Syndrome.",
+      "doi": "10.2174/0115665240406897251206074722",
+      "pub_date": "2026 Apr 22",
+      "pub_type": "Journal Article",
+      "journal": "Current molecular medicine",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42084620",
+      "title": "Targeting the PI3K/Akt/mTOR and Nrf2 signaling axis with berberine: a novel strategy for attenuating diabetic cardiomyopathy.",
+      "doi": "10.1007/s00210-026-05407-5",
+      "pub_date": "2026 Jul",
+      "pub_type": "Journal Article",
+      "journal": "Naunyn-Schmiedeberg's archives of pharmacology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42100151",
+      "title": "A systematic review on the potential of modulating the IRE arm of the UPR in U87 and U251 glioblastoma cells for improved therapeutic efficacy.",
+      "doi": "10.22099/mbrc.2025.54152.2205",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "journal": "Molecular biology research communications",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42102930",
+      "title": "Neurometabolite changes in cingulate cortex regions in healthy Indian population and effect of Bacopa monnieri intervention: a H(1) MRS study.",
+      "doi": "10.1016/j.neuint.2026.106163",
+      "pub_date": "2026 Jul-Aug",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "Neurochemistry international",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42104950",
+      "title": "Efficacy of pharmacological and nutritional interventions for glucose dysfunction in schizophrenia-A systematic review and network meta-analysis.",
+      "doi": "10.1177/02698811261443680",
+      "pub_date": "2026 May 9",
+      "pub_type": "Journal Article",
+      "journal": "Journal of psychopharmacology (Oxford, England)",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42122912",
+      "title": "Myo-Inositol Plus Selenium vs. Selenium Alone in Hashimoto's Thyroiditis with Subclinical Hypothyroidism: A Systematic Review and Updated Meta-Analysis with Trial Sequential Analysis.",
+      "doi": "10.3390/jcm15093179",
+      "pub_date": "2026 Apr 22",
+      "pub_type": "Review",
+      "journal": "Journal of clinical medicine",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42123959",
+      "title": "Carob (Ceratonia siliqua L.) in Glucose Homeostasis and Energy Balance: The Role of D-Pinitol.",
+      "doi": "10.3390/nu18091357",
+      "pub_date": "2026 Apr 25",
+      "pub_type": "Review",
+      "journal": "Nutrients",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42126802",
+      "title": "Berberine Regulates Hepatic Fatty Acid Metabolism via AMPK/SIRT1/PGC-1α Pathway.",
+      "doi": "10.1007/s11655-026-3846-0",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "journal": "Chinese journal of integrative medicine",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42131795",
+      "title": "High protein ingestion does not affect whole-body insulin sensitivity in individuals with overweight or obesity.",
+      "doi": "10.1210/jendso/bvag013",
+      "pub_date": "2026 Jun",
+      "pub_type": "Journal Article",
+      "journal": "Journal of the Endocrine Society",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42144902",
+      "title": "Rethinking the maximum inclusion levels of exogenous phytase for enhanced turkey production performance.",
+      "doi": "10.1080/1745039X.2026.2669683",
+      "pub_date": "2026 Jun-Aug",
+      "pub_type": "Journal Article",
+      "journal": "Archives of animal nutrition",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42147097",
+      "title": "Efficacy and safety of Buyang Huanwu Decoction combined with α-lipoic acid for diabetic peripheral neuropathy: a systematic review with in-depth heterogeneity deconstruction and methodological appraisal.",
+      "doi": "10.3389/fendo.2026.1778262",
+      "pub_date": "2026",
+      "pub_type": "Meta-Analysis",
+      "journal": "Frontiers in endocrinology",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42148322",
+      "title": "Metabolomics in Traditional Chinese Medicine for Diabetes Mellitus: Mechanistic Insights, Biomarker Discovery, and Clinical Application Prospects.",
+      "doi": "10.1155/ianc/8261773",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "journal": "International journal of analytical chemistry",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42156830",
+      "title": "Impact of stem cell therapy on brain metabolic profile in cerebral palsy assessed by magnetic resonance spectroscopy in a randomized clinical trial.",
+      "doi": "10.1038/s41598-026-50051-x",
+      "pub_date": "2026 May 19",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Scientific reports",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42165798",
+      "title": "Oral myo-inositol plus D-chiro-inositol (3.6:1) reduces insulin resistance pathway biomarkers in acne-involved skin among subjects with metabolic comorbidities: A gene expression study.",
+      "doi": null,
+      "pub_date": "2026 Apr 28",
+      "pub_type": "Journal Article",
+      "journal": "Neuro endocrinology letters",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42176580",
+      "title": "Dietary alpha‑lipoic acid, sprouted wheat, and multi‑enzyme supplementation improve yolk fatty acid profile and antioxidant status in laying hens.",
+      "doi": "10.1016/j.psj.2026.107114",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "journal": "Poultry science",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42184498",
+      "title": "Er-xian Decoction: A comprehensive review on chemical constituents, quality control, pharmacokinetics, pharmacological properties and clinical applications.",
+      "doi": "10.1016/j.phymed.2026.158298",
+      "pub_date": "2026 Jul 25",
+      "pub_type": "Review",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42185636",
+      "title": "Brain MRI findings associated with soccer heading: a systematic review and meta-analysis.",
+      "doi": "10.1007/s00234-026-04040-6",
+      "pub_date": "2026 May 26",
+      "pub_type": "Review",
+      "journal": "Neuroradiology",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42194129",
+      "title": "Impact of Adjunctive Myo-Inositol and Magnesium Therapy on Paediatric Overactive Bladder: A Retrospective Analysis.",
+      "doi": "10.3390/children13050604",
+      "pub_date": "2026 Apr 27",
+      "pub_type": "Journal Article",
+      "journal": "Children (Basel, Switzerland)",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42196981",
+      "title": "Effects of Specific Carob (Ceratonia siliqua L.) Liquid Concentrate on Glucose Metabolism in Subjects with Prediabetes: A Randomized Double-Blind Controlled Clinical Trial.",
+      "doi": "10.3390/nu18101521",
+      "pub_date": "2026 May 10",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Nutrients",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42196997",
+      "title": "Alpha-Lipoic Acid and Benfotiamine in Diabetic Peripheral Neuropathy: A Critical Review of Mechanistic Rationale and Clinical Evidence Within a Nutritional Therapeutic Framework.",
+      "doi": "10.3390/nu18101538",
+      "pub_date": "2026 May 12",
+      "pub_type": "Review",
+      "journal": "Nutrients",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42213651",
+      "title": "Probiotics, synbiotics and berberine in Type 2 diabetes mellitus: A systematic review, meta-analysis, and molecular dynamics simulation study.",
+      "doi": "10.1371/journal.pone.0348907",
+      "pub_date": "2026",
+      "pub_type": "Meta-Analysis",
+      "journal": "PloS one",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42223319",
+      "title": "Brain and Muscle ARNT-Like 1 Ameliorates Sepsis-Induced Acute Lung Injury by Orchestrating Endoplasmic Reticulum-Phagy and Mitochondrial Metabolism.",
+      "doi": "10.1097/CCM.0000000000007182",
+      "pub_date": "2026 Aug 1",
+      "pub_type": "Journal Article",
+      "journal": "Critical care medicine",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42232301",
+      "title": "Pathogenesis of diabetic cardiomyopathy and emerging therapeutic strategies: a network-based perspective.",
+      "doi": "10.3389/fcdhc.2026.1823872",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "journal": "Frontiers in clinical diabetes and healthcare",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42242341",
+      "title": "The effect of myo-inositol supplementation on gestational diabetes mellitus prevention: a systematic review and meta-analysis.",
+      "doi": "10.1016/j.ajog.2026.05.020",
+      "pub_date": "2026 Jun 3",
+      "pub_type": "Review",
+      "journal": "American journal of obstetrics and gynecology",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42248526",
+      "title": "Disparate plasma metabolomic profiles in late-life depression and amnestic mild cognitive impairment: A (1)H NMR metabolomics study.",
+      "doi": "10.1016/j.jad.2026.122084",
+      "pub_date": "2026 Nov 1",
+      "pub_type": "Journal Article",
+      "journal": "Journal of affective disorders",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42249096",
+      "title": "Alpha‑lipoic acid-loaded chitosan nanoparticles ameliorate streptozotocin‑induced diabetic liver injury via Nrf2/HO‑1 activation and TLR4/NF‑κB and JAK2/STAT1 inhibition.",
+      "doi": "10.1007/s00210-026-05521-4",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "journal": "Naunyn-Schmiedeberg's archives of pharmacology",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42249406",
+      "title": "Safety and metabolic effects of HTD1801 in type 2 diabetes and MASLD: a phase Ib randomized trial.",
+      "doi": "10.1186/s13098-026-02202-3",
+      "pub_date": "2026 Jun 5",
+      "pub_type": "Journal Article",
+      "journal": "Diabetology & metabolic syndrome",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42253799",
+      "title": "Clinical outcomes of mitochondrial-enhancing nutraceutical supplementation in psychiatric disorders: A systematic review.",
+      "doi": "10.1002/gps3.70023",
+      "pub_date": "2026 Jun",
+      "pub_type": "Journal Article",
+      "journal": "General psychiatry",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42255444",
+      "title": "Adjunctive berberine improves hormonal, metabolic, and inflammatory profiles in women with polycystic ovary syndrome: a retrospective case-control study.",
+      "doi": "10.3389/fendo.2026.1700331",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "journal": "Frontiers in endocrinology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42307637",
+      "title": "Decoding polycystic ovary syndrome: an integrated review of epidemiology, molecular mechanisms, animal models, and the expanding therapeutic landscape.",
+      "doi": "10.1007/s00210-026-05559-4",
+      "pub_date": "2026 Sep",
+      "pub_type": "Review",
+      "journal": "Naunyn-Schmiedeberg's archives of pharmacology",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42308734",
+      "title": "Dietary sodium butyrate suppresses abdominal fat deposition by improving cecal microbiota and metabolomics in broilers.",
+      "doi": "10.1016/j.psj.2026.107214",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "journal": "Poultry science",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42313570",
+      "title": "Probiotics and Their Functional Role in Mitigating Antinutrient Effects In Vivo-A Systematic Review and Meta-Analysis.",
+      "doi": "10.1111/1541-4337.70524",
+      "pub_date": "2026 Jul",
+      "pub_type": "Systematic Review",
+      "journal": "Comprehensive reviews in food science and food safety",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42340705",
+      "title": "Neurometabolites and Antipsychotic Response in Psychosis: A Mega-Analysis.",
+      "doi": "10.1001/jamapsychiatry.2026.1674",
+      "pub_date": "2026 Sep 1",
+      "pub_type": "Meta-Analysis",
+      "journal": "JAMA psychiatry",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42352057",
+      "title": "Oxidative Stress in Glaucoma: From Pathogenic Mechanisms to Emerging Antioxidant Therapies.",
+      "doi": "10.3390/antiox15060751",
+      "pub_date": "2026 Jun 14",
+      "pub_type": "Review",
+      "journal": "Antioxidants (Basel, Switzerland)",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42356246",
+      "title": "The Integrative Role of Berberine in Gut Microbiota Modulation and Cardiometabolic Outcomes: A Systematic Review of Randomised Clinical Trials.",
+      "doi": "10.3390/nu18121858",
+      "pub_date": "2026 Jun 9",
+      "pub_type": "Journal Article",
+      "journal": "Nutrients",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42356334",
+      "title": "The Interplay Between PMOS and MASLD: Pathophysiology and Evidence-Based Nutritional Interventions.",
+      "doi": "10.3390/nu18121948",
+      "pub_date": "2026 Jun 16",
+      "pub_type": "Review",
+      "journal": "Nutrients",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42368730",
+      "title": "Effects of alpha-lipoic acid in non-alcoholic fatty liver disease (NAFLD): a systematic review of literature.",
+      "doi": "10.1007/s40200-026-01979-4",
+      "pub_date": "2026 Dec",
+      "pub_type": "Review",
+      "journal": "Journal of diabetes and metabolic disorders",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42372710",
+      "title": "Effects of carob (Ceratonia siliqua) and carob-derived products on glycaemic control and insulin resistance: A systematic review of clinical trials.",
+      "doi": "10.1016/j.nutres.2026.05.007",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "journal": "Nutrition research (New York, N.Y.)",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42402747",
+      "title": "Evaluation of neurotrophic therapies for sciatic nerve injury in mice.",
+      "doi": "10.47162/RJME.67.1.16",
+      "pub_date": "2026 Jan-Mar",
+      "pub_type": "Journal Article",
+      "journal": "Romanian journal of morphology and embryology = Revue roumaine de morphologie et embryologie",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42406354",
+      "title": "Myo-Inositol in Pregnancy: Implications for Acne Management.",
+      "doi": "10.36849/JDD.9783",
+      "pub_date": "2026 Jul 1",
+      "pub_type": "Review",
+      "journal": "Journal of drugs in dermatology : JDD",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42428479",
+      "title": "Orosomucoid 2 (ORM2) in type 2 diabetes and coronary artery disease: a potential link between insulin resistance and vascular inflammation.",
+      "doi": "10.3389/fcvm.2026.1859065",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "journal": "Frontiers in cardiovascular medicine",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42433212",
+      "title": "Adjunctive berberine for schizophrenia with metabolic syndrome: a systematic review and meta-analysis.",
+      "doi": "10.3389/fpsyt.2026.1846995",
+      "pub_date": "2026",
+      "pub_type": "Systematic Review",
+      "journal": "Frontiers in psychiatry",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42442701",
+      "title": "Efficacy and tolerability of nutraceuticals and phytotherapics for antipsychotic-induced weight gain in schizophrenia spectrum disorders: Systematic review and meta-analysis.",
+      "doi": "10.1055/a-2869-0635",
+      "pub_date": "2026 Jul 13",
+      "pub_type": "Journal Article",
+      "journal": "Pharmacopsychiatry",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42445687",
+      "title": "Polyphenolic Components and Phytochemicals Deployed as Nutraceuticals and Pharmafoods.",
+      "doi": "10.1002/fsn3.72105",
+      "pub_date": "2026 Jul",
+      "pub_type": "Review",
+      "journal": "Food science & nutrition",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42449579",
+      "title": "Mutations of Kinases and GTPases in Cancers.",
+      "doi": "10.3390/cancers18132033",
+      "pub_date": "2026 Jun 23",
+      "pub_type": "Editorial",
+      "journal": "Cancers",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42451096",
+      "title": "Effect of Myo-Inositol Supplementation in Polycystic Ovary Syndrome-Scoping Review.",
+      "doi": "10.3390/nu18132093",
+      "pub_date": "2026 Jun 26",
+      "pub_type": "Review",
+      "journal": "Nutrients",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42470424",
+      "title": "Sex-Specific Lipid, Apolipoprotein B, and Lipoprotein(a) Responses to Berberine Based on 2 Randomized Placebo-Controlled Trials.",
+      "doi": "10.1016/j.jacasi.2026.06.011",
+      "pub_date": "2026 Jul 11",
+      "pub_type": "Journal Article",
+      "journal": "JACC. Asia",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42490840",
+      "title": "Comparative analysis of glucagon-like peptide-1 receptor agonists, metformin, and inositol in improving anthropometric and metabolic outcomes in women with polycystic ovary syndrome: a network meta-analysis.",
+      "doi": "10.3389/fendo.2026.1833904",
+      "pub_date": "2026",
+      "pub_type": "Comparative Study",
+      "journal": "Frontiers in endocrinology",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42493219",
+      "title": "Hypoglycaemia in a non-diabetic patient due to alpha-lipoic acid-induced insulin autoimmune syndrome with HLA-DRB1*04:03:01G.",
+      "doi": "10.1136/bcr-2026-273735",
+      "pub_date": "2026 Jul 23",
+      "pub_type": "Case Reports",
+      "journal": "BMJ case reports",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42517336",
+      "title": "Multimodal Therapy With Metformin, Inositol and Dietary Restriction Improves Insulin Resistance and Endocrine Outcomes in Women With Polyendocrine Metabolic Ovarian Syndrome: A Randomized Controlled Trial.",
+      "doi": "10.1111/cen.70188",
+      "pub_date": "2026 Oct",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Clinical endocrinology",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42535603",
+      "title": "Efficacy and Safety of Alpha-Lipoic Acid as an Adjunctive Therapy in Schizophrenia: A Systematic Review and Meta-Analysis.",
+      "doi": "10.1097/JCP.0000000000002231",
+      "pub_date": "2026 Jul 31",
+      "pub_type": "Journal Article",
+      "journal": "Journal of clinical psychopharmacology",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42547049",
+      "title": "Alpha-lipoic acid prevents ethyl alcohol-induced apoptosis and oxidative stress in kidneys.",
+      "doi": "10.24875/GMM.25000167",
+      "pub_date": "2025",
+      "pub_type": "Journal Article",
+      "journal": "Gaceta medica de Mexico",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42549142",
+      "title": "Correction: Comparative analysis of glucagon-like peptide-1 receptor agonists, metformin, and inositol in improving anthropometric and metabolic outcomes in women with polycystic ovary syndrome: a network meta-analysis.",
+      "doi": "10.3389/fendo.2026.1932302",
+      "pub_date": "2026",
+      "pub_type": "Published Erratum",
+      "journal": "Frontiers in endocrinology",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42559774",
+      "title": "Sex Matters in Precision Lipid Management: Implications Beyond LDL Cholesterol.",
+      "doi": "10.1016/j.jacasi.2026.07.003",
+      "pub_date": "2026 Aug 4",
+      "pub_type": "Editorial",
+      "journal": "JACC. Asia",
+      "has_abstract": false,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42616201",
+      "title": "Effect of alpha-lipoic acid supplementation on polycystic ovary syndrome clinical outcome in infertile females treated with letrozole: a randomized controlled trial.",
+      "doi": "10.1007/s44446-026-00084-0",
+      "pub_date": "2026 Aug 19",
+      "pub_type": "Journal Article",
+      "journal": "Saudi pharmaceutical journal : SPJ : the official publication of the Saudi Pharmaceutical Society",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42616311",
+      "title": "Effect of Berberine on Improving Reproduction Disorder in Female Mice with Type 2 Diabetes Mellitus.",
+      "doi": "10.1007/s11655-026-4247-0",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "journal": "Chinese journal of integrative medicine",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42637318",
+      "title": "Structural characterization and hypoglycemic mechanism of Chinese yam polysaccharide at the nexus of IR-AMPK-PI3K-AKT pathway in type 2 diabetic zebrafish and cellular insulin resistant model.",
+      "doi": "10.1016/j.foodres.2026.120064",
+      "pub_date": "2026 Oct 31",
+      "pub_type": "Journal Article",
+      "journal": "Food research international (Ottawa, Ont.)",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42640987",
+      "title": "IP3R2-mediated inter-organelle calcium signaling suppresses melanosome degradation.",
+      "doi": "10.1371/journal.pbio.3003971",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "journal": "PLoS biology",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42643396",
+      "title": "Oral, intravenous, or sequential alpha-lipoic acid for diabetic peripheral neuropathy? A Bayesian network meta-analysis of randomized controlled trials.",
+      "doi": "10.3389/fneur.2026.1904967",
+      "pub_date": "2026",
+      "pub_type": "Systematic Review",
+      "journal": "Frontiers in neurology",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42644531",
+      "title": "Causal Effects of Oral Microbiome, Circulating Metabolites, and Inflammatory Proteins on Recurrent Aphthous Stomatitis: A Two-Sample Mendelian Randomization Study.",
+      "doi": "10.3290/j.ohpd.c_2774",
+      "pub_date": "2026 Aug 26",
+      "pub_type": "Journal Article",
+      "journal": "Oral health & preventive dentistry",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42645604",
+      "title": "Berberine-associated lipid-inflammatory regulation in atherosclerosis: an integrative transcriptomic, single-cell, and in vivo study.",
+      "doi": "10.1007/s10142-026-02019-3",
+      "pub_date": "2026 Aug 26",
+      "pub_type": "Journal Article",
+      "journal": "Functional & integrative genomics",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42647983",
+      "title": "Methodological considerations on the meta-analysis of alpha-lipoic acid in diabetic neuropathy.",
+      "doi": "10.1016/j.dsx.2026.103479",
+      "pub_date": "2026 Aug 17",
+      "pub_type": "Letter",
+      "journal": "Diabetes & metabolic syndrome",
+      "has_abstract": false,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42653115",
+      "title": "Defined Natural Products as Adjunctive Therapies: Evidence-Gated Polypharmacology Across Molecular Targets, Human Exposure, Clinical Signals, and Safety Boundaries.",
+      "doi": "10.3390/ijms27167111",
+      "pub_date": "2026 Aug 8",
+      "pub_type": "Review",
+      "journal": "International journal of molecular sciences",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42654212",
+      "title": "Effects of a Multi-Component Nutraceutical (NUT2) on the Lipid Profile in Adults with Low-to-Moderate Cardiovascular Risk: A Randomized Placebo-Controlled Trial.",
+      "doi": "10.3390/nu18162632",
+      "pub_date": "2026 Aug 12",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Nutrients",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42654282",
+      "title": "Micronutrition as a Therapeutic Strategy for Mitochondrial Dysfunction in Myalgic Encephalomyelitis/Chronic Fatigue Syndrome and Fibromyalgia: A Narrative Review.",
+      "doi": "10.3390/nu18162702",
+      "pub_date": "2026 Aug 19",
+      "pub_type": "Review",
+      "journal": "Nutrients",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42668494",
+      "title": "Comparative Efficacy of Herbal Products on Metabolic Parameters in Metabolic-Dysfunction Associated Liver Disease: A Systematic Review and Network Meta-Analysis.",
+      "doi": "10.1016/j.gastha.2026.101040",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "journal": "Gastro hep advances",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42725681",
+      "title": "Comparative anti-obesity efficacy of high-interest natural products in preclinical models: a bibliometric and network meta-analysis.",
+      "doi": "10.1039/d6fo03150a",
+      "pub_date": "2026 Sep 11",
+      "pub_type": "Journal Article",
+      "journal": "Food & function",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42738972",
+      "title": "Effects of Berberine, White Mulberry Leaf Extract and Chromium Picolinate on Body Composition and Insulin Resistance in Adults with Obesity: A Randomized Controlled Trial.",
+      "doi": "10.3390/nu18172801",
+      "pub_date": "2026 Aug 27",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Nutrients",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42779396",
+      "title": "[Research on mechanism of moxibustion with seed-sized moxa cones for improving ulcerative colitis based on cuproptosis].",
+      "doi": "10.13702/j.1000-0607.20260117",
+      "pub_date": "2026 Sep 25",
+      "pub_type": "Journal Article",
+      "journal": "Zhen ci yan jiu = Acupuncture research",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42794540",
+      "title": "Coptidis Rhizoma for Obesity, Diabetes, and Dyslipidemia: An Integrated Meta-Analysis and In Silico Study.",
+      "doi": "10.3390/ijms27188109",
+      "pub_date": "2026 Sep 11",
+      "pub_type": "Systematic Review",
+      "journal": "International journal of molecular sciences",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42806611",
+      "title": "Additive and Dose-Dependent Effects of Coenzyme Q10 Combined With Myoinositol on Insulin Resistance and Hyperandrogenism in Women With Polycystic Ovary Syndrome: A Retrospective Controlled Study.",
+      "doi": "10.1111/jog.70502",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "journal": "The journal of obstetrics and gynaecology research",
+      "has_abstract": true,
+      "query": "(inositol OR myo-inositol) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (PCOS OR insulin OR metabolic) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42821141",
+      "title": "Network pharmacology, single-cell transcriptomics, machine learning and experimental validation identifying CHEK2 and HPGD as key therapeutic targets of berberine in diabetic nephropathy.",
+      "doi": "10.1007/s10142-026-02052-2",
+      "pub_date": "2026 Oct 1",
+      "pub_type": "Journal Article",
+      "journal": "Functional & integrative genomics",
+      "has_abstract": true,
+      "query": "(berberine OR dihydroberberine) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR metabolic syndrome OR obesity OR glucose OR lipid) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42824821",
+      "title": "Deciphering cysteamine's impact on cashmere-producing traits of cashmere goats: a transcriptomic and metabolomic perspective.",
+      "doi": "10.3389/fvets.2026.1925080",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "journal": "Frontiers in veterinary science",
+      "has_abstract": true,
+      "query": "(alpha-lipoic acid OR lipoic acid) AND (randomized OR systematic review OR meta-analysis OR clinical trial) AND (diabetes OR neuropathy OR metabolic) AND 2018:2026[pdat]"
+    }
+  ]
+}

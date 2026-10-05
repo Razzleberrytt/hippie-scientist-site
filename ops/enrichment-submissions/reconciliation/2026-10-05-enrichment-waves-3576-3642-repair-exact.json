@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "row_count": 3,
+  "verified_count": 3,
+  "rows": [
+    {
+      "wave": 3578,
+      "pmid": "42785538",
+      "title": "Cannabinoids as context-dependent modulators of the adenosine A3 receptors: Potential orthosteric and allosteric mechanisms.",
+      "abstract": "Adenosine regulates neurotransmission, immunity, inflammation, and tissue protection via four G protein-coupled receptors, among which the adenosine A3 receptor (A3R) remains comparatively understudied despite its therapeutic promise. This study examined whether cannabidiol (CBD) and cannabigerol (CBG) modulate human A3R signalling, alone or with added adenosine, using cAMP assays, molecular docking, binding-energy calculations, and molecular dynamics simulations. Both cannabinoids inhibited forskolin-stimulated cAMP accumulation in A3R-expressing cells, an effect absent in non-transfected cells and blocked by the selective A3R antagonist PSB-10 but not by the selective A2A receptor antagonist SCH 58261, supporting A3R-mediated activity under these conditions. CBG was more potent than CBD (IC50 = 0.130 vs. 1.05 µM), whereas their maximal inhibitory responses were comparable. In the presence of 100 nM CBD, the apparent IC50 of adenosine decreased from 138 to 42 nM, whereas 100 nM CBG reduced it to 1.0 nM, corresponding to an approximately 138-fold increase in apparent adenosine potency; CBG also increased the maximal inhibitory response. These results identify CBG as an effective enhancer of adenosine potency at human A3R, suggesting it stabilizes an occupancy-dependent secondary pose that fine-tunes the orthosteric agonist-receptor interaction network. Further work, encompassing direct binding studies, proximal signalling assays, receptor-subtype profiling, and structural analyses, is needed to validate this mechanism.",
+      "journal": "Pharmacological research",
+      "pub_date": "2026-Sep-24",
+      "pdf_link": "https://doi.org/10.1016/j.phrs.2026.109641",
+      "full_text_link": null,
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3587,
+      "pmid": "42745676",
+      "title": "Intravenous lipid emulsions with or without fish oil for the prevention of liver disease in VLBW neonates: A network meta-analysis.",
+      "abstract": "Parenteral nutrition-associated liver disease is a severe complication in very low birth weight (≤1500 g) preterm neonates. Although previous pairwise meta-analyses have compared individual intravenous lipid emulsions, their relative efficacy across all available formulations has not been established in this population. We conducted a systematic review and frequentist random-effects network meta-analysis, searching PubMed, Embase, and the Cochrane Central Register through April 2026. Eligible studies were randomized trials of any intravenous lipid emulsion in very low birth weight neonates reporting this outcome. Treatments formed seven nodes; odds ratios versus soybean oil were estimated, ranking used the surface under the cumulative ranking curve (Bayesian model), and certainty was assessed with the Confidence in Network Meta-Analysis framework. A total of 15 trials (1876 neonates) were included. Fish oil/olive oil/soybean oil was the only formulation significantly associated with reduced disease versus soybean oil (odds ratio, 0.099; 95% confidence interval, 0.016-0.613), but derived from a single high-risk-of-bias study. A soybean oil, medium-chain triglyceride, olive oil, and fish oil emulsion showed a nonsignificant reduction (odds ratio, 0.695; 0.440-1.099; 94% Bayesian probability of benefit), most pronounced among extremely low birth weight infants (odds ratio, 0.557; 0.307-1.010). In the ranking, fish oil/olive oil/soybean oil ranked first and this multicomponent emulsion second. No heterogeneity or inconsistency was detected; certainty was low to very low. Fish oil-containing emulsions show a consistent signal toward reduced disease in very low birth weight neonates, but evidence remains insufficient for definitive recommendations. Adequately powered trials with standardized cholestasis definitions are needed.",
+      "journal": "JPEN. Journal of parenteral and enteral nutrition",
+      "pub_date": "2026-Sep-16",
+      "pdf_link": "https://doi.org/10.1002/jpen.70145",
+      "full_text_link": null,
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3627,
+      "pmid": "42650476",
+      "title": "Beyond Composition: Processing-Driven Transformations and Functional Trade-Offs of Matcha Tea in Foods.",
+      "abstract": "Matcha tea, a powdered green tea produced from shade-grown Camellia sinensis leaves, has gained increasing attention as both a traditional beverage and a functional food ingredient. While previous reviews have focused on its phytochemical profile and biological activities, less attention has been given to the effects of food processing and matrix interactions on matcha bioactives. This review critically synthesizes current evidence on the processing-induced transformation, stability, and digestive bioaccessibility of key matcha compounds in real food systems. The production methods, phytochemical compositions, and reported health effects are summarized, with a particular emphasis on matrix-dependent changes during processing, including catechin degradation and epimerization, caffeine retention, L-theanine stability, and chlorophyll loss. The implications of these alterations for sensory quality, safety, and gastrointestinal release are discussed. Emerging findings on gut microbiota modulation and omics-based approaches are also highlighted. Collectively, the available evidence indicates that the functional value of matcha in foods is strongly influenced by processing-matrix interactions rather than native composition alone, leading to trade-offs among health functionality, consumer acceptance, and safety. By integrating food chemistry, processing, and nutritional perspectives, this review proposes a framework to guide the rational formulation of matcha-enriched foods and align health claims with realistic processing outcomes.",
+      "journal": "Foods (Basel, Switzerland)",
+      "pub_date": "2026-Aug-07",
+      "pdf_link": "https://doi.org/10.3390/foods15162782",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13512456/",
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    }
+  ]
+}
