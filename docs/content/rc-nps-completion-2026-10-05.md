@@ -56,4 +56,3 @@ Merge/deployment receipt and external impact are separate. No traffic, ranking, 
 - The initial browser check exposed oversized prose-as-evidence badges and long titles; the five recovery guides now use supported conservative labels and concise titles while preserving detailed scientific limitations in their body text.
 - #6258, #6249 and #6253 are CLOSED. #6252 and #6254 are CLOSED as superseded, with their source work incorporated into merged #6257; they are not represented as independently merged PRs.
 - Production deployment is a separate receipt and was **not confirmed at the time of this merge record**. No deployment success, traffic, ranking, revenue, treatment outcome or measured resource savings is inferred from these release checks.
-
