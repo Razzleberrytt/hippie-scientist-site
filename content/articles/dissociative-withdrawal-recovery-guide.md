@@ -128,7 +128,7 @@ references:
 
 ## Quick answer
 
-Dissociatives do not have one universal withdrawal syndrome. ([source 1](https://pubmed.ncbi.nlm.nih.gov/42385939/); [source 2](https://pubmed.ncbi.nlm.nih.gov/38922637/)).
+Dissociatives do not have one universal withdrawal syndrome. ([Mosca A, 2026](https://pubmed.ncbi.nlm.nih.gov/42385939/); [Roberts E, 2024](https://pubmed.ncbi.nlm.nih.gov/38922637/)).
 
 The best human evidence concerns **ketamine**, where repeated heavy use can produce craving, tolerance, compulsive use and a clinically meaningful use disorder. Withdrawal symptoms have been reported, but the literature is inconsistent about how much is a distinct physiological withdrawal syndrome versus rebound anxiety, insomnia, dysphoria, craving and behavioral dependence.
 
@@ -148,7 +148,7 @@ The safest summary is:
 
 ## What drugs are included?
 
-This guide covers dissociative drugs whose major psychoactive effects involve NMDA-receptor antagonism, including: ([source 1](https://pubmed.ncbi.nlm.nih.gov/30105474/); [source 2](https://pubmed.ncbi.nlm.nih.gov/30196446/)).
+This guide covers dissociative drugs whose major psychoactive effects involve NMDA-receptor antagonism, including: ([Wallach J, 2018](https://pubmed.ncbi.nlm.nih.gov/30105474/); [Wallach J, 2018](https://pubmed.ncbi.nlm.nih.gov/30196446/)).
 
 - ketamine;
 - PCP;
@@ -207,7 +207,7 @@ That pattern can be severe even when physical withdrawal is mild or inconsistent
 
 ## What ketamine withdrawal can look like
 
-Published reports and reviews describe symptoms such as: [Supporting study](https://pubmed.ncbi.nlm.nih.gov/38922637/).
+Published reports and reviews describe symptoms such as: [Roberts E, 2024](https://pubmed.ncbi.nlm.nih.gov/38922637/).
 
 - craving;
 - anxiety;
@@ -224,7 +224,7 @@ Published reports and reviews describe symptoms such as: [Supporting study](http
 
 Severe psychiatric instability can occur in heavy users, but the literature is too heterogeneous to define a single syndrome or incidence.
 
-The 2024 pharmacologic-treatment systematic review found only **12 studies involving 368 participants**, with six reporting withdrawal treatment. All outcomes were descriptive and the evidence was rated very low quality. [Study record](https://pubmed.ncbi.nlm.nih.gov/38922637/).
+The 2024 pharmacologic-treatment systematic review found only **12 studies involving 368 participants**, with six reporting withdrawal treatment. All outcomes were descriptive and the evidence was rated very low quality. [Roberts E, 2024](https://pubmed.ncbi.nlm.nih.gov/38922637/).
 
 That is enough to say withdrawal management is a real clinical issue, but not enough to prescribe one standardized medication regimen.
 
@@ -232,7 +232,7 @@ That is enough to say withdrawal management is a real clinical issue, but not en
 
 ## Why the literature seems contradictory
 
-Older ketamine reviews sometimes reported **no clear physiological withdrawal syndrome**, while newer literature describes withdrawal symptoms and treatment. ([source 1](https://pubmed.ncbi.nlm.nih.gov/11476262/); [source 2](https://pubmed.ncbi.nlm.nih.gov/38922637/)).
+Older ketamine reviews sometimes reported **no clear physiological withdrawal syndrome**, while newer literature describes withdrawal symptoms and treatment. ([Jansen KL, 2001](https://pubmed.ncbi.nlm.nih.gov/11476262/); [Roberts E, 2024](https://pubmed.ncbi.nlm.nih.gov/38922637/)).
 
 Those positions are not necessarily mutually exclusive.
 
@@ -248,7 +248,7 @@ Modern research therefore increasingly frames the problem as **ketamine use diso
 
 ## Withdrawal timeline
 
-There is no validated universal ketamine or RC-dissociative withdrawal clock. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/38922637/).
+There is no validated universal ketamine or RC-dissociative withdrawal clock. [Roberts E, 2024](https://pubmed.ncbi.nlm.nih.gov/38922637/).
 
 Timing depends on:
 
@@ -268,7 +268,7 @@ This guide intentionally avoids “day 1 / day 2 / day 3” promises for the cla
 
 ## PCP: dependence without a classic withdrawal template
 
-Older outpatient PCP research found extensive psychological dependence and difficulty stopping despite harm, while participants did not report a consistent physiological withdrawal syndrome. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/2596441/).
+Older outpatient PCP research found extensive psychological dependence and difficulty stopping despite harm, while participants did not report a consistent physiological withdrawal syndrome. [Gorelick DA, 1989](https://pubmed.ncbi.nlm.nih.gov/2596441/).
 
 Human PCP pharmacology literature also describes tolerance and craving without a clearly established classic physical withdrawal syndrome.
 
@@ -287,7 +287,7 @@ Recovery can still be complicated by:
 
 ## RC dissociatives: what can and cannot be inferred
 
-Newer arylcyclohexylamines share NMDA-antagonist pharmacology but may have different: ([source 1](https://pubmed.ncbi.nlm.nih.gov/30105474/); [source 2](https://pubmed.ncbi.nlm.nih.gov/30196446/)).
+Newer arylcyclohexylamines share NMDA-antagonist pharmacology but may have different: ([Wallach J, 2018](https://pubmed.ncbi.nlm.nih.gov/30105474/); [Wallach J, 2018](https://pubmed.ncbi.nlm.nih.gov/30196446/)).
 
 - potency;
 - receptor profiles;
@@ -308,7 +308,7 @@ Therefore:
 
 ## Acute intoxication versus withdrawal
 
-Symptoms after stopping can overlap with persistent intoxication or other complications. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/38922637/).
+Symptoms after stopping can overlap with persistent intoxication or other complications. [Roberts E, 2024](https://pubmed.ncbi.nlm.nih.gov/38922637/).
 
 Possible explanations include:
 
@@ -326,7 +326,7 @@ Someone who remains severely confused or psychotic should not automatically be l
 
 ## Chronic medical complications matter during recovery
 
-A dissociative recovery plan must screen for more than craving. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/42385939/).
+A dissociative recovery plan must screen for more than craving. [Mosca A, 2026](https://pubmed.ncbi.nlm.nih.gov/42385939/).
 
 ### Ketamine-associated urinary tract injury
 
@@ -364,7 +364,7 @@ Recovery trajectories vary and are not well enough studied for a fixed timetable
 
 ## Treatment of acute withdrawal
 
-There is no FDA-approved medication specifically for ketamine or RC-dissociative withdrawal. ([source 1](https://pubmed.ncbi.nlm.nih.gov/38922637/); [source 2](https://pubmed.ncbi.nlm.nih.gov/42385939/)).
+There is no FDA-approved medication specifically for ketamine or RC-dissociative withdrawal. ([Roberts E, 2024](https://pubmed.ncbi.nlm.nih.gov/38922637/); [Mosca A, 2026](https://pubmed.ncbi.nlm.nih.gov/42385939/)).
 
 The 2024 systematic review found reports involving medications such as benzodiazepines and haloperidol for intoxication/withdrawal, but evidence quality was **very low**.
 
@@ -383,7 +383,7 @@ That literature should not be converted into a DIY medication protocol.
 
 ## Craving and relapse prevention
 
-Craving can be a central feature of ketamine dependence. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/38922637/).
+Craving can be a central feature of ketamine dependence. [Roberts E, 2024](https://pubmed.ncbi.nlm.nih.gov/38922637/).
 
 Small studies and case reports have explored medications including:
 
@@ -401,7 +401,7 @@ The strongest practical approach remains individualized treatment combining beha
 
 ## Psychosocial treatment
 
-Direct ketamine-specific psychotherapy evidence is still limited, but broader substance-use evidence supports structured approaches such as: [Supporting study](https://pubmed.ncbi.nlm.nih.gov/42385939/).
+Direct ketamine-specific psychotherapy evidence is still limited, but broader substance-use evidence supports structured approaches such as: [Mosca A, 2026](https://pubmed.ncbi.nlm.nih.gov/42385939/).
 
 - motivational interviewing;
 - cognitive-behavioral therapy;
@@ -415,7 +415,7 @@ A 2024 meta-analysis across drug use disorders supports contingency management a
 
 ## Why “detox” is not the whole treatment
 
-For dissociatives, the hardest part may not be the first few drug-free days. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/42385939/).
+For dissociatives, the hardest part may not be the first few drug-free days. [Mosca A, 2026](https://pubmed.ncbi.nlm.nih.gov/42385939/).
 
 Recovery often requires addressing:
 
@@ -436,7 +436,7 @@ A short detox without follow-up can leave the main relapse drivers untouched.
 
 ## Sleep in early recovery
 
-Heavy dissociative use can disrupt normal sleep patterns, and stopping may uncover sleep debt, anxiety or rebound insomnia. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/42385939/).
+Heavy dissociative use can disrupt normal sleep patterns, and stopping may uncover sleep debt, anxiety or rebound insomnia. [Mosca A, 2026](https://pubmed.ncbi.nlm.nih.gov/42385939/).
 
 Sleep recovery can be irregular.
 
@@ -453,7 +453,7 @@ Persistent near-total insomnia with agitation or psychosis deserves medical eval
 
 ## Mood and suicide risk
 
-Low mood and dysphoria can occur during early abstinence. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/42385939/).
+Low mood and dysphoria can occur during early abstinence. [Mosca A, 2026](https://pubmed.ncbi.nlm.nih.gov/42385939/).
 
 Ketamine's medical use as an antidepressant does **not** mean nonmedical ketamine dependence protects against depression or suicide risk.
 
@@ -471,7 +471,7 @@ Suicidal intent, inability to stay safe, or severe psychiatric deterioration req
 
 ## Polysubstance withdrawal
 
-A person stopping a dissociative may also be withdrawing from: [Supporting study](https://pubmed.ncbi.nlm.nih.gov/38922637/).
+A person stopping a dissociative may also be withdrawing from: [Roberts E, 2024](https://pubmed.ncbi.nlm.nih.gov/38922637/).
 
 - alcohol;
 - benzodiazepines;
@@ -508,7 +508,7 @@ If someone returns to use after abstinence, tolerance may be lower. Product stre
 
 ## Testing and forensic interpretation
 
-Routine urine drug screens may detect PCP, but many modern dissociatives are **not** reliably covered by standard panels. ([source 1](https://pubmed.ncbi.nlm.nih.gov/30105474/); [source 2](https://pubmed.ncbi.nlm.nih.gov/30196446/)).
+Routine urine drug screens may detect PCP, but many modern dissociatives are **not** reliably covered by standard panels. ([Wallach J, 2018](https://pubmed.ncbi.nlm.nih.gov/30105474/); [Wallach J, 2018](https://pubmed.ncbi.nlm.nih.gov/30196446/)).
 
 Targeted testing may require:
 

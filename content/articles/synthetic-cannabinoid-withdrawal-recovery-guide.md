@@ -120,7 +120,7 @@ references:
 
 ## Quick answer
 
-Synthetic cannabinoid receptor agonists (SCRAs)—often sold as **Spice, K2, herbal incense, liquid cannabinoids, or under ever-changing compound names**—can produce **physical dependence and a clinically important withdrawal syndrome** after repeated use. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/40570820/).
+Synthetic cannabinoid receptor agonists (SCRAs)—often sold as **Spice, K2, herbal incense, liquid cannabinoids, or under ever-changing compound names**—can produce **physical dependence and a clinically important withdrawal syndrome** after repeated use. [Sharma R, 2025](https://pubmed.ncbi.nlm.nih.gov/40570820/).
 
 The best recent synthesis is a 2025 systematic review of published withdrawal case reports. Across the small case literature, the most frequently reported withdrawal problems included **psychosis, agitation or irritability, nausea/vomiting, seizures, tachycardia, and insomnia**. In most published cases symptoms began within roughly the first two days after stopping, but the evidence base is too small and heterogeneous to create a universal timeline.
 
@@ -130,7 +130,7 @@ The most important point is that **synthetic cannabinoids are not simply “stro
 
 ## What counts as a synthetic cannabinoid?
 
-Synthetic cannabinoid receptor agonists are laboratory-made compounds that activate cannabinoid receptors, especially **CB1 receptors** in the central nervous system. They have appeared in many chemical generations: [Supporting study](https://pubmed.ncbi.nlm.nih.gov/38915848/).
+Synthetic cannabinoid receptor agonists are laboratory-made compounds that activate cannabinoid receptors, especially **CB1 receptors** in the central nervous system. They have appeared in many chemical generations: [Heal DJ, 2024](https://pubmed.ncbi.nlm.nih.gov/38915848/).
 
 - early JWH-series compounds;
 - indazole and indole carboxamides;
@@ -146,7 +146,7 @@ That product uncertainty is central to withdrawal: two people who believe they u
 
 ## Why dependence can develop rapidly
 
-Many SCRAs are **full or very high-efficacy agonists** at CB1 receptors, while THC is a partial agonist. That pharmacologic difference helps explain why some synthetic cannabinoids can produce: ([source 1](https://pubmed.ncbi.nlm.nih.gov/38915848/); [source 2](https://pubmed.ncbi.nlm.nih.gov/30663326/)).
+Many SCRAs are **full or very high-efficacy agonists** at CB1 receptors, while THC is a partial agonist. That pharmacologic difference helps explain why some synthetic cannabinoids can produce: ([Heal DJ, 2024](https://pubmed.ncbi.nlm.nih.gov/38915848/); [Grigg J, 2019](https://pubmed.ncbi.nlm.nih.gov/30663326/)).
 
 - more intense intoxication;
 - faster tolerance;
@@ -179,7 +179,7 @@ A person can have physical dependence without meeting criteria for a severe use 
 
 ## What synthetic cannabinoid withdrawal looks like
 
-The 2025 systematic review of case reports identified a wide spectrum. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/40570820/).
+The 2025 systematic review of case reports identified a wide spectrum. [Sharma R, 2025](https://pubmed.ncbi.nlm.nih.gov/40570820/).
 
 ### Commonly reported psychiatric and behavioral symptoms
 
@@ -224,7 +224,7 @@ The 2025 review found psychosis, agitation/irritability and vomiting among the m
 ## Withdrawal timeline
 
 ### What the case literature suggests
-In the 2025 systematic review, withdrawal symptoms most often emerged in the **first 24–48 hours** after stopping, and many published cases resolved within about a week. [Study record](https://pubmed.ncbi.nlm.nih.gov/40570820/).
+In the 2025 systematic review, withdrawal symptoms most often emerged in the **first 24–48 hours** after stopping, and many published cases resolved within about a week. [Sharma R, 2025](https://pubmed.ncbi.nlm.nih.gov/40570820/).
 
 That is a useful clinical signal, but not a clock.
 
@@ -248,7 +248,7 @@ A product called “K2” in one month can contain a different compound than a p
 
 ## Synthetic cannabinoid withdrawal versus cannabis withdrawal
 
-Natural cannabis withdrawal is well characterized. Typical symptoms include irritability, anxiety, sleep disturbance, depressed mood and reduced appetite, usually beginning within one to two days and peaking during the first week. ([source 1](https://pubmed.ncbi.nlm.nih.gov/40570820/); [source 2](https://pubmed.ncbi.nlm.nih.gov/34791767/)).
+Natural cannabis withdrawal is well characterized. Typical symptoms include irritability, anxiety, sleep disturbance, depressed mood and reduced appetite, usually beginning within one to two days and peaking during the first week. ([Sharma R, 2025](https://pubmed.ncbi.nlm.nih.gov/40570820/); [Connor JP, 2022](https://pubmed.ncbi.nlm.nih.gov/34791767/)).
 
 Synthetic cannabinoids can overlap with that picture—but published SCRA withdrawal cases more often include **severe autonomic and neuropsychiatric complications**, including seizure and psychosis.
 
@@ -270,7 +270,7 @@ Synthetic cannabinoids can overlap with that picture—but published SCRA withdr
 
 ## Acute withdrawal versus ongoing psychiatric symptoms
 
-Not every symptom after stopping is withdrawal. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/41008366/).
+Not every symptom after stopping is withdrawal. [Mosca A, 2025](https://pubmed.ncbi.nlm.nih.gov/41008366/).
 
 Clinicians and patients must distinguish among:
 
@@ -288,7 +288,7 @@ That distinction matters because severe agitation, hallucinations or paranoia sh
 
 ## Who is at higher risk for severe withdrawal?
 
-The evidence is not strong enough to produce a validated risk calculator, but published reports and clinical reviews support greater concern when there is: ([source 1](https://pubmed.ncbi.nlm.nih.gov/27074934/); [source 2](https://pubmed.ncbi.nlm.nih.gov/25588420/)).
+The evidence is not strong enough to produce a validated risk calculator, but published reports and clinical reviews support greater concern when there is: ([Cooper ZD, 2016](https://pubmed.ncbi.nlm.nih.gov/27074934/); [Macfarlane V, 2015](https://pubmed.ncbi.nlm.nih.gov/25588420/)).
 
 - daily or near-daily use;
 - repeated dosing throughout the day;
@@ -308,7 +308,7 @@ Unknown product composition increases uncertainty further.
 
 ## Why seizures can occur
 
-SCRA-associated seizures have been reported during both intoxication and withdrawal. ([source 1](https://pubmed.ncbi.nlm.nih.gov/40570820/); [source 2](https://pubmed.ncbi.nlm.nih.gov/27074934/)).
+SCRA-associated seizures have been reported during both intoxication and withdrawal. ([Sharma R, 2025](https://pubmed.ncbi.nlm.nih.gov/40570820/); [Cooper ZD, 2016](https://pubmed.ncbi.nlm.nih.gov/27074934/)).
 
 Possible mechanisms include:
 
@@ -327,7 +327,7 @@ A seizure after SCRA cessation should be treated as a medical emergency, not as 
 
 ## Psychosis, paranoia and agitation
 
-Synthetic cannabinoids have a strong association with acute psychosis and severe agitation. During withdrawal, psychiatric symptoms can also occur or worsen. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/41008366/).
+Synthetic cannabinoids have a strong association with acute psychosis and severe agitation. During withdrawal, psychiatric symptoms can also occur or worsen. [Mosca A, 2025](https://pubmed.ncbi.nlm.nih.gov/41008366/).
 
 A 2025 systematic review of SCRA-induced psychosis found that real-world management commonly begins with rapid control of agitation and autonomic instability, followed by antipsychotic treatment when severe psychosis persists. However, the certainty of this evidence is low because much of it comes from uncontrolled clinical reports.
 
@@ -339,7 +339,7 @@ For a public harm-reduction page, the safe conclusion is:
 
 ## Treatment of acute withdrawal
 
-There is no FDA-approved medication specifically for synthetic-cannabinoid withdrawal. ([source 1](https://pubmed.ncbi.nlm.nih.gov/27074934/); [source 2](https://pubmed.ncbi.nlm.nih.gov/25588420/)).
+There is no FDA-approved medication specifically for synthetic-cannabinoid withdrawal. ([Cooper ZD, 2016](https://pubmed.ncbi.nlm.nih.gov/27074934/); [Macfarlane V, 2015](https://pubmed.ncbi.nlm.nih.gov/25588420/)).
 
 Published management is mostly:
 
@@ -379,7 +379,7 @@ That can replace one withdrawal problem with another and increase overdose or in
 
 ## Drug testing during withdrawal
 
-Routine hospital and workplace cannabinoid tests usually target THC metabolites. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/27074934/).
+Routine hospital and workplace cannabinoid tests usually target THC metabolites. [Cooper ZD, 2016](https://pubmed.ncbi.nlm.nih.gov/27074934/).
 
 They generally **do not rule out synthetic cannabinoid exposure**.
 
@@ -396,7 +396,7 @@ A negative routine cannabis screen is therefore compatible with SCRA exposure.
 
 ## Recovery after the acute phase
 
-Acute stabilization is only the first phase. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/30663326/).
+Acute stabilization is only the first phase. [Grigg J, 2019](https://pubmed.ncbi.nlm.nih.gov/30663326/).
 
 Longer recovery can involve:
 
@@ -415,7 +415,7 @@ The evidence does not support a single post-acute SCRA recovery timeline.
 
 ## Treatment for synthetic cannabinoid use disorder
 
-Direct randomized treatment evidence is extremely limited. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/30663326/).
+Direct randomized treatment evidence is extremely limited. [Grigg J, 2019](https://pubmed.ncbi.nlm.nih.gov/30663326/).
 
 Reasonable evidence-based care therefore borrows from broader substance-use treatment while addressing SCRA-specific complications.
 
@@ -440,7 +440,7 @@ Any pharmacotherapy should target a defined clinical problem rather than be pres
 
 ## Relapse risk
 
-Relapse risk can be high because: [Supporting study](https://pubmed.ncbi.nlm.nih.gov/30663326/).
+Relapse risk can be high because: [Grigg J, 2019](https://pubmed.ncbi.nlm.nih.gov/30663326/).
 
 - tolerance and craving can develop rapidly;
 - products are cheap and accessible in some markets;
@@ -454,7 +454,7 @@ A return to use after abstinence can also be unpredictable because tolerance may
 
 ## Recovery planning
 
-A practical recovery plan should address more than “getting through withdrawal.” [Supporting study](https://pubmed.ncbi.nlm.nih.gov/30663326/).
+A practical recovery plan should address more than “getting through withdrawal.” [Grigg J, 2019](https://pubmed.ncbi.nlm.nih.gov/30663326/).
 
 ### Medical
 
@@ -486,7 +486,7 @@ A practical recovery plan should address more than “getting through withdrawal
 
 ## When emergency care is appropriate
 
-Seek urgent or emergency evaluation for: ([source 1](https://pubmed.ncbi.nlm.nih.gov/40570820/); [source 2](https://pubmed.ncbi.nlm.nih.gov/27074934/)).
+Seek urgent or emergency evaluation for: ([Sharma R, 2025](https://pubmed.ncbi.nlm.nih.gov/40570820/); [Cooper ZD, 2016](https://pubmed.ncbi.nlm.nih.gov/27074934/)).
 
 - seizure;
 - delirium;

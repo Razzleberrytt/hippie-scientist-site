@@ -101,7 +101,7 @@ references:
 
 ## Quick answer
 
-Classic serotonergic psychedelics such as **LSD and psilocybin do not usually produce the stereotyped physical dependence and withdrawal syndromes seen with alcohol, benzodiazepines or opioids**. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/30521880/).
+Classic serotonergic psychedelics such as **LSD and psilocybin do not usually produce the stereotyped physical dependence and withdrawal syndromes seen with alcohol, benzodiazepines or opioids**. [Johnson MW, 2019](https://pubmed.ncbi.nlm.nih.gov/30521880/).
 
 That does not mean “nothing can happen after the trip.”
 
@@ -122,7 +122,7 @@ For newer tryptamines, lysergamides, NBOMe/NBOH compounds and related NPS, direc
 
 ## Dependence and tolerance
 
-Classic psychedelics can produce **rapid tolerance**, particularly with closely spaced repeated exposure. Cross-tolerance can occur among serotonergic psychedelics. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/30521880/).
+Classic psychedelics can produce **rapid tolerance**, particularly with closely spaced repeated exposure. Cross-tolerance can occur among serotonergic psychedelics. [Johnson MW, 2019](https://pubmed.ncbi.nlm.nih.gov/30521880/).
 
 Rapid tolerance is not the same thing as physical dependence.
 
@@ -135,7 +135,7 @@ A person can still develop a problematic pattern of use, especially when use bec
 
 ## What “withdrawal” usually means in this class
 
-After stopping repeated psychedelic use, the main concerns are more often **post-intoxication and psychiatric recovery** than a receptor-withdrawal syndrome. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/37284524/).
+After stopping repeated psychedelic use, the main concerns are more often **post-intoxication and psychiatric recovery** than a receptor-withdrawal syndrome. [Evens R, 2023](https://pubmed.ncbi.nlm.nih.gov/37284524/).
 
 Possible post-use symptoms include:
 - fatigue;
@@ -151,7 +151,7 @@ These symptoms are not specific enough to define a universal psychedelic withdra
 
 ## Afterglow versus adverse aftereffects
 
-A systematic review of subacute psychedelic effects found that some controlled-study participants reported improvements in mood, wellbeing, mindfulness and social functioning after the acute experience. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/37284524/).
+A systematic review of subacute psychedelic effects found that some controlled-study participants reported improvements in mood, wellbeing, mindfulness and social functioning after the acute experience. [Evens R, 2023](https://pubmed.ncbi.nlm.nih.gov/37284524/).
 
 That “afterglow” is not guaranteed.
 
@@ -167,7 +167,7 @@ Both positive and negative subacute effects can occur.
 
 ## HPPD, flashbacks and reactivations
 
-Hallucinogen Persisting Perception Disorder (HPPD) is distinct from ordinary withdrawal. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/41348264/).
+Hallucinogen Persisting Perception Disorder (HPPD) is distinct from ordinary withdrawal. [Žuljević MF, 2026](https://pubmed.ncbi.nlm.nih.gov/41348264/).
 
 Possible symptoms include:
 - visual snow;
@@ -184,7 +184,7 @@ Persistent perceptual symptoms deserve medical/psychiatric evaluation, especiall
 
 ## Psychosis and mania-like states
 
-Most controlled psychedelic trials carefully screen participants, which limits how well their safety profile transfers to unsupervised use. ([source 1](https://pubmed.ncbi.nlm.nih.gov/37902038/); [source 2](https://pubmed.ncbi.nlm.nih.gov/41205366/)).
+Most controlled psychedelic trials carefully screen participants, which limits how well their safety profile transfers to unsupervised use. ([Kaminski D, 2024](https://pubmed.ncbi.nlm.nih.gov/37902038/); [Højlund M, 2025](https://pubmed.ncbi.nlm.nih.gov/41205366/)).
 
 Risk can be higher with:
 - personal or family history of psychosis;
@@ -204,7 +204,7 @@ Research-chemical psychedelics can differ markedly in:
 - seizure risk;
 - duration;
 - potency;
-- active metabolites. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/30521880/).
+- active metabolites. [Johnson MW, 2019](https://pubmed.ncbi.nlm.nih.gov/30521880/).
 
 NBOMe/NBOH compounds in particular have toxicology profiles that cannot be reduced to “strong LSD.”
 
@@ -218,7 +218,7 @@ Useful recovery priorities include:
 - hydration and nutrition;
 - reducing sensory overstimulation;
 - talking through the experience with a trusted person or clinician;
-- treating persistent panic, depression or trauma-like symptoms directly. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/41348264/).
+- treating persistent panic, depression or trauma-like symptoms directly. [Žuljević MF, 2026](https://pubmed.ncbi.nlm.nih.gov/41348264/).
 
 There is no evidence-based need to “taper” LSD, psilocybin or similar classic serotonergic psychedelics.
 
@@ -232,11 +232,11 @@ Professional evaluation is appropriate for:
 - persistent derealization/depersonalization;
 - persistent hallucinations or paranoia;
 - significant HPPD;
-- recurrent dangerous use despite consequences. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/41348264/).
+- recurrent dangerous use despite consequences. [Žuljević MF, 2026](https://pubmed.ncbi.nlm.nih.gov/41348264/).
 
 ## Substance use disorder versus physical dependence
 
-A person can have a problematic psychedelic-use pattern without physical dependence. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/30521880/).
+A person can have a problematic psychedelic-use pattern without physical dependence. [Johnson MW, 2019](https://pubmed.ncbi.nlm.nih.gov/30521880/).
 
 Warning signs include:
 - repeated inability to stop despite wanting to;

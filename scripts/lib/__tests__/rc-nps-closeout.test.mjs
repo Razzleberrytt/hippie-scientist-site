@@ -41,7 +41,8 @@ test('every inventoried RC/NPS article retains a real referral path and canonica
 
 test('five recovery guides cite body claims, and every withheld inventory name has a disposition', () => {
   for (const family of ['synthetic-cannabinoid','dissociative','psychedelic','entactogen-benzofuran','novel-sedative-qualone']) {
-    const {content} = matter(fs.readFileSync(`content/articles/${family}-withdrawal-recovery-guide.md`, 'utf8'))
+    const {data,content} = matter(fs.readFileSync(`content/articles/${family}-withdrawal-recovery-guide.md`, 'utf8'))
+    assert.ok(['Low','Very Low'].includes(data.evidenceGrade), `Supported evidence badge: ${family}`)
     assert.ok((content.match(/https:\/\/pubmed\.ncbi\.nlm\.nih\.gov\/\d+\//g) || []).length >= 5, family)
   }
   const dispositions = JSON.parse(fs.readFileSync('docs/content/rc-nps-candidate-dispositions-2026-10-05.json', 'utf8'))

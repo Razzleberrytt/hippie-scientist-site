@@ -104,7 +104,7 @@ references:
 
 ## Quick answer
 
-MDMA and benzofuran entactogens occupy an awkward middle ground between **stimulants** and **serotonergic drugs**. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/19836170/).
+MDMA and benzofuran entactogens occupy an awkward middle ground between **stimulants** and **serotonergic drugs**. [Degenhardt L, 2010](https://pubmed.ncbi.nlm.nih.gov/19836170/).
 
 Repeated MDMA use can produce:
 - tolerance;
@@ -121,7 +121,7 @@ For 5-APB, 6-APB, 5-MAPB and 6-MAPB, direct dependence and withdrawal studies ar
 
 ## Comedown versus withdrawal
 
-A **comedown** is the short-term post-intoxication period after acute effects wear off. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/19836170/).
+A **comedown** is the short-term post-intoxication period after acute effects wear off. [Degenhardt L, 2010](https://pubmed.ncbi.nlm.nih.gov/19836170/).
 
 It may include:
 - fatigue;
@@ -138,7 +138,7 @@ In real-world MDMA users these categories can overlap, especially after repeated
 
 ## MDMA dependence
 
-Cross-national research using adapted diagnostic criteria found substantial rates of MDMA dependence among frequent users, and withdrawal was one of the commonly endorsed criteria. ([source 1](https://pubmed.ncbi.nlm.nih.gov/19681802/); [source 2](https://pubmed.ncbi.nlm.nih.gov/19836170/)).
+Cross-national research using adapted diagnostic criteria found substantial rates of MDMA dependence among frequent users, and withdrawal was one of the commonly endorsed criteria. ([Cottler LB, 2009](https://pubmed.ncbi.nlm.nih.gov/19681802/); [Degenhardt L, 2010](https://pubmed.ncbi.nlm.nih.gov/19836170/)).
 
 Other reviews conclude that dependence occurs, although it is generally less profound than with strongly reinforcing drugs such as opioids, nicotine or cocaine.
 
@@ -146,7 +146,7 @@ Physical dependence is not required for a serious use disorder.
 
 ## Why mood can drop after use
 
-MDMA releases serotonin, dopamine and norepinephrine and also produces substantial physiologic stress. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/23881877/).
+MDMA releases serotonin, dopamine and norepinephrine and also produces substantial physiologic stress. [Parrott AC, 2013](https://pubmed.ncbi.nlm.nih.gov/23881877/).
 
 Post-use low mood can reflect a combination of:
 - sleep deprivation;
@@ -161,7 +161,7 @@ The popular phrase “serotonin depletion” is often used too simplistically. H
 
 ## Sleep and recovery
 
-Sleep disruption is one of the most common practical recovery problems. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/23881877/).
+Sleep disruption is one of the most common practical recovery problems. [Parrott AC, 2013](https://pubmed.ncbi.nlm.nih.gov/23881877/).
 
 Helpful priorities include:
 - restoring a regular sleep-wake schedule;
@@ -173,7 +173,7 @@ Persistent inability to sleep, especially with agitation or psychosis, deserves 
 
 ## Cognition
 
-Heavy recreational MDMA exposure has been associated with memory and other cognitive differences in observational studies. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/41255336/).
+Heavy recreational MDMA exposure has been associated with memory and other cognitive differences in observational studies. [Ung H, 2026](https://pubmed.ncbi.nlm.nih.gov/41255336/).
 
 A 2025 systematic review/meta-analysis of people abstinent for at least six months found persistent learning/memory differences compared with MDMA-naïve groups, but the authors rated the underlying evidence as low quality and could not show a simple dose-free recovery timeline.
 
@@ -184,7 +184,7 @@ That means:
 
 ## Benzofurans and MAPB compounds
 
-5-APB, 6-APB, 5-MAPB and 6-MAPB are not simply “MDMA with a ring changed.” [Supporting study](https://pubmed.ncbi.nlm.nih.gov/26327309/).
+5-APB, 6-APB, 5-MAPB and 6-MAPB are not simply “MDMA with a ring changed.” [Welter-Luedeke J, 2016](https://pubmed.ncbi.nlm.nih.gov/26327309/).
 
 Published pharmacology shows monoamine releasing/reuptake effects involving serotonin, dopamine and norepinephrine, but direct human withdrawal research is sparse.
 
@@ -209,11 +209,11 @@ Post-entactogen dysphoria can be transient, but urgent evaluation is appropriate
 - severe depression lasting beyond the expected short post-use period;
 - psychosis;
 - mania-like symptoms;
-- near-total insomnia with behavioral deterioration. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/23881877/).
+- near-total insomnia with behavioral deterioration. [Parrott AC, 2013](https://pubmed.ncbi.nlm.nih.gov/23881877/).
 
 ## Treatment and recovery support
 
-There is no approved medication specifically for MDMA or benzofuran withdrawal. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/38669101/).
+There is no approved medication specifically for MDMA or benzofuran withdrawal. [ASAM/AAAP](https://pubmed.ncbi.nlm.nih.gov/38669101/).
 
 Treatment usually focuses on:
 - sleep restoration;
@@ -233,7 +233,7 @@ Common relapse drivers include:
 - desire to recreate empathy/euphoria;
 - stimulant tolerance;
 - using again to escape the comedown;
-- easy access to pressed pills or powders. ([source 1](https://pubmed.ncbi.nlm.nih.gov/19836170/); [source 2](https://pubmed.ncbi.nlm.nih.gov/38669101/)).
+- easy access to pressed pills or powders. ([Degenhardt L, 2010](https://pubmed.ncbi.nlm.nih.gov/19836170/); [ASAM/AAAP](https://pubmed.ncbi.nlm.nih.gov/38669101/)).
 
 A useful recovery plan identifies the exact role the drug was playing rather than treating every case as generic “addiction.”
 
@@ -244,7 +244,7 @@ A pill sold as MDMA may contain:
 - a cathinone;
 - a benzofuran;
 - multiple active drugs;
-- unexpectedly high MDMA content. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/18382220/).
+- unexpectedly high MDMA content. [Leung KS, 2008](https://pubmed.ncbi.nlm.nih.gov/18382220/).
 
 That matters because the “withdrawal” picture after a weekend can reflect several drugs at once.
 

@@ -95,7 +95,7 @@ references:
 
 ## Quick answer
 
-Methaqualone is a **dependence-producing sedative-hypnotic** with historical evidence of a potentially dangerous withdrawal syndrome, including seizures. ([source 1](https://pubmed.ncbi.nlm.nih.gov/36651763/); [source 2](https://pubmed.ncbi.nlm.nih.gov/3736882/)).
+Methaqualone is a **dependence-producing sedative-hypnotic** with historical evidence of a potentially dangerous withdrawal syndrome, including seizures. ([Inger JA, 2023](https://pubmed.ncbi.nlm.nih.gov/36651763/); [Faught E, 1986](https://pubmed.ncbi.nlm.nih.gov/3736882/)).
 
 Modern “qualone” research chemicals such as **2-methoxyqualone, dicloqualone and other clandestine quinazolinones** are much less studied in humans.
 
@@ -107,7 +107,7 @@ That distinction matters:
 
 ## Why these drugs are not just benzodiazepines
 
-Methaqualone is a GABA-A receptor modulator, but it does **not** bind at the classic benzodiazepine site. ([source 1](https://pubmed.ncbi.nlm.nih.gov/26056160/); [source 2](https://pubmed.ncbi.nlm.nih.gov/38898000/)).
+Methaqualone is a GABA-A receptor modulator, but it does **not** bind at the classic benzodiazepine site. ([Hammer H, 2015](https://pubmed.ncbi.nlm.nih.gov/26056160/); [Chojnacka W, 2024](https://pubmed.ncbi.nlm.nih.gov/38898000/)).
 
 Modern structural and functional studies place methaqualone at transmembrane GABA-A receptor interfaces overlapping more closely with sites used by some anesthetic modulators.
 
@@ -120,7 +120,7 @@ Historical methaqualone experience documented:
 - compulsive use;
 - escalating consumption;
 - physical dependence;
-- withdrawal after cessation. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/36651763/).
+- withdrawal after cessation. [Inger JA, 2023](https://pubmed.ncbi.nlm.nih.gov/36651763/).
 
 The 2023 DARK Classics review describes methaqualone as a drug whose widespread recreational use exposed substantial overdose and dependence liability.
 
@@ -133,7 +133,7 @@ Historical reports describe withdrawal symptoms including:
 - agitation;
 - autonomic symptoms;
 - perceptual disturbance;
-- seizures. ([source 1](https://pubmed.ncbi.nlm.nih.gov/3736882/); [source 2](https://pubmed.ncbi.nlm.nih.gov/36651763/)).
+- seizures. ([Faught E, 1986](https://pubmed.ncbi.nlm.nih.gov/3736882/); [Inger JA, 2023](https://pubmed.ncbi.nlm.nih.gov/36651763/)).
 
 A published neurologic case documented myoclonic and tonic-clonic seizures during methaqualone withdrawal, with EEG abnormalities that resolved with the withdrawal state.
 
@@ -143,7 +143,7 @@ The strongest practical conclusion is therefore:
 
 ## Seizure risk
 
-Seizure risk is especially important because the parent drug has both sedative and anticonvulsant properties. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/3736882/).
+Seizure risk is especially important because the parent drug has both sedative and anticonvulsant properties. [Faught E, 1986](https://pubmed.ncbi.nlm.nih.gov/3736882/).
 
 As with other CNS depressants, neuroadaptation during repeated exposure can create instability when the drug is abruptly removed.
 
@@ -157,7 +157,7 @@ Modern RC analogues may include:
 - etaqualone;
 - mebroqualone;
 - methylmethaqualone;
-- other quinazolinone derivatives. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/36652055/).
+- other quinazolinone derivatives. [Yang H, 2023](https://pubmed.ncbi.nlm.nih.gov/36652055/).
 
 For many of these compounds, available data are primarily:
 - receptor pharmacology;
@@ -173,7 +173,7 @@ Direct prospective withdrawal evidence is usually absent.
 Reasonable class inference:
 - sedative impairment is plausible;
 - tolerance and dependence are possible;
-- abrupt cessation after heavy repeated exposure may be risky. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/36651763/).
+- abrupt cessation after heavy repeated exposure may be risky. [Inger JA, 2023](https://pubmed.ncbi.nlm.nih.gov/36651763/).
 
 Unsafe overreach:
 - assuming every analogue has methaqualone's exact potency;
@@ -184,7 +184,7 @@ Unsafe overreach:
 
 ## Treatment evidence is extremely weak
 
-A Cochrane review of methaqualone-dependence treatment searched for randomized and quasi-randomized trials and found **no eligible controlled studies**. [Study record](https://pubmed.ncbi.nlm.nih.gov/15846700/). [Supporting study](https://pubmed.ncbi.nlm.nih.gov/15846700/).
+A Cochrane review of methaqualone-dependence treatment searched for randomized and quasi-randomized trials and found **no eligible controlled studies**. [McCarthy G, 2005](https://pubmed.ncbi.nlm.nih.gov/15846700/).
 
 Therefore, there is no evidence-based methaqualone-specific medication protocol that can be presented as standard of care.
 
@@ -198,7 +198,7 @@ Clinical management must instead be individualized around:
 
 ## Do not self-convert to benzodiazepines
 
-It is tempting to treat any GABAergic sedative as if it had a diazepam-equivalent dose. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/26056160/).
+It is tempting to treat any GABAergic sedative as if it had a diazepam-equivalent dose. [Hammer H, 2015](https://pubmed.ncbi.nlm.nih.gov/26056160/).
 
 That is not scientifically justified here.
 
@@ -220,7 +220,7 @@ Sedative withdrawal and intoxication become harder to interpret when the person 
 - GHB/GBL;
 - opioids;
 - gabapentinoids;
-- sedating antihistamines. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/34396551/).
+- sedating antihistamines. [Doyno CR, 2021](https://pubmed.ncbi.nlm.nih.gov/34396551/).
 
 Alcohol or benzodiazepine withdrawal may be the dominant life-threatening syndrome even when the person believes the main problem is an RC qualone.
 
@@ -233,13 +233,13 @@ Recovery may include:
 - craving;
 - fear of withdrawal recurrence;
 - cognitive slowing;
-- rebuilding normal routines without sedatives. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/15846700/).
+- rebuilding normal routines without sedatives. [McCarthy G, 2005](https://pubmed.ncbi.nlm.nih.gov/15846700/).
 
 Because long-term modern-analogue data are sparse, there is no validated post-acute recovery timeline.
 
 ## Use disorder versus dependence
 
-Physical dependence is not identical to a sedative use disorder. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/34396551/).
+Physical dependence is not identical to a sedative use disorder. [Doyno CR, 2021](https://pubmed.ncbi.nlm.nih.gov/34396551/).
 
 Warning signs of a use disorder include:
 - inability to cut down;
@@ -260,7 +260,7 @@ Medical assessment is especially important with:
 - history of delirium;
 - pregnancy;
 - serious respiratory disease;
-- inability to remain safe at home. ([source 1](https://pubmed.ncbi.nlm.nih.gov/34396551/); [source 2](https://pubmed.ncbi.nlm.nih.gov/3736882/)).
+- inability to remain safe at home. ([Doyno CR, 2021](https://pubmed.ncbi.nlm.nih.gov/34396551/); [Faught E, 1986](https://pubmed.ncbi.nlm.nih.gov/3736882/)).
 
 ## Evidence ledger
 
