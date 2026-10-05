@@ -4,7 +4,7 @@
   "selection_sha": "4c50408fba4e2d1c1cf4481ccce10c3b82069c50",
   "range": "3806-3815",
   "row_count": 10,
-  "failed_count": 1,
+  "failed_count": 0,
   "rows": [
     {
       "pmid": "33348198",
@@ -151,14 +151,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 22,
       "primary_category": "mood",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3812,
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "focus": null
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "verified_title": "The effects of omega-3 polyunsaturated fatty acids supplementation in pregnancy, lactation, and infancy: An umbrella review of meta-analyses of randomized trials.",
+      "verified_journal": "Pharmacological research",
+      "verified_pub_date": "2022-Mar",
+      "focus": "This umbrella review synthesized systematic reviews and meta-analyses of randomized trials of long-chain omega-3 supplementation in pregnancy, lactation, and infancy. Across 28 SRMAs covering 672 RCTs and 273,523 participants, moderate-to-high certainty evidence supported reduced risk of pre-eclampsia and low birth weight and improved head circumference in pregnancy, with additional lower-certainty benefits across several maternal and infant outcomes."
     },
     {
       "pmid": "35276981",
