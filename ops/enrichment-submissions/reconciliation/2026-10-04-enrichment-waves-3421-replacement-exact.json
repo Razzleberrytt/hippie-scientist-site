@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3421,
+      "pmid": "41567324",
+      "doi": "10.3389/fnut.2025.1717047",
+      "category": "stress_anxiety",
+      "title": "The effect of probiotic supplementation on perceived stress and bowel function in healthy young adults: evidence from a randomized controlled trial in Makkah.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2025",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Randomized trial in 66 healthy young adults with moderate-to-high perceived stress. Thirty days of Lactobacillus rhamnosus GG was associated with a greater reduction in perceived stress than no intervention; bowel outcomes did not differ. Larger placebo-controlled trials are needed."
+    }
+  ]
+}

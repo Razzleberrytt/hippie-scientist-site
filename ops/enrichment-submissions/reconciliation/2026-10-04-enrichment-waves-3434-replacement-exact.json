@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3434,
+      "pmid": "41669075",
+      "doi": "10.3389/fnut.2026.1694363",
+      "category": "stress_anxiety",
+      "title": "The relationship between dietary magnesium intake, stress level and headache in academic and administrative staff.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Cross-sectional data in 150 adults found lower dietary magnesium intake was associated with higher perceived stress and headache impact. The observational design cannot establish causality."
+    }
+  ],
+  "status": "superseded_transient_fetch_failure",
+  "superseded_by": {
+    "pmid": "41501074",
+    "reason": "Original PMID exact-fetch succeeded on retry and is retained as stronger human systematic-review evidence."
+  }
+}

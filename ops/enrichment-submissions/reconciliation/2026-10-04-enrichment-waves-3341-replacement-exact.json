@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3341,
+      "pmid": "42422384",
+      "doi": "10.5114/biolsport.2026.162401",
+      "category": "performance",
+      "title": "Dietary nitrate supplementation reduces performance decline during repeated sprint exercise independent of sex.",
+      "journal": "Biology of sport",
+      "pub_date": "2026-Jan",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "In a randomized crossover study of 36 recreational athletes, nitrate-rich beetroot juice attenuated performance decline across repeated maximal cycling sprints versus placebo. No sex-by-supplement interaction was detected, and resting corticospinal excitability or microvascular reactivity did not explain the effect."
+    }
+  ]
+}

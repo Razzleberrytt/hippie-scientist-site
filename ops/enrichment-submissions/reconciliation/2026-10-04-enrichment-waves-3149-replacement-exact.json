@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "rows": [
+    {
+      "wave": 3149,
+      "pmid": "42795521",
+      "doi": "10.3390/microorganisms14091939",
+      "category": "gut",
+      "title": "A Postbiotic Containing Limosilactobacillus fermentum CNCM I-2998 and Lactobacillus delbrueckii subsp. lactis CNCM I-4831 Reduces Bowel Movement Frequency in Healthy Adults with Self-Reported Unusually Frequent and Soft Stools.",
+      "journal": "Microorganisms",
+      "pub_date": "2026-Sep-02",
+      "title_match_score": 1,
+      "abstract": "Unusually frequent and soft stools may negatively impact the quality of life. A postbiotic containing heat inactivated Limosilactobacillus fermentum CNCM I-2998 and Lactobacillus delbrueckii subsp. lactis CNCM I-4831 has previously been shown to alleviate gastrointestinal symptoms and diarrhea in patients with clinically diagnosed gastrointestinal disorders. This study evaluated whether this postbiotic can support bowel movement frequency in Japanese healthy adults with self-reported frequent and soft stools. In a randomized, double-blind, placebo-controlled clinical trial, participants (n = 100) received the postbiotic (20 billion heat-inactivated cells per day) or placebo for four weeks. The primary endpoint was weekly bowel movement frequency. Secondary endpoints included days with bowel movements per week, sense of relief, stool characteristics (shape, color, odor, water content), gastrointestinal symptoms, and fecal microbiome composition. After four weeks, the postbiotic group showed significantly lower bowel movement frequency and fewer days with bowel movements when compared with the placebo group. Importantly, these reductions were not accompanied by decreased stool volume or increased hard stools or constipation symptoms. Mild changes in microbiome composition were detected across groups, and no adverse events were reported. These findings suggest that the postbiotic is safe and can help reduce bowel movement frequency in healthy individuals experiencing unusually frequent and soft stools."
+    }
+  ]
+}

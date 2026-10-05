@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "rows": [
+    {
+      "wave": 3300,
+      "pmid": "42787547",
+      "doi": "10.3389/fragi.2026.1887175",
+      "category": "mitochondrial_energy",
+      "title": "Narrative review of intravenous NAD+ and NAD+ precursors in wellness and translational medicine.",
+      "journal": "Frontiers in aging",
+      "pub_date": "2026",
+      "title_match_score": 1,
+      "abstract": "Nicotinamide adenine dinucleotide (NAD+) is a major coenzyme critically involved in cellular metabolism, mitochondrial function, DNA repair, and stress-response signaling. Age-associated decline in NAD+ levels has generated interest in NAD+-augmenting strategies; however, recent large-scale human data indicate that whole-blood NAD+ concentrations do not decline with healthy aging per se. Despite increasing commercial use of IV NAD+ therapy in wellness settings, the clinical evidence supporting its efficacy and long-term safety remains limited. Literature published between January 2018 and March 2026 was identified via PubMed and Google Scholar searches. Search terms were applied symmetrically across all target compounds and administration routes. Studies were included if they reported human clinical data on IV NAD+ or IV NAD+ precursor administration, or if they provided directly relevant mechanistic or safety evidence. Mechanistic and foundational studies published before 2018 were selectively incorporated via citation tracking of key included articles. Available human evidence is sparse and consists primarily of small uncontrolled studies, observational investigations, and isolated case reports. Short-term IV NAD+ or NMN administration has been associated with transient increases in circulating NAD+ levels and changes in selected biomarkers related to oxidative stress, inflammation, and cellular metabolism. Limited exploratory reports have also described self-reported improvements in sleep-related outcomes and neurologic symptoms. However, the clinical significance of these findings remains uncertain due to small sample sizes, lack of placebo controls, heterogeneous methodologies, and short follow-up durations. Reported adverse effects include nausea, cramping, flushing, and chest discomfort, while long-term safety data are lacking. Current evidence regarding IV NAD+ therapy remains preliminary and insufficient to support routine clinical or wellness use. Although mechanistic and translational studies provide biological rationale for NAD+ augmentation, robust conclusions regarding efficacy, durability of benefit, optimal dosing, and long-term safety cannot currently be established. Larger randomized controlled trials with standardized protocols and clinically meaningful endpoints are required before IV NAD+ therapy can be considered evidence-based clinical practice."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3422,
+      "pmid": "42766151",
+      "doi": "10.1080/1028415X.2026.2729710",
+      "category": "stress_anxiety",
+      "title": "Effect of probiotic supplementation on psychological stress in healthy adults with moderate stress levels: a randomised, double-blind, placebo-controlled clinical trial.",
+      "journal": "Nutritional neuroscience",
+      "pub_date": "2026-Sep-21",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "In a five-arm randomized, double-blind, placebo-controlled trial of 766 adults with moderate stress, Lactococcus lactis supplementation did not significantly improve stress, anxiety, depression, sleep quality, cortisol, or inflammatory markers versus placebo. A viability shortfall in one probiotic arm also highlights formulation and delivered-dose integrity."
+    }
+  ]
+}

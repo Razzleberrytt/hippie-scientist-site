@@ -48,10 +48,11 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
+| #6338 / PR #6339 | Validate and land enrichment waves 3001–3500 | A | In review — 500/500 exact-verified; finalized-prior collision repair complete; repository-wide validation required before merge | P1 | 3/4/3/5/0.75/2 | 67.5 | 2026-10-04 — exact base `0cf99b381284669904074db5d6c3f2b02cafaaea` | 500 finalized receipts; true prior basis 2,935; 0 PMID/DOI/title/prior collisions; cumulative 3,435 unique PMIDs |
 
 
 
-**Current admission (verified 2026-10-04):** Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are free. #6337 / PR #6334 is merged and retired from active ownership; scientific/runtime promotion remains fail-closed.
+**Current admission (verified 2026-10-04):** Normal implementation WIP is **1/3**. Authority/Content is occupied by #6338 / PR #6339 for the bounded Waves 3001–3500 enrichment closeout. Discovery/SEO and Revenue/Conversion are free. #6338 is admitted against exact main base `0cf99b381284669904074db5d6c3f2b02cafaaea`; scientific/runtime promotion remains fail-closed.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
@@ -85,7 +86,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Authority/Content, Discovery/SEO, and Revenue/Conversion are free. No additional candidate is admitted by vacancy alone.
+Authority/Content is occupied by #6338; Discovery/SEO and Revenue/Conversion are free. No additional candidate is admitted by vacancy alone.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|

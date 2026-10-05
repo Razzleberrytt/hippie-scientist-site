@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "rows": [
+    {
+      "wave": 3060,
+      "pmid": "42761670",
+      "doi": "10.2903/j.efsa.2026.10154",
+      "category": "cannabinoid_safety",
+      "title": "Safety of synthetic cannabidiol as a novel food pursuant to regulation (EU) 2015/2283.",
+      "journal": "EFSA journal. European Food Safety Authority",
+      "pub_date": "2026-Sep",
+      "title_match_score": 1,
+      "abstract": "Following a request from the European Commission, the EFSA Panel on Nutrition, Novel Foods and Food Allergens (NDA) was asked to deliver an opinion on cannabidiol (CBD) obtained by chemical synthesis as a novel food (NF) pursuant to Regulation (EU) 2015/2283. The NF consists of ≥ 98% (w/w) CBD and is intended to be marketed exclusively dissolved in medium-chain triglyceride (MCT) oil in food supplements at a maximum daily dose of 2 mg. The proposed target population is the general adult population over 25 years old and excluding pregnant and lactating women. The safety of CBD in individuals taking medications cannot be established. The information provided on the production process, composition and specifications of the NF does not raise safety concerns. The NF is not considered to be nutritionally disadvantageous, and no concerns were identified with respect to genotoxicity. The applicant submitted a 90-day subchronic oral toxicity study with the NF in which the liver was identified as the key target organ, with female rats being more sensitive than males. A BMDL10 of 10.5 mg/kg bw of CBD per day was derived for increased liver weight relative to body weight in female rats. In view of the remaining data gaps, including those related to reproductive and developmental toxicity, the uncertainty factor proposed in the Updated Statement on the safety of CBD published by EFSA in 2026 (i.e. 400) was applied to derive a safe intake level for cannabidiol of 0.026 mg/kg bw per day (2 mg/day for a 70-kg adult). The Panel concludes that the NF is safe under the proposed conditions of use, except for people taking medication, for whom safety could not be established."
+    },
+    {
+      "wave": 3061,
+      "pmid": "42769824",
+      "doi": "10.2903/j.efsa.2026.10318",
+      "category": "cannabinoid_safety",
+      "title": "Safety of cannabidiol isolated from Cannabis sativa L. as a novel food pursuant to Regulation (EU) 2015/2283.",
+      "journal": "EFSA journal. European Food Safety Authority",
+      "pub_date": "2026-Sep",
+      "title_match_score": 1,
+      "abstract": "Following a request from the European Commission, the EFSA Panel on Nutrition, Novel Foods and Food Allergens (NDA) was asked to deliver an opinion on cannabidiol (CBD) isolated from Cannabis sativa L. as a novel food (NF) pursuant to Regulation (EU) 2015/2283. The NF consists of ≥ 98% w/w CBD. The NF is produced via ethanol extraction, followed by winterisation, filtration, decarboxylation and crystallisation. It is intended to be used as an ingredient in food supplements at a maximum intake of 60 mg/day. The proposed target population is the adult population, excluding pregnant and lactating women. During the risk assessment, the Panel identified a number of data gaps, which needed to be addressed by the applicant. Therefore, EFSA requested additional information on the identity, production process, compositional data, specifications, genotoxicity, reproductive and developmental toxicity, and human data of the NF. The applicant did not reply to these data requests. Based on the available data, the Panel concludes that the safety of the NF cannot be established."
+    }
+  ]
+}
