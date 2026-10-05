@@ -6,11 +6,35 @@
 
 - [x] P0 masterclass monographs complete — all P0 profiles have now received the deep monograph pass
 - [x] P1 masterclass monographs complete — all P1 profiles passed the deep structural audit
-- [ ] Dependence/withdrawal/addiction-support pass complete
+- [x] Dependence/withdrawal/addiction-support pass complete
 - [ ] History/legal/regulatory pass complete
 - [ ] Primary-source/PMID reference-density pass complete
 - [ ] Toxicology/testing/forensic-interpretation pass complete
 - [ ] Final cross-link / answer-engine pass complete
+
+### Global dependence / withdrawal / recovery pass — batch 1 (2026-10-03)
+
+- [x] **30 canonical RC/NPS routes and family hubs upgraded in one consolidated pass.**
+- [x] Psychedelic pages now distinguish problematic use and persistent psychiatric/perceptual effects from an unproven or absent classic physical-withdrawal syndrome.
+- [x] Stimulant/cathinone/entactogen pages now distinguish acute comedown from withdrawal, add stimulant-use-disorder framing, and link recovery support.
+- [x] Synthetic-cannabinoid pages now incorporate the 2025 systematic review of severe withdrawal case reports and explicitly flag seizure/psychosis/delirium risk.
+- [x] Dissociative recovery coverage now uses current ketamine-misuse systematic reviews while preserving uncertainty for newer arylcyclohexylamines.
+- [x] Novel sedative/qualone pages now separate sedative dependence from use disorder and explicitly note the lack of randomized methaqualone-dependence treatment evidence.
+- [x] Designer-benzodiazepine stragglers now link to the 2025 multisociety tapering guideline without publishing RC conversion or DIY taper instructions.
+- [x] Top-level RC/NPS guide now explains that there is no single “research chemical withdrawal syndrome” and routes readers to class-specific recovery resources.
+- [x] **Global dependence/withdrawal/addiction-support pass complete (2026-10-03).** All 87 canonical RC/NPS routes from the consolidated expansion were audited: every route now has explicit dependence/withdrawal/recovery coverage or an evidence-based statement that a classic physical-withdrawal syndrome is not established, with support navigation added where clinically relevant.
+
+Batch-1 audit closure:
+- [x] Remaining 57 canonical routes audited after the 30-route upgrade batch.
+- [x] Existing P0/P1/masterclass routes retained when their dependence, withdrawal, use-disorder, and treatment/support coverage was already adequate.
+- [x] `1cp-lsd` received the final recovery/help-navigation patch; no additional low-evidence detox timelines were invented for psychedelic routes.
+
+Batch-1 routes:
+`1p-lsd`, `4-aco-dmt`, `4-ho-met`, `5-meo-mipt`, `rc-psychedelics-tryptamines-lysergamides`,
+`4-fa`, `5-mapb`, `benzofurans-entactogens`, `rc-dissociatives-ketamine-pcp-analogues`, `nbome-nboh-psychedelics`,
+`research-chemicals-nps-guide`, `synthetic-cathinones-rc-stimulants`, `non-cathinone-rc-stimulants`, `synthetic-cannabinoids-spice`, `novel-sedatives-qualone-analogues`, `nep-n-ethylpentedrone`,
+`2-methoxyqualone`, `25e-nboh`, `25i-nbome`, `2c-b-fly`, `4f-mph`, `5f-mdmb-pica`, `6-apb`, `6-mapb`, `adb-butinaca`, `al-lad`,
+`clobromazolam-phenazolam`, `desalkylgidazepam-bromonordiazepam`, `dicloqualone`, `eutylone`.
 
 ### Masterclass wave 1 — highest harm-reduction value
 
