@@ -3,7 +3,7 @@
   "selection_revision": 2,
   "range": "3761-3775",
   "row_count": 15,
-  "failed_count": 3,
+  "failed_count": 2,
   "rows": [
     {
       "pmid": "31296936",
@@ -150,14 +150,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 24,
       "primary_category": "mitochondrial_energy",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3767,
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "focus": null
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "verified_title": "Coenzyme Q10 supplementation in multiple sclerosis; A systematic review.",
+      "verified_journal": "Multiple sclerosis and related disorders",
+      "verified_pub_date": "2025-Jan",
+      "focus": "Multiple Sclerosis (MS) is a chronic and progressive inflammatory disease of the central nervous system (CNS). Oxidative stress is a crucial mediator in multiple conditions, including the MS. Coenzyme Q10 (CoQ10) is a potent antioxidant, present in enzyme complexes of mitochondria, and involved in oxidative phosphorylation to produce adenosine triphosphate (ATP). The objective of this systematic review was to investigate the outcomes of CoQ10 supplementation in oxidative stress, inflammatory, and clinical status of patients with MS. Following the Cochrane and PRISMA methods, a comprehensive search was conducted in PubMed, Scopus, Embase, and Web of Science databases, and clinical studies that reported the outcomes of CoQ10 supplementation in MS patients, are included. The risk of bias was assessed using the revised Cochrane risk-of-bias tool for randomized trials (RoB2). The initial search yielded 237 articles, of which eight reports from six studies (total n = 195), including three RCTs, two semi-experimental studies, and one retrospective analysis were included. The effects of 2-3 months of CoQ10 supplementation on inflammatory factors, antioxidant enzyme system, and lipid peroxidation remain controversial in 200mg/day dose; however, 500mg/day of CoQ10 supplement can improve oxidative stress and inflammation, along with depression and fatigue amelioration in MS patients. This study concludes that CoQ10 might exert dose-dependent beneficial effects on ameliorating oxidative stress and inflammation in MS, and also sheds light on its possible utility in relieving clinical symptoms of MS; however, limitations of the evidence such as the small number of included studies, suggested future studies for clinical recommendations. The research protocol was approved and supported by the Student Research Committee, Tabriz University of Medical Sciences (grant number: 71910). This study was registered in International prospective register of systematic reviews (PROSPERO ID: CRD42023461877)."
     },
     {
       "pmid": "41158831",
@@ -260,14 +260,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 18,
       "primary_category": "mitochondrial_energy",
-      "state": "selected_exact_verified",
+      "state": "verification_exception",
       "wave": 3772,
-      "abstract_verified": true,
-      "title_match_score": 1,
-      "verified_title": "Nicotinamide riboside for peripheral artery disease: the NICE randomized clinical trial.",
-      "verified_journal": "Nature communications",
-      "verified_pub_date": "2024-Jun-13",
-      "focus": "People with lower extremity peripheral artery disease (PAD) have increased oxidative stress, impaired mitochondrial activity, and poor walking performance. NAD+ reduces oxidative stress and is an essential cofactor for mitochondrial respiration. Oral nicotinamide riboside (NR) increases bioavailability of NAD+ in humans. Among 90 people with PAD, this randomized double-blind clinical trial assessed whether 6-months of NR, with and without resveratrol, improves 6-min walk distance, compared to placebo, at 6-month follow-up. At 6-month follow-up, compared to placebo, NR significantly improved 6-min walk (+7.0 vs. -10.6 meters, between group difference: +17.6 (90% CI: + 1.8,+∞). Among participants who took at least 75% of study pills, compared to placebo, NR improved 6-min walk by 31.0 meters and NR + resveratrol improved 6-min walk by 26.9 meters. In this work, NR meaningfully improved 6-min walk, and resveratrol did not add benefit to NR alone in PAD. A larger clinical trial to confirm these findings is needed."
+      "abstract_verified": false,
+      "title_match_score": 0,
+      "verified_title": null,
+      "verified_journal": null,
+      "verified_pub_date": null,
+      "focus": null
     },
     {
       "pmid": "42478598",
@@ -282,14 +282,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 18,
       "primary_category": "mitochondrial_energy",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3773,
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "focus": null
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "verified_title": "A phase-II randomized controlled pilot study of nicotinamide riboside supplementation in older adults with amnestic mild cognitive impairment.",
+      "verified_journal": "Alzheimer's & dementia : the journal of the Alzheimer's Association",
+      "verified_pub_date": "2026-Jul",
+      "focus": "Declining nicotinamide adenine dinucleotide (NAD+) may elevate risk of Alzheimer's disease. We conducted a 12-week double-blind, randomized, placebo-controlled pilot study to evaluate the safety, tolerability, and preliminary efficacy of the NAD+ precursor, nicotinamide riboside (NR), for enhancing cognitive function and cerebral blood flow (CBF) in adults with amnestic mild cognitive impairment (aMCI). 42 participants completed the study (NR = 22, placebo = 20). Adherence was similar between groups with no serious adverse effects. Blood NAD+ increased twofold in the NR group. There were no improvements in cognitive function (primary outcome), total CBF, or blood pressure (secondary outcomes). Exploratory analyses revealed potential increases in regional CBF, particularly in the hippocampus. NR effectively raises NAD+ in people with MCI but does not improve cognitive function, total CBF, or blood pressure over 12 weeks. Future studies should investigate regional effects on CBF over longer treatment durations."
     },
     {
       "pmid": "31743252",
