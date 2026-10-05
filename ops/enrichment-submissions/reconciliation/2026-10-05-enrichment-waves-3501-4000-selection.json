@@ -21,7 +21,7 @@
     "within_batch_duplicate_pmids": 0,
     "within_batch_duplicate_dois": 0,
     "within_batch_duplicate_normalized_titles": 0,
-    "replacement_count": 47
+    "replacement_count": 48
   },
   "editorial_gate": {
     "category_specific_title_relevance": true,
@@ -5412,20 +5412,21 @@
       "wave": 3822
     },
     {
-      "pmid": "34228881",
-      "doi": "10.1111/bdi.13115",
-      "title": "Omega-3 fatty acids for treating residual depressive symptoms in adult patients with bipolar disorder: A systematic review and meta-analysis of double-blind randomized, placebo-controlled trials.",
-      "journal": "Bipolar disorders",
-      "pub_date": "2021 Nov",
-      "pub_type": "Systematic Review",
-      "has_abstract": false,
+      "pmid": "31135916",
+      "doi": "10.1093/nutrit/nuz023",
+      "title": "Effect of saffron supplementation on symptoms of depression and anxiety: a systematic review and meta-analysis.",
+      "journal": "Nutrition reviews",
+      "pub_date": "2019 Aug 1",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
       "category": "mood",
-      "discovery_query": "omega-3 depression meta-analysis 2018:2026[pdat]",
+      "discovery_query": "saffron depression randomized trial 2018:2026[pdat]",
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 19,
       "primary_category": "mood",
       "state": "selected_pending_exact_abstract_verification",
-      "wave": 3823
+      "wave": 3823,
+      "replacement_reason": "missing_pubmed_abstract_repair"
     },
     {
       "pmid": "38959193",
