@@ -3,7 +3,7 @@
   "selection_revision": 2,
   "range": "3641-3655",
   "row_count": 15,
-  "failed_count": 1,
+  "failed_count": 0,
   "rows": [
     {
       "pmid": "38666339",
@@ -216,14 +216,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 14,
       "primary_category": "gut",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3650,
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "focus": null
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "verified_title": "Effect of probiotic supplementation on psychological stress in healthy adults with moderate stress levels: a randomised, double-blind, placebo-controlled clinical trial.",
+      "verified_journal": "Nutritional neuroscience",
+      "verified_pub_date": "2026-Sep-21",
+      "focus": "Background: Psychological stress is increasingly linked to gut microbiota composition, prompting interest in probiotics as potential modulators of mental health. The aim of this study was to investigate the effect of probiotic supplementation on mood, inflammatory immune markers, and serum neurotransmitters.Method: Using a five-arm, randomised, double-blind, placebo-controlled trial design, the study randomised 766 participants to receive capsules containing either Lactococcus lactis (FNZ339) or Lactobacillus Plantarum at a dose of either 1 × 109 colony forming units (CFU) or 1 × 1010 CFU, or placebo daily for eight weeks. Viability counts performed during the trial showed an unexpected reduction in counts for L. Plantarum, resulting in a dosage per capsule that was not representative of a therapeutic dose. Therefore, analysis was performed only for L. lactis compared to placebo. The primary outcome of the study was stress as measured by the Depression Anxiety Stress Scale (DASS-21). Secondary outcomes included self-reported anxiety, depression, and sleep quality, salivary inflammatory markers, and blood neurotransmitters.Results: Improvements in psychological symptoms were observed across all groups. However, there were no statistically significant differences between the L. lactis and placebo groups for stress as the primary outcome (L. lactis -5.2, SD 8.6 vs Placebo: -5.6, SD 7.5). Similarly, no significant group differences were observed for secondary outcomes including anxiety, depression, or sleep quality. Similarly, no significant group differences were found for salivary cortisol or inflammatory markers.Conclusion: This study highlights the importance of large, well-controlled trials in probiotic research and underscores the strain-specific nature of probiotic effects on mental health outcomes."
     },
     {
       "pmid": "42770107",
