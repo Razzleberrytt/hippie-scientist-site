@@ -1,31 +1,56 @@
 {
   "schema_version": 1,
   "batch_id": "2026-10-05-enrichment-waves-3501-4000",
-  "status": "blocked_external_research_quota_before_discovery",
+  "status": "complete_pending_repository_validation",
   "admission_issue": 6347,
   "branch": "data/enrichment-waves-3501-4000-2026-10-05",
   "target_findings": 500,
   "range": "3501-4000",
-  "prior_unique_pmids": 3435,
-  "committed_candidate_shards": 0,
-  "verified_findings": 0,
-  "blocker": {
-    "provider": "Amass BiomedCore",
-    "observed_on": "2026-10-05",
-    "reason": "account usage limit reached",
-    "reported_reset_date": "2026-10-16",
-    "retry_policy": "do_not_retry_or_route_around_provider_limit"
+  "progress": {
+    "raw_pubmed_candidates": 1948,
+    "strict_relevance_candidates": 763,
+    "selected_final": 500,
+    "true_prior_unique_pmids": 3435,
+    "exact_verified_final": 500,
+    "final_prior_collisions": 0,
+    "final_duplicate_pmids": 0,
+    "final_duplicate_dois": 0,
+    "final_duplicate_normalized_titles": 0,
+    "cumulative_unique_pmids": 3935
   },
+  "completed": [
+    "governance/admission recorded before authoring",
+    "broad discovery and strict relevance selection completed",
+    "500-entry final selection across Waves 3501-4000",
+    "direct PubMed title/abstract verification completed for every final accepted PMID",
+    "global dedupe against finalized prior 3,435-PMID ledger completed",
+    "cross-file duplicate and category-firewall repairs completed",
+    "final 500-row consolidated verified receipt created",
+    "cumulative PMID index rebuilt to 3,935 unique PMIDs",
+    "final PMID/DOI/normalized-title/prior-collision audit is clean"
+  ],
+  "blocked": [],
   "integrity": {
     "synthetic_rows_created": false,
     "unverified_rows_created": false,
-    "partial_candidate_shards_committed": false
+    "final_exact_verified": true
   },
+  "source_access_note": "Initial Amass quota block was superseded by direct NCBI PubMed retrieval/verification via Sider Scholar and direct PubMed exact checks; no synthetic evidence was created.",
+  "authoritative_artifacts": [
+    "2026-10-05-enrichment-waves-3501-4000-verified-consolidated.json",
+    "2026-10-05-enrichment-waves-3501-4000-pmid-index.json",
+    "2026-10-05-enrichment-waves-3501-4000-final-audit.json"
+  ],
   "next": [
-    "resume discovery when source access is restored",
-    "then stage category shards",
-    "select/dedupe 500",
-    "exact-verify accepted records",
-    "consolidate and run repository validation once"
-  ]
+    "run expensive repository-wide validation once on the exact final branch head",
+    "resolve any protected-gate failures",
+    "merge only after protected gates are green"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden"
+  }
 }
