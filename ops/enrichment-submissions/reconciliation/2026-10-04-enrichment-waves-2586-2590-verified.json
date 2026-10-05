@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2586-2590",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2586,
+      "pmid": "42794458",
+      "title": "Gut, Oral, and Fungal Microbiota in Hypertension: A Multi-Compartment Systematic Review.",
+      "abstract_verified": true,
+      "state": "research_only_systematic_review",
+      "evidence_boundary": "The synthesis is dominated by observational microbiome studies; compartment, sequencing, population, and confounding differences prevent causal or intervention-level conclusions."
+    },
+    {
+      "wave": 2587,
+      "pmid": "42613673",
+      "title": "A randomised, double-blind, placebo-controlled crossover trial on cannabinoid-based medication for behavioural disorders in old patients with severe dementia: the study results.",
+      "abstract_verified": true,
+      "state": "research_only_human_trial",
+      "evidence_boundary": "This small crossover trial used a specific oral THC:CBD formulation in very old patients with severe dementia; findings are formulation-, dose-, and disease-specific and require replication."
+    },
+    {
+      "wave": 2588,
+      "pmid": "42731298",
+      "title": "Balancing efficacy and risk: A toxicological review and safety transformation of Berberis plants and their alkaloids.",
+      "abstract_verified": true,
+      "state": "research_only_safety_review",
+      "evidence_boundary": "Safety signals vary across Berberis species, isolated alkaloids, doses, routes, and vulnerable populations; the review does not establish a single class-wide safe exposure."
+    },
+    {
+      "wave": 2589,
+      "pmid": "42798689",
+      "title": "The effects of coenzyme Q10 supplementation on exercise-induced oxidative stress and related physiological outcomes in athletes: a systematic review and meta-analysis.",
+      "abstract_verified": true,
+      "state": "research_only_meta_analysis",
+      "evidence_boundary": "Athlete trials differ in training status, CoQ10 form, dose, duration, and oxidative-stress endpoints; pooled effects should not be generalized to performance benefit or a specific product."
+    },
+    {
+      "wave": 2590,
+      "pmid": "42798526",
+      "title": "Serum magnesium and major adverse cardiovascular events in patients with diabetic foot ulcers: a retrospective cohort study.",
+      "abstract_verified": true,
+      "state": "research_only_observational",
+      "evidence_boundary": "Baseline serum magnesium is evaluated as an observational prognostic marker in diabetic foot ulcer patients; the study explicitly does not establish a causal or therapeutic effect of magnesium supplementation."
+    }
+  ]
+}

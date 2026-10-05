@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-2201-2225-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-2176-2200-selection",
+  "program": {
+    "range": "2001-2500",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 225,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2500"
+  },
+  "source_provenance": [
+    "NCBI PubMed ESearch + exact EFetch abstract verification",
+    "cumulative PMID collision index through Wave 2000"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe and exact abstract verification during authoring; expensive repository-wide validation only after Wave 2500"
+  },
+  "waves": [
+    {
+      "wave": 2201,
+      "entity_slug": "omega-3-supplementation-vs-placebo-blood-lipid",
+      "pmid": "42115081",
+      "focus": "Meta-analysis on effect of omega-3 supplementation vs. placebo on blood lipid levels in reports Omega-3 supplementation significantly improves atherogenic lipids in IHD patients, supporting its adjunctive use. Implementation should prioritize high-dose EPA formulations and integrate with statin therapy. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2202,
+      "entity_slug": "melatonin-some-aspects-biochemistry-physiology-pharmacology",
+      "pmid": "42115453",
+      "focus": "Review on melatonin: some aspects of biochemistry, physiology, and pharmacology reports This chronobiotic activity is the pharmacological basis for the treatment of dysrhythmia (jet lag syndrome, delayed-sleep phase syndrome, non-24 circadian sleep disorder in blind. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2203,
+      "entity_slug": "vitamin-d-administration-sepsis-score-c-reactive",
+      "pmid": "42116025",
+      "focus": "Randomized controlled trial on effect of vitamin d administration on sepsis score and c-reactive protein reports Vitamin D administration (400 and 800 IU/day) significantly improves sepsis scores in preterm infants with comparable clinical effectiveness between doses, supporting its potential as. Evidence boundary: the finding is limited to the studied population, intervention, duration, and endpoints.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2204,
+      "entity_slug": "iron-adipose-tissue-function-crosstalk-transdifferentiation",
+      "pmid": "42117189",
+      "focus": "Review on the role of iron in adipose tissue function, crosstalk, and transdifferentiation reports Iron, the most abundant trace element in the body, plays a critical role in regulating adipocyte development, function, and transdifferentiation. This review critically examines. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2205,
+      "entity_slug": "spinal-injury-trends-during-swords-iron-war",
+      "pmid": "42118169",
+      "focus": "Observational study on spinal injury trends during swords of iron war reports Combat-related spinal injuries are uncommon but serve as a critical indicator of high-energy multisystem polytrauma. The distinct pattern of major fractures favoring the lower. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2206,
+      "entity_slug": "serum-metabolomic-signatures-hepcidin-levels-early-childhood",
+      "pmid": "42118173",
+      "focus": "Observational study on serum metabolomic signatures and hepcidin levels in early childhood iron deficiency reports Children with IDA showed alterations in lipid-related metabolites, with cholesterol emerging as a key associated metabolite. However, pathway-level interpretations based primarily on a single. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2207,
+      "entity_slug": "iron-driving-sex-biased-differences-cancer",
+      "pmid": "42118198",
+      "focus": "Review on the role of iron in driving sex-biased differences in cancer reports In this article, we review and synthesize the existing literature examining iron's role in driving sex differences in tumor incidence, progression, response to therapy. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2208,
+      "entity_slug": "assessing-safety-probiotic-potential-bifidobacterium-longum-subsp",
+      "pmid": "42118446",
+      "focus": "Randomized controlled trial on assessing the safety and probiotic potential of bifidobacterium longum subsp. infantis reports Trial Registration Number: NCT06863415 (ClinicalTrials. gov). Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2209,
+      "entity_slug": "impact-oral-probiotics-oral-health-halitosis-orthodontic",
+      "pmid": "42118967",
+      "focus": "Randomized controlled trial on impact of oral probiotics on oral health and halitosis in orthodontic reports Administration of oral probiotics for 1 month significantly improved periodontal health and reduced halitosis in orthodontic patients, especially in those with fixed appliances. Evidence boundary: the finding is limited to the studied population, intervention, duration, and endpoints.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2210,
+      "entity_slug": "zinc-integrated-strategies-active-periodontal-therapy-mapping",
+      "pmid": "42119479",
+      "focus": "Review on zinc-integrated strategies in active periodontal therapy: mapping the evidence to the reports Zinc interventions offer potential, stage-specific benefits across EFP framework. Although early-phase biofilm control is effectively managed by zinc-driven ecological modulation, more invasive subgingival and. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2211,
+      "entity_slug": "different-caffeine-doses-fat-oxidation-cardiovascular-response",
+      "pmid": "42120324",
+      "focus": "Randomized controlled trial on effects of different caffeine doses on fat oxidation and cardiovascular response reports Acute caffeine intake at 3 and 5 mg/kg enhanced fat oxidation during FATmax exercise in sedentary overweight/obese females, whereas 9 mg/kg provided no additional. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2212,
+      "entity_slug": "acute-caffeine-ingestion-combined-post-activation-potentiation",
+      "pmid": "42120364",
+      "focus": "Randomized controlled trial on effects of acute caffeine ingestion combined with post-activation potentiation enhancement on reports This study confirms a synergistic effect between caffeine and PAPE, providing a theoretical foundation and practical reference for precompetition acute activation strategies for male. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2213,
+      "entity_slug": "impaired-iron-balance-erythrocytosis-complex-relationship",
+      "pmid": "42120370",
+      "focus": "Review on impaired iron balance and erythrocytosis: a complex relationship reports While its association with erythrocytosis has been a subject of interest, it remains incompletely understood. In this review, we will explore the complex relationship. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2214,
+      "entity_slug": "seasonal-geographic-variations-vitamin-d-levels-among",
+      "pmid": "42120817",
+      "focus": "Meta-analysis on seasonal and geographic variations in vitamin d levels among patients with reports Seasonal and regional factors play a significant role in determining vitamin D levels among FMF patients, with lower levels observed in winter and in. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2215,
+      "entity_slug": "zinc-based-therapies-prevention-treatment-vulvovaginal-candidiasis",
+      "pmid": "42121064",
+      "focus": "Meta-analysis on zinc-based therapies for prevention and treatment of vulvovaginal candidiasis: a systematic reports Zinc deficiency is associated with VVC, with a larger effect in pregnant women likely reflecting altered zinc physiology in pregnancy. Lower zinc levels in. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2216,
+      "entity_slug": "iron-biology-acute-kidney-injury-catalytic-iron",
+      "pmid": "42123388",
+      "focus": "Review on iron biology in acute kidney injury: catalytic iron, hepcidin-ferroportin axis, and reports , peri-contrast or cardiopulmonary bypass settings). Until such evidence accumulates, recommendations beyond standard care should be avoided. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2217,
+      "entity_slug": "selenium-based-strategies-targeting-multidrug-resistant-breast",
+      "pmid": "42123432",
+      "focus": "Review on selenium-based strategies for targeting multidrug-resistant breast cancer: a review reports These compounds can inhibit cancer cell growth through multiple mechanisms, including modulation of redox balance, induction of apoptosis, and interference with signaling pathways involved. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2218,
+      "entity_slug": "interaction-between-iron-selenium-affects-ferroptosis-colorectal",
+      "pmid": "42123547",
+      "focus": "Review on the interaction between iron and selenium affects ferroptosis in colorectal cancer reports We also discuss why concurrent disruption of iron handling and selenium-dependent defense mechanisms may enhance therapeutic efficacy. Finally, we outline potential clinical applications, including. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2219,
+      "entity_slug": "small-molecule-targeting-iron-responsive-element-app",
+      "pmid": "42123557",
+      "focus": "Review on small-molecule targeting of the iron-responsive element in the app mrna 5'-utr reports IRE mRNAs have shown great promise for chemical manipulation of mRNA and protein expression in biological systems by yielding \"proof of principle\" data for. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2220,
+      "entity_slug": "helicobacter-pylori-infection-anemia-potential-vitamin-c",
+      "pmid": "42123772",
+      "focus": "Review on helicobacter pylori infection and anemia: the potential role of vitamin c reports This review aimed to present an integrated overview of the relationships between H. pylori infection, alterations in the gastric environment, and mechanisms that may. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2221,
+      "entity_slug": "overview-metabolomic-approaches-polyphenol-profiling-nutraceutical-development",
+      "pmid": "42123834",
+      "focus": "Review on an overview of metabolomic approaches to polyphenol profiling for nutraceutical development reports The integration of bioinformatic tools and pathway enrichment analysis in metabolomics is providing expansive insight into the pool of polyphenols, and their bio-functional interpretation. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 2222,
+      "entity_slug": "combined-caffeine-rhodiola-rosea-supplementation-repeated-aerial",
+      "pmid": "42123940",
+      "focus": "Randomized controlled trial on effects of combined caffeine and rhodiola rosea supplementation on repeated aerial reports These findings suggest that, in male collegiate soccer players, CAF and RHO may contribute differently to repeated aerial duel-related performance, and their combination may. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2223,
+      "entity_slug": "magnesium-neurocritical-care-clinical-relevance-status-assessment",
+      "pmid": "42123962",
+      "focus": "Review on magnesium in neurocritical care: clinical relevance, status assessment, and practical implications reports Improved phenotyping may help explain prior trial neutrality and support stratified approaches to magnesium monitoring and repletion. Future studies should evaluate magnesium-guided strategies and. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2224,
+      "entity_slug": "spore-forming-probiotics-their-mechanisms-action-particular",
+      "pmid": "42123979",
+      "focus": "Review on spore-forming probiotics and their mechanisms of action: a particular focus on reports Many beneficial properties such as resilience in extreme conditions, multiplication in the gut, gut adhesion, immunomodulatory effects, the production of bioactive and antimicrobial compounds. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2225,
+      "entity_slug": "dose-dependent-alterations-human-gut-microbiome-during",
+      "pmid": "42124000",
+      "focus": "Randomized controlled trial on dose-dependent alterations of the human gut microbiome during oral iron supplementation reports Conclusions: Oral iron supplementation induces dose-dependent changes in the intestinal microbiome and higher doses are associated with substantially increased gastrointestinal intolerance. These findings suggest. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    }
+  ]
+}

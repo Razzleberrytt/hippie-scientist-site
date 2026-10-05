@@ -1,0 +1,513 @@
+{
+  "schema_version": 1,
+  "range": "2606-2655",
+  "rows": [
+    {
+      "wave": 2606,
+      "pmid": "42795302",
+      "doi": "10.3390/life16091437",
+      "title": "Siberian Sturgeon (Acipenser baerii, Brandt, 1869) the Relationship Between Genetic Resources and Acclimatization: Ecology, Conservation, and the Nutritional Significance of Meat and Caviar.",
+      "category": "cardiometabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "The Siberian sturgeon (Acipenser baerii, Brandt, 1869) is a potamodromous freshwater species with major ecological and commercial importance. Natural populations across the main Siberian River basins have declined so severely that the species is now classified as Critically Endangered on the IUCN Red List. This narrative analysis synthesizes current scientific knowledge regarding the ecology, reproductive biology, conservation status, and nutritional value of products derived from A. baerii, with the aim of providing an integrated perspective on this species, which has recently been introduced into Romanian aquaculture and occupies the interface between biodiversity and human consumption needs. The species’ remarkable ecological and morphological plasticity, which underlies its wide natural distribution in the Ob, Irtysh, Yenisei, and Lena River basins, has also made it the dominant species in global sturgeon aquaculture, commercially farmed in Europe, Asia, and South America. Reproduc",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2608,
+      "pmid": "42794580",
+      "doi": "10.3390/ijms27188150",
+      "title": "Statins and Myasthenia Gravis: Clinical Implications and Pathogenesis.",
+      "category": "cardiometabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Statins are widely prescribed lipid-lowering agents and remain central to the prevention of atherosclerotic cardiovascular disease. Although generally well tolerated, they have been associated with neuromuscular adverse events, including new-onset or worsening myasthenia gravis (MG). Current evidence supports a primarily temporal association between statin exposure and MG onset or exacerbation; this signal has emerged largely from case reports, pharmacovigilance analyses, and retrospective observational studies, while more recent population-based observational data strengthen the association. Statin-associated MG should be distinguished from other statin-related neuromuscular syndromes, particularly toxic myopathy and immune-mediated necrotizing myopathy. Beyond cholesterol-lowering, statins may influence neuromuscular junction function through multiple converging mechanisms, including perturbation of the mevalonate–dolichol–glycosylation pathway, isoprenoid-dependent immune dysregulat",
+      "evidence_boundary": "Observational evidence cannot establish causality and is vulnerable to confounding.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2611,
+      "pmid": "42792136",
+      "doi": "10.3390/antiox15091097",
+      "title": "Dates, Polyunsaturated Fatty Acids, Dietary Fiber, and Probiotics as Potential Complementary Modulators of Gut Microbiota and Oxidative Stress: An Integrative Review.",
+      "category": "cardiometabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "This integrative review examines the potential of dates, omega-3 (ω-3) and omega-6 (ω-6) polyunsaturated fatty acids (PUFAs), dietary fibers (DFs), and probiotic bacteria to support gut health through complementary nutritional pathways. The literature was searched in PubMed, Web of Science, Scopus, and Google Scholar for English-language studies published through June 2026. Dates contain fermentable substrates, including DFs and non-digestible oligosaccharides, that can serve as growth substrates for beneficial gut microbes. However, the whole fruit has not been formally established as a prebiotic under current consensus definitions. ω-3 and ω-6 fatty acids contribute to membrane integrity, eicosanoid synthesis, immune regulation, and inflammatory signaling, with effects influenced by dietary balance. DFs support gastrointestinal function, glycemic regulation, lipid metabolism, and colonic fermentation, including short-chain fatty acid (SCFA) production, whereas probiotics may exert st",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2613,
+      "pmid": "42679920",
+      "doi": "10.1016/j.neuroscience.2026.08.058",
+      "title": "Effect of citicoline on cognitive function and functional recovery in patients with mild-to-moderate traumatic brain injury: a randomized placebo-controlled trial.",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Traumatic brain injury (TBI) is a major cause of persistent cognitive and functional impairment. Citicoline has been investigated as a neuroprotective therapy after TBI, but its clinical efficacy remains uncertain. This single-center, triple-blind, randomized, placebo-controlled pilot trial evaluated the effects of citicoline on 90-day cognitive and functional outcomes in adults with mild-to-moderate TBI. Sixty patients were randomly assigned in a 1:1 ratio to receive citicoline 1000 mg/day or matched placebo for 90 days. The primary outcome was the Mini-Mental State Examination (MMSE) score at 90 days. Secondary outcomes were the Barthel Index and Glasgow Outcome Scale-Extended (GOS-E) scores at 90 days and safety outcomes. At 90 days, MMSE scores were higher in the citicoline group than in the placebo group (25.2 ± 2.1 vs. 21.5 ± 3.4; P < 0.001). The citicoline group also had higher Barthel Index scores (85.0 ± 0.5 vs. 70.0 ± 0.8; P < 0.001) and GOS-E scores (5.2 ± 1.3 vs. 3.6 ± 0.8;",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2614,
+      "pmid": "42682728",
+      "doi": "10.1177/15598276261478041",
+      "title": "Common Supplements in Plant-Based Nutrition: Dosing, Formulations, and Safety.",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Dietary supplements are commonly used to support health and athletic performance. This article provides practical guidance for evaluating supplement quality, labeling, formulations, and ingredients, with particular attention to plant-based products. Creatine, caffeine, and beta-alanine are highlighted to illustrate differences in available formulations, dosing considerations, safety, and potential non-vegan ingredients. Health care professionals can use this information to help individuals select supplements that align with their health needs, goals, preferences, and values.",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2615,
+      "pmid": "42824012",
+      "doi": "10.3389/fphar.2026.1923807",
+      "title": "Case Report: Massive sustained-release valproate overdose with prolonged gastric tablet retention and partial pharmacobezoar formation managed by endoscopic removal and delayed extracorporeal therapy.",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Valproate poisoning is a potentially life-threatening condition that may result in central nervous system depression, hyperammonemia, metabolic disturbances, and multiorgan dysfunction. Management of massive sustained-release valproate overdose remains challenging because delayed gastrointestinal absorption may lead to prolonged toxicity despite conventional decontamination measures. A 23-year-old woman with a history of previous suicide attempts was admitted approximately 6 hours after ingesting ninety 500-mg sustained-release valproate tablets (total dose 45 g) with alcohol. Upon arrival, she exhibited severe agitation and delirium. Endotracheal intubation was performed for airway protection because she was unable to cooperate with treatment and was at risk of aspiration. Gastric lavage and cathartic therapy were subsequently administered. The initial serum valproate concentration was 1,093.66 μg/mL. Because incomplete decontamination was suspected, bedside upper gastrointestinal end",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2616,
+      "pmid": "42716295",
+      "doi": "10.3168/jds.2026-29265",
+      "title": "Whey protein phospholipid concentrate at the interface of function and health: Heat-induced protein interactions, bioactivity, and choline delivery.",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Milk is a nutrient-packed biological fluid essential for early development, with the milk fat globule membrane (MFGM) playing a fundamental role in cognitive, bone, immune, and gastrointestinal health. Driven by increasing demand for high-protein and sustainable ingredients, the dairy industry has focused on coproducts such as whey protein phospholipid concentrate (WPPC), a microfiltration-derived fraction enriched in MFGM proteins and polar lipids. WPPC contains elevated levels of caseins and whey proteins and is notably enriched in membrane-bound glycoproteins and phospholipids that contribute to its functional and nutritional value. Thermal processing, while critical for safety and shelf-life, induces remodeling of both protein and lipid components of the MFGM. Heat treatment promotes whey protein unfolding and aggregation, driving their association with the MFGM through covalent and noncovalent interactions, while concurrently remodeling MFGM lipid microdomains, altering phospholip",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2617,
+      "pmid": "42711208",
+      "doi": "10.1016/j.numecd.2026.104964",
+      "title": "Safety of lipid-lowering therapies: it is time for a \"DOCebo\" effect.",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "The expanding range of lipid-lowering therapies offers clinicians unprecedented opportunities to tailor treatment according to efficacy, safety, patient characteristics and preferences. In this context, the systematic review and network meta-analysis by Xie and colleagues provides a timely comparison of the safety profiles of lipid-lowering drugs, drawing on 153 randomized trials involving more than 303,000 participants. The analysis suggests that PCSK9 monoclonal antibodies have the most favourable profile for creatine kinase elevation, new-onset diabetes and liver dysfunction, whereas bempedoic acid ranks best for myalgia risk. No clear increase in cognitive disorders was identified across treatment classes. These findings are clinically relevant because concerns regarding muscle symptoms, diabetes and cognitive impairment frequently contribute to treatment refusal, poor adherence and discontinuation, particularly with statins. The results support a personalized approach aimed at ach",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2618,
+      "pmid": "42687999",
+      "doi": "10.3389/fneur.2026.1875385",
+      "title": "Targeting cellular senescence with Traditional Chinese Medicine: advances in neurodegenerative disorder treatment.",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Neurodegenerative diseases (NDDs), including Alzheimer’s disease (AD), Parkinson’s disease (PD), and Huntington’s disease (HD), represent formidable health challenges, particularly within aging populations. Cellular senescence, marked by irreversible cell cycle arrest and the secretion of pro-inflammatory cytokines, has emerged as a crucial factor in the pathogenesis of these disorders. The accumulation of senescent cells in the nervous system exacerbates neuroinflammation, impairs neuronal function, and accelerates tissue degeneration, all of which are key features of NDDs. In this context, bioactive components derived from Traditional Chinese Medicine (TCM) have attracted significant attention for their potential to modulate cellular senescence and alleviate neurodegeneration. This review examines the shared molecular signaling pathways linking cellular senescence to NDDs, explores the mechanisms by which TCM-derived compounds—such as ginsenosides, ginkgo biloba extract, and curcumin",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2619,
+      "pmid": "42619712",
+      "doi": "10.64898/2026.07.27.740981",
+      "title": "Early Amyloid-β Toxicity Disrupts Nervous System Connectivity During Aging in Caenorhabditis elegans.",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Alzheimer’s disease (AD) is characterized by progressive functional neuronal decline ultimately resulting in severe cognitive impairment. However, how neuron function is altered at the cellular level during the critical early stages of the disease and how disease progression relates to the process of normal neuronal aging are poorly understood. To address these fundamental questions, we performed comprehensive multi-neuron imaging in Caenorhabditis elegans (C. elegans) with pan-neuronal expression of human amyloid β1-42 peptide (nAβ), the major plaque forming peptide in early AD progression. Measuring neuron activity, connectivity and system wide dynamics with single cell resolution across the C. elegans lifespan, we compare Aβ-associated neuronal dysfunction with that of normal aging. Our experiments revealed that nAβ expressing animals exhibit a unique loss of positively correlated neuron connectivity, premature disruption of system wide dynamics, and reduced overall neuronal activit",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2623,
+      "pmid": "42723148",
+      "doi": "10.1002/ejsc.70247",
+      "title": "No Influence of Sleep Quality and Chronotype on the Effects of Mental Fatigue: Evidence From an Exploratory Analysis.",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "ABSTRACT A recent trial showed a negative impact of mental fatigue (MF) on subjective and behavioural outcomes. However, effects on physical performance outcomes were smaller than previously reported, possibly due to interindividual differences. To explore these differences, we examined whether sleep quality and chronotype modulate subjective and behavioural responses to MF. Mental fatigue was induced using a 45 minute Stroop task, while the control condition consisted of watching a documentary of equal duration. Experiments were conducted at approximately the same time of day across participants. Dependent variables included the level of subjective MF (visual analogue scale), cognitive performance (GoNoGo task), physical performance (time trial) and the Rating of Perceived Exertion (during the time trial). Sleep quality (Pittsburgh Sleep Quality Index) and chronotype (Single Item Chronotype scale) were added as between subject variables in exploratory moderation analyses. Weekly caffe",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2624,
+      "pmid": "42565694",
+      "doi": "10.17116/neiro20269004152",
+      "title": "[Contralateral venous thrombosis and intracerebral hemorrhage after resection of parasagittal meningioma: a case report and systematic review].",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Background. Preservation of venous structures and prevention of cortical trauma during resection of parasagittal meningioma are key factors ensuring high quality after surgery. However, venous circulatory disorders are possible despite these principles. OBJECTIVE To describe contralateral cerebral venous thrombosis and compare own findings with literature data on cerebral venous thrombosis in parasagittal meningioma. RESULTS AND DISCUSSION A 53-year-old man with parasagittal meningioma of posterior third of superior sagittal sinus bordering the middle third on the right developed local thrombosis of sinus and parietal vein, as well as contralateral secondary intracerebral hemorrhage in 9 days after surgery. We did not remove tumor remnant inside the sinus. Superior sagittal sinus was not opened. Meningioma matrix coagulation was performed using direct spray mode. Enoxaparin sodium (subsequently switched to rivaroxaban) and citicoline were prescribed. The Karnofsky score recovered to 90",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2627,
+      "pmid": "42796929",
+      "doi": "10.3390/nu18182946",
+      "title": "Energy Drink Use and Adolescent Sleep Debt: Implications for Obesity, Cognition, and Physical Activity.",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Background/Objectives: Energy drinks are marketed to adolescents as products that enhance alertness, concentration, and physical or sports performance, yet their use may also represent a visible marker of sleep debt and a potential contributor to disrupted 24 h behavioral patterns. This narrative review examines evidence linking energy drink consumption with adolescent sleep disturbance and considers implications for obesity risk, cognition, and physical activity. Methods: Targeted literature searches were conducted in PubMed/MEDLINE, ScienceDirect, Google Scholar, and reference lists to identify reviews, consensus statements, policy documents, and adolescent-relevant observational or experimental studies. Evidence was synthesized narratively and classified as strong, moderate, limited, or hypothesis-generating according to study design, consistency, age specificity, and directness to the proposed pathway. Results: The strongest evidence supports associations between energy drink use a",
+      "evidence_boundary": "Observational evidence cannot establish causality and is vulnerable to confounding.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2629,
+      "pmid": "42787667",
+      "doi": "10.3389/fphys.2026.1877799",
+      "title": "Acute caffeine strategies for improving performance in combat sports: a structured narrative review.",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "This structured narrative review updates and contextualizes evidence on acute caffeine strategies in combat sports, with emphasis on performance effects, delivery form, combined interventions, and factors that may explain inconsistent findings. A structured literature search was conducted in Web of Science Core Collection, Scopus, PubMed, and SPORTDiscus. Eligible reports involved trained amateur, competitive, or professional combat sport athletes, evaluated an acute caffeine intervention administered before or during exercise or sport specific performance testing, and included at least one physical, cognitive, or technical tactical performance outcome. Findings were synthesized narratively because of substantial heterogeneity in sport discipline, caffeine protocol, comparator, and outcome measures. Forty three reports met the eligibility criteria. Fourteen evaluated combined caffeine protocols, whereas 29 evaluated caffeine supplementation alone. Combined protocols included caffeine w",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2630,
+      "pmid": "42750265",
+      "doi": "10.1080/14737175.2026.2733188",
+      "title": "Advancing insights into fibromyalgia: an updated review of diagnosis and differential diagnosis.",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "INTRODUCTION Despite advances in understanding nociplastic pain and central sensitization, fibromyalgia remains a challenging clinical diagnosis due to the absence of specific biomarkers, extensive symptom overlap with other conditions, and persistent misconceptions about its pathophysiology. AREAS COVERED This narrative review covers the evolution of the diagnostic criteria, the clinical presentation, the red flags suggesting alternative diagnoses, and a practical diagnostic approach toward fibromyalgia. Attention is given to its differential diagnosis with rheumatological, neurological, endocrine, sleep, and psychiatric conditions as well as other overlap syndromes, along with emerging tools including quantitative sensory testing, small fiber pathology, neuroimaging, and digital phenotyping. Evidence was identified through a search of PubMed and Web of Science (April to May 2026) for 'fibromyalgia' combined with key terms, supplemented by hand-searching reference lists and recent sys",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2631,
+      "pmid": "42744719",
+      "doi": "10.1016/j.euf.2026.07.014",
+      "title": "Evaluating Caffeine Intake and Reduction in Patients with Lower Urinary Tract Symptoms (LUTS).",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Caffeine is consistently identified in international guidelines as a bladder irritant and modifiable risk factor in lower urinary tract symptoms (LUTS). Despite consensus recommendations to reduce intake, no standardised clinical framework exists for its systematic evaluation. Intake is rarely quantified in milligrams, nonbeverage sources are inconsistently assessed, and pharmacokinetic modifiers that substantially alter caffeine exposure remain largely absent from current clinical assessment. We propose a structured five-step framework for caffeine evaluation in LUTS: symptom classification, bladder diary review, quantification of total intake across all sources, pharmacokinetic risk stratification, and individualised target-setting with scheduled review. Particular attention is given to cytochrome P450 1A2-mediated modifiers of clearance, including concomitant medication use, smoking status, and hepatic function, each of which can substantially alter systemic caffeine exposure indepe",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2632,
+      "pmid": "42739755",
+      "doi": "10.3390/jcm15176750",
+      "title": "Ayurveda Treatments for Insomnia: A Narrative Review.",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Background: Sleep disorders, particularly chronic insomnia (Nidranasha), represent an escalating global public health challenge associated with extensive neuropsychological and metabolic morbidities. While conventional pharmacotherapy provides immediate symptomatic relief, concerns regarding dependency, tolerance, and altered sleep architecture necessitate the evaluation of evidence-based complementary interventions. Ayurveda offers a comprehensive multi-modality framework for sleep health through internal adaptogenic herbs (Abhyantar Chikitsa), external oil-based therapies (Bahir Parimarjana), and structured lifestyle regimens (Dinacharya/Ratricharya). This narrative literature review evaluates the current clinical and mechanistic evidence supporting Ayurvedic interventions for sleep disorders. Methods: A focused narrative review was conducted across PubMed; Scopus; Cochrane Central Register of Controlled Trials (CENTRAL); Google Scholar; and Ayurveda, Yoga and Naturopathy, Unani, Sid",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2633,
+      "pmid": "42732346",
+      "doi": "10.7759/cureus.114485",
+      "title": "Early Recognition of Neuroleptic Malignant Syndrome Without Hyperthermia: A Narrative Review.",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Neuroleptic malignant syndrome (NMS) is a rare but potentially fatal idiosyncratic reaction to dopamine antagonism, traditionally recognised by hyperthermia, muscular rigidity, autonomic instability, and altered mental status. International consensus and DSM-5 research criteria uniformly require documented repeated hyperthermia to establish a diagnosis. Primary cohort, case-register, pharmacovigilance, and clinical-feature-frequency data document that a clinically important minority of diagnosed patients are afebrile at presentation, and that rigidity precedes measured hyperthermia in the majority who eventually become febrile. This review synthesises the evidence bearing on early recognition of NMS in patients who do not yet meet the fever criterion, and asks what earlier markers, clinical patterns, and management steps are supported by primary evidence. Feature-frequency series show that rigidity and rising creatine kinase (CK) are earlier and more universal markers than measured hyp",
+      "evidence_boundary": "Observational evidence cannot establish causality and is vulnerable to confounding.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2634,
+      "pmid": "42687507",
+      "doi": "10.1002/cns.71085",
+      "title": "Mild Cognitive Impairment Diagnosis and Care Algorithms and the Role of Digital Interventions: Expert Consensus.",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "ABSTRACT Background Mild cognitive impairment (MCI) is a clinically recognized condition, often being a prodromal dementia state with a risk of further cognitive decline. While there is currently no definitive diagnostic test for MCI, early identification and intervention are important. Methods To assist clinicians in the diagnosis and treatment of MCI, the ASian Clinical Expert group on Neurocognitive Disorders (ASCEND) convened to identify ongoing gaps in MCI management primarily in Asia, and to discuss the existing body of literature with a view to providing evidence‐based expert recommendations. Results Two novel algorithms and a set of expert recommendations were formulated, addressing the cognitive assessment and clinical diagnosis of MCI, and optimal MCI management approaches. Because many risk factors for cognitive decline are modifiable, the mainstay of intervention comprises a multi‐domain approach involving optimizing metabolic health, mitigating cerebrovascular risk, correc",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2635,
+      "pmid": "42650476",
+      "doi": "10.3390/foods15162782",
+      "title": "Beyond Composition: Processing-Driven Transformations and Functional Trade-Offs of Matcha Tea in Foods.",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Matcha tea, a powdered green tea produced from shade-grown Camellia sinensis leaves, has gained increasing attention as both a traditional beverage and a functional food ingredient. While previous reviews have focused on its phytochemical profile and biological activities, less attention has been given to the effects of food processing and matrix interactions on matcha bioactives. This review critically synthesizes current evidence on the processing-induced transformation, stability, and digestive bioaccessibility of key matcha compounds in real food systems. The production methods, phytochemical compositions, and reported health effects are summarized, with a particular emphasis on matrix-dependent changes during processing, including catechin degradation and epimerization, caffeine retention, L-theanine stability, and chlorophyll loss. The implications of these alterations for sensory quality, safety, and gastrointestinal release are discussed. Emerging findings on gut microbiota mod",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2636,
+      "pmid": "42645096",
+      "doi": "10.3390/diseases14080288",
+      "title": "Impact of Coffee Consumption on Fructose-Related Metabolic Alterations: Potential Mechanisms and Implications for Metabolic Diseases.",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Coffee is one of the most widely consumed beverages worldwide. Coffee and its bioactive compounds, including caffeine, chlorogenic acid, and caffeic acid, have attracted increasing attention because of their potential health benefits. Evidence from pediatric and adult populations supports a positive association between fructose intake from sugar-sweetened beverages and the increasing prevalence of obesity and other non-communicable diseases. In this context, coffee consumption may represent a potential protective dietary factor against high fructose intake-induced metabolic alterations, including obesity, type 2 diabetes, liver disease, cardiovascular disease, and alterations in gut microbiota composition. Therefore, this review summarizes current evidence on the potential role of coffee consumption and coffee-derived bioactive compounds in modulating fructose-induced metabolic alterations and discusses the mechanisms involved. However, current evidence from human studies remains limit",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2637,
+      "pmid": "42614552",
+      "doi": "10.3389/fpsyt.2026.1830803",
+      "title": "Reprogramming brain bioenergetics in depression: an integrative framework linking creatine, branched-chain amino acids, and exercise to neuroplasticity, cognitive function, and depression-related outcomes.",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Depression represents a multifaceted neuropsychiatric disorder distinguished by disruptions in cerebral energy metabolism, neurotransmitter communication, neuroplasticity, and cognitive processes. An increasing body of literature indicates that integrative non-pharmacological interventions aimed at metabolic and neurochemical pathways may present promising adjunctive strategies for ameliorating depressive manifestations and concomitant cognitive impairments. This review explores the prospective combined effects of creatine supplementation, branched-chain amino acids (BCAAs), and physical exercise as a multimodal bioenergetic intervention for the management of depression. Creatine is pivotal in maintaining neuronal energy equilibrium via the phosphocreatine system, thereby facilitating mitochondrial functionality and adenosine triphosphate availability within neural cells. BCAAs may influence central fatigue and exercise performance through competitive inhibition of tryptophan transport",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2638,
+      "pmid": "42602094",
+      "doi": "10.3389/fphar.2026.1883688",
+      "title": "Betaine as a regulator of metabolism, epigenetics, and cellular osmoprotection: therapeutic implications in cardiometabolic and renal diseases.",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Betaine, a glycine derivative found in spinach, beets, and whole grains, offers significant pharmacological and nutritional benefits. Researchers are focusing on betaine due to its therapeutic properties and ease of dietary incorporation. The zwitterion betaine is a derivative of N,N,N-trimethylglycine, which is produced during choline metabolism. However, endogenous synthesis of betaine may not always meet the health requirements, and dietary supplementation is needed. Betaine also acts as a methyl donor and an osmolyte and has proven beneficial in treating conditions such as hyper homocysteinemia, inflammation, cardiovascular disorders, and metabolic disorders. Pre-clinical and clinical studies demonstrate its therapeutic effectiveness, supported by safety reports confirming its role in enhancing human health. This review aims to summarize the biochemical, molecular, and therapeutic roles of betaine across multiple disease conditions, with a particular focus on its role in metabolic ",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2639,
+      "pmid": "42594838",
+      "doi": "10.1016/j.intimp.2026.117240",
+      "title": "Gut microbiota-derived TMA/TMAO and IRAK4 signaling in type 2 diabetes: Current evidence, knowledge gaps and future therapeutic opportunities.",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Diabetes mellitus type 2 (T2DM) is now considered an immunometabolic condition with a long-term low-grade inflammatory state, insulin resistance, and host-microbiome interactions. Emerging evidence suggests that gut microbiota-derived trimethylamine (TMA), its hepatic metabolite trimethylamine N-oxide (TMAO), and IRAK4-mediated innate immune signaling may contribute to metabolic inflammation and insulin resistance. However, direct mechanistic evidence linking these components remains limited, and most available data originate from preclinical studies. Gut microbiota produces TMA based on the nutrients present in the diet, such as choline, betaine, and l-carnitine, which are then oxidized in the liver to trimethylamine N-oxide (TMAO), a metabolite linked to inflammation, metabolic maladaptation, and cardiovascular issues. IRAK4, a signaling mediator of Toll-like receptor and interleukin-1 receptor, may induce NF- kB and MAPK signaling, which may contribute to metaflammation and defectiv",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2640,
+      "pmid": "42589428",
+      "doi": "10.3390/ijms27156771",
+      "title": "Medicinal Value of Camellia sinensis Bioactive Components: Focus on Theaflavins and Tea Polysaccharides.",
+      "category": "cognition_focus",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Tea, derived from the leaves of Camellia sinensis, is a non-alcoholic beverage rich in pharmacologically active bioactive components. This plant contains many bioactive components, such as xanthine alkaloids, tea polyphenols, L-theanine, theaflavins, tea polysaccharides, and volatile oils. Evidence indicates that these bioactive constituents contribute to various physiological benefits, including body weight regulation, anti-fatigue properties, hypoglycemic action, antitumor and neuroprotective potentials, improvement of vascular function, and attenuation of airway-induced organ obstruction. Up to now, research has systematically confirmed and summarized the functions of xanthine alkaloids, tea polyphenols, and L-theanine. However, much less attention has been given to theaflavins and tea polysaccharides. This review therefore focuses on how theaflavins and tea polysaccharides work in the human body and what they do, as well as how these two types of compounds are metabolized in tea pl",
+      "evidence_boundary": "Review-level synthesis supports context and hypothesis generation but does not by itself establish clinical efficacy.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2647,
+      "pmid": "42797412",
+      "doi": "10.3390/ph19091366",
+      "title": "Systems Biology and Structure-Based In Silico Evaluations of Quercetin-Psychobiotic Interactions for the Management of Depression.",
+      "category": "gut",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Background/Objectives: Psychobiotics are live microorganisms that, when administered in appropriate amounts, can enhance mental health. Through the production of neuroactive metabolites, regulation of immune responses, and interactions along the gut–brain axis, they modulate host neurophysiology. However, significant strain-specific variability exists in their metabolic capabilities, colonization potential, and functional interactions, necessitating a systematic approach for psychobiotic strain selection. Methods: In the present study, an integrated in silico systems biology approach combining comparative genomics, genome-scale metabolic modeling, network pharmacology, molecular docking, molecular dynamics, and ADMET analysis was employed to computationally evaluate the therapeutic potential and molecular interactions of a quercetin-psychobiotic co-delivery system for managing depression by modulating the gut–brain axis. Results: Comparative genomic analysis of candidate psychobiotic s",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2648,
+      "pmid": "42795640",
+      "doi": "10.3390/microorganisms14092059",
+      "title": "Gut-on-Chip Models for Host-Microbiome Studies: A Systematic Review.",
+      "category": "gut",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "As a central regulator of nutrient absorption, immune homeostasis and overall health, the gastrointestinal tract has become a major focus of biomedical research. However, developing in vitro models that accurately reproduce human gastrointestinal architecture and physiological conditions remains a major challenge. Gut-on-chip (GoC) systems, which integrate microfluidics with cell cultures, have emerged as a promising solution in the past decade. By recreating dynamic microenvironments that incorporate fluid flow, peristalsis-like mechanical stimulation and co-culture with microorganisms, GoC systems enable more physiologically relevant investigation of host–microbe and host–microbiome interactions. This systematic review provides a comprehensive overview of available GoC technology used in host–microbe research, including their structural and cellular components. A systematic search of PubMed, Embase and Google Scholar databases up to May 2026 identified forty-eight studies evaluating ",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2649,
+      "pmid": "42819078",
+      "doi": "10.3389/fnut.2026.1957323",
+      "title": "Correction: Precision synbiotic intervention with 2'-fucosyllactose and infant-derived Bifidobacterium modulates gut-immune axis and reduces disease risk in toddlers: a randomized controlled trial.",
+      "category": "gut",
+      "abstract_verified": false,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": null,
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "needs_pubmed_fallback"
+    },
+    {
+      "wave": 2653,
+      "pmid": "42828074",
+      "doi": "10.3389/fmicb.2026.1910885",
+      "title": "Bacterial extracellular vesicles as central mediators of microbiota-host communication.",
+      "category": "gut",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Bacterial extracellular vesicles (BEVs) are nanoscale, lipid bilayer–enclosed structures released by both Gram-negative and Gram-positive bacteria that act as active mediators of microbial and host–microbe communication rather than simple byproducts of membrane turnover. By packaging proteins, nucleic acids, lipids, and metabolites, BEVs participate in quorum sensing, biofilm regulation, horizontal gene transfer, and immune modulation, with functional outcomes that depend strongly on microbial origin and environmental context: pathogen-derived BEVs frequently promote inflammation and tissue damage, whereas commensal- and probiotic-derived BEVs are more often linked to epithelial protection and immune regulation. These properties have positioned BEVs as promising translational tools for biomarker discovery, vaccine development, and engineered drug delivery. However, vesicle heterogeneity, inconsistent isolation and purification methods, and an incomplete understanding of in vivo behavio",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2654,
+      "pmid": "42827967",
+      "doi": "10.1016/j.crmicr.2026.100660",
+      "title": "Short-chain fatty acid-producing commensals: Key modulators of AD neuroinflammation via the microbiota-gut-brain axis.",
+      "category": "gut",
+      "abstract_verified": false,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": null,
+      "evidence_boundary": "Interpret within the source design, tested exposure, population, endpoints, and follow-up.",
+      "state": "needs_pubmed_fallback"
+    },
+    {
+      "wave": 2655,
+      "pmid": "42825107",
+      "doi": "10.1016/j.crfs.2026.101565",
+      "title": "Next-generation probiotic delivery: Engineering complex coacervation systems for targeted gut release and bioactive synergy.",
+      "category": "gut",
+      "abstract_verified": false,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": null,
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "needs_pubmed_fallback"
+    }
+  ],
+  "missing_after_bulk_lookup": [
+    {
+      "wave": 2607,
+      "pmid": "42794785",
+      "doi": "10.3390/ijms27188358",
+      "title": "AMPK-Directed Therapeutics for MASLD: Mechanistic Rationale, Activator Classes, and Clinical Translation.",
+      "category": "metabolic"
+    },
+    {
+      "wave": 2609,
+      "pmid": "42792232",
+      "doi": "10.3390/antiox15091193",
+      "title": "Molecular Mechanisms of Obesity-Associated Oxidative Stress and Therapeutic Strategies.",
+      "category": "metabolic"
+    },
+    {
+      "wave": 2610,
+      "pmid": "42792223",
+      "doi": "10.3390/antiox15091184",
+      "title": "Oxidative Stability and Nanoencapsulation of Marine Omega-3 LC-PUFAs for Sustainable Aquaculture and Human Health.",
+      "category": "cardiometabolic"
+    },
+    {
+      "wave": 2612,
+      "pmid": "42790830",
+      "doi": "10.1016/j.phrs.2026.109638",
+      "title": "Berberine induces pleiotropic beneficial effects via hormesis.",
+      "category": "metabolic"
+    },
+    {
+      "wave": 2620,
+      "pmid": "42810842",
+      "doi": "10.1177/13872877261490130",
+      "title": "A single-center open-label, randomized, parallel-group controlled clinical trial on the long-term effect of the treatment with EGb 761 in blood markers of inflammation and neurodegeneration in patients with mild cognitive impairment: ACE-2020-EGb 761.",
+      "category": "cognition_focus"
+    },
+    {
+      "wave": 2621,
+      "pmid": "42795429",
+      "doi": "10.3390/life16091565",
+      "title": "Acute Salivary Biomarker, Cognitive, and Tennis Performance Responses to Tennis-Specific Exercise Versus HIIT: A Randomized Crossover Study.",
+      "category": "cognition_focus"
+    },
+    {
+      "wave": 2622,
+      "pmid": "42783813",
+      "doi": "10.3390/metabo16090688",
+      "title": "Acute Responses to Creatine Monohydrate and L-Arginine, Alone and Combined, on Repeated-Sprint Power, Countermovement Jump Height, and Stroop Reaction Time in Recreationally Active Men: A Randomized Double-Blind Crossover Trial.",
+      "category": "cognition_focus"
+    },
+    {
+      "wave": 2625,
+      "pmid": "42826818",
+      "doi": "10.1016/j.bbamcr.2026.120231",
+      "title": "Microglial GPR56 in synaptic pruning: mechanisms, comparative receptor biology, and context-dependent roles in brain disorders.",
+      "category": "cognition_focus"
+    },
+    {
+      "wave": 2626,
+      "pmid": "42820327",
+      "doi": "10.1002/ptr.70467",
+      "title": "Potential of Ginkgo biloba Extract to Intervene in Chronic Inflammation-Related Diseases.",
+      "category": "cognition_focus"
+    },
+    {
+      "wave": 2628,
+      "pmid": "42794738",
+      "doi": "10.3390/ijms27188311",
+      "title": "The Gut-Heart Axis in Cardiovascular Disease: Microbial Metabolites, Mediterranean and Traditional Turkish Dietary Patterns, and Personalized Medicine.",
+      "category": "cognition_focus"
+    },
+    {
+      "wave": 2641,
+      "pmid": "42826097",
+      "doi": "10.1016/j.celrep.2026.118068",
+      "title": "Lacticaseibacillus rhamnosus GG enhances gefitinib efficacy and reduces treatment-related toxicity via propionyl-L-carnitine regulation.",
+      "category": "gut"
+    },
+    {
+      "wave": 2642,
+      "pmid": "42808059",
+      "doi": "10.1080/29933935.2026.2676398",
+      "title": "Exploring the interplay between dietary plant glycolipids and gut microbiota: A systematic review.",
+      "category": "gut"
+    },
+    {
+      "wave": 2643,
+      "pmid": "42805421",
+      "doi": "10.1016/j.bbi.2026.107035",
+      "title": "Procyanidins and Bifidobacterium infantis alleviate anxiety and depression-like behavior in alcohol use disorder withdrawal mice via the gut-immune-brain axis.",
+      "category": "gut"
+    },
+    {
+      "wave": 2644,
+      "pmid": "42804968",
+      "doi": "10.1016/j.soncn.2026.152396",
+      "title": "Comparative Effects of Microbiota-Modifying Interventions for Gastrointestinal Disorders in Adults with Colorectal Cancer: A Systematic Review and Network Meta-Analysis.",
+      "category": "gut"
+    },
+    {
+      "wave": 2645,
+      "pmid": "42803549",
+      "doi": "10.1128/spectrum.00043-26",
+      "title": "Lactiplantibacillus plantarum Lp05 ensures immune developmental safety and protects against colitis via promoting Treg differentiation in mice.",
+      "category": "gut"
+    },
+    {
+      "wave": 2646,
+      "pmid": "42801985",
+      "doi": "10.1016/j.ntt.2026.107721",
+      "title": "Ingested microplastics and the gut-brain axis: A systematic review of mechanistic pathways and neurobiological impacts in human and preclinical models.",
+      "category": "gut"
+    },
+    {
+      "wave": 2650,
+      "pmid": "42829721",
+      "doi": "10.2147/IJGM.S636969",
+      "title": "Mechanisms by Which the Cervicovaginal Microbiota Mediates Endometrial Repair Following Uterine Injury: A Review of Recent Advances.",
+      "category": "gut"
+    },
+    {
+      "wave": 2651,
+      "pmid": "42829422",
+      "doi": "10.1007/s12519-026-01094-7",
+      "title": "Microbiome signatures and mechanistic pathways in pediatric obesity: from early-life risk to precision interventions.",
+      "category": "gut"
+    },
+    {
+      "wave": 2652,
+      "pmid": "42828728",
+      "doi": "10.1080/19490976.2026.2740906",
+      "title": "Gut bacteria and their metabolites may influence our decisions, intelligence, cognition, and consciousness.",
+      "category": "gut"
+    }
+  ]
+}

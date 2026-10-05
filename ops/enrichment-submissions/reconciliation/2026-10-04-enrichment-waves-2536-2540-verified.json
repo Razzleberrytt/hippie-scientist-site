@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "range": "2536-2540",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2536,
+      "pmid": "42741139",
+      "title": "The potential protective roles of Astragalus polysaccharides against toxicity of polystyrene nanoplastics on mice sperm exposed.",
+      "abstract_verified": true,
+      "state": "research_only_animal",
+      "evidence_boundary": "Mouse toxicology study; does not establish human reproductive benefit or dosing."
+    },
+    {
+      "wave": 2537,
+      "pmid": "42819642",
+      "title": "Research advances in red ginseng polysaccharides: preparation, structural characteristics and immunomodulatory effect.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "Broad pharmacology review with mixed preclinical evidence; human efficacy remains insufficiently established."
+    },
+    {
+      "wave": 2538,
+      "pmid": "42807675",
+      "title": "The therapeutic potential of medicinal mushrooms in ophthalmology: from ethnomycology to evidence-based applications.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "Most medicinal-mushroom ophthalmic evidence remains preclinical or traditional, with limited clinical validation."
+    },
+    {
+      "wave": 2539,
+      "pmid": "42807652",
+      "title": "TCM herb pairs regulate breast cancer TME heterogeneous mechanisms in immune, vascular, and stromal compartments.",
+      "abstract_verified": true,
+      "state": "research_only_combination_firewall",
+      "evidence_boundary": "Multi-herb mechanistic review; cannot isolate ingredient effects or substitute for established oncology treatment."
+    },
+    {
+      "wave": 2540,
+      "pmid": "42738626",
+      "title": "Organ-Resolved Salicylate-Phenylpropanoid Metabolite Profiling of Echinacea purpurea, E. pallida, and E. tennesseensis Tissues Extracted with 50% Aqueous Methanol by LC-MS/MS and LC-HRMS.",
+      "abstract_verified": true,
+      "state": "research_only_replacement",
+      "replaces_rejected_pmid": "42805791",
+      "evidence_boundary": "Plant metabolomics informs composition/quality variability, not direct human efficacy."
+    }
+  ],
+  "rejected": [
+    {
+      "wave": 2540,
+      "pmid": "42805791",
+      "reason": "Irrelevant nematode taxonomy paper surfaced from Astragalus keyword collision; rejected before enrichment."
+    }
+  ]
+}

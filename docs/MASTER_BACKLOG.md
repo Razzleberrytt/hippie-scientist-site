@@ -48,11 +48,11 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6324 | Validate and land enrichment waves 1501–2000 | A | In review — admitted for implementation by PR #6323; exact-head validation required | P1 | 3/4/3/5/0.75/2 | 67.5 | 2026-10-04T18:00:00Z — exact base `2a9aa816383f9d84e5059342dd6aa04b038a75db` | 500 contiguous unique receipts; admit only source-specific canonical rows; preserve all research-only firewalls; required exact-head gates green before merge |
+| #6337 / PR #6334 | Validate and land enrichment waves 2001–3000 | A | In review — admitted for implementation; exact-head validation required | P1 | 3/4/3/5/0.75/2 | 67.5 | 2026-10-04 — exact base `7c56a720f464b3cd2198e2f15ba6b3d245aacf9d` | 1,000 contiguous research receipts across Waves 2001–3000; preserve cumulative dedupe and all research-only firewalls; runtime admission remains fail-closed |
 
 
 
-**Current admission (verified 2026-10-04):** Normal implementation WIP is **1/3**. Authority/Content is occupied by #6324 for the bounded Waves 1501–2000 enrichment closeout. Discovery/SEO and Revenue/Conversion are free. #6324 is admitted against exact main base `2a9aa816383f9d84e5059342dd6aa04b038a75db`; scientific/runtime promotion remains fail-closed.
+**Current admission (verified 2026-10-04):** Normal implementation WIP is **1/3**. Authority/Content is occupied by #6337 for the bounded Waves 2001–3000 enrichment closeout owned by PR #6334. Discovery/SEO and Revenue/Conversion are free. #6337 is admitted against exact main base `7c56a720f464b3cd2198e2f15ba6b3d245aacf9d`; scientific/runtime promotion remains fail-closed.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
@@ -86,7 +86,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Authority/Content is occupied by #6324; Discovery/SEO and Revenue/Conversion are free. No additional candidate is admitted by vacancy alone.
+Authority/Content is occupied by #6337; Discovery/SEO and Revenue/Conversion are free. No additional candidate is admitted by vacancy alone.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|

@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "range": "2706-2755",
+  "source": "NCBI PubMed exact fallback plus fail-closed replacements",
+  "rows": [
+    {
+      "wave": 2707,
+      "pmid": "42772018",
+      "state": "research_only_replacement_human_pharmacology",
+      "replaces_rejected_pmid": "42790661",
+      "focus": "Human pharmacodynamic study validated topical capsaicin and cinnamaldehyde formulations as TRPV1/TRPA1 probes, with robust receptor-specific dermal blood-flow responses and no reported adverse events.",
+      "evidence_boundary": "Small experimental study in 15 women with migraine; demonstrates pharmacodynamic target engagement, not clinical analgesic efficacy."
+    },
+    {
+      "wave": 2709,
+      "pmid": "42828921",
+      "state": "research_only_delivery_review",
+      "focus": "Review of iron-polyphenol nanozymes assembled from compounds including tannic acid, curcumin, quercetin, and gallic acid for catalytic, anti-inflammatory, antimicrobial, and delivery applications.",
+      "evidence_boundary": "Nanomedicine review; most applications remain preclinical and are not evidence for oral supplement efficacy."
+    },
+    {
+      "wave": 2710,
+      "pmid": "42825537",
+      "state": "research_only_delivery_review",
+      "focus": "Review of curcumin nanoliposomes, polymeric nanoparticles, micelles, and other delivery systems for inflammatory skin applications.",
+      "evidence_boundary": "Formulation-focused review; clinical effectiveness of delivery systems remains incompletely established."
+    },
+    {
+      "wave": 2714,
+      "pmid": "42792821",
+      "state": "research_only_replacement_preclinical_review",
+      "replaces_rejected_pmid": "42811994",
+      "focus": "Perspective/review on palmitoylethanolamide (PEA) as an intestinal homeostatic mediator linking inflammation, angiogenesis, epithelial barrier integrity, and colorectal-cancer interception.",
+      "evidence_boundary": "Direct evidence remains preclinical; this is not established colorectal-cancer prevention or a substitute for conventional therapy."
+    },
+    {
+      "wave": 2716,
+      "pmid": "42804009",
+      "state": "research_only_preclinical_review",
+      "focus": "Review of curcumin, resveratrol, EGCG, quercetin, berberine, honokiol, and silibinin as modulators of TGF-β signaling in radiation-induced fibrosis.",
+      "evidence_boundary": "Most mechanistic evidence comes from preclinical or non-radiation fibrosis models; early clinical signals require larger controlled trials."
+    },
+    {
+      "wave": 2717,
+      "pmid": "42800936",
+      "state": "research_only_translational_review",
+      "focus": "Piperine review spanning extraction, bioavailability, formulation, pharmacology, human combination trials, and interaction liability.",
+      "evidence_boundary": "Stand-alone human exposure-response evidence is limited; much clinical evidence is combination-based."
+    },
+    {
+      "wave": 2718,
+      "pmid": "42800069",
+      "state": "research_only_review",
+      "focus": "Integrated review of rubusoside phytochemistry, sweetener properties, biological activities, and solubilization of poorly water-soluble drugs.",
+      "evidence_boundary": "Most biological activities are not established as clinically meaningful human outcomes."
+    },
+    {
+      "wave": 2719,
+      "pmid": "42797524",
+      "state": "research_only_review",
+      "focus": "Whole-plant Curcuma longa review covering rhizome and underused tissues, phytochemistry, biological activities, industrial applications, and sustainability.",
+      "evidence_boundary": "Clinical evidence is variable and much biological activity remains preclinical."
+    },
+    {
+      "wave": 2722,
+      "pmid": "42797031",
+      "state": "research_only_review",
+      "focus": "Review of food-matrix effects on turmeric, ginger, cinnamon, and clove phytochemical stability, bioaccessibility, and physiological responses.",
+      "evidence_boundary": "Human evidence is limited and often acute; matrix-specific results should not be generalized across preparations."
+    },
+    {
+      "wave": 2726,
+      "pmid": "42654212",
+      "state": "research_only_replacement_rct",
+      "replaces_rejected_pmid": "42829886",
+      "focus": "Randomized double-blind placebo-controlled 12-week trial of a multi-component nutraceutical in 90 adults found lower LDL-C and total cholesterol, with exploratory metabolic changes and good tolerability.",
+      "evidence_boundary": "Multi-component formulation prevents ingredient-specific attribution; exploratory metabolic findings need replication."
+    },
+    {
+      "wave": 2727,
+      "pmid": "42821252",
+      "state": "research_only_translational_review",
+      "focus": "Review of alpha-lipoic acid biology, redox functions, mitochondrial cofactor activity, polymer chemistry, delivery systems, and biomaterial applications.",
+      "evidence_boundary": "Broad translational review; biomaterial applications are distinct from conventional nutritional supplementation."
+    },
+    {
+      "wave": 2728,
+      "pmid": "42806850",
+      "state": "research_only_mechanistic_review",
+      "focus": "Review of Nrf2 regulation in oxidative stress, inflammation, mitochondrial function, and autophagy, including natural compounds such as flavonoids and resveratrol.",
+      "evidence_boundary": "Mechanistic review across disease models; does not establish clinical efficacy of Nrf2-targeting supplements."
+    },
+    {
+      "wave": 2729,
+      "pmid": "42802797",
+      "state": "research_only_review",
+      "focus": "Review of emerging neonatal HIE strategies beyond therapeutic hypothermia, including resveratrol and melatonin-plus-magnesium among preclinical/early clinical approaches.",
+      "evidence_boundary": "Most novel interventions remain preclinical or early phase and are not replacements for standard therapeutic hypothermia."
+    },
+    {
+      "wave": 2731,
+      "pmid": "42781545",
+      "state": "research_only_microbiome_review",
+      "focus": "Review of Dysosmobacter welbionis as a candidate next-generation beneficial microbe, covering butyrate production, metabolic associations, mouse supplementation, and translational hurdles.",
+      "evidence_boundary": "Human disease associations are not proof of therapeutic benefit; live-biotherapeutic efficacy remains unestablished."
+    },
+    {
+      "wave": 2740,
+      "pmid": "42720758",
+      "state": "research_only_translational_review",
+      "focus": "Review of O-methylation using resveratrol/pterostilbene as a model for improving pharmacokinetics of phenolic natural products.",
+      "evidence_boundary": "Improved pharmacokinetics does not consistently translate to improved pharmacodynamics or clinical efficacy."
+    },
+    {
+      "wave": 2745,
+      "pmid": "42690000",
+      "state": "research_only_review",
+      "focus": "Review of mitochondrial quality control in MASLD, including experimental effects of metformin, resveratrol, and empagliflozin.",
+      "evidence_boundary": "Clinical translation of mitochondrial-targeted strategies remains limited."
+    },
+    {
+      "wave": 2748,
+      "pmid": "42829475",
+      "state": "research_only_preclinical_delivery",
+      "focus": "Berberine-loaded pH/glucose-responsive hydrogel improved cellular oxidative/inflammatory markers and wound histology in diabetic rats.",
+      "evidence_boundary": "Biomaterial/cell/rat study; not evidence for oral berberine or established human wound treatment."
+    },
+    {
+      "wave": 2749,
+      "pmid": "42650292",
+      "state": "research_only_replacement_rct",
+      "replaces_rejected_pmid": "42825362",
+      "focus": "Randomized double-blind trial in insulin-resistant postmenopausal women found within-group antioxidant-marker changes with resveratrol plus vitamin C but no significant between-group superiority.",
+      "evidence_boundary": "Small preliminary trial; lack of significant treatment-by-time effects limits efficacy conclusions."
+    },
+    {
+      "wave": 2750,
+      "pmid": "42823860",
+      "state": "research_only_animal_combination",
+      "focus": "High-fat-diet mouse study found combined empagliflozin plus resveratrol improved steatosis, inflammation, glucose tolerance, and adipose browning more than monotherapies.",
+      "evidence_boundary": "Animal combination study cannot establish human efficacy or isolate resveratrol-specific effects."
+    },
+    {
+      "wave": 2751,
+      "pmid": "42821141",
+      "state": "research_only_in_vitro_mechanistic",
+      "focus": "Multi-omics and cell experiments identified CHEK2 and HPGD as candidate mediators of berberine's protective effects in high-glucose-exposed podocytes.",
+      "evidence_boundary": "In vitro mechanistic findings do not establish clinical benefit in diabetic nephropathy."
+    },
+    {
+      "wave": 2752,
+      "pmid": "42653291",
+      "state": "research_only_replacement_review",
+      "replaces_rejected_pmid": "42817135",
+      "focus": "Narrative review of berberine's metabolic and anti-inflammatory mechanisms in PCOS, including AMPK activation, insulin sensitivity, inflammation, and bioavailability limitations.",
+      "evidence_boundary": "Rationale-focused review; berberine is not FDA-approved for PCOS and clinical evidence remains heterogeneous."
+    },
+    {
+      "wave": 2753,
+      "pmid": "42828562",
+      "state": "research_only_meta_analysis",
+      "focus": "Systematic review/meta-analysis examined bidirectional relationships between vitamin D and the GH/IGF-1 axis in children.",
+      "evidence_boundary": "Very high heterogeneity across pooled analyses limits certainty and does not justify broad growth claims."
+    },
+    {
+      "wave": 2754,
+      "pmid": "42829807",
+      "state": "research_only_rct_combination",
+      "focus": "Randomized double-blind placebo-controlled trial tested morning ashwagandha+Rhodiola and evening magnesium L-threonate+L-theanine+apigenin combinations for stress and sleep.",
+      "evidence_boundary": "Short two-week intervention in healthy active adults and multi-compound arms prevent ingredient-specific attribution."
+    }
+  ],
+  "rejected": [
+    {
+      "wave": 2707,
+      "pmid": "42790661",
+      "reason": "Out-of-scope non-supplement VR pain intervention."
+    },
+    {
+      "wave": 2714,
+      "pmid": "42811994",
+      "reason": "Primary topic was BTK-inhibitor-induced hypertension; supplement mention was peripheral."
+    },
+    {
+      "wave": 2726,
+      "pmid": "42829886",
+      "reason": "Environmental multi-metal exposure review; not a supplement/nutraceutical enrichment target."
+    },
+    {
+      "wave": 2749,
+      "pmid": "42825362",
+      "reason": "Out-of-scope veterinary virus/mycotoxin cell model."
+    },
+    {
+      "wave": 2752,
+      "pmid": "42817135",
+      "reason": "Source abstract contained internally inconsistent unrelated ginkgolide/Alzheimer text, failing source-integrity review."
+    }
+  ]
+}
