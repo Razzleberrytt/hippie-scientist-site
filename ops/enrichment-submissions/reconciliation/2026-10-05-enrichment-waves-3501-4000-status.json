@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "batch_id": "2026-10-05-enrichment-waves-3501-4000",
-  "status": "complete_pending_repository_validation",
+  "status": "validation_in_progress",
   "admission_issue": 6347,
   "branch": "data/enrichment-waves-3501-4000-2026-10-05",
   "target_findings": 500,
@@ -26,8 +26,19 @@
     "final_selection": "2026-10-05-enrichment-waves-3501-4000-final-selection.json"
   },
   "next": [
-    "run repository-wide validation on the finalized branch",
-    "reconcile branch with current main",
-    "open or update PR and land only if required checks are green"
-  ]
+    "wait for the newly triggered required checks on this commit",
+    "merge PR #6348 only when required checks are green"
+  ],
+  "validation": {
+    "pr_number": 6348,
+    "base_branch": "main",
+    "triggering_head": "b6999370b3848fc5c0609c06d42b096fd42cbf6c",
+    "required_surfaces": [
+      "CI",
+      "Site Health Check",
+      "Build quality regression",
+      "Atomic upgrade gate"
+    ],
+    "note": "Control-record commit intentionally retriggers required PR validation after a bot-authored head produced action_required runs with zero jobs."
+  }
 }
