@@ -3,7 +3,7 @@
   "selection_revision": 2,
   "range": "3611-3625",
   "row_count": 15,
-  "failed_count": 0,
+  "failed_count": 1,
   "rows": [
     {
       "pmid": "42787599",
@@ -260,14 +260,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 22,
       "primary_category": "cognition_focus",
-      "state": "selected_exact_verified",
+      "state": "verification_exception",
       "wave": 3622,
-      "abstract_verified": true,
-      "title_match_score": 1,
-      "verified_title": "Effects of Caffeine Consumption on Attention Deficit Hyperactivity Disorder (ADHD) Treatment: A Systematic Review of Animal Studies.",
-      "verified_journal": "Nutrients",
-      "verified_pub_date": "2022-Feb-10",
-      "focus": "Attention deficit hyperactivity disorder (ADHD) is a neurodevelopmental disorder characterized by a persistent pattern of inattention and/or hyperactivity-impulsivity. ADHD impairments arise from irregularities primarily in dopamine (DA) and norepinephrine (NE) circuits within the prefrontal cortex. Due to ADHD medication's controversial side effects and high rates of diagnosis, alternative/complementary pharmacological therapeutic approaches for ADHD are needed. Although the number of publications that study the potential effects of caffeine consumption on ADHD treatment have been accumulating over the last years, and caffeine has recently been used in ADHD research in the context of animal models, an updated evidence-based systematic review on the effects of caffeine on ADHD-like symptoms in animal studies is lacking. To provide insight and value at the preclinical level, a systematic review based on PRISMA guidelines was performed for all publications available up to 1 September 2021. Caffeine treatment increases attention and improves learning, memory, and olfactory discrimination without altering blood pressure and body weight. These results are supported at the neuronal/molecular level. Nonetheless, the role of caffeine in modulating ADHD-like symptoms of hyperactivity and impulsivity is contradictory, raising discrepancies that require further clarification. Our results strengthen the hypothesis that the cognitive effects of caffeine found in animal models could be translated to human ADHD, particularly during adolescence."
+      "abstract_verified": false,
+      "title_match_score": 0,
+      "verified_title": null,
+      "verified_journal": null,
+      "verified_pub_date": null,
+      "focus": null
     },
     {
       "pmid": "35297302",
