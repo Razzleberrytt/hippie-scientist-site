@@ -21,7 +21,7 @@
     "within_batch_duplicate_pmids": 0,
     "within_batch_duplicate_dois": 0,
     "within_batch_duplicate_normalized_titles": 0,
-    "replacement_count": 46
+    "replacement_count": 47
   },
   "editorial_gate": {
     "category_specific_title_relevance": true,
@@ -2176,20 +2176,21 @@
       "wave": 3621
     },
     {
-      "pmid": "35215389",
-      "doi": "10.3390/nu14040739",
-      "title": "Effects of Caffeine Consumption on Attention Deficit Hyperactivity Disorder (ADHD) Treatment: A Systematic Review of Animal Studies.",
+      "pmid": "41978213",
+      "doi": "10.3390/nu18071163",
+      "title": "Isomaltulose-Based Stimulant Beverages Can Improve Postprandial Metabolic Responses Without Compromising Cognitive Benefits Associated with Caffeinated Energy Drinks.",
       "journal": "Nutrients",
-      "pub_date": "2022 Feb 10",
-      "pub_type": "Systematic Review",
+      "pub_date": "2026 Apr 6",
+      "pub_type": "Randomized Controlled Trial",
       "has_abstract": true,
       "category": "cognition_focus",
-      "discovery_query": "caffeine cognition systematic review 2018:2026[pdat]",
+      "discovery_query": "(creatine OR caffeine OR theanine OR citicoline OR bacopa) AND (cognition OR attention OR memory OR focus) AND (trial OR systematic review OR meta-analysis) AND 2018:2026[pdat]",
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 22,
       "primary_category": "cognition_focus",
       "state": "selected_pending_exact_abstract_verification",
-      "wave": 3622
+      "wave": 3622,
+      "replacement_reason": "animal_evidence_repair"
     },
     {
       "pmid": "35297302",
@@ -8266,6 +8267,7 @@
       "rows_checked": 500,
       "true_off_domain_replacements": 3,
       "false_positive_flags_retained": 4
-    }
+    },
+    "wave_3622_repair": "Replaced animal-only caffeine/ADHD systematic review with human randomized cognition/caffeine evidence."
   }
 }
