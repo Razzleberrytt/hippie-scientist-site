@@ -5,7 +5,7 @@
 **Updated:** 2026-10-04
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (verified 2026-10-04):** Normal implementation WIP is **1/3**. Authority/Content is occupied by #6338 / PR #6339 for the bounded Waves 3001–3500 enrichment closeout. Discovery/SEO and Revenue/Conversion are free. #6338 is admitted against exact main base `cf61874d6bc30aad1ad1b5d5dda793aa9df85e4d`; entity creation, governance override, publication promotion, recommendation promotion, dose inference, and category-firewall bypass remain forbidden.
+**Current admission (verified 2026-10-04):** Normal implementation WIP is **1/3**. Authority/Content is occupied by #6338 / PR #6339 for the bounded Waves 3001–3500 enrichment closeout. Discovery/SEO and Revenue/Conversion are free. #6338 is admitted against exact main base `0cf99b381284669904074db5d6c3f2b02cafaaea`; entity creation, governance override, publication promotion, recommendation promotion, dose inference, and category-firewall bypass remain forbidden.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -53,7 +53,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| A | #6338 / PR #6339 | Validate and land enrichment waves 3001–3500 | In review — 500/500 exact-verified; finalized-prior collision repair complete; repository-wide validation last | P1 | 67.5 | 2026-10-04 — exact-base admission against `cf61874d6bc30aad1ad1b5d5dda793aa9df85e4d` |
+| A | #6338 / PR #6339 | Validate and land enrichment waves 3001–3500 | In review — 500/500 exact-verified; finalized-prior collision repair complete; repository-wide validation last | P1 | 67.5 | 2026-10-04 — exact-base admission against `0cf99b381284669904074db5d6c3f2b02cafaaea` |
 
 
 
