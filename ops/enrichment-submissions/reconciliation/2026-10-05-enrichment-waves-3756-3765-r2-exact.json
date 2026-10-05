@@ -4,7 +4,7 @@
   "selection_sha": "4c50408fba4e2d1c1cf4481ccce10c3b82069c50",
   "range": "3756-3765",
   "row_count": 10,
-  "failed_count": 1,
+  "failed_count": 0,
   "rows": [
     {
       "pmid": "35642923",
@@ -173,14 +173,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 8,
       "primary_category": "micronutrients",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3763,
       "abstract_verified": true,
-      "title_match_score": 0,
+      "title_match_score": 1,
       "verified_title": "Impact of daily-supervised administration of a package of iron and folic acid and vitamin B12 on hemoglobin levels among adolescent girls (12-19 years): a cluster randomized control trial.",
       "verified_journal": "European journal of clinical nutrition",
       "verified_pub_date": "2021-Nov",
-      "focus": "The prevalence of anemia has remained high among Indian adolescent girls over the past decade, despite the ongoing iron and folic acid (IFA) supplementation program. This study was conducted to assess the impact of daily supplementation of a package of IFA with vitamin B12 on hemoglobin levels among adolescent girls. A community-based cluster-randomized trial was conducted in the rural block of Faridabad District, Haryana, India in the year 2017. A total of 760 adolescent girls in the age group of 12-19 years with mild and moderate anemia were selected from government schools. Daily-supervised administration of iron and folic acid was conducted for 90 days: experimental group-IFA (iron (60 mg), folic acid (500) mcg), and cyanocobalamin (1000 mcg), control group-IFA and placebo. Hemoglobin, serum ferritin, and vitamin B12 levels were assessed at baseline and endline. Two-hundred adolescent girls completed 90 doses of daily supplementation. The mean hemoglobin (experimental group: 1.3 ± 1.0 g/dL, control group: 1.6 ± 1.2 g/dL, P = 0.004) and ferritin levels (experimental group: 18.6 ± 31.5 ng/mL, control group: 18.8 ± 35.0 ng/mL, P = 0.188) increased in both the control and experiment groups. Serum vitamin B12 deficiency significantly reduced to 2.5% in the experimental group and ferritin deficiency alleviated in more than 96% of the girls post intervention. Daily supplementation of IFA with/without vitamin B12 for 90 days eliminated iron, vitamin B12 deficiency and reduced the overall proportion of anemia by 53.5%. However, addition of vitamin B12 to IFA supplementation had no impact on improving the hemoglobin levels among adolescent girls. The present study does not recommend provision of vitamin B12 for prevention and treatment of anemia in this population group."
+      "focus": "The prevalence of anemia has remained high among Indian adolescent girls over the past decade, despite the ongoing iron and folic acid (IFA) supplementation program. This study assessed daily supplementation of IFA with vitamin B12 among adolescent girls with mild and moderate anemia in a community-based cluster-randomized trial. Hemoglobin and ferritin increased in both groups; vitamin B12 deficiency fell substantially in the experimental group. Addition of vitamin B12 to IFA did not improve hemoglobin compared with IFA alone."
     },
     {
       "pmid": "31006806",
