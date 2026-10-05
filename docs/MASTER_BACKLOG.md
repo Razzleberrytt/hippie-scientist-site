@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-10-04
+**Updated:** 2026-10-05
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
@@ -48,17 +48,18 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6338 / PR #6339 | Validate and land enrichment waves 3001–3500 | A | In review — 500/500 exact-verified; finalized-prior collision repair complete; repository-wide validation required before merge | P1 | 3/4/3/5/0.75/2 | 67.5 | 2026-10-04 — exact base `0cf99b381284669904074db5d6c3f2b02cafaaea` | 500 finalized receipts; true prior basis 2,935; 0 PMID/DOI/title/prior collisions; cumulative 3,435 unique PMIDs |
 
 
 
-**Current admission (verified 2026-10-04):** Normal implementation WIP is **1/3**. Authority/Content is occupied by #6338 / PR #6339 for the bounded Waves 3001–3500 enrichment closeout. Discovery/SEO and Revenue/Conversion are free. #6338 is admitted against exact main base `0cf99b381284669904074db5d6c3f2b02cafaaea`; scientific/runtime promotion remains fail-closed.
+**Current admission (verified 2026-10-05):** Normal implementation WIP is **0/3**. #6338 / PR #6339 merged at `c5179df73b0ad472149b13f595a279ec60af49d5` on 2026-10-05T03:41:40Z. All three normal lanes are free; this retirement admits no new implementation work.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
 **Security follow-up #5456:** Open permanent MDX/TOML dependency-chain removal. Temporary containment expires 2026-10-07; this audit does not extend it.
 
-### Verified completion refresh — 2026-10-02
+### Verified completion refresh — 2026-10-05
+
+- **#6338 / PR #6339 — completed:** live GitHub merge receipt is `c5179df73b0ad472149b13f595a279ec60af49d5`, merged 2026-10-05T03:41:40Z. Retirement reconciles ownership only; it does not assert measured traffic, revenue, or a new deployment receipt.
 
 - **#6021 / PR #6195 — completed:** merged as `a1463e8010cfb2c30126bd06671451e23b19b703`; breadcrumb destination/label and accessibility repair are on `main`. The Discovery/SEO slot is free; external outcomes remain **Unknown**.
 
