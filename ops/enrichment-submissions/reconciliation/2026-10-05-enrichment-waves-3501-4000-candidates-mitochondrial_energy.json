@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-05-enrichment-3501-4000-candidates-mitochondrial_energy",
+  "category": "mitochondrial_energy",
+  "queries": [
+    "coenzyme Q10 creatine carnitine mitochondrial randomized trial 2018:2026[pdat]",
+    "NAD precursor nicotinamide riboside mitochondrial systematic review 2018:2026[pdat]"
+  ],
+  "prior_pmid_ledger_size": 3435,
+  "row_count": 0,
+  "rows": []
+}
