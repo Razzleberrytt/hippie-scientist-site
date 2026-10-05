@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "row_count": 5,
+  "verified_count": 4,
+  "rows": [
+    {
+      "wave": 3798,
+      "pmid": "42739926",
+      "selected_title": "A Tarui Disease Phenotype with Compensated Hemolysis and a Homozygous PFKM Variant of Uncertain Significance Mimicking Chronic Myelomonocytic Leukemia.",
+      "title": "A Tarui Disease Phenotype with Compensated Hemolysis and a Homozygous PFKM Variant of Uncertain Significance Mimicking Chronic Myelomonocytic Leukemia.",
+      "abstract": "Background and Clinical Significance: Tarui disease, or glycogen storage disease type VII, is a rare autosomal recessive metabolic myopathy caused by muscle phosphofructokinase deficiency. Its manifestations include exercise intolerance, exertional myalgia, muscle cramps, myoglobinuria, rhabdomyolysis, hyperuricemia, and compensated hemolysis. The hematologic phenotype may obscure the underlying metabolic disorder and raise concern for a clonal myeloid neoplasm. Case Presentation: A 23-year-old man was referred for persistent mild thrombocytopenia following evaluation for jaundice and hepatosplenomegaly. He had undergone cholecystectomy at 18 years of age and reported exercise-induced myalgia, muscle cramps, and episodes of dark urine. Laboratory investigations demonstrated mild monocytosis, reticulocytosis, thrombocytopenia, hyperuricemia, elevated lactate dehydrogenase, and predominantly unconjugated hyperbilirubinemia, with a negative direct antiglobulin test. Selected inherited hemolytic disorders, hemoglobinopathies, and paroxysmal nocturnal hemoglobinuria were excluded. Bone marrow examination showed marked erythroid hyperplasia and mild megakaryocytic dysplasia. Testing for JAK2, CALR, and MPL mutations and an extended myeloid next-generation sequencing panel identified no pathogenic variants, and monocytosis resolved during follow-up. Whole-exome sequencing identified a homozygous PFKM missense variant, NM_001354735.1:c.1087A>T, p.(Ile363Phe), classified as a variant of uncertain significance. The patient subsequently developed severe rhabdomyolysis, with a creatine kinase level of 225,000 U/L and recovered after intensive intravenous hydration without renal impairment. Conclusions: Tarui disease should be considered in young patients with compensated hemolysis, hyperuricemia, exertional muscle symptoms, dark urine, or rhabdomyolysis, even when hematologic abnormalities suggest a myeloid disorder. The highly concordant phenotype and homozygous PFKM variant support a clinically probable diagnosis, although pathogenicity remains unconfirmed. Functional and segregation evidence may strengthen causal interpretation and support future variant reclassification.",
+      "journal": "Journal of clinical medicine",
+      "pub_date": "2026-Sep-07",
+      "pdf_link": "https://doi.org/10.3390/jcm15176924",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13566509/",
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3829,
+      "pmid": "30000958",
+      "selected_title": "Marine Oils.",
+      "title": "Environmental persistence and inefficiency of natural attenuation in the removal of pyrolysis oils in Canadian marine waters under cold temperatures: Implications for hazardous and noxious substances spill preparedness.",
+      "abstract": "Pyrolysis oils are emerging alternative fuels that are increasingly being transported in marine environments. Although produced from renewable resources, their physicochemical properties result in their classification as hazardous and noxious substances (HNS). Limited information is available regarding the effectiveness of traditional clean-up and remediation strategies for their removal across geographically distinct marine environments, under cold-water conditions. The objective of this study was to evaluate the effectiveness of natural attenuation in three Canadian marine environments under cold temperatures. The aim was to determine whether pyrolysis oils can be effectively removed using conventional cleanup approaches or whether these strategies require re-evaluation considering environmental variability. Mesocosm experiments were conducted at 4 °C for up to 21 days to investigate the microbial fate of pyrolysis oils (wood oil and bio oil) in waters (1:2000, v/v) collected from the Beaufort Sea, Atlantic Ocean, and Pacific Ocean. Changes in physicochemical properties, microbial community composition (16S rRNA gene amplicon sequencing), surface activity, and toxicity (Microtox assay) were evaluated. The results demonstrated that both oils sank under static conditions, indicating limited natural dispersibility in water. Furthermore, both oils underwent limited biodegradation, ranging from only 3% to 20% at 4 °C across the tested waters. These findings suggest that natural attenuation is unlikely to be an effective remediation strategy under the conditions evaluated. Both oils also exhibited high toxicity to Vibrio fischeri, as indicated by their low IC50 values. Considering the high toxicity and low biodegradation rates, the tested oils may contribute to prolonged environmental persistence and extended ecological impacts. Therefore, conventional spill response and cleanup strategies should be re-evaluated when addressing pyrolysis oil spills.",
+      "journal": "Marine environmental research",
+      "pub_date": "2026-Sep-21",
+      "pdf_link": "https://doi.org/10.1016/j.marenvres.2026.108424",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13610038/",
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3830,
+      "pmid": "20301298",
+      "selected_title": "Dystrophinopathies.",
+      "title": "Multiparametric CMR evaluation of myocardial remodeling in dystrophinopathy.",
+      "abstract": "Cardiac involvement in dystrophinopathy progresses from diffuse myocardial remodeling to overt systolic failure. Multiparametric cardiac magnetic resonance (CMR) offers simultaneous insights into myocardial mechanics and tissue characterization, yet the optimal diagnostic parameters for tracking disease severity remain to be fully characterized. To objectively evaluate the descriptive and discriminative performance of integrating strain and quantitative T1 mapping parameters for identifying myocardial fibrosis burden and stratifying systolic dysfunction in patients with dystrophinopathy. This retrospective study analyzed 55 patients with genetically confirmed dystrophinopathy and 30 healthy controls who underwent CMR between January 2020 and December 2024. Patients were sequentially stratified by late gadolinium enhancement (LGE) status (Group A: LGE-negative, n = 16; Group B: LGE-positive, n = 39), and further sub-stratified by left ventricular ejection fraction (LVEF) (Group C: LVEF ≥ 50%, n = 23; Group D: LVEF < 50%, n = 16). Least absolute shrinkage and selection operator (LASSO) regression with 10-fold cross-validation was applied for non-zero feature selection, followed by the construction of multivariable Firth penalized logistic regression models. Model comparisons were made using the non-parametric DeLong test. Compared with Group A, Group B exhibited significant differences in LVEF (p < .001), mid-ventricular circumferential strain (CS_Mid, p < .001), and native T1 in segment 11 (T1map_seg11, mid-inferolateral, p = .004). In single-parameter ROC analysis, CS_Mid, LVEF, and T1map_seg11 exhibited an area under the curve (AUC) of 0.842 [95% confidence interval (CI): 0.735-0.949], 0.828 (95% CI: 0.714-0.942), and 0.715 (95% CI: 0.549-0.880), respectively. The combined model of CS_Mid and T1map_seg11 achieved the AUC of 0.888 (95% CI: 0.793-0.983). Compared Group C with Group D, CS_Global and T1map_seg5 models yielded AUCs of 0.921 (95% CI: 0.822-1.000) and 0.823 (95% CI: 0.694-0.953). The combined model (CS_Global + T1map_seg5) achieved the AUC of 0.951 (95% CI, 0.864-1.000, DeLong p = .567 vs T1map_seg5, DeLong p = .101 vs. T1map_seg5). In dystrophinopathy, multiparametric CMR enables structural and functional assessment of myocardial remodeling. Segmental native T1, particularly in the basal and mid-inferolateral segments, provides complementary information on regional myocardial tissue abnormalities. In contrast, CS accounts for most of the discrimination of disease severity. These findings suggest that the distinctive contribution of CMR may lie in regional myocardial tissue characterization rather than conventional functional assessment.",
+      "journal": "Frontiers in cardiovascular medicine",
+      "pub_date": "2026",
+      "pdf_link": "https://doi.org/10.3389/fcvm.2026.1935273",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13601352/",
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3831,
+      "pmid": "32119480",
+      "selected_title": "Magnesium Toxicity.",
+      "title": "Long-term effectiveness of different amendments on Pb/Cd co-contaminated soil under accelerated ageing.",
+      "abstract": "Long-term effectiveness is the primary challenge for the immobilization of heavy metals in contaminated soils. This study developed an accelerated aging method based on proton flux conservation to simulate long-term acid rain exposure. This method was used to assess the longevity of biochar (BC), lime (CaO), and magnesia (MgO) in remediating a soil severely co-contaminated by Pb and Cd. Biochar proved ineffective for immobilizing heavy metals in both short and long term. While both CaO and MgO were effective in the short term, MgO demonstrated superior performance, reducing the initial Toxicity Characteristic Leaching Procedure (TCLP) leaching concentrations of Pb from 84.62 to 0.02 mg/L and Cd from 9.91 to 0.01 mg/L. After 100 years of simulated aging, CaO showed poor durability, as leaching risk increased by 577 % (Pb) and 483 % (Cd). Conversely, MgO maintained its high efficacy with these concentrations remaining low at 0.07 mg/L (Pb) and 0.03 mg/L (Cd). The sustained efficacy of MgO is attributed to its hydration into brucite, which provides high acid resistance due to its low solubility, and the formation of a passivation shell that prevents further carbonation, thereby maintaining a stable, high-pH environment favorable for heavy metal precipitation. This study thus identifies MgO as a highly effective and durable amendment for long-term remediation.",
+      "journal": "Journal of environmental sciences (China)",
+      "pub_date": "2026-Nov",
+      "pdf_link": "https://doi.org/10.1016/j.jes.2026.01.024",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13613189/",
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3850,
+      "pmid": "42810501",
+      "selected_title": "Interpretable machine learning identifies chemical factors associated with deweathered ozone pollution in Suzhou, Yangtze River Delta.",
+      "title": null,
+      "abstract": null,
+      "journal": null,
+      "pub_date": null,
+      "pdf_link": null,
+      "full_text_link": null,
+      "abstract_verified": false,
+      "state": "verification_failed_needs_replacement"
+    }
+  ]
+}
