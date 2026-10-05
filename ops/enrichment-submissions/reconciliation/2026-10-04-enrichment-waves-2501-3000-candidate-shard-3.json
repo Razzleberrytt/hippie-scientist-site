@@ -1,0 +1,4229 @@
+{
+  "schema_version": 1,
+  "shard": 3,
+  "excluded_through_wave": 2500,
+  "excluded_unique_pmids": 2435,
+  "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
+  "candidates": [
+    {
+      "pmid": "30000537",
+      "category": "safety_interactions",
+      "title": "Iodine.",
+      "pub_date": "2006",
+      "journal": null,
+      "pub_type": "Review",
+      "doi": null,
+      "pmcid": null
+    },
+    {
+      "pmid": "42586660",
+      "category": "safety_interactions",
+      "title": "Effects of starch granule-associated proteins on starch structure and quality: a review.",
+      "pub_date": "2026 Oct 1",
+      "journal": "Carbohydr Polym",
+      "pub_type": "Review",
+      "doi": "10.1016/j.carbpol.2026.125631",
+      "pmcid": null
+    },
+    {
+      "pmid": "42587938",
+      "category": "safety_interactions",
+      "title": "Detecting Plant-Based Food Fraud Using Nanopore Metabarcoding: A Proof-of-Concept Study.",
+      "pub_date": "2026 Jul 29",
+      "journal": "Foods",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/foods15152677",
+      "pmcid": "PMC13465269"
+    },
+    {
+      "pmid": "42587955",
+      "category": "safety_interactions",
+      "title": "Evaluation of the Antioxidative and Hepatoprotective Activity of Ulva lactuca in a CCl(4)-Induced Liver Injury Model.",
+      "pub_date": "2026 Jul 30",
+      "journal": "Foods",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/foods15152695",
+      "pmcid": "PMC13464905"
+    },
+    {
+      "pmid": "42588005",
+      "category": "safety_interactions",
+      "title": "Lipids of Quercus Acorns: Health Implications, Oxidative Stability, and Food Applications.",
+      "pub_date": "2026 Aug 5",
+      "journal": "Foods",
+      "pub_type": "Review",
+      "doi": "10.3390/foods15152747",
+      "pmcid": "PMC13464680"
+    },
+    {
+      "pmid": "42588034",
+      "category": "safety_interactions",
+      "title": "Nutraceuticals in Uro-Oncology: A Structured Expert Review and Precision-Oriented Framework.",
+      "pub_date": "2026 Jul 23",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "doi": "10.3390/nu18152411",
+      "pmcid": "PMC13468118"
+    },
+    {
+      "pmid": "42588533",
+      "category": "safety_interactions",
+      "title": "Lanthanide Content and Adulteration Testing of Greek Honeydew and Nectar Honey.",
+      "pub_date": "2026 Aug 1",
+      "journal": "Molecules",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/molecules31152685",
+      "pmcid": "PMC13468225"
+    },
+    {
+      "pmid": "42589033",
+      "category": "safety_interactions",
+      "title": "In Vitro Ruminal Fermentation and Methane Output of Monospecific, Binary, and Multispecies Pastures Under Two Defoliation Frequencies.",
+      "pub_date": "2026 Aug 3",
+      "journal": "Animals (Basel)",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/ani16152396",
+      "pmcid": "PMC13465416"
+    },
+    {
+      "pmid": "42589414",
+      "category": "safety_interactions",
+      "title": "Metabolomic Profile of Aqueous Extracts of Commercial Samples of St John's Wort (Hypericum perforatum) Determined by (1)H NMR.",
+      "pub_date": "2026 Jul 28",
+      "journal": "Int J Mol Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/ijms27156757",
+      "pmcid": "PMC13467255"
+    },
+    {
+      "pmid": "42591721",
+      "category": "safety_interactions",
+      "title": "Ferulic acid: a liver protector.",
+      "pub_date": "2026",
+      "journal": "Front Pharmacol",
+      "pub_type": "Review",
+      "doi": "10.3389/fphar.2026.1860327",
+      "pmcid": "PMC13462595"
+    },
+    {
+      "pmid": "42592235",
+      "category": "safety_interactions",
+      "title": "Behavioral and environmental drivers of dairy performance in alpine grazing cows managed with precision livestock farming technologies.",
+      "pub_date": "2026 Aug",
+      "journal": "JDS Commun",
+      "pub_type": "Journal Article",
+      "doi": "10.3168/jdsc.2025-0956",
+      "pmcid": "PMC13464200"
+    },
+    {
+      "pmid": "42594138",
+      "category": "safety_interactions",
+      "title": "Network pharmacology and molecular simulation study on the multi-target gene regulatory mechanism of Isatis indigotica against hepatic inflammation.",
+      "pub_date": "2026",
+      "journal": "PLoS One",
+      "pub_type": "Journal Article",
+      "doi": "10.1371/journal.pone.0355930",
+      "pmcid": "PMC13472392"
+    },
+    {
+      "pmid": "42598694",
+      "category": "safety_interactions",
+      "title": "Evaluation of antibacterial efficacy of Nigella sativa seed extract on periodontal pathogens.",
+      "pub_date": "2026 Apr-Jun",
+      "journal": "J Indian Soc Periodontol",
+      "pub_type": "Journal Article",
+      "doi": "10.4103/jisp.jisp_326_24",
+      "pmcid": "PMC13472470"
+    },
+    {
+      "pmid": "42600289",
+      "category": "safety_interactions",
+      "title": "Determination and source tracing of toluene in spices and spice extracts: focus on thermal conversion of α-pinene to toluene during processing.",
+      "pub_date": "2026 Oct 15",
+      "journal": "Food Chem",
+      "pub_type": "Evaluation Study",
+      "doi": "10.1016/j.foodchem.2026.150705",
+      "pmcid": null
+    },
+    {
+      "pmid": "42602184",
+      "category": "safety_interactions",
+      "title": "Molecular docking and dynamics simulation studies uncover the host-pathogen protein-protein interactions in soybean (Glycine max (L.) Merr.) and Groundnut bud necrosis virus: first report.",
+      "pub_date": "2026",
+      "journal": "Front Bioinform",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fbinf.2026.1821527",
+      "pmcid": "PMC13473904"
+    },
+    {
+      "pmid": "42611379",
+      "category": "safety_interactions",
+      "title": "Heavy metals and pesticides in medicinal plants: environmental sources, plant responses, and human health risk assessment.",
+      "pub_date": "2026 Aug 18",
+      "journal": "Biometals",
+      "pub_type": "Review",
+      "doi": "10.1007/s10534-026-00871-1",
+      "pmcid": null
+    },
+    {
+      "pmid": "42614224",
+      "category": "safety_interactions",
+      "title": "Closing the micronutrient loop: recovering and redirecting trace elements from food supply chains for a circular and nutrition-secure future.",
+      "pub_date": "2026",
+      "journal": "Front Nutr",
+      "pub_type": "Review",
+      "doi": "10.3389/fnut.2026.1912967",
+      "pmcid": "PMC13481299"
+    },
+    {
+      "pmid": "42614605",
+      "category": "safety_interactions",
+      "title": "Nutraceutical Intervention of Probiotics in Vision Science: A Systematic Review of Evolving Perspective.",
+      "pub_date": "2026",
+      "journal": "J Ophthalmol",
+      "pub_type": "Review",
+      "doi": "10.1155/joph/5690407",
+      "pmcid": "PMC13482040"
+    },
+    {
+      "pmid": "42615889",
+      "category": "safety_interactions",
+      "title": "Occurrence of tropane alkaloids, pyrrolizidine alkaloids and mycotoxins in rooibos: a comprehensive safety assessment.",
+      "pub_date": "2026 Aug 19",
+      "journal": "Food Addit Contam Part A Chem Anal Control Expo Risk Assess",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/19440049.2026.2711941",
+      "pmcid": null
+    },
+    {
+      "pmid": "42618933",
+      "category": "safety_interactions",
+      "title": "Modified Gan-Mai-Da-Zao decoction for behavioral and psychological symptoms of dementia: preclinical efficacy and molecular mechanisms.",
+      "pub_date": "2026 Aug 20",
+      "journal": "Chin Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1186/s13020-026-01415-y",
+      "pmcid": "PMC13491767"
+    },
+    {
+      "pmid": "42626866",
+      "category": "safety_interactions",
+      "title": "Emerging paradigms in bio-derived carbon dots for environmental sensing applications.",
+      "pub_date": "2026 Sep 29",
+      "journal": "Analyst",
+      "pub_type": "Review",
+      "doi": "10.1039/d6an00261g",
+      "pmcid": null
+    },
+    {
+      "pmid": "42628872",
+      "category": "safety_interactions",
+      "title": "Green tea-mediated modulation of body weight gain: roles of sex, diet, and housing temperature.",
+      "pub_date": "2026 Aug 22",
+      "journal": "J Proteomics",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.jprot.2026.105725",
+      "pmcid": null
+    },
+    {
+      "pmid": "42633488",
+      "category": "safety_interactions",
+      "title": "Leveraging network pharmacology in the treatment of asthma.",
+      "pub_date": "2026",
+      "journal": "ADMET DMPK",
+      "pub_type": "Review",
+      "doi": "10.5599/admet.3281",
+      "pmcid": "PMC13499659"
+    },
+    {
+      "pmid": "42633491",
+      "category": "safety_interactions",
+      "title": "Electrochemical detection of illicit sibutramine adulteration in herbal weight-loss products using an AgNPs-ErGO modified electrode.",
+      "pub_date": "2026",
+      "journal": "ADMET DMPK",
+      "pub_type": "Journal Article",
+      "doi": "10.5599/admet.3433",
+      "pmcid": "PMC13499673"
+    },
+    {
+      "pmid": "42634516",
+      "category": "safety_interactions",
+      "title": "Herbal Creams in Dermatology: Efficacy, Safety, Formulation, and Regulatory Considerations.",
+      "pub_date": "2026 Aug 3",
+      "journal": "Curr Pharm Des",
+      "pub_type": "Journal Article",
+      "doi": "10.2174/0113816128456608260722083213",
+      "pmcid": null
+    },
+    {
+      "pmid": "42641005",
+      "category": "safety_interactions",
+      "title": "Stage-Specific Insecticidal Activity of Thymol Against Colorado Potato Beetle and Time-Dependent Detoxification Gene Expression.",
+      "pub_date": "2026 Aug",
+      "journal": "Chem Biodivers",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/cbdv.71619",
+      "pmcid": "PMC13506094"
+    },
+    {
+      "pmid": "42642583",
+      "category": "safety_interactions",
+      "title": "Isolation of Proteins and Extracellular Vesicles Secreted by Pollen of Actinidia chinensis L. During In Vitro Germination.",
+      "pub_date": "2026",
+      "journal": "Methods Mol Biol",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/978-1-0716-5308-1_18",
+      "pmcid": null
+    },
+    {
+      "pmid": "42643370",
+      "category": "safety_interactions",
+      "title": "The impact of patient age on the pharmacist's recommendation of OTC anti-common cold products before and during the COVID-19 pandemic.",
+      "pub_date": "2026",
+      "journal": "Front Pharmacol",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fphar.2026.1856389",
+      "pmcid": "PMC13503212"
+    },
+    {
+      "pmid": "42643637",
+      "category": "safety_interactions",
+      "title": "Dioscin in liver diseases: pharmacological mechanisms, translational potential and future perspectives.",
+      "pub_date": "2026",
+      "journal": "Front Pharmacol",
+      "pub_type": "Review",
+      "doi": "10.3389/fphar.2026.1919617",
+      "pmcid": "PMC13504258"
+    },
+    {
+      "pmid": "42644693",
+      "category": "safety_interactions",
+      "title": "Oregano authenticity by multi-element ICP-OES profiling: detection of olive leaf adulteration supported by complementary fingerprinting.",
+      "pub_date": "2026 Aug 26",
+      "journal": "Food Addit Contam Part A Chem Anal Control Expo Risk Assess",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/19440049.2026.2720788",
+      "pmcid": null
+    },
+    {
+      "pmid": "42644702",
+      "category": "safety_interactions",
+      "title": "Investigating the hepatoprotective effects of Lonicera confusa against acetaminophen-induced acute liver injury: a systematic pharmacological approach.",
+      "pub_date": "2026 Aug 26",
+      "journal": "Nat Prod Res",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/14786419.2026.2720528",
+      "pmcid": null
+    },
+    {
+      "pmid": "42652466",
+      "category": "safety_interactions",
+      "title": "Insecticidal Activity of Ricinus communis Leaf Extracts Against Bactrocera zonata and Bactrocera cucurbitae: Identification of Potential Bioactive Compounds.",
+      "pub_date": "2026 Aug 5",
+      "journal": "Insects",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/insects17080811",
+      "pmcid": "PMC13513779"
+    },
+    {
+      "pmid": "42652481",
+      "category": "safety_interactions",
+      "title": "Bioactivity and Molecular Responses of Bitter Gourd Leaf Extracts Against the Invasive Leafminer, Liriomyza trifolii (Diptera: Agromyzidae).",
+      "pub_date": "2026 Aug 10",
+      "journal": "Insects",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/insects17080827",
+      "pmcid": "PMC13513763"
+    },
+    {
+      "pmid": "42654018",
+      "category": "safety_interactions",
+      "title": "Multi-Platform Metabolomics for Fraud Detection in Spices and Botanical Food Supplements: From Fingerprint Acquisition to Decision-Grade Evidence.",
+      "pub_date": "2026 Aug 21",
+      "journal": "Molecules",
+      "pub_type": "Review",
+      "doi": "10.3390/molecules31162938",
+      "pmcid": "PMC13516829"
+    },
+    {
+      "pmid": "42654231",
+      "category": "safety_interactions",
+      "title": "Targeting Bioenergetic, Redox and Prostaglandin Pathways in Long COVID-Associated Post-Exertional Malaise and Brain Fog: A Nutraceutical Translational Hypothesis.",
+      "pub_date": "2026 Aug 13",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "doi": "10.3390/nu18162650",
+      "pmcid": "PMC13516433"
+    },
+    {
+      "pmid": "42654908",
+      "category": "safety_interactions",
+      "title": "Semi-Hardwood Cutting Propagation of Autochthonous Olive Varieties from Galicia: A First Evaluation of Rooting Ability.",
+      "pub_date": "2026 Aug 19",
+      "journal": "Plants (Basel)",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/plants15162506",
+      "pmcid": "PMC13516372"
+    },
+    {
+      "pmid": "42657013",
+      "category": "safety_interactions",
+      "title": "Adulteration prevention-oriented systematic review of chemical constituents in the genus Rhodiola and strategic outlook for species identification based on chemical constituents.",
+      "pub_date": "2026",
+      "journal": "Front Pharmacol",
+      "pub_type": "Review",
+      "doi": "10.3389/fphar.2026.1872755",
+      "pmcid": "PMC13507779"
+    },
+    {
+      "pmid": "42657124",
+      "category": "safety_interactions",
+      "title": "The antifungal activity and mechanism of action of limonene against tobacco-isolated Fusarium oxysporum causing tobacco root rot.",
+      "pub_date": "2026",
+      "journal": "Front Plant Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fpls.2026.1897693",
+      "pmcid": "PMC13510255"
+    },
+    {
+      "pmid": "42660500",
+      "category": "safety_interactions",
+      "title": "The Perception Filler: A Proposed Conceptual Framework for Ingredient-Interpretation Gaps in Food Supplements.",
+      "pub_date": "2026 Aug 27",
+      "journal": "J Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.tjnut.2026.101803",
+      "pmcid": null
+    },
+    {
+      "pmid": "42661876",
+      "category": "safety_interactions",
+      "title": "A qPCR-based method based on a chloroplast atpF gene SNP for the accurate authentication of Salvia miltiorrhiza and Salvia yunnanensis in herbal products.",
+      "pub_date": "2026 Aug",
+      "journal": "Food Sci Biotechnol",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s10068-026-02234-5",
+      "pmcid": "PMC13518748"
+    },
+    {
+      "pmid": "42665171",
+      "category": "safety_interactions",
+      "title": "ABCB1 rs2032582 as a potential biomarker for predicting Scutellaria baicalensis Georgi-drug induced liver injury in humans.",
+      "pub_date": "2026 Sep 5",
+      "journal": "J Ethnopharmacol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.jep.2026.122329",
+      "pmcid": null
+    },
+    {
+      "pmid": "42666179",
+      "category": "safety_interactions",
+      "title": "Effect of atrazine and curcumin on mouse I-10 Leydig cells: steroidogenesis and beyond.",
+      "pub_date": "2026",
+      "journal": "Front Endocrinol (Lausanne)",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fendo.2026.1866034",
+      "pmcid": "PMC13521775"
+    },
+    {
+      "pmid": "42666490",
+      "category": "safety_interactions",
+      "title": "SPR-UPLC-QTOF/MS-GNPS-Guided Discovery of Hypermonol J as a Novel Tumor Necrosis Factor-Binding Small-Molecule Lead for Inflammatory Storm Intervention.",
+      "pub_date": "2026 Sep",
+      "journal": "MedComm (2020)",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/mco2.70960",
+      "pmcid": "PMC13522848"
+    },
+    {
+      "pmid": "42667431",
+      "category": "safety_interactions",
+      "title": "Chemical composition and fumigant acaricidal activity of Salvia officinalis essential oil against Rhipicephalus microplus (Acari: Ixodidae).",
+      "pub_date": "2026 Aug 29",
+      "journal": "Exp Appl Acarol",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s10493-026-01185-0",
+      "pmcid": null
+    },
+    {
+      "pmid": "42670310",
+      "category": "safety_interactions",
+      "title": "Integrated Strategy Combining Real-World Data Mining, Network Pharmacology, and Molecular Docking to Decipher the Mechanism of Action of a Core Herbal Combination for Menopausal Syndrome.",
+      "pub_date": "2026",
+      "journal": "Int J Womens Health",
+      "pub_type": "Journal Article",
+      "doi": "10.2147/IJWH.S597832",
+      "pmcid": "PMC13526162"
+    },
+    {
+      "pmid": "42677280",
+      "category": "safety_interactions",
+      "title": "Active ingredients of Astragalus-ginseng against COPD-associated sarcopenia: network pharmacology and molecular dynamics simulations.",
+      "pub_date": "2026",
+      "journal": "PeerJ",
+      "pub_type": "Journal Article",
+      "doi": "10.7717/peerj.21672",
+      "pmcid": "PMC13528632"
+    },
+    {
+      "pmid": "42680287",
+      "category": "safety_interactions",
+      "title": "Lipid-lowering and hepatoprotective effects of Ocimum sanctum L. (Thai holy basil) flower against MASLD and liver inflammation in rats.",
+      "pub_date": "2026 Oct 31",
+      "journal": "Food Res Int",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.foodres.2026.119968",
+      "pmcid": null
+    },
+    {
+      "pmid": "42680293",
+      "category": "safety_interactions",
+      "title": "Pomolic acid as a stable botanical marker for authenticating loquat (Eriobotrya japonica) monofloral honey.",
+      "pub_date": "2026 Oct 31",
+      "journal": "Food Res Int",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.foodres.2026.119981",
+      "pmcid": null
+    },
+    {
+      "pmid": "42682876",
+      "category": "safety_interactions",
+      "title": "Extensive Subcutaneous Hematoma in a Patient Receiving Nigella sativa Oil, Dual Antiplatelet Therapy, and Oxaliplatin-Based Chemotherapy: A Case Report.",
+      "pub_date": "2026 Aug 31",
+      "journal": "Hosp Pharm",
+      "pub_type": "Journal Article",
+      "doi": "10.1177/00185787261482136",
+      "pmcid": "PMC13530050"
+    },
+    {
+      "pmid": "42685560",
+      "category": "safety_interactions",
+      "title": "Comparative machine learning-assisted terahertz and ultraviolet-visible spectroscopy for rapid authentication and quantitative assessment of adulteration levels in Chinese medicinal herbs.",
+      "pub_date": "2026 Aug 29",
+      "journal": "Talanta",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.talanta.2026.130529",
+      "pmcid": null
+    },
+    {
+      "pmid": "42688373",
+      "category": "safety_interactions",
+      "title": "An integrative approach for rapid authentication of different parts of Camellia petelotii (Merr.) Sealy: combining ATR-FTIR spectroscopy with conventional chemometric analysis and a convolutional neural network.",
+      "pub_date": "2026",
+      "journal": "Front Chem",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fchem.2026.1830739",
+      "pmcid": "PMC13534036"
+    },
+    {
+      "pmid": "42690779",
+      "category": "safety_interactions",
+      "title": "Synthetic Biology of Prenylated Stilbenoids: Biosynthetic Pathway, Prenyltransferases, and Biomanufacturing Strategies.",
+      "pub_date": "2026 Sep 2",
+      "journal": "J Agric Food Chem",
+      "pub_type": "Review",
+      "doi": "10.1021/acs.jafc.6c03585",
+      "pmcid": null
+    },
+    {
+      "pmid": "42702401",
+      "category": "safety_interactions",
+      "title": "Pharmacokinetic and Pharmacodynamic Interactions Between Anti-Asthma Drugs and Medicinal Plants: A Comprehensive Review.",
+      "pub_date": "2026 Sep 6",
+      "journal": "Phytother Res",
+      "pub_type": "Review",
+      "doi": "10.1002/ptr.70436",
+      "pmcid": null
+    },
+    {
+      "pmid": "42705563",
+      "category": "safety_interactions",
+      "title": "Large language model-driven knowledge graph learning for herb-macromolecule interaction prediction and functional analysis.",
+      "pub_date": "2026 Sep 7",
+      "journal": "Int J Biol Macromol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.ijbiomac.2026.154371",
+      "pmcid": null
+    },
+    {
+      "pmid": "42707225",
+      "category": "safety_interactions",
+      "title": "Varivax (Aesculus hippocastanum L.): A dietary supplement with antioxidant and antidepressant potential in adult zebrafish.",
+      "pub_date": "2026 Dec",
+      "journal": "IBRO Neurosci Rep",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.ibneur.2026.07.003",
+      "pmcid": "PMC13546928"
+    },
+    {
+      "pmid": "42724347",
+      "category": "safety_interactions",
+      "title": "Integrative Network Analysis of Bioactive Compounds from Punica granatum L. Peel: Multi-Target Mechanisms in Wound Healing.",
+      "pub_date": "2026 Jan-Dec",
+      "journal": "Iran J Pharm Res",
+      "pub_type": "Journal Article",
+      "doi": "10.5812/ijpr-170416",
+      "pmcid": "PMC13558861"
+    },
+    {
+      "pmid": "42725760",
+      "category": "safety_interactions",
+      "title": "Simulated encounters reveal gaps in counselling on St John's Wort-oral contraceptive pill interactions among pharmacy personnel.",
+      "pub_date": "2026 Sep 11",
+      "journal": "Int J Pharm Pract",
+      "pub_type": "Journal Article",
+      "doi": "10.1093/ijpp/riag128",
+      "pmcid": null
+    },
+    {
+      "pmid": "42725889",
+      "category": "safety_interactions",
+      "title": "Heavy metal contamination in herbal medicines: a systematic review and meta-analysis.",
+      "pub_date": "2026 Sep 14",
+      "journal": "Rev Environ Health",
+      "pub_type": "Review",
+      "doi": "10.1515/reveh-2026-0047",
+      "pmcid": null
+    },
+    {
+      "pmid": "42727651",
+      "category": "safety_interactions",
+      "title": "DsbA-L attenuates acute aristolochic acid nephropathy via alleviating endoplasmic reticulum stress.",
+      "pub_date": "2026 Sep 11",
+      "journal": "Biochem Pharmacol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.bcp.2026.118469",
+      "pmcid": null
+    },
+    {
+      "pmid": "42732250",
+      "category": "safety_interactions",
+      "title": "Herbal Extracts and Plant-Derived Bioactives in Atopic Dermatitis: Evidence, Mechanisms, Pediatric Safety, and Translational Priorities.",
+      "pub_date": "2026 Sep",
+      "journal": "Food Sci Nutr",
+      "pub_type": "Review",
+      "doi": "10.1002/fsn3.72239",
+      "pmcid": "PMC13569883"
+    },
+    {
+      "pmid": "42735480",
+      "category": "safety_interactions",
+      "title": "Deciphering early molecular responses to aristolactam I associated with hepatocellular carcinoma: Computational prediction of a core gene signature and identification of transcription-translation uncoupling under acute aristolactam I exposure.",
+      "pub_date": "2026 Sep 15",
+      "journal": "Ecotoxicol Environ Saf",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.ecoenv.2026.120803",
+      "pmcid": null
+    },
+    {
+      "pmid": "42738647",
+      "category": "safety_interactions",
+      "title": "From Plant Chemistry to Reproducible Antidiabetic Products: A Critical Review of Molecular Targets, Clinical Evidence, and Translational Gaps.",
+      "pub_date": "2026 Aug 26",
+      "journal": "Molecules",
+      "pub_type": "Review",
+      "doi": "10.3390/molecules31172986",
+      "pmcid": "PMC13567480"
+    },
+    {
+      "pmid": "42738789",
+      "category": "safety_interactions",
+      "title": "Safety and Efficacy of Natural and Conventional Psychiatric Treatments: A Comparative Review of Mushroom-Derived Compounds and Medicinal Plants in the Management of Mental Disorders.",
+      "pub_date": "2026 Sep 7",
+      "journal": "Molecules",
+      "pub_type": "Review",
+      "doi": "10.3390/molecules31173130",
+      "pmcid": "PMC13567430"
+    },
+    {
+      "pmid": "42739092",
+      "category": "safety_interactions",
+      "title": "A Combination of Psidium guajava and Seriphium plumosum Modulates Glucose Metabolism and Reduces Hepatic GLUT2 Expression Through Additive-to-Synergistic Interactions.",
+      "pub_date": "2026 Sep 6",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/nu18172920",
+      "pmcid": "PMC13567443"
+    },
+    {
+      "pmid": "42739416",
+      "category": "safety_interactions",
+      "title": "Comparative Phytochemical and Antiviral Characteristics of Dipsacus asperoides and Phlomis umbrosa Against Influenza A Virus: LC-QTOF-MS Profiling and Exploratory Network Pharmacology.",
+      "pub_date": "2026 Aug 29",
+      "journal": "Plants (Basel)",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/plants15172649",
+      "pmcid": "PMC13567023"
+    },
+    {
+      "pmid": "42743666",
+      "category": "safety_interactions",
+      "title": "A gut-derived Streptococcus dysgalactiae protects Micropterus salmoides against MSRV via cell wall-mediated physical trapping of virions.",
+      "pub_date": "2026 Sep 15",
+      "journal": "Fish Shellfish Immunol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.fsi.2026.111720",
+      "pmcid": null
+    },
+    {
+      "pmid": "42746433",
+      "category": "safety_interactions",
+      "title": "A biopsychosocial analysis of supplement purchasing behavior in recreational fitness centers: objective BMI, motivational factors, and sex-specific effects.",
+      "pub_date": "2026",
+      "journal": "Front Sports Act Living",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fspor.2026.1867565",
+      "pmcid": "PMC13576142"
+    },
+    {
+      "pmid": "42750881",
+      "category": "safety_interactions",
+      "title": "Azithromycin-induced hepatocellular liver injury in a healthy young male: A case report.",
+      "pub_date": "2026",
+      "journal": "IDCases",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.idcr.2026.e02747",
+      "pmcid": "PMC13578465"
+    },
+    {
+      "pmid": "42754118",
+      "category": "safety_interactions",
+      "title": "Mechanism-informed machine learning for optimizing herbal residue-assisted anaerobic co-digestion using polydopamine-modified Fe-Ni foam.",
+      "pub_date": "2026 Sep 17",
+      "journal": "Bioresour Technol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.biortech.2026.135882",
+      "pmcid": null
+    },
+    {
+      "pmid": "42754125",
+      "category": "safety_interactions",
+      "title": "QinZhuLiangXue gel alleviates psoriasiform inflammation through immunomodulatory effects involving PD-1/PD-L1/SHP2 signaling axis.",
+      "pub_date": "2026 Sep 17",
+      "journal": "J Ethnopharmacol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.jep.2026.122379",
+      "pmcid": null
+    },
+    {
+      "pmid": "42759205",
+      "category": "safety_interactions",
+      "title": "Inhibition of cytochrome P450 2B6 activity by kava extracts.",
+      "pub_date": "2026 Aug 26",
+      "journal": "Drug Metab Dispos",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.dmd.2026.100395",
+      "pmcid": null
+    },
+    {
+      "pmid": "42760649",
+      "category": "safety_interactions",
+      "title": "Exploring the potential mechanism of Xiaoqinglong Decoction in the treatment of acute exacerbations of chronic obstructive pulmonary disease based on network pharmacology and in silico study.",
+      "pub_date": "2026 Sep 18",
+      "journal": "Medicine (Baltimore)",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/MD.0000000000049541",
+      "pmcid": "PMC13593275"
+    },
+    {
+      "pmid": "42760843",
+      "category": "safety_interactions",
+      "title": "Liver-on-Chip Models as Miniaturized Platforms for In Vitro Hepatotoxicity Testing.",
+      "pub_date": "2026 Sep 18",
+      "journal": "J Appl Toxicol",
+      "pub_type": "Review",
+      "doi": "10.1002/jat.70435",
+      "pmcid": null
+    },
+    {
+      "pmid": "42763130",
+      "category": "safety_interactions",
+      "title": "Blue proteins: Marine-derived alternatives for sustainable nutrition and climate-resilient food systems.",
+      "pub_date": "2026",
+      "journal": "Adv Protein Chem Struct Biol",
+      "pub_type": "Review",
+      "doi": "10.1016/bs.apcsb.2026.08.002",
+      "pmcid": null
+    },
+    {
+      "pmid": "42764983",
+      "category": "safety_interactions",
+      "title": "GC-MS profiling, network pharmacology, and computational investigations of canola phytochemicals as potential cardioprotective agents.",
+      "pub_date": "2026",
+      "journal": "In Silico Pharmacol",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s40203-026-00744-y",
+      "pmcid": "PMC13589729"
+    },
+    {
+      "pmid": "42765078",
+      "category": "safety_interactions",
+      "title": "Self-Administered Dietary Supplements, Herbal Products, and Ergogenic Aids Before Plastic Surgery: A Narrative Review and the PLASTIC-S Perioperative Management Framework.",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Review",
+      "doi": "10.7759/cureus.114938",
+      "pmcid": "PMC13590108"
+    },
+    {
+      "pmid": "42769694",
+      "category": "safety_interactions",
+      "title": "AQbD-based development and validation of an HPLC-PDA method for simultaneous determination of sibutramine, desmethylsibutramine, and didesmethylsibutramine in herbal weight-loss supplements.",
+      "pub_date": "2026 Sep 21",
+      "journal": "RSC Adv",
+      "pub_type": "Journal Article",
+      "doi": "10.1039/d6ra06478g",
+      "pmcid": "PMC13592205"
+    },
+    {
+      "pmid": "42770265",
+      "category": "safety_interactions",
+      "title": "Prevalence of Dietary Supplement Use and Potential Medication Interactions Among Adults with Systemic Lupus Erythematosus.",
+      "pub_date": "2026 Sep 22",
+      "journal": "Arthritis Care Res (Hoboken)",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/acr.80165",
+      "pmcid": null
+    },
+    {
+      "pmid": "42772462",
+      "category": "safety_interactions",
+      "title": "Impact of climate change on Chinese medicinal plants and adaptation strategies.",
+      "pub_date": "2026 Sep 22",
+      "journal": "Plant Sci",
+      "pub_type": "Review",
+      "doi": "10.1016/j.plantsci.2026.113468",
+      "pmcid": null
+    },
+    {
+      "pmid": "42772543",
+      "category": "safety_interactions",
+      "title": "Herb-induced liver injury: An immunological perspective.",
+      "pub_date": "2026 Sep 22",
+      "journal": "Toxicology",
+      "pub_type": "Review",
+      "doi": "10.1016/j.tox.2026.154594",
+      "pmcid": null
+    },
+    {
+      "pmid": "42773662",
+      "category": "safety_interactions",
+      "title": "[Metabolic engineering of Yarrowia lipolytica for astaxanthin production].",
+      "pub_date": "2026 Sep 25",
+      "journal": "Sheng Wu Gong Cheng Xue Bao",
+      "pub_type": "Journal Article",
+      "doi": "10.13345/j.cjb.260148",
+      "pmcid": null
+    },
+    {
+      "pmid": "42774545",
+      "category": "safety_interactions",
+      "title": "Comparative Study of the Antioxidant Mediated Antiaging Properties of Endocarp Extracts From Phoenix dactylifera and Phoenix dactylifera L. via In Silico and In Vitro Analysis.",
+      "pub_date": "2026 Sep",
+      "journal": "Food Sci Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/fsn3.72388",
+      "pmcid": "PMC13594404"
+    },
+    {
+      "pmid": "42779086",
+      "category": "safety_interactions",
+      "title": "Xiaoyao San Alleviates Depression-Associated Dry Eye via the LncRNA-Nespas/TAK1 Axis by Suppressing Central and Peripheral Inflammation.",
+      "pub_date": "2026 Sep",
+      "journal": "Adv Biol (Weinh)",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/adbi.70158",
+      "pmcid": null
+    },
+    {
+      "pmid": "42780657",
+      "category": "safety_interactions",
+      "title": "Chinese medicine-based interventions in triple-negative breast cancer: mechanistic evidence, clinical findings, and translational challenges-a narrative review.",
+      "pub_date": "2026",
+      "journal": "Front Pharmacol",
+      "pub_type": "Review",
+      "doi": "10.3389/fphar.2026.1787613",
+      "pmcid": "PMC13598637"
+    },
+    {
+      "pmid": "42780962",
+      "category": "safety_interactions",
+      "title": "A polyherbal and probiotic-based immunostimulatory formulation for managing gut dysbiosis in colorectal cancer.",
+      "pub_date": "2026",
+      "journal": "Front Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fnut.2026.1854998",
+      "pmcid": "PMC13599618"
+    },
+    {
+      "pmid": "42782372",
+      "category": "safety_interactions",
+      "title": "Molecular Neuroprotective Responses to Achyrocline satureioides Extract in Caenorhabditis elegans: Modulation of Conserved FOXO/NRF2 Pathways and Resistance to Neurotoxic Insults.",
+      "pub_date": "2026 Sep 24",
+      "journal": "Mol Neurobiol",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s12035-026-06212-0",
+      "pmcid": "PMC13612635"
+    },
+    {
+      "pmid": "42782561",
+      "category": "safety_interactions",
+      "title": "Trace metal concentrations in soil, leaves, and fruits of red raspberry (Rubus idaeus) cultivated in home gardens.",
+      "pub_date": "2026 Sep 24",
+      "journal": "Environ Monit Assess",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s10661-026-15962-2",
+      "pmcid": null
+    },
+    {
+      "pmid": "42783292",
+      "category": "safety_interactions",
+      "title": "Effect of Nanoemulsions of Chrysanthemum cinerariaefolium and Oenothera biennis Flowers Against the West Nile Virus Vector, Culex pipiens, with Phytochemical Profile.",
+      "pub_date": "2026 Sep 3",
+      "journal": "Insects",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/insects17090925",
+      "pmcid": "PMC13607256"
+    },
+    {
+      "pmid": "42786874",
+      "category": "safety_interactions",
+      "title": "Synergistic Fusion: Enhancing Cancer Treatment with Herbal-Chemotherapy Nanocomplexes.",
+      "pub_date": "2026 Sep 24",
+      "journal": "Anticancer Agents Med Chem",
+      "pub_type": "Journal Article",
+      "doi": "10.2174/0118715206493976260914061841",
+      "pmcid": null
+    },
+    {
+      "pmid": "42788841",
+      "category": "safety_interactions",
+      "title": "Curcumin Induces Autophagy Associated G(1) Cell Cycle Arrest in Spodoptera frugiperda Sf9 Cells.",
+      "pub_date": "2026 Sep",
+      "journal": "Arch Insect Biochem Physiol",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/arch.70220",
+      "pmcid": null
+    },
+    {
+      "pmid": "42792108",
+      "category": "safety_interactions",
+      "title": "Ultrasound-Assisted Ternary Deep Eutectic Solvent Extraction of Total Flavonoids from Artemisia argyi: GA-ANN Optimization, Greenness Assessment, and In Vitro Bioactivity Evaluation.",
+      "pub_date": "2026 Aug 26",
+      "journal": "Antioxidants (Basel)",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/antiox15091069",
+      "pmcid": "PMC13603408"
+    },
+    {
+      "pmid": "42794845",
+      "category": "safety_interactions",
+      "title": "Modulation of Antitumor Immunity and the Tumor Microenvironment by Scutellaria barbata D. Don: A Scoping Review and Network Pharmacology Analysis.",
+      "pub_date": "2026 Sep 21",
+      "journal": "Int J Mol Sci",
+      "pub_type": "Review",
+      "doi": "10.3390/ijms27188419",
+      "pmcid": "PMC13607596"
+    },
+    {
+      "pmid": "42795273",
+      "category": "safety_interactions",
+      "title": "Network Pharmacology-Based Exploration of Complementary Molecular Mechanisms of Heat-Clearing (Scutellariae Radix, Coptidis Rhizoma) and Blood-Tonifying Herbs (Angelicae Sinensis Radix, Paeoniae Radix Alba) in Cold Hypersensitivity in Hands and Feet.",
+      "pub_date": "2026 Aug 25",
+      "journal": "Life (Basel)",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/life16091406",
+      "pmcid": "PMC13608778"
+    },
+    {
+      "pmid": "42796753",
+      "category": "safety_interactions",
+      "title": "Effects of an Herbal Formulation Ethanolic Extract on Streptococcus pyogenes: Bactericidal Activity, Biofilm Control, and Interactions with Conventional Antibiotics.",
+      "pub_date": "2026 Sep 16",
+      "journal": "Pathogens",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/pathogens15090985",
+      "pmcid": "PMC13610986"
+    },
+    {
+      "pmid": "42796877",
+      "category": "safety_interactions",
+      "title": "Flavonoids as Antimicrobial Pesticides: Mechanisms of Action, Formulation Strategies, and Perspectives for Pre- and Postharvest Disease Management.",
+      "pub_date": "2026 Sep 17",
+      "journal": "Plants (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/plants15182847",
+      "pmcid": "PMC13610502"
+    },
+    {
+      "pmid": "42796887",
+      "category": "safety_interactions",
+      "title": "Screening of Rhizobacteria Capable of Modulating Cd Accumulation and Enhancing Pharmacopoeial Constituents in Salvia miltiorrhiza.",
+      "pub_date": "2026 Sep 18",
+      "journal": "Plants (Basel)",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/plants15182858",
+      "pmcid": "PMC13610631"
+    },
+    {
+      "pmid": "42797385",
+      "category": "safety_interactions",
+      "title": "Ephedrae Herba-Associated Adverse Events: A Disproportionality Analysis Integrated with Network Pharmacology.",
+      "pub_date": "2026 Aug 24",
+      "journal": "Pharmaceuticals (Basel)",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/ph19091340",
+      "pmcid": "PMC13610846"
+    },
+    {
+      "pmid": "42800041",
+      "category": "safety_interactions",
+      "title": "Putative thiazide-like diuretic medicinal plants: an electrolyte fingerprint-based review of preclinical evidence.",
+      "pub_date": "2026 Sep 1",
+      "journal": "J Pharm Pharmacol",
+      "pub_type": "Review",
+      "doi": "10.1093/jpp/rgag107",
+      "pmcid": null
+    },
+    {
+      "pmid": "42800484",
+      "category": "safety_interactions",
+      "title": "The eukaryotic host-microbe-phage-nutrition interplay determines the bacterial effectors of supplemental lysine's health benefits: An experimental cellular senescence model of digestive conditions in older adults.",
+      "pub_date": "2026 Sep 26",
+      "journal": "Mech Ageing Dev",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.mad.2026.112260",
+      "pmcid": null
+    },
+    {
+      "pmid": "42800687",
+      "category": "safety_interactions",
+      "title": "Forsythiaside A suppresses PANoptosis to alleviate senecionine-induced hepatotoxicity.",
+      "pub_date": "2026 Sep 26",
+      "journal": "J Ethnopharmacol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.jep.2026.122439",
+      "pmcid": null
+    },
+    {
+      "pmid": "42800936",
+      "category": "safety_interactions",
+      "title": "Piperine: From Green Extraction to Clinical Translation-A Review.",
+      "pub_date": "2026",
+      "journal": "Drug Des Devel Ther",
+      "pub_type": "Review",
+      "doi": "10.2147/DDDT.S639169",
+      "pmcid": "PMC13614875"
+    },
+    {
+      "pmid": "42802548",
+      "category": "safety_interactions",
+      "title": "In Vitro Hepatotoxicity and Cytochrome P450 (CYP) Inhibitory Potential of a Selected Commercial Herbal Supplement Juice.",
+      "pub_date": "2026 Sep 27",
+      "journal": "J Appl Toxicol",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/jat.70460",
+      "pmcid": null
+    },
+    {
+      "pmid": "42805387",
+      "category": "safety_interactions",
+      "title": "Effect of colostrum supplementation administered at a behavior-based alert for calf diarrhea.",
+      "pub_date": "2026 Sep 28",
+      "journal": "J Dairy Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.3168/jds.2026-28833",
+      "pmcid": null
+    },
+    {
+      "pmid": "42810459",
+      "category": "safety_interactions",
+      "title": "Traditional Chinese medicine for Helicobacter pylori infection in the antibiotic-resistance era: Ethnopharmacological evidence, mechanisms, and Host-Pathogen modulation.",
+      "pub_date": "2026 Sep 29",
+      "journal": "J Ethnopharmacol",
+      "pub_type": "Review",
+      "doi": "10.1016/j.jep.2026.122450",
+      "pmcid": null
+    },
+    {
+      "pmid": "42810891",
+      "category": "safety_interactions",
+      "title": "Metabolic engineering of Saccharomyces cerevisiae for the biosynthesis of indole-derived compounds.",
+      "pub_date": "2026 Sep 29",
+      "journal": "Trends Biotechnol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.tibtech.2026.09.006",
+      "pmcid": null
+    },
+    {
+      "pmid": "42812100",
+      "category": "safety_interactions",
+      "title": "Visual Differentiation of Bupleurum marginatum var. stenophyllum From Bupleurum chinense DC. Using a PCR-Coupled G-Quadruplex Colorimetric Assay.",
+      "pub_date": "2026 Sep 18",
+      "journal": "Pharmazie",
+      "pub_type": "Journal Article",
+      "doi": "10.31083/Pharmazie53662",
+      "pmcid": null
+    },
+    {
+      "pmid": "42812739",
+      "category": "safety_interactions",
+      "title": "A Case of Drug-Induced Liver Injury Associated With Saw Palmetto.",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "doi": "10.7759/cureus.115418",
+      "pmcid": "PMC13620264"
+    },
+    {
+      "pmid": "42812992",
+      "category": "safety_interactions",
+      "title": "Effect of Herbal Extracts on Antituberculosis Drug-Induced Hepatotoxicity: A Systematic Review.",
+      "pub_date": "2026",
+      "journal": "J Toxicol",
+      "pub_type": "Journal Article",
+      "doi": "10.1155/jt/6698835",
+      "pmcid": "PMC13621401"
+    },
+    {
+      "pmid": "42813087",
+      "category": "safety_interactions",
+      "title": "Harnessing Terminalia arjuna in Next Generation Phytomedicine: Cutting Edge Nutraceutical Trends Shaping Food and Health.",
+      "pub_date": "2026 Oct",
+      "journal": "Food Sci Nutr",
+      "pub_type": "Review",
+      "doi": "10.1002/fsn3.72352",
+      "pmcid": "PMC13621932"
+    },
+    {
+      "pmid": "42813126",
+      "category": "safety_interactions",
+      "title": "Self-Medication Safety Behaviours and Recognition of Pharmacological Risks: A Clinical Pharmacology Perspective.",
+      "pub_date": "2026 Sep",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "doi": "10.7759/cureus.117147",
+      "pmcid": "PMC13623204"
+    },
+    {
+      "pmid": "42815441",
+      "category": "safety_interactions",
+      "title": "Integrated assessment of cytochrome P450 inhibition by açaí and mass spectrometry-based identification of P450 inhibitory constituents using biochemometric approaches.",
+      "pub_date": "2026 Aug 11",
+      "journal": "Drug Metab Dispos",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.dmd.2026.100388",
+      "pmcid": null
+    },
+    {
+      "pmid": "42817095",
+      "category": "safety_interactions",
+      "title": "Phytoalexins as Bioactive Compounds: Structural Diversity, Biosynthesis, and Pharmacological Profile.",
+      "pub_date": "2026 Sep 29",
+      "journal": "Mini Rev Med Chem",
+      "pub_type": "Journal Article",
+      "doi": "10.2174/0113895575456084260917065837",
+      "pmcid": null
+    },
+    {
+      "pmid": "42818415",
+      "category": "safety_interactions",
+      "title": "Complementary and Alternative Medicine Therapies in relation to Self-Reported Better Sleep across Racial and Ethnic Groups in the United States.",
+      "pub_date": "2026 Sep 8",
+      "journal": "medRxiv",
+      "pub_type": "Preprint",
+      "doi": "10.64898/2026.09.04.26362273",
+      "pmcid": "PMC13622737"
+    },
+    {
+      "pmid": "42819759",
+      "category": "safety_interactions",
+      "title": "Phytochemical basis and antitumor mechanisms of Psoralea corylifolia L.: implications for tumor immunomodulation and therapeutic development.",
+      "pub_date": "2026",
+      "journal": "Front Immunol",
+      "pub_type": "Review",
+      "doi": "10.3389/fimmu.2026.1867059",
+      "pmcid": "PMC13624745"
+    },
+    {
+      "pmid": "42821138",
+      "category": "safety_interactions",
+      "title": "Chia Seed Bioactives Ameliorate Diet-Induced Hyperlipidemia and Oxidative Stress: A Dual Mechanism Involving Antioxidant Enhancement and Putative HMG-CoA Reductase Inhibition.",
+      "pub_date": "2026 Oct 1",
+      "journal": "Plant Foods Hum Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s11130-026-01573-2",
+      "pmcid": null
+    },
+    {
+      "pmid": "42826283",
+      "category": "safety_interactions",
+      "title": "Long-term integrative personalized medicine care in massive brainstem hemorrhage: A CARE-compliant case report.",
+      "pub_date": "2026 Oct 2",
+      "journal": "Medicine (Baltimore)",
+      "pub_type": "Case Reports",
+      "doi": "10.1097/MD.0000000000050954",
+      "pmcid": "PMC13633017"
+    },
+    {
+      "pmid": "42829071",
+      "category": "safety_interactions",
+      "title": "Analysis of molecular events triggered by furanocoumarins in Psoralea corylifolia L. via reactive metabolites and protein adducts.",
+      "pub_date": "2026 Oct 3",
+      "journal": "J Ethnopharmacol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.jep.2026.122460",
+      "pmcid": null
+    },
+    {
+      "pmid": "41314322",
+      "category": "withdrawal_nps",
+      "title": "Environmental fate of illicit drugs and new psychoactive substances in aquatic systems: Impact, critical insights, and future directions.",
+      "pub_date": "2025 Dec",
+      "journal": "Environ Toxicol Pharmacol",
+      "pub_type": "Review",
+      "doi": "10.1016/j.etap.2025.104880",
+      "pmcid": null
+    },
+    {
+      "pmid": "41366683",
+      "category": "withdrawal_nps",
+      "title": "Herbal Remedies in Global Health Care: Classification, Toxicology, and Clinical Management.",
+      "pub_date": "2026 Apr 1",
+      "journal": "Ther Drug Monit",
+      "pub_type": "Review",
+      "doi": "10.1097/FTD.0000000000001417",
+      "pmcid": null
+    },
+    {
+      "pmid": "41376187",
+      "category": "withdrawal_nps",
+      "title": "Real-World Effects of Home-Based Transcranial Direct Current Stimulation in Depression: A Randomized Controlled Trial of 3-Week Versus 6-Week Protocols.",
+      "pub_date": "2025 Dec",
+      "journal": "Brain Behav",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.1002/brb3.71119",
+      "pmcid": "PMC12696033"
+    },
+    {
+      "pmid": "41382258",
+      "category": "withdrawal_nps",
+      "title": "Evaluation of the unregulated online kratom market in two east-central European countries: test purchase and analysis of potential toxicological consequences.",
+      "pub_date": "2025 Dec 11",
+      "journal": "Harm Reduct J",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "doi": "10.1186/s12954-025-01363-0",
+      "pmcid": "PMC12801881"
+    },
+    {
+      "pmid": "41420481",
+      "category": "withdrawal_nps",
+      "title": "Kratom (Mitragyna speciosa) as a Replacement for Alcohol Among a Sample of Malaysian Adults with a History of Alcohol Use Problems.",
+      "pub_date": "2026",
+      "journal": "Subst Use Misuse",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/10826084.2025.2600634",
+      "pmcid": null
+    },
+    {
+      "pmid": "41440750",
+      "category": "withdrawal_nps",
+      "title": "In Vitro Cytotoxic and Genotoxic Evaluation of Nitazenes, a Potent Class of New Synthetic Opioids.",
+      "pub_date": "2025 Dec 2",
+      "journal": "J Xenobiot",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/jox15060203",
+      "pmcid": "PMC12733476"
+    },
+    {
+      "pmid": "41453343",
+      "category": "withdrawal_nps",
+      "title": "Key findings in forensic pathology assessment of deaths following conducted energy weapon exposure - an overview.",
+      "pub_date": "2026 Jan",
+      "journal": "J Forensic Leg Med",
+      "pub_type": "Review",
+      "doi": "10.1016/j.jflm.2025.103058",
+      "pmcid": null
+    },
+    {
+      "pmid": "41486478",
+      "category": "withdrawal_nps",
+      "title": "Safety and Tolerability of Single and Multiple Daily Oral Doses of Dried Kratom Leaf Powder in a Randomized Trial in Healthy Volunteers.",
+      "pub_date": "2026 Oct 1",
+      "journal": "Ther Drug Monit",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.1097/FTD.0000000000001427",
+      "pmcid": "PMC13557462"
+    },
+    {
+      "pmid": "41486963",
+      "category": "withdrawal_nps",
+      "title": "Diagnosing Acute Kava Dermopathy: A Case Report of a Characteristic Cutaneous Eruption.",
+      "pub_date": "2026 Jan",
+      "journal": "Med J Aust",
+      "pub_type": "Case Reports",
+      "doi": "10.5694/mja2.70120",
+      "pmcid": null
+    },
+    {
+      "pmid": "41487756",
+      "category": "withdrawal_nps",
+      "title": "7-Hydroxymitragynine and Nicotine Pouch Withdrawal Syndrome: A Case Report.",
+      "pub_date": "2025 Dec",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "doi": "10.7759/cureus.98386",
+      "pmcid": "PMC12758578"
+    },
+    {
+      "pmid": "41506249",
+      "category": "withdrawal_nps",
+      "title": "Novel Histopathologic Features of Diffuse Blue-Gray Hyperpigmentation Associated With Kratom Use: A Case Report and Literature Review.",
+      "pub_date": "2026 Oct",
+      "journal": "J Cutan Pathol",
+      "pub_type": "Review",
+      "doi": "10.1111/cup.70055",
+      "pmcid": "PMC13532907"
+    },
+    {
+      "pmid": "41506578",
+      "category": "withdrawal_nps",
+      "title": "Larval zebrafish as a translational model for neurotoxicity screening of emerging psychoactive substances.",
+      "pub_date": "2026 Mar",
+      "journal": "Neurotoxicology",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.neuro.2026.103386",
+      "pmcid": null
+    },
+    {
+      "pmid": "41544778",
+      "category": "withdrawal_nps",
+      "title": "Triggers of highly lethal seizures induced by novel stimulants: A systematic review focused on synthetic cathinones and phenethylamines.",
+      "pub_date": "2026 Mar",
+      "journal": "Neurotoxicology",
+      "pub_type": "Systematic Review",
+      "doi": "10.1016/j.neuro.2026.103391",
+      "pmcid": null
+    },
+    {
+      "pmid": "41545679",
+      "category": "withdrawal_nps",
+      "title": "Hematological and clinical-chemistry parameters of kratom users: a comparative study of users and non-users in Southern Thailand.",
+      "pub_date": "2026 Jan 16",
+      "journal": "Sci Rep",
+      "pub_type": "Comparative Study",
+      "doi": "10.1038/s41598-026-35524-3",
+      "pmcid": "PMC12881633"
+    },
+    {
+      "pmid": "41547469",
+      "category": "withdrawal_nps",
+      "title": "Kratom (Mitragyna speciosa) alkaloids influence on cardiopulmonary measures and high-fat diet-induced weight gain in mice.",
+      "pub_date": "2026 Apr 1",
+      "journal": "Physiol Behav",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "doi": "10.1016/j.physbeh.2026.115231",
+      "pmcid": null
+    },
+    {
+      "pmid": "41563952",
+      "category": "withdrawal_nps",
+      "title": "Computational Approach to Select Lead-Like Compounds From an Opioid Class of Novel Psychoactive Substances.",
+      "pub_date": "2026 Jan",
+      "journal": "Chem Biodivers",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/cbdv.202503040",
+      "pmcid": "PMC13420810"
+    },
+    {
+      "pmid": "41592275",
+      "category": "withdrawal_nps",
+      "title": "Kratom use in adolescents and college students: a systematic review of prevalence, patterns, and risk factors across community and rehabilitation settings.",
+      "pub_date": "2026",
+      "journal": "Am J Drug Alcohol Abuse",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "doi": "10.1080/00952990.2025.2609965",
+      "pmcid": null
+    },
+    {
+      "pmid": "41612865",
+      "category": "withdrawal_nps",
+      "title": "Outpacing Emerging Drug Threats: Validation of ToxBox Kits That Automate LC-MS/MS Analyses.",
+      "pub_date": "2026 Feb 16",
+      "journal": "Chem Res Toxicol",
+      "pub_type": "Validation Study",
+      "doi": "10.1021/acs.chemrestox.5c00389",
+      "pmcid": null
+    },
+    {
+      "pmid": "41631916",
+      "category": "withdrawal_nps",
+      "title": "Neurologic Complications of Drug and Alcohol Use.",
+      "pub_date": "2026 Feb",
+      "journal": "Continuum (Minneap Minn)",
+      "pub_type": "Case Reports",
+      "doi": "10.1212/cont.0000000000001676",
+      "pmcid": null
+    },
+    {
+      "pmid": "41673921",
+      "category": "withdrawal_nps",
+      "title": "Treatment of Kratom Use Disorder With Methadone in an Opioid Treatment Program.",
+      "pub_date": "2026 Feb 12",
+      "journal": "J Addict Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/ADM.0000000000001666",
+      "pmcid": null
+    },
+    {
+      "pmid": "41690384",
+      "category": "withdrawal_nps",
+      "title": "Management of acute withdrawal from 7-hydroxymitragynine after high-dose chronic use: A case report.",
+      "pub_date": "2026 May-Jun",
+      "journal": "J Am Pharm Assoc (2003)",
+      "pub_type": "Case Reports",
+      "doi": "10.1016/j.japh.2026.103047",
+      "pmcid": null
+    },
+    {
+      "pmid": "41692998",
+      "category": "withdrawal_nps",
+      "title": "The detection of phenibut in keratinized specimens: a validation and case study.",
+      "pub_date": "2026 May 23",
+      "journal": "J Anal Toxicol",
+      "pub_type": "Validation Study",
+      "doi": "10.1093/jat/bkag011",
+      "pmcid": null
+    },
+    {
+      "pmid": "41741198",
+      "category": "withdrawal_nps",
+      "title": "Flubromazepam intoxication causing prolonged coma and multifocal cerebral ischaemia.",
+      "pub_date": "2026 Feb 25",
+      "journal": "Pract Neurol",
+      "pub_type": "Journal Article",
+      "doi": "10.1136/pn-2025-005012",
+      "pmcid": null
+    },
+    {
+      "pmid": "41745615",
+      "category": "withdrawal_nps",
+      "title": "Toxicometabolomics Characterization of Two N1-Sulfonated Dimethyltryptamine Derivatives in Zebrafish Larvae and Human Liver S9 Fractions Using Liquid Chromatography-High-Resolution Mass Spectrometry.",
+      "pub_date": "2026 Feb 14",
+      "journal": "Metabolites",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/metabo16020134",
+      "pmcid": "PMC12943172"
+    },
+    {
+      "pmid": "41757543",
+      "category": "withdrawal_nps",
+      "title": "Two cases of estazolam poisoning presenting to an emergency department in Western Australia.",
+      "pub_date": "2026 Jun",
+      "journal": "Clin Toxicol (Phila)",
+      "pub_type": "Case Reports",
+      "doi": "10.1080/15563650.2026.2631129",
+      "pmcid": null
+    },
+    {
+      "pmid": "41757666",
+      "category": "withdrawal_nps",
+      "title": "[Suspected phenibut poisoning with brainstem involvement].",
+      "pub_date": "2026 Feb 23",
+      "journal": "Ugeskr Laeger",
+      "pub_type": "English Abstract",
+      "doi": "10.61409/V07250573",
+      "pmcid": null
+    },
+    {
+      "pmid": "41772584",
+      "category": "withdrawal_nps",
+      "title": "Characteristics of adverse reactions to kratom and implementation of harm reduction strategies in a sample of ethnobotanical tea bar patrons in Colorado.",
+      "pub_date": "2026 Mar 2",
+      "journal": "Harm Reduct J",
+      "pub_type": "Research Support, N.I.H., Extramural",
+      "doi": "10.1186/s12954-025-01382-x",
+      "pmcid": "PMC13059294"
+    },
+    {
+      "pmid": "41793795",
+      "category": "withdrawal_nps",
+      "title": "Acute and long-term psychiatric consequences of synthetic cannabinoids and related novel psychoactive substances: A systematic review.",
+      "pub_date": "2026 Jun",
+      "journal": "Psychiatry Res",
+      "pub_type": "Systematic Review",
+      "doi": "10.1016/j.psychres.2026.117056",
+      "pmcid": null
+    },
+    {
+      "pmid": "41796936",
+      "category": "withdrawal_nps",
+      "title": "Differential inhibition of the diverse behavioural effects of mu-opioid receptor agonists by progressive receptor depletion.",
+      "pub_date": "2026 Jun 15",
+      "journal": "Neuropharmacology",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.neuropharm.2026.110909",
+      "pmcid": null
+    },
+    {
+      "pmid": "41832720",
+      "category": "withdrawal_nps",
+      "title": "Development of a Novel GABAB Receptor Modulator as an Alternative to Phenibut: Insights from Molecular Modeling and In Vivo Studies.",
+      "pub_date": "2026 Mar 13",
+      "journal": "Curr Neuropharmacol",
+      "pub_type": "Journal Article",
+      "doi": "10.2174/011570159X407182251104183509",
+      "pmcid": null
+    },
+    {
+      "pmid": "41837384",
+      "category": "withdrawal_nps",
+      "title": "Case-control study of mitragynine deaths in Florida.",
+      "pub_date": "2026 May 26",
+      "journal": "J Anal Toxicol",
+      "pub_type": "Journal Article",
+      "doi": "10.1093/jat/bkag017",
+      "pmcid": null
+    },
+    {
+      "pmid": "41837407",
+      "category": "withdrawal_nps",
+      "title": "A Pilot, Dose-Finding, Pharmacodynamic and Pharmacokinetic Study of Orally Administered Botanical Kratom.",
+      "pub_date": "2026 Jul-Aug 01",
+      "journal": "J Clin Psychopharmacol",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.1097/JCP.0000000000002158",
+      "pmcid": null
+    },
+    {
+      "pmid": "41850134",
+      "category": "withdrawal_nps",
+      "title": "Mitragynine and naltrexone alone and in combination reduce alcohol self-administration in female Sprague Dawley rats.",
+      "pub_date": "2026 Jun 1",
+      "journal": "Drug Alcohol Depend",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.drugalcdep.2026.113126",
+      "pmcid": "PMC13470831"
+    },
+    {
+      "pmid": "41868134",
+      "category": "withdrawal_nps",
+      "title": "Sex-related pharmacokinetic and pharmacological responses to 4F-furanylfentanyl.",
+      "pub_date": "2026",
+      "journal": "Front Pharmacol",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fphar.2026.1745891",
+      "pmcid": "PMC13002593"
+    },
+    {
+      "pmid": "41875249",
+      "category": "withdrawal_nps",
+      "title": "A Case of 7-Hydroxymitragynine Use Disorder Treated With Buprenorphine.",
+      "pub_date": "2026 Mar 24",
+      "journal": "J Addict Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/ADM.0000000000001685",
+      "pmcid": null
+    },
+    {
+      "pmid": "41885052",
+      "category": "withdrawal_nps",
+      "title": "Kava-potentiated Withdrawal in Persons Using Multiple Substances: A Case Series of Kava and Kratom Co-ingestion.",
+      "pub_date": "2026 Mar 26",
+      "journal": "J Addict Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/ADM.0000000000001678",
+      "pmcid": null
+    },
+    {
+      "pmid": "41886310",
+      "category": "withdrawal_nps",
+      "title": "Increases in Kratom-Related Reports to Poison Centers - National Poison Data System, United States, 2015-2025.",
+      "pub_date": "2026 Mar 26",
+      "journal": "MMWR Morb Mortal Wkly Rep",
+      "pub_type": "Journal Article",
+      "doi": "10.15585/mmwr.mm7511a1",
+      "pmcid": "PMC13020857"
+    },
+    {
+      "pmid": "41901244",
+      "category": "withdrawal_nps",
+      "title": "Indole Alkaloids as Biased Opioid Receptor Modulators.",
+      "pub_date": "2026 Feb 28",
+      "journal": "Pharmaceuticals (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/ph19030397",
+      "pmcid": "PMC13029197"
+    },
+    {
+      "pmid": "41906286",
+      "category": "withdrawal_nps",
+      "title": "Investigating Opioid Receptor Activity through Biocatalytic Halogenation and Oxidation of Mitragynine.",
+      "pub_date": "2026 Apr 17",
+      "journal": "ACS Chem Biol",
+      "pub_type": "Journal Article",
+      "doi": "10.1021/acschembio.5c01008",
+      "pmcid": "PMC13060569"
+    },
+    {
+      "pmid": "41916270",
+      "category": "withdrawal_nps",
+      "title": "An Outbreak of Neuroangiostrongyliasis (Rat Lungworm Disease) in Hawai'i: Evidence Supporting the Early Use of Albendazole-Corticosteroid Co-Therapy.",
+      "pub_date": "2026 May 6",
+      "journal": "Am J Trop Med Hyg",
+      "pub_type": "Case Reports",
+      "doi": "10.4269/ajtmh.25-0689",
+      "pmcid": "PMC13153581"
+    },
+    {
+      "pmid": "41942675",
+      "category": "withdrawal_nps",
+      "title": "Emergency Department presentations due to new psychoactive substances (NPS) and other illicit drugs: a clinical and toxicological study on recreational drug toxicity in Italy.",
+      "pub_date": "2026 Jul",
+      "journal": "Int J Legal Med",
+      "pub_type": "Observational Study",
+      "doi": "10.1007/s00414-026-03795-0",
+      "pmcid": "PMC13275559"
+    },
+    {
+      "pmid": "41980206",
+      "category": "withdrawal_nps",
+      "title": "Co-occurring substance use disorders and the compounding effect of kratom on serious mental illness, US, 2021-2023.",
+      "pub_date": "2026",
+      "journal": "Am J Drug Alcohol Abuse",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/00952990.2026.2646242",
+      "pmcid": null
+    },
+    {
+      "pmid": "41982589",
+      "category": "withdrawal_nps",
+      "title": "Severe Early-Onset Withdrawal Following Intentional Use of Mitragynine Pseudoindoxyl: A Case Report and Emerging Clinical Considerations.",
+      "pub_date": "2026 Mar",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "doi": "10.7759/cureus.105224",
+      "pmcid": "PMC13075513"
+    },
+    {
+      "pmid": "41995790",
+      "category": "withdrawal_nps",
+      "title": "Artificial intelligence assisted behavioral profiling of synthetic cannabinoids in planarians.",
+      "pub_date": "2026 Jul",
+      "journal": "Forensic Toxicol",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "doi": "10.1007/s11419-026-00769-0",
+      "pmcid": null
+    },
+    {
+      "pmid": "41997923",
+      "category": "withdrawal_nps",
+      "title": "Decoding kratom: molecular mechanisms and epigenetic factors in use and dependence.",
+      "pub_date": "2026 Apr 16",
+      "journal": "Transl Psychiatry",
+      "pub_type": "Systematic Review",
+      "doi": "10.1038/s41398-026-04022-5",
+      "pmcid": "PMC13212692"
+    },
+    {
+      "pmid": "42033028",
+      "category": "withdrawal_nps",
+      "title": "An enduring threat: NPS benzodiazepines in forensic and clinical toxicology from 2021 to 2025.",
+      "pub_date": "2026 Jun 4",
+      "journal": "J Anal Toxicol",
+      "pub_type": "Review",
+      "doi": "10.1093/jat/bkag026",
+      "pmcid": null
+    },
+    {
+      "pmid": "42037222",
+      "category": "withdrawal_nps",
+      "title": "Kratom Use: An Emerging Perioperative Nursing Concern.",
+      "pub_date": "2026 May",
+      "journal": "AORN J",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/aorn.70077",
+      "pmcid": null
+    },
+    {
+      "pmid": "42051846",
+      "category": "withdrawal_nps",
+      "title": "Kratom Consumption Associated With Herb-Induced Liver Injury and a Pharmacokinetic Interaction: A Case Report.",
+      "pub_date": "2026 Mar",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "doi": "10.7759/cureus.106016",
+      "pmcid": "PMC13113189"
+    },
+    {
+      "pmid": "42054936",
+      "category": "withdrawal_nps",
+      "title": "Literature review on forensic implications of illicit drug metabolism: A medicinal chemistry perspective.",
+      "pub_date": "2026 May",
+      "journal": "J Forensic Leg Med",
+      "pub_type": "Review",
+      "doi": "10.1016/j.jflm.2026.103158",
+      "pmcid": null
+    },
+    {
+      "pmid": "42114686",
+      "category": "withdrawal_nps",
+      "title": "Gut microbiota and SCFA dysregulation drive MDPV-induced behavioral and neuroimmune adaptations in male mice.",
+      "pub_date": "2026 Oct",
+      "journal": "Brain Behav Immun",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.bbi.2026.106800",
+      "pmcid": null
+    },
+    {
+      "pmid": "42123454",
+      "category": "withdrawal_nps",
+      "title": "The Synthetic Cannabinoid AKB-48 Induces Cell Death in Murine Cerebellum Through Different Signaling Pathways.",
+      "pub_date": "2026 Apr 27",
+      "journal": "Int J Mol Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/ijms27093867",
+      "pmcid": "PMC13163767"
+    },
+    {
+      "pmid": "42123796",
+      "category": "withdrawal_nps",
+      "title": "Kratom (Mitragyna speciosa) as a Phytochemical-Based Natural Product Exhibiting Opioid-like Analgesic Effects with Reduced Tolerance and Dependence Liability via TLR4-Associated Neuroimmune Modulation.",
+      "pub_date": "2026 Apr 26",
+      "journal": "Molecules",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/molecules31091428",
+      "pmcid": "PMC13164666"
+    },
+    {
+      "pmid": "42132298",
+      "category": "withdrawal_nps",
+      "title": "Association Between State Kratom Policy Status and Kratom‑Involved Overdose Deaths in the United States, 2020-2024: Analysis of the State Unintentional Drug Overdose Reporting System (SUDORS).",
+      "pub_date": "2026",
+      "journal": "Subst Use Misuse",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/10826084.2026.2670611",
+      "pmcid": null
+    },
+    {
+      "pmid": "42135954",
+      "category": "withdrawal_nps",
+      "title": "Toxicity assessment of Mitragyna speciosa leaf extracts using zebrafish (Danio rerio) embryos and analysis of their Q-TOF LCMS chemical profiles.",
+      "pub_date": "2026 May 14",
+      "journal": "Nat Prod Res",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/14786419.2026.2669674",
+      "pmcid": null
+    },
+    {
+      "pmid": "42144893",
+      "category": "withdrawal_nps",
+      "title": "Assessment of Abuse Potential-Related Effects of Oral Dried Kratom Leaf Powder in Healthy Normal Participants Following Single and Multiple Daily Doses.",
+      "pub_date": "2026 Jul",
+      "journal": "Drug Test Anal",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.1002/dta.70089",
+      "pmcid": "PMC13327227"
+    },
+    {
+      "pmid": "42158609",
+      "category": "withdrawal_nps",
+      "title": "Comparative analysis of monoterpene indole alkaloid composition and genotypic variation in Thai Mitragyna speciosa.",
+      "pub_date": "2026",
+      "journal": "Front Plant Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fpls.2026.1821609",
+      "pmcid": "PMC13180935"
+    },
+    {
+      "pmid": "42205534",
+      "category": "withdrawal_nps",
+      "title": "Integrated LC-MS/MS profiling, network pharmacology, molecular docking, and enzyme inhibition assays reveal the antidiabetic potential of Mitragyna speciosa.",
+      "pub_date": "2026 Jun",
+      "journal": "Toxicol Rep",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.toxrep.2026.102271",
+      "pmcid": "PMC13202546"
+    },
+    {
+      "pmid": "42225057",
+      "category": "withdrawal_nps",
+      "title": "Buprenorphine for the Management of 7-Hydroxymitragynine (7-OH) Use: A Retrospective Case Series.",
+      "pub_date": "2026 Jun 1",
+      "journal": "J Addict Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/ADM.0000000000001723",
+      "pmcid": null
+    },
+    {
+      "pmid": "42226014",
+      "category": "withdrawal_nps",
+      "title": "Comprehensive toxicological characterization and quantitation of drugs identified among nonfatal opioid and stimulant overdose presentations to US emergency departments.",
+      "pub_date": "2026 Jun 4",
+      "journal": "J Anal Toxicol",
+      "pub_type": "Journal Article",
+      "doi": "10.1093/jat/bkag036",
+      "pmcid": null
+    },
+    {
+      "pmid": "42235057",
+      "category": "withdrawal_nps",
+      "title": "Advancing Kratom Science and Regulation: A Comparative Framework With Cannabis.",
+      "pub_date": "2026 Jun 3",
+      "journal": "J Addict Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/ADM.0000000000001728",
+      "pmcid": null
+    },
+    {
+      "pmid": "42243908",
+      "category": "withdrawal_nps",
+      "title": "Emergence of synthetic drugs in South America: insights from Brazil, Chile, and Colombia.",
+      "pub_date": "2026 Jun 4",
+      "journal": "Harm Reduct J",
+      "pub_type": "Review",
+      "doi": "10.1186/s12954-026-01480-4",
+      "pmcid": "PMC13465044"
+    },
+    {
+      "pmid": "42258633",
+      "category": "withdrawal_nps",
+      "title": "The assessment and treatment of kratom dependence: findings from a physician survey in Malaysia.",
+      "pub_date": "2026",
+      "journal": "Am J Drug Alcohol Abuse",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/00952990.2026.2677090",
+      "pmcid": null
+    },
+    {
+      "pmid": "42268250",
+      "category": "withdrawal_nps",
+      "title": "More than an opioid: dissociable analgesic and behavioral effects of kratom in planarians.",
+      "pub_date": "2026 Aug 1",
+      "journal": "Behav Pharmacol",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/FBP.0000000000000885",
+      "pmcid": null
+    },
+    {
+      "pmid": "42272832",
+      "category": "withdrawal_nps",
+      "title": "Amanita muscaria in the evolving novel psychoactive substances landscape - toxicological risks and clinical implications: a narrative review.",
+      "pub_date": "2026",
+      "journal": "Front Pharmacol",
+      "pub_type": "Review",
+      "doi": "10.3389/fphar.2026.1838212",
+      "pmcid": "PMC13246602"
+    },
+    {
+      "pmid": "42295701",
+      "category": "withdrawal_nps",
+      "title": "Transdermal delivery and anti-inflammatory efficacy of Mitragyna speciosa extract transdermal patch for local inflammation management: in vitro, ex vivo, and in vivo investigations.",
+      "pub_date": "2026 Jun 15",
+      "journal": "Drug Deliv Transl Res",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s13346-026-02174-x",
+      "pmcid": null
+    },
+    {
+      "pmid": "42309612",
+      "category": "withdrawal_nps",
+      "title": "A review on Mitragyna alkaloids pharmacology, biosynthesis and biotechnological insights.",
+      "pub_date": "2026 Jun",
+      "journal": "J Genet Eng Biotechnol",
+      "pub_type": "Review",
+      "doi": "10.1016/j.jgeb.2026.100710",
+      "pmcid": "PMC13191265"
+    },
+    {
+      "pmid": "42346338",
+      "category": "withdrawal_nps",
+      "title": "Detection of Nitazenes (2-Benzylbenzimidazoles)-Novel Synthetic Opioids in Coronial Casework in Victoria, Australia.",
+      "pub_date": "2026 May 26",
+      "journal": "Metabolites",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/metabo16060358",
+      "pmcid": "PMC13304115"
+    },
+    {
+      "pmid": "42372078",
+      "category": "withdrawal_nps",
+      "title": "When \"Kava\" Isn't Kava: Opioid-like Withdrawal Responsive to Buprenorphine: A Case Study.",
+      "pub_date": "2026 Jun 29",
+      "journal": "J Addict Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/ADM.0000000000001748",
+      "pmcid": null
+    },
+    {
+      "pmid": "42374886",
+      "category": "withdrawal_nps",
+      "title": "Unlabeled kratom alkaloids detected in products marketed as kava.",
+      "pub_date": "2026 Aug",
+      "journal": "Clin Toxicol (Phila)",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/15563650.2026.2688238",
+      "pmcid": null
+    },
+    {
+      "pmid": "42376492",
+      "category": "withdrawal_nps",
+      "title": "How can we facilitate research on the risks and potential benefits of novel psychoactive substances?",
+      "pub_date": "2026 Jul",
+      "journal": "EClinicalMedicine",
+      "pub_type": "Review",
+      "doi": "10.1016/j.eclinm.2026.104030",
+      "pmcid": "PMC13311992"
+    },
+    {
+      "pmid": "42395253",
+      "category": "withdrawal_nps",
+      "title": "Outpatient Phenibut Taper Supported by Baclofen and Gabapentin.",
+      "pub_date": "2026 Jun",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "doi": "10.7759/cureus.110132",
+      "pmcid": "PMC13327044"
+    },
+    {
+      "pmid": "42396968",
+      "category": "withdrawal_nps",
+      "title": "Taumafa Kava: a Pacific framework to guide DOHaD-related research in Pacific communities.",
+      "pub_date": "2026 Jul 3",
+      "journal": "J Dev Orig Health Dis",
+      "pub_type": "Journal Article",
+      "doi": "10.1017/S2040174426100609",
+      "pmcid": null
+    },
+    {
+      "pmid": "42421345",
+      "category": "withdrawal_nps",
+      "title": "Kratom in Clinical Practice: Knowledge, Attitudes, and Screening Behaviors Among U.S.-Based Healthcare Providers.",
+      "pub_date": "2026 Jul 8",
+      "journal": "Subst Use Misuse",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/10826084.2026.2686382",
+      "pmcid": null
+    },
+    {
+      "pmid": "42423989",
+      "category": "withdrawal_nps",
+      "title": "Integrated quantitative proteomics reveals stress-associated network remodeling induced by mitragynine in RSC96 Schwann cells.",
+      "pub_date": "2026 Jul 9",
+      "journal": "Arch Toxicol",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s00204-026-04461-5",
+      "pmcid": null
+    },
+    {
+      "pmid": "42431523",
+      "category": "withdrawal_nps",
+      "title": "Kavalactone profiling of Piper methysticum root and rhizome extracts and the modulation of CYP450 activity in vitro.",
+      "pub_date": "2026 Sep 1",
+      "journal": "Chem Biol Interact",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.cbi.2026.112219",
+      "pmcid": null
+    },
+    {
+      "pmid": "42445841",
+      "category": "withdrawal_nps",
+      "title": "Kratom Brands in Vape Shops Across the US.",
+      "pub_date": "2026",
+      "journal": "Health Behav Res",
+      "pub_type": "Journal Article",
+      "doi": null,
+      "pmcid": "PMC13361140"
+    },
+    {
+      "pmid": "42461119",
+      "category": "withdrawal_nps",
+      "title": "Visual Snow-Like Symptoms, Ellipsoid Zone Disruption, and Outer Retinal Pigmentary Changes in a Patient with Chronic Kratom Use: A Case Report.",
+      "pub_date": "2026 Jul 16",
+      "journal": "Retin Cases Brief Rep",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/ICB.0000000000001959",
+      "pmcid": null
+    },
+    {
+      "pmid": "42462355",
+      "category": "withdrawal_nps",
+      "title": "Classical substructure search versus LLM-assisted keyword retrieval in SciFinder: A case study on GABA(B1) ligand discovery using a phenibut scaffold.",
+      "pub_date": "2026 Oct",
+      "journal": "Comput Biol Chem",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.compbiolchem.2026.109245",
+      "pmcid": null
+    },
+    {
+      "pmid": "42476280",
+      "category": "withdrawal_nps",
+      "title": "Precision forensic toxicology: Leveraging Toxicogenomics, multi-omics, and artificial intelligence for next-generation poisoning investigations.",
+      "pub_date": "2026 Jul 20",
+      "journal": "Clin Chim Acta",
+      "pub_type": "Review",
+      "doi": "10.1016/j.cca.2026.121239",
+      "pmcid": null
+    },
+    {
+      "pmid": "42485365",
+      "category": "withdrawal_nps",
+      "title": "Understanding Kratom: Pharmacology, Risks, and Relevance to South Dakota Providers.",
+      "pub_date": "2025 Dec",
+      "journal": "S D Med",
+      "pub_type": "Review",
+      "doi": null,
+      "pmcid": null
+    },
+    {
+      "pmid": "42495468",
+      "category": "withdrawal_nps",
+      "title": "Chronic Kratom Use as a Potential Risk Factor for Embolic Stroke of Undetermined Source: A Case Report.",
+      "pub_date": "2026 Jun",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "doi": "10.7759/cureus.111385",
+      "pmcid": "PMC13395529"
+    },
+    {
+      "pmid": "42520100",
+      "category": "withdrawal_nps",
+      "title": "Mapping the Evidence on Kratom Use, Health Outcomes, and Policy Gaps in the United States: A Scoping Review.",
+      "pub_date": "2026 Jul 28",
+      "journal": "Subst Use Misuse",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/10826084.2026.2697988",
+      "pmcid": null
+    },
+    {
+      "pmid": "42521376",
+      "category": "withdrawal_nps",
+      "title": "Kratom Use, Synthetic Cannabinoids (K2), and Trends in the Drug Supply.",
+      "pub_date": "2026 Sep",
+      "journal": "Prim Care",
+      "pub_type": "Review",
+      "doi": "10.1016/j.pop.2026.03.004",
+      "pmcid": null
+    },
+    {
+      "pmid": "42630986",
+      "category": "withdrawal_nps",
+      "title": "Dimethylindanoylindole Isomers Revealed Different Pharmacological Profiles at CB1 and CB2 Cannabinoid Receptors.",
+      "pub_date": "2026 Aug 19",
+      "journal": "ACS Bio Med Chem Au",
+      "pub_type": "Journal Article",
+      "doi": "10.1021/acsbiomedchemau.6c00090",
+      "pmcid": "PMC13495017"
+    },
+    {
+      "pmid": "42666615",
+      "category": "withdrawal_nps",
+      "title": "Pharmacists' Perceived Knowledge of Kratom and Hemp-Derived Cannabinoids Before and after Education.",
+      "pub_date": "2026 Jan-Dec",
+      "journal": "Subst Use",
+      "pub_type": "Journal Article",
+      "doi": "10.1177/29768357261484353",
+      "pmcid": "PMC13522675"
+    },
+    {
+      "pmid": "42684681",
+      "category": "withdrawal_nps",
+      "title": "Case Report: Pharmacist-Led Induction of Sublingual Buprenorphine/Naloxone for Kratom Use Disorder.",
+      "pub_date": "2026 Sep 2",
+      "journal": "J Psychoactive Drugs",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/02791072.2026.2727015",
+      "pmcid": null
+    },
+    {
+      "pmid": "42716535",
+      "category": "withdrawal_nps",
+      "title": "Toxicological and Clinical Characteristics of Fatal Cases in the Emerging Drugs Network of Australia-Victoria (EDNAV) Clinical Registry 2020-2025.",
+      "pub_date": "2026 Oct",
+      "journal": "Emerg Med Australas",
+      "pub_type": "Observational Study",
+      "doi": "10.1111/1742-6723.70347",
+      "pmcid": "PMC13557846"
+    },
+    {
+      "pmid": "42732988",
+      "category": "withdrawal_nps",
+      "title": "[Illegal Drug： Metonitazene].",
+      "pub_date": "2026 Jun 25",
+      "journal": "Fa Yi Xue Za Zhi",
+      "pub_type": "English Abstract",
+      "doi": "10.12116/j.issn.1004-5619.2026.360307",
+      "pmcid": null
+    },
+    {
+      "pmid": "42738921",
+      "category": "withdrawal_nps",
+      "title": "Kava (Piper methysticum G. Forst) for Substance Use Disorders: A Review of Mechanism, Pharmacology, Clinical Evidence, and Therapeutic Potential.",
+      "pub_date": "2026 Aug 22",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "doi": "10.3390/nu18172747",
+      "pmcid": "PMC13567056"
+    },
+    {
+      "pmid": "42757335",
+      "category": "withdrawal_nps",
+      "title": "Kratom in Clinical Practice: What Physicians Need to Know.",
+      "pub_date": "2026 Jul-Aug",
+      "journal": "Mo Med",
+      "pub_type": "Review",
+      "doi": null,
+      "pmcid": "PMC13585002"
+    },
+    {
+      "pmid": "42757529",
+      "category": "withdrawal_nps",
+      "title": "Insights About Nitazene Use From Self-reported Experiences on Reddit Obtained Using Natural Language Processing.",
+      "pub_date": "2026 Sep 18",
+      "journal": "J Addict Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/ADM.0000000000001760",
+      "pmcid": null
+    },
+    {
+      "pmid": "42766064",
+      "category": "withdrawal_nps",
+      "title": "Perioperative Pain in the Era of Emerging and Unregulated Substances: Recognition, Risk Assessment, and Management.",
+      "pub_date": "2026 Sep 21",
+      "journal": "Curr Pain Headache Rep",
+      "pub_type": "Review",
+      "doi": "10.1007/s11916-026-01564-7",
+      "pmcid": null
+    },
+    {
+      "pmid": "42778126",
+      "category": "withdrawal_nps",
+      "title": "Multiorgan toxicity of 3-Chloromethcathinone (3-CMC) in male and female mice: Translational implications for liver, kidney, and spleen.",
+      "pub_date": "2026 Sep 23",
+      "journal": "Toxicology",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.tox.2026.154593",
+      "pmcid": null
+    },
+    {
+      "pmid": "42778792",
+      "category": "withdrawal_nps",
+      "title": "Sudden cardiac arrest in a young healthy man following kratom tea consumption: a case report and brief literature review.",
+      "pub_date": "2026 Sep 23",
+      "journal": "Wien Klin Wochenschr",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s00508-026-02826-5",
+      "pmcid": null
+    },
+    {
+      "pmid": "42782285",
+      "category": "withdrawal_nps",
+      "title": "Kratom Use in Primary Care: A Nurse Practitioner Case Study and Clinical Considerations.",
+      "pub_date": "2026 Sep 24",
+      "journal": "Int J Addctn Nurs",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/JAN.0000000000000715",
+      "pmcid": null
+    },
+    {
+      "pmid": "42797929",
+      "category": "withdrawal_nps",
+      "title": "Effect of Oral Supplementation of Kratom (Mitragyna speciosa Korth.) on Gastrointestinal Nematodes and Serum Lipid Peroxidation in Crossbred Saanen Goats.",
+      "pub_date": "2026 Aug 31",
+      "journal": "Vet Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/vetsci13090893",
+      "pmcid": "PMC13611956"
+    },
+    {
+      "pmid": "42804805",
+      "category": "withdrawal_nps",
+      "title": "Drug-related mortality in the United Kingdom: trends, inequalities, and changing substance patterns.",
+      "pub_date": "2026 Sep 28",
+      "journal": "Int J Drug Policy",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.drugpo.2026.105514",
+      "pmcid": null
+    },
+    {
+      "pmid": "20301298",
+      "category": "women_health",
+      "title": "Dystrophinopathies.",
+      "pub_date": "1993",
+      "journal": null,
+      "pub_type": "Review",
+      "doi": null,
+      "pmcid": null
+    },
+    {
+      "pmid": "42660215",
+      "category": "women_health",
+      "title": "Universal aspirin dispensation for prevention of preeclampsia in a high-risk population.",
+      "pub_date": "2026 Aug 27",
+      "journal": "Am J Obstet Gynecol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.ajog.2026.08.036",
+      "pmcid": null
+    },
+    {
+      "pmid": "42661175",
+      "category": "women_health",
+      "title": "Impact of lipid-based nutritional supplementation on cardio metabolic risk factors in underweight pre-eclamptic primigravidas: A randomized controlled trial.",
+      "pub_date": "2026 Jul 23",
+      "journal": "BMC Pregnancy Childbirth",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.1186/s12884-026-09646-5",
+      "pmcid": "PMC13523297"
+    },
+    {
+      "pmid": "42662160",
+      "category": "women_health",
+      "title": "Iron Deficiency and Iron-Deficiency Anemia Among Reproductive-Age Women in the United States: Prevalence and Disparities, 2015-2023.",
+      "pub_date": "2026",
+      "journal": "Anemia",
+      "pub_type": "Journal Article",
+      "doi": "10.1155/anem/7951443",
+      "pmcid": "PMC13519950"
+    },
+    {
+      "pmid": "42664627",
+      "category": "women_health",
+      "title": "Anaemia in pregnancy in rural new South Wales: a retrospective study of prevalence, risk factors, and guideline adherence.",
+      "pub_date": "2026 Aug 22",
+      "journal": "Midwifery",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.midw.2026.104959",
+      "pmcid": null
+    },
+    {
+      "pmid": "42665333",
+      "category": "women_health",
+      "title": "Impact of the Benazir Nashonuma Programme on maternal and child health and nutrition in Pakistan: protocol for a prospective cohort study.",
+      "pub_date": "2026 Aug 28",
+      "journal": "BMJ Paediatr Open",
+      "pub_type": "Journal Article",
+      "doi": "10.1136/bmjpo-2026-005047",
+      "pmcid": "PMC13536015"
+    },
+    {
+      "pmid": "42666787",
+      "category": "women_health",
+      "title": "Preventing iron deficiency anemia in rural Indonesia: Experiences and support needs of pregnant women and healthcare providers - a qualitative descriptive study.",
+      "pub_date": "2026",
+      "journal": "Belitung Nurs J",
+      "pub_type": "Journal Article",
+      "doi": "10.33546/bnj.4588",
+      "pmcid": "PMC13523059"
+    },
+    {
+      "pmid": "42674151",
+      "category": "women_health",
+      "title": "Polystyrene nanoparticles impair endometrial decidualization in early pregnant mice via oxidative stress-driven autophagy suppression and ferroptosis induction.",
+      "pub_date": "2026 Aug 31",
+      "journal": "Food Chem Toxicol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.fct.2026.116359",
+      "pmcid": null
+    },
+    {
+      "pmid": "42674342",
+      "category": "women_health",
+      "title": "Maternal exposure to essential and non-essential metals and thyroid hormone status in a Canadian pregnancy cohort.",
+      "pub_date": "2026 Nov 1",
+      "journal": "Environ Res",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.envres.2026.125592",
+      "pmcid": null
+    },
+    {
+      "pmid": "42675291",
+      "category": "women_health",
+      "title": "High prevalence of magnesium supplementation during pregnancy: results from the LIFE Child study.",
+      "pub_date": "2026 Aug 31",
+      "journal": "Arch Gynecol Obstet",
+      "pub_type": "Observational Study",
+      "doi": "10.1007/s00404-026-08522-z",
+      "pmcid": "PMC13529859"
+    },
+    {
+      "pmid": "42675332",
+      "category": "women_health",
+      "title": "Time-varying restless legs syndrome and risk of incident perinatal depression.",
+      "pub_date": "2026 Aug 31",
+      "journal": "J Clin Sleep Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s44470-026-00168-7",
+      "pmcid": "PMC13530054"
+    },
+    {
+      "pmid": "42675805",
+      "category": "women_health",
+      "title": "A Vaginal Secretion-Derived Metabolite Drives HMOX1/Fe(2+) Axis-Mediated Ferroptosis in Mucosal Damage of Senile Vaginitis.",
+      "pub_date": "2026 Nov",
+      "journal": "Antioxid Redox Signal",
+      "pub_type": "Journal Article",
+      "doi": "10.1177/15230864261483991",
+      "pmcid": null
+    },
+    {
+      "pmid": "42677683",
+      "category": "women_health",
+      "title": "Co-Coverage of Social Protection Programs and Maternal and Child Nutrition Interventions in Bangladesh, India and Nepal.",
+      "pub_date": "2026 Jul",
+      "journal": "Matern Child Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.1111/mcn.70233",
+      "pmcid": "PMC13531365"
+    },
+    {
+      "pmid": "42677903",
+      "category": "women_health",
+      "title": "Factors influencing abnormal bone mineral density in Chinese women aged 40 years and older: A meta-analysis.",
+      "pub_date": "2026 Jul-Aug",
+      "journal": "Women Health",
+      "pub_type": "Systematic Review",
+      "doi": "10.1080/03630242.2026.2719875",
+      "pmcid": null
+    },
+    {
+      "pmid": "42678751",
+      "category": "women_health",
+      "title": "Integrated multi-omics analyses identify an RAS-SLC11A2-associated molecular framework linking iron metabolism with PCOS-related cardiometabolic risk.",
+      "pub_date": "2026 Dec 31",
+      "journal": "Clin Exp Hypertens",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/10641963.2026.2711737",
+      "pmcid": null
+    },
+    {
+      "pmid": "42679693",
+      "category": "women_health",
+      "title": "Patient blood management in obstetrics and gynecology: current evidence and future directions.",
+      "pub_date": "2026 Aug 31",
+      "journal": "Eur J Obstet Gynecol Reprod Biol",
+      "pub_type": "Review",
+      "doi": "10.1016/j.ejogrb.2026.115403",
+      "pmcid": null
+    },
+    {
+      "pmid": "42681692",
+      "category": "women_health",
+      "title": "Massive subchorionic thrombohaematoma (Breus' mole) causing postpartum haemorrhage: a case series and management strategy.",
+      "pub_date": "2026 Sep 1",
+      "journal": "Matern Health Neonatol Perinatol",
+      "pub_type": "Journal Article",
+      "doi": "10.1186/s40748-026-00292-5",
+      "pmcid": "PMC13536683"
+    },
+    {
+      "pmid": "42681977",
+      "category": "women_health",
+      "title": "Iron deficiency during pregnancy and lactation.",
+      "pub_date": "2026 Nov 1",
+      "journal": "Curr Opin Clin Nutr Metab Care",
+      "pub_type": "Review",
+      "doi": "10.1097/MCO.0000000000001257",
+      "pmcid": null
+    },
+    {
+      "pmid": "42686422",
+      "category": "women_health",
+      "title": "Deferred cord clamping during term/late preterm cesarean section under general and regional anesthesia: a retrospective study.",
+      "pub_date": "2026 Dec",
+      "journal": "J Matern Fetal Neonatal Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/14767058.2026.2722887",
+      "pmcid": null
+    },
+    {
+      "pmid": "42688429",
+      "category": "women_health",
+      "title": "Impact of breastfeeding on serological recovery and metabolic homeostasis in postpartum women with celiac disease: a longitudinal study.",
+      "pub_date": "2026",
+      "journal": "Front Glob Womens Health",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fgwh.2026.1888403",
+      "pmcid": "PMC13534093"
+    },
+    {
+      "pmid": "42689017",
+      "category": "women_health",
+      "title": "Compliance to iron folic acid supplementation and its associated factors among postpartum mothers of Bharatpur, Nepal: a cross-sectional study.",
+      "pub_date": "2026",
+      "journal": "BMJ Public Health",
+      "pub_type": "Journal Article",
+      "doi": "10.1136/bmjph-2025-003563",
+      "pmcid": "PMC13536047"
+    },
+    {
+      "pmid": "42689525",
+      "category": "women_health",
+      "title": "Magnesium sulphate for women at risk of preterm birth for neuroprotection of the fetus.",
+      "pub_date": "2026 Sep 3",
+      "journal": "Cochrane Database Syst Rev",
+      "pub_type": "Meta-Analysis",
+      "doi": "10.1002/14651858.CD004661.pub5",
+      "pmcid": "PMC13539583"
+    },
+    {
+      "pmid": "42692818",
+      "category": "women_health",
+      "title": "Maternal anemia and the risk of preterm birth: a meta-analysis.",
+      "pub_date": "2026 Dec",
+      "journal": "J Matern Fetal Neonatal Med",
+      "pub_type": "Systematic Review",
+      "doi": "10.1080/14767058.2026.2722830",
+      "pmcid": null
+    },
+    {
+      "pmid": "42693013",
+      "category": "women_health",
+      "title": "[Research progress on traditional Chinese medicine in prevention and treatment of metabolic diseases via SIRT1/AMPK signaling pathway].",
+      "pub_date": "2026 Aug",
+      "journal": "Zhongguo Zhong Yao Za Zhi",
+      "pub_type": "English Abstract",
+      "doi": "10.19540/j.cnki.cjcmm.20260330.707",
+      "pmcid": null
+    },
+    {
+      "pmid": "42696221",
+      "category": "women_health",
+      "title": "Restless legs syndrome in pregnancy: Frequency, sleep quality, and questionnaire-defined risk of obstructive sleep apnea syndrome.",
+      "pub_date": "2026 Sep 4",
+      "journal": "Neurol Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s10072-026-09348-y",
+      "pmcid": null
+    },
+    {
+      "pmid": "42697500",
+      "category": "women_health",
+      "title": "Paternal age and offspring bone health and body composition at 20 years: Findings from the Raine study.",
+      "pub_date": "2026 Dec",
+      "journal": "Bone",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.bone.2026.118080",
+      "pmcid": null
+    },
+    {
+      "pmid": "42699946",
+      "category": "women_health",
+      "title": "Comparative Effectiveness of Iron Supplementation in Indian Pregnant Women: A Network Meta-Analysis of Randomized Controlled Trials.",
+      "pub_date": "2026 Aug",
+      "journal": "Indian J Community Med",
+      "pub_type": "Review",
+      "doi": "10.4103/ijcm.ijcm_73_26",
+      "pmcid": "PMC13544923"
+    },
+    {
+      "pmid": "42700585",
+      "category": "women_health",
+      "title": "Total intravenous anesthesia for open fetal myelomeningocele repair: a case series from a single-center in Peru (2017-2025).",
+      "pub_date": "2026 Aug 29",
+      "journal": "Int J Obstet Anesth",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.ijoa.2026.105276",
+      "pmcid": null
+    },
+    {
+      "pmid": "42701424",
+      "category": "women_health",
+      "title": "Phylum level differences in the gut bacteria of nursing infants and growth-related decreases in iron reserves are associated with the microstructural organization of cortical white matter tracts in rhesus monkeys.",
+      "pub_date": "2026 Sep",
+      "journal": "Neurobiol Stress",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.ynstr.2026.100848",
+      "pmcid": "PMC13545314"
+    },
+    {
+      "pmid": "42701820",
+      "category": "women_health",
+      "title": "Use of Vitamins and Supplements During Pregnancy and Their Association with Maternal and Birth Outcomes: A Prospective Cohort Study.",
+      "pub_date": "2026",
+      "journal": "Patient Prefer Adherence",
+      "pub_type": "Journal Article",
+      "doi": "10.2147/PPA.S609347",
+      "pmcid": "PMC13546069"
+    },
+    {
+      "pmid": "42701825",
+      "category": "women_health",
+      "title": "Association Between Serum Ferritin and Hemoglobin Levels in Pregnant Women: Implications for Early Iron Deficiency Screening.",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "doi": "10.7759/cureus.114043",
+      "pmcid": "PMC13546121"
+    },
+    {
+      "pmid": "42704874",
+      "category": "women_health",
+      "title": "Discriminatory performance of total calcium for ionized hypocalcemia and factors affecting ionized calcium in Assaf ewes during the pre- and post-lambing periods.",
+      "pub_date": "2026 Sep 1",
+      "journal": "J Vet Intern Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1093/jvimsj/aalag202",
+      "pmcid": "PMC13549433"
+    },
+    {
+      "pmid": "42706616",
+      "category": "women_health",
+      "title": "Dietary folate, vitamin D, and inflammation modify associations between prenatal per- and polyfluoroalkyl substance (PFAS) exposures and fetal growth.",
+      "pub_date": "2026 Sep 7",
+      "journal": "Nutr Health",
+      "pub_type": "Journal Article",
+      "doi": "10.1177/02601060261486114",
+      "pmcid": "PMC13580878"
+    },
+    {
+      "pmid": "42710353",
+      "category": "women_health",
+      "title": "Association between circulating essential metals and pregnancy loss: A systematic review and meta-analysis.",
+      "pub_date": "2026 Oct",
+      "journal": "J Trace Elem Med Biol",
+      "pub_type": "Meta-Analysis",
+      "doi": "10.1016/j.jtemb.2026.127950",
+      "pmcid": null
+    },
+    {
+      "pmid": "42712365",
+      "category": "women_health",
+      "title": "A decade-long assessment reveals persistent vitamin D deficiency and its associated factors in early-pregnant women from northern China (2016-2025).",
+      "pub_date": "2026",
+      "journal": "Front Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fnut.2026.1881959",
+      "pmcid": "PMC13549878"
+    },
+    {
+      "pmid": "42712566",
+      "category": "women_health",
+      "title": "Effect of iron supplementation on brain myelination and neurodevelopmental outcomes in children aged 0-3 years: a systematic review protocol.",
+      "pub_date": "2026",
+      "journal": "Front Pediatr",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fped.2026.1891295",
+      "pmcid": "PMC13550114"
+    },
+    {
+      "pmid": "42713084",
+      "category": "women_health",
+      "title": "Iron Adequacy Modifies the Association Between Prenatal Diet Quality and Pregnancy-Related Anxiety in Pregnant Women: A Cross-Sectional Study.",
+      "pub_date": "2026 Sep",
+      "journal": "Food Sci Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/fsn3.72308",
+      "pmcid": "PMC13552028"
+    },
+    {
+      "pmid": "42713352",
+      "category": "women_health",
+      "title": "Antenatal maternal anaemia and infant brain structure: high-field (3 T) and ultra-low-field (64 mT) MRI findings from South Africa.",
+      "pub_date": "2026",
+      "journal": "Brain Commun",
+      "pub_type": "Journal Article",
+      "doi": "10.1093/braincomms/fcag318",
+      "pmcid": "PMC13553114"
+    },
+    {
+      "pmid": "42713989",
+      "category": "women_health",
+      "title": "Iron Deficiency Anemia in Pregnancy: Status and Contributing Factors Among Women in Northern Asir, Saudi Arabia.",
+      "pub_date": "2026 Sep 8",
+      "journal": "J Vis Exp",
+      "pub_type": "Video-Audio Media",
+      "doi": "10.3791/72822",
+      "pmcid": null
+    },
+    {
+      "pmid": "42715679",
+      "category": "women_health",
+      "title": "Oral iron use after intravenous ferric carboxymaltose in pregnancy and short-term hematologic response: A retrospective cohort study.",
+      "pub_date": "2026 Sep 7",
+      "journal": "Eur J Obstet Gynecol Reprod Biol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.ejogrb.2026.115427",
+      "pmcid": null
+    },
+    {
+      "pmid": "42717460",
+      "category": "women_health",
+      "title": "Alternative cutoffs for cortisol post-Dexamethasone suppression testing: is there a practical point for the bone health evaluation?",
+      "pub_date": "2026 Apr-Jun",
+      "journal": "Rom J Morphol Embryol",
+      "pub_type": "Journal Article",
+      "doi": "10.47162/RJME.67.2.10",
+      "pmcid": null
+    },
+    {
+      "pmid": "42718097",
+      "category": "women_health",
+      "title": "Ferrous Sulfate and Folic Acid Supplementation in Pregnant People in Primary Health Care: a Cross-Sectional Study, Criciúma, 2022.",
+      "pub_date": "2026",
+      "journal": "Epidemiol Serv Saude",
+      "pub_type": "Journal Article",
+      "doi": "10.1590/S2237-96222026v35e20240377.en",
+      "pmcid": "PMC12662406"
+    },
+    {
+      "pmid": "42718481",
+      "category": "women_health",
+      "title": "Pregnancy and lactation-associated osteoporosis in a postpartum woman with twin pregnancy: a 5-year follow-up case report.",
+      "pub_date": "2026",
+      "journal": "Front Endocrinol (Lausanne)",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fendo.2026.1931693",
+      "pmcid": "PMC13553373"
+    },
+    {
+      "pmid": "42719282",
+      "category": "women_health",
+      "title": "Ferritin as a diagnostic point-of-care marker in iron deficiency anemia: a narrative review and clinical implications.",
+      "pub_date": "2026 Aug 31",
+      "journal": "Ann Transl Med",
+      "pub_type": "Review",
+      "doi": "10.21037/atm-2026-0122",
+      "pmcid": "PMC13554331"
+    },
+    {
+      "pmid": "42719658",
+      "category": "women_health",
+      "title": "Interventions following routine hemoglobin assessment after vaginal delivery.",
+      "pub_date": "2026 Sep",
+      "journal": "Pregnancy (Hoboken)",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/pmf2.70438",
+      "pmcid": "PMC13555611"
+    },
+    {
+      "pmid": "42719660",
+      "category": "women_health",
+      "title": "Posterior Reversible Encephalopathy Syndrome (PRES) Associated With Eclampsia in a Pregnant Adolescent: A Case Report.",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "doi": "10.7759/cureus.114255",
+      "pmcid": "PMC13555745"
+    },
+    {
+      "pmid": "42719880",
+      "category": "women_health",
+      "title": "Anti-In(b) alloimmunisation in pregnancy: Anaesthetic and perioperative blood management for caesarean delivery - A case report.",
+      "pub_date": "2026 Aug",
+      "journal": "Indian J Anaesth",
+      "pub_type": "Journal Article",
+      "doi": "10.4103/ija.ija_747_26",
+      "pmcid": "PMC13557732"
+    },
+    {
+      "pmid": "42721464",
+      "category": "women_health",
+      "title": "Non-Anemic Iron Deficiency in Pregnancy: A Cross-Sectional Study of Prevalence and Predictors.",
+      "pub_date": "2026 Sep 10",
+      "journal": "Blood Adv",
+      "pub_type": "Journal Article",
+      "doi": "10.1182/bloodadvances.2026021551",
+      "pmcid": null
+    },
+    {
+      "pmid": "42722014",
+      "category": "women_health",
+      "title": "What is in the bottle? An analysis of the ingredients in menopause supplements.",
+      "pub_date": "2026 Sep 10",
+      "journal": "Climacteric",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/13697137.2026.2719016",
+      "pmcid": null
+    },
+    {
+      "pmid": "42723529",
+      "category": "women_health",
+      "title": "A preeclampsia prediction model incorporating methylenetetrahydrofolate reductase, vitamin D receptor, and uterine artery pulsatility index.",
+      "pub_date": "2026 Dec 31",
+      "journal": "Hypertens Pregnancy",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/10641955.2026.2719500",
+      "pmcid": null
+    },
+    {
+      "pmid": "42729576",
+      "category": "women_health",
+      "title": "Vitamin D Level and Antibody Response to the BBIBP-CorV Vaccine in Pregnant Women.",
+      "pub_date": "2026",
+      "journal": "J Trop Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1155/jotm/1649421",
+      "pmcid": "PMC13563054"
+    },
+    {
+      "pmid": "42731298",
+      "category": "women_health",
+      "title": "Balancing efficacy and risk: A toxicological review and safety transformation of Berberis plants and their alkaloids.",
+      "pub_date": "2026 Sep 7",
+      "journal": "Phytomedicine",
+      "pub_type": "Review",
+      "doi": "10.1016/j.phymed.2026.158782",
+      "pmcid": null
+    },
+    {
+      "pmid": "42733556",
+      "category": "women_health",
+      "title": "Nifedipine-associated maternal oxygen desaturation in an IVF twin pregnancy complicated by preterm premature rupture of membranes: a case report.",
+      "pub_date": "2026 Aug",
+      "journal": "AJOG Glob Rep",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.xagr.2026.100681",
+      "pmcid": "PMC13571224"
+    },
+    {
+      "pmid": "42733653",
+      "category": "women_health",
+      "title": "Regulated Cell Death at the Maternal-Fetal Interface in Preeclampsia: Apoptosis, Necroptosis, Pyroptosis, Ferroptosis, Autophagic Cell Death, and Cuproptosis - A Narrative Review.",
+      "pub_date": "2026",
+      "journal": "Int J Gen Med",
+      "pub_type": "Review",
+      "doi": "10.2147/IJGM.S637273",
+      "pmcid": "PMC13571678"
+    },
+    {
+      "pmid": "42734066",
+      "category": "women_health",
+      "title": "The impact of maternal 25(OH)D on fetal growth and adiposity: the Araraquara Cohort Study.",
+      "pub_date": "2026 Sep 14",
+      "journal": "Br J Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.1017/S0007114526108289",
+      "pmcid": null
+    },
+    {
+      "pmid": "42735213",
+      "category": "women_health",
+      "title": "Exploring the placental lipidome in physically active versus inactive pregnancies.",
+      "pub_date": "2026 Oct 1",
+      "journal": "J Appl Physiol (1985)",
+      "pub_type": "Journal Article",
+      "doi": "10.1152/japplphysiol.00357.2026",
+      "pmcid": null
+    },
+    {
+      "pmid": "42735734",
+      "category": "women_health",
+      "title": "NRF2 signalling in endometriosis: A hormone-independent axis for fertility-preserving therapeutic innovation.",
+      "pub_date": "2026 Sep 14",
+      "journal": "Pharmacol Res",
+      "pub_type": "Review",
+      "doi": "10.1016/j.phrs.2026.108453",
+      "pmcid": null
+    },
+    {
+      "pmid": "42736901",
+      "category": "women_health",
+      "title": "High Prevalence and Predictors of Maternal Anemia Risk: Nationwide Midwife-Reported Screening in Indonesia.",
+      "pub_date": "2026 Aug 28",
+      "journal": "Healthcare (Basel)",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/healthcare14172744",
+      "pmcid": "PMC13565548"
+    },
+    {
+      "pmid": "42737952",
+      "category": "women_health",
+      "title": "Physiological Adaptation to Plant-Based Diets: A Homeostatic Framework for Sustained Dietary Change.",
+      "pub_date": "2026 Sep 3",
+      "journal": "Biology (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/biology15171520",
+      "pmcid": "PMC13565482"
+    },
+    {
+      "pmid": "42739055",
+      "category": "women_health",
+      "title": "Modulating the Estrobolome and Inflammatory Microenvironment in Endometriosis: The Role of Microbiome-Targeted Interventions and Nutritional Compounds.",
+      "pub_date": "2026 Sep 3",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "doi": "10.3390/nu18172883",
+      "pmcid": "PMC13567282"
+    },
+    {
+      "pmid": "42739080",
+      "category": "women_health",
+      "title": "Maternal and Neonatal Vitamin D Status at Preterm Delivery-A Cross-Sectional Study.",
+      "pub_date": "2026 Sep 4",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/nu18172908",
+      "pmcid": "PMC13567208"
+    },
+    {
+      "pmid": "42739587",
+      "category": "women_health",
+      "title": "Clinical and Laboratory Predictors of Bone Mineral Density Trajectories and Osteoporosis Progression: A Retrospective Longitudinal Cohort Study.",
+      "pub_date": "2026 Aug 26",
+      "journal": "J Clin Med",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/jcm15176581",
+      "pmcid": "PMC13566557"
+    },
+    {
+      "pmid": "42745075",
+      "category": "women_health",
+      "title": "Polycystic ovary syndrome, insulin resistance, and bone health in Saudi women: a cross-sectional study.",
+      "pub_date": "2026 Sep 15",
+      "journal": "Arch Osteoporos",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s11657-026-01707-8",
+      "pmcid": "PMC13578055"
+    },
+    {
+      "pmid": "42748972",
+      "category": "women_health",
+      "title": "Reticulocyte Hemoglobin Use for Prediction of Iron Deficiency Anemia in Pregnancy.",
+      "pub_date": "2026 Sep 16",
+      "journal": "Am J Perinatol",
+      "pub_type": "Journal Article",
+      "doi": "10.1055/a-2954-5378",
+      "pmcid": null
+    },
+    {
+      "pmid": "42750675",
+      "category": "women_health",
+      "title": "Posterior reversible encephalopathy syndrome following eclampsia in a primigravida at 35 weeks of gestation: A case report.",
+      "pub_date": "2026 Dec",
+      "journal": "Radiol Case Rep",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.radcr.2026.08.055",
+      "pmcid": "PMC13577850"
+    },
+    {
+      "pmid": "42750845",
+      "category": "women_health",
+      "title": "Dual role of ferroptosis in embryonic development, cascade amplification regulatory mechanism and targeted intervention.",
+      "pub_date": "2026",
+      "journal": "Front Cell Dev Biol",
+      "pub_type": "Review",
+      "doi": "10.3389/fcell.2026.1912633",
+      "pmcid": "PMC13578633"
+    },
+    {
+      "pmid": "42751649",
+      "category": "women_health",
+      "title": "Gestational Diabetic Ketoacidosis Complicated by a Probable Postpartum Functional Neurological Disorder Following Severe Preeclampsia and Intrauterine Fetal Demise: A Case Report.",
+      "pub_date": "2026",
+      "journal": "Int Med Case Rep J",
+      "pub_type": "Journal Article",
+      "doi": "10.2147/IMCRJ.S611001",
+      "pmcid": "PMC13580654"
+    },
+    {
+      "pmid": "42754147",
+      "category": "women_health",
+      "title": "Treatable Traits in Pregnant Women With Asthma: a Retrospective Study of Prevalence and Associations With Exacerbation and Poor Asthma Control.",
+      "pub_date": "2026 Sep 17",
+      "journal": "J Allergy Clin Immunol Pract",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.jaip.2026.08.045",
+      "pmcid": null
+    },
+    {
+      "pmid": "42755021",
+      "category": "women_health",
+      "title": "Double Burden of Malnutrition Prevalence in Pregnant Women: Systematic Review and Meta-Analysis.",
+      "pub_date": "2026 Oct",
+      "journal": "J Hum Nutr Diet",
+      "pub_type": "Meta-Analysis",
+      "doi": "10.1111/jhn.70347",
+      "pmcid": "PMC13586418"
+    },
+    {
+      "pmid": "42755259",
+      "category": "women_health",
+      "title": "Asthma and female reproductive health: implications for fertility and pregnancy.",
+      "pub_date": "2026 Sep 18",
+      "journal": "Curr Opin Endocrinol Diabetes Obes",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/MED.0000000000000980",
+      "pmcid": null
+    },
+    {
+      "pmid": "42757081",
+      "category": "women_health",
+      "title": "Posterior Reversible Encephalopathy Syndrome in a Postpartum Patient With Eclampsia.",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "doi": "10.7759/cureus.114755",
+      "pmcid": "PMC13585420"
+    },
+    {
+      "pmid": "42759907",
+      "category": "women_health",
+      "title": "Maternal gestational iron deficiency is associated with behavioral alterations and reduced brain iron concentrations in rat offspring.",
+      "pub_date": "2026 Sep 18",
+      "journal": "Physiol Behav",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.physbeh.2026.115511",
+      "pmcid": null
+    },
+    {
+      "pmid": "42759912",
+      "category": "women_health",
+      "title": "Association between prenatal trace element and toxic metal exposures and autism spectrum disorder symptoms in children: Potential mediating role of cord serum metabolites.",
+      "pub_date": "2026 Sep 18",
+      "journal": "Environ Pollut",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.envpol.2026.129176",
+      "pmcid": null
+    },
+    {
+      "pmid": "42760390",
+      "category": "women_health",
+      "title": "Ferroptosis in kidney disease.",
+      "pub_date": "2026 Sep 18",
+      "journal": "Nat Rev Nephrol",
+      "pub_type": "Review",
+      "doi": "10.1038/s41581-026-01131-8",
+      "pmcid": null
+    },
+    {
+      "pmid": "42760711",
+      "category": "women_health",
+      "title": "The causal associations between 25(OH) vitamin D levels and ectopic pregnancy: A 2-sample Mendelian randomization study.",
+      "pub_date": "2026 Sep 18",
+      "journal": "Medicine (Baltimore)",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/MD.0000000000050657",
+      "pmcid": "PMC13593265"
+    },
+    {
+      "pmid": "42762711",
+      "category": "women_health",
+      "title": "Cord blood 25(OH)D in high-risk pregnancies: An ANCOVA-based analysis in hypertensive disorders, severe anaemia, and gestational diabetes.",
+      "pub_date": "2026 Sep 18",
+      "journal": "Early Hum Dev",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.earlhumdev.2026.106667",
+      "pmcid": null
+    },
+    {
+      "pmid": "42764640",
+      "category": "women_health",
+      "title": "The correlation between maternal expression of miR-146b and repeated failure of frozen-thawed embryo transfer pregnancy.",
+      "pub_date": "2026 Dec",
+      "journal": "Hum Fertil (Camb)",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/14647273.2026.2725675",
+      "pmcid": null
+    },
+    {
+      "pmid": "42767731",
+      "category": "women_health",
+      "title": "Co-administration of calcium and multiple micronutrient supplements for maternal and newborn haemoglobin and iron status: protocol for a randomised non-inferiority trial in Burkina Faso and Pakistan.",
+      "pub_date": "2026 Sep 21",
+      "journal": "BMJ Open",
+      "pub_type": "Clinical Trial Protocol",
+      "doi": "10.1136/bmjopen-2026-121658",
+      "pmcid": "PMC13599970"
+    },
+    {
+      "pmid": "42771637",
+      "category": "women_health",
+      "title": "Maternal serum vitamin D levels and preeclampsia among Kenyan pregnant women: A matched case-control study.",
+      "pub_date": "2026",
+      "journal": "PLoS One",
+      "pub_type": "Journal Article",
+      "doi": "10.1371/journal.pone.0358781",
+      "pmcid": "PMC13596797"
+    },
+    {
+      "pmid": "42772082",
+      "category": "women_health",
+      "title": "Nanoparticle-mediated magnetic hyperthermia for ectopic pregnancy treatment.",
+      "pub_date": "2026 Sep 17",
+      "journal": "Biomaterials",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.biomaterials.2026.124639",
+      "pmcid": null
+    },
+    {
+      "pmid": "42775709",
+      "category": "women_health",
+      "title": "Metformin Inhibits Trophoblast Ferroptosis by Suppressing ATF2 and Activating the PI3K/Akt/Nrf2 Pathway to Improve Gestational Diabetes Mellitus.",
+      "pub_date": "2026 Sep 30",
+      "journal": "FASEB J",
+      "pub_type": "Journal Article",
+      "doi": "10.1096/fj.202602249RR",
+      "pmcid": "PMC13599049"
+    },
+    {
+      "pmid": "42775715",
+      "category": "women_health",
+      "title": "Animal- and Plant-Source Protein-Rich Foods Differ in Their Association With Maternal Micronutrient Status and Breast Milk Composition During Lactation.",
+      "pub_date": "2026 Jul",
+      "journal": "Matern Child Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.1111/mcn.70253",
+      "pmcid": "PMC13599360"
+    },
+    {
+      "pmid": "42777736",
+      "category": "women_health",
+      "title": "Living Evidence for Australian Pregnancy and Postnatal Care (LEAPP): Transforming the Australian Pregnancy and Postnatal Care Guidelines.",
+      "pub_date": "2026 Sep",
+      "journal": "Med J Aust",
+      "pub_type": "Journal Article",
+      "doi": "10.5694/mja2.70301",
+      "pmcid": "PMC13600773"
+    },
+    {
+      "pmid": "42784456",
+      "category": "women_health",
+      "title": "Placental trophoblasts exhibit iron dysregulation and ferroptosis signaling associated with SARS-CoV-2 restriction.",
+      "pub_date": "2026 Sep 23",
+      "journal": "Cell Rep",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.celrep.2026.118040",
+      "pmcid": null
+    },
+    {
+      "pmid": "42787649",
+      "category": "women_health",
+      "title": "Magnesium sulfate for severe preeclampsia and eclampsia management at the primary healthcare level in sub-Saharan Africa: a systematic review.",
+      "pub_date": "2026",
+      "journal": "Front Reprod Health",
+      "pub_type": "Review",
+      "doi": "10.3389/frph.2026.1911083",
+      "pmcid": "PMC13601925"
+    },
+    {
+      "pmid": "42792760",
+      "category": "women_health",
+      "title": "Therapeutic Management of Schistosomiasis in Pregnancy: A Comprehensive Review of Praziquantel Safety and Clinical Outcomes.",
+      "pub_date": "2026 Sep 8",
+      "journal": "Biomedicines",
+      "pub_type": "Review",
+      "doi": "10.3390/biomedicines14092018",
+      "pmcid": "PMC13604350"
+    },
+    {
+      "pmid": "42794294",
+      "category": "women_health",
+      "title": "Iron Supplementation and Neurodevelopmental Outcomes in Infancy and Early Childhood: A Review.",
+      "pub_date": "2026 Sep 19",
+      "journal": "Children (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/children13091274",
+      "pmcid": "PMC13605664"
+    },
+    {
+      "pmid": "42796948",
+      "category": "women_health",
+      "title": "Geographic and Environmental Differences in Associations Between Food Insecurity and Nutritional and Inflammatory Biomarkers Among Pregnant Participants in the All of Us Research Program.",
+      "pub_date": "2026 Sep 10",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/nu18182965",
+      "pmcid": "PMC13610282"
+    },
+    {
+      "pmid": "42800417",
+      "category": "women_health",
+      "title": "Placental iron deposition and altered FOXP3/PGF expression in pregnancies complicated by HbH disease.",
+      "pub_date": "2026 Sep 14",
+      "journal": "Placenta",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.placenta.2026.09.007",
+      "pmcid": null
+    },
+    {
+      "pmid": "42805644",
+      "category": "women_health",
+      "title": "Primary prevention of maternal anaemia to prevent preterm delivery and other adverse outcomes (PANDA): a protocol for a double-blind placebo-controlled randomised trial of a daily iron supplement during pregnancy.",
+      "pub_date": "2026 Sep 28",
+      "journal": "BMJ Open",
+      "pub_type": "Clinical Trial Protocol",
+      "doi": "10.1136/bmjopen-2026-122579",
+      "pmcid": "PMC13629978"
+    },
+    {
+      "pmid": "42805980",
+      "category": "women_health",
+      "title": "Repeat administration of magnesium for an exacerbation of postpartum preeclampsia: a national survey.",
+      "pub_date": "2026 Dec",
+      "journal": "J Matern Fetal Neonatal Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/14767058.2026.2738315",
+      "pmcid": null
+    },
+    {
+      "pmid": "42808219",
+      "category": "women_health",
+      "title": "Association between serum vitamin D status and early pregnancy outcomes in first in vitro fertilization cycles with high-quality embryo transfer.",
+      "pub_date": "2026 Sep 29",
+      "journal": "Clin Exp Reprod Med",
+      "pub_type": "Journal Article",
+      "doi": "10.5653/cerm.2026.09593",
+      "pmcid": null
+    },
+    {
+      "pmid": "42808508",
+      "category": "women_health",
+      "title": "A comprehensive review on osteoporosis in women and beneficial effects of antioxidants on osteoporosis: A systematic review.",
+      "pub_date": "2026 Sep 29",
+      "journal": "Nutr Health",
+      "pub_type": "Review",
+      "doi": "10.1177/02601060261491806",
+      "pmcid": null
+    },
+    {
+      "pmid": "42809716",
+      "category": "women_health",
+      "title": "Disparities in pathways for anaemia care and recovery among women after major abdominal surgery: secondary analysis of a prospective cohort study in 29 countries.",
+      "pub_date": "2026 Sep 4",
+      "journal": "BJS Open",
+      "pub_type": "Multicenter Study",
+      "doi": "10.1093/bjsopen/zrag125",
+      "pmcid": "PMC13623008"
+    },
+    {
+      "pmid": "42811862",
+      "category": "women_health",
+      "title": "Risk of Infertility Due to Vitamin D Deficiency among Women with Polycystic Ovarian Syndrome.",
+      "pub_date": "2026 Oct",
+      "journal": "Mymensingh Med J",
+      "pub_type": "Journal Article",
+      "doi": null,
+      "pmcid": null
+    },
+    {
+      "pmid": "42812249",
+      "category": "women_health",
+      "title": "The correlation between serum magnesium, phosphorus, and calcium levels during pregnancy and the risk of gestational diabetes mellitus as well as adverse pregnancy outcomes.",
+      "pub_date": "2026",
+      "journal": "Front Clin Diabetes Healthc",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fcdhc.2026.1939424",
+      "pmcid": "PMC13619502"
+    },
+    {
+      "pmid": "42812257",
+      "category": "women_health",
+      "title": "Identification of risk factors for type 2 diabetes across age-based proxies of early and late postmenopausal stages in prediabetic women.",
+      "pub_date": "2026",
+      "journal": "Front Endocrinol (Lausanne)",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fendo.2026.1891487",
+      "pmcid": "PMC13619503"
+    },
+    {
+      "pmid": "42812351",
+      "category": "women_health",
+      "title": "Latent inflammatory activity is associated with alterations in iron bioavailability during early postpartum adaptation in dairy cows.",
+      "pub_date": "2026",
+      "journal": "Front Vet Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fvets.2026.1923985",
+      "pmcid": "PMC13619900"
+    },
+    {
+      "pmid": "42814674",
+      "category": "women_health",
+      "title": "Erratum.",
+      "pub_date": "2026",
+      "journal": "Kidney Blood Press Res",
+      "pub_type": "Published Erratum",
+      "doi": "10.1159/kbr/adjag008",
+      "pmcid": null
+    },
+    {
+      "pmid": "42814899",
+      "category": "women_health",
+      "title": "Multimarker profiling of immune and vascular disregulation in antiphospholipid syndrome and systemic lupus erythematosus.",
+      "pub_date": "2026 Sep 30",
+      "journal": "Lupus",
+      "pub_type": "Journal Article",
+      "doi": "10.1177/09612033261495245",
+      "pmcid": null
+    },
+    {
+      "pmid": "42815968",
+      "category": "women_health",
+      "title": "Iron status from diet and serum in relation to biological aging acceleration: A NHANES cross-sectional study.",
+      "pub_date": "2026 Oct",
+      "journal": "Asia Pac J Clin Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.6133/apjcn.202610_35(5).0009",
+      "pmcid": "PMC13626799"
+    },
+    {
+      "pmid": "42816090",
+      "category": "women_health",
+      "title": "Cohort profile: The Shanghai Child and Adolescent Health Cohort (SCAHC) - A prospective study of child growth and development in a megacity in China.",
+      "pub_date": "2026 Sep 30",
+      "journal": "BMJ Open",
+      "pub_type": "Journal Article",
+      "doi": "10.1136/bmjopen-2026-121764",
+      "pmcid": "PMC13630078"
+    },
+    {
+      "pmid": "42820139",
+      "category": "women_health",
+      "title": "Prevalence and Risk Factors of Maternal Anemia Among Pregnant Women in Central Jordan.",
+      "pub_date": "2026",
+      "journal": "Anemia",
+      "pub_type": "Journal Article",
+      "doi": "10.1155/anem/5554286",
+      "pmcid": "PMC13626144"
+    },
+    {
+      "pmid": "42822351",
+      "category": "women_health",
+      "title": "Placental transport of inorganic ions for skeletal development during male seahorse (Hippocampus abdominalis) pregnancy.",
+      "pub_date": "2026 Sep 25",
+      "journal": "Placenta",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.placenta.2026.09.021",
+      "pmcid": null
+    },
+    {
+      "pmid": "42822594",
+      "category": "women_health",
+      "title": "Implementing patient blood management in a Brazilian public women's hospital: a pre-post implementation study.",
+      "pub_date": "2026 Oct 1",
+      "journal": "Braz J Anesthesiol",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.bjane.2026.844839",
+      "pmcid": null
+    },
+    {
+      "pmid": "42822959",
+      "category": "women_health",
+      "title": "Polycyclic aromatic hydrocarbons exposure induced early pregnancy loss through epigenetic regulation of SDHB.",
+      "pub_date": "2026 Nov",
+      "journal": "J Environ Sci (China)",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.jes.2026.02.022",
+      "pmcid": null
+    },
+    {
+      "pmid": "42823945",
+      "category": "women_health",
+      "title": "Real-world treatment outcomes in pregnancy and lactation-associated osteoporosis: a nationwide multicenter cohort study.",
+      "pub_date": "2026",
+      "journal": "Front Endocrinol (Lausanne)",
+      "pub_type": "Multicenter Study",
+      "doi": "10.3389/fendo.2026.1934166",
+      "pmcid": "PMC13626871"
+    },
+    {
+      "pmid": "42824351",
+      "category": "women_health",
+      "title": "Association between first-trimester serum 25(OH)D and EPDS-positive postpartum depressive symptoms in women with gestational diabetes mellitus: a retrospective cohort study.",
+      "pub_date": "2026",
+      "journal": "Front Psychiatry",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fpsyt.2026.1886353",
+      "pmcid": "PMC13627328"
+    },
+    {
+      "pmid": "42825161",
+      "category": "women_health",
+      "title": "A systematic review of restorative reproductive medicine practices.",
+      "pub_date": "2026 Dec",
+      "journal": "F S Rev",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.xfnr.2026.100121",
+      "pmcid": "PMC13629500"
+    },
+    {
+      "pmid": "42828327",
+      "category": "women_health",
+      "title": "Exploring the Effect of Nutrition on Fetal Development in Pregnant Patients With Inflammatory Gut Diseases: A Scoping Review.",
+      "pub_date": "2026 Sep",
+      "journal": "Cureus",
+      "pub_type": "Review",
+      "doi": "10.7759/cureus.115649",
+      "pmcid": "PMC13632571"
+    },
+    {
+      "pmid": "42579771",
+      "category": "aging_sarcopenia",
+      "title": "Micronutrient deficiencies in ambulatory adults with cirrhosis.",
+      "pub_date": "2026 Sep 1",
+      "journal": "Hepatol Commun",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/HC9.0000000000001032",
+      "pmcid": "PMC13466105"
+    },
+    {
+      "pmid": "42583471",
+      "category": "aging_sarcopenia",
+      "title": "Different ages of gut microbiota diversity and metabolic pattern in rhesus macaques.",
+      "pub_date": "2026",
+      "journal": "Front Microbiol",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fmicb.2026.1747272",
+      "pmcid": "PMC13460033"
+    },
+    {
+      "pmid": "42588051",
+      "category": "aging_sarcopenia",
+      "title": "Neuronal Biomarkers and Micronutrient Status in Adults with Mild Cognitive Impairment.",
+      "pub_date": "2026 Jul 24",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/nu18152428",
+      "pmcid": "PMC13468507"
+    },
+    {
+      "pmid": "42588063",
+      "category": "aging_sarcopenia",
+      "title": "Vitamin D and L-Cysteine as Potential Regulators of Adiponectin in Alzheimer's Disease: A Narrative Review.",
+      "pub_date": "2026 Jul 26",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "doi": "10.3390/nu18152440",
+      "pmcid": "PMC13468465"
+    },
+    {
+      "pmid": "42588101",
+      "category": "aging_sarcopenia",
+      "title": "Vitamin D Supplementation and 12-Month Changes in Muscle Function and Physical Performance in Older Adults with Vitamin D Deficiency: A Prospective Observational Cohort Study.",
+      "pub_date": "2026 Jul 31",
+      "journal": "Nutrients",
+      "pub_type": "Observational Study",
+      "doi": "10.3390/nu18152477",
+      "pmcid": "PMC13468331"
+    },
+    {
+      "pmid": "42588116",
+      "category": "aging_sarcopenia",
+      "title": "Vitamin D as a Modulator of Sarcopenia in Women: Interactions with Dietary Patterns and Physical Exercise.",
+      "pub_date": "2026 Aug 2",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "doi": "10.3390/nu18152494",
+      "pmcid": "PMC13468615"
+    },
+    {
+      "pmid": "42589236",
+      "category": "aging_sarcopenia",
+      "title": "Epigenetic Mechanisms of Vitamin D in the Aging Process: A Narrative Review.",
+      "pub_date": "2026 Jul 24",
+      "journal": "Int J Mol Sci",
+      "pub_type": "Review",
+      "doi": "10.3390/ijms27156578",
+      "pmcid": "PMC13465677"
+    },
+    {
+      "pmid": "42589365",
+      "category": "aging_sarcopenia",
+      "title": "Effects of Probiotics and Vitamin D Deficiency Correction on Clinical, Inflammatory, Metabolic, and Microbiota Profiles in Older Adults with Oral Lichen Planus: A Multi-Omics Study.",
+      "pub_date": "2026 Jul 27",
+      "journal": "Int J Mol Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/ijms27156707",
+      "pmcid": "PMC13467221"
+    },
+    {
+      "pmid": "42589469",
+      "category": "aging_sarcopenia",
+      "title": "The Gut-Brain-Skin Axis: Systemic Effects of Functional Ingredients in Healthy Skin Aging.",
+      "pub_date": "2026 Jul 29",
+      "journal": "Int J Mol Sci",
+      "pub_type": "Review",
+      "doi": "10.3390/ijms27156814",
+      "pmcid": "PMC13466853"
+    },
+    {
+      "pmid": "42590109",
+      "category": "aging_sarcopenia",
+      "title": "Muscle Strength as a Key Independent Predictor of Arterial Stiffness and Metabolic Syndrome in Aging Mexicans: Unveiling the Sarcopenic Obesity Paradox.",
+      "pub_date": "2026 Aug 2",
+      "journal": "J Clin Med",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/jcm15156006",
+      "pmcid": "PMC13466787"
+    },
+    {
+      "pmid": "42592858",
+      "category": "aging_sarcopenia",
+      "title": "Active vitamin D protects against osteoporosis by promoting VDR-dependent CDK2 transcription and P27 degradation.",
+      "pub_date": "2026 Aug 3",
+      "journal": "Eur J Endocrinol",
+      "pub_type": "Journal Article",
+      "doi": "10.1093/ejendo/lvag152",
+      "pmcid": null
+    },
+    {
+      "pmid": "42594848",
+      "category": "aging_sarcopenia",
+      "title": "More Than Skin Deep: Understanding the Skin-Bone Axis.",
+      "pub_date": "2026 Jul",
+      "journal": "Skin Therapy Lett",
+      "pub_type": "Review",
+      "doi": null,
+      "pmcid": null
+    },
+    {
+      "pmid": "42597252",
+      "category": "aging_sarcopenia",
+      "title": "Prevalence and associated factors of osteoarthritis and osteoporosis among Chinese adults aged 60 years or older: a multicenter cross-sectional study.",
+      "pub_date": "2026",
+      "journal": "Front Public Health",
+      "pub_type": "Multicenter Study",
+      "doi": "10.3389/fpubh.2026.1905264",
+      "pmcid": "PMC13467993"
+    },
+    {
+      "pmid": "42601713",
+      "category": "aging_sarcopenia",
+      "title": "Sarcopenia, unhealthy lifestyle, and vitamin D: A Mendelian randomization study.",
+      "pub_date": "2026 Aug 14",
+      "journal": "Medicine (Baltimore)",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/MD.0000000000050100",
+      "pmcid": "PMC13480702"
+    },
+    {
+      "pmid": "42606150",
+      "category": "aging_sarcopenia",
+      "title": "Age-Specific Signatures of Exercise-Induced Muscle Damage and the Neuromodulatory Efficacy of Standardized Foam Rolling.",
+      "pub_date": "2026 Aug 17",
+      "journal": "Med Sci Sports Exerc",
+      "pub_type": "Journal Article",
+      "doi": "10.1249/MSS.0000000000004109",
+      "pmcid": null
+    },
+    {
+      "pmid": "42608871",
+      "category": "aging_sarcopenia",
+      "title": "The Mechanistic Study of Melatonin Regulation of p16Ink4a and Oct4 in Anti-Cellular Senescence.",
+      "pub_date": "2026 Aug",
+      "journal": "J Cell Mol Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1111/jcmm.71321",
+      "pmcid": "PMC13482022"
+    },
+    {
+      "pmid": "42620712",
+      "category": "aging_sarcopenia",
+      "title": "Systemic energy metabolism changes in patients with heart failure receiving specific oral nutritional supplements in combination with Mediterranean diet.",
+      "pub_date": "2026",
+      "journal": "Front Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fnut.2026.1880396",
+      "pmcid": "PMC13485787"
+    },
+    {
+      "pmid": "42621847",
+      "category": "aging_sarcopenia",
+      "title": "Improvement of frailty and prefrailty in older cancer survivors: a 6-month home-based pilot study.",
+      "pub_date": "2026 Aug 3",
+      "journal": "Age Ageing",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "doi": "10.1093/ageing/afag245",
+      "pmcid": null
+    },
+    {
+      "pmid": "42625626",
+      "category": "aging_sarcopenia",
+      "title": "Dose-structure-population interactions of protein supplementation combined with resistance training on body composition: a Bayesian network meta-analysis with dose-response modeling.",
+      "pub_date": "2026",
+      "journal": "Front Nutr",
+      "pub_type": "Systematic Review",
+      "doi": "10.3389/fnut.2026.1860234",
+      "pmcid": "PMC13490089"
+    },
+    {
+      "pmid": "42625757",
+      "category": "aging_sarcopenia",
+      "title": "Region-specific brain metabolite reference estimates and exploratory age-related changes in cognitively intact older adults: a preliminary deep-learning (1)H-MRS study.",
+      "pub_date": "2026",
+      "journal": "Front Aging Neurosci",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fnagi.2026.1896159",
+      "pmcid": "PMC13490163"
+    },
+    {
+      "pmid": "42628012",
+      "category": "aging_sarcopenia",
+      "title": "Effects of Sarcopenia on Surgical Outcomes After Biportal Endoscopic Lumbar Decompression and Fusion: A Retrospective Observational Study.",
+      "pub_date": "2026 Aug 19",
+      "journal": "Spine (Phila Pa 1976)",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/BRS.0000000000005833",
+      "pmcid": null
+    },
+    {
+      "pmid": "42631216",
+      "category": "aging_sarcopenia",
+      "title": "Eicosapentaenoic acid in emotional well-being and brain aging: evidence boundaries, clinical heterogeneity, and a peripheral-to-central resolution-biology framework.",
+      "pub_date": "2026",
+      "journal": "Front Nutr",
+      "pub_type": "Review",
+      "doi": "10.3389/fnut.2026.1878417",
+      "pmcid": "PMC13495781"
+    },
+    {
+      "pmid": "42631724",
+      "category": "aging_sarcopenia",
+      "title": "Frailty in Parkinson's disease: time to integrate it into treatment decision-making?",
+      "pub_date": "2026 Aug 22",
+      "journal": "J Neural Transm (Vienna)",
+      "pub_type": "Review",
+      "doi": "10.1007/s00702-026-03204-1",
+      "pmcid": null
+    },
+    {
+      "pmid": "42633880",
+      "category": "aging_sarcopenia",
+      "title": "Nutrition and microbiota in ocular surface and dry eye disease.",
+      "pub_date": "2026 Aug 23",
+      "journal": "Arch Soc Esp Oftalmol (Engl Ed)",
+      "pub_type": "Review",
+      "doi": "10.1016/j.oftale.2026.502652",
+      "pmcid": null
+    },
+    {
+      "pmid": "42634088",
+      "category": "aging_sarcopenia",
+      "title": "Pediatric Use of Off-Label Medicines and Nonevidence-Based Supplements for COVID-19: Findings From the 2015 Pelotas Birth Cohort Study (Brazil).",
+      "pub_date": "2026 Sep",
+      "journal": "Pharmacoepidemiol Drug Saf",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/pds.70460",
+      "pmcid": "PMC13500738"
+    },
+    {
+      "pmid": "42636992",
+      "category": "aging_sarcopenia",
+      "title": "COPD and osteoporosis: Epidemiology, pathophysiology, clinical impact, and management strategies: A narrative review.",
+      "pub_date": "2026 Aug 24",
+      "journal": "Respir Med",
+      "pub_type": "Review",
+      "doi": "10.1016/j.rmed.2026.109126",
+      "pmcid": null
+    },
+    {
+      "pmid": "42638833",
+      "category": "aging_sarcopenia",
+      "title": "Frailty in rheumatoid arthritis, psoriatic arthritis, and axial spondyloarthritis: Current evidence and knowledge gaps.",
+      "pub_date": "2026",
+      "journal": "Ther Adv Musculoskelet Dis",
+      "pub_type": "Review",
+      "doi": "10.1177/1759720X261479921",
+      "pmcid": "PMC13500976"
+    },
+    {
+      "pmid": "42645535",
+      "category": "aging_sarcopenia",
+      "title": "[Sarcopenia: diagnosis, clinical implications, and treatment].",
+      "pub_date": "2026 Oct",
+      "journal": "Inn Med (Heidelb)",
+      "pub_type": "English Abstract",
+      "doi": "10.1007/s00108-026-02172-8",
+      "pmcid": null
+    },
+    {
+      "pmid": "42645661",
+      "category": "aging_sarcopenia",
+      "title": "Advanced glycation end products and PTSD: molecular insights and dietary approaches for neuropsychiatric health.",
+      "pub_date": "2026 Aug 26",
+      "journal": "Metab Brain Dis",
+      "pub_type": "Review",
+      "doi": "10.1007/s11011-026-01963-0",
+      "pmcid": null
+    },
+    {
+      "pmid": "42646275",
+      "category": "aging_sarcopenia",
+      "title": "Independent Associations of Vitamin D Levels with Visceral Fat and Metabolic Age in Adults: A Retrospective Cross-Sectional Study.",
+      "pub_date": "2026 Jul 31",
+      "journal": "Metabolites",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/metabo16080539",
+      "pmcid": "PMC13515748"
+    },
+    {
+      "pmid": "42650180",
+      "category": "aging_sarcopenia",
+      "title": "Vitamin D Receptor Polymorphisms and Their Association with Nrf2-Dependent Gene Expression in Oxidative Stress Resilience in Cognitively Healthy Aging.",
+      "pub_date": "2026 Jul 23",
+      "journal": "Antioxidants (Basel)",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/antiox15080916",
+      "pmcid": "PMC13509510"
+    },
+    {
+      "pmid": "42651432",
+      "category": "aging_sarcopenia",
+      "title": "Independent Associations of Appendicular Skeletal Muscle Mass Index and Waist Circumference with Site-Specific Bone Mineral Density in Postmenopausal Women: A Real-World Cross-Sectional Study.",
+      "pub_date": "2026 Aug 21",
+      "journal": "Healthcare (Basel)",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/healthcare14162663",
+      "pmcid": "PMC13511964"
+    },
+    {
+      "pmid": "42652002",
+      "category": "aging_sarcopenia",
+      "title": "Calcium Homeostasis and Parturient Paresis in Ruminants: Mechanistic Insights and Clinical Management.",
+      "pub_date": "2026 Aug 19",
+      "journal": "Animals (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/ani16162597",
+      "pmcid": "PMC13509707"
+    },
+    {
+      "pmid": "42652552",
+      "category": "aging_sarcopenia",
+      "title": "Preventing Hip (Proximal Femoral) Fractures: An Evidence-Based Review for Clinicians.",
+      "pub_date": "2026 Aug 7",
+      "journal": "J Clin Med",
+      "pub_type": "Review",
+      "doi": "10.3390/jcm15166148",
+      "pmcid": "PMC13513599"
+    },
+    {
+      "pmid": "42654174",
+      "category": "aging_sarcopenia",
+      "title": "Food-Derived Omega-3 Fatty Acids and Cognitive Aging: Integrating Nutritional Neuroscience and Geroscience.",
+      "pub_date": "2026 Aug 7",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "doi": "10.3390/nu18162594",
+      "pmcid": "PMC13516186"
+    },
+    {
+      "pmid": "42654202",
+      "category": "aging_sarcopenia",
+      "title": "Krill Oil in Human Nutrition and Healthy Aging: A Narrative Review of Implications for Intrinsic Capacity and Nutrient Bioavailability.",
+      "pub_date": "2026 Aug 11",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "doi": "10.3390/nu18162622",
+      "pmcid": "PMC13516794"
+    },
+    {
+      "pmid": "42654291",
+      "category": "aging_sarcopenia",
+      "title": "Beyond Bone Health: Exploring the \"Heart-Brain-Bone\" Axis Modulated by Lipid-Soluble Nutrients (Omega-3, Vitamin D3, and Vitamin K2).",
+      "pub_date": "2026 Aug 19",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "doi": "10.3390/nu18162711",
+      "pmcid": "PMC13516505"
+    },
+    {
+      "pmid": "42654327",
+      "category": "aging_sarcopenia",
+      "title": "Vitamin D Deficiency Is Associated with Greater Sarcopenia-Related Risk Severity and Functional Decline in Older Adults: A Retrospective Cross-Sectional Study.",
+      "pub_date": "2026 Jul 23",
+      "journal": "Medicina (Kaunas)",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/medicina62081430",
+      "pmcid": "PMC13514520"
+    },
+    {
+      "pmid": "42658904",
+      "category": "aging_sarcopenia",
+      "title": "Distal Radial Fracture as an Early Marker of Bone Fragility: A Population-Based Study in Japan.",
+      "pub_date": "2026 Aug 27",
+      "journal": "J Bone Joint Surg Am",
+      "pub_type": "Journal Article",
+      "doi": "10.2106/JBJS.25.01269",
+      "pmcid": null
+    },
+    {
+      "pmid": "42661617",
+      "category": "aging_sarcopenia",
+      "title": "Serum 25-hydroxyvitamin D and cognitive performance in hospitalized older adults: a cross-sectional study from Central Poland.",
+      "pub_date": "2026",
+      "journal": "Front Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fnut.2026.1887375",
+      "pmcid": "PMC13518139"
+    },
+    {
+      "pmid": "42661660",
+      "category": "aging_sarcopenia",
+      "title": "The role of hormonal and nutritional biomarkers in predicting immune checkpoint inhibitor efficacy: current limitations and future prospects.",
+      "pub_date": "2026",
+      "journal": "Front Immunol",
+      "pub_type": "Review",
+      "doi": "10.3389/fimmu.2026.1857147",
+      "pmcid": "PMC13518150"
+    },
+    {
+      "pmid": "42661815",
+      "category": "aging_sarcopenia",
+      "title": "Potential effects of β-hydroxy-β-methylbutyrate and exercise on brain aging and age-related disorders: implications for immunometabolic regulation and muscle-brain-immune crosstalk.",
+      "pub_date": "2026",
+      "journal": "Front Aging Neurosci",
+      "pub_type": "Review",
+      "doi": "10.3389/fnagi.2026.1878831",
+      "pmcid": "PMC13518344"
+    },
+    {
+      "pmid": "42663443",
+      "category": "aging_sarcopenia",
+      "title": "APOE ε4 and peripheral metabolic network architecture in older adults.",
+      "pub_date": "2026 Oct",
+      "journal": "J Alzheimers Dis",
+      "pub_type": "Journal Article",
+      "doi": "10.1177/13872877261476718",
+      "pmcid": null
+    },
+    {
+      "pmid": "42663765",
+      "category": "aging_sarcopenia",
+      "title": "Inflammation, Metabolic Status and Mental Health as Potential Mediators of the Association Between Socioeconomic Deprivation and Frailty.",
+      "pub_date": "2026 Aug 28",
+      "journal": "Prev Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s11121-026-01967-3",
+      "pmcid": null
+    },
+    {
+      "pmid": "42664126",
+      "category": "aging_sarcopenia",
+      "title": "Association of Vitamin D Status with Neurobiological Biomarkers in Healthy Elderly Population.",
+      "pub_date": "2026 Sep-Oct",
+      "journal": "Clin Ter",
+      "pub_type": "Observational Study",
+      "doi": "10.7417/CT.2026.2106",
+      "pmcid": null
+    },
+    {
+      "pmid": "42666232",
+      "category": "aging_sarcopenia",
+      "title": "A distinct serum metabolic profile characterizes osteosarcopenia: identifying potential metabolic biomarkers.",
+      "pub_date": "2026",
+      "journal": "Front Endocrinol (Lausanne)",
+      "pub_type": "Observational Study",
+      "doi": "10.3389/fendo.2026.1865132",
+      "pmcid": "PMC13521881"
+    },
+    {
+      "pmid": "42666359",
+      "category": "aging_sarcopenia",
+      "title": "Exercise alone or combined with functional foods in aging and age-related diseases: targeting DNA damage, repair pathways, and genome integrity.",
+      "pub_date": "2026",
+      "journal": "Front Aging Neurosci",
+      "pub_type": "Review",
+      "doi": "10.3389/fnagi.2026.1772217",
+      "pmcid": "PMC13522122"
+    },
+    {
+      "pmid": "42668123",
+      "category": "aging_sarcopenia",
+      "title": "The cognitive effects of creatine supplementation in older adults and preclinical models of dementia: A scoping review.",
+      "pub_date": "2026 Aug 29",
+      "journal": "Ageing Res Rev",
+      "pub_type": "Review",
+      "doi": "10.1016/j.arr.2026.103317",
+      "pmcid": null
+    },
+    {
+      "pmid": "42671953",
+      "category": "aging_sarcopenia",
+      "title": "Adynamic Bone Disease in Chronic Kidney Disease: From PTH Suppression-Driven Remodeling Phenotype to Osteoanabolic Therapy.",
+      "pub_date": "2026 Aug 31",
+      "journal": "Am J Nephrol",
+      "pub_type": "Review",
+      "doi": "10.1159/ajn/ablag003",
+      "pmcid": null
+    },
+    {
+      "pmid": "42675677",
+      "category": "aging_sarcopenia",
+      "title": "Sex‑specific associations between multiple hormone axes and dynapenic obesity in middle‑aged and older patients with type 2 diabetes: A cross-sectional study.",
+      "pub_date": "2026 Aug 28",
+      "journal": "Medicine (Baltimore)",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/MD.0000000000050242",
+      "pmcid": "PMC13529119"
+    },
+    {
+      "pmid": "42676506",
+      "category": "aging_sarcopenia",
+      "title": "The intake-adequacy gap in dysphagia nutrition: texture-modified foods, nutrient delivery and realised intake in older adults.",
+      "pub_date": "2026",
+      "journal": "Front Nutr",
+      "pub_type": "Review",
+      "doi": "10.3389/fnut.2026.1897745",
+      "pmcid": "PMC13526667"
+    },
+    {
+      "pmid": "42680213",
+      "category": "aging_sarcopenia",
+      "title": "Association between cumulative biological risk and hypertension in older adults in Korea: a population-based cross-sectional study.",
+      "pub_date": "2026 Aug",
+      "journal": "J Korean Biol Nurs Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.7586/jkbns.26.026",
+      "pmcid": "PMC13533612"
+    },
+    {
+      "pmid": "42682565",
+      "category": "aging_sarcopenia",
+      "title": "Skeletal muscle mitochondrial-methylation-neurotransmitter crosstalk: a novel synergistic model of betaine, tyrosine, and Cordyceps for exercise performance in older adults, individuals with metabolic disorders, and healthy populations.",
+      "pub_date": "2026",
+      "journal": "Front Nutr",
+      "pub_type": "Review",
+      "doi": "10.3389/fnut.2026.1812286",
+      "pmcid": "PMC13529766"
+    },
+    {
+      "pmid": "42693859",
+      "category": "aging_sarcopenia",
+      "title": "Targeting Klotho Signaling for Neuroprotection in Huntington's Disease: A Comprehensive Review.",
+      "pub_date": "2026 Aug 22",
+      "journal": "Curr Mol Med",
+      "pub_type": "Journal Article",
+      "doi": "10.2174/0115665240475078260817103116",
+      "pmcid": null
+    },
+    {
+      "pmid": "42696426",
+      "category": "aging_sarcopenia",
+      "title": "Association of Vitamin D and B12 Levels with Actigraphic Sleep in Cognitively Unimpaired Middle-Aged and Older Adults.",
+      "pub_date": "2026 Sep 4",
+      "journal": "J Gerontol A Biol Sci Med Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.1093/gerona/glag212",
+      "pmcid": "PMC13577193"
+    },
+    {
+      "pmid": "42696535",
+      "category": "aging_sarcopenia",
+      "title": "Lysine iminylation derived from ω-3 polyunsaturated fatty acids.",
+      "pub_date": "2026 Sep 8",
+      "journal": "Proc Natl Acad Sci U S A",
+      "pub_type": "Journal Article",
+      "doi": "10.1073/pnas.2525618123",
+      "pmcid": "PMC13552873"
+    },
+    {
+      "pmid": "42698428",
+      "category": "aging_sarcopenia",
+      "title": "Graves' disease and bone mineral density: a meta-analysis and UK Biobank.",
+      "pub_date": "2026",
+      "journal": "Front Endocrinol (Lausanne)",
+      "pub_type": "Meta-Analysis",
+      "doi": "10.3389/fendo.2026.1794055",
+      "pmcid": "PMC13541481"
+    },
+    {
+      "pmid": "42700817",
+      "category": "aging_sarcopenia",
+      "title": "Long-Term Vegetarian and Vegan Diets in Older Adults Are Associated With Inadequate Intakes of Protein and Micronutrients.",
+      "pub_date": "2026 Sep 5",
+      "journal": "J Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.tjnut.2026.101822",
+      "pmcid": null
+    },
+    {
+      "pmid": "42701773",
+      "category": "aging_sarcopenia",
+      "title": "Correlation of serum vitamin D, calcium-phosphorus metabolism and functional outcome in osteoporotic fractures.",
+      "pub_date": "2026",
+      "journal": "Bioinformation",
+      "pub_type": "Journal Article",
+      "doi": "10.6026/973206300223375",
+      "pmcid": "PMC13545971"
+    },
+    {
+      "pmid": "42703858",
+      "category": "aging_sarcopenia",
+      "title": "Trigonelline improves mitochondrial calcium homeostasis and reduces calpain activity after skeletal muscle ischemia-reperfusion injury in mice.",
+      "pub_date": "2026 Sep 7",
+      "journal": "Biomol Biomed",
+      "pub_type": "Journal Article",
+      "doi": "10.17305/bb.2026.14854",
+      "pmcid": null
+    },
+    {
+      "pmid": "42703863",
+      "category": "aging_sarcopenia",
+      "title": "Evaluation of the nutrition quality of meals served in small-scale public foodservice for the elderly in Korea by foodservice operation type-focused on proportion over chronic disease risk reduction intake and nutrient adequacy ratio: a cross-sectional study.",
+      "pub_date": "2026 Aug",
+      "journal": "Korean J Community Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.5720/kjcn.2026.00290",
+      "pmcid": "PMC13563037"
+    },
+    {
+      "pmid": "42704761",
+      "category": "aging_sarcopenia",
+      "title": "Exocrine Pancreatic Insufficiency and Nutritional Status in Patients with Resectable and Borderline Resectable Periampullary Tumors: A Prospective Longitudinal Study.",
+      "pub_date": "2026 Sep 7",
+      "journal": "Dig Surg",
+      "pub_type": "Journal Article",
+      "doi": "10.1159/dsu/acoag004",
+      "pmcid": null
+    },
+    {
+      "pmid": "42708081",
+      "category": "aging_sarcopenia",
+      "title": "Association between sarcopenia and the risk of diabetic cardiomyopathy in patients with type 2 diabetes mellitus: a single-center retrospective cohort study.",
+      "pub_date": "2026",
+      "journal": "Front Genet",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fgene.2026.1892826",
+      "pmcid": "PMC13549478"
+    },
+    {
+      "pmid": "42713522",
+      "category": "aging_sarcopenia",
+      "title": "Greater D(3)-creatine muscle mass and MRI thigh muscle volume are associated with higher bone strength in older adults: exploratory findings in The Study of Muscle, Mobility and Aging (SOMMA).",
+      "pub_date": "2026 Oct",
+      "journal": "JBMR Plus",
+      "pub_type": "Journal Article",
+      "doi": "10.1093/jbmrpl/ziag113",
+      "pmcid": "PMC13552505"
+    },
+    {
+      "pmid": "42716578",
+      "category": "aging_sarcopenia",
+      "title": "Short-term exposure to heat associated with lower lung function in older adults: analysis of the Lung VITAL cohort.",
+      "pub_date": "2026 Sep 9",
+      "journal": "BMJ Open Respir Res",
+      "pub_type": "Journal Article",
+      "doi": "10.1136/bmjresp-2026-004661",
+      "pmcid": "PMC13560994"
+    },
+    {
+      "pmid": "42721923",
+      "category": "aging_sarcopenia",
+      "title": "[In-hospital clinical and pharmacological determinants of 120-day mortality and institutionalization after hip fracture: functional and pharmacological implications in Primary Care].",
+      "pub_date": "2026 Oct",
+      "journal": "Semergen",
+      "pub_type": "English Abstract",
+      "doi": "10.1016/j.semerg.2026.102842",
+      "pmcid": null
+    },
+    {
+      "pmid": "42724423",
+      "category": "aging_sarcopenia",
+      "title": "Current evidence and emerging therapeutic strategies for non-exercise interventions in sarcopenia associated with chronic obstructive pulmonary disease: a narrative review.",
+      "pub_date": "2026 Aug 31",
+      "journal": "J Thorac Dis",
+      "pub_type": "Review",
+      "doi": "10.21037/jtd-2026-1097",
+      "pmcid": "PMC13559446"
+    },
+    {
+      "pmid": "42748769",
+      "category": "aging_sarcopenia",
+      "title": "Hippocampal magnetic resonance spectroscopy markers in late life anxiety - a preliminary report.",
+      "pub_date": "2026 Sep 4",
+      "journal": "Psychiatry Res Neuroimaging",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.pscychresns.2026.112318",
+      "pmcid": null
+    },
+    {
+      "pmid": "42755965",
+      "category": "aging_sarcopenia",
+      "title": "Vitamin D deficiency and the long-term risk of new-onset abdominal aortic aneurysm and severe aortic events: a multicenter propensity score-matched cohort study.",
+      "pub_date": "2026",
+      "journal": "Front Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fnut.2026.1900016",
+      "pmcid": "PMC13581915"
+    },
+    {
+      "pmid": "42757020",
+      "category": "aging_sarcopenia",
+      "title": "Potential interactions between creatine supplementation and prescription drugs: a narrative review and evidence-mapping perspective.",
+      "pub_date": "2026 Dec",
+      "journal": "Curr Ther Res Clin Exp",
+      "pub_type": "Review",
+      "doi": "10.1016/j.curtheres.2026.100844",
+      "pmcid": "PMC13584064"
+    },
+    {
+      "pmid": "42768432",
+      "category": "aging_sarcopenia",
+      "title": "EXPRESS: Vitamin D variability might be linked to sarcopenia, especially with decreased muscle mass in older patients: a retrospective longitudinal study.",
+      "pub_date": "2026 Sep 21",
+      "journal": "J Investig Med",
+      "pub_type": "Journal Article",
+      "doi": "10.1177/10815589261493463",
+      "pmcid": null
+    },
+    {
+      "pmid": "42780265",
+      "category": "aging_sarcopenia",
+      "title": "Strength training intervention with creatine/whey protein supplementation vs placebo on frailty in older adults with cirrhosis (STRIVE): A Randomized Controlled Trial.",
+      "pub_date": "2026 Sep 19",
+      "journal": "Res Sq",
+      "pub_type": "Preprint",
+      "doi": "10.21203/rs.3.rs-10695023/v1",
+      "pmcid": "PMC13596638"
+    },
+    {
+      "pmid": "42781140",
+      "category": "aging_sarcopenia",
+      "title": "Prehabilitation for Patients Undergoing Breast Reduction Surgery: A Scoping Review.",
+      "pub_date": "2026 Sep",
+      "journal": "Plast Reconstr Surg Glob Open",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/GOX.0000000000008074",
+      "pmcid": "PMC13600573"
+    },
+    {
+      "pmid": "42781174",
+      "category": "aging_sarcopenia",
+      "title": "Prehabilitation for Breast Reconstruction Surgery: A Practical and Evidence-based Guide.",
+      "pub_date": "2026 Sep",
+      "journal": "Plast Reconstr Surg Glob Open",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/GOX.0000000000008072",
+      "pmcid": "PMC13600574"
+    },
+    {
+      "pmid": "42782335",
+      "category": "aging_sarcopenia",
+      "title": "Comparing high-intensity resistance training incorporating periodic eccentric-only exercise with blood flow restriction training in older men: physiological responses and exercise feasibility.",
+      "pub_date": "2026 Sep 24",
+      "journal": "Eur J Appl Physiol",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s00421-026-06452-x",
+      "pmcid": null
+    },
+    {
+      "pmid": "42783381",
+      "category": "aging_sarcopenia",
+      "title": "Precision Nutraceuticals and Biomarkers of Healthy Aging: A Scoping Review of Human Studies on Nutrigenomic-Based Interventions.",
+      "pub_date": "2026 Aug 23",
+      "journal": "Med Sci (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/medsci14050508",
+      "pmcid": "PMC13609879"
+    },
+    {
+      "pmid": "42787854",
+      "category": "aging_sarcopenia",
+      "title": "Obesity and Osteoporotic Fractures: Solving the Paradox.",
+      "pub_date": "2026 Jul-Aug",
+      "journal": "Indian J Endocrinol Metab",
+      "pub_type": "Journal Article",
+      "doi": "10.4103/ijem.ijem_818_25",
+      "pmcid": "PMC13609915"
+    },
+    {
+      "pmid": "42789080",
+      "category": "aging_sarcopenia",
+      "title": "Equivalent Twelve-Month Bone Mineral Density Response to Romosozumab in Patients Aged ≥ 85 Years and  < 85 Years: A Multi-center Real-World Cohort Study (n = 417) from Northern Japan.",
+      "pub_date": "2026 Sep 25",
+      "journal": "Calcif Tissue Int",
+      "pub_type": "Multicenter Study",
+      "doi": "10.1007/s00223-026-01600-z",
+      "pmcid": null
+    },
+    {
+      "pmid": "42790274",
+      "category": "aging_sarcopenia",
+      "title": "Metabolic reserve: baseline cholesterol as a predictor and modulator of response to in-hospital exercise in older adults.",
+      "pub_date": "2026 Sep 25",
+      "journal": "J Nutr Health Aging",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.jnha.2026.100989",
+      "pmcid": null
+    },
+    {
+      "pmid": "42792116",
+      "category": "aging_sarcopenia",
+      "title": "Natural-Product-Derived Antioxidants and DNA Methylation-Based Epigenetic Aging: A Systematic Review of Human Intervention Studies.",
+      "pub_date": "2026 Aug 28",
+      "journal": "Antioxidants (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/antiox15091075",
+      "pmcid": "PMC13603410"
+    },
+    {
+      "pmid": "42792191",
+      "category": "aging_sarcopenia",
+      "title": "Oxidative Stress in Vascular Aging: Therapeutic Potential of the Antioxidant Paradox. A State-of-the-Art Review.",
+      "pub_date": "2026 Sep 10",
+      "journal": "Antioxidants (Basel)",
+      "pub_type": "Review",
+      "doi": "10.3390/antiox15091152",
+      "pmcid": "PMC13603535"
+    },
+    {
+      "pmid": "42796400",
+      "category": "aging_sarcopenia",
+      "title": "Vitamin D Deficiency in Hip Fracture Patients: Outcome-Specific Associations and Post-Fracture Management-A Narrative Review.",
+      "pub_date": "2026 Sep 17",
+      "journal": "Medicina (Kaunas)",
+      "pub_type": "Review",
+      "doi": "10.3390/medicina62091794",
+      "pmcid": "PMC13609279"
+    },
+    {
+      "pmid": "42796536",
+      "category": "aging_sarcopenia",
+      "title": "Amino Acids as Sustainable Alternatives to Allergenic Sulfur Vulcanization Accelerators for Carbon Black-Filled Nitrile Rubber.",
+      "pub_date": "2026 Sep 14",
+      "journal": "Molecules",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/molecules31183250",
+      "pmcid": "PMC13609843"
+    },
+    {
+      "pmid": "42796925",
+      "category": "aging_sarcopenia",
+      "title": "Amyloid Beta Biomarkers and Their Association with Cognitive Impairment Across Vitamin D Strata: A Cross-Sectional Study in an Older Adult South Indian Population.",
+      "pub_date": "2026 Sep 8",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/nu18182942",
+      "pmcid": "PMC13610679"
+    },
+    {
+      "pmid": "42796943",
+      "category": "aging_sarcopenia",
+      "title": "Creatine Use Among Women Across Reported Duration-of-Use Groups: A Platform-Based Cross-Sectional Survey of Supplementation Behaviors, Motivations, Knowledge, and Experiences.",
+      "pub_date": "2026 Sep 9",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/nu18182960",
+      "pmcid": "PMC13610488"
+    },
+    {
+      "pmid": "42796988",
+      "category": "aging_sarcopenia",
+      "title": "Enhanced Metabolic Risks in Patients with Obesity and Nutritional Deficiencies in the U.S.: A TriNetX Study.",
+      "pub_date": "2026 Sep 14",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/nu18183005",
+      "pmcid": "PMC13610809"
+    },
+    {
+      "pmid": "42797008",
+      "category": "aging_sarcopenia",
+      "title": "Dietary Patterns, Micronutrient Adequacy, and Metabolic Vulnerability in Alzheimer's Disease: A Critical Narrative Review.",
+      "pub_date": "2026 Sep 16",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "doi": "10.3390/nu18183025",
+      "pmcid": "PMC13610028"
+    },
+    {
+      "pmid": "42797060",
+      "category": "aging_sarcopenia",
+      "title": "Dietary Nutrient Adequacy and Supplement Use in German Community-Dwelling Older Adults Compared to a Group of Younger People: Findings from the Berlin Aging Study II (BASE-II).",
+      "pub_date": "2026 Sep 20",
+      "journal": "Nutrients",
+      "pub_type": "Comparative Study",
+      "doi": "10.3390/nu18183077",
+      "pmcid": "PMC13610988"
+    },
+    {
+      "pmid": "42797061",
+      "category": "aging_sarcopenia",
+      "title": "The Double-Deficient Older Inpatient: Vitamin D and Vitamin B12 Co-Deficiency Identifies the Greatest Cognitive and Affective Burden.",
+      "pub_date": "2026 Sep 20",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/nu18183078",
+      "pmcid": "PMC13610524"
+    },
+    {
+      "pmid": "42798093",
+      "category": "aging_sarcopenia",
+      "title": "Systematic review and meta-analysis of biomarkers of sarcopenia and sarcopenic obesity.",
+      "pub_date": "2026 Sep 25",
+      "journal": "Medicine (Baltimore)",
+      "pub_type": "Systematic Review",
+      "doi": "10.1097/MD.0000000000050799",
+      "pmcid": "PMC13619247"
+    },
+    {
+      "pmid": "42800365",
+      "category": "aging_sarcopenia",
+      "title": "Creatine for glucagon-like peptide-1-associated muscle loss.",
+      "pub_date": "2026 Sep 21",
+      "journal": "Clin Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.clnu.2026.106805",
+      "pmcid": null
+    },
+    {
+      "pmid": "42804367",
+      "category": "aging_sarcopenia",
+      "title": "Musculoskeletal decay and bone-muscle crosstalk during physical disuse: Mechanisms and integrated countermeasures.",
+      "pub_date": "2026 Sep 28",
+      "journal": "Exp Physiol",
+      "pub_type": "Review",
+      "doi": "10.1113/EP093790",
+      "pmcid": "PMC13618863"
+    },
+    {
+      "pmid": "42804599",
+      "category": "aging_sarcopenia",
+      "title": "Personalized whole-body modeling links gut microbiota to metabolic perturbations in Alzheimer's disease.",
+      "pub_date": "2026 Dec 31",
+      "journal": "Gut Microbes",
+      "pub_type": "Journal Article",
+      "doi": "10.1080/19490976.2026.2732659",
+      "pmcid": "PMC13625723"
+    },
+    {
+      "pmid": "42806170",
+      "category": "aging_sarcopenia",
+      "title": "Impact of orthogeriatric care: prescription patterns in hospitalized older adults.",
+      "pub_date": "2026 Sep 28",
+      "journal": "Osteoporos Int",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s00198-026-08244-7",
+      "pmcid": null
+    },
+    {
+      "pmid": "42812403",
+      "category": "aging_sarcopenia",
+      "title": "Vitamin D signaling in thymic development and longevity.",
+      "pub_date": "2026",
+      "journal": "Front Nutr",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fnut.2026.1961627",
+      "pmcid": "PMC13619959"
+    },
+    {
+      "pmid": "42815654",
+      "category": "aging_sarcopenia",
+      "title": "Design and physicochemical characterization of spray-dried microcapsules encapsulating o/w emulsion-based drug combinations.",
+      "pub_date": "2026 Sep 30",
+      "journal": "Int J Pharm",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.ijpharm.2026.127496",
+      "pmcid": null
+    },
+    {
+      "pmid": "42816829",
+      "category": "aging_sarcopenia",
+      "title": "The role of neuroinflammation in the connections between autism spectrum disorder and Alzheimer's disease and related dementias: A review.",
+      "pub_date": "2026 Sep 30",
+      "journal": "J Alzheimers Dis",
+      "pub_type": "Review",
+      "doi": "10.1177/13872877261491809",
+      "pmcid": null
+    },
+    {
+      "pmid": "42824725",
+      "category": "aging_sarcopenia",
+      "title": "Plasma Vitamin D and Intermediate Age-Related Macular Degeneration: Insights from the Longitudinal ALIENOR Study.",
+      "pub_date": "2026 Oct",
+      "journal": "Ophthalmol Sci",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.xops.2026.101364",
+      "pmcid": "PMC13629203"
+    }
+  ]
+}

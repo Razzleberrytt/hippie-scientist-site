@@ -6,8 +6,9 @@ import { getPublicSiteMetrics } from '@/lib/public-site-metrics'
 export default async function HomepageV2() {
   const metrics = await getPublicSiteMetrics()
   const stats = [
+    { value: metrics.publishedArticles, label: 'Published articles' },
     { value: metrics.publishedHerbs, label: 'Published herbs' },
-    { value: metrics.publishedCompounds, label: 'Published compounds' },
+    { value: metrics.totalCompounds, label: 'Compounds tracked' },
     { value: metrics.structuredStudies, label: 'Structured studies' },
   ]
 
@@ -71,7 +72,7 @@ export default async function HomepageV2() {
               </Link>
             </div>
 
-            <dl className='grid grid-cols-3 gap-2 sm:gap-3' aria-label='Research library size'>
+            <dl className='grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3' aria-label='Research library size'>
               {stats.map((stat) => (
                 <div key={stat.label} className='min-w-0 rounded-xl bg-brand-50/60 p-3 text-center sm:p-4'>
                   <dd className='text-2xl font-bold text-ink'>{stat.value}</dd>

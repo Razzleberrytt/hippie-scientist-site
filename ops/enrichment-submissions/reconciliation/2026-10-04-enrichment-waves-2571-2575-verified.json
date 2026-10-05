@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2571-2575",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2571,
+      "pmid": "42765195",
+      "title": "Effectiveness and safety of cannabidiol in adult patients with epilepsy: A multicenter, retrospective study.",
+      "abstract_verified": true,
+      "state": "research_only_observational",
+      "evidence_boundary": "This is a retrospective observational study in adults with severe epilepsy syndromes receiving adjunctive CBD; it cannot establish causality and should not be generalized to non-epilepsy CBD use."
+    },
+    {
+      "wave": 2572,
+      "pmid": "42765009",
+      "title": "Repeated whole-body inhalation of cannabidiol vapor induces progressive pulmonary inflammatory and vascular remodeling without systemic toxicity in Sprague-Dawley rats.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical",
+      "evidence_boundary": "Repeated inhaled-CBD findings are from rats and are route-specific; they cannot establish human respiratory risk or safety for oral or other CBD formulations."
+    },
+    {
+      "wave": 2573,
+      "pmid": "42761670",
+      "title": "Safety of synthetic cannabidiol as a novel food pursuant to regulation (EU) 2015/2283.",
+      "abstract_verified": true,
+      "state": "research_only_regulatory_safety",
+      "evidence_boundary": "The EFSA opinion applies to a defined synthetic CBD product, proposed 2 mg/day use, and specified adult population; safety with concomitant medications was not established."
+    },
+    {
+      "wave": 2574,
+      "pmid": "42761342",
+      "title": "Comparative in vitro safety assessments of synthetized and plant-derived cannabidiol (CBD), and pharmacokinetics of synthetized CBD: evidence of similar toxicological profiles and accumulation upon repeated oral administration.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical",
+      "evidence_boundary": "The comparison combines in vitro toxicology with rat pharmacokinetics; source-equivalence and accumulation findings require human confirmation and are formulation-specific."
+    },
+    {
+      "wave": 2575,
+      "pmid": "42756662",
+      "title": "Modulation of spatial learning and memory by cannabinoid-estrogen interaction in an AD-like cognitive impairment: The role of cannabinoid receptors and BDNF protein.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical",
+      "evidence_boundary": "The study uses an ovariectomized AD-like rat model and marijuana extract with estradiol; it is mechanistic/preclinical and does not establish human cognitive benefit."
+    }
+  ]
+}

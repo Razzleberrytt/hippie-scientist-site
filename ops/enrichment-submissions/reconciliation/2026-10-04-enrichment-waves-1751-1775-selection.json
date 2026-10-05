@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-1751-1775-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-1726-1750-selection",
+  "program": {
+    "range": "1501-2000",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 275,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2000"
+  },
+  "source_provenance": [
+    "Sider Scholar + NCBI PubMed exact-source verification",
+    "cumulative PMID collision index covering prior enrichment waves and current branch"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2000 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe/source verification during authoring; expensive repository-wide validation only after Wave 2000"
+  },
+  "waves": [
+    {
+      "wave": 1751,
+      "entity_slug": "omega3-allergic-rhinitis-adjunct",
+      "pmid": "41420581",
+      "focus": "Small double-blind placebo-controlled trial in persistent allergic rhinitis found high-dose EPA+DHA was safe but did not improve nasal symptoms or quality of life beyond intranasal steroid plus immunotherapy; adjunctive null evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1752,
+      "entity_slug": "omega3-migraine-pain-path-analysis",
+      "pmid": "41515121",
+      "focus": "Secondary path analysis of randomized diet-trial data linked higher achieved blood EPA/DHA—especially EPA—to lower pain interference in migraine; mediation/association analysis does not replace the parent randomized outcome interpretation.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1753,
+      "entity_slug": "omega3-fish-oil-atrial-fibrillation-ukbiobank",
+      "pmid": "41368832",
+      "focus": "Large UK Biobank observational analysis found higher circulating omega-3 associated with lower incident AF while self-reported fish-oil use was neutral after continuous age adjustment; observational biomarker and supplement-use associations should not be treated as randomized safety evidence.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1754,
+      "entity_slug": "omega3-psychological-distress-retracted",
+      "pmid": "41461240",
+      "focus": "PubMed marks this omega-3 psychological-distress randomized trial as a retracted publication; its efficacy claims must not be used for evidence grading or consumer guidance and are retained only for retraction/citation-integrity tracking.",
+      "state": "retraction_metadata_only"
+    },
+    {
+      "wave": 1755,
+      "entity_slug": "beetroot-cad-fatty-acid-oxidative-markers",
+      "pmid": "41473738",
+      "focus": "Secondary analysis of a randomized CAD trial found beetroot-containing interventions changed selected fatty-acid ratios and oxidative markers, with larger shifts in a beetroot-plus-vitamin-C arm; secondary biomarker and combination effects limit clinical interpretation.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1756,
+      "entity_slug": "beetroot-vs-creatine-resistance-exercise",
+      "pmid": "41048226",
+      "focus": "Small double-blind crossover study in 11 active men found both beetroot and creatine improved selected velocity measures versus placebo, while beetroot produced distinct heart-rate, oxygenation and HRV effects; acute mechanistic performance study only.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1757,
+      "entity_slug": "l-carnitine-pediatric-cardiac-surgery-liver",
+      "pmid": "41377238",
+      "focus": "Double-blind randomized pediatric cardiac-surgery trial found preoperative oral L-carnitine was associated with faster normalization of selected liver markers after surgery; perioperative setting and biochemical endpoints limit generalization.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1758,
+      "entity_slug": "collagen-vitamin-zinc-telogen-effluvium",
+      "pmid": "41346549",
+      "focus": "Large pre-post study of a branded hydrolyzed-collagen/B-vitamin/zinc supplement reported improved hair parameters after one month with persistence after washout, but absence of a concurrent control and multi-ingredient product design prevent causal ingredient claims.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1759,
+      "entity_slug": "zinc-status-autism-meta",
+      "pmid": "41368180",
+      "focus": "Meta-analysis of 25 case-control studies found lower blood/plasma zinc in children and adolescents with autism while hair and urinary zinc were not different; very high heterogeneity and observational design preclude supplementation-efficacy conclusions.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1760,
+      "entity_slug": "selenium-stroke-meta",
+      "pmid": "41426996",
+      "focus": "Systematic review/meta-analysis linked higher circulating and dietary selenium with lower ischemic-stroke and stroke-mortality risk, but the evidence is observational and heterogeneous; no supplementation effect can be inferred.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1761,
+      "entity_slug": "excess-zinc-metabolic-risk-review",
+      "pmid": "41459237",
+      "focus": "Systematic review describes potential metabolic and cardiovascular harms of excessive zinc exposure and emphasizes dose-dependent risk, interaction and toxicity uncertainty; useful safety context rather than a quantified safe-threshold source.",
+      "state": "research_only_safety_signal"
+    },
+    {
+      "wave": 1762,
+      "entity_slug": "zinc-biofortified-staples-status-review",
+      "pmid": "41475016",
+      "focus": "Systematic review of seven trials found zinc-biofortified staple crops produced inconsistent improvements in zinc biomarkers, with methodological issues including inflammation adjustment and cooking losses; food-biofortification evidence should not be generalized to supplements.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1763,
+      "entity_slug": "multi-nutrient-fortified-salt-meta",
+      "pmid": "41352484",
+      "focus": "Systematic review/meta-analysis of double- and multi-fortified salt interventions found iron-containing formulations improved hemoglobin overall, but nutrient combinations and food-fortification context prevent translation into single-supplement efficacy.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1764,
+      "entity_slug": "fortified-preschool-milk-micronutrients",
+      "pmid": "41356825",
+      "focus": "Open-label randomized study in Filipino preschool children found fortified milk increased nutrient intake and some growth measures but did not significantly improve the primary micronutrient-status endpoints versus habitual diet after 16 weeks.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1765,
+      "entity_slug": "micronutrient-deficiency-t2d-glycemic-meta",
+      "pmid": "41402393",
+      "focus": "Systematic review/meta-analysis found weak associations between several micronutrient deficiencies and glycemic-control indices in type 2 diabetes, with stronger signals for magnesium and vitamin D in selected measures; association does not prove supplementation benefit.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1766,
+      "entity_slug": "maternal-selenium-birth-outcomes-women-first",
+      "pmid": "41461273",
+      "focus": "Secondary analysis of the multicountry Women First trial found no significant association between maternal selenium status and birth size, prematurity or small-for-gestational-age outcomes and no clear selenium increase from the study supplement.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1767,
+      "entity_slug": "pediatric-chronic-disease-supplements-review",
+      "pmid": "41613379",
+      "focus": "Systematic review of 13 pediatric chronic-disease studies found probiotics, fatty acids, vitamins, minerals and other supplements often changed biomarkers but produced inconsistent clinical benefits; DMSA raised specific safety concerns.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1768,
+      "entity_slug": "cardiovascular-supplements-review",
+      "pmid": "41669146",
+      "focus": "Narrative review synthesizes omega-3, CoQ10, magnesium and selenium across cardiovascular mechanisms and trials; useful as an evidence map but not independent proof of efficacy because conclusions depend on underlying heterogeneous trials.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1769,
+      "entity_slug": "nonviable-l-salivarius-preschool-oral-microbiome",
+      "pmid": "41906504",
+      "focus": "Randomized pilot in preschool children found two weeks of nonviable L. salivarius HM6 altered plaque S. mutans/Lactobacillus patterns, but microbiologic outcomes and short follow-up do not establish caries prevention.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1770,
+      "entity_slug": "b-longum-lactulose-synbiotic-presenteeism",
+      "pmid": "41909908",
+      "focus": "Single-arm open-label study found a B. longum BB536 plus lactulose fermented-milk product improved bowel-movement and presenteeism/well-being scores alongside microbiome/metabolite changes; no control group prevents causal inference.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1771,
+      "entity_slug": "postbiotics-chronic-disease-review",
+      "pmid": "41852428",
+      "focus": "Narrative review describes immune, barrier and antioxidant mechanisms proposed for postbiotics across chronic diseases but emphasizes the need for component-specific human trials; largely mechanistic/heterogeneous evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1772,
+      "entity_slug": "personalized-supplementation-inflammation-observational",
+      "pmid": "41465826",
+      "focus": "Twelve-week observational program in 48 adults associated personalized multi-agent protocols with reductions in CRP, homocysteine and other biomarkers, but interventions included multiple nutrients, hormones and peptides without a control group.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1773,
+      "entity_slug": "antioxidants-periodontal-disease-review",
+      "pmid": "41440327",
+      "focus": "Review found inconsistent observational and adjunctive-trial evidence for vitamins/minerals in periodontal disease because of small samples, mixed nutrient combinations, variable doses and heterogeneous outcome measurement.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1774,
+      "entity_slug": "omega3-atrial-fibrillation-preprint-meta",
+      "pmid": "41445624",
+      "focus": "Preprint meta-analysis of 34 omega-3 RCTs reported increased AF risk mainly in high-CVD-risk populations receiving higher EPA/DHA doses; because the source is a preprint, it remains research-only pending peer-reviewed confirmation.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1775,
+      "entity_slug": "flaxseed-migraine-rct",
+      "pmid": "41478596",
+      "focus": "RCT in 68 migraine patients found eight weeks of flaxseed powder improved headache severity, sleep and headache-related quality of life but not headache frequency or duration; small single trial requires replication.",
+      "state": "reviewed_receipt_pending_final_admission"
+    }
+  ]
+}

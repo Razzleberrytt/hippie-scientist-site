@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3444,
+      "pmid": "41553229",
+      "doi": "10.17219/dmp/186872",
+      "category": "stress_anxiety",
+      "title": "Aromatherapy with lavender essential oil for the control of dental anxiety in patients undergoing dental surgery: A triple-blind randomized clinical trial.",
+      "journal": "Dental and medical problems",
+      "pub_date": "2026",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Triple-blind randomized clinical trial of lavender aromatherapy during dental surgery found lower post-intervention respiratory rate, heart rate, cortisol, and local anesthetic use versus control; baseline dental-anxiety scores were similar."
+    },
+    {
+      "wave": 3449,
+      "pmid": "41997923",
+      "doi": "10.1038/s41398-026-04022-5",
+      "category": "withdrawal_nps",
+      "title": "Decoding kratom: molecular mechanisms and epigenetic factors in use and dependence.",
+      "journal": "Translational psychiatry",
+      "pub_date": "2026-Apr-16",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Systematic review of preclinical kratom evidence mapped receptor, intracellular-signaling, gene-regulation, withdrawal-associated, cardiac-ion-channel, and CYP-related findings. The review emphasizes limited pharmacokinetic standardization and insufficient long-term human safety evidence."
+    },
+    {
+      "wave": 3450,
+      "pmid": "41486478",
+      "doi": "10.1097/FTD.0000000000001427",
+      "category": "withdrawal_nps",
+      "title": "Safety and Tolerability of Single and Multiple Daily Oral Doses of Dried Kratom Leaf Powder in a Randomized Trial in Healthy Volunteers.",
+      "journal": "Therapeutic drug monitoring",
+      "pub_date": "2026-Oct-01",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Randomized double-blind placebo-controlled human kratom-administration study evaluated treatment-emergent adverse events, tolerability, abuse-potential signals, and withdrawal during follow-up. Adverse events increased with exposure, but no serious adverse events or deaths were reported in the studied healthy-volunteer sample."
+    }
+  ]
+}

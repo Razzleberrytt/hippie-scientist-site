@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-waves-2001-2500-pmid-revalidation",
+  "verified_on": "2026-10-04",
+  "rule": "Exact PMID identity, canonical entity identity, intervention or exposure, population, result direction, and evidence boundary were rechecked before runtime materialization. Nine source-specific rows were admitted. All other receipts remain research-only because their formulation, combination, category, observational, route, safety, evidence-quality, or canonical-identity boundaries were not clean enough for automatic promotion.",
+  "sources": [
+    {
+      "wave": 2483,
+      "entity_slug": "alpha-lipoic-acid",
+      "pmid": "41917882",
+      "doi": "10.1186/s12902-026-02238-6",
+      "title": "Effects of alpha-lipoic acid supplementation on patients with nonalcoholic fatty liver disease: a systematic review and meta-analysis of randomized clinical trials.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 2037,
+      "entity_slug": "probiotics",
+      "pmid": "41996041",
+      "doi": "10.1007/s12029-026-01449-3",
+      "title": "Effect of Probiotics on the Clinical Outcome and Inflammatory Response in Gastric Cancer Surgery: A Double Blinded Randomized Control Trial.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 2038,
+      "entity_slug": "cobalamin",
+      "pmid": "41997492",
+      "doi": "10.1016/j.tjnut.2026.101534",
+      "title": "The Effect of Daily Vitamin B-12 Supplementation on the Incidence of Common Childhood Infections in Nepal: Secondary Outcomes from a Double-Blind Randomized Controlled Trial.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 2047,
+      "entity_slug": "vitamin-d",
+      "pmid": "42004716",
+      "doi": "10.7717/peerj.21086",
+      "title": "Effect of vitamin D supplementation on blood lipids in patients with metabolic syndrome: a meta-analysis.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 2086,
+      "entity_slug": "vitamin-d",
+      "pmid": "42037591",
+      "doi": "10.1002/14651858.CD015111.pub2",
+      "title": "Vitamin D for preventing acute respiratory infections in children up to five years of age.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 2094,
+      "entity_slug": "vitamin-d",
+      "pmid": "42047069",
+      "doi": "10.17392/2062-23-01",
+      "title": "Effect of vitamin D supplementation on metabolic syndrome and atherosclerosis biomarkers in epilepsy: a randomized controlled trial.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 2095,
+      "entity_slug": "probiotics",
+      "pmid": "42047124",
+      "doi": "10.7417/CT.2026.2022",
+      "title": "The Effect of Probiotic Use on Gut Leakage Measured by Zonulin and its Relation to P Cresyl Sulfate and Inflammation in Hemodialysis Patients: A prospective controlled clinical study.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 2255,
+      "entity_slug": "berberine",
+      "pmid": "42204774",
+      "doi": "10.14814/phy2.70937",
+      "title": "Dietary berberine supplementation improves select physiological and psychological responses during exertional heat stress: A pilot study in young adults.",
+      "decision": "verified_for_runtime_materialization"
+    },
+    {
+      "wave": 2264,
+      "entity_slug": "caffeine",
+      "pmid": "42213969",
+      "doi": "10.1519/JSC.0000000000005481",
+      "title": "The Effect of Habitual Caffeine Use on Strength, Power, and Muscular Endurance Performance in Collegiate Athletes.",
+      "decision": "verified_for_runtime_materialization"
+    }
+  ]
+}

@@ -1,0 +1,536 @@
+{
+  "schema_version": 1,
+  "range": "2556-2605",
+  "rows": [
+    {
+      "wave": 2556,
+      "pmid": "42824329",
+      "doi": "10.3389/fphar.2026.1904671",
+      "title": "Combined Taraxacum mongolicum and Astragalus polysaccharides attenuate CCl(4)-induced hepatic fibrosis through modulation of the TLR4/MyD88/NF-κB signaling pathway and gut microbiota composition.",
+      "category": "botanicals_mushrooms",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Hepatic fibrosis represents a critical pathological stage in the progression of chronic liver diseases, yet clinically effective and low-toxicity therapeutic options remain limited. Taraxacum mongolicum and Astragalus form a classic hepatoprotective herbal pair, and their derived polysaccharides- Taraxacum mongolicum polysaccharides (TMP) and Astragalus polysaccharides (APS)-both exhibit hepatoprotective activities. This study aimed to investigate the ameliorative effects of TMP combined with APS on CCl 4 -induced hepatic fibrosis in mice and the gut-liver axis-associated changes. Mice were randomly assigned to the blank control, model, silybin, Lizhu Changle (live Bifidobacterium adolescentis capsules), TMP monotherapy, APS monotherapy, and combination groups. Following the establishment of fibrosis by CCl 4 , a 4-week intervention was administered. Serum liver function parameters and fibrosis markers were measured, and hepatic histopathological changes were observed. Intestinal funct",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2557,
+      "pmid": "42704497",
+      "doi": "10.1007/s10072-026-09347-z",
+      "title": "Efficacy and safety of cannabinoid-based interventions for behavioral and cognitive symptoms in dementia: systematic review and meta-analysis.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": false,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": null,
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "needs_pubmed_fallback"
+    },
+    {
+      "wave": 2559,
+      "pmid": "42623795",
+      "doi": "10.1016/j.sleep.2026.109154",
+      "title": "Pharmacological treatments of REM sleep behaviour disorder in synucleinopathies: a systematic review of effectiveness and safety.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "PURPOSE the aim of this study was to systematically evaluate the effectiveness and safety of pharmacological treatments for REM sleep behaviour disorder (RBD) in synucleinopathies, including Parkinson's disease (PD), Parkinson's disease dementia (PDD), dementia with Lewy bodies (DLB), multiple system atrophy (MSA), and isolated RBD (iRBD) as a prodromal synucleinopathy. METHODS a systematic review was conducted as per PRISMA guidelines. MEDLINE/PubMed, Embase, and the Cochrane Library were searched from inception to 1 March 2026. Eligible studies included randomised, crossover, open-label, and observational studies evaluating pharmacological interventions for RBD in synucleinopathies. Only studies with video-polysomnography (vPSG) confirmed RBD were included. Risk of bias was assessed using RoB 2 and the Newcastle-Ottawa Scale. Due to heterogeneity in study design, interventions, and outcomes, results were synthesised narratively. PROSPERO registration: CRD420261340322. RESULTS 18 stud",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2560,
+      "pmid": "42623982",
+      "doi": "10.1016/j.neubiorev.2026.106910",
+      "title": "Does co-administration of cannabidiol (CBD) influence the plasma availability of delta-9-tetrahydrocannabinol (THC) and its active metabolite in humans? A systematic review and meta-analysis.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "BACKGROUND Research on the pharmacokinetic influence of cannabidiol (CBD) on delta-9-tetrahydrocannabinol (THC) has produced equivocal results. METHODS We conducted a systematic search following PRISMA guidelines (last search: 24th November 2025, PROSPERO: CRD42023480695). Included studies were acute dosing trials that administered a) a single, fixed dose of THC and b) a matched dose of THC co-administered with CBD. Our objective was to investigate between-group differences in the Cmax, AUCt and AUCinf of circulating THC and its active metabolite, 11-hydroxy-THC (11-OH-THC). Hedges' g and ratio of means (RoM) were pooled from random-effects meta-analyses. The dose-effects of CBD and THC on Hedges' g were explored using meta-regression. Risk of bias was assessed using the Cochrane Collaboration tool RoB 2. RESULTS 14 studies were included (12 crossover, two parallel group; seven oral administration, five inhalation, one IV, one mixed IV and oral; total participants: 341). In meta-analys",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2561,
+      "pmid": "42755825",
+      "doi": "10.3389/fpsyt.2026.1909149",
+      "title": "Novel pharmacotherapies for opioid use disorder and opioid withdrawal.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Introduction Opioid use disorder (OUD) remains a major public health crisis despite evidence-based medications, including methadone, buprenorphine, and naltrexone. Persistent challenges with treatment retention, access, stigma, and incomplete response highlight the need for adjunctive pharmacotherapies targeting neurobiological systems beyond the mu-opioid receptor. Methods We conducted a narrative review of emerging pharmacologic approaches for OUD and opioid withdrawal syndrome, focusing on ketamine and NMDA receptor antagonists, cannabinoids, psychedelics, and incretin-based therapies, including glucagon-like peptide-1 receptor agonists and dual glucose-dependent insulinotropic polypeptide/glucagon-like peptide-1 receptor agonists. Results Ketamine has preliminary randomized evidence suggesting potential effects on abstinence, withdrawal, craving, and psychotherapy augmentation. Cannabidiol may reduce cue-induced craving and anxiety, whereas dronabinol may modestly suppress opioid w",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2562,
+      "pmid": "42627450",
+      "doi": "10.1007/s40262-026-01691-9",
+      "title": "Pharmacokinetics, Safety, and Dosing of Antiseizure Medications in Patients with Renal or Hepatic Impairment.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": false,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": null,
+      "evidence_boundary": "Interpret within the source design, tested exposure, population, endpoints, and follow-up.",
+      "state": "needs_pubmed_fallback"
+    },
+    {
+      "wave": 2566,
+      "pmid": "42796655",
+      "doi": "10.3390/pathogens15090887",
+      "title": "Interaction of β-Caryophyllene with a Simplified Membrane Model and Its Growth-Inhibitory Effect Against Escherichia coli ATCC 25922.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "The increasing prevalence of antimicrobial resistance in bacteria highlights the need for alternative membrane-active compounds with favorable safety profiles. β-Caryophyllene (BCP), a bicyclic sesquiterpene, has demonstrated antimicrobial effects; however, its biological responses in Gram-negative bacteria and associated membrane interactions remain insufficiently characterized. In this study, the growth inhibitory effect of BCP against E. coli ATCC 25922 was evaluated through OD595 growth kinetics, while hemocompatibility was assessed using sheep erythrocytes, and cannabidiol (CBD) was included as a comparative control. To investigate membrane-associated effects, differential scanning calorimetry (DSC) was performed using DPPE/DPPG (8:2) bilayers as a simplified phospholipid membrane model. BCP inhibited bacterial growth with an IC50 of 0.83 mg/mL and exhibited low hemolytic activity (2.92% at 1 mg/mL). DSC analyses revealed concentration-dependent shifts in phase transition temperat",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2567,
+      "pmid": "42794674",
+      "doi": "10.3390/ijms27188247",
+      "title": "In Silico Exploration of Cannabidiol Interactions with Outer Membrane Proteins in Salmonella Typhimurium LT2.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Cannabidiol (CBD), the non-psychoactive component of the hemp plant, has been investigated as a potential novel antimicrobial agent. This study was aimed at understanding the interactions between CBD and the outer membrane proteins (OMPs) of Salmonella Typhimurium LT2. Employing in silico techniques, we analyzed the binding affinities, interaction profiles, and drug-likeness of CBD with five independent OMP targets—OmpA, OmpC, OmpD, OmpF, and OmpX—together with a historical OmpD/nmpC receptor entry (legacy NmpC label). The molecular docking results showed varying predicted binding affinities across the evaluated OMP receptor entries, with OmpX exhibiting a docking score of −6.6 kcal/mol and the OmpD/nmpC legacy receptor entry, originally labeled “NmpC,” exhibiting a score of −6.4 kcal/mol. The latter was retained for transparency but was not interpreted as an independent OMP target following annotation verification. The high sequence conservation observed among the analyzed OMPs furthe",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2568,
+      "pmid": "42784233",
+      "doi": "10.3390/pathophysiology33030065",
+      "title": "Subchronic Exposure to Low-Dose Cannabidiol (CBD) and Δ(9)-Tetrahydrocannabinol (Δ(9)-THC) Nanoemulsions Suggests Low Renal Toxicity: A Preliminary Study.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Background/Objectives: The increasing therapeutic use of cannabinoid-based formulations highlights the need to better characterize their safety profile, particularly in organs involved in xenobiotic elimination, such as the kidneys. This study evaluated the renal effects of cannabidiol (CBD) and Δ9-tetrahydrocannabinol (Δ9-THC) nanoemulsions following subchronic oral administration in male Wistar rats. Methods: Forty animals (n = 8/group) were randomly allocated into five groups: vehicle control (Licuri oil + Pluronic® F127), CBD 2.5 mg/kg, CBD 5 mg/kg, CBD+THC 2.5 mg/kg, and CBD+THC 5 mg/kg. Treatments were administered daily by oral gavage for 21 consecutive days. Kidney samples were analyzed by histopathology and immunohistochemistry (Ki-67, GST-P, and cleaved caspase-3). Results: High-dose groups (5 mg/kg) exhibited marked histopathological alterations, including tubular and glomerular damage, hemorrhagic areas, inflammatory infiltration, and necrosis. These groups also showed incr",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2571,
+      "pmid": "42765195",
+      "doi": "10.1002/epi4.70331",
+      "title": "Effectiveness and safety of cannabidiol in adult patients with epilepsy: A multicenter, retrospective study.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": false,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": null,
+      "evidence_boundary": "Observational evidence cannot establish causality and is vulnerable to confounding.",
+      "state": "needs_pubmed_fallback"
+    },
+    {
+      "wave": 2572,
+      "pmid": "42765009",
+      "doi": "10.14202/vetworld.2026.3701-3715",
+      "title": "Repeated whole-body inhalation of cannabidiol vapor induces progressive pulmonary inflammatory and vascular remodeling without systemic toxicity in Sprague-Dawley rats.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "ABSTRACT Background and Aim: Cannabidiol (CBD) is increasingly administered via electronic vaporizers because inhalation enables rapid pulmonary absorption and bypasses first-pass hepatic metabolism. However, the respiratory consequences of repeated exposure to purified CBD vapor remain insufficiently characterized. This study investigated the systemic and pulmonary effects of repeated whole-body inhalation of purified CBD vapor in Sprague–Dawley rats, with emphasis on the temporal progression of pulmonary histopathological changes. Materials and Methods: Thirty 9-week-old male Sprague–Dawley rats were randomly allocated to five groups (n = 6/group): saline-exposed control and CBD vapor exposure for 15, 30, 60, or 90 consecutive days. Approximately 100 mg of purified CBD isolate was loaded into an electronic vaporization device for each exposure session, and individual rats underwent whole-body exposure for 5 min/day under standardized chamber conditions. Clinical status, body weight, ",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2573,
+      "pmid": "42761670",
+      "doi": "10.2903/j.efsa.2026.10154",
+      "title": "Safety of synthetic cannabidiol as a novel food pursuant to regulation (EU) 2015/2283.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Abstract Following a request from the European Commission, the EFSA Panel on Nutrition, Novel Foods and Food Allergens (NDA) was asked to deliver an opinion on cannabidiol (CBD) obtained by chemical synthesis as a novel food (NF) pursuant to Regulation (EU) 2015/2283. The NF consists of ≥ 98% (w/w) CBD and is intended to be marketed exclusively dissolved in medium‐chain triglyceride (MCT) oil in food supplements at a maximum daily dose of 2 mg. The proposed target population is the general adult population over 25 years old and excluding pregnant and lactating women. The safety of CBD in individuals taking medications cannot be established. The information provided on the production process, composition and specifications of the NF does not raise safety concerns. The NF is not considered to be nutritionally disadvantageous, and no concerns were identified with respect to genotoxicity. The applicant submitted a 90‐day subchronic oral toxicity study with the NF in which the liver was ide",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2574,
+      "pmid": "42761342",
+      "doi": "10.3389/ftox.2026.1844643",
+      "title": "Comparative in vitro safety assessments of synthetized and plant-derived cannabidiol (CBD), and pharmacokinetics of synthetized CBD: evidence of similar toxicological profiles and accumulation upon repeated oral administration.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Comparative toxicology between synthetized and plant-derived cannabidiol (CBD) remains underexplored, as most previous research has focused on a single type of CBD. This leaves uncertainties regarding whether differences in origin, purity, or extraction methods affect the safety profiles or metabolic outcomes of CBD. This study assessed the in vitro safety, in vitro hepatotoxicity, and repeated oral dose pharmacokinetics (PK) of CBD in rats. Two brands of synthetized CBD were evaluated alongside two plant-derived CBD (a high-purity isolate and a lower-purity distillate) in vitro. These findings indicated no meaningful in vitro safety differences among the CBD sources and therefore supported selection of a single synthetized CBD source for an in vivo PK study in male Sprague-Dawley rats dosed orally once daily at 26.5 mg/kg for 21 days. Blood samples were collected at multiple time points on days 1 and 21, and pre-dose samples on selected days to assess baseline accumulation. CBD and it",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2575,
+      "pmid": "42756662",
+      "doi": "10.1016/j.ibneur.2026.09.002",
+      "title": "Modulation of spatial learning and memory by cannabinoid-estrogen interaction in an AD-like cognitive impairment: The role of cannabinoid receptors and BDNF protein.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Alzheimer’s disease (AD) is an increasingly prevalent neurodegenerative disorder worldwide, with women showing a higher risk of developing the disease. The decline in steroid hormones after menopause may contribute to the increased susceptibility of women to neurodegenerative conditions. In parallel, cannabis-derived compounds have been reported to alleviate certain symptoms associated with neurological disorders. The present study was designed to investigate the effects of marijuana extract on cognitive impairment and hippocampal molecular markers in an ovariectomized AD-like rat model, and to evaluate whether co-administration with estradiol modifies these effects. The marijuana extract used in this study was characterized by HPLC and was found to contain 8.5% Δ9-THC. AD-like cognitive impairment pathology was induced by intra-hippocampal administration of Aβ25–35 in OVX rats. Animals were treated with marijuana extract (60 mg/kg/day, corresponding to approximately 5.1 mg/kg/day Δ9-T",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2576,
+      "pmid": "42748645",
+      "doi": "10.1016/j.drugalcdep.2026.113341",
+      "title": "Tolerance, physical dependence, and Δ(9)-THC-like interoceptive effects of cannabinol in mice.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "BACKGROUND AND PURPOSE Cannabinoids, including Δ9-tetrahydrocannabinol (THC) and synthetic CB1 agonists elicit acute psychotropic effects that undergo tolerance with repeated exposure. In contrast, the effects of prolonged cannabinol (CBN) use are unknown. This study examined (1) the effects of repeated CBN administration on classic cannabimimetic outcomes, (2) whether these effects undergo tolerance or induce physical dependence, and (3) the THC-like discriminative stimulus effects of CBN, including whether CBN alters THC's discriminative stimulus. EXPERIMENTAL APPROACH Adult C57BL/6 mice were administered CBN twice daily for five days and tested in the tetrad battery to measure tolerance. On the sixth day, rimonabant was administered and somatic signs of withdrawal (i.e., head twitches and paw tremors) and struggling in the tail suspension test were assessed. Cross-tolerance to the CB1/CB2 agonist WIN 55,212-2 was also assessed in mice repeatedly administered CBN. A separate cohort o",
+      "evidence_boundary": "Observational evidence cannot establish causality and is vulnerable to confounding.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2577,
+      "pmid": "42734521",
+      "doi": "10.1021/acs.jcim.6c00526",
+      "title": "Residue Interaction Network Reveals Allosteric Pathways Linking Orthosteric and Intracellular Sites in Class A GPCRs.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Understanding how allosteric modulators influence protein dynamics is essential for guiding drug design. This work analyses a total of 45 μs of classical molecular dynamics simulations for four class A G-protein-coupled receptors (GPCRs), namely the Complement C5a receptor (C5AR1), the Purinergic Receptor P2Y (P2RY1), and the Cannabinoid Receptors 1 and 2 (CNR1/CNR2). Protein dynamics is essential to detect the shallow extrahelical binding sites, such as the one found in P2RY1. Current methods for computing Allosteric Communication Networks (ACNs) produce complex outputs requiring expert interpretation. To address this, we focus on the shortest paths of information transfer between the orthosteric and G-protein binding sites in Class A GPCRs. Our retrospective analysis reveals state- and bias ligand-dependent residue interactions along these communication pathways. Furthermore, focusing on the predicted binding site of allosteric modulator EC21a at cannabinoid receptors, the ACN framew",
+      "evidence_boundary": "Observational evidence cannot establish causality and is vulnerable to confounding.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2578,
+      "pmid": "42714782",
+      "doi": "10.1007/s43440-026-00898-8",
+      "title": "Interactions of ACEA and WIN 55,212-2 mesylate with temozolomide and cisplatin in neuroblastoma and glioblastoma cell lines: an isobolographic analysis.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "BACKGROUND Glioblastoma is still the most aggressive primary brain tumor in adults. Recently, several advanced experimental treatment options have been proposed for glioblastoma patients, including the application of cannabinoids as an add-on therapy. METHODS In the MTT, LDH, and BrdU assays, the anti-proliferative effects of arachidonyl-2'-chloroethylamide (ACEA - a potent selective cannabinoid CB1 receptor agonist) and WIN 55,212-2 mesylate (a non-selective cannabinoid CB1 and CB2 receptor agonist) on neuroblastoma and glioblastoma cell lines (CHP-134, KELLY, U-87MG, T98G, and C6) were determined. The interaction profiles of ACEA and WIN 55,212-2 mesylate in combinations with cisplatin and temozolomide (two chemotherapeutic drugs) in CHP-134, KELLY, U-87MG, T98G, and C6 were assessed isobolographically in the MTT test. Additionally, the impact of ACEA and WIN 55,212-2 mesylate on cannabinoid CB1 receptors expressed on all the tested cell lines was examined with the Western blot techn",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2579,
+      "pmid": "42711610",
+      "doi": "10.1208/s12248-026-01281-4",
+      "title": "Predicting Cannabidiol Pharmacokinetics in Older Adults Via Physiologically Based Pharmacokinetic Modeling.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Cannabidiol (CBD) use continues to increase, particularly among older adults. However, knowledge of CBD disposition in this ever-growing and understudied population, along with the relative contributions of cytochrome P450 (CYP) and uridine 5′-diphospho-glucuronosyltransferase (UGT) enzymes to CBD metabolism, remain limited. Inclusion of UGT activators (e.g., alamethicin, MgCl2) may alter in vitro estimates of enzyme contributions. CBD has also been reported to produce time-dependent inhibition (TDI) of certain CYPs, potentially affecting its own disposition. We combined in vitro data with physiologically based pharmacokinetic (PBPK) modeling to further characterize TDI and reversible CYP inhibition by CBD, quantify the contributions of CYPs and UGTs to CBD metabolism, and determine in vitro assay conditions that best reflect in vivo CBD metabolism. PBPK modeling was next used to extrapolate CBD exposure from young (18–64 years) to older (65–98 years) adults. CBD exhibited TDI only tow",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2580,
+      "pmid": "42689154",
+      "doi": "10.7759/cureus.113857",
+      "title": "Safety and Efficacy of Single-Session Endoscopic Retrograde Cholangiopancreatography and Laparoscopic Cholecystectomy for the Treatment of Concomitant Gallbladder and Common Bile Duct Stones: A Single-Centre Experience.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Background and objectives Cholelithiasis is a commonly encountered biliary disorder in the Asian subcontinent, with a substantial burden observed in the Indian population. A significant proportion of patients admitted with gallbladder stones also present with choledocholithiasis. In individuals with acute calculous cholecystitis who are discharged without surgical intervention, the likelihood of subsequent gallstone-related complications increases progressively over time. The objective of the present study was to evaluate the safety, efficacy, and perioperative outcomes of performing single-session endoscopic retrograde cholangiopancreatography (ERCP) followed by laparoscopic cholecystectomy (LC) in the same operative setting. This combined approach, although less commonly adopted than the traditional two-session strategy, may provide meaningful benefits in the management of patients with concomitant gallbladder and common bile duct (CBD) stones. Methods A retrospective single-centre r",
+      "evidence_boundary": "Observational evidence cannot establish causality and is vulnerable to confounding.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2581,
+      "pmid": "42683034",
+      "doi": "10.55729/2000-9666.1610",
+      "title": "Duodenal Perforation From Dislodged Prophylactic Pancreatic Stent Following ERCP for Hilar Cholangiocarcinoma: A Rare Adverse Event.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "We report a rare complication of prophylactic pancreatic duct stenting during ERCP for suspected hilar cholangiocarcinoma. A 47-year-old woman presented with two weeks of painless jaundice, total bilirubin 18 mg/dL, and cholestatic enzymes. Imaging revealed intrahepatic biliary dilation without CBD dilation. ERCP with cholangioscopy identified a right hepatic duct stricture; biopsies were obtained. A 10 mm × 4 cm covered metal stent was placed in the CBD, a 7 Fr × 12 cm plastic stent in the right hepatic duct, and a 4 Fr × 5 cm pancreatic stent was prophylactically inserted after inadvertent duct cannulation. Two days later, she developed acute abdominal pain. CT revealed stent migration with duodenal perforation. Repeat ERCP removed the dislodged stent, closed the defect endoscopically, and replaced the metal biliary stent with plastic. Biopsies confirmed perihilar cholangiocarcinoma. This case emphasizes that although prophylactic stenting reduces the risk of post-ERCP pancreatitis, ",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2582,
+      "pmid": "42679687",
+      "doi": "10.1016/j.dmd.2026.100375",
+      "title": "Effects of simulated exogenous and endogenous lipid microenvironments on cannabidiol disposition and cytochrome P450 2C19-mediated drug interactions: New mechanistic insights.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Cannabidiol (CBD) is an in vitro inhibitor of multiple cytochrome P450 (P450) enzymes, which has been confirmed in healthy adults. Whether these observations translate to different patient populations, including those with hepatic steatosis, is not known. Accordingly, the effects of simulated exogenous and endogenous lipid microenvironments on the P450 inhibition potential and disposition of CBD were evaluated using human liver microsomes (HLMs). Consistent with clinical observations, CYP2C19 was most sensitive to inhibition by CBD as both a component of a mixture containing triglycerides (CBDm) and in purified form (CBDp), with a Ki of 0.22 ± 0.03 and 0.16 ± 0.03 μM, respectively. CYP2C19 activity (S-mephenytoin 4'-hydroxylation) decreased by 25% ± 3.5% and 68% ± 0.4%, respectively, upon exposure to triglycerides and fatty acids under simulated hepatic steatotic conditions. Triglycerides and fatty acids enhanced the CYP2C19 inhibitory effects of CBDp by 1.3- to 3-fold, respectively. T",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2583,
+      "pmid": "42661597",
+      "doi": "10.1113/EP093418",
+      "title": "Placebo and nocebo effects on pain through the lens of the predictive brain: Neurobiological mechanisms and translational implications.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Abstract Placebo and nocebo effects on pain provide a model for investigating how cognitive and contextual factors modulate the physiological processes underlying nociception and its regulation. However, existing accounts remain fragmented and lack a unifying mechanistic framework linking brain, behaviour and autonomic responses. Here, we synthesize evidence from neuroimaging, electrophysiology, pharmacological and experimental paradigms within a predictive processing framework, conceptualizing pain as an inferential process arising from the integration of top‐down predictions and bottom‐up nociceptive input weighted by their precision. Across studies, placebo analgesia is consistently associated with increased engagement of prefrontal–cingulate circuits and descending modulatory pathways, including periaqueductal grey and rostral ventromedial medulla, alongside activation of opioidergic, dopaminergic and cannabinoid systems. In contrast, nocebo hyperalgesia involves increased activity",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2584,
+      "pmid": "42653071",
+      "doi": "10.3390/life16081383",
+      "title": "Safety and Efficacy Assessment of Cannabis Plant Compared to Atorvastatin for Lipid Lowering in Diabetic and Obese Wistar Male Rats.",
+      "category": "cannabinoid_safety",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Introduction. Statins’ established cardiovascular benefits are often undermined by hepatic adverse effects in obese diabetic patients with suspected non-alcoholic fatty liver disease. We evaluated whether cannabis plant treatment is a safe and effective alternative to atorvastatin in a metabolically challenged rodent model. Methods. Fourteen obese and diabetic Wistar rats received either atorvastatin for 30 days or cannabis plant extract for 30 days. Main outcome: lipid profile; secondary outcomes: renal function, glycemia and endothelial health assessed through atherogenic indices. Safety was assessed using plasma liver enzyme concentrations. Results. Baseline biochemical profiles were similar between groups. Atorvastatin increased HDL-Col more than cannabis plant (MD: 44.3; IQR [33, 57.5] mg/dL, Hedges’ g 2.713 vs. MD: 14.3; IQR [14, 17] mg/dL, Hedges’ g 5.049), and cannabis plant did not change LDL-Col. Atherogenic index of plasma and Castelli Risk Index 1 improved with both interve",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2585,
+      "pmid": "42794540",
+      "doi": "10.3390/ijms27188109",
+      "title": "Coptidis Rhizoma for Obesity, Diabetes, and Dyslipidemia: An Integrated Meta-Analysis and In Silico Study.",
+      "category": "metabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Obesity, diabetes, and dyslipidemia form an interconnected metabolic disease cluster driven by insulin resistance and chronic inflammation. This study evaluated the clinical efficacy and multi-target mechanisms of Coptidis Rhizoma for these metabolic disorders through an integrated systematic review, meta-analysis of randomized controlled trials (RCTs), network pharmacology, and molecular docking. Meta-analysis of 19 RCTs (n = 1718) demonstrated that Coptidis-containing formulations, primarily as adjunctive therapy, significantly improved primary clinical endpoints across all three metabolic conditions: body mass index (BMI: SMD = −0.72, 95% CI [−1.00, −0.44], p < 0.00001), glycated hemoglobin (HbA1c: SMD = −0.77, 95% CI [−1.07, −0.47], p < 0.00001), and low-density lipoprotein cholesterol (LDL-C: SMD = −1.10, 95% CI [−1.57, −0.62], p < 0.00001). Network analysis revealed shared targets enriched in lipid metabolism, inflammatory signaling, and PI3K-Akt/MAPK cascades. Molecular docking ",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2586,
+      "pmid": "42794458",
+      "doi": "10.3390/ijms27188029",
+      "title": "Gut, Oral, and Fungal Microbiota in Hypertension: A Multi-Compartment Systematic Review.",
+      "category": "cardiometabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "The gut microbiota is an established modulator of blood pressure, but the oral bacteriome and the fungal mycobiome have been examined largely in isolation from it and from each other. No previous synthesis has evaluated all three compartments within one analytical framework, or treated sex and ethnicity as primary analytical axes rather than adjustment covariates. Systematic review reported according to PRISMA 2020 and, for the synthesis, the SWiM guideline. PubMed/MEDLINE, Embase, Scopus, and Web of Science were searched from inception to 30 June 2026. Observational human studies in adults reporting gut, oral, or fungal microbiota data stratified by blood pressure status were eligible, together with Mendelian randomisation studies and studies with a nested experimental causal component. Two reviewers screened and extracted independently, with a third resolving disagreement. Risk of bias was assessed with the Newcastle–Ottawa Scale and certainty of evidence with GRADE adapted for expos",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2587,
+      "pmid": "42797416",
+      "doi": "10.3390/ph19091370",
+      "title": "Trimetazidine in Chronic Coronary Syndrome and Coronary Artery Disease: A Narrative Review of Clinical Efficacy, Safety, and Current Guideline Position.",
+      "category": "cardiometabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Background: Chronic coronary syndrome (CCS) is a major source of morbidity and healthcare utilization, and a substantial proportion of patients continue to experience angina despite contemporary revascularization and guideline-directed medical therapy. Trimetazidine, a metabolic anti-ischemic agent that does not affect heart rate or blood pressure, has been used for decades as a non-hemodynamic add-on. Its position in international guidelines, however, has shifted. We aimed to synthesize current evidence on the clinical efficacy, safety, and guideline status of trimetazidine in CCS and coronary artery disease (CAD) and to delineate clinical circumstances in which a symptom-directed trial may be considered. Methods: We performed a structured narrative review of randomized controlled trials, network and conventional meta-analyses, and large observational studies indexed in PubMed/MEDLINE, Embase, and the Cochrane Library between January 1990 and March 2026. Reference lists of eligible ar",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2588,
+      "pmid": "42731298",
+      "doi": "10.1016/j.phymed.2026.158782",
+      "title": "Balancing efficacy and risk: A toxicological review and safety transformation of Berberis plants and their alkaloids.",
+      "category": "women_health",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "BACKGROUND Berberis plants are widely distributed medicinal herbs with a long history of traditional use worldwide. Their primary active constituents are isoquinoline alkaloids, including berberine, palmatine, jatrorrhizine, and berbamine, which exhibit promising pharmacological activities in anti-inflammation, antibacterial, hypoglycemic, lipid-regulating, and antitumor effects. However, under specific doses, routes of administration, or individual conditions, these constituents may also induce multi-system toxic reactions, making the safety profile of Berberis plants a critical concern that warrants serious attention. PURPOSE AND METHODS We systematically reviewed literature from PubMed, Web of Science, and Google Scholar to evaluate the toxicity profiles and adverse reaction characteristics of Berberis plants and their primary alkaloid constituents. We further analyzed contributing factors to toxicity and reviewed current detoxification strategies. Finally, we provided clinical reco",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2590,
+      "pmid": "42798526",
+      "doi": "10.3389/fendo.2026.1938560",
+      "title": "Serum magnesium and major adverse cardiovascular events in patients with diabetic foot ulcers: a retrospective cohort study.",
+      "category": "cardiometabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Patients with diabetic foot ulcers (DFU) have a high cardiovascular risk. We evaluated the association of baseline total serum magnesium (Mg) with major adverse cardiovascular events (MACE) without presuming a causal or therapeutic effect. This single-center retrospective cohort included 1,176 patients with active DFU admitted from 2015 through 2022. The endpoint was the first MACE, defined as cardiovascular death, nonfatal myocardial infarction, or nonfatal stroke. Cox models estimated hazard ratios (HRs) per 0.1 mmol/L and per standard deviation (SD) of Mg and by data-defined quartile groups. The extended model additionally adjusted for HbA1c, eGFR, albumin, log-transformed C-reactive protein, HDL-C, and LDL-C. Restricted cubic splines used four knots. Competing-risk, renal-function, complete-case, prior-cardiovascular-disease, time-specific, and propensity-score-matched analyses were performed. During a median follow-up of 3.6 years, 304 MACE events occurred, including 216 cardiovas",
+      "evidence_boundary": "Observational evidence cannot establish causality and is vulnerable to confounding.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2591,
+      "pmid": "42792833",
+      "doi": "10.3390/biomedicines14092093",
+      "title": "Enhanced External Counterpulsation Versus Standard Medical Therapy for Chronic Refractory Angina: A Systematic Review and Meta-Analysis.",
+      "category": "cardiometabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Background: Chronic refractory angina is a disabling syndrome of persistent ischemic symptoms despite guideline-directed medical therapy and, in many patients, prior coronary revascularization. Enhanced external counterpulsation [EECP] is a noninvasive therapy that augments diastolic coronary perfusion, reduces systolic afterload, improves endothelial function, and may promote collateral recruitment. Although developed for obstructive coronary artery disease, its vascular and microvascular effects may also be relevant to contemporary ischemic syndromes, including ischemia with non-obstructive coronary arteries [INOCA] and myocardial infarction with non-obstructive coronary arteries [MINOCA]. A contemporary quantitative synthesis of EECP across angina burden, functional capacity, quality of life, and safety is therefore warranted. Methods: We performed a systematic review and meta-analysis of randomized trials and prospective studies of adults with chronic refractory angina treated with",
+      "evidence_boundary": "Synthesis conclusions depend on included-study quality, heterogeneity, and population/formulation match.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2592,
+      "pmid": "42759233",
+      "doi": "10.1016/j.ajem.2026.09.021",
+      "title": "Severe atomoxetine overdose presenting with status epilepticus and wide-complex ventricular tachycardia.",
+      "category": "cardiometabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Atomoxetine is a selective norepinephrine reuptake inhibitor commonly prescribed for attention-deficit/hyperactivity disorder. Most overdoses are mild to moderate; however, severe neurologic and cardiovascular toxicity can occur. We report the case of a 21-year-old woman who ingested approximately 9720 mg of atomoxetine, corresponding to 174 mg/kg. She presented with generalized convulsive status epilepticus, hyperthermia, and severe lactic metabolic acidosis. Arterial blood gas analysis immediately after intubation showed pH 6.94, PaCO₂ 37 mmHg, HCO₃- 7.9 mmol/L, base excess -24.3 mmol/L, and lactate 16.0 mmol/L. After airway protection, activated charcoal was administered. Electrocardiography demonstrated marked QRS prolongation, followed by wide-complex ventricular tachycardia. During this episode, 250 mL of 7% sodium bicarbonate solution (approximately 208 mEq) and 2 g of magnesium sulfate were administered. Sinus rhythm returned within minutes, and subsequent electrocardiography s",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2594,
+      "pmid": "42818883",
+      "doi": "10.64898/2026.09.09.26362637",
+      "title": "Omega-3 Supplementation with Lipid Biomarker Assessment in Youth with Migraine: A Quasi-Randomized Controlled Feasibility Trial.",
+      "category": "cardiometabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Background: Omega-3 polyunsaturated fatty acids may modulate lipid-mediated inflammatory pathways implicated in migraine, yet pediatric trial methodologies evaluating biologic target engagement remain limited. This study evaluated the feasibility of conducting a pediatric nutrition-based migraine intervention trial integrating longitudinal dried blood spot biomarker collection, validated patient-reported outcome measures, dietary assessment, and caregiver-reported acceptability measures. Methods: A quasi-randomized, double-blind, placebo-controlled feasibility trial was conducted at two academic pediatric neurology clinics. Children and adolescents aged 10-17 years with migraine were assigned 1:1 using sequential alternating allocation to daily omega-3 supplementation (850 mg eicosapentaenoic acid + docosahexaenoic acid) or matched coconut oil placebo for 12 weeks. Feasibility outcomes included recruitment yield, participant retention, caregiver-reported supplement adherence, dried blo",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2595,
+      "pmid": "42807527",
+      "doi": "10.3389/fnut.2026.1886305",
+      "title": "Four months of DHA and whey protein supplementation in semi-professional female soccer players: a prospective non-randomized controlled study of omega-3 status, hematological outcomes, and physical performance.",
+      "category": "cardiometabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Omega-3 polyunsaturated fatty acids (n-3 PUFAs) are well established in cardiovascular and cognitive health, yet their role in athletic performance remains insufficiently characterized. Mechanistic links have been proposed via erythrocyte membrane remodeling, blood rheology, and inflammatory modulation. Female athletes represent a particularly relevant but underexplored population, given the potential dual benefits for performance and menstrual health. This study aimed to determine whether long-term DHA plus whey protein supplementation improves erythrocyte omega-3 status, modulates hematological markers relevant to oxygen transport, and translates to performance or menstrual symptom benefits in female athletes. Menstrual symptoms and hormonal profiles were examined as exploratory secondary outcomes. In this prospective non-randomized controlled trial, 38 semi-professional female soccer players were assigned to either an encapsulated algae-based docosahexaenoic acid (DHA) intervention ",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2599,
+      "pmid": "42827864",
+      "doi": "10.3389/fchem.2026.1917991",
+      "title": "Novel bioactive compounds in the treatment of osteoporosis: chemistry-driven discovery from preclinical validation to clinical translation.",
+      "category": "cardiometabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Osteoporosis affects an estimated 200 million people worldwide. Fragility fractures of the hip, spine, and wrist carry high mortality and impose a heavy socioeconomic burden. Bisphosphonates, denosumab, selective estrogen receptor modulators (SERMs), teriparatide, abaloparatide, and the recent sclerostin antibody romosozumab have improved clinical outcomes, but unmet needs remain. Long-term antiresorptive use is complicated by atypical femoral fractures and osteonecrosis of the jaw; denosumab discontinuation causes rebound bone loss; romosozumab carries a cardiovascular caution. Persistence on therapy beyond 1 year is low, and no oral osteoanabolic agent has reached the clinic. Against this background, medicinal chemistry is producing a wave of next-line compounds. These include rationally designed small molecules and peptidomimetics targeting the Wnt pathway, calcium-sensing receptor antagonists (calcilytics) intended to mimic pulsatile parathyroid hormone, refined cathepsin K inhibit",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2600,
+      "pmid": "42824366",
+      "doi": "10.1093/ckj/sfag313",
+      "title": "The effects of dialysate acids and divalent ions on calcification and cardiovascular outcomes: old wisdom and new developments.",
+      "category": "cardiometabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Dialysate calcium (DCa) and magnesium (DMg) and the organic acid used in the A (acid) concentrate have a profound combined influence on intradialytic mineral balance and may influence vascular calcification progression and treatment-related symptoms. Whereas KDIGO recommend a DCa between 1.25 (DCa 1.25) and 1.50 mmol/l (DCa 1.50), the optimal DCa for an individual patient remains uncertain. No consistent mortality difference between DCa 1.50 and 1.25 has been observed. However, DCa 1.50 may induce a positive calcium balance, raising concerns about vascular calcification progression. Conversely, DCa below 1.25 mmol/l has been associated with a higher risk of sudden cardiac death. Compared with acetic acid (Acet-D), citric-acid (Cit-D) reduces calcification propensity of serum, although the effect on vascular calcification progression is inconclusive. Whenever feasible, DCa should be individualized, ideally using estimates of calcium mass balance (CaMB). Because Cit-D generally results i",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2602,
+      "pmid": "42819357",
+      "doi": "10.3389/fnut.2026.1929742",
+      "title": "Polyunsaturated fatty acids and psychotic disorders: integrating mechanistic, genetic, and clinical evidence.",
+      "category": "cardiometabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Polyunsaturated fatty acids (PUFAs), including omega-3 (n-3) and omega-6 (n-6) essential fatty acids, play critical roles in brain development and function, serving as precursors to a wide range of bioactive lipid mediators involved in immune and inflammatory signaling. Emerging evidence implicates PUFA dysregulation in schizophrenia and bipolar disorder, severe psychiatric conditions that remain incompletely treated by current therapeutics. In this review, we first outline the biological roles of PUFAs relevant to neurodevelopment and psychiatric risk, with particular emphasis on their interactions with synaptic, immune, and stress-related risk pathways impinging on neurodevelopment. We synthesize preclinical evidence showing how altered PUFA availability influences neurobiological and behavioral phenotypes relevant to psychosis, alongside human observational, epidemiological, genomic and lipidomic studies that implicate disrupted PUFA metabolism in schizophrenia and bipolar disorder.",
+      "evidence_boundary": "Trial findings are specific to the tested formulation, dose, population, comparator, and duration.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2603,
+      "pmid": "42812771",
+      "doi": "10.3389/fcell.2026.1832061",
+      "title": "Ferroptosis in smoke inhalation injury: from mechanisms to potential therapeutic targets.",
+      "category": "cardiometabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Smoke inhalation injury (SII) is a prevalent yet underrecognized cause of acute respiratory failure and longer-term airway-alveolar remodeling after fires, wildfires, and industrial accidents. Beyond inflammation and generic oxidative stress, accumulating evidence supports ferroptosis as a mechanistically distinct, self-amplifying axis that can sustain epithelial/endothelial damage, barrier breakdown, and maladaptive repair. Ferroptosis is driven by iron-dependent phospholipid peroxidation and collapse of membrane redox homeostasis, and in SII is promoted by iron dyshomeostasis including heme/hemoglobin-derived iron and ferritinophagy, PUFA-phospholipid remodeling, and failure of antioxidant checkpoints centered on the System Xc − -GSH-GPX4 pathway, with complementary protection via FSP1-CoQ10 and related radical-trapping systems. Despite rapid progress, how ferroptotic signaling integrates with other regulated cell-death programs and inflammatory circuits across the temporal phases of",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2604,
+      "pmid": "42797275",
+      "doi": "10.3390/pharmaceutics18091100",
+      "title": "Harnessing Medicinal Plants Through Advanced Drug Delivery: A New Era in Type 2 Diabetes Management.",
+      "category": "metabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Type 2 diabetes mellitus (T2DM) remains a global health crisis, with nearly 589 million adults currently affected and projections pointing toward 853 million by 2050. Despite an expanding pharmacological armamentarium, a significant proportion of patients fail to achieve adequate glycaemic control, and the limitations of existing therapies, including adverse effects, cost, and limited accessibility, underscore the compelling need for novel therapeutic approaches. Phytochemicals such as curcumin, berberine, quercetin, resveratrol, and epigallocatechin gallate possess well-documented antidiabetic activity, operating through the PI3K/Akt, AMPK (activated protein kinase), NF-κB/JNK (nuclear factor kappa-B), and GLP-1R (glucagon-like peptide-1) signalling axes to improve insulin sensitivity, suppress gluconeogenesis, protect pancreatic beta-cells, and attenuate chronic metabolic inflammation. However, their clinical utility has been fundamentally constrained by poor oral bioavailability ari",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    },
+    {
+      "wave": 2605,
+      "pmid": "42797224",
+      "doi": "10.3390/pharmaceutics18091048",
+      "title": "Targeted Delivery of Specialized Pro-Resolving Mediators (SPMs) for Improved Treatments of Inflammatory Diseases and Cancer.",
+      "category": "cardiometabolic",
+      "abstract_verified": true,
+      "verification_source": "Undermind indexed paper metadata/abstract",
+      "focus": "Acute and chronic inflammation underlies the pathogenesis of numerous diseases, including autoimmune disorders, atherosclerosis, infections, and cancer. Although non-steroidal anti-inflammatory drugs (NSAIDs) and corticosteroids are widely used to control inflammation, their clinical utility is limited by adverse effects such as gastrointestinal toxicity and immunosuppression. Specialized pro-resolving mediators (SPMs), a family of endogenous lipid mediators derived from omega-3 fatty acids, have emerged as promising therapeutics because they actively promote the resolution of inflammation without suppressing host immunity. However, their clinical translation is hindered by poor chemical stability, rapid metabolic degradation, and short circulation half-lives. To overcome these limitations, a variety of delivery platforms—including liposomes, extracellular vesicles, PLGA nanoparticles, and hydrogels—have been developed to improve SPM stability, pharmacokinetics, and therapeutic efficac",
+      "evidence_boundary": "Preclinical findings cannot be generalized directly to human efficacy or dosing.",
+      "state": "research_only_source_verified"
+    }
+  ],
+  "missing_after_bulk_lookup": [
+    {
+      "wave": 2558,
+      "pmid": "42773786",
+      "doi": "10.1177/25785125261490003",
+      "title": "Efficacy and Safety of Cannabinoid-Based Interventions for Low Back Pain and Migraine: A Systematic Review of Randomized Controlled Trials."
+    },
+    {
+      "wave": 2563,
+      "pmid": "42813605",
+      "doi": "10.1177/02698811261478615",
+      "title": "Effects of Δ(9)-tetrahydrocannabinol on affiliative social behaviour: A systematic review of rodent studies."
+    },
+    {
+      "wave": 2564,
+      "pmid": "42813543",
+      "doi": "10.1111/jvp.70114",
+      "title": "Pharmacokinetics of Buccally Administered Cannabidiol and Oral Carprofen During Single- and Repeated-Dose Administration in Dogs."
+    },
+    {
+      "wave": 2565,
+      "pmid": "42807438",
+      "doi": "10.2147/NSA.S617933",
+      "title": "Functionalized Colloidal Hydroxyapatite for Combined Delivery of Cannabidiol and Epirubicin: Characterization, Biomimetic Membrane Interaction, and Cytotoxicity Studies."
+    },
+    {
+      "wave": 2569,
+      "pmid": "42769824",
+      "doi": "10.2903/j.efsa.2026.10318",
+      "title": "Safety of cannabidiol isolated from Cannabis sativa L. as a novel food pursuant to Regulation (EU) 2015/2283."
+    },
+    {
+      "wave": 2570,
+      "pmid": "42769758",
+      "doi": "10.2903/j.efsa.2026.10319",
+      "title": "Safety of Cannabis sativaL. extract as a novel food pursuant to Regulation (EU) 2015/2283."
+    },
+    {
+      "wave": 2589,
+      "pmid": "42798689",
+      "doi": "10.1007/s13205-026-05076-4",
+      "title": "The effects of coenzyme Q10 supplementation on exercise-induced oxidative stress and related physiological outcomes in athletes: a systematic review and meta-analysis."
+    },
+    {
+      "wave": 2593,
+      "pmid": "42822834",
+      "doi": "10.1016/j.ajcnut.2026.101564",
+      "title": "Pasture-Raised Red Meat Compared with Plant-Based Meat Alternatives Within Healthy Dietary Patterns: Effects on Polyunsaturated Fatty Acid Status and Cardiometabolic Health in a Randomized Dietary Intervention."
+    },
+    {
+      "wave": 2596,
+      "pmid": "42807157",
+      "doi": "10.1155/jnme/5589963",
+      "title": "A Randomized, Double-Blind, Placebo-Controlled Trial Comparing the Effects of Commercially Available Ubiquinone, Ubiquinol, and Geranylgeraniol Dietary Supplements on Plasma CoQ10 Concentrations."
+    },
+    {
+      "wave": 2597,
+      "pmid": "42798115",
+      "doi": "10.1097/MD.0000000000050897",
+      "title": "Genetically predicted circulating polyunsaturated fatty acids and Crohn's disease susceptibility: A two-sample mendelian randomization study."
+    },
+    {
+      "wave": 2598,
+      "pmid": "42782716",
+      "doi": "10.4103/aam.aam_461_26",
+      "title": "Comparative Study of Efficacy of Preemptive Use of Opioid-free Anesthesia Using Paracetamol, Magnesium Sulfate, Lignocaine, Dexamethasone versus Intravenous Fentanyl for Attenuating Hemodynamic Response, Perioperative Analgesia, and Postoperative Recovery Profile during Laparoscopic Cholecystectomy: A Randomized Parallel Group Trial."
+    },
+    {
+      "wave": 2601,
+      "pmid": "42822582",
+      "doi": "10.1016/j.amjmed.2026.09.031",
+      "title": "Diet and Risk of Cardiovascular Disease."
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "rows": [
+    {
+      "wave": 3256,
+      "pmid": "42580984",
+      "doi": "10.1016/j.numecd.2026.104931",
+      "category": "micronutrients",
+      "title": "Effect of magnesium supplementation on liver enzymes: a systematic review and meta-analysis of clinical trials.",
+      "abstract": "Several studies have explored the effect of magnesium supplementation on metabolic and cardiovascular parameters, showing benefits in reducing inflammatory markers and lipid parameters. However, the evidence from clinical trials about its direct impact on liver function is limited. Therefore, we performed a meta-analysis of clinical trials to evaluate the effect of magnesium supplementation on liver enzymes in adults. The protocol was previously registered in PROSPERO (CRD420261334071). PubMed, Web of Science, Scopus, and ClinicalTrials.gov databases were searched for eligible studies. A restricted maximum likelihood model with Hartung-Knapp adjustment was used to estimate the pooled effect size. The impact of each study on the overall effect size was determined through the leave-one-out method. The meta-analysis of seven clinical trials demonstrated that magnesium supplementation significantly decrease alanine aminotransferase (ALT) (WMD: -4.76 U/L, 95% CI: -9.48, -0.04, p = 0.04, I2 = 86%) and aspartate aminotransferase (AST) (WMD: -6.28 U/L, 95% CI: -12.15, -0.41, p = 0.03, I2 = 97%). Otherwise, gamma-glutamyl transferase (GGT) (WMD: 28.03 U/L, 95% CI: -613.29, 669.35, p = 0.67, I2 = 78%) and alkaline phosphatase (ALP) (WMD: 9.99 U/L, 95% CI: -5.78, 25.76, p = 0.07, I2 = 0%) were not affected after magnesium administration. Furthermore, the sensitivity analysis was robust for ALT, AST, and ALP, except for GGT where the effect size was sensitive to one study. The results of the present meta-analysis suggest that magnesium supplementation reduces ALT and AST levels in adults.",
+      "journal": "Nutrition, metabolism, and cardiovascular diseases : NMCD",
+      "pub_date": "2026-Jul-30",
+      "title_match_score": 1,
+      "error": null
+    },
+    {
+      "wave": 3262,
+      "pmid": "42699946",
+      "doi": "10.4103/ijcm.ijcm_73_26",
+      "category": "micronutrients",
+      "title": "Comparative Effectiveness of Iron Supplementation in Indian Pregnant Women: A Network Meta-Analysis of Randomized Controlled Trials.",
+      "abstract": "Anemia prevalence in Indian pregnant women remains at 52.2% (The National Family Health Survey-5), necessitating rigorous comparison of standard versus newer iron formulations to optimize treatment in India. To evaluate the comparative effectiveness of oral and parenteral iron preparations in Indian pregnant women, focusing on hemoglobin and serum ferritin improvement. We searched PubMed, Embase, Cochrane Library, and Google Scholar for Randomized Controlled Trials (RCTs) published up to 2024. Only RCTs from India were included. Data from 17 trials (N = 2,228) were synthesized using network meta-analysis to estimate mean differences (MDs) in hemoglobin and serum ferritin levels. Within oral formulations, newer salts significantly outperformed the standard of care; specifically, ferrous asparto glycinate demonstrated the highest hemoglobin improvement (MD: 1.21 g/dL; 95% confidence interval [CI] 0.04-2.38) (hypothesis-generating; small sample), followed by ferrous bisglycinate and iron polymaltose complex, compared to ferrous sulfate. Among parenteral formulations, iron sucrose emerged as the superior agent (MD: 0.76 g/dL; 95% CI 0.52-1.00) for hemoglobin recovery. While the comparison between modes confirmed the known superiority of parenteral over oral iron (MD: 0.88 g/dL at 4 weeks), the network ranking highlights that newer oral molecules offer significantly better efficacy than the current standard, ferrous sulfate. Iron sucrose shows the highest efficacy for rapid hemoglobin correction. Among oral options, ferrous asparto glycinate, ferrous bisglycinate, and iron polymaltose complex provide better hemoglobin improvement than ferrous sulfate. These findings support a review of iron-molecule choices within the Anemia Mukt Bharat strategy. PROSPERO Registration Number: CRD42024570537.",
+      "journal": "Indian journal of community medicine : official publication of Indian Association of Preventive & Social Medicine",
+      "pub_date": "2026-Aug",
+      "title_match_score": 1,
+      "error": null
+    },
+    {
+      "wave": 3264,
+      "pmid": "42616536",
+      "doi": "10.1001/jama.2026.14190",
+      "category": "micronutrients",
+      "title": "Daily Zinc Supplementation for Infection Prevention in Children With Sickle Cell Anemia: The ZIPS-2 Randomized Clinical Trial.",
+      "abstract": "Despite existing prevention strategies, infections remain a major cause of morbidity and mortality in children in Africa with sickle cell anemia. To determine the safety and effectiveness of daily zinc supplementation to prevent all-cause infection in children with sickle cell anemia in Uganda. A randomized, double-blind, placebo-controlled trial of children aged 1.00 to 4.99 years with sickle cell anemia at Jinja Regional Referral Hospital in Jinja, Uganda, from February 10, 2025, to April 30, 2025, with 6 months of follow-up through November 7, 2025. Participants received zinc sulfate at 20 mg daily or placebo daily for 6 months. The primary outcome was all-cause infections per 100 person-years, using standardized clinical criteria to define infections. Among 118 children screened for eligibility, 100 were randomly assigned to receive zinc supplementation (n = 50) or placebo (n = 50) (mean [SD] age, 36.0 [13.2] months; 45 female [45%]). At enrollment, 45 participants (45%) were receiving hydroxyurea therapy. All participants initiated or continued receiving hydroxyurea after enrollment. During the 6-month follow-up, there was complete ascertainment for all participants and no loss to follow-up. There were 80 all-cause infections in the zinc group and 124 in the placebo group, corresponding to a significantly lower infection rate in the zinc group than the placebo group (305.7 [95% CI, 242.4-380.4] infections per 100 person-years vs 480.7 [95% CI, 399.8-573.1] infections per 100 person-years; rate difference, -176.0 [95% CI, -300.8 to -51.3]; incidence rate ratio after adjustment for baseline age, sex, and hydroxyurea use, 0.62 [95% CI, 0.45-0.86]). No adverse events requiring discontinuation of the study intervention were observed in either group. Zinc supplementation at 20 mg per day reduced all-cause infection in children with sickle cell anemia younger than 5 years in Uganda. Multisite clinical trials are needed to validate these findings and to assess effectiveness in older children. ClinicalTrials.gov Identifier: NCT06561061.",
+      "journal": "JAMA",
+      "pub_date": "2026-Aug-19",
+      "title_match_score": 1,
+      "error": null
+    },
+    {
+      "wave": 3266,
+      "pmid": "42631762",
+      "doi": "10.1007/s00394-026-04091-8",
+      "category": "micronutrients",
+      "title": "Impact of organic selenium supplementation on glycaemic control and quality of life in patients with diabetic neuropathy: a randomized placebo-controlled trial.",
+      "abstract": "Type 2 diabetes mellitus (T2DM), often complicated by diabetic peripheral neuropathy (DPN), remains a leading global health burden. Despite advancements in pharmacotherapy, glycemic control is frequently suboptimal, prompting interest in adjunctive interventions. Selenium, a trace element with antioxidant and insulin-modulating properties, has been proposed as a potential therapeutic agent in T2DM management; however, evidence remains inconsistent, particularly in patients with DPN. To evaluate the effects of organic selenium supplementation on glycemic control, insulin resistance, quality of life, and sleep quality in individuals with T2DM and DPN. In this triple-blind, randomized, placebo-controlled clinical trial (ethics approval code: IR.TBZMED.REC.1401.374; trial registration number: IRCT20131009014957N10), 50 patients with T2DM and confirmed diabetic peripheral neuropathy (DPN) were randomized to receive either 200 μg/day of organic selenium (as selenium-enriched yeast) or placebo for 8 weeks. Primary outcomes included changes in fasting blood sugar (FBS), glycated hemoglobin (HbA1c), HOMA-IR, and QUICKI. Secondary outcomes encompassed quality of life (WHOQOL-BREF) and sleep quality (PSQI). Biochemical methods were used to measure laboratory biomarkers, and analysis was conducted using ANCOVA, adjusting for the baseline value of the outcome variable, baseline FBS, age, sex, BMI, and MNSI score. Selenium supplementation significantly reduced FBS [adjusted mean difference (aMD) (95% CI): -33.95 mg/dL(- 64.2 to - 5.5); p=0.021], HbA1c [aMD (95% CI): -1.20% (- 1.79 to - 0.61); p<0.001], and HOMA-IR [aMD (95% CI): -1.57 (- 3.06 to - 0.08); p=0.039), while increasing QUICKI (aMD (95% CI): 0.02 (0.003 to 0.034); p=0.018), compared to placebo. Improvements in WHOQOL-BREF and sleep quality were observed within the selenium group but did not reach statistical significance in between-group analyses except for improving daytime dysfunction of sleep quality [aMD (95% CI): -0.54 (- 1.05 to - 0.03); p=0.039). Adverse events were minimal and comparable across groups. Eight weeks of organic selenium supplementation significantly improved glycemic indices and insulin sensitivity in patients with T2DM and DPN, without notable adverse effects. These findings suggest that selenium supplementation may serve as a potentially useful adjunctive intervention for improving short-term metabolic control in patients with T2DM and DPN. The approximately 1.2% reduction in HbA1c observed in this study may be clinically meaningful; however, the findings should be interpreted cautiously given the modest sample size, short follow-up duration, and single-centre design. Further long-term studies are warranted to elucidate its broader neuropsychological benefits.",
+      "journal": "European journal of nutrition",
+      "pub_date": "2026-Aug-22",
+      "title_match_score": 1,
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-2426-2450-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-2401-2425-selection",
+  "program": {
+    "range": "2001-2500",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 450,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2500"
+  },
+  "source_provenance": [
+    "NCBI PubMed ESearch + exact EFetch abstract verification",
+    "cumulative PMID collision index through Wave 2250"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe and exact abstract verification during authoring; expensive repository-wide validation only after Wave 2500"
+  },
+  "waves": [
+    {
+      "wave": 2426,
+      "entity_slug": "vitamin-d-uk-urgent-call-redefine-threshold",
+      "pmid": "42453499",
+      "focus": "Review on vitamin d in the uk: an urgent call to redefine the reports Raising the threshold to <50 nmol/L would bring the UK into closer alignment with international and clinical practice frameworks and may enable a broader. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2427,
+      "entity_slug": "multistrain-probiotic-supplementation-hepatic-function-anthropometric-parameters",
+      "pmid": "42456558",
+      "focus": "Randomized controlled trial on effects of multistrain probiotic supplementation on hepatic function and anthropometric parameters reports In patients with MASLD, the 12-wk probiotic supplementation had a modest but statistically significant effect on FIB-4, aspartate aminotransferase, and APRI, with no significant. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2428,
+      "entity_slug": "probiotic-preparations-mitigating-chemotherapy-induced-oral-mucositis",
+      "pmid": "42488412",
+      "focus": "Review on probiotic preparations in mitigating chemotherapy-induced oral mucositis: therapeutic efficacy, mechanisms, and reports This review systematically summarizes the clinical manifestations, epidemiological characteristics, pathogenesis, and existing treatment strategies of CIOM. It highlights the critical role of the oral. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2429,
+      "entity_slug": "modulating-gut-ecosystem-dietary-probiotic-novel-interventions",
+      "pmid": "42490818",
+      "focus": "Review on modulating the gut ecosystem dietary, probiotic, and novel interventions for bone reports Integrating the latest clinical and animal model studies, we further explore gut microbiota-based intervention strategies, such as probiotics, prebiotics, fecal microbiota transplantation, and dietary. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2430,
+      "entity_slug": "review-harnessing-alginate-encapsulation-extremely-oxygen-sensitive",
+      "pmid": "42493102",
+      "focus": "Review on review: harnessing alginate for the encapsulation of extremely oxygen-sensitive probiotics reports In addition, this review summarizes strategies for encapsulating NGPs using alginate. Although probiotic encapsulation strategies using alginate have been proposed in previous studies, the. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2431,
+      "entity_slug": "hidden-deficiency-under-bright-skies-vitamin-d",
+      "pmid": "42497152",
+      "focus": "Meta-analysis on hidden deficiency under bright skies: vitamin d prevalence and genetic associations reports Vitamin D deficiency is highly prevalent in African populations with T2DM and is associated with poorer glycemic control. Current evidence is insufficient to conclude. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2432,
+      "entity_slug": "correlations-between-serum-25-hydroxyvitamin-d-levels",
+      "pmid": "42519344",
+      "focus": "Observational study on correlations between serum 25-hydroxyvitamin d levels and nailfold microvascular changes in reports Our results demonstrate that NVC is a valuable non-invasive tool for monitoring microvascular changes in patients with distal interphalangeal-predominant PsA undergoing TNF inhibitor therapy. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2433,
+      "entity_slug": "efficacy-safety-prebiotics-probiotics-synbiotics-hemoglobin-anemia",
+      "pmid": "42525637",
+      "focus": "Meta-analysis on efficacy and safety of prebiotics, probiotics, and synbiotics on hemoglobin and reports Prebiotics, probiotics, and synbiotics do not provide clinically important benefits on hemoglobin or anemia in children, although they appear safe. Larger, high-quality trials in. Evidence boundary: pooled inference depends on included populations, formulations, endpoints, and study quality.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2434,
+      "entity_slug": "oral-magnesium-supplementation-glycemic-control-metabolic-parameters",
+      "pmid": "42534812",
+      "focus": "Randomized controlled trial on the effect of oral magnesium supplementation on glycemic control and metabolic reports Although median HbA1c reduction did not reach statistical significance, Mg-oxide supplementation improved Mg status and showed favorable trends in glycemic control without compromising safety. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2435,
+      "entity_slug": "feeding-gut-immune-axis-dietary-prebiotic-probiotic",
+      "pmid": "42539524",
+      "focus": "Review on feeding the gut-immune axis: dietary, prebiotic, and probiotic strategies to target reports We propose a research agenda prioritizing Mediterranean diet intervention trials, precision microbiome interventions, and combination approaches integrating dietary modification with microbiome-targeted therapies. Lastly, we. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2436,
+      "entity_slug": "zinc-type-2-diabetes-diabetic-kidney-disease",
+      "pmid": "42553224",
+      "focus": "Review on zinc, type 2 diabetes, diabetic kidney disease: focus on hypoxia reports In this review, we focus on the role of zinc homeostasis in the development of diabetes and DKD, with particular emphasis on hypoxia as. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2437,
+      "entity_slug": "is-iron-therapy-indicated-heart-failure-reduced",
+      "pmid": "42555980",
+      "focus": "Review on is iron therapy indicated for heart failure with reduced ejection fraction reports Additionally, there have been several smaller trials using oral iron salts in heart failure. This review investigates the role of iron supplementation in patients. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2438,
+      "entity_slug": "efficacy-melatonin-as-adjunct-nonsurgical-periodontal-therapy",
+      "pmid": "42556907",
+      "focus": "Meta-analysis on efficacy of melatonin as an adjunct to nonsurgical periodontal therapy: a reports Melatonin as an adjunct to NSPT may provide short-term improvements in CAL, PPD, and glycemic control. However, substantial heterogeneity and wide prediction intervals limit. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2439,
+      "entity_slug": "compound-chamomile-lidocaine-hydrochloride-gel-oral-diseases",
+      "pmid": "42558651",
+      "focus": "Review on compound chamomile and lidocaine hydrochloride gel in oral diseases: a review reports However, given the overall limited sample sizes, variability in methodology, and generally moderate-to-low quality of the included studies, these findings warrant caution. Further high-quality. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2440,
+      "entity_slug": "gut-microbiota-anemia-mechanistic-insights-into-iron",
+      "pmid": "42564065",
+      "focus": "Review on gut microbiota in anemia: mechanistic insights into iron metabolism, vitamin synthesis reports By integrating the latest basic and clinical research findings, this review aims to provide a comprehensive overview of the gut microbiota's role in anemia. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2441,
+      "entity_slug": "efficacy-safety-doxercalciferol-1-hydroxyvitamin-d2-spine",
+      "pmid": "42564695",
+      "focus": "Randomized controlled trial on efficacy and safety of doxercalciferol (1α hydroxyvitamin d2) on spine and reports The results show that doxercalciferol treatment showed no difference from the placebo group on bone loss at 12 months; however, at 24 months, doxercalciferol. Evidence boundary: the finding is limited to the studied population, intervention, duration, and endpoints.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2442,
+      "entity_slug": "assessing-vitamin-d-prevention-management-chronic-rhinosinusitis",
+      "pmid": "42568492",
+      "focus": "Meta-analysis on assessing the role of vitamin d in the prevention and management reports Vitamin D deficiency is strongly associated with increased disease severity and recurrence in CRS. Supplementation appears to provide clinical benefits and may serve as. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2443,
+      "entity_slug": "infection-driven-gut-dysbiosis-epigenetic-programming-microglia",
+      "pmid": "42568502",
+      "focus": "Review on infection-driven gut dysbiosis and epigenetic programming of microglia: toward a systems reports This phenomenon, often described as innate immune memory, may contribute to sustained neuroinflammatory activity and impaired synaptic function across the lifespan. Microbiota-derived metabolites, including. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2444,
+      "entity_slug": "emerging-clinical-impact-vitamin-d-supplementation-breast",
+      "pmid": "42578384",
+      "focus": "Systematic review on the emerging role and clinical impact of vitamin d supplementation in reports Vitamin D supplementation during chemotherapy shows potential benefits in breast cancer patients, but large-scale standardized trials with long-term follow-up are needed to confirm its. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2445,
+      "entity_slug": "vitamin-d-receptor-polymorphisms-as-predictors-pediatric",
+      "pmid": "42582766",
+      "focus": "Review on vitamin d receptor polymorphisms as predictors of pediatric infectious disease prevalence reports Future studies are warranted to validate or infirm the role of VDR gene polymorphisms in the prediction of pediatric infectious disease incidence and outcomes. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2446,
+      "entity_slug": "does-crocus-sativus-saffron-have-influence-or",
+      "pmid": "42594967",
+      "focus": "Systematic review on does crocus sativus (saffron) have an influence or effect on ocular reports Saffron's dose-dependent therapeutic effects are a promising adjunctive therapy in ophthalmology. Further large-scale trials are warranted to confirm these findings and refine condition specific. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2447,
+      "entity_slug": "efficacy-safety-microneedling-tranexamic-acid-versus-microneedling",
+      "pmid": "42602406",
+      "focus": "Meta-analysis on efficacy and safety of microneedling with tranexamic acid versus microneedling with reports 5 mm being adequate for transdermal delivery. Findings should be interpreted with caution given the modest sample size, predominance of split-face designs, moderate risk. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2448,
+      "entity_slug": "combined-intravenous-topical-magnesium-sulfate-administration-pain",
+      "pmid": "42602963",
+      "focus": "Randomized controlled trial on effects of combined intravenous and topical magnesium sulfate administration on pain reports Compared with intravenous or topical magnesium sulfate alone, combined intravenous and topical administration did not demonstrate a clinically significant advantage in postoperative pain management. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2449,
+      "entity_slug": "when-powerhouses-fail-rust-takes-over-primary",
+      "pmid": "42610670",
+      "focus": "Review on when powerhouses fail and rust takes over: primary mitochondrial and lipid reports Unlike previous reviews, this synthesis consolidates findings from patient-derived induced pluripotent stem cell neuronal and glial models, compartment-specific iron localization, advanced neuroimaging biomarkers, and. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2450,
+      "entity_slug": "probiotics-prebiotics-synbiotics-lung-function-symptoms-adults",
+      "pmid": "42614164",
+      "focus": "Meta-analysis on effects of probiotics, prebiotics, and synbiotics on lung function and symptoms reports Moderate-quality evidence supports a mild beneficial effect of multi-strain Bifidobacterium/Lactobacillus probiotics or synbiotics on lung function in adult asthma; however, the current evidence does. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    }
+  ]
+}

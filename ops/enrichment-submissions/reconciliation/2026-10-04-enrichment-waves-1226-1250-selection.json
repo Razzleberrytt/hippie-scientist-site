@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-1226-1250-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-1201-1225-selection",
+  "program": {
+    "range": "1001-1500",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 250,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 1500"
+  },
+  "source_provenance": [
+    "Sider Scholar/NCBI PubMed exact-source verification",
+    "collision screening against merged history, pending Waves 501-1000, and active Waves 1001-1225"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 1500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "validation_strategy": "PMID-level dedupe/source verification during authoring; expensive repository-wide validation only after Wave 1500"
+  },
+  "waves": [
+    {
+      "wave": 1226,
+      "entity_slug": "juncus-effusus-cognition",
+      "pmid": "40068564",
+      "focus": "Small 24-week randomized double-blind placebo-controlled trial in 41 older adults found a dehydroeffusol-enriched Juncus effusus extract improved selected Five-Cog clue-recall, clock-drawing and dexterity tasks; the sample was small and effects were outcome-specific.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1227,
+      "entity_slug": "mulberry-tryptophan-sleep-blend",
+      "pmid": "40072601",
+      "focus": "Randomized double-blind crossover trial in adults with sleep complaints found a multi-ingredient evening blend containing mulberry leaf, tryptophan, zinc, magnesium and B vitamins shortened sleep-onset latency by about four minutes and improved selected next-morning mood measures; ingredient-specific attribution is not possible.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1228,
+      "entity_slug": "folate-b12-mci",
+      "pmid": "40249981",
+      "focus": "Network meta-analysis in older adults with mild cognitive impairment favored combined folate plus vitamin B12 for cognition and one-carbon-metabolism markers, but ranking evidence is indirect and should not be treated as proof of superiority across all MCI populations.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1229,
+      "entity_slug": "zinc-premenstrual-syndrome",
+      "pmid": "40435711",
+      "focus": "Meta-analysis of five randomized trials in young females with premenstrual syndrome found zinc supplementation improved pooled physical symptoms and several psychological and sleep-related subdomains; the small study base and multiple symptom outcomes limit precision.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1230,
+      "entity_slug": "folic-acid-vascular-cognitive-impairment",
+      "pmid": "40945966",
+      "focus": "Six-month double-blind randomized trial in 220 patients with cerebral-small-vessel-disease-related cognitive impairment found folic acid improved MoCA and MMSE scores while lowering homocysteine and MMP-9; findings are disease-specific and do not establish broad cognitive enhancement in healthy users.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1231,
+      "entity_slug": "zinc-mild-cognitive-impairment",
+      "pmid": "41008575",
+      "focus": "The ZINCAiD randomized double-blind phase-II trial found no significant cognitive benefit for zinc versus placebo in the primary analysis; apparent stabilization emerged only in a post-hoc subgroup defined by ceruloplasmin response, making the responder finding exploratory.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1232,
+      "entity_slug": "nano-selenium-depression",
+      "pmid": "41057673",
+      "focus": "Triple-blind randomized placebo-controlled trial in 50 adults with major depressive disorder found nano-selenium added to sertraline improved depressive symptoms and selected antioxidant markers over 12 weeks; the small sample, adjunctive design and nano-formulation prevent generalization to selenium monotherapy.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1233,
+      "entity_slug": "synbiotic-adhd-microbiome",
+      "pmid": "41500324",
+      "focus": "Microbiome analysis from a randomized placebo-controlled Synbiotic 2000 ADHD trial found no effect on taxonomic or functional alpha diversity, although beta-diversity and selected short-chain-fatty-acid patterns shifted; mechanistic microbiome changes should not be equated with clinical symptom efficacy.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1234,
+      "entity_slug": "multinutrient-adhd-trace-minerals",
+      "pmid": "41776068",
+      "focus": "Secondary analysis of the MADDY multinutrient ADHD trial linked zinc, selenium, copper, chromium and manganese changes to oxidative-stress markers, including possible pro-oxidant signals at higher selenium/chromium exposure; this is mechanistic multinutrient evidence, not single-mineral efficacy.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1235,
+      "entity_slug": "zinc-probiotic-ibs",
+      "pmid": "42162021",
+      "focus": "Three-arm trial in 84 IBS patients found zinc with or without probiotics improved serum zinc and GI symptom severity versus placebo, while zinc alone showed stronger depression and stress improvements than zinc-plus-probiotic; co-supplementation did not clearly add mood benefit.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1236,
+      "entity_slug": "tomato-products-cardiometabolic",
+      "pmid": "42300210",
+      "focus": "Systematic review and meta-analysis of tomato and tomato-derived interventions found a small reduction in waist circumference but no consistent body-weight or BMI effect; benefits appeared more compatible with food-matrix cardiometabolic effects than with isolated lycopene-driven weight loss.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1237,
+      "entity_slug": "astaxanthin-heart-failure",
+      "pmid": "42303733",
+      "focus": "Eight-week double-blind placebo-controlled trial in 80 heart-failure patients found astaxanthin reduced TNF-alpha, MCP-1 and VLDL, while hs-CRP, most lipid measures and anthropometric outcomes were unchanged; selected biomarker effects do not establish clinical heart-failure benefit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1238,
+      "entity_slug": "lutein-zeaxanthin-omega3-bioavailability",
+      "pmid": "42356301",
+      "focus": "Very small randomized non-blinded pilot in 16 adults examined lutein/zeaxanthin exposure with versus without omega-3 co-supplementation over 12 days; the study primarily informs formulation and bioavailability questions and is too small for broad efficacy claims.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1239,
+      "entity_slug": "polyphenol-mixture-postmenopause-lipids",
+      "pmid": "42371155",
+      "focus": "Randomized placebo-controlled crossover trial in postmenopausal women found a polyphenol mixture lowered oxidized-LDL measures but paradoxically increased total cholesterol, LDL cholesterol and triglycerides in most completers; mixed biomarker direction is an important counterweight to simple antioxidant benefit claims.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1240,
+      "entity_slug": "lutein-zeaxanthin-teen-cognition",
+      "pmid": "42413424",
+      "focus": "Six-month randomized double-blind placebo-controlled trial in 82 teenagers found lutein plus zeaxanthin increased macular pigment density and improved selected attention and processing-speed measures, while visual reasoning, nonverbal memory, gaming performance and self-reported sleep were unchanged.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1241,
+      "entity_slug": "astaxanthin-taekwondo-fatigue",
+      "pmid": "42426781",
+      "focus": "Twenty-eight-day randomized double-masked placebo-controlled trial in young male taekwondo athletes found selected oxidative-stress and muscle-damage signals with astaxanthin, while most burnout dimensions showed no significant interaction; psychological-fatigue benefit was limited and exploratory.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1242,
+      "entity_slug": "quercetin-acute-mountain-sickness",
+      "pmid": "42435069",
+      "focus": "Randomized double-blind placebo-controlled phase-II trial in 110 healthy lowland men ascending to high altitude found a quercetin food bar reduced acute-mountain-sickness incidence and severity and improved oxygen saturation and selected oxidative markers; evidence is specific to acclimatization at altitude.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1243,
+      "entity_slug": "quercetin-autism-adults",
+      "pmid": "42438230",
+      "focus": "Randomized triple-blind placebo-controlled trial in 52 adults with autism found within-group improvement in social-responsiveness scores with quercetin, but the between-group change was not statistically significant and quality-of-life signals weakened after adjustment; efficacy remains unconfirmed.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1244,
+      "entity_slug": "astaxanthin-submaximal-cycling",
+      "pmid": "42467594",
+      "focus": "Double-blind placebo-controlled crossover trial in 20 recreationally active women found two weeks of astaxanthin modestly lowered respiratory exchange ratio during submaximal cycling without changing heart rate, lactate or perceived exertion; substrate-use change is not evidence of improved exercise performance.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1245,
+      "entity_slug": "lycopene-endothelial-function",
+      "pmid": "42588128",
+      "focus": "Systematic review and meta-analysis found lycopene-containing products modestly increased flow-mediated dilation in four studies totaling 182 healthy adults, but the signal lost statistical significance when one study was excluded; certainty was limited and the evidence base small.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1246,
+      "entity_slug": "coq10-juvenile-idiopathic-arthritis",
+      "pmid": "41958203",
+      "focus": "Single-blind randomized pilot in 58 patients with active juvenile idiopathic arthritis found CoQ10 added to standard therapy improved JADAS-10, quality of life and inflammatory/oxidative markers over three months; modest size and adjunctive disease-specific design require replication.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1247,
+      "entity_slug": "ubiquinol-mitochondrial-exercise",
+      "pmid": "42249931",
+      "focus": "Six-week double-blind randomized trial in 54 healthy active men found ubiquinol increased plasma CoQ10 and improved a mitochondrial coupling metric, but did not improve time-to-exhaustion or oxygen-uptake kinetics; direct mechanistic-versus-performance dissociation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1248,
+      "entity_slug": "liposomal-coq10-bioavailability",
+      "pmid": "41582714",
+      "focus": "Randomized open-label crossover pharmacokinetic study found a proprietary liposomal CoQ10 formulation produced substantially higher AUC and Cmax than conventional CoQ10; this supports formulation-specific bioavailability, not superior clinical efficacy.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1249,
+      "entity_slug": "carotenoid-tomato-sauce-masld",
+      "pmid": "42397564",
+      "focus": "Double-blind placebo-controlled trial in 98 adults with MASLD found a proprietary carotenoid-rich tomato sauce reduced liver-fat CAP score more than commercial tomato-sauce control over 12 weeks; functional-food formulation and subgroup findings require independent replication.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1250,
+      "entity_slug": "coq10-hiit-older-adults",
+      "pmid": "41470903",
+      "focus": "Small double-blind randomized trial in 38 older adults completing eight weeks of HIIT found CoQ10 enhanced gains on two chair-stand lower-body tests, while grip strength, balance, mobility and walking endurance showed no between-group advantage; performance effects were narrow rather than global.",
+      "state": "research_only_evidence_quality"
+    }
+  ]
+}

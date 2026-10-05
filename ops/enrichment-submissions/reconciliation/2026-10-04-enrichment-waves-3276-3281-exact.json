@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3276,
+      "pmid": "42829133",
+      "doi": "10.1016/j.cbi.2026.112355",
+      "category": "micronutrients",
+      "selected_title": "Zinc Deficiency Exacerbates Cisplatin-Induced Acute Kidney Injury by Impairing Metabolic Adaptation and Antioxidant Defenses.",
+      "title": "Zinc Deficiency Exacerbates Cisplatin-Induced Acute Kidney Injury by Impairing Metabolic Adaptation and Antioxidant Defenses.",
+      "abstract": "Cisplatin-induced acute kidney injury (Cis-AKI) is a major limitation of chemotherapy and is largely driven by the inability of renal tubular epithelial cells to adapt to metabolic and oxidative stress. Zinc, an essential regulator of cellular stress responses, may influence this vulnerability, but its role in cisplatin nephrotoxicity remains unclear. Here, zinc-normal and zinc-deficient mice were subjected to Cis-AKI. Renal injury was evaluated by histology, serum creatinine (Scr), blood urea nitrogen (BUN), renal zinc levels, and NGAL expression. Transcriptomic analysis was performed to identify pathways altered by zinc deficiency, followed by validation of the AMPK/SIRT1/PGC-1α axis. Oxidative stress and apoptosis were assessed by Nrf2 signaling, antioxidant enzyme expression, SOD activity, MDA levels, TUNEL staining, and Bax/Bcl-2 expression. Zinc deficiency significantly aggravated Cis-AKI, as indicated by increased tubular damage, elevated Scr, BUN, and NGAL levels, and reduced renal zinc content. RNA sequencing revealed suppression of energy metabolism-related programs, accompanied by inhibition of the AMPK/SIRT1/PGC-1α axis, suggesting impaired metabolic adaptation. Zinc deficiency was also associated with reduced Nrf2 signaling, accompanied by decreased expression of antioxidant enzymes and total SOD activity, increased MDA accumulation, and enhanced tubular apoptosis. These findings suggest that zinc deficiency exacerbates Cis-AKI by weakening metabolic adaptation and antioxidant defenses, thereby promoting oxidative stress and apoptosis. Our study identifies zinc as a key regulator of tubular stress adaptation and suggests zinc homeostasis as a potential therapeutic target in cisplatin nephrotoxicity.",
+      "journal": "Chemico-biological interactions",
+      "pub_date": "2026-Oct-03",
+      "title_match_score": 1,
+      "error": null
+    },
+    {
+      "wave": 3277,
+      "pmid": "42825595",
+      "doi": "10.1039/d6fo03825e",
+      "category": "micronutrients",
+      "selected_title": "Bioactive constituent profiling of brown sugar and functional evaluation of an isolated oligosaccharide with iron absorption-promoting and anti-anemia effects.",
+      "title": "Bioactive constituent profiling of brown sugar and functional evaluation of an isolated oligosaccharide with iron absorption-promoting and anti-anemia effects.",
+      "abstract": "Brown sugar is a widely consumed non-centrifugal cane sugar with a complex chemical composition, but the constituents responsible for its potential effects on iron homeostasis remain poorly defined. Here, non-targeted UPLC-Q-Exactive MS/MS profiling identified 84 compounds beyond sucrose and glucose, among which 49 were bioactive constituents, including the cyclic peptide cyclo(Pro-Leu), flavonoids, phenolic acids, and itaconic acid. An oligosaccharide present at a relatively high abundance (3.31%, w/w) was isolated through sucrose hydrolysis, macroporous resin adsorption, and 300 Da membrane separation, reaching a purity of over 98%. Combined UPLC-Q-TOF-MS, FTIR, NMR, and differential scanning calorimetry analyses identified it as raffinose. In mice with iron-deficiency anemia, intragastric administration of the purified oligosaccharide restored red blood cell counts, hemoglobin, hematocrit, and serum ferritin, normalized the spleen index and red pulp architecture, and did not affect fasting blood glucose. The purified oligosaccharide also restored splenic ferroportin protein without changing its mRNA level. Molecular docking suggested that it occupies the hepcidin-binding cavity of ferroportin (-8.3 kcal mol-1), which may competitively prevent hepcidin-mediated ferroportin degradation and thus sustain splenic iron recycling. It also remained largely intact after simulated gastrointestinal digestion. In Ussing chamber experiments, it enhanced intestinal iron transport and was itself transported across the epithelium, pointing to a co-transport process supported by a stable 3 : 1 oligosaccharide-iron complex (ipTM = 0.87). These results suggest that this oligosaccharide, as a functional food ingredient, may support iron homeostasis by coupling ferroportin-mediated splenic iron recycling with chelation-assisted intestinal iron absorption.",
+      "journal": "Food & function",
+      "pub_date": "2026-Oct-02",
+      "title_match_score": 1,
+      "error": null
+    },
+    {
+      "wave": 3278,
+      "pmid": "42811828",
+      "doi": null,
+      "category": "micronutrients",
+      "selected_title": "Relation of Iron Deficiency with Simple Febrile Seizures.",
+      "title": "Relation of Iron Deficiency with Simple Febrile Seizures.",
+      "abstract": "Febrile seizure (FS) is the most common seizure disorder in early childhood, affecting approximately 2.0-5.0% of children aged 6-60 months. The peak incidence of FS occurs between 14 and 18 months of age, which coincides with the highest prevalence of iron deficiency anaemia (IDA) in children aged 1-2 years. This study aimed to evaluate the association between iron deficiency and simple febrile seizures. A cross-sectional comparative study was conducted in the Department of Paediatrics, Mymensingh Medical College Hospital, from September 2018 to February 2020. The study included 150 children aged 6-60 months: 75 children with simple febrile seizures (case group) and 75 febrile children without seizures (control group). Detailed clinical history, risk factors and physical examinations were recorded. Haematological investigations- including haemoglobin level, serum iron, serum ferritin, total iron-binding capacity (TIBC) and red cell distribution width (RDW)- were performed to assess iron status. Data were analyzed using appropriate statistical methods, with p-values <0.05 considered statistically significant. The mean age of cases and controls was 15.59±6.63 months and 18.28±12.16 months, respectively. Male predominance was observed in both groups. Mean haemoglobin, serum iron and serum ferritin levels were significantly lower in the case group compared with controls, while TIBC was significantly higher among cases (p=0.001). RDW showed no significant difference between groups. Iron deficiency (48.0% vs. 21.3%) and iron deficiency anaemia (41.3% vs. 13.3%) were significantly more common in children with simple febrile seizures (p=0.001). The study demonstrates a significant association between iron deficiency and simple febrile seizures, suggesting that iron deficiency and IDA may be important risk factors for febrile seizures in young children.",
+      "journal": "Mymensingh medical journal : MMJ",
+      "pub_date": "2026-Oct",
+      "title_match_score": 1,
+      "error": null
+    },
+    {
+      "wave": 3279,
+      "pmid": "42811856",
+      "doi": null,
+      "category": "micronutrients",
+      "selected_title": "Association between Serum Folate Status and Cervical Intraepithelial Neoplasia.",
+      "title": "Association between Serum Folate Status and Cervical Intraepithelial Neoplasia.",
+      "abstract": "Cervical intraepithelial neoplasia (CIN) is a premalignant lesion of cervix and if left untreated can progress to invasive cervical cancer after several years. Approximately 1.0-2.0% women have CIN II⁺ each year. Folate and vit B12 play important roles as inhibitors of human carcinogenesis in several organs. This study was done to evaluate the association of serum folate level with cervical intraepithelial neoplasia. This was a case control study conducted at colposcopy clinic of Bangladesh Medical University, Bangladesh. One hundred and twenty-two women were included in the study by purposive sampling from October 2019 to September 2020 after getting institutional review board approval. Study population were VIA positive women who were referred for colposcopy at colposcopy clinic of Bangladesh Medical University (BMU), Dhaka, Bangladesh. After getting informed consent, colposcopy and histopathological examination was done in all subjects irrespective of colposcopy result. Cases (n=61) were assigned to those who had histopathologicaly confirmed CIN. Control groups (n=61) were those who had both colposcopicaly and histopathologicaly normal cervix. Both groups were matched in relation to age, age at marriage, age at first delivery, parity and duration of OCP use. Serum folate level was measured in both cases and controls. Data were analyzed using SPSS software version 22. Continuous variables were expressed by mean±SD. Qualitative variables by percentage. Association of folate status and cervical intraepithelial neoplasia were assessed by unpaired 't' test, ANOVA test, Chi-Square test and in odds ratio with 95% CI. Cut off value for low serum folate level was obtained from ROC curve and it was <7.65 ng/ml. Among 61 cases of CIN, 55.0% were CIN I (n=34), 13.0% were CIN II (n=8) and 31.0% (n=19) were CIN III and carcinoma in situ. Statistically significant difference was found (p<0.05) in mean serum folate level between two groups. Among cases it was 9.74±3.51ng/ml and among controls 12.09±5.05 ng/ml, p=0.003s. Using multivariate logistic regression model serum folate <7.65ng/ml was found independently associated with CIN (OR 1.671 95% CI 1.16-2.40, p=0.039s). Low serum folate level was significantly associated with cervical intraepithelial neoplasia. So oral supplementation of folic acid to young adolescent girls and women of reproductive age may be considered to reduce the risk of developing CIN and subsequently cervical cancer.",
+      "journal": "Mymensingh medical journal : MMJ",
+      "pub_date": "2026-Oct",
+      "title_match_score": 1,
+      "error": null
+    },
+    {
+      "wave": 3280,
+      "pmid": "42811857",
+      "doi": null,
+      "category": "micronutrients",
+      "selected_title": "Trends in Iron Indices among Non-Dialysis Chronic Kidney Disease Patients with Anemia.",
+      "title": "Trends in Iron Indices among Non-Dialysis Chronic Kidney Disease Patients with Anemia.",
+      "abstract": "The objective of this study was to assess the trends in iron indices among non-dialysis chronic kidney disease (ND-CKD) patients with anemia attending a tertiary hospital in northern Bangladesh. This cross-sectional study was conducted on patients with ND-CKD and concurrent anemia, over a period of six months in the Department of Medicine at Rangpur Medical College Hospital, Rangpur, Bangladesh. A total of 50 patients were selected through purposive sampling. The staging of CKD and the severity of anemia were determined according to the criteria established by the National Kidney Foundation and the World Health Organization. Data collection was facilitated using a pre-structured questionnaire, and statistical analysis was carried out using SPSS version 25.0. Mean age of the patients was 47 years, with slight male predominance. Overall low iron indices were observed in 22% of the patients where 16% had absolute iron deficiency and 6% had functional deficiency. Median serum ferritin was 193 (616) ng/ml. Mean levels of serum iron, total iron binding capacity (TIBC) and transferrin saturation (TSAT) were 80.80±34.40μg/dl, 266.84±71.62μg/dl and 30.54±10.36%. Serum ferritin & TIBC tended to increase and iron and TSAT tended to decrease with the progression of CKD. But no statistical significance was noted (p>.05). Iron deficiency is prevalent in ND-CKD patients with anemia in Northern Bangladesh, indicating a need for regular monitoring and tailored management. Early intervention is crucial to improve patient outcomes and prevent severe anemia.",
+      "journal": "Mymensingh medical journal : MMJ",
+      "pub_date": "2026-Oct",
+      "title_match_score": 1,
+      "error": null
+    },
+    {
+      "wave": 3281,
+      "pmid": "42798689",
+      "doi": "10.1007/s13205-026-05076-4",
+      "category": "mitochondrial_energy",
+      "selected_title": "The effects of coenzyme Q10 supplementation on exercise-induced oxidative stress and related physiological outcomes in athletes: a systematic review and meta-analysis.",
+      "title": "The effects of coenzyme Q10 supplementation on exercise-induced oxidative stress and related physiological outcomes in athletes: a systematic review and meta-analysis.",
+      "abstract": "Exercise-induced oxidative stress has been proposed as a mechanistic link between heavy training loads, membrane injury, impaired recovery, and inconsistent performance responses. Coenzyme Q10 (CoQ10), a mitochondrial electron-transport cofactor and lipid-phase antioxidant, is therefore widely promoted as a supportive supplement for athletes, although randomized evidence remains inconsistent. We systematically searched PubMed, Web of Science, Embase, and EBSCOhost from database inception to April 2026 and prospectively registered the review in PROSPERO (CRD420261370320). Randomized parallel-group and crossover trials evaluating oral CoQ10 in athletes or athlete-relevant trained individuals were eligible. Twenty-four studies (613 participants) were included in the systematic review, and 15 studies (330 participants) contributed to at least one quantitative synthesis. Because several studies contributed more than one eligible estimate, the unit of quantitative reporting was the effect size/comparison. Random-effects models were used for meta-analysis. Overall risk of bias was judged as some concerns in 23 of 24 studies (95.8%) and high risk in one study (4.2%). The primary pooled analysis for malondialdehyde (MDA) included seven effect sizes/comparisons from five studies and was not statistically significant (SMD = -0.96, 95% CI -2.07 to 0.15; I² = 73.0%). In the sensitivity analysis, the pooled MDA effect favored CoQ10 (SMD = -0.93, 95% CI -1.65 to -0.22; I² = 73.0%), but this signal remained fragile. The representative pooled physiological outcome, VO₂max, included eight effect sizes/comparisons from seven studies and was neutral (SMD = 0.03, 95% CI -0.32 to 0.39; I² = 0.0%). Supplementary pooled analyses were likewise neutral for blood pressure, creatine kinase, interleukin-6, total antioxidant capacity, tumor necrosis factor-α, and anaerobic threshold. Narrative synthesis, however, suggested more coherent context-dependent signals in studies conducted under marked oxidative or recovery stress. Current evidence does not support a robust overall ergogenic or physiological benefit of CoQ10 supplementation in athletes. The only potentially favorable quantitative signal emerged in the MDA sensitivity analysis; however, this finding should be interpreted cautiously because of residual heterogeneity, small sample sizes, and methodological limitations. The online version contains supplementary material available at https://doi.org/10.1007/s13205-026-05076-4.",
+      "journal": "3 Biotech",
+      "pub_date": "2026-Oct",
+      "title_match_score": 1,
+      "error": null
+    }
+  ]
+}

@@ -1,20 +1,20 @@
 {
   "version": 2,
-  "base_revision": "85470582cbeaf68fedf9ef6c9386f109b1e281b2",
-  "last_verified": "2026-10-02T16:00:00Z",
-  "ticket": 6021,
-  "lane": "D",
-  "title": "nav: fix misleading Articles breadcrumb destination on focus-cluster pages",
+  "base_revision": "0cf99b381284669904074db5d6c3f2b02cafaaea",
+  "last_verified": "2026-10-04",
+  "ticket": 6338,
+  "lane": "A",
+  "title": "Validate and land enrichment waves 3001–3500",
   "priority": "P1",
   "score_inputs": {
     "businessImpact": 3,
     "userValue": 4,
-    "trafficPotential": 2,
-    "strategicLeverage": 3,
-    "confidence": 1,
-    "effort": 1
+    "trafficPotential": 3,
+    "strategicLeverage": 5,
+    "confidence": 0.75,
+    "effort": 2
   },
-  "score": 72,
-  "note": "Fresh exact-main revalidation after #6185 retirement. Admission only: fix the focus-cluster root breadcrumb label/destination mismatch and add an accessible breadcrumb name while preserving article copy, evidence, safety, metadata, canonicals, redirects, and layout.",
-  "control_issue": 6193
+  "score": 67.5,
+  "note": "Admission only for the bounded Waves 3001–3500 enrichment closeout. Finalized research set is 500 exact-verified receipts with 0 prior-PMID, DOI, or normalized-title collisions after repair; runtime/publication promotion remains separately fail-closed; no entity creation, recommendation promotion, dose inference, or governance override.",
+  "control_issue": 6342
 }

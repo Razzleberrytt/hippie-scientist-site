@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "part": 1,
+  "rows": [
+    {
+      "wave": 3004,
+      "old_pmid": "42798093",
+      "pmid": "42786581",
+      "doi": "10.1093/geront/gnag228",
+      "category": "aging_sarcopenia",
+      "title": "Impact of supervised physical exercise on inflammatory and oxidative stress biomarkers in older adults: a systematic review and meta-analysis of randomized controlled trials.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "The Gerontologist",
+      "pub_date": "2026-Sep-24"
+    },
+    {
+      "wave": 3008,
+      "old_pmid": "42780265",
+      "pmid": "42772454",
+      "doi": "10.1016/j.ajcnut.2026.101533",
+      "category": "aging_sarcopenia",
+      "title": "Effects of a self-selected vegetarian vs. omnivorous diet on protein intake and muscle mass in older adults during resistance exercise: the IMPACT randomized controlled trial.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "The American journal of clinical nutrition",
+      "pub_date": "2026-Sep-22"
+    },
+    {
+      "wave": 3021,
+      "old_pmid": "42804367",
+      "pmid": "42773257",
+      "doi": "10.1007/s40520-026-03515-z",
+      "category": "aging_sarcopenia",
+      "title": "Reducing concerns about falling in older adults: evaluation of a multi-component intervention and the role of stress and inflammation markers - long-term effects of the FEARFALL randomized controlled trial.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "Aging clinical and experimental research",
+      "pub_date": "2026-Sep-19"
+    },
+    {
+      "wave": 3041,
+      "old_pmid": "42737488",
+      "pmid": "42779256",
+      "doi": "10.1080/0886022X.2026.2728349",
+      "category": "botanicals_mushrooms",
+      "title": "The efficacy of Cordyceps sinensis preparations in improving kidney outcomes among patients with AKI during hemorrhagic fever with renal syndrome: evidence from a Chinese cohort.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "Renal failure",
+      "pub_date": "2026-Dec"
+    },
+    {
+      "wave": 3042,
+      "old_pmid": "42739529",
+      "pmid": "42720424",
+      "doi": "10.1093/lambio/ovag077",
+      "category": "botanicals_mushrooms",
+      "title": "Fermentation technology of Ganoderma lucidum and Cordyceps militaris: advances in process optimization, bioactive compound transformation, and functional food development.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "Letters in applied microbiology",
+      "pub_date": "2026-Sep-04"
+    }
+  ]
+}

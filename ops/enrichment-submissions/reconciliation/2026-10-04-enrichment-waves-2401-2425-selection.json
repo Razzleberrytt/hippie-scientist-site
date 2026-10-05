@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-2401-2425-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-2376-2400-selection",
+  "program": {
+    "range": "2001-2500",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 425,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2500"
+  },
+  "source_provenance": [
+    "NCBI PubMed ESearch + exact EFetch abstract verification",
+    "cumulative PMID collision index through Wave 2250"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe and exact abstract verification during authoring; expensive repository-wide validation only after Wave 2500"
+  },
+  "waves": [
+    {
+      "wave": 2401,
+      "entity_slug": "synergy-or-dominance-ergogenic-caffeine-carbohydrate-high",
+      "pmid": "42356256",
+      "focus": "Meta-analysis on synergy or dominance? the ergogenic effects of caffeine and carbohydrate on reports However, given the limited number of female participants, the generalizability of these findings to both sexes is limited. Additional high-quality trials are needed to. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2402,
+      "entity_slug": "reframing-nutraceuticals-knee-osteoarthritis-sarcopenia-muscle-joint",
+      "pmid": "42356259",
+      "focus": "Review on reframing nutraceuticals in knee osteoarthritis with sarcopenia: a muscle-joint-centered narrative review reports Nutraceuticals should be interpreted as optional, time-limited adjuncts within exercise-centered KOA management. Their potential value lies in modest symptom support that may facilitate rehabilitation. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2403,
+      "entity_slug": "vitamin-d-as-lifespan-neuroimmune-signal-psychiatry",
+      "pmid": "42356264",
+      "focus": "Review on vitamin d as a lifespan neuroimmune signal in psychiatry: from developmental reports Vitamin D should be conceptualized in psychiatry as a context-dependent neuroimmune and immunometabolic signal rather than a generic psychotropic intervention. Future studies should prioritize. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2404,
+      "entity_slug": "plant-based-multi-strain-limosilactobacillus-fermentum-probiotic",
+      "pmid": "42356296",
+      "focus": "Randomized controlled trial on effects of a plant-based multi-strain limosilactobacillus fermentum probiotic on weight loss reports During a 12-week weight loss program, supplementation of a multi-strain L. fermentum probiotic significantly reduced body fat and central adiposity. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2405,
+      "entity_slug": "igf-1-acne-pathogenesis-inositol-as-possible",
+      "pmid": "42359871",
+      "focus": "Review on igf-1 in acne pathogenesis and inositol as possible adjuvant treatment of reports Conclusions: We provided a comprehensive review of acne pathogenesis and data regarding inositol efficacy in targeting IGF-1 pathway. Evidence boundary: pooled inference depends on included populations, formulations, endpoints, and study quality.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2406,
+      "entity_slug": "efficacy-safety-multi-ingredient-liquid-based-botanical",
+      "pmid": "42360298",
+      "focus": "Randomized controlled trial on efficacy and safety of a multi-ingredient liquid-based botanical nutraceutical for improving reports No adverse events were reported. The liquid nutraceutical formula was associated with favorable changes in lipid cardiometabolic markers in healthy adults, suggesting a potential. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2407,
+      "entity_slug": "lrrk2-mutations-at-crossroads-dopamine-iron-calcium",
+      "pmid": "42370616",
+      "focus": "Review on lrrk2 mutations: at the crossroads of dopamine, iron, and calcium imbalance reports This minireview integrates current evidence linking LRRK2‑G2019S to these pathological pathways, highlighting this mutation's role in dopamine, iron, and calcium imbalance. Understanding this molecular. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2408,
+      "entity_slug": "vitamin-d-deficiency-as-risk-factor-delayed",
+      "pmid": "42377189",
+      "focus": "Meta-analysis on vitamin d deficiency as a risk factor for delayed tooth eruption reports The findings suggest a possible association between low Vitamin D levels and DTE; however, high heterogeneity and limited evidence reduce certainty. Further well-designed studies. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2409,
+      "entity_slug": "potential-synergistic-influence-magnesium-vitamin-d-supplementation",
+      "pmid": "42379107",
+      "focus": "Review on potential synergistic influence of magnesium and vitamin d supplementation on blood reports gov, and the WHO trials registry to identify relevant studies on the topic of interest from the past 15 years was evaluated. This narrative. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2410,
+      "entity_slug": "serum-vitamin-d-levels-non-obese-women",
+      "pmid": "42381874",
+      "focus": "Meta-analysis on serum vitamin d levels in non-obese women with polycystic ovary syndrome reports Eleven studies involving 533 non-obese PCOS patients and 574 controls were included. No significant differences were found in serum 25(OH)D or 1,25(OH)2D levels between. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2411,
+      "entity_slug": "research-progress-mechanism-action-clinical-translation-berberine",
+      "pmid": "42392797",
+      "focus": "Review on [research progress in mechanism of action and clinical translation of berberine reports The development of colon-targeted delivery systems or nano-formulations offers a viable strategy to enhance the site-specific accumulation of berberine. Future investigations should prioritize the. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2412,
+      "entity_slug": "b-vitamins-intake-cancer-risk-structured-narrative",
+      "pmid": "42403423",
+      "focus": "Review on b vitamins intake and cancer risk: a structured narrative review of reports Available evidence suggests potentially protective associations for riboflavin and vitamin B6-particularly for colorectal cancer-whereas findings for vitamin B12 and folate remain inconsistent and context-dependent. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2413,
+      "entity_slug": "targeting-ferroptosis-mechanisms-action-berberine",
+      "pmid": "42411331",
+      "focus": "Review on targeting ferroptosis: effects and mechanisms of action of berberine reports Nano-delivery systems and structural optimization enhance bioavailability and targeting, demonstrating therapeutic efficacy and biosafety. Berberine's multi-target, bidirectional regulation shows promising clinical potential, warranting further. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2414,
+      "entity_slug": "from-zinc-manganese-expanding-functional-landscape-zip",
+      "pmid": "42411627",
+      "focus": "Review on from zinc to manganese: expanding the functional landscape of zip family reports First, this review introduces the ZIP family and the established functions of these transporters in Zn homeostasis, with a focus on cellular Zn transport. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2415,
+      "entity_slug": "probiotic-fermented-herbal-residues-obesity-management-review",
+      "pmid": "42415755",
+      "focus": "Review on probiotic-fermented herbal residues in obesity management: a review reports We examine how fermentation technologies transform herbal byproducts into high-value anti-obesity preparations through biological processes that enhance bioactive compounds, improve bioavailability, and modulate the. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 2416,
+      "entity_slug": "bile-acid-gut-microbiota-vitamin-d-axis",
+      "pmid": "42416276",
+      "focus": "Review on the bile acid-gut microbiota-vitamin d axis: new insights into biliary atresia reports Despite these advances, further research is needed to elucidate the precise molecular mechanisms underlying this axis in BA. Such knowledge will pave the way. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2417,
+      "entity_slug": "clinical-efficacy-dietary-supplement-astracit-asfarma-as",
+      "pmid": "42417324",
+      "focus": "Randomized controlled trial on [clinical efficacy of the dietary supplement astracit-asfarma as a synergistic adjuvant reports A 60-day course of adjuvant therapy with the dietary supplement Astracit-Asfarma dietary supplement demonstrates a high safety and clinical efficacy profile in the treatment. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2418,
+      "entity_slug": "melatonin-male-reproductive-function-indicators-ejaculate",
+      "pmid": "42417336",
+      "focus": "Review on [the effect of melatonin on male reproductive function (indicators of ejaculate)] reports The safety and high cytoprotective activity of melatonin have been demonstrated during cryopreservation of spermatozoa, exposure to chemotherapeutic drugs, heat stress, radiation, and radiofrequency. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2419,
+      "entity_slug": "iron-deficiency-iron-deficiency-anemia",
+      "pmid": "42419988",
+      "focus": "Review on [iron deficiency and iron deficiency anemia] reports Multiple clinical trials conducted in Japan have expanded the body of evidence. Alongside established agents, iron preparations are contributing to IDA treatment across a. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2420,
+      "entity_slug": "baseline-omega-3-nutritional-status-supplementation-response",
+      "pmid": "42433395",
+      "focus": "Meta-analysis on baseline omega-3 nutritional status and supplementation response in pediatric attention-deficit/hyperactivity disorder reports Seven RCTs, contributing 10 analytical estimates, were included. The overall pooled analysis showed a small statistically significant effect of omega-3 supplementation (SMD = 0.21. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2421,
+      "entity_slug": "hypersensitivity-reactions-associated-nutraceuticals-dietary-supplements-narrative",
+      "pmid": "42437383",
+      "focus": "Review on hypersensitivity reactions associated with nutraceuticals and dietary supplements: a narrative review reports Evidence remains dominated by case-based reports and passive surveillance. To reduce risk, we recommend heightened clinician awareness, development of standardized diagnostic reagents and protocols. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2422,
+      "entity_slug": "vitamin-d-status-gestational-weight-gain-narrative",
+      "pmid": "42439812",
+      "focus": "Review on vitamin d status and gestational weight gain: a narrative review of reports Overall, current evidence does not establish a consistent causal link between vitamin D status and gestational weight gain. Robust prospective studies and adequately powered. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2423,
+      "entity_slug": "rifaximin-plus-probiotics-reshape-gut-microbiota-serum",
+      "pmid": "42444028",
+      "focus": "Randomized controlled trial on rifaximin plus probiotics reshape gut microbiota, serum propionate, and mucosal immunity reports Rifaximin plus multistrain probiotics was associated with greater improvement in serum ammonia and exploratory HE severity readouts than rifaximin alone, accompanied by coordinated microbial. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2424,
+      "entity_slug": "liposomes-drugs-nutraceuticals-cosmetics",
+      "pmid": "42445303",
+      "focus": "Review on liposomes in drugs, nutraceuticals, and cosmetics reports These vesicles have a particular scientific relevance in the pharmaceutical, nutraceutical, and cosmetic fields. They are promising vehicles or carriers for substances and compounds. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 2425,
+      "entity_slug": "chemical-constituents-rhizome-curcuma-longa-pharmacological-importance",
+      "pmid": "42446543",
+      "focus": "Review on chemical constituents in the rhizome of curcuma longa and the pharmacological reports In particular, monocarbonyl curcumin-piperidone hybrids exhibit improved cytotoxicity, redox modulation, and multitarget mechanisms compared with curcumin and its other hybrids. Overall, curcumin hybridization represents. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_cross_entity_safety"
+    }
+  ]
+}

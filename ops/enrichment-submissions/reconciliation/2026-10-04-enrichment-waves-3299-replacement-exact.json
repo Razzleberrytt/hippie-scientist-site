@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3299,
+      "pmid": "42476091",
+      "doi": "10.1016/j.jns.2026.126095",
+      "category": "mitochondrial_energy",
+      "title": "Riboflavin therapy in complex I deficiency: Two new cases of leukoencephalopathy and a systematic literature review.",
+      "journal": "Journal of the neurological sciences",
+      "pub_date": "2026-Oct-15",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Two genetically confirmed complex I deficiency cases treated with riboflavin had long-term clinical, biochemical, neurophysiological, and MRI follow-up; the paper also systematically reviewed 43 additional reported riboflavin-responsive cases. Evidence remains heterogeneous and prospective studies are still needed."
+    }
+  ]
+}

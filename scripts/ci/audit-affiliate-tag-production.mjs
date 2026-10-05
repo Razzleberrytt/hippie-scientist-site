@@ -30,6 +30,8 @@ import path from 'node:path';
 
 const ROOT = process.cwd();
 const DEV_TAG = 'dev-affiliate-00';
+const LEGACY_TAG = 'razzleberry02-20';
+const CURRENT_TAG = 'razzleberr0e2-20';
 const OUT_DIR = path.join(ROOT, 'out');
 const AFFILIATE_CONFIG = path.join(ROOT, 'config', 'affiliate.ts');
 
@@ -42,7 +44,7 @@ if (!fs.existsSync(OUT_DIR)) {
 
 function configuredProductionTag() {
   const override = process.env.AMAZON_AFFILIATE_TAG?.trim();
-  if (override) return override;
+  if (override) return override === LEGACY_TAG ? CURRENT_TAG : override;
 
   let source;
   try {

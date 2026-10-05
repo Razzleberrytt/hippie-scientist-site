@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-2151-2175-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-2126-2150-selection",
+  "program": {
+    "range": "2001-2500",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 175,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2500"
+  },
+  "source_provenance": [
+    "NCBI PubMed ESearch + exact EFetch abstract verification",
+    "cumulative PMID collision index through Wave 2000"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe and exact abstract verification during authoring; expensive repository-wide validation only after Wave 2500"
+  },
+  "waves": [
+    {
+      "wave": 2151,
+      "entity_slug": "iron-overload-pathophysiology-diagnosis-monitoring",
+      "pmid": "42083434",
+      "focus": "Review on iron overload: pathophysiology, diagnosis and monitoring reports Monitoring includes evaluating iron overload indices (serum ferritin, transferrin saturation, liver and heart iron concentration) along with serum and urine indices of parenchymal organ. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2152,
+      "entity_slug": "zinc-mediated-structural-functional-regulation-erp44-ergic",
+      "pmid": "42083771",
+      "focus": "Review on zinc-mediated structural and functional regulation of erp44 and ergic-53 in protein reports In addition, Zn2+ is involved in the transient regulation of enzymatic activities. Here, we review recent findings that reveal novel roles of Zn2+ in. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2153,
+      "entity_slug": "applications-iron-based-nanoenzymes-wound-healing-antibacterial",
+      "pmid": "42084035",
+      "focus": "Review on applications of iron-based nanoenzymes in wound healing: antibacterial, anti-inflammatory, and wound-promoting reports This paper outlines the dual functions of FeNZs in combating infection and promoting wound repair, along with their underlying mechanisms. It summarizes methods for. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2154,
+      "entity_slug": "magnesium-as-endocrine-modulator-physiological-roles-clinical",
+      "pmid": "42084330",
+      "focus": "Review on magnesium as an endocrine modulator: physiological roles, clinical evidence, and therapeutic reports Magnesium plays a multifaceted endocrine role with clinically significant implications. Improved diagnostic approaches and further interventional studies are warranted. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2155,
+      "entity_slug": "investigating-probiotics-seizure-related-symptoms-children-medication",
+      "pmid": "42085751",
+      "focus": "Randomized controlled trial on investigating the effect of probiotics on seizure-related symptoms in children with reports In the probiotic group, 20 patients (64.5%) experienced a decrease in seizure frequency following the intervention, while 11 patients (35.5%) showed no change in. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2156,
+      "entity_slug": "key-challenges-novel-encapsulation-technologies-probiotics-stability",
+      "pmid": "42085759",
+      "focus": "Review on key challenges and novel encapsulation technologies for probiotics stability improvement: a reports Additionally, the application of probiotics in food, agriculture, and medicine is discussed. This review will offer valuable insights into the design of novel encapsulation. Evidence boundary: pooled inference depends on included populations, formulations, endpoints, and study quality.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2157,
+      "entity_slug": "exposure-response-modeling-qtc-interval-creatine-kinase",
+      "pmid": "42086178",
+      "focus": "Clinical trial on exposure-response modeling of qtc interval and creatine kinase-mb in healthy people reports ANV exhibits no statistically significant or clinically meaningful effect on QTc interval prolongation in healthy adults and treatment-naïve PLWH, even at supratherapeutic doses. CK-MB. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2158,
+      "entity_slug": "napping-caffeine-their-combination-enhanced-explosivity-repeated",
+      "pmid": "42086212",
+      "focus": "Randomized controlled trial on napping, caffeine, and their combination enhanced explosivity and repeated-sprint performance: a reports However, the combination further enhanced explosivity, which may benefit evening competitions in team and racket sports. Its limited effects on nonexplosive tasks and potential. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2159,
+      "entity_slug": "zinc-induced-hematologic-toxicities-systematic-review-descriptive",
+      "pmid": "42087025",
+      "focus": "Systematic review on zinc-induced hematologic toxicities: a systematic review of descriptive studies reports Excessive zinc exposure should be considered in patients presenting with unexplained anemia and cytopenias. Routine assessment of zinc exposure and copper status can prevent. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2160,
+      "entity_slug": "vitamin-d-deficiency-supplementation-pregnancy-clinical-trial",
+      "pmid": "42087087",
+      "focus": "Clinical trial on vitamin d deficiency and supplementation in pregnancy: a clinical trial using reports Low vitamin D is very common in pregnant women who don't get much sunlight, but providing them with supplements can address this issue. Both. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2161,
+      "entity_slug": "study-multiple-efficacies-vitamin-c-serum-anti",
+      "pmid": "42087444",
+      "focus": "Randomized controlled trial on study on the multiple efficacies of vitamin c serum in anti-glycation reports Topical 10% vitamin C serum can effectively mitigate skin glycation, carbonylation, and inflammation, enhance skin antioxidant capacity, and improve skin color, supporting its clinical. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2162,
+      "entity_slug": "probiotic-modulation-gut-microbiota-bifidobacterium-animalis-subsp",
+      "pmid": "42090020",
+      "focus": "Randomized controlled trial on probiotic modulation of gut microbiota with bifidobacterium animalis subsp. lactis xltg11 reports Daily administration of XLTG11 and CCFM8661 for three months is safe and improves clinical outcomes in children with RRTIs, reducing new respiratory episodes and. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2163,
+      "entity_slug": "advancing-precision-treatment-preterm-infants-population-pharmacokinetics",
+      "pmid": "42090810",
+      "focus": "Observational study on advancing precision treatment in preterm infants: population pharmacokinetics of caffeine for reports SIGNIFICANCE STATEMENT: In this study, female sex was identified as a novel, independent covariate significantly associated with enhanced caffeine clearance. To translate this finding. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2164,
+      "entity_slug": "engineering-iron-center-hemin-nanozymes-programmable-cancer",
+      "pmid": "42091109",
+      "focus": "Review on engineering the iron center: hemin nanozymes for programmable cancer catalysis reports This Review examines the developments in hemin nanotechnology, with an emphasis on precision assembly, material engineering, cascade nanoreactors, and biological modulation. We have distilled. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2165,
+      "entity_slug": "beyond-diagnosis-systematic-review-artificial-intelligence-deep",
+      "pmid": "42091230",
+      "focus": "Systematic review on beyond diagnosis: a systematic review of artificial intelligence and deep learning reports AI and DL approaches hold significant potential to transform iron overload monitoring in β-thalassemia. However, prospective multicenter validation, standardized reporting, and explainable AI are. Evidence boundary: pooled inference depends on included populations, formulations, endpoints, and study quality.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2166,
+      "entity_slug": "randomized-open-label-study-short-term-pharmacokinetics",
+      "pmid": "42091979",
+      "focus": "Randomized controlled trial on randomized, open-label study of the short-term pharmacokinetics of oral magnesium oxide reports As only two dose levels were evaluated, further studies with multiple doses and formal dose-proportionality analyses are required to clarify the underlying mechanisms. These. Evidence boundary: the finding is limited to the studied population, intervention, duration, and endpoints.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2167,
+      "entity_slug": "efficacy-curcumin-management-oral-submucous-fibrosis-umbrella",
+      "pmid": "42092112",
+      "focus": "Systematic review on efficacy of curcumin in the management of oral submucous fibrosis: an reports Findings suggest that curcumin offers limited benefits while managing OSMF conditions, especially in the early stages. Its optimal role may be as an adjunct. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2168,
+      "entity_slug": "vitamin-d-receptor-tumors-review-biological-mechanisms",
+      "pmid": "42092479",
+      "focus": "Review on vitamin d receptor in tumors: a review of biological mechanisms, therapeutic reports A deeper understanding of VDR biology is critical for clarifying its tumor-specific roles. Defining these mechanisms will not only improve prognostic accuracy but also. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2169,
+      "entity_slug": "probiotics-from-natural-artificial",
+      "pmid": "42092720",
+      "focus": "Review on probiotics: from natural to artificial reports We also discuss major challenges concerning biosafety assessment, regulatory policies, in vivo adaptability, and dosage regulation. Finally, we highlight future directions toward personalized probiotics. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2170,
+      "entity_slug": "quantitative-susceptibility-mapping-iron-quantification-deep-gray",
+      "pmid": "42093237",
+      "focus": "Meta-analysis on quantitative susceptibility mapping for iron quantification of deep gray matter in reports Overall, current evidence preliminarily suggests increased iron deposition in the basal ganglia after iCVEs, particularly the putamen. Standardized longitudinal studies in geographically diverse populations. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2171,
+      "entity_slug": "regulatory-landscape-ferroptosis-iron-homeostasis-pathophysiological-mechanisms",
+      "pmid": "42094210",
+      "focus": "Review on the regulatory landscape of ferroptosis and iron homeostasis: pathophysiological mechanisms and reports However, clinical translation faces key hurdles, including the lack of specific biomarkers, off-target risks, and interindividual heterogeneity in therapeutic response. This review systematically summarizes. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2172,
+      "entity_slug": "apparent-plateaus-during-iron-chelation-transfusion-dependent",
+      "pmid": "42095571",
+      "focus": "Review on apparent plateaus during iron chelation in transfusion-dependent β-thalassemia: interpretation and clinical reports The most helpful next step is a structured check: confirm the chelator dose and real-world adherence, calculate how much iron is coming in from. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2173,
+      "entity_slug": "medicinal-food-plants-sabah-eastern-malaysia-source",
+      "pmid": "42095890",
+      "focus": "Review on medicinal food plants of sabah (eastern malaysia): a source of potential reports There is currently a need to find oncopreventive nutraceuticals as well as original natural products for developing anticancer drugs. Such products could potentially be. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 2174,
+      "entity_slug": "fermented-durian-tempoyak-as-source-probiotics-colorectal",
+      "pmid": "42096014",
+      "focus": "Review on fermented durian tempoyak as a source of probiotics for colorectal cancer reports However, direct evidence using tempoyak-derived strains remains limited, and translation is constrained by strain-specific effects, microbial variability, sensory acceptability, safety and standardisation issues, and. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2175,
+      "entity_slug": "folic-acid-supplementation-prevention-adverse-offspring-outcomes",
+      "pmid": "42096275",
+      "focus": "Observational study on folic acid supplementation and prevention of adverse offspring outcomes among women reports Among 1013 women with 1209 pregnancies, 952 received FA. In ASM-exposed pregnancies, FA supplementation was associated with lower risks of composite adverse offspring outcomes. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    }
+  ]
+}

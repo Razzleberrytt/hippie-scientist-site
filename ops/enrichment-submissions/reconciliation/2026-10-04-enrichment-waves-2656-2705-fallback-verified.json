@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "range": "2656-2705",
+  "source": "NCBI PubMed exact fallback plus fail-closed replacements",
+  "rows": [
+    {
+      "wave": 2656,
+      "pmid": "42797076",
+      "state": "research_only_replacement_scoping_review",
+      "replaces_rejected_pmid": "42820934",
+      "focus": "Scoping review of plant-derived protein hydrolysates and peptides found mechanistic signals for gut barrier, inflammatory, redox, and microbiota effects, but no direct undernutrition trials.",
+      "evidence_boundary": "Mechanistic/preclinical evidence dominates; controlled trials in target populations are still needed."
+    },
+    {
+      "wave": 2658,
+      "pmid": "42816118",
+      "state": "research_only_review",
+      "focus": "Review of prebiotic-enriched vegetable juices covering inulin/FOS/resistant starch stability, digestion, fermentation, sensory, and processing constraints.",
+      "evidence_boundary": "Food-technology review; functional potential does not establish clinical outcome benefit."
+    },
+    {
+      "wave": 2659,
+      "pmid": "42815885",
+      "state": "research_only_preclinical_review",
+      "focus": "Review of resveratrol formulations and probiotic interactions, with evidence primarily from in vitro and preclinical work.",
+      "evidence_boundary": "Clinical validation of resveratrol-probiotic combinations remains insufficient."
+    },
+    {
+      "wave": 2661,
+      "pmid": "42798356",
+      "state": "research_only_replacement_systematic_review",
+      "replaces_rejected_pmid": "42809189",
+      "focus": "Multi-omics review of the Parkinson gut-brain axis integrating bacteriome, metabolome, proteome, virome, and mycobiome evidence.",
+      "evidence_boundary": "Cross-sectional and heterogeneous evidence limits causal and therapeutic interpretation."
+    },
+    {
+      "wave": 2662,
+      "pmid": "42809174",
+      "state": "research_only_review",
+      "focus": "One Health review of Lactiplantibacillus plantarum biosafety and functions across gut, food, agriculture, and environmental applications.",
+      "evidence_boundary": "Functions are strain-dependent and many applications still require field and clinical validation."
+    },
+    {
+      "wave": 2663,
+      "pmid": "42809154",
+      "state": "research_only_food_biotech_review",
+      "focus": "Review of glucansucrases for tailored prebiotic oligosaccharides, food-matrix functionality, and microbiota modulation.",
+      "evidence_boundary": "Biocatalysis/food-engineering evidence does not by itself establish human clinical benefit."
+    },
+    {
+      "wave": 2665,
+      "pmid": "42804385",
+      "state": "research_only_review",
+      "focus": "Review of millet bioactives, prebiotic effects, and proposed roles in metabolic-syndrome management.",
+      "evidence_boundary": "Broad functional-food synthesis; causality and effect sizes vary by preparation and study design."
+    },
+    {
+      "wave": 2666,
+      "pmid": "42803857",
+      "state": "research_only_review",
+      "focus": "Review of microbiota–Toxoplasma interactions and preclinical probiotic/prebiotic/FMT/postbiotic strategies.",
+      "evidence_boundary": "Human microbiome-targeted intervention evidence is largely absent."
+    },
+    {
+      "wave": 2667,
+      "pmid": "42803357",
+      "state": "research_only_critical_review",
+      "focus": "Critical review of Lachnospiraceae, dietary substrates, SCFAs, immunity, and translational barriers.",
+      "evidence_boundary": "Most mechanistic evidence is rodent/correlational; strain-level clinical claims are not yet supported."
+    },
+    {
+      "wave": 2668,
+      "pmid": "42799463",
+      "state": "research_only_review",
+      "focus": "Review of harmful and beneficial dietary patterns in acute pancreatitis through gut-microbiota pathways.",
+      "evidence_boundary": "Much evidence is extrapolated from non-pancreatitis models; AP-specific causality is limited."
+    },
+    {
+      "wave": 2670,
+      "pmid": "42812452",
+      "state": "research_only_systematic_review",
+      "focus": "Systematic review of topical human milk for infant diaper dermatitis found low-to-very-low-certainty signals for prevention/treatment.",
+      "evidence_boundary": "Evidence is insufficient to replace standard care or support routine use."
+    },
+    {
+      "wave": 2671,
+      "pmid": "42799095",
+      "state": "research_only_replacement_observational",
+      "replaces_rejected_pmid": "42806592",
+      "focus": "Case-control study found lower dietary zinc intake in children with juvenile idiopathic arthritis; serum zinc associations with disease activity were inconsistent and noncausal.",
+      "evidence_boundary": "Observational study; does not establish benefit from zinc supplementation."
+    },
+    {
+      "wave": 2673,
+      "pmid": "42825850",
+      "state": "research_only_review",
+      "focus": "Structured review of vitamin D status/supplementation as a modifier of allergen immunotherapy outcomes found suggestive but inconsistent evidence.",
+      "evidence_boundary": "Heterogeneous small studies do not support routine vitamin D use specifically to improve AIT response."
+    },
+    {
+      "wave": 2675,
+      "pmid": "42813499",
+      "state": "research_only_cochrane_review",
+      "focus": "Cochrane review of 87 RCTs for herpes labialis included conventional and alternative interventions such as zinc and honey.",
+      "evidence_boundary": "Intervention effects are product-specific; evidence for alternative therapies is not interchangeable with antiviral data."
+    },
+    {
+      "wave": 2676,
+      "pmid": "42808367",
+      "state": "research_only_delivery_review",
+      "focus": "Review of engineered probiotic biointerfaces linking coating structure and mechanics to survival, mucosal retention, and therapeutic delivery.",
+      "evidence_boundary": "Structure–function relationships remain partly associative and require controlled causal validation."
+    },
+    {
+      "wave": 2678,
+      "pmid": "42797090",
+      "state": "research_only_review",
+      "focus": "Review of celiac disease, vitamin D/calcium malabsorption, and primary versus secondary hyperparathyroidism.",
+      "evidence_boundary": "Limited observational/case evidence cannot establish a causal CD–primary hyperparathyroidism relationship."
+    },
+    {
+      "wave": 2684,
+      "pmid": "42792613",
+      "state": "research_only_hypothesis_review",
+      "focus": "Hypothesis-generating review mapped seasonal inflammatory cytokine patterns to a traditional medicine framework.",
+      "evidence_boundary": "Qualitative framework is not prospectively validated and should not be treated as causal evidence."
+    },
+    {
+      "wave": 2686,
+      "pmid": "42784771",
+      "state": "research_only_scoping_review",
+      "focus": "Scoping review plus transcriptomic analysis linked low vitamin D status with noninfectious uveitis severity/risk across subtypes.",
+      "evidence_boundary": "Associations do not establish that vitamin D supplementation modifies disease activity."
+    },
+    {
+      "wave": 2689,
+      "pmid": "42778011",
+      "state": "research_only_mechanistic_background",
+      "focus": "Review of time-dependent matrix metalloproteinase roles in stroke barrier injury and later neurovascular repair.",
+      "evidence_boundary": "Mechanistic background rather than supplement evidence; clinical translation of MMP targeting remains unresolved."
+    },
+    {
+      "wave": 2690,
+      "pmid": "42829259",
+      "state": "research_only_animal_mechanistic",
+      "focus": "Mouse study found infantile dermatitis produced persistent innate immune imprinting and exaggerated adult skin inflammation.",
+      "evidence_boundary": "MC903 mouse model does not directly inform nutritional vitamin D supplementation."
+    },
+    {
+      "wave": 2691,
+      "pmid": "42812403",
+      "state": "research_only_replacement_review",
+      "replaces_rejected_pmid": "42828779",
+      "focus": "Review of vitamin D/VDR signaling in thymic development, AIRE regulation, immune tolerance, and thymic aging.",
+      "evidence_boundary": "Human thymic-longevity evidence remains limited; supplementation is not established as treatment for existing autoimmune disease."
+    },
+    {
+      "wave": 2692,
+      "pmid": "42828674",
+      "state": "research_only_preclinical_bioengineering",
+      "focus": "Engineered Bacillus subtilis spore platform induced systemic and mucosal antigen responses in mice and piglets.",
+      "evidence_boundary": "Immunogenicity proof-of-concept did not test protection or vaccine efficacy."
+    },
+    {
+      "wave": 2693,
+      "pmid": "42828482",
+      "state": "research_only_mechanistic_background",
+      "focus": "Cellular study identified RBM6 as a positive regulator of MAVS/RLR antiviral signaling through K63-linked ubiquitination.",
+      "evidence_boundary": "Basic antiviral signaling evidence is not direct supplement efficacy evidence."
+    },
+    {
+      "wave": 2694,
+      "pmid": "42827943",
+      "state": "research_only_cross_sectional",
+      "focus": "Cross-sectional COVID-19 study linked gut dysbiosis, lower vitamin D, and commensal bacterial differences; Bacteroides uniformis showed in vitro immunomodulatory activity.",
+      "evidence_boundary": "Cross-sectional associations and in vitro assays do not establish a preventive or therapeutic probiotic effect."
+    },
+    {
+      "wave": 2696,
+      "pmid": "42827167",
+      "state": "research_only_animal",
+      "focus": "Rat H. pylori study found L. plantarum and L. rhamnosus supplementation reduced cagA/vacA virulence-gene expression.",
+      "evidence_boundary": "Animal infection-model findings require controlled human validation."
+    },
+    {
+      "wave": 2702,
+      "pmid": "42828456",
+      "state": "research_only_in_vitro",
+      "focus": "Curcumin-loaded nanospheres reduced PM10-induced ROS, inflammatory signaling, and apoptosis in human keratinocyte cultures.",
+      "evidence_boundary": "Cell-culture nanocarrier findings do not establish topical or oral clinical benefit."
+    }
+  ],
+  "rejected": [
+    {
+      "wave": 2656,
+      "pmid": "42820934",
+      "reason": "Exact PubMed fetch returned no title or abstract."
+    },
+    {
+      "wave": 2661,
+      "pmid": "42809189",
+      "reason": "Exact PubMed fetch returned no title or abstract."
+    },
+    {
+      "wave": 2671,
+      "pmid": "42806592",
+      "reason": "Out-of-scope humidity-sensor/materials paper surfaced from antibacterial/health-monitoring keyword drift."
+    },
+    {
+      "wave": 2691,
+      "pmid": "42828779",
+      "reason": "Out-of-scope rust-fungus plant-pathology paper."
+    }
+  ],
+  "replacement_candidates_rejected": [
+    {
+      "pmid": "42808866",
+      "reason": "Human multicomponent respiratory-supplement study had no PubMed abstract available; not used as replacement."
+    }
+  ]
+}

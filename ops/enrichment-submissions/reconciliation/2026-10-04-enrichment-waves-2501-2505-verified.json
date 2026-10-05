@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "range": "2501-2505",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2501,
+      "pmid": "42625626",
+      "title": "Dose-structure-population interactions of protein supplementation combined with resistance training on body composition: a Bayesian network meta-analysis with dose-response modeling.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "abstract_verified": true,
+      "evidence_boundary": "Systematic synthesis; conclusions depend on included RCT quality, heterogeneity, and formulation/population match."
+    },
+    {
+      "wave": 2502,
+      "pmid": "42698428",
+      "title": "Graves' disease and bone mineral density: a meta-analysis and UK Biobank.",
+      "journal": "Frontiers in endocrinology",
+      "pub_date": "2026",
+      "abstract_verified": true,
+      "evidence_boundary": "Mixed meta-analytic and cross-sectional evidence; high heterogeneity and exposure-definition differences limit causal interpretation."
+    },
+    {
+      "wave": 2503,
+      "pmid": "42798093",
+      "title": "Systematic review and meta-analysis of biomarkers of sarcopenia and sarcopenic obesity.",
+      "journal": "Medicine",
+      "pub_date": "2026-Sep-25",
+      "abstract_verified": true,
+      "evidence_boundary": "Biomarker associations are not equivalent to intervention efficacy or causality."
+    },
+    {
+      "wave": 2504,
+      "pmid": "42588116",
+      "title": "Vitamin D as a Modulator of Sarcopenia in Women: Interactions with Dietary Patterns and Physical Exercise.",
+      "journal": "Nutrients",
+      "pub_date": "2026-Aug-02",
+      "abstract_verified": true,
+      "evidence_boundary": "Narrative/review-level synthesis; combined nutrition and exercise evidence does not isolate vitamin D effects."
+    },
+    {
+      "wave": 2505,
+      "pmid": "42792116",
+      "title": "Natural-Product-Derived Antioxidants and DNA Methylation-Based Epigenetic Aging: A Systematic Review of Human Intervention Studies.",
+      "journal": "Antioxidants (Basel, Switzerland)",
+      "pub_date": "2026-Aug-28",
+      "abstract_verified": true,
+      "evidence_boundary": "Clock-specific, exposure-dependent findings do not support a uniform anti-aging effect."
+    }
+  ]
+}

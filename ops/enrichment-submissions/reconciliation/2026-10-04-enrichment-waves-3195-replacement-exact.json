@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3195,
+      "pmid": "42819763",
+      "doi": "10.1002/hsr2.73142",
+      "category": "immune_respiratory",
+      "title": "Association of Serum Vitamin D Level and Hematological Inflammatory Indices in Participants of the MASHAD Study.",
+      "journal": "Health science reports",
+      "pub_date": "2026-Oct",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Cross-sectional analysis of 458 adults found only weak associations between serum vitamin D concentrations and hematological inflammatory indices overall, with some sex-specific differences in platelet and red-cell distribution measures. This is observational evidence and does not establish that supplementation reduces inflammation."
+    }
+  ]
+}
