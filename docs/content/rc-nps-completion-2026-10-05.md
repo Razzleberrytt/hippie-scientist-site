@@ -31,7 +31,8 @@ These are retained uncertainty boundaries, not fabricated completion evidence:
 
 - `npm run check:fast`: PASS on the consolidated source state before the final related-slug/reference-author formatting repair. Typecheck and the fast citation, scientific-name and theme-contrast gates passed.
 - `node scripts/ci/validate-article-quality.mjs`: PASS after the recovery citations and content repairs; rerun on final source required.
-- `node --test scripts/lib/__tests__/article-reference-identity.test.mjs`: 2/2 PASS; final focused content regression results are recorded with the PR.
+- `npx vitest run --project scripts-node scripts/lib/__tests__/article-reference-identity.test.mjs scripts/lib/__tests__/rc-nps-closeout.test.mjs`: 6/6 PASS. The regressions use the repository's scripts-node runner.
+- `npx vitest run --project app-dom lib/__tests__/kratom-compound-cluster.test.ts`: 16/16 PASS, including six-compound reciprocal schema/source provenance. Related-slug repair preserves all existing valid article and registered relationship targets rather than replacing the cluster.
 - `node scripts/audit/rc-nps-library.mjs docs/content/rc-nps-library-audit-2026-10-05.json`: 92 articles; 0 broken article links. Related-slug findings are repaired and the report is regenerated.
 - `node scripts/audit/rc-nps-reference-snapshot.mjs <retrieved MED/core snapshot> docs/content/rc-nps-reference-audit-2026-10-05.json`: 703 reference occurrences / 473 distinct PMIDs / 0 identity findings. The external metadata snapshot was retrieved during this run; full abstracts are not committed.
 - Production build, responsive/light/dark visual verification and exact-head hosted release gates: pending at authoring time; recorded in the PR/check receipts before merge. Build artifacts and unrelated generator churn are excluded from source commits.

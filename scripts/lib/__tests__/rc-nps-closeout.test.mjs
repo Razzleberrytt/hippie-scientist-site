@@ -1,7 +1,8 @@
-import test from 'node:test'
+import { test } from 'vitest'
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import matter from 'gray-matter'
+import { citationRelationshipTargets } from '../../../data/article-citation-overrides'
 
 const article = slug => fs.readFileSync(`content/articles/${slug}.mdx`, 'utf8')
 
@@ -35,7 +36,7 @@ test('every inventoried RC/NPS article retains a real referral path and canonica
     assert.match(content, /do not replace emergency care/, data.slug)
   }
   for (const slug of ['2f-dck','5f-adb','dihydro-7-hydroxy-mitragynine-mgm-15','mdmb-4en-pinaca','mitragynine-pseudoindoxyl','o-pce']) {
-    for (const related of matter(article(slug)).data.relatedSlugs) assert.ok(slugs.has(related), `${slug}: ${related}`)
+    for (const related of matter(article(slug)).data.relatedSlugs) assert.ok(slugs.has(related) || citationRelationshipTargets[related], `${slug}: ${related}`)
   }
 })
 
