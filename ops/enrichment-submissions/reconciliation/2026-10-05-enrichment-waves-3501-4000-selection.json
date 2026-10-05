@@ -21,7 +21,7 @@
     "within_batch_duplicate_pmids": 0,
     "within_batch_duplicate_dois": 0,
     "within_batch_duplicate_normalized_titles": 0,
-    "replacement_count": 45
+    "replacement_count": 46
   },
   "editorial_gate": {
     "category_specific_title_relevance": true,
@@ -4274,20 +4274,21 @@
       "replacement_for_pmid": "42821141"
     },
     {
-      "pmid": "42647983",
-      "doi": "10.1016/j.dsx.2026.103479",
-      "title": "Methodological considerations on the meta-analysis of alpha-lipoic acid in diabetic neuropathy.",
-      "journal": "Diabetes & metabolic syndrome",
-      "pub_date": "2026 Aug 17",
-      "pub_type": "Letter",
-      "has_abstract": false,
+      "pmid": "42147097",
+      "doi": "10.3389/fendo.2026.1778262",
+      "title": "Efficacy and safety of Buyang Huanwu Decoction combined with α-lipoic acid for diabetic peripheral neuropathy: a systematic review with in-depth heterogeneity deconstruction and methodological appraisal.",
+      "journal": "Frontiers in endocrinology",
+      "pub_date": "2026",
+      "pub_type": "Meta-Analysis",
+      "has_abstract": true,
       "category": "metabolic",
       "discovery_query": "(berberine OR inositol OR chromium OR alpha-lipoic acid OR soluble fiber) AND (insulin OR glucose OR metabolic syndrome OR diabetes OR obesity) AND (trial OR systematic review OR meta-analysis) AND 2018:2026[pdat]",
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 8,
       "primary_category": "metabolic",
       "state": "selected_pending_exact_abstract_verification",
-      "wave": 3752
+      "wave": 3752,
+      "replacement_reason": "replace_no_abstract_letter"
     },
     {
       "pmid": "42334964",
