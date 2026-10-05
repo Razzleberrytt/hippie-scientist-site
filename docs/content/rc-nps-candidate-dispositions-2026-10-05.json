@@ -1,0 +1,368 @@
+{
+  "reviewed": "2026-10-05",
+  "semantics": "Bounded Europe PMC exact-name/alias discovery and inspected source records. Hit counts are retrieval observations, not evidence grades. Withholding is a resolved editorial disposition, not proof no literature exists. No new standalone routes are authorized by this record.",
+  "regulatorySource": "https://www.unodc.org/LSS/Announcement/Details/25b1a3ae-5a95-4bdf-b758-748ce856be68",
+  "candidateCount": 45,
+  "candidates": [
+    {
+      "name": "Fluetizolam",
+      "family": "Designer benzodiazepines",
+      "query": "TITLE_ABS:\"Fluetizolam\"",
+      "indexedHits": 1,
+      "disposition": "Withhold standalone: rat cortical-culture evidence does not establish human PK, poisoning or withdrawal.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/41482166/"
+    },
+    {
+      "name": "Ethylflualprazolam",
+      "family": "Designer benzodiazepines",
+      "query": "TITLE_ABS:\"Ethylflualprazolam\"",
+      "indexedHits": 0,
+      "disposition": "Withhold standalone: this exact-name screen yielded no indexed record; that is a search limitation, not proof of absence.",
+      "primaryRecord": null
+    },
+    {
+      "name": "Etonitazene",
+      "family": "Synthetic opioids",
+      "query": "TITLE_ABS:\"Etonitazene\"",
+      "indexedHits": 152,
+      "disposition": "Family coverage in nitazene-opioids: historical/preclinical comparator; avoid assigning analogue human casework to etonitazene.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/38877156/"
+    },
+    {
+      "name": "N-pyrrolidino metonitazene",
+      "family": "Synthetic opioids",
+      "query": "TITLE_ABS:\"N-pyrrolidino metonitazene\"",
+      "indexedHits": 4,
+      "disposition": "Family coverage in nitazene-opioids: receptor and mixed five-analogue forensic dataset; no isolated human potency or withdrawal timeline.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/38877156/"
+    },
+    {
+      "name": "N-desethyl isotonitazene",
+      "family": "Synthetic opioids",
+      "query": "TITLE_ABS:\"N-desethyl isotonitazene\"",
+      "indexedHits": 14,
+      "disposition": "Family coverage in nitazene-opioids: Birmingham clinical series separates presentations from patients and acknowledges extensive polydrug exposure.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/38353737/"
+    },
+    {
+      "name": "Chlorphine",
+      "family": "Synthetic opioids",
+      "query": "TITLE_ABS:\"Chlorphine\"",
+      "indexedHits": 4,
+      "disposition": "Withhold standalone: analogue pharmacology is not a sufficiently characterized exact-compound human safety profile.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/39154855/"
+    },
+    {
+      "name": "Spirochlorphine",
+      "family": "Synthetic opioids",
+      "query": "TITLE_ABS:\"Spirochlorphine\"",
+      "indexedHits": 0,
+      "disposition": "Withhold standalone: named in the 2026-09-03 WHO agenda update; indexed exact-name screen returned none. Regulatory nomination is not clinical characterization.",
+      "primaryRecord": null
+    },
+    {
+      "name": "Spirobrorphine",
+      "family": "Synthetic opioids",
+      "query": "TITLE_ABS:\"Spirobrorphine\"",
+      "indexedHits": 0,
+      "disposition": "Withhold standalone: exact-name screen returned none; verify identity and authoritative clinical/analytical sources before promotion.",
+      "primaryRecord": null
+    },
+    {
+      "name": "O-desmethyltramadol (ODSMT)",
+      "family": "Synthetic opioids",
+      "query": "TITLE_ABS:\"O-desmethyltramadol\"",
+      "indexedHits": 225,
+      "disposition": "Withhold separate RC route: approved tramadol metabolite literature does not resolve the distinct standalone gray-market product reader job.",
+      "primaryRecord": null
+    },
+    {
+      "name": "HXE",
+      "family": "Dissociatives",
+      "query": "TITLE_ABS:\"HXE\"",
+      "indexedHits": 25,
+      "disposition": "Withhold standalone: short-name search is noisy; analytical analogue identification alone does not establish exact HXE human outcomes.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/39809033/"
+    },
+    {
+      "name": "3-HO-PCE",
+      "family": "Dissociatives",
+      "query": "TITLE_ABS:\"3-HO-PCE\"",
+      "indexedHits": 3,
+      "disposition": "Family coverage in rc-dissociatives-ketamine-pcp-analogues: liver-microsome and authentic urine/hair identification; not controlled human PK.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/36984871/"
+    },
+    {
+      "name": "3-Me-PCPy",
+      "family": "Dissociatives",
+      "query": "TITLE_ABS:\"3-Me-PCPy\"",
+      "indexedHits": 1,
+      "disposition": "Withhold standalone: analytical identification, without sufficient exact-compound clinical/toxicological characterization.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/23554350/"
+    },
+    {
+      "name": "3-Me-PCE",
+      "family": "Dissociatives",
+      "query": "TITLE_ABS:\"3-Me-PCE\"",
+      "indexedHits": 0,
+      "disposition": "Withhold standalone: exact-name screen returned none; no claim of a worldwide evidence absence.",
+      "primaryRecord": null
+    },
+    {
+      "name": "3-Cl-PCP",
+      "family": "Dissociatives",
+      "query": "TITLE_ABS:\"3-Cl-PCP\"",
+      "indexedHits": 2,
+      "disposition": "Family coverage in rc-dissociatives-ketamine-pcp-analogues: a postmortem observation and metabolism work; presence does not establish sole cause.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/42178157/"
+    },
+    {
+      "name": "3F-PCP",
+      "family": "Dissociatives",
+      "query": "TITLE_ABS:\"3F-PCP\"",
+      "indexedHits": 1,
+      "disposition": "Withhold standalone: historical rat pharmacology cannot establish a current human monograph or product identity.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/6694098/"
+    },
+    {
+      "name": "MXPr",
+      "family": "Dissociatives",
+      "query": "TITLE_ABS:\"MXPr\"",
+      "indexedHits": 4,
+      "disposition": "Family coverage in rc-dissociatives-ketamine-pcp-analogues: analytical characterization in urine, hair and powder; not an isolated fatal threshold.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/35151938/"
+    },
+    {
+      "name": "MXiPr",
+      "family": "Dissociatives",
+      "query": "TITLE_ABS:\"MXiPr\"",
+      "indexedHits": 1,
+      "disposition": "Family coverage in rc-dissociatives-ketamine-pcp-analogues: seized-product identity is separate from MXPr and clinical outcomes.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/35650087/"
+    },
+    {
+      "name": "alpha-PiHpP / iso-PV8",
+      "family": "Synthetic cathinones / stimulants",
+      "query": "TITLE_ABS:\"alpha-PiHpP\" OR TITLE_ABS:\"iso-PV8\"",
+      "indexedHits": 1,
+      "disposition": "Withhold standalone: identity/alias relation to PV8 requires resolution before attaching a polydrug case to this exact name.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/41844004/"
+    },
+    {
+      "name": "2-FMA",
+      "family": "Synthetic cathinones / stimulants",
+      "query": "TITLE_ABS:\"2-FMA\"",
+      "indexedHits": 21,
+      "disposition": "Withhold standalone: urine-metabolism evidence exists; observational self-medication and rodent findings do not supply validated human benefit or safety.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/35562170/"
+    },
+    {
+      "name": "3-FMA",
+      "family": "Synthetic cathinones / stimulants",
+      "query": "TITLE_ABS:\"3-FMA\"",
+      "indexedHits": 13,
+      "disposition": "Withhold standalone: preclinical pharmacology; exact-compound human PK, treatment and toxicity boundaries remain insufficiently characterized.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/31797481/"
+    },
+    {
+      "name": "4-FMA",
+      "family": "Synthetic cathinones / stimulants",
+      "query": "TITLE_ABS:\"4-FMA\"",
+      "indexedHits": 12,
+      "disposition": "Withhold standalone: in-vitro hepatic effects and polydrug observations do not establish an isolated human risk threshold.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/34655687/"
+    },
+    {
+      "name": "3-FEA",
+      "family": "Synthetic cathinones / stimulants",
+      "query": "TITLE_ABS:\"3-FEA\"",
+      "indexedHits": 8,
+      "disposition": "Withhold standalone: animal withdrawal findings must not become a human withdrawal calendar.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/37818759/"
+    },
+    {
+      "name": "N-isopropyl butylone",
+      "family": "Synthetic cathinones / stimulants",
+      "query": "TITLE_ABS:\"N-isopropyl butylone\"",
+      "indexedHits": 3,
+      "disposition": "Family coverage in synthetic-cathinones-rc-stimulants: seven mixed postmortem detections include alternative causes; not seven fatal intoxications.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/42234859/"
+    },
+    {
+      "name": "4F-alpha-PHP",
+      "family": "Synthetic cathinones / stimulants",
+      "query": "TITLE_ABS:\"4F-alpha-PHP\"",
+      "indexedHits": 0,
+      "disposition": "Withhold standalone: no indexed record from this exact-name screen; human evidence and exact identity remain unverified.",
+      "primaryRecord": null
+    },
+    {
+      "name": "PRO-LAD",
+      "family": "Psychedelics",
+      "query": "TITLE_ABS:\"PRO-LAD\"",
+      "indexedHits": 0,
+      "disposition": "Withhold standalone: no indexed record in this bounded screen; require a name/alias-expanded review before any future promotion.",
+      "primaryRecord": null
+    },
+    {
+      "name": "4-HO-DET",
+      "family": "Psychedelics",
+      "query": "TITLE_ABS:\"4-HO-DET\"",
+      "indexedHits": 0,
+      "disposition": "Withhold standalone: sparse exact-name retrieval; no inference that neighbouring tryptamine findings establish its human safety.",
+      "primaryRecord": null
+    },
+    {
+      "name": "4-AcO-DET",
+      "family": "Psychedelics",
+      "query": "TITLE_ABS:\"4-AcO-DET\"",
+      "indexedHits": 4,
+      "disposition": "Withhold standalone: microsome/zebrafish metabolism and other laboratory findings do not establish controlled human conversion, PK or safety.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/38692215/"
+    },
+    {
+      "name": "4-HO-DiPT",
+      "family": "Psychedelics",
+      "query": "TITLE_ABS:\"4-HO-DiPT\"",
+      "indexedHits": 2,
+      "disposition": "Withhold standalone: RE104 prodrug research needs explicit product/compound separation; do not transfer its study context to unverified RC material.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/38758589/"
+    },
+    {
+      "name": "BOH-2C-B",
+      "family": "Psychedelics",
+      "query": "TITLE_ABS:\"BOH-2C-B\"",
+      "indexedHits": 0,
+      "disposition": "Withhold standalone: exact-name screen yielded none; identity and clinical/analytical basis require further evidence.",
+      "primaryRecord": null
+    },
+    {
+      "name": "25B-NBOH",
+      "family": "Psychedelics",
+      "query": "TITLE_ABS:\"25B-NBOH\"",
+      "indexedHits": 6,
+      "disposition": "Family coverage in nbome-nboh-psychedelics: five-patient clinical series, including two severe presentations; no population incidence estimate.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/35343858/"
+    },
+    {
+      "name": "25C-NBOH",
+      "family": "Psychedelics",
+      "query": "TITLE_ABS:\"25C-NBOH\"",
+      "indexedHits": 3,
+      "disposition": "Family coverage in nbome-nboh-psychedelics: experimental cardiovascular findings; do not inherit the 25B-NBOH human series.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/34843874/"
+    },
+    {
+      "name": "DPT / N,N-dipropyltryptamine",
+      "family": "Psychedelics",
+      "query": "TITLE_ABS:\"DPT\" OR TITLE_ABS:\"N,N-dipropyltryptamine\"",
+      "indexedHits": 3300,
+      "disposition": "Withhold standalone: DPT acronym retrieval is highly noisy; exact-compound laboratory finding is not a sufficient clinical monograph.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/39735490/"
+    },
+    {
+      "name": "3C-P",
+      "family": "Psychedelics",
+      "query": "TITLE_ABS:\"3C-P\"",
+      "indexedHits": 36,
+      "disposition": "Withhold standalone: short-name retrieval is noisy; exact identity and applicable analytical record need further review before promotion.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/42773515/"
+    },
+    {
+      "name": "MDMB-BUTINACA",
+      "family": "Synthetic cannabinoids",
+      "query": "TITLE_ABS:\"MDMB-BUTINACA\"",
+      "indexedHits": 15,
+      "disposition": "Family coverage in synthetic-cannabinoids-spice: separate exact MDMB-BINACA/BUTINACA alias and microsome evidence from fluorinated analogues.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/42226022/"
+    },
+    {
+      "name": "MDMB-PINACA",
+      "family": "Synthetic cannabinoids",
+      "query": "TITLE_ABS:\"MDMB-PINACA\"",
+      "indexedHits": 35,
+      "disposition": "Withhold standalone: most retrievals include a 5F prefix; cannot strip it and attach those findings to MDMB-PINACA.",
+      "primaryRecord": null
+    },
+    {
+      "name": "MMB-CHMINACA",
+      "family": "Synthetic cannabinoids",
+      "query": "TITLE_ABS:\"MMB-CHMINACA\"",
+      "indexedHits": 2,
+      "disposition": "Withhold duplicate route: verify MDMB-CHMICA alias from primary scheduling records; regulatory identity does not establish a new clinical profile.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/28068047/"
+    },
+    {
+      "name": "4Cl-MDMB-BINACA",
+      "family": "Synthetic cannabinoids",
+      "query": "TITLE_ABS:\"4Cl-MDMB-BINACA\"",
+      "indexedHits": 0,
+      "disposition": "Withhold standalone: exact-name screen yielded none; no borrowed findings from neighbouring BINACA analogues.",
+      "primaryRecord": null
+    },
+    {
+      "name": "MDMB-PICA",
+      "family": "Synthetic cannabinoids",
+      "query": "TITLE_ABS:\"MDMB-PICA\"",
+      "indexedHits": 64,
+      "disposition": "Family coverage in synthetic-cannabinoids-spice: exact-compound microsome metabolism, separate from 5F-MDMB-PICA human evidence.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/42226022/"
+    },
+    {
+      "name": "newer INACA precursors / analogues where toxicology justifies a page",
+      "family": "Synthetic cannabinoids",
+      "query": null,
+      "indexedHits": null,
+      "disposition": "Family coverage in synthetic-cannabinoids-spice: precursor identity and product-content uncertainty; generic precursor class does not warrant a new monograph.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/40407906/"
+    },
+    {
+      "name": "Etaqualone",
+      "family": "Non-benzo sedatives / qualone analogues",
+      "query": "TITLE_ABS:\"Etaqualone\"",
+      "indexedHits": 4,
+      "disposition": "Family coverage in novel-sedatives-qualone-analogues: analytical blood/urine method supports detection, not a safe concentration.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/35932525/"
+    },
+    {
+      "name": "Mebroqualone",
+      "family": "Non-benzo sedatives / qualone analogues",
+      "query": "TITLE_ABS:\"Mebroqualone\"",
+      "indexedHits": 4,
+      "disposition": "Family coverage in novel-sedatives-qualone-analogues: fire and train deaths must not be relabeled fatal drug poisonings.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/32789477/"
+    },
+    {
+      "name": "Methylmethaqualone",
+      "family": "Non-benzo sedatives / qualone analogues",
+      "query": "TITLE_ABS:\"Methylmethaqualone\"",
+      "indexedHits": 2,
+      "disposition": "Family coverage in novel-sedatives-qualone-analogues: clinical case with measured alcohol; no isolated toxicity threshold.",
+      "primaryRecord": "https://pubmed.ncbi.nlm.nih.gov/23298217/"
+    },
+    {
+      "name": "Other current qualone analogues only after analytical/clinical confirmation",
+      "family": "Non-benzo sedatives / qualone analogues",
+      "query": null,
+      "indexedHits": null,
+      "disposition": "Withhold generic expansion: no exact compound or confirmation supplied; existing family page states the eligibility boundary.",
+      "primaryRecord": null
+    },
+    {
+      "name": "Homiez",
+      "family": "Mislabeled botanical / smoke-shop products",
+      "query": null,
+      "indexedHits": null,
+      "disposition": "Withhold composition-specific route: laboratory-confirmed product/batch contents remain required; brand name is not molecule identity.",
+      "primaryRecord": null
+    },
+    {
+      "name": "KLAZ / other Tennessee-observed brands",
+      "family": "Mislabeled botanical / smoke-shop products",
+      "query": null,
+      "indexedHits": null,
+      "disposition": "Withhold composition-specific route: discovery naming remains distinct from confirmed contents and causal attribution.",
+      "primaryRecord": null
+    }
+  ]
+}
