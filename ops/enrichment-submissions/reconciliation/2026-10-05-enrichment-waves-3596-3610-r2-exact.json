@@ -3,7 +3,7 @@
   "selection_revision": 2,
   "range": "3596-3610",
   "row_count": 15,
-  "failed_count": 2,
+  "failed_count": 0,
   "rows": [
     {
       "pmid": "42810163",
@@ -216,14 +216,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 14,
       "primary_category": "cardiometabolic",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3605,
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "focus": null
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "verified_title": "Circulating Omega-3 Fatty Acids and Cardiometabolic Outcomes: A Systematic Review of Publications From UK Biobank.",
+      "verified_journal": "Lipids",
+      "verified_pub_date": "2026-Jul-29",
+      "focus": "Studies have shown that omega-3 fatty acids may protect against cardiovascular diseases (CVDs) and related metabolic conditions. UK Biobank is a large cohort study that includes data on plasma omega-3 fatty acids at study entry and health outcomes during the follow-up period. The aim of this research is to explore the association between plasma omega-3 fatty acids (total omega-3 fatty acids, docosahexaenoic acid (DHA) and non-DHA omega-3 fatty acids) and cardiometabolic health outcomes by systematically reviewing publications from UK Biobank. Three databases (EMBASE, MEDLINE, CINAHL) were searched in September 2025 using key words. Based on inclusion/exclusion criteria, 16 publications were selected for inclusion (two cross-sectional and 14 longitudinal with a follow-up of 11 to 14 years). Sample size varied between 20,338 and 273,834 across the included studies. Eleven studies reported on CVD outcomes and five on metabolic outcomes. Plasma total omega-3 fatty acids and DHA were inversely associated with risk of coronary heart disease, CVD mortality, heart failure, haemorrhagic stroke and severe fatty liver disease. Plasma total omega-3 fatty acids were also inversely associated with risk of prediabetes and type-2 diabetes, while plasma DHA was also inversely associated with risk of coronary heart disease mortality, ischemic stroke and fatty liver disease. It is concluded that publications based on UK Biobank consistently demonstrate a significant association between higher levels of total omega-3 fatty acids or DHA in plasma and lower likelihood of poor cardiometabolic health outcomes, providing support for guidance for the population to achieve recommended intakes of these fatty acids."
     },
     {
       "pmid": "42654450",
@@ -304,14 +304,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 12,
       "primary_category": "cardiometabolic",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3609,
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "focus": null
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "verified_title": "Why Serum Magnesium Fails: A Narrative Review of Magnesium Biochemistry, Compartmental Exchange, and Endpoint Selection for Supplementation Trials.",
+      "verified_journal": "Journal of the American Nutrition Association",
+      "verified_pub_date": "2026-Aug-26",
+      "focus": "Magnesium is an obligate cofactor in more than 600 enzymatic reactions, yet population-level inadequacy is widespread and rarely detected. The reason is largely methodological. Serum magnesium, used in routine care and in most supplementation trials, holds less than one percent of total body magnesium and is homeostatically defended by renal reabsorption and bone exchange, so individuals with substantial tissue depletion may present with values inside the reference range. This narrative review addresses a specific problem: the biochemical endpoints of oral magnesium supplementation trials are poorly matched to the compartments in which magnesium acts. The mismatch has attenuated the evidence in five clinical areas-essential hypertension, insulin resistance and type 2 diabetes, insomnia and disordered sleep, skeletal muscle cramping, and migraine prophylaxis-in each of which clinical benefit is reported without commensurate serum change. The review first establishes the biochemistry of magnesium essentiality, identifying the enzyme classes for which Mg-ATP is the physiological substrate and the systems in which the free ion acts as a structural or gating element. It then proposes an integrated model in which absorption, renal handling, bone exchange and intracellular distribution operate on distinct timescales, from hours for renal conservation to months for bone. Against that model, serum, erythrocyte, ionized, urinary and loading-test measurements are appraised, and candidate biomarkers mapped compartment by compartment. Published biological variation gives a reference change value of approximately 12% for serum magnesium and a critical difference of approximately 22% for erythrocyte magnesium, while the change reported with oral repletion is comparable or smaller. This arithmetic makes trial endpoints underpowered by construction and explains the recurring pattern of null biochemical findings alongside positive clinical ones. The review closes with a context-dependent hierarchy of methods and identifies harmonization of erythrocyte reference intervals as the most pressing methodological priority."
     },
     {
       "pmid": "42734836",
