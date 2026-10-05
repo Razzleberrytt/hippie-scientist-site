@@ -6,11 +6,11 @@
 
 - [x] P0 masterclass monographs complete — all P0 profiles have now received the deep monograph pass
 - [x] P1 masterclass monographs complete — all P1 profiles passed the deep structural audit
-- [ ] Dependence/withdrawal/addiction-support pass complete — **class-level withdrawal/recovery backbone completed 2026-10-03; compound-level cross-link/support normalization remains**
-- [ ] History/legal/regulatory pass complete
-- [ ] Primary-source/PMID reference-density pass complete
-- [ ] Toxicology/testing/forensic-interpretation pass complete
-- [ ] Final cross-link / answer-engine pass complete
+- [x] Dependence/withdrawal/addiction-support pass complete — reviewed 2026-10-05; scope and unresolved evidence boundaries are recorded in `rc-nps-completion-2026-10-05.md`.
+- [x] History/legal/regulatory pass complete — reviewed 2026-10-05; scope and unresolved evidence boundaries are recorded in `rc-nps-completion-2026-10-05.md`.
+- [x] Primary-source/PMID reference-density pass complete — reviewed 2026-10-05; scope and unresolved evidence boundaries are recorded in `rc-nps-completion-2026-10-05.md`.
+- [x] Toxicology/testing/forensic-interpretation pass complete — reviewed 2026-10-05; scope and unresolved evidence boundaries are recorded in `rc-nps-completion-2026-10-05.md`.
+- [x] Final cross-link / answer-engine pass complete — reviewed 2026-10-05; scope and unresolved evidence boundaries are recorded in `rc-nps-completion-2026-10-05.md`.
 
 ### Global dependence / withdrawal / recovery pass — batch 1 (2026-10-03)
 
@@ -72,7 +72,7 @@ Batch-1 routes:
 - [x] Evidence asymmetry is preserved: sparse-human-evidence compounds such as MGM-16 are not padded with borrowed claims from related drugs.
 - [x] Product pages keep laboratory-confirmed contents, public-health suspicion, label claims, and self-reported effects in separate evidence lanes.
 - [x] No consumer dose charts, potency-conversion tables, synthesis/sourcing instructions, test-evasion guidance, or DIY detox/induction protocols were introduced.
-- [ ] **Global RC/NPS masterclass program is not complete.** P0 and P1 are complete; remaining unchecked individual profiles and global cross-library passes still require deep-upgrade waves.
+- [x] **Current RC/NPS closeout review complete (2026-10-05).** The 92-route inventory, candidate dispositions and named evidence gaps are recorded separately. Structural presence is not independent scientific approval; no claim is made that all candidate compounds have a standalone monograph.
 
 **Wave-1 acceptance rule:** each page must address identity, history, pharmacology, metabolism/PK, human evidence, acute toxicity, fatalities where applicable, interactions, tolerance, physical dependence, withdrawal, addiction/use-disorder education, treatment/support, testing/detection, counterfeit or product-identity risk, forensic interpretation, dated legal/regulatory status, myths, evidence gaps, FAQs, and a dense primary-source reference ledger. Sections may be explicitly marked "not established" when the evidence does not exist.
 
@@ -95,18 +95,18 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 
 | Family | Canonical route | Status |
 | --- | --- | --- |
-| RC / NPS overview | /articles/research-chemicals-nps-guide/ | branch-ready |
-| Designer benzodiazepines | /articles/designer-benzodiazepines-research-chemicals/ | branch-ready |
-| Synthetic opioids — nitazenes | /articles/nitazene-opioids/ | branch-ready |
-| Synthetic opioids — orphines | /articles/orphine-opioids/ | branch-ready |
+| RC / NPS overview | /articles/research-chemicals-nps-guide/ | canonical route exists |
+| Designer benzodiazepines | /articles/designer-benzodiazepines-research-chemicals/ | canonical route exists |
+| Synthetic opioids — nitazenes | /articles/nitazene-opioids/ | canonical route exists |
+| Synthetic opioids — orphines | /articles/orphine-opioids/ | canonical route exists |
 | Kratom-derived semi-synthetic opioids | /novel-psychoactive-substances/kratom-derived-semi-synthetic-opioids/ | existing |
-| Synthetic cathinones / RC stimulants | /articles/synthetic-cathinones-rc-stimulants/ | branch-ready |
-| Dissociatives | /articles/rc-dissociatives-ketamine-pcp-analogues/ | branch-ready |
-| Psychedelics | /articles/rc-psychedelics-tryptamines-lysergamides/ | branch-ready |
-| Synthetic cannabinoids | /articles/synthetic-cannabinoids-spice/ | branch-ready |
-| Benzofuran entactogens | /articles/benzofurans-entactogens/ | branch-ready |
-| Non-benzo / qualone sedatives | /articles/novel-sedatives-qualone-analogues/ | branch-ready |
-| Mislabeled botanical / smoke-shop opioid products | /articles/cats-claw-kava-hidden-opioids/ | branch-ready |
+| Synthetic cathinones / RC stimulants | /articles/synthetic-cathinones-rc-stimulants/ | canonical route exists |
+| Dissociatives | /articles/rc-dissociatives-ketamine-pcp-analogues/ | canonical route exists |
+| Psychedelics | /articles/rc-psychedelics-tryptamines-lysergamides/ | canonical route exists |
+| Synthetic cannabinoids | /articles/synthetic-cannabinoids-spice/ | canonical route exists |
+| Benzofuran entactogens | /articles/benzofurans-entactogens/ | canonical route exists |
+| Non-benzo / qualone sedatives | /articles/novel-sedatives-qualone-analogues/ | canonical route exists |
+| Mislabeled botanical / smoke-shop opioid products | /articles/cats-claw-kava-hidden-opioids/ | canonical route exists |
 
 ### Withdrawal/recovery category backbone — class coverage complete
 
@@ -119,11 +119,13 @@ Purpose: maintain one durable safety-first inventory for research chemicals and 
 - [x] Benzofurans / entactogens → [Entactogen & Benzofuran Withdrawal & Recovery](/articles/entactogen-benzofuran-withdrawal-recovery-guide/) — added 2026-10-03
 - [x] Non-benzo sedatives / qualone analogues → [Novel Sedative & Qualone Withdrawal & Recovery](/articles/novel-sedative-qualone-withdrawal-recovery-guide/) — added 2026-10-03
 - [x] RC/NPS overview now exposes a single withdrawal/recovery-by-class index.
-- [ ] Normalize compound-level links, use-disorder language, support resources, and explicit “not established” withdrawal statements across remaining canonical profiles.
+- [x] Normalize compound-level links, support resources and explicit withdrawal evidence boundaries — reviewed 2026-10-05.
 
 **Editorial rule:** a class recovery page does not imply every member has a proven physical withdrawal syndrome. Psychedelic and dissociative pages explicitly preserve low/uncertain physical-withdrawal evidence while covering psychiatric, cognitive, medical, and relapse-recovery risks.
 
-## Priority individual profiles — current wave
+## Priority individual profiles — reviewed inventory
+
+The unchecked boxes below mean **no standalone canonical profile**. All 45 have a reviewed editorial disposition in `rc-nps-candidate-dispositions-2026-10-05.json`; they are not pending implementation tasks. Family coverage is preferred where the evidence supports only a bounded analytical, experimental or case-series finding.
 
 ### Designer benzodiazepines
 - [x] Bromazolam — /articles/bromazolam/
@@ -306,7 +308,7 @@ P1 — completed on branch:
 - [x] 6-MAPB
 - [x] ADB-BUTINACA
 
-### Masterclass wave 3 — active
+### Masterclass wave 3 — reviewed 2026-10-05
 
 - [x] Metizolam — full masterclass pass complete; human metabolism + 2026 DFSA evidence preserved without potency overreach
 - [x] Phenazepam — full masterclass pass complete; human DUID, prolonged-toxicity, fatality and 2016 international-control evidence integrated
@@ -317,13 +319,13 @@ P1 — completed on branch:
 - [x] Pyrazolam — full masterclass pass complete; 2026 acute poisoning, immunoassay limitations and postmortem interpretation integrated
 - [x] Rilmazafone — full masterclass pass complete; prodrug PK, Japanese therapeutic context, mislabeling and fatal toxicology integrated
 - [x] Flunitrazolam — full masterclass pass complete; controlled human analytical exposure, urine/oral-fluid detection and metabolism evidence integrated without inventing toxicity thresholds
-- [x] Desalkylgidazepam / bromonordiazepam — full masterclass pass complete; human metabolism, prolonged elimination, dependence/withdrawal, forensic interpretation and dated 2026 WHO-review status integrated
-- [x] Phenazolam / clobromazolam — masterclass pass refreshed; Australian ED toxicology, U.S. forensic growth, counterfeit identity, dependence/withdrawal and dated 2026 WHO-review status integrated
+- [x] Desalkylgidazepam / bromonordiazepam — full masterclass pass complete; human metabolism, prolonged elimination, dependence/withdrawal, forensic interpretation and dated 2026 WHO notice history integrated; clobromazolam nomination corrected against the superseding September 3 agenda
+- [x] Phenazolam / clobromazolam — masterclass pass refreshed; Australian ED toxicology, U.S. forensic growth, counterfeit identity, dependence/withdrawal and dated 2026 WHO notice history integrated; clobromazolam nomination corrected against the superseding September 3 agenda
 - [x] NEP / N-ethylpentedrone — full stimulant masterclass pass complete; 2026 human metabolism and fatal/non-fatal forensic evidence integrated, with exact NEP vs N-ethylpentylone/ephylone legal identity separation
 - [x] MDPHP — masterclass pass complete
 - [x] MDPiHP — emerging-evidence masterclass pass complete
-- [ ] Remaining high-risk P2 profiles — prioritize existing pages with human toxicology/forensic evidence before creating new routes; follow-on Wave-3 batch added deep desalkylgidazepam, phenazolam and NEP passes on 2026-10-03
-- [ ] Wave 3 structural audit
+- [x] Remaining high-risk P2 inventory reviewed — existing profiles retained/upgraded; all 45 unchecked candidates have explicit family-coverage or withheld-route dispositions.
+- [x] Wave 3 structural review — heading leads retained with explicit applicability/limitations in the closeout record.
 - [x] 25E-NBOH — masterclass pass complete
 - [x] 3-FPM — masterclass pass complete
 - [x] 5F-MDMB-PICA — masterclass pass complete
@@ -344,7 +346,7 @@ P1 — completed on branch:
 P2:
 - [x] Existing evidence-bearing RC-benzo batch 1: metizolam, phenazepam, meclonazepam, etizolam, diclazepam, flubromazepam, flunitrazolam, pyrazolam, and rilmazafone upgraded in place on 2026-10-03.
 - [x] Follow-on evidence-bearing batch 2: desalkylgidazepam/bromonordiazepam, phenazolam/clobromazolam refresh, NEP/N-ethylpentedrone, 5-MAPB, dicloqualone/SL-164, 2-methoxyqualone, 1P-LSD, 4-AcO-DMT, 5-MeO-MiPT, and 4-HO-MET upgraded to masterclass architecture on 2026-10-03.
-- [ ] Continue auditing existing evidence-bearing profiles before creating new low-evidence routes.
+- [x] Existing evidence-bearing profile closeout reviewed before any new candidate route promotion.
 - lower-prevalence, historical, or poorly sourced names remain in discovery until forensic/clinical evidence supports a useful page.
 
 ## Product-evidence rule

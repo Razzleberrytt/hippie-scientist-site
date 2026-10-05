@@ -48,10 +48,11 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
+| #6258 / PR #6257 | Complete existing RC/NPS monographs, recovery support and inventory dispositions | A | In review — RC/NPS consolidated closeout; exact-head release validation pending | P1 | 3/4/3/5/0.75/2 | 67.5 | 2026-10-05 — existing-owner reconciliation against `209b461135ca19eaa5f7e765f1e1180ed6ad461b` |
 
 
 
-**Current admission (verified 2026-10-05):** Normal implementation WIP is **0/3**. #6338 / PR #6339 merged at `c5179df73b0ad472149b13f595a279ec60af49d5` on 2026-10-05T03:41:40Z. All three normal lanes are free; this retirement admits no new implementation work.
+**Current admission (verified 2026-10-05):** Normal implementation WIP is **1/3**. Existing Authority/Content owner #6258 / PR #6257 is reconciled against exact base `209b461135ca19eaa5f7e765f1e1180ed6ad461b`; its ownership predates that base. This records existing work, not a new ready-next admission. Discovery/SEO and Revenue/Conversion are free.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 

@@ -5,7 +5,7 @@ description: "A masterclass evidence review of methaqualone and modern qualone-l
 date: "2026-10-03"
 updatedAt: "2026-10-03"
 author: "Will"
-category: "research"
+category: "Substance Use & Harm Reduction"
 evidence_grade: "moderate-for-methaqualone-dependence-and-seizure-risk-very-low-for-treatment-efficacy-and-modern-qualone-analogue-withdrawal"
 scientific_name: "Methaqualone and quinazolinone sedative-hypnotic withdrawal"
 keywords:
@@ -41,23 +41,24 @@ relatedSlugs:
   - benzodiazepine-zdrug-withdrawal-recovery-guide
 references:
   - title: "DARK Classics in Chemical Neuroscience: Methaqualone"
-    authors: "Scientific review authors"
+    authors: "Inger JA, Mihan ER, Kolli JU, Lindsley CW, Bender AM"
     year: "2023"
     pmid: "36651763"
     doi: "10.1021/acschemneuro.2c00697"
     url: "https://pubmed.ncbi.nlm.nih.gov/36651763/"
-  - title: "A Multifaceted GABAA Receptor Modulator: Functional Properties and Mechanism of Action of the Sedative-Hypnotic and Recreational Drug Methaqualone"
-    authors: "Hammer H, Bader BM, Ehnert C, et al."
+  - title: "A Multifaceted GABAA Receptor Modulator: Functional Properties and Mechanism of Action of the Sedative-Hypnotic and Recreational Drug Methaqualone (Quaalude)"
+    authors: "Hammer H, Bader BM, Ehnert C, Bundgaard C, Bunch L, Hoestgaard-Jensen K, Schroeder OH, Bastlund JF, Gramowski-Voß A, Jensen AA"
     year: "2015"
     pmid: "26056160"
     pmcid: "PMC4518083"
     doi: "10.1124/mol.115.099291"
     url: "https://pubmed.ncbi.nlm.nih.gov/26056160/"
   - title: "Structural insights into GABAA receptor potentiation by Quaalude"
-    authors: "Structural pharmacology authors"
+    authors: "Chojnacka W, Teng J, Kim JJ, Jensen AA, Hibbs RE"
     year: "2024"
     pmid: "38898000"
     url: "https://pubmed.ncbi.nlm.nih.gov/38898000/"
+    doi: "10.1038/s41467-024-49471-y"
   - title: "Methaqualone withdrawal syndrome with photoparoxysmal responses and high-amplitude visual evoked potentials"
     authors: "Faught E"
     year: "1986"
@@ -68,10 +69,10 @@ references:
     authors: "McCarthy G, Myers B, Siegfried N"
     year: "2005"
     pmid: "15846700"
-    doi: "10.1002/14651858.CD004146.pub2"
+    doi: "10.1002/14651858.cd004146.pub2"
     url: "https://pubmed.ncbi.nlm.nih.gov/15846700/"
-  - title: "Sedative-Hypnotic Agents That Impact Gamma-Aminobutyric Acid Receptors"
-    authors: "Clinical pharmacology review authors"
+  - title: "Sedative-Hypnotic Agents That Impact Gamma-Aminobutyric Acid Receptors: Focus on Flunitrazepam, Gamma-Hydroxybutyric Acid, Phenibut, and Selank"
+    authors: "Doyno CR, White CM"
     year: "2021"
     pmid: "34396551"
     doi: "10.1002/jcph.1922"
@@ -80,6 +81,12 @@ references:
     authors: "Substance Abuse and Mental Health Services Administration"
     year: "2026"
     url: "https://www.samhsa.gov/substance-use/treatment"
+  - title: "The next addiction-causing drug class 4-quinazolinone derivatives: analyses of methaqualone analogs including recently discovered 2-methoxyqualone by different modes of mass spectrometry"
+    authors: "Yang H, Wang Y, Liu J, Qiu S, Gu J, Bai H, Li J, Wurita A, Hasegawa K."
+    year: "2023"
+    pmid: "36652055"
+    doi: "10.1007/s11419-022-00631-z"
+    url: "https://pubmed.ncbi.nlm.nih.gov/36652055/"
 ---
 
 # Novel Sedative & Qualone Withdrawal & Recovery
@@ -88,7 +95,7 @@ references:
 
 ## Quick answer
 
-Methaqualone is a **dependence-producing sedative-hypnotic** with historical evidence of a potentially dangerous withdrawal syndrome, including seizures.
+Methaqualone is a **dependence-producing sedative-hypnotic** with historical evidence of a potentially dangerous withdrawal syndrome, including seizures. ([source 1](https://pubmed.ncbi.nlm.nih.gov/36651763/); [source 2](https://pubmed.ncbi.nlm.nih.gov/3736882/)).
 
 Modern “qualone” research chemicals such as **2-methoxyqualone, dicloqualone and other clandestine quinazolinones** are much less studied in humans.
 
@@ -100,7 +107,7 @@ That distinction matters:
 
 ## Why these drugs are not just benzodiazepines
 
-Methaqualone is a GABA-A receptor modulator, but it does **not** bind at the classic benzodiazepine site.
+Methaqualone is a GABA-A receptor modulator, but it does **not** bind at the classic benzodiazepine site. ([source 1](https://pubmed.ncbi.nlm.nih.gov/26056160/); [source 2](https://pubmed.ncbi.nlm.nih.gov/38898000/)).
 
 Modern structural and functional studies place methaqualone at transmembrane GABA-A receptor interfaces overlapping more closely with sites used by some anesthetic modulators.
 
@@ -113,7 +120,7 @@ Historical methaqualone experience documented:
 - compulsive use;
 - escalating consumption;
 - physical dependence;
-- withdrawal after cessation.
+- withdrawal after cessation. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/36651763/).
 
 The 2023 DARK Classics review describes methaqualone as a drug whose widespread recreational use exposed substantial overdose and dependence liability.
 
@@ -126,7 +133,7 @@ Historical reports describe withdrawal symptoms including:
 - agitation;
 - autonomic symptoms;
 - perceptual disturbance;
-- seizures.
+- seizures. ([source 1](https://pubmed.ncbi.nlm.nih.gov/3736882/); [source 2](https://pubmed.ncbi.nlm.nih.gov/36651763/)).
 
 A published neurologic case documented myoclonic and tonic-clonic seizures during methaqualone withdrawal, with EEG abnormalities that resolved with the withdrawal state.
 
@@ -136,7 +143,7 @@ The strongest practical conclusion is therefore:
 
 ## Seizure risk
 
-Seizure risk is especially important because the parent drug has both sedative and anticonvulsant properties.
+Seizure risk is especially important because the parent drug has both sedative and anticonvulsant properties. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/3736882/).
 
 As with other CNS depressants, neuroadaptation during repeated exposure can create instability when the drug is abruptly removed.
 
@@ -150,7 +157,7 @@ Modern RC analogues may include:
 - etaqualone;
 - mebroqualone;
 - methylmethaqualone;
-- other quinazolinone derivatives.
+- other quinazolinone derivatives. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/36652055/).
 
 For many of these compounds, available data are primarily:
 - receptor pharmacology;
@@ -166,7 +173,7 @@ Direct prospective withdrawal evidence is usually absent.
 Reasonable class inference:
 - sedative impairment is plausible;
 - tolerance and dependence are possible;
-- abrupt cessation after heavy repeated exposure may be risky.
+- abrupt cessation after heavy repeated exposure may be risky. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/36651763/).
 
 Unsafe overreach:
 - assuming every analogue has methaqualone's exact potency;
@@ -177,7 +184,7 @@ Unsafe overreach:
 
 ## Treatment evidence is extremely weak
 
-A Cochrane review of methaqualone-dependence treatment searched for randomized and quasi-randomized trials and found **no eligible controlled studies**.
+A Cochrane review of methaqualone-dependence treatment searched for randomized and quasi-randomized trials and found **no eligible controlled studies**. [Study record](https://pubmed.ncbi.nlm.nih.gov/15846700/). [Supporting study](https://pubmed.ncbi.nlm.nih.gov/15846700/).
 
 Therefore, there is no evidence-based methaqualone-specific medication protocol that can be presented as standard of care.
 
@@ -191,7 +198,7 @@ Clinical management must instead be individualized around:
 
 ## Do not self-convert to benzodiazepines
 
-It is tempting to treat any GABAergic sedative as if it had a diazepam-equivalent dose.
+It is tempting to treat any GABAergic sedative as if it had a diazepam-equivalent dose. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/26056160/).
 
 That is not scientifically justified here.
 
@@ -213,7 +220,7 @@ Sedative withdrawal and intoxication become harder to interpret when the person 
 - GHB/GBL;
 - opioids;
 - gabapentinoids;
-- sedating antihistamines.
+- sedating antihistamines. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/34396551/).
 
 Alcohol or benzodiazepine withdrawal may be the dominant life-threatening syndrome even when the person believes the main problem is an RC qualone.
 
@@ -226,13 +233,13 @@ Recovery may include:
 - craving;
 - fear of withdrawal recurrence;
 - cognitive slowing;
-- rebuilding normal routines without sedatives.
+- rebuilding normal routines without sedatives. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/15846700/).
 
 Because long-term modern-analogue data are sparse, there is no validated post-acute recovery timeline.
 
 ## Use disorder versus dependence
 
-Physical dependence is not identical to a sedative use disorder.
+Physical dependence is not identical to a sedative use disorder. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/34396551/).
 
 Warning signs of a use disorder include:
 - inability to cut down;
@@ -253,7 +260,7 @@ Medical assessment is especially important with:
 - history of delirium;
 - pregnancy;
 - serious respiratory disease;
-- inability to remain safe at home.
+- inability to remain safe at home. ([source 1](https://pubmed.ncbi.nlm.nih.gov/34396551/); [source 2](https://pubmed.ncbi.nlm.nih.gov/3736882/)).
 
 ## Evidence ledger
 
@@ -265,6 +272,8 @@ Medical assessment is especially important with:
 | A controlled treatment protocol is established | **No** | Cochrane review found no eligible controlled trials |
 | Modern qualone RCs share an identical withdrawal syndrome | **Not established** | Direct human data sparse |
 | Benzodiazepine equivalence can be calculated reliably | **No** | Distinct pharmacology and product uncertainty |
+
+For U.S. treatment referrals, [SAMHSA’s National Helpline](https://www.samhsa.gov/find-help/helplines/national-helpline), **1-800-662-HELP (4357)**, is available 24 hours a day. [FindTreatment.gov](https://findtreatment.gov/) lists treatment services. Referral services do not replace emergency care.
 
 ## Bottom line
 

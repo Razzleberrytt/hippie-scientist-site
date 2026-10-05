@@ -5,7 +5,7 @@ description: "A masterclass evidence review of MDMA and benzofuran/entactogen re
 date: "2026-10-03"
 updatedAt: "2026-10-03"
 author: "Will"
-category: "research"
+category: "Substance Use & Harm Reduction"
 evidence_grade: "moderate-for-mdma-dependence-and-post-use-symptoms-low-for-a-distinct-physical-withdrawal-syndrome-and-very-low-for-benzofuran-specific-recovery"
 scientific_name: "Entactogen discontinuation and recovery"
 keywords:
@@ -44,41 +44,58 @@ relatedSlugs:
   - 6-mapb
   - stimulant-withdrawal-recovery-guide
 references:
-  - title: "Test-re-test reliability of DSM-IV adopted criteria for MDMA abuse and dependence: a cross-national study"
-    authors: "Club-drug dependence study authors"
+  - title: "Test-re-test reliability of DSM-IV adopted criteria for 3,4-methylenedioxymethamphetamine (MDMA) abuse and dependence: a cross-national study"
+    authors: "Cottler LB, Leung KS, Abdallah AB"
     year: "2009"
     pmid: "19681802"
     url: "https://pubmed.ncbi.nlm.nih.gov/19681802/"
+    doi: "10.1111/j.1360-0443.2009.02649.x"
   - title: "Ecstasy and other club drugs: a review of recent epidemiologic studies"
-    authors: "Epidemiologic review authors"
+    authors: "Leung KS, Cottler LB"
     year: "2008"
     pmid: "18382220"
     url: "https://pubmed.ncbi.nlm.nih.gov/18382220/"
+    doi: "10.1097/yco.0b013e3282f9b1f1"
   - title: "3,4-methylenedioxymethamphetamine (MDMA): current perspectives"
-    authors: "Scientific review authors"
-    year: "2014"
+    authors: "Meyer JS"
+    year: "2013"
     pmid: "24648791"
     url: "https://pubmed.ncbi.nlm.nih.gov/24648791/"
+    doi: "10.2147/sar.s37258"
   - title: "Long-term neurocognitive side effects of MDMA in recreational ecstasy users following sustained abstinence: A systematic review and meta-analysis"
-    authors: "Systematic review authors"
-    year: "2025"
+    authors: "Ung H, McKeon G, Jokovic Z, Parker S, Vickers M, Malacova E, Eriksson L, Daglish M"
+    year: "2026"
     pmid: "41255336"
     doi: "10.1177/02698811251389559"
     url: "https://pubmed.ncbi.nlm.nih.gov/41255336/"
   - title: "New Psychoactive Substances: Chemistry, Pharmacology, Metabolism, and Detectability of Amphetamine Derivatives With Modified Ring Systems"
-    authors: "Scientific review authors"
-    year: "2015"
+    authors: "Welter-Luedeke J, Maurer HH"
+    year: "2016"
     pmid: "26327309"
     url: "https://pubmed.ncbi.nlm.nih.gov/26327309/"
-  - title: "Human psychobiology of MDMA or Ecstasy: an overview of 25 years of empirical research"
+    doi: "10.1097/ftd.0000000000000240"
+  - title: "Human psychobiology of MDMA or 'Ecstasy': an overview of 25 years of empirical research"
     authors: "Parrott AC"
     year: "2013"
     pmid: "23881877"
     url: "https://pubmed.ncbi.nlm.nih.gov/23881877/"
+    doi: "10.1002/hup.2318"
   - title: "Substance Use Disorder Treatment"
     authors: "Substance Abuse and Mental Health Services Administration"
     year: "2026"
     url: "https://www.samhsa.gov/substance-use/treatment"
+  - title: "Is ecstasy a drug of dependence?"
+    authors: "Degenhardt L, Bruno R, Topp L."
+    year: "2010"
+    pmid: "19836170"
+    doi: "10.1016/j.drugalcdep.2009.09.009"
+    url: "https://pubmed.ncbi.nlm.nih.gov/19836170/"
+  - title: "The ASAM/AAAP Clinical Practice Guideline on the Management of Stimulant Use Disorder"
+    authors: "Indexed publication"
+    year: "2024"
+    pmid: "38669101"
+    doi: "10.1097/adm.0000000000001299"
+    url: "https://pubmed.ncbi.nlm.nih.gov/38669101/"
 ---
 
 # Entactogen & Benzofuran Withdrawal & Recovery
@@ -87,7 +104,7 @@ references:
 
 ## Quick answer
 
-MDMA and benzofuran entactogens occupy an awkward middle ground between **stimulants** and **serotonergic drugs**.
+MDMA and benzofuran entactogens occupy an awkward middle ground between **stimulants** and **serotonergic drugs**. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/19836170/).
 
 Repeated MDMA use can produce:
 - tolerance;
@@ -104,7 +121,7 @@ For 5-APB, 6-APB, 5-MAPB and 6-MAPB, direct dependence and withdrawal studies ar
 
 ## Comedown versus withdrawal
 
-A **comedown** is the short-term post-intoxication period after acute effects wear off.
+A **comedown** is the short-term post-intoxication period after acute effects wear off. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/19836170/).
 
 It may include:
 - fatigue;
@@ -121,7 +138,7 @@ In real-world MDMA users these categories can overlap, especially after repeated
 
 ## MDMA dependence
 
-Cross-national research using adapted diagnostic criteria found substantial rates of MDMA dependence among frequent users, and withdrawal was one of the commonly endorsed criteria.
+Cross-national research using adapted diagnostic criteria found substantial rates of MDMA dependence among frequent users, and withdrawal was one of the commonly endorsed criteria. ([source 1](https://pubmed.ncbi.nlm.nih.gov/19681802/); [source 2](https://pubmed.ncbi.nlm.nih.gov/19836170/)).
 
 Other reviews conclude that dependence occurs, although it is generally less profound than with strongly reinforcing drugs such as opioids, nicotine or cocaine.
 
@@ -129,7 +146,7 @@ Physical dependence is not required for a serious use disorder.
 
 ## Why mood can drop after use
 
-MDMA releases serotonin, dopamine and norepinephrine and also produces substantial physiologic stress.
+MDMA releases serotonin, dopamine and norepinephrine and also produces substantial physiologic stress. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/23881877/).
 
 Post-use low mood can reflect a combination of:
 - sleep deprivation;
@@ -144,7 +161,7 @@ The popular phrase “serotonin depletion” is often used too simplistically. H
 
 ## Sleep and recovery
 
-Sleep disruption is one of the most common practical recovery problems.
+Sleep disruption is one of the most common practical recovery problems. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/23881877/).
 
 Helpful priorities include:
 - restoring a regular sleep-wake schedule;
@@ -156,7 +173,7 @@ Persistent inability to sleep, especially with agitation or psychosis, deserves 
 
 ## Cognition
 
-Heavy recreational MDMA exposure has been associated with memory and other cognitive differences in observational studies.
+Heavy recreational MDMA exposure has been associated with memory and other cognitive differences in observational studies. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/41255336/).
 
 A 2025 systematic review/meta-analysis of people abstinent for at least six months found persistent learning/memory differences compared with MDMA-naïve groups, but the authors rated the underlying evidence as low quality and could not show a simple dose-free recovery timeline.
 
@@ -167,7 +184,7 @@ That means:
 
 ## Benzofurans and MAPB compounds
 
-5-APB, 6-APB, 5-MAPB and 6-MAPB are not simply “MDMA with a ring changed.”
+5-APB, 6-APB, 5-MAPB and 6-MAPB are not simply “MDMA with a ring changed.” [Supporting study](https://pubmed.ncbi.nlm.nih.gov/26327309/).
 
 Published pharmacology shows monoamine releasing/reuptake effects involving serotonin, dopamine and norepinephrine, but direct human withdrawal research is sparse.
 
@@ -192,11 +209,11 @@ Post-entactogen dysphoria can be transient, but urgent evaluation is appropriate
 - severe depression lasting beyond the expected short post-use period;
 - psychosis;
 - mania-like symptoms;
-- near-total insomnia with behavioral deterioration.
+- near-total insomnia with behavioral deterioration. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/23881877/).
 
 ## Treatment and recovery support
 
-There is no approved medication specifically for MDMA or benzofuran withdrawal.
+There is no approved medication specifically for MDMA or benzofuran withdrawal. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/38669101/).
 
 Treatment usually focuses on:
 - sleep restoration;
@@ -216,7 +233,7 @@ Common relapse drivers include:
 - desire to recreate empathy/euphoria;
 - stimulant tolerance;
 - using again to escape the comedown;
-- easy access to pressed pills or powders.
+- easy access to pressed pills or powders. ([source 1](https://pubmed.ncbi.nlm.nih.gov/19836170/); [source 2](https://pubmed.ncbi.nlm.nih.gov/38669101/)).
 
 A useful recovery plan identifies the exact role the drug was playing rather than treating every case as generic “addiction.”
 
@@ -227,7 +244,7 @@ A pill sold as MDMA may contain:
 - a cathinone;
 - a benzofuran;
 - multiple active drugs;
-- unexpectedly high MDMA content.
+- unexpectedly high MDMA content. [Supporting study](https://pubmed.ncbi.nlm.nih.gov/18382220/).
 
 That matters because the “withdrawal” picture after a weekend can reflect several drugs at once.
 
@@ -241,6 +258,8 @@ That matters because the “withdrawal” picture after a weekend can reflect se
 | Heavy MDMA use can be associated with persistent cognitive differences | **Moderate-low** | Confounding and low-quality evidence |
 | Benzofuran withdrawal resembles MDMA exactly | **Not established** | Direct human evidence sparse |
 | A proven medication prevents MDMA/benzofuran relapse | **No** | No established specific pharmacotherapy |
+
+For U.S. treatment referrals, [SAMHSA’s National Helpline](https://www.samhsa.gov/find-help/helplines/national-helpline), **1-800-662-HELP (4357)**, is available 24 hours a day. [FindTreatment.gov](https://findtreatment.gov/) lists treatment services. Referral services do not replace emergency care.
 
 ## Bottom line
 
