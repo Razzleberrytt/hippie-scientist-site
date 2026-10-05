@@ -128,14 +128,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 23,
       "primary_category": "immune_respiratory",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3661,
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "focus": null
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "verified_title": "Effect of vitamin D supplementation on clinical outcomes in adult patients with COVID-19: A GRADE-assessed systematic review and meta-analysis of randomized controlled trials.",
+      "verified_journal": "Pharmacology research & perspectives",
+      "verified_pub_date": "2024-Oct",
+      "focus": "The COVID-19 pandemic has emerged as a major global health crisis. Vitamin D, a crucial fat-soluble vitamin, has been recommended for COVID-19 patients, though evidence of its effectiveness is inconsistent. This systematic literature review and meta-analysis aimed to evaluate the impact of vitamin D supplementation on COVID-19-related outcomes. A comprehensive search was conducted across PubMed, Scopus, Web of Science, Embase, and Cochrane databases. Primary outcomes included mortality and hospital length of stay, while secondary outcomes encompassed C-reactive protein (CRP), ferritin, D-dimer, hemoglobin (Hb) concentrations, and lymphocyte, neutrophil, and platelet counts. Data analysis was performed using Stata™ Version 14. A total of 16 trials were analyzed. The meta-analysis revealed that vitamin D supplementation significantly reduced hospital length of stay (mean difference = -1.16; 95% confidence interval [CI]: -2.23, -0.09; p = .033) with significant heterogeneity (I2 = 69.2%, p = .002). Subgroup analysis showed a more pronounced reduction in studies with vitamin D dosages ≤10 000 international units (IU) (mean difference = -1.27; 95% CI: -1.96, -0.57; p < .001) and in patients over 60 years old (mean difference = -1.84; 95% CI: -2.53, -1.14; p < .001). Additionally, vitamin D significantly reduced CRP concentrations in older adults (>60 years) (mean difference = -1.13; 95% CI: -2.07, -0.18; p = .019). No significant changes were found in ferritin, D-dimer, Hb concentrations, or in lymphocyte, neutrophil, and platelet counts (p > .05). In conclusion, while vitamin D supplementation did not significantly affect most COVID-19-related biomarkers, however, it reduces the length of hospital stay."
     },
     {
       "pmid": "39600723",
@@ -326,14 +326,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 20,
       "primary_category": "immune_respiratory",
-      "state": "selected_exact_verified",
+      "state": "verification_exception",
       "wave": 3670,
-      "abstract_verified": true,
-      "title_match_score": 1,
-      "verified_title": "Vitamin D supplementation for managing COVID-19 in patients with vitamin D deficiency: a systematic review and meta-analysis of randomised controlled trials.",
-      "verified_journal": "BMJ open",
-      "verified_pub_date": "2025-Mar-26",
-      "focus": "Vitamin D deficiency is prevalent among the population. Previous studies have shown that vitamin D supplementation might be useful for treating COVID-19 infection. Therefore, we performed a meta-analysis to explore vitamin D supplementation efficacy in treating COVID-19 patients with vitamin D deficiency. Systematic review and meta-analysis DATA SOURCES: PubMed, Cochrane Library, Embase and Web of Science. Randomised controlled trials exploring vitamin D supplementation for patients with COVID-19 and vitamin D deficiency. Two independent reviewers employed standardised methods to search, screen and code the included studies. The primary outcomes included mortality during follow-up, 28-day mortality, need for mechanical ventilation and intensive care unit (ICU). The secondary outcome included length of stay in hospital and ICU. The risk of bias was assessed using the Risk of Bias 2 tool. Depending on the level of heterogeneity, either a random-effects model or a fixed-effects model was applied. The findings were summarised using Grading of Recommendations Assessment, Development and Evaluation (GRADE) evidence profiles and synthesised qualitatively. A total of nine studies, comprising 870 participants, were included in the analysis. The pooled results indicated that vitamin D supplementation was associated with a lower risk of mortality (risk ratio 0.76; 95% CI 0.60 to 0.97). However, this apparent benefit was not robust when examined through the leave-one-out method and trial sequential analysis. Regarding other outcomes, there was no statistically significant difference between vitamin D supplementation and no supplementation in terms of 28-day mortality, the need for mechanical ventilation and ICU admission. Vitamin D supplementation was associated with a 0.41 day shorter length of stay in the ICU (mean difference -0.41; 95% CI -1.09 to 0.28) and a 0.07 day shorter length of stay in the hospital (mean difference -0.07; 95% CI -0.61 to 0.46) compared with no supplementation; however, neither difference was statistically significant. Based on evidence of low to moderate quality, vitamin D supplementation reduced the mortality rate during follow-up in COVID-19 patients with vitamin D deficiency. However, it did not improve 28-day mortality, nor did it reduce the need for mechanical ventilation and ICU admission, or the length of stay in the ICU and hospital. CRD42024573791."
+      "abstract_verified": false,
+      "title_match_score": 0,
+      "verified_title": null,
+      "verified_journal": null,
+      "verified_pub_date": null,
+      "focus": null
     }
   ]
 }
