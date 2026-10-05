@@ -3,7 +3,7 @@
   "selection_revision": 2,
   "range": "3751-3760",
   "row_count": 10,
-  "failed_count": 1,
+  "failed_count": 0,
   "rows": [
     {
       "pmid": "40269802",
@@ -29,26 +29,26 @@
       "replacement_for_pmid": "42821141"
     },
     {
-      "pmid": "42647983",
-      "doi": "10.1016/j.dsx.2026.103479",
-      "title": "Methodological considerations on the meta-analysis of alpha-lipoic acid in diabetic neuropathy.",
-      "journal": "Diabetes & metabolic syndrome",
-      "pub_date": "2026 Aug 17",
-      "pub_type": "Letter",
+      "pmid": "42147097",
+      "doi": "10.3389/fendo.2026.1778262",
+      "title": "Efficacy and safety of Buyang Huanwu Decoction combined with α-lipoic acid for diabetic peripheral neuropathy: a systematic review with in-depth heterogeneity deconstruction and methodological appraisal.",
+      "journal": "Frontiers in endocrinology",
+      "pub_date": "2026",
+      "pub_type": "Meta-Analysis",
       "has_abstract": false,
       "category": "metabolic",
       "discovery_query": "(berberine OR inositol OR chromium OR alpha-lipoic acid OR soluble fiber) AND (insulin OR glucose OR metabolic syndrome OR diabetes OR obesity) AND (trial OR systematic review OR meta-analysis) AND 2018:2026[pdat]",
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 8,
       "primary_category": "metabolic",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3752,
-      "abstract_verified": false,
+      "abstract_verified": true,
       "title_match_score": 1,
-      "verified_title": "Methodological considerations on the meta-analysis of alpha-lipoic acid in diabetic neuropathy.",
-      "verified_journal": "Diabetes & metabolic syndrome",
-      "verified_pub_date": "2026-Aug-17",
-      "focus": null
+      "verified_title": "Efficacy and safety of Buyang Huanwu Decoction combined with α-lipoic acid for diabetic peripheral neuropathy: a systematic review with in-depth heterogeneity deconstruction and methodological appraisal.",
+      "verified_journal": "Frontiers in endocrinology",
+      "verified_pub_date": "2026",
+      "focus": "Systematic review and meta-analysis of 12 randomized controlled trials (926 patients) evaluating Buyang Huanwu Decoction plus α-lipoic acid for diabetic peripheral neuropathy. Subjective outcomes improved, while nerve-conduction findings remained highly heterogeneous and adverse events did not differ."
     },
     {
       "pmid": "42334964",
