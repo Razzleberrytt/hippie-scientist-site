@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2611-2615",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2611,
+      "pmid": "42792136",
+      "title": "Dates, Polyunsaturated Fatty Acids, Dietary Fiber, and Probiotics as Potential Complementary Modulators of Gut Microbiota and Oxidative Stress: An Integrative Review.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "The integrative review combines distinct foods, nutrients, fibers, and probiotic evidence; ingredient-specific attribution is limited, and whole dates are explicitly not established as a prebiotic."
+    },
+    {
+      "wave": 2612,
+      "pmid": "42790830",
+      "title": "Berberine induces pleiotropic beneficial effects via hormesis.",
+      "abstract_verified": true,
+      "state": "research_only_mechanistic_review",
+      "evidence_boundary": "Hormesis is used as an explanatory framework for broad berberine effects, much of which derives from preclinical evidence; clinically optimal exposure and long-term human outcomes remain uncertain."
+    },
+    {
+      "wave": 2613,
+      "pmid": "42679920",
+      "title": "Effect of citicoline on cognitive function and functional recovery in patients with mild-to-moderate traumatic brain injury: a randomized placebo-controlled trial.",
+      "abstract_verified": true,
+      "state": "research_only_human_trial",
+      "evidence_boundary": "This is a small single-center pilot RCT in mild-to-moderate TBI using 1000 mg/day citicoline; findings are population- and dose-specific and require larger replication."
+    },
+    {
+      "wave": 2614,
+      "pmid": "42682728",
+      "title": "Common Supplements in Plant-Based Nutrition: Dosing, Formulations, and Safety.",
+      "abstract_verified": true,
+      "state": "research_only_practical_review",
+      "evidence_boundary": "The article provides practical formulation, dosing, labeling, and safety guidance rather than a systematic efficacy assessment; examples should not be read as universal product recommendations."
+    },
+    {
+      "wave": 2615,
+      "pmid": "42734836",
+      "title": "Omega-3 and Omega-6 Fatty Acids and Cardiovascular Outcomes in Diabetes - A Review of Current Evidence.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "Cardiovascular outcomes differ by fatty-acid formulation and dose; high-dose purified EPA findings do not transfer automatically to lower-dose mixed EPA+DHA products or omega-6 interventions."
+    }
+  ]
+}

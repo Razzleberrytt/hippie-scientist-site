@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "range": "2606-2655",
+  "source": "NCBI PubMed exact fallback plus fail-closed replacements",
+  "rows": [
+    {
+      "wave": 2607,
+      "pmid": "42794785",
+      "state": "research_only_review",
+      "focus": "Review of AMPK-directed therapeutic strategies for MASLD, including berberine, resveratrol, metformin, and direct AMPK activators.",
+      "evidence_boundary": "Mechanistic/translational review; phytochemical relevance does not establish clinical efficacy for MASLD."
+    },
+    {
+      "wave": 2609,
+      "pmid": "42792232",
+      "state": "research_only_review",
+      "focus": "Review of obesity-associated oxidative stress and dietary compounds including resveratrol, curcumin, lycopene, and astaxanthin.",
+      "evidence_boundary": "Mechanistic review; therapeutic strategies span lifestyle, drugs, and dietary compounds and cannot be generalized to single-supplement efficacy."
+    },
+    {
+      "wave": 2610,
+      "pmid": "42792223",
+      "state": "research_only_food_systems_review",
+      "focus": "Review of oxidative stability and nanoencapsulation of marine EPA/DHA across aquaculture, storage, and consumer delivery.",
+      "evidence_boundary": "Feed-to-consumer stability review; human benefit depends on retained exposure and is not directly tested."
+    },
+    {
+      "wave": 2612,
+      "pmid": "42790830",
+      "state": "research_only_mechanistic_review",
+      "focus": "Review/data synthesis argues berberine's pleiotropic biological responses often follow hormetic dose-response patterns.",
+      "evidence_boundary": "Cross-model hormesis analysis does not establish clinical benefit across diseases or define therapeutic dosing."
+    },
+    {
+      "wave": 2620,
+      "pmid": "42810842",
+      "state": "research_only_open_label_trial",
+      "focus": "Open-label randomized MCI trial found EGb 761 exposure associated with longitudinal changes in inflammatory and neurodegeneration-related plasma proteins.",
+      "evidence_boundary": "Open-label, single-center biomarker findings require placebo-controlled confirmation before inferring neuroprotection."
+    },
+    {
+      "wave": 2621,
+      "pmid": "42616216",
+      "state": "research_only_replacement_review",
+      "replaces_rejected_pmid": "42795429",
+      "focus": "PRISMA-aligned Bacopa monnieri review integrating phytochemistry, mechanisms, preclinical evidence, and clinical cognitive outcomes.",
+      "evidence_boundary": "Clinical evidence is promising but heterogeneous; extract standardization and long-term Alzheimer-specific RCT data remain limited."
+    },
+    {
+      "wave": 2622,
+      "pmid": "42783813",
+      "state": "research_only_rct",
+      "focus": "Small randomized double-blind crossover trial compared acute creatine, L-arginine, combination, and placebo for sprint, jump, and Stroop outcomes.",
+      "evidence_boundary": "Small male-only acute study; outcome-specific effects did not establish biological synergy and may be affected by carryover."
+    },
+    {
+      "wave": 2625,
+      "pmid": "42826818",
+      "state": "research_only_mechanistic_background",
+      "focus": "Review of microglial GPR56 in synaptic pruning and brain disorders, distinguishing direct evidence from proposed signaling mechanisms.",
+      "evidence_boundary": "Mechanistic background rather than supplement evidence; translational implications remain hypothetical."
+    },
+    {
+      "wave": 2626,
+      "pmid": "42820327",
+      "state": "research_only_review",
+      "focus": "Review of standardized Ginkgo biloba extract across chronic inflammation-related diseases, integrating preclinical and limited clinical evidence.",
+      "evidence_boundary": "Large-scale clinical validation and formulation standardization remain insufficient."
+    },
+    {
+      "wave": 2628,
+      "pmid": "42794738",
+      "state": "research_only_review",
+      "focus": "Review of the gut-heart axis, microbiota-derived metabolites, and dietary-pattern modulation of cardiovascular biology.",
+      "evidence_boundary": "Dietary-pattern and mechanistic review; microbiome-targeted clinical prevention claims remain unvalidated."
+    },
+    {
+      "wave": 2641,
+      "pmid": "42826097",
+      "state": "research_only_preclinical",
+      "focus": "LGG probiotic improved gefitinib efficacy and reduced treatment toxicity in preclinical systems, with propionyl-L-carnitine implicated mechanistically.",
+      "evidence_boundary": "Cancer-treatment adjunct evidence is preclinical and cannot be generalized to patients."
+    },
+    {
+      "wave": 2642,
+      "pmid": "42808059",
+      "state": "research_only_systematic_review",
+      "focus": "Systematic review of plant glycolipids and gut microbiota found limited but suggestive animal and human evidence for prebiotic effects.",
+      "evidence_boundary": "Only 13 studies were included; human metabolic effects remain insufficiently characterized."
+    },
+    {
+      "wave": 2643,
+      "pmid": "42805421",
+      "state": "research_only_animal_combination",
+      "focus": "Mouse alcohol-withdrawal study found procyanidins and Bifidobacterium infantis improved anxiety/depression-like behavior with gut-immune-brain changes.",
+      "evidence_boundary": "Animal combination study; human withdrawal or mood benefit cannot be inferred."
+    },
+    {
+      "wave": 2644,
+      "pmid": "42804968",
+      "state": "research_only_network_meta_analysis",
+      "focus": "Review/NMA of probiotic and synbiotic interventions during colorectal-cancer chemotherapy found multistrain probiotics reduced diarrhea in limited RCT evidence.",
+      "evidence_boundary": "Small, heterogeneous oncology trials limit certainty and generalizability across probiotic formulations."
+    },
+    {
+      "wave": 2645,
+      "pmid": "42803549",
+      "state": "research_only_animal",
+      "focus": "Mouse study found Lactiplantibacillus plantarum Lp05 did not impair immune development and attenuated DSS colitis with increased Treg differentiation.",
+      "evidence_boundary": "Mouse immune-development and colitis findings require human confirmation."
+    },
+    {
+      "wave": 2646,
+      "pmid": "42801985",
+      "state": "research_only_systematic_review",
+      "focus": "Systematic review of ingested microplastics and gut-brain signaling synthesized rodent, cell, and multi-omics evidence and highlighted probiotic/FMT mitigation strategies in preclinical models.",
+      "evidence_boundary": "Human translation is limited; standardized exposure models are lacking."
+    },
+    {
+      "wave": 2649,
+      "pmid": "42808427",
+      "state": "research_only_replacement_rct",
+      "replaces_rejected_pmid": "42819078",
+      "focus": "MedEx-UK randomized trial found no significant Mediterranean-diet or Mediterranean-diet-plus-activity effects on gut microbiome composition or fecal metabolites.",
+      "evidence_boundary": "Null RCT with limited paired-sample size; whole-diet intervention does not isolate specific ingredients."
+    },
+    {
+      "wave": 2650,
+      "pmid": "42829721",
+      "state": "research_only_review",
+      "focus": "Review of cervicovaginal microbiota and endometrial repair discussed signaling pathways and Lactobacillus-targeted strategies.",
+      "evidence_boundary": "Evidence remains largely observational with limited clinical intervention data."
+    },
+    {
+      "wave": 2651,
+      "pmid": "42797077",
+      "state": "research_only_replacement_review",
+      "replaces_rejected_pmid": "42829422",
+      "focus": "Review of alginate oligosaccharides as charged marine prebiotics with gut-dependent and proposed direct metabolic actions.",
+      "evidence_boundary": "Many direct-action mechanisms rely on in vitro or parenteral animal evidence; oral systemic exposure and clinical effects remain uncertain."
+    },
+    {
+      "wave": 2652,
+      "pmid": "42828728",
+      "state": "research_only_review",
+      "focus": "Narrative review of gut bacteria/metabolites and signaling pathways potentially affecting cognition, decision-making, and consciousness.",
+      "evidence_boundary": "Conceptual review; claims about complex cognition and consciousness remain mechanistic and hypothesis-generating."
+    },
+    {
+      "wave": 2654,
+      "pmid": "42827967",
+      "state": "research_only_review",
+      "focus": "Review of SCFA-producing commensals in Alzheimer-related neuroinflammation and microbiota-gut-brain signaling.",
+      "evidence_boundary": "Disease-modifying implications remain hypothetical and require controlled human trials."
+    },
+    {
+      "wave": 2655,
+      "pmid": "42825107",
+      "state": "research_only_delivery_review",
+      "focus": "Engineering review of complex-coacervation probiotic delivery systems and co-delivery architectures.",
+      "evidence_boundary": "Formulation-engineering review; in vivo validation, scalability, and clinical effectiveness remain limited."
+    }
+  ],
+  "rejected": [
+    {
+      "wave": 2621,
+      "pmid": "42795429",
+      "reason": "Exact PubMed fetch returned no title or abstract."
+    },
+    {
+      "wave": 2649,
+      "pmid": "42819078",
+      "reason": "Correction notice only; not an independent enrichment source."
+    },
+    {
+      "wave": 2651,
+      "pmid": "42829422",
+      "reason": "Exact PubMed fetch returned no title or abstract."
+    }
+  ]
+}

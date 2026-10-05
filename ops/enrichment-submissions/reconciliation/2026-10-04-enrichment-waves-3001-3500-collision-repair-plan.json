@@ -1,0 +1,877 @@
+{
+  "schema_version": 1,
+  "true_prior_unique_pmids": 2935,
+  "repair_count": 41,
+  "policy": {
+    "same_category": true,
+    "exclude_finalized_prior_pmids": true,
+    "exclude_current_batch_ids": true,
+    "exclude_animal_title_noise": true,
+    "exclude_off_domain_engineering_noise": true,
+    "prefer_human_trials_and_reviews": true,
+    "exact_pubmed_verification_required": true
+  },
+  "plan": [
+    {
+      "wave": 3004,
+      "category": "aging_sarcopenia",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42798093",
+        "doi": "10.1097/MD.0000000000050799",
+        "title": "Systematic review and meta-analysis of biomarkers of sarcopenia and sarcopenic obesity."
+      },
+      "replacement": {
+        "pmid": "42786581",
+        "doi": "10.1093/geront/gnag228",
+        "title": "Impact of supervised physical exercise on inflammatory and oxidative stress biomarkers in older adults: a systematic review and meta-analysis of randomized controlled trials.",
+        "pub_date": "2026 Sep 24",
+        "journal": "Gerontologist",
+        "pub_type": "Journal Article",
+        "pmcid": null,
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 22
+      }
+    },
+    {
+      "wave": 3008,
+      "category": "aging_sarcopenia",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42780265",
+        "doi": "10.21203/rs.3.rs-10695023/v1",
+        "title": "Strength training intervention with creatine/whey protein supplementation vs placebo on frailty in older adults with cirrhosis (STRIVE): A Randomized Controlled Trial."
+      },
+      "replacement": {
+        "pmid": "42772454",
+        "doi": "10.1016/j.ajcnut.2026.101533",
+        "title": "Effects of a self-selected vegetarian vs. omnivorous diet on protein intake and muscle mass in older adults during resistance exercise: the IMPACT randomized controlled trial.",
+        "pub_date": "2026 Sep 22",
+        "journal": "Am J Clin Nutr",
+        "pub_type": "Journal Article",
+        "pmcid": null,
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 20
+      }
+    },
+    {
+      "wave": 3021,
+      "category": "aging_sarcopenia",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42804367",
+        "doi": "10.1113/EP093790",
+        "title": "Musculoskeletal decay and bone-muscle crosstalk during physical disuse: Mechanisms and integrated countermeasures."
+      },
+      "replacement": {
+        "pmid": "42773257",
+        "doi": "10.1007/s40520-026-03515-z",
+        "title": "Reducing concerns about falling in older adults: evaluation of a multi-component intervention and the role of stress and inflammation markers - long-term effects of the FEARFALL randomized controlled trial.",
+        "pub_date": "2026 Sep 19",
+        "journal": "Aging Clin Exp Res",
+        "pub_type": "Randomized Controlled Trial",
+        "pmcid": "PMC13597564",
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 20
+      }
+    },
+    {
+      "wave": 3041,
+      "category": "botanicals_mushrooms",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42737488",
+        "doi": "10.3390/ijms27177585",
+        "title": "Coumarin and Curcumin-Metal Complexes as Next-Generation Photosensitizers in Cancer Photodynamic Therapy."
+      },
+      "replacement": {
+        "pmid": "42779256",
+        "doi": "10.1080/0886022X.2026.2728349",
+        "title": "The efficacy of Cordyceps sinensis preparations in improving kidney outcomes among patients with AKI during hemorrhagic fever with renal syndrome: evidence from a Chinese cohort.",
+        "pub_date": "2026 Dec",
+        "journal": "Ren Fail",
+        "pub_type": "Journal Article",
+        "pmcid": "PMC13618102",
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 15
+      }
+    },
+    {
+      "wave": 3042,
+      "category": "botanicals_mushrooms",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42739529",
+        "doi": "10.3390/jcm15176523",
+        "title": "Advanced Biological Therapies: Principles, Mechanisms and Medical Applications."
+      },
+      "replacement": {
+        "pmid": "42720424",
+        "doi": "10.1093/lambio/ovag077",
+        "title": "Fermentation technology of Ganoderma lucidum and Cordyceps militaris: advances in process optimization, bioactive compound transformation, and functional food development.",
+        "pub_date": "2026 Sep 4",
+        "journal": "Lett Appl Microbiol",
+        "pub_type": "Review",
+        "pmcid": null,
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 14
+      }
+    },
+    {
+      "wave": 3045,
+      "category": "botanicals_mushrooms",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42782741",
+        "doi": "10.3390/cells15181640",
+        "title": "Dietary Modulation of microRNAs as a Potential Nutritional Strategy in Inflammatory and Autoimmune Skin Diseases: A Narrative Review."
+      },
+      "replacement": {
+        "pmid": "42719314",
+        "doi": "10.1016/j.jgr.2026.101079",
+        "title": "Nrf2 as a therapeutic target of ginseng: A comprehensive review from preclinical evidence to clinical applications.",
+        "pub_date": "2026 Sep",
+        "journal": "J Ginseng Res",
+        "pub_type": "Review",
+        "pmcid": "PMC13554444",
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 14
+      }
+    },
+    {
+      "wave": 3047,
+      "category": "botanicals_mushrooms",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42792150",
+        "doi": "10.3390/antiox15091111",
+        "title": "Edible Fungi and Skin Redox Homeostasis: Bioactive Diversity, Processing, Oral Exposure, and Evidence Gaps."
+      },
+      "replacement": {
+        "pmid": "42719334",
+        "doi": "10.1016/j.jgr.2026.101078",
+        "title": "Traditional Chinese medicine ginseng regulates neurotrophic factors to improve neurodegenerative diseases: A potential strategy for Alzheimer's disease treatment.",
+        "pub_date": "2026 Sep",
+        "journal": "J Ginseng Res",
+        "pub_type": "Review",
+        "pmcid": "PMC13554440",
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 14
+      }
+    },
+    {
+      "wave": 3048,
+      "category": "botanicals_mushrooms",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42794746",
+        "doi": "10.3390/ijms27188320",
+        "title": "Advances in Research on Panax Ginseng-Derived EV-like Particles."
+      },
+      "replacement": {
+        "pmid": "42667846",
+        "doi": "10.1016/j.ctarc.2026.101414",
+        "title": "Curcumin in pancreatic cancer: A comprehensive review of anticancer mechanisms, EMT modulation, and clinical challenges.",
+        "pub_date": "2026 Aug 29",
+        "journal": "Cancer Treat Res Commun",
+        "pub_type": "Review",
+        "pmcid": null,
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 14
+      }
+    },
+    {
+      "wave": 3059,
+      "category": "cannabinoid_safety",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42813605",
+        "doi": "10.1177/02698811261478615",
+        "title": "Effects of Δ(9)-tetrahydrocannabinol on affiliative social behaviour: A systematic review of rodent studies."
+      },
+      "replacement": {
+        "pmid": "42821661",
+        "doi": "10.1371/journal.pone.0349328",
+        "title": "Protocol for the REVELIO test-track pilot study: A randomised, controlled, single-centre trial in healthy recreational cannabis users investigating real-time in-vehicle detection of cannabis-impaired driving.",
+        "pub_date": "2026",
+        "journal": "PLoS One",
+        "pub_type": "Clinical Trial Protocol",
+        "pmcid": "PMC13630308",
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 19
+      }
+    },
+    {
+      "wave": 3060,
+      "category": "cannabinoid_safety",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42761670",
+        "doi": "10.2903/j.efsa.2026.10154",
+        "title": "Safety of synthetic cannabidiol as a novel food pursuant to regulation (EU) 2015/2283."
+      },
+      "replacement": {
+        "pmid": "42810868",
+        "doi": "10.1016/j.bja.2026.09.001",
+        "title": "Cannabis use and anaesthetic agent dosing in patients undergoing surgery or interventional procedures: a single-centre retrospective cohort study.",
+        "pub_date": "2026 Sep 29",
+        "journal": "Br J Anaesth",
+        "pub_type": "Journal Article",
+        "pmcid": null,
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 15
+      }
+    },
+    {
+      "wave": 3066,
+      "category": "cannabinoid_safety",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42757353",
+        "doi": "10.7759/cureus.114757",
+        "title": "Efficacy of Cannabinoids in Improving Nutritional Outcomes in Chemotherapy Patients: A Scoping Review."
+      },
+      "replacement": {
+        "pmid": "42799780",
+        "doi": "10.1007/s00590-026-04977-7",
+        "title": "Association of cannabis use disorder with clinical outcomes following lumbar spinal fusion: a propensity-matched cohort study.",
+        "pub_date": "2026 Sep 26",
+        "journal": "Eur J Orthop Surg Traumatol",
+        "pub_type": "Multicenter Study",
+        "pmcid": null,
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 15
+      }
+    },
+    {
+      "wave": 3071,
+      "category": "cannabinoid_safety",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42783432",
+        "doi": "10.3390/medsci14050560",
+        "title": "Cannabigerol at the Interface of the Gut Microbiota and EndoCannabinoidome: Mechanistic Insights into Inflammation and Pain Modulation."
+      },
+      "replacement": {
+        "pmid": "42790169",
+        "doi": "10.1016/j.ejmech.2026.119360",
+        "title": "Phytocannabinoid cannabidiol (CBD) in neurodegenerative diseases: From polypharmacology to drug development.",
+        "pub_date": "2026 Sep 23",
+        "journal": "Eur J Med Chem",
+        "pub_type": "Review",
+        "pmcid": null,
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 14
+      }
+    },
+    {
+      "wave": 3072,
+      "category": "cannabinoid_safety",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42783473",
+        "doi": "10.3390/jpm16090442",
+        "title": "Cannabis and Wound Healing: A Narrative Review of Current Evidence and Applications to Facial Plastic Surgery."
+      },
+      "replacement": {
+        "pmid": "42751849",
+        "doi": "10.1080/20415990.2026.2731738",
+        "title": "Nanostructured lipid carriers for intranasal cannabidiol delivery in Dravet and Lennox-Gastaut syndromes: bridging preclinical promise to clinical translation.",
+        "pub_date": "2026 Sep 17",
+        "journal": "Ther Deliv",
+        "pub_type": "Review",
+        "pmcid": null,
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 14
+      }
+    },
+    {
+      "wave": 3073,
+      "category": "cannabinoid_safety",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42793092",
+        "doi": "10.3390/biom16091260",
+        "title": "Cannabinoids in Cancer: Molecular Mechanisms of Tumor Cell Death and Translational Opportunities."
+      },
+      "replacement": {
+        "pmid": "42787287",
+        "doi": "10.3389/fpubh.2026.1915903",
+        "title": "Pharmacovigilance in medical cannabis therapy among physicians in Poland: pharmacovigilance knowledge, ADR reporting practice and cannabis-related safety reporting.",
+        "pub_date": "2026",
+        "journal": "Frontiers in public health",
+        "pub_type": "Journal Article",
+        "pmcid": null,
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 20
+      }
+    },
+    {
+      "wave": 3076,
+      "category": "cannabinoid_safety",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42796655",
+        "doi": "10.3390/pathogens15090887",
+        "title": "Interaction of β-Caryophyllene with a Simplified Membrane Model and Its Growth-Inhibitory Effect Against Escherichia coli ATCC 25922."
+      },
+      "replacement": {
+        "pmid": "42791631",
+        "doi": "10.1002/bcp.70840",
+        "title": "Cannabis-based medicines: On the topic of intoxication.",
+        "pub_date": "2026-Sep-25",
+        "journal": "British journal of clinical pharmacology",
+        "pub_type": "Journal Article",
+        "pmcid": "PMC13607667",
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 20
+      }
+    },
+    {
+      "wave": 3080,
+      "category": "cannabinoid_safety",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42807438",
+        "doi": "10.2147/NSA.S617933",
+        "title": "Functionalized Colloidal Hydroxyapatite for Combined Delivery of Cannabidiol and Epirubicin: Characterization, Biomimetic Membrane Interaction, and Cytotoxicity Studies."
+      },
+      "replacement": {
+        "pmid": "42816475",
+        "doi": "10.1080/10550887.2026.2734452",
+        "title": "Psychological and neuropsychological effects of adolescent cannabis use: a structured narrative review.",
+        "pub_date": "2026 Sep 30",
+        "journal": "J Addict Dis",
+        "pub_type": "Review",
+        "pmcid": null,
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 11
+      }
+    },
+    {
+      "wave": 3102,
+      "category": "cardiometabolic",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42824366",
+        "doi": "10.1093/ckj/sfag313",
+        "title": "The effects of dialysate acids and divalent ions on calcification and cardiovascular outcomes: old wisdom and new developments."
+      },
+      "replacement": {
+        "pmid": "42552400",
+        "doi": "10.1038/s41440-026-02768-5",
+        "title": "Magnesium and blood pressure regulation: systemic and renal mechanisms.",
+        "pub_date": "2026-Aug-04",
+        "journal": "Hypertension research : official journal of the Japanese Society of Hypertension",
+        "pub_type": "Review",
+        "pmcid": null,
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 24
+      }
+    },
+    {
+      "wave": 3205,
+      "category": "inflammation_pain",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42797297",
+        "doi": "10.3390/pharmaceutics18091122",
+        "title": "A Curcumin-Loaded Liposomal Photodynamic Nanosystem for Effective Treatment of Bacterial Wound Infections."
+      },
+      "replacement": {
+        "pmid": "42829743",
+        "doi": "10.4103/jehp.jehp_391_25",
+        "title": "Efficacy of ginger and fennel in relieving primary dysmenorrhea: A triple-blind crossover controlled trial.",
+        "pub_date": "2026",
+        "journal": "Journal of education and health promotion",
+        "pub_type": "Journal Article",
+        "pmcid": null,
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 22
+      }
+    },
+    {
+      "wave": 3219,
+      "category": "inflammation_pain",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42792129",
+        "doi": "10.3390/antiox15091090",
+        "title": "Liposomes, Niosomes, Ethosomes, and Transethosomes for Curcumin and Chlorogenic Acid Delivery: Formulation Design and Dermal Performance."
+      },
+      "replacement": {
+        "pmid": "42698930",
+        "doi": "10.2106/JBJS.OA.26.00225",
+        "title": "A Comparison of Clinical Outcomes Among Undenatured Collagen Type II, Glucosamine Sulfate, and Diacerein on Osteoarthritic Knee Treatment: A Randomized Clinical Trial.",
+        "pub_date": "2026 Jul-Sep",
+        "journal": "JB JS Open Access",
+        "pub_type": "Journal Article",
+        "pmcid": "PMC13542060",
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 11
+      }
+    },
+    {
+      "wave": 3222,
+      "category": "inflammation_pain",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42654291",
+        "doi": "10.3390/nu18162711",
+        "title": "Beyond Bone Health: Exploring the \"Heart-Brain-Bone\" Axis Modulated by Lipid-Soluble Nutrients (Omega-3, Vitamin D3, and Vitamin K2)."
+      },
+      "replacement": {
+        "pmid": "42677182",
+        "doi": "10.5114/reum/214398",
+        "title": "Dietary and serum magnesium in children with juvenile idiopathic arthritis: a case-control study.",
+        "pub_date": "2026",
+        "journal": "Reumatologia",
+        "pub_type": "Journal Article",
+        "pmcid": null,
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 18
+      }
+    },
+    {
+      "wave": 3231,
+      "category": "metabolic",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42774343",
+        "doi": "10.3389/fphar.2026.1935151",
+        "title": "Berberine as a multitarget modulator of metabolic inflammation: molecular mechanisms, circadian regulation, and translational perspectives."
+      },
+      "replacement": {
+        "pmid": "42756089",
+        "doi": "10.3389/fnut.2026.1922441",
+        "title": "Vitamin D status, metabolic determinants, and association with MASLD: retrospective health-screening cohort mediation analysis.",
+        "pub_date": "2026",
+        "journal": "Frontiers in nutrition",
+        "pub_type": "Journal Article",
+        "pmcid": "PMC13603940",
+        "source": "NCBI PubMed collision-repair targeted reserve",
+        "selection_score": 22
+      }
+    },
+    {
+      "wave": 3236,
+      "category": "metabolic",
+      "reason": "off_category_relevance_failure",
+      "old": {
+        "pmid": "42745443",
+        "doi": "10.1002/cssc.71065",
+        "title": "A Multicomponent Saturated MgCl(2)/Glucose/Isopropanol Electrolyte for Aqueous Magnesium-Ion Batteries."
+      },
+      "replacement": {
+        "pmid": "42796984",
+        "doi": "10.3390/nu18183000",
+        "title": "Therapeutic Potential of Berberine in Obesity-Associated Neuroinflammation Through Shared Molecular Pathways: TLR4/NF-κB/MAPK, ROS/NRF2 and NLRP3.",
+        "pub_date": "2026-Sep-14",
+        "journal": "Nutrients",
+        "pub_type": "Review",
+        "pmcid": null,
+        "source": "NCBI PubMed collision-repair targeted reserve",
+        "selection_score": 22
+      }
+    },
+    {
+      "wave": 3298,
+      "category": "mitochondrial_energy",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42765071",
+        "doi": "10.14202/vetworld.2026.3443-3456",
+        "title": "Coenzyme Q10 supplementation enhances HSP70 gene expression and preserves mitochondrial function in cryopreserved Peranakan Ettawa goat spermatozoa."
+      },
+      "replacement": {
+        "pmid": "41604113",
+        "doi": "10.1007/s11357-025-02068-9",
+        "title": "Coenzyme Q10 supplementation raises plasma levels without improving mitochondrial function in older adults.",
+        "pub_date": "2026-Jan-28",
+        "journal": "GeroScience",
+        "pub_type": "Journal Article",
+        "pmcid": "PMC13603231",
+        "source": "NCBI PubMed collision-repair targeted reserve",
+        "selection_score": 22
+      }
+    },
+    {
+      "wave": 3308,
+      "category": "mitochondrial_energy",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42796943",
+        "doi": "10.3390/nu18182960",
+        "title": "Creatine Use Among Women Across Reported Duration-of-Use Groups: A Platform-Based Cross-Sectional Survey of Supplementation Behaviors, Motivations, Knowledge, and Experiences."
+      },
+      "replacement": {
+        "pmid": "41705654",
+        "doi": "10.1080/15502783.2026.2632284",
+        "title": "Anti-inflammatory effects of nicotinamide mononucleotide (NMN) in human skeletal muscle after BFR-exercise.",
+        "pub_date": "2026-Dec-31",
+        "journal": "Journal of the International Society of Sports Nutrition",
+        "pub_type": "Randomized Controlled Trial",
+        "pmcid": null,
+        "source": "NCBI PubMed collision-repair targeted reserve",
+        "selection_score": 24
+      }
+    },
+    {
+      "wave": 3318,
+      "category": "mood",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42794622",
+        "doi": "10.3390/ijms27188192",
+        "title": "The Association Between Vitamin D Status and Depression Severity in Adults with Major Depressive Disorder: A Cross-Sectional Study."
+      },
+      "replacement": {
+        "pmid": "41605120",
+        "doi": "10.1016/j.jad.2025.120696",
+        "title": "Effectiveness of probiotic supplementation in managing depressive symptoms and inflammatory status in patients with depression: A systematic review and meta-analysis.",
+        "pub_date": "2026-Mar",
+        "journal": "Clinical nutrition (Edinburgh, Scotland)",
+        "pub_type": "Meta-Analysis",
+        "pmcid": "PMC13399270",
+        "source": "NCBI PubMed collision-repair targeted reserve",
+        "selection_score": 26
+      }
+    },
+    {
+      "wave": 3319,
+      "category": "mood",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42796995",
+        "doi": "10.3390/nu18183012",
+        "title": "Serum 25-Hydroxyvitamin D and Depressive Symptoms in a 12-Year Korean Occupational Cohort: A Threshold Effect Confined to Severe Deficiency."
+      },
+      "replacement": {
+        "pmid": "41915083",
+        "doi": "10.1007/s00431-026-07005-2",
+        "title": "Does inflammation moderate the effect of vitamin D supplementation on depressive symptoms? Results of an interventional study in children and adolescents.",
+        "pub_date": "2026-Mar-31",
+        "journal": "European journal of nutrition",
+        "pub_type": "Randomized Controlled Trial",
+        "pmcid": null,
+        "source": "NCBI PubMed collision-repair targeted reserve",
+        "selection_score": 24
+      }
+    },
+    {
+      "wave": 3322,
+      "category": "mood",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42736760",
+        "doi": "10.1097/MD.0000000000050634",
+        "title": "Serum magnesium and depressive symptoms among U.S. adults: A cross-sectional study of NHANES august 2021-august 2023."
+      },
+      "replacement": {
+        "pmid": "42253726",
+        "doi": "10.3389/fnut.2026.1845922",
+        "title": "Association between vitamin D deficiency and the 8-year risk of incident depression in patients with rheumatoid arthritis: a cohort study.",
+        "pub_date": "2026",
+        "journal": "Front Nutr",
+        "pub_type": "Journal Article",
+        "pmcid": "PMC13233263",
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 15
+      }
+    },
+    {
+      "wave": 3323,
+      "category": "mood",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42739029",
+        "doi": "10.3390/nu18172858",
+        "title": "Dietary Omega-3 Fatty Acid Intake, Anxiety, and Depression Among University Students in the UK: An Exploratory Cross-Sectional Study."
+      },
+      "replacement": {
+        "pmid": "42358300",
+        "doi": "10.3389/fnut.2026.1856953",
+        "title": "Association of vitamin D deficiency with incident depression in patients with hearing impairment: an observational retrospective cohort study.",
+        "pub_date": "2026",
+        "journal": "Front Nutr",
+        "pub_type": "Journal Article",
+        "pmcid": "PMC13290609",
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 15
+      }
+    },
+    {
+      "wave": 3333,
+      "category": "mood",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42515157",
+        "doi": "10.3390/toxics14070592",
+        "title": "Magnesium Attenuates the Association Between Mixed Element Exposure and Depressive Symptoms in Older Adults."
+      },
+      "replacement": {
+        "pmid": "41868894",
+        "doi": "10.3389/fpsyt.2026.1667635",
+        "title": "Association of vitamin D and N-acetylcysteine supplementation with anxiety, cognition, and biomarkers in generalized anxiety disorder: a retrospective cohort study.",
+        "pub_date": "2026",
+        "journal": "American journal of translational research",
+        "pub_type": "Journal Article",
+        "pmcid": "PMC13476405",
+        "source": "NCBI PubMed collision-repair targeted reserve",
+        "selection_score": 20
+      }
+    },
+    {
+      "wave": 3334,
+      "category": "mood",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42536583",
+        "doi": "10.1097/MD.0000000000050042",
+        "title": "Associations among probiotic/prebiotic consumption, depression and chronic obstructive pulmonary disease: A cross-sectional study."
+      },
+      "replacement": {
+        "pmid": "41668811",
+        "doi": "10.3389/fnut.2025.1720023",
+        "title": "The role of probiotics in modulation of the gut-brain axis: a prospective therapy for depression and mood disorders.",
+        "pub_date": "2025",
+        "journal": "Frontiers in pharmacology",
+        "pub_type": "Review",
+        "pmcid": "PMC13297772",
+        "source": "NCBI PubMed collision-repair targeted reserve",
+        "selection_score": 20
+      }
+    },
+    {
+      "wave": 3335,
+      "category": "mood",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42589370",
+        "doi": "10.3390/ijms27156713",
+        "title": "Influence of Vitamin E Intake on Sexual Function and Depressive Symptoms in Young Women with Euthyroid Autoimmune Thyroiditis Undergoing Vitamin D Therapy: A Pilot Study."
+      },
+      "replacement": {
+        "pmid": "42145430",
+        "doi": "10.6026/973206300221638",
+        "title": "Effect of vitamin D supplementation on fatigue and mood among perimenopausal women.",
+        "pub_date": "2026",
+        "journal": "Bioinformation",
+        "pub_type": "Journal Article",
+        "pmcid": null,
+        "source": "NCBI PubMed collision-repair targeted reserve",
+        "selection_score": 20
+      }
+    },
+    {
+      "wave": 3343,
+      "category": "performance",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42625626",
+        "doi": "10.3389/fnut.2026.1860234",
+        "title": "Dose-structure-population interactions of protein supplementation combined with resistance training on body composition: a Bayesian network meta-analysis with dose-response modeling."
+      },
+      "replacement": {
+        "pmid": "42757668",
+        "doi": "10.1002/ejsc.70253",
+        "title": "Sodium Bicarbonate Supplementation Enhances Repeated High-Intensity Interval Training Performance and Time Above 90% of V˙O2 max in Well-Trained Cyclists.",
+        "pub_date": "2026 Oct",
+        "journal": "Eur J Sport Sci",
+        "pub_type": "Randomized Controlled Trial",
+        "pmcid": "PMC13587146",
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 20
+      }
+    },
+    {
+      "wave": 3356,
+      "category": "performance",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42539704",
+        "doi": "10.1016/j.smhs.2026.05.006",
+        "title": "Creatine monohydrate supplementation for recovery from muscle disuse: Timing matters."
+      },
+      "replacement": {
+        "pmid": "42788859",
+        "doi": "10.1111/sms.70373",
+        "title": "Bicarbonate and Carbohydrate Co-Ingestion During Exercise in a Novel Gel Format Improves Time-Trial Performance After 3 h of Moderate-Intensity Exercise in Trained Cyclists.",
+        "pub_date": "2026 Oct",
+        "journal": "Scand J Med Sci Sports",
+        "pub_type": "Randomized Controlled Trial",
+        "pmcid": "PMC13614109",
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 17
+      }
+    },
+    {
+      "wave": 3364,
+      "category": "performance",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42713522",
+        "doi": "10.1093/jbmrpl/ziag113",
+        "title": "Greater D(3)-creatine muscle mass and MRI thigh muscle volume are associated with higher bone strength in older adults: exploratory findings in The Study of Muscle, Mobility and Aging (SOMMA)."
+      },
+      "replacement": {
+        "pmid": "42782337",
+        "doi": "10.1007/s00421-026-06448-7",
+        "title": "Effects of different sodium bicarbonate supplementation strategies on repeated 3-min all-out cycling performance and blood acid-base responses.",
+        "pub_date": "2026-Sep-24",
+        "journal": "European journal of applied physiology",
+        "pub_type": "Journal Article",
+        "pmcid": null,
+        "source": "NCBI PubMed collision-repair targeted reserve",
+        "selection_score": 24
+      }
+    },
+    {
+      "wave": 3401,
+      "category": "sleep",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42794424",
+        "doi": "10.3390/ijms27187993",
+        "title": "Allostatic and Circadian Drives in Patients with Bipolar Disorder in Depressive Episodes or with Post-Traumatic Stress Disorder Versus Healthy Controls: Neuroendocrine Comparison Through Cortisol and 6-Sulfatoxymelatonin Overnight Urine Excretion."
+      },
+      "replacement": {
+        "pmid": "41636292",
+        "doi": "10.1186/s12970-025-00765-y",
+        "title": "Effects of combined GABA and L-theanine supplementation on sleep quality: an exploratory study.",
+        "pub_date": "2026-Jan",
+        "journal": "European review for medical and pharmacological sciences",
+        "pub_type": "Journal Article",
+        "pmcid": null,
+        "source": "NCBI PubMed collision-repair targeted reserve",
+        "selection_score": 22
+      }
+    },
+    {
+      "wave": 3405,
+      "category": "sleep",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42796368",
+        "doi": "10.3390/medicina62091762",
+        "title": "Salivary Melatonin and MMP-9 Levels in Stage III Periodontitis: A Pilot Study Using Standardized Pre-Sleep Saliva Collection."
+      },
+      "replacement": {
+        "pmid": "41697399",
+        "doi": "10.3389/fnut.2026.1656651",
+        "title": "Magnesium supplements, sleep quality, and nocturnal leg cramps: a combination of cross-sectional and prospective studies.",
+        "pub_date": "2026-Feb-16",
+        "journal": "European journal of nutrition",
+        "pub_type": "Journal Article",
+        "pmcid": null,
+        "source": "NCBI PubMed collision-repair targeted reserve",
+        "selection_score": 22
+      }
+    },
+    {
+      "wave": 3416,
+      "category": "sleep",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42662326",
+        "doi": "10.1021/acsomega.6c03837",
+        "title": "μPADs for a Safer Night's Sleep: An Alternative for Quality Control of Melatonin Pharmaceutical Formulations."
+      },
+      "replacement": {
+        "pmid": "42735358",
+        "doi": "10.1051/sicotj/2026029",
+        "title": "Natural history of sleep before and after total joint arthroplasty is poor and unimproved by melatonin: A randomized controlled study.",
+        "pub_date": "2026",
+        "journal": "SICOT J",
+        "pub_type": "Journal Article",
+        "pmcid": "PMC13574313",
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 19
+      }
+    },
+    {
+      "wave": 3457,
+      "category": "withdrawal_nps",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "41886310",
+        "doi": "10.15585/mmwr.mm7511a1",
+        "title": "Increases in Kratom-Related Reports to Poison Centers - National Poison Data System, United States, 2015-2025."
+      },
+      "replacement": {
+        "pmid": "41741198",
+        "doi": "10.1136/pn-2025-005012",
+        "title": "Flubromazepam intoxication causing prolonged coma and multifocal cerebral ischaemia.",
+        "pub_date": "2026-Feb-25",
+        "journal": "Practical neurology",
+        "pub_type": "Journal Article",
+        "pmcid": null,
+        "source": "NCBI PubMed collision-repair targeted reserve",
+        "selection_score": 22
+      }
+    },
+    {
+      "wave": 3468,
+      "category": "withdrawal_nps",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "41506249",
+        "doi": "10.1111/cup.70055",
+        "title": "Novel Histopathologic Features of Diffuse Blue-Gray Hyperpigmentation Associated With Kratom Use: A Case Report and Literature Review."
+      },
+      "replacement": {
+        "pmid": "41757666",
+        "doi": "10.61409/V07250573",
+        "title": "[Suspected phenibut poisoning with brainstem involvement].",
+        "pub_date": "2026 Feb 23",
+        "journal": "Ugeskr Laeger",
+        "pub_type": "English Abstract",
+        "pmcid": null,
+        "source": "NCBI PubMed ESearch+ESummary",
+        "selection_score": 11
+      }
+    },
+    {
+      "wave": 3490,
+      "category": "women_health",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42796948",
+        "doi": "10.3390/nu18182965",
+        "title": "Geographic and Environmental Differences in Associations Between Food Insecurity and Nutritional and Inflammatory Biomarkers Among Pregnant Participants in the All of Us Research Program."
+      },
+      "replacement": {
+        "pmid": "42644398",
+        "doi": "10.1080/19336950.2026.2724674",
+        "title": "Utero-placental calcium and magnesium ion channels: A systematic review of obstetric implications of their alterations.",
+        "pub_date": "2026 Dec",
+        "journal": "Channels (Austin)",
+        "pub_type": "Systematic Review",
+        "pmcid": "PMC13523982",
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 21
+      }
+    },
+    {
+      "wave": 3493,
+      "category": "women_health",
+      "reason": "collision_with_finalized_prior_receipt",
+      "old": {
+        "pmid": "42713084",
+        "doi": "10.1002/fsn3.72308",
+        "title": "Iron Adequacy Modifies the Association Between Prenatal Diet Quality and Pregnancy-Related Anxiety in Pregnant Women: A Cross-Sectional Study."
+      },
+      "replacement": {
+        "pmid": "42787649",
+        "doi": "10.3389/frph.2026.1911083",
+        "title": "Magnesium sulfate for severe preeclampsia and eclampsia management at the primary healthcare level in sub-Saharan Africa: a systematic review.",
+        "pub_date": "2026",
+        "journal": "Front Reprod Health",
+        "pub_type": "Review",
+        "pmcid": "PMC13601925",
+        "source": "NCBI PubMed finalized-collision repair ESearch+ESummary",
+        "selection_score": 21
+      }
+    }
+  ]
+}

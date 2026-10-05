@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3479,
+      "pmid": "42517336",
+      "doi": "10.1111/cen.70188",
+      "category": "women_health",
+      "title": "Multimodal Therapy With Metformin, Inositol and Dietary Restriction Improves Insulin Resistance and Endocrine Outcomes in Women With Polyendocrine Metabolic Ovarian Syndrome: A Randomized Controlled Trial.",
+      "journal": "Clinical endocrinology",
+      "pub_date": "2026-Oct",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Randomized 12-week trial in 192 women with PCOS/PMOS compared metformin, inositol, calorie restriction, and combination therapy. All groups improved metabolic/endocrine measures; combination therapy produced the largest early changes. Short follow-up limits conclusions about sustained outcomes."
+    },
+    {
+      "wave": 3481,
+      "pmid": "42549656",
+      "doi": "10.1097/GME.0000000000002871",
+      "category": "women_health",
+      "title": "Efficacy of a probiotic formula in the management of menopausal symptoms and quality of life: a randomized controlled trial.",
+      "journal": "Menopause (New York, N.Y.)",
+      "pub_date": "2026-Aug-04",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Randomized double-blind placebo-controlled trial in 245 peri/postmenopausal women found a three-strain probiotic formula was associated with modest improvement in Menopause Rating Scale and Utian quality-of-life scores over three months; the Cervantes score did not differ significantly."
+    },
+    {
+      "wave": 3489,
+      "pmid": "42637038",
+      "doi": "10.1016/j.eprac.2026.08.015",
+      "category": "women_health",
+      "title": "Effect of vitamin D combined with probiotic-assisted insulin pump on glucose-lipid metabolism, intestinal flora and pregnancy outcome in gestational diabetes mellitus.",
+      "journal": "Endocrine practice",
+      "pub_date": "2026-Aug-24",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Randomized study in 150 patients with gestational diabetes compared insulin plus vitamin D with insulin plus vitamin D and probiotics. The combination group showed better glycemic/lipid measures, microbiota changes, and fewer adverse pregnancy outcomes; authors call for larger blinded multicenter confirmation."
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-2351-2375-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-2326-2350-selection",
+  "program": {
+    "range": "2001-2500",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 375,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2500"
+  },
+  "source_provenance": [
+    "NCBI PubMed ESearch + exact EFetch abstract verification",
+    "cumulative PMID collision index through Wave 2250"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe and exact abstract verification during authoring; expensive repository-wide validation only after Wave 2500"
+  },
+  "waves": [
+    {
+      "wave": 2351,
+      "entity_slug": "whey-proteins-immunity-mechanisms-underlying-immune-system",
+      "pmid": "42280413",
+      "focus": "Review on whey proteins and immunity: mechanisms underlying immune system reinforcement and protection reports Future research should focus on identifying molecular targets, as well as characterizing the pharmacokinetics and safety profiles of WPs and WP peptides across diverse. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2352,
+      "entity_slug": "ginseng-bioactive-components-as-gut-brain-axis",
+      "pmid": "42280421",
+      "focus": "Systematic review on ginseng bioactive components as gut-brain axis-targeted modulators: therapeutic potential and mechanisms reports However, the preponderance of extant evidence derives from preclinical studies and necessitates further validation through clinical trials. This review provides pivotal directions and theoretical. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 2353,
+      "entity_slug": "dietary-polyphenols-selected-nutraceuticals-hepatocellular-carcinoma-mechanistic",
+      "pmid": "42280426",
+      "focus": "Review on dietary polyphenols and selected nutraceuticals in hepatocellular carcinoma: mechanistic insights, translational reports This review highlights the potential of dietary patterns and nutraceuticals in HCC prevention and as adjunctive therapies. It outlines key translational priorities, including etiologic. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2354,
+      "entity_slug": "acute-creatine-ingestion-before-resistance-training-enhances",
+      "pmid": "42280432",
+      "focus": "Randomized controlled trial on acute creatine ingestion before resistance training enhances strength performance more than reports Conclusions: Pre-exercise creatine ingestion (without loading phase) was associated with greater acute strength performance compared with other timing conditions. However, the findings are exploratory. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2355,
+      "entity_slug": "essential-trace-elements-zinc-iron-copper-attention",
+      "pmid": "42280439",
+      "focus": "Meta-analysis on essential trace elements zinc, iron, copper and attention-deficit/hyperactivity disorder in children reports These findings suggest that imbalances in Zn and Fe may be involved in the pathogenesis of ADHD. Further research is needed to validate early. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2356,
+      "entity_slug": "efficacy-safety-hematologic-recovery-following-intravenous-ferric",
+      "pmid": "42280452",
+      "focus": "Observational study on efficacy, safety, and hematologic recovery following intravenous ferric carboxymaltose in patients reports Conclusions: IV FCM is a safe and effective treatment leading to IDA recovery in nearly 80% of patients at T12. Thus, when oral iron. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2357,
+      "entity_slug": "impact-vitamin-d-concentration-postoperative-outcomes-complications",
+      "pmid": "42280471",
+      "focus": "Review on impact of vitamin d concentration on postoperative outcomes and complications following reports Conclusions: The current data suggest that the vitamin D metabolism pathway and its implications in orthopedic patients, especially those treated with TKA surgery, may. Evidence boundary: the finding is limited to the studied population, intervention, duration, and endpoints.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2358,
+      "entity_slug": "common-beans-phaseolus-vulgaris-l-as-sustainable",
+      "pmid": "42281250",
+      "focus": "Review on common beans (phaseolus vulgaris l.) as a sustainable nutritional strategy to reports This narrative review summarizes studies published between 2014 and 2025 on iron deficiency anemia, common beans, biofortification, iron bioavailability, and the reutilization of bean. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2359,
+      "entity_slug": "curcumin-metabolites-metabolic-health-insights-into-regulatory",
+      "pmid": "42281524",
+      "focus": "Systematic review on curcumin metabolites and metabolic health: insights into regulatory mechanisms of glucose reports Third, preclinical research focusing on these reduced metabolites offers promising new directions for combination therapies targeting glucose and lipid metabolism disorders and their complications. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2360,
+      "entity_slug": "clinical-evaluation-adjunctive-magnesium-therapy-patients-receiving",
+      "pmid": "42283837",
+      "focus": "Clinical trial on clinical evaluation of adjunctive magnesium therapy in patients receiving antidepressants for reports gov/study/NCT05931965? cond=Depression&intr=magnesium,%20methylfolate,%20B12&rank=1 ), 14-06-2023 (retrospectively registered). Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2361,
+      "entity_slug": "circulating-propionate-butyrate-are-associated-metabolic-improvements",
+      "pmid": "42286534",
+      "focus": "Randomized controlled trial on circulating propionate and butyrate are associated with metabolic improvements following probiotic reports The findings of this study suggested that elevated circulating levels of butyrate and propionate might be associated with reduced weight gain and improved insulin. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2362,
+      "entity_slug": "magnesium-rich-mineral-water-improves-stool-consistency",
+      "pmid": "42286933",
+      "focus": "Randomized controlled trial on magnesium-rich mineral water improves stool consistency and bowel habits in healthy reports In healthy subjects, magnesium-rich mineral water was associated with stool softening and increased bowel movement frequency. No safety concerns were observed during the study. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2363,
+      "entity_slug": "probiotics-allergic-disease-from-adjunct-supplement-immune",
+      "pmid": "42286957",
+      "focus": "Review on probiotics in allergic disease: from adjunct supplement to immune-modifying strategy (2026 reports Probiotics are evolving from adjunctive supplements to biologically active immune modulators with disease-modifying potential. Integration with allergen immunotherapy and precision microbiome profiling may redefine. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2364,
+      "entity_slug": "oral-vitamin-b-after-total-gastrectomy-gastric",
+      "pmid": "42287473",
+      "focus": "Review on oral vitamin b₁₂ after total gastrectomy for gastric cancer: mapping the reports Oral B12 appears to be a feasible route of supplementation after total gastrectomy, but current evidence is limited by heterogeneity, underreporting of clinical outcomes. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2365,
+      "entity_slug": "curcumin-therapeutic-phytochemical-multi-target-hallmarks-cancer",
+      "pmid": "42287817",
+      "focus": "Review on curcumin: a therapeutic phytochemical in multi-target hallmarks of cancer reports This review highlights that curcumin demonstrates strong mechanistic and preclinical activity across multiple cancer hallmarks, but its translational relevance remains uneven and strongly dependent. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2366,
+      "entity_slug": "omega-3-supplementation-sarcopenia-after-bariatric-surgery",
+      "pmid": "42289186",
+      "focus": "Randomized controlled trial on effects of omega-3 supplementation in sarcopenia after bariatric surgery: a triple-blind reports Omega-3 supplementation (2000 mg/day) during the perioperative period of bariatric surgery did not prevent muscle mass loss nor improve muscle strength or functional performance. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2367,
+      "entity_slug": "state-art-review-probiotics-synbiotics-microbial-metabolites",
+      "pmid": "42290147",
+      "focus": "Review on state-of-the-art review on probiotics, synbiotics, and microbial metabolites: molecular mechanisms shaping reports Synbiotics consist of a combination of probiotic organisms and selective prebiotics that enhance the survivability and functional capacity of the individual strains and thus. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2368,
+      "entity_slug": "probiotic-synbiotic-gut-liver-axis-omics-enabled",
+      "pmid": "42290500",
+      "focus": "Review on probiotic, synbiotic effects on the gut-liver axis: omics-enabled mechanisms and therapeutic reports Combining multi-omics data with digital health tools may help identify patients who are most likely to benefit. Overall, microbiota-targeted therapies show promise as personalized. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2369,
+      "entity_slug": "from-nutritional-intervention-immune-modulation-multi-database",
+      "pmid": "42292438",
+      "focus": "Systematic review on from nutritional intervention to immune modulation: a multi-database bibliometric and topic reports This bibliometric analysis provides a concise, data-driven overview of research on vitamin D in IBD. The results highlighting its structure, evolution, and emerging trends. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2370,
+      "entity_slug": "positive-probiotics-people-living-hiv-narrative-review",
+      "pmid": "42295073",
+      "focus": "Review on positive effects of probiotics in people living with hiv: a narrative reports This article assesses critical clinical trials and systematic reviews on this topic, based on limited existing research data. More data from large clinical trials. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2371,
+      "entity_slug": "prevalence-vitamin-d-deficiency-ataxia-telangiectasia-systematic",
+      "pmid": "42295493",
+      "focus": "Meta-analysis on prevalence of vitamin d deficiency in ataxia-telangiectasia: a systematic review and reports Vitamin D deficiency is common in published A-T cohorts, with approximately half meeting a < 20 ng/mL threshold. These findings support routine clinical attention. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2372,
+      "entity_slug": "quantification-changes-bifidobacteria-lactobacilli-colony-forming-units",
+      "pmid": "42296114",
+      "focus": "Randomized controlled trial on quantification of changes in bifidobacteria and lactobacilli colony-forming units during rifaximin reports Five weeks later, the lactobacilli and bifidobacteria populations did not change. The detection of Lactobacillus acidophilus NCFM and Bifidobacterium lactis Bi07 in some stool. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2373,
+      "entity_slug": "assessing-discriminatory-ability-hemoglobin-concentration-predict-iron",
+      "pmid": "42297144",
+      "focus": "Meta-analysis on assessing the discriminatory ability of hemoglobin concentration to predict iron stores reports More research is needed to understand if hemoglobin is an acceptable screening biomarker to guide interventions or justify higher doses of supplemental iron during. Evidence boundary: pooled inference depends on included populations, formulations, endpoints, and study quality.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2374,
+      "entity_slug": "targeting-creatine-transporter-slc6a8-mechanisms-emerging-therapeutic",
+      "pmid": "42297217",
+      "focus": "Review on targeting the creatine transporter slc6a8: mechanisms and emerging therapeutic strategies for reports This review summarizes recent advances delineating the involvement of SLC6A8 in neurological disorders, cancer, and other pathological conditions, with a particular emphasis on its. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2375,
+      "entity_slug": "creatine-creatinine-ratio-myostatin-as-biomarkers-monitor",
+      "pmid": "42298331",
+      "focus": "Observational study on creatine/creatinine ratio and myostatin as biomarkers to monitor muscle function in reports These findings support the potential of myostatin and Cr/Crn as monitoring biomarkers to enhance trial design and endpoints in clinical and interventional trials for. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    }
+  ]
+}

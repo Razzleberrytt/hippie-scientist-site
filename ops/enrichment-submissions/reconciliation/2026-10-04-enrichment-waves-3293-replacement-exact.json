@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3293,
+      "pmid": "42545747",
+      "doi": "10.1093/ndt/gfag169",
+      "category": "mitochondrial_energy",
+      "title": "Creatine supplementation in patients with kidney disease - harm or benefit?",
+      "journal": "Nephrology, dialysis, transplantation",
+      "pub_date": "2026-Aug-03",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Narrative review assessing creatine’s renal safety, potential effects in chronic kidney disease, sarcopenia, cognition, and gut physiology. Review-level evidence; no consumer dose inference."
+    }
+  ]
+}

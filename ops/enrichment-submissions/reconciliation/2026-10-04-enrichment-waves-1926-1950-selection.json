@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-1926-1950-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-1901-1925-selection",
+  "program": {
+    "range": "1501-2000",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 450,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2000"
+  },
+  "source_provenance": [
+    "Sider Scholar + NCBI PubMed exact-source verification",
+    "repository-wide PMID collision screening against prior enrichment waves and active Waves 1501-1925"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2000 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe/source verification during authoring; expensive repository-wide validation only after Wave 2000"
+  },
+  "waves": [
+    {
+      "wave": 1926,
+      "entity_slug": "tianeptine-synthetic-cannabinoid-outbreak",
+      "pmid": "40102319",
+      "focus": "New Jersey poison-center outbreak identified 34 patients with severe toxicity after tianeptine products; product testing found variable composition including synthetic cannabinoids, kava alkaloids and cannabinoids, and many patients required intubation/ICU care.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1927,
+      "entity_slug": "tianeptine-use-patterns-sud-survey",
+      "pmid": "41084181",
+      "focus": "Online survey found tianeptine use uncommon within a gray-market-product sample but frequently associated with rapid tolerance, adverse effects, severe past-year SUD criteria and strong perceived addictiveness/overdose risk; self-selected sample limits prevalence inference.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1928,
+      "entity_slug": "tianeptine-alcohol-use-disorders-case",
+      "pmid": "41127130",
+      "focus": "Case report describes concomitant tianeptine and alcohol use disorders treated with buprenorphine-naloxone; single-patient management evidence supports clinical awareness without establishing an optimal protocol.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1929,
+      "entity_slug": "tianeptine-use-disorder-case-review",
+      "pmid": "41132482",
+      "focus": "Case report and review describes severe tianeptine use disorder with psychiatric deterioration, dependence and withdrawal, emphasizing diagnostic barriers and need for addiction-treatment referral; case-level evidence only.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1930,
+      "entity_slug": "tianeptine-misuse-systematic-review",
+      "pmid": "41136982",
+      "focus": "Systematic review of 25 studies found frequent habitual misuse, overdose, withdrawal and co-use, with naloxone and buprenorphine appearing in reported management; underlying literature is largely case-based and heterogeneous.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1931,
+      "entity_slug": "tianeptine-three-cases-management",
+      "pmid": "42016572",
+      "focus": "Three-case series and review describes rapid tolerance, opioid-like intoxication/withdrawal and use of naloxone, buprenorphine, clonidine and supportive care; treatment conclusions remain limited by case evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1932,
+      "entity_slug": "tianeptine-addiction-systematic-review",
+      "pmid": "42177839",
+      "focus": "Systematic review of 53 publications found opioid-like dependence, withdrawal and overdose, with substantial ICU use in retrospective series and reported fatalities among detailed overdose cases; evidence is dominated by case reports/series.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1933,
+      "entity_slug": "kratom-tianeptine-combined-overdose",
+      "pmid": "42198932",
+      "focus": "Case report describes severe hypoxemic respiratory failure, encephalopathy and pulmonary infiltrates after combined kratom/tianeptine ingestion, improving with naloxone and ICU supportive care; co-exposure prevents single-agent attribution.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 1934,
+      "entity_slug": "tianeptine-reddit-experiences",
+      "pmid": "42412511",
+      "focus": "NLP-assisted qualitative analysis of Reddit posts found increasing discussion of tianeptine dependence, withdrawal and co-ingestion; useful real-world signal but self-reported social-media content cannot estimate clinical incidence.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1935,
+      "entity_slug": "emerging-substances-clinician-knowledge",
+      "pmid": "42459031",
+      "focus": "Survey of addiction-conference clinicians found substantial knowledge gaps around kratom, phenibut and tianeptine despite high concern and support for more research/regulation; clinician-practice context rather than toxicity incidence.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 1936,
+      "entity_slug": "tianeptine-methadone-case",
+      "pmid": "42767626",
+      "focus": "Case report describes sustained abstinence from tianeptine after methadone treatment when high-dose buprenorphine had not controlled cravings/withdrawal; illustrates a treatment gap but cannot establish comparative efficacy.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1937,
+      "entity_slug": "eria-jarensis-supplement-mislabeling",
+      "pmid": "40679500",
+      "focus": "Laboratory analysis found none of 12 US sports supplements labeled with Eria jarensis were accurately labeled; several contained undeclared stimulants, including FDA-prohibited DMAA, and caffeine content varied dramatically.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1938,
+      "entity_slug": "supplement-adulteration-lab-review",
+      "pmid": "40700739",
+      "focus": "Review summarizes laboratory risk-mitigation approaches for dietary-supplement adulteration, including identity/purity testing, supplier quality agreements and third-party verification; quality-system evidence rather than clinical efficacy.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1939,
+      "entity_slug": "botanical-authentication-methods-review",
+      "pmid": "40783800",
+      "focus": "Review of authentication methods for botanicals in plant extracts and supplements highlights identity testing as a core defense against substitution and adulteration; methodological quality-control evidence.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1940,
+      "entity_slug": "sports-supplement-anabolic-steroid-adulteration",
+      "pmid": "41097223",
+      "focus": "Review documents the problem of sports supplements adulterated with anabolic steroids and the anti-doping/health consequences of undeclared exposure; product-quality and harm-reduction evidence.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1941,
+      "entity_slug": "rhodiola-us-market-quality",
+      "pmid": "41544018",
+      "focus": "US market analysis found wide deviations in Rhodiola rosavin/salidroside content, probable undisclosed synthetic salidroside in one product and trace metals in tested products; strong formulation/authenticity warning.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1942,
+      "entity_slug": "illicit-supplement-steroid-screening",
+      "pmid": "41937464",
+      "focus": "Analytical study applies LC-MS/MS and LC-QTOF/MS screening for anabolic-androgenic steroids in illicit dietary supplements/counterfeit drugs; useful adulterant-detection and quality-control evidence.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1943,
+      "entity_slug": "cordyceps-online-falsification",
+      "pmid": "41947147",
+      "focus": "Post-market analysis of 65 online Cordyceps products found more than half falsified, 11% unregistered and 6.2% adulterated with corticosteroids, alongside frequent illegal disease claims.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1944,
+      "entity_slug": "weightloss-supplement-diuretic-screening",
+      "pmid": "41955470",
+      "focus": "Validated GC-MS method targets undeclared diuretics in adulterated weight-loss supplements, supporting forensic/product-quality surveillance rather than efficacy claims.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1945,
+      "entity_slug": "green-coffee-supplement-mislabeling",
+      "pmid": "42154619",
+      "focus": "Analysis of 23 green-coffee-bean supplements found wide chlorogenic-acid/caffeine variability, products labeled 50% CGAs with none detected, and decaffeinated products exceeding caffeine thresholds.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1946,
+      "entity_slug": "tadalafil-analogues-herbal-sex-supplements",
+      "pmid": "42350094",
+      "focus": "Analytical chemistry study isolated previously unreported tadalafil analogues illegally added to a male sexual herbal supplement, demonstrating pharmaceutical adulteration of purportedly herbal products.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1947,
+      "entity_slug": "sibutramine-slimming-supplement-cases",
+      "pmid": "42425829",
+      "focus": "Toxicovigilance report documents multiple batches of a slimming supplement adulterated with sibutramine and associated clinical cases; high-value undeclared-drug safety signal.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1948,
+      "entity_slug": "yellow-oleander-misrepresented-supplement",
+      "pmid": "42647950",
+      "focus": "Case report describes yellow-oleander toxicity from a misrepresented dietary supplement, underscoring that botanical/product identity failures can cause severe poisoning independent of labeled intent.",
+      "state": "research_only_product_quality"
+    },
+    {
+      "wave": 1949,
+      "entity_slug": "turmeric-piperine-dili-case",
+      "pmid": "41281037",
+      "focus": "Case report attributes drug-induced liver injury to a turmeric supplement containing piperine after competing causes were evaluated; single-case evidence supports hepatotoxicity vigilance, especially with bioavailability-enhancing formulations.",
+      "state": "research_only_safety_signal"
+    },
+    {
+      "wave": 1950,
+      "entity_slug": "ashwagandha-reproductive-thyroid-immune-safety-review",
+      "pmid": "41454545",
+      "focus": "Safety review focuses on reproductive, thyroid and immune-system concerns relevant to ashwagandha use as a food/additive, emphasizing unresolved risk questions and the need for population-specific caution.",
+      "state": "research_only_evidence_quality"
+    }
+  ]
+}

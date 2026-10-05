@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-2076-2100-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-2051-2075-selection",
+  "program": {
+    "range": "2001-2500",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 100,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2500"
+  },
+  "source_provenance": [
+    "NCBI PubMed ESearch + exact EFetch abstract verification",
+    "cumulative PMID collision index through Wave 2000"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe and exact abstract verification during authoring; expensive repository-wide validation only after Wave 2500"
+  },
+  "waves": [
+    {
+      "wave": 2076,
+      "entity_slug": "chamomile-aromatherapy-pain-anxiety-management-hospital-settings",
+      "pmid": "42031027",
+      "focus": "Review on effect of chamomile aromatherapy on pain and anxiety management in hospital reports Aromatherapy with chamomile essential oil presents promising results in the management of pain and anxiety in hospital environments, as well as in the improvement. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2077,
+      "entity_slug": "association-vitamin-d-deficiency-active-latent-tuberculosis",
+      "pmid": "42031464",
+      "focus": "Meta-analysis on association of vitamin d deficiency with active and latent tuberculosis: a reports These findings reinforce the link of VDD with both active and latent TB, suggesting that vitamin D status may influence TB susceptibility. The findings. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2078,
+      "entity_slug": "oral-curcumin-tendon-health-appraisal-carrier-systems",
+      "pmid": "42032830",
+      "focus": "Review on oral curcumin for tendon health: an appraisal on carrier systems, bioenhancers reports Tendinopathy management is increasingly moving toward high-efficiency curcumin delivery paired with synergistic co-factors. While enhanced oral formulations show significant clinical association with improved recovery. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2079,
+      "entity_slug": "micronutrients-future-diets-considerations-dietary-iron-food",
+      "pmid": "42033078",
+      "focus": "Review on micronutrients in future diets: considerations for dietary iron and the food reports The absorption of non-heme iron is influenced by various dietary components, which can act as inhibitors or promoters. Optimising food and ingredient formulations accounting. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2080,
+      "entity_slug": "udca-probiotics-metabolic-outcomes-type-2-diabetes",
+      "pmid": "42033401",
+      "focus": "Randomized controlled trial on effects of udca and probiotics on metabolic outcomes in type 2 reports ConclusionCo-administration of probiotics and UDCA for four weeks in metformin-treated T2D patients significantly improves short-term glycemic control and lipid profiles. These promising results warrant. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2081,
+      "entity_slug": "zinc-homeostasis-risk-type-2-diabetes-complex",
+      "pmid": "42033606",
+      "focus": "Review on zinc homeostasis and the risk of type 2 diabetes: complex role reports Alterations in Zn homeostasis influence the pathogenesis of T2D primarily through ZnT8-mediated effects on insulin secretion and clearance. These findings suggest that targeted preventive. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2082,
+      "entity_slug": "importance-iron-neonatal-infant-nutrition",
+      "pmid": "42034480",
+      "focus": "Review on the importance of iron in neonatal and infant nutrition reports Optimizing iron status in neonates is key to improving growth and development in infants. Preterm infants are at particular risk for disruptions in iron. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2083,
+      "entity_slug": "frontotemporal-dementia-like-phenotype-schizophrenia-links-striatal",
+      "pmid": "42034849",
+      "focus": "Observational study on a frontotemporal dementia-like phenotype in schizophrenia: links to striatal dopamine and reports Schizophrenia patients expressing a stronger bvFTD-like GMV pattern show lower striatal dopamine synthesis and elevated striatal iron, both hallmark features of bvFTD. This contrasts. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2084,
+      "entity_slug": "comprehensive-review-melatonin-as-multi-pathway-neuroprotectant",
+      "pmid": "42037277",
+      "focus": "Review on a comprehensive review of melatonin as multi-pathway neuroprotectant against methamphetamine-induced programmed reports Melatonin exhibits strong multi-target neuroprotection and represents a promising candidate for clinical translation. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2085,
+      "entity_slug": "endocrine-roles-vitamin-d-female-reproduction-mechanisms",
+      "pmid": "42037530",
+      "focus": "Review on endocrine roles of vitamin d in female reproduction: mechanisms and clinical reports Such studies should employ standardized supplementation protocols initiated prior to conception and focus on clinically meaningful outcomes such as live birth rates. Additionally, more. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2086,
+      "entity_slug": "vitamin-d-preventing-acute-respiratory-infections-children",
+      "pmid": "42037591",
+      "focus": "Meta-analysis on vitamin d for preventing acute respiratory infections in children up to reports We found low-certainty evidence that vitamin D supplementation during pregnancy or early childhood may result in a slight reduction in the proportion of children. Evidence boundary: pooled inference depends on included populations, formulations, endpoints, and study quality.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2087,
+      "entity_slug": "review-omega-3-fatty-acids-from-marine",
+      "pmid": "42042214",
+      "focus": "Review on a review of omega-3 fatty acids from marine source supplements and reports However, variability in dosage, study design, and baseline nutritional status limits definitive conclusions. Overall, omega-3 fatty acids appear to support healthy development and may. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2088,
+      "entity_slug": "folate-metabolism-neurodegenerative-diseases-insight-from-experimental",
+      "pmid": "42043709",
+      "focus": "Review on role of folate metabolism in neurodegenerative diseases: insight from experimental and reports Elevated homocysteine and aberrant FOCM have also been reported in Amyotrophic Lateral Sclerosis, Multiple Sclerosis, and Huntington’s disease and are associated with neuroinflammation, demyelination. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2089,
+      "entity_slug": "large-opening-width-low-serum-25-hydroxyvitamin",
+      "pmid": "42044693",
+      "focus": "Observational study on large opening width and low serum 25-hydroxyvitamin d status are associated reports Opening width, hinge fracture, descending cut thickness, porous HAp/Col use, and serum 25(OH)D level were associated with radiographic GH after MOWDTO, although the robustness. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2090,
+      "entity_slug": "vitamin-d-deficiency-depression-neuroimmune-review-complement",
+      "pmid": "42044701",
+      "focus": "Review on vitamin d deficiency and depression: a neuroimmune review of complement-associated synaptic reports A key implication is that inconsistent effects of vitamin D supplementation in depression may partly reflect biological heterogeneity rather than uniform inefficacy. Future work. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2091,
+      "entity_slug": "response-reticulocyte-red-blood-cell-indices-single",
+      "pmid": "42045095",
+      "focus": "Randomized controlled trial on response of reticulocyte and red blood cell indices to single-dose intravenous reports Intravenous iron therapy produces a more rapid and pronounced improvement in maternal red cell and reticulocyte indices than oral iron in moderately anemic pregnant. Evidence boundary: the finding is limited to the studied population, intervention, duration, and endpoints.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2092,
+      "entity_slug": "modulation-inflammatory-indices-by-omega-3-fatty",
+      "pmid": "42045798",
+      "focus": "Randomized controlled trial on modulation of inflammatory indices by omega-3 fatty acids supplementation in hemodialysis reports How Might this Change Clinical Pharmacology or Translational Science? ○ These findings suggest that short-term omega-3 fatty acids supplementation may not be sufficient in. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2093,
+      "entity_slug": "effectiveness-omega-3-poly-unsaturated-fatty-acids",
+      "pmid": "42046081",
+      "focus": "Randomized controlled trial on effectiveness of omega-3 poly unsaturated fatty acids on the treatment of reports TRIAL REGISTRATION: This research was officially registered in clinicaltrial. gov (NCT07067515) on (15/7/2025). Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2094,
+      "entity_slug": "vitamin-d-supplementation-metabolic-syndrome-atherosclerosis-biomarkers",
+      "pmid": "42047069",
+      "focus": "Randomized controlled trial on effect of vitamin d supplementation on metabolic syndrome and atherosclerosis biomarkers reports Vitamin D supplementation (2,000 IU/day) effectively restores 25(OH)D levels and improves adiponectin and hs-CRP in epilepsy patients on enzymatic ASMs, suggesting a potential benefit. Evidence boundary: the finding is limited to the studied population, intervention, duration, and endpoints.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2095,
+      "entity_slug": "probiotic-use-gut-leakage-measured-by-zonulin",
+      "pmid": "42047124",
+      "focus": "Clinical trial on the effect of probiotic use on gut leakage measured by zonulin reports Probiotic administration in hemodialysis patients improved intestinal barrier integrity, reduced gut-derived toxin levels, and lowered systemic inflammation. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2096,
+      "entity_slug": "beyond-glycemia-vitamin-d-iron-biomarkers-diabetes",
+      "pmid": "42047140",
+      "focus": "Observational study on beyond glycemia: the role of vitamin d and iron biomarkers in reports The results indicate the importance of ferritin and hemoglobin levels for glucose regulation as well as the uncertain and potentially insignificant role of the. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2097,
+      "entity_slug": "probiotic-supplementation-during-pregnancy-vaginal-microbiota-improvement",
+      "pmid": "42047468",
+      "focus": "Meta-analysis on probiotic supplementation during pregnancy for vaginal microbiota improvement and pathogen clearance reports Probiotic supplementation during pregnancy may increase the likelihood of GBS decolonization. However, this association was not statistically significant in sensitivity analyses restricted to randomized. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2098,
+      "entity_slug": "observational-study-effectiveness-l-arginine-plus-vitamin",
+      "pmid": "42049445",
+      "focus": "Observational study on observational study on the effectiveness of l-arginine plus vitamin c in reports Our exploratory study suggests a positive effect of oral supplementation with L-arginine plus vitamin C on cancer-related fatigue without significant worsening of quality of. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2099,
+      "entity_slug": "proteins-polyphenol-encapsulation-functional-food-production-breast",
+      "pmid": "42050309",
+      "focus": "Review on proteins for polyphenol encapsulation, functional food production, and breast cancer incidence reports In addition to BSA particle size, curcumin concentration has a strong influence on the efficiency of its encapsulation. However, BSA particle size and curcumin-to-BSA. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2100,
+      "entity_slug": "calcium-zinc-status-risk-preeclampsia-pregnant-women",
+      "pmid": "42050678",
+      "focus": "Observational study on calcium and zinc status and risk of preeclampsia in pregnant women reports CONCLUSION: In Ambon City, pregnant women with preeclampsia have lower calcium levels than those without, while zinc levels remain similar between both groups. Higher. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    }
+  ]
+}

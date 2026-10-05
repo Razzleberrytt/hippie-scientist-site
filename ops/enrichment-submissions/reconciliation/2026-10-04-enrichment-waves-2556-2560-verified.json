@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2556-2560",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2556,
+      "pmid": "42824329",
+      "title": "Combined Taraxacum mongolicum and Astragalus polysaccharides attenuate CCl(4)-induced hepatic fibrosis through modulation of the TLR4/MyD88/NF-κB signaling pathway and gut microbiota composition.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical",
+      "evidence_boundary": "The findings are from a CCl4-induced mouse fibrosis model; they support mechanistic and gut-liver-axis hypotheses but do not establish human efficacy, dosing, or safety."
+    },
+    {
+      "wave": 2557,
+      "pmid": "42704497",
+      "title": "Efficacy and safety of cannabinoid-based interventions for behavioral and cognitive symptoms in dementia: systematic review and meta-analysis.",
+      "abstract_verified": true,
+      "state": "research_only_meta_analysis",
+      "evidence_boundary": "The synthesis is limited by a small and heterogeneous cannabinoid trial base in dementia; formulation, dose, outcome, and population differences limit product-level conclusions."
+    },
+    {
+      "wave": 2558,
+      "pmid": "42773786",
+      "title": "Efficacy and Safety of Cannabinoid-Based Interventions for Low Back Pain and Migraine: A Systematic Review of Randomized Controlled Trials.",
+      "abstract_verified": true,
+      "state": "research_only_systematic_review",
+      "evidence_boundary": "Evidence is indication- and formulation-specific across isolated, synthetic, vaporized, and extract cannabinoid interventions; the review does not support broad class-level efficacy claims."
+    },
+    {
+      "wave": 2559,
+      "pmid": "42623795",
+      "title": "Pharmacological treatments of REM sleep behaviour disorder in synucleinopathies: a systematic review of effectiveness and safety.",
+      "abstract_verified": true,
+      "state": "research_only_systematic_review",
+      "evidence_boundary": "This review concerns pharmacological management of RBD in synucleinopathies, not general sleep supplementation; study designs and disease populations are heterogeneous."
+    },
+    {
+      "wave": 2560,
+      "pmid": "42623982",
+      "title": "Does co-administration of cannabidiol (CBD) influence the plasma availability of delta-9-tetrahydrocannabinol (THC) and its active metabolite in humans? A systematic review and meta-analysis.",
+      "abstract_verified": true,
+      "state": "research_only_meta_analysis",
+      "evidence_boundary": "Acute human pharmacokinetic evidence concerns matched THC with and without CBD; results should not be generalized to chronic use, other ratios, routes, or CBD-only products."
+    }
+  ]
+}

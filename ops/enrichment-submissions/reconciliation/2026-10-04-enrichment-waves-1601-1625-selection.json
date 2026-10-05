@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-1601-1625-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-1576-1600-selection",
+  "program": {
+    "range": "1501-2000",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 125,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2000"
+  },
+  "source_provenance": [
+    "Sider Scholar + NCBI PubMed exact-source verification",
+    "cumulative PMID collision index covering prior enrichment waves and current branch"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2000 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe/source verification during authoring; expensive repository-wide validation only after Wave 2000"
+  },
+  "waves": [
+    {
+      "wave": 1601,
+      "entity_slug": "culinary-spices-metabolic-syndrome",
+      "pmid": "38892617",
+      "focus": "Twelve-week double-blind RCT in 120 people with or at risk for metabolic syndrome found ginger, cinnamon and black-seed interventions improved selected glucose and lipid markers versus placebo, but the parallel spice arms should not be collapsed into a single ingredient effect.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1602,
+      "entity_slug": "garlic-glucose-lipids-meta",
+      "pmid": "38892625",
+      "focus": "Systematic review and meta-analysis of randomized trials evaluated garlic across glycemic and lipid outcomes; formulation, duration and population heterogeneity mean pooled biomarker effects should remain separate from cardiovascular-event claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1603,
+      "entity_slug": "purple-garlic-oil-metabolic-syndrome",
+      "pmid": "38892688",
+      "focus": "Randomized placebo-controlled ENDOTALLIUM study tested encapsulated purple-garlic oil on microvascular function and metabolic-syndrome components; product-specific vascular and metabolic findings should not be generalized to all garlic preparations.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1604,
+      "entity_slug": "cinnamon-type2-diabetes-meta",
+      "pmid": "38917435",
+      "focus": "Systematic review/meta-analysis of randomized trials found cinnamon associated with changes in selected metabolic biomarkers in type 2 diabetes, but substantial variation in species, preparations, exposures and baseline treatment limits product-level certainty.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1605,
+      "entity_slug": "freeze-dried-garlic-prehypertension",
+      "pmid": "39001718",
+      "focus": "Eight-week double-blind RCT in adults at risk for hypertension found freeze-dried garlic extract lowered systolic, diastolic and mean arterial pressure and improved several lipid markers versus placebo while increasing nitric-oxide levels.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1606,
+      "entity_slug": "berberine-mafld-metabolic",
+      "pmid": "39042390",
+      "focus": "Twelve-week double-blind RCT in 70 people with MAFLD found berberine improved ALT, de Ritis ratio and total-cholesterol change, while most other glucose and lipid outcomes were not significantly different from placebo.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1607,
+      "entity_slug": "gymnema-versus-berberine-obesity",
+      "pmid": "39064727",
+      "focus": "Randomized comparative study in 50 adults with obesity found berberine and Gymnema sylvestre produced different body-composition, glucose, blood-pressure and adipokine-expression changes; active-comparator design does not establish superiority against placebo.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1608,
+      "entity_slug": "garlic-dyslipidemia-meta",
+      "pmid": "39113105",
+      "focus": "Meta-analysis of 21 RCTs in dyslipidemia reported reductions in total cholesterol, triglycerides and LDL with a small HDL increase from garlic, but product forms and study quality vary across the pooled evidence.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1609,
+      "entity_slug": "onion-garlic-extract-ldl",
+      "pmid": "39203947",
+      "focus": "Eight-week double-blind RCT in mildly hypercholesterolemic adults found a standardized onion-plus-garlic extract lowered LDL and total cholesterol with selected blood-pressure and inflammatory changes; the combined formulation prevents garlic-only attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1610,
+      "entity_slug": "cinnamon-blood-pressure-inflammation-umbrella",
+      "pmid": "39299867",
+      "focus": "Umbrella review of cinnamon meta-analyses found small average reductions in systolic and diastolic pressure and selected antioxidant/IL-6 signals, while CRP, MDA and ICAM-1 were not consistently improved.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1611,
+      "entity_slug": "ceylon-cinnamon-metabolic-safety",
+      "pmid": "39854533",
+      "focus": "Randomized double-blind controlled trial evaluated Ceylon-cinnamon extract on glucose, lipids and safety in adults; species-specific extract evidence should not be transferred to cassia cinnamon or culinary cinnamon generally.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1612,
+      "entity_slug": "berberine-cinnamon-type2-diabetes",
+      "pmid": "39998703",
+      "focus": "Twelve-week randomized double-blind trial found combined berberine plus cinnamon lowered fasting glucose, HbA1c and selected lipid measures versus placebo in type 2 diabetes; the combination design cannot identify the contribution of either ingredient.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1613,
+      "entity_slug": "berberine-ursodeoxycholate-type2-diabetes",
+      "pmid": "40029660",
+      "focus": "Phase-2 randomized trial of berberine ursodeoxycholate in inadequately controlled type 2 diabetes assessed glycemic, hepatic and cardiometabolic outcomes; this is a distinct pharmaceutical conjugate and must not be treated as ordinary berberine-supplement evidence.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1614,
+      "entity_slug": "botanicals-type2-diabetes-network-meta",
+      "pmid": "40439602",
+      "focus": "Bayesian network meta-analysis compared curcumin, resveratrol, silymarin and berberine for cardiometabolic risk markers in type 2 diabetes; indirect rankings across heterogeneous products and trials are category evidence, not a universal botanical hierarchy.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1615,
+      "entity_slug": "berberine-nafld-clinical-preclinical-meta",
+      "pmid": "40949129",
+      "focus": "Mixed clinical/preclinical meta-analysis found berberine lowered fasting glucose in the small clinical evidence base and showed broader biochemical effects in animal models; the 4-clinical-trial subset is too limited to inherit the stronger preclinical signals.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1616,
+      "entity_slug": "cinnamon-metabolic-disease-umbrella",
+      "pmid": "41256917",
+      "focus": "Umbrella review of 21 meta-analyses reported cinnamon-associated improvements in fasting glucose and lipid profiles in metabolic disease, but methodological quality, overlapping trials and formulation heterogeneity temper certainty.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1617,
+      "entity_slug": "berberine-mafld-vascular-function",
+      "pmid": "41305635",
+      "focus": "Double-blind RCT in 70 overweight or obese adults with MAFLD examined berberine effects on VEGF, arterial stiffness and vascular measures; vascular-surrogate findings should remain distinct from demonstrated clinical cardiovascular benefit.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1618,
+      "entity_slug": "garlic-hypertension-long-term-meta",
+      "pmid": "41393949",
+      "focus": "Meta-analysis of 10 RCTs found adjunctive garlic lowered blood pressure in hypertension, while effect sizes varied by formulation, duration and population; findings support a biomarker-level signal rather than replacement of antihypertensive therapy.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1619,
+      "entity_slug": "ceylon-cinnamon-diabetes-rct",
+      "pmid": "41412108",
+      "focus": "Randomized double-blind placebo-controlled trial evaluated Ceylon cinnamon in diabetes; the receipt remains species- and preparation-specific and should not be merged with cassia-cinnamon evidence without formulation verification.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1620,
+      "entity_slug": "berberine-obesity-masld-null-adiposity",
+      "pmid": "41543854",
+      "focus": "Large multicenter six-month RCT in 337 diabetes-free adults with obesity and MASLD found berberine did not significantly reduce visceral-adipose area or liver-fat content versus placebo, providing a high-value null against weight/fat-loss claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1621,
+      "entity_slug": "green-tea-extract-gut-barrier-metabolic",
+      "pmid": "38430822",
+      "focus": "Four-week randomized crossover trial in healthy adults and adults with metabolic syndrome found decaffeinated green-tea extract reduced circulating endotoxin and selected gut-inflammatory/permeability markers and fasting glucose, without a systemic-inflammatory effect.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1622,
+      "entity_slug": "green-tea-kombucha-overweight-inflammation",
+      "pmid": "39339787",
+      "focus": "Ten-week RCT found green-tea kombucha added to caloric restriction did not enhance weight or fat loss versus caloric restriction alone, although selected inflammation, lipid-accumulation and salivary-microbiome measures differed.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1623,
+      "entity_slug": "polyphenols-cardiometabolic-meta",
+      "pmid": "39683599",
+      "focus": "Large systematic review/meta-analysis of 281 studies found different polyphenol classes produced modest outcome-specific changes in blood pressure, lipids and glycemic markers; pooling across catechins, anthocyanins, curcumin and others requires a category firewall.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1624,
+      "entity_slug": "green-tea-type2-diabetes-meta",
+      "pmid": "39809182",
+      "focus": "Meta-analysis of 15 trials and 722 participants with type 2 diabetes reported improvements in fasting glucose, HbA1c and insulin-resistance indices with green tea, but product composition and trial heterogeneity remain important.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1625,
+      "entity_slug": "flavan3ols-blood-pressure-endothelial-meta",
+      "pmid": "40126033",
+      "focus": "Meta-analysis of 145 RCTs and 5,205 participants found flavan-3-ol-rich foods/supplements modestly reduced office and ambulatory blood pressure, with larger effects at higher baseline pressure; interventions spanned cocoa, tea, grape, apple and isolated compounds.",
+      "state": "research_only_category_firewall"
+    }
+  ]
+}

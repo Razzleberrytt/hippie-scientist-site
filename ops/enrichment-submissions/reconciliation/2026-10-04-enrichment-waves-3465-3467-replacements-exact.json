@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3465,
+      "pmid": "42132298",
+      "doi": "10.1080/10826084.2026.2670611",
+      "category": "withdrawal_nps",
+      "title": "Association Between State Kratom Policy Status and Kratom‑Involved Overdose Deaths in the United States, 2020-2024: Analysis of the State Unintentional Drug Overdose Reporting System (SUDORS).",
+      "journal": "Substance use & misuse",
+      "pub_date": "2026",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Retrospective ecological SUDORS analysis across 45 jurisdictions found kratom detection in fatal overdoses was more common in regulated and no-statewide-policy settings than in Schedule I controlled-substance states; policy context may influence availability and detection, but ecological associations do not establish causality."
+    },
+    {
+      "wave": 3467,
+      "pmid": "42374886",
+      "doi": "10.1080/15563650.2026.2688238",
+      "category": "withdrawal_nps",
+      "title": "Unlabeled kratom alkaloids detected in products marketed as kava.",
+      "journal": "Clinical toxicology (Philadelphia, Pa.)",
+      "pub_date": "2026-Aug",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Laboratory analysis of retail products marketed as kava detected kratom alkaloids and semisynthetic derivatives, including mitragynine pseudoindoxyl, providing a plausible explanation for opioid-like withdrawal reports and highlighting mislabeling and surveillance concerns."
+    }
+  ]
+}

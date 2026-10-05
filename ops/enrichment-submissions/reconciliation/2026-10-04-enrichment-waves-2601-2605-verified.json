@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2601-2605",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2601,
+      "pmid": "42822582",
+      "title": "Diet and Risk of Cardiovascular Disease.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "This narrative review integrates broad dietary evidence that is partly observational and confounded; it supports pattern-level interpretation rather than causal claims about any single food or supplement."
+    },
+    {
+      "wave": 2602,
+      "pmid": "42819357",
+      "title": "Polyunsaturated fatty acids and psychotic disorders: integrating mechanistic, genetic, and clinical evidence.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "The review combines mechanistic, genetic, biomarker, and intervention evidence across heterogeneous psychiatric populations; it does not establish a uniform therapeutic effect of PUFA supplementation."
+    },
+    {
+      "wave": 2603,
+      "pmid": "42532103",
+      "title": "Ginkgo biloba Leaf Extracts in Global Dementia and Mild Cognitive Impairment Guidelines. A Review.",
+      "abstract_verified": true,
+      "state": "research_only_guideline_review",
+      "evidence_boundary": "Guideline positions vary internationally and often concern standardized Ginkgo extracts such as EGb 761; recommendations should not be generalized to all Ginkgo products or prevention claims."
+    },
+    {
+      "wave": 2604,
+      "pmid": "42797275",
+      "title": "Harnessing Medicinal Plants Through Advanced Drug Delivery: A New Era in Type 2 Diabetes Management.",
+      "abstract_verified": true,
+      "state": "research_only_preclinical_review",
+      "evidence_boundary": "The review emphasizes phytochemical mechanisms and advanced delivery systems, much of which is preclinical or translational; clinical efficacy of specific formulations remains incompletely established."
+    },
+    {
+      "wave": 2605,
+      "pmid": "42539704",
+      "title": "Creatine monohydrate supplementation for recovery from muscle disuse: Timing matters.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "Human disuse and rehabilitation studies are limited and timing-dependent; creatine does not consistently prevent atrophy during immobilization, so recovery-phase findings should not be overgeneralized."
+    }
+  ]
+}

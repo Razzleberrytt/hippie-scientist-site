@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3417,
+      "pmid": "42029558",
+      "doi": "10.3390/clockssleep8020015",
+      "category": "sleep",
+      "title": "Comparative Evaluation of Ashwagandha (Withania somnifera) Root Extract and Melatonin for Improving Sleep Quality in Adults: A Prospective, Randomized, Double-Blind, Placebo-Controlled Study.",
+      "journal": "Clocks & sleep",
+      "pub_date": "2026-Mar-27",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Randomized double-blind placebo-controlled trial in 200 adults compared ashwagandha root extract, melatonin, their combination, and placebo over eight weeks. Objective and subjective sleep measures improved in active groups, with the combination showing the largest changes; mild adverse events occurred without clinically significant between-group differences."
+    },
+    {
+      "wave": 3423,
+      "pmid": "40795547",
+      "doi": "10.1016/j.explore.2025.103233",
+      "category": "stress_anxiety",
+      "title": "The effect of lavender essential oil aromatherapy on anxiety and fatigue in patients with implantable cardioverter defibrillator: randomized controlled trial.",
+      "journal": "Explore (New York, N.Y.)",
+      "pub_date": "2025",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Single-blind randomized controlled trial in 86 patients with implantable cardioverter defibrillators found nightly lavender aromatherapy over four weeks was associated with lower anxiety and fatigue scores versus routine care."
+    },
+    {
+      "wave": 3424,
+      "pmid": "40981164",
+      "doi": "10.3390/medsci13030166",
+      "category": "stress_anxiety",
+      "title": "Lavender-Neroli Aromatherapy for Reducing Dental Anxiety and Pain in Children During Anesthesia: A Two-Arm Randomized Controlled Trial.",
+      "journal": "Medical sciences (Basel, Switzerland)",
+      "pub_date": "2025-Sep-01",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Randomized controlled trial in 54 children found lavender-neroli aromatherapy during dental anesthesia was associated with lower anxiety and pain measures versus control."
+    },
+    {
+      "wave": 3425,
+      "pmid": "41274661",
+      "doi": "10.1177/10445463251399491",
+      "category": "stress_anxiety",
+      "title": "Therapeutic Effects of Probiotics on Symptoms of Anxiety in Children and Adolescents: A Systematic Review and Meta-Analysis of Placebo-Controlled Trials.",
+      "journal": "Journal of child and adolescent psychopharmacology",
+      "pub_date": "2026-Jan",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Meta-analysis of seven placebo-controlled RCTs with 912 children and adolescents found no significant overall anxiety benefit from probiotics; subgroup signals in neurodevelopmental disorders were based on limited studies and require confirmation."
+    }
+  ]
+}
