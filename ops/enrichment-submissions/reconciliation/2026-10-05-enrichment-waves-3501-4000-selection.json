@@ -6,7 +6,7 @@
     "range": "3501-4000",
     "pass_size": 25,
     "target_findings": 500,
-    "stage": "strict_relevance_selected_pending_exact_abstract_verification"
+    "stage": "strict_relevance_selected_pending_exact_abstract_verification_with_replacements"
   },
   "dedupe": {
     "prior_unique_pmids_excluded": 3435,
@@ -20,7 +20,8 @@
     ],
     "within_batch_duplicate_pmids": 0,
     "within_batch_duplicate_dois": 0,
-    "within_batch_duplicate_normalized_titles": 0
+    "within_batch_duplicate_normalized_titles": 0,
+    "replacement_count": 1
   },
   "editorial_gate": {
     "category_specific_title_relevance": true,
@@ -577,20 +578,21 @@
       "wave": 3532
     },
     {
-      "pmid": "42810558",
-      "doi": "10.1016/j.critrevonc.2026.105620",
-      "title": "Reporting inconsistencies in a meta-analysis of sarcopenia and the prognostic nutritional index in immune checkpoint inhibitor-treated head and neck cancer.",
-      "journal": "Critical reviews in oncology/hematology",
-      "pub_date": "2026 Sep 29",
-      "pub_type": "Letter",
-      "has_abstract": false,
+      "pmid": "42806518",
+      "doi": "10.1002/jcsm.70386",
+      "title": "Prevalence and Overlap of Malnutrition, Sarcopenia and Related Nutritional Syndromes in a Large Haemodialysis Population.",
+      "journal": "Journal of cachexia, sarcopenia and muscle",
+      "pub_date": "2026 Oct",
+      "pub_type": "Multicenter Study",
+      "has_abstract": true,
       "category": "aging_sarcopenia",
       "discovery_query": "(sarcopenia OR frailty OR muscle mass) AND (creatine OR protein OR vitamin D OR resistance exercise OR nutrition) AND 2018:2026[pdat]",
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
-      "selection_score": 8,
+      "wave": 3533,
       "primary_category": "aging_sarcopenia",
+      "selection_score": 3,
       "state": "selected_pending_exact_abstract_verification",
-      "wave": 3533
+      "replacement_for_pmid": "42810558"
     },
     {
       "pmid": "42804080",
