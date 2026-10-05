@@ -3,7 +3,7 @@
   "selection_revision": 2,
   "range": "3626-3640",
   "row_count": 15,
-  "failed_count": 0,
+  "failed_count": 1,
   "rows": [
     {
       "pmid": "42196950",
@@ -260,14 +260,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 13,
       "primary_category": "cognition_focus",
-      "state": "selected_exact_verified",
+      "state": "verification_exception",
       "wave": 3637,
-      "abstract_verified": true,
-      "title_match_score": 1,
-      "verified_title": "[The effect of the use of the drug recognan (citicoline) on the state of higher mental functions in patients with mild cognitive impairment].",
-      "verified_journal": "Zhurnal nevrologii i psikhiatrii imeni S.S. Korsakova",
-      "verified_pub_date": "2021",
-      "focus": "The aim of the observational program was to study the effect of the use of the drug recognan (citicoline) on the state of higher mental functions (memory, attention, visual-motor coordination, dynamic praxis,verbal thinking and imagination) in patients with mild cognitive impairment. A survey of 54 subjects (16 of them male and 38 female) aged 18-50 years (average age 28.5±10.5 years) was conducted with a diagnosis of «Mild cognitive impairment» («F06.7»). The group was randomized into 2 subgroups: the main subgroup (26 people) received oral therapy with the drug Recognan, for 30 days, with the daily dosage of the drug being 500 mg. In the control group (28 people), nootropic drug therapy was not performed. Standard psychometric techniques were used to study higher mental functions. All subjects were examined three times (initially, in the middle of the study - on day 15, at the end of the study - on day 30). After 2 weeks of treatment with recognan, there was an improvement in concentration in 81.9%, memory in 50% (p=0.008), verbal imagination productivity in 68.2% (p=0.015), counting functions in 60% (p=0.015), visual-motor coordination and dynamic praxis - in 86.4% (p=0.003), increased speed and efficiency of mental work (p=0.001). After a 30-day course of treatment with recognan, there was an improvement in memory in 58.3% of patients (p=0.007), an increase in concentration in 64%, an improvement in counting functions in 64.3% (p=0.011), verbal imagination productivity in 63.3%, visual-motor coordination and dynamic praxis in 86.4% (p=0.007), speed and efficiency of mental work (p=0.006), which indicates a complex positive effect of recognan on higher mental functions in patients with mild cognitive impairment cognitive impairment."
+      "abstract_verified": false,
+      "title_match_score": 0,
+      "verified_title": null,
+      "verified_journal": null,
+      "verified_pub_date": null,
+      "focus": null
     },
     {
       "pmid": "35111479",
