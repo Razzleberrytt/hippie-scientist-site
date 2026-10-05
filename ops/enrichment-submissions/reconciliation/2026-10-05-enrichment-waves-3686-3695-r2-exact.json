@@ -4,7 +4,7 @@
   "selection_sha": "4c50408fba4e2d1c1cf4481ccce10c3b82069c50",
   "range": "3686-3695",
   "row_count": 10,
-  "failed_count": 1,
+  "failed_count": 0,
   "rows": [
     {
       "pmid": "38291897",
@@ -107,14 +107,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 16,
       "primary_category": "immune_respiratory",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3690,
       "abstract_verified": true,
-      "title_match_score": 0,
+      "title_match_score": 1,
       "verified_title": "Update: Vitamin D3 and calcium carbonate supplementation for adolescents with HIV to reduce musculoskeletal morbidity and immunopathology (VITALITY trial): study protocol for a randomised placebo-controlled trial.",
       "verified_journal": "Trials",
       "verified_pub_date": "2024-Jul-22",
-      "focus": "Of the 2 million children living with HIV globally, 90% live in sub-Saharan Africa. Despite antiretroviral therapy, longstanding HIV infection is associated with several chronic complications in children including growth failure, particularly stunting and delayed puberty. Vitamin D deficiency, which is highly prevalent among children living with HIV in sub-Saharan Africa, has further adverse impact on bone health. This trial aims to establish whether supplementation with vitamin D3 and calcium carbonate improves musculoskeletal health among peripubertal children living with HIV. This paper is an update to an already existing protocol that was previously published in Trials in 2022 and details changes in the trial outcomes. We will conduct an individually randomised, double-blinded, placebo-controlled trial of weekly high-dose vitamin D3 (20,000 IU) plus daily calcium carbonate (500 mg) supplementation for 48 weeks. Eight hundred and forty children living with HIV aged 11-19 years taking ART for ≥ 6 months will be enrolled and followed up for 96 weeks. The primary outcome is DXA-measured total body less-head bone mineral density Z-score (TBLH-BMD) at 48 weeks and is an update to the previous primary outcome total body less-head bone mineral content adjusted for lean mass (TBLH-BMCLBM) Z-score. The primary outcome was updated to address the substantial differences in distributions of TBLH-BMCLBM Z-score between the two sites as a result of software differences of the DXA machines. Secondary outcomes are DXA-measured TBLH-BMD Z-score adjusted for height at 48 weeks a new secondary outcome, lumbar spine bone mineral apparent density Z-score, number of respiratory infections, lean muscle mass and grip-strength at 48 and 96 weeks, and TBLH-BMD Z-score at 96 weeks. Sub-studies will investigate the effect of the intervention on vitamin D3 pathway metabolites and markers of bone turnover, intestinal microbiota, and innate and acquired immune function. This is the largest trial to date of vitamin D supplementation in children living with HIV. Intervening to address deficits in bone accrual through childhood is critical for optimising adolescent and early adult bone health, and prevention of later adult osteoporotic fractures. Trial results will draw attention to the need to screen for and treat long-term comorbidities in children living with HIV in resource-limited settings. Pan African Clinical Trials Registry PACTR20200989766029. Registered on September 3, 2020. URL of trial registry record: https://pactr.samrc.ac.za TRIAL STATUS: Participant follow-up completed; data analysis ongoing."
+      "focus": "Of the 2 million children living with HIV globally, 90% live in sub-Saharan Africa. Despite antiretroviral therapy, longstanding HIV infection is associated with several chronic complications in children including growth failure, particularly stunting and delayed puberty. Vitamin D deficiency, which is highly prevalent among children living with HIV in sub-Saharan Africa, has further adverse impact on bone health. This trial aims to establish whether supplementation with vitamin D3 and calcium carbonate improves musculoskeletal health among peripubertal children living with HIV. This paper is an update to an already existing protocol that was previously published in Trials in 2022 and details changes in the trial outcomes. We will conduct an individually randomised, double-blinded, placebo-controlled trial of weekly high-dose vitamin D3 (20,000 IU) plus daily calcium carbonate (500 mg) supplementation for 48 weeks. Eight hundred and forty children living with HIV aged 11-19 years taking ART for ≥ 6 months will be enrolled and followed up for 96 weeks. The primary outcome is DXA-measured total body less-head bone mineral density Z-score (TBLH-BMD) at 48 weeks and is an update to the previous primary outcome total body less-head bone mineral content adjusted for lean mass (TBLH-BMCLBM) Z-score. Secondary outcomes are DXA-measured TBLH-BMD Z-score adjusted for height at 48 weeks, lumbar spine bone mineral apparent density Z-score, number of respiratory infections, lean muscle mass and grip-strength at 48 and 96 weeks, and TBLH-BMD Z-score at 96 weeks. Sub-studies will investigate the effect of the intervention on vitamin D3 pathway metabolites and markers of bone turnover, intestinal microbiota, and innate and acquired immune function."
     },
     {
       "pmid": "39740942",
