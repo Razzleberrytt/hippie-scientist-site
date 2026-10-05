@@ -1,0 +1,2421 @@
+{
+  "schema_version": 1,
+  "queries": [
+    "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]",
+    "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]",
+    "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+  ],
+  "row_count": 241,
+  "rows": [
+    {
+      "pmid": "30000647",
+      "title": "Cannabis.",
+      "doi": null,
+      "pub_date": "2006",
+      "pub_type": "Review",
+      "journal": null,
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42459362",
+      "title": "Endocannabinoid system modulation in bruxism: a neurobiological hypothesis and translational model of ECS-targeted intervention.",
+      "doi": "10.3389/fnins.2026.1854001",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "journal": "Frontiers in neuroscience",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42463843",
+      "title": "Inhaling high THC cannabis acutely increases inflammation but not insulin sensitivity: a quasi-randomized trial.",
+      "doi": "10.1038/s41598-026-62837-0",
+      "pub_date": "2026 Jul 16",
+      "pub_type": "Journal Article",
+      "journal": "Scientific reports",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42464425",
+      "title": "Cannabichromene (CBC): a comprehensive review of biosynthesis, pharmacology, therapeutic potential, and translational perspectives.",
+      "doi": "10.1186/s42238-026-00454-4",
+      "pub_date": "2026 Jul 16",
+      "pub_type": "Review",
+      "journal": "Journal of cannabis research",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42464432",
+      "title": "Oral Medicinal Cannabis Does Not Alter Plasma Levels of Endocannabinoid-Related N-Acylethanolamines in Fibromyalgia Patients: Findings from a Randomized Placebo-Controlled Trial.",
+      "doi": "10.1177/25785125261469541",
+      "pub_date": "2026 Jul 16",
+      "pub_type": "Journal Article",
+      "journal": "Cannabis and cannabinoid research",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42466383",
+      "title": "Psychiatric effects of cannabidiol, cannabinol, and tetrahydrocannabinol: A narrative review of clinical evidence and risk profiles.",
+      "doi": "10.1002/pcn5.70383",
+      "pub_date": "2026 Sep",
+      "pub_type": "Review",
+      "journal": "PCN reports : psychiatry and clinical neurosciences",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42472408",
+      "title": "Endoscopic Sphincterotomy Plus Large Balloon Dilation Versus Endoscopic Sphincterotomy Alone for Patients with Common Bile Duct Stones: A GRADE Evaluation of Systematic Review and Meta-Analysis.",
+      "doi": "10.1007/s10620-026-10115-4",
+      "pub_date": "2026 Nov",
+      "pub_type": "Meta-Analysis",
+      "journal": "Digestive diseases and sciences",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42473010",
+      "title": "Evaluating the pharmacokinetics, efficacy and safety of low-dose cannabidiol.",
+      "doi": "10.1002/bcp.70691",
+      "pub_date": "2026 Oct",
+      "pub_type": "Review",
+      "journal": "British journal of clinical pharmacology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42484346",
+      "title": "Cannabis-Based Medicines for Nociplastic Pain: A Scoping Review of Efficacy, Safety, and Patient Outcomes.",
+      "doi": "10.1080/15360288.2026.2704788",
+      "pub_date": "2026 Jul 22",
+      "pub_type": "Review",
+      "journal": "Journal of pain & palliative care pharmacotherapy",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42485022",
+      "title": "Indocyanine Green Fluorescent Cholangiography During Laparoscopic Cholecystectomy and Bile Duct Injury.",
+      "doi": "10.1001/jamasurg.2026.2908",
+      "pub_date": "2026 Sep 1",
+      "pub_type": "Journal Article",
+      "journal": "JAMA surgery",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42487275",
+      "title": "Development and in vivo pharmacokinetic evaluation of a phospholipid complex self-nanoemulsifying drug delivery system (PLC-SNEDDS) for enhanced oral bioavailability of cannabidiol.",
+      "doi": "10.1080/10717544.2026.2702143",
+      "pub_date": "2026 Dec 31",
+      "pub_type": "Journal Article",
+      "journal": "Drug delivery",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42489740",
+      "title": "Indocyanine green fluorescence-guided intraoperative biliary mapping during pediatric laparoscopic duodenum-preserving pancreatic head resection: a standardized operative approach.",
+      "doi": "10.1007/s00383-026-06549-6",
+      "pub_date": "2026 Jul 23",
+      "pub_type": "Journal Article",
+      "journal": "Pediatric surgery international",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42512114",
+      "title": "Lower Pain Intensity Is Associated with the Use of Recreational Edible Cannabis Products Containing Delta-9-Tetrahydrocannabinol: A Secondary Analysis in Adults Self-Managing Their Chronic Low Back Pain.",
+      "doi": "10.3390/biomedicines14071642",
+      "pub_date": "2026 Jul 21",
+      "pub_type": "Journal Article",
+      "journal": "Biomedicines",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42514343",
+      "title": "Effects of Sativex(®) Versus Placebo on Glucagon-like Peptide-1, Total Ghrelin, and Subjective Appetite in Older Adults with Poor Appetite: A Protocolized Secondary Analysis of a Double-Blind, Randomized, Placebo-Controlled Crossover Trial.",
+      "doi": "10.3390/nu18142274",
+      "pub_date": "2026 Jul 11",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Nutrients",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42514510",
+      "title": "The Pharmacological Activity of Non-Cannabinoid Phytochemicals in Cannabis sativa L.: A Systematic Review.",
+      "doi": "10.3390/plants15142142",
+      "pub_date": "2026 Jul 11",
+      "pub_type": "Review",
+      "journal": "Plants (Basel, Switzerland)",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42520581",
+      "title": "A systematic review of highly purified cannabidiol in developmental and epileptic encephalopathies and complex treatment-resistant epilepsies: Nonseizure outcomes.",
+      "doi": "10.1016/j.eplepsyres.2026.107873",
+      "pub_date": "2026 Jul 14",
+      "pub_type": "Review",
+      "journal": "Epilepsy research",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42521375",
+      "title": "Turning over a New Leaf: Medical Cannabis in the Age of Legalization.",
+      "doi": "10.1016/j.pop.2026.03.012",
+      "pub_date": "2026 Sep",
+      "pub_type": "Review",
+      "journal": "Primary care",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42522312",
+      "title": "Cannabis and Synthetic Cannabinoids in the Context of Cancer: A Review of Current Evidence and Future Directions.",
+      "doi": "10.2174/0109298673478386260711084243",
+      "pub_date": "2026 Jul 25",
+      "pub_type": "Journal Article",
+      "journal": "Current medicinal chemistry",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42524265",
+      "title": "Therapeutic Use of Medical Cannabis Beyond Pain Management in Physical Medicine and Rehabilitation.",
+      "doi": "10.26502/aimr.0246",
+      "pub_date": "2026 Jul 1",
+      "pub_type": "Journal Article",
+      "journal": "Archives of internal medicine research",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42524865",
+      "title": "Randomized, controlled crossover comparison of oral cannabidiol with oral opioid for postoperative PRK pain control.",
+      "doi": "10.1097/j.jcrs.0000000000002030",
+      "pub_date": "2026 Jul 29",
+      "pub_type": "Journal Article",
+      "journal": "Journal of cataract and refractive surgery",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42526687",
+      "title": "Involvement of the cannabinoid receptors of the basolateral amygdala in the orexin A-mediated modulation of the stress-induced analgesia.",
+      "doi": "10.1016/j.neuropharm.2026.111126",
+      "pub_date": "2026 Nov 15",
+      "pub_type": "Journal Article",
+      "journal": "Neuropharmacology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42532832",
+      "title": "Systemic chronic beryllium disease: beyond lung disease.",
+      "doi": "10.1136/oemed-2025-110668",
+      "pub_date": "2026 Aug 23",
+      "pub_type": "Case Reports",
+      "journal": "Occupational and environmental medicine",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42534720",
+      "title": "A Systematic Review of Post-surgical Adverse Events Related to Hem-O-Lok Clips: A Commonly Used Device With Potential Complications.",
+      "doi": "10.7759/cureus.111805",
+      "pub_date": "2026 Jun",
+      "pub_type": "Review",
+      "journal": "Cureus",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42536535",
+      "title": "Application of robotic-assisted hepatopancreatoduodenectomy in non-jaundiced gallbladder cancer patient with invasion of the common bile duct: A case report.",
+      "doi": "10.1097/MD.0000000000049902",
+      "pub_date": "2026 Jul 31",
+      "pub_type": "Case Reports",
+      "journal": "Medicine",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42538621",
+      "title": "The Relationship Between (Endo)cannabinoids, the Microbiome and Melanoma.",
+      "doi": "10.1002/prp2.70304",
+      "pub_date": "2026 Aug",
+      "pub_type": "Review",
+      "journal": "Pharmacology research & perspectives",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42542041",
+      "title": "Cross-species causal gene mapping reveals brain-region-specific targets of Cannabidiol for post-traumatic stress disorder treatment.",
+      "doi": "10.1016/j.bbrc.2026.154347",
+      "pub_date": "2026 Sep 24",
+      "pub_type": "Journal Article",
+      "journal": "Biochemical and biophysical research communications",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42542056",
+      "title": "Ubiquitin-proteasome-dependent degradation of HIF-1α by cannabidiol disrupts pro-angiogenic synoviocyte-endothelial crosstalk in rheumatoid arthritis.",
+      "doi": "10.1016/j.phymed.2026.158661",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42543771",
+      "title": "Efficacy and safety of cannabinoids in the treatment of spasticity in multiple sclerosis: A systematic review of randomized clinical trials.",
+      "doi": "10.1002/bcp.70719",
+      "pub_date": "2026 Oct",
+      "pub_type": "Review",
+      "journal": "British journal of clinical pharmacology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42544174",
+      "title": "Medical cannabis improved self-reported spasticity rating in patients with chronic spinal cord injury: a placebo-controlled, double-blind, crossover pilot clinical trial.",
+      "doi": "10.1177/17562864261468464",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "journal": "Therapeutic advances in neurological disorders",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42545895",
+      "title": "Changes in effectiveness and safety in patients with Lennox-Gastaut syndrome transitioning from the fenfluramine randomized controlled trial to open-label extension study.",
+      "doi": "10.1002/epi4.70320",
+      "pub_date": "2026 Aug 3",
+      "pub_type": "Journal Article",
+      "journal": "Epilepsia open",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42550189",
+      "title": "[Psychiatric aspects of commercially available products containing cannabidiol].",
+      "doi": "10.1007/s00115-026-01998-9",
+      "pub_date": "2026 Aug 4",
+      "pub_type": "Review",
+      "journal": "Der Nervenarzt",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42551182",
+      "title": "Biosensing technologies for cannabinoid monitoring in pain management: Current methods, clinical needs, and translational challenges.",
+      "doi": "10.1016/j.jpba.2026.117673",
+      "pub_date": "2026 Dec 15",
+      "pub_type": "Review",
+      "journal": "Journal of pharmaceutical and biomedical analysis",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42553575",
+      "title": "Bazedoxifene and Beyond: Identifying This SERM's Targets and Deciphering Its Molecular Mechanisms.",
+      "doi": "10.1155/adpp/3028716",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "journal": "Advances in pharmacological and pharmaceutical sciences",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42554260",
+      "title": "Endoscopic management of common bile duct stones using double balloon endoscopy in postoperative patients: evaluation of single-session complete stone clearance.",
+      "doi": "10.1080/00365521.2026.2709623",
+      "pub_date": "2026 Aug 5",
+      "pub_type": "Journal Article",
+      "journal": "Scandinavian journal of gastroenterology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42557458",
+      "title": "Dronabinol for nightmares in post-traumatic stress disorder: a randomized controlled trial.",
+      "doi": "10.1038/s41591-026-04546-9",
+      "pub_date": "2026 Sep",
+      "pub_type": "Multicenter Study",
+      "journal": "Nature medicine",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42558508",
+      "title": "Real-world quality of life and sleep outcomes in patients treated with THC- and CBD-rich Cannabis oil: a cross-sectional study.",
+      "doi": "10.3389/fphar.2026.1862725",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "journal": "Frontiers in pharmacology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42561565",
+      "title": "Relationships between cannabis and cocaine use in a randomized trial of combined buprenorphine and naltrexone for DSM-IV cocaine dependence.",
+      "doi": "10.1016/j.addbeh.2026.108817",
+      "pub_date": "2026 Dec",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "Addictive behaviors",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42563548",
+      "title": "Cannabis-Based Oil for Pain and Other Non-Motor Symptoms in Parkinson's Disease: A Randomized Controlled Trial.",
+      "doi": "10.1002/mds.70449",
+      "pub_date": "2026 Aug 7",
+      "pub_type": "Journal Article",
+      "journal": "Movement disorders : official journal of the Movement Disorder Society",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42565409",
+      "title": "Artificial Intelligence-enhanced Cannabidiol (CBD) Drug Delivery Systems: Integrating Machine Learning and Nanotechnology for Precision Therapeutic Optimization.",
+      "doi": "10.2174/0113895575460046260717064840",
+      "pub_date": "2026 Jul 27",
+      "pub_type": "Journal Article",
+      "journal": "Mini reviews in medicinal chemistry",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42566966",
+      "title": "Microdosing psychedelics: What, why, when, and how often? Insights from an international survey of people who use psychedelics.",
+      "doi": "10.1016/j.drugpo.2026.105459",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "journal": "The International journal on drug policy",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42568912",
+      "title": "Insights into public use and attitudes of cannabidiol (CBD) in England, Wales and Northern Ireland: secondary analysis of an official statistic consumer survey, Food and You 2.",
+      "doi": "10.1136/bmjph-2025-003924",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "journal": "BMJ public health",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42570151",
+      "title": "Δ9-Tetrahydrocannabinol Modulates Hippocampal Neurogenesis in Female Wistar Rats: Interaction with Estradiol.",
+      "doi": "10.1007/s11064-026-04857-w",
+      "pub_date": "2026 Aug 8",
+      "pub_type": "Journal Article",
+      "journal": "Neurochemical research",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42570405",
+      "title": "Exploring the caregiver journey through randomized controlled trials in dravet syndrome: insights from a cross-sectional survey.",
+      "doi": "10.1016/j.yebeh.2026.111183",
+      "pub_date": "2026 Nov",
+      "pub_type": "Journal Article",
+      "journal": "Epilepsy & behavior : E&B",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42572882",
+      "title": "Advanced cannulation techniques vs early EUS-BD in case of difficult biliary cannulation in patients with DMBO: an international propensity score-matched analysis.",
+      "doi": "10.14309/ajg.0000000000004182",
+      "pub_date": "2026 Aug 10",
+      "pub_type": "Journal Article",
+      "journal": "The American journal of gastroenterology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42574897",
+      "title": "Efficacy of cannabinoids for insomnia and sleep disturbance: A systematic review and meta-analysis of randomized controlled trials.",
+      "doi": "10.1016/j.sleep.2026.109193",
+      "pub_date": "2026 Dec",
+      "pub_type": "Review",
+      "journal": "Sleep medicine",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42575778",
+      "title": "Safety, pharmacodynamics, and pharmacokinetics of oral cannabigerol in healthy adults.",
+      "doi": "10.1016/j.jpet.2026.104984",
+      "pub_date": "2026 Aug",
+      "pub_type": "Randomized Controlled Trial",
+      "journal": "The Journal of pharmacology and experimental therapeutics",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42576587",
+      "title": "Cannabidiol as a Promising Anti-Inflammatory Agent Targeting TYK2: Molecular Docking and Dynamic Simulation Approaches for Therapeutic Applications in Multiple Sclerosis.",
+      "doi": "10.2174/0115701638440479260724062842",
+      "pub_date": "2026 Jul 30",
+      "pub_type": "Journal Article",
+      "journal": "Current drug discovery technologies",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42578019",
+      "title": "Safety and Preliminary Clinical Outcomes of a Combined Cannabidiol and Sodium Propionate Enema in Refractory Ulcerative Proctitis: An Open-Label Pilot Study.",
+      "doi": "10.1159/000552842",
+      "pub_date": "2026 Jan-Dec",
+      "pub_type": "Journal Article",
+      "journal": "Inflammatory intestinal diseases",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42579005",
+      "title": "Investigating sex differences in the acute effects of smoked cannabis: a potency-ranging, controlled administration, human laboratory experiment.",
+      "doi": "10.1007/s00213-026-07144-2",
+      "pub_date": "2026 Aug 11",
+      "pub_type": "Journal Article",
+      "journal": "Psychopharmacology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42582496",
+      "title": "Navigating the biliary maze: a retrospective cohort study of three-dimensional navigation technology improving outcomes in congenital biliary dilatation resection.",
+      "doi": "10.21037/qims-2026-1-0390",
+      "pub_date": "2026 Aug 1",
+      "pub_type": "Journal Article",
+      "journal": "Quantitative imaging in medicine and surgery",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42583662",
+      "title": "Prolonged Tricyclic Antidepressant Toxicity in a Pediatric Patient: The Importance of Understanding the Multifactorial Nature of Amitriptyline Metabolism.",
+      "doi": "10.7759/cureus.112541",
+      "pub_date": "2026 Jul",
+      "pub_type": "Journal Article",
+      "journal": "Cureus",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42588505",
+      "title": "Design, Synthesis, In Silico and In Vitro Pharmacological Profiling of Cannabidiol-like Synthetic Analogues as Multi-Target Anti-Alzheimer's Agents.",
+      "doi": "10.3390/molecules31152657",
+      "pub_date": "2026 Jul 30",
+      "pub_type": "Journal Article",
+      "journal": "Molecules (Basel, Switzerland)",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42589139",
+      "title": "In Silico Screening of Cannabis sativa Phytochemicals as Potential Ornithine Decarboxylase Inhibitors for Anti-Leishmanial Drug-Prioritized Compound Development.",
+      "doi": "10.3390/biology15151272",
+      "pub_date": "2026 Aug 3",
+      "pub_type": "Journal Article",
+      "journal": "Biology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42589431",
+      "title": "Synergistic In Vitro Effects of Minor Phytocannabinoids and Melatonin Combinations Against Human Glioblastoma Cells.",
+      "doi": "10.3390/ijms27156774",
+      "pub_date": "2026 Jul 29",
+      "pub_type": "Journal Article",
+      "journal": "International journal of molecular sciences",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42589536",
+      "title": "Whole-Cell Transformation of Cannabidiol by Selected Filamentous Fungi into Novel Polar Derivatives.",
+      "doi": "10.3390/ijms27156884",
+      "pub_date": "2026 Aug 1",
+      "pub_type": "Journal Article",
+      "journal": "International journal of molecular sciences",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42594706",
+      "title": "A matter of formulation: Efficacy and tolerability of nabiximols and cannabis decoction for the treatment of multiple sclerosis-related spasticity.",
+      "doi": "10.1016/j.msard.2026.107428",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "journal": "Multiple sclerosis and related disorders",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42601331",
+      "title": "Signal detection and characterisation of a novel drug-drug interaction between methadone and a synthetic cannabinoid receptor agonist.",
+      "doi": "10.1111/bph.70635",
+      "pub_date": "2026 Aug 14",
+      "pub_type": "Journal Article",
+      "journal": "British journal of pharmacology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42603608",
+      "title": "Exploring the antidepressant-like effects of cannabidiol and/or temozolomide in female mice with induced glioblastoma.",
+      "doi": "10.1016/j.neuroscience.2026.08.021",
+      "pub_date": "2026 Oct 15",
+      "pub_type": "Journal Article",
+      "journal": "Neuroscience",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42612572",
+      "title": "Utilization, tolerability, and perception of medical cannabis use in patients with seizures.",
+      "doi": "10.1016/j.yebeh.2026.111230",
+      "pub_date": "2026 Aug 18",
+      "pub_type": "Journal Article",
+      "journal": "Epilepsy & behavior : E&B",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42612664",
+      "title": "Global, regional, and national burden of HIV/AIDS, 1990-2023, with the estimated burden attributable to intimate partner violence and forecasted impacts of funding cuts through 2030: results from the Global Burden of Disease Study 2023.",
+      "doi": "10.1016/S2352-3018(26)00147-5",
+      "pub_date": "2026 Aug 18",
+      "pub_type": "Journal Article",
+      "journal": "The lancet. HIV",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42613673",
+      "title": "A randomised, double-blind, placebo-controlled crossover trial on cannabinoid-based medication for behavioural disorders in old patients with severe dementia: the study results.",
+      "doi": "10.1093/ageing/afag239",
+      "pub_date": "2026 Aug 3",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "Age and ageing",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42613856",
+      "title": "EUS-Guided Choledochoduodenostomy With Lumen-Apposing Metal Stents: A Recommendation From an Expert Delphi Consensus.",
+      "doi": "10.1002/ueg2.70267",
+      "pub_date": "2026 Sep",
+      "pub_type": "Consensus Statement",
+      "journal": "United European gastroenterology journal",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42616101",
+      "title": "Behavioral pharmacology of isolated cannabidiol in animal models of autism spectrum disorder: a systematic review.",
+      "doi": "10.1007/s00213-026-07149-x",
+      "pub_date": "2026 Aug 19",
+      "pub_type": "Letter",
+      "journal": "Psychopharmacology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42618986",
+      "title": "Peripheral cannabinoid-1 receptor antagonists in clinical development: therapeutic potential for the management of obesity and related metabolic disorders.",
+      "doi": "10.1080/13543784.2026.2713043",
+      "pub_date": "2026 Jul-Aug",
+      "pub_type": "Review",
+      "journal": "Expert opinion on investigational drugs",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42623795",
+      "title": "Pharmacological treatments of REM sleep behaviour disorder in synucleinopathies: a systematic review of effectiveness and safety.",
+      "doi": "10.1016/j.sleep.2026.109154",
+      "pub_date": "2026 Dec",
+      "pub_type": "Review",
+      "journal": "Sleep medicine",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42623982",
+      "title": "Does co-administration of cannabidiol (CBD) influence the plasma availability of delta-9-tetrahydrocannabinol (THC) and its active metabolite in humans? A systematic review and meta-analysis.",
+      "doi": "10.1016/j.neubiorev.2026.106910",
+      "pub_date": "2026 Nov",
+      "pub_type": "Systematic Review",
+      "journal": "Neuroscience and biobehavioral reviews",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42626465",
+      "title": "Cannabis Use Documentation within the Electronic Health Record: A Use Case for Natural Language Processing Methods.",
+      "doi": "10.1159/000553307",
+      "pub_date": "2026 Jan-Dec",
+      "pub_type": "Journal Article",
+      "journal": "Medical cannabis and cannabinoids",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42627450",
+      "title": "Pharmacokinetics, Safety, and Dosing of Antiseizure Medications in Patients with Renal or Hepatic Impairment.",
+      "doi": "10.1007/s40262-026-01691-9",
+      "pub_date": "2026 Sep",
+      "pub_type": "Review",
+      "journal": "Clinical pharmacokinetics",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42627619",
+      "title": "The beneficial properties of CBDA in diet-induced neuroinflammation.",
+      "doi": "10.1007/s10787-026-02358-4",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "journal": "Inflammopharmacology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42628845",
+      "title": "Endocannabinoid signaling dissociates thermoregulatory and behavioral components of the sickness response to systemic inflammation.",
+      "doi": "10.1016/j.bbr.2026.116447",
+      "pub_date": "2026 Oct 18",
+      "pub_type": "Journal Article",
+      "journal": "Behavioural brain research",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42630256",
+      "title": "Anticonvulsant effects, safety, and sex-dependent molecular signatures of cannabidiol treatment in a preclinical model of audiogenic epilepsy.",
+      "doi": "10.3389/fphar.2026.1745696",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "journal": "Frontiers in pharmacology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42632396",
+      "title": "Integrated network pharmacology and lipidomics provide insights into potential mechanisms underlying the effects of cannabidiol in a rat model of autism.",
+      "doi": "10.1016/j.psychres.2026.117405",
+      "pub_date": "2026 Nov",
+      "pub_type": "Journal Article",
+      "journal": "Psychiatry research",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42636610",
+      "title": "Impact of novel anti-seizure medications on status epilepticus in Dravet syndrome: a multicenter real-world cohort study.",
+      "doi": "10.1016/j.seizure.2026.08.011",
+      "pub_date": "2026 Aug 16",
+      "pub_type": "Journal Article",
+      "journal": "Seizure",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42638513",
+      "title": "Iso- and Benzisothiazolinone Inhibitors of Monoacylglycerol Lipase: Exploring On-Target Activity Through Scaffold Decoration and In Situ Warhead Generation.",
+      "doi": "10.1002/cmdc.70414",
+      "pub_date": "2026 Aug 27",
+      "pub_type": "Journal Article",
+      "journal": "ChemMedChem",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42641999",
+      "title": "A microfluidic and mechanistic modeling approach to enhance oral bioavailability of cannabidiol via poloxamer-coated camel milk exosomes.",
+      "doi": "10.1016/j.ijpharm.2026.127347",
+      "pub_date": "2026 Oct 5",
+      "pub_type": "Journal Article",
+      "journal": "International journal of pharmaceutics",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42644517",
+      "title": "Effects of Cannabidiol-Rich Cannabis Oil on Facial Expression Recognition and Theory of Mind in Children With Autism Spectrum Disorder: A Randomized Clinical Trial.",
+      "doi": "10.1002/aur.70353",
+      "pub_date": "2026 Aug 26",
+      "pub_type": "Journal Article",
+      "journal": "Autism research : official journal of the International Society for Autism Research",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42645338",
+      "title": "Medical workup in pediatric first psychotic presentation: real-world diagnostic utility in a large tertiary cohort.",
+      "doi": "10.1007/s00787-026-03175-4",
+      "pub_date": "2026 Aug 26",
+      "pub_type": "Journal Article",
+      "journal": "European child & adolescent psychiatry",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42649324",
+      "title": "Pilot study comparing the effects of high dose THC to high dose psilocybin and placebo in the set and setting of a classic psychedelic therapy session.",
+      "doi": "10.1007/s00213-026-07138-0",
+      "pub_date": "2026 Aug 27",
+      "pub_type": "Journal Article",
+      "journal": "Psychopharmacology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42652086",
+      "title": "Medical Cannabis During Pregnancy and Breastfeeding: Is the Concern Fully Evidence-Based?",
+      "doi": "10.3390/biomedicines14081703",
+      "pub_date": "2026 Jul 29",
+      "pub_type": "Journal Article",
+      "journal": "Biomedicines",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42653071",
+      "title": "Safety and Efficacy Assessment of Cannabis Plant Compared to Atorvastatin for Lipid Lowering in Diabetic and Obese Wistar Male Rats.",
+      "doi": "10.3390/life16081383",
+      "pub_date": "2026 Aug 21",
+      "pub_type": "Journal Article",
+      "journal": "Life (Basel, Switzerland)",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42653650",
+      "title": "Neuropharmacology of Cannabinoids: A Comprehensive Review of Preclinical and Clinical Evidence for Hemp-Derived Extracts and Active Compounds.",
+      "doi": "10.3390/ph19081151",
+      "pub_date": "2026 Jul 24",
+      "pub_type": "Review",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42653723",
+      "title": "Pharmacological Switching in Minor Phytocannabinoids: A Mechanistic Framework for Compound-Indication Matching and Precision Neurotherapeutic Development.",
+      "doi": "10.3390/ph19081226",
+      "pub_date": "2026 Aug 4",
+      "pub_type": "Review",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42653735",
+      "title": "Cannabis and Cannabinoids: The Medical Potential of Cannabidiol in Mental and Neurological Disorders.",
+      "doi": "10.3390/ph19081238",
+      "pub_date": "2026 Aug 6",
+      "pub_type": "Review",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42653771",
+      "title": "Natural Products as GPCR-Targeting Antidepressant Candidates: Advances and Opportunities.",
+      "doi": "10.3390/ph19081275",
+      "pub_date": "2026 Aug 12",
+      "pub_type": "Review",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42654152",
+      "title": "Mechanistic Comparison of Semi-Solid Extrusion 3D-Printed Printlets and Hot-Moulded Tablets: Linking Polymer-API Interactions, Microstructure, and Dissolution of Plant-Based Formulations.",
+      "doi": "10.3390/pharmaceutics18081035",
+      "pub_date": "2026 Aug 20",
+      "pub_type": "Journal Article",
+      "journal": "Pharmaceutics",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42658415",
+      "title": "Impact of cannabis use on white matter hyperintensities in adults with and without chronic HIV disease.",
+      "doi": "10.1007/s13365-026-01338-2",
+      "pub_date": "2026 Aug 27",
+      "pub_type": "Journal Article",
+      "journal": "Journal of neurovirology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42659806",
+      "title": "Next-generation hybrid nanosystems for cannabidiol: From molecular challenges to site-specific preclinical applications.",
+      "doi": "10.1016/j.biopha.2026.119877",
+      "pub_date": "2026 Oct",
+      "pub_type": "Review",
+      "journal": "Biomedicine & pharmacotherapy = Biomedecine & pharmacotherapie",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42661582",
+      "title": "Cannabidiol Suppresses Glioma Growth and Limits Invasion Partly Through an LOXL2-Associated EMT-Like Program.",
+      "doi": "10.1155/bmri/6385332",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "journal": "BioMed research international",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42661783",
+      "title": "Cannabinoid efficacy for pain: dose, chronicity and route.",
+      "doi": "10.3389/fnins.2026.1888863",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "journal": "Frontiers in neuroscience",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42663925",
+      "title": "Selective and Time-Dependent Alterations in Cytochrome P450 (CYP) Enzyme Activity and Expression by Major Phytocannabinoids.",
+      "doi": "10.1007/s13318-026-01031-z",
+      "pub_date": "2026 Aug 28",
+      "pub_type": "Journal Article",
+      "journal": "European journal of drug metabolism and pharmacokinetics",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42671837",
+      "title": "Dose-Dependent Effects of Cannabis Edibles on Simulated Driving Performance: A Randomized Clinical Trial.",
+      "doi": "10.1001/jamanetworkopen.2026.31306",
+      "pub_date": "2026 Aug 3",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "JAMA network open",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42677623",
+      "title": "Allosteric Modulation of the CB1 Receptor by a Juniper Berry Seasoning Extract: Deoxypodophyllotoxin as the Major Active Constituent.",
+      "doi": "10.1021/acs.jafc.6c02831",
+      "pub_date": "2026 Aug 26",
+      "pub_type": "Journal Article",
+      "journal": "Journal of agricultural and food chemistry",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42678518",
+      "title": "Effects of delta-9 tetrahydrocannabinol and cannabidiol on cognitive outcomes following acute use of cannabis for chronic pain.",
+      "doi": "10.1007/s00213-026-07157-x",
+      "pub_date": "2026 Sep 1",
+      "pub_type": "Journal Article",
+      "journal": "Psychopharmacology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42678682",
+      "title": "Benefits of cannabis in treating lower urinary tract symptoms: A scoping review.",
+      "doi": "10.5489/cuaj.9478",
+      "pub_date": "2026 Aug 20",
+      "pub_type": "Journal Article",
+      "journal": "Canadian Urological Association journal = Journal de l'Association des urologues du Canada",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42679687",
+      "title": "Effects of simulated exogenous and endogenous lipid microenvironments on cannabidiol disposition and cytochrome P450 2C19-mediated drug interactions: New mechanistic insights.",
+      "doi": "10.1016/j.dmd.2026.100375",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "journal": "Drug metabolism and disposition: the biological fate of chemicals",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42680906",
+      "title": "Whole-exome sequencing in individuals with obsessive-compulsive disorder and chronic tic disorders identifies 36 large-effect risk genes.",
+      "doi": "10.1038/s41593-026-02419-5",
+      "pub_date": "2026 Sep 1",
+      "pub_type": "Journal Article",
+      "journal": "Nature neuroscience",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42689154",
+      "title": "Safety and Efficacy of Single-Session Endoscopic Retrograde Cholangiopancreatography and Laparoscopic Cholecystectomy for the Treatment of Concomitant Gallbladder and Common Bile Duct Stones: A Single-Centre Experience.",
+      "doi": "10.7759/cureus.113857",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "journal": "Cureus",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42690319",
+      "title": "Cannabigerol and standardized full-spectrum cannabis extract effects in acute and chronic inflammatory pain models.",
+      "doi": "10.1007/s00213-026-07156-y",
+      "pub_date": "2026 Sep 3",
+      "pub_type": "Journal Article",
+      "journal": "Psychopharmacology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42692325",
+      "title": "Cannabigerol, a minor phytocannabinoid, prevents behavioral changes induced by psychotomimetic drugs.",
+      "doi": "10.1016/j.pnpbp.2026.111903",
+      "pub_date": "2026 Aug 30",
+      "pub_type": "Journal Article",
+      "journal": "Progress in neuro-psychopharmacology & biological psychiatry",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42697776",
+      "title": "Current role of cannabis in therapeutics: A critical perspective.",
+      "doi": "10.1016/j.farma.2026.08.002",
+      "pub_date": "2026 Sep 4",
+      "pub_type": "Journal Article",
+      "journal": "Farmacia hospitalaria : organo oficial de expresion cientifica de la Sociedad Espanola de Farmacia Hospitalaria",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42698223",
+      "title": "Mucus-Penetrating Nanostructured Lipid Carriers: An Effective Approach for Cannabidiol to Pass Across the Nasal Mucus-Mucosal Barrier.",
+      "doi": "10.1002/jbm.a.70133",
+      "pub_date": "2026 Sep",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "journal": "Journal of biomedical materials research. Part A",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42704497",
+      "title": "Efficacy and safety of cannabinoid-based interventions for behavioral and cognitive symptoms in dementia: systematic review and meta-analysis.",
+      "doi": "10.1007/s10072-026-09347-z",
+      "pub_date": "2026 Sep 7",
+      "pub_type": "Meta-Analysis",
+      "journal": "Neurological sciences : official journal of the Italian Neurological Society and of the Italian Society of Clinical Neurophysiology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42704964",
+      "title": "Development of a method for vancomycin monitoring in interstitial fluid using a novel porous microneedle array patch.",
+      "doi": "10.1016/j.dmpk.2026.101546",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "journal": "Drug metabolism and pharmacokinetics",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42705511",
+      "title": "Regulation of neural connectivity and oscillations by cannabinoids: A review.",
+      "doi": "10.1016/j.neubiorev.2026.106959",
+      "pub_date": "2026 Sep 7",
+      "pub_type": "Review",
+      "journal": "Neuroscience and biobehavioral reviews",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42708292",
+      "title": "A Critical Review of the Interactions Between Δ9-THC and Other Naturally Occurring Phytochemical Constituents of Cannabis sativa.",
+      "doi": "10.2174/011570159X453562260805073318",
+      "pub_date": "2026 Aug 31",
+      "pub_type": "Journal Article",
+      "journal": "Current neuropharmacology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42709924",
+      "title": "Greener Choices in Biliary Imaging: A Prospective Carbon Footprint Comparison of EUS versus MRCP for Intermediate-Likelihood Choledocholithiasis.",
+      "doi": "10.14309/ctg.0000000000001098",
+      "pub_date": "2026 Sep 8",
+      "pub_type": "Journal Article",
+      "journal": "Clinical and translational gastroenterology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42711610",
+      "title": "Predicting Cannabidiol Pharmacokinetics in Older Adults Via Physiologically Based Pharmacokinetic Modeling.",
+      "doi": "10.1208/s12248-026-01281-4",
+      "pub_date": "2026 Sep 8",
+      "pub_type": "Journal Article",
+      "journal": "The AAPS journal",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42714779",
+      "title": "Cognitive Side Effects of Antiseizure Medications in Adults with Epilepsy: An Update with a Focus on New Therapeutic Agents.",
+      "doi": "10.1007/s40263-026-01331-7",
+      "pub_date": "2026 Sep 9",
+      "pub_type": "Review",
+      "journal": "CNS drugs",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42714782",
+      "title": "Interactions of ACEA and WIN 55,212-2 mesylate with temozolomide and cisplatin in neuroblastoma and glioblastoma cell lines: an isobolographic analysis.",
+      "doi": "10.1007/s43440-026-00898-8",
+      "pub_date": "2026 Sep 9",
+      "pub_type": "Journal Article",
+      "journal": "Pharmacological reports : PR",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42714962",
+      "title": "Comment on serum cannabinoid profiles of emergency department patients presenting with cannabinoid hyperemesis syndrome and acute cannabis intoxication.",
+      "doi": "10.1080/15563650.2026.2729698",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "journal": "Clinical toxicology (Philadelphia, Pa.)",
+      "has_abstract": false,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42722055",
+      "title": "Diminazene aceturate-induced relaxation in isolated rat thoracic aorta: Contribution of cannabinoid and vanilloid signaling.",
+      "doi": "10.1016/j.ejphar.2026.179326",
+      "pub_date": "2026 Oct 28",
+      "pub_type": "Journal Article",
+      "journal": "European journal of pharmacology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42724054",
+      "title": "Herbal products for the prevention and management of 5-fluorouracil-induced oral mucositis: A systematic review of preclinical evidence.",
+      "doi": "10.52225/narra.v6i2.3110",
+      "pub_date": "2026 Aug",
+      "pub_type": "Systematic Review",
+      "journal": "Narra J",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42724108",
+      "title": "UK Medical Cannabis Registry: An Updated Analysis of Inflammatory Arthritis.",
+      "doi": "10.1177/11795441261480709",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "journal": "Clinical medicine insights. Arthritis and musculoskeletal disorders",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42726817",
+      "title": "Endoscopic retrograde cholangiopancreatography and endoscopic sphincterotomy for sphincter of Oddi dysfunction: short-term results.",
+      "doi": "10.36740/Merkur202604103",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "journal": "Polski merkuriusz lekarski : organ Polskiego Towarzystwa Lekarskiego",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42728455",
+      "title": "Cannabinoid type 1 receptor availability imaging in attention-deficit/hyperactivity disorder using [(18)F]MK-9470 positron emission tomography: study protocol of the CB1-ADHD study.",
+      "doi": "10.1186/s41824-026-00322-7",
+      "pub_date": "2026 Sep 12",
+      "pub_type": "Journal Article",
+      "journal": "EJNMMI reports",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42728549",
+      "title": "Potential Role of CYP3A4 in Determining In Vivo Exposure to Cannabidiol (CBD) and its Active Metabolite 7-OH-CBD: Evidence from an In Vitro Study.",
+      "doi": "10.1007/s13318-026-01032-y",
+      "pub_date": "2026 Sep 11",
+      "pub_type": "Journal Article",
+      "journal": "European journal of drug metabolism and pharmacokinetics",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42729764",
+      "title": "Evaluation of Phytocannabinoids as Antitumor Agents against Ovarian Cancer Cells in Combination with Carboplatin.",
+      "doi": "10.1021/acsomega.6c04745",
+      "pub_date": "2026 Sep 8",
+      "pub_type": "Journal Article",
+      "journal": "ACS omega",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42734521",
+      "title": "Residue Interaction Network Reveals Allosteric Pathways Linking Orthosteric and Intracellular Sites in Class A GPCRs.",
+      "doi": "10.1021/acs.jcim.6c00526",
+      "pub_date": "2026 Sep 14",
+      "pub_type": "Journal Article",
+      "journal": "Journal of chemical information and modeling",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42734736",
+      "title": "Tetrahydrocurcumin suppresses FcεRI- and MRGPRX2-mediated mast cell activation and attenuates peanut-induced anaphylaxis in an in vitro and in vivo study.",
+      "doi": "10.1007/s43440-026-00899-7",
+      "pub_date": "2026 Sep 14",
+      "pub_type": "Journal Article",
+      "journal": "Pharmacological reports : PR",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42734834",
+      "title": "Ten-year outcomes of medical cannabis for chronic low back pain: opioid reduction, pain relief, and functional improvement in 1,000 patients.",
+      "doi": "10.1007/s00586-026-10290-y",
+      "pub_date": "2026 Sep 14",
+      "pub_type": "Journal Article",
+      "journal": "European spine journal : official publication of the European Spine Society, the European Spinal Deformity Society, and the European Section of the Cervical Spine Research Society",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42735297",
+      "title": "Trauma exposure, acculturation stress, and tobacco, alcohol, cannabis, and amphetamine-type stimulant use among Syrian-origin adolescents under temporary protection in Türkiye: a 12-month longitudinal mediation analysis.",
+      "doi": "10.1080/00952990.2026.2717198",
+      "pub_date": "2026 Sep 14",
+      "pub_type": "Journal Article",
+      "journal": "The American journal of drug and alcohol abuse",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42735755",
+      "title": "Rate and correlates of early discontinuation from Veterans Health Administration intensive outpatient substance use treatment programs.",
+      "doi": "10.1016/j.josat.2026.210106",
+      "pub_date": "2026 Sep 14",
+      "pub_type": "Journal Article",
+      "journal": "Journal of substance use and addiction treatment",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42735776",
+      "title": "Plasma endocannabinoid levels in bipolar disorder: Differences between manic and euthymic states and the impact of cannabis use.",
+      "doi": "10.1016/j.jad.2026.122483",
+      "pub_date": "2026 Dec 15",
+      "pub_type": "Journal Article",
+      "journal": "Journal of affective disorders",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42737454",
+      "title": "Medical Cannabis and the Hallmarks of Cancer: A Critical Narrative Review.",
+      "doi": "10.3390/ijms27177549",
+      "pub_date": "2026 Aug 23",
+      "pub_type": "Review",
+      "journal": "International journal of molecular sciences",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42738921",
+      "title": "Kava (Piper methysticum G. Forst) for Substance Use Disorders: A Review of Mechanism, Pharmacology, Clinical Evidence, and Therapeutic Potential.",
+      "doi": "10.3390/nu18172747",
+      "pub_date": "2026 Aug 22",
+      "pub_type": "Review",
+      "journal": "Nutrients",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42742576",
+      "title": "An etiological approach to psychosis: potential benefits for treatment, research and prevention.",
+      "doi": "10.1002/wps.70079",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "journal": "World psychiatry : official journal of the World Psychiatric Association (WPA)",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42742591",
+      "title": "Evidence-based atlas of risk and protective factors for psychotic disorders: an umbrella review to inform personalized prognosis and prevention.",
+      "doi": "10.1002/wps.70093",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "journal": "World psychiatry : official journal of the World Psychiatric Association (WPA)",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42743102",
+      "title": "Toxic and repellent effects of hemp leaf extracts and cannabidiol against adult female yellow fever mosquitoes, Aedes aegypti.",
+      "doi": "10.1371/journal.pone.0354696",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "journal": "PloS one",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42744259",
+      "title": "Prenatal Δ9-tetrahydrocannabinol exposure rewires glucocorticoid-hippocampal crosstalk and impairs memory under stress in adolescent rat offspring.",
+      "doi": "10.1016/j.ejphar.2026.179327",
+      "pub_date": "2026 Nov 10",
+      "pub_type": "Journal Article",
+      "journal": "European journal of pharmacology",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42744343",
+      "title": "The anterior cingulate cortex mediates cisplatin-induced mechanical allodynia and represents a target for cannabigerol antinociception.",
+      "doi": "10.1177/17448069261491110",
+      "pub_date": "2026 Jan-Dec",
+      "pub_type": "Journal Article",
+      "journal": "Molecular pain",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42744384",
+      "title": "Work-related stress and consumption of psychoactive substances and medications among early childhood professionals (TraPsyCOL): study protocol for a cross-sectional study.",
+      "doi": "10.1136/bmjopen-2026-121614",
+      "pub_date": "2026 Sep 15",
+      "pub_type": "Journal Article",
+      "journal": "BMJ open",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42745018",
+      "title": "The Endocannabinoid System in Endometriosis-Associated Pain: Mechanisms, Molecular Targets, and Therapeutic Implications.",
+      "doi": "10.1007/s43032-026-02201-9",
+      "pub_date": "2026 Sep 15",
+      "pub_type": "Review",
+      "journal": "Reproductive sciences (Thousand Oaks, Calif.)",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42745361",
+      "title": "(+)-Trans-Cannabidiol Is an Agonist at Human CB(2) Receptors.",
+      "doi": "10.1002/prp2.70325",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "journal": "Pharmacology research & perspectives",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42745532",
+      "title": "Fentanyl Detection in Biological Samples From Individuals Reporting Synthetic Cannabinoid Use in São Paulo, Brazil.",
+      "doi": "10.1111/dar.70266",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "journal": "Drug and alcohol review",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42746337",
+      "title": "Emergency department use by individuals with and without psychosis after state-level cannabis legalization and commercialization.",
+      "doi": "10.1038/s44220-026-00673-x",
+      "pub_date": "2026 Jul",
+      "pub_type": "Journal Article",
+      "journal": "Nature. Mental health",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42747516",
+      "title": "Adolescent suicidal distress and adult mental health: findings from a 25-year population based cohort.",
+      "doi": "10.1007/s00787-026-03183-4",
+      "pub_date": "2026 Sep 16",
+      "pub_type": "Journal Article",
+      "journal": "European child & adolescent psychiatry",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42748512",
+      "title": "Δ(9)-Tetrahydrocannabinol treatment impairs CD8(+) T cell differentiation into interferon gamma-competent CD45RO(+) cells.",
+      "doi": "10.1016/j.jpet.2026.105010",
+      "pub_date": "2026 Aug 14",
+      "pub_type": "Journal Article",
+      "journal": "The Journal of pharmacology and experimental therapeutics",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42748645",
+      "title": "Tolerance, physical dependence, and Δ(9)-THC-like interoceptive effects of cannabinol in mice.",
+      "doi": "10.1016/j.drugalcdep.2026.113341",
+      "pub_date": "2026 Sep 6",
+      "pub_type": "Journal Article",
+      "journal": "Drug and alcohol dependence",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42750778",
+      "title": "Cannabidiol for anxiety and depressive symptoms in primary brain tumors: Results from an early-terminated, placebo-controlled, crossover randomized clinical trial.",
+      "doi": "10.1093/nop/npag025",
+      "pub_date": "2026 Oct",
+      "pub_type": "Letter",
+      "journal": "Neuro-oncology practice",
+      "has_abstract": false,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42751849",
+      "title": "Nanostructured lipid carriers for intranasal cannabidiol delivery in Dravet and Lennox-Gastaut syndromes: bridging preclinical promise to clinical translation.",
+      "doi": "10.1080/20415990.2026.2731738",
+      "pub_date": "2026 Sep 17",
+      "pub_type": "Review",
+      "journal": "Therapeutic delivery",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42753320",
+      "title": "Use of Purified Cannabidiol in Treatment-Resistant Pediatric Epilepsy: Beyond Lennox-Gastaut Syndrome, Dravet Syndrome, and Tuberous Sclerosis Complex.",
+      "doi": "10.1016/j.pediatrneurol.2026.08.012",
+      "pub_date": "2026 Aug 27",
+      "pub_type": "Journal Article",
+      "journal": "Pediatric neurology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42753475",
+      "title": "Exploring the potential benefits of combining cannabidiol and beta-caryophyllene for neuropathic and inflammatory pain: A systematic review.",
+      "doi": "10.1016/j.phymed.2026.158798",
+      "pub_date": "2026 Sep 11",
+      "pub_type": "Journal Article",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42753480",
+      "title": "Late-emerging ADHD symptoms and their association with psychotic experiences in a general population-based stimulant-naïve adolescent cohort.",
+      "doi": "10.1016/j.schres.2026.09.018",
+      "pub_date": "2026 Sep 17",
+      "pub_type": "Journal Article",
+      "journal": "Schizophrenia research",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42754801",
+      "title": "Bilateral pulmonary embolism in anti-NMDA receptor encephalitis presenting as acute psychosis.",
+      "doi": "10.1007/s40211-026-00596-0",
+      "pub_date": "2026 Sep 17",
+      "pub_type": "Journal Article",
+      "journal": "Neuropsychiatrie : Klinik, Diagnostik, Therapie und Rehabilitation : Organ der Gesellschaft Osterreichischer Nervenarzte und Psychiater",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42754902",
+      "title": "Assessment of drug harm by final-year medical students and ChatGPT - a comparative analysis.",
+      "doi": "10.1186/s13011-026-00762-1",
+      "pub_date": "2026 Sep 12",
+      "pub_type": "Comparative Study",
+      "journal": "Substance abuse treatment, prevention, and policy",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42755132",
+      "title": "Cannabis Social Equity Programs and Their Unintended Consequences.",
+      "doi": "10.1177/25785125261490626",
+      "pub_date": "2026 Sep 17",
+      "pub_type": "Journal Article",
+      "journal": "Cannabis and cannabinoid research",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42755825",
+      "title": "Novel pharmacotherapies for opioid use disorder and opioid withdrawal.",
+      "doi": "10.3389/fpsyt.2026.1909149",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "journal": "Frontiers in psychiatry",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42755980",
+      "title": "Targeting pancreatic cancer with natural compounds: molecular mechanisms, preclinical evidence, clinical perspectives, and limitations.",
+      "doi": "10.3389/fphar.2026.1868595",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "journal": "Frontiers in pharmacology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42757244",
+      "title": "Cannabis Use and Risk of Periodontitis and Adverse Oral Health Outcomes: A Systematic Literature Review.",
+      "doi": "10.7759/cureus.114734",
+      "pub_date": "2026 Aug",
+      "pub_type": "Review",
+      "journal": "Cureus",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42757353",
+      "title": "Efficacy of Cannabinoids in Improving Nutritional Outcomes in Chemotherapy Patients: A Scoping Review.",
+      "doi": "10.7759/cureus.114757",
+      "pub_date": "2026 Aug",
+      "pub_type": "Review",
+      "journal": "Cureus",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42758182",
+      "title": "Prospective associations of premature senescence, inflammation, and MERCSs in the cardioprotective effect of CBD in HFpEF.",
+      "doi": "10.1007/s00109-026-02715-4",
+      "pub_date": "2026 Sep 18",
+      "pub_type": "Journal Article",
+      "journal": "Journal of molecular medicine (Berlin, Germany)",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42758439",
+      "title": "A Potentially Protective Role for NRF2 in Endocannabinoid-Mediated Oxidative Stress in Human Coronary Artery Endothelial Cells.",
+      "doi": "10.1007/s12013-026-02169-y",
+      "pub_date": "2026 Sep 18",
+      "pub_type": "Journal Article",
+      "journal": "Cell biochemistry and biophysics",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42759089",
+      "title": "Trends and disparities in cannabis use disorder-coded inpatient discharges across 18 U.S. states, 2005-2023.",
+      "doi": "10.1016/j.puhe.2026.106500",
+      "pub_date": "2026 Sep 18",
+      "pub_type": "Journal Article",
+      "journal": "Public health",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42759806",
+      "title": "Cannabidiol modulates the brain rhythms within the hippocampal-prelimbic pathway in reinstatement of extinguished methamphetamine-induced conditioned place preference.",
+      "doi": "10.1016/j.neuroscience.2026.09.025",
+      "pub_date": "2026 Sep 18",
+      "pub_type": "Journal Article",
+      "journal": "Neuroscience",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42760287",
+      "title": "The Pathways Project: Exploring Substance Use Trajectories and Opioid-Related Outcomes in Adults Seeking Support for Substance Use Health.",
+      "doi": "10.1080/10826084.2026.2711400",
+      "pub_date": "2026 Sep 18",
+      "pub_type": "Journal Article",
+      "journal": "Substance use & misuse",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42761342",
+      "title": "Comparative in vitro safety assessments of synthetized and plant-derived cannabidiol (CBD), and pharmacokinetics of synthetized CBD: evidence of similar toxicological profiles and accumulation upon repeated oral administration.",
+      "doi": "10.3389/ftox.2026.1844643",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "journal": "Frontiers in toxicology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42761670",
+      "title": "Safety of synthetic cannabidiol as a novel food pursuant to regulation (EU) 2015/2283.",
+      "doi": "10.2903/j.efsa.2026.10154",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "journal": "EFSA journal. European Food Safety Authority",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42762707",
+      "title": "Use of cannabidiol products in Canada, United States, Australia, Aotearoa New Zealand, United Kingdom and Germany: products, sources and reasons for use.",
+      "doi": "10.1016/j.drugpo.2026.105506",
+      "pub_date": "2026 Sep 19",
+      "pub_type": "Journal Article",
+      "journal": "The International journal on drug policy",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42765009",
+      "title": "Repeated whole-body inhalation of cannabidiol vapor induces progressive pulmonary inflammatory and vascular remodeling without systemic toxicity in Sprague-Dawley rats.",
+      "doi": "10.14202/vetworld.2026.3701-3715",
+      "pub_date": "2026 Aug 31",
+      "pub_type": "Journal Article",
+      "journal": "Veterinary world",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42765078",
+      "title": "Self-Administered Dietary Supplements, Herbal Products, and Ergogenic Aids Before Plastic Surgery: A Narrative Review and the PLASTIC-S Perioperative Management Framework.",
+      "doi": "10.7759/cureus.114938",
+      "pub_date": "2026 Aug",
+      "pub_type": "Review",
+      "journal": "Cureus",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42765195",
+      "title": "Effectiveness and safety of cannabidiol in adult patients with epilepsy: A multicenter, retrospective study.",
+      "doi": "10.1002/epi4.70331",
+      "pub_date": "2026 Sep 21",
+      "pub_type": "Journal Article",
+      "journal": "Epilepsia open",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42766403",
+      "title": "Online Virality as a Persecutory Experience: A Psychodynamic Case Study.",
+      "doi": "10.1521/prev.2026.113.3.259",
+      "pub_date": "2026 Sep",
+      "pub_type": "Case Reports",
+      "journal": "Psychoanalytic review",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42767563",
+      "title": "CL Case Conference: The Evaluation and Management of Anxiety and Cannabis Use in Pregnancy.",
+      "doi": "10.1016/j.jaclp.2026.09.006",
+      "pub_date": "2026 Sep 21",
+      "pub_type": "Review",
+      "journal": "Journal of the Academy of Consultation-Liaison Psychiatry",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42767684",
+      "title": "Reducing distress during vaccine injections: 2026 clinical practice guideline update.",
+      "doi": "10.1503/cmaj.260123",
+      "pub_date": "2026 Sep 20",
+      "pub_type": "Practice Guideline",
+      "journal": "CMAJ : Canadian Medical Association journal = journal de l'Association medicale canadienne",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42767712",
+      "title": "Vulnerability in the womb: Charting the effects of prenatal cannabinoid exposure to mitigate developmental actions on dopamine metabolic capacities and circuits.",
+      "doi": "10.1016/bs.irn.2026.08.020",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "journal": "International review of neurobiology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42767714",
+      "title": "Cannabinoids and therapeutic potential in neuropsychiatry.",
+      "doi": "10.1016/bs.irn.2026.08.030",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "journal": "International review of neurobiology",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42769758",
+      "title": "Safety of Cannabis sativaL. extract as a novel food pursuant to Regulation (EU) 2015/2283.",
+      "doi": "10.2903/j.efsa.2026.10319",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "journal": "EFSA journal. European Food Safety Authority",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42769824",
+      "title": "Safety of cannabidiol isolated from Cannabis sativa L. as a novel food pursuant to Regulation (EU) 2015/2283.",
+      "doi": "10.2903/j.efsa.2026.10318",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "journal": "EFSA journal. European Food Safety Authority",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42770998",
+      "title": "From Evidence to Action: Implementing Evidence-Based Interventions for Youth Substance Use Prevention Through Drug-Free Communities and CDC's ENGAGE Framework.",
+      "doi": "10.1097/PHH.0000000000002470",
+      "pub_date": "2026 Nov-Dec 01",
+      "pub_type": "Journal Article",
+      "journal": "Journal of public health management and practice : JPHMP",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42770999",
+      "title": "Coalitions as Prevention Infrastructure for Youth Substance Use: Coordinated, Local Relevance, and Sustainability.",
+      "doi": "10.1097/PHH.0000000000002471",
+      "pub_date": "2026 Nov-Dec 01",
+      "pub_type": "Journal Article",
+      "journal": "Journal of public health management and practice : JPHMP",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42771351",
+      "title": "Use and co-use of tobacco and cannabis among couples impacted by alcohol use disorder.",
+      "doi": "10.1080/00952990.2026.2727182",
+      "pub_date": "2026 Sep 22",
+      "pub_type": "Journal Article",
+      "journal": "The American journal of drug and alcohol abuse",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42771648",
+      "title": "Evaluating the impact of cannabinoid extracts on chronic pain and quality of life in endometriosis patients - a pilot study.",
+      "doi": "10.1371/journal.pone.0356768",
+      "pub_date": "2026",
+      "pub_type": "Observational Study",
+      "journal": "PloS one",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42773786",
+      "title": "Efficacy and Safety of Cannabinoid-Based Interventions for Low Back Pain and Migraine: A Systematic Review of Randomized Controlled Trials.",
+      "doi": "10.1177/25785125261490003",
+      "pub_date": "2026 Sep 22",
+      "pub_type": "Review",
+      "journal": "Cannabis and cannabinoid research",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42774346",
+      "title": "Associations between individual and environmental factors and adolescent substance use in the border regions of the Netherlands, Belgium, and Germany.",
+      "doi": "10.3389/fpubh.2026.1858516",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "journal": "Frontiers in public health",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42776060",
+      "title": "Real-World Therapeutic Use of Ketamine in Clinical and Non-Clinical Settings: A Cross-Sectional Survey.",
+      "doi": "10.1080/02791072.2026.2730550",
+      "pub_date": "2026 Sep 23",
+      "pub_type": "Journal Article",
+      "journal": "Journal of psychoactive drugs",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42776927",
+      "title": "Prenatal substance exposure and 5-year child protection outcomes among infants not reported at birth.",
+      "doi": "10.1371/journal.pone.0357388",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "journal": "PloS one",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42777654",
+      "title": "Cannabis sativa L. stem ethanol extract suppresses ERα-mediated endocrine disrupting effects induced by bisphenol A in a breast cancer cell line.",
+      "doi": "10.1016/j.ecoenv.2026.120832",
+      "pub_date": "2026 Sep 23",
+      "pub_type": "Journal Article",
+      "journal": "Ecotoxicology and environmental safety",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42777800",
+      "title": "Phytocannabinoids regulate lipid metabolism in UVA-irradiated melanocytes.",
+      "doi": "10.1016/j.ejphar.2026.179345",
+      "pub_date": "2026 Nov 10",
+      "pub_type": "Journal Article",
+      "journal": "European journal of pharmacology",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42779162",
+      "title": "Comparing the Impact of Tetrahydrocannabinol on 30-Day Readmission Rates and Hospital Length of Stay in Patients With Depression.",
+      "doi": "10.1002/brb3.71792",
+      "pub_date": "2026 Sep",
+      "pub_type": "Comparative Study",
+      "journal": "Brain and behavior",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42779195",
+      "title": "CUD-PRS: Predicting Cannabis Use and Neurostructural Impacts in Adolescents.",
+      "doi": "10.1002/dev.70206",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "journal": "Developmental psychobiology",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42779465",
+      "title": "Cannabis use is associated with increased risk of violence: A systematic review and meta-analysis.",
+      "doi": "10.1017/S0033291726105856",
+      "pub_date": "2026 Sep 24",
+      "pub_type": "Review",
+      "journal": "Psychological medicine",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42780014",
+      "title": "Young adult polysubstance use trajectories and later non-prescribed opioid use and drug use disorder symptoms: A propensity score-matched analysis.",
+      "doi": "10.1016/j.dadr.2026.100479",
+      "pub_date": "2026 Dec",
+      "pub_type": "Journal Article",
+      "journal": "Drug and alcohol dependence reports",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42781607",
+      "title": "Management of adult insomnia in Australia: a joint position statement of the Australasian Sleep Association, Sleep Health Foundation, Royal Australian College of General Practitioners, Australian Psychological Society, Pharmaceutical Society of Australia, and Australian Primary Health Care Nurses Association.",
+      "doi": "10.1093/sleepadvances/zpag086",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "journal": "Sleep advances : a journal of the Sleep Research Society",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42782814",
+      "title": "Lipidomic Evidence for Cannabidiol-Induced Remodeling of Cellular Lipid Composition in SH-SY5Y Cells.",
+      "doi": "10.3390/cells15181714",
+      "pub_date": "2026 Sep 21",
+      "pub_type": "Journal Article",
+      "journal": "Cells",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42784880",
+      "title": "Examination of the diagnostic and statistical manual of mental disorders - 5th edition (DSM-5) cannabis use disorder severity indicators.",
+      "doi": "10.1016/j.addbeh.2026.108867",
+      "pub_date": "2026 Sep 21",
+      "pub_type": "Journal Article",
+      "journal": "Addictive behaviors",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42785538",
+      "title": "Cannabinoids as context-dependent modulators of the adenosine A(3) receptors: Potential orthosteric and allosteric mechanisms.",
+      "doi": "10.1016/j.phrs.2026.109641",
+      "pub_date": "2026 Sep 24",
+      "pub_type": "Journal Article",
+      "journal": "Pharmacological research",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42786907",
+      "title": "Adolescent Exposure to a THC-Rich Cannabis Extract Produces Genotype-Dependent Effects on Cognition and Glial Morphology in Serine Racemase Mutant Mice.",
+      "doi": "10.1111/jnc.70559",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "journal": "Journal of neurochemistry",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42787287",
+      "title": "Pharmacovigilance in medical cannabis therapy among physicians in Poland: pharmacovigilance knowledge, ADR reporting practice and cannabis-related safety reporting.",
+      "doi": "10.3389/fpubh.2026.1915903",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "journal": "Frontiers in public health",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42788953",
+      "title": "The Role of Cannabis in Recurrent Adolescent Gynecomastia.",
+      "doi": "10.1097/SCS.0000000000013447",
+      "pub_date": "2026 Sep 25",
+      "pub_type": "Journal Article",
+      "journal": "The Journal of craniofacial surgery",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42789948",
+      "title": "Benefits and risks of consuming Cannabis sativa L. in food.",
+      "doi": "10.38212/2224-6614.3578",
+      "pub_date": "2026 Sep 1",
+      "pub_type": "Review",
+      "journal": "Journal of food and drug analysis",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42790019",
+      "title": "Spent hemp biomass in broiler diets: effects on performance, meat quality, expression of genes in internal adipose tissue, and corticosterone in feathers.",
+      "doi": "10.1016/j.psj.2026.107692",
+      "pub_date": "2026 Aug 28",
+      "pub_type": "Journal Article",
+      "journal": "Poultry science",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42790169",
+      "title": "Phytocannabinoid cannabidiol (CBD) in neurodegenerative diseases: From polypharmacology to drug development.",
+      "doi": "10.1016/j.ejmech.2026.119360",
+      "pub_date": "2026 Sep 23",
+      "pub_type": "Review",
+      "journal": "European journal of medicinal chemistry",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42790688",
+      "title": "Persistent brain alterations after adolescent exposure to the synthetic cannabinOid 5F-MDMB-PICA in male mice: a metabolomic fingerprint.",
+      "doi": "10.1016/j.tox.2026.154595",
+      "pub_date": "2026 Sep 25",
+      "pub_type": "Journal Article",
+      "journal": "Toxicology",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42791631",
+      "title": "Cannabis-based medicines: On the topic of intoxication.",
+      "doi": "10.1002/bcp.70840",
+      "pub_date": "2026 Sep 25",
+      "pub_type": "Journal Article",
+      "journal": "British journal of clinical pharmacology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42792856",
+      "title": "Immune and Redox Responses of Galleria mellonella to Caffeic Acid: Concentration- and Time-Dependent Patterns.",
+      "doi": "10.3390/biomedicines14092116",
+      "pub_date": "2026 Sep 19",
+      "pub_type": "Journal Article",
+      "journal": "Biomedicines",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42792895",
+      "title": "Fatty Acid-Binding Proteins and Substance Use Disorders: From Lipid Signaling to Therapeutic Targets.",
+      "doi": "10.3390/genes17091000",
+      "pub_date": "2026 Aug 25",
+      "pub_type": "Review",
+      "journal": "Genes",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42793092",
+      "title": "Cannabinoids in Cancer: Molecular Mechanisms of Tumor Cell Death and Translational Opportunities.",
+      "doi": "10.3390/biom16091260",
+      "pub_date": "2026 Aug 31",
+      "pub_type": "Review",
+      "journal": "Biomolecules",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42793294",
+      "title": "In Vitro Digestive-Enzyme Inhibition and Antiglycation Activity of Cannabis sativa L. Essential Oil: Experimental Evaluation and Molecular Docking Analysis.",
+      "doi": "10.3390/cimb48090938",
+      "pub_date": "2026 Sep 14",
+      "pub_type": "Journal Article",
+      "journal": "Current issues in molecular biology",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42793382",
+      "title": "Investigating Neuropharmacological Features of the Cortical Activity of Cannabidiol GWP42003 P-A Phase 1 Clinical Trial.",
+      "doi": "10.3390/brainsci16090957",
+      "pub_date": "2026 Sep 9",
+      "pub_type": "Journal Article",
+      "journal": "Brain sciences",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42794297",
+      "title": "Medical Diagnosis, ED Visits, and Hospitalizations for Substance Use in U.S. Children's Hospitals: A Retrospective Multi-Center Cohort Study.",
+      "doi": "10.3390/children13091277",
+      "pub_date": "2026 Sep 20",
+      "pub_type": "Journal Article",
+      "journal": "Children (Basel, Switzerland)",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42794674",
+      "title": "In Silico Exploration of Cannabidiol Interactions with Outer Membrane Proteins in Salmonella Typhimurium LT2.",
+      "doi": "10.3390/ijms27188247",
+      "pub_date": "2026 Sep 16",
+      "pub_type": "Journal Article",
+      "journal": "International journal of molecular sciences",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42796493",
+      "title": "Enhancing Anti-Cancer Efficacy in Colorectal Cancer Through Cannabinoid and Sodium Pentaborate Co-Therapy.",
+      "doi": "10.3390/molecules31183206",
+      "pub_date": "2026 Sep 11",
+      "pub_type": "Journal Article",
+      "journal": "Molecules (Basel, Switzerland)",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42796655",
+      "title": "Interaction of β-Caryophyllene with a Simplified Membrane Model and Its Growth-Inhibitory Effect Against Escherichia coli ATCC 25922.",
+      "doi": "10.3390/pathogens15090887",
+      "pub_date": "2026 Aug 24",
+      "pub_type": "Journal Article",
+      "journal": "Pathogens (Basel, Switzerland)",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42797451",
+      "title": "CB2 Receptor Activation Attenuates IL-1β-Induced Inflammatory Transcriptomic Networks in Human Gingival Fibroblasts.",
+      "doi": "10.3390/ph19091406",
+      "pub_date": "2026 Sep 6",
+      "pub_type": "Journal Article",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42798203",
+      "title": "Biliary Microbiota and Bile Acid Remodeling in Common Bile Duct Stone Patients: A Pilot Multi-Omics Analysis of ERCP-Acquired Human Bile.",
+      "doi": "10.1111/jgh.70776",
+      "pub_date": "2026 Sep 25",
+      "pub_type": "Journal Article",
+      "journal": "Journal of gastroenterology and hepatology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42798297",
+      "title": "Cannabidiol in Adults With Lennox-Gastaut Syndrome: Real-World Experience.",
+      "doi": "10.1111/ene.70760",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "journal": "European journal of neurology",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42799588",
+      "title": "Modes of Cannabis Use and Mental Health Outcomes Among Older Adults in the United States.",
+      "doi": "10.1111/jgs.70748",
+      "pub_date": "2026 Sep 26",
+      "pub_type": "Journal Article",
+      "journal": "Journal of the American Geriatrics Society",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42799780",
+      "title": "Association of cannabis use disorder with clinical outcomes following lumbar spinal fusion: a propensity-matched cohort study.",
+      "doi": "10.1007/s00590-026-04977-7",
+      "pub_date": "2026 Sep 26",
+      "pub_type": "Multicenter Study",
+      "journal": "European journal of orthopaedic surgery & traumatology : orthopedie traumatologie",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42802502",
+      "title": "Cannabidiol in small animal practice: current evidence, clinical applications and practical recommendations for dogs and cats.",
+      "doi": "10.1111/jsap.70208",
+      "pub_date": "2026 Sep 27",
+      "pub_type": "Review",
+      "journal": "The Journal of small animal practice",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42802914",
+      "title": "Cannabis use and cannabis use disorder among older adults in the USA.",
+      "doi": "10.1111/add.70600",
+      "pub_date": "2026 Sep 28",
+      "pub_type": "Journal Article",
+      "journal": "Addiction (Abingdon, England)",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42803081",
+      "title": "Changes in Symptoms of Cannabis Use Disorder of Ontario Youth Across the COVID-19 Pandemic: A Longitudinal Cohort Study.",
+      "doi": "10.1177/29767342261488975",
+      "pub_date": "2026 Sep 28",
+      "pub_type": "Journal Article",
+      "journal": "Substance use & addiction journal",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42805011",
+      "title": "Increasing cannabis use among U.S. Adults: Greater growth among historically lower-use groups, BRFSS 2016-2024.",
+      "doi": "10.1016/j.addbeh.2026.108863",
+      "pub_date": "2026 Sep 25",
+      "pub_type": "Journal Article",
+      "journal": "Addictive behaviors",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42805506",
+      "title": "Associations of delta-9-tetrahydrocannabinol quantity and Cannabis use frequency with Cannabis use disorder among adults who use Cannabis in the United States.",
+      "doi": "10.1016/j.ypmed.2026.108669",
+      "pub_date": "2026 Sep 28",
+      "pub_type": "Journal Article",
+      "journal": "Preventive medicine",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42806222",
+      "title": "Cannabis Use Disorder and Mortality Risk: A Matched Cohort Study from a Colorado Health System.",
+      "doi": "10.1007/s11606-026-10845-1",
+      "pub_date": "2026 Sep 28",
+      "pub_type": "Journal Article",
+      "journal": "Journal of general internal medicine",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42806606",
+      "title": "Novel targets in headache: A narrative review.",
+      "doi": "10.1111/head.70202",
+      "pub_date": "2026 Sep 28",
+      "pub_type": "Review",
+      "journal": "Headache",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42807438",
+      "title": "Functionalized Colloidal Hydroxyapatite for Combined Delivery of Cannabidiol and Epirubicin: Characterization, Biomimetic Membrane Interaction, and Cytotoxicity Studies.",
+      "doi": "10.2147/NSA.S617933",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "journal": "Nanotechnology, science and applications",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42808403",
+      "title": "High Prevalence of Cannabinoid Receptor 1 Expression in Thai Patients with Cholangiocarcinoma and Its Prognostic Implications.",
+      "doi": "10.31557/APJCP.2026.27.9.3349",
+      "pub_date": "2026 Sep 1",
+      "pub_type": "Journal Article",
+      "journal": "Asian Pacific journal of cancer prevention : APJCP",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42809837",
+      "title": "Acceptability and Feasibility of a Virtual Family-Based Single-Session Intervention for Young Teens at High Risk for Substance Use Disorder: Single-Arm Pilot Trial.",
+      "doi": "10.2196/93263",
+      "pub_date": "2026 Sep 29",
+      "pub_type": "Research Support, N.I.H., Extramural",
+      "journal": "JMIR formative research",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42810163",
+      "title": "Use of purified cannabidiol as add-on therapy in children with non-self-limited focal epilepsies of childhood: A multicenter study.",
+      "doi": "10.1016/j.yebeh.2026.111323",
+      "pub_date": "2026 Sep 29",
+      "pub_type": "Journal Article",
+      "journal": "Epilepsy & behavior : E&B",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42810868",
+      "title": "Cannabis use and anaesthetic agent dosing in patients undergoing surgery or interventional procedures: a single-centre retrospective cohort study.",
+      "doi": "10.1016/j.bja.2026.09.001",
+      "pub_date": "2026 Sep 29",
+      "pub_type": "Journal Article",
+      "journal": "British journal of anaesthesia",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42811661",
+      "title": "Emerging therapies for pericarditis: from anti-IL-1 agents to novel therapeutic options.",
+      "doi": "10.1080/14728214.2026.2726141",
+      "pub_date": "2026 Oct 3",
+      "pub_type": "Review",
+      "journal": "Expert opinion on emerging drugs",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42813543",
+      "title": "Pharmacokinetics of Buccally Administered Cannabidiol and Oral Carprofen During Single- and Repeated-Dose Administration in Dogs.",
+      "doi": "10.1111/jvp.70114",
+      "pub_date": "2026 Sep 30",
+      "pub_type": "Journal Article",
+      "journal": "Journal of veterinary pharmacology and therapeutics",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42813605",
+      "title": "Effects of Δ(9)-tetrahydrocannabinol on affiliative social behaviour: A systematic review of rodent studies.",
+      "doi": "10.1177/02698811261478615",
+      "pub_date": "2026 Sep 30",
+      "pub_type": "Review",
+      "journal": "Journal of psychopharmacology (Oxford, England)",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42813647",
+      "title": "Global Regulatory Frameworks for Cannabinoids and Cannabis-Based Medicinal Products: A Comprehensive Review of Contemporary Approaches and Challenges.",
+      "doi": "10.2174/0127724328501726260907075438",
+      "pub_date": "2026 Sep 25",
+      "pub_type": "Journal Article",
+      "journal": "Current reviews in clinical and experimental pharmacology",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42814580",
+      "title": "Impact of Cannabis Use on Time to Psychiatric Rehospitalization in Young Adults With Bipolar and Psychotic Disorders: A Survival Analysis.",
+      "doi": "10.4088/JCP.25m16257",
+      "pub_date": "2026 Sep 28",
+      "pub_type": "Journal Article",
+      "journal": "The Journal of clinical psychiatry",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42816121",
+      "title": "Dronabinol for Neuropathic Pain in Palliative Care.",
+      "doi": "10.1080/15360288.2026.2718824",
+      "pub_date": "2026 Sep 30",
+      "pub_type": "Review",
+      "journal": "Journal of pain & palliative care pharmacotherapy",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42816426",
+      "title": "Environmental Context and Reporting Completeness of Event-Based Ecological Momentary Assessment in Cigarette and Cannabis Use.",
+      "doi": "10.1111/dar.70267",
+      "pub_date": "2026 Nov",
+      "pub_type": "Journal Article",
+      "journal": "Drug and alcohol review",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42817139",
+      "title": "Plant-derived Bioactive Compounds in Schizophrenia: Pharmacological Mechanisms and Emerging Drug Targets.",
+      "doi": "10.2174/0113894501514494260916073129",
+      "pub_date": "2026 Sep 29",
+      "pub_type": "Journal Article",
+      "journal": "Current drug targets",
+      "has_abstract": true,
+      "query": "(cannabidiol OR CBD) AND (safety OR adverse OR interaction OR pharmacokinetic) AND (clinical OR patients OR adults OR systematic review OR trial) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42818431",
+      "title": "Socioeconomic disparities in substance use disorder prevalence and severity across the life course.",
+      "doi": "10.64898/2026.09.03.26362182",
+      "pub_date": "2026 Sep 7",
+      "pub_type": "Preprint",
+      "journal": "medRxiv : the preprint server for health sciences",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42818626",
+      "title": "Delta-9-tetrahydrocannabinol alleviates inflammation by modulating immune responses in LPS-induced murine inflammation model.",
+      "doi": "10.3389/fimmu.2026.1856131",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "journal": "Frontiers in immunology",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42820976",
+      "title": "Identifying Subtypes of Cannabis Use Disorder: A Latent Class Analysis Among Daily Cannabis Consumers and Associated Sociodemographic and Cannabis Characteristics.",
+      "doi": "10.1097/ADM.0000000000001595",
+      "pub_date": "2026 Sep-Oct 01",
+      "pub_type": "Journal Article",
+      "journal": "Journal of addiction medicine",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42821661",
+      "title": "Protocol for the REVELIO test-track pilot study: A randomised, controlled, single-centre trial in healthy recreational cannabis users investigating real-time in-vehicle detection of cannabis-impaired driving.",
+      "doi": "10.1371/journal.pone.0349328",
+      "pub_date": "2026",
+      "pub_type": "Clinical Trial Protocol",
+      "journal": "PloS one",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42822008",
+      "title": "Respiratory depression with concomitant use of opioids and cannabinoids: a case report.",
+      "doi": "10.1080/00325481.2026.2739680",
+      "pub_date": "2026 Oct 1",
+      "pub_type": "Journal Article",
+      "journal": "Postgraduate medicine",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42822176",
+      "title": "Daily polysubstance use associated with HIV, HCV, and non-fatal overdose among people who inject drugs: A latent class analysis using nationwide data.",
+      "doi": "10.1016/j.drugalcdep.2026.113375",
+      "pub_date": "2026 Sep 18",
+      "pub_type": "Journal Article",
+      "journal": "Drug and alcohol dependence",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42824729",
+      "title": "Social media, depression, and vaping susceptibility: A prospective cohort study of the combined effects in college students.",
+      "doi": "10.18332/tpc/230939",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "journal": "Tobacco prevention & cessation",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42825458",
+      "title": "Exploring Associations Between Frequency and Methods of Cannabis Use and Tooth Loss.",
+      "doi": "10.3290/j.ohpd.c_2829",
+      "pub_date": "2026 Oct 2",
+      "pub_type": "Journal Article",
+      "journal": "Oral health & preventive dentistry",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42825951",
+      "title": "Persistent effects of repeated adolescent and adult heroin vapor inhalation in female Wistar rats.",
+      "doi": "10.1007/s00213-026-07175-9",
+      "pub_date": "2026 Oct 2",
+      "pub_type": "Journal Article",
+      "journal": "Psychopharmacology",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42826598",
+      "title": "Acidic cannabinoids in brain disorders: Neurobiological mechanisms, preclinical evidence, and translational challenges.",
+      "doi": "10.1016/j.neubiorev.2026.107005",
+      "pub_date": "2026 Oct 2",
+      "pub_type": "Review",
+      "journal": "Neuroscience and biobehavioral reviews",
+      "has_abstract": true,
+      "query": "(cannabidiol OR cannabinoid) AND (clinical trial OR pharmacokinetics OR drug interaction OR real-world) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42829479",
+      "title": "Optimal cannabinoid-terpene combination ratios suppress mutagenicity of gastric reflux in normal and metaplastic esophageal cells.",
+      "doi": "10.3748/wjg.v32.i14.111455",
+      "pub_date": "2026 Apr 14",
+      "pub_type": "Journal Article",
+      "journal": "World journal of gastroenterology",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42830317",
+      "title": "Increased encoding of aversive stimuli by lateral habenula neurons during Δ(9)-tetrahydrocannabinol withdrawal.",
+      "doi": "10.1038/s41467-026-77429-9",
+      "pub_date": "2026 Sep 3",
+      "pub_type": "Journal Article",
+      "journal": "Nature communications",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    },
+    {
+      "pmid": "42831068",
+      "title": "Substance use patterns in a community sample of adult women in the United States: Alcohol, Cannabis, and other drug use.",
+      "doi": "10.1016/j.abrep.2026.100748",
+      "pub_date": "2026 Dec",
+      "pub_type": "Journal Article",
+      "journal": "Addictive behaviors reports",
+      "has_abstract": true,
+      "query": "(cannabis OR cannabinoid OR THC) AND (adverse effects OR safety OR use disorder OR interaction) AND (human OR adults OR patients OR systematic review OR cohort) AND 2018:2026[pdat]"
+    }
+  ]
+}
