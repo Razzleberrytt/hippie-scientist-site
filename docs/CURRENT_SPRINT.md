@@ -5,7 +5,7 @@
 **Updated:** 2026-10-04
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (verified 2026-10-04):** Normal implementation WIP is **1/3**. Authority/Content is occupied by #6337 for the bounded Waves 2001–3000 enrichment closeout, owned by PR #6334. Discovery/SEO and Revenue/Conversion are free. #6337 is admitted against exact main base `7c56a720f464b3cd2198e2f15ba6b3d245aacf9d`; entity creation, governance override, publication promotion, recommendation promotion, dose inference, and category-firewall bypass remain forbidden.
+**Current admission (verified 2026-10-04):** Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are free. #6337 / PR #6334 is merged and retired from active ownership; no new implementation admission is granted by this control sync.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,11 +49,10 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 0/3
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| A | #6337 | Validate and land enrichment waves 2001–3000 | In review — admitted for implementation by PR #6334; exact-head validation required | P1 | 67.5 | 2026-10-04 — exact-base admission against `7c56a720f464b3cd2198e2f15ba6b3d245aacf9d` |
 
 
 
@@ -61,9 +60,9 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 **Security follow-up #5456:** Open — permanent MDX/TOML dependency-chain removal remains unresolved. Temporary build-tool containment expires 2026-10-07; no extension is authorized by this reconciliation.
 
-**Authority prerequisite #5081:** Blocked on a fresh non-overlapping governor lease. Authority/Content is currently occupied by #6337; that does not waive #5081's prerequisite.
+**Authority prerequisite #5081:** Blocked on a fresh non-overlapping governor lease. Authority/Content is currently free; #5081 still requires a fresh non-overlapping governor lease before admission.
 
-Research-only enrichment staging is not canonical implementation admission. #6324 is now the admitted Authority/Content closeout for the reviewed Waves 1501–2000 batch. No new work may overlap an active normal-lane owner.
+Research-only enrichment staging is not canonical implementation admission. #6337 / PR #6334 is merged and retired. No new work may begin until separately admitted under the normal control transaction.
 
 ### Verified completion refresh — 2026-10-02
 
