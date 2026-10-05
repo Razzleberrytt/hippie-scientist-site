@@ -3,7 +3,7 @@
   "selection_revision": 2,
   "range": "3671-3685",
   "row_count": 15,
-  "failed_count": 0,
+  "failed_count": 1,
   "rows": [
     {
       "pmid": "41525115",
@@ -172,14 +172,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 19,
       "primary_category": "immune_respiratory",
-      "state": "selected_exact_verified",
+      "state": "verification_exception",
       "wave": 3678,
-      "abstract_verified": true,
-      "title_match_score": 1,
-      "verified_title": "Vitamin D supplementation for prevention of acute respiratory infections in older adults: A systematic review and meta-analysis.",
-      "verified_journal": "PloS one",
-      "verified_pub_date": "2024",
-      "focus": "Acute respiratory infections (ARIs) have a substantial impact on morbidity, healthcare utilization, and functional decline among older adults. Therefore, we systematically reviewed evidence from randomized controlled trials (RCTs) to evaluate the efficacy and safety of vitamin D supplementation in preventing ARIs in older adults. PubMed, Embase, the Cochrane Library, and ClinicalTrials.gov were searched until 1 February 2024. RCTs evaluating the use of vitamin D supplements to protect older adults from ARIs were included. Two reviewers independently screened papers, extracted the data and assessed the risk of bias. Data were summarised as relative risks (RRs) or odds ratios (ORs) with corresponding 95% confidence intervals (CIs). Random effects meta-analyses were used to synthesise the results. GRADE was used to evaluate the quality of evidence. All the analysis were performed with Stata version 17. Twelve trials (41552 participants) were included in the meta-analysis. It showed that vitamin D supplementation probably does not reduce the incidence of ARIs (RR, 0.99; 95% CI, 0.97-1.02, I2 = 0%; moderate certainty). No significant effect of vitamin D supplementation on the risk of ARI was observed for any of the subgroups defined by baseline 25(OH)D concentration, control treatments, dose frequency, study duration, and participants' condition. However, there was a possibility, although not statistically significant, that vitamin D may reduce the risk of ARI in patients with a baseline 25(OH)D concentration <50 nmol/L (OR, 0.90; 95% CI, 0.79-1.04, I2 = 14.7%). Additionally, vitamin D supplements might result in little to no difference in death due to any cause, any adverse event, hypercalcinemia, and kidney stones. Vitamin D supplementation among older adults probably results in little to no difference in the incidence of ARIs. However, further evidence is needed, particularly for individuals with vitamin D deficiency and populations residing in low and middle income countries. This study was registered on PROSPERO (CRD42023451265)."
+      "abstract_verified": false,
+      "title_match_score": 0,
+      "verified_title": null,
+      "verified_journal": null,
+      "verified_pub_date": null,
+      "focus": null
     },
     {
       "pmid": "38794642",
