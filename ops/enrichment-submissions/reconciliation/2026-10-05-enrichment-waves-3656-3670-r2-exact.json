@@ -31,10 +31,10 @@
       "pmid": "42751774",
       "doi": "10.1039/d5fo03175c",
       "title": "Efficacy of Bifidobacterium animalis subsp. lactate BL-99 in relieving functional constipation: a randomized placebo-controlled clinical trial.",
-      "journal": "Clinical nutrition (Edinburgh, Scotland)",
-      "pub_date": "2026 Sep 15",
-      "pub_type": "Letter",
-      "has_abstract": false,
+      "journal": "Food & function",
+      "pub_date": "2026 Sep 17",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
       "category": "gut",
       "discovery_query": "(probiotic OR prebiotic OR fiber OR synbiotic) AND (gut OR gastrointestinal OR microbiome OR irritable bowel) AND (trial OR systematic review OR meta-analysis) AND 2018:2026[pdat]",
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
@@ -42,21 +42,22 @@
       "primary_category": "gut",
       "state": "selected_exact_verified",
       "wave": 3657,
+      "replacement_reason": "replace_no_abstract_comment",
       "abstract_verified": true,
       "title_match_score": 1,
       "verified_title": "Efficacy of Bifidobacterium animalis subsp. lactate BL-99 in relieving functional constipation: a randomized placebo-controlled clinical trial.",
       "verified_journal": "Food & function",
       "verified_pub_date": "2026-Sep-17",
-      "focus": "Current therapies for functional constipation often exhibit limited long-term efficacy. This randomized, double-blind, placebo-controlled trial evaluated Bifidobacterium animalis subsp. lactis BL-99 and reported improvements in constipation symptoms with microbiota changes."
+      "focus": "Current therapies for functional constipation (FC) often exhibit limited long-term efficacy. Probiotics, particularly Bifidobacterium animalis subsp. lactis BL-99 (BL-99), may offer a novel approach to alleviate FC symptoms. This randomized, double-blind, placebo-controlled trial (No. WXSY-YXLL-AF/SC-11/01.0) enrolled 41 FC patients who completed the full 6-week study. Participants were randomly assigned to receive either BL-99 (1 × 1011 colony-forming units per day) or placebo for 4 weeks in this population trial. After completing the 4-week intervention period, administration was discontinued and participants entered a 2-week observation following-up period for continued monitoring. Primary endpoint data collected after trial completion were the changes in the Patient Assessment of Constipation Symptoms (PAC-SYM, 12-item scale) score, evaluated on the first day (0 day), the 28th day (week 4), and the 42th day (week 6). Secondary outcomes included fecal metagenomic profiling to evaluate gut microbiota alterations. After 4 weeks of intervention, the BL-99 group demonstrated significant reductions in PAC-SYM scores compared to the placebo, particularly in domains of \"abdominal discomfort\" (Δ = 1.8 vs. 0.9, p = 0.007) and \"pain during defecation\" (Δ = 2.1 vs. 1.0, p = 0.003). These improvements persisted at the 2-week post-treatment follow-up (p < 0.05). Metagenomic analysis revealed that BL-99 enriched Bifidobacterium and Faecalibacterium while suppressing Clostridium species, shifting gut microbiota composition closer to that of the healthy controls. Functional annotation highlighted significant downregulation of infection-related pathways (e.g., bacterial invasion and LPS biosynthesis) and metabolic disease-associated pathways (e.g., insulin resistance) in the BL-99 group (q < 0.05). This trial suggests that 4-week BL-99 supplementation effectively alleviates FC symptoms, partially through microbiota modulation and metabolic pathway regulation. The sustained post-treatment effects warrant further investigation into its long-term benefits."
     },
     {
       "pmid": "42757563",
       "doi": "10.1002/mnfr.70610",
       "title": "Postbiotic Intervention Improves Bowel Function and Promotes Systemic Health in Institutionalized Older Adults.",
-      "journal": "Clinical nutrition (Edinburgh, Scotland)",
-      "pub_date": "2026 Sep 15",
-      "pub_type": "Letter",
-      "has_abstract": false,
+      "journal": "Molecular nutrition & food research",
+      "pub_date": "2026 Sep",
+      "pub_type": "Randomized Controlled Trial",
+      "has_abstract": true,
       "category": "gut",
       "discovery_query": "(probiotic OR prebiotic OR fiber OR synbiotic) AND (gut OR gastrointestinal OR microbiome OR irritable bowel) AND (trial OR systematic review OR meta-analysis) AND 2018:2026[pdat]",
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
@@ -64,12 +65,13 @@
       "primary_category": "gut",
       "state": "selected_exact_verified",
       "wave": 3658,
+      "replacement_reason": "replace_no_abstract_comment",
       "abstract_verified": true,
       "title_match_score": 1,
       "verified_title": "Postbiotic Intervention Improves Bowel Function and Promotes Systemic Health in Institutionalized Older Adults.",
       "verified_journal": "Molecular nutrition & food research",
       "verified_pub_date": "2026-Sep",
-      "focus": "A randomized, double-blind intervention in institutionalized older adults found postbiotic supplementation improved bowel regularity, reduced diarrheal episodes and laxative reliance, and was associated with favorable microbiota and inflammatory changes."
+      "focus": "Postbiotic interventions represent a promising strategy to modulate gut health, but clinical evidence in older adults is limited. This study aimed to evaluate the effects of a postbiotic supplement consisting of inactivated bacterial cells on bowel function, systemic inflammation, and gut microbiota composition in institutionalized older adults. In this randomized, double-blind intervention study, 48 older adults received either postbiotic or placebo for 8 weeks. Daily assessment of gastrointestinal manifestations, bowel movements, and laxative use were collected, alongside pre- and post-intervention hematological and clinical biochemical assessments. Postbiotic supplementation improved bowel regularity, reduced diarrheal episodes, and decreased laxative reliance, effects that paralleled reductions in systemic inflammatory markers and improvements in red blood cell parameters. These clinical and hematological changes were accompanied by a more favorable gut microbiota profile, characterized by an increase in bacterial groups associated with anti-inflammatory effects in the postbiotic group and of taxa linked to dysbiosis in the placebo group. Our findings suggest that postbiotic supplementation in institutionalized older adults promotes beneficial shifts in gut microbiota, which are associated with reduced systemic low-grade inflammation and consequent improvements in bowel function and inflammation-related anemia, indicating an integrated microbiota-mediated mechanism supporting gut and systemic health."
     },
     {
       "pmid": "42751421",
@@ -333,7 +335,7 @@
       "verified_title": "Vitamin D supplementation for managing COVID-19 in patients with vitamin D deficiency: a systematic review and meta-analysis of randomised controlled trials.",
       "verified_journal": "BMJ open",
       "verified_pub_date": "2025-Mar-26",
-      "focus": "A systematic review and meta-analysis of nine randomized trials in 870 participants found vitamin D supplementation was associated with lower mortality during follow-up, but the result was not robust in sensitivity and trial-sequential analyses and other major outcomes were not significantly improved."
+      "focus": "Vitamin D deficiency is prevalent among the population. Previous studies have shown that vitamin D supplementation might be useful for treating COVID-19 infection. Therefore, we performed a meta-analysis to explore vitamin D supplementation efficacy in treating COVID-19 patients with vitamin D deficiency. Systematic review and meta-analysis DATA SOURCES: PubMed, Cochrane Library, Embase and Web of Science. Randomised controlled trials exploring vitamin D supplementation for patients with COVID-19 and vitamin D deficiency. Two independent reviewers employed standardised methods to search, screen and code the included studies. The primary outcomes included mortality during follow-up, 28-day mortality, need for mechanical ventilation and intensive care unit (ICU). The secondary outcome included length of stay in hospital and ICU. The risk of bias was assessed using the Risk of Bias 2 tool. Depending on the level of heterogeneity, either a random-effects model or a fixed-effects model was applied. The findings were summarised using Grading of Recommendations Assessment, Development and Evaluation (GRADE) evidence profiles and synthesised qualitatively. A total of nine studies, comprising 870 participants, were included in the analysis. The pooled results indicated that vitamin D supplementation was associated with a lower risk of mortality (risk ratio 0.76; 95% CI 0.60 to 0.97). However, this apparent benefit was not robust when examined through the leave-one-out method and trial sequential analysis. Regarding other outcomes, there was no statistically significant difference between vitamin D supplementation and no supplementation in terms of 28-day mortality, the need for mechanical ventilation and ICU admission. Vitamin D supplementation was associated with a 0.41 day shorter length of stay in the ICU (mean difference -0.41; 95% CI -1.09 to 0.28) and a 0.07 day shorter length of stay in the hospital (mean difference -0.07; 95% CI -0.61 to 0.46) compared with no supplementation; however, neither difference was statistically significant. Based on evidence of low to moderate quality, vitamin D supplementation reduced the mortality rate during follow-up in COVID-19 patients with vitamin D deficiency. However, it did not improve 28-day mortality, nor did it reduce the need for mechanical ventilation and ICU admission, or the length of stay in the ICU and hospital. CRD42024573791."
     }
   ]
 }
