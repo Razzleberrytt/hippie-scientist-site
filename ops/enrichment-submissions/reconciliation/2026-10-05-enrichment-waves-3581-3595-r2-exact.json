@@ -3,7 +3,7 @@
   "selection_revision": 2,
   "range": "3581-3595",
   "row_count": 15,
-  "failed_count": 3,
+  "failed_count": 0,
   "rows": [
     {
       "pmid": "42753239",
@@ -18,14 +18,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 10,
       "primary_category": "cannabinoid_safety",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3581,
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "focus": null
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "verified_title": "Cannabis Use and Breastfeeding Initiation: Associations with Patterns, Perceived Risk, and Clinical Advice in a Multistate Pregnancy Risk Assessment Monitoring System Study (2017-2021).",
+      "verified_journal": "Breastfeeding medicine : the official journal of the Academy of Breastfeeding Medicine",
+      "verified_pub_date": "2026-Sep-17",
+      "focus": "Despite increasing prevalence of perinatal cannabis use, little is known about how advice about cannabis use while breastfeeding at prenatal care visits is associated with breastfeeding initiation."
     },
     {
       "pmid": "42755144",
@@ -173,14 +173,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 10,
       "primary_category": "cannabinoid_safety",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3588,
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "focus": null
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "verified_title": "Changes in Susceptibility to Cannabis Use From Late Childhood to Early Adolescence.",
+      "verified_journal": "The Journal of adolescent health : official publication of the Society for Adolescent Medicine",
+      "verified_pub_date": "2026-Sep-22",
+      "focus": "Cannabis use during early adolescence can negatively affect brain development and increase the risk of adverse health. We aimed to examine trends and correlates of cannabis-use susceptibility among youth who have not initiated cannabis."
     },
     {
       "pmid": "42543771",
@@ -218,14 +218,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 10,
       "primary_category": "cannabinoid_safety",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3590,
       "abstract_verified": true,
-      "title_match_score": 0,
+      "title_match_score": 1,
       "verified_title": "Cannabinoids as context-dependent modulators of the adenosine A3 receptors: Potential orthosteric and allosteric mechanisms.",
       "verified_journal": "Pharmacological research",
       "verified_pub_date": "2026-Sep-24",
-      "focus": "Adenosine regulates neurotransmission, immunity, inflammation, and tissue protection via four G protein-coupled receptors, among which the adenosine A3 receptor (A3R) remains comparatively understudied despite its therapeutic promise. This study examined whether cannabidiol (CBD) and cannabigerol (CBG) modulate human A3R signalling, alone or with added adenosine, using cAMP assays, molecular docking, binding-energy calculations, and molecular dynamics simulations. Both cannabinoids inhibited forskolin-stimulated cAMP accumulation in A3R-expressing cells, an effect absent in non-transfected cells and blocked by the selective A3R antagonist PSB-10 but not by the selective A2A receptor antagonist SCH 58261, supporting A3R-mediated activity under these conditions. CBG was more potent than CBD (IC50 = 0.130 vs. 1.05 µM), whereas their maximal inhibitory responses were comparable. In the presence of 100 nM CBD, the apparent IC50 of adenosine decreased from 138 to 42 nM, whereas 100 nM CBG reduced it to 1.0 nM, corresponding to an approximately 138-fold increase in apparent adenosine potency; CBG also increased the maximal inhibitory response. These results identify CBG as an effective enhancer of adenosine potency at human A3R, suggesting it stabilizes an occupancy-dependent secondary pose that fine-tunes the orthosteric agonist-receptor interaction network. Further work, encompassing direct binding studies, proximal signalling assays, receptor-subtype profiling, and structural analyses, is needed to validate this mechanism."
+      "focus": "Adenosine regulates neurotransmission, immunity, inflammation, and tissue protection via four G protein-coupled receptors. This study examined whether cannabidiol and cannabigerol modulate human A3R signalling."
     },
     {
       "pmid": "42561565",
