@@ -19,7 +19,11 @@
     ],
     "within_selection_duplicate_pmids": 0,
     "within_selection_duplicate_dois": 0,
-    "within_selection_duplicate_normalized_titles": 0
+    "within_selection_duplicate_normalized_titles": 0,
+    "selected_unique_pmids": 500,
+    "within_batch_duplicate_pmids": 0,
+    "within_batch_duplicate_dois": 0,
+    "within_batch_duplicate_normalized_titles": 0
   },
   "hard_gates": {
     "abstract_available": true,
@@ -438,20 +442,22 @@
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42822349",
-      "doi": "10.1016/j.psj.2026.107856",
-      "title": "IGF2BP1 regulates chicken skeletal muscle development through an m6A-dependent inter-organ regulatory axis.",
-      "journal": "Poultry science",
-      "pub_date": "2026 Sep 28",
-      "pub_type": "Journal Article",
+      "pmid": "42806518",
+      "doi": "10.1002/jcsm.70386",
+      "title": "Prevalence and Overlap of Malnutrition, Sarcopenia and Related Nutritional Syndromes in a Large Haemodialysis Population.",
+      "journal": "Journal of cachexia, sarcopenia and muscle",
+      "pub_date": "2026 Oct",
+      "pub_type": "Multicenter Study",
       "has_abstract": true,
       "category": "aging_sarcopenia",
       "discovery_query": "(sarcopenia OR frailty OR muscle mass) AND (creatine OR protein OR vitamin D OR resistance exercise OR nutrition) AND 2018:2026[pdat]",
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
-      "normalized_title": "igf2bp1 regulates chicken skeletal muscle development through an m6a dependent inter organ regulatory axis",
+      "normalized_title": "prevalence and overlap of malnutrition sarcopenia and related nutritional syndromes in a large haemodialysis population",
       "selection_score": 18,
       "wave": 3517,
-      "state": "selected_pending_exact_abstract_verification"
+      "state": "selected_pending_exact_abstract_verification",
+      "primary_category": "aging_sarcopenia",
+      "replacement_reason": "off_domain_title_repair"
     },
     {
       "pmid": "42801617",
@@ -838,20 +844,22 @@
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42754989",
-      "doi": "10.1094/pdis-07-26-1409-sr",
-      "title": "Colletotrichum kakivorum: A New Pathogen Causing American Ginseng Root Rot in China with Host Range and Fungicide Efficacy Analyses.",
-      "journal": "Plant disease",
-      "pub_date": "2026 Sep 17",
-      "pub_type": "Journal Article",
+      "pmid": "42537739",
+      "doi": "10.1016/j.ejphar.2026.179200",
+      "title": "The role of ginsenosides in obesity-associated sarcopenia: Focus on E3 ubiquitin ligase-mediated regulation of protein homeostasis.",
+      "journal": "European journal of pharmacology",
+      "pub_date": "2026 Aug 28",
+      "pub_type": "Review",
       "has_abstract": true,
       "category": "botanicals_mushrooms",
       "discovery_query": "(ashwagandha OR rhodiola OR ginseng OR lion's mane OR Hericium OR reishi OR Ganoderma) AND (trial OR systematic review OR meta-analysis OR safety) AND 2018:2026[pdat]",
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
-      "normalized_title": "colletotrichum kakivorum a new pathogen causing american ginseng root rot in china with host range and fungicide efficacy analyses",
+      "normalized_title": "the role of ginsenosides in obesity associated sarcopenia focus on e3 ubiquitin ligase mediated regulation of protein homeostasis",
       "selection_score": 18,
       "wave": 3542,
-      "state": "selected_pending_exact_abstract_verification"
+      "state": "selected_pending_exact_abstract_verification",
+      "primary_category": "botanicals_mushrooms",
+      "replacement_reason": "off_domain_title_repair"
     },
     {
       "pmid": "42750144",
@@ -886,20 +894,22 @@
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42513928",
-      "doi": "10.3390/microorganisms14071423",
-      "title": "Isolation and Characterization of a New Lytic Phage MA9V-2 Against Chryseobacterium indologenes MA9 and Its Combined Application with MA9V-1 for the Control of Panax notoginseng Root Rot.",
-      "journal": "Microorganisms",
-      "pub_date": "2026 Jun 29",
-      "pub_type": "Journal Article",
+      "pmid": "42546933",
+      "doi": "10.1016/j.fitote.2026.107420",
+      "title": "Modulation of pancreatic β-cell function by adaptogens: Emerging evidence and integrative therapeutic potential.",
+      "journal": "Fitoterapia",
+      "pub_date": "2026 Sep",
+      "pub_type": "Review",
       "has_abstract": true,
       "category": "botanicals_mushrooms",
       "discovery_query": "(ashwagandha OR rhodiola OR ginseng OR lion's mane OR Hericium OR reishi OR Ganoderma) AND (trial OR systematic review OR meta-analysis OR safety) AND 2018:2026[pdat]",
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
-      "normalized_title": "isolation and characterization of a new lytic phage ma9v 2 against chryseobacterium indologenes ma9 and its combined application with ma9v 1 for the control of panax notoginseng root rot",
+      "normalized_title": "modulation of pancreatic β cell function by adaptogens emerging evidence and integrative therapeutic potential",
       "selection_score": 18,
       "wave": 3545,
-      "state": "selected_pending_exact_abstract_verification"
+      "state": "selected_pending_exact_abstract_verification",
+      "primary_category": "botanicals_mushrooms",
+      "replacement_reason": "off_domain_title_repair"
     },
     {
       "pmid": "42426589",
@@ -1958,20 +1968,22 @@
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "42570493",
-      "doi": "10.1016/j.bbrc.2026.154405",
-      "title": "Omega-3 fatty acids mitigate methamphetamine-induced pulmonary oxidative stress, antioxidant depletion, neutrophilic inflammation, caspase-3 apoptosis, and bioenergetic dysfunction in male Wistar rats.",
-      "journal": "Biochemical and biophysical research communications",
-      "pub_date": "2026 Sep 24",
-      "pub_type": "Journal Article",
+      "pmid": "42602626",
+      "doi": "10.1016/j.cdnut.2026.109439",
+      "title": "Effectiveness of ω-3 Supplementation on Biochemical, Clinical, and Inflammatory Parameters in Patients with Diabetes: A Systematic Review and Meta-analysis.",
+      "journal": "Current developments in nutrition",
+      "pub_date": "2026 Aug",
+      "pub_type": "Review",
       "has_abstract": true,
       "category": "cardiometabolic",
       "discovery_query": "(omega-3 OR berberine OR magnesium OR coenzyme Q10 OR CoQ10) AND (cardiovascular OR blood pressure OR lipid OR glycemic) AND (trial OR meta-analysis OR systematic review) AND 2018:2026[pdat]",
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
-      "normalized_title": "omega 3 fatty acids mitigate methamphetamine induced pulmonary oxidative stress antioxidant depletion neutrophilic inflammation caspase 3 apoptosis and bioenergetic dysfunction in male wistar rats",
+      "normalized_title": "effectiveness of ω 3 supplementation on biochemical clinical and inflammatory parameters in patients with diabetes a systematic review and meta analysis",
       "selection_score": 4,
       "wave": 3612,
-      "state": "selected_pending_exact_abstract_verification"
+      "state": "selected_pending_exact_abstract_verification",
+      "primary_category": "cardiometabolic",
+      "replacement_reason": "off_domain_title_repair"
     },
     {
       "pmid": "33800853",
@@ -5046,20 +5058,22 @@
       "state": "selected_pending_exact_abstract_verification"
     },
     {
-      "pmid": "35908780",
-      "doi": "10.1093/jas/skac203",
-      "title": "Effects of in ovo injection of nicotinamide riboside on high-yield broiler myogenesis.",
-      "journal": "Journal of animal science",
-      "pub_date": "2022 Aug 1",
-      "pub_type": "Randomized Controlled Trial, Veterinary",
+      "pmid": "31278280",
+      "doi": "10.1038/s41598-019-46120-z",
+      "title": "Safety and Metabolism of Long-term Administration of NIAGEN (Nicotinamide Riboside Chloride) in a Randomized, Double-Blind, Placebo-controlled Clinical Trial of Healthy Overweight Adults.",
+      "journal": "Scientific reports",
+      "pub_date": "2019 Jul 5",
+      "pub_type": "Randomized Controlled Trial",
       "has_abstract": true,
       "category": "mitochondrial_energy",
       "discovery_query": "nicotinamide riboside randomized trial human 2018:2026[pdat]",
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
-      "normalized_title": "effects of in ovo injection of nicotinamide riboside on high yield broiler myogenesis",
+      "normalized_title": "safety and metabolism of long term administration of niagen nicotinamide riboside chloride in a randomized double blind placebo controlled clinical trial of healthy overweight adults",
       "selection_score": 36,
       "wave": 3805,
-      "state": "selected_pending_exact_abstract_verification"
+      "state": "selected_pending_exact_abstract_verification",
+      "primary_category": "mitochondrial_energy",
+      "replacement_reason": "off_domain_title_repair"
     },
     {
       "pmid": "35813842",
@@ -8181,5 +8195,7 @@
       "wave": 4000,
       "state": "selected_pending_exact_abstract_verification"
     }
-  ]
+  ],
+  "selection_revision": 2,
+  "revision_note": "Repaired 5 obvious animal/agricultural/off-domain selections after title audit."
 }
