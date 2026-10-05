@@ -4,7 +4,7 @@
   "selection_sha": "4c50408fba4e2d1c1cf4481ccce10c3b82069c50",
   "range": "3766-3775",
   "row_count": 10,
-  "failed_count": 1,
+  "failed_count": 0,
   "rows": [
     {
       "pmid": "30153581",
@@ -173,14 +173,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 18,
       "primary_category": "mitochondrial_energy",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3773,
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "focus": null
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "verified_title": "A phase-II randomized controlled pilot study of nicotinamide riboside supplementation in older adults with amnestic mild cognitive impairment.",
+      "verified_journal": "Alzheimer's & dementia : the journal of the Alzheimer's Association",
+      "verified_pub_date": "2026-Jul",
+      "focus": "Declining nicotinamide adenine dinucleotide (NAD+) may elevate risk of Alzheimer's disease. In a 12-week double-blind randomized placebo-controlled pilot study in adults with amnestic mild cognitive impairment, nicotinamide riboside increased blood NAD+ approximately twofold with no serious adverse effects, but did not improve cognitive function, total cerebral blood flow, or blood pressure; exploratory analyses suggested possible regional cerebral blood-flow effects."
     },
     {
       "pmid": "31743252",
