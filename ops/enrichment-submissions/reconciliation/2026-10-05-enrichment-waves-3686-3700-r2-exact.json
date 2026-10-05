@@ -3,7 +3,7 @@
   "selection_revision": 2,
   "range": "3686-3700",
   "row_count": 15,
-  "failed_count": 2,
+  "failed_count": 1,
   "rows": [
     {
       "pmid": "38291897",
@@ -150,14 +150,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 15,
       "primary_category": "immune_respiratory",
-      "state": "verification_exception",
+      "state": "selected_exact_verified",
       "wave": 3692,
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "focus": null
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "verified_title": "The effects of prenatal vitamin D supplementation on respiratory and allergy-related outcomes in children: A systematic review and meta-analysis of randomized controlled trials.",
+      "verified_journal": "The World Allergy Organization journal",
+      "verified_pub_date": "2025-Jul",
+      "focus": "Vitamin D is critical for immune regulation and respiratory health, yet its supplementation during pregnancy shows inconsistent results in preventing respiratory and allergy-related outcomes in children. This systematic review and meta-analysis aim to evaluate the impact of maternal vitamin D supplementation on respiratory tract infections (RTI), asthma, wheezing, eczema, and allergy in offspring. A comprehensive search was performed in PubMed, Embase, Web of Science, Cochrane Library up to December 2024. We included randomized controlled trials (RCTs) examining the effects of prenatal vitamin D supplementation on respiratory and allergy-related outcomes in children. The GRADE approach was applied to assess the quality of evidence, and the Cochrane risk-of-bias tool was used to evaluate study quality. Seven RCTs were included (3958 mother-infant pairs). Prenatal vitamin D supplementation did not significantly reduce RTI in children compared to controls (RR = 1.018, 95% CI: 0.965 to 1.074, p = 0.514). Similarly, no significant effects were observed for asthma (RR = 0.395, 95% CI: 0.670 to 1.308, p = 0.699), wheezing (RR = 0.824, 95% CI: 0.826 to 1.089, p = 0.174), eczema (RR = 0.954, 95% CI: 0.826 to 1.102, p = 0.522), allergic conditions (RR = 0.938, 95% CI: 0.841 to 1.047, p = 0.255), or IgE positivity (RR = 0.942, 95% CI: 0.736 to 1.207, p = 0.639). Subgroup analyses showed no significant effect modification based on control group supplementation or follow-up duration. There is moderate-quality evidence suggesting that prenatal vitamin D supplementation has minimal or no significant effect on reducing respiratory tract infections and allergy-related outcomes in children."
     },
     {
       "pmid": "40959697",
