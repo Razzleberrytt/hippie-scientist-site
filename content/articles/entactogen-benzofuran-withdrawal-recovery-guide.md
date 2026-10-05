@@ -3,10 +3,10 @@ slug: entactogen-benzofuran-withdrawal-recovery-guide
 title: "Entactogen & Benzofuran Withdrawal & Recovery: MDMA, 5-APB, 6-APB, MAPB Compounds, Comedown, Dependence, Mood, Sleep, and Recovery"
 description: "A masterclass evidence review of MDMA and benzofuran/entactogen recovery: comedown versus withdrawal, dependence, mood and sleep effects, cognition, stimulant overlap, 5-APB/6-APB/MAPB evidence gaps, treatment, and relapse prevention."
 date: "2026-10-03"
-updatedAt: "2026-10-03"
+updatedAt: "2026-10-05"
 author: "Will"
 category: "Substance Use & Harm Reduction"
-evidence_grade: "moderate-for-mdma-dependence-and-post-use-symptoms-low-for-a-distinct-physical-withdrawal-syndrome-and-very-low-for-benzofuran-specific-recovery"
+evidence_grade: "Low"
 scientific_name: "Entactogen discontinuation and recovery"
 keywords:
   - "MDMA withdrawal"

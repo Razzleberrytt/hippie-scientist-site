@@ -3,10 +3,10 @@ slug: synthetic-cannabinoid-withdrawal-recovery-guide
 title: "Synthetic Cannabinoid Withdrawal & Recovery: Spice/K2 Dependence, Seizures, Psychosis, Timeline, Treatment, and Long-Term Recovery"
 description: "A masterclass evidence review of synthetic cannabinoid withdrawal and recovery: Spice/K2 dependence, severe withdrawal, seizures, psychosis, autonomic symptoms, testing limits, treatment evidence, relapse prevention, and why synthetic cannabinoids are not equivalent to cannabis."
 date: "2026-10-03"
-updatedAt: "2026-10-03"
+updatedAt: "2026-10-05"
 author: "Will"
 category: "Substance Use & Harm Reduction"
-evidence_grade: "moderate-for-existence-and-severe-withdrawal-phenomenology-low-to-moderate-for-timeline-and-treatment-because-most-direct-evidence-remains-case-based"
+evidence_grade: "Low"
 scientific_name: "Synthetic cannabinoid receptor agonist withdrawal syndrome"
 keywords:
   - "synthetic cannabinoid withdrawal"
