@@ -3,7 +3,7 @@
   "selection_revision": 2,
   "range": "3761-3775",
   "row_count": 15,
-  "failed_count": 2,
+  "failed_count": 3,
   "rows": [
     {
       "pmid": "31296936",
@@ -282,14 +282,14 @@
       "source": "NCBI PubMed ESearch+ESummary via Sider Scholar",
       "selection_score": 18,
       "primary_category": "mitochondrial_energy",
-      "state": "selected_exact_verified",
+      "state": "verification_exception",
       "wave": 3773,
-      "abstract_verified": true,
-      "title_match_score": 1,
-      "verified_title": "A phase-II randomized controlled pilot study of nicotinamide riboside supplementation in older adults with amnestic mild cognitive impairment.",
-      "verified_journal": "Alzheimer's & dementia : the journal of the Alzheimer's Association",
-      "verified_pub_date": "2026-Jul",
-      "focus": "Declining nicotinamide adenine dinucleotide (NAD+) may elevate risk of Alzheimer's disease. We conducted a 12-week double-blind, randomized, placebo-controlled pilot study to evaluate the safety, tolerability, and preliminary efficacy of the NAD+ precursor, nicotinamide riboside (NR), for enhancing cognitive function and cerebral blood flow (CBF) in adults with amnestic mild cognitive impairment (aMCI). 42 participants completed the study (NR = 22, placebo = 20). Adherence was similar between groups with no serious adverse effects. Blood NAD+ increased twofold in the NR group. There were no improvements in cognitive function (primary outcome), total CBF, or blood pressure (secondary outcomes). Exploratory analyses revealed potential increases in regional CBF, particularly in the hippocampus. NR effectively raises NAD+ in people with MCI but does not improve cognitive function, total CBF, or blood pressure over 12 weeks. Future studies should investigate regional effects on CBF over longer treatment durations."
+      "abstract_verified": false,
+      "title_match_score": 0,
+      "verified_title": null,
+      "verified_journal": null,
+      "verified_pub_date": null,
+      "focus": null
     },
     {
       "pmid": "31743252",
