@@ -5,36 +5,22 @@
   "summary": {
     "range": "4526-4535",
     "rows": 10,
-    "exact_title": 6,
-    "abstract_verified": 6,
-    "relevance_pass": 6,
-    "relevance_replace": [],
-    "quarantined": [
+    "exact_title": 10,
+    "abstract_verified": 10,
+    "relevance_pass": 8,
+    "relevance_replace": [
       {
         "wave": 4527,
         "pmid": "42806862",
-        "title": "Exploring the Role of the Nurse Case Manager in the Care Experience of Patients Undergoing Radical Cystectomy: A Qualitative Study.",
-        "state": "quarantine"
-      },
-      {
-        "wave": 4528,
-        "pmid": "42767657",
-        "title": "Osteosarcopenia in Older Adults With Rheumatoid Arthritis: Clinical Correlates and Its Association With Rheumatoid Cachexia.",
-        "state": "quarantine"
+        "title": "Exploring the Role of the Nurse Case Manager in the Care Experience of Patients Undergoing Radical Cystectomy: A Qualitative Study."
       },
       {
         "wave": 4532,
         "pmid": "42779338",
-        "title": "Efficacy and safety of frail patients treated with ciltacabtagene autoleucel in the real world: A Center for International Blood and Marrow Transplant Research analysis.",
-        "state": "quarantine"
-      },
-      {
-        "wave": 4533,
-        "pmid": "42833644",
-        "title": "Dual-Tasking Exacerbates Force and Neural Control Unsteadiness in Older Adults With Sarcopenia.",
-        "state": "quarantine"
+        "title": "Efficacy and safety of frail patients treated with ciltacabtagene autoleucel in the real world: A Center for International Blood and Marrow Transplant Research analysis."
       }
-    ]
+    ],
+    "errors": []
   },
   "rows": [
     {
@@ -77,19 +63,19 @@
       "selection_score": 2,
       "wave": 4527,
       "state": "discovered_candidate_pending_exact_verification",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "Exploring the Role of the Nurse Case Manager in the Care Experience of Patients Undergoing Radical Cystectomy: A Qualitative Study.",
+      "verified_journal": "Nursing open",
+      "verified_pub_date": "2026-Sep",
+      "abstract": "To explore patients' lived experiences of the Nurse Case Manager (NCM) within the GRACE-M radical cystectomy pathway, focusing on relational support, care coordination, continuity and recovery-related challenges. A qualitative phenomenological study was conducted, following Giorgi's methodology. Qualitative data were collected through 16 semi-structured interviews conducted 6 months after discharge with patients who had undergone elective RC within a multidisciplinary care pathway at a tertiary university hospital in Northern Italy. Data were analysed using Giorgi's phenomenological method to explore in depth patients' perceptions of the role of the NCM and their overall care experience. Patients perceived the NCM as both a reassuring presence and an accessible care coordinator who facilitated information, specialist contact and continuity after discharge. No distinct NCM-related barrier theme emerged; reported difficulties concerned post-operative recovery and adaptation. Patients perceived the NCM as combining emotional support with coordination and navigation. Given the single-centre qualitative design and interview self-selection, these findings describe perceived contributions and do not demonstrate causal effects on satisfaction, adherence or clinical outcomes. The data consists of answers given by patients in interviews.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13621235/",
+      "pdf_link": "https://doi.org/10.1002/nop2.70821",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
       "relevance_review_passed": false,
-      "relevance_review_reason": "exact record but too tangential or outside intended category; replace before finalization",
-      "verification_state": "quarantine"
+      "relevance_review_reason": "exact PubMed record but too tangential to the intended aging_sarcopenia evidence job; replace before finalization",
+      "verification_state": "exact_verified_relevance_fail_replace"
     },
     {
       "category": "aging_sarcopenia",
@@ -104,19 +90,19 @@
       "selection_score": 2,
       "wave": 4528,
       "state": "discovered_candidate_pending_exact_verification",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
+      "verified_title": "Osteosarcopenia in Older Adults With Rheumatoid Arthritis: Clinical Correlates and Its Association With Rheumatoid Cachexia.",
+      "verified_journal": "Geriatrics & gerontology international",
+      "verified_pub_date": "2026-Sep",
+      "abstract": "To determine the prevalence of osteosarcopenia in older patients with rheumatoid arthritis (RA) compared with age- and sex-matched controls and to examine its relationship with RA-related clinical, nutritional, and functional parameters, including rheumatoid cachexia (RC). This retrospective cross-sectional study included 268 individuals: 134 patients aged ≥ 60 years with RA and 134 age- and sex-matched controls. Fat mass index (FMI), fat-free mass index (FFMI), and muscle mass were assessed by bioelectrical impedance analysis. Sarcopenia was defined using an EWGSOP2-aligned approach and osteoporosis according to WHO criteria. RC was defined as FFMI < 10th percentile and FMI > 25th percentile. Disability and nutritional risk were assessed using the Lawton-Brody IADL and MNA-SF. Compared with controls, patients with RA had lower BMI, FFMI, and FMI (all p ≤ 0.001), while visceral fat did not differ. Sarcopenia, osteoporosis, and osteosarcopenia were more prevalent in RA than in controls (49.3% vs. 20.9%, 53.0% vs. 32.1%, and 28.4% vs. 10.4%; all p < 0.001). Within RA, osteosarcopenia was associated with lower serum albumin and IADL scores and higher RC prevalence (39.5%). RC remained independently associated with osteosarcopenia after adjustment for demographic, comorbidity, and RA-specific factors (adjusted OR 10.43, 95% CI 3.13-34.79; p < 0.001). Osteosarcopenia was more than twice as common in older patients with RA than in matched controls. Rheumatoid cachexia clustered within the osteosarcopenia subgroup and remained independently associated with osteosarcopenia. These findings support osteosarcopenia as a distinct catabolic phenotype in RA characterized by rheumatoid cachexia, lower serum albumin levels, and greater functional impairment.",
+      "abstract_verified": true,
+      "title_match_score": 1,
       "full_text_link": null,
-      "pdf_link": null,
+      "pdf_link": "https://doi.org/10.1111/ggi.70847",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "relevance_review_passed": false,
-      "relevance_review_reason": "exact record but too tangential or outside intended category; replace before finalization",
-      "verification_state": "quarantine"
+      "relevance_review_passed": true,
+      "relevance_review_reason": "within aging/sarcopenia/frailty/muscle-health evidence scope",
+      "verification_state": "exact_verified_relevance_pass"
     },
     {
       "category": "aging_sarcopenia",
@@ -212,19 +198,19 @@
       "selection_score": 2,
       "wave": 4532,
       "state": "discovered_candidate_pending_exact_verification",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "Efficacy and safety of frail patients treated with ciltacabtagene autoleucel in the real world: A Center for International Blood and Marrow Transplant Research analysis.",
+      "verified_journal": "Cancer",
+      "verified_pub_date": "2026-Oct-01",
+      "abstract": "Ciltacabtagene autoleucel (cilta-cel), an anti-B-cell maturation antigen (BCMA) chimeric antigen receptor T-cell (CAR-T) therapy, is approved for relapsed/refractory multiple myeloma (RRMM). Using the Center for International Blood and Marrow Transplant Research registry, this study evaluated outcomes of frail patients receiving commercial cilta-cel from March 2022 to December 2023. Frailty was defined by an adapted simplified score incorporating age, performance status, and comorbidities. Among 541 patients with available frailty status, 183 (33.8%) were frail and 358 (66.2%) were nonfrail. Overall response rates were comparable (frail 82.8% vs. nonfrail 88.5%). However, frail patients had inferior progression-free survival (PFS) (12-month PFS, 62.7% [95% confidence interval (CI), 53.6%-71.3%] vs. 75.9% [95% CI, 70.4%-81.1%]; p < .01) and overall survival (OS) (12-month OS 72.8% [95% CI, 64.9%-80.0%] vs. 90.4% [95% CI, 86.6%-93.7%]; p < .01). Twelve-month treatment-related mortality in frail patients was 6.8% (95% CI, 3.4%-11.2%) versus 3.6% (95% CI, 1.8%-6.1%), p = .12. Cytokine release syndrome (grade ≥2) occurred in 22.4% of frail versus 17.9% of nonfrail patients (p = .05), and immune effector cell-associated neurotoxicity (ICANS) of any grade was reported in 32.2% versus 17.6% (p < .01). Rates of cranial nerve palsies and Parkinsonism were comparable. Prolonged cytopenia (>day 30) was more common in frail patients (30.6% vs. 21.2%; p < .01). On multivariable analysis, frailty independently predicted worse PFS (hazard ratio [HR], 1.67; 95% CI, 1.16-2.40), OS (HR, 2.46; 95% CI, 1.57-3.87), and higher odds of any-grade ICANS (odds ratio, 2.01; 95% CI, 1.32-3.08) (all p < .01). Cilta-cel remains effective in frail RRMM, but frailty is associated with reduced survival and increased toxicity, supporting tailored CAR-T strategies.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13601916/",
+      "pdf_link": "https://doi.org/10.1002/cncr.70614",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
       "relevance_review_passed": false,
-      "relevance_review_reason": "exact record but too tangential or outside intended category; replace before finalization",
-      "verification_state": "quarantine"
+      "relevance_review_reason": "exact PubMed record but too tangential to the intended aging_sarcopenia evidence job; replace before finalization",
+      "verification_state": "exact_verified_relevance_fail_replace"
     },
     {
       "category": "aging_sarcopenia",
@@ -239,19 +225,19 @@
       "selection_score": 2,
       "wave": 4533,
       "state": "discovered_candidate_pending_exact_verification",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
+      "verified_title": "Dual-Tasking Exacerbates Force and Neural Control Unsteadiness in Older Adults With Sarcopenia.",
+      "verified_journal": "Journal of cachexia, sarcopenia and muscle",
+      "verified_pub_date": "2026-Oct",
+      "abstract": "Sarcopenia is associated with impaired physical function. Dual-task conditions, which increase cognitive demand during motor performance, may reveal deficits in neuromuscular control that are not evident during isolated motor tasks. We investigated whether older adults with sarcopenia exhibit poorer force and neural control (i.e., greater force and motor unit inter-spike variability and altered common synaptic input) during single- and dual-task conditions compared with non-sarcopenic controls and masters athletes. Sarcopenia was defined using Sarcopenia Definitions and Outcomes Consortium criteria (low grip strength and slow gait). Participants (11 sarcopenic, 22 controls and 19 masters athletes; 74.3 ± 7.3 years; 50% female) performed sustained isometric ankle dorsiflexion contractions at 30% of maximal voluntary torque, without (single-task) and with concurrent serial number subtraction (dual-task). Motor unit spike trains were decomposed from high-density surface electromyograms. Outcomes included torque and inter-spike interval coefficient of variation (index of discharge regularity linked to torque steadiness) and intramuscular coherence: delta (1-5 Hz; low-frequency common input related to force fluctuations), alpha (5-15 Hz; which may include tremor-related, spinal and afferent contributions) and beta (15-35 Hz; commonly associated with corticospinal input) bands. Individuals with sarcopenia had higher torque coefficient of variation (worse steadiness) than controls in single- and dual-task by 45% and 84% and athletes by 39% and 105%, respectively. In individuals with sarcopenia, coefficient of variation rose ~35% from single- to dual-task. Mean discharge rate (a proxy of neural drive) increased ~2.6% during dual-tasking in all groups, without between-group differences. Inter-spike interval coefficient of variation increased by 5.5% in sarcopenic, was unchanged in controls and decreased 4.1% in athletes. Delta-band coherence decreased 5.5% across all groups, whereas alpha-band coherence increased in sarcopenic only (20.6%). Beta-band coherence increased 14.5% in sarcopenic but decreased 8.4% in controls and 13.3% in athletes. Older adults with sarcopenia exhibit poorer force and neural control steadiness, and both deficits worsen under cognitive load. These changes are accompanied by alterations in common synaptic input, particularly increases in alpha and beta bands in individuals with sarcopenia, likely contributing to their greater force unsteadiness during dual-tasking. Neural control unsteadiness during dual-task performance may therefore represent a neural feature of sarcopenia-related functional impairment. Assessing neuromuscular control during cognitively demanding tasks may improve detection of neural dysfunction and identify mechanistic targets for interventions aimed at preserving mobility in older adults. These findings support expanding muscle-centric views of sarcopenia to include neural mechanisms of motor control.",
+      "abstract_verified": true,
+      "title_match_score": 1,
       "full_text_link": null,
-      "pdf_link": null,
+      "pdf_link": "https://doi.org/10.1002/jcsm.70397",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "relevance_review_passed": false,
-      "relevance_review_reason": "exact record but too tangential or outside intended category; replace before finalization",
-      "verification_state": "quarantine"
+      "relevance_review_passed": true,
+      "relevance_review_reason": "within aging/sarcopenia/frailty/muscle-health evidence scope",
+      "verification_state": "exact_verified_relevance_pass"
     },
     {
       "category": "aging_sarcopenia",
