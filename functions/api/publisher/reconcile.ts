@@ -1,0 +1,39 @@
+import {
+  publisherQueueError,
+  publisherQueueJson,
+  requireSocialPublisherAdmin,
+} from '../../_shared/social-publisher-queue'
+import {
+  reconcilePublication,
+  type SocialPublisherRuntimeEnv,
+} from '../../_shared/social-publisher-runtime'
+
+type Context = { request: Request; env: SocialPublisherRuntimeEnv }
+
+export const onRequest = async ({ request, env }: Context): Promise<Response> => {
+  if (request.method !== 'POST') return publisherQueueJson({ ok: false, error: 'Method not allowed.' }, 405)
+  try {
+    requireSocialPublisherAdmin(request, env)
+    const raw = await request.text()
+    if (raw.length > 16384) return publisherQueueJson({ ok: false, error: 'Request body too large.' }, 413)
+    let body: {
+      publicationId?: unknown
+      outcome?: unknown
+      evidence?: unknown
+      providerOperationId?: unknown
+      publicUrl?: unknown
+      publishedAt?: unknown
+    }
+    try { body = JSON.parse(raw) } catch { return publisherQueueJson({ ok: false, error: 'Invalid JSON body.' }, 400) }
+    const job = await reconcilePublication(env, String(body.publicationId || ''), {
+      outcome: body.outcome,
+      evidence: body.evidence,
+      providerOperationId: body.providerOperationId,
+      publicUrl: body.publicUrl,
+      publishedAt: body.publishedAt,
+    })
+    return publisherQueueJson({ ok: true, job })
+  } catch (error) {
+    return publisherQueueError(error)
+  }
+}

@@ -4,7 +4,7 @@ import { validateLeaseTransactionInput } from '../enrichment-governor/lease-tran
 import { pathToFileURL } from 'node:url'
 
 const GOVERNOR_PREFIX = '/governor '
-const METRICOOL_PREFIX = '/publish-metricool '
+const PUBLISHER_PREFIX = '/publish-ths '
 const ALLOWED_GOVERNOR_KEYS = new Set([
   'operation',
   'id',
@@ -14,8 +14,8 @@ const ALLOWED_GOVERNOR_KEYS = new Set([
   'entities',
   'disposition',
 ])
-const ALLOWED_METRICOOL_KEYS = new Set(['publication_at', 'networks'])
-const ALLOWED_METRICOOL_NETWORKS = new Set(['facebook', 'tiktok'])
+const ALLOWED_PUBLISHER_KEYS = new Set(['experiment_id', 'research_object_id', 'publication_at', 'platform'])
+const ALLOWED_PUBLISHER_PLATFORMS = new Set(['tiktok'])
 const OFFSET_AWARE_ISO_RE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d{1,3})?)?(?:Z|[+-]\d{2}:\d{2})$/
 const SESSION_FILE_RE = /^ops\/enrichment-submissions\/sessions\/(session-[a-z0-9-]+)\//
 const SHA_RE = /^[0-9a-f]{40}$/i
@@ -80,11 +80,21 @@ export function governorDispatchInputs(request) {
   }
 }
 
-export function parseMetricoolPublishComment(comment, { now = new Date() } = {}) {
+export function parsePublisherComment(comment, { now = new Date() } = {}) {
   const text = String(comment ?? '').trim()
-  const payload = parseCommandPayload(text, METRICOOL_PREFIX, 'Metricool publish')
-  const unknown = Object.keys(payload).filter(key => !ALLOWED_METRICOOL_KEYS.has(key))
-  if (unknown.length) throw new Error(`unsupported Metricool publish fields: ${unknown.sort().join(', ')}`)
+  const payload = parseCommandPayload(text, PUBLISHER_PREFIX, 'THS Publisher')
+  const unknown = Object.keys(payload).filter(key => !ALLOWED_PUBLISHER_KEYS.has(key))
+  if (unknown.length) throw new Error(`unsupported THS Publisher fields: ${unknown.sort().join(', ')}`)
+
+  const experimentId = String(payload.experiment_id ?? '').trim()
+  if (!/^EXP-[0-9]{3,}$/.test(experimentId)) {
+    throw new Error('experiment_id must match EXP-###')
+  }
+
+  const researchObjectId = String(payload.research_object_id ?? '').trim()
+  if (!/^[a-z0-9][a-z0-9._-]{2,127}$/.test(researchObjectId)) {
+    throw new Error('research_object_id must be a canonical lowercase research-object id')
+  }
 
   const publicationAt = String(payload.publication_at ?? '').trim()
   if (!publicationAt || !OFFSET_AWARE_ISO_RE.test(publicationAt)) {
@@ -97,21 +107,20 @@ export function parseMetricoolPublishComment(comment, { now = new Date() } = {})
     throw new Error('publication_at must be at least two minutes in the future')
   }
 
-  const rawNetworks = assertStringArray('networks', payload.networks)
-  if (!rawNetworks.length) throw new Error('networks must contain at least one authorized network')
-  const networks = [...new Set(rawNetworks.map(network => network.trim().toLowerCase()).filter(Boolean))]
-  if (!networks.length) throw new Error('networks must contain at least one authorized network')
-  const unsupported = networks.filter(network => !ALLOWED_METRICOOL_NETWORKS.has(network))
-  if (unsupported.length) throw new Error(`unsupported Metricool publish networks: ${unsupported.sort().join(', ')}`)
+  const platform = String(payload.platform ?? '').trim().toLowerCase()
+  if (!ALLOWED_PUBLISHER_PLATFORMS.has(platform)) {
+    throw new Error(`unsupported THS Publisher platform: ${platform || '<missing>'}`)
+  }
 
-  return { publicationAt, networks }
+  return { experimentId, researchObjectId, publicationAt, platform }
 }
 
-export function metricoolDispatchInputs(request) {
+export function publisherDispatchInputs(request) {
   return {
+    experiment_id: request.experimentId,
+    research_object_id: request.researchObjectId,
     publication_at: request.publicationAt,
-    networks: request.networks.join(','),
-    auto_publish: 'true',
+    platform: request.platform,
   }
 }
 
@@ -247,9 +256,9 @@ async function main() {
     process.stdout.write(`${JSON.stringify({ ok: true, inputs }, null, 2)}\n`)
     return
   }
-  if (command === 'parse-metricool') {
-    const request = parseMetricoolPublishComment(process.env.COMMENT_BODY)
-    const inputs = metricoolDispatchInputs(request)
+  if (command === 'parse-publisher') {
+    const request = parsePublisherComment(process.env.COMMENT_BODY)
+    const inputs = publisherDispatchInputs(request)
     appendOutputs(inputs)
     process.stdout.write(`${JSON.stringify({ ok: true, inputs }, null, 2)}\n`)
     return
@@ -271,7 +280,7 @@ async function main() {
     process.stdout.write(`${JSON.stringify(result, null, 2)}\n`)
     return
   }
-  throw new Error('Usage: owner-control-plane-bridge.mjs parse-governor|parse-metricool|validate-ready')
+  throw new Error('Usage: owner-control-plane-bridge.mjs parse-governor|parse-publisher|validate-ready')
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

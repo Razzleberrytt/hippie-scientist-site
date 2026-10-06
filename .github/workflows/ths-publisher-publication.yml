@@ -1,0 +1,103 @@
+name: THS Publisher Publication
+
+on:
+  workflow_dispatch:
+    inputs:
+      experiment_id:
+        description: 'Canonical experiment ID, e.g. EXP-014'
+        required: true
+        type: string
+      research_object_id:
+        description: 'Exact governed research-object ID expected in the deployed manifest'
+        required: true
+        type: string
+      publication_at:
+        description: 'Future offset-aware intended time, e.g. 2026-10-07T10:00:00-04:00'
+        required: true
+        type: string
+      platform:
+        description: 'Publisher adapter'
+        required: true
+        default: tiktok
+        type: choice
+        options:
+          - tiktok
+
+concurrency:
+  group: ths-publisher-${{ inputs.platform }}-${{ inputs.publication_at }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Check out trusted main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --fund=false
+
+      - name: Validate Publisher operator secret
+        env:
+          THS_PUBLISHER_ADMIN_TOKEN: ${{ secrets.THS_PUBLISHER_ADMIN_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${THS_PUBLISHER_ADMIN_TOKEN:-}" ]; then
+            echo "Missing THS_PUBLISHER_ADMIN_TOKEN secret." >&2
+            exit 1
+          fi
+
+      - name: Rebuild current governed distribution identity
+        run: |
+          set -euo pipefail
+          node scripts/distribution/build-research-distribution.mjs
+          node scripts/distribution/build-opportunity-selection.mjs
+          node scripts/distribution/build-bounded-pilot.mjs
+
+      - name: Enqueue and dispatch through THS Publisher
+        env:
+          THS_PUBLISHER_ADMIN_TOKEN: ${{ secrets.THS_PUBLISHER_ADMIN_TOKEN }}
+          THS_EXPERIMENT_ID: ${{ inputs.experiment_id }}
+          THS_RESEARCH_OBJECT_ID: ${{ inputs.research_object_id }}
+          THS_PUBLICATION_AT: ${{ inputs.publication_at }}
+          THS_PUBLISHER_BRIDGE_BASE: https://thehippiescientist.net
+          THS_PUBLICATION_MANIFEST_URL: https://thehippiescientist.net/media/distribution/publisher/latest.json
+          PLATFORM: ${{ inputs.platform }}
+        run: |
+          set -euo pipefail
+          if [ "$PLATFORM" != "tiktok" ]; then
+            echo "No THS Publisher adapter is configured for $PLATFORM." >&2
+            exit 1
+          fi
+          node scripts/distribution/upload-tiktok-draft.mjs
+
+      - name: Upload Publisher receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ths-publisher-receipt-${{ inputs.experiment_id }}-${{ github.run_id }}
+          path: artifacts/distribution/publisher/*.json
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## THS Publisher" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Experiment: ${{ inputs.experiment_id }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Research object: ${{ inputs.research_object_id }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Platform: ${{ inputs.platform }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Intended time: ${{ inputs.publication_at }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Canonical creation path: /api/publisher/enqueue → /api/publisher/dispatch" >> "$GITHUB_STEP_SUMMARY"

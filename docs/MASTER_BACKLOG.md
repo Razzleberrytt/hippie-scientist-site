@@ -50,7 +50,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6356 | Add first-party TikTok draft-upload provider | R | Active — implementation | P0 | 5/5/3/5/1/4 | 93.8 | 2026-10-06 — current TikTok upload/API rules + Metricool limit failure verified |
+| #6356 / PR #6357 | Build THS Publisher v0.1 with first-party TikTok adapter | R | Active — implementation | P0 | 5/5/3/5/1/4 | 93.8 | 2026-10-06 — current TikTok upload/API rules + Metricool limit failure verified |
 
 
 
