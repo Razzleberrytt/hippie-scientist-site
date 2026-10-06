@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "batch_id": "2026-10-06-enrichment-waves-5001-5500",
   "issue": 6362,
   "status": "staged_pending_exact_verification",
@@ -11,14 +11,9 @@
     "through_wave": 5000
   },
   "discovery_pool_unique_not_in_prior_index": 954,
-  "title_and_publication_type_eligible": 894,
+  "general_filter_survivors": 887,
+  "title_category_fit_survivors": 611,
   "staged_rows": 500,
-  "preverification_rejections": {
-    "prior_pmid": 0,
-    "hard_title": 27,
-    "publication_type": 33,
-    "duplicate_doi_or_title": 0
-  },
   "integrity": {
     "unique_pmids": 500,
     "duplicate_pmids": 0,
@@ -27,42 +22,44 @@
     "prior_pmid_collisions": 0
   },
   "category_counts": {
-    "stress_anxiety": 16,
-    "sleep": 32,
+    "stress_anxiety": 15,
+    "sleep": 31,
     "withdrawal_nps": 45,
-    "mitochondrial_energy": 30,
-    "cardiometabolic": 24,
+    "mitochondrial_energy": 41,
+    "cardiometabolic": 22,
     "cannabinoid_safety": 17,
     "performance": 7,
-    "mood": 45,
-    "aging_sarcopenia": 25,
-    "micronutrients": 42,
-    "cognition_focus": 45,
+    "aging_sarcopenia": 16,
+    "micronutrients": 38,
     "women_health": 45,
-    "gut": 16,
+    "gut": 23,
     "immune_respiratory": 45,
-    "inflammation_pain": 25,
-    "metabolic": 41
+    "cognition_focus": 40,
+    "mood": 36,
+    "inflammation_pain": 27,
+    "metabolic": 31,
+    "botanicals_mushrooms": 21
   },
   "pub_type_counts": {
-    "Randomized Controlled Trial": 52,
-    "Meta-Analysis": 19,
-    "Systematic Review": 30,
+    "Randomized Controlled Trial": 49,
+    "Meta-Analysis": 18,
+    "Systematic Review": 27,
     "Clinical Trial, Phase II": 1,
     "Clinical Trial, Phase III": 1,
     "Pragmatic Clinical Trial": 1,
     "Clinical Trial": 3,
     "Multicenter Study": 5,
-    "Observational Study": 22,
-    "Comparative Study": 15,
-    "Validation Study": 2,
-    "Review": 130,
+    "Observational Study": 19,
+    "Comparative Study": 11,
+    "Validation Study": 1,
+    "Review": 76,
     "Scoping Review": 1,
-    "Research Support, Non-U.S. Gov't": 24,
+    "Research Support, Non-U.S. Gov't": 21,
     "Research Support, N.I.H., Extramural": 4,
-    "Research Support, N.I.H., Intramural": 1,
-    "Journal Article": 186,
-    "English Abstract": 3
+    "Journal Article": 262
+  },
+  "rejection_summary": {
+    "title_or_domain_or_publication_type_or_category_fit": 343
   },
   "hard_stop": "Do not call this batch finalized until every staged row has exact title + non-null abstract verification and passes abstract-level relevance review."
 }
