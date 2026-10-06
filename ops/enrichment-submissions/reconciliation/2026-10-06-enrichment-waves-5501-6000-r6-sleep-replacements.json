@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000-r6",
+  "row_count": 2,
+  "replacements": [
+    {
+      "wave": 5563,
+      "category": "sleep",
+      "old_pmid": "41726293",
+      "old_title": "Association of sleep quality and urinary melatonin levels with endometrial cancer: A case control pilot study.",
+      "pmid": "42234969",
+      "doi": "10.14336/ad.2026.0119",
+      "title": "Melatonin in Circadian Rhythm and Brain Health: Neuroprotective Effects and Therapeutic Potential.",
+      "journal": "Aging and disease",
+      "pub_date": "2026 May 19",
+      "pub_type": "Review",
+      "selection_score": 2,
+      "source_pool": "Sider_NCBI_R6_sleep_backup",
+      "discovery_query": "(passionflower[Title] OR \"lemon balm\"[Title] OR hops[Title] OR magnolia[Title] OR lavender[Title] OR valerian[Title] OR glycine[Title] OR melatonin[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract])",
+      "abstract": null,
+      "abstract_verified": false,
+      "exact_title_verified": false,
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.14336/ad.2026.0119",
+      "state": "research_only_replacement_pending_exact_verification"
+    },
+    {
+      "wave": 5565,
+      "category": "sleep",
+      "old_pmid": "41846526",
+      "old_title": "Nocturnal Melatonin Deficiency in Colorectal Cancer: Independent Predictive Value Beyond Sleep Quality.",
+      "pmid": "42349548",
+      "doi": "10.1016/j.oftale.2026.502590",
+      "title": "Blue light and melatonin: A critical review of scientific evidence and biohacker myths in ophthalmology.",
+      "journal": "Archivos de la Sociedad Espanola de Oftalmologia",
+      "pub_date": "2026 Jun 25",
+      "pub_type": "Review",
+      "selection_score": 2,
+      "source_pool": "Sider_NCBI_R6_sleep_backup",
+      "discovery_query": "(passionflower[Title] OR \"lemon balm\"[Title] OR hops[Title] OR magnolia[Title] OR lavender[Title] OR valerian[Title] OR glycine[Title] OR melatonin[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract])",
+      "abstract": null,
+      "abstract_verified": false,
+      "exact_title_verified": false,
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1016/j.oftale.2026.502590",
+      "state": "research_only_replacement_pending_exact_verification"
+    }
+  ]
+}
