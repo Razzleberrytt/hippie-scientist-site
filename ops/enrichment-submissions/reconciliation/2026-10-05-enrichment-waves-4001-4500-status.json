@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "batch_id": "2026-10-05-enrichment-waves-4001-4500",
-  "status": "complete_pending_repository_validation",
+  "status": "review_repair_complete_pending_repository_validation",
   "admission_issue": 6349,
   "branch": "data/enrichment-waves-4001-4500-2026-10-05",
   "target_findings": 500,
@@ -20,14 +20,18 @@
     "exact_title_match_500_of_500": true,
     "synthetic_rows_created": false,
     "failed_candidates_replaced": 52,
-    "second_pass_repairs": 1
+    "second_pass_repairs": 1,
+    "domain_review_repairs": 10,
+    "objective_off_domain_rows_remaining": 0,
+    "strict_relevance_review_passed": true
   },
   "artifacts": {
     "finalized_receipt": "2026-10-05-enrichment-waves-4001-4500-verified-consolidated.json",
     "cumulative_index": "2026-10-05-enrichment-waves-4001-4500-pmid-index.json",
     "final_selection": "2026-10-05-enrichment-waves-4001-4500-final-selection.json",
     "final_audit": "2026-10-05-enrichment-waves-4001-4500-final-audit.json",
-    "verified_repairs": "2026-10-05-enrichment-waves-4001-4500-verified-repairs.json"
+    "verified_repairs": "2026-10-05-enrichment-waves-4001-4500-verified-repairs.json",
+    "domain_review_repair": "2026-10-06-enrichment-waves-4001-4500-domain-repair-exact.json"
   },
   "policy": {
     "entity_creation": "forbidden",
@@ -39,8 +43,7 @@
     "retraction_quarantine": true
   },
   "next": [
-    "open pull request against main",
-    "run repository-owned validation/checks on the finalized branch",
-    "merge only if required checks and review are green"
+    "run repository-owned validation/checks on the repaired PR head",
+    "merge PR #6350 only when required checks and review are green"
   ]
 }
