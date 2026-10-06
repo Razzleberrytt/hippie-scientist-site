@@ -82,6 +82,27 @@ See `experiments/crawl-request-indexing/README.md` for the manifest, randomizati
 analysis contract.
 
 
+
+## Pages Function environment (THS Publisher / `functions/api/publisher/*`)
+
+THS Publisher is the first-party publication queue/control boundary. Provider IDs are receipts underneath a THS `publication_id`; they are not canonical identity.
+
+Set this server-only production secret:
+
+| Variable | Required | Purpose |
+|---|---|---|
+| `THS_PUBLISHER_ADMIN_TOKEN` | Yes | Bearer secret protecting enqueue/read/update/dispatch/observe/manual Publisher endpoints. |
+
+Create a Cloudflare D1 database for Publisher state, apply `migrations/0001_ths_publisher.sql`, and bind it to Pages Functions as:
+
+| Binding | Required | Purpose |
+|---|---|---|
+| `THS_PUBLISHER_DB` | Yes | Durable canonical publication jobs, immutable publication identity indexes, attempts, provider receipts, and Observer evidence. Missing binding fails closed. |
+
+The migration enforces a single writer per platform + intended-time slot. Due-work lookup returns only `QUEUED` jobs; `FAILED` and `NEEDS_RECONCILIATION` are never blindly auto-retried.
+
+See `docs/ths-publisher-v0.1.md` for the architecture, state machine, and transition policy.
+
 ## Pages Function environment (TikTok draft upload / `functions/api/tiktok/*`)
 
 The first-party TikTok bridge is server-only. It uses TikTok Content Posting API `video.upload` to send a governed MP4 into the authorized creator's TikTok inbox/draft flow. It does not provide unattended Direct Post.
