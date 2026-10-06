@@ -5,8 +5,8 @@
   "summary": {
     "range": "4536-4545",
     "rows": 10,
-    "exact_title": 8,
-    "abstract_verified": 8,
+    "exact_title": 10,
+    "abstract_verified": 10,
     "relevance_pass": 5,
     "relevance_replace": [
       {
@@ -40,20 +40,7 @@
         "category": "botanicals_mushrooms"
       }
     ],
-    "quarantined": [
-      {
-        "wave": 4537,
-        "pmid": "42773997",
-        "title": "Exploring the Impact of Urolithins A and B on Muscle Health: A Transcriptomic Analysis in Human Myotubes.",
-        "state": "quarantine"
-      },
-      {
-        "wave": 4539,
-        "pmid": "42763302",
-        "title": "[Effects of exergame combined with elastic band resistance training on exercise self-efficacy and physical activity levels in older adults with cognitive frailty: A mixed-methods study].",
-        "state": "quarantine"
-      }
-    ]
+    "quarantined": []
   },
   "rows": [
     {
@@ -96,19 +83,19 @@
       "selection_score": 2,
       "wave": 4537,
       "state": "discovered_candidate_pending_exact_verification",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "Exploring the Impact of Urolithins A and B on Muscle Health: A Transcriptomic Analysis in Human Myotubes.",
+      "verified_journal": "Journal of cachexia, sarcopenia and muscle",
+      "verified_pub_date": "2026-Oct",
+      "abstract": "Urolithin A (UA) and urolithin B (UB) are gut microbiota-derived metabolites of ellagitannins reported to influence mitochondrial function, inflammation and muscle metabolism. Their comparative transcriptomic effects in human skeletal muscle cells remain undefined. We characterized UA- and UB-induced molecular responses in primary human myotubes. Primary CD56+ satellite cells were isolated from vastus lateralis muscle of 9 donors (6 men, 3 women; age 55-96 years; mean 74.1 ± 13.8 years) and differentiated into myotubes. Cells were treated 24 h with UA or UB (5 μM). RNA sequencing generated ~20 million paired-end reads per sample. Differential expression analysis was performed using DESeq2 (design = ~Patient + Treatment). Differentially expressed genes were defined as adjusted p value (FDR) < 0.01 and |Log2FoldChange| > 0.32. Pathway enrichment was assessed using Ingenuity Pathway Analysis. Selected targets were validated by RT-qPCR and ELISA in 4 donors from the RNA-seq cohort using UA and UB at 1, 5 and 10 μM. UA and UB significantly modulated 1918 and 339 genes, respectively (FDR < 0.01; |log2FoldChange| > 0.32), demonstrating distinct transcriptomic reprogramming in human myotubes. Pathway analysis showed that UA predominantly affected oxidative phosphorylation, mitochondrial dysfunction, inositol phosphate metabolism and glycosylation pathways (N-linked glycosylation z score 2.11), whereas UB activated cholesterol biosynthesis (z score 2.45), mevalonate pathway (z score 2.00), adipogenesis (z score 1.41) and inhibited eicosanoid signalling (z score -2.71). At 5 μM (RNA-seq), UA increased NOTCH1 (+73%), MYMX (+70%), PANX1 (+50%) and MSTN (+64%), and decreased FGF9 (-75%), ICAM5 (-52%) and MRLN (-33%), whereas UB decreased IGFN1 (-75%), TGFBI (-60%) and STC2 (-35%) and increased TGM2 (+59%). UA increased LIF (+80%) and decreased PTGS1 (-41%) and IL17B (-49%), whereas UB decreased PTGS1 (-43%) and increased IL17B (+45%). RT-qPCR validation confirmed UA-induced increases in NOTCH1 (5 μM, p = 0.0471), MYMX (10 μM, p = 0.0363), and PANX1 (5 μM, p = 0.0012; 10 μM, p = 0.0065), dose-dependent reductions in FGF9 (r2 = 0.9389) and ICAM5 (r2 = 0.8804), and opposite regulation of IL17B (UA r2 = 0.8309; UB 10 μM, p = 0.0498) and PTGS1. Both UA and UB reduced TGFBI protein levels dose-dependently (UA r2 = 0.8582; UB r2 = 0.7415). UA and UB induce quantitatively and qualitatively distinct transcriptomic programmes in human myotubes. UA preferentially modulates mitochondrial and inflammatory pathways, whereas UB primarily affects lipid metabolism and muscle-related processes. These findings provide mechanistic insight into urolithin-mediated regulation of human muscle cell biology able Stro.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13598681/",
+      "pdf_link": "https://doi.org/10.1002/jcsm.70385",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
       "relevance_review_passed": true,
       "relevance_review_reason": "within intended evidence scope",
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_relevance_pass"
     },
     {
       "category": "aging_sarcopenia",
@@ -150,19 +137,19 @@
       "selection_score": 2,
       "wave": 4539,
       "state": "discovered_candidate_pending_exact_verification",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "[Effects of exergame combined with elastic band resistance training on exercise self-efficacy and physical activity levels in older adults with cognitive frailty: A mixed-methods study].",
+      "verified_journal": "Zhong nan da xue xue bao. Yi xue ban = Journal of Central South University. Medical sciences",
+      "verified_pub_date": "2026-Jul-28",
+      "abstract": "Cognitive frailty is a geriatric syndrome characterized by the coexistence of physical frailty and mild cognitive impairment. It is a strong predictor of adverse health outcomes including disability, dementia, falls, and mortality. Exergaming can enhance exercise appeal and immersion, while elastic band resistance training can safely and effectively improve muscle function. Nevertheless, few studies have systematically integrated these two approaches, and most evaluations have focused on quantitative outcomes without exploring participants' subjective experiences. This mixed-methods study aims to evaluate the effects of a combined exergaming and resistance training intervention on exercise self-efficacy and physical activity levels in community-dwelling older adults with cognitive frailty. An explanatory sequential mixed-methods design was adopted. A total of 79 community-dwelling older adults with cognitive frailty were randomly assigned using a random number table method to an intervention group (n=39) or a control group (n=40). The control group received routine health education, while the intervention group received a 12-week exergame combined with elastic band resistance training program in addition to routine health education. The intervention was conducted 3 times per week, with each session lasting 50 min, including 5 min of warm-up, 20 min of elastic band exercises, 20 min of exergame training, and 5 min of cool-down and relaxation. Exercise intensity was maintained at a moderate level. Physical activity levels were assessed using the International Physical Activity Questionnaire-Short Form (IPAQ-SF), and exercise confidence was evaluated using the Self-Efficacy for Exercise Scale (SEE) before and after the intervention. After the intervention, 13 participants from the intervention group were purposively sampled based on age, sex, and intervention adherence for semi-structured interviews. Qualitative data were analyzed using Colaizzi's 7-step phenomenological analysis method. The exercise adherence rate in the intervention group was 86.5%. After 12 weeks of intervention, improvements in IPAQ-SF scores [adjusted mean difference (MD)=586.1 MET-min/week, 95% CI 454.5 to 717.7] and SEE scores (adjusted MD=3.3, 95% CI 2.4 to 4.2) were significantly greater in the intervention group than in the control group (both P<0.001). Sensitivity analyses, including complete-case analysis and per-protocol analysis, showed results consistent with the primary analysis. Qualitative analysis identified 3 themes: enhanced exercise enjoyment and intrinsic motivation for participation, promotion of positive perceptions of physical and psychological health, and improvement in quality of life and social interaction. Exergame combined with elastic band resistance training effectively improves exercise self-efficacy and physical activity levels among community-dwelling older adults with cognitive frailty. The beneficial effects of this intervention may be attributed to its positive impacts on enhancing exercise enjoyment, promoting health perceptions, and improving social interaction. This program provides a practical exercise intervention model that integrates enjoyment and scientific rigor for community-dwelling older adults with cognitive frailty.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13589766/",
+      "pdf_link": "https://doi.org/10.11817/j.issn.1672-7347.2026.250650",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
       "relevance_review_passed": true,
       "relevance_review_reason": "within intended evidence scope",
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_relevance_pass"
     },
     {
       "category": "aging_sarcopenia",
