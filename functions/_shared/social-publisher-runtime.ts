@@ -7,6 +7,7 @@ import {
 import {
   fetchTikTokPublishStatus,
   initializeTikTokDraftUpload,
+  TikTokAmbiguousDispatchError,
   TikTokPublisherError,
   type TikTokPublisherEnv,
 } from './tiktok-content-posting'
@@ -175,15 +176,20 @@ export async function dispatchPublication(
   } catch (error) {
     const failedAt = transitionTime(now, dispatching.updatedAt)
     const failed = clone(dispatching)
-    const explicitFailure = error instanceof TikTokPublisherError
-    failed.state = explicitFailure ? 'FAILED' : 'NEEDS_RECONCILIATION'
+    const ambiguousDispatch = error instanceof TikTokAmbiguousDispatchError
+    const providerError = error instanceof TikTokPublisherError
+    failed.state = ambiguousDispatch ? 'NEEDS_RECONCILIATION' : 'FAILED'
     failed.failure = {
       provider: 'tiktok',
-      code: explicitFailure ? error.code : 'ambiguous_dispatch',
-      message: explicitFailure ? error.message : 'Dispatch outcome is unknown; reconcile provider state before retrying.',
+      code: providerError ? error.code : 'publisher_internal_failure',
+      message: ambiguousDispatch
+        ? error.message
+        : providerError
+          ? error.message
+          : 'Publisher failed before a confirmed provider acceptance.',
       at: failedAt,
-      retryable: explicitFailure,
-      ambiguousDispatch: !explicitFailure,
+      retryable: !ambiguousDispatch,
+      ambiguousDispatch,
     }
     failed.updatedAt = failedAt
     finishAttempt(failed, {
@@ -192,7 +198,7 @@ export async function dispatchPublication(
       error: clean((error as Error)?.message || error),
     })
     const stored = await replacePublicationJob(env, failed, dispatching.updatedAt)
-    return { status: explicitFailure ? 'failed' : 'needs-reconciliation', job: stored }
+    return { status: ambiguousDispatch ? 'needs-reconciliation' : 'failed', job: stored }
   }
 }
 
