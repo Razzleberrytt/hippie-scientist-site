@@ -48,10 +48,6 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 **Research-only admitted work #6349 / PR #6350:** In review — deep research enrichment Waves 4001–4500. This does not consume a normal implementation WIP slot; it is research-only, fail-closed from runtime/publication/recommendation/dose promotion, and merge remains contingent on repository validation and review.
 
-**Research-only admitted work #6353 / PR #6355:** In review — repaired deep research enrichment Waves 4501–5000. This does not consume a normal implementation WIP slot; it is research-only, fail-closed from runtime/publication/recommendation/dose promotion, and merge remains contingent on repository validation and fresh review. Final integrity is 500 contiguous waves, 500 unique PMIDs, 500/500 exact titles and non-null abstracts, zero prior-ledger collisions, and 4,935 cumulative unique PMIDs through Wave 5000.
-
-**Stacked research-only finalization #6362 / PR #6363:** In review — Waves 5001–5500 are finalized with 500/500 exact PubMed title verification, 500/500 non-null abstracts, 500 unique PMIDs, zero duplicate PMIDs/normalized DOIs/normalized titles, zero collisions against the repaired 4,935-PMID upstream ledger, and zero hard off-domain rows remaining. The cumulative research index is 5,435 unique PMIDs through Wave 5500. Final repair accounting is 35 replacements total (22 relevance/quality + 13 upstream-collision repairs) and 14 retained retry overrides. Exact literature verification is complete; merge remains stacked on #6355 and exact-head repository validation/review. No runtime/publication/recommendation/dose promotion is authorized.
-
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
 
