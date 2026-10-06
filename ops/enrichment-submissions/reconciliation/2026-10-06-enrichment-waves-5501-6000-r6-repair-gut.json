@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "batch_id": "2026-10-06-enrichment-waves-5501-6000-r6",
   "row_count": 2,
   "rows": [
@@ -26,16 +26,16 @@
       "category": "gut",
       "old_pmid": "42745684",
       "old_title": "From Identification to Enzymatic Activity Profiling: Comprehensive Characterization of BloCAβ, a Probiotic β-Carbonic Anhydrase From Bifidobacterium longum.",
-      "pmid": "41091405",
-      "doi": "10.1007/s12602-025-10780-3",
-      "title": "Microbiome-Targeted Probiotic Strategies for the Prevention and Treatment of Osteomyelitis: A Novel Biological Approach.",
-      "journal": "Probiotics and antimicrobial proteins",
-      "pub_date": "2026-Apr",
-      "abstract": "Osteomyelitis is a serious and often chronic inflammatory bone infection, predominantly caused by Staphylococcus aureus, including methicillin-resistant strains (MRSA), as well as other pathogens such as Pseudomonas aeruginosa and Escherichia coli. It presents significant clinical challenges due to its complex pathophysiology, high relapse rates, and the emergence of antimicrobial resistance. Conventional treatment typically involves prolonged courses of high-dose intravenous antibiotics and surgical debridement, which are invasive, costly, and frequently associated with antimicrobial resistance, adverse effects, and poor patient adherence. This review explores novel probiotic-based biological strategies as a promising alternative for the prevention and treatment of osteomyelitis, with a particular focus on modulating the host microbiome. Probiotics, defined as live microorganisms that confer health benefits to the host, play a critical role in maintaining gut microbiota balance, enhancing immune responses, and improving mucosal barrier integrity. In the context of osteomyelitis, probiotics may prevent infection by enhancing gut barrier integrity, reducing bacterial translocation into the bloodstream and subsequent penetration into the bones, and inhibiting pathogen colonization and biofilm formation on bone and implant surfaces. Additionally, probiotic-derived metabolites such as bacteriocins and organic acids exhibit direct antimicrobial activity. They also compete with pathogens for nutrients and adhesion sites. Importantly, probiotics may promote osteogenic differentiation and bone regeneration through immune modulation. This probiotic-based approach offers a safe, sustainable, and host-friendly strategy for both the prevention and treatment of osteomyelitis, potentially reducing reliance on antibiotics and helping in mitigating the risk of antimicrobial resistance.",
+      "pmid": "37126812",
+      "doi": "10.7326/J23-0022",
+      "title": "In persons with constipation or IBS-C, kiwifruit vs. psyllium increased spontaneous bowel movements.",
+      "journal": "Annals of internal medicine",
+      "pub_date": "2023-May",
+      "abstract": "Gearry R, Fukudo S, Barbara G, et al. Consumption of 2 green kiwifruits daily improves constipation and abdominal comfort-results of an international multicenter randomized controlled trial. Am J Gastroenterol. 9 Jan 2023. [Epub ahead of print]. 36537785.",
       "abstract_verified": true,
       "exact_title_verified": true,
-      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5967688/",
-      "pdf_link": "https://doi.org/10.1007/s12602-025-10780-3",
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.7326/J23-0022",
       "source": "NCBI PubMed exact retrieval via Sider Scholar",
       "state": "research_only_exact_verified_pending_relevance"
     }
