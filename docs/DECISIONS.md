@@ -1,7 +1,7 @@
 # Decision Log
 
 **Status:** Authoritative
-**Updated:** 2026-09-27
+**Updated:** 2026-10-06
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
 
 
@@ -300,3 +300,21 @@ Coverage: 9 routes × 2 themes × 3 breakpoints = 54 combinations, 7,998 element
 **Rationale:** The prose-only roster reported machine WIP 0/3 while existing PRs occupied two workstreams. Converting that roster to tables triggered the new-admission validator, which previously had no way to reconcile already-running owners.
 
 **Consequences:** PR #6132 / #6131 owns this bounded repair. Reconciliation does not authorize additional work, scientific promotion or cap exceptions. The historical timeline proves pre-base association; current closing references prove current ownership. Unknown outcomes remain Unknown. **Status:** Accepted; exact-head release checks required.
+
+
+## 2026-10-06 — TikTok bypass is draft upload, not hidden Direct Post
+
+**Decision:** Replace Metricool as the sole TikTok transport with a first-party TikTok Content Posting API **draft-upload** path using `video.upload` and `PULL_FROM_URL` from the governed THS media origin. Do not implement a private unattended Direct Post bot for THS.
+
+**Rationale:** The live 2026-10-06 TikTok attempt demonstrated a Metricool account-limit bottleneck. TikTok provides a supported draft-upload flow that sends server-hosted media to the creator's TikTok inbox for review and posting. By contrast, TikTok's current Direct Post guidelines explicitly say an API client should be intended for a wide audience and identify an internal utility for accounts the developer/team manages as unacceptable; Direct Post also requires creator-controlled metadata and express per-post consent.
+
+**Consequences:** The Cloudflare bridge owns OAuth/token refresh and draft/status API calls; the existing L5 lifecycle remains publication authority. A TikTok `publish_id` from draft initialization is a provider dispatch identity only and may create a real `scheduled` receipt, never a `published` receipt by itself. Broad/high-volume auto-publishing remains unauthorized. Public-post proof remains separate and must be observed before lifecycle publication can be asserted. **Status:** Accepted; implementation tracked by #6356 / PR #6357.
+
+
+## 2026-10-06 — THS Publisher owns publication identity; providers are adapters
+
+**Decision:** Supersede provider-centered publication control with three explicit layers: THS SocialOS remains the learning/control plane, THS Publisher owns provider-neutral publication identity and operational state, and THS Observer verifies provider/public state before performance learning. Canonical identity is `publication_id → experiment_id → artifact_sha256 → platform → intended_time`; provider IDs and public URLs are append-only receipts beneath that identity.
+
+**Rationale:** The Metricool account-limit failure demonstrated that a replaceable transport had become a control-plane dependency. That made provider planner state capable of blocking publication and complicated reconciliation. A first-party publication identity lets adapters fail, retry, change IDs, or be replaced without corrupting experiment/artifact identity.
+
+**Consequences:** New publication jobs are single-writer by platform/time and idempotent by `publication_id`. Known failures may retry under that same identity. Ambiguous transport outcomes become `NEEDS_RECONCILIATION` and never blind-retry. Metricool is frozen as canonical publisher but its historical receipts/analytics are preserved. TikTok draft upload is the first active adapter; Meta remains future work; exact locked artifacts may be manually posted and recorded during transition. Website attribution stays separate and fail-closed. The earlier same-day TikTok draft-upload decision remains valid as an adapter decision but no longer defines the overall publication control plane. **Status:** Accepted; implementation tracked by #6356 / PR #6357.
