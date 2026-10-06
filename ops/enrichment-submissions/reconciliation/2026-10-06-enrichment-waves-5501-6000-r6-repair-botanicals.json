@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000-r6",
+  "row_count": 2,
+  "rows": [
+    {
+      "wave": 5902,
+      "category": "botanicals_mushrooms",
+      "old_pmid": "42510917",
+      "old_title": "Elevated CO(2) as a Biostimulatory Approach to Enhance the Nutraceutical Potential of Ginseng.",
+      "pmid": "30248388",
+      "doi": "10.1016/j.ejps.2018.09.016",
+      "title": "Targeting oxidative stress using tri-needle electrospray engineered Ganoderma lucidum polysaccharide-loaded porous yolk-shell particles.",
+      "journal": "European journal of pharmaceutical sciences : official journal of the European Federation for Pharmaceutical Sciences",
+      "pub_date": "2018-Dec-01",
+      "abstract": "Chronic lung diseases (e.g. chronic obstructive pulmonary disease and asthma) are associated with oxidative stress and common treatments include various types of inhalation therapies. In this work Ganoderma lucidum polysaccharide (GLP), a naturally occurring antioxidant is loaded into porous Poly (ε-caprolactone) (PCL) particles using a single step tri-needle coaxial electrospray process (Tri-needle CES); with a view to develop therapies to combat oxidative stress. Based on the core-shell structure of porous yolk shell particles (YSPs), GLP-loaded YSPs displayed a bi-phasic release pattern. In vitro cell studies indicate GLP-loaded porous YSPs display good biocompatibility and positive attributes towards H2O2-induced oxidative stress in MRC-5 cells and dramatically attenuate intracellular reactive oxygen species (ROS) levels as well as significantly increase cell viability. In vivo inhalation studies indicate that GLP-loaded porous YSPs can be delivered to deep lung tissue and remain deposited for over 48 h and are subsequently removed by natural clearance mechanisms. Based on current findings GLP-loaded porous YSPs are suitable for pulmonary delivery and display good inhalation therapy potential to treat chronic lung diseases.",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1016/j.ejps.2018.09.016",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    },
+    {
+      "wave": 5914,
+      "category": "botanicals_mushrooms",
+      "old_pmid": "42503062",
+      "old_title": "Integrated miRNA-mRNA-degradome analysis unveils the key regulatory mechanism of ginseng under temperature-water stress.",
+      "pmid": "30308230",
+      "doi": "10.1016/j.fitote.2018.10.009",
+      "title": "Meroterpenoids from Ganoderma sinense protect hepatocytes and cardiomyocytes from oxidative stress induced injuries.",
+      "journal": "Fitoterapia",
+      "pub_date": "2018-Nov",
+      "abstract": "Four meroterpenoids, applanatumols F (1), H (3), I (2), and lingzhiol (4) were isolated from the 95% EtOH extract of the fruiting bodies of Ganoderma sinense. Their structures were established on the basis of NMR spectroscopic analyses, optical rotatory dispersion data, ECD spectra, and X-ray crystallography. Compounds 1, 2, 4 existed as racemic mixtures ((+) 1a, 2a, 4a; (-) 1b, 2b, 4b), while 3 as a single enantiomer. Base on the seperated enantiomers, we sought to explicit possible effects of compounds 1-4 on hydrogen peroxide (H2O2)-induced cell death and to determine their underlying molecular mechanisms in human normal liver LO2 cells. Among them, compound 2a treatment effectively protected LO2 cells against H2O2-induced cell damage and apoptosis. H2O2 exposure increased ROS, which was inhibited by 2a treatment. Mitochondrial membrane potential decrease, nuclear fragments, caspase-3 activation and PARP cleavage were also arrested by 2a. Further, increased levels of Nrf2, HO-1, phosphorylation Akt and up-regulation of antioxidant enzymes were detected in 2a treated cells, indicating that the anti-oxidative effects of 2a might protect LO2 cells against oxidative damage via PI3K/Akt-mediated activation of Nrf2/HO-1 pathway. In addition, compound 2a showed potential protective role of cardiomyocyte from ischemia/reperfusion injury, and pretreatment with 2a could decrease CK and LDH levels and increase GSH level.",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1016/j.fitote.2018.10.009",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    }
+  ]
+}
