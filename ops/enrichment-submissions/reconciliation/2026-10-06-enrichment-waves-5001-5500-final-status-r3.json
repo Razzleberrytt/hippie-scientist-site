@@ -24,10 +24,10 @@
     "hard_off_domain_rows_remaining": 0,
     "case_report_or_explicit_preclinical_rows_remaining": 0,
     "strict_relevance_review_passed": true,
-    "retry_overrides": 0,
-    "replacements_total": 20,
-    "relevance_quality_replacements": 0,
-    "upstream_collision_replacements": 0,
+    "retry_overrides": 14,
+    "replacements_total": 55,
+    "relevance_quality_replacements": 22,
+    "upstream_collision_replacements": 13,
     "policy_replacements": 20
   },
   "artifacts": {
@@ -47,5 +47,6 @@
     "run repository-owned validation/checks on exact finalized head",
     "resolve review findings if any",
     "merge only when required checks and review are green"
-  ]
+  ],
+  "publication_type_metadata_refreshed_for_prior_replacements": 35
 }
