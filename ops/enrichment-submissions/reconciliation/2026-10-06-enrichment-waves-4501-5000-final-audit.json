@@ -37,8 +37,9 @@
     "reviewed_replacement_rows": 66,
     "r5b_override_rows": 13,
     "final_shortage_repair_rows": 4,
-    "total_repaired_rows": 101,
-    "post_review_replacement_rows": 18
+    "total_repaired_rows": 111,
+    "post_review_replacement_rows": 28,
+    "second_pass_category_drift_rows": 10
   },
   "category_counts": {
     "aging_sarcopenia": 46,
@@ -48,19 +49,19 @@
     "cognition_focus": 44,
     "gut": 36,
     "mood": 14,
-    "immune_respiratory": 42,
+    "immune_respiratory": 45,
     "inflammation_pain": 30,
-    "metabolic": 34,
-    "micronutrients": 33,
-    "mitochondrial_energy": 35,
+    "metabolic": 35,
+    "micronutrients": 30,
+    "mitochondrial_energy": 34,
     "withdrawal_nps": 33,
     "performance": 5,
     "women_health": 24,
     "sleep": 11
   },
   "state_counts": {
-    "research_only_exact_verified_final": 402,
-    "research_only_exact_verified_review_replacement": 84,
+    "research_only_exact_verified_final": 392,
+    "research_only_exact_verified_review_replacement": 94,
     "research_only_exact_verified_override_r5b": 13,
     "research_only_exact_verified_final_shortage_repair": 1
   },
@@ -73,7 +74,7 @@
     "r5b_exact": "2026-10-06-enrichment-waves-4501-5000-shortage-replacements-r5b-overrides-exact.json",
     "r6_exact": "2026-10-06-enrichment-waves-4501-5000-final-shortage-replacements-r6-exact.json"
   },
-  "authority_note": "This final audit and consolidated receipt supersede stale discovery rows, failed exact-verification candidates, reviewed relevance failures, earlier replacement assignments, and all unverified PMC shortcut mappings. Post-review repairs replaced 18 weak/off-domain or unverifiable rows with unused exact-verified records from the batch verification ledger.",
+  "authority_note": "This final audit and consolidated receipt supersede stale discovery rows, failed exact-verification candidates, reviewed relevance failures, earlier replacement assignments, and all unverified PMC shortcut mappings. Post-review repair now includes 28 exact-verified replacements: 18 original-review repairs plus 10 broader category-drift repairs.",
   "policy": {
     "entity_creation": "forbidden",
     "publication_promotion": "separate fail-closed admission",
