@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-6001-6500",
+  "source_queue": "verification-shortlist-r2",
+  "part": 32,
+  "queue_range": "547-547",
+  "row_count": 1,
+  "verified_count": 1,
+  "rows": [
+    {
+      "pmid": "42647083",
+      "category": "immune_respiratory",
+      "expected_title": "The role of gut-lung axis-targeted nursing strategies in immune regulation of COPD.",
+      "title": "The role of gut-lung axis-targeted nursing strategies in immune regulation of COPD.",
+      "abstract": "Chronic obstructive pulmonary disease (COPD) is featured by persistent airflow limitation and chronic inflammation. Considerable evidence highlights the role of the gut-lung axis, suggesting that disruption of gut microbial balance may contribute to aggravated systemic and pulmonary inflammation. This research intended to assess the impacts of a structured gut-lung axis-targeted nursing intervention on immune-inflammatory parameters, gut microbiota, and clinical outcomes in patients with stable COPD. The study involved the randomization of 115 patients to either the intervention or control group in a 1:1 ratio. The intervention group received a 12-week multimodal program, which included personalized high-fiber/probiotic nutrition, customized exercise plans, and stress management techniques. Patients in the control group did not receive the multimodal program and instead received routine care. The findings indicated that the intervention notably lowered serum IL-6, TNF-α, and CRP. Microbiome analysis further revealed that the intervention significantly enhanced α-diversity (Shannon and Chao1), enriched beneficial butyrate-producing genera (Faecalibacterium, Roseburia, and Bifidobacterium), and reduced the relative abundance of potential pathogens (Enterobacteriaceae), indicating a favorable shift in gut microbial ecology. Compared with the control group, the intervention group also experienced fewer moderate-to-severe exacerbations and showed greater sustained improvement in quality of life (SGRQ and CAT scores). In summary, a comprehensive nursing strategy centered on the gut-lung axis can regulate gut microbiota, alleviate systemic inflammation, lead to a reduction in exacerbation frequency and an improvement in the quality of life among patients with stable COPD, thus presenting a promising supplementary strategy to conventional care.",
+      "journal": "Acta microbiologica et immunologica Hungarica",
+      "pub_date": "2026-Aug-26",
+      "pdf_link": "https://doi.org/10.1556/030.2026.02947",
+      "full_text_link": null,
+      "exact_title_verified": true,
+      "abstract_verified": true,
+      "verification_error": null
+    }
+  ]
+}
