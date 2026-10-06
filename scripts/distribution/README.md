@@ -41,7 +41,7 @@ Every publication transition carries the deterministic idempotency key and upstr
 
 `social-publisher-core.mjs` defines the provider-neutral publication identity and state machine. A canonical `publication_id` is derived from experiment ID, exact artifact SHA-256, platform, and intended time before any provider is called. Provider operation IDs are receipts beneath that identity.
 
-The Cloudflare Publisher service persists jobs in D1 behind `/api/publisher/*`. `THS_PUBLISHER_DB` is the durable queue binding and `THS_PUBLISHER_ADMIN_TOKEN` protects its operator/service endpoints. The D1 schema enforces one publication owner per platform/time slot.
+The Cloudflare Publisher service persists jobs in D1 behind `/api/publisher/*`. `THS_PUBLISHER_DB` is the durable queue binding and `THS_PUBLISHER_ADMIN_TOKEN` protects its operator/service endpoints. The D1 schema enforces one non-cancelled publication owner per platform/time slot; safe cancellation releases an unused slot.
 
 Retries remain under the same `publication_id`. Definite failures may be retried explicitly; ambiguous transport outcomes become `NEEDS_RECONCILIATION` and are excluded from automatic due-work selection. Provider acceptance, inbox delivery, and public publication are separate states.
 
@@ -54,11 +54,11 @@ See `docs/ths-publisher-v0.1.md`.
 Metricool remains available only for historical reproducibility and bounded rollback while THS Publisher replaces it as publication control. Existing receipts and analytics remain valid observations. New publication identity must not depend on Metricool post IDs, planner state, or account availability.
 
 
-`stage-metricool-publication-media.mjs` stages only hash-verified governed media under the static public path `/media/distribution/metricool/`. The production deploy regenerates the current bounded pilot and requires its provider-ready manifest to be present in the final static export. Deployment itself never schedules or publishes a post.
+`stage-publication-media.mjs` stages only hash-verified governed media under the provider-neutral static path `/media/distribution/publisher/`. The production deploy regenerates the current bounded pilot and requires its provider-ready manifest to be present in the final static export. Deployment itself never schedules or publishes a post.
 
 `metricool-provider.mjs` is the provider boundary. It accepts only explicit supported networks, future publication times, governed copy, and canonical HTTPS media URLs. The current carousel path is limited to Facebook and TikTok. YouTube is supported only by the vertical-video provider contract because it requires video media.
 
-`.github/workflows/metricool-publication.yml` is an explicit, manually dispatched live scheduling path. It regenerates the exact current governed pilot, confirms the deployed media identity is current, verifies every public media URL is reachable, then calls Metricool server-side. The Metricool token is read only from the production `METRICOOL_USER_TOKEN` secret and is never written to source, artifacts, receipts, or logs.
+`.github/workflows/metricool-publication.yml` is retained only as a legacy/manual-delivery path. `autoPublish=true` is rejected while Metricool is frozen. It regenerates the exact current governed pilot, confirms the deployed media identity is current, verifies every public media URL is reachable, then calls Metricool server-side. When the legacy adapter is used, its token remains server-side and is never written to source, artifacts, receipts, or logs.
 
 A dry-run `scheduled` lifecycle may be promoted to a real Metricool `scheduled` receipt only after Metricool returns a provider post ID. Scheduling is not recorded as publication; `published` still requires separate provider confirmation. Stale identity, missing credentials, unsupported network/format combinations, invalid media URLs, or past timestamps fail closed before a provider transition is accepted.
 
@@ -69,7 +69,7 @@ Broad/high-volume autopublishing remains unauthorized. The Metricool adapter is 
 
 `tiktok-upload-provider.mjs` adds an independent TikTok transport for already-governed vertical-video assets. It uses the site's Cloudflare bridge and TikTok Content Posting API `video.upload` to deliver a draft into the creator's TikTok inbox. It is deliberately **not** Direct Post and never treats provider acceptance as public publication.
 
-`upload-tiktok-draft.mjs` is the artifact-aware operator boundary. It rechecks the live provider-ready static media manifest against the current selected opportunity, validated package, bounded pilot lifecycle ID, and identity fingerprint before calling the provider. The current v1 reuses the existing hash-verified static video staging path under `/media/distribution/metricool/`; that legacy path name does not call Metricool and therefore does not inherit Metricool account limits.
+`upload-tiktok-draft.mjs` is the artifact-aware operator boundary. It rechecks the live provider-ready static media manifest against the current selected opportunity, validated package, bounded pilot lifecycle ID, and identity fingerprint before calling the provider. The current v1 consumes the provider-neutral hash-verified static video staging path under `/media/distribution/publisher/`. The operator command enqueues canonical identity first and delegates all state mutation to the authenticated Publisher runtime.
 
 The Cloudflare bridge owns OAuth exchange, access-token refresh, rotated refresh-token persistence, canonical media URL enforcement, draft initialization via `PULL_FROM_URL`, and status polling. Secrets and TikTok tokens never belong in lifecycle receipts or source control.
 
