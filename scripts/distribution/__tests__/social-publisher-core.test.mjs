@@ -8,6 +8,8 @@ import {
   markPublicationPublished,
   publicationIsDispatchable,
   recordPublicationFailure,
+  recordPublicationObservation,
+  recordPublicationReconciliationRequired,
 } from '../social-publisher-core.mjs'
 
 const singleHash = 'a'.repeat(64)
@@ -124,6 +126,53 @@ describe('THS Publisher canonical publication jobs', () => {
     expect(again).toEqual(job)
     expect(again.attempts).toHaveLength(1)
     expect(publicationIsDispatchable(again)).toBe(false)
+  })
+
+  it('blocks retry when dispatch outcome is ambiguous until reconciliation', () => {
+    const { manifest, selection } = fixture()
+    let job = createPublicationJobFromGovernedMedia({
+      manifest,
+      selection,
+      platform: 'tiktok',
+      intendedTime: '2026-10-06T15:00:00-04:00',
+    })
+    job = beginPublicationAttempt(job, { provider: 'tiktok' })
+    job = recordPublicationReconciliationRequired(job, {
+      provider: 'tiktok',
+      error: new Error('connection lost after dispatch'),
+    })
+    expect(job.state).toBe('NEEDS_RECONCILIATION')
+    expect(job.failure).toMatchObject({ retryable: false, ambiguousDispatch: true })
+    expect(publicationIsDispatchable(job)).toBe(false)
+    expect(() => beginPublicationAttempt(job, { provider: 'tiktok' })).toThrow(/reconciliation/i)
+  })
+
+  it('keeps observer evidence append-only and can advance inbox state', () => {
+    const { manifest, selection } = fixture()
+    let job = createPublicationJobFromGovernedMedia({
+      manifest,
+      selection,
+      platform: 'tiktok',
+      intendedTime: '2026-10-06T15:00:00-04:00',
+    })
+    job = beginPublicationAttempt(job, { provider: 'tiktok' })
+    job = acceptProviderReceipt(job, {
+      provider: 'tiktok',
+      receipt: { publishId: 'v_inbox_url~v2.123' },
+    })
+    job = recordPublicationObservation(job, {
+      provider: 'tiktok',
+      status: 'SEND_TO_USER_INBOX',
+      receipt: { downloadedBytes: 42 },
+      nextState: 'AWAITING_USER_POST',
+    })
+    expect(job.state).toBe('AWAITING_USER_POST')
+    expect(job.observerReceipts).toHaveLength(1)
+    expect(job.observerReceipts[0]).toMatchObject({
+      provider: 'tiktok',
+      status: 'SEND_TO_USER_INBOX',
+    })
+    expect(job.providerReceipts).toHaveLength(1)
   })
 
   it('requires independently verified public identity before PUBLISHED', () => {
