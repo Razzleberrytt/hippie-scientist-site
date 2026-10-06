@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-6001-6500",
+  "stage": "gut_cognition_topup",
+  "counts": {
+    "gut": 0,
+    "cognition_focus": 0
+  },
+  "rows": []
+}
