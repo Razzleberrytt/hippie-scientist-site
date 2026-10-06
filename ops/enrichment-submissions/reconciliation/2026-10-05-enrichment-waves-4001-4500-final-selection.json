@@ -18,9 +18,9 @@
     "exact_title_match": "500/500",
     "abstract_verified": "500/500",
     "contiguous_wave_coverage": true,
-    "objective_off_domain_review": "10 replaced; 0 retained"
+    "objective_off_domain_review": "23 replaced; 0 retained"
   },
-  "repairs_applied": 62,
+  "repairs_applied": 75,
   "category_counts": {
     "aging_sarcopenia": 44,
     "botanicals_mushrooms": 41,
@@ -41,10 +41,11 @@
     "stress_anxiety": 12
   },
   "state_counts": {
-    "selected_exact_verified": 438,
+    "selected_exact_verified": 425,
     "research_only_exact_verified_repair": 51,
     "research_only_exact_verified_repair_r2": 1,
-    "research_only_exact_verified_domain_repair": 10
+    "research_only_exact_verified_domain_repair": 10,
+    "research_only_exact_verified_domain_repair_r2": 13
   },
   "waves": [
     {
@@ -337,12 +338,12 @@
     },
     {
       "wave": 4033,
-      "pmid": "42781638",
-      "doi": "10.2147/ijn.s632873",
-      "title": "TRAIL of Hope: Bioactive Dietary Component-Driven Carrier-Free Nanoplatforms for Synergistically Enhanced Tumor Multimodal Therapy.",
-      "pub_type": "Review",
+      "pmid": "41788586",
+      "doi": "10.1016/j.jgr.2025.12.004",
+      "title": "Effect of red ginseng beverage on menopausal symptoms in Chinese women: A randomized, double-blind, placebo-controlled clinical trial.",
+      "pub_type": "Journal Article",
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r2"
     },
     {
       "wave": 4034,
@@ -436,21 +437,21 @@
     },
     {
       "wave": 4044,
-      "pmid": "42805540",
-      "doi": "10.1016/j.ijbiomac.2026.154641",
-      "title": "Plant extracts for starch-based functional films: Categories, film design, applications, and challenges-A review.",
-      "pub_type": "Review",
+      "pmid": "41788588",
+      "doi": "10.1016/j.jgr.2025.11.005",
+      "title": "Clinical randomized controlled trial and network pharmacological analysis of blood glucose regulation by Korean red ginseng in patients with type 2 diabetes and impaired glucose regulation.",
+      "pub_type": "Journal Article",
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r2"
     },
     {
       "wave": 4045,
-      "pmid": "42810236",
-      "doi": "10.1016/j.theriogenology.2026.118226",
-      "title": "Use of plant-derived compounds for chilled gamete storage in felids and canids.",
-      "pub_type": "Review",
+      "pmid": "41798830",
+      "doi": "10.3389/fnut.2026.1759162",
+      "title": "Preload time-dependent effects of Panax ginseng on postprandial glucose tolerance. A randomized controlled study in healthy middle-aged participants.",
+      "pub_type": "Journal Article",
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r2"
     },
     {
       "wave": 4046,
@@ -508,12 +509,12 @@
     },
     {
       "wave": 4052,
-      "pmid": "42766950",
-      "doi": "10.1016/j.bioadv.2026.215175",
-      "title": "Ligand-free alkyl-modified chitosan nanoparticles are preferentially internalized by microglia and deliver curcumin to suppress cytokine release.",
-      "pub_type": "Journal Article",
+      "pmid": "42719408",
+      "doi": "10.1016/j.jgr.2026.100975",
+      "title": "Ginseng polysaccharides: Structures-based classification and biological activities-A review.",
+      "pub_type": "Review",
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r2"
     },
     {
       "wave": 4053,
@@ -886,21 +887,21 @@
     },
     {
       "wave": 4094,
-      "pmid": "42782694",
-      "doi": "10.3390/biomimetics11090668",
-      "title": "Engineering Multiscale Vasculature: Biological Principles, Design Constraints, and Advanced Biofabrication Strategies for Functional Vascular Networks.",
-      "pub_type": "Review",
+      "pmid": "40152122",
+      "doi": "10.1093/nutrit/nuaf014",
+      "title": "Hypertension in Relation to Circulating Magnesium Levels: A Systematic Review and Meta-Analysis of Observational Studies.",
+      "pub_type": "Meta-Analysis",
       "category": "cardiometabolic",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r2"
     },
     {
       "wave": 4095,
-      "pmid": "42783900",
-      "doi": "10.3390/md24090307",
-      "title": "Valorization of Seafood Processing Wastes Using Subcritical Water Extraction-A Comprehensive Review.",
-      "pub_type": "Review",
+      "pmid": "40193171",
+      "doi": "10.1093/milmed/usaf105",
+      "title": "The Omega-3 Index in Military Personnel: A Systematic Review.",
+      "pub_type": "Systematic Review",
       "category": "cardiometabolic",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r2"
     },
     {
       "wave": 4096,
@@ -913,12 +914,12 @@
     },
     {
       "wave": 4097,
-      "pmid": "42787237",
-      "doi": "10.1016/j.fochms.2026.100454",
-      "title": "Nutrition, phytochemical profile, bioactivities and applications in food industry of banana peels: a comprehensive review.",
-      "pub_type": "Review",
+      "pmid": "40248925",
+      "doi": "10.2174/0127724328346501250404175826",
+      "title": "Mechanistic Effects and Complications of Berberine on Cardiac Arrhythmias: A Systematic Review.",
+      "pub_type": "Systematic Review",
       "category": "cardiometabolic",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r2"
     },
     {
       "wave": 4098,
@@ -985,12 +986,12 @@
     },
     {
       "wave": 4105,
-      "pmid": "42795302",
-      "doi": "10.3390/life16091437",
-      "title": "Siberian Sturgeon (Acipenser baerii, Brandt, 1869) the Relationship Between Genetic Resources and Acclimatization: Ecology, Conservation, and the Nutritional Significance of Meat and Caviar.",
-      "pub_type": "Review",
+      "pmid": "38836663",
+      "doi": "10.14715/cmb/2024.70.6.26",
+      "title": "Effect of omega-3 fatty acid supplementation on markers of inflammation and endothelial function in patients with chronic heart disease: A systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
       "category": "cardiometabolic",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r2"
     },
     {
       "wave": 4106,
@@ -1012,12 +1013,12 @@
     },
     {
       "wave": 4108,
-      "pmid": "42797249",
-      "doi": "10.3390/pharmaceutics18091073",
-      "title": "Bridging the Lab-to-Clinic Gap in Intranasal Nanomaterial-Based Chemotherapy for Glioblastoma.",
-      "pub_type": "Review",
+      "pmid": "38987784",
+      "doi": "10.1186/s12933-024-02326-8",
+      "title": "Six-month supplementation with high dose coenzyme Q10 improves liver steatosis, endothelial, vascular and myocardial function in patients with metabolic-dysfunction associated steatotic liver disease: a randomized double-blind, placebo-controlled trial.",
+      "pub_type": "Journal Article",
       "category": "cardiometabolic",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r2"
     },
     {
       "wave": 4109,
@@ -2614,12 +2615,12 @@
     },
     {
       "wave": 4286,
-      "pmid": "42708068",
-      "doi": "10.2147/IJN.S626615",
-      "title": "Precision Nanodelivery Enables Spatiotemporal Control of NAD⁺ Metabolism in Ageing and Disease.",
-      "pub_type": "Journal Article; Review",
+      "pmid": "41720188",
+      "doi": "10.1016/j.tjnut.2026.101427",
+      "title": "Unraveling Riboflavin-Mediated Mitochondrial Modulation as a Therapeutic Pathway in Neurological Disorders: An Integrative Systematic Review.",
+      "pub_type": "Systematic Review",
       "category": "mitochondrial_energy",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r2"
     },
     {
       "wave": 4287,
@@ -2785,12 +2786,12 @@
     },
     {
       "wave": 4305,
-      "pmid": "42710102",
-      "doi": "10.1016/j.jcis.2026.141529",
-      "title": "Hydrogen sulfide-driven Janus nanoplatforms for comprehensive disruption of intracellular glucose metabolism and activation of disulfidptosis.",
-      "pub_type": "Journal Article",
+      "pmid": "41651893",
+      "doi": "10.1038/s41598-025-34191-0",
+      "title": "The effects of pyrroloquinoline quinone and nicotinamide mononucleotide supplementation on interoception following acute exhaustive exercise: a randomised, double-blind, placebo-controlled study.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "mitochondrial_energy",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r2"
     },
     {
       "wave": 4306,
@@ -3622,12 +3623,12 @@
     },
     {
       "wave": 4398,
-      "pmid": "42815401",
-      "doi": "10.1016/j.cbd.2026.102019",
-      "title": "Curcumin attenuates chronic heat stress-induced cardiac injury in Siberian sturgeon (Acipenser baerii): Mechanisms of oxidative stress, mitochondrial dysfunction and metabolic reprogramming.",
-      "pub_type": "Journal Article",
+      "pmid": "42653670",
+      "doi": "10.3390/ph19081171",
+      "title": "From Remedy to Therapy: Confronting the Bioavailability Bottleneck in Ganoderma lucidum Translational Research.",
+      "pub_type": "Review",
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r2"
     },
     {
       "wave": 4399,
@@ -4270,12 +4271,12 @@
     },
     {
       "wave": 4470,
-      "pmid": "42600020",
-      "doi": "10.1126/sciadv.aeg4626",
-      "title": "A complementary descriptor for elucidating selective PMS activation by iron single-atom catalysts with tunable interatomic distances.",
-      "pub_type": "Journal Article",
+      "pmid": "42349752",
+      "doi": "10.1016/j.tjnut.2026.101688",
+      "title": "Higher Maternal Body Mass Index Attenuates the Response to High-Dose Vitamin D Supplementation During Pregnancy: A Secondary Analysis of the Randomized Vitamin D Antenatal Asthma Reduction Trial (VDAART).",
+      "pub_type": "Randomized Controlled Trial",
       "category": "women_health",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r2"
     },
     {
       "wave": 4471,
@@ -4548,5 +4549,5 @@
       "state": "selected_exact_verified"
     }
   ],
-  "domain_review_repairs": 10
+  "domain_review_repairs": 23
 }
