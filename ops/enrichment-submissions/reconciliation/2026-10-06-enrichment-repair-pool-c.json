@@ -1,0 +1,1006 @@
+{
+  "schema_version": 1,
+  "row_count": 100,
+  "rows": [
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42390543",
+      "doi": "10.1007/s00210-026-05621-1",
+      "title": "Molecular insights into the anti-COVID-19 activity of reduced (quinol) and oxidized (quinone) forms of coenzyme Q10.",
+      "journal": "Naunyn-Schmiedeberg's archives of pharmacology",
+      "pub_date": "2026 Jul 2",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42392281",
+      "doi": "10.1016/j.freeradbiomed.2026.07.001",
+      "title": "An enzyme kinetic model for quantitative interpretation of the role of nicotinamide nucleotide transhydrogenase (NNT) in cell physiology.",
+      "journal": "Free radical biology & medicine",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42399986",
+      "doi": "10.1186/s12958-026-01580-7",
+      "title": "Anti-Müllerian hormone promotes minichromosome maintenance protein expression and creatine metabolism in primate preantral follicles under hypoxia.",
+      "journal": "Reproductive biology and endocrinology : RB&E",
+      "pub_date": "2026 Jul 3",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42410653",
+      "doi": "10.1002/mgg3.70221",
+      "title": "COQ2-Associated Primary Coenzyme Q10 Deficiency Presenting With Proteinuria: A Case Report and Literature Review.",
+      "journal": "Molecular genetics & genomic medicine",
+      "pub_date": "2026 Jul",
+      "pub_type": "Systematic Review",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42413132",
+      "doi": "10.1016/j.jcis.2026.141068",
+      "title": "Nicotinamide-derived tumor-targeting carbon dots for Cancer Photothermal therapy.",
+      "journal": "Journal of colloid and interface science",
+      "pub_date": "2026 Dec 15",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42422396",
+      "doi": "10.5114/biolsport.2026.157992",
+      "title": "Are three recovery days enough? Elevated match day creatine kinase levels under congested schedules in youth soccer.",
+      "journal": "Biology of sport",
+      "pub_date": "2026 Jan",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42429864",
+      "doi": "10.1007/s11033-026-12332-6",
+      "title": "Nicotinamide mononucleotide ameliorates high glucose/high fat-induced cardiomyocyte metabolic dysfunction through SIRT1-mediated CPT1A stabilization.",
+      "journal": "Molecular biology reports",
+      "pub_date": "2026 Jul 10",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42444846",
+      "doi": "10.3389/fchem.2026.1759167",
+      "title": "Brain-targeting lipid nanoparticles of nicotinamide mononucleotide: preparation, optimization, and characterization.",
+      "journal": "Frontiers in chemistry",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42457093",
+      "doi": "10.1016/j.jnutbio.2026.110464",
+      "title": "Adrenaline induces oxidative stress-mediated perturbation in cardiac riboflavin metabolism through direct interaction with flavin coenzymes: Protection by melatonin-a mechanistic insight.",
+      "journal": "The Journal of nutritional biochemistry",
+      "pub_date": "2026 Dec",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42471833",
+      "doi": "10.1016/j.synbio.2026.06.001",
+      "title": "Quorum sensing-driven riboflavin-hyperproducing electroactive bacteria for enhanced bioelectricity generation from sludge: From modular optimization to process performance.",
+      "journal": "Synthetic and systems biotechnology",
+      "pub_date": "2027 Feb",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42471920",
+      "doi": "10.7759/cureus.112906",
+      "title": "CPT2 as a Convergent Node Linking Age-Associated Neuronal H3K27me3 Remodeling to Nicotinamide Mononucleotide (NMN)-Induced Expression Rescue in Metabolic Tissues.",
+      "journal": "Cureus",
+      "pub_date": "2026 Jul",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42475971",
+      "doi": "10.1016/j.colsurfb.2026.115984",
+      "title": "pH-responsive chitosan-based nanoparticles for targeted delivery of nicotinamide mononucleotide in acute kidney injury therapy.",
+      "journal": "Colloids and surfaces. B, Biointerfaces",
+      "pub_date": "2026 Dec",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42476091",
+      "doi": "10.1016/j.jns.2026.126095",
+      "title": "Riboflavin therapy in complex I deficiency: Two new cases of leukoencephalopathy and a systematic literature review.",
+      "journal": "Journal of the neurological sciences",
+      "pub_date": "2026 Oct 15",
+      "pub_type": "Case Reports",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42478712",
+      "doi": "10.1158/2643-3230.BCD-25-0498",
+      "title": "The Nicotinamide Salvage Pathway Is a Metabolic Vulnerability of High-Risk MDS Stem Cells.",
+      "journal": "Blood cancer discovery",
+      "pub_date": "2026 Sep 3",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42478782",
+      "doi": "10.1152/ajpcell.00317.2026",
+      "title": "Microbiome-associated metabolites, valerobetaine and homocarnitine, inhibit carnitine transport via OCTN2.",
+      "journal": "American journal of physiology. Cell physiology",
+      "pub_date": "2026 Sep 1",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42502305",
+      "doi": "10.7759/cureus.113327",
+      "title": "Autophagy-Related Gene-Set Signals in the Genetic Architecture of Obsessive-Compulsive Disorder: A Hypothesis-Generating Link to Nicotinamide Adenine Dinucleotide-Associated Cellular Maintenance Biology.",
+      "journal": "Cureus",
+      "pub_date": "2026 Jul",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42514861",
+      "doi": "10.3390/pharmaceutics18070780",
+      "title": "Enhancing the Pharmaceutical Profile of Alpha Lipoic Acid: Cyclodextrin Inclusion Complexation for Improved Stability and Bioavailability.",
+      "journal": "Pharmaceutics",
+      "pub_date": "2026 Jun 25",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42515166",
+      "doi": "10.3390/toxics14070601",
+      "title": "Contribution of Disruption in Creatine Synthesis and Transporter to 6-PPD Quinone Induced Immunosuppression in Caenorhabditis elegans.",
+      "journal": "Toxics",
+      "pub_date": "2026 Jul 9",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42518369",
+      "doi": "10.1021/acs.cgd.6c00576",
+      "title": "New Insights into the Structure and Thermodynamic Stability of Polymorphs I and II of the Nicotinamide:Adipic Acid Co-Crystal: A BEST-CSP Study.",
+      "journal": "Crystal growth & design",
+      "pub_date": "2026 Jul 15",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42529685",
+      "doi": "10.7759/cureus.113549",
+      "title": "Cellular Logistics and Synaptic Vesicle Vulnerability in Major Depressive Disorder and Amyotrophic Lateral Sclerosis Comorbidity: Insights From Nicotinamide Mononucleotide Rescue and Transcriptome-Wide Association Study Integration.",
+      "journal": "Cureus",
+      "pub_date": "2026 Jul",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42795894",
+      "doi": "10.3390/jcm15187122",
+      "title": "Reply to Çevik et al. Comment on \"Inghilleri, G.; Franchini, M. Hypophosphatemia in Patients Receiving Intravenous Iron Supplementation for Iron-Deficiency Anemia: A Narrative Review. J. Clin. Med. 2026, 15, 4748\".",
+      "journal": "Journal of clinical medicine",
+      "pub_date": "2026 Sep 14",
+      "pub_type": "Letter",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42796307",
+      "doi": "10.3390/medicina62091700",
+      "title": "Ferric Carboxymaltose Therapy Improves the Index of Cardiac Electrophysiological Balance in Iron-Deficient Heart Failure with Reduced Ejection Fraction.",
+      "journal": "Medicina (Kaunas, Lithuania)",
+      "pub_date": "2026 Sep 4",
+      "pub_type": "Journal Article",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42796750",
+      "doi": "10.3390/pathogens15090982",
+      "title": "Iron, Tuberculosis, and Particle-Related Exposures Including Smoking.",
+      "journal": "Pathogens (Basel, Switzerland)",
+      "pub_date": "2026 Sep 16",
+      "pub_type": "Review",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42796904",
+      "doi": "10.3390/plants15182873",
+      "title": "Effects of Foliar Calcium and Magnesium Application on Peach (Prunus persica L.) Nutrition Status and Fruit Quality Formation.",
+      "journal": "Plants (Basel, Switzerland)",
+      "pub_date": "2026 Sep 19",
+      "pub_type": "Journal Article",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42796945",
+      "doi": "10.3390/nu18182962",
+      "title": "Vitamin D Status and Response to Calcifediol Supplementation in Term and Preterm Infants with Cholestasis.",
+      "journal": "Nutrients",
+      "pub_date": "2026 Sep 9",
+      "pub_type": "Observational Study",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42796989",
+      "doi": "10.3390/nu18183006",
+      "title": "Retinal and Choroidal Vascular Changes Associated with Vitamin D Deficiency.",
+      "journal": "Nutrients",
+      "pub_date": "2026 Sep 14",
+      "pub_type": "Review",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42797023",
+      "doi": "10.3390/nu18183041",
+      "title": "Vitamin D Status in Polish Military Personnel: Associations with Supplementation, Seasonality, and the GC rs2282679 Polymorphism.",
+      "journal": "Nutrients",
+      "pub_date": "2026 Sep 17",
+      "pub_type": "Journal Article",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42798062",
+      "doi": "10.1097/MD.0000000000050885",
+      "title": "Association between serum zinc levels and new-onset hypertension: A 5-year retrospective cohort study.",
+      "journal": "Medicine",
+      "pub_date": "2026 Sep 25",
+      "pub_type": "Journal Article",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42798526",
+      "doi": "10.3389/fendo.2026.1938560",
+      "title": "Serum magnesium and major adverse cardiovascular events in patients with diabetic foot ulcers: a retrospective cohort study.",
+      "journal": "Frontiers in endocrinology",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42798940",
+      "doi": "10.3389/fpls.2026.1876801",
+      "title": "Iron need attention: a review on the role of iron in plants.",
+      "journal": "Frontiers in plant science",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42801658",
+      "doi": "10.1002/advs.78015",
+      "title": "Magnetoreceptor Promotes Hepatocellular Carcinoma Development and Blunts Sorafenib-Induced Ferroptosis by Regulating Iron Homeostasis.",
+      "journal": "Advanced science (Weinheim, Baden-Wurttemberg, Germany)",
+      "pub_date": "2026 Sep 27",
+      "pub_type": "Journal Article",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42801811",
+      "doi": "10.1016/j.psj.2026.107785",
+      "title": "Nano-selenium, organic selenium, and novel selenium sources: Which is best for clean and sustainable poultry production?",
+      "journal": "Poultry science",
+      "pub_date": "2026 Sep 16",
+      "pub_type": "Review",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42803611",
+      "doi": "10.1097/BPO.0000000000003492",
+      "title": "Vitamin D Status, Supplementation and Radiographic Healing in Pediatric Both-Bone Forearm Fractures: A Prospective Controlled Study.",
+      "journal": "Journal of pediatric orthopedics",
+      "pub_date": "2026 Sep 28",
+      "pub_type": "Journal Article",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42805474",
+      "doi": "10.1016/j.envres.2026.125791",
+      "title": "Ferric iron enhances granule densification and pollutant removal in microalgal-bacterial granular sludge via iron-homeostatic microbial rewiring.",
+      "journal": "Environmental research",
+      "pub_date": "2026 Sep 28",
+      "pub_type": "Journal Article",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42805644",
+      "doi": "10.1136/bmjopen-2026-122579",
+      "title": "Primary prevention of maternal anaemia to prevent preterm delivery and other adverse outcomes (PANDA): a protocol for a double-blind placebo-controlled randomised trial of a daily iron supplement during pregnancy.",
+      "journal": "BMJ open",
+      "pub_date": "2026 Sep 28",
+      "pub_type": "Clinical Trial Protocol",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42806876",
+      "doi": "10.13075/mp.5893.01736",
+      "title": "[The significance of vitamin D for well-being and the prevention of selected diseases in elderly people: a narrative review].",
+      "journal": "Medycyna pracy",
+      "pub_date": "2026 Sep 16",
+      "pub_type": "Review",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42808789",
+      "doi": "10.1128/spectrum.00827-26",
+      "title": "Salmonella Typhimurium vitamin B12-dependent methionine metabolism regulates Caenorhabditis elegans development and vitellogenesis.",
+      "journal": "Microbiology spectrum",
+      "pub_date": "2026 Sep 29",
+      "pub_type": "Journal Article",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42809504",
+      "doi": "10.1371/journal.pone.0359637",
+      "title": "Correction: Association of zinc deficiency with infectious complications in pediatric hematopoietic stem cell transplantation patients.",
+      "journal": "PloS one",
+      "pub_date": "2026",
+      "pub_type": "Published Erratum",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42809651",
+      "doi": "10.1182/blood.2026034230",
+      "title": "The Iron Chaperone PCBP2 Controls Systemic Iron Homeostasis by Regulating Iron Flux in Red Pulp Macrophages.",
+      "journal": "Blood",
+      "pub_date": "2026 Sep 29",
+      "pub_type": "Journal Article",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42810570",
+      "doi": "10.1016/j.cca.2026.122859",
+      "title": "FGL1-hepcidin axis in iron homeostasis and disease.",
+      "journal": "Clinica chimica acta; international journal of clinical chemistry",
+      "pub_date": "2026 Sep 29",
+      "pub_type": "Review",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "41991353",
+      "doi": "10.1016/j.tplants.2026.04.002",
+      "title": "A metabolic hotspot rewires cotton fiber traits.",
+      "journal": "Trends in plant science",
+      "pub_date": "2026 Jul",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42033910",
+      "doi": "10.1016/j.enzmictec.2026.110890",
+      "title": "Metabolic engineering of Corynebacterium glutamicum for production of myo-Inositol and D-chiro-Inositol.",
+      "journal": "Enzyme and microbial technology",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42061672",
+      "doi": "10.1016/j.ajo.2026.04.023",
+      "title": "Association Between Retinal Nerve Fiber Layer Thickness and Cardiovascular-Kidney-Metabolic Syndrome: A UK Biobank Cohort Study.",
+      "journal": "American journal of ophthalmology",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42079430",
+      "doi": "10.1093/ismeco/ycag077",
+      "title": "Metabolic modeling unveils potential probiotic roles of Flavonifractor plautii in reshaping the Western gut microbiota landscape.",
+      "journal": "ISME communications",
+      "pub_date": "2026 Jan",
+      "pub_type": "Journal Article",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42100351",
+      "doi": "10.1016/j.crmicr.2026.100600",
+      "title": "Probiotic-driven microbiome remodeling is associated with coordinated immune and metabolic responses, improving growth and disease resistance in farmed tongue sole (Cynoglossus semilaevis).",
+      "journal": "Current research in microbial sciences",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42106160",
+      "doi": "10.1016/j.advnut.2026.100647",
+      "title": "Dietary Fiber and Glucagon-Like Peptide-1 Receptor Agonists in Obesity Management: Converging Mechanisms, Interactions, and Strategies for Durable Weight Control.",
+      "journal": "Advances in nutrition (Bethesda, Md.)",
+      "pub_date": "2026 Jun",
+      "pub_type": "Review",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42116047",
+      "doi": "10.1186/s12986-026-01124-1",
+      "title": "Probiotic Bifidobacterium bifidum BGN4 supplementation modulates gut microbiome composition and reduces circulating zonulin, TNFα, and insulin in adults with excess adiposity: a randomized, double-blind, placebo-controlled trial.",
+      "journal": "Nutrition & metabolism",
+      "pub_date": "2026 May 11",
+      "pub_type": "Journal Article",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42130343",
+      "doi": "10.1111/obr.70158",
+      "title": "Effect of Probiotic and Symbiotic Supplementation on Lipid Parameters in Individuals With Overweight and Obesity: A Systematic Review and Meta-Analysis.",
+      "journal": "Obesity reviews : an official journal of the International Association for the Study of Obesity",
+      "pub_date": "2026 May 14",
+      "pub_type": "Review",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42135766",
+      "doi": "10.1186/s12986-026-01100-9",
+      "title": "Association of diet quality and fiber intake with carotid intima-media thickness in a young adult population of the Tehran lipid and Glucose study.",
+      "journal": "Nutrition & metabolism",
+      "pub_date": "2026 May 14",
+      "pub_type": "Journal Article",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42139396",
+      "doi": "10.1364/OL.592803",
+      "title": "Real-time monitoring of bio-interface assembly enables high-sensitivity glucose sensing via no-core fiber with biocompatible composite coating.",
+      "journal": "Optics letters",
+      "pub_date": "2026 May 15",
+      "pub_type": "Journal Article",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42145855",
+      "doi": "10.1155/ijm/3448995",
+      "title": "Flavorful Microbial Fermentation: Metabolic, Flavoromic, and Sensory Analysis Insights Into Probiotic-Enhanced Catharina Sour Beer With Lacticaseibacillus paracasei F19.",
+      "journal": "International journal of microbiology",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42152248",
+      "doi": "10.4103/aam.aam_244_26",
+      "title": "To Study the Efficacy of Probiotic Supplementation on Obesity, Lipid Profile, and Insulin Resistance in Women with Polycystic Ovary Syndrome.",
+      "journal": "Annals of African medicine",
+      "pub_date": "2026 May 20",
+      "pub_type": "Journal Article",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42152457",
+      "doi": "10.1111/1751-7915.70361",
+      "title": "Incorporation of Cryptic Plasmid Energetics Improves Genome-Scale Metabolic Predictions in Probiotic E. coli Nissle 1917.",
+      "journal": "Microbial biotechnology",
+      "pub_date": "2026 May",
+      "pub_type": "Journal Article",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42182925",
+      "doi": "10.3389/fvets.2026.1834008",
+      "title": "Functional fiber supplementation improves reproductive performance in sows by reshaping gut microbial functions related to immunity and metabolic health.",
+      "journal": "Frontiers in veterinary science",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42208199",
+      "doi": "10.1016/j.talanta.2026.130043",
+      "title": "Functionalized carbon fiber cloth for the disposable sensor in robust nonenzymatic glucose detection.",
+      "journal": "Talanta",
+      "pub_date": "2026 Nov 1",
+      "pub_type": "Journal Article",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42221763",
+      "doi": "10.3389/fnut.2026.1819082",
+      "title": "Nutritional redox reprogramming in cardiometabolic diseases: alpha-lipoic acid, urolithin A, and ergothioneine as modulators of the ferroptosis-mitophagy axis and mitochondrial metabolic remodeling.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42229820",
+      "doi": "10.1016/j.freeradbiomed.2026.05.338",
+      "title": "Probiotic-driven gut-liver redox crosstalk modulates hepatic Nrf2 signaling pathway and attenuates metabolic dysfunction-associated steatohepatitis.",
+      "journal": "Free radical biology & medicine",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42237957",
+      "doi": "10.26355/eurrev_202605_37819",
+      "title": "Expression of Concern on \"The Combined therapy myo-inositol plus D-Chiro-inositol, in a physiological ratio, reduces the cardiovascular risk by improving the lipid profile in PCOS patients\".",
+      "journal": "European review for medical and pharmacological sciences",
+      "pub_date": "2026 May",
+      "pub_type": "Expression of Concern",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42250582",
+      "doi": "10.1016/j.tjnut.2026.101481",
+      "title": "Dietary Fiber Intake, FTO Genotypes, and Their Interactions on Obesity-Related Measures: The Fukuoka Diabetes Registry.",
+      "journal": "The Journal of nutrition",
+      "pub_date": "2026 Jul",
+      "pub_type": "Journal Article",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42270566",
+      "doi": "10.1021/acssynbio.6c00228",
+      "title": "Multilevel Metabolic Engineering of Probiotic Escherichia coli Nissle 1917 for Antibiotic-Free Production of β-Alanine.",
+      "journal": "ACS synthetic biology",
+      "pub_date": "2026 Jul 17",
+      "pub_type": "Journal Article",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42271352",
+      "doi": "10.1186/s12986-026-01146-9",
+      "title": "Urinary nitrate is positively associated with muscle strength in older adults, but not in younger and middle-aged adults: NHANES 2011-2012.",
+      "journal": "Nutrition & metabolism",
+      "pub_date": "2026 Jun 10",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42290612",
+      "doi": "10.1080/15563650.2026.2675035",
+      "title": "Rapid bedside assessment of serum caffeine concentrations using an immunochromatographic screening kit: evaluation of analytical and diagnostic performance in acute caffeine poisoning.",
+      "journal": "Clinical toxicology (Philadelphia, Pa.)",
+      "pub_date": "2026 Jun 15",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42317181",
+      "doi": "10.1039/d6cc02827f",
+      "title": "High-performance electrocatalytic nitrate reduction to ammonia enabled by a copper-porphyrin-based porous aromatic framework.",
+      "journal": "Chemical communications (Cambridge, England)",
+      "pub_date": "2026 Jul 9",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42326997",
+      "doi": "10.3389/fphys.2026.1875283",
+      "title": "Caffeine, skeletal muscle signalling, and exercise adaptation: a narrative review separating acute ergogenic effects from chronic remodelling.",
+      "journal": "Frontiers in physiology",
+      "pub_date": "2026",
+      "pub_type": "Systematic Review",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42364565",
+      "doi": "10.1016/j.msard.2026.107339",
+      "title": "Metabolic dysfunction in multiple sclerosis: Elevated lactate and impaired post-exercise creatine response in the anterior cingulate cortex.",
+      "journal": "Multiple sclerosis and related disorders",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42410983",
+      "doi": "10.1002/smtd.70806",
+      "title": "Synergistic Integration of Intermediate Adsorption and Hydrogen Supply to Boost Nitrate Electroreduction to Ammonia Performance via Anchoring Nickel on Monolithic Copper Nanocone Arrays.",
+      "journal": "Small methods",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42411706",
+      "doi": "10.1113/EP093920",
+      "title": "The acute effects of exercise intensity and inorganic nitrate supplementation on the Buckberg ratio in postmenopausal females.",
+      "journal": "Experimental physiology",
+      "pub_date": "2026 Jul 7",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42428607",
+      "doi": "10.3389/fnut.2026.1823053",
+      "title": "Effect of acute dietary nitrate intake on post-activation performance enhancement in male long jumpers.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42429495",
+      "doi": "10.1002/vms3.71077",
+      "title": "Comparative Effects of Azadirachta indica-Derived Silver Nanoparticles and Silver Nitrate on the Productive and Reproductive Performance of Japanese Quails.",
+      "journal": "Veterinary medicine and science",
+      "pub_date": "2026 Jul",
+      "pub_type": "Comparative Study",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42438967",
+      "doi": "10.1002/anie.9522099",
+      "title": "Nonmetallic Si Doping Constructs Cu(2)O/Co-O-Si Tandem Sites for Neutral Nitrate Reduction Electrocatalysis Toward Ammonia Recovery and Energy-Integrated Applications.",
+      "journal": "Angewandte Chemie (International ed. in English)",
+      "pub_date": "2026 Sep 14",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42453948",
+      "doi": "10.1039/d6ra05387d",
+      "title": "Novel acidic ionic liquid catalyst based on C8-modified caffeine for high-performance sustainable synthesis of pyridodipyrimidines and a study on their carbonic anhydrase inhibitory activity.",
+      "journal": "RSC advances",
+      "pub_date": "2026 Aug 12",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42485007",
+      "doi": "10.1021/acs.inorgchem.6c02603",
+      "title": "Rational Design of High-Performance Energetic Coordination Compounds via Nitrate Anion Integration.",
+      "journal": "Inorganic chemistry",
+      "pub_date": "2026 Aug 3",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42490897",
+      "doi": "10.3389/fnut.2026.1884686",
+      "title": "Acute caffeine supplementation in rugby players: a systematic review and meta-analysis of physical performance, sport-specific performance, perceptual responses, and physiological markers.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Systematic Review",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42502192",
+      "doi": "10.1002/smll.74677",
+      "title": "Fabrication of BaZr(0.1)Ce(0.7)Y(0.1)Yb(0.1)O(3-δ) Skeleton Structure for the Development of High-Performance Nanocomposite Cathodes for Protonic Ceramic Fuel Cells by Nitrate Impregnation.",
+      "journal": "Small (Weinheim an der Bergstrasse, Germany)",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42549650",
+      "doi": "10.1039/d6cc02642g",
+      "title": "Electrocatalytic nitrate reduction to ammonia: bimetallic-site catalysts, mechanistic insights, and performance optimization.",
+      "journal": "Chemical communications (Cambridge, England)",
+      "pub_date": "2026 Aug 25",
+      "pub_type": "Review",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42560556",
+      "doi": "10.1007/s10661-026-15772-6",
+      "title": "Assessing uncertainty in conservation practice performance: effect of sample frequency on bioreactor nitrate removal.",
+      "journal": "Environmental monitoring and assessment",
+      "pub_date": "2026 Aug 6",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42569897",
+      "doi": "10.1080/03601234.2026.2713904",
+      "title": "Nitrate bioaccumulation, growth performance and survival of rainbow trout (Oncorhynchus mykiss) in aquaponics with elevated water NO(3)-N levels.",
+      "journal": "Journal of environmental science and health. Part. B, Pesticides, food contaminants, and agricultural wastes",
+      "pub_date": "2026 Aug 8",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42580424",
+      "doi": "10.1016/j.biortech.2026.135592",
+      "title": "Cyclic regeneration and up-concentration for nitrate recovery from wastewater via in situ NaNO(3) generation under saline, fully autotrophic nitrification conditions.",
+      "journal": "Bioresource technology",
+      "pub_date": "2026 Dec",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42653984",
+      "doi": "10.3390/molecules31162904",
+      "title": "Exploring the Suitability of High-Performance Thin-Layer Chromatography for the Analysis of Drug Admixtures in Total Parenteral Nutrition Using Caffeine, Ibuprofen and Midazolam as Model Drugs.",
+      "journal": "Molecules (Basel, Switzerland)",
+      "pub_date": "2026 Aug 20",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "performance",
+      "pmid": "42712836",
+      "doi": "10.5114/jhk/208389",
+      "title": "High-Dose Caffeine Mouth Rinse Is an Effective Strategy for Isokinetic Strength Generation in Soccer Players.",
+      "journal": "Journal of human kinetics",
+      "pub_date": "2026 Jul",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41789446",
+      "doi": "10.1080/07420528.2025.2574851",
+      "title": "Intestinal production of melatonin and its putative role as a circadian organizer.",
+      "journal": "Chronobiology international",
+      "pub_date": "2026 May",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41806479",
+      "doi": "10.1177/10998004261433563",
+      "title": "The Effect of a Race-Based Stress Reduction Intervention on Sleep Quality, Melatonin Onset, and Inflammation in African American Women: Protocol for a Pilot Randomized Controlled Trial.",
+      "journal": "Biological research for nursing",
+      "pub_date": "2026 Jul",
+      "pub_type": "Clinical Trial Protocol",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41814853",
+      "doi": "10.14814/phy2.70805",
+      "title": "Sleep quality and sleepiness in adults with multiple myeloma. Is melatonin a potential treatment?",
+      "journal": "Physiological reports",
+      "pub_date": "2026 Mar",
+      "pub_type": "Observational Study",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41846526",
+      "doi": "10.5152/tjg.2026.25808",
+      "title": "Nocturnal Melatonin Deficiency in Colorectal Cancer: Independent Predictive Value Beyond Sleep Quality.",
+      "journal": "The Turkish journal of gastroenterology : the official journal of Turkish Society of Gastroenterology",
+      "pub_date": "2026 Feb 23",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41850066",
+      "doi": "10.1016/j.psj.2026.106712",
+      "title": "Circadian rhythm of melatonin receptors under monochromatic light and their regulatory effect on clock genes in the chick liver.",
+      "journal": "Poultry science",
+      "pub_date": "2026 Jun",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41859230",
+      "doi": "10.3389/fnins.2026.1736978",
+      "title": "Rhythms of life: melatonin, nutrition, sleep, and antioxidant strategies for healthy aging.",
+      "journal": "Frontiers in neuroscience",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41862003",
+      "doi": "10.1016/j.ajcnut.2026.101285",
+      "title": "Diabetes modifies the association between magnesium and insomnia, but not depressive symptomatology, in Puerto Rican adults: a prospective cohort study.",
+      "journal": "The American journal of clinical nutrition",
+      "pub_date": "2026 May",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41887119",
+      "doi": "10.1016/j.sleep.2026.108899",
+      "title": "Preserved circadian rhythms reflected by dim light melatonin onset in patients with KLS.",
+      "journal": "Sleep medicine",
+      "pub_date": "2026 Jul",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41898526",
+      "doi": "10.3390/ijms27062663",
+      "title": "Morphofunctional State of the Liver Under Conditions of Three-Month Dark Deprivation: The Influence of Circadian Disruptions and Melatonin.",
+      "journal": "International journal of molecular sciences",
+      "pub_date": "2026 Mar 14",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41901097",
+      "doi": "10.3390/nu18060922",
+      "title": "CherryZZZ: A Protocol for a Randomized, Double-Blind, Placebo-Controlled, Cross-Over Pilot Study Testing Tart Cherry Juice in Older Adults with Self-Reported Insomnia.",
+      "journal": "Nutrients",
+      "pub_date": "2026 Mar 14",
+      "pub_type": "Clinical Trial Protocol",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41915304",
+      "doi": "10.1007/s12035-026-05824-w",
+      "title": "Hydrogen as a Potential Modulator: Implications for Mast Cell-Sleep-Wake Rhythm-Melatonin Interactions in Sleep Disorders.",
+      "journal": "Molecular neurobiology",
+      "pub_date": "2026 Mar 31",
+      "pub_type": "Review",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41922735",
+      "doi": "10.1038/s44323-026-00074-4",
+      "title": "Field assessment of melatonin timing reveals circadian misalignment beyond chronotype in elite female football players.",
+      "journal": "Npj biological timing and sleep",
+      "pub_date": "2026 Apr 1",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41937599",
+      "doi": "10.1080/07420528.2026.2650828",
+      "title": "Improved sleep and heart rate stability with low-dose melatonin in young male athletes following exhaustive exercise.",
+      "journal": "Chronobiology international",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41943473",
+      "doi": "10.1177/07487304261427822",
+      "title": "Overnight Motor Memory Consolidation in Adolescents: Effects of Change in Dim Light Melatonin Onset After Sleep Restriction.",
+      "journal": "Journal of biological rhythms",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41966732",
+      "doi": "10.1016/j.sleep.2026.108949",
+      "title": "Association of morning plasma melatonin levels with chronotype, sleep disturbance, anxiety, and depression symptoms in adolescents with ADHD.",
+      "journal": "Sleep medicine",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42013861",
+      "doi": "10.1016/j.cub.2026.03.059",
+      "title": "Melatonin promotes sleep by suppressing responses to visual stimuli via MT1 receptors.",
+      "journal": "Current biology : CB",
+      "pub_date": "2026 May 4",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42050171",
+      "doi": "10.1038/s44323-026-00080-6",
+      "title": "Fecal melatonin as a biomarker of emerging circadian maturity and gut microbiota in infancy.",
+      "journal": "Npj biological timing and sleep",
+      "pub_date": "2026 Apr 28",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42058225",
+      "doi": "10.1002/fsn3.71823",
+      "title": "Effectiveness of Melatonin-Containing Foods on Promoting Sleep: A Scoping Review.",
+      "journal": "Food science & nutrition",
+      "pub_date": "2026 May",
+      "pub_type": "Review",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42085153",
+      "doi": "10.1073/pnas.2524839123",
+      "title": "Single-cell multiomic and spatial landscape of the primate pineal gland reveals circadian and melatonin regulatory architecture.",
+      "journal": "Proceedings of the National Academy of Sciences of the United States of America",
+      "pub_date": "2026 May 12",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42086035",
+      "doi": "10.1016/j.cub.2026.03.071",
+      "title": "Sleep: Melatonin dims the lights on wakefulness.",
+      "journal": "Current biology : CB",
+      "pub_date": "2026 May 4",
+      "pub_type": "Comment",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]"
+    }
+  ]
+}
