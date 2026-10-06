@@ -1,0 +1,849 @@
+{
+  "schema_version": 1,
+  "category": "metabolic",
+  "target": 28,
+  "predecessor_unique_pmids": 5935,
+  "candidate_count": 84,
+  "rows": [
+    {
+      "pmid": "42836929",
+      "title": "Questionable Evidence for Berberine in Polyendocrine Metabolic Ovarian Syndrome: An Integrity-Based Reappraisal.",
+      "doi": "10.1007/s12325-026-03799-7",
+      "pub_date": "2026 Oct 6",
+      "journal": "Advances in therapy",
+      "pub_type": "Systematic Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42511630",
+      "title": "Psyllium and Glucomannan as Viscous Fiber Modulators of the Gut-Microbiome-Incretin Axis: Molecular Links to Metabolic Inflammation, Barrier Function, and GLP-1 Receptor Agonist Therapy.",
+      "doi": "10.3390/ijms27146287",
+      "pub_date": "2026 Jul 15",
+      "journal": "International journal of molecular sciences",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42346410",
+      "title": "Metabolic Mechanisms of Hexavalent Chromium-Induced Splenic Immune Injury via Oxidative Stress and Ferroptosis Pathways in New Zealand Rabbits.",
+      "doi": "10.3390/metabo16060430",
+      "pub_date": "2026 Jun 18",
+      "journal": "Metabolites",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42382566",
+      "title": "Nutritional characterization and postprandial glycemic response of low-calorie date snacks incorporating psyllium and oat fibers in healthy and type 2 diabetes.",
+      "doi": "10.3389/fnut.2026.1862658",
+      "pub_date": "2026",
+      "journal": "Frontiers in nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42597565",
+      "title": "The gut microbiome as a plausible but unproven moderator of cinnamon trial outcomes in type 2 diabetes: toward phytochemical standardization and precision nutraceuticals.",
+      "doi": "10.3389/fnut.2026.1874182",
+      "pub_date": "2026",
+      "journal": "Frontiers in nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42600861",
+      "title": "Prediction of the SREBP1-ISYNA1-inositol axis in butyrate-induced pyroptosis and lipid metabolic dysregulation in periodontitis.",
+      "doi": "10.1016/j.micpath.2026.108775",
+      "pub_date": "2026 Nov",
+      "journal": "Microbial pathogenesis",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42621560",
+      "title": "Benefit of Psyllium with Weight Loss Diet in Preventing Liver Dysfunction in Overweight or Obese Adults with Metabolic Dysfunction-Associated Steatotic Liver Disease (MASLD).",
+      "doi": "10.4103/ijpvm.ijpvm_254_24",
+      "pub_date": "2026",
+      "journal": "International journal of preventive medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42829475",
+      "title": "Dual pH/glucose-responsive berberine-loaded bioactive glass/carboxymethyl chitosan hydrogel for promoting diabetic wound healing.",
+      "doi": "10.1080/09205063.2026.2741657",
+      "pub_date": "2026 Oct 4",
+      "journal": "Journal of biomaterials science. Polymer edition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42834458",
+      "title": "The Therapeutic Potential of Berberine in Treating Diabetes and Its Complications: Molecular Mechanisms and Future Perspectives.",
+      "doi": "10.1142/S0192415X26500795",
+      "pub_date": "2026 Oct 6",
+      "journal": "The American journal of Chinese medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42363193",
+      "title": "Herb-derived immunometabolic modulators: traditional Chinese medicine at the crossroads of metabolism and antitumor immunity.",
+      "doi": "10.1186/s13020-026-01448-3",
+      "pub_date": "2026 Jun 26",
+      "journal": "Chinese medicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42434299",
+      "title": "Microbiota-mediated mechanisms of natural products in atherosclerosis: focus on metabolic and inflammatory pathways.",
+      "doi": "10.3389/fendo.2026.1818349",
+      "pub_date": "2026",
+      "journal": "Frontiers in endocrinology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42453660",
+      "title": "The dual role of metabolic reprogramming in macrophage polarization in rheumatoid arthritis and coronary heart disease and the intervention strategy of traditional Chinese medicine.",
+      "doi": "10.3389/fcvm.2026.1874530",
+      "pub_date": "2026",
+      "journal": "Frontiers in cardiovascular medicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42475523",
+      "title": "Untangling Inositol (Pyro)Phosphate Biology Through Emerging Technologies.",
+      "doi": "10.1002/advs.76711",
+      "pub_date": "2026 Sep",
+      "journal": "Advanced science (Weinheim, Baden-Wurttemberg, Germany)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42551031",
+      "title": "Cinnamon.",
+      "doi": null,
+      "pub_date": "2012",
+      "journal": null,
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42564395",
+      "title": "HPV-driven metabolic reprogramming promotes T cell exhaustion: targeting immunometabolic barriers with natural products.",
+      "doi": "10.3389/fimmu.2026.1892919",
+      "pub_date": "2026",
+      "journal": "Frontiers in immunology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42591400",
+      "title": "Metabolic-epigenetic axis in cardiovascular inflammatory injury: regulatory mechanisms and intervention strategies.",
+      "doi": "10.3389/fcvm.2026.1805737",
+      "pub_date": "2026",
+      "journal": "Frontiers in cardiovascular medicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42614562",
+      "title": "Immunometabolic pathways in liver fibrosis: current evidence for selected plant-derived metabolites associated with traditional Chinese medicine.",
+      "doi": "10.3389/fphar.2026.1810588",
+      "pub_date": "2026",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42727470",
+      "title": "A soil microbial indicator framework for ecological effect assessment of heavy metal risks in red mud stockpiles: A meta-analysis of available evidence.",
+      "doi": "10.1016/j.jenvman.2026.130917",
+      "pub_date": "2026 Sep 15",
+      "journal": "Journal of environmental management",
+      "pub_type": "Meta-Analysis",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42327328",
+      "title": "Effects of Arginine Vasopressin on Islet Cells in Pancreatic Tissue Slices: Glucose-Dependent Modulation of Alpha and Beta Cell Activity.",
+      "doi": "10.1101/2025.03.03.641205",
+      "pub_date": "2026 Jun 12",
+      "journal": "bioRxiv : the preprint server for biology",
+      "pub_type": "Preprint",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42367479",
+      "title": "Enhanced Apparent Oral Bioavailability of Berberine Through BioSOLVE Technology: Pharmacokinetic Evaluation of Metaberine™.",
+      "doi": "10.7759/cureus.109791",
+      "pub_date": "2026 May",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42368517",
+      "title": "Whole transcriptome sequencing from Zanthoxylum armatum: implications on metabolic pathway analysis and regulation.",
+      "doi": "10.3389/fpls.2026.1795497",
+      "pub_date": "2026",
+      "journal": "Frontiers in plant science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42396215",
+      "title": "Temporal-responsive hydrogels reprogramming energy metabolic pathway in the bone-angiogenic cascade for diabetic bone regeneration.",
+      "doi": "10.1016/j.mtbio.2026.103394",
+      "pub_date": "2026 Aug",
+      "journal": "Materials today. Bio",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42440676",
+      "title": "Integrated metabolomics reveals lipid mediators and food-associated chemicals associated with metabolic syndrome.",
+      "doi": "10.3389/fnut.2026.1836210",
+      "pub_date": "2026",
+      "journal": "Frontiers in nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42454077",
+      "title": "Identification of metabolic biomarkers and pathways associated with Ichthyophonus hoferi infection in White stumpnose (Rhabdosargus globiceps).",
+      "doi": "10.3389/fphys.2026.1826309",
+      "pub_date": "2026",
+      "journal": "Frontiers in physiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42472901",
+      "title": "Plant growth-promoting rhizobacteria enhance metal tolerance in rice (Oryza sativa L.) under chromium and lead stress.",
+      "doi": "10.1038/s41598-026-61223-0",
+      "pub_date": "2026 Jul 19",
+      "journal": "Scientific reports",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42524643",
+      "title": "Pristine+™ Everolimus-Eluting Cobalt-Chromium Coronary Stent System: A Prospective, Multicenter Registry.",
+      "doi": "10.14740/cr2230",
+      "pub_date": "2026 Aug",
+      "journal": "Cardiology research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42530723",
+      "title": "Productive, metabolic and economic responses of Nellore young bulls fed diets with different non-protein nitrogen source combinations.",
+      "doi": "10.1007/s11250-026-05264-7",
+      "pub_date": "2026 Jul 30",
+      "journal": "Tropical animal health and production",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42551368",
+      "title": "Cr(VI) stress induces carbon-nitrogen metabolic reprogramming in Penicillium oxalicum SL2.",
+      "doi": "10.1016/j.jhazmat.2026.143134",
+      "pub_date": "2026 Sep 1",
+      "journal": "Journal of hazardous materials",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42564599",
+      "title": "Clinical AI-assisted FXR prioritization and WADDAICA-guided design of a berberine-inspired analogue for MASH: integrated computational and experimental validation.",
+      "doi": "10.3389/fphar.2026.1862990",
+      "pub_date": "2026",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42621127",
+      "title": "Blocking TNFR1 internalization and cell death represents a critical mechanism for alleviating enteritis in adult grass carp: The potential role of dietary myo-inositol in enhancing intestinal health.",
+      "doi": "10.1016/j.aninu.2025.12.020",
+      "pub_date": "2026 Sep",
+      "journal": "Animal nutrition (Zhongguo xu mu shou yi xue hui)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42625157",
+      "title": "Mitigating chromium stress on pea (Pisum sativum L.) by foliar application of trehalose.",
+      "doi": "10.1186/s12870-026-09747-5",
+      "pub_date": "2026 Aug 15",
+      "journal": "BMC plant biology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42627928",
+      "title": "Cinnamon plays a key role in the anti-obesity action of Hachimijiogan by ameliorating leptin resistance in the hypothalamus.",
+      "doi": "10.1093/jpp/rgag090",
+      "pub_date": "2026 Aug 3",
+      "journal": "The Journal of pharmacy and pharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42641512",
+      "title": "Reshaping bio-nano interfaces via dissolved humic substances: Metabolic priming and electron shuttling drive robust Cr(VI) detoxification by MR-1/nZVI.",
+      "doi": "10.1016/j.jhazmat.2026.143339",
+      "pub_date": "2026 Sep 15",
+      "journal": "Journal of hazardous materials",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42650655",
+      "title": "Transcriptome-Integrated Metabolic Modeling Identifies Candidate Metabolic Adjuvants in Antibiotic-Resistant Pseudomonas aeruginosa.",
+      "doi": "10.3390/antibiotics15080730",
+      "pub_date": "2026 Jul 28",
+      "journal": "Antibiotics (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42669493",
+      "title": "Seasonal reproductive and metabolic changes in male Pacific white-sided dolphins (Aethalodelphis obliquidens).",
+      "doi": "10.1262/jrd.2026-097",
+      "pub_date": "2026 Aug 31",
+      "journal": "The Journal of reproduction and development",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42685946",
+      "title": "Methacrylated hyaluronic acid hydrogel enables CD44-mediated local berberine delivery to reprogram macrophage immunometabolism and promote alveolar bone repair in periodontitis.",
+      "doi": "10.1016/j.ijbiomac.2026.154314",
+      "pub_date": "2026 Sep 3",
+      "journal": "International journal of biological macromolecules",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42691908",
+      "title": "Multi-omics integration uncovers mechanisms of chromium tolerance in Cosmos sulphureus.",
+      "doi": "10.1016/j.jhazmat.2026.143478",
+      "pub_date": "2026 Sep 1",
+      "journal": "Journal of hazardous materials",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42693013",
+      "title": "[Research progress on traditional Chinese medicine in prevention and treatment of metabolic diseases via SIRT1/AMPK signaling pathway].",
+      "doi": "10.19540/j.cnki.cjcmm.20260330.707",
+      "pub_date": "2026 Aug",
+      "journal": "Zhongguo Zhong yao za zhi = Zhongguo zhongyao zazhi = China journal of Chinese materia medica",
+      "pub_type": "English Abstract",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42706705",
+      "title": "Dietary alpha-lipoic acid supplementation alleviates high-fat diet-induced hepatic steatosis and inflammation by remodeling the gut microbiota and restoring the primary bile acid pool.",
+      "doi": "10.1002/jsfa.71071",
+      "pub_date": "2026 Sep 7",
+      "journal": "Journal of the science of food and agriculture",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42721599",
+      "title": "Berberine attenuates sepsis-associated myocardial injury and mitochondrial dysfunction through the AMPK/PGC-1α/NRF2 signaling pathway.",
+      "doi": "10.1016/j.prp.2026.156685",
+      "pub_date": "2026 Sep 7",
+      "journal": "Pathology, research and practice",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42742414",
+      "title": "Chromium and lead levels and their health effects on welding and electroplating exposed workers: A pilot study.",
+      "doi": "10.1080/15459624.2026.2709625",
+      "pub_date": "2026 Sep 15",
+      "journal": "Journal of occupational and environmental hygiene",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42747496",
+      "title": "Integrated transcriptomic and metabolomic analyses reveal sodium selenite-induced molecular responses and metabolic remodeling in Stemona tuberosa roots.",
+      "doi": "10.1007/s00709-026-02266-y",
+      "pub_date": "2026 Sep 16",
+      "journal": "Protoplasma",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42765702",
+      "title": "Cellular adaptations of fission yeast to inositol starvation.",
+      "doi": "10.1128/mbio.01864-26",
+      "pub_date": "2026 Sep 21",
+      "journal": "mBio",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42777155",
+      "title": "Inositol phosphates, pyrophosphates and the genes involved in their turnover in the streptophyte green alga Chara braunii.",
+      "doi": "10.1093/plphys/kiag708",
+      "pub_date": "2026 Sep 23",
+      "journal": "Plant physiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42790433",
+      "title": "Myo-inositol metabolism counteracts mycotoxin hijacking and confers broad resistance to fungal diseases in crops.",
+      "doi": "10.1016/j.chom.2026.09.001",
+      "pub_date": "2026 Sep 25",
+      "journal": "Cell host & microbe",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42801157",
+      "title": "Inositol Metabolism Modulates Inflammatory Injury in Acute Pancreatitis via the ISYNA1-NETs Axis.",
+      "doi": "10.2147/JIR.S606503",
+      "pub_date": "2026",
+      "journal": "Journal of inflammation research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42807793",
+      "title": "Multi-omic stable isotope probing reveals myo-inositol metabolism by anaerobic gut bacteria in laying hens.",
+      "doi": "10.1093/ismeco/ycag257",
+      "pub_date": "2026 Jan",
+      "journal": "ISME communications",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42813629",
+      "title": "Cinnamon-derived Phenylpropanoids against Candida: Multi-target Mechanisms and Medicinal Chemistry Perspectives.",
+      "doi": "10.2174/0113895575493800260904064024",
+      "pub_date": "2026 Sep 25",
+      "journal": "Mini reviews in medicinal chemistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42322370",
+      "title": "Hydrocarbon and heavy metal pollution in Antarctica: ecological impacts and remediation strategies.",
+      "doi": "10.1007/s11356-026-37942-2",
+      "pub_date": "2026 May",
+      "journal": "Environmental science and pollution research international",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42352057",
+      "title": "Oxidative Stress in Glaucoma: From Pathogenic Mechanisms to Emerging Antioxidant Therapies.",
+      "doi": "10.3390/antiox15060751",
+      "pub_date": "2026 Jun 14",
+      "journal": "Antioxidants (Basel, Switzerland)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42353410",
+      "title": "Mitochondrial Communication with Cellular Organelles in the Pathogenesis of Fatty Liver Disease in Domestic and Model Animals.",
+      "doi": "10.3390/ani16121800",
+      "pub_date": "2026 Jun 10",
+      "journal": "Animals : an open access journal from MDPI",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42365862",
+      "title": "Harnessing natural herbaceous plants against ferroptosis: Implications for managing polycystic ovary syndrome.",
+      "doi": "10.1016/j.jep.2026.122135",
+      "pub_date": "2027 Jan 10",
+      "journal": "Journal of ethnopharmacology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42367112",
+      "title": "The link between phosphate starvation-triggered anthocyanin biosynthesis and jasmonate-driven regulation in tomato.",
+      "doi": "10.1093/jxb/erag259",
+      "pub_date": "2026 Sep 16",
+      "journal": "Journal of experimental botany",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42378001",
+      "title": "Small Intestinal Bacterial Overgrowth: Microbiome Dysregulation, Gut-Brain Axis Disruption, and Systemic Consequences.",
+      "doi": "10.1002/mnfr.70541",
+      "pub_date": "2026 Jul",
+      "journal": "Molecular nutrition & food research",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42411475",
+      "title": "Broad Roles of Endoplasmic Reticulum Stress Sensors Activated by Diverse Pathophysiological Stimuli.",
+      "doi": "10.31083/FBL50701",
+      "pub_date": "2026 Jun 25",
+      "journal": "Frontiers in bioscience (Landmark edition)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42422087",
+      "title": "The dysregulated unfolded protein response in diabetic kidney disease: mechanisms and crosstalk with cell death pathways.",
+      "doi": "10.3389/fphar.2026.1875777",
+      "pub_date": "2026",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42485732",
+      "title": "Calcium signaling in microglial immune functions: current understanding and implications for disease.",
+      "doi": "10.1016/j.coi.2026.102819",
+      "pub_date": "2026 Oct",
+      "journal": "Current opinion in immunology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42514375",
+      "title": "The Dynamic Coenzyme Network of B Vitamins in Nutritional Neuropathy and Neuropsychiatric Vulnerability: A Mechanistic Narrative Review.",
+      "doi": "10.3390/nu18142306",
+      "pub_date": "2026 Jul 14",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42519207",
+      "title": "From spatial patterning to coordinated execution: a cross-system framework for autism spectrum disorder.",
+      "doi": "10.3389/fpsyt.2026.1883356",
+      "pub_date": "2026",
+      "journal": "Frontiers in psychiatry",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42581170",
+      "title": "Potentially toxic elements in multi-stressor marine environments: bioaccumulation, ecosystem impacts, and human health implications.",
+      "doi": "10.1007/s10653-026-03420-4",
+      "pub_date": "2026 Aug 11",
+      "journal": "Environmental geochemistry and health",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42652249",
+      "title": "Non-Pharmacological Strategies in Atherosclerotic Cardiovascular Disease: From Molecular Mechanisms to Clinical Integration.",
+      "doi": "10.3390/biomedicines14081868",
+      "pub_date": "2026 Aug 20",
+      "journal": "Biomedicines",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42694676",
+      "title": "Retinoic acid-related orphan receptor alpha (RORα) as a candidate multi-pathway target in Alzheimer's disease: mechanisms and therapeutic prospects.",
+      "doi": "10.3389/fnins.2026.1912268",
+      "pub_date": "2026",
+      "journal": "Frontiers in neuroscience",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42703134",
+      "title": "The Neovitamins: Metavitamins and Vitaminoids.",
+      "doi": "10.47391/JPMA.26-61",
+      "pub_date": "2026 Aug",
+      "journal": "JPMA. The Journal of the Pakistan Medical Association",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "32644459",
+      "title": "The Role of Dietary Fiber in Health Promotion and Disease Prevention: A Practical Guide for Clinicians.",
+      "doi": null,
+      "pub_date": "2026 Jan",
+      "journal": null,
+      "pub_type": "Study Guide",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42326559",
+      "title": "High-resolution whole-brain magnetic resonance spectroscopic imaging in youth at risk for psychosis.",
+      "doi": "10.1162/IMAG.a.1276",
+      "pub_date": "2026",
+      "journal": "Imaging neuroscience (Cambridge, Mass.)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42336587",
+      "title": "Arsenic induces chicken liver injury by inhibiting endoplasmic reticulum-lysosomal calcium ion transport and lysosomal autophagy activity via the IP(3)R/TRPML1 pathway.",
+      "doi": "10.1016/j.jes.2025.12.071",
+      "pub_date": "2026 Aug",
+      "journal": "Journal of environmental sciences (China)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42337890",
+      "title": "Innovative Phytochemical-Based Approaches for the Treatment of Diabetic Foot Ulcers.",
+      "doi": "10.2174/0115733998431722260327100634",
+      "pub_date": "2026 Jun 23",
+      "journal": "Current diabetes reviews",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42348576",
+      "title": "Impact of long-term cryopreservation on serum proteome and metallome: Implications for Biobank quality control.",
+      "doi": "10.1371/journal.pone.0351736",
+      "pub_date": "2026",
+      "journal": "PloS one",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42354440",
+      "title": "Mild Heat Stimulating and Microenvironment Reprogramming Hydrogel for Accelerating Diabetic Wound Healing.",
+      "doi": "10.3390/gels12060542",
+      "pub_date": "2026 Jun 17",
+      "journal": "Gels (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42367775",
+      "title": "Vitamin D supports activated CD4(+) T-cell proliferation through enhanced glutaminolysis.",
+      "doi": "10.3389/fimmu.2026.1791098",
+      "pub_date": "2026",
+      "journal": "Frontiers in immunology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42379367",
+      "title": "Effects of rumen-protected methionine and n-3 fatty acid-enriched calcium-salts on biomarkers of liver function in periparturient dairy cows.",
+      "doi": "10.3168/jds.2026-28852",
+      "pub_date": "2026 Jun 30",
+      "journal": "Journal of dairy science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42401226",
+      "title": "Integrated pathways of T-2 toxin-induced neurotoxicity and protection by sodium butyrate in quails.",
+      "doi": "10.1016/j.cbi.2026.112234",
+      "pub_date": "2026 Sep 1",
+      "journal": "Chemico-biological interactions",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42418110",
+      "title": "The functionality of the cysteinyl leukotriene receptor 1 (CysLTR1) in the lung by metabolomics analysis of bronchoalveolar lavage fluid.",
+      "doi": "10.1007/s11306-026-02491-9",
+      "pub_date": "2026 Jul 8",
+      "journal": "Metabolomics : Official journal of the Metabolomic Society",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42420830",
+      "title": "Exercise suppresses IP6K3 to modulate BCAA metabolism and ferroptosis in MASLD.",
+      "doi": "10.1186/s11658-026-00981-1",
+      "pub_date": "2026 Jul 8",
+      "journal": "Cellular & molecular biology letters",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42434731",
+      "title": "Fuel-maintenance coupling reprograms mitochondrial homeostasis to enable peripheral nerve regeneration.",
+      "doi": "10.1016/j.mtbio.2026.103411",
+      "pub_date": "2026 Aug",
+      "journal": "Materials today. Bio",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42434791",
+      "title": "Bioremediation and heavy metal recovery from e-waste through enrichment and identification of effective bacterial isolates.",
+      "doi": "10.1007/s13205-026-04953-2",
+      "pub_date": "2026 Aug",
+      "journal": "3 Biotech",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42442030",
+      "title": "Metabolomic differences in the Ophiura sarsii complex from the Yellow Sea Cold Water Mass and Bering Sea Cold Pool.",
+      "doi": "10.1016/j.cbd.2026.101930",
+      "pub_date": "2026 Dec",
+      "journal": "Comparative biochemistry and physiology. Part D, Genomics & proteomics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42448062",
+      "title": "DANGER/ITPRIP-mediated iron homeostasis mediates ferroptosis resistance and presents a potential therapeutic target in ccRCC.",
+      "doi": "10.1016/j.freeradbiomed.2026.07.022",
+      "pub_date": "2026 Nov",
+      "journal": "Free radical biology & medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42450337",
+      "title": "Lipoic Acid Attenuates Lipopolysaccharide- and Escherichia coli-Induced Reactive Oxygen Species Production and Neutrophil Extracellular Trap Formation Without Impairing Escherichia coli or Staphylococcus aureus Killing by Human Neutrophils.",
+      "doi": "10.3390/ijms27136072",
+      "pub_date": "2026 Jul 7",
+      "journal": "International journal of molecular sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42450780",
+      "title": "A Compound Feed Additive Improves Saline-Alkaline Stress Tolerance in Nile Tilapia (Oreochromis niloticus) Through Regulation of Hepatic Metabolism, Osmoregulation, and Intestinal Health.",
+      "doi": "10.3390/ani16132073",
+      "pub_date": "2026 Jul 5",
+      "journal": "Animals : an open access journal from MDPI",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42501541",
+      "title": "Research note: Untargeted metabolomics to understand the impact of controlled atmosphere stunning and electrical stunning on metabolite profiles of early postmortem breast fillet.",
+      "doi": "10.1016/j.psj.2026.107301",
+      "pub_date": "2026 Jun 15",
+      "journal": "Poultry science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42512760",
+      "title": "Maternal Nutritional Adherence and Second-Trimester Amniotic-Fluid Metabolomic Profiles: An Exploratory Study.",
+      "doi": "10.3390/medicina62071217",
+      "pub_date": "2026 Jun 23",
+      "journal": "Medicina (Kaunas, Lithuania)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42513126",
+      "title": "Cold Storage and Drying Alter Polar Metabolite Profiles in Commercial Sprouts of Eight Plant Species.",
+      "doi": "10.3390/molecules31142442",
+      "pub_date": "2026 Jul 12",
+      "journal": "Molecules (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42515066",
+      "title": "Phosphorylation Modification Characteristics of Liver Injury-Related Proteins in Klebsiella pneumoniae Liver Abscess.",
+      "doi": "10.3390/pathogens15070739",
+      "pub_date": "2026 Jul 14",
+      "journal": "Pathogens (Basel, Switzerland)",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "has_abstract": true,
+      "discovery_query": "((berberine[Title/Abstract] OR cinnamon[Title/Abstract] OR chromium[Title/Abstract] OR inositol[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR psyllium[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR diabetes[Title/Abstract] OR metabolic[Title/Abstract] OR glycemic[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    }
+  ]
+}
