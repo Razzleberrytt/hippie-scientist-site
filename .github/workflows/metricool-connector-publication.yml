@@ -13,9 +13,9 @@ on:
         default: 'tiktok'
         type: string
       auto_publish:
-        description: 'Allow Metricool to auto-publish at the scheduled time'
+        description: 'Legacy/manual delivery only. true is rejected while Metricool auto-publish is frozen by THS SocialOS'
         required: true
-        default: true
+        default: false
         type: boolean
       youtube_title:
         description: 'Explicit YouTube Short title; required when youtube is requested'
@@ -102,6 +102,7 @@ jobs:
             throw new Error(`${label} must be explicitly true or false`)
           }
           const networks = [...new Set(clean(process.env.METRICOOL_NETWORKS).split(',').map((item) => item.trim().toLowerCase()).filter(Boolean))]
+          if (clean(process.env.METRICOOL_AUTO_PUBLISH).toLowerCase() === 'true') throw new Error('Metricool automatic publishing is frozen by THS SocialOS; use THS Publisher or manual legacy delivery')
           const selection = JSON.parse(fs.readFileSync('artifacts/distribution/opportunity-selection.json', 'utf8'))
           const objectId = clean(selection?.selected?.id)
           if (!objectId) throw new Error('missing governed opportunity selection')
@@ -109,17 +110,17 @@ jobs:
           const pilot = JSON.parse(fs.readFileSync(path.join('artifacts/distribution/pilots', objectId, 'bounded-pilot.json'), 'utf8'))
           if (packageData?.mediaPack?.status !== 'validated') throw new Error('connector transport requires validated governed media')
 
-          const manifestUrl = 'https://thehippiescientist.net/media/distribution/metricool/latest.json'
+          const manifestUrl = 'https://thehippiescientist.net/media/distribution/publisher/latest.json'
           const response = await fetch(manifestUrl, { headers: { Accept: 'application/json' } })
-          if (!response.ok) throw new Error(`deployed Metricool manifest is unreachable (${response.status})`)
+          if (!response.ok) throw new Error(`deployed provider-neutral manifest is unreachable (${response.status})`)
           const manifest = await response.json()
-          if (manifest?.schemaVersion !== 'metricool-publication-media-v1' || manifest?.status !== 'ready-for-provider') {
-            throw new Error('deployed Metricool manifest is invalid or not provider-ready')
+          if (manifest?.schemaVersion !== 'ths-publication-media-v1' || manifest?.status !== 'ready-for-provider') {
+            throw new Error('deployed provider-neutral manifest is invalid or not provider-ready')
           }
           if (manifest.identityFingerprint !== pilot?.lifecycle?.identity?.fingerprint || manifest.lifecycleId !== pilot?.lifecycle?.lifecycleId || manifest.researchObjectId !== objectId) {
-            throw new Error('deployed Metricool manifest is stale relative to the dispatch SHA')
+            throw new Error('deployed provider-neutral manifest is stale relative to the dispatch SHA')
           }
-          if (manifest.packId !== packageData.mediaPack.packId) throw new Error('deployed Metricool manifest pack does not match validated distribution package')
+          if (manifest.packId !== packageData.mediaPack.packId) throw new Error('deployed provider-neutral manifest pack does not match validated distribution package')
           const allowed = new Set(Array.isArray(manifest.allowedNetworks) ? manifest.allowedNetworks.map((item) => clean(item).toLowerCase()) : [])
           const disallowed = networks.filter((network) => !allowed.has(network))
           if (disallowed.length) throw new Error(`deployed governed media is not authorized for network(s): ${disallowed.join(', ')}`)
@@ -138,7 +139,7 @@ jobs:
             publicationAt: process.env.METRICOOL_PUBLICATION_AT,
             timezone: 'America/New_York',
             title: youtube ? clean(process.env.METRICOOL_YOUTUBE_TITLE) : manifest.title,
-            autoPublish: process.env.METRICOOL_AUTO_PUBLISH !== 'false',
+            autoPublish: false,
             youtubePrivacy: youtube ? clean(process.env.METRICOOL_YOUTUBE_PRIVACY) : undefined,
             youtubeMadeForKids: youtube ? parseBoolean(process.env.METRICOOL_YOUTUBE_MADE_FOR_KIDS, 'YouTube made-for-kids setting') : undefined,
             youtubeAiGeneratedContent: youtube ? parseBoolean(process.env.METRICOOL_YOUTUBE_AI_GENERATED_CONTENT, 'YouTube AI-content declaration') : undefined,
