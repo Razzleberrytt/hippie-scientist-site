@@ -60,6 +60,7 @@ export async function uploadTikTokDraftFromArtifacts({
   distributionDir = path.resolve(process.env.DISTRIBUTION_OUTPUT || 'artifacts/distribution'),
   manifestUrl = process.env.THS_PUBLICATION_MANIFEST_URL || process.env.TIKTOK_PUBLICATION_MANIFEST_URL || DEFAULT_MANIFEST_URL,
   experimentId = process.env.THS_EXPERIMENT_ID,
+  expectedResearchObjectId = process.env.THS_RESEARCH_OBJECT_ID,
   intendedTime = process.env.THS_PUBLICATION_AT,
   publisherAdminToken = process.env.THS_PUBLISHER_ADMIN_TOKEN,
   publisherBridgeBase = process.env.THS_PUBLISHER_BRIDGE_BASE || DEFAULT_BRIDGE_BASE,
@@ -68,6 +69,7 @@ export async function uploadTikTokDraftFromArtifacts({
 } = {}) {
   if (typeof fetchImpl !== 'function') throw new Error('THS Publisher TikTok dispatch requires fetch')
   if (!clean(experimentId)) throw new Error('missing THS_EXPERIMENT_ID')
+  if (!clean(expectedResearchObjectId)) throw new Error('missing THS_RESEARCH_OBJECT_ID')
   if (!clean(intendedTime)) throw new Error('missing THS_PUBLICATION_AT')
 
   const liveManifest = await fetchJson(manifestUrl, fetchImpl)
@@ -90,6 +92,9 @@ export async function uploadTikTokDraftFromArtifacts({
   const selection = readJson(path.join(distributionDir, 'opportunity-selection.json'))
   const objectId = clean(selection?.selected?.id)
   if (!objectId) throw new Error('TikTok dispatch requires a selected governed opportunity')
+  if (objectId !== clean(expectedResearchObjectId)) {
+    throw new Error('THS_RESEARCH_OBJECT_ID does not match the current governed opportunity')
+  }
   const packageData = readJson(path.join(distributionDir, objectId + '.json'))
   const pilot = readJson(path.join(distributionDir, 'pilots', objectId, 'bounded-pilot.json'))
 
