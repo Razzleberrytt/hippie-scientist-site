@@ -43,7 +43,7 @@ Every publication transition carries the deterministic idempotency key and upstr
 
 The Cloudflare Publisher service persists jobs in D1 behind `/api/publisher/*`. `THS_PUBLISHER_DB` is the durable queue binding and `THS_PUBLISHER_ADMIN_TOKEN` protects its operator/service endpoints. The D1 schema enforces one non-cancelled publication owner per platform/time slot; safe cancellation releases an unused slot.
 
-Retries remain under the same `publication_id`. Definite failures may be retried explicitly; ambiguous transport outcomes become `NEEDS_RECONCILIATION` and are excluded from automatic due-work selection. Provider acceptance, inbox delivery, and public publication are separate states.
+Retries remain under the same `publication_id`. Failures proven pre-dispatch may be retried explicitly; ambiguous transport outcomes become `NEEDS_RECONCILIATION` and are excluded from automatic due-work selection. A crash-stranded `DISPATCHING` job is also fail-closed until `/api/publisher/reconcile` records explicit evidence. Provider acceptance, inbox delivery, and public publication are separate states.
 
 `functions/_shared/social-publisher-runtime.ts` owns the first active TikTok transport and Observer transitions. Meta is not yet active. Manual publication of the exact governed artifact can be recorded as a provider receipt without changing canonical identity.
 
