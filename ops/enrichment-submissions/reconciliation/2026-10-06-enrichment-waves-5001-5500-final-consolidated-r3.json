@@ -570,7 +570,7 @@
       "title": "Effects of Lactiplantibacillus plantarum supplementation on exercise performance and recovery: a systematic review and narrative synthesis.",
       "journal": "Frontiers in nutrition",
       "pub_date": "2026",
-      "pub_type": "Randomized Controlled Trial",
+      "pub_type": "Systematic Review",
       "selection_score": 6,
       "source_pool": "A",
       "discovery_query": "((creatine[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR riboflavin[Title/Abstract] OR nicotinamide[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract] OR \"chronic fatigue\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt])",
@@ -581,7 +581,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13415575/",
       "pdf_link": "https://doi.org/10.3389/fnut.2026.1881322",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_collision_replacement",
       "verified_title": "Effects of Lactiplantibacillus plantarum supplementation on exercise performance and recovery: a systematic review and narrative synthesis.",
       "verified_journal": "Frontiers in nutrition",
       "verified_pub_date": "2026",
@@ -592,7 +592,10 @@
         "pmid": "41826633",
         "title": "Acute muscle damage responses in elbow flexors following eccentric quasi-isometric exercise.",
         "reason": "prior_finalized_ledger_collision"
-      }
+      },
+      "replacement_for_pmid": "41826633",
+      "replacement_for_title": null,
+      "replacement_reason": "upstream_pmid_collision_replacement"
     },
     {
       "wave": 5022,
@@ -721,7 +724,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13396742/",
       "pdf_link": "https://doi.org/10.4014/jmb.2601.01055",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_collision_replacement",
       "verified_title": "Efficacy and Safety of Enzyme-Derived Deer Velvet Extract Supplementation on Adults with Chronic Fatigue: a Randomized, Placebo-Controlled, Double-Blind Trial.",
       "verified_journal": "Journal of microbiology and biotechnology",
       "verified_pub_date": "2026-Jul-09",
@@ -732,7 +735,10 @@
         "pmid": "41903346",
         "title": "Creatine supplementation modifies fat deposition in arm and leg tissues in individuals with Down syndrome.",
         "reason": "prior_finalized_ledger_collision"
-      }
+      },
+      "replacement_for_pmid": "41903346",
+      "replacement_for_title": null,
+      "replacement_reason": "upstream_pmid_collision_replacement"
     },
     {
       "wave": 5027,
@@ -915,7 +921,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13455643/",
       "pdf_link": "https://doi.org/10.3389/bjbs.2026.16993",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_collision_replacement",
       "verified_title": "VSL#3® supplementation improves fatigue in long COVID: results from the DELong#3 randomized placebo-controlled trial.",
       "verified_journal": "British journal of biomedical science",
       "verified_pub_date": "2026",
@@ -926,7 +932,10 @@
         "pmid": "42248424",
         "title": "Investigating the Effects of a Novel Salmon-Derived Protein Peptide on Markers of Recovery From Exercise-Induced Muscle Damage.",
         "reason": "prior_finalized_ledger_collision"
-      }
+      },
+      "replacement_for_pmid": "42248424",
+      "replacement_for_title": null,
+      "replacement_reason": "upstream_pmid_collision_replacement"
     },
     {
       "wave": 5034,
@@ -936,7 +945,7 @@
       "title": "Efficacy and safety of higher versus lower protein provision with meaningful dose separation in critically ill adults: a systematic review and meta-analysis of randomized controlled trials.",
       "journal": "Frontiers in nutrition",
       "pub_date": "2026",
-      "pub_type": "Randomized Controlled Trial",
+      "pub_type": "Systematic Review",
       "selection_score": 6,
       "source_pool": "A",
       "discovery_query": "((creatine[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR riboflavin[Title/Abstract] OR nicotinamide[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract] OR \"chronic fatigue\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt])",
@@ -947,7 +956,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13472815/",
       "pdf_link": "https://doi.org/10.3389/fnut.2026.1893988",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_collision_replacement",
       "verified_title": "Efficacy and safety of higher versus lower protein provision with meaningful dose separation in critically ill adults: a systematic review and meta-analysis of randomized controlled trials.",
       "verified_journal": "Frontiers in nutrition",
       "verified_pub_date": "2026",
@@ -958,7 +967,10 @@
         "pmid": "42271035",
         "title": "Combined effects of photobiomodulation and osteopathic manipulation on the physical performance of young adults subjected to exercise-induced muscle damage: a randomized placebo-controlled trial.",
         "reason": "prior_finalized_ledger_collision"
-      }
+      },
+      "replacement_for_pmid": "42271035",
+      "replacement_for_title": null,
+      "replacement_reason": "upstream_pmid_collision_replacement"
     },
     {
       "wave": 5035,
@@ -1006,7 +1018,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12866340/",
       "pdf_link": "https://doi.org/10.1186/s41043-025-01199-1",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_collision_replacement",
       "verified_title": "Effects of multivitamin combined with magnesium sulfate versus magnesium sulfate alone on hemodynamics, coagulation, and maternal-infant outcomes in preeclampsia: a randomized controlled study.",
       "verified_journal": "Journal of health, population, and nutrition",
       "verified_pub_date": "2025-Dec-31",
@@ -1017,7 +1029,10 @@
         "pmid": "42499083",
         "title": "Effect of vitamin D supplementation on clinical outcomes of patients with Parkinson disease: A randomized controlled study.",
         "reason": "prior_finalized_ledger_collision"
-      }
+      },
+      "replacement_for_pmid": "42499083",
+      "replacement_for_title": null,
+      "replacement_reason": "upstream_pmid_collision_replacement"
     },
     {
       "wave": 5037,
@@ -1054,7 +1069,7 @@
       "title": "Clinical safety of ultra-high-dose methylcobalamin in patients with amyotrophic lateral sclerosis: Open-label extension of a phase 2/3 randomized controlled study.",
       "journal": "Journal of the neurological sciences",
       "pub_date": "2026-Jan-15",
-      "pub_type": "Randomized Controlled Trial",
+      "pub_type": "Multicenter Study",
       "selection_score": 6,
       "source_pool": "A",
       "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR folate[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt])",
@@ -1065,7 +1080,7 @@
       "exact_title_verified": true,
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.1016/j.jns.2025.125701",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_collision_replacement",
       "verified_title": "Clinical safety of ultra-high-dose methylcobalamin in patients with amyotrophic lateral sclerosis: Open-label extension of a phase 2/3 randomized controlled study.",
       "verified_journal": "Journal of the neurological sciences",
       "verified_pub_date": "2026-Jan-15",
@@ -1076,7 +1091,10 @@
         "pmid": "42544905",
         "title": "Effects of vitamin D supplementation on insulin resistance and lipid metabolic profiles in women with gestational diabetes mellitus: A randomized controlled trial.",
         "reason": "prior_finalized_ledger_collision"
-      }
+      },
+      "replacement_for_pmid": "42544905",
+      "replacement_for_title": null,
+      "replacement_reason": "upstream_pmid_collision_replacement"
     },
     {
       "wave": 5039,
@@ -1124,7 +1142,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12735629/",
       "pdf_link": "https://doi.org/10.3390/nu17243902",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_collision_replacement",
       "verified_title": "Effects of Greek Yogurt Supplementation and Exercise on Markers of Bone Turnover and Inflammation in Older Adult Exercisers: An 8-Week Pilot Intervention Trial.",
       "verified_journal": "Nutrients",
       "verified_pub_date": "2025-Dec-13",
@@ -1135,7 +1153,10 @@
         "pmid": "42588107",
         "title": "Multistrain Probiotic Supplementation Combined with a Standardized Diet Did Not Significantly Affect Exercise Performance or Inflammatory Responses in Male Endurance Runners: A Randomized Controlled Trial.",
         "reason": "prior_finalized_ledger_collision"
-      }
+      },
+      "replacement_for_pmid": "42588107",
+      "replacement_for_title": null,
+      "replacement_reason": "upstream_pmid_collision_replacement"
     },
     {
       "wave": 5041,
@@ -1183,7 +1204,7 @@
       "exact_title_verified": true,
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.1016/j.ajcnut.2026.101480",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_retry",
       "verified_title": "Baseline diet quality indicators and 6-month changes in iron and vitamin A biomarkers among rural Ghanaian adolescent schoolgirls: A secondary analysis of the Ten2Twenty-Ghana trial.",
       "verified_journal": "The American journal of clinical nutrition",
       "verified_pub_date": "2026-Oct",
@@ -1200,7 +1221,7 @@
       "title": "The Effect of Vitamin B-12 Supplementation During Pregnancy on Early Motor Performance: Secondary Analyses From a Double-Blinded Randomized Controlled Trial.",
       "journal": "The Journal of nutrition",
       "pub_date": "2026-Feb",
-      "pub_type": "Randomized Controlled Trial",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "selection_score": 6,
       "source_pool": "A",
       "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR folate[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt])",
@@ -1211,7 +1232,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12975383/",
       "pdf_link": "https://doi.org/10.1016/j.tjnut.2025.101305",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_collision_replacement",
       "verified_title": "The Effect of Vitamin B-12 Supplementation During Pregnancy on Early Motor Performance: Secondary Analyses From a Double-Blinded Randomized Controlled Trial.",
       "verified_journal": "The Journal of nutrition",
       "verified_pub_date": "2026-Feb",
@@ -1222,7 +1243,10 @@
         "pmid": "42631762",
         "title": "Impact of organic selenium supplementation on glycaemic control and quality of life in patients with diabetic neuropathy: a randomized placebo-controlled trial.",
         "reason": "prior_finalized_ledger_collision"
-      }
+      },
+      "replacement_for_pmid": "42631762",
+      "replacement_for_title": null,
+      "replacement_reason": "upstream_pmid_collision_replacement"
     },
     {
       "wave": 5044,
@@ -1432,7 +1456,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5386840/",
       "pdf_link": "https://doi.org/10.1007/s40263-026-01301-z",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_retry",
       "verified_title": "Cannabidiol Use in Developmental and Epileptic Encephalopathies: A Syndrome- and Age-Stratified Systematic Review and Meta-analysis.",
       "verified_journal": "CNS drugs",
       "verified_pub_date": "2026-Jul",
@@ -1476,7 +1500,7 @@
       "title": "Effects of supplemental protein in older people: an overview of meta-analyses.",
       "journal": "Age and ageing",
       "pub_date": "2025-Nov-28",
-      "pub_type": "Meta-Analysis",
+      "pub_type": "Systematic Review",
       "selection_score": 6,
       "source_pool": "A",
       "discovery_query": "((creatine[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR riboflavin[Title/Abstract] OR nicotinamide[Title/Abstract] OR \"alpha lipoic acid\"[Title/Abstract]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract] OR \"chronic fatigue\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt])",
@@ -1487,7 +1511,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12700089/",
       "pdf_link": "https://doi.org/10.1093/ageing/afaf351",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_collision_replacement",
       "verified_title": "Effects of supplemental protein in older people: an overview of meta-analyses.",
       "verified_journal": "Age and ageing",
       "verified_pub_date": "2025-Nov-28",
@@ -1498,7 +1522,10 @@
         "pmid": "42286692",
         "title": "Effects of percussive therapy dosages on recovery from acute exercise-induced muscle damage: a systematic review and meta-analysis.",
         "reason": "prior_finalized_ledger_collision"
-      }
+      },
+      "replacement_for_pmid": "42286692",
+      "replacement_for_title": null,
+      "replacement_reason": "upstream_pmid_collision_replacement"
     },
     {
       "wave": 5054,
@@ -1546,7 +1573,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13349429/",
       "pdf_link": "https://doi.org/10.1111/jog.70393",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_retry",
       "verified_title": "Association Between Serum Vitamin D Levels and Insulin Resistance in Women With Polycystic Ovary Syndrome: A Systematic Review and Meta-Analysis.",
       "verified_journal": "The journal of obstetrics and gynaecology research",
       "verified_pub_date": "2026-Jul",
@@ -2049,7 +2076,7 @@
       "title": "Clinical benefits of Bifidobacterium infantis YLGB-1496 in modulating gut microbiota and immunity in young children.",
       "journal": "Frontiers in nutrition",
       "pub_date": "2025",
-      "pub_type": "Systematic Review",
+      "pub_type": "Journal Article",
       "selection_score": 5,
       "source_pool": "B",
       "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR synbiotic[Title/Abstract] OR postbiotic[Title/Abstract] OR microbiome[Title/Abstract]) AND (IBS[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract] OR cognition[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text] AND (clinical trial[pt] OR randomized controlled trial[pt] OR systematic review[pt] OR meta-analysis[pt] OR observational study[pt])",
@@ -2060,7 +2087,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12812959/",
       "pdf_link": "https://doi.org/10.3389/fnut.2025.1713135",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_replacement",
       "verified_title": "Clinical benefits of Bifidobacterium infantis YLGB-1496 in modulating gut microbiota and immunity in young children.",
       "verified_journal": "Frontiers in nutrition",
       "verified_pub_date": "2025",
@@ -2070,7 +2097,10 @@
       "replacement_of": {
         "pmid": "42274817",
         "title": "Impacts of microplastics on rhizosphere microbiome structure and function: a systematic review."
-      }
+      },
+      "replacement_for_pmid": "42274817",
+      "replacement_for_title": null,
+      "replacement_reason": "final_relevance_quality_replacement"
     },
     {
       "wave": 5075,
@@ -3330,7 +3360,7 @@
       "title": "Vitamin D supplementation and incidence of major depressive disorder - A randomized clinical trial.",
       "journal": "Clinical nutrition (Edinburgh, Scotland)",
       "pub_date": "2026-Feb",
-      "pub_type": "Comparative Study",
+      "pub_type": "Randomized Controlled Trial",
       "selection_score": 2,
       "source_pool": "A",
       "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR cobalamin[Title/Abstract] OR folate[Title/Abstract] OR iron[Title/Abstract] OR selenium[Title/Abstract] OR iodine[Title/Abstract]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR fatigue[Title/Abstract] OR cognition[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt])",
@@ -3341,7 +3371,7 @@
       "exact_title_verified": true,
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.1016/j.clnu.2025.106570",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_collision_replacement",
       "verified_title": "Vitamin D supplementation and incidence of major depressive disorder - A randomized clinical trial.",
       "verified_journal": "Clinical nutrition (Edinburgh, Scotland)",
       "verified_pub_date": "2026-Feb",
@@ -3352,7 +3382,10 @@
         "pmid": "42709983",
         "title": "Comparison of Traditional Chinese Exercise and Equipment-Based Exercise on Glycaemic Control and Vitamin D Levels in Middle-Aged and Elderly Patients With Prediabetes: A Randomised Controlled Trial.",
         "reason": "prior_finalized_ledger_collision"
-      }
+      },
+      "replacement_for_pmid": "42709983",
+      "replacement_for_title": null,
+      "replacement_reason": "upstream_pmid_collision_replacement"
     },
     {
       "wave": 5122,
@@ -3362,7 +3395,7 @@
       "title": "Effect of Maternal Vitamin B12 Status and Supplementation on Child Neurodevelopment and Cognition: A Systematic Review.",
       "journal": "Current nutrition reports",
       "pub_date": "2025-Dec-20",
-      "pub_type": "Comparative Study",
+      "pub_type": "Systematic Review",
       "selection_score": 2,
       "source_pool": "D",
       "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract]) AND (sleep[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR cognition[Title/Abstract] OR deficiency[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
@@ -3373,7 +3406,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7926714/",
       "pdf_link": "https://doi.org/10.1007/s13668-025-00720-6",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_replacement",
       "verified_title": "Effect of Maternal Vitamin B12 Status and Supplementation on Child Neurodevelopment and Cognition: A Systematic Review.",
       "verified_journal": "Current nutrition reports",
       "verified_pub_date": "2025-Dec-20",
@@ -3383,7 +3416,10 @@
       "replacement_of": {
         "pmid": "42778894",
         "title": "Comparative effects of chemical and PGPR-based biostimulants on growth, mineral uptake, and biochemical responses of Rosmarinus officinalis under drought stress."
-      }
+      },
+      "replacement_for_pmid": "42778894",
+      "replacement_for_title": null,
+      "replacement_reason": "final_relevance_quality_replacement"
     },
     {
       "wave": 5123,
@@ -3447,7 +3483,7 @@
       "title": "Aronia melanocarpa extract supplementation affects brain vascular function and cognitive performance: A randomized, double-blind, placebo-controlled, cross-over study in older adults with overweight or obesity.",
       "journal": "Clinical nutrition (Edinburgh, Scotland)",
       "pub_date": "2026-Feb",
-      "pub_type": "Review",
+      "pub_type": "Randomized Controlled Trial",
       "selection_score": 3,
       "source_pool": "D",
       "discovery_query": "((citicoline[Title/Abstract] OR \"alpha-GPC\"[Title/Abstract] OR bacopa[Title/Abstract] OR \"Hericium erinaceus\"[Title/Abstract]) AND (memory[Title/Abstract] OR cognition[Title/Abstract] OR attention[Title/Abstract])) AND 2015:2026[pdat] AND hasabstract[text]",
@@ -3458,7 +3494,7 @@
       "exact_title_verified": true,
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.1016/j.clnu.2025.106561",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_replacement",
       "verified_title": "Aronia melanocarpa extract supplementation affects brain vascular function and cognitive performance: A randomized, double-blind, placebo-controlled, cross-over study in older adults with overweight or obesity.",
       "verified_journal": "Clinical nutrition (Edinburgh, Scotland)",
       "verified_pub_date": "2026-Feb",
@@ -3468,7 +3504,10 @@
       "replacement_of": {
         "pmid": "38718157",
         "title": "Bacopa monnieri."
-      }
+      },
+      "replacement_for_pmid": "38718157",
+      "replacement_for_title": null,
+      "replacement_reason": "final_relevance_quality_replacement"
     },
     {
       "wave": 5126,
@@ -5117,7 +5156,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13566430/",
       "pdf_link": "https://doi.org/10.3390/ijms27177713",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_retry",
       "verified_title": "The Zinc-Senescence Axis in Skin Aging and Wound Healing: A Narrative Review.",
       "verified_journal": "International journal of molecular sciences",
       "verified_pub_date": "2026-Aug-28",
@@ -5134,7 +5173,7 @@
       "title": "Resistance-based training improves mitochondrial capacity and redox balance in aging adults, independent of polyphenol supplementation.",
       "journal": "Redox biology",
       "pub_date": "2026-Feb",
-      "pub_type": "Review",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "selection_score": 3,
       "source_pool": "D",
       "discovery_query": "((\"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR creatine[Title/Abstract]) AND (fatigue[Title/Abstract] OR exercise[Title/Abstract] OR mitochondrial[Title/Abstract] OR energy[Title/Abstract])) AND 2015:2026[pdat] AND hasabstract[text]",
@@ -5145,7 +5184,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12808611/",
       "pdf_link": "https://doi.org/10.1016/j.redox.2025.103972",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_replacement",
       "verified_title": "Resistance-based training improves mitochondrial capacity and redox balance in aging adults, independent of polyphenol supplementation.",
       "verified_journal": "Redox biology",
       "verified_pub_date": "2026-Feb",
@@ -5155,7 +5194,10 @@
       "replacement_of": {
         "pmid": "42751143",
         "title": "Mitochondria-associated endoplasmic reticulum membranes in canine and feline diabetic kidney disease: mechanistic links and nutritional implications."
-      }
+      },
+      "replacement_for_pmid": "42751143",
+      "replacement_for_title": null,
+      "replacement_reason": "final_relevance_quality_replacement"
     },
     {
       "wave": 5188,
@@ -5176,7 +5218,7 @@
       "exact_title_verified": true,
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.1097/MCO.0000000000001260",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_retry",
       "verified_title": "Evolution of zinc biomarkers and impact on clinical nutrition and public health.",
       "verified_journal": "Current opinion in clinical nutrition and metabolic care",
       "verified_pub_date": "2026-Nov-01",
@@ -5582,7 +5624,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12571423/",
       "pdf_link": "https://doi.org/10.1016/j.bcp.2025.117392",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_retry",
       "verified_title": "Antidepressants and the endogenous opioid system.",
       "verified_journal": "Biochemical pharmacology",
       "verified_pub_date": "2025-Dec",
@@ -5637,7 +5679,7 @@
       "exact_title_verified": true,
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.1111/jgs.70305",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_retry",
       "verified_title": "Pharmacologic Modulation of Circadian Rhythms for Delirium Prevention: An Age-Stratified Systematic Review and Meta-Analysis.",
       "verified_journal": "Journal of the American Geriatrics Society",
       "verified_pub_date": "2026-May",
@@ -5665,7 +5707,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13055767/",
       "pdf_link": "https://doi.org/10.1161/JAHA.124.040933",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_retry",
       "verified_title": "Effects of Increasing Total Fruit Intake With Avocado and Mango on Endothelial Function and Cardiometabolic Risk Factors in Adults With Prediabetes.",
       "verified_journal": "Journal of the American Heart Association",
       "verified_pub_date": "2026-Feb-17",
@@ -5693,7 +5735,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13003119/",
       "pdf_link": "https://doi.org/10.1038/s41387-026-00414-0",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_retry",
       "verified_title": "Association between assisted reproductive technology and gestational diabetes mellitus: the role of serum folate and triglycerides.",
       "verified_journal": "Nutrition & diabetes",
       "verified_pub_date": "2026-Mar-07",
@@ -5721,7 +5763,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13098711/",
       "pdf_link": "https://doi.org/10.1037/fsh0001030",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_retry",
       "verified_title": "Project BETTER: Outcomes at the pregnancy-to-postpartum transition from a pilot clinical trial of a technology-delivered intervention for birthing people receiving medication for opioid use disorder.",
       "verified_journal": "Families, systems & health : the journal of collaborative family healthcare",
       "verified_pub_date": "2025-Dec",
@@ -5749,7 +5791,7 @@
       "exact_title_verified": true,
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.1080/00952990.2026.2654473",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_retry",
       "verified_title": "Self-reported differences between liquid and tablet methadone in persons with opioid use disorder.",
       "verified_journal": "The American journal of drug and alcohol abuse",
       "verified_pub_date": "2026",
@@ -5777,7 +5819,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13223590/",
       "pdf_link": "https://doi.org/10.1093/pubmed/fdag034",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_retry",
       "verified_title": "Risk factors of ovarian cancer: a systematic review and meta-analysis of Mendelian randomiation studies.",
       "verified_journal": "Journal of public health (Oxford, England)",
       "verified_pub_date": "2026-Jun-01",
@@ -5913,7 +5955,7 @@
       "exact_title_verified": true,
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.1152/ajpendo.00139.2026",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_retry",
       "verified_title": "Application of 13C MRS demonstrates carbohydrate feeding spares muscle but not liver glycogen utilization during high-intensity interval exercise.",
       "verified_journal": "American journal of physiology. Endocrinology and metabolism",
       "verified_pub_date": "2026-Sep-01",
@@ -7566,7 +7608,7 @@
       "title": "Efficacy of botanical extracts for knee osteoarthritis: a network meta-analysis of randomized controlled trials.",
       "journal": "Frontiers in pharmacology",
       "pub_date": "2025",
-      "pub_type": "Journal Article",
+      "pub_type": "Systematic Review",
       "selection_score": 2,
       "source_pool": "C",
       "discovery_query": "((curcumin[Title/Abstract] OR boswellia[Title/Abstract] OR ginger[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (osteoarthritis[Title/Abstract] OR pain[Title/Abstract] OR migraine[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
@@ -7577,7 +7619,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12537895/",
       "pdf_link": "https://doi.org/10.3389/fphar.2025.1619589",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_replacement",
       "verified_title": "Efficacy of botanical extracts for knee osteoarthritis: a network meta-analysis of randomized controlled trials.",
       "verified_journal": "Frontiers in pharmacology",
       "verified_pub_date": "2025",
@@ -7587,7 +7629,10 @@
       "replacement_of": {
         "pmid": "42064340",
         "title": "Synergistic and dose-dependent pharmacological effects of black shallot and nano-curcumin combination on nociceptive, pyretic, and inflammatory responses in murine models."
-      }
+      },
+      "replacement_for_pmid": "42064340",
+      "replacement_for_title": null,
+      "replacement_reason": "final_relevance_quality_replacement"
     },
     {
       "wave": 5277,
@@ -7597,7 +7642,7 @@
       "title": "Adjunctive curcumin nano-micelles reduce overall pruritus intensity in refractory post-burn pruritus: A randomized controlled trial.",
       "journal": "Burns : journal of the International Society for Burn Injuries",
       "pub_date": "2025-Dec",
-      "pub_type": "Journal Article",
+      "pub_type": "Randomized Controlled Trial",
       "selection_score": 2,
       "source_pool": "C",
       "discovery_query": "((curcumin[Title/Abstract] OR boswellia[Title/Abstract] OR ginger[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (osteoarthritis[Title/Abstract] OR pain[Title/Abstract] OR migraine[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
@@ -7608,7 +7653,7 @@
       "exact_title_verified": true,
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.1016/j.burns.2025.107761",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_replacement",
       "verified_title": "Adjunctive curcumin nano-micelles reduce overall pruritus intensity in refractory post-burn pruritus: A randomized controlled trial.",
       "verified_journal": "Burns : journal of the International Society for Burn Injuries",
       "verified_pub_date": "2025-Dec",
@@ -7618,7 +7663,10 @@
       "replacement_of": {
         "pmid": "42065458",
         "title": "Near-infrared reinforced alginate-tyramine-curcumin gels for alleviation of osteoarthritis in an ACLT murine model."
-      }
+      },
+      "replacement_for_pmid": "42065458",
+      "replacement_for_title": null,
+      "replacement_reason": "final_relevance_quality_replacement"
     },
     {
       "wave": 5278,
@@ -8145,7 +8193,7 @@
       "title": "Beetroot Juice Supplementation as a Healthy Aging Strategy Through Improving Physical Performance and Cognitive Functions: A Systematic Review.",
       "journal": "Nutrients",
       "pub_date": "2025-Dec-17",
-      "pub_type": "Journal Article",
+      "pub_type": "Systematic Review",
       "selection_score": 2,
       "source_pool": "D",
       "discovery_query": "((creatine[Title/Abstract] OR caffeine[Title/Abstract] OR theanine[Title/Abstract]) AND (memory[Title/Abstract] OR cognition[Title/Abstract] OR attention[Title/Abstract] OR executive[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
@@ -8156,7 +8204,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12735994/",
       "pdf_link": "https://doi.org/10.3390/nu17243954",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_replacement",
       "verified_title": "Beetroot Juice Supplementation as a Healthy Aging Strategy Through Improving Physical Performance and Cognitive Functions: A Systematic Review.",
       "verified_journal": "Nutrients",
       "verified_pub_date": "2025-Dec-17",
@@ -8166,7 +8214,10 @@
       "replacement_of": {
         "pmid": "42227473",
         "title": "Differential Effects of Nicotinic, Glutamatergic, and Conventional Wakefulness Agents on Cognition on a Murine Model of Acute Severe Sleep Deprivation."
-      }
+      },
+      "replacement_for_pmid": "42227473",
+      "replacement_for_title": null,
+      "replacement_reason": "final_relevance_quality_replacement"
     },
     {
       "wave": 5298,
@@ -8369,7 +8420,7 @@
       "title": "Efficacy of antioxidant supplementation in alleviating endometriosis-related pain: insights from a systematic review and meta-analysis of RCTs.",
       "journal": "Reproductive biology and endocrinology : RB&E",
       "pub_date": "2025-Dec-30",
-      "pub_type": "Journal Article",
+      "pub_type": "Meta-Analysis",
       "selection_score": 2,
       "source_pool": "C",
       "discovery_query": "((curcumin[Title/Abstract] OR boswellia[Title/Abstract] OR ginger[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (osteoarthritis[Title/Abstract] OR pain[Title/Abstract] OR migraine[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
@@ -8380,7 +8431,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12751427/",
       "pdf_link": "https://doi.org/10.1186/s12958-025-01485-x",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_replacement",
       "verified_title": "Efficacy of antioxidant supplementation in alleviating endometriosis-related pain: insights from a systematic review and meta-analysis of RCTs.",
       "verified_journal": "Reproductive biology and endocrinology : RB&E",
       "verified_pub_date": "2025-Dec-30",
@@ -8390,7 +8441,10 @@
       "replacement_of": {
         "pmid": "42290771",
         "title": "Variations in the management of canine osteoarthritis: a cross-sectional survey of veterinary practices."
-      }
+      },
+      "replacement_for_pmid": "42290771",
+      "replacement_for_title": null,
+      "replacement_reason": "final_relevance_quality_replacement"
     },
     {
       "wave": 5306,
@@ -8597,7 +8651,7 @@
       "title": "Dose-Dependent Effects of Cannabis Edibles on Simulated Driving Performance: A Randomized Clinical Trial.",
       "journal": "JAMA network open",
       "pub_date": "2026-Aug-03",
-      "pub_type": "Journal Article",
+      "pub_type": "Research Support, Non-U.S. Gov't",
       "selection_score": 2,
       "source_pool": "B",
       "discovery_query": "((cannabidiol[Title/Abstract] OR CBD[Title/Abstract] OR cannabis[Title/Abstract] OR cannabinoid[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text] AND (clinical trial[pt] OR randomized controlled trial[pt] OR systematic review[pt] OR meta-analysis[pt] OR observational study[pt] OR case reports[pt])",
@@ -8608,7 +8662,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13531322/",
       "pdf_link": "https://doi.org/10.1001/jamanetworkopen.2026.31306",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_replacement",
       "verified_title": "Dose-Dependent Effects of Cannabis Edibles on Simulated Driving Performance: A Randomized Clinical Trial.",
       "verified_journal": "JAMA network open",
       "verified_pub_date": "2026-Aug-03",
@@ -8618,7 +8672,10 @@
       "replacement_of": {
         "pmid": "42311392",
         "title": "Case Report: Oral and topical chronic administration of THC-rich and CBD-rich cannabis oil as palliative care in a rescued horse with open wound, sarcoid and chronic pain."
-      }
+      },
+      "replacement_for_pmid": "42311392",
+      "replacement_for_title": null,
+      "replacement_reason": "final_relevance_quality_replacement"
     },
     {
       "wave": 5314,
@@ -9473,7 +9530,7 @@
       "title": "Synergistic Effects of High-Intensity Interval Training and Asparagus officinalis L. Root Extract Supplementation on Metabolic Regulation, Oxidative Stress, and Inflammation in Overweight and Obese Adults.",
       "journal": "International journal of molecular sciences",
       "pub_date": "2025-Dec-15",
-      "pub_type": "Journal Article",
+      "pub_type": "Randomized Controlled Trial",
       "selection_score": 2,
       "source_pool": "C",
       "discovery_query": "((curcumin[Title/Abstract] OR boswellia[Title/Abstract] OR ginger[Title/Abstract] OR palmitoylethanolamide[Title/Abstract]) AND (osteoarthritis[Title/Abstract] OR pain[Title/Abstract] OR migraine[Title/Abstract] OR neuropathic[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
@@ -9484,7 +9541,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12733034/",
       "pdf_link": "https://doi.org/10.3390/ijms262412054",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_replacement",
       "verified_title": "Synergistic Effects of High-Intensity Interval Training and Asparagus officinalis L. Root Extract Supplementation on Metabolic Regulation, Oxidative Stress, and Inflammation in Overweight and Obese Adults.",
       "verified_journal": "International journal of molecular sciences",
       "verified_pub_date": "2025-Dec-15",
@@ -9494,7 +9551,10 @@
       "replacement_of": {
         "pmid": "42474159",
         "title": "Integrative in-silico, in-vitro and in-vivo assessment of [W(4)KR(5)]-curcumin conjugates as potential anti-inflammatory and antinociceptive therapeutics."
-      }
+      },
+      "replacement_for_pmid": "42474159",
+      "replacement_for_title": null,
+      "replacement_reason": "final_relevance_quality_replacement"
     },
     {
       "wave": 5346,
@@ -9612,7 +9672,7 @@
       "title": "Maitake mushroom supplementation modulates upper respiratory symptoms and immune responses in healthy adults: a randomized, double-blind, placebo-controlled trial.",
       "journal": "Food & function",
       "pub_date": "2026-Sep-21",
-      "pub_type": "Journal Article",
+      "pub_type": "Randomized Controlled Trial",
       "selection_score": 2,
       "source_pool": "E",
       "discovery_query": "((\"N-acetylcysteine\"[Title/Abstract] OR zinc[Title/Abstract] OR \"vitamin D\"[Title/Abstract]) AND (respiratory infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR pneumonia[Title/Abstract] OR immune response[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
@@ -9623,7 +9683,7 @@
       "exact_title_verified": true,
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.1039/d6fo01593j",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_replacement",
       "verified_title": "Maitake mushroom supplementation modulates upper respiratory symptoms and immune responses in healthy adults: a randomized, double-blind, placebo-controlled trial.",
       "verified_journal": "Food & function",
       "verified_pub_date": "2026-Sep-21",
@@ -9633,7 +9693,10 @@
       "replacement_of": {
         "pmid": "42486032",
         "title": "Oral vitamin D(3) supplementation enhances antiviral immunity in chickens challenged with fowl adenovirus serotype 4."
-      }
+      },
+      "replacement_for_pmid": "42486032",
+      "replacement_for_title": null,
+      "replacement_reason": "final_relevance_quality_replacement"
     },
     {
       "wave": 5351,
@@ -10789,7 +10852,7 @@
       "title": "Oral magnesium supplements and insulin resistance in individuals with diabetes and pre-diabetes: an updated systematic review and meta-analysis of randomized controlled trials.",
       "journal": "BMC nutrition",
       "pub_date": "2026-Jul-09",
-      "pub_type": "Journal Article",
+      "pub_type": "Systematic Review",
       "selection_score": 2,
       "source_pool": "C",
       "discovery_query": "((berberine[Title/Abstract] OR inositol[Title/Abstract] OR chromium[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR probiotic[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR \"metabolic syndrome\"[Title/Abstract] OR PCOS[Title/Abstract] OR obesity[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
@@ -10800,7 +10863,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4586582/",
       "pdf_link": "https://doi.org/10.1186/s40795-026-01424-y",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_collision_replacement",
       "verified_title": "Oral magnesium supplements and insulin resistance in individuals with diabetes and pre-diabetes: an updated systematic review and meta-analysis of randomized controlled trials.",
       "verified_journal": "BMC nutrition",
       "verified_pub_date": "2026-Jul-09",
@@ -10811,7 +10874,10 @@
         "pmid": "42637038",
         "title": "Effect of vitamin D combined with probiotic-assisted insulin pump on glucose-lipid metabolism, intestinal flora and pregnancy outcome in gestational diabetes mellitus.",
         "reason": "prior_finalized_ledger_collision"
-      }
+      },
+      "replacement_for_pmid": "42637038",
+      "replacement_for_title": null,
+      "replacement_reason": "upstream_pmid_collision_replacement"
     },
     {
       "wave": 5394,
@@ -11361,7 +11427,7 @@
       "title": "Effect of vitamin D supplementation on skeletal muscle function and quality of life in patients with chronic intestinal failure: a randomized controlled trial : Clean version.",
       "journal": "Journal of translational medicine",
       "pub_date": "2025-Dec-25",
-      "pub_type": "Journal Article",
+      "pub_type": "Randomized Controlled Trial",
       "selection_score": 2,
       "source_pool": "D",
       "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract]) AND (sleep[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR cognition[Title/Abstract] OR deficiency[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
@@ -11372,7 +11438,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12903407/",
       "pdf_link": "https://doi.org/10.1186/s12967-025-07607-8",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_replacement",
       "verified_title": "Effect of vitamin D supplementation on skeletal muscle function and quality of life in patients with chronic intestinal failure: a randomized controlled trial : Clean version.",
       "verified_journal": "Journal of translational medicine",
       "verified_pub_date": "2025-Dec-25",
@@ -11382,7 +11448,10 @@
       "replacement_of": {
         "pmid": "42694401",
         "title": "Organic-Microbial Strategies for Iron and Zinc Biofortification in Orange-Fleshed Sweet Potato [Ipomoea batatas (L.) Lam.]."
-      }
+      },
+      "replacement_for_pmid": "42694401",
+      "replacement_for_title": null,
+      "replacement_reason": "final_relevance_quality_replacement"
     },
     {
       "wave": 5415,
@@ -11554,7 +11623,7 @@
       "title": "Efficacy and safety of probiotics combined with bismuth-containing quadruple therapy for Helicobacter pylori eradication: a systematic review and meta-analysis.",
       "journal": "Frontiers in microbiology",
       "pub_date": "2025",
-      "pub_type": "Journal Article",
+      "pub_type": "Systematic Review",
       "selection_score": 2,
       "source_pool": "C",
       "discovery_query": "((probiotic[Title/Abstract] OR prebiotic[Title/Abstract] OR synbiotic[Title/Abstract] OR postbiotic[Title/Abstract]) AND (IBS[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR constipation[Title/Abstract] OR diarrhea[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
@@ -11565,7 +11634,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12819727/",
       "pdf_link": "https://doi.org/10.3389/fmicb.2025.1704508",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_replacement",
       "verified_title": "Efficacy and safety of probiotics combined with bismuth-containing quadruple therapy for Helicobacter pylori eradication: a systematic review and meta-analysis.",
       "verified_journal": "Frontiers in microbiology",
       "verified_pub_date": "2025",
@@ -11575,7 +11644,10 @@
       "replacement_of": {
         "pmid": "42709192",
         "title": "Evaluation of a Novel Compound Probiotic Paste Containing Canine-Derived Vitamin B12-Producing Limosilactobacillus Reuteri."
-      }
+      },
+      "replacement_for_pmid": "42709192",
+      "replacement_for_title": null,
+      "replacement_reason": "final_relevance_quality_replacement"
     },
     {
       "wave": 5422,
@@ -12245,7 +12317,7 @@
       "title": "Combined Aerobic-Resistance Training and Taurine Supplementation Reduce Asprosin and Elevate Spexin in Men with Obesity: A 12-Week Supplement-Blinded, Randomized Controlled Trial.",
       "journal": "Nutrients",
       "pub_date": "2026-Jul-16",
-      "pub_type": "Journal Article",
+      "pub_type": "Randomized Controlled Trial",
       "selection_score": 2,
       "source_pool": "C",
       "discovery_query": "((berberine[Title/Abstract] OR inositol[Title/Abstract] OR chromium[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR probiotic[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR \"metabolic syndrome\"[Title/Abstract] OR PCOS[Title/Abstract] OR obesity[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
@@ -12256,7 +12328,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13415041/",
       "pdf_link": "https://doi.org/10.3390/nu18142325",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_collision_replacement",
       "verified_title": "Combined Aerobic-Resistance Training and Taurine Supplementation Reduce Asprosin and Elevate Spexin in Men with Obesity: A 12-Week Supplement-Blinded, Randomized Controlled Trial.",
       "verified_journal": "Nutrients",
       "verified_pub_date": "2026-Jul-16",
@@ -12267,7 +12339,10 @@
         "pmid": "42759094",
         "title": "Adjunctive Akkermansia muciniphila postbiotic supplementation modulates metabolic and endocrine profiles in obesity-associated polyendocrine metabolic ovarian syndrome: A randomized controlled trial.",
         "reason": "prior_finalized_ledger_collision"
-      }
+      },
+      "replacement_for_pmid": "42759094",
+      "replacement_for_title": null,
+      "replacement_reason": "upstream_pmid_collision_replacement"
     },
     {
       "wave": 5447,
@@ -12774,7 +12849,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12695842/",
       "pdf_link": "https://doi.org/10.3389/frph.2025.1654503",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_replacement",
       "verified_title": "Efficacy and safety of Shatavari root extract (Asparagus racemosus) for menopausal symptoms: a randomized, double-blind, three-arm, placebo-controlled study.",
       "verified_journal": "Frontiers in reproductive health",
       "verified_pub_date": "2025",
@@ -12784,7 +12859,10 @@
       "replacement_of": {
         "pmid": "42788841",
         "title": "Curcumin Induces Autophagy Associated G(1) Cell Cycle Arrest in Spodoptera frugiperda Sf9 Cells."
-      }
+      },
+      "replacement_for_pmid": "42788841",
+      "replacement_for_title": null,
+      "replacement_reason": "final_relevance_quality_replacement"
     },
     {
       "wave": 5466,
@@ -12821,7 +12899,7 @@
       "title": "Antidiabetic and Metabolic Effects of Turmeric (Curcuma Longa) in Patients with Type 2 Diabetes Mellitus or Hyperglycemia - A Systematic Meta-Review and Meta-Analysis.",
       "journal": "Journal of Nepal Health Research Council",
       "pub_date": "2025-Oct-17",
-      "pub_type": "Journal Article",
+      "pub_type": "Systematic Review",
       "selection_score": 2,
       "source_pool": "C",
       "discovery_query": "((ashwagandha[Title/Abstract] OR rhodiola[Title/Abstract] OR ginseng[Title/Abstract] OR bacopa[Title/Abstract] OR \"Hericium erinaceus\"[Title/Abstract] OR curcumin[Title/Abstract] OR Ganoderma[Title/Abstract]) AND (sleep[Title/Abstract] OR stress[Title/Abstract] OR anxiety[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR metabolic[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
@@ -12832,7 +12910,7 @@
       "exact_title_verified": true,
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.33314/jnhrc.v23i02.4708",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_replacement",
       "verified_title": "Antidiabetic and Metabolic Effects of Turmeric (Curcuma Longa) in Patients with Type 2 Diabetes Mellitus or Hyperglycemia - A Systematic Meta-Review and Meta-Analysis.",
       "verified_journal": "Journal of Nepal Health Research Council",
       "verified_pub_date": "2025-Oct-17",
@@ -12842,7 +12920,10 @@
       "replacement_of": {
         "pmid": "42793313",
         "title": "Atomic Force Microscopy-Based Nanomechanical Profiling Reveals Oxidative Stress-Associated Structural Alterations and Curcumin-Associated Protection in Chicken Erythrocytes."
-      }
+      },
+      "replacement_for_pmid": "42793313",
+      "replacement_for_title": null,
+      "replacement_reason": "final_relevance_quality_replacement"
     },
     {
       "wave": 5468,
@@ -12852,7 +12933,7 @@
       "title": "Effectiveness and safety of turmeric for the treatment of COVID-19: An updated systematic review and meta-analysis of randomized controlled trials.",
       "journal": "Complementary therapies in medicine",
       "pub_date": "2025-Dec",
-      "pub_type": "Journal Article",
+      "pub_type": "Meta-Analysis",
       "selection_score": 2,
       "source_pool": "C",
       "discovery_query": "((ashwagandha[Title/Abstract] OR rhodiola[Title/Abstract] OR ginseng[Title/Abstract] OR bacopa[Title/Abstract] OR \"Hericium erinaceus\"[Title/Abstract] OR curcumin[Title/Abstract] OR Ganoderma[Title/Abstract]) AND (sleep[Title/Abstract] OR stress[Title/Abstract] OR anxiety[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR metabolic[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
@@ -12863,7 +12944,7 @@
       "exact_title_verified": true,
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.1016/j.ctim.2025.103295",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_replacement",
       "verified_title": "Effectiveness and safety of turmeric for the treatment of COVID-19: An updated systematic review and meta-analysis of randomized controlled trials.",
       "verified_journal": "Complementary therapies in medicine",
       "verified_pub_date": "2025-Dec",
@@ -12873,7 +12954,10 @@
       "replacement_of": {
         "pmid": "42794742",
         "title": "Withania somnifera (Ashwagandha) Improves Fitness in Aged Drosophila by Reducing AKT Phosphorylation."
-      }
+      },
+      "replacement_for_pmid": "42794742",
+      "replacement_for_title": null,
+      "replacement_reason": "final_relevance_quality_replacement"
     },
     {
       "wave": 5469,
@@ -12883,7 +12967,7 @@
       "title": "Opuntia dillenii as a Nutraceutical and Dietary Resource for Disease Prevention and Management: A Systematic Review.",
       "journal": "Nutrients",
       "pub_date": "2025-Dec-14",
-      "pub_type": "Journal Article",
+      "pub_type": "Systematic Review",
       "selection_score": 2,
       "source_pool": "C",
       "discovery_query": "((ashwagandha[Title/Abstract] OR rhodiola[Title/Abstract] OR ginseng[Title/Abstract] OR bacopa[Title/Abstract] OR \"Hericium erinaceus\"[Title/Abstract] OR curcumin[Title/Abstract] OR Ganoderma[Title/Abstract]) AND (sleep[Title/Abstract] OR stress[Title/Abstract] OR anxiety[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR metabolic[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
@@ -12894,7 +12978,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12735451/",
       "pdf_link": "https://doi.org/10.3390/nu17243915",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_replacement",
       "verified_title": "Opuntia dillenii as a Nutraceutical and Dietary Resource for Disease Prevention and Management: A Systematic Review.",
       "verified_journal": "Nutrients",
       "verified_pub_date": "2025-Dec-14",
@@ -12904,7 +12988,10 @@
       "replacement_of": {
         "pmid": "42795311",
         "title": "Comprehensive Identification and Integrated Analysis of the PR1 and PR10 Gene Families in Ginseng: PgPR1-5 and PgPR10-8 Gene Expression Analysis in Response to MeJA."
-      }
+      },
+      "replacement_for_pmid": "42795311",
+      "replacement_for_title": null,
+      "replacement_reason": "final_relevance_quality_replacement"
     },
     {
       "wave": 5470,
@@ -12968,7 +13055,7 @@
       "title": "Effectiveness of curcumin mouthwash in preventing traumatic ulcers in orthodontic patients.",
       "journal": "BMC oral health",
       "pub_date": "2025-Nov-03",
-      "pub_type": "Journal Article",
+      "pub_type": "Randomized Controlled Trial",
       "selection_score": 2,
       "source_pool": "C",
       "discovery_query": "((ashwagandha[Title/Abstract] OR rhodiola[Title/Abstract] OR ginseng[Title/Abstract] OR bacopa[Title/Abstract] OR \"Hericium erinaceus\"[Title/Abstract] OR curcumin[Title/Abstract] OR Ganoderma[Title/Abstract]) AND (sleep[Title/Abstract] OR stress[Title/Abstract] OR anxiety[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR metabolic[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
@@ -12979,7 +13066,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12581252/",
       "pdf_link": "https://doi.org/10.1186/s12903-025-07141-5",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_replacement",
       "verified_title": "Effectiveness of curcumin mouthwash in preventing traumatic ulcers in orthodontic patients.",
       "verified_journal": "BMC oral health",
       "verified_pub_date": "2025-Nov-03",
@@ -12989,7 +13076,10 @@
       "replacement_of": {
         "pmid": "42797939",
         "title": "Curcumin Supplementation Mitigates Oxytetracycline-Induced Hematological, Immunological, and Oxidative Stress in Rainbow Trout (Oncorhynchus mykiss)."
-      }
+      },
+      "replacement_for_pmid": "42797939",
+      "replacement_for_title": null,
+      "replacement_reason": "final_relevance_quality_replacement"
     },
     {
       "wave": 5473,
@@ -13080,7 +13170,7 @@
       "title": "Effects of EPA+DHA and Corn Oil Supplementation on PUFA Concentrations across Plasma Lipid Pools and on Downstream Oxylipins: Exploratory Results from a Randomized Controlled Trial in Healthy Humans.",
       "journal": "The Journal of nutrition",
       "pub_date": "2026-Feb",
-      "pub_type": "Journal Article",
+      "pub_type": "Research Support, N.I.H., Extramural",
       "selection_score": 2,
       "source_pool": "D",
       "discovery_query": "((\"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR carnitine[Title/Abstract] OR creatine[Title/Abstract]) AND (fatigue[Title/Abstract] OR exercise[Title/Abstract] OR mitochondrial[Title/Abstract] OR energy[Title/Abstract])) AND 2015:2026[pdat] AND hasabstract[text]",
@@ -13091,7 +13181,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12975358/",
       "pdf_link": "https://doi.org/10.1016/j.tjnut.2025.101274",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_collision_replacement",
       "verified_title": "Effects of EPA+DHA and Corn Oil Supplementation on PUFA Concentrations across Plasma Lipid Pools and on Downstream Oxylipins: Exploratory Results from a Randomized Controlled Trial in Healthy Humans.",
       "verified_journal": "The Journal of nutrition",
       "verified_pub_date": "2026-Feb",
@@ -13102,7 +13192,10 @@
         "pmid": "42800365",
         "title": "Creatine for glucagon-like peptide-1-associated muscle loss.",
         "reason": "prior_finalized_ledger_collision"
-      }
+      },
+      "replacement_for_pmid": "42800365",
+      "replacement_for_title": null,
+      "replacement_reason": "upstream_pmid_collision_replacement"
     },
     {
       "wave": 5477,
@@ -13204,7 +13297,7 @@
       "exact_title_verified": true,
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.1016/j.tjnut.2026.101855",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_retry",
       "verified_title": "Elevated Serum Vitamin B12 Concentrations Are Nonlinearly Associated with Cancer Incidence and All-Cause Mortality: A retrospective analysis of the global multi-institutional cohort study.",
       "verified_journal": "The Journal of nutrition",
       "verified_pub_date": "2026-Sep-29",
@@ -13356,7 +13449,7 @@
       "title": "Panax notoginseng saponins against ischemic stroke: From molecule to clinic.",
       "journal": "Journal of ethnopharmacology",
       "pub_date": "2026-Feb-10",
-      "pub_type": "Journal Article",
+      "pub_type": "Systematic Review",
       "selection_score": 2,
       "source_pool": "C",
       "discovery_query": "((ashwagandha[Title/Abstract] OR rhodiola[Title/Abstract] OR ginseng[Title/Abstract] OR bacopa[Title/Abstract] OR \"Hericium erinaceus\"[Title/Abstract] OR curcumin[Title/Abstract] OR Ganoderma[Title/Abstract]) AND (sleep[Title/Abstract] OR stress[Title/Abstract] OR anxiety[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR metabolic[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
@@ -13367,7 +13460,7 @@
       "exact_title_verified": true,
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.1016/j.jep.2025.120834",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_replacement",
       "verified_title": "Panax notoginseng saponins against ischemic stroke: From molecule to clinic.",
       "verified_journal": "Journal of ethnopharmacology",
       "verified_pub_date": "2026-Feb-10",
@@ -13377,7 +13470,10 @@
       "replacement_of": {
         "pmid": "42815388",
         "title": "Application of Cu(2+)-chelated curcumin/chitosan coating in maintaining the storage quality of harvested passion fruit."
-      }
+      },
+      "replacement_for_pmid": "42815388",
+      "replacement_for_title": null,
+      "replacement_reason": "final_relevance_quality_replacement"
     },
     {
       "wave": 5487,
@@ -13495,7 +13591,7 @@
       "title": "Efficacy of sublingual and oral vitamin B12 versus intramuscular administration: insights from a systematic review and meta-analysis.",
       "journal": "Frontiers in pharmacology",
       "pub_date": "2025",
-      "pub_type": "Journal Article",
+      "pub_type": "Systematic Review",
       "selection_score": 2,
       "source_pool": "D",
       "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract]) AND (sleep[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR cognition[Title/Abstract] OR deficiency[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
@@ -13506,7 +13602,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12757266/",
       "pdf_link": "https://doi.org/10.3389/fphar.2025.1602976",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_replacement",
       "verified_title": "Efficacy of sublingual and oral vitamin B12 versus intramuscular administration: insights from a systematic review and meta-analysis.",
       "verified_journal": "Frontiers in pharmacology",
       "verified_pub_date": "2025",
@@ -13516,7 +13612,10 @@
       "replacement_of": {
         "pmid": "42819320",
         "title": "Deep learning-based visual diagnosis of Huanglongbing and zinc deficiency in citrus leaves for sustainable and precision orchard management."
-      }
+      },
+      "replacement_for_pmid": "42819320",
+      "replacement_for_title": null,
+      "replacement_reason": "final_relevance_quality_replacement"
     },
     {
       "wave": 5492,
@@ -13715,7 +13814,7 @@
       "title": "Impact evaluation of a population-based 'Screen and Treat for Anaemia Reduction (STAR)' strategy: a cluster randomised trial in rural Telangana, India.",
       "journal": "BMJ global health",
       "pub_date": "2025-Dec-25",
-      "pub_type": "Journal Article",
+      "pub_type": "Randomized Controlled Trial",
       "selection_score": 2,
       "source_pool": "D",
       "discovery_query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract]) AND (sleep[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR cognition[Title/Abstract] OR deficiency[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
@@ -13726,7 +13825,7 @@
       "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12742117/",
       "pdf_link": "https://doi.org/10.1136/bmjgh-2025-020633",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_replacement",
       "verified_title": "Impact evaluation of a population-based 'Screen and Treat for Anaemia Reduction (STAR)' strategy: a cluster randomised trial in rural Telangana, India.",
       "verified_journal": "BMJ global health",
       "verified_pub_date": "2025-Dec-25",
@@ -13736,7 +13835,10 @@
       "replacement_of": {
         "pmid": "42826768",
         "title": "A conserved zinc-finger gene BmZFO721 regulates meiosis and female fertility in silkworm, Bombyx mori."
-      }
+      },
+      "replacement_for_pmid": "42826768",
+      "replacement_for_title": null,
+      "replacement_reason": "final_relevance_quality_replacement"
     },
     {
       "wave": 5500,
@@ -13746,7 +13848,7 @@
       "title": "Individualized Nutritional Rehabilitation Improves Muscle Strength, Cognitive Function, and Quality of Life in Elderly Patients with Sarcopenia and Cognitive Impairment: A Randomized Controlled Trial.",
       "journal": "Journal of nutritional science and vitaminology",
       "pub_date": "2025",
-      "pub_type": "Journal Article",
+      "pub_type": "Randomized Controlled Trial",
       "selection_score": 2,
       "source_pool": "E",
       "discovery_query": "((creatine[Title/Abstract] OR protein[Title/Abstract] OR \"resistance training\"[Title/Abstract]) AND (\"older adults\"[Title/Abstract] OR aging[Title/Abstract] OR sarcopenia[Title/Abstract] OR frailty[Title/Abstract])) AND 2015:2026[pdat] AND hasabstract[text]",
@@ -13757,7 +13859,7 @@
       "exact_title_verified": true,
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.3177/jnsv.71.507",
-      "state": "research_only_exact_verified_final",
+      "state": "research_only_exact_verified_final_replacement",
       "verified_title": "Individualized Nutritional Rehabilitation Improves Muscle Strength, Cognitive Function, and Quality of Life in Elderly Patients with Sarcopenia and Cognitive Impairment: A Randomized Controlled Trial.",
       "verified_journal": "Journal of nutritional science and vitaminology",
       "verified_pub_date": "2025",
@@ -13767,7 +13869,10 @@
       "replacement_of": {
         "pmid": "42827393",
         "title": "Age-specific genomic and transcriptomic variation reveals limited evidence for cis-regulatory interactions modulating aging in Saccharomyces cerevisiae."
-      }
+      },
+      "replacement_for_pmid": "42827393",
+      "replacement_for_title": null,
+      "replacement_reason": "final_relevance_quality_replacement"
     }
   ],
   "revisions": [
@@ -13814,5 +13919,11 @@
     "duplicate_dois": [],
     "duplicate_titles": [],
     "policy_title_violations": []
+  },
+  "provenance_r3": {
+    "r2_replacements_restored": 35,
+    "surviving_retry_overrides": 14,
+    "policy_replacements": 20,
+    "publication_type_metadata_refreshed": true
   }
 }
