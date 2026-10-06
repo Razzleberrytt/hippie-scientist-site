@@ -63,9 +63,9 @@ describe('TikTok THS Publisher adapter', () => {
     })
 
     expect(uploadImpl).toHaveBeenCalledTimes(1)
-    expect(result.status).toBe('awaiting-user-post')
+    expect(result.status).toBe('provider-accepted')
     expect(result.job.publicationId).toBe(publication.publicationId)
-    expect(result.job.state).toBe('AWAITING_USER_POST')
+    expect(result.job.state).toBe('PROVIDER_ACCEPTED')
     expect(result.job.providerReceipt).toMatchObject({
       provider: 'tiktok',
       providerOperationId: 'v_inbox_url~v2.123',
@@ -100,6 +100,25 @@ describe('TikTok THS Publisher adapter', () => {
     })
     expect(second.status).toBe('already-dispatched')
     expect(uploadImpl).toHaveBeenCalledTimes(1)
+  })
+
+  it('freezes ambiguous transport errors for reconciliation instead of blind retry', async () => {
+    const result = await dispatchTikTokPublication({
+      job: job(),
+      lifecycle: readyLifecycle(),
+      currentIdentity: identity,
+      uploadImpl: async () => {
+        throw new Error('connection reset after request body was sent')
+      },
+      now: '2026-10-06T14:00:00Z',
+    })
+    expect(result.status).toBe('needs-reconciliation')
+    expect(result.job.state).toBe('NEEDS_RECONCILIATION')
+    expect(result.job.failure).toMatchObject({
+      retryable: false,
+      ambiguousDispatch: true,
+    })
+    expect(result.job.publicationId).toBe(job().publicationId)
   })
 
   it('observer promotes to PUBLISHED only after TikTok returns public post identity', async () => {
