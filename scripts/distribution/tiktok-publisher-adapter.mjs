@@ -57,7 +57,7 @@ export async function dispatchTikTokPublication({
     })
     const nextJob = acceptProviderReceipt(started, {
       provider: 'tiktok',
-      nextState: 'AWAITING_USER_POST',
+      nextState: 'PROVIDER_ACCEPTED',
       receipt: {
         providerOperationId: result.publishId,
         publishId: result.publishId,
@@ -69,7 +69,7 @@ export async function dispatchTikTokPublication({
       now,
     })
     return {
-      status: 'awaiting-user-post',
+      status: 'provider-accepted',
       job: nextJob,
       lifecycle: result.lifecycle,
     }
@@ -117,6 +117,9 @@ export async function observeTikTokPublication({
     provider: 'tiktok',
     status: observation.status || 'UNKNOWN',
     receipt: observation,
+    nextState: observation.inboxDelivered || job.state === 'AWAITING_USER_POST'
+      ? 'AWAITING_USER_POST'
+      : 'PROVIDER_ACCEPTED',
     now,
   })
 
