@@ -29,9 +29,7 @@
     "objective_off_domain_review_passed": true,
     "objective_off_domain_rows_remaining": 0,
     "final_relevance_review_passed": true,
-    "pmc_shortcuts_authoritative": false,
-    "pmc_shortcuts_in_final_receipt": 0,
-    "pmc_policy": "full_text_link omitted until independent authoritative PMID↔PMCID mapping is available; DOI remains the durable article locator"
+    "final_full_text_links_omitted_pending_authoritative_pmid_pmcid_mapping": true
   },
   "repairs": {
     "reviewed_replacement_rows": 66,
@@ -39,30 +37,34 @@
     "final_shortage_repair_rows": 4,
     "total_repaired_rows": 111,
     "post_review_replacement_rows": 28,
-    "second_pass_category_drift_rows": 10
+    "second_pass_category_drift_rows": 10,
+    "codex_review_repair_r7_rows": 17,
+    "total_repair_actions": 100,
+    "note": "R7 supersedes 17 final rows, including rows previously repaired in earlier rounds; repair-action counts are not unique-row counts."
   },
   "category_counts": {
-    "aging_sarcopenia": 46,
-    "botanicals_mushrooms": 43,
+    "aging_sarcopenia": 44,
+    "botanicals_mushrooms": 41,
     "cannabinoid_safety": 41,
-    "cardiometabolic": 29,
-    "cognition_focus": 44,
-    "gut": 36,
-    "mood": 14,
+    "cardiometabolic": 28,
+    "cognition_focus": 40,
+    "gut": 34,
+    "micronutrients": 34,
     "immune_respiratory": 45,
-    "inflammation_pain": 30,
-    "metabolic": 35,
-    "micronutrients": 30,
-    "mitochondrial_energy": 34,
+    "inflammation_pain": 29,
+    "mitochondrial_energy": 45,
+    "metabolic": 34,
+    "mood": 13,
     "withdrawal_nps": 33,
-    "performance": 5,
+    "performance": 4,
     "women_health": 24,
     "sleep": 11
   },
   "state_counts": {
     "research_only_exact_verified_final": 392,
-    "research_only_exact_verified_review_replacement": 94,
+    "research_only_exact_verified_review_replacement": 77,
     "research_only_exact_verified_override_r5b": 13,
+    "research_only_exact_verified_review_repair_r7": 17,
     "research_only_exact_verified_final_shortage_repair": 1
   },
   "artifacts": {
@@ -74,7 +76,7 @@
     "r5b_exact": "2026-10-06-enrichment-waves-4501-5000-shortage-replacements-r5b-overrides-exact.json",
     "r6_exact": "2026-10-06-enrichment-waves-4501-5000-final-shortage-replacements-r6-exact.json"
   },
-  "authority_note": "This final audit and consolidated receipt supersede stale discovery rows, failed exact-verification candidates, reviewed relevance failures, earlier replacement assignments, and all unverified PMC shortcut mappings. Post-review repair now includes 28 exact-verified replacements: 18 original-review repairs plus 10 broader category-drift repairs.",
+  "authority_note": "This audit and consolidated receipt supersede stale discovery rows, failed exact-verification candidates, prior relevance replacements, and the Codex-reviewed off-domain/null-abstract/misbound-link final rows. Final PMC shortcuts are intentionally omitted until authoritative PMID↔PMCID mapping is available; DOI links remain.",
   "policy": {
     "entity_creation": "forbidden",
     "publication_promotion": "separate fail-closed admission",
@@ -82,6 +84,7 @@
     "dose_inference": "forbidden",
     "formulation_firewall": true,
     "category_firewall": true,
-    "retraction_quarantine": true
+    "retraction_quarantine": true,
+    "authoritative_full_text_link_policy": "omit final PMC shortcut unless PMID↔PMCID mapping is independently authoritative"
   }
 }
