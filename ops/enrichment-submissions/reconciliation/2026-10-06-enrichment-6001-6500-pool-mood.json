@@ -1,0 +1,819 @@
+{
+  "schema_version": 1,
+  "category": "mood",
+  "target": 27,
+  "predecessor_unique_pmids": 5935,
+  "candidate_count": 81,
+  "rows": [
+    {
+      "pmid": "41895384",
+      "title": "Vitamin D in major depressive disorder: Current evidence, possible molecular mechanisms, and future prospects.",
+      "doi": "10.1016/j.jsbmb.2026.107003",
+      "pub_date": "2026 Jun",
+      "journal": "The Journal of steroid biochemistry and molecular biology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41940453",
+      "title": "The role of vitamin D deficiency in psychiatric disorders: A systematic review on association with depression and schizophrenia.",
+      "doi": "10.1177/10398562261430582",
+      "pub_date": "2026 Apr 6",
+      "journal": "Australasian psychiatry : bulletin of Royal Australian and New Zealand College of Psychiatrists",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41939772",
+      "title": "The microbiota-gut-brain-epigenome axis as a novel therapeutic target for decoding postpartum depression.",
+      "doi": "10.3389/fmed.2026.1778348",
+      "pub_date": "2026",
+      "journal": "Frontiers in medicine",
+      "pub_type": "Systematic Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41881679",
+      "title": "Does inflammation explain the association between vitamin D and depression? Results of a cross-sectional study in children and adolescents.",
+      "doi": "10.1017/S0007114526106928",
+      "pub_date": "2026 Mar 26",
+      "journal": "The British journal of nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41900862",
+      "title": "Sexual Function and Depressive Symptoms in Metformin-Treated Women with Drug-Induced Hyperprolactinemia and Different Vitamin D Status: A Pilot Study.",
+      "doi": "10.3390/pharmaceutics18030376",
+      "pub_date": "2026 Mar 18",
+      "journal": "Pharmaceutics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42000073",
+      "title": "Global burden of diabetes and depression (1990-2021), global burden trends, and the impact of vitamin D on diabetes and depression: A multidimensional analysis based on GBD and NHANES.",
+      "doi": "10.1016/j.jad.2026.121809",
+      "pub_date": "2026 Aug 15",
+      "journal": "Journal of affective disorders",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42110899",
+      "title": "The Association Between Serum Vitamin D and Lipid Levels in Patients With Depression: A Cross-Sectional Study.",
+      "doi": "10.31083/AP46265",
+      "pub_date": "2026 Apr",
+      "journal": "Alpha psychiatry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42269885",
+      "title": "A food-borne probiotic ameliorates depression by modulating tryptophan metabolism along the gut-brain axis.",
+      "doi": "10.1016/j.bbi.2026.106866",
+      "pub_date": "2026 Oct",
+      "journal": "Brain, behavior, and immunity",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42378112",
+      "title": "Effects of combined nutritional supplementation with biotin, omega-3 polyunsaturated fatty acids and vitamin D in depression: a preclinical study.",
+      "doi": "10.1515/jcim-2026-0080",
+      "pub_date": "2026 Jul 1",
+      "journal": "Journal of complementary & integrative medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42398703",
+      "title": "Rationale, design, and statistical analysis plan for a randomized, double-blind, placebo-controlled trial of Limosilactobacillus reuteri to support mother-infant bonding and maternal socioemotional functioning in postpartum women at increased risk for postpartum depression.",
+      "doi": "10.1016/j.cct.2026.108399",
+      "pub_date": "2026 Sep",
+      "journal": "Contemporary clinical trials",
+      "pub_type": "Clinical Trial Protocol",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42833523",
+      "title": "Gut microbiota-expressed sulfotransferase sulfonates 25-hydroxyvitamin D3 and promotes depression.",
+      "doi": "10.1016/j.bbi.2026.107043",
+      "pub_date": "2026 Oct 5",
+      "journal": "Brain, behavior, and immunity",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41871606",
+      "title": "Maternal melatonin supplementation during late-gestation nutrient restriction alters placental fatty acid transporter expression and fetal fatty acid profiles in beef heifers.",
+      "doi": "10.1093/jas/skag090",
+      "pub_date": "2026 Jan 8",
+      "journal": "Journal of animal science",
+      "pub_type": "Randomized Controlled Trial, Veterinary",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41998618",
+      "title": "Lactobacillus acidophilus for infant colic and microbiota modulation: a randomized clinical trial.",
+      "doi": "10.1186/s12887-026-06883-7",
+      "pub_date": "2026 Apr 18",
+      "journal": "BMC pediatrics",
+      "pub_type": "Randomized Controlled Trial",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42371128",
+      "title": "Investigating enhancement of learning and memory following supplementation with Juice Plus(+)® Omega in an adolescent population.",
+      "doi": "10.1007/s00394-026-04012-9",
+      "pub_date": "2026 Jun 29",
+      "journal": "European journal of nutrition",
+      "pub_type": "Randomized Controlled Trial",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41871284",
+      "title": "Ruminal Magnesium Transport Revisited: Apparent Absorption and Estimate of Requirement.",
+      "doi": "10.1111/jpn.70055",
+      "pub_date": "2026 Jul",
+      "journal": "Journal of animal physiology and animal nutrition",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41898284",
+      "title": "Probiotics as Modulators of Adult Neurogenesis and Synaptic Plasticity: New Perspectives in the Pathophysiology and Treatment of Affective Disorders.",
+      "doi": "10.3390/biomedicines14030637",
+      "pub_date": "2026 Mar 12",
+      "journal": "Biomedicines",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41901246",
+      "title": "Efficacy and Safety of Herbal Supplements with Anxiolytic, Antidepressant, and Sedative Action: A Review of Clinical Data and Toxicological Risks.",
+      "doi": "10.3390/ph19030399",
+      "pub_date": "2026 Feb 28",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41916942",
+      "title": "Drug repurposing in the management of major depressive disorder: a perspective.",
+      "doi": "10.12809/eaap25103",
+      "pub_date": "2026 Mar",
+      "journal": "East Asian archives of psychiatry : official journal of the Hong Kong College of Psychiatrists = Dong Ya jing shen ke xue zhi : Xianggang jing shen ke yi xue yuan qi kan",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42193346",
+      "title": "Wild Flora Species from Romania with Anxiolytic and Antidepressant Potential: A Global Perspective-Narrative Review.",
+      "doi": "10.3390/biomedicines14051019",
+      "pub_date": "2026 Apr 30",
+      "journal": "Biomedicines",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42346380",
+      "title": "A Chrono-Metabolic Approach to Mental Health: Current Perspectives on Circadian Rhythms, Gut Microbiota, and Microbial Metabolites in Mood Disorders.",
+      "doi": "10.3390/metabo16060400",
+      "pub_date": "2026 Jun 9",
+      "journal": "Metabolites",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42354045",
+      "title": "Probiotic Bacteria in Stimulating Human Physiological Responses: Metabolic Function and Overall Health.",
+      "doi": "10.3390/foods15122079",
+      "pub_date": "2026 Jun 8",
+      "journal": "Foods (Basel, Switzerland)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42480723",
+      "title": "Gut microbiome variability and brain structure and function in unipolar and bipolar depression: A review.",
+      "doi": "10.1016/j.jad.2026.122287",
+      "pub_date": "2026 Dec 1",
+      "journal": "Journal of affective disorders",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42484803",
+      "title": "Magnesium: Hype and Health Benefits.",
+      "doi": "10.1007/s13668-026-00786-w",
+      "pub_date": "2026 Jul 22",
+      "journal": "Current nutrition reports",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42595199",
+      "title": "Natural products for depression: Preclinical insights into microbiota-gut-brain axis modulation and pharmacological potential.",
+      "doi": "10.1016/j.phrs.2026.108390",
+      "pub_date": "2026 Oct",
+      "journal": "Pharmacological research",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42603926",
+      "title": "Camel milk-based probiotics: functional properties, gut health benefits, and emerging implications for the gut-brain axis-a comprehensive review.",
+      "doi": "10.1007/s13197-026-06765-x",
+      "pub_date": "2026 Sep",
+      "journal": "Journal of food science and technology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42217371",
+      "title": "Prevalence and outcomes of co-occurring psychiatric and endocrine, metabolic, and nutritional disorders: An atlas based on umbrella review of 254,154,533 records.",
+      "doi": "10.1016/j.euroneuro.2026.112880",
+      "pub_date": "2026 Sep",
+      "journal": "European neuropsychopharmacology : the journal of the European College of Neuropsychopharmacology",
+      "pub_type": "Systematic Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "32119480",
+      "title": "Magnesium Toxicity.",
+      "doi": null,
+      "pub_date": "2026 Jan",
+      "journal": null,
+      "pub_type": "Study Guide",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41801488",
+      "title": "Behavioral, antioxidant, and kynurenine pathway modulation of a specific strain of Ligilactobacillus salivarius in a preclinical model of depression.",
+      "doi": "10.1007/s00394-026-03941-9",
+      "pub_date": "2026 Mar 9",
+      "journal": "European journal of nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41837594",
+      "title": "Probiotic Interventions and Cognitive Performance: Insights from Recent Clinical Trials.",
+      "doi": "10.2174/0113816128436386251216114724",
+      "pub_date": "2026 Mar 10",
+      "journal": "Current pharmaceutical design",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41898257",
+      "title": "Magnesium Transporter SLC41A1 Links Magnesium Homeostasis to NMDA Receptor-Related Synaptic Dysfunction: A Transdiagnostic Therapeutic Target for Neuropsychiatric Disorders.",
+      "doi": "10.3390/biomedicines14030610",
+      "pub_date": "2026 Mar 9",
+      "journal": "Biomedicines",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41916434",
+      "title": "Probiotic treatment rescues behavioral deficits and gut microbial abnormalities induced by preconceptional stress in mothers and offspring.",
+      "doi": "10.1016/j.bbi.2026.106571",
+      "pub_date": "2026 Aug",
+      "journal": "Brain, behavior, and immunity",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41970453",
+      "title": "Associations of probiotics, prebiotics, synbiotics, and yogurt supplements with oxidative balance scores and all-cause and cardiovascular mortalities in neuropsychiatric disorders.",
+      "doi": "10.1016/j.ahjo.2026.100767",
+      "pub_date": "2026 May",
+      "journal": "American heart journal plus : cardiology research and practice",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41993570",
+      "title": "Akkermansia muciniphila improving depression-like behaviors by regulating glycerophospholipid metabolism in gut-brain axis.",
+      "doi": "10.3389/fphar.2026.1790866",
+      "pub_date": "2026",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42108731",
+      "title": "Effects of 3-Month Vitamin D(3) Supplementation on Motor and Non-Motor Symptoms in Parkinson's Disease: A Single-Arm Interventional Study.",
+      "doi": "10.1080/07317115.2026.2669192",
+      "pub_date": "2026 May 10",
+      "journal": "Clinical gerontologist",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42123660",
+      "title": "Butyrate Is Associated with the Antidepressant Effects of Weizmannia coagulans BC99: Functional Similarity of a Microbial Metabolite in the Microbiota-Gut-Brain Axis.",
+      "doi": "10.3390/ijms27094082",
+      "pub_date": "2026 May 2",
+      "journal": "International journal of molecular sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42125319",
+      "title": "The impact of psychosocial factors on secondary hyperparathyroidism and vitamin D deficiency in adults with congenital heart disease-the CHD-HYPER study.",
+      "doi": "10.3389/fnut.2026.1681346",
+      "pub_date": "2026",
+      "journal": "Frontiers in nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42152659",
+      "title": "Gut Microbiota-Targeted Therapies for Major Depressive Disorder: Mechanisms, Clinical Evidence, and Future Directions.",
+      "doi": "10.2174/011570159X432808251117075147",
+      "pub_date": "2026 May 12",
+      "journal": "Current neuropharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42197021",
+      "title": "An Exploratory Study of Serum 25-Hydroxyvitamin D Concentration and Psychological Distress Among Aboriginal and Torres Strait Islander Peoples in Australia.",
+      "doi": "10.3390/nu18101563",
+      "pub_date": "2026 May 14",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42238885",
+      "title": "Limosilactobacillus fermentum WIS32 alleviates LPS-induced depression-like behavior via the microbiota-gut-brain axis.",
+      "doi": "10.3389/fmicb.2026.1792026",
+      "pub_date": "2026",
+      "journal": "Frontiers in microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42257429",
+      "title": "Integrative Proteomics Reveals Distinct Lipid Metabolic and Gut Microbiota-Associated Antidepressant Mechanisms of Two Herbal Medicines in a Chronic Stress Model.",
+      "doi": "10.1177/15578100261454586",
+      "pub_date": "2026 Jun",
+      "journal": "Omics : a journal of integrative biology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42350326",
+      "title": "A Mechanism-Guided Delivery System for Long-Acting Postpartum Depression Therapy via Hydrogen-Facilitated Gut Microbiota Reprogramming.",
+      "doi": "10.1021/acsami.6c07864",
+      "pub_date": "2026 Jul 8",
+      "journal": "ACS applied materials & interfaces",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42449292",
+      "title": "Nutritional biomarkers and three-month symptom changes in antidepressant-free adolescents with major depressive disorder: a retrospective cohort study.",
+      "doi": "10.1186/s12887-026-07325-0",
+      "pub_date": "2026 Jul 14",
+      "journal": "BMC pediatrics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42649572",
+      "title": "The Role of Stress-related Biomarkers, Immune-inflammatory Pathways, and Genetic Polymorphisms in Cognitive-behavioral Therapies for Chronic Low Back Pain and Depression: Results from a Randomized Controlled Trial (the IMPACT study).",
+      "doi": "10.1097/AJP.0000000000001415",
+      "pub_date": "2026 Aug 27",
+      "journal": "The Clinical journal of pain",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42700187",
+      "title": "Lactobacillus rhamnosus and Saccharomyces boulardii Attenuate LPS-Induced Cognitive and Affective Dysfunction Associated with Hippocampal Neuroinflammatory and Neurochemical Alterations : Probiotics Mitigate LPS-Induced Neuroinflammation and Cognitive Deficits.",
+      "doi": "10.1007/s11064-026-04883-8",
+      "pub_date": "2026 Sep 5",
+      "journal": "Neurochemical research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42745162",
+      "title": "Psychological Distress and Predictors of Anxiety and Depression in New Hemodialysis Patients.",
+      "doi": "10.1177/08445621261479664",
+      "pub_date": "2026 Sep 15",
+      "journal": "The Canadian journal of nursing research = Revue canadienne de recherche en sciences infirmieres",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42836128",
+      "title": "Plasma Sphingomyelin and Ceramide Profiles as Potential Biomarkers in Young Adults with Bipolar Depression: A Lipidomics Study.",
+      "doi": "10.2147/NDT.S636080",
+      "pub_date": "2026",
+      "journal": "Neuropsychiatric disease and treatment",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41987889",
+      "title": "Subjective health status, life performance and complications in chronic hypoparathyroidism - a German multicenter survey.",
+      "doi": "10.3389/fendo.2026.1723640",
+      "pub_date": "2026",
+      "journal": "Frontiers in endocrinology",
+      "pub_type": "Observational Study",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "20301298",
+      "title": "Dystrophinopathies.",
+      "doi": null,
+      "pub_date": "1993",
+      "journal": null,
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "30000958",
+      "title": "Marine Oils.",
+      "doi": null,
+      "pub_date": "2006",
+      "journal": null,
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41809212",
+      "title": "Gut-brain axis and post-operative cognitive dysfunction: A multifactorial perspective on microbiota, inflammation, and cognitive health.",
+      "doi": "10.4292/wjgpt.v17.i1.112754",
+      "pub_date": "2026 Mar 5",
+      "journal": "World journal of gastrointestinal pharmacology and therapeutics",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41814325",
+      "title": "Molecular mechanisms and therapeutic potential of tryptophan metabolism in gut-brain signaling transduction: a narrative review.",
+      "doi": "10.1186/s12974-026-03763-w",
+      "pub_date": "2026 Mar 12",
+      "journal": "Journal of neuroinflammation",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41872423",
+      "title": "Hypomagnesemia: A Clinical and Nutritional Update.",
+      "doi": "10.1007/s13668-026-00745-5",
+      "pub_date": "2026 Mar 24",
+      "journal": "Current nutrition reports",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41886199",
+      "title": "From functional ingredients to bioactive compounds: a review of their role in commercial pet food.",
+      "doi": "10.1007/s11259-026-11178-4",
+      "pub_date": "2026 Mar 26",
+      "journal": "Veterinary research communications",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41915334",
+      "title": "The Multifaceted Roles of GPR120 in Central Nervous System Disorders: Mechanistic Insights and Therapeutic Implications.",
+      "doi": "10.1007/s12035-026-05776-1",
+      "pub_date": "2026 Mar 31",
+      "journal": "Molecular neurobiology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41962092",
+      "title": "Characteristics of adult patients with juvenile idiopathic arthritis.",
+      "doi": "10.36740/WLek/217867",
+      "pub_date": "2026",
+      "journal": "Wiadomosci lekarskie (Warsaw, Poland : 1960)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41975774",
+      "title": "Unravelling Sarcopenia in Chronic Kidney Disease: From Pathogenesis to Diagnosis and Therapeutics.",
+      "doi": "10.3390/diagnostics16071063",
+      "pub_date": "2026 Apr 1",
+      "journal": "Diagnostics (Basel, Switzerland)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41987530",
+      "title": "The dietary intake and nutritional status of military veterans: a systematic literature review.",
+      "doi": "10.1017/S0007114526107120",
+      "pub_date": "2026 Apr 16",
+      "journal": "The British journal of nutrition",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41994411",
+      "title": "Micronutrient balance and brain function: neuropsychological, metabolic, and clinical interactions.",
+      "doi": "10.3389/fmolb.2026.1748487",
+      "pub_date": "2026",
+      "journal": "Frontiers in molecular biosciences",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42157533",
+      "title": "Ultraviolet Radiations Impact on the Skin-Brain Axis: A Literature Review of our Current Knowledge.",
+      "doi": "10.1111/phpp.70097",
+      "pub_date": "2026 May",
+      "journal": "Photodermatology, photoimmunology & photomedicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42211616",
+      "title": "Efficacy and Safety of Limosilactobacillus reuteri DSM 17938 in Infantile Colic: A Narrative Review From Pathogenesis to Clinical Practice.",
+      "doi": "10.7759/cureus.107824",
+      "pub_date": "2026 Apr",
+      "journal": "Cureus",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42215147",
+      "title": "Hormonal, metabolic and metabolomic biomarkers in long COVID.",
+      "doi": "10.1016/bs.acc.2026.01.002",
+      "pub_date": "2026",
+      "journal": "Advances in clinical chemistry",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42293143",
+      "title": "Gerobiotics and neuroprotection: effects on the gut-brain axis in age-related neurodegenerative diseases.",
+      "doi": "10.3389/fnagi.2026.1814234",
+      "pub_date": "2026",
+      "journal": "Frontiers in aging neuroscience",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42632744",
+      "title": "Modulating stress responses via the microbiota-gut-brain axis: a pathway-focused review of GABA, 5-HT, and kynurenine metabolites.",
+      "doi": "10.1016/j.foodres.2026.119908",
+      "pub_date": "2026 Oct 31",
+      "journal": "Food research international (Ottawa, Ont.)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42793293",
+      "title": "Hyperforin as a Multifunctional Specialized Metabolite of Natural Origin for Chronic Diseases: From Molecular Mechanisms to Clinical Translation.",
+      "doi": "10.3390/cimb48090937",
+      "pub_date": "2026 Sep 14",
+      "journal": "Current issues in molecular biology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41832804",
+      "title": "Semaglutide in patients with hidradenitis suppurativa and obesity.",
+      "doi": "10.1016/j.medcli.2026.107405",
+      "pub_date": "2026 May",
+      "journal": "Medicina clinica",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41920473",
+      "title": "Are you always working in the dark? The impact of limited daylight exposure on radiologists' health.",
+      "doi": "10.1186/s13244-026-02248-x",
+      "pub_date": "2026 Apr 1",
+      "journal": "Insights into imaging",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41964296",
+      "title": "Uremic pruritus and its relationship with geriatric syndromes in older hemodialysis patients: analysis using the 5-D itch scale.",
+      "doi": "10.1080/15569527.2026.2656174",
+      "pub_date": "2026 Sep",
+      "journal": "Cutaneous and ocular toxicology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "41992401",
+      "title": "Biomarker-Guided Inflammatory Control and Multidimensional Recovery After Abdominoperineal Resection: A Prospective Cohort Study.",
+      "doi": "10.1111/ajco.70117",
+      "pub_date": "2026 Apr 16",
+      "journal": "Asia-Pacific journal of clinical oncology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42034252",
+      "title": "Seasonal longitudinal effects of winter birth on psychopathology, cognition, and functioning in schizophrenia-spectrum and affective disorders: Findings from the PsyCourse Study.",
+      "doi": "10.1016/j.jad.2026.121848",
+      "pub_date": "2026 Sep 1",
+      "journal": "Journal of affective disorders",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42039206",
+      "title": "Inflammatory and neuroendocrine biomarkers associated with mental health symptoms across body mass index categories: a cross-sectional machine learning analysis.",
+      "doi": "10.3389/fimmu.2026.1800205",
+      "pub_date": "2026",
+      "journal": "Frontiers in immunology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42051787",
+      "title": "Biopsychosocial stressors and perinatal mental health: The mediating role of social support in a Pakistani cohort.",
+      "doi": "10.1017/gmh.2026.10184",
+      "pub_date": "2026",
+      "journal": "Global mental health (Cambridge, England)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42075115",
+      "title": "Dietary Intake of Patients with Parkinson's Disease in Lithuania.",
+      "doi": "10.3390/nu18081302",
+      "pub_date": "2026 Apr 20",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42194011",
+      "title": "Modulating Blood-Brain Barrier Metabolites of Broiler Chickens Through Dietary Flaxseed Oil.",
+      "doi": "10.3390/biom16050661",
+      "pub_date": "2026 Apr 29",
+      "journal": "Biomolecules",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42226283",
+      "title": "Long-term effects of carbamazepine on bone-related biochemical markers in patients with epilepsy.",
+      "doi": "10.1186/s42494-026-00262-6",
+      "pub_date": "2026 Jun 2",
+      "journal": "Acta epileptologica",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42312315",
+      "title": "A Maltese Study in Determining the Presence of Chronic Obstructive Pulmonary Disease in Metabolic Syndrome.",
+      "doi": "10.2147/COPD.S608737",
+      "pub_date": "2026",
+      "journal": "International journal of chronic obstructive pulmonary disease",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42377345",
+      "title": "[Micronutrients and phytotherapy in the response to stress].",
+      "doi": "10.20960/nh.06961",
+      "pub_date": "2026 Jul 20",
+      "journal": "Nutricion hospitalaria",
+      "pub_type": "English Abstract",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42379368",
+      "title": "The milk fat globule membrane increases bacterial serotonin and exopolysaccharide production for maintenance of intestinal cell differentiation.",
+      "doi": "10.3168/jds.2026-28296",
+      "pub_date": "2026 Oct",
+      "journal": "Journal of dairy science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42423005",
+      "title": "Does a diverse whole-food plant-based dietary intervention improve gut microbiome composition, gut symptoms, energy and hunger in healthy adults? A randomised controlled trial.",
+      "doi": "10.1017/S0007114526107703",
+      "pub_date": "2026 Jul 9",
+      "journal": "The British journal of nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42448614",
+      "title": "Development of a nalmefene formulation suitable for a community-use auto-injector.",
+      "doi": "10.1002/bcp.70685",
+      "pub_date": "2026 Jul 14",
+      "journal": "British journal of clinical pharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42457037",
+      "title": "Nutritional Strategies Targeting Glucose Metabolism to Slow Cognitive Aging: A Scoping Review of Human Trials.",
+      "doi": "10.1016/j.ajcnut.2026.101434",
+      "pub_date": "2026 Sep",
+      "journal": "The American journal of clinical nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42517234",
+      "title": "Sleep-Related and Chronobiology Traits and Health-Related Phenotypes: A Phenome-Wide Mendelian Randomisation Study.",
+      "doi": "10.1111/jsr.70411",
+      "pub_date": "2026 Oct",
+      "journal": "Journal of sleep research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR saffron[Title/Abstract] OR \"St John\"[Title/Abstract] OR hypericum[Title/Abstract] OR \"vitamin D\"[Title/Abstract] OR magnesium[Title/Abstract] OR probiotic[Title/Abstract]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    }
+  ]
+}
