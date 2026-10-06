@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5001-5500",
+  "issue": 6362,
+  "status": "staged_pending_exact_verification",
+  "upstream": {
+    "issue": 6353,
+    "pr": 6355,
+    "head": "d42e038c96315df519eadd3fadc9cc01abd18fd5",
+    "prior_unique_pmids": 4935,
+    "through_wave": 5000
+  },
+  "discovery_pool_unique_not_in_prior_index": 954,
+  "title_and_publication_type_eligible": 894,
+  "staged_rows": 500,
+  "preverification_rejections": {
+    "prior_pmid": 0,
+    "hard_title": 27,
+    "publication_type": 33,
+    "duplicate_doi_or_title": 0
+  },
+  "integrity": {
+    "unique_pmids": 500,
+    "duplicate_pmids": 0,
+    "duplicate_normalized_dois": 0,
+    "duplicate_normalized_titles": 0,
+    "prior_pmid_collisions": 0
+  },
+  "category_counts": {
+    "stress_anxiety": 16,
+    "sleep": 32,
+    "withdrawal_nps": 45,
+    "mitochondrial_energy": 30,
+    "cardiometabolic": 24,
+    "cannabinoid_safety": 17,
+    "performance": 7,
+    "mood": 45,
+    "aging_sarcopenia": 25,
+    "micronutrients": 42,
+    "cognition_focus": 45,
+    "women_health": 45,
+    "gut": 16,
+    "immune_respiratory": 45,
+    "inflammation_pain": 25,
+    "metabolic": 41
+  },
+  "pub_type_counts": {
+    "Randomized Controlled Trial": 52,
+    "Meta-Analysis": 19,
+    "Systematic Review": 30,
+    "Clinical Trial, Phase II": 1,
+    "Clinical Trial, Phase III": 1,
+    "Pragmatic Clinical Trial": 1,
+    "Clinical Trial": 3,
+    "Multicenter Study": 5,
+    "Observational Study": 22,
+    "Comparative Study": 15,
+    "Validation Study": 2,
+    "Review": 130,
+    "Scoping Review": 1,
+    "Research Support, Non-U.S. Gov't": 24,
+    "Research Support, N.I.H., Extramural": 4,
+    "Research Support, N.I.H., Intramural": 1,
+    "Journal Article": 186,
+    "English Abstract": 3
+  },
+  "hard_stop": "Do not call this batch finalized until every staged row has exact title + non-null abstract verification and passes abstract-level relevance review."
+}
