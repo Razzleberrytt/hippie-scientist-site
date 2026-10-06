@@ -1,0 +1,4551 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-4501-5000-final-selection",
+  "continuation_of": "2026-10-05-enrichment-waves-4001-4500-final-selection",
+  "range": "4501-5000",
+  "target_findings": 500,
+  "finalized_findings": 500,
+  "stage": "exact_verified_finalized_pending_runtime_admission",
+  "dedupe": {
+    "prior_unique_pmids_excluded": 4435,
+    "selected_unique_pmids": 500,
+    "within_batch_duplicate_pmids": 0,
+    "within_batch_duplicate_dois": 0,
+    "within_batch_duplicate_normalized_titles": 0,
+    "prior_pmid_collisions": 0
+  },
+  "verification": {
+    "exact_title_match": "500/500",
+    "abstract_verified": "500/500",
+    "contiguous_wave_coverage": true,
+    "objective_off_domain_title_hits_remaining": 0,
+    "final_relevance_repairs_applied": 83
+  },
+  "repairs_applied": 83,
+  "category_counts": {
+    "aging_sarcopenia": 44,
+    "botanicals_mushrooms": 41,
+    "cannabinoid_safety": 41,
+    "cardiometabolic": 28,
+    "cognition_focus": 39,
+    "gut": 36,
+    "immune_respiratory": 42,
+    "inflammation_pain": 30,
+    "metabolic": 31,
+    "micronutrients": 33,
+    "mitochondrial_energy": 35,
+    "mood": 17,
+    "withdrawal_nps": 33,
+    "performance": 14,
+    "women_health": 24,
+    "sleep": 12
+  },
+  "state_counts": {
+    "research_only_exact_verified_final": 417,
+    "research_only_exact_verified_review_replacement": 66,
+    "research_only_exact_verified_override_r5b": 13,
+    "research_only_exact_verified_final_shortage_repair": 4
+  },
+  "waves": [
+    {
+      "wave": 4501,
+      "pmid": "42775968",
+      "doi": "10.21091/jah.2026.03065",
+      "title": "Examining the Effects of Testosterone and Strength Training on Fat Mass and Functional Strength in Older Adult Males: A Systematic Review.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4502,
+      "pmid": "42788414",
+      "doi": "10.1002/jcsm.70391",
+      "title": "Skeletal Muscle Transcriptomic Responses to Concurrent Training With Polyphenols in Ageing Adults: A Randomized Trial.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4503,
+      "pmid": "42782098",
+      "doi": "10.1002/jcsm.70388",
+      "title": "Sarcopenia Is Associated With Severe Treatment Toxicity and Mortality in Older Adults With Advanced Cancer: A Secondary Analysis.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4504,
+      "pmid": "42834665",
+      "doi": "10.1111/cpf.70097",
+      "title": "Similar acute increases in muscle size, but discrete perceptual responses to low-load blood flow restriction protocols.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4505,
+      "pmid": "42723826",
+      "doi": "10.3389/fendo.2026.1930328",
+      "title": "Effectiveness of community-based Baduanjin combined with resistance training on cardiometabolic risk factors in older adults with type 2 diabetes: a 16-week randomized controlled trial.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4506,
+      "pmid": "42473449",
+      "doi": "10.7717/peerj.21537",
+      "title": "Temporal dynamics of muscle strength recovery following acute cold-water immersion: a systematic review and meta-analysis.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4507,
+      "pmid": "42442697",
+      "doi": "10.1016/j.tjnut.2026.101722",
+      "title": "Time-Restricted Eating during a Bulking Phase Is Associated with Reduced Fat Accumulation, while Muscle and Strength Gains Are Maintained: A 12-Wk Randomized Controlled Trial.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4508,
+      "pmid": "42647752",
+      "doi": "10.1519/JSC.0000000000005439",
+      "title": "Skeletal Muscles Do Not Compete for Growth: Activating Additional Muscle Mass Does Not Compromise Changes in Muscle Size.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4509,
+      "pmid": "42721581",
+      "doi": "10.1016/j.clnu.2026.106778",
+      "title": "Reduced dietary protein intake does not alter autophagy in human blood: A randomized crossover study in healthy adults.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4510,
+      "pmid": "42803886",
+      "doi": "10.1007/s12020-026-04788-0",
+      "title": "Exploration of cytokines relating to masked obesity in Japanese women.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4511,
+      "pmid": "42475887",
+      "doi": "10.1016/j.nut.2026.113344",
+      "title": "Risk factors for loss of skeletal muscle mass in patients with chronic kidney disease on a low-protein diet.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4512,
+      "pmid": "42688268",
+      "doi": "10.12182/20260760203",
+      "title": "[Effects of Blood Flow Restriction Training on Muscle Strength and Physical Function in Older Adults With Sarcopenia].",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4513,
+      "pmid": "42514376",
+      "doi": "10.3390/nu18142307",
+      "title": "Effect of Intra-Workout Protein-Carbohydrate Co-Ingestion Versus Isocaloric Carbohydrate During Resistance Training on Muscle Fibre Hypertrophy and Oxidative Capacities in Young Men: A Randomized Controlled Trial.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4514,
+      "pmid": "42738981",
+      "doi": "10.3390/nu18172809",
+      "title": "Effect of a Defined Intake of a Soy-Based Protein-Rich Supplement on Body Composition and Eating Behaviour in Overweight Women: A Secondary Analysis of the ACOORH Trial.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4515,
+      "pmid": "42786257",
+      "doi": "10.1038/s42003-026-10941-2",
+      "title": "Fermented protein foods as modulators of the gut-muscle axis: mechanisms, evidence, and future directions.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4516,
+      "pmid": "42786149",
+      "doi": "10.1038/s41392-026-02935-7",
+      "title": "Inotodiol prevents age-related muscle wasting by restoring mitochondrial function through liver X receptor beta signaling.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4517,
+      "pmid": "42440096",
+      "doi": "10.1007/s00592-026-02736-y",
+      "title": "Sustained and attenuated effects of transitioning from supervised to self-managed resistance training in older adults with type 2 diabetes and sarcopenia: a randomized controlled trial.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4518,
+      "pmid": "42766490",
+      "doi": "10.2196/90863",
+      "title": "Agreement Between a Mobile Self-Administered Comprehensive Geriatric Assessment Screening Tool and Geriatrician-Administered Assessment: Cross-Sectional Feasibility Study.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4519,
+      "pmid": "42823422",
+      "doi": "10.1038/s41467-026-77275-9",
+      "title": "Sex- and fiber type-specific remodeling of the muscle proteome implicates CSRP3 in resistance training-induced hypertrophy.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4520,
+      "pmid": "42551773",
+      "doi": "10.1016/j.exger.2026.113261",
+      "title": "Responsiveness of muscle mass gain to different load intensities of resistance training in older women: A randomized crossover study.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4521,
+      "pmid": "42712944",
+      "doi": "10.3389/fmed.2026.1938860",
+      "title": "Comparative effectiveness and dose-response relationship of exercise-based interventions for muscle mass in older women with sarcopenia: a systematic review and network meta-analysis.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4522,
+      "pmid": "42760404",
+      "doi": "10.1007/s00415-026-14148-7",
+      "title": "High-load resistance training and FSHD: harmful mixture or a silver bullet combination?",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4523,
+      "pmid": "42758353",
+      "doi": "10.1007/s00223-026-01608-5",
+      "title": "Anti-osteoporotic Pharmacotherapy and Muscle Outcomes in Osteosarcopenia: a Source-Verified Translational Evidence Map.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4524,
+      "pmid": "42782781",
+      "doi": "10.3390/cells15181682",
+      "title": "The Myokine Landscape: Sources, Signaling, and Context-Dependent Actions.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4525,
+      "pmid": "42660338",
+      "doi": "10.1016/j.exger.2026.113305",
+      "title": "Effects of eccentric overload training on lower-limb muscle strength, gait performance, balance, and explosive power in older adults: A systematic review and meta-analysis.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4526,
+      "pmid": "42763202",
+      "doi": "10.3760/cma.j.cn112338-20260122-00061",
+      "title": "[A clinical pathway for exercise prescription in populations with sarcopenia-osteoporosis based on primary healthcare institutions].",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4527,
+      "pmid": "42588093",
+      "doi": "10.3390/nu18152470",
+      "title": "Effects of Nordic Walking Combined with High-Protein Intake and Time-Restricted Eating on Muscle-Related Outcomes in Postmenopausal Women: A Three-Arm Randomized Controlled Trial.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4528,
+      "pmid": "42767657",
+      "doi": "10.1111/ggi.70847",
+      "title": "Osteosarcopenia in Older Adults With Rheumatoid Arthritis: Clinical Correlates and Its Association With Rheumatoid Cachexia.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4529,
+      "pmid": "42834235",
+      "doi": "10.1007/s00520-026-11242-4",
+      "title": "Developing a supportive care pathway for sarcopenia prevention in nasopharyngeal carcinoma: a context-sensitive and implementation-oriented approach.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4530,
+      "pmid": "42832090",
+      "doi": "10.1007/s00520-026-11115-w",
+      "title": "Beyond reduced intake: tumor metabolism and immune dysregulation drive cancer-related malnutrition in head and neck squamous cell carcinoma (HNSCC).",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4531,
+      "pmid": "42776001",
+      "doi": "10.1039/d5fo05320j",
+      "title": "Inulin ameliorates sarcopenic obesity: critical roles of gut microbiota and bile acid metabolism.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4532,
+      "pmid": "42735207",
+      "doi": "10.1080/15502783.2026.2720742",
+      "title": "Resistance versus concurrent training with three assigned protein targets in middle-aged and older women: a randomized 2 × 3 factorial trial.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4533,
+      "pmid": "42833644",
+      "doi": "10.1002/jcsm.70397",
+      "title": "Dual-Tasking Exacerbates Force and Neural Control Unsteadiness in Older Adults With Sarcopenia.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4534,
+      "pmid": "42828469",
+      "doi": "10.1111/sms.70377",
+      "title": "Resistance Training for Cyclists: Scientific Evidence and Practical Recommendations.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4535,
+      "pmid": "42791661",
+      "doi": "10.1002/cam4.72230",
+      "title": "Pragmatic Screening for Sarcopenia in Non-Small Cell Lung Cancer: Development and Internal Validation of a Prospective Risk Model Integrating T12 CT Indices and Routine Clinical Variables.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4536,
+      "pmid": "42779298",
+      "doi": "10.1111/ggi.70851",
+      "title": "Simple Bedside Muscle-Related Indicators Improve the Identification of Reduced Kidney Function in Hospitalized Older Adults: A Multicenter Cross-Sectional Study.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4537,
+      "pmid": "42773997",
+      "doi": "10.1002/jcsm.70385",
+      "title": "Exploring the Impact of Urolithins A and B on Muscle Health: A Transcriptomic Analysis in Human Myotubes.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4538,
+      "pmid": "42479598",
+      "doi": "10.1519/JSC.0000000000005446",
+      "title": "Comparison Between Bilateral and Unilateral Leg-Press Resistance Exercise Training for Their Effects on Muscle Strength and Jump Performance.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4539,
+      "pmid": "42763302",
+      "doi": "10.11817/j.issn.1672-7347.2026.250650",
+      "title": "[Effects of exergame combined with elastic band resistance training on exercise self-efficacy and physical activity levels in older adults with cognitive frailty: A mixed-methods study].",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4540,
+      "pmid": "42473844",
+      "doi": "10.1177/25785478261469320",
+      "title": "Photobiomodulation as an Adjunct to Resistance Training in Older Adults: A Systematic Review and Meta-Analysis.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4541,
+      "pmid": "42804596",
+      "doi": "10.1080/07853890.2026.2740295",
+      "title": "Early sub-maximal quadriceps motor unit firing characteristics and six-month knee extensor strength after anterior cruciate ligament reconstruction: a prospective longitudinal study.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4542,
+      "pmid": "42777518",
+      "doi": "10.1016/j.archger.2026.106420",
+      "title": "Sarcopenia index as a prognostic indicator of mortality rates in community-dwelling centenarians: a prospective cohort study.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4543,
+      "pmid": "42553411",
+      "doi": "10.1017/jns.2026.10124",
+      "title": "Protein intake, physical activity, and skeletal muscle outcomes in middle-aged adults: an observational study from the US.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4544,
+      "pmid": "42414962",
+      "doi": "10.1186/s12877-026-07944-3",
+      "title": "Inspiratory muscle training as part of multimodal prehabilitation improves maximal inspiratory pressure in elderly surgical patients: an exploratory secondary analysis of a randomised controlled trial.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4545,
+      "pmid": "42455764",
+      "doi": "10.1371/journal.pone.0351725",
+      "title": "Acute Cordyceps militaris supplementation and elevated resting oxygen uptake with faster reaction times: A randomized crossover trial.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4546,
+      "pmid": "42687999",
+      "doi": "10.3389/fneur.2026.1875385",
+      "title": "Targeting cellular senescence with Traditional Chinese Medicine: advances in neurodegenerative disorder treatment.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4547,
+      "pmid": "41274796",
+      "doi": "10.1016/j.jacl.2025.10.063",
+      "title": "Artichoke leaf extract reduces steatosis and decreases liver size in prebariatric patients: A randomized placebo-controlled pilot trial-The \"SteatoChoke-Study\".",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4548,
+      "pmid": "41381570",
+      "doi": "10.1038/s41598-025-27468-x",
+      "title": "Effects of Passiflora incarnata on salivary biomarkers and anxiety in patients undergoing third molar extraction surgery.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4549,
+      "pmid": "41499426",
+      "doi": "10.1093/eurjcn/zvag006",
+      "title": "Effects of lavender essential oil inhalation on sleep quality and fatigue in patients with chronic heart failure: a randomized controlled trial.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4550,
+      "pmid": "41761999",
+      "doi": "10.1177/27683605261426288",
+      "title": "Effect of Matricaria chamomilla on the Quality of Life Among Women with Menopausal Symptoms: A Triple-Blind Randomized Controlled Trial.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4551,
+      "pmid": "42011111",
+      "doi": "10.1093/gerona/glag105",
+      "title": "Effects of inhaled aromatherapy on sleep quality and cognitive function in older adults: a randomised controlled trial.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4552,
+      "pmid": "42208428",
+      "doi": "10.1016/j.explore.2026.103452",
+      "title": "Advantages of artificial saliva containing Cuminum cyminum and Zingiber officinale on hemodialysis patients with xerostomia: Randomized clinical trials.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4553,
+      "pmid": "42601227",
+      "doi": "10.1111/jog.70442",
+      "title": "Nigella sativa (Black Seed) Oil Alleviates the Serum Levels of IL-6 and Insulin in Patients With Polycystic Ovary Syndrome.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4554,
+      "pmid": "42744850",
+      "doi": "10.1038/s41598-026-69567-3",
+      "title": "A prospective randomized controlled pilot study of gut microbiome modulation by Nigella sativa seed oil and thymoquinone metabolism in healthy volunteers: implications for gastrointestinal surgery.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4555,
+      "pmid": "41538720",
+      "doi": "10.1097/CAD.0000000000001804",
+      "title": "Evaluation of the protective effect of chamomile oral solution on the incidence of neurotoxicity caused by paclitaxel in breast cancer patients.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4556,
+      "pmid": "41257537",
+      "doi": "10.1002/hup.70027",
+      "title": "Aroma of Genius Essential Oil Blend Significantly Enhances Cognitive Performance and Brain Metabolism in Healthy Adults.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4557,
+      "pmid": "41330862",
+      "doi": "10.1111/nicc.70270",
+      "title": "The Efficacy of Aromatherapy on Well-Being and Stress.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4558,
+      "pmid": "41350450",
+      "doi": "10.1038/s41430-025-01679-x",
+      "title": "Herbal galactagogues to improve breastmilk production and lactation in mothers of preterm babies: a systematic review of clinical trials.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4559,
+      "pmid": "41880716",
+      "doi": "10.1016/j.explore.2026.103403",
+      "title": "Effect of sesame oil and Nigella sativa oil on the prevention of amiodarone-induced phlebitis: a randomized controlled trial.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4560,
+      "pmid": "42033381",
+      "doi": "10.1080/07317115.2026.2661909",
+      "title": "Bedtime Inhalation-Based Relaxation for Sleep Quality and Depressive Symptoms in Institutionalized Older Adults: A Pilot Randomized Controlled Trial.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4561,
+      "pmid": "42336252",
+      "doi": "10.1016/j.ctim.2026.103398",
+      "title": "Effect of head and facial massage combined with aromatherapy on sleep quality and delirium in patients with acute myocardial infarction: A randomized controlled trial.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4562,
+      "pmid": "40817397",
+      "doi": "10.1038/s41598-025-15953-2",
+      "title": "The impacts of Crocin on serum cytokines concentrations in participants with metabolic syndrome: a double-blind randomized clinical trial study.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4563,
+      "pmid": "40842498",
+      "doi": "10.3389/fendo.2025.1634982",
+      "title": "The efficacy of saffron supplementation on inflammation and oxidative stress in patients with type-2 diabetes mellitus: a meta-analysis.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4564,
+      "pmid": "40873122",
+      "doi": "10.1111/opo.70005",
+      "title": "Can Rhodiola rosea supplementation mitigate digital eye strain? A triple-blinded placebo-controlled study.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4565,
+      "pmid": "41097219",
+      "doi": "10.3390/nu17193142",
+      "title": "One-Week Elderberry Juice Intervention Promotes Metabolic Flexibility in the Transcriptome of Overweight Adults During a Meal Challenge.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4566,
+      "pmid": "41846233",
+      "doi": "10.1002/ptr.70178",
+      "title": "Efficacy and Safety of Low-Dose Ashwagandha Supplementation on Exercise Endurance: A Randomized, Placebo-Controlled, Double-Blind, Clinical Trial.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4567,
+      "pmid": "38538390",
+      "doi": "10.1016/j.explore.2024.02.008",
+      "title": "Evaluating the effects of Bacopa monnieri on cognitive performance and sleep quality of patients with mild cognitive impairment: A triple-blinded, randomized, placebo-controlled trial.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4568,
+      "pmid": "38931168",
+      "doi": "10.3390/nu16121813",
+      "title": "Acute and Repeated Ashwagandha Supplementation Improves Markers of Cognitive Function and Mood.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4569,
+      "pmid": "39047346",
+      "doi": "10.1016/j.explore.2024.103033",
+      "title": "The effect of lavender and rosemary aromatherapy application on cognitive functions, anxiety, and sleep quality in the elderly with diabetes.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4570,
+      "pmid": "40440968",
+      "doi": "10.1016/j.explore.2025.103189",
+      "title": "Topical chamomile oil as a novel therapeutic intervention for diabetic neuropathy: A randomized double-blind controlled clinical trial.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4571,
+      "pmid": "40653563",
+      "doi": "10.1007/s00520-025-09741-x",
+      "title": "Effect of aromatherapy massage with lavender essential oil on sleep quality, pain, and mental and psychiatric disorders among breast cancer patients undergoing chemotherapy: a randomized controlled trial.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4572,
+      "pmid": "41767760",
+      "doi": "10.3389/fgwh.2026.1767865",
+      "title": "Efficacy and safety of Ashwagandha (Withania somnifera) root extract in pregnant women: a prospective, randomized, comparative, open-label, 12-week study.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4573,
+      "pmid": "42253745",
+      "doi": "10.3389/fnut.2026.1823678",
+      "title": "Safety and tolerability of Ashwagandha (Withania somnifera) root extract in healthy adults: a prospective, non-comparative study.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4574,
+      "pmid": "42653115",
+      "doi": "10.3390/ijms27167111",
+      "title": "Defined Natural Products as Adjunctive Therapies: Evidence-Gated Polypharmacology Across Molecular Targets, Human Exposure, Clinical Signals, and Safety Boundaries.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4575,
+      "pmid": "40609195",
+      "doi": "10.1016/j.jaim.2025.101164",
+      "title": "Comparative efficacy of Medhya Rasayana,Bacopa monnieri, and Centella asiatica in enhancing memory and IQ of 8-10 year-old healthy boys: A prakriti-based double-blind, randomized controlled trial.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4576,
+      "pmid": "42667453",
+      "doi": "10.1007/s11033-026-12673-2",
+      "title": "Ginsenosides: potential therapeutic implications in neurodegenerative diseases by inhibiting ferroptosis.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4577,
+      "pmid": "41907879",
+      "doi": "10.6026/973206300215050",
+      "title": "Curcumin versus triamcinolone acetonide gel in treating minor recurrent aphthous stomatitis: A randomized trial.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4578,
+      "pmid": "40226680",
+      "doi": "10.1155/2024/3661412",
+      "title": "Effectiveness of a Saffron and Withania Supplement on Mood in Women With Mild-to-Moderate Anxiety During the COVID-19 Lockdown.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4579,
+      "pmid": "38140277",
+      "doi": "10.3390/nu15245018",
+      "title": "Acute Effects of Naturally Occurring Guayusa Tea and Nordic Lion's Mane Extracts on Cognitive Performance.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4580,
+      "pmid": "42654309",
+      "doi": "10.3390/nu18162729",
+      "title": "Panax ginseng C.A. Mey. as Multi-Target Regulators of Vascular Homeostasis: Pharmacological Mechanisms and Therapeutic Perspectives.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4581,
+      "pmid": "38671841",
+      "doi": "10.3390/antiox13040393",
+      "title": "Investigating the Neuroprotective and Cognitive-Enhancing Effects of Bacopa monnieri: A Systematic Review Focused on Inflammation, Oxidative Stress, Mitochondrial Dysfunction, and Apoptosis.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4582,
+      "pmid": "41939549",
+      "doi": "10.7759/cureus.104594",
+      "title": "The Role of Saffron in the Treatment of Depression: A Literature Review.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4583,
+      "pmid": "42186281",
+      "doi": "10.1093/nutrit/nuaf309",
+      "title": "Influence of Ginger on Exercise-Induced Muscle Pain.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4584,
+      "pmid": "42653291",
+      "doi": "10.3390/ijms27167287",
+      "title": "Metabolic and Anti-Inflammatory Effects of Berberine-Rationale for Its Therapeutic Potential in Polycystic Ovary Syndrome.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4585,
+      "pmid": "40507208",
+      "doi": "10.3390/nu17111939",
+      "title": "Bacopa monnieri: Preclinical and Clinical Evidence of Neuroactive Effects, Safety of Use and the Search for Improved Bioavailability.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4586,
+      "pmid": "42617303",
+      "doi": "10.1016/j.psychres.2026.117380",
+      "title": "Cannabis and cannabinoids for the treatment of mental and substance use disorders and symptoms: A systematic review and meta-analysis of experimental and observational studies.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4587,
+      "pmid": "42140793",
+      "doi": "10.1016/j.clinthera.2026.04.018",
+      "title": "Assessing the Efficacy of Cannabinoid Compositions for Treating 3 Classes of Chronic Pain: A Real-World Evidence Study.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4588,
+      "pmid": "42162267",
+      "doi": "10.1038/s41386-026-02443-w",
+      "title": "An opioid-withholding human laboratory paradigm during opioid agonist treatment for opioid use disorder and chronic pain: Phase- and dose-dependent effects of cannabidiol.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4589,
+      "pmid": "42065887",
+      "doi": "10.1001/jamanetworkopen.2026.9842",
+      "title": "Impact of Cannabis Edibles Combined With Alcohol on Driving, Field Sobriety Performance, and Subjective Effects: A Within-Participant Crossover Trial.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4590,
+      "pmid": "42576801",
+      "doi": "10.1111/ajo.70173",
+      "title": "Cannabis-Based Medicinal Products for Endometriosis: A 2-Year Prospective Analysis From the UK Medical Cannabis Registry.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4591,
+      "pmid": "42189934",
+      "doi": "10.1093/ijnp/pyag030",
+      "title": "Recent cannabis exposure and acute nicotine effects: insights from randomized, double-blind, placebo-controlled intravenous nicotine studies.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4592,
+      "pmid": "42656180",
+      "doi": "10.1002/cpp.70326",
+      "title": "Are Metacognitive Beliefs and Cognitive Flexibility Associated With Cannabis Use Disorder In Adolescents? A Case-Control Study.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4593,
+      "pmid": "41734366",
+      "doi": "10.4088/JCP.25m16099",
+      "title": "The Effects of Extended Cannabis Abstinence in Comorbid Posttraumatic Stress Disorder and Cannabis Use Disorder.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4594,
+      "pmid": "42701112",
+      "doi": "10.1038/s41598-026-70148-7",
+      "title": "Ecological momentary insights into cannabis use and its contexts: a pre-post legalization study in Germany.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4595,
+      "pmid": "42664071",
+      "doi": "10.1093/jat/bkag075",
+      "title": "Three-year review of tetrahydrocannabinol and alcohol blood concentrations and effects in impaired driving investigations in Ontario, Canada.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4596,
+      "pmid": "41678223",
+      "doi": "10.1037/pha0000832",
+      "title": "The effects of cannabidiol on sleep disturbances within a sample of high trait worriers: A double-blind, randomized placebo controlled trial.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4597,
+      "pmid": "42142029",
+      "doi": "10.1155/prm/7311235",
+      "title": "Feasibility, Safety and Preliminary Efficacy of 1:1 THC:CBD Cannabis Oil for Fibromyalgia Symptoms: Results From a Randomised, Double-Blind, Placebo-Controlled Pilot Trial.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4598,
+      "pmid": "42572869",
+      "doi": "10.1039/d6lc00226a",
+      "title": "Investigating cannabidiol rescue of stress-induced cognitive impairment and metabolism-driven safety in Human-on-a-Chip® models.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4599,
+      "pmid": "42515994",
+      "doi": "10.1155/prm/3998239",
+      "title": "Efficacy and Safety of Cannabis Extracts for the Treatment of Osteoarthritis: A Systematic Review and Meta-Analysis of Preclinical and Human Studies.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4600,
+      "pmid": "42596685",
+      "doi": "10.7812/tpp/26.032",
+      "title": "Adolescent-Centered Cannabis Messaging in Clinical Settings: Preliminary Qualitative Insights From Adolescents for Clinicians.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4601,
+      "pmid": "41640005",
+      "doi": "10.1080/10550887.2026.2616726",
+      "title": "Tailored psychotherapy and AI-enhanced contingency management for co-occurring disorders in cannabis use disorder: a systematic review.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4602,
+      "pmid": "42210342",
+      "doi": "10.1186/s42238-026-00451-7",
+      "title": "Efficacy, effectiveness and safety of medical cannabis in PTSD: a scoping review.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4603,
+      "pmid": "42779195",
+      "doi": "10.1002/dev.70206",
+      "title": "CUD-PRS: Predicting Cannabis Use and Neurostructural Impacts in Adolescents.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4604,
+      "pmid": "42321899",
+      "doi": "10.1186/s42238-026-00463-3",
+      "title": "The effects of oral cannabidiol supplementation on blood pressure in adults: a systematic review of randomised controlled trials.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4605,
+      "pmid": "42231518",
+      "doi": "10.1186/s42238-026-00456-2",
+      "title": "Effectiveness of THC-containing cannabis for inflammatory bowel disease: a systematic review.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4606,
+      "pmid": "42665978",
+      "doi": "10.14814/phy2.71076",
+      "title": "Bedtime tetrahydrocannabinol ingestion reduces morning orthostatic cardiovascular reactivity in adults: An exploratory study.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4607,
+      "pmid": "42640804",
+      "doi": "10.1073/pnas.2606671123",
+      "title": "Cannabinoid tolerance relies on CB(1) receptor ubiquitination by NEDD4L.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4608,
+      "pmid": "41942676",
+      "doi": "10.1007/s00414-026-03790-5",
+      "title": "Impact of CBD and hemp oil use on drug test results: a systematic review.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4609,
+      "pmid": "42204954",
+      "doi": "10.1177/10445463261452514",
+      "title": "A Phase-2 Open-Label Trial of Cannabidiol to Treat Core and Associated Symptoms of Autism in Children and Adolescents Without Intellectual Disability.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4610,
+      "pmid": "41974303",
+      "doi": "10.1016/j.pnpbp.2026.111697",
+      "title": "Cannabinoid-based interventions for behavioral outcomes in children and adolescents with autism spectrum disorder: A systematic review of safety and effectiveness.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4611,
+      "pmid": "42825458",
+      "doi": "10.3290/j.ohpd.c_2829",
+      "title": "Exploring Associations Between Frequency and Methods of Cannabis Use and Tooth Loss.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4612,
+      "pmid": "42293941",
+      "doi": "10.3389/fpsyg.2026.1728743",
+      "title": "Neuropsychological effects of cannabis use by continent and age: a systematic review.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4613,
+      "pmid": "42637626",
+      "doi": "10.1016/j.sleh.2026.07.006",
+      "title": "Day-level associations of nicotine and cannabis vaping and co-vaping with sleep duration and quality among young adults: A smartphone-based daily diary study.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4614,
+      "pmid": "42637625",
+      "doi": "10.1016/j.sleh.2026.07.003",
+      "title": "Cannabis use and associated sleep-disordered breathing among US adults.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4615,
+      "pmid": "41734782",
+      "doi": "10.1111/fcp.70074",
+      "title": "Medical Cannabis Use in France: An Observational Safety Study Based on the RECANN Registry and the Pharmacovigilance/Addictovigilance System From 2021 to 2024.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4616,
+      "pmid": "42594706",
+      "doi": "10.1016/j.msard.2026.107428",
+      "title": "A matter of formulation: Efficacy and tolerability of nabiximols and cannabis decoction for the treatment of multiple sclerosis-related spasticity.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4617,
+      "pmid": "41888503",
+      "doi": "10.1007/s40263-026-01280-1",
+      "title": "Comparative Pharmacokinetics and Safety of Cannabidiol in a Powder Formulation, CBtru(®), vs an Oil-Based Formulation, Epidyolex(®), Under Fasted and Fed Conditions in Healthy Participants: A Randomized Open-Label Cross-Over Phase I Study.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4618,
+      "pmid": "42659754",
+      "doi": "10.1016/j.psychres.2026.117411",
+      "title": "Electrocardiographic markers of arrhythmogenic risk in methamphetamine and cannabis use disorders.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4619,
+      "pmid": "41888667",
+      "doi": "10.1186/s11689-026-09687-z",
+      "title": "Phase 2, open-label INSPIRE trial to assess the tolerability and effectiveness of transdermal cannabidiol gel in children and adolescents with 22q11.2 deletion syndrome (ZYN2-CL-031).",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4620,
+      "pmid": "42580290",
+      "doi": "10.1016/j.jpsychires.2026.07.010",
+      "title": "The mental health-cannabis nexus: Patterns of use among U.S. adults with depression, anxiety, and ADHD.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4621,
+      "pmid": "42432451",
+      "doi": "10.1161/JAHA.125.047605",
+      "title": "Efficacy and Safety of Pharmaceutically Manufactured Cannabidiol in Recurrent Pericarditis: A Phase II Clinical Trial.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4622,
+      "pmid": "41967982",
+      "doi": "10.1016/j.arth.2026.02.047",
+      "title": "A Synthetic Form of Cannabinoid Does Not Decrease Opioid Use After Total Knee Arthroplasty: A Prospective, Randomized, Triple-Blind, Placebo-Controlled Study.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4623,
+      "pmid": "42161151",
+      "doi": "10.1016/j.yebeh.2026.111095",
+      "title": "Effectiveness and tolerability of cannabidiol in paediatric epilepsy: a one-year multisite prospective study.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4624,
+      "pmid": "41983248",
+      "doi": "10.3389/fpsyt.2026.1757627",
+      "title": "High-frequency repetitive transcranial magnetic stimulation is associated with sustained improvement in cannabis use disorder: a one-year, two-phase, three-arm randomized study.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4625,
+      "pmid": "42643049",
+      "doi": "10.1080/15592294.2026.2670885",
+      "title": "Association of prenatal exposure to opioids, cannabis, and polysubstance use with cord blood DNA methylation patterns in a multiancestry cohort.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4626,
+      "pmid": "41714301",
+      "doi": "10.1177/25785125261425444",
+      "title": "Medical Cannabis for the Treatment of Peripheral Neuropathy due to Diabetes: A Systematic Review.",
+      "pub_type": null,
+      "category": "cannabinoid_safety",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4627,
+      "pmid": "42735199",
+      "doi": "10.1152/ajpheart.00615.2026",
+      "title": "Evidence for an inflammatory contribution to cutaneous microvascular endothelial dysfunction in non-Hispanic Black women.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4628,
+      "pmid": "42696854",
+      "doi": "10.1016/j.nutres.2026.07.008",
+      "title": "Supplementations of docosahexaenoic acid and blueberry suppress a high-fat breakfast-induced postprandial inflammation but only docosahexaenoic acid improves endothelial function in healthy adults: a randomized, double-blind, placebo-controlled crossover intervention study.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4629,
+      "pmid": "42711084",
+      "doi": "10.1136/bmjopen-2026-123231",
+      "title": "Optimised carbohydrate dietary intervention for improving metabolic health in adults with prediabetes: study protocol for a multicentre randomised controlled trial.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4630,
+      "pmid": "42720376",
+      "doi": "10.1021/acs.jpcb.6c04304",
+      "title": "Regio- and Enantioselective Oxidation of Eicosapentaenoic and Arachidonic Acids by Human CYP2E1: A Comparative Mechanistic Study.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4631,
+      "pmid": "42747257",
+      "doi": "10.1167/iovs.67.11.32",
+      "title": "Explainable Multimodal OCT and OCTA Analysis Reveals Structural and Vascular Features of Mild Glaucoma Across Ethnicities.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4632,
+      "pmid": "42721413",
+      "doi": "10.1212/wnl.0000000000218409",
+      "title": "Metabolic Markers of MRI-Confirmed Lacunar Stroke: Observational and Mendelian Randomization Analyses.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4633,
+      "pmid": "42738941",
+      "doi": "10.3390/nu18172767",
+      "title": "Dietary Laver Intake and Risk of Incident Abdominal Obesity Among Korean Adults: An 18-Year Prospective Cohort Study.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4634,
+      "pmid": "42738935",
+      "doi": "10.3390/nu18172761",
+      "title": "Docosahexaenoic Acid (DHA) Deficiency in Breast Milk: A Cross-Sectional Study of Lactating Women in Serbia, Montenegro, and North Macedonia.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4635,
+      "pmid": "42818990",
+      "doi": "10.1155/da/2938819",
+      "title": "Cross-Sectional and Longitudinal Associations Between Dietary Intake and Depressive Symptoms in Young South African Adults: The African-PREDICT Study.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4636,
+      "pmid": "42800169",
+      "doi": "10.1016/j.bioadv.2026.215188",
+      "title": "Evaluation of electrospun scaffolds for potential use as lamellar corneal DMEK transplants in eye surgery.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4637,
+      "pmid": "42759776",
+      "doi": "10.1016/j.bbadis.2026.168470",
+      "title": "Oxidative lipoprotein remodelling in atherogenesis: Mechanistic insights and therapeutic potential.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4638,
+      "pmid": "42715977",
+      "doi": "10.1021/acs.jafc.6c03597",
+      "title": "In Vitro Evidence of α-Linolenic Acid Ethyl Ester Hydrolysis and Transesterification in the Gastrointestinal Tract in the Presence of Acylglycerols.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4639,
+      "pmid": "42709217",
+      "doi": "10.1007/s00394-026-04103-7",
+      "title": "Association of the maternal fish and PUFA intake with the risk of hypertensive disorders of pregnancy: a nationwide birth cohort-The Japan Environment and Children's Study (JECS).",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4640,
+      "pmid": "42739087",
+      "doi": "10.3390/nu18172915",
+      "title": "Polyunsaturated Fatty Acid Supplementation in Multiple Sclerosis Management: A Scoping Review.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4641,
+      "pmid": "42701125",
+      "doi": "10.1007/s00431-026-07389-1",
+      "title": "Association between plasma homocysteine levels and P-wave dispersion in pediatric patients with hyperhomocysteinemia.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4642,
+      "pmid": "42700191",
+      "doi": "10.1007/s13668-026-00798-6",
+      "title": "Biotics in Menopausal Health: A Two-Decade Bibliometric Analysis and Narrative Review.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4643,
+      "pmid": "42739083",
+      "doi": "10.3390/nu18172910",
+      "title": "Nutritional Variation Among Foods Included in an Ecuadorian Food Composition Database Using Multivariate Analysis.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4644,
+      "pmid": "42739077",
+      "doi": "10.3390/nu18172905",
+      "title": "The Influence of Fatty Acid Expression Methods on Associations with Cardiometabolic Biomarkers: Evidence from NHANES 2011-2012.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4645,
+      "pmid": "42809080",
+      "doi": "10.1186/s43556-026-00585-3",
+      "title": "MFSD2A in health and disease: lysolipid transport, barrier physiology, and translational boundaries.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4646,
+      "pmid": "42798115",
+      "doi": "10.1097/md.0000000000050897",
+      "title": "Genetically predicted circulating polyunsaturated fatty acids and Crohn's disease susceptibility: A two-sample mendelian randomization study.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4647,
+      "pmid": "42771178",
+      "doi": "10.1007/s10237-026-02127-w",
+      "title": "Personalized biventricular mechanics and sensitivity to model morphology.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4648,
+      "pmid": "42770301",
+      "doi": "10.1172/jci.insight.203086",
+      "title": "Mechanistic diversity within RLC-dependent myosin ATPase inhibitors differentiates EDG-7500, a diastolic-selective cardiac sarcomere modulator.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4649,
+      "pmid": "42834635",
+      "doi": "10.4014/jmb.2605.05029",
+      "title": "SCFA Alterations in IBS Subtypes: Systematic Evidence and Future Prospects for Biomarker-Based Diagnosis in India.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4650,
+      "pmid": "42797042",
+      "doi": "10.3390/nu18183060",
+      "title": "The Impact of Personalized Dietary Interventions on Symptom Severity and Dietary Habits in Female Patients with Affective Disorders: A Pilot Study.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4651,
+      "pmid": "42797031",
+      "doi": "10.3390/nu18183048",
+      "title": "Food Matrix as a Modulator of Spice Phytochemical Bioactivity: Evidence from In Vitro, Animal, and Human Studies.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4652,
+      "pmid": "42782788",
+      "doi": "10.3390/cells15181688",
+      "title": "Human Neuronal Modeling of DLG4-Related Synaptopathy Reveals Network Dysfunction and Partial Rescue by Omega-3 Fatty Acid Docosahexaenoic Acid (DHA).",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4653,
+      "pmid": "42749821",
+      "doi": "10.1007/s10143-026-04482-9",
+      "title": "Extracellular matrix remodeling and internal elastic lamina alterations in cerebral arteriovenous malformations: Insights into vascular wall biology.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4654,
+      "pmid": "42744582",
+      "doi": "10.1136/bcr-2026-275838",
+      "title": "Hypohidrosis, electrolyte imbalance, lacrimal gland dysfunction, ichthyosis and xerostomia syndrome caused by a novel claudin-10 variant in an adult with hypokalaemic metabolic alkalosis.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4655,
+      "pmid": "42386462",
+      "doi": "10.1016/j.numecd.2026.104851",
+      "title": "Comparative safety of lipid-lowering drugs alone or in combination: insights from a systematic review and network meta-analysis.",
+      "pub_type": null,
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4656,
+      "pmid": "41464442",
+      "doi": "10.3390/ijerph22121808",
+      "title": "Maternal Coffee Consumption During Pregnancy and Attention-Deficit/Hyperactivity Disorder in Offspring: A Case-Control Study and Meta-Analysis.",
+      "pub_type": "Meta-Analysis",
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4657,
+      "pmid": "40431449",
+      "doi": "10.3390/nu17101709",
+      "title": "Effects of Caffeine Supplementation on Exercise Performance in Volleyball Players: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Meta-Analysis",
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4658,
+      "pmid": "40704635",
+      "doi": "10.1080/15502783.2025.2534131",
+      "title": "No effects of caffeine on cycling to exhaustion and perceptual responses in non-caffeine-restricted subjects.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4659,
+      "pmid": "40888092",
+      "doi": "10.1080/15502783.2025.2555249",
+      "title": "Transcranial direct current stimulation combined with caffeine promotes executive function in healthy females.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4660,
+      "pmid": "42744487",
+      "doi": "10.1016/j.jsr.2026.07.012",
+      "title": "Sleep-deprived and behind the wheel: Exploring the impact of sleep patterns on new parents' driving behavior.",
+      "pub_type": null,
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4661,
+      "pmid": "40562227",
+      "doi": "10.1016/j.neuroscience.2025.06.049",
+      "title": "Multi-ingredient energy dietary supplement with a small amount of caffeine modulates central and autonomic nervous system after a single use.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4662,
+      "pmid": "40789769",
+      "doi": "10.1017/S0007114525104169",
+      "title": "High-dose L-theanine-caffeine combination improves neurobehavioural and neurophysiological measures of selective attention in acutely sleep-deprived young adults: a double-blind, placebo-controlled crossover study.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4663,
+      "pmid": "42288122",
+      "doi": "10.1016/j.nbd.2026.107480",
+      "title": "Bioenergetic dysregulation in the basal ganglia and cerebellum of patients with premanifest and manifest Huntington's disease.",
+      "pub_type": null,
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4664,
+      "pmid": "40577029",
+      "doi": "10.1177/02698811251344692",
+      "title": "Acute effects of 150 mg caffeine on subjective, physiological, and behavioral components of anxiety in panic disorder and healthy controls - A randomized placebo-controlled crossover trial.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4665,
+      "pmid": "39052627",
+      "doi": "10.1080/1028415X.2024.2383080",
+      "title": "Effect of L-theanine on selective attention in a traffic-related reaction task in sleep-deprived young adults: a double-blind placebo-controlled, crossover study.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4666,
+      "pmid": "38931247",
+      "doi": "10.3390/nu16121892",
+      "title": "Effects of Acute Guarana (Paullinia cupana) Ingestion on Mental Performance and Vagal Modulation Compared to a Low Dose of Caffeine.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4667,
+      "pmid": "38725238",
+      "doi": "10.1080/15502783.2024.2352779",
+      "title": "Paraxanthine provides greater improvement in cognitive function than caffeine after performing a 10-km run.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4668,
+      "pmid": "39231871",
+      "doi": "10.1007/s00394-024-03486-9",
+      "title": "Effects of different doses of caffeine on cognitive performance in healthy physically active individuals.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4669,
+      "pmid": "38512715",
+      "doi": "10.1080/1028415X.2024.2325227",
+      "title": "Neurocognitive effects a combined polyphenolic-rich herbal extract in healthy middle-aged adults - a randomised, double-blind, placebo-controlled study.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4670,
+      "pmid": "40971619",
+      "doi": "10.1093/nutrit/nuaf135",
+      "title": "Creatine and Cognition in Aging: A Systematic Review of Evidence in Older Adults.",
+      "pub_type": "Systematic Review",
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4671,
+      "pmid": "42280330",
+      "doi": "10.3390/nu18111686",
+      "title": "Association between Dietary Behavior and Mental Health in Adolescents from Multicultural and Non-Multicultural Families in Korea.",
+      "pub_type": null,
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4672,
+      "pmid": "39342393",
+      "doi": "10.1186/s41043-024-00645-w",
+      "title": "Association between caffeine intake and erectile dysfunction: a meta-analysis of cohort studies.",
+      "pub_type": "Systematic Review",
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4673,
+      "pmid": "42197072",
+      "doi": "10.3390/nu18101613",
+      "title": "Matcha as a Source of Bioactive Compounds: A Review of Health-Promoting Properties and Potential Applications.",
+      "pub_type": null,
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4674,
+      "pmid": "42196321",
+      "doi": "10.3390/ijms27104343",
+      "title": "Natural Molecules for Brain Health and Resilience.",
+      "pub_type": null,
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4675,
+      "pmid": "42219388",
+      "doi": "10.1134/s0006297926600213",
+      "title": "Method for Individual Assessment of Human Cerebral Cortex Activity by a Combined Use of Magnetic Resonance Spectroscopy of Glutamate and BOLD Signal Method.",
+      "pub_type": null,
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4676,
+      "pmid": "42280440",
+      "doi": "10.3390/nu18111796",
+      "title": "Herbal Neurotherapeutics for Cognitive Disorders: Integrative Mechanisms Linking Neurotransmitter Systems, Neurodegeneration, and the Gut-Brain Axis.",
+      "pub_type": null,
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4677,
+      "pmid": "42288766",
+      "doi": "10.1186/s12888-026-08246-z",
+      "title": "Working against the clock: the impact of shift patterns on cognitive function, mental health, and stimulant use among healthcare workers.",
+      "pub_type": null,
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4678,
+      "pmid": "39633316",
+      "doi": "10.1186/s12888-024-06285-y",
+      "title": "The effects of L-theanine supplementation on the outcomes of patients with mental disorders: a systematic review.",
+      "pub_type": "Systematic Review",
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4679,
+      "pmid": "40639301",
+      "doi": "10.1016/j.psychres.2025.116618",
+      "title": "Lifestyle-based interventions targeting neurocognition in bipolar disorders - a systematic review of randomized controlled trials.",
+      "pub_type": "Systematic Review",
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4680,
+      "pmid": "42244394",
+      "doi": "10.1002/aur.70288",
+      "title": "Linking Brain Morphometry to Psychometric Measures and Energy-Metabolic Biomarkers in Adults With Autism Spectrum Disorder.",
+      "pub_type": null,
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4681,
+      "pmid": "42216624",
+      "doi": "10.1177/13872877261450996",
+      "title": "A century of coffee and tea research in cognitive health and Alzheimer's disease: Structural, thematic, and translational insights (1911-2025).",
+      "pub_type": null,
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4682,
+      "pmid": "42804599",
+      "doi": "10.1080/19490976.2026.2732659",
+      "title": "Personalized whole-body modeling links gut microbiota to metabolic perturbations in Alzheimer's disease.",
+      "pub_type": null,
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4683,
+      "pmid": "40362791",
+      "doi": "10.3390/nu17091482",
+      "title": "Efficiency of Different Supplements in Alleviating Symptoms of ADHD with or Without the Use of Stimulants: A Systematic Review.",
+      "pub_type": "Systematic Review",
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4684,
+      "pmid": "42654013",
+      "doi": "10.3390/molecules31162934",
+      "title": "Compositional Diversity and Functional Interactions of Bioactive Compounds in Japanese Green Tea: Focus on Matcha, Sencha, and Gyokuro.",
+      "pub_type": null,
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4685,
+      "pmid": "39395317",
+      "doi": "10.1016/j.archoralbio.2024.106102",
+      "title": "Metabolomic insights into idiopathic xerostomia: The central role of caffeine metabolism in salivary biochemistry.",
+      "pub_type": "Observational Study",
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4686,
+      "pmid": "42544975",
+      "doi": "10.1212/cont.0000000000001734",
+      "title": "Sleep and Neurodegeneration.",
+      "pub_type": null,
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4687,
+      "pmid": "42535467",
+      "doi": "10.1111/ggi.70732",
+      "title": "Dietary Creatine: An Overlooked Variable in Cognitive Aging Resilience?",
+      "pub_type": null,
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4688,
+      "pmid": "41381653",
+      "doi": "10.1038/s41598-025-31634-6",
+      "title": "Protocol to avoid post-dural puncture headache after large-volume cerebral spinal fluid extraction in a prospective observational memory clinic study.",
+      "pub_type": "Observational Study",
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4689,
+      "pmid": "42335514",
+      "doi": "10.1016/j.biopha.2026.119712",
+      "title": "Bacoside-A from Bacopa monnieri (L.) Wettst. in Parkinson's disease: In Silico and preclinical insights into dopaminergic neuroprotection.",
+      "pub_type": null,
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4690,
+      "pmid": "42163019",
+      "doi": "10.1002/jsfa.70740",
+      "title": "Theanine: a phytochemical candidate for neural protection.",
+      "pub_type": "Review",
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4691,
+      "pmid": "42079329",
+      "doi": "10.1002/fsn3.71819",
+      "title": "The Role of Nootropic Supplements in Sports: Enhancing Cognitive and Physical Performance Simultaneously.",
+      "pub_type": "Review",
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4692,
+      "pmid": "41830548",
+      "doi": "10.1177/1096620X261425916",
+      "title": "Bacopa monnieri-A Functional Leafy Vegetable and Medicinal Herb: A Comprehensive Review of Scientific Evidence and Proposed Mechanisms Underlying Its Influence on Circadian Rhythm.",
+      "pub_type": "Review",
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4693,
+      "pmid": "42235208",
+      "doi": "10.1016/j.nicl.2026.104015",
+      "title": "Fronto-striatal neurometabolite signatures of impulsivity in early abstinence from methamphetamine.",
+      "pub_type": null,
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4694,
+      "pmid": "41758575",
+      "doi": "10.1080/1028415X.2026.2635535",
+      "title": "The effect of prebiotic intervention foods on caregiver-reported infant sleep and caregiver sleep quality during complementary feeding- secondary analysis of a randomized control trial.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "gut",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4695,
+      "pmid": "42824337",
+      "doi": "10.3389/fmicb.2026.1895237",
+      "title": "Gut microbiota signatures in mild cognitive impairment: a scoping review of microbial taxa and clinical implications.",
+      "pub_type": null,
+      "category": "gut",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4696,
+      "pmid": "42798356",
+      "doi": "10.3389/fcimb.2026.1900578",
+      "title": "Beyond bacteria: a multi-omics view of the gut-brain axis in Parkinson's disease.",
+      "pub_type": null,
+      "category": "gut",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4697,
+      "pmid": "42220281",
+      "doi": "10.1002/jpn3.70459",
+      "title": "Feasibility and efficacy of fecal microbiota transplantation in adolescents with refractory irritable bowel syndrome: A randomized clinical pilot trial.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "gut",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4698,
+      "pmid": "42680335",
+      "doi": "10.1016/j.foodres.2026.120042",
+      "title": "Dealcoholized muscadine wine improved skin elasticity and oxidative stress biomarkers without affecting gut microbiome in women over 40 in a randomized controlled trial.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "gut",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4699,
+      "pmid": "41853869",
+      "doi": "10.1111/jocd.70792",
+      "title": "Lactobacillus-Based Microbiome Therapy for Acne Vulgaris: A GRADE Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "pub_type": "Meta-Analysis",
+      "category": "gut",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4700,
+      "pmid": "42043859",
+      "doi": "10.1080/15622975.2026.2660311",
+      "title": "A decade of evidence linking gut microbiome dysbiosis to depression: a computational meta-analysis of mechanistic pathways: 2014-2024.",
+      "pub_type": "Meta-Analysis",
+      "category": "gut",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4701,
+      "pmid": "41995478",
+      "doi": "10.1111/apt.70677",
+      "title": "The Emerging Short Chain Fatty Acid Enriched Metabotype in Irritable Bowel Syndrome and Its Potential Clinical Relevance.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "gut",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4702,
+      "pmid": "41883170",
+      "doi": "10.1080/0886022X.2026.2644711",
+      "title": "Synbiotic supplementation reduces intestinal permeability and inflammation in overweight or obese kidney transplant recipients: a randomized controlled trial.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "gut",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4703,
+      "pmid": "42778239",
+      "doi": "10.1136/bmjopen-2026-120552",
+      "title": "Long-term recovery and microbiota-gut-brain axis disruption after traumatic brain injury (OVERCOME-TBI): protocol for a prospective, observational clinical study.",
+      "pub_type": null,
+      "category": "gut",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4704,
+      "pmid": "42834659",
+      "doi": "10.1080/21505594.2026.2739091",
+      "title": "Gut microbiota and metabolic characteristics in PWHIV with metabolic dysfunction-associated steatotic liver disease (MASLD).",
+      "pub_type": null,
+      "category": "gut",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4705,
+      "pmid": "41941984",
+      "doi": "10.1016/j.bbi.2026.106579",
+      "title": "A pilot study on the role of the oxytocinergic system in gut microbiome composition in children with autism: baseline associations and effects of intranasal oxytocin.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "gut",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4706,
+      "pmid": "41793943",
+      "doi": "10.1016/j.ebiom.2026.106198",
+      "title": "Serological and faecal markers of irritable bowel syndrome: a systematic review and meta-analysis.",
+      "pub_type": "Meta-Analysis",
+      "category": "gut",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4707,
+      "pmid": "42805959",
+      "doi": "10.1038/s41392-026-02925-9",
+      "title": "Polymeric alpha-1 antitrypsin perturbs Paneth cell proteostasis and exacerbates intestinal inflammation.",
+      "pub_type": null,
+      "category": "gut",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4708,
+      "pmid": "42421531",
+      "doi": "10.1080/15622975.2026.2688864",
+      "title": "Inflammatory biomarkers and oral microbiome alterations in depression and anxiety disorders: a systematic review.",
+      "pub_type": "Systematic Review",
+      "category": "gut",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4709,
+      "pmid": "42740564",
+      "doi": "10.1002/dev.70199",
+      "title": "Prenatal Maternal Stress and Infant Gut Microbiome in Human and Animal Studies: A Comprehensive Systematic Review.",
+      "pub_type": "Systematic Review",
+      "category": "gut",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4710,
+      "pmid": "42797076",
+      "doi": "10.3390/nu18183094",
+      "title": "Plant-Derived Protein Hydrolysates and Bioactive Peptides for Restoring Gut Health in Undernutrition: A Scoping Review of Intestinal Barrier Protection, Inflammatory Signaling, and Oxidative Stress Regulation.",
+      "pub_type": null,
+      "category": "gut",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4711,
+      "pmid": "42768327",
+      "doi": "10.1186/s12888-026-08290-9",
+      "title": "Characterization and correlation of gut microbiota in major depressive disorder patients with suicidal ideation.",
+      "pub_type": null,
+      "category": "gut",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4712,
+      "pmid": "42558675",
+      "doi": "10.3389/fmicb.2026.1900159",
+      "title": "Mapping research trends in irritable bowel syndrome and the gut microbiome: a cross-database bibliometric analysis.",
+      "pub_type": "Systematic Review",
+      "category": "gut",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4713,
+      "pmid": "42797049",
+      "doi": "10.3390/nu18183064",
+      "title": "The Role of Diet in Functional Dyspepsia.",
+      "pub_type": null,
+      "category": "gut",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4714,
+      "pmid": "42793191",
+      "doi": "10.3390/biom16091359",
+      "title": "Abdominal Bloating in the Modern Era: Pathophysiological Mechanisms and Environmental Contributors.",
+      "pub_type": null,
+      "category": "gut",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4715,
+      "pmid": "42583972",
+      "doi": "10.4103/ijp.ijp_465_25",
+      "title": "Impact of probiotic supplementation on chemotherapy and radiotherapy-associated diarrhea and quality of life.",
+      "pub_type": "Observational Study",
+      "category": "gut",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4716,
+      "pmid": "42762890",
+      "doi": "10.1016/j.clnesp.2026.105130",
+      "title": "Rapidly fermentable prebiotic substrates: Benefits, FODMAP effects and host tolerance.",
+      "pub_type": "Review",
+      "category": "gut",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4717,
+      "pmid": "42510758",
+      "doi": "10.3390/biology15141212",
+      "title": "Probiotics in Alleviating Constipation: Mechanisms, Strain Screening, and Applications.",
+      "pub_type": "Review",
+      "category": "gut",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4718,
+      "pmid": "42797000",
+      "doi": "10.3390/nu18183016",
+      "title": "Unraveling the Mechanistic Insights of Asparagus Bioactives to Promote Cognitive Health: Insights from the Gut-Brain Axis.",
+      "pub_type": null,
+      "category": "gut",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4719,
+      "pmid": "42655139",
+      "doi": "10.3390/microorganisms14081795",
+      "title": "Nontoxigenic Bacteroides fragilis as a Next-Generation Probiotic: Mechanisms, Safety, and Therapeutic Potential.",
+      "pub_type": "Review",
+      "category": "gut",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4720,
+      "pmid": "42752555",
+      "doi": "10.3791/73752",
+      "title": "Diabetes-Associated Enteric Neuropathy: An Overlooked Driver of Gastrointestinal Dysfunction.",
+      "pub_type": null,
+      "category": "gut",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4721,
+      "pmid": "38999862",
+      "doi": "10.3390/nu16132114",
+      "title": "The Efficacy of Probiotics, Prebiotics, Synbiotics, and Fecal Microbiota Transplantation in Irritable Bowel Syndrome: A Systematic Review and Network Meta-Analysis.",
+      "pub_type": "Network Meta-Analysis",
+      "category": "gut",
+      "state": "research_only_exact_verified_override_r5b"
+    },
+    {
+      "wave": 4722,
+      "pmid": "42796983",
+      "doi": "10.3390/nu18183001",
+      "title": "Dietary Bioactive Compounds: Cellular Sensory Pathways, Microbial Partners, and Clinical Realities.",
+      "pub_type": null,
+      "category": "gut",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4723,
+      "pmid": "40392916",
+      "doi": "10.1080/13813455.2025.2507749",
+      "title": "The impact of a multi-species probiotic supplementation on clinical symptoms and biochemical factors in patients with irritable bowel syndrome: a randomised controlled trial.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "gut",
+      "state": "research_only_exact_verified_override_r5b"
+    },
+    {
+      "wave": 4724,
+      "pmid": "42794551",
+      "doi": "10.3390/ijms27188122",
+      "title": "The Tryptophan-Kynurenine Pathway as a Key Mediator of the Gut-Brain Axis in Depression and Alzheimer's Disease.",
+      "pub_type": null,
+      "category": "gut",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4725,
+      "pmid": "42796964",
+      "doi": "10.3390/nu18182980",
+      "title": "Beneficial Roles of Bioconversion-Derived Metabolites of Dietary Components as Potential Biological Regulators in Obesity and Type 2 Diabetes Mellitus.",
+      "pub_type": null,
+      "category": "gut",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4726,
+      "pmid": "38717445",
+      "doi": "10.1080/19490976.2024.2347715",
+      "title": "Metabolome-associated psychological comorbidities improvement in irritable bowel syndrome patients receiving a probiotic.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "gut",
+      "state": "research_only_exact_verified_final_shortage_repair"
+    },
+    {
+      "wave": 4727,
+      "pmid": "42793152",
+      "doi": "10.3390/biom16091321",
+      "title": "Research Progress on Bidirectional Regulation of the Microbiota-Gut-Brain Axis in Autism Spectrum Disorder Based on the Immune-Metabolic-Endocrine Interactive Network.",
+      "pub_type": null,
+      "category": "gut",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4728,
+      "pmid": "38794741",
+      "doi": "10.3390/nu16101503",
+      "title": "Effectiveness of a Balanced Nine-Strain Synbiotic in Primary-Care Irritable Bowel Syndrome Patients-A Multi-Center, Randomized, Double-Blind, Placebo-Controlled Trial.",
+      "pub_type": "Multicenter Study",
+      "category": "gut",
+      "state": "research_only_exact_verified_final_shortage_repair"
+    },
+    {
+      "wave": 4729,
+      "pmid": "42789949",
+      "doi": "10.38212/2224-6614.3596",
+      "title": "Gut microbiota-mediated modulation of circadian rhythms: Physiological and molecular impacts of dietary composition and feeding time.",
+      "pub_type": null,
+      "category": "gut",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4730,
+      "pmid": "42392054",
+      "doi": "10.4269/ajtmh.26-0139",
+      "title": "Vitamin D Deficiency and Severe Dengue Fever: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Meta-Analysis",
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4731,
+      "pmid": "41830039",
+      "doi": "10.3390/nu18050869",
+      "title": "Vitamin D Status and Sepsis Outcomes: A PRISMA-Compliant Umbrella Review and Meta-Analysis.",
+      "pub_type": "Meta-Analysis",
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4732,
+      "pmid": "41855184",
+      "doi": "10.1371/journal.pntd.0014110",
+      "title": "Genetic background and immune response in paracoccidioidomycosis: A systematic review and meta-analysis of single nucleotide variants.",
+      "pub_type": "Meta-Analysis",
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4733,
+      "pmid": "41865803",
+      "doi": "10.1016/j.jsbmb.2026.107000",
+      "title": "Vitamin D and its role in human milk oligosaccharide production.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4734,
+      "pmid": "41720868",
+      "doi": "10.1038/s41598-026-38528-1",
+      "title": "Effects of vitamin D supplementation during autumn and winter on blood biomarkers and physical performance in runners and non runners.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4735,
+      "pmid": "42813499",
+      "doi": "10.1002/14651858.cd015216.pub2",
+      "title": "Interventions for treatment of herpes labialis (cold sores on the lips).",
+      "pub_type": null,
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4736,
+      "pmid": "42742537",
+      "doi": "10.1096/fj.202602975r",
+      "title": "Integrated Bioinformatics and Experimental Validation to Identify Shared Sialylation-Related Signatures in Emphysematous and Fibrotic Lung Disease.",
+      "pub_type": null,
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4737,
+      "pmid": "41966073",
+      "doi": "10.1080/15502783.2026.2657316",
+      "title": "Effects of vitamin D(3) supplementation on cardiac, muscle, and immune responses after a marathon race: a single-blind, placebo-controlled trial.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4738,
+      "pmid": "41887286",
+      "doi": "10.1016/j.tjnut.2026.101493",
+      "title": "The Effect of Vitamin D3 Supplementation on Vitamin D Status and Associated Health Outcomes in Children: A Randomized Controlled Trial.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4739,
+      "pmid": "42739037",
+      "doi": "10.3390/nu18172865",
+      "title": "Oral Zinc Supplementation in Acne Vulgaris and Hidradenitis Suppurativa: An Updated Comprehensive Review.",
+      "pub_type": null,
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4740,
+      "pmid": "42178955",
+      "doi": "10.5604/01.3001.0055.5118",
+      "title": "Impact of Vitamin D Levels on Clinical Outcomes in Hospitalized Burn Patients: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Meta-Analysis",
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4741,
+      "pmid": "42758666",
+      "doi": "10.12659/msm.953313",
+      "title": "25-Hydroxyvitamin D Sufficiency Is Associated With Reduced Atelectasis in Common Variable Immunodeficiency: A Cross-Sectional Study.",
+      "pub_type": null,
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4742,
+      "pmid": "41665043",
+      "doi": "10.1097/MCO.0000000000001212",
+      "title": "Vitamin D supplementation in infancy: a revisited systematic review.",
+      "pub_type": "Systematic Review",
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4743,
+      "pmid": "42600590",
+      "doi": null,
+      "title": "METABOLIC DISORDERS IN CHILDREN SUFFERING FROM ACUTE RESPIRATORY VIRAL INFECTIONS: COMPLICATIONS AND PREVENTIVE MEASURES.",
+      "pub_type": "Systematic Review",
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4744,
+      "pmid": "41456598",
+      "doi": "10.1111/pim.70046",
+      "title": "Essential Trace Elements and Their Impact on Immune Response and Disease Severity in Malaria Infection: A Systematic Review.",
+      "pub_type": "Systematic Review",
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4745,
+      "pmid": "41736792",
+      "doi": "10.3389/fcimb.2026.1692281",
+      "title": "Association of vitamin D receptor genetic variants with therapeutic response in multidrug-resistant pulmonary tuberculosis: a systematic review.",
+      "pub_type": "Systematic Review",
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4746,
+      "pmid": "42808188",
+      "doi": "10.1177/03000605261467663",
+      "title": "Machine learning insights into the burden and risk factors of lower respiratory infections in East Asia (1990-2033).",
+      "pub_type": null,
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4747,
+      "pmid": "42643395",
+      "doi": "10.3389/froh.2026.1850800",
+      "title": "Vitamin D as a candidate host susceptibility factor in sugar-driven oral dysbiosis.",
+      "pub_type": "Systematic Review",
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4748,
+      "pmid": "42256481",
+      "doi": "10.15167/2421-4248/jpmh2025.66.4.3636",
+      "title": "The role of specific nutrients in preventing immune system and blood cell disorders: an umbrella review.",
+      "pub_type": "Systematic Review",
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4749,
+      "pmid": "42047146",
+      "doi": "10.7417/CT.2026.2044",
+      "title": "Nutritional Status, Oxidative Stress and Endothelial Dysfunction in Elderly Adults with Essential Hypertension, Independent of Intestinal Parasitic Infection: A Case-Control Study.",
+      "pub_type": "Observational Study",
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4750,
+      "pmid": "41932090",
+      "doi": "10.1016/j.jaut.2026.103552",
+      "title": "Autoimmune modulation of immune-endocrine-metabolic regulation of ovarian reserve: A cohort study of 803 women.",
+      "pub_type": "Observational Study",
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4751,
+      "pmid": "41873102",
+      "doi": "10.31083/IJVNR46454",
+      "title": "Impact of High Doses of Vitamin D on Specific Metabolic Parameters in Type 2 Diabetes Patients: A Prospective Biomedical Study.",
+      "pub_type": "Observational Study",
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4752,
+      "pmid": "42356192",
+      "doi": "10.3390/medicina62061180",
+      "title": "Clinical and Inflammatory Predictors of Neurocognitive Decline in Long COVID: A Two-Year Longitudinal Study with Propensity Score Matching.",
+      "pub_type": "Observational Study",
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4753,
+      "pmid": "41683363",
+      "doi": "10.3390/nu18030541",
+      "title": "High-Dose Zinc Supplementation Therapy Does Not Improve Survival Rates in Severe Trauma Patients: A Single-Center Retrospective Observational Study.",
+      "pub_type": "Observational Study",
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4754,
+      "pmid": "41742057",
+      "doi": "10.1186/s12875-026-03229-1",
+      "title": "Prescription of vitamin D in neonates and infants under one year of age in Spain: an eight-year observational study.",
+      "pub_type": "Observational Study",
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4755,
+      "pmid": "42588131",
+      "doi": "10.3390/nu18152508",
+      "title": "Serum Zinc and Selenium Are Independently Associated with Acute-Phase Inflammatory Markers in Critically Ill Patients: A Retrospective Observational Study.",
+      "pub_type": "Observational Study",
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4756,
+      "pmid": "42803655",
+      "doi": "10.1002/jmv.71166",
+      "title": "SRGAP2-AS1 Regulates RSV Replication and EMT-Associated Changes Through PTBP1 and ZEB1.",
+      "pub_type": null,
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4757,
+      "pmid": "42775662",
+      "doi": "10.1002/pro.70808",
+      "title": "Conformational stability and domain-specific structural features of tumor autoantigens regulate autoantibody epitope propensity.",
+      "pub_type": null,
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4758,
+      "pmid": "42696855",
+      "doi": "10.1016/j.nutres.2026.08.001",
+      "title": "Serum 25(OH)D concentrations are differentially associated with innate and adaptive immune cell markers, with threshold effects near 40 ng/mL: A cross-sectional study.",
+      "pub_type": null,
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4759,
+      "pmid": "42727455",
+      "doi": "10.1016/j.phymed.2026.158785",
+      "title": "Licochalcone B inhibits Neuritin 1-driven perineural invasion and osteosarcoma progression via the Hedgehog signaling pathway.",
+      "pub_type": null,
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4760,
+      "pmid": "42830088",
+      "doi": null,
+      "title": "BIOMARKERS OF BONE REMODELING AND INFLAMMATION IN CHRONIC PERIAPICAL LESIONS: A NARRATIVE REVIEW.",
+      "pub_type": null,
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4761,
+      "pmid": "42730751",
+      "doi": "10.1080/25787489.2026.2732541",
+      "title": "Exploratory assessment of nutrient-related food-frequency proxy measures among people with HIV by secondary chronic condition status.",
+      "pub_type": null,
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4762,
+      "pmid": "42733345",
+      "doi": "10.1080/09537104.2026.2730212",
+      "title": "Effects of serum vitamin D on platelet function and bleeding in primary immune thrombocytopenia.",
+      "pub_type": null,
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4763,
+      "pmid": "42809877",
+      "doi": "10.31053/1853.0605.v83.n3.49438",
+      "title": "[Acute disseminated encephalomyelitis during the acute phase of meningitis caused by Streptococcus pneumoniae: a case report.].",
+      "pub_type": null,
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4764,
+      "pmid": "42739017",
+      "doi": "10.3390/nu18172845",
+      "title": "Vitamin D Status in Children with Primary Immunodeficiency Disorders Receiving Vitamin D Supplementation: A Retrospective Cross-Sectional Study.",
+      "pub_type": null,
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4765,
+      "pmid": "42811027",
+      "doi": "10.1038/s41467-026-77255-z",
+      "title": "Single-cell landscape of human liver sinusoidal γδ T cells in the context of latent human cytomegalovirus infection.",
+      "pub_type": null,
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4766,
+      "pmid": "42804764",
+      "doi": "10.1093/jimmun/vkag260",
+      "title": "ZFP335-MYBL2 transcriptional axis orchestrates Th17 cell differentiation and psoriatic inflammation.",
+      "pub_type": null,
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4767,
+      "pmid": "42720423",
+      "doi": "10.1093/mmy/myag096",
+      "title": "Association of virulence factors with antifungal resistance and clinical outcomes in Candida species isolated from bloodstream infections.",
+      "pub_type": null,
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4768,
+      "pmid": "42696756",
+      "doi": "10.1093/mmy/myag094",
+      "title": "A new MRR1 gain-of-function mutation involved in cross-resistance to antifungal agents in the fungal priority pathogen Candida parapsilosis.",
+      "pub_type": null,
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4769,
+      "pmid": "42738990",
+      "doi": "10.3390/nu18172818",
+      "title": "How Nutrient Deficiencies Impact the Oral Mucosa and How to Manage Them: A Narrative Review.",
+      "pub_type": null,
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4770,
+      "pmid": "42737581",
+      "doi": "10.3390/ijms27177684",
+      "title": "Identification of Potential SARS-CoV-2 Main Protease (MPro) Inhibitors Through Pharmacophore Modeling, Molecular Docking, and Molecular Dynamics Simulation Approaches.",
+      "pub_type": null,
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4771,
+      "pmid": "42738966",
+      "doi": "10.3390/nu18172793",
+      "title": "Associations and Multidimensional Characterization of the Nutritional-Inflammatory Profile in Children with Previous SARS-CoV-2 Infection: A Retrospective Cohort Study.",
+      "pub_type": null,
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4772,
+      "pmid": "42480396",
+      "doi": "10.1016/j.explore.2026.103473",
+      "title": "Efficacy of GV22202 in subjects with mild knee osteoarthritis: A randomized, triple arm trial assessing pain reduction and functional outcomes.",
+      "pub_type": null,
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4773,
+      "pmid": "42573968",
+      "doi": "10.1007/s10787-026-02366-4",
+      "title": "Effects of curcumin on inflammatory and oxidative stress related markers in rat models of experimental arthritis: a systematic review and meta-analysis.",
+      "pub_type": null,
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4774,
+      "pmid": "42356227",
+      "doi": "10.3390/nu18121839",
+      "title": "Effect of Boswellia serrata on Pain Intensity, Central and Peripheral Sensitization, and Pain Modulation in Healthy Volunteers-A Randomized, Double-Blind, Placebo-Controlled, Cross-Over Pilot Trial.",
+      "pub_type": null,
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4775,
+      "pmid": "42528672",
+      "doi": "10.3389/fcimb.2026.1746366",
+      "title": "Efficacy of traditional Chinese Medicine-based biological extracts in the treatment of oral lichen planus.",
+      "pub_type": null,
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4776,
+      "pmid": "41846005",
+      "doi": "10.1016/j.bbr.2026.116165",
+      "title": "Targeting orofacial pain: From pathophysiological mechanisms to Traditional Chinese Medicine approaches.",
+      "pub_type": "Review",
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4777,
+      "pmid": "42803668",
+      "doi": "10.4081/aiua.2026.15916",
+      "title": "Postoperative administration of a combination of Phycocyanin, PEA and Selenium following prostatic deobstructive surgery: a preliminary clinical study.",
+      "pub_type": null,
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4778,
+      "pmid": "42406251",
+      "doi": "10.1007/s10787-026-02326-y",
+      "title": "Neuropathic pain in traumatic brain injury: consequences, mechanisms, and therapeutic avenues.",
+      "pub_type": "Review",
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4779,
+      "pmid": "42112088",
+      "doi": "10.2147/DDDT.S606941",
+      "title": "Pathogenesis of Osteoarthritis: Mechanisms of Action of Disulfidptosis and Targeted Therapeutic Strategies.",
+      "pub_type": "Review",
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4780,
+      "pmid": "42338914",
+      "doi": "10.3389/fmolb.2026.1857635",
+      "title": "Traditional Chinese medicine-derived monomers protect chondrocytes and delay osteoarthritis progression by regulating mitochondrial quality control.",
+      "pub_type": "Review",
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4781,
+      "pmid": "41846867",
+      "doi": "10.3389/fphar.2025.1661443",
+      "title": "Curcumin in oral health: mechanisms, clinical evidence, and delivery strategies.",
+      "pub_type": "Review",
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4782,
+      "pmid": "39973246",
+      "doi": "10.1177/10538127241296343",
+      "title": "The effect of turmeric-Boswellia formulation (Rhuleave-K) in posture-related low back soreness and discomfort: A randomized double blinded placebo controlled trial.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4783,
+      "pmid": "39339645",
+      "doi": "10.3390/nu16183045",
+      "title": "Efficacy and Safety of the Combination of Palmitoylethanolamide, Superoxide Dismutase, Alpha Lipoic Acid, Vitamins B12, B1, B6, E, Mg, Zn and Nicotinamide for 6 Months in People with Diabetic Neuropathy.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_review_replacement"
+    },
+    {
+      "wave": 4784,
+      "pmid": "36107505",
+      "doi": "10.1097/MD.0000000000030144",
+      "title": "Fast pain relief in exercise-induced acute musculoskeletal pain by turmeric-boswellia formulation: A randomized placebo-controlled double-blinded multicentre study.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_override_r5b"
+    },
+    {
+      "wave": 4785,
+      "pmid": "39212491",
+      "doi": "10.1039/d4fo01640h",
+      "title": "Effectiveness and safety of steamed ginger extract on mild osteoarthritis: a randomized, double-blind, placebo-controlled clinical trial.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_override_r5b"
+    },
+    {
+      "wave": 4786,
+      "pmid": "42361529",
+      "doi": "10.1016/j.intimp.2026.117052",
+      "title": "Curcumin analogue C66 attenuates hypertensive nephropathy by inhibiting JNK-mediated inflammation.",
+      "pub_type": null,
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4787,
+      "pmid": "42542236",
+      "doi": "10.1016/j.clim.2026.110759",
+      "title": "Fatty acid amide metabolism in systemic lupus erythematosus: Evidence, mechanisms, and translational potential.",
+      "pub_type": null,
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4788,
+      "pmid": "30927159",
+      "doi": "10.1007/s10787-019-00582-9",
+      "title": "A double-blind randomized placebo controlled study assessing safety, tolerability and efficacy of palmitoylethanolamide for symptoms of knee osteoarthritis.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_override_r5b"
+    },
+    {
+      "wave": 4789,
+      "pmid": "36235736",
+      "doi": "10.3390/nu14194084",
+      "title": "The Effect of Palmitoylethanolamide on Pain Intensity, Central and Peripheral Sensitization, and Pain Modulation in Healthy Volunteers-A Randomized, Double-Blinded, Placebo-Controlled Crossover Trial.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_override_r5b"
+    },
+    {
+      "wave": 4790,
+      "pmid": "38770631",
+      "doi": "10.1089/jicm.2023.0799",
+      "title": "Ginger for Pain Management in Primary Dysmenorrhea: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Meta-Analysis",
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_override_r5b"
+    },
+    {
+      "wave": 4791,
+      "pmid": "42394314",
+      "doi": "10.1002/ptr.70401",
+      "title": "Curcumin as a Multifaceted Epigenetic Modulator With a Disease-Oriented Perspective.",
+      "pub_type": null,
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4792,
+      "pmid": "29676237",
+      "doi": "10.2174/1871527317666180420143830",
+      "title": "Ultra-micronized Palmitoylethanolamide Effects on Sleep-wake Rhythm and Neuropathic Pain Phenotypes in Patients with Carpal Tunnel Syndrome: An Open-label, Randomized Controlled Study.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_override_r5b"
+    },
+    {
+      "wave": 4793,
+      "pmid": "36057884",
+      "doi": "10.1007/s10787-022-01033-8",
+      "title": "A randomized controlled trial assessing the safety and efficacy of palmitoylethanolamide for treating diabetic-related peripheral neuropathic pain.",
+      "pub_type": "Journal Article",
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_override_r5b"
+    },
+    {
+      "wave": 4794,
+      "pmid": "36986081",
+      "doi": "10.3390/nu15061350",
+      "title": "Palmitoylethanolamide in the Treatment of Chronic Pain: A Systematic Review and Meta-Analysis of Double-Blind Randomized Controlled Trials.",
+      "pub_type": "Journal Article",
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_override_r5b"
+    },
+    {
+      "wave": 4795,
+      "pmid": "42343272",
+      "doi": "10.1186/s12886-026-05068-1",
+      "title": "Endoscope-assisted vitrectomy using a 25-gauge system for endophthalmitis: a case series.",
+      "pub_type": null,
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4796,
+      "pmid": "42356281",
+      "doi": "10.3390/nu18121894",
+      "title": "Palmitoylethanolamide/Baicalin Supplementation and Changes in Pain and Sudomotor Function in Type 2 Diabetes: A Retrospective Matched Real-World Cohort Study.",
+      "pub_type": null,
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4797,
+      "pmid": "42347974",
+      "doi": "10.1021/acsami.6c10747",
+      "title": "Orchestrating Diabetic Wound Healing by a Sunlight-Activated AIEgen-Selenide Nanospray: From Infection Control to Tissue Regeneration.",
+      "pub_type": null,
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4798,
+      "pmid": "32664057",
+      "doi": "10.1097/MD.0000000000020373",
+      "title": "Efficacy of high-dissolution turmeric-sesame formulation for pain relief in adult subjects with acute musculoskeletal pain compared to acetaminophen: A randomized controlled study.",
+      "pub_type": "Journal Article",
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_override_r5b"
+    },
+    {
+      "wave": 4799,
+      "pmid": "34067240",
+      "doi": "10.3390/ijerph18115538",
+      "title": "Analysis of Effectiveness of a Supplement Combining Harpagophytum procumbens, Zingiber officinale and Bixa orellana in Healthy Recreational Runners with Self-Reported Knee Pain: A Pilot, Randomized, Triple-Blind, Placebo-Controlled Trial.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_override_r5b"
+    },
+    {
+      "wave": 4800,
+      "pmid": "39220605",
+      "doi": "10.12688/f1000research.131344.2",
+      "title": "Effect of topical Zingiber cassumunar on painful diabetic neuropathy: a double-blind randomized-controlled trial.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_override_r5b"
+    },
+    {
+      "wave": 4801,
+      "pmid": "39186190",
+      "doi": "10.1007/s00210-024-03369-0",
+      "title": "The analgesic effect of curcumin and nano-curcumin in clinical and preclinical studies: a systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
+      "category": "inflammation_pain",
+      "state": "research_only_exact_verified_final_shortage_repair"
+    },
+    {
+      "wave": 4802,
+      "pmid": "42696025",
+      "doi": "10.1039/d6fo02120d",
+      "title": "Chestnut flour-enriched bread reduces postprandial glycaemic response in healthy adults: a randomised, controlled crossover study.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4803,
+      "pmid": "42696856",
+      "doi": "10.1016/j.clnu.2026.106752",
+      "title": "Postprandial metabolic responses to a glycomacropeptide-based protein substitute in different meal contexts - Implications for phenylketonuria (PKU).",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4804,
+      "pmid": "42600415",
+      "doi": "10.1016/j.domaniend.2026.107044",
+      "title": "Metabolic and endocrine modulation of the gut-adipose tissue axis via pro-, pre-, and postbiotics in overweight dogs: A systematic review.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4805,
+      "pmid": "42654212",
+      "doi": "10.3390/nu18162632",
+      "title": "Effects of a Multi-Component Nutraceutical (NUT2) on the Lipid Profile in Adults with Low-to-Moderate Cardiovascular Risk: A Randomized Placebo-Controlled Trial.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4806,
+      "pmid": "42676343",
+      "doi": "10.3389/fendo.2026.1859725",
+      "title": "Effects of breakfast macronutrient composition on postprandial glycemic control in patients with diabetes mellitus: a systematic review and meta-analysis of randomized controlled trials.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4807,
+      "pmid": "42717124",
+      "doi": "10.1007/s10792-026-04263-9",
+      "title": "Evaluation of CSF pressures, OCT parameters, and transorbital ultrasonographic measurements in ıdiopathic ıntracranial hypertension.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4808,
+      "pmid": "42700323",
+      "doi": "10.1007/s11934-026-01357-w",
+      "title": "Difficult Access in Endourology: Anatomical Challenges and Contemporary Management.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4809,
+      "pmid": "42690566",
+      "doi": "10.1007/s13668-026-00796-8",
+      "title": "Sustainable Plant-Based Diets in Children and Adolescents: Current Evidence on Metabolic Syndrome and Cardiometabolic Health.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4810,
+      "pmid": "42690477",
+      "doi": "10.1007/s11033-026-12702-0",
+      "title": "Molecular mechanisms underlying low glycemic index in rice: Insights from Indian landrace diversity.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4811,
+      "pmid": "42594877",
+      "doi": "10.1016/j.xcrm.2026.102988",
+      "title": "Exercise intensity modulates interorgan communication and is associated with cardiometabolic health outcomes in humans.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4812,
+      "pmid": "42726146",
+      "doi": "10.1007/s10495-026-02423-x",
+      "title": "Berberine shows potential in mitigating PM(2.5)-induced breast cancer progression by inducing DNA damage and inhibiting error-prone DNA repair pathways.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4813,
+      "pmid": "42742214",
+      "doi": "10.1167/iovs.67.11.27",
+      "title": "Structural and Molecular Features of Human Extraocular Muscle Spindles Suggest a Unique Role in Proprioception.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4814,
+      "pmid": "42605832",
+      "doi": "10.1039/d6fo02410f",
+      "title": "Functional sourdough muffins attenuate metabolic dysfunction-associated steatotic liver disease through modulation of lipid metabolism, oxidative stress, inflammation, and ATPCL expression.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4815,
+      "pmid": "42746868",
+      "doi": "10.1111/pai.70458",
+      "title": "Nutrient intake and oral health outcomes in children with cow's milk allergy.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4816,
+      "pmid": "42622221",
+      "doi": "10.1002/dmrr.70210",
+      "title": "When Glycaemic Control Comes Too Fast: Treatment-Induced Neuropathy of Diabetes and Charcot Neuro-Osteoarthropathy as Emerging Iatrogenic Complications of Rapid Metabolic Correction.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4817,
+      "pmid": "42829886",
+      "doi": "10.1007/s10653-026-03518-9",
+      "title": "Multi-metal co-exposure and type 2 diabetes: integrating biomonitoring evidence, inflammatory mechanisms, and a framework for future risk stratification.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4818,
+      "pmid": "42680270",
+      "doi": "10.1016/j.foodres.2026.119925",
+      "title": "Moringa oleifera: an updated review of its composition and protective mechanisms in obesity, type 2 diabetes, and cancer.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4819,
+      "pmid": "42629077",
+      "doi": "10.1016/j.foodres.2026.119847",
+      "title": "Postbiotic of Bifidobacterium breve i1088 alleviates type 2 diabetes by promoting GLP-1 secretion: identification of 5-hydroxyindoleacetic acid as a key active metabolite.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4820,
+      "pmid": "42821141",
+      "doi": "10.1007/s10142-026-02052-2",
+      "title": "Network pharmacology, single-cell transcriptomics, machine learning and experimental validation identifying CHEK2 and HPGD as key therapeutic targets of berberine in diabetic nephropathy.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4821,
+      "pmid": "42686218",
+      "doi": "10.1152/ajpregu.00340.2025",
+      "title": "Low-load blood flow restriction training and ischemia modulate expression of Na(+),K(+)-ATPase and FXYDs in human skeletal muscle.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4822,
+      "pmid": "42617994",
+      "doi": "10.1016/j.cbi.2026.112308",
+      "title": "ERS-mediated metabolic toxicity: The IRE1α/XBP1s pathway as a critical driver of Cr(VI)-Induced disruption in glucose and lipid metabolism.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4823,
+      "pmid": "42641809",
+      "doi": "10.1016/j.diabres.2026.113510",
+      "title": "Limosilactobacillus reuteri and Lactobacillus johnsonii intervention ameliorates gestational diabetes mellitus-associated sex-specific placental nutrient transporter abnormalities: Links with tryptophan metabolism and aryl hydrocarbon receptor signaling.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4824,
+      "pmid": "42705729",
+      "doi": "10.1016/j.foodres.2026.120365",
+      "title": "Phocaeicola vulgatus alleviates obesity through cross-species arginine production and hepatic retinoic acid signaling.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4825,
+      "pmid": "42683589",
+      "doi": "10.1115/1.4072670",
+      "title": "Structural and Mechanical Changes to the Extracellular Matrix in Human Umbilical Arteries in Pregnancies Complicated by Gestational Diabetes.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4826,
+      "pmid": "42600838",
+      "doi": "10.1016/j.mvr.2026.105002",
+      "title": "Evaluation of retinochoroidal microvascular parameters and biochemical markers in childhood obesity.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4827,
+      "pmid": "42760849",
+      "doi": "10.1080/19490976.2026.2734705",
+      "title": "Effects of Lactobacillus acidophilus on hepatic and microbial dysregulation in MASLD and diabetes.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4828,
+      "pmid": "42640624",
+      "doi": "10.1080/19490976.2026.2722835",
+      "title": "Gut microbial diversity at baseline conditions the clinical, microbiome, and metabolic response to paraprobiotic Lactiplantibacillus plantarum LRCC5282 in overweight adults.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4829,
+      "pmid": "42708794",
+      "doi": "10.36721/pjps.2026.39.12.341.1",
+      "title": "Glycated hemoglobin and retinal microvascular changes in type 2 diabetic retinopathy patients treated with metformin and/or insulin: A retrospective study.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4830,
+      "pmid": "42392542",
+      "doi": "10.1016/j.clnesp.2026.103444",
+      "title": "Effect of continuous energy restriction combined with probiotic supplementation on parameters related to homeostatic and hedonic systems of food intake in adult men living with obesity: Data from a randomized, parallel, double-blind, placebo-controlled clinical trial.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final_shortage_repair"
+    },
+    {
+      "wave": 4831,
+      "pmid": "42664086",
+      "doi": "10.1080/21505594.2026.2707757",
+      "title": "Activity of Lactobacillus gasseri strain LLG1 and its exopolysaccharides in an inflammatory cell model and on Candida albicans proliferation.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4832,
+      "pmid": "42612400",
+      "doi": "10.1016/j.micres.2026.128686",
+      "title": "Bifidobacterium and the gut-immune axis: Mechanistic insights and therapeutic potential.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4833,
+      "pmid": "42796945",
+      "doi": "10.3390/nu18182962",
+      "title": "Vitamin D Status and Response to Calcifediol Supplementation in Term and Preterm Infants with Cholestasis.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4834,
+      "pmid": "42796968",
+      "doi": "10.3390/nu18182986",
+      "title": "Comprehensive Comparison of Three Automated 25-Hydroxyvitamin D Immunoassays with a VDSCP Traceable LC-MS/MS Method Across Clinically Relevant Decision Thresholds.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4835,
+      "pmid": "42823945",
+      "doi": "10.3389/fendo.2026.1934166",
+      "title": "Real-world treatment outcomes in pregnancy and lactation-associated osteoporosis: a nationwide multicenter cohort study.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4836,
+      "pmid": "42796329",
+      "doi": "10.3390/medicina62091722",
+      "title": "Serum Autophagy-Related Protein 5 and Clinically Defined Cognitive Status in Older Adults: A Plate-Stratified Cross-Sectional Study Across: Normal Cognition, Mild Cognitive Impairment, and Alzheimer's Disease.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4837,
+      "pmid": "42796307",
+      "doi": "10.3390/medicina62091700",
+      "title": "Ferric Carboxymaltose Therapy Improves the Index of Cardiac Electrophysiological Balance in Iron-Deficient Heart Failure with Reduced Ejection Fraction.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4838,
+      "pmid": "42814175",
+      "doi": "10.1186/s41747-026-00785-0",
+      "title": "Accuracy of iodinated contrast and saline delivery using a piston-driven and a peristaltic power injector in CT-an in vitro study.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4839,
+      "pmid": "42789486",
+      "doi": "10.12659/ajcr.952933",
+      "title": "Pure Red Cell Aplasia Following Neoadjuvant Docetaxel/Carboplatin/Trastuzumab (TCbH) in a 45‑Year‑Old Woman With Breast Cancer Successfully Treated With Cyclosporine.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4840,
+      "pmid": "42789174",
+      "doi": "10.1007/s12032-026-03402-7",
+      "title": "Lapatinib suppresses cysteine deprivation-induced ferroptotic cell death by modulating mitochondrial function.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4841,
+      "pmid": "42785774",
+      "doi": "10.1136/bcr-2026-273228",
+      "title": "Jejunal metastatic melanoma presenting with occult gastrointestinal haemorrhage and refractory anaemia.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4842,
+      "pmid": "42797068",
+      "doi": "10.3390/nu18183085",
+      "title": "Iodine Nutrition, Non-Genetic Factors, and Two Candidate Polymorphisms Associated with Thyroid Function Abnormalities Among Children Aged 8-10 Years in Iodine-Adequate Areas of Tianjin, China.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4843,
+      "pmid": "42797064",
+      "doi": "10.3390/nu18183081",
+      "title": "Vitamin Insufficiency After Esophagogastric Surgery and Targeted Supplementation: A Multicenter Prospective Intervention Study Named the VITAMIN Study.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4844,
+      "pmid": "42797023",
+      "doi": "10.3390/nu18183041",
+      "title": "Vitamin D Status in Polish Military Personnel: Associations with Supplementation, Seasonality, and the GC rs2282679 Polymorphism.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4845,
+      "pmid": "42796578",
+      "doi": "10.3390/molecules31183291",
+      "title": "Selenium Nanoparticles: Novel Synthesis, Characterization, Polymer Functionalization, and Cytotoxicity In Vitro.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4846,
+      "pmid": "42796750",
+      "doi": "10.3390/pathogens15090982",
+      "title": "Iron, Tuberculosis, and Particle-Related Exposures Including Smoking.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4847,
+      "pmid": "42793026",
+      "doi": "10.3390/genes17091132",
+      "title": "Clinical, Neuroimaging, and Molecular Characterization of a Juvenile PLAN-like Phenotype in Two Siblings Carrying p.Arg645Gln and an Unresolved Exon 4-7 Copy-Number Gain: A Case Report.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4848,
+      "pmid": "42796991",
+      "doi": "10.3390/nu18183008",
+      "title": "Intergenerational Effects of Paternal Diets on Offspring Health and Reproduction.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4849,
+      "pmid": "42796989",
+      "doi": "10.3390/nu18183006",
+      "title": "Retinal and Choroidal Vascular Changes Associated with Vitamin D Deficiency.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4850,
+      "pmid": "42793002",
+      "doi": "10.3390/genes17091108",
+      "title": "Identification of CD320-Associated Cobalamin Transport Deficiency Through Newborn Screening Caused by Novel Homozygous Candidate Variants.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4851,
+      "pmid": "42794481",
+      "doi": "10.3390/ijms27188053",
+      "title": "Iron, Copper, and Zinc Dyshomeostasis in Cardiovascular and Cerebrovascular Diseases: Redox Mechanisms, Evidence Levels, and Translational Prospects.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4852,
+      "pmid": "42792984",
+      "doi": "10.3390/genes17091090",
+      "title": "The Association Between Hyperketonemia and Reduced Circulating Hydrogen Sulfide in Children with Type 1 Diabetes, and Ketone Inhibition of Cystathionine-γ-Lyase mRNA Expression in Cultured Hepatocytes.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4853,
+      "pmid": "42833850",
+      "doi": "10.1136/bcr-2026-274113",
+      "title": "Reduced venesection requirement as a clue to occult colorectal cancer in hereditary haemochromatosis.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4854,
+      "pmid": "42830330",
+      "doi": "10.1007/s10072-026-09441-2",
+      "title": "Familial hypomagnesemia with secondary hypocalcemia: a novel TRPM6 mutation associated with treatment-resistant migraine in a North African family.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4855,
+      "pmid": "42825826",
+      "doi": "10.1007/s10072-026-09447-w",
+      "title": "Clinical spectrum and genetic landscape of MTHFR deficiency: a cohort study including novel variants.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4856,
+      "pmid": "42785459",
+      "doi": "10.1016/j.ejphar.2026.179372",
+      "title": "Targeting the Snail1-ATGL-ferroptosis-EMT axis via AKT-GSK3β signaling: Low-dose colchicine attenuates idiopathic pulmonary fibrosis.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4857,
+      "pmid": "42833739",
+      "doi": "10.1016/j.iac.2026.06.001",
+      "title": "The Clock Is Ticking: Everything We Have Learned About Food Allergy Prevention in the Last Decade.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4858,
+      "pmid": "42788342",
+      "doi": "10.3892/ijmm.2026.5993",
+      "title": "Sirt1 attenuates calcific aortic valve disease by inhibiting ferroptosis and enhancing mitochondrial function via the activation of the Nrf2/HO‑1/FTH1 axis.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4859,
+      "pmid": "42783391",
+      "doi": "10.3390/medsci14050518",
+      "title": "Association of Vitamin D Intake, VDR Levels, and Relevant Gene Polymorphisms in Early-Stage Thai Colorectal Cancer Patients Following Vitamin D(3) Supplementation.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4860,
+      "pmid": "42783385",
+      "doi": "10.3390/medsci14050512",
+      "title": "Blood Transfusion in End-of-Life Cancer Care: Clinical Evidence, Patient Blood Management and Goal-Concordant Practice.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4861,
+      "pmid": "42789651",
+      "doi": null,
+      "title": "Crohn's Disease: Diagnosis and Management.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4862,
+      "pmid": "42814297",
+      "doi": "10.1007/978-1-0716-5476-7_4",
+      "title": "Development of Antisense Gapmers for the Treatment of Huntington's Disease.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4863,
+      "pmid": "42807947",
+      "doi": "10.7150/ijbs.134874",
+      "title": "ZIP1-dependent lymphatic adaptations facilitate lymph node metastasis of pancreatic cancer.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4864,
+      "pmid": "42788517",
+      "doi": "10.1590/1413-8123202631.15582024",
+      "title": "[Vitamin D status and associated factors in military and civilian dependents: Rio de Janeiro, Brazil, 2018-2022].",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4865,
+      "pmid": "42787014",
+      "doi": "10.3389/fendo.2026.1901279",
+      "title": "Systematic adolescent-centered supportive care program is associated with improved psychological status, treatment adherence, and social adaptation in adolescents with thyroid cancer undergoing radioiodine-131 therapy: a retrospective before-after cohort study with historical controls.",
+      "pub_type": null,
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4866,
+      "pmid": "42624033",
+      "doi": "10.1016/j.identj.2026.109791",
+      "title": "Effects of Nonsurgical Periodontal Treatment on Salivary Adipokines: A Systematic Review.",
+      "pub_type": null,
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4867,
+      "pmid": "42683395",
+      "doi": "10.3389/fspor.2026.1876924",
+      "title": "Physical recovery modalities in competitive and elite endurance athletes: a systematic review and network meta-analysis finding limited evidence of benefit over passive recovery.",
+      "pub_type": null,
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4868,
+      "pmid": "42666369",
+      "doi": "10.3389/fnut.2026.1857527",
+      "title": "Comparative effects of plant-derived anthocyanin- and flavanol-rich supplements on recovery outcomes after exercise-induced muscle damage: a systematic review and network meta-analysis.",
+      "pub_type": null,
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4869,
+      "pmid": "42635686",
+      "doi": "10.1007/s11325-026-03785-x",
+      "title": "Biomarker changes during long-term noninvasive ventilation in obesity hypoventilation syndrome: a prospective observational study.",
+      "pub_type": null,
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4870,
+      "pmid": "42666232",
+      "doi": "10.3389/fendo.2026.1865132",
+      "title": "A distinct serum metabolic profile characterizes osteosarcopenia: identifying potential metabolic biomarkers.",
+      "pub_type": null,
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4871,
+      "pmid": "42664948",
+      "doi": "10.1016/j.saa.2026.128657",
+      "title": "Ultra-sensitive dual-responsive Zn(II)-MOF fluorescent probe: Rapid recognition of cinoxacin and vitamin B₂ in artificial urine and saliva matrices.",
+      "pub_type": null,
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4872,
+      "pmid": "42710102",
+      "doi": "10.1016/j.jcis.2026.141529",
+      "title": "Hydrogen sulfide-driven Janus nanoplatforms for comprehensive disruption of intracellular glucose metabolism and activation of disulfidptosis.",
+      "pub_type": null,
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4873,
+      "pmid": "42697122",
+      "doi": "10.1016/j.ymgme.2026.110247",
+      "title": "Prescribing patterns of vitamin and cofactor therapies in genetically confirmed primary mitochondrial diseases.",
+      "pub_type": null,
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4874,
+      "pmid": "42698143",
+      "doi": "10.1097/cm9.0000000000003770",
+      "title": "FIN56-induced ferroptosis suppresses the development of endometriosis by augmenting mitochondrial ROS and lipid peroxidation via the ACACA/ARID5A/NOX4 axis.",
+      "pub_type": null,
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4875,
+      "pmid": "42788273",
+      "doi": "10.1017/s2040174426100786",
+      "title": "Trimester-specific associations of methyl-donor nutrients and prenatal dietary patterns with adolescent blood leukocyte circadian gene DNA methylation.",
+      "pub_type": null,
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4876,
+      "pmid": "42739032",
+      "doi": "10.3390/nu18172860",
+      "title": "Nutritional Safety and Health Resilience in Europe: Declining Micronutrient Intakes, Widening Distributional Disparities and Persistent Inadequacies Revealed from National Dietary Surveys.",
+      "pub_type": null,
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4877,
+      "pmid": "42811977",
+      "doi": "10.31083/fbl51724",
+      "title": "Mechanism of the NAMPT-SIRT2-Lactate Axis in Senescence of Human Nucleus Pulposus Cells.",
+      "pub_type": "Journal Article",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4878,
+      "pmid": "42730921",
+      "doi": "10.1007/s00394-026-04101-9",
+      "title": "Serum metabolic signatures of nutritional status in early childhood: results from the Brazilian National Survey on Child Nutrition (ENANI-2019).",
+      "pub_type": "Journal Article",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4879,
+      "pmid": "42681939",
+      "doi": "10.1002/ctm2.70776",
+      "title": "CPT1A through succinylation regulates the CTCF/LINC01503‒91aa feedback loop to promote gemcitabine resistance in pancreatic ductal adenocarcinoma.",
+      "pub_type": "Journal Article",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4880,
+      "pmid": "42632263",
+      "doi": "10.1016/j.envint.2026.110463",
+      "title": "PFAS exposure alters gut microbiota metabolites associated with hepatic metabolism: a pilot study.",
+      "pub_type": "Journal Article",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4881,
+      "pmid": "42624371",
+      "doi": "10.1016/j.jlr.2026.101126",
+      "title": "Functional partitioning of lipoic acid decouples cellular abundance from mitochondrial utilization.",
+      "pub_type": "Journal Article",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4882,
+      "pmid": "42622135",
+      "doi": "10.1161/jaha.125.042725",
+      "title": "Circulating Factors in Single Ventricle Heart Disease Impair Cardiomyocyte Bioenergetics, With Partial Rescue by PDE5 Inhibition.",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4883,
+      "pmid": "42829397",
+      "doi": "10.1007/s11306-026-02526-1",
+      "title": "Metabolomic biomarkers and metabolic remodelling in genetically characterised hypertrophic cardiomyopathy: a systematic review.",
+      "pub_type": "Review",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4884,
+      "pmid": "42827313",
+      "doi": "10.12659/ajcr.954163",
+      "title": "Exertional Rhabdomyolysis With Moderate Creatine Kinase Elevation and Marked Transaminase Elevation but Preserved Synthetic Function: A Case Report.",
+      "pub_type": "Case Reports",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4885,
+      "pmid": "42827216",
+      "doi": "10.1208/s12249-026-03546-9",
+      "title": "Glutamine-tagged Sorafenib and Atorvastatin Coloaded Polymeric Nanoparticles for Hybrid Cell Death Induction in Colorectal Cancer: Part I Formulation, Characterization, In-vitro/In-vivo Safety and Efficacy Evaluation.",
+      "pub_type": "Journal Article",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4886,
+      "pmid": "42814831",
+      "doi": "10.1126/sciadv.aeh7186",
+      "title": "Remodeling of mitochondrial dynamics by metabolic pathways couples to oncogenic growth in GNAS (Gα(s)) mutant pancreas cancer.",
+      "pub_type": "Journal Article",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4887,
+      "pmid": "42624356",
+      "doi": "10.1016/j.lfs.2026.124642",
+      "title": "Redox-sensitive coordination of mitochondrial quality control: Integrating ROS, NAD(+), and Ca(2+) signaling in disease.",
+      "pub_type": "Review",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4888,
+      "pmid": "42822414",
+      "doi": "10.1016/j.molcel.2026.09.007",
+      "title": "Hypoxia? NNoT a PROblem!",
+      "pub_type": "Journal Article",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4889,
+      "pmid": "42656071",
+      "doi": "10.1097/wco.0000000000001512",
+      "title": "Recent advances in adult-onset disorders of muscle lipid metabolism.",
+      "pub_type": "Review",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4890,
+      "pmid": "42827376",
+      "doi": "10.1002/jdn.70186",
+      "title": "REST in the Central Nervous System: Context-Dependent Regulation of Neuronal Homeostasis and Disease.",
+      "pub_type": "Review",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4891,
+      "pmid": "42757697",
+      "doi": "10.1111/liv.70889",
+      "title": "BBOX1 Deficiency Exacerbates Liver Fibrosis Through Carnitine Biosynthesis Disruption Rescued by Carnitine Supplementation.",
+      "pub_type": "Journal Article",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4892,
+      "pmid": "42695417",
+      "doi": "10.3892/mmr.2026.14005",
+      "title": "From oxidative stress to epigenetic regulation: Molecular mechanisms of preterm brain injury and neuroprotective strategies (Review).",
+      "pub_type": "Review",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4893,
+      "pmid": "42666016",
+      "doi": "10.1002/jcsm.70368",
+      "title": "Musculoskeletal (Mal)adaptations in Response to a > 30 000-km Running Challenge.",
+      "pub_type": "Case Reports",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4894,
+      "pmid": "42641478",
+      "doi": "10.1016/j.redox.2026.104359",
+      "title": "Endothelial HSPA1A preserves microvascular integrity in HFpEF via HIF-1α-dependent glycolysis and NNT K1079 lactylation.",
+      "pub_type": "Journal Article",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4895,
+      "pmid": "42615238",
+      "doi": "10.1177/10445498261473087",
+      "title": "CPT1A Ameliorates Staphylococcus aureus-Induced Impairment of the Blood-Milk Barrier and Mitochondrial Oxidative Stress in Mastitis by Promoting NLRP3 Succinylation.",
+      "pub_type": "Journal Article",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4896,
+      "pmid": "42731662",
+      "doi": "10.1016/j.cbi.2026.112348",
+      "title": "Construction of a human placental brush border membrane vesicle model for evaluating the effect of antenatal drugs on OCTN1/2 transport function.",
+      "pub_type": "Journal Article",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4897,
+      "pmid": "42607818",
+      "doi": "10.1016/j.freeradbiomed.2026.08.032",
+      "title": "CoQ10 ameliorates intermittent hypoxia-induced ferroptosis by suppressing HMGB1 acetylation and release.",
+      "pub_type": "Journal Article",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4898,
+      "pmid": "42644748",
+      "doi": "10.1093/mrcr/rxag083",
+      "title": "Polymyositis with scleroderma-like features and an anti-PM-Scl75 antibody detected by line blot but not by protein array or immunoprecipitation: A case report and literature review.",
+      "pub_type": "Review",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4899,
+      "pmid": "42790937",
+      "doi": null,
+      "title": "Novel Compound Heterozygous NNT Variants in Familial Glucocorticoid Deficiency Type 4 Diagnosed by Whole Genome Sequencing.",
+      "pub_type": "Case Reports",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4900,
+      "pmid": "42637107",
+      "doi": "10.1016/j.tiv.2026.106297",
+      "title": "Dose- and time-dependent endothelial metabolic reprogramming induced by biomolecular corona-forming silica nanoparticle agglomerates.",
+      "pub_type": "Journal Article",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4901,
+      "pmid": "42796344",
+      "doi": "10.3390/medicina62091738",
+      "title": "Effects of Two Different Multicomponent Cognitive-Motor Training Protocols on EEG Spectral Activity, Cognitive-Motor Interference, and Gait Performance in Individuals with Chronic Stroke: A Randomized Controlled Trial.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "mood",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4902,
+      "pmid": "42712082",
+      "doi": "10.1002/alz.71796",
+      "title": "Psychological impacts of APOE genotype disclosure among Latinos in New York City: a randomized controlled trial.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "mood",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4903,
+      "pmid": "42743889",
+      "doi": "10.1016/j.ejca.2026.117033",
+      "title": "Impact of center-level protocol adherence on neoadjuvant treatment outcome in pancreatic ductal adenocarcinoma.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "mood",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4904,
+      "pmid": "42831382",
+      "doi": "10.1002/smi.70229",
+      "title": "Coping-Related Insight as a Mechanism of Resilience Capacity Development in Emerging Adulthood: A Registered Report.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "mood",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4905,
+      "pmid": "42712158",
+      "doi": "10.1111/wvn.70171",
+      "title": "Effects of Digital Mental Health Screening Alone and With the Online MINDBODYSTRONG CBT-Based Program on Burnout, Depression, Anxiety, Healthy Behaviors, and Suicidal Ideation in at-Risk Nurses at 3- and 6-Months Post-Intervention: An RCT.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "mood",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4906,
+      "pmid": "42827532",
+      "doi": "10.3389/fpsyg.2026.1893800",
+      "title": "Doomscrolling, mental health, and psychological well-being in adolescents and adults: a systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
+      "category": "mood",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4907,
+      "pmid": "42723761",
+      "doi": "10.12688/wellcomeopenres.26070.3",
+      "title": "Sero-epidemiological studies of pathogen burden: A scoping review.",
+      "pub_type": null,
+      "category": "mood",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4908,
+      "pmid": "42718657",
+      "doi": "10.3389/fpubh.2026.1900573",
+      "title": "Integrative and mind-body approaches to law enforcement professional wellness.",
+      "pub_type": null,
+      "category": "mood",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4909,
+      "pmid": "42744371",
+      "doi": "10.1136/bmjopen-2026-121932",
+      "title": "Evaluating the efficacy of an SMS text message information and support programme for people who have experienced a motor vehicle-related injury: protocol for a double-blind randomised controlled trial.",
+      "pub_type": null,
+      "category": "mood",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4910,
+      "pmid": "42779427",
+      "doi": "10.1098/rstb.2025.0132",
+      "title": "The development of play face mimicry: comparative insights from human infants, adults and orangutans.",
+      "pub_type": null,
+      "category": "mood",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4911,
+      "pmid": "42773124",
+      "doi": "10.1038/s41398-026-04441-4",
+      "title": "Patient-specific structural connectomic differences of deep brain stimulation targets in treatment-resistant obsessive-compulsive disorder patients.",
+      "pub_type": null,
+      "category": "mood",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4912,
+      "pmid": "42760521",
+      "doi": "10.1186/s12904-026-02336-1",
+      "title": "Satisfaction with treatment decision-making and long-term experiences of life-prolonging treatments for metastatic castration-resistant prostate cancer.",
+      "pub_type": null,
+      "category": "mood",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4913,
+      "pmid": "42776462",
+      "doi": "10.1007/s40263-026-01334-4",
+      "title": "Approved Medications for Substance Use Disorders: An Umbrella Review of Systematic Reviews and Completed Phase 3 Randomized Controlled Trials.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4914,
+      "pmid": "42033722",
+      "doi": "10.1001/jama.2026.5782",
+      "title": "Symptom-Based Dosing for Neonatal Opioid Withdrawal: The OPTimize NOW Randomized Clinical Trial.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4915,
+      "pmid": "42804298",
+      "doi": null,
+      "title": "Real-World Safety Profile of Intrathecal Morphine Monotherapy vs Morphine-Bupivacaine Combination: A 10-Year MAUDE Database Analysis.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4916,
+      "pmid": "42015466",
+      "doi": "10.1111/add.70416",
+      "title": "Association between state-level kratom regulations and poison center-reported severe medical outcomes and healthcare use: A United States national analysis.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4917,
+      "pmid": "42168398",
+      "doi": "10.1038/s41598-026-53437-z",
+      "title": "Alignment between physician and patient perceptions of antidepressant treatment outcomes in routine clinical practice.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4918,
+      "pmid": "42109221",
+      "doi": "10.1097/adm.0000000000001714",
+      "title": "The Economic Impact of Medetomidine on Critical Care Utilization: A Longitudinal Analysis of Intensive Care Unit Charges for Opioid Withdrawal Across the Adulterated Era.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4919,
+      "pmid": "42766064",
+      "doi": "10.1007/s11916-026-01564-7",
+      "title": "Perioperative Pain in the Era of Emerging and Unregulated Substances: Recognition, Risk Assessment, and Management.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4920,
+      "pmid": "42619210",
+      "doi": "10.1097/ajn.0000000000000370c",
+      "title": "Symptom-based dosing is an effective option for neonatal opioid withdrawal.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4921,
+      "pmid": "42463150",
+      "doi": "10.1542/hpeds.2025-009094",
+      "title": "Outcomes Associated With Illicit Fentanyl Exposure During Pregnancy: A Retrospective Cohort Study.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4922,
+      "pmid": "42413283",
+      "doi": "10.1016/j.drugalcdep.2026.113261",
+      "title": "Assessing measurement bias in substance withdrawal symptoms attributable to childhood adversity and genetic liability.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4923,
+      "pmid": "42728042",
+      "doi": "10.46747/cfp.7209529",
+      "title": "Buprenorphine initiation in fentanyl use: Practical strategies for family physicians.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4924,
+      "pmid": "42644293",
+      "doi": "10.1080/17568919.2026.2719228",
+      "title": "Latest developments of spirooxindoles and their derivatives in medicinal chemistry.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4925,
+      "pmid": "42556986",
+      "doi": "10.1016/j.clp.2026.05.006",
+      "title": "Analgesia, Opioids, and Other Drug Use During Pregnancy and Neonatal Effects.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4926,
+      "pmid": "42407075",
+      "doi": "10.7326/annals-25-04784",
+      "title": "Patient-Centered Prescription Opioid Tapering Methods: A Randomized Clinical Trial.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4927,
+      "pmid": "42068667",
+      "doi": "10.1016/j.forsciint.2026.112982",
+      "title": "Matrix-dependent analytical strategies for the detection of drug-infused foods: A comprehensive review.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4928,
+      "pmid": "42109154",
+      "doi": "10.1111/cup.70126",
+      "title": "Photodistributed Hyperpigmentation in a Chronic Kratom User: Histologic and Elemental Characterization.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4929,
+      "pmid": "42063362",
+      "doi": "10.1002/jat.70233",
+      "title": "Mephedrene-Induced Cardiac Electrophysiological and Molecular Alterations: An Integrated In Vitro and In Vivo Study.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4930,
+      "pmid": "42810992",
+      "doi": "10.1111/dar.70270",
+      "title": "A Quantitative Analysis of Street-Level Drugs Seized in New South Wales, Australia: Purity, Dose and Adulterants.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4931,
+      "pmid": "42276321",
+      "doi": "10.1016/j.josat.2026.210051",
+      "title": "Healthcare provider approaches to managing the health harms of xylazine: A qualitative study.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4932,
+      "pmid": "42615303",
+      "doi": "10.5055/jom.0937",
+      "title": "Ketamine infusion as an adjunct therapy to aid opioid rotation to buprenorphine: A case series.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4933,
+      "pmid": "42087159",
+      "doi": "10.1186/s13011-026-00728-3",
+      "title": "Kava (Piper methysticum) consumption patterns and conceptualizations: results from an online survey.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4934,
+      "pmid": "42172030",
+      "doi": "10.1001/jamanetworkopen.2026.14115",
+      "title": "Antenatal Opioid Exposure and Cerebral Cortical Maturation in Newborns.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4935,
+      "pmid": "42096208",
+      "doi": "10.1001/jamanetworkopen.2026.11514",
+      "title": "Best Practices for Hospital-Based Initiation of Medications for Opioid Use Disorder: A Consensus Statement.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4936,
+      "pmid": "42014095",
+      "doi": "10.1542/hpeds.2025-008956",
+      "title": "Association of Prenatal Fentanyl Exposure With Neonatal Opioid Withdrawal Syndrome Severity.",
+      "pub_type": null,
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4937,
+      "pmid": "42108728",
+      "doi": "10.1111/cts.70581",
+      "title": "A Scoping Review of Non-Opioid Therapeutics for Opioid Withdrawal: Translational Relevance to Neonatal Opioid Withdrawal Syndrome (NOWS) Research.",
+      "pub_type": "Research Support, N.I.H., Extramural",
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4938,
+      "pmid": "42054936",
+      "doi": "10.1016/j.jflm.2026.103158",
+      "title": "Literature review on forensic implications of illicit drug metabolism: A medicinal chemistry perspective.",
+      "pub_type": "Review",
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4939,
+      "pmid": "42051846",
+      "doi": "10.7759/cureus.106016",
+      "title": "Kratom Consumption Associated With Herb-Induced Liver Injury and a Pharmacokinetic Interaction: A Case Report.",
+      "pub_type": "Journal Article",
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4940,
+      "pmid": "42257859",
+      "doi": "10.1007/s00383-025-06267-5",
+      "title": "Fentanyl Utilization During Extracorporeal Membrane Oxygenation and Risk of Methadone Treatment Among Pediatric ECMO Survivors.",
+      "pub_type": "Multicenter Study",
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4941,
+      "pmid": "42249422",
+      "doi": "10.1186/s12913-026-14887-3",
+      "title": "Utilization of health and supportive services amongst children with prenatal opioid exposure: a mixed methods and community-initiated analysis.",
+      "pub_type": "Journal Article",
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4942,
+      "pmid": "42296389",
+      "doi": "10.1093/jat/bkag052",
+      "title": "Development and application of a simplified, quantitative method for 30+ New Psychoactive Substances in hair.",
+      "pub_type": "Journal Article",
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4943,
+      "pmid": "42234859",
+      "doi": "10.1093/jat/bkag037",
+      "title": "The identification of N-isopropyl butylone in postmortem cases in Northern Virginia.",
+      "pub_type": "Journal Article",
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4944,
+      "pmid": "42226014",
+      "doi": "10.1093/jat/bkag036",
+      "title": "Comprehensive toxicological characterization and quantitation of drugs identified among nonfatal opioid and stimulant overdose presentations to US emergency departments.",
+      "pub_type": "Journal Article",
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4945,
+      "pmid": "42216247",
+      "doi": "10.1093/jat/bkag031",
+      "title": "Determination of nitazenes in postmortem casework and their prevalence in the State of Maryland.",
+      "pub_type": "Journal Article",
+      "category": "withdrawal_nps",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4946,
+      "pmid": "42796405",
+      "doi": "10.3390/medicina62091799",
+      "title": "Combined Antegrade-Retrograde Cardioplegia for Myocardial Protection During Coronary Artery Bypass Grafting in Patients with Left Main Coronary Artery Disease: The CARDIOPROTECT-LMCAD Randomised Trial.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "performance",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4947,
+      "pmid": "42747539",
+      "doi": "10.1007/s00484-026-03297-z",
+      "title": "The effects of balneotherapy on chronic low back pain, functional status, and rowing performance in athletes.",
+      "pub_type": null,
+      "category": "performance",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4948,
+      "pmid": "42755021",
+      "doi": "10.1111/jhn.70347",
+      "title": "Double Burden of Malnutrition Prevalence in Pregnant Women: Systematic Review and Meta-Analysis.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4949,
+      "pmid": "42710353",
+      "doi": "10.1016/j.jtemb.2026.127950",
+      "title": "Association between circulating essential metals and pregnancy loss: A systematic review and meta-analysis.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4950,
+      "pmid": "42677903",
+      "doi": "10.1080/03630242.2026.2719875",
+      "title": "Factors influencing abnormal bone mineral density in Chinese women aged 40 years and older: A meta-analysis.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4951,
+      "pmid": "42661175",
+      "doi": "10.1186/s12884-026-09646-5",
+      "title": "Impact of lipid-based nutritional supplementation on cardio metabolic risk factors in underweight pre-eclamptic primigravidas: A randomized controlled trial.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4952,
+      "pmid": "42692818",
+      "doi": "10.1080/14767058.2026.2722830",
+      "title": "Maternal anemia and the risk of preterm birth: a meta-analysis.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4953,
+      "pmid": "42766503",
+      "doi": "10.1353/hpu.2026.a982955",
+      "title": "Maternal Serum Hemoglobin Levels Relative to Anemia Interventions in the COVID-19 Era: A Systematic Review and Meta-Analysis.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4954,
+      "pmid": "42643610",
+      "doi": "10.3389/fnut.2026.1904722",
+      "title": "Dietary inflammatory index and Mediterranean Diet in female reproductive health: a systematic review and meta-analysis of dietary inflammatory potential.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4955,
+      "pmid": "42767731",
+      "doi": "10.1136/bmjopen-2026-121658",
+      "title": "Co-administration of calcium and multiple micronutrient supplements for maternal and newborn haemoglobin and iron status: protocol for a randomised non-inferiority trial in Burkina Faso and Pakistan.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4956,
+      "pmid": "42628668",
+      "doi": "10.1016/j.envres.2026.125535",
+      "title": "Comparison of seafood intake estimates and biomarkers for assessing impact on child cognition and behavior.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4957,
+      "pmid": "42610286",
+      "doi": "10.62713/aic.4542",
+      "title": "Comparison of Labetalol With Versus Without Magnesium Sulfate on Intraoperative Blood Pressure Variability During Cesarean Delivery in Hypertensive Disorders of Pregnancy: A Retrospective Cohort Study.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4958,
+      "pmid": "42714737",
+      "doi": "10.1007/s12020-026-04762-w",
+      "title": "Cluster-derived immunometabolic profiles: association with glycemic dysregulation in elderly postmenopausal women.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4959,
+      "pmid": "42705703",
+      "doi": "10.1136/bmjoq-2026-004143",
+      "title": "Antenatal magnesium sulphate for neuroprotection of preterm babies: data analysis of inequities in treatment in England 2014 to 2024.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4960,
+      "pmid": "42809716",
+      "doi": "10.1093/bjsopen/zrag125",
+      "title": "Disparities in pathways for anaemia care and recovery among women after major abdominal surgery: secondary analysis of a prospective cohort study in 29 countries.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4961,
+      "pmid": "42696221",
+      "doi": "10.1007/s10072-026-09348-y",
+      "title": "Restless legs syndrome in pregnancy: Frequency, sleep quality, and questionnaire-defined risk of obstructive sleep apnea syndrome.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4962,
+      "pmid": "42775709",
+      "doi": "10.1096/fj.202602249rr",
+      "title": "Metformin Inhibits Trophoblast Ferroptosis by Suppressing ATF2 and Activating the PI3K/Akt/Nrf2 Pathway to Improve Gestational Diabetes Mellitus.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4963,
+      "pmid": "42604984",
+      "doi": "10.4103/npmj.npmj_638_25",
+      "title": "Luteinising Hormone-to-follicle-stimulating Hormone Ratio for Predicting Unexplained Infertility in Patients with Hypovitaminosis D.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4964,
+      "pmid": "42777736",
+      "doi": "10.5694/mja2.70301",
+      "title": "Living Evidence for Australian Pregnancy and Postnatal Care (LEAPP): Transforming the Australian Pregnancy and Postnatal Care Guidelines.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4965,
+      "pmid": "42670803",
+      "doi": "10.1111/anec.70233",
+      "title": "Reversible High-Degree Atrioventricular Block Associated With Magnesium Toxicity in Severe Pre-Eclampsia.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4966,
+      "pmid": "42670725",
+      "doi": "10.1111/aji.70316",
+      "title": "Effects of Common Therapies for Threatened Preterm Labor on the Placental Inflammatory Response.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4967,
+      "pmid": "42625347",
+      "doi": "10.1111/bjh.70780",
+      "title": "Variation in antenatal anaemia guidelines across the NHS in the United Kingdom: A cross-sectional study.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4968,
+      "pmid": "42825368",
+      "doi": "10.7189/jogh.16.04360",
+      "title": "Equity-focused investment strategies to reduce maternal mortality in the Philippines: a subnational analysis using EQUIST.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4969,
+      "pmid": "42803694",
+      "doi": "10.1096/fj.202504881rr",
+      "title": "Gestational Changes in Placental Iron Homeostasis are Associated With Ferroptosis-Associated Redox Signaling and Trophoblast Behavior.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4970,
+      "pmid": "42735213",
+      "doi": "10.1152/japplphysiol.00357.2026",
+      "title": "Exploring the placental lipidome in physically active versus inactive pregnancies.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4971,
+      "pmid": "42600051",
+      "doi": "10.1093/humrep/deag125",
+      "title": "Maternal lifestyle risk factors and human embryonic morphologic development using 3D ultrasound: a population-based prospective cohort study.",
+      "pub_type": null,
+      "category": "women_health",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4972,
+      "pmid": "42768896",
+      "doi": "10.1002/brb3.71556",
+      "title": "Sleep-Wake Disturbances in Pediatric Traumatic Brain Injury: A Systematic Review and Meta-Analysis of Interventions.",
+      "pub_type": null,
+      "category": "sleep",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4973,
+      "pmid": "42687371",
+      "doi": "10.1111/bdi.70179",
+      "title": "Managing Sleep in Bipolar Disorder: An Overview of Pharmacological and Non-Pharmacological Interventions.",
+      "pub_type": null,
+      "category": "sleep",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4974,
+      "pmid": "42685789",
+      "doi": "10.1111/jpi.70174",
+      "title": "ENLIGHTENme: Translating the Benefits of Self-Administered Daytime Light Supplementation to Older Adults in the Real World.",
+      "pub_type": null,
+      "category": "sleep",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4975,
+      "pmid": "42430948",
+      "doi": "10.1016/j.smrv.2026.102340",
+      "title": "Comparative effectiveness and safety of pharmacological interventions for sleep outcomes in chronic non-cancer pain: a systematic review and network meta-analysis.",
+      "pub_type": null,
+      "category": "sleep",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4976,
+      "pmid": "42337809",
+      "doi": "10.1186/s13054-026-06151-1",
+      "title": "Effect of the orexin receptor antagonist, suvorexant, on sleep architecture in the early postoperative period following cardiac surgery: a randomized controlled trial.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "sleep",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4977,
+      "pmid": "42679373",
+      "doi": "10.61882/ijkd.20.4.9579",
+      "title": "Effect of Melatonin Supplementation on Glycemic and Lipid Profiles in Kidney Transplant Recipients: A Clinical Trial.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "sleep",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4978,
+      "pmid": "42458137",
+      "doi": "10.1007/s10072-026-09221-y",
+      "title": "Association between circadian rhythm disturbances and cognitive decline in the elderly: a systematic review.",
+      "pub_type": "Systematic Review",
+      "category": "sleep",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4979,
+      "pmid": "42603831",
+      "doi": "10.1007/s00415-026-14062-y",
+      "title": "Digital screen exposure and migraine burden: a systematic review and meta-analysis.",
+      "pub_type": "Meta-Analysis",
+      "category": "sleep",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4980,
+      "pmid": "42346809",
+      "doi": "10.2337/dc26-0164",
+      "title": "Melatonin Impairs Glucose Tolerance, First-Phase Insulin Secretion, and Insulin Feedback Inhibition; Interaction With MTNR1B Diabetes Risk Variant.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "sleep",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4981,
+      "pmid": "42831410",
+      "doi": "10.1093/annweh/wxag085",
+      "title": "Fluid balance during hot-dry and warm-humid heat stress while adhering to occupational hydration recommendations.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "performance",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4982,
+      "pmid": "42834388",
+      "doi": "10.1186/s12903-026-09657-w",
+      "title": "Green-synthesized nanoparticles for glass ionomer cement reinforcement: a systematic review of their antimicrobial, mechanical, and physicochemical properties.",
+      "pub_type": "Systematic Review",
+      "category": "performance",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4983,
+      "pmid": "42366326",
+      "doi": "10.1007/s13555-026-01837-4",
+      "title": "The Impact of Chronic Spontaneous Urticaria on Sleep-A Systematic Review.",
+      "pub_type": "Systematic Review",
+      "category": "sleep",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4984,
+      "pmid": "42780566",
+      "doi": "10.3389/fmed.2026.1926216",
+      "title": "Can acupuncture improve cardiac function in patients after percutaneous coronary intervention? A systematic review and meta-analysis.",
+      "pub_type": "Systematic Review",
+      "category": "performance",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4985,
+      "pmid": "42534655",
+      "doi": "10.3389/fneur.2026.1793300",
+      "title": "Follow-up and outcome of patients with primary BH4 deficiencies.",
+      "pub_type": "Systematic Review",
+      "category": "sleep",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4986,
+      "pmid": "42371549",
+      "doi": "10.7717/peerj.21409",
+      "title": "Efficacy of an exercise oncology program on sleep quality and circadian rhythm in head and neck cancer patients undergoing chemo-radiation therapy: a randomized controlled trial.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "sleep",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4987,
+      "pmid": "42806398",
+      "doi": "10.1186/s13104-026-07911-6",
+      "title": "Clinical and radiographic evaluation of MTA Flow™ thick as a retrograde filling material in apicoectomy: a preliminary study.",
+      "pub_type": "Observational Study",
+      "category": "performance",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4988,
+      "pmid": "42801339",
+      "doi": "10.1007/s00431-026-07445-w",
+      "title": "Combination therapy with furosemide and metolazone as compared to furosemide alone for treatment of edema in children with nephrotic syndrome: a randomized controlled trial.",
+      "pub_type": "Comparative Study",
+      "category": "performance",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4989,
+      "pmid": "42776338",
+      "doi": "10.1007/s11306-026-02530-5",
+      "title": "Urinary metabolomic signatures of muscle injury and recovery in elite football players.",
+      "pub_type": "Observational Study",
+      "category": "performance",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4990,
+      "pmid": "42786472",
+      "doi": "10.1186/s12903-026-09875-2",
+      "title": "Cuspal displacement, marginal adaptation, and nanoleakage in maxillary premolars restored with a novel auto-cured bulk-fill composite versus a light-cured bulk-fill composite: an in-vitro study.",
+      "pub_type": "Comparative Study",
+      "category": "performance",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4991,
+      "pmid": "42750035",
+      "doi": "10.1186/s12903-026-09793-3",
+      "title": "Effect of simvastatin versus calcium hydroxide intracanal medications on postoperative pain and cytokine modulation in symptomatic apical periodontitis: a randomized controlled trial.",
+      "pub_type": "Comparative Study",
+      "category": "performance",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4992,
+      "pmid": "42792995",
+      "doi": "10.3390/genes17091100",
+      "title": "Comparison of Four Bisulfite Conversion Kits and Their Effects on DNA Methylation Detection and Age Prediction.",
+      "pub_type": "Comparative Study",
+      "category": "performance",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4993,
+      "pmid": "42731837",
+      "doi": "10.1136/bmjopen-2026-119379",
+      "title": "Brain and behavioural responses to food viewing in women during pregnancy and their relationship with metabolic health: study protocol for the FOODY Play Study - a prospective observational study.",
+      "pub_type": "Observational Study",
+      "category": "mood",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4994,
+      "pmid": "42771738",
+      "doi": "10.4103/jisppd.jisppd_339_26",
+      "title": "Assessment and comparison of coronal discoloration induced by natural derivatives as intracanal medicament: An in vitro observational study.",
+      "pub_type": "Observational Study",
+      "category": "performance",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4995,
+      "pmid": "42771737",
+      "doi": "10.4103/jisppd.jisppd_343_26",
+      "title": "Comparative evaluation of the remineralization potential of chitosan-fluoride-doped mesoporous silica nanoparticles hydrogel and casein phosphopeptide-amorphous calcium phosphate fluoride paste on the enamel of primary teeth: An in vitro study.",
+      "pub_type": "Comparative Study",
+      "category": "performance",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4996,
+      "pmid": "42720146",
+      "doi": "10.1111/echo.70622",
+      "title": "Time-Dependent Changes in Pulmonary Artery Pressure and Biventricular Function After Adenotonsillar Surgery: A Tissue Doppler Echocardiography Study.",
+      "pub_type": "Observational Study",
+      "category": "mood",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4997,
+      "pmid": "42715502",
+      "doi": "10.1200/go-26-00140",
+      "title": "Impact of Leucovorin Shortage: A Comparison of Standard-Dose Versus Reduced-Dose Leucovorin in Metastatic Colorectal Cancer.",
+      "pub_type": "Comparative Study",
+      "category": "mood",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4998,
+      "pmid": "42828560",
+      "doi": "10.1007/s10103-026-05044-7",
+      "title": "Different irrigation solutions in calcium hydroxide removal: Do high-frequency ultrasonic and laser activation make the difference?",
+      "pub_type": "Comparative Study",
+      "category": "performance",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 4999,
+      "pmid": "42804356",
+      "doi": "10.1097/cce.0000000000001492",
+      "title": "Acute Respiratory Failure Survivors' Perspectives on Patient-Centered Communication: A Mixed Methods Study.",
+      "pub_type": "Observational Study",
+      "category": "mood",
+      "state": "research_only_exact_verified_final"
+    },
+    {
+      "wave": 5000,
+      "pmid": "42705633",
+      "doi": "10.1002/ijop.70267",
+      "title": "Comparing Depression and Anxiety Symptom Networks in Chinese Students and Teachers.",
+      "pub_type": "Comparative Study",
+      "category": "mood",
+      "state": "research_only_exact_verified_final"
+    }
+  ]
+}

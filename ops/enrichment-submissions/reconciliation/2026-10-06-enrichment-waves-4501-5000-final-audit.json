@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "batch": "waves-4501-5000",
+  "status": "complete_pending_repository_validation",
+  "findings": 500,
+  "wave_coverage": {
+    "first": 4501,
+    "last": 5000,
+    "missing": []
+  },
+  "finalized_prior_basis": {
+    "through_wave_4500_unique_pmids": 4435,
+    "source": "2026-10-05-enrichment-waves-4001-4500-pmid-index.json"
+  },
+  "dedupe": {
+    "prior_unique_pmids": 4435,
+    "new_unique_pmids": 500,
+    "cumulative_unique_pmids": 4935,
+    "pmid_duplicates": 0,
+    "doi_duplicates": 0,
+    "normalized_title_duplicates": 0,
+    "prior_pmid_collisions": 0
+  },
+  "verification": {
+    "final_consolidated_row_count": 500,
+    "exact_pubmed_title_and_abstract": true,
+    "all_rows_abstract_verified": true,
+    "unverified_rows": 0,
+    "objective_off_domain_review_passed": true,
+    "objective_off_domain_rows_remaining": 0,
+    "final_relevance_review_passed": true
+  },
+  "repairs": {
+    "reviewed_replacement_rows": 66,
+    "r5b_override_rows": 13,
+    "final_shortage_repair_rows": 4,
+    "total_repaired_rows": 83
+  },
+  "category_counts": {
+    "aging_sarcopenia": 44,
+    "botanicals_mushrooms": 41,
+    "cannabinoid_safety": 41,
+    "cardiometabolic": 28,
+    "cognition_focus": 39,
+    "gut": 36,
+    "immune_respiratory": 42,
+    "inflammation_pain": 30,
+    "metabolic": 31,
+    "micronutrients": 33,
+    "mitochondrial_energy": 35,
+    "mood": 17,
+    "withdrawal_nps": 33,
+    "performance": 14,
+    "women_health": 24,
+    "sleep": 12
+  },
+  "state_counts": {
+    "research_only_exact_verified_final": 417,
+    "research_only_exact_verified_review_replacement": 66,
+    "research_only_exact_verified_override_r5b": 13,
+    "research_only_exact_verified_final_shortage_repair": 4
+  },
+  "artifacts": {
+    "finalized_receipt": "2026-10-06-enrichment-waves-4501-5000-verified-consolidated.json",
+    "cumulative_index": "2026-10-06-enrichment-waves-4501-5000-pmid-index.json",
+    "final_selection": "2026-10-06-enrichment-waves-4501-5000-final-selection.json",
+    "final_audit": "2026-10-06-enrichment-waves-4501-5000-final-audit.json",
+    "status": "2026-10-06-enrichment-waves-4501-5000-status.json",
+    "r5b_exact": "2026-10-06-enrichment-waves-4501-5000-shortage-replacements-r5b-overrides-exact.json",
+    "r6_exact": "2026-10-06-enrichment-waves-4501-5000-final-shortage-replacements-r6-exact.json"
+  },
+  "authority_note": "This final audit and consolidated receipt supersede stale discovery rows, failed exact-verification candidates, reviewed relevance failures, prior replacement assignments, r5 shortage candidates superseded by r5b overrides, and the original hard-off-domain Wave 4830 optical biosensor row.",
+  "policy": {
+    "entity_creation": "forbidden",
+    "publication_promotion": "separate fail-closed admission",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "retraction_quarantine": true
+  }
+}

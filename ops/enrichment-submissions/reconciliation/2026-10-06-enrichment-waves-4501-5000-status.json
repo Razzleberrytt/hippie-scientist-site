@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-4501-5000",
+  "status": "finalized_pending_repository_validation",
+  "admission_issue": 6353,
+  "branch": "data/enrichment-waves-4501-5000-2026-10-06",
+  "target_findings": 500,
+  "range": "4501-5000",
+  "prior_unique_pmids": 4435,
+  "verified_findings": 500,
+  "cumulative_unique_pmids": 4935,
+  "integrity": {
+    "contiguous_waves": true,
+    "unique_pmids": 500,
+    "within_batch_duplicate_pmids": 0,
+    "within_batch_duplicate_dois": 0,
+    "within_batch_duplicate_normalized_titles": 0,
+    "prior_pmid_collisions": 0,
+    "abstract_verified_500_of_500": true,
+    "exact_title_match_500_of_500": true,
+    "synthetic_rows_created": false,
+    "final_relevance_repairs": 83,
+    "objective_off_domain_rows_remaining": 0,
+    "strict_relevance_review_passed": true
+  },
+  "artifacts": {
+    "finalized_receipt": "2026-10-06-enrichment-waves-4501-5000-verified-consolidated.json",
+    "cumulative_index": "2026-10-06-enrichment-waves-4501-5000-pmid-index.json",
+    "final_selection": "2026-10-06-enrichment-waves-4501-5000-final-selection.json",
+    "final_audit": "2026-10-06-enrichment-waves-4501-5000-final-audit.json",
+    "status": "2026-10-06-enrichment-waves-4501-5000-status.json",
+    "r5b_exact": "2026-10-06-enrichment-waves-4501-5000-shortage-replacements-r5b-overrides-exact.json",
+    "r6_exact": "2026-10-06-enrichment-waves-4501-5000-final-shortage-replacements-r6-exact.json"
+  },
+  "policy": {
+    "entity_creation": "forbidden",
+    "publication_promotion": "separate fail-closed admission",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "retraction_quarantine": true
+  },
+  "next": [
+    "open or update PR for issue #6353",
+    "run repository-owned validation/checks on finalized branch head",
+    "merge only when required checks and review are green"
+  ]
+}
