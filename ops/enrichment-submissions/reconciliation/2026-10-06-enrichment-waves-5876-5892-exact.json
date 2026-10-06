@@ -434,17 +434,17 @@
       "discovery_query": "((bacopa[Title/Abstract] OR ginkgo[Title/Abstract] OR caffeine[Title/Abstract] OR creatine[Title/Abstract] OR omega-3[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract]) AND (cognition[Title/Abstract] OR cognitive[Title/Abstract] OR memory[Title/Abstract] OR attention[Title/Abstract] OR focus[Title/Abstract])) AND 2018:2021[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]",
       "source_state": "candidate_pending_exact_efetch",
       "strict_title_outcome_fit": true,
-      "abstract": null,
-      "abstract_verified": false,
-      "exact_title_verified": false,
+      "abstract": "Dietary fish is a rich source of omega-3 (n-3) fatty acids, and as such, is believed to have played an important role in the evolution of the human brain and its advanced cognitive function. The long chain polyunsaturated fatty acids, particularly the n-3 docosahexanoic acid (DHA), are critical for proper neurological development and function. Both low plasma DHA and obesity in pregnancy are associated with neurodevelopmental disorders such as attention deficit and hyperactivity disorder (ADHD) and autism spectrum disorder (ASD) in childhood, and n-3 supplementation has been shown to improve symptoms, as reviewed herein. The mechanisms underlying the connection between maternal obesity, n-3 fatty acid levels and offspring's neurological outcomes are poorly understood, but we review the evidence for a mediating role of the placenta in this relationship. Despite promising data that n-3 fatty acid supplementation mitigates the effect of maternal obesity on placental lipid metabolism, few clinical trials or animal studies have considered the neurological outcomes of offspring of mothers with obesity supplemented with n-3 FA in pregnancy.",
+      "abstract_verified": true,
+      "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12720271/",
       "pdf_link": "https://doi.org/10.1016/j.expneurol.2021.113910",
-      "state": "research_only_verification_failed",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
+      "state": "research_only_exact_verified_pending_relevance",
+      "verified_title": "How the placenta-brain lipid axis impacts the nutritional origin of child neurodevelopmental disorders: Focus on attention deficit hyperactivity disorder and autism spectrum disorder.",
+      "verified_journal": "Experimental neurology",
+      "verified_pub_date": "2022-Jan",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "verification_error": "missing_abstract_or_title_mismatch"
+      "verification_error": null
     }
   ]
 }
