@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-6001-6500",
+  "part": "sleep-05",
+  "row_count": 5,
+  "verified_count": 2,
+  "semantic_pass_count": 2,
+  "rows": [
+    {
+      "pmid": "42535778",
+      "category": "sleep",
+      "title": "Recommendations on Switching or Deprescribing Hypnotic Medications for Insomnia.",
+      "abstract": "10-30% of the world's population suffers from insomnia. One-quarter of those who take hypnotic medication become dependent on it. Given the wide variety of available drugs, switching them is complex. The existing recommendations do not cover all drug classes. There is a need for practical, evidence-based recommendations that take account of specific aspects of care both in Europe as a whole and regionally. This narrative review is based on publications from May 1953 to February 2026 that were retrieved by a search in six English- and German-language databases, including guidelines, meta-analyses, systematic reviews, randomized controlled trials, and observational studies. Following the literature review, new recommendations were developed in a consensus process (consensus conference followed by the Delphi method) to supplement the current insomnia guideline. Treatment can be discontinued abruptly after short-term use (1-2 weeks) or if the drug in question does not produce withdrawal symptoms, e.g., daridorexant (an orexin receptor antagonist), melatonin, antihistamines, and phytotherapeutic drugs. Benzodiazepine receptor agonists, antidepressants, antipsychotics, and gabapentinoids should be tapered off gradually after medium- or long-term use (> 2 weeks), with a weekly dose reduction of 10-25%. Various gradual tapering methods can be used, depending on the drug, dose, duration of use, treatment regimen, and intended subsequent treatment. A longer taper is advisable after use at high doses (≥ 2/3 of the maximum dose) or over the long term (≥ 1 year). Withdrawal symptoms from benzodiazepine receptor agonists can be alleviated with the overlapping administration of daridorexant or eszopiclone. Cognitive behavioral therapy is recommended as an accompanying nonpharmacological treatment (relative risk [RR]: 1.68; 95% confidence interval: [1.19; 2.39]). A drug-specific approach with evidence-based and practice-oriented protocols should be used when hypnotic medications are switched or discontinued.",
+      "journal": "Deutsches Arzteblatt international",
+      "pub_date": "2026-Sep-18",
+      "pdf_link": "https://doi.org/10.3238/arztebl.m2026.0141",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13626306/",
+      "exact_title_verified": true,
+      "abstract_verified": true,
+      "semantic_pass": true,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+    },
+    {
+      "pmid": "42176935",
+      "category": "sleep",
+      "title": null,
+      "abstract": null,
+      "journal": null,
+      "pub_date": null,
+      "pdf_link": null,
+      "full_text_link": null,
+      "exact_title_verified": false,
+      "abstract_verified": false,
+      "semantic_pass": false,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+    },
+    {
+      "pmid": "42824268",
+      "category": "sleep",
+      "title": null,
+      "abstract": null,
+      "journal": null,
+      "pub_date": null,
+      "pdf_link": null,
+      "full_text_link": null,
+      "exact_title_verified": false,
+      "abstract_verified": false,
+      "semantic_pass": false,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+    },
+    {
+      "pmid": "42498436",
+      "category": "sleep",
+      "title": null,
+      "abstract": null,
+      "journal": null,
+      "pub_date": null,
+      "pdf_link": null,
+      "full_text_link": null,
+      "exact_title_verified": false,
+      "abstract_verified": false,
+      "semantic_pass": false,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+    },
+    {
+      "pmid": "42349548",
+      "category": "sleep",
+      "title": "Blue light and melatonin: A critical review of scientific evidence and biohacker myths in ophthalmology.",
+      "abstract": "Blue light is a physiological component of visible light, essential for daytime vision and circadian synchronization. There is no evidence supporting the routine use of blue-blocking glasses for preventive or therapeutic purposes. The most effective strategies are based on light hygiene, reduction of nocturnal exposure, and patient education. Strengthening scientific communication is necessary to counter misinformation and maintain an evidence-based ophthalmological discourse. Blue light has been associated with potential effects on visual function, sleep, and circadian physiology, although clinical evidence remains heterogeneous. In recent years, dissemination of claims unsupported by clinical evidence regarding spectral filters for preventive purposes has increased. The aim of this review was to critically analyze the available scientific evidence on the visual, circadian, and systemic effects of blue light and contrast it with messages disseminated through media and social networks. A narrative review of the literature published between 2009 and 2025 was conducted using PubMed, Scopus, and the Cochrane Library, prioritizing human studies and institutional position statements relevant to ophthalmological practice. Available systematic reviews and controlled trials indicate that blue-filtering lenses do not provide clinically meaningful improvements in visual acuity or symptoms of digital eye strain, and show small and inconsistent effects on sleep-related outcomes. Under typical viewing conditions, screen light exposure remains well below levels associated with photochemical retinal damage in experimental models. Therefore, current evidence does not support the routine preventive or therapeutic use of blue-blocking glasses. The most effective strategies rely on light hygiene, reduction of nocturnal light exposure, and patient education.",
+      "journal": "Archivos de la Sociedad Espanola de Oftalmologia",
+      "pub_date": "2026-Oct",
+      "pdf_link": "https://doi.org/10.1016/j.oftale.2026.502590",
+      "full_text_link": null,
+      "exact_title_verified": true,
+      "abstract_verified": true,
+      "semantic_pass": true,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+    }
+  ]
+}
