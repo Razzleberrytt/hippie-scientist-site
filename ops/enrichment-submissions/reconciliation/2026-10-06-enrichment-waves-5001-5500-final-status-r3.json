@@ -1,0 +1,51 @@
+{
+  "schema_version": 3,
+  "batch_id": "2026-10-06-enrichment-waves-5001-5500",
+  "status": "finalized_pending_repository_validation",
+  "admission_issue": 6362,
+  "upstream_issue": 6353,
+  "upstream_pr": 6355,
+  "pr": 6363,
+  "branch": "data/enrichment-waves-5001-5500-2026-10-06",
+  "range": "5001-5500",
+  "target_findings": 500,
+  "verified_findings": 500,
+  "prior_unique_pmids": 4935,
+  "cumulative_unique_pmids": 5435,
+  "integrity": {
+    "contiguous_waves": true,
+    "unique_pmids": 500,
+    "within_batch_duplicate_pmids": 0,
+    "within_batch_duplicate_dois": 0,
+    "within_batch_duplicate_normalized_titles": 0,
+    "prior_pmid_collisions": 0,
+    "abstract_verified_500_of_500": true,
+    "exact_title_match_500_of_500": true,
+    "hard_off_domain_rows_remaining": 0,
+    "case_report_or_explicit_preclinical_rows_remaining": 0,
+    "strict_relevance_review_passed": true,
+    "retry_overrides": 0,
+    "replacements_total": 20,
+    "relevance_quality_replacements": 0,
+    "upstream_collision_replacements": 0,
+    "policy_replacements": 20
+  },
+  "artifacts": {
+    "final_consolidated": "2026-10-06-enrichment-waves-5001-5500-final-consolidated-r3.json",
+    "final_selection": "2026-10-06-enrichment-waves-5001-5500-final-selection-r3.json",
+    "cumulative_index": "2026-10-06-enrichment-waves-5001-5500-pmid-index-r3.json",
+    "final_audit": "2026-10-06-enrichment-waves-5001-5500-final-audit-r3.json",
+    "status": "2026-10-06-enrichment-waves-5001-5500-final-status-r3.json"
+  },
+  "policy": {
+    "entity_creation": "forbidden",
+    "publication_promotion": "separate fail-closed admission",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden"
+  },
+  "next": [
+    "run repository-owned validation/checks on exact finalized head",
+    "resolve review findings if any",
+    "merge only when required checks and review are green"
+  ]
+}
