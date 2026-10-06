@@ -21,5 +21,11 @@
     "hard_off_domain_rows": 0,
     "residual_case_report_or_explicit_preclinical_rows": 0
   },
-  "research_only": true
+  "research_only": true,
+  "validation_context": {
+    "base_ref": "main",
+    "upstream_pr_6355_merged": true,
+    "pr_contract_template_restored": true,
+    "reason": "fresh validation cycle after upstream merge and PR retarget to main"
+  }
 }
