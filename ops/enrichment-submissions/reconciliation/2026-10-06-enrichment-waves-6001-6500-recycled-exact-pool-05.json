@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-6001-6500",
+  "stage": "recycled_exact_unused_pool_part_05",
+  "source_files": [
+    "2026-10-06-enrichment-waves-5001-5500-replacements-exact-02.json",
+    "2026-10-06-enrichment-waves-5001-5500-replacements-exact-03.json",
+    "2026-10-06-enrichment-waves-5001-5500-retried-exact-01.json",
+    "2026-10-06-enrichment-waves-5001-5500-retried-exact-02.json",
+    "2026-10-06-enrichment-waves-4501-5000-final-shortage-replacements-r6-exact.json",
+    "2026-10-06-enrichment-waves-4501-5000-reviewed-replacements-exact-01.json",
+    "2026-10-06-enrichment-waves-4501-5000-reviewed-replacements-exact-02.json",
+    "2026-10-06-enrichment-waves-4501-5000-reviewed-replacements-exact-03.json"
+  ],
+  "skipped_files": [],
+  "row_count": 0,
+  "rows": []
+}
