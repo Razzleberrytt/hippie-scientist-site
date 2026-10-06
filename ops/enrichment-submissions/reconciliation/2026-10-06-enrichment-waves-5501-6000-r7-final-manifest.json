@@ -1,0 +1,3045 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000-r7",
+  "range": "5501-6000",
+  "status": "finalized_pending_repository_validation",
+  "base": "2026-10-06-enrichment-waves-5501-6000-r6-final-selection.json",
+  "overlays": {
+    "semantic_candidate_map": "2026-10-06-enrichment-waves-5501-6000-r7-replacements.json",
+    "semantic_exact_blocks": [
+      "2026-10-06-enrichment-waves-5501-6000-r7-replacements-exact-01.json",
+      "2026-10-06-enrichment-waves-5501-6000-r7-replacements-exact-02.json",
+      "2026-10-06-enrichment-waves-5501-6000-r7-replacements-exact-03.json",
+      "2026-10-06-enrichment-waves-5501-6000-r7-replacements-exact-04.json",
+      "2026-10-06-enrichment-waves-5501-6000-r7-replacements-exact-05.json",
+      "2026-10-06-enrichment-waves-5501-6000-r7-replacements-exact-06.json",
+      "2026-10-06-enrichment-waves-5501-6000-r7-replacement-backups-exact.json"
+    ],
+    "exact_failure_receipts": [
+      "2026-10-06-enrichment-waves-5501-6000-r7-exact-repairs-01.json",
+      "2026-10-06-enrichment-waves-5501-6000-r7-exact-repair-receipt-02.json",
+      "2026-10-06-enrichment-waves-5501-6000-r7-exact-repair-receipt-03.json",
+      "2026-10-06-enrichment-waves-5501-6000-r7-exact-repair-receipt-04.json",
+      "2026-10-06-enrichment-waves-5501-6000-r7-exact-repair-receipt-05.json"
+    ]
+  },
+  "integrity": {
+    "row_count": 500,
+    "contiguous_waves": true,
+    "unique_pmids": 500,
+    "duplicate_pmids": 0,
+    "prior_pmid_collisions": 0,
+    "retained_r6_verified_rows": 417,
+    "semantic_overrides": 48,
+    "exact_failure_overrides": 35,
+    "exact_verified_rows": 500
+  },
+  "rows": [
+    {
+      "wave": 5501,
+      "category": "stress_anxiety",
+      "pmid": "31505191",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5502,
+      "category": "stress_anxiety",
+      "pmid": "39685078",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5503,
+      "category": "stress_anxiety",
+      "pmid": "31574261",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5504,
+      "category": "stress_anxiety",
+      "pmid": "31730539",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5505,
+      "category": "stress_anxiety",
+      "pmid": "33548936",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5506,
+      "category": "stress_anxiety",
+      "pmid": "41084264",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5507,
+      "category": "stress_anxiety",
+      "pmid": "31859096",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5508,
+      "category": "stress_anxiety",
+      "pmid": "39558786",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5509,
+      "category": "stress_anxiety",
+      "pmid": "37960239",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5510,
+      "category": "stress_anxiety",
+      "pmid": "39669183",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5511,
+      "category": "stress_anxiety",
+      "pmid": "39693951",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5512,
+      "category": "stress_anxiety",
+      "pmid": "39752857",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5513,
+      "category": "stress_anxiety",
+      "pmid": "39796392",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5514,
+      "category": "stress_anxiety",
+      "pmid": "32030454",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5515,
+      "category": "stress_anxiety",
+      "pmid": "33626029",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5516,
+      "category": "stress_anxiety",
+      "pmid": "39882460",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5517,
+      "category": "stress_anxiety",
+      "pmid": "39934632",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5518,
+      "category": "stress_anxiety",
+      "pmid": "39943132",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5519,
+      "category": "stress_anxiety",
+      "pmid": "40026748",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5520,
+      "category": "stress_anxiety",
+      "pmid": "40068670",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5521,
+      "category": "stress_anxiety",
+      "pmid": "32212806",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5522,
+      "category": "stress_anxiety",
+      "pmid": "40271444",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5523,
+      "category": "stress_anxiety",
+      "pmid": "32267031",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5524,
+      "category": "stress_anxiety",
+      "pmid": "40400000",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5525,
+      "category": "stress_anxiety",
+      "pmid": "40441560",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5526,
+      "category": "stress_anxiety",
+      "pmid": "38036371",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5527,
+      "category": "stress_anxiety",
+      "pmid": "32341707",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5528,
+      "category": "stress_anxiety",
+      "pmid": "32444033",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5529,
+      "category": "stress_anxiety",
+      "pmid": "40823839",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5530,
+      "category": "stress_anxiety",
+      "pmid": "40949566",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5531,
+      "category": "stress_anxiety",
+      "pmid": "32739466",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5532,
+      "category": "stress_anxiety",
+      "pmid": "41042405",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5533,
+      "category": "stress_anxiety",
+      "pmid": "38490827",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5534,
+      "category": "stress_anxiety",
+      "pmid": "32798174",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5535,
+      "category": "stress_anxiety",
+      "pmid": "32891272",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5536,
+      "category": "stress_anxiety",
+      "pmid": "41292298",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5537,
+      "category": "stress_anxiety",
+      "pmid": "41304675",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5538,
+      "category": "stress_anxiety",
+      "pmid": "33210604",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5539,
+      "category": "stress_anxiety",
+      "pmid": "33454232",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5540,
+      "category": "stress_anxiety",
+      "pmid": "33640257",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5541,
+      "category": "stress_anxiety",
+      "pmid": "41545816",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5542,
+      "category": "stress_anxiety",
+      "pmid": "41568040",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5543,
+      "category": "stress_anxiety",
+      "pmid": "41656096",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5544,
+      "category": "stress_anxiety",
+      "pmid": "41754332",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5545,
+      "category": "stress_anxiety",
+      "pmid": "41829796",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5546,
+      "category": "sleep",
+      "pmid": "41644352",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5547,
+      "category": "sleep",
+      "pmid": "41743302",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5548,
+      "category": "sleep",
+      "pmid": "41859230",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5549,
+      "category": "sleep",
+      "pmid": "41915304",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5550,
+      "category": "sleep",
+      "pmid": "42058225",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5551,
+      "category": "sleep",
+      "pmid": "42257163",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5552,
+      "category": "sleep",
+      "pmid": "41277618",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5553,
+      "category": "sleep",
+      "pmid": "41300680",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5554,
+      "category": "sleep",
+      "pmid": "41357140",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5555,
+      "category": "sleep",
+      "pmid": "41426202",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5556,
+      "category": "sleep",
+      "pmid": "41492760",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5557,
+      "category": "sleep",
+      "pmid": "41515231",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5558,
+      "category": "sleep",
+      "pmid": "41561890",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5559,
+      "category": "sleep",
+      "pmid": "41625925",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5560,
+      "category": "sleep",
+      "pmid": "41670329",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5561,
+      "category": "sleep",
+      "pmid": "41675225",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5562,
+      "category": "sleep",
+      "pmid": "41706263",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5563,
+      "category": "sleep",
+      "pmid": "28749734",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5564,
+      "category": "sleep",
+      "pmid": "41744519",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5565,
+      "category": "sleep",
+      "pmid": "29096777",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5566,
+      "category": "sleep",
+      "pmid": "41937599",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5567,
+      "category": "sleep",
+      "pmid": "41943473",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5568,
+      "category": "sleep",
+      "pmid": "41966732",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5569,
+      "category": "sleep",
+      "pmid": "42013861",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5570,
+      "category": "sleep",
+      "pmid": "42086035",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5571,
+      "category": "sleep",
+      "pmid": "42171061",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5572,
+      "category": "sleep",
+      "pmid": "42216928",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5573,
+      "category": "sleep",
+      "pmid": "42223614",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5574,
+      "category": "sleep",
+      "pmid": "42252928",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5575,
+      "category": "sleep",
+      "pmid": "42342736",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5576,
+      "category": "sleep",
+      "pmid": "42344767",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5577,
+      "category": "sleep",
+      "pmid": "42345427",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5578,
+      "category": "sleep",
+      "pmid": "42345841",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5579,
+      "category": "sleep",
+      "pmid": "42351703",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5580,
+      "category": "sleep",
+      "pmid": "42836179",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5581,
+      "category": "withdrawal_nps",
+      "pmid": "42806844",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5582,
+      "category": "withdrawal_nps",
+      "pmid": "42686308",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5583,
+      "category": "withdrawal_nps",
+      "pmid": "42698268",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5584,
+      "category": "withdrawal_nps",
+      "pmid": "42700944",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5585,
+      "category": "withdrawal_nps",
+      "pmid": "42731100",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5586,
+      "category": "withdrawal_nps",
+      "pmid": "42735757",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5587,
+      "category": "withdrawal_nps",
+      "pmid": "42750975",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5588,
+      "category": "withdrawal_nps",
+      "pmid": "42758653",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5589,
+      "category": "withdrawal_nps",
+      "pmid": "42781535",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5590,
+      "category": "withdrawal_nps",
+      "pmid": "42789655",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5591,
+      "category": "withdrawal_nps",
+      "pmid": "42793534",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5592,
+      "category": "withdrawal_nps",
+      "pmid": "42794759",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5593,
+      "category": "withdrawal_nps",
+      "pmid": "42815936",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5594,
+      "category": "withdrawal_nps",
+      "pmid": "42823017",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5595,
+      "category": "withdrawal_nps",
+      "pmid": "42227316",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5596,
+      "category": "withdrawal_nps",
+      "pmid": "42688369",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5597,
+      "category": "withdrawal_nps",
+      "pmid": "42689879",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5598,
+      "category": "withdrawal_nps",
+      "pmid": "42691440",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5599,
+      "category": "withdrawal_nps",
+      "pmid": "42694906",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5600,
+      "category": "withdrawal_nps",
+      "pmid": "42696370",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5601,
+      "category": "withdrawal_nps",
+      "pmid": "42696524",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5602,
+      "category": "withdrawal_nps",
+      "pmid": "42696542",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5603,
+      "category": "withdrawal_nps",
+      "pmid": "42685386",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5604,
+      "category": "withdrawal_nps",
+      "pmid": "42702061",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5605,
+      "category": "withdrawal_nps",
+      "pmid": "42709580",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5606,
+      "category": "withdrawal_nps",
+      "pmid": "42709714",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5607,
+      "category": "withdrawal_nps",
+      "pmid": "42715541",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5608,
+      "category": "withdrawal_nps",
+      "pmid": "42721628",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5609,
+      "category": "withdrawal_nps",
+      "pmid": "42723009",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5610,
+      "category": "withdrawal_nps",
+      "pmid": "42731697",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5611,
+      "category": "withdrawal_nps",
+      "pmid": "42731698",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5612,
+      "category": "withdrawal_nps",
+      "pmid": "42734240",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5613,
+      "category": "withdrawal_nps",
+      "pmid": "42734582",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5614,
+      "category": "withdrawal_nps",
+      "pmid": "42734585",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5615,
+      "category": "withdrawal_nps",
+      "pmid": "42735753",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5616,
+      "category": "withdrawal_nps",
+      "pmid": "42735861",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5617,
+      "category": "withdrawal_nps",
+      "pmid": "42740349",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5618,
+      "category": "withdrawal_nps",
+      "pmid": "42743172",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5619,
+      "category": "withdrawal_nps",
+      "pmid": "42744117",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5620,
+      "category": "withdrawal_nps",
+      "pmid": "42746217",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5621,
+      "category": "cardiometabolic",
+      "pmid": "42802363",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5622,
+      "category": "cardiometabolic",
+      "pmid": "41321132",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5623,
+      "category": "cardiometabolic",
+      "pmid": "42640723",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5624,
+      "category": "cardiometabolic",
+      "pmid": "42650795",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5625,
+      "category": "cardiometabolic",
+      "pmid": "42665496",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5626,
+      "category": "cardiometabolic",
+      "pmid": "42667967",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5627,
+      "category": "cardiometabolic",
+      "pmid": "42741732",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5628,
+      "category": "cardiometabolic",
+      "pmid": "38040982",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5629,
+      "category": "cardiometabolic",
+      "pmid": "41345453",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5630,
+      "category": "cardiometabolic",
+      "pmid": "41338948",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5631,
+      "category": "cardiometabolic",
+      "pmid": "42810931",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5632,
+      "category": "cardiometabolic",
+      "pmid": "41572820",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5633,
+      "category": "cardiometabolic",
+      "pmid": "42563436",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5634,
+      "category": "cardiometabolic",
+      "pmid": "42589862",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5635,
+      "category": "cardiometabolic",
+      "pmid": "42601056",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5636,
+      "category": "cardiometabolic",
+      "pmid": "38256336",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5637,
+      "category": "cardiometabolic",
+      "pmid": "42608970",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5638,
+      "category": "cardiometabolic",
+      "pmid": "38972612",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5639,
+      "category": "cardiometabolic",
+      "pmid": "39796479",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5640,
+      "category": "cardiometabolic",
+      "pmid": "42625742",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5641,
+      "category": "cardiometabolic",
+      "pmid": "38794749",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5642,
+      "category": "cardiometabolic",
+      "pmid": "38869144",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5643,
+      "category": "cardiometabolic",
+      "pmid": "38169319",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5644,
+      "category": "cardiometabolic",
+      "pmid": "42646316",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5645,
+      "category": "cardiometabolic",
+      "pmid": "41985647",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5646,
+      "category": "cardiometabolic",
+      "pmid": "42675244",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5647,
+      "category": "cardiometabolic",
+      "pmid": "39522567",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5648,
+      "category": "cardiometabolic",
+      "pmid": "42696853",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5649,
+      "category": "cardiometabolic",
+      "pmid": "42716852",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5650,
+      "category": "cardiometabolic",
+      "pmid": "42293164",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5651,
+      "category": "cardiometabolic",
+      "pmid": "42739922",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5652,
+      "category": "cardiometabolic",
+      "pmid": "38946332",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5653,
+      "category": "cardiometabolic",
+      "pmid": "42753341",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5654,
+      "category": "cardiometabolic",
+      "pmid": "42753980",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5655,
+      "category": "cardiometabolic",
+      "pmid": "42767488",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5656,
+      "category": "cardiometabolic",
+      "pmid": "42770126",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5657,
+      "category": "cardiometabolic",
+      "pmid": "42776853",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5658,
+      "category": "cardiometabolic",
+      "pmid": "42812376",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5659,
+      "category": "cardiometabolic",
+      "pmid": "37999373",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5660,
+      "category": "cardiometabolic",
+      "pmid": "38004225",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5661,
+      "category": "performance",
+      "pmid": "42549650",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5662,
+      "category": "performance",
+      "pmid": "42290612",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5663,
+      "category": "performance",
+      "pmid": "42317181",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5664,
+      "category": "performance",
+      "pmid": "42330882",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5665,
+      "category": "performance",
+      "pmid": "42364565",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5666,
+      "category": "performance",
+      "pmid": "42410983",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5667,
+      "category": "performance",
+      "pmid": "42411706",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5668,
+      "category": "performance",
+      "pmid": "42428607",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5669,
+      "category": "performance",
+      "pmid": "42453948",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5670,
+      "category": "performance",
+      "pmid": "42485007",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5671,
+      "category": "performance",
+      "pmid": "42560556",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5672,
+      "category": "performance",
+      "pmid": "38100570",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5673,
+      "category": "performance",
+      "pmid": "42617817",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5674,
+      "category": "performance",
+      "pmid": "42653984",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5675,
+      "category": "performance",
+      "pmid": "42712836",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5676,
+      "category": "performance",
+      "pmid": "42830777",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5677,
+      "category": "aging_sarcopenia",
+      "pmid": "42773805",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5678,
+      "category": "aging_sarcopenia",
+      "pmid": "42811742",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5679,
+      "category": "aging_sarcopenia",
+      "pmid": "42724998",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5680,
+      "category": "aging_sarcopenia",
+      "pmid": "42738931",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5681,
+      "category": "aging_sarcopenia",
+      "pmid": "42739012",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5682,
+      "category": "aging_sarcopenia",
+      "pmid": "42746277",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5683,
+      "category": "aging_sarcopenia",
+      "pmid": "42775089",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5684,
+      "category": "aging_sarcopenia",
+      "pmid": "42775354",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5685,
+      "category": "aging_sarcopenia",
+      "pmid": "42817636",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5686,
+      "category": "aging_sarcopenia",
+      "pmid": "42013668",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5687,
+      "category": "aging_sarcopenia",
+      "pmid": "42725837",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5688,
+      "category": "aging_sarcopenia",
+      "pmid": "42726033",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5689,
+      "category": "aging_sarcopenia",
+      "pmid": "42729066",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5690,
+      "category": "aging_sarcopenia",
+      "pmid": "42107663",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5691,
+      "category": "aging_sarcopenia",
+      "pmid": "42734427",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5692,
+      "category": "aging_sarcopenia",
+      "pmid": "42737242",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5693,
+      "category": "aging_sarcopenia",
+      "pmid": "42739194",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5694,
+      "category": "aging_sarcopenia",
+      "pmid": "42741458",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5695,
+      "category": "aging_sarcopenia",
+      "pmid": "42752343",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5696,
+      "category": "aging_sarcopenia",
+      "pmid": "42752552",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5697,
+      "category": "aging_sarcopenia",
+      "pmid": "42754984",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5698,
+      "category": "aging_sarcopenia",
+      "pmid": "42755077",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5699,
+      "category": "aging_sarcopenia",
+      "pmid": "42755965",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5700,
+      "category": "aging_sarcopenia",
+      "pmid": "42756776",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5701,
+      "category": "aging_sarcopenia",
+      "pmid": "42758374",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5702,
+      "category": "aging_sarcopenia",
+      "pmid": "42760317",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5703,
+      "category": "aging_sarcopenia",
+      "pmid": "42760937",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5704,
+      "category": "aging_sarcopenia",
+      "pmid": "42765093",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5705,
+      "category": "aging_sarcopenia",
+      "pmid": "42767035",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5706,
+      "category": "aging_sarcopenia",
+      "pmid": "42768432",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5707,
+      "category": "aging_sarcopenia",
+      "pmid": "42294533",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5708,
+      "category": "aging_sarcopenia",
+      "pmid": "42772588",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5709,
+      "category": "aging_sarcopenia",
+      "pmid": "42776704",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5710,
+      "category": "aging_sarcopenia",
+      "pmid": "42680255",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5711,
+      "category": "aging_sarcopenia",
+      "pmid": "42777990",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5712,
+      "category": "micronutrients",
+      "pmid": "42588083",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5713,
+      "category": "micronutrients",
+      "pmid": "42799095",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5714,
+      "category": "micronutrients",
+      "pmid": "42654316",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5715,
+      "category": "micronutrients",
+      "pmid": "42803611",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5716,
+      "category": "micronutrients",
+      "pmid": "42805474",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5717,
+      "category": "micronutrients",
+      "pmid": "42808789",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5718,
+      "category": "micronutrients",
+      "pmid": "42809504",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5719,
+      "category": "micronutrients",
+      "pmid": "42811864",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5720,
+      "category": "micronutrients",
+      "pmid": "42812029",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5721,
+      "category": "micronutrients",
+      "pmid": "42813264",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5722,
+      "category": "micronutrients",
+      "pmid": "42814501",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5723,
+      "category": "micronutrients",
+      "pmid": "42819320",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5724,
+      "category": "micronutrients",
+      "pmid": "42819953",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5725,
+      "category": "micronutrients",
+      "pmid": "42822055",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5726,
+      "category": "micronutrients",
+      "pmid": "42823598",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5727,
+      "category": "micronutrients",
+      "pmid": "42826768",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5728,
+      "category": "micronutrients",
+      "pmid": "39607573",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5729,
+      "category": "micronutrients",
+      "pmid": "42829709",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5730,
+      "category": "micronutrients",
+      "pmid": "42830546",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5731,
+      "category": "micronutrients",
+      "pmid": "42830970",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5732,
+      "category": "micronutrients",
+      "pmid": "42831639",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5733,
+      "category": "micronutrients",
+      "pmid": "42832890",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5734,
+      "category": "micronutrients",
+      "pmid": "42833437",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5735,
+      "category": "micronutrients",
+      "pmid": "42833955",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5736,
+      "category": "micronutrients",
+      "pmid": "42835388",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5737,
+      "category": "micronutrients",
+      "pmid": "42836035",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5738,
+      "category": "micronutrients",
+      "pmid": "42836050",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5739,
+      "category": "women_health",
+      "pmid": "42468847",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5740,
+      "category": "women_health",
+      "pmid": "42491815",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5741,
+      "category": "women_health",
+      "pmid": "41754122",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5742,
+      "category": "women_health",
+      "pmid": "42514402",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5743,
+      "category": "women_health",
+      "pmid": "42549868",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5744,
+      "category": "women_health",
+      "pmid": "42606922",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5745,
+      "category": "women_health",
+      "pmid": "42681977",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5746,
+      "category": "women_health",
+      "pmid": "42689097",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5747,
+      "category": "women_health",
+      "pmid": "42719282",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5748,
+      "category": "women_health",
+      "pmid": "42437198",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5749,
+      "category": "women_health",
+      "pmid": "42453529",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5750,
+      "category": "women_health",
+      "pmid": "42468924",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5751,
+      "category": "women_health",
+      "pmid": "42476909",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5752,
+      "category": "women_health",
+      "pmid": "42483148",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5753,
+      "category": "women_health",
+      "pmid": "42500779",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5754,
+      "category": "women_health",
+      "pmid": "42504155",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5755,
+      "category": "women_health",
+      "pmid": "42531769",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5756,
+      "category": "women_health",
+      "pmid": "42536342",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5757,
+      "category": "women_health",
+      "pmid": "42551383",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5758,
+      "category": "women_health",
+      "pmid": "42577934",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5759,
+      "category": "women_health",
+      "pmid": "42635398",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5760,
+      "category": "women_health",
+      "pmid": "42654163",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5761,
+      "category": "women_health",
+      "pmid": "42662160",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5762,
+      "category": "women_health",
+      "pmid": "42666787",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5763,
+      "category": "women_health",
+      "pmid": "42707708",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5764,
+      "category": "women_health",
+      "pmid": "42729576",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5765,
+      "category": "women_health",
+      "pmid": "42738957",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5766,
+      "category": "women_health",
+      "pmid": "42784456",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5767,
+      "category": "gut",
+      "pmid": "42738491",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5768,
+      "category": "gut",
+      "pmid": "42742356",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5769,
+      "category": "gut",
+      "pmid": "41901188",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5770,
+      "category": "gut",
+      "pmid": "42749571",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5771,
+      "category": "gut",
+      "pmid": "42755181",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5772,
+      "category": "gut",
+      "pmid": "42785862",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5773,
+      "category": "gut",
+      "pmid": "42792528",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5774,
+      "category": "gut",
+      "pmid": "42795682",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5775,
+      "category": "gut",
+      "pmid": "42797077",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5776,
+      "category": "gut",
+      "pmid": "42044842",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5777,
+      "category": "gut",
+      "pmid": "42809189",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5778,
+      "category": "gut",
+      "pmid": "42819218",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5779,
+      "category": "gut",
+      "pmid": "42825107",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5780,
+      "category": "gut",
+      "pmid": "42737713",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5781,
+      "category": "gut",
+      "pmid": "42737746",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5782,
+      "category": "gut",
+      "pmid": "42738502",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5783,
+      "category": "gut",
+      "pmid": "42738845",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5784,
+      "category": "gut",
+      "pmid": "42738948",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5785,
+      "category": "gut",
+      "pmid": "42738964",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5786,
+      "category": "gut",
+      "pmid": "42745383",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5787,
+      "category": "gut",
+      "pmid": "42451083",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5788,
+      "category": "gut",
+      "pmid": "42745799",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5789,
+      "category": "gut",
+      "pmid": "42747600",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5790,
+      "category": "gut",
+      "pmid": "42116498",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5791,
+      "category": "gut",
+      "pmid": "42749047",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5792,
+      "category": "gut",
+      "pmid": "42764262",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5793,
+      "category": "gut",
+      "pmid": "42764499",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5794,
+      "category": "gut",
+      "pmid": "42768445",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5795,
+      "category": "cognition_focus",
+      "pmid": "41010527",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5796,
+      "category": "cognition_focus",
+      "pmid": "42207745",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5797,
+      "category": "cognition_focus",
+      "pmid": "42362977",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5798,
+      "category": "cognition_focus",
+      "pmid": "42481231",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5799,
+      "category": "cognition_focus",
+      "pmid": "42505964",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5800,
+      "category": "cognition_focus",
+      "pmid": "42820327",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5801,
+      "category": "cognition_focus",
+      "pmid": "42229740",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5802,
+      "category": "cognition_focus",
+      "pmid": "42235343",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5803,
+      "category": "cognition_focus",
+      "pmid": "42257412",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5804,
+      "category": "cognition_focus",
+      "pmid": "42281583",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5805,
+      "category": "cognition_focus",
+      "pmid": "42294065",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5806,
+      "category": "cognition_focus",
+      "pmid": "42352952",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5807,
+      "category": "cognition_focus",
+      "pmid": "42357304",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5808,
+      "category": "cognition_focus",
+      "pmid": "42377363",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5809,
+      "category": "cognition_focus",
+      "pmid": "42389449",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5810,
+      "category": "cognition_focus",
+      "pmid": "42426694",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5811,
+      "category": "cognition_focus",
+      "pmid": "42477703",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5812,
+      "category": "cognition_focus",
+      "pmid": "42530076",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5813,
+      "category": "cognition_focus",
+      "pmid": "42532103",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5814,
+      "category": "cognition_focus",
+      "pmid": "38244783",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5815,
+      "category": "cognition_focus",
+      "pmid": "42612546",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5816,
+      "category": "cognition_focus",
+      "pmid": "38267565",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5817,
+      "category": "cognition_focus",
+      "pmid": "42832037",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5818,
+      "category": "mood",
+      "pmid": "36610592",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5819,
+      "category": "mood",
+      "pmid": "42302936",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5820,
+      "category": "mood",
+      "pmid": "36771476",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5821,
+      "category": "mood",
+      "pmid": "36653035",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5822,
+      "category": "mood",
+      "pmid": "36771478",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5823,
+      "category": "mood",
+      "pmid": "36787573",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5824,
+      "category": "mood",
+      "pmid": "41938573",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5825,
+      "category": "mood",
+      "pmid": "41985648",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5826,
+      "category": "mood",
+      "pmid": "37049401",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5827,
+      "category": "mood",
+      "pmid": "42061208",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5828,
+      "category": "mood",
+      "pmid": "42063248",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5829,
+      "category": "mood",
+      "pmid": "42099762",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5830,
+      "category": "mood",
+      "pmid": "36858536",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5831,
+      "category": "mood",
+      "pmid": "36868110",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5832,
+      "category": "mood",
+      "pmid": "36877601",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5833,
+      "category": "mood",
+      "pmid": "42125734",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5834,
+      "category": "mood",
+      "pmid": "42132340",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5835,
+      "category": "mood",
+      "pmid": "42180577",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5836,
+      "category": "mood",
+      "pmid": "42196323",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5837,
+      "category": "mood",
+      "pmid": "36986088",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5838,
+      "category": "mood",
+      "pmid": "42358300",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5839,
+      "category": "mood",
+      "pmid": "42464419",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5840,
+      "category": "mood",
+      "pmid": "42500638",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5841,
+      "category": "mood",
+      "pmid": "42509056",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5842,
+      "category": "mood",
+      "pmid": "42695323",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5843,
+      "category": "mood",
+      "pmid": "42716287",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5844,
+      "category": "mood",
+      "pmid": "40906611",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5845,
+      "category": "inflammation_pain",
+      "pmid": "42789982",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5846,
+      "category": "inflammation_pain",
+      "pmid": "42653103",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5847,
+      "category": "inflammation_pain",
+      "pmid": "42657791",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5848,
+      "category": "inflammation_pain",
+      "pmid": "42651332",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5849,
+      "category": "inflammation_pain",
+      "pmid": "42652229",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5850,
+      "category": "inflammation_pain",
+      "pmid": "41096556",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5851,
+      "category": "inflammation_pain",
+      "pmid": "40841392",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5852,
+      "category": "inflammation_pain",
+      "pmid": "41642164",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5853,
+      "category": "inflammation_pain",
+      "pmid": "42321176",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5854,
+      "category": "inflammation_pain",
+      "pmid": "42476352",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5855,
+      "category": "inflammation_pain",
+      "pmid": "40974763",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5856,
+      "category": "inflammation_pain",
+      "pmid": "42692737",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5857,
+      "category": "inflammation_pain",
+      "pmid": "41599836",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5858,
+      "category": "inflammation_pain",
+      "pmid": "42701982",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5859,
+      "category": "inflammation_pain",
+      "pmid": "41683362",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5860,
+      "category": "inflammation_pain",
+      "pmid": "37686880",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5861,
+      "category": "inflammation_pain",
+      "pmid": "42712432",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5862,
+      "category": "inflammation_pain",
+      "pmid": "42714706",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5863,
+      "category": "inflammation_pain",
+      "pmid": "42715976",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5864,
+      "category": "inflammation_pain",
+      "pmid": "42727667",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5865,
+      "category": "inflammation_pain",
+      "pmid": "42731465",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5866,
+      "category": "inflammation_pain",
+      "pmid": "42733187",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5867,
+      "category": "inflammation_pain",
+      "pmid": "42747137",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5868,
+      "category": "inflammation_pain",
+      "pmid": "42753069",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5869,
+      "category": "inflammation_pain",
+      "pmid": "42796589",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5870,
+      "category": "inflammation_pain",
+      "pmid": "37764678",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5871,
+      "category": "inflammation_pain",
+      "pmid": "42833419",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5872,
+      "category": "inflammation_pain",
+      "pmid": "37768015",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5873,
+      "category": "metabolic",
+      "pmid": "42323941",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5874,
+      "category": "metabolic",
+      "pmid": "42356341",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5875,
+      "category": "metabolic",
+      "pmid": "38747270",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5876,
+      "category": "metabolic",
+      "pmid": "42508577",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5877,
+      "category": "metabolic",
+      "pmid": "34825791",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5878,
+      "category": "metabolic",
+      "pmid": "42588134",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5879,
+      "category": "metabolic",
+      "pmid": "42653808",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5880,
+      "category": "metabolic",
+      "pmid": "42729755",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5881,
+      "category": "metabolic",
+      "pmid": "42242622",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5882,
+      "category": "metabolic",
+      "pmid": "42258142",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5883,
+      "category": "metabolic",
+      "pmid": "39141124",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5884,
+      "category": "metabolic",
+      "pmid": "39781581",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5885,
+      "category": "metabolic",
+      "pmid": "42275928",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5886,
+      "category": "metabolic",
+      "pmid": "42289176",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5887,
+      "category": "metabolic",
+      "pmid": "42290169",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5888,
+      "category": "metabolic",
+      "pmid": "42304802",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5889,
+      "category": "metabolic",
+      "pmid": "42308924",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5890,
+      "category": "metabolic",
+      "pmid": "41191982",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5891,
+      "category": "metabolic",
+      "pmid": "40573153",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5892,
+      "category": "metabolic",
+      "pmid": "42365254",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5893,
+      "category": "metabolic",
+      "pmid": "38466959",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5894,
+      "category": "metabolic",
+      "pmid": "42371383",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5895,
+      "category": "metabolic",
+      "pmid": "34684666",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5896,
+      "category": "metabolic",
+      "pmid": "42378755",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5897,
+      "category": "metabolic",
+      "pmid": "42390621",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5898,
+      "category": "metabolic",
+      "pmid": "42402216",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5899,
+      "category": "metabolic",
+      "pmid": "42492267",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5900,
+      "category": "metabolic",
+      "pmid": "42509753",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5901,
+      "category": "botanicals_mushrooms",
+      "pmid": "42510648",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5902,
+      "category": "botanicals_mushrooms",
+      "pmid": "34684351",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5903,
+      "category": "botanicals_mushrooms",
+      "pmid": "42521464",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5904,
+      "category": "botanicals_mushrooms",
+      "pmid": "42538425",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5905,
+      "category": "botanicals_mushrooms",
+      "pmid": "42572998",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5906,
+      "category": "botanicals_mushrooms",
+      "pmid": "42602435",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5907,
+      "category": "botanicals_mushrooms",
+      "pmid": "41022533",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5908,
+      "category": "botanicals_mushrooms",
+      "pmid": "42835472",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5909,
+      "category": "botanicals_mushrooms",
+      "pmid": "42495314",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5910,
+      "category": "botanicals_mushrooms",
+      "pmid": "42496694",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5911,
+      "category": "botanicals_mushrooms",
+      "pmid": "42497599",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5912,
+      "category": "botanicals_mushrooms",
+      "pmid": "42498196",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5913,
+      "category": "botanicals_mushrooms",
+      "pmid": "42500387",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5914,
+      "category": "botanicals_mushrooms",
+      "pmid": "32147072",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5915,
+      "category": "botanicals_mushrooms",
+      "pmid": "42506252",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5916,
+      "category": "botanicals_mushrooms",
+      "pmid": "39004031",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5917,
+      "category": "botanicals_mushrooms",
+      "pmid": "42510832",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5918,
+      "category": "botanicals_mushrooms",
+      "pmid": "42521176",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5919,
+      "category": "botanicals_mushrooms",
+      "pmid": "42534522",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5920,
+      "category": "botanicals_mushrooms",
+      "pmid": "42543281",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5921,
+      "category": "botanicals_mushrooms",
+      "pmid": "42544558",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5922,
+      "category": "botanicals_mushrooms",
+      "pmid": "42580541",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5923,
+      "category": "botanicals_mushrooms",
+      "pmid": "42586699",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5924,
+      "category": "botanicals_mushrooms",
+      "pmid": "42589118",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5925,
+      "category": "botanicals_mushrooms",
+      "pmid": "42595068",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5926,
+      "category": "botanicals_mushrooms",
+      "pmid": "42603129",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5927,
+      "category": "botanicals_mushrooms",
+      "pmid": "42100315",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5928,
+      "category": "botanicals_mushrooms",
+      "pmid": "41078245",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5929,
+      "category": "safety_interactions",
+      "pmid": "42597322",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5930,
+      "category": "safety_interactions",
+      "pmid": "42788264",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5931,
+      "category": "safety_interactions",
+      "pmid": "42602022",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5932,
+      "category": "safety_interactions",
+      "pmid": "42620742",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5933,
+      "category": "safety_interactions",
+      "pmid": "42688172",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5934,
+      "category": "safety_interactions",
+      "pmid": "42601804",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5935,
+      "category": "safety_interactions",
+      "pmid": "42603698",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5936,
+      "category": "safety_interactions",
+      "pmid": "42642713",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5937,
+      "category": "safety_interactions",
+      "pmid": "42716907",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5938,
+      "category": "safety_interactions",
+      "pmid": "42720835",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5939,
+      "category": "safety_interactions",
+      "pmid": "42725889",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5940,
+      "category": "safety_interactions",
+      "pmid": "42732250",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5941,
+      "category": "safety_interactions",
+      "pmid": "42739024",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5942,
+      "category": "safety_interactions",
+      "pmid": "42751609",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5943,
+      "category": "safety_interactions",
+      "pmid": "42772744",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5944,
+      "category": "safety_interactions",
+      "pmid": "39970858",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5945,
+      "category": "safety_interactions",
+      "pmid": "39861409",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5946,
+      "category": "safety_interactions",
+      "pmid": "42812524",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5947,
+      "category": "safety_interactions",
+      "pmid": "42813087",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5948,
+      "category": "safety_interactions",
+      "pmid": "42622014",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5949,
+      "category": "safety_interactions",
+      "pmid": "39923577",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5950,
+      "category": "safety_interactions",
+      "pmid": "42629377",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5951,
+      "category": "cannabinoid_safety",
+      "pmid": "42658346",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5952,
+      "category": "cannabinoid_safety",
+      "pmid": "42659806",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5953,
+      "category": "cannabinoid_safety",
+      "pmid": "42661783",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5954,
+      "category": "cannabinoid_safety",
+      "pmid": "42835341",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5955,
+      "category": "cannabinoid_safety",
+      "pmid": "42641999",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5956,
+      "category": "cannabinoid_safety",
+      "pmid": "42004860",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5957,
+      "category": "cannabinoid_safety",
+      "pmid": "42644219",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5958,
+      "category": "cannabinoid_safety",
+      "pmid": "42644517",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5959,
+      "category": "cannabinoid_safety",
+      "pmid": "42334060",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5960,
+      "category": "cannabinoid_safety",
+      "pmid": "42674086",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5961,
+      "category": "mitochondrial_energy",
+      "pmid": "40507040",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5962,
+      "category": "mitochondrial_energy",
+      "pmid": "42568703",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5963,
+      "category": "mitochondrial_energy",
+      "pmid": "42305197",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5964,
+      "category": "mitochondrial_energy",
+      "pmid": "42314964",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5965,
+      "category": "mitochondrial_energy",
+      "pmid": "42316785",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5966,
+      "category": "mitochondrial_energy",
+      "pmid": "42341673",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5967,
+      "category": "immune_respiratory",
+      "pmid": "37682843",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5968,
+      "category": "immune_respiratory",
+      "pmid": "41204244",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5969,
+      "category": "immune_respiratory",
+      "pmid": "40574520",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5970,
+      "category": "immune_respiratory",
+      "pmid": "40577091",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5971,
+      "category": "immune_respiratory",
+      "pmid": "42737476",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5972,
+      "category": "immune_respiratory",
+      "pmid": "42741707",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5973,
+      "category": "immune_respiratory",
+      "pmid": "42623125",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5974,
+      "category": "immune_respiratory",
+      "pmid": "42631800",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5975,
+      "category": "immune_respiratory",
+      "pmid": "40397266",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5976,
+      "category": "immune_respiratory",
+      "pmid": "41110316",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5977,
+      "category": "immune_respiratory",
+      "pmid": "37686873",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5978,
+      "category": "immune_respiratory",
+      "pmid": "42654022",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5979,
+      "category": "immune_respiratory",
+      "pmid": "42657299",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5980,
+      "category": "immune_respiratory",
+      "pmid": "42661614",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5981,
+      "category": "immune_respiratory",
+      "pmid": "42664277",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5982,
+      "category": "immune_respiratory",
+      "pmid": "40431411",
+      "source": "r7_semantic_override"
+    },
+    {
+      "wave": 5983,
+      "category": "immune_respiratory",
+      "pmid": "42687537",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5984,
+      "category": "immune_respiratory",
+      "pmid": "42691980",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5985,
+      "category": "immune_respiratory",
+      "pmid": "42694244",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5986,
+      "category": "immune_respiratory",
+      "pmid": "42706221",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5987,
+      "category": "immune_respiratory",
+      "pmid": "42710447",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5988,
+      "category": "immune_respiratory",
+      "pmid": "37787773",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5989,
+      "category": "immune_respiratory",
+      "pmid": "37802017",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5990,
+      "category": "immune_respiratory",
+      "pmid": "42718682",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5991,
+      "category": "immune_respiratory",
+      "pmid": "37917592",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5992,
+      "category": "immune_respiratory",
+      "pmid": "42729258",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5993,
+      "category": "immune_respiratory",
+      "pmid": "42734873",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5994,
+      "category": "immune_respiratory",
+      "pmid": "42736295",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5995,
+      "category": "immune_respiratory",
+      "pmid": "41549871",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5996,
+      "category": "immune_respiratory",
+      "pmid": "42744947",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5997,
+      "category": "immune_respiratory",
+      "pmid": "37945979",
+      "source": "r7_exact_failure_override"
+    },
+    {
+      "wave": 5998,
+      "category": "immune_respiratory",
+      "pmid": "42750647",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 5999,
+      "category": "immune_respiratory",
+      "pmid": "42752258",
+      "source": "r6_verified_base"
+    },
+    {
+      "wave": 6000,
+      "category": "immune_respiratory",
+      "pmid": "41718064",
+      "source": "r6_verified_base"
+    }
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "publication_promotion": "separate fail-closed admission",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden"
+  }
+}
