@@ -86,7 +86,7 @@ The critical retry rule is:
 
 A connection failure after bytes were sent can mean the provider accepted the post while THS lost the response. That job becomes `NEEDS_RECONCILIATION`, and automated due-work selection excludes it. This prevents duplicate posts.
 
-Known failures may be retried explicitly, but the retry remains under the same `publication_id` and appends another attempt.
+Failures proven to occur **before** a provider dispatch may be retried explicitly, and the retry remains under the same `publication_id` with another appended attempt. Once a TikTok upload request may have begun, transport loss, provider 5xx, unusable response, or missing `publish_id` is treated as ambiguous and freezes in `NEEDS_RECONCILIATION` instead of retrying.
 
 ## Adapter registry
 
