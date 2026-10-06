@@ -68,6 +68,10 @@ export async function dispatchTikTokPublication({
       },
       now,
     })
+    nextJob.governance = {
+      ...(nextJob.governance || {}),
+      lifecycleSnapshot: structuredClone(result.lifecycle),
+    }
     return {
       status: 'provider-accepted',
       job: nextJob,
