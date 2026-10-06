@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS ths_publications (
       'AWAITING_USER_POST',
       'PUBLISHED',
       'FAILED',
+      'NEEDS_RECONCILIATION',
       'CANCELLED'
     )
   ),
@@ -30,3 +31,7 @@ CREATE INDEX IF NOT EXISTS ths_publications_due_idx
 
 CREATE INDEX IF NOT EXISTS ths_publications_experiment_idx
   ON ths_publications (experiment_id, platform, intended_time);
+
+-- One platform/time slot has one canonical writer. A retry stays under the same publication_id.
+CREATE UNIQUE INDEX IF NOT EXISTS ths_publications_slot_idx
+  ON ths_publications (platform, intended_time);
