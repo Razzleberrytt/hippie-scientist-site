@@ -6,7 +6,7 @@ import { buildMetricoolSchedulerRequest, scheduleMetricoolPublication } from './
 import { buildMediaFirstCaption } from './media-first-caption.mjs'
 
 const clean = (value) => String(value ?? '').trim()
-const DEFAULT_MANIFEST_URL = 'https://thehippiescientist.net/media/distribution/metricool/latest.json'
+const DEFAULT_MANIFEST_URL = 'https://thehippiescientist.net/media/distribution/publisher/latest.json'
 const DEFAULT_USER_ID = '5228072'
 const DEFAULT_BLOG_ID = '6794242'
 const DEFAULT_AVAILABLE_NETWORKS = ['facebook', 'tiktok', 'youtube']
@@ -51,7 +51,7 @@ export async function scheduleMetricoolPublicationFromArtifacts({
   manifestUrl = process.env.METRICOOL_PUBLICATION_MANIFEST_URL || DEFAULT_MANIFEST_URL,
   publicationAt = process.env.METRICOOL_PUBLICATION_AT,
   networks = process.env.METRICOOL_NETWORKS,
-  autoPublish = process.env.METRICOOL_AUTO_PUBLISH !== 'false',
+  autoPublish = process.env.METRICOOL_AUTO_PUBLISH === 'true',
   youtubeTitle = process.env.METRICOOL_YOUTUBE_TITLE,
   youtubePrivacy = process.env.METRICOOL_YOUTUBE_PRIVACY,
   youtubeMadeForKids = process.env.METRICOOL_YOUTUBE_MADE_FOR_KIDS,
@@ -65,13 +65,14 @@ export async function scheduleMetricoolPublicationFromArtifacts({
   if (typeof fetchImpl !== 'function') throw new Error('Metricool publication scheduling requires fetch')
   if (!clean(publicationAt)) throw new Error('missing METRICOOL_PUBLICATION_AT')
   if (!clean(networks)) throw new Error('missing METRICOOL_NETWORKS')
+  if (autoPublish !== false) throw new Error('Metricool automatic publishing is frozen by THS SocialOS; use THS Publisher or autoPublish=false for legacy/manual delivery')
 
   const liveManifest = await fetchJson(manifestUrl, fetchImpl)
-  if (liveManifest?.schemaVersion !== 'metricool-publication-media-v1' || liveManifest?.status !== 'ready-for-provider') {
-    throw new Error('live Metricool publication manifest is invalid or not provider-ready')
+  if (liveManifest?.schemaVersion !== 'ths-publication-media-v1' || liveManifest?.status !== 'ready-for-provider') {
+    throw new Error('live provider-neutral publication manifest is invalid or not provider-ready')
   }
   const mediaType = clean(liveManifest.mediaType).toLowerCase()
-  if (!['image', 'video'].includes(mediaType)) throw new Error('live Metricool publication manifest is missing a governed media type')
+  if (!['image', 'video'].includes(mediaType)) throw new Error('live provider-neutral publication manifest is missing a governed media type')
 
   const selection = readJson(path.join(distributionDir, 'opportunity-selection.json'))
   const objectId = clean(selection?.selected?.id)
@@ -80,10 +81,10 @@ export async function scheduleMetricoolPublicationFromArtifacts({
   const pilotPath = path.join(distributionDir, 'pilots', objectId, 'bounded-pilot.json')
   const pilot = readJson(pilotPath)
   if (pilot?.lifecycle?.identity?.fingerprint !== liveManifest.identityFingerprint) {
-    throw new Error('live Metricool media identity is stale relative to the current governed pilot')
+    throw new Error('live publication media identity is stale relative to the current governed pilot')
   }
   if (liveManifest.researchObjectId !== objectId || liveManifest.lifecycleId !== pilot.lifecycle.lifecycleId) {
-    throw new Error('live Metricool media does not match the current bounded pilot')
+    throw new Error('live publication media does not match the current bounded pilot')
   }
   if (packageData?.mediaPack?.status !== 'validated' || packageData.mediaPack.packId !== liveManifest.packId) {
     throw new Error('Metricool scheduling requires the validated distribution package matching the live media manifest')
