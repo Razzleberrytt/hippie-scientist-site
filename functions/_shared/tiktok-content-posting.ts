@@ -55,6 +55,13 @@ export class TikTokPublisherError extends Error {
   }
 }
 
+export class TikTokAmbiguousDispatchError extends TikTokPublisherError {
+  constructor(message: string, status = 502, code = 'ambiguous_upload_dispatch') {
+    super(message, status, code)
+    this.name = 'TikTokAmbiguousDispatchError'
+  }
+}
+
 function clean(value: unknown): string {
   return String(value ?? '').trim()
 }
@@ -170,14 +177,19 @@ async function tokenRequest(
   params: URLSearchParams,
   fetchImpl: typeof fetch = fetch,
 ): Promise<Record<string, unknown>> {
-  const response = await fetchImpl(TOKEN_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Cache-Control': 'no-cache',
-    },
-    body: params,
-  })
+  let response: Response
+  try {
+    response = await fetchImpl(TOKEN_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Cache-Control': 'no-cache',
+      },
+      body: params,
+    })
+  } catch {
+    throw new TikTokPublisherError('TikTok token service is unreachable.', 503, 'token_transport_failed')
+  }
   const raw = await response.text()
   let payload: Record<string, unknown>
   try {
@@ -323,7 +335,12 @@ export async function verifyGovernedVideoReachable(
   fetchImpl: typeof fetch = fetch,
 ): Promise<void> {
   const url = assertGovernedTikTokVideoUrl(videoUrl)
-  const response = await fetchImpl(url, { method: 'HEAD', redirect: 'error' })
+  let response: Response
+  try {
+    response = await fetchImpl(url, { method: 'HEAD', redirect: 'error' })
+  } catch {
+    throw new TikTokPublisherError('Governed TikTok video reachability check failed.', 503, 'video_reachability_transport_failed')
+  }
   if (!response.ok) {
     throw new TikTokPublisherError('Governed TikTok video is not publicly reachable.', 409, 'video_unreachable')
   }
@@ -344,22 +361,60 @@ export async function initializeTikTokDraftUpload(
     throw new TikTokPublisherError('TikTok connection is missing video.upload.', 403, 'scope_not_authorized')
   }
   await verifyGovernedVideoReachable(normalizedUrl, fetchImpl)
-  const response = await fetchImpl(UPLOAD_URL, {
-    method: 'POST',
-    headers: {
-      Authorization: 'Bearer ' + token.accessToken,
-      'Content-Type': 'application/json; charset=UTF-8',
-    },
-    body: JSON.stringify({
-      source_info: {
-        source: 'PULL_FROM_URL',
-        video_url: normalizedUrl,
+  let response: Response
+  try {
+    response = await fetchImpl(UPLOAD_URL, {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer ' + token.accessToken,
+        'Content-Type': 'application/json; charset=UTF-8',
       },
-    }),
-  })
-  const parsed = await parseTikTokEnvelope<{ publish_id?: string }>(response, 'TikTok draft upload')
+      body: JSON.stringify({
+        source_info: {
+          source: 'PULL_FROM_URL',
+          video_url: normalizedUrl,
+        },
+      }),
+    })
+  } catch {
+    throw new TikTokAmbiguousDispatchError(
+      'TikTok draft upload response was lost after the provider request began; reconcile before retrying.',
+      502,
+      'ambiguous_upload_transport',
+    )
+  }
+  if (response.status >= 500) {
+    throw new TikTokAmbiguousDispatchError(
+      'TikTok draft upload returned a server error after the provider request began; reconcile before retrying.',
+      response.status,
+      'ambiguous_upload_server_error',
+    )
+  }
+
+  let parsed: { data: { publish_id?: string }; logId: string | null }
+  try {
+    parsed = await parseTikTokEnvelope<{ publish_id?: string }>(response, 'TikTok draft upload')
+  } catch (error) {
+    if (
+      error instanceof TikTokPublisherError &&
+      ['invalid_tiktok_json', 'missing_tiktok_data'].includes(error.code)
+    ) {
+      throw new TikTokAmbiguousDispatchError(
+        'TikTok draft upload returned an unusable response after the provider request began; reconcile before retrying.',
+        error.status,
+        'ambiguous_upload_response',
+      )
+    }
+    throw error
+  }
   const publishId = clean(parsed.data.publish_id)
-  if (!publishId) throw new TikTokPublisherError('TikTok draft upload returned no publish_id.', 502, 'missing_publish_id')
+  if (!publishId) {
+    throw new TikTokAmbiguousDispatchError(
+      'TikTok draft upload returned no publish_id after the provider request began; reconcile before retrying.',
+      502,
+      'ambiguous_missing_publish_id',
+    )
+  }
   return { publishId, logId: parsed.logId }
 }
 
