@@ -1,0 +1,146 @@
+# THS Publisher v0.1
+
+## Purpose
+
+THS Publisher makes publication identity and operational state first-party THS data instead of provider data.
+
+The canonical identity chain is:
+
+`publication_id → experiment_id → artifact_sha256 → platform → intended_time → provider receipts`
+
+The first five fields are immutable THS identity. Provider post IDs, planner IDs, API request IDs, TikTok `publish_id` values, and public URLs are receipts attached to that identity. A provider can change or disappear without changing the canonical publication.
+
+## Architecture
+
+### 1. THS SocialOS — control plane
+
+The Social Learning Playbook and the Social Topic Opportunity Queue workbook remain authoritative for:
+
+- topics and prioritization;
+- experiment identity and hypotheses;
+- scheduler/creation locks;
+- Creative QA and media preflight;
+- attribution and journeys;
+- cooldowns and learning;
+- system-version and rule registries.
+
+The workbook now has a **Publication Registry** tab that mirrors first-party publication state for operators. Historical Metricool rows remain historical evidence; they are not rewritten or deleted.
+
+### 2. THS Publisher — publication engine
+
+The provider-neutral publication core lives in `scripts/distribution/social-publisher-core.mjs`.
+
+A job is created only from an exact governed artifact identity. Its deterministic `publication_id` is derived from:
+
+- `experiment_id`;
+- `artifact_sha256`;
+- platform;
+- normalized intended time.
+
+The D1-backed service lives behind `/api/publisher/*` and stores whole publication jobs plus indexed immutable identity fields.
+
+Current endpoints:
+
+- `POST /api/publisher/enqueue` — idempotently persist a publication job.
+- `GET /api/publisher/job?publication_id=...` — fetch canonical state.
+- `GET /api/publisher/due?limit=...` — list due **QUEUED** work only.
+- `POST /api/publisher/update` — compare-and-swap internal/operator update boundary.
+- `POST /api/publisher/dispatch` — execute the registered platform adapter.
+- `POST /api/publisher/observe` — verify provider state and advance only from evidence.
+- `POST /api/publisher/manual` — attach a verified manual-publication receipt to the same canonical job.
+
+All endpoints require `Authorization: Bearer $THS_PUBLISHER_ADMIN_TOKEN`.
+
+The D1 schema is `migrations/0001_ths_publisher.sql`. A unique index on `(platform, intended_time)` enforces a single writer for each publication slot. Replays of the same `publication_id` are idempotent.
+
+### 3. THS Observer — publication verification
+
+Observer evidence is append-only inside the publication job. Provider acceptance never equals public publication.
+
+For TikTok:
+
+- draft initialization → `PROVIDER_ACCEPTED`;
+- verified `SEND_TO_USER_INBOX` → `AWAITING_USER_POST`;
+- verified `PUBLISH_COMPLETE` plus a public post identity → `PUBLISHED`;
+- verified provider failure → `FAILED`.
+
+Post-level performance metrics remain separate from publication truth and feed the existing Experiment Registry / observation pipeline only after publication identity is verified.
+
+Website attribution remains a separate fail-closed layer until first-party analytics transport exists.
+
+## State machine and retry rules
+
+Primary states:
+
+`QUEUED → DISPATCHING → PROVIDER_ACCEPTED → AWAITING_USER_POST → PUBLISHED`
+
+Failure/control states:
+
+- `FAILED` — a definite rejection/failure was observed.
+- `NEEDS_RECONCILIATION` — the request may have reached the provider but THS did not receive a definitive response.
+- `CANCELLED` — operator/system cancelled before public publication.
+
+The critical retry rule is:
+
+> **Never retry an ambiguous dispatch.**
+
+A connection failure after bytes were sent can mean the provider accepted the post while THS lost the response. That job becomes `NEEDS_RECONCILIATION`, and automated due-work selection excludes it. This prevents duplicate posts.
+
+Known failures may be retried explicitly, but the retry remains under the same `publication_id` and appends another attempt.
+
+## Adapter registry
+
+### TikTok
+
+TikTok draft upload is the first active adapter. It uses the official Content Posting API `video.upload` / `PULL_FROM_URL` path and the server-side OAuth/token bridge documented in `docs/tiktok-draft-upload-provider.md`.
+
+This adapter does not claim unattended Direct Post approval.
+
+### Meta / Facebook
+
+Not yet active in v0.1. Until the Meta adapter is implemented and authorized, Facebook can be published manually from the exact locked artifact and recorded through the manual receipt endpoint.
+
+### Metricool
+
+**Frozen as a canonical publisher.**
+
+Historical Metricool provider IDs, URLs, publication evidence, and analytics remain valid historical observations. Existing Metricool code is retained temporarily for reproducibility and rollback, but new SocialOS identity must not depend on Metricool IDs or planner state.
+
+If Metricool is used again, it must be registered as a replaceable Publisher adapter and return receipts beneath an existing `publication_id`.
+
+## Deployment
+
+Cloudflare production needs:
+
+- D1 database binding: `THS_PUBLISHER_DB`
+- server-only secret: `THS_PUBLISHER_ADMIN_TOKEN`
+
+Apply `migrations/0001_ths_publisher.sql` to that D1 database before enabling enqueue/dispatch.
+
+The TikTok adapter additionally needs the TikTok bridge configuration documented separately:
+
+- `TIKTOK_CLIENT_KEY`
+- `TIKTOK_CLIENT_SECRET`
+- `TIKTOK_REDIRECT_URI`
+- `TIKTOK_TOKEN_KV`
+- one-time TikTok account authorization with `video.upload`
+
+## Transition plan
+
+1. Freeze Metricool as a canonical transport dependency.
+2. Preserve historical Metricool receipts and analytics unchanged.
+3. Create `publication_id` before every new provider/manual handoff.
+4. Queue only exact locked/preflighted artifacts.
+5. Use the direct adapter where authorized; otherwise publish that exact artifact manually and attach the receipt.
+6. Observer verifies public state before learning begins.
+7. Post-level platform observations feed Experiment Registry under the verified publication identity.
+8. Website attribution remains Unknown until its own transport is available.
+
+## v0.1 non-goals
+
+- No deletion or rewriting of historical Metricool evidence.
+- No broad/high-volume autonomous posting authorization.
+- No Meta adapter yet.
+- No TikTok Direct Post workaround.
+- No scientific, evidence, or creative authority moves into Publisher.
+- No claim that a provider dispatch is public publication.
