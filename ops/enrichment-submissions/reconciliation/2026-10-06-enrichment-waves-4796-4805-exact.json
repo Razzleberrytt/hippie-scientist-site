@@ -5,20 +5,10 @@
   "summary": {
     "range": "4796-4805",
     "rows": 10,
-    "exact_title": 8,
-    "abstract_verified": 8,
-    "errors": [
-      {
-        "wave": 4800,
-        "pmid": "42454758",
-        "state": "quarantine"
-      },
-      {
-        "wave": 4801,
-        "pmid": "42513202",
-        "state": "quarantine"
-      }
-    ]
+    "exact_title": 10,
+    "abstract_verified": 10,
+    "replace": [],
+    "errors": []
   },
   "rows": [
     {
@@ -125,16 +115,18 @@
       "has_abstract": true,
       "selection_score": 2,
       "wave": 4800,
-      "state": "quarantine",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
-      "source": "NCBI PubMed EFetch via Sider Scholar"
+      "state": "exact_verified_pending_relevance_review",
+      "verified_title": "Diarylheptanoid Phytoestrogen from Curcuma comosa Attenuates Colitis and Colitis-Associated Colorectal Cancer by Inhibiting Inflammation and Oxidative Stress and Modulating Gut Microbiota.",
+      "verified_journal": "Journal of agricultural and food chemistry",
+      "verified_pub_date": "2026-Jul-29",
+      "abstract": "Diarylheptanoids are bioactive compounds primarily found in the rhizomes of Curcuma species and are traditionally used to treat inflammatory conditions. This study investigated the chemopreventive effects of 1,7-diphenyl-(4E, 6E)-4,6-heptadien-3-one (DPH), a diarylheptanoid isolated from Curcuma comosa ethanol extract (CCE), using in vitro and in vivo models. CCE/DPH administration significantly alleviated colitis and delayed colitis-associated colorectal tumorigenesis, accompanied by reduced expression of proinflammatory cytokines and mediators. Network pharmacology and experimental validation suggested potential involvement of the Toll-like receptor 4/mitogen-activated protein kinase/nuclear factor kappa B/signal transducer and activator of transcription 3 axis as a potential therapeutic target. Additionally, CCE/DPH upregulated the expression of the phase II antioxidant enzymes and tight junction proteins. Microbiome analysis revealed that CCE/DPH was associated with partial improvements in the gut microbial composition and metabolite profiles in experimental models. Overall, these findings support the preventive potential of CCE and DPH against experimental colitis and colitis-associated colorectal cancer.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "",
+      "pdf_link": "https://doi.org/10.1021/acs.jafc.5c17732",
+      "source": "NCBI PubMed EFetch via Sider Scholar retry",
+      "relevance_review_passed": true,
+      "relevance_review_reason": "exact record retained pending final batch relevance audit"
     },
     {
       "category": "inflammation_pain",
@@ -148,16 +140,18 @@
       "has_abstract": true,
       "selection_score": 2,
       "wave": 4801,
-      "state": "quarantine",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
-      "source": "NCBI PubMed EFetch via Sider Scholar"
+      "state": "exact_verified_pending_relevance_review",
+      "verified_title": "Palmitoylethanolamide in Human and Animal Obesity.",
+      "verified_journal": "Molecules (Basel, Switzerland)",
+      "verified_pub_date": "2026-Jul-20",
+      "abstract": "Background: With the increase in the middle-aged population and sedentary lifestyle, a high incidence of obesity has been observed in humans and in animals. Obesity is consequent or correlated to multiple diseases, such as metabolic-dysfunction-associated fatty liver disease (MASLD), diabetes, dyslipidemia, etc. The attention of many researchers is focused on understanding the specific cellular mechanism and the role of inflammation, particularly chronic, in the development of this pathology as well as its link with dysmetabolic conditions, which seriously affect the survival of both humans and animals. Objective: The aim of this review is to discuss the mechanism responsible for obesity, the specific drugs used in the treatment of this disease, and, considering the link between obesity and inflammation, the possible employment of Palmitoylethanolamide (PEA), a natural lipidic mediator with anti-obesity activity in humans and animals.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13414710/",
+      "pdf_link": "https://doi.org/10.3390/molecules31142524",
+      "source": "NCBI PubMed EFetch via Sider Scholar retry",
+      "relevance_review_passed": true,
+      "relevance_review_reason": "exact record retained pending final batch relevance audit"
     },
     {
       "category": "metabolic",
