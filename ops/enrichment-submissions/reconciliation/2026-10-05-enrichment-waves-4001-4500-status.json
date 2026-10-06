@@ -21,9 +21,10 @@
     "synthetic_rows_created": false,
     "failed_candidates_replaced": 52,
     "second_pass_repairs": 1,
-    "domain_review_repairs": 10,
+    "domain_review_repairs": 23,
     "objective_off_domain_rows_remaining": 0,
-    "strict_relevance_review_passed": true
+    "strict_relevance_review_passed": true,
+    "expanded_hard_off_domain_review_passed": true
   },
   "artifacts": {
     "finalized_receipt": "2026-10-05-enrichment-waves-4001-4500-verified-consolidated.json",
@@ -31,7 +32,8 @@
     "final_selection": "2026-10-05-enrichment-waves-4001-4500-final-selection.json",
     "final_audit": "2026-10-05-enrichment-waves-4001-4500-final-audit.json",
     "verified_repairs": "2026-10-05-enrichment-waves-4001-4500-verified-repairs.json",
-    "domain_review_repair": "2026-10-06-enrichment-waves-4001-4500-domain-repair-exact.json"
+    "domain_review_repair": "2026-10-06-enrichment-waves-4001-4500-domain-repair-exact.json",
+    "domain_review_repair_r2": "2026-10-06-enrichment-waves-4001-4500-domain-repair-r2-exact.json"
   },
   "policy": {
     "entity_creation": "forbidden",
