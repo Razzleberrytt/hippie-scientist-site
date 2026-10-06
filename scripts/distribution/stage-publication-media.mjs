@@ -40,7 +40,7 @@ function buildAttributedPublicationText(packageData, lifecycle) {
     throw new Error('THS Publisher tagged destination must preserve the canonical source origin and path')
   }
   if (!tagged.searchParams.get('utm_campaign')) throw new Error('THS Publisher tagged destination must preserve campaign attribution')
-  if (!text.includes(sourceUrl)) throw new Error('governed governed publication caption must contain the canonical source URL before attribution tagging')
+  if (!text.includes(sourceUrl)) throw new Error('governed publication caption must contain the canonical source URL before attribution tagging')
   return text.split(sourceUrl).join(taggedDestination)
 }
 
