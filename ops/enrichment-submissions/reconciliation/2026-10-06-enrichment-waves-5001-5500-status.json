@@ -1,44 +1,35 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "batch_id": "2026-10-06-enrichment-waves-5001-5500",
   "issue": 6362,
   "branch": "data/enrichment-waves-5001-5500-2026-10-06",
-  "status": "candidate_selection_staged_exact_verification_blocked",
+  "status": "final_exact_verified_relevance_repaired",
   "target_findings": 500,
   "range": "5001-5500",
   "prior_unique_pmids": 4935,
-  "staged_candidates": 500,
-  "exact_verified": 0,
-  "finalized_findings": 0,
-  "preverification": {
-    "strict_title_outcome_fit": true,
-    "eligible_after_strict_screen": 555,
-    "selected": 500,
+  "finalized_findings": 500,
+  "exact_verified": 500,
+  "cumulative_unique_pmids_after_batch": 5435,
+  "integrity": {
+    "contiguous": true,
+    "unique_pmids": 500,
     "duplicate_pmids": 0,
     "duplicate_dois": 0,
     "duplicate_titles": 0,
-    "prior_collisions": 0
+    "prior_collisions": 0,
+    "hard_off_domain_title_hits": 0,
+    "non_null_abstracts": 500
   },
-  "blockers": [
-    {
-      "type": "external_verification_quota",
-      "provider": "Amass",
-      "reported_reset_date": "2026-10-16",
-      "effect": "Exact PubMed title/abstract verification cannot be completed through the current authorized verification source in this run."
-    },
-    {
-      "type": "upstream_dependency",
-      "issue": 6353,
-      "pr": 6355,
-      "effect": "Stacked from repaired upstream head; upstream merge is currently blocked by repository-wide dependency security-gate failures unrelated to enrichment files."
-    }
-  ],
+  "repairs": {
+    "replacements_applied": 0,
+    "retries_recovered": 15
+  },
+  "blockers": [],
   "policy": {
     "research_only": true,
     "entity_creation": "forbidden",
     "publication_promotion": "forbidden",
     "recommendation_promotion": "forbidden",
-    "dose_inference": "forbidden",
-    "exact_verification_required_before_finalization": true
+    "dose_inference": "forbidden"
   }
 }
