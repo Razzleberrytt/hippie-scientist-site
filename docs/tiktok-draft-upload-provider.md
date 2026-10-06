@@ -16,9 +16,7 @@ The bridge uses TikTok Content Posting API `video.upload` with `PULL_FROM_URL`. 
 - `functions/api/tiktok/connect.ts` — authenticated setup endpoint that creates the one-time TikTok authorization URL.
 - `functions/api/tiktok/callback.ts` — OAuth callback; validates one-time state and stores the refreshable token bundle.
 - `functions/api/tiktok/connection.ts` — authenticated connection summary with no token disclosure.
-- `functions/api/tiktok/upload.ts` — authenticated draft-upload bridge.
 - `functions/api/tiktok/status.ts` — authenticated status polling.
-- `scripts/distribution/tiktok-upload-provider.mjs` — L5 provider adapter; requires a current publishable lifecycle identity.
 - `scripts/distribution/upload-tiktok-draft.mjs` — artifact-aware operator command that checks the deployed provider-ready manifest against the current bounded pilot before dispatch.
 
 V1 uses the provider-neutral hash-verified static publication manifest under `/media/distribution/publisher/`. Staging and publication identity therefore no longer depend on Metricool paths, IDs, or account limits.
@@ -38,7 +36,7 @@ V1 uses the provider-neutral hash-verified static publication manifest under `/m
    - `TIKTOK_PUBLISHER_ADMIN_TOKEN` to a long random secret
 6. Create a dedicated Cloudflare KV namespace and bind it to Pages Functions as:
    - `TIKTOK_TOKEN_KV`
-7. If the artifact-side upload command will be run from CI/operator tooling, provide the same `TIKTOK_PUBLISHER_ADMIN_TOKEN` there as a secret.
+7. If the artifact-side Publisher command will be run from CI/operator tooling, provide `THS_PUBLISHER_ADMIN_TOKEN` there. The TikTok admin token is reserved for OAuth/connect/status diagnostics, not draft creation.
 
 Never commit the real client secret, publisher admin token, access token, or refresh token.
 
@@ -78,9 +76,9 @@ The command creates/enqueues the canonical publication job first, then calls `/a
 - TikTok is an explicitly allowed network;
 - the deployed lifecycle ID and identity fingerprint match the current bounded pilot;
 - the distribution package is validated and matches the deployed media pack;
-- the provider bridge accepts only an HTTPS MP4 under `thehippiescientist.net/media/distribution/`.
+- the Publisher runtime accepts only the governed HTTPS MP4 and invokes the TikTok transport server-side.
 
-The Cloudflare bridge additionally checks that the MP4 is publicly reachable before giving its URL to TikTok.
+The Publisher runtime checks that the MP4 is publicly reachable before giving its URL to TikTok. There is no standalone TikTok upload endpoint; creation always requires an existing canonical `publication_id`.
 
 ## Status semantics
 
