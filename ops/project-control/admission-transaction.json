@@ -1,14 +1,19 @@
 {
-  "version": 2,
-  "mode": "existing-owner-reconciliation",
-  "base_revision": "209b461135ca19eaa5f7e765f1e1180ed6ad461b",
-  "last_verified": "2026-10-05",
-  "owners": [
-    {
-      "ticket": 6258,
-      "pr": 6257,
-      "lane": "A"
-    }
-  ],
-  "note": "Reconcile existing RC/NPS owner after verified merged enrichment-owner retirement. #6257 and its closing association with #6258 predate this exact base. #6252/#6254 are consolidated into this one implementation owner, not additional WIP. Normal new-ticket admission remains unchanged."
+  "version": 1,
+  "ticket": 6356,
+  "lane": "R",
+  "title": "Add first-party TikTok draft-upload provider",
+  "priority": "P0",
+  "base_revision": "1c123a71b488b44aae61d33deccd00ad7942e1e8",
+  "last_verified": "2026-10-06",
+  "score_inputs": {
+    "businessImpact": 5,
+    "userValue": 5,
+    "trafficPotential": 3,
+    "strategicLeverage": 5,
+    "confidence": 1,
+    "effort": 4
+  },
+  "score": 93.8,
+  "note": "Admission-only control transaction. #6360 owns this control PR; #6356 remains the implementation ticket and has no owning implementation PR in this admission transaction."
 }
