@@ -7,6 +7,7 @@ import {
   type D1DatabaseLike,
 } from '../../functions/_shared/social-publisher-queue'
 import {
+  cancelPublication,
   dispatchPublication,
   observePublication,
   recordManualPublication,
@@ -56,7 +57,10 @@ class FakeStatement {
         attempts, provider, provider_operation_id, job_json, created_at, updated_at,
       ] = this.values.map((value) => value === null ? null : String(value))
       const slotTaken = [...this.database.rows.values()].some((row) =>
-        row.platform === platform && row.intended_time === intended_time && row.publication_id !== publication_id)
+        row.platform === platform &&
+        row.intended_time === intended_time &&
+        row.publication_id !== publication_id &&
+        row.state !== 'CANCELLED')
       if (!this.database.rows.has(String(publication_id)) && !slotTaken) {
         this.database.rows.set(String(publication_id), {
           publication_id: String(publication_id),
@@ -190,6 +194,23 @@ describe('THS Publisher D1 queue', () => {
     }))).rejects.toThrow(/slot/i)
   })
 
+  it('releases a platform/time slot only after safe cancellation', async () => {
+    const env = environment()
+    const original = await enqueuePublicationJob(env, job())
+    const cancelled = await cancelPublication(env, original.publicationId, {
+      reason: 'editorial replacement before dispatch',
+      now: '2026-10-06T17:01:00.000Z',
+    })
+    expect(cancelled.state).toBe('CANCELLED')
+
+    const replacement = job({
+      publicationId: 'pub_' + 'd'.repeat(24),
+      experimentId: 'EXP-REPLACEMENT',
+      artifactSha256: 'e'.repeat(64),
+    })
+    expect((await enqueuePublicationJob(env, replacement)).publicationId).toBe(replacement.publicationId)
+  })
+
   it('uses compare-and-swap updates and only auto-selects QUEUED work', async () => {
     const env = environment()
     const original = await enqueuePublicationJob(env, job())
@@ -296,6 +317,28 @@ describe('THS Publisher runtime', () => {
     expect(published.job.state).toBe('PUBLISHED')
     expect(published.job.providerReceipt).toMatchObject({ externalId: '746123456789' })
     expect(published.job.observerReceipts).toHaveLength(2)
+  })
+
+  it('refuses cancellation once provider side effects may exist', async () => {
+    const env = environment()
+    await seedTikTok(env)
+    const queued = await enqueuePublicationJob(env, job())
+    const fetchImpl = vi.fn(async (_input: RequestInfo | URL, init?: RequestInit) => {
+      if (init?.method === 'HEAD') return new Response(null, { status: 200, headers: { 'content-type': 'video/mp4' } })
+      return new Response(JSON.stringify({
+        data: { publish_id: 'v_inbox_url~v2.123' },
+        error: { code: 'ok', log_id: 'log-cancel' },
+      }), { status: 200 })
+    }) as typeof fetch
+
+    await dispatchPublication(env, queued.publicationId, {
+      fetchImpl,
+      now: '2026-10-06T18:01:00.000Z',
+    })
+    await expect(cancelPublication(env, queued.publicationId, {
+      reason: 'do not duplicate uncertain provider work',
+      now: '2026-10-06T18:02:00.000Z',
+    })).rejects.toThrow(/provider side effects/i)
   })
 
   it('records manual publication against the same canonical job', async () => {
