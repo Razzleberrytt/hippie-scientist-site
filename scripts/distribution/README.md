@@ -48,3 +48,14 @@ Every publication transition carries the deterministic idempotency key and upstr
 A dry-run `scheduled` lifecycle may be promoted to a real Metricool `scheduled` receipt only after Metricool returns a provider post ID. Scheduling is not recorded as publication; `published` still requires separate provider confirmation. Stale identity, missing credentials, unsupported network/format combinations, invalid media URLs, or past timestamps fail closed before a provider transition is accepted.
 
 Broad/high-volume autopublishing remains unauthorized. The Metricool adapter is a bounded provider path for already-governed assets, not permission to bypass evidence, safety, provenance, channel-policy, lifecycle, measurement, or scaling gates.
+
+
+## First-party TikTok draft upload
+
+`tiktok-upload-provider.mjs` adds an independent TikTok transport for already-governed vertical-video assets. It uses the site's Cloudflare bridge and TikTok Content Posting API `video.upload` to deliver a draft into the creator's TikTok inbox. It is deliberately **not** Direct Post and never treats provider acceptance as public publication.
+
+`upload-tiktok-draft.mjs` is the artifact-aware operator boundary. It rechecks the live provider-ready static media manifest against the current selected opportunity, validated package, bounded pilot lifecycle ID, and identity fingerprint before calling the provider. The current v1 reuses the existing hash-verified static video staging path under `/media/distribution/metricool/`; that legacy path name does not call Metricool and therefore does not inherit Metricool account limits.
+
+The Cloudflare bridge owns OAuth exchange, access-token refresh, rotated refresh-token persistence, canonical media URL enforcement, draft initialization via `PULL_FROM_URL`, and status polling. Secrets and TikTok tokens never belong in lifecycle receipts or source control.
+
+See `docs/tiktok-draft-upload-provider.md` for the external TikTok/Cloudflare setup and one-time authorization flow.

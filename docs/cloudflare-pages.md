@@ -80,3 +80,27 @@ The crawl telemetry path is deliberately **fail open**: CIDR-fetch or telemetry-
 must never change crawler-visible status, content, canonical behavior, or response availability.
 See `experiments/crawl-request-indexing/README.md` for the manifest, randomization, freeze, and
 analysis contract.
+
+
+## Pages Function environment (TikTok draft upload / `functions/api/tiktok/*`)
+
+The first-party TikTok bridge is server-only. It uses TikTok Content Posting API `video.upload` to send a governed MP4 into the authorized creator's TikTok inbox/draft flow. It does not provide unattended Direct Post.
+
+Set these in **Cloudflare Pages → Settings → Environment variables (Production)**:
+
+| Variable | Required | Purpose |
+|---|---|---|
+| `TIKTOK_CLIENT_KEY` | Yes | TikTok developer-app client key. |
+| `TIKTOK_CLIENT_SECRET` | Yes | TikTok developer-app secret; server-only. |
+| `TIKTOK_REDIRECT_URI` | Yes | Exact registered OAuth callback; production value is `https://thehippiescientist.net/api/tiktok/callback`. |
+| `TIKTOK_PUBLISHER_ADMIN_TOKEN` | Yes | Long random bearer secret protecting connect/connection/upload/status endpoints. |
+
+Dedicated KV binding:
+
+| Binding | Required | Purpose |
+|---|---|---|
+| `TIKTOK_TOKEN_KV` | Yes | Stores short-lived OAuth state and the refreshable TikTok user token bundle, including rotated refresh tokens. Missing binding fails closed. |
+
+TikTok-side setup must approve `video.upload`, authorize the target creator account, register the callback URI, and verify ownership of `https://thehippiescientist.net/media/distribution/` for `PULL_FROM_URL`.
+
+See `docs/tiktok-draft-upload-provider.md` for setup, connection, upload, status, and failure semantics.

@@ -1,7 +1,7 @@
 # Decision Log
 
 **Status:** Authoritative
-**Updated:** 2026-09-27
+**Updated:** 2026-10-06
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
 
 
@@ -300,3 +300,12 @@ Coverage: 9 routes × 2 themes × 3 breakpoints = 54 combinations, 7,998 element
 **Rationale:** The prose-only roster reported machine WIP 0/3 while existing PRs occupied two workstreams. Converting that roster to tables triggered the new-admission validator, which previously had no way to reconcile already-running owners.
 
 **Consequences:** PR #6132 / #6131 owns this bounded repair. Reconciliation does not authorize additional work, scientific promotion or cap exceptions. The historical timeline proves pre-base association; current closing references prove current ownership. Unknown outcomes remain Unknown. **Status:** Accepted; exact-head release checks required.
+
+
+## 2026-10-06 — TikTok bypass is draft upload, not hidden Direct Post
+
+**Decision:** Replace Metricool as the sole TikTok transport with a first-party TikTok Content Posting API **draft-upload** path using `video.upload` and `PULL_FROM_URL` from the governed THS media origin. Do not implement a private unattended Direct Post bot for THS.
+
+**Rationale:** The live 2026-10-06 TikTok attempt demonstrated a Metricool account-limit bottleneck. TikTok provides a supported draft-upload flow that sends server-hosted media to the creator's TikTok inbox for review and posting. By contrast, TikTok's current Direct Post guidelines explicitly say an API client should be intended for a wide audience and identify an internal utility for accounts the developer/team manages as unacceptable; Direct Post also requires creator-controlled metadata and express per-post consent.
+
+**Consequences:** The Cloudflare bridge owns OAuth/token refresh and draft/status API calls; the existing L5 lifecycle remains publication authority. A TikTok `publish_id` from draft initialization is a provider dispatch identity only and may create a real `scheduled` receipt, never a `published` receipt by itself. Broad/high-volume auto-publishing remains unauthorized. Public-post proof remains separate and must be observed before lifecycle publication can be asserted. **Status:** Accepted; implementation tracked by #6356 / PR #6357.
