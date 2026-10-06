@@ -18,8 +18,10 @@
     "non_null_abstracts": 500,
     "final_state_rows": 500,
     "objective_hard_off_domain_title_hits": 0,
-    "replacements_applied": 0,
-    "retries_recovered": 15
+    "replacements_applied": 35,
+    "retries_recovered": 15,
+    "quality_or_relevance_repairs": 22,
+    "upstream_collision_repairs": 13
   },
   "duplicate_pmids": [],
   "duplicate_normalized_dois": [],
