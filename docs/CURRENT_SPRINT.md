@@ -53,10 +53,6 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 **Research-only admission #6349 / PR #6350:** In review — exact-verified deep research enrichment Waves 4001–4500. This governed research-only staging is admitted outside normal D/R/A implementation WIP, remains fail-closed from entity creation/runtime publication/recommendation/dose inference, and may merge only after repository validation and review are green.
 
-**Research-only admission #6353 / PR #6355:** In review — repaired exact-verified deep research enrichment Waves 4501–5000. This governed research-only staging is admitted outside normal D/R/A implementation WIP, remains fail-closed from entity creation/runtime publication/recommendation/dose inference, and may merge only after repository validation and fresh review are green. Final integrity is 500 contiguous waves, 500 unique PMIDs, 500/500 non-null abstracts and exact-title matches, zero prior-ledger collisions, zero duplicate PMID/DOI/title, zero hard off-domain rows, and 4,935 cumulative unique PMIDs through Wave 5000.
-
-**Stacked research-only finalization #6362 / PR #6363:** In review — Waves 5001–5500 are finalized research-only on top of #6355 with 500/500 exact PubMed title verification, 500/500 non-null abstracts, 500 unique PMIDs, zero duplicate PMIDs/normalized DOIs/normalized titles, zero collisions against the repaired 4,935-PMID upstream ledger, and zero hard off-domain rows remaining. The cumulative research index is 5,435 unique PMIDs through Wave 5500. Final repair accounting is 35 replacements total (22 relevance/quality replacements + 13 upstream-collision replacements) and 14 retained retry overrides; authoritative final `full_text_link` values remain 0. This does not consume normal implementation WIP. Exact literature verification is complete; the remaining merge dependency is #6355 plus exact-head repository validation/review.
-
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
 
