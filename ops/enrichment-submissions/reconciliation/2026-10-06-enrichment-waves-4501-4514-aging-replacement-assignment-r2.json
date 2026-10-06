@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "batch": "waves-4501-4514-aging-replacement-assignment-r2",
+  "base_head": "38f994bf6baf4958805028048be4305b4a2d0332",
+  "applied_count": 9,
+  "verification_receipts": [
+    "2026-10-06-enrichment-waves-4501-4510-quality-r2-exact.json",
+    "2026-10-06-enrichment-waves-4511-4520-quality-r2-exact.json",
+    "2026-10-06-enrichment-waves-4501-4544-aging-replacements-r1-supplemental-exact.json"
+  ],
+  "integrity": {
+    "pmid_duplicates": 0,
+    "doi_duplicates": 0,
+    "normalized_title_duplicates": 0
+  },
+  "applied": [
+    {
+      "wave": 4505,
+      "old_pmid": "42764836",
+      "old_title": "Anti-inflammatory dietary patterns and cognitive aging in older adults: a scoping review of mechanistic, clinical, and nursing implications.",
+      "new_pmid": "42723826",
+      "new_title": "Effectiveness of community-based Baduanjin combined with resistance training on cardiometabolic risk factors in older adults with type 2 diabetes: a 16-week randomized controlled trial.",
+      "pub_type": "Randomized Controlled Trial"
+    },
+    {
+      "wave": 4506,
+      "old_pmid": "42760082",
+      "old_title": "Periodised power training in community-dwelling adults with chronic stroke: a protocol for the Power Exercise for Stroke Recovery (POWER) pilot randomised controlled trial.",
+      "new_pmid": "42473449",
+      "new_title": "Temporal dynamics of muscle strength recovery following acute cold-water immersion: a systematic review and meta-analysis.",
+      "pub_type": "Meta-Analysis"
+    },
+    {
+      "wave": 4507,
+      "old_pmid": "42776132",
+      "old_title": "Frailty Assessment and Its Impact in Hospital Outcomes After Cardiac Surgery - A Prospective Observational Study.",
+      "new_pmid": "42442697",
+      "new_title": "Time-Restricted Eating during a Bulking Phase Is Associated with Reduced Fat Accumulation, while Muscle and Strength Gains Are Maintained: A 12-Wk Randomized Controlled Trial.",
+      "pub_type": "Randomized Controlled Trial"
+    },
+    {
+      "wave": 4508,
+      "old_pmid": "42814578",
+      "old_title": "CCL2 and CXCL2 are markers of delirium vulnerability in community dwelling older people.",
+      "new_pmid": "42647752",
+      "new_title": "Skeletal Muscles Do Not Compete for Growth: Activating Additional Muscle Mass Does Not Compromise Changes in Muscle Size.",
+      "pub_type": "Randomized Controlled Trial"
+    },
+    {
+      "wave": 4509,
+      "old_pmid": "42765724",
+      "old_title": "GLP-1-based treatments and long-term clinical outcomes in MASLD amongst older adults: a retrospective cohort study.",
+      "new_pmid": "42721581",
+      "new_title": "Reduced dietary protein intake does not alter autophagy in human blood: A randomized crossover study in healthy adults.",
+      "pub_type": "Randomized Controlled Trial"
+    },
+    {
+      "wave": 4511,
+      "old_pmid": "42802280",
+      "old_title": "The role of leukocyte p38 MAP kinase in immune-mediated peripheral polyneuropathies: distinct modulation by intravenous immunoglobulins.",
+      "new_pmid": "42475887",
+      "new_title": "Risk factors for loss of skeletal muscle mass in patients with chronic kidney disease on a low-protein diet.",
+      "pub_type": "Randomized Controlled Trial"
+    },
+    {
+      "wave": 4512,
+      "old_pmid": "42798063",
+      "old_title": "Critical Kennedy's disease with Guillain-Barré syndrome and respiratory failure: A case report.",
+      "new_pmid": "42688268",
+      "new_title": "[Effects of Blood Flow Restriction Training on Muscle Strength and Physical Function in Older Adults With Sarcopenia].",
+      "pub_type": "English Abstract"
+    },
+    {
+      "wave": 4513,
+      "old_pmid": "42790922",
+      "old_title": "Study on blueberries, protein and exercise for improving frailty and cardiovascular disease (STRONG): protocol for a parallel-group randomised controlled superiority trial in older Nova Scotians.",
+      "new_pmid": "42514376",
+      "new_title": "Effect of Intra-Workout Protein-Carbohydrate Co-Ingestion Versus Isocaloric Carbohydrate During Resistance Training on Muscle Fibre Hypertrophy and Oxidative Capacities in Young Men: A Randomized Controlled Trial.",
+      "pub_type": "Comparative Study"
+    },
+    {
+      "wave": 4514,
+      "old_pmid": "42789205",
+      "old_title": "The Interplay of Metabolic Dysfunction, Neuroinflammation, and Mitochondrial Dysfunction in Balance Impairment: Insights from Type 2 Diabetes Mellitus and Alzheimer's Disease.",
+      "new_pmid": "42738981",
+      "new_title": "Effect of a Defined Intake of a Soy-Based Protein-Rich Supplement on Body Composition and Eating Behaviour in Overweight Women: A Secondary Analysis of the ACOORH Trial.",
+      "pub_type": "Multicenter Study"
+    }
+  ]
+}

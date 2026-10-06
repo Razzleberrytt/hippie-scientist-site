@@ -82,7 +82,7 @@ describe('production deployment handoff contract', () => {
     expect(workflow).toContain('--base-sha "$base_sha"')
     expect(workflow).toContain('echo "reusable=true" >> "$GITHUB_OUTPUT"')
     expect(workflow).toContain("if: steps.governed-verify.outputs.reusable != 'true' && steps.deploy-auth.outputs.skip_redundant_validation != 'true'")
-    expect(workflow).toContain("METRICOOL_PUBLIC_MEDIA_ROOT: ${{ steps.governed-verify.outputs.reusable == 'true' && 'out/media/distribution/metricool' || 'public/media/distribution/metricool' }}")
+    expect(workflow).toContain("THS_PUBLISHER_PUBLIC_MEDIA_ROOT: ${{ steps.governed-verify.outputs.reusable == 'true' && 'out/media/distribution/publisher' || 'public/media/distribution/publisher' }}")
     expect(ci).toContain('AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}')
   })
 

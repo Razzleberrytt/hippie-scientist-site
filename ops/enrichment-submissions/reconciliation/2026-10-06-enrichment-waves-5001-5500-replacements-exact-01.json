@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5001-5500",
+  "rows": [
+    {
+      "wave": 5074,
+      "category": "gut",
+      "pmid": "41561177",
+      "title": "Clinical benefits of Bifidobacterium infantis YLGB-1496 in modulating gut microbiota and immunity in young children.",
+      "abstract": "The early-life gut microbiota is critical for immune development and long-term health, and plays an essential role in the digestion and metabolism of dietary components, including human milk oligosaccharides (HMOs). Probiotic supplementation is a promising strategy to modulate this ecosystem and prevent common childhood infectious illnesses, though strain-specific effects require further investigation. This 12-week, double-blind, randomized, placebo-controlled trial evaluated the efficacy of Bifidobacterium infantis YLGB-1496 (1 × 1010 CFU/day) in 119 healthy preschool children. Participants were assessed for respiratory and gastrointestinal (GI) illness incidence, inflammatory biomarkers (fecal IgA, cytokines, calprotectin; salivary cortisol), and gut microbiota composition via 16S rRNA sequencing. Probiotic supplementation significantly reduced the incidence of respiratory problems as compared to the placebo group (Week 12: 15.0 vs. 42.4%, p < 0.001) and diarrhea (Week 6: 18.3 vs. 44.1%, p = 0.002), alongside fewer clinical visits and antibiotic prescriptions (p < 0.01 for all). Immunologically, the probiotic group exhibited a favorable anti-inflammatory profile with reduced levels of fecal IFN-γ, IL-1β, and calprotectin, and a trend toward increased fecal IgA over time as compared to the placebo group. Microbiota analysis revealed that the probiotic did not induce major restructuring but provided ecological stability, preventing the and preserving beneficial SCFA producing genera that declined in the placebo group (p < 0.05). B. infantis YLGB-1496 is an effective probiotic that reduces the burden of common childhood infectious illnesses by fine-tuning immune responses and enhancing the resilience of the gut microbial ecosystem, rather than through drastic compositional changes. These findings support its use as a safe nutritional intervention for promoting pediatric health. https://clinicaltrials.gov/study/NCT05794815?term=NCT05794815&rank=1, identifier number: NCT05794815.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2025",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12812959/",
+      "pdf_link": "https://doi.org/10.3389/fnut.2025.1713135",
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact replacement verification"
+    },
+    {
+      "wave": 5122,
+      "category": "micronutrients",
+      "pmid": "41420666",
+      "title": "Effect of Maternal Vitamin B12 Status and Supplementation on Child Neurodevelopment and Cognition: A Systematic Review.",
+      "abstract": "This review aims to systematically evaluate clinical and observational studies that assessed the influence of maternal vitamin B12 supplementation and status on child neurodevelopment and cognition. Vitamin B12 plays an essential role in fetal neurodevelopment. However, to date, no study has focused on gathering conclusions about the effect of supplementation and maternal levels of vitamin B12 on neurodevelopment, focusing on child cognition. Therefore, the databases consulted included PubMed, Scopus, Web of Science, and Embase. The PRISMA guideline was used to conduct and report the review, and the risk of bias was assessed using the Cochrane risk-of-bias tool (version 2) (RoB 2) for randomized controlled trials and Risk of Bias in Non-randomized Studies - of interventions (ROBINS-I). The PROSPERO registration number is CRD42023476614. Eleven studies were reviewed, including four randomized controlled trials and seven observational studies. The results demonstrated that maternal vitamin B12 supplementation has an impact on the cognitive and language domains in children up to 42 months of age. Observational studies have also reported an association between maternal vitamin B12 levels and overall neurodevelopment in children under two years of age. This systematic review highlights the importance of assessing maternal vitamin B12 levels during pregnancy, considering potential adverse effects on child neurodevelopment. Given the limited number of included studies, particularly clinical trials, further research is required to clarify the findings of this review.",
+      "journal": "Current nutrition reports",
+      "pub_date": "2025-Dec-20",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7926714/",
+      "pdf_link": "https://doi.org/10.1007/s13668-025-00720-6",
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact replacement verification"
+    },
+    {
+      "wave": 5125,
+      "category": "cognition_focus",
+      "pmid": "41499921",
+      "title": "Aronia melanocarpa extract supplementation affects brain vascular function and cognitive performance: A randomized, double-blind, placebo-controlled, cross-over study in older adults with overweight or obesity.",
+      "abstract": "Dietary anthocyanins are recognized for their potential beneficial effects on cognitive performance. It remains unclear which mechanisms underlie these effects. This study aimed to investigate the effects of anthocyanin-rich Aronia Melanocarpa extract (AME) on (brain) vascular function and cognitive performance in adults at increased risk of cognitive impairment. Thirty healthy older adults (age: 65 ± 6 years old) with overweight or obesity (BMI: 28.3 ± 2.7 kg/m2) were included in a randomized, double-blind, placebo-controlled cross-over study of 6 weeks (40 mg anthocyanins/day). At the end of each study period, cerebral blood flow (CBF), a marker of brain vascular function, was assessed using arterial spin labeling magnetic resonance imaging (ASL-MRI). Additionally, cognitive performance was assessed using the Cambridge Neuropsychological Test Automated Battery (CANTAB), cerebral perfusion with transcranial Doppler ultrasound, and peripheral vascular function through endothelial function and retinal microvascular caliber measurements. AME supplementation did not affect CBF in predefined brain regions, but regional CBF decreased in one cluster located in the right insular cortex (treatment effect 4.4 ± 3.6 mL/100 g/min; p = 0.004), compared to placebo. Furthermore, cognitive performance was improved on the spatial working memory test, reflecting the executive function domain as the between errors and total errors were reduced by 20 % (-3; 95 % CI: -5 to -1; p = 0.006). Memory and psychomotor speed did not change, while cerebral perfusion and peripheral vascular function measurements were also not affected. Six weeks of AME supplementation improved executive functioning in older adults with overweight or obesity. Although CBF decreased in the right insular cortex, the relevance remains unclear. CBF in predefined brain regions and other potential underlying mechanisms were not affected.. This trial was registered at clinicaltrial.gov as NCT05268133.",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "pub_date": "2026-Feb",
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1016/j.clnu.2025.106561",
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact replacement verification"
+    },
+    {
+      "wave": 5187,
+      "category": "mitochondrial_energy",
+      "pmid": "41496202",
+      "title": "Resistance-based training improves mitochondrial capacity and redox balance in aging adults, independent of polyphenol supplementation.",
+      "abstract": "Aging is associated with declines in skeletal muscle function, mitochondrial capacity, and changes in redox balance, which collectively contribute to frailty and chronic disease risk. This study investigated the effects of a 12-week resistance training (RT) program combined with a small dose of high-intensity interval training (HIIT), with or without polyphenol supplementation, on mitochondrial respiratory capacity (MRC) and oxidative stress in middle-aged and older adults (55-70 years). Forty-one participants were randomized to receive either a polyphenol supplement or a placebo for 30 days before the training intervention. Following the training intervention, aerobic capacity, lean mass, and strength improved significantly in both groups. Training also increased MRC in the placebo group but not in the polyphenol group, which displayed higher MRC following the supplementation phase, possibly reflecting either a supplement effect or baseline variation. The training resulted in a 20 % decrease in skeletal muscle H2O2 emission across both groups, suggesting enhanced mitochondrial efficiency or antioxidant defenses. However, gene expression of selected antioxidants was unchanged, and plasma oxidative stress markers malondialdehyde (MDA) increased, and 3-nitrotyrosine (3-NT) remained unchanged. Circulating antioxidants showed distinct changes with training, as ascorbic acid increased with training in both groups, while α-tocopherol increased only in the placebo group and β-cryptoxanthin and retinol declined in the polyphenol group, suggesting potential supplement-nutrient interactions. Uric acid increased in both groups, likely reflecting exercise-induced purine turnover. In conclusion, combined RT and HIIT improved mitochondrial bioenergetics and muscle redox balance in middle-aged and older adults, whereas polyphenol supplementation did not augment these adaptations and may have blunted some vitamin-related responses. These findings underscore resistance-based exercise as a potent intervention for maintaining physical and mitochondrial health with age.",
+      "journal": "Redox biology",
+      "pub_date": "2026-Feb",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12808611/",
+      "pdf_link": "https://doi.org/10.1016/j.redox.2025.103972",
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact replacement verification"
+    },
+    {
+      "wave": 5276,
+      "category": "inflammation_pain",
+      "pmid": "41126953",
+      "title": "Efficacy of botanical extracts for knee osteoarthritis: a network meta-analysis of randomized controlled trials.",
+      "abstract": "Traditional botanical drugs and medicinal plants, along with their metabolite extracts, have exhibited considerable potential in the management of knee osteoarthritis (KOA) due to their natural properties, favorable safety profiles, and minimal adverse effects. This study aimed to evaluate the therapeutic efficacy of various botanical and medicinal plant extracts on KOA. Search Methods: We conducted a comprehensive literature search across PubMed, Embase, Cochrane Library, and Web of Science, focusing exclusively on randomized controlled trials (RCTs) that investigated the efficacy of botanical and medicinal plant extracts for KOA. Selection Criteria: Studies were included if they met the following criteria: (1) experimental groups receiving single botanical drugs or plant extracts for KOA; (2) control groups comprising patients receiving placebo or standard care; (3) clinical RCT designs; and (4) outcome measures including at least one of the following: Western Ontario and McMaster Universities Osteoarthritis Index (WOMAC), Visual Analogue Scale (VAS), Short Form 36 Health Survey (SF-36), Knee injury and Osteoarthritis Outcome Score (KOOS), Lequesne's Pain-Function Index (LPFI), Japanese Orthopaedic Association Score (JOA). Data Collection and Analysis: The methodological quality of the included studies was assessed using the Cochrane risk of bias tool, and data analysis was performed using appropriate statistical software. A total of 36 RCTs, encompassing 3,285 participants, were included in this review. Network meta-analysis revealed that compared to the placebo control group, Cucumis sativus (CS) extract [MD = 6.65, 95% CI = (3.83, 9.48)] significantly improved pain scores; Ashwagandha extract [MD = 4.16, 95% CI = (2.43, 5.90)] was more effective in reducing stiffness scores; and CS extract [MD = 4.28, 95% CI = (2.08, 6.49)] significantly improved function scores. Based on Ranking Plot of the Network, we can state that CS extract is recommended as the most effective botanical and medicinal plant extract for KOA treatment. However, further studies are required to draw definitive conclusions. Given that there are only two studies with high homogeneity but small sample size for CS extract, the first result should be regarded as an exploratory signal and needs to be verified by a large sample multi-center RCT with independent teams. https://www.crd.york.ac.uk/prospero/display_record.php?ID=CRD42024617459, identifier CRD42024617459.",
+      "journal": "Frontiers in pharmacology",
+      "pub_date": "2025",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12537895/",
+      "pdf_link": "https://doi.org/10.3389/fphar.2025.1619589",
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact replacement verification"
+    },
+    {
+      "wave": 5277,
+      "category": "inflammation_pain",
+      "pmid": "41197197",
+      "title": "Adjunctive curcumin nano-micelles reduce overall pruritus intensity in refractory post-burn pruritus: A randomized controlled trial.",
+      "abstract": "Post-burn pruritus (PBP) is a common and refractory condition that can significantly impair quality of life (QoL). Curcumin, a bioactive compound with anti-inflammatory and neuroprotective properties, has been proposed as a therapeutic option for chronic pruritus. This study evaluated the efficacy of a nano-micelle formulation of curcumin in patients with refractory PBP. In this randomized controlled trial, 100 adults with PBP were assigned to receive standard treatment alone or with curcumin nano-micelle capsules (40 mg, twice daily) for 12 weeks. Outcomes included pruritus severity, frequency, distribution, sleep condition, sleep disturbance, total pruritus intensity, and QoL (ItchyQoL), assessed at baseline, week 6, and week 12. Analyses were performed using mixed-effects models with group, time, and group×time as factors. Both groups demonstrated significant within-group improvements in some pruritus domains. However, in the mixed-effects model, curcumin produced a significant between-group reduction in total pruritus intensity (adjusted mean difference -2.83; 95 % CI -5.54 to -0.11; p = 0.041). No significant between-group effects were observed for individual domains. Sleep condition improved with curcumin (adjusted mean difference -0.50; 95 % CI -1.04-0.03) but did not reach statistical significance. QoL improved significantly over time (time effect p = 0.045) in both groups, with a non-significant trend favoring curcumin (adjusted mean difference 2.85; 95 % CI -2.13-7.83). Adjunctive curcumin nano-micelle therapy significantly reduced overall pruritus intensity in patients with refractory PBP. Sleep and QoL outcomes improved in both groups, with trends favoring curcumin. Larger, longer trials with optimized dosing are warranted to confirm these findings.",
+      "journal": "Burns : journal of the International Society for Burn Injuries",
+      "pub_date": "2025-Dec",
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1016/j.burns.2025.107761",
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact replacement verification"
+    },
+    {
+      "wave": 5297,
+      "category": "cognition_focus",
+      "pmid": "41470898",
+      "title": "Beetroot Juice Supplementation as a Healthy Aging Strategy Through Improving Physical Performance and Cognitive Functions: A Systematic Review.",
+      "abstract": "Background: Findings show that beetroot-derived nitrates can improve endurance, oxygen efficiency, muscular power, recovery and cardiovascular function, particularly in recreationally active or moderately trained individuals. However, results are mixed in elite athletes, likely due to their already optimized nitric oxide utilization. Cognitive function is a crucial aspect of athletic performance enabling athletes to adapt to dynamic environments and execute skills effectively, but evidence for cognitive benefits of nitrate-rich beetroot supplementation is limited and inconsistent. The combination of improved physical activity and cognitive functions contribute to overall healthy aging and extending life expectancy. This highlights the synergistic role of nutrition, exercise and mental agility in promoting long-term well-being. Methods: The literature review was conducted to summarize and systematize existing evidence on beetroot juice supplementation on physical performance and cognitive function in both, healthy adult population and athletes. Results: Overall, beetroot supplementation demonstrates strong potential as a natural ergogenic aid for enhancing physical performance, but current evidence on cognitive improvement remains inconclusive. Conclusions: Further research, particularly involving female or elite athletes, is needed to establish clear recommendations of beetroot juice supplementation as a supportive element of exercise capacity and cognitive abilities contributing to maintaining health and thus healthy aging.",
+      "journal": "Nutrients",
+      "pub_date": "2025-Dec-17",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12735994/",
+      "pdf_link": "https://doi.org/10.3390/nu17243954",
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact replacement verification"
+    },
+    {
+      "wave": 5305,
+      "category": "inflammation_pain",
+      "pmid": "41462252",
+      "title": "Efficacy of antioxidant supplementation in alleviating endometriosis-related pain: insights from a systematic review and meta-analysis of RCTs.",
+      "abstract": "BACKGROUND: Endometriosis, a chronic inflammatory disorder, is a leading cause of pelvic pain and reduced quality of life in women, with oxidative stress implicated in its pathogenesis. While antioxidant supplementation has been proposed as a potential therapeutic strategy, its clinical efficacy remains controversial. This systematic review and meta-analysis evaluate the impact of antioxidants on endometriosis-related pain outcomes. METHODS: We conducted a systematic review and meta-analysis. A comprehensive search of PubMed, Scopus, Cochrane, Web of Science, and clinical trial registries (2000–January 2025) was conducted for randomized controlled trials (RCTs) investigating the effect of any oral antioxidant supplement, without dose or duration restrictions, in endometriosis patients and reporting quantitative data on at least one of the primary pain outcomes (dysmenorrhea, dyspareunia, or chronic pelvic pain). Primary outcomes included dysmenorrhea, dyspareunia, and chronic pelvic pain. Study risk of bias was assessed using the Cochrane RoB 2 tool, and evidence certainty was graded via the GRADE framework. Random-effects meta-analyses were performed to estimate pooled effects. RESULTS: Meta-analysis of available RCTs suggested a potential reduction in pain scores for dysmenorrhea (SMD = − 1.26, 95% CI: −2.19 to − 0.32) and chronic pelvic pain (SMD = − 1.07, 95% CI: −1.71 to − 0.42); however, extreme heterogeneity (I² > 90%) in these analyses indicates that these average effects are highly uncertain and should not be generalized specific clinical contexts. No significant effect was observed for dyspareunia. Subgroup analyses indicated that melatonin may be associated with the most consistent potential pain reduction. CONCLUSION: Current low- to very low-certainty evidence suggests that antioxidant supplementation, particularly melatonin, may be associated with improvements in dysmenorrhea and chronic pelvic pain in endometriosis. However, due to considerable inconsistency and methodological limitations across studies, these findings must be interpreted with caution. The results underscore the urgent need for high-quality, large-scale RCTs to confirm any potential benefits and define the clinical role of antioxidants in endometriosis management.",
+      "journal": "Reproductive biology and endocrinology : RB&E",
+      "pub_date": "2025-Dec-30",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12751427/",
+      "pdf_link": "https://doi.org/10.1186/s12958-025-01485-x",
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact replacement verification"
+    }
+  ]
+}
