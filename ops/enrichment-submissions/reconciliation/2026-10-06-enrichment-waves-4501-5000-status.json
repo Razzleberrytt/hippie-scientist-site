@@ -19,11 +19,12 @@
     "abstract_verified_500_of_500": true,
     "exact_title_match_500_of_500": true,
     "synthetic_rows_created": false,
-    "final_relevance_repairs": 101,
+    "final_relevance_repairs": 111,
     "objective_off_domain_rows_remaining": 0,
     "strict_relevance_review_passed": true,
-    "post_review_replacements": 18,
-    "final_receipt_pmc_shortcuts": 0
+    "post_review_replacements": 28,
+    "final_receipt_pmc_shortcuts": 0,
+    "second_pass_category_drift_replacements": 10
   },
   "artifacts": {
     "finalized_receipt": "2026-10-06-enrichment-waves-4501-5000-verified-consolidated.json",
@@ -44,9 +45,8 @@
     "retraction_quarantine": true
   },
   "next": [
-    "synchronize issue #6353 / PR #6355 in authoritative control documents",
     "run repository-owned validation/checks on repaired branch head",
-    "request fresh review of repaired head",
-    "merge only when required checks and review are green"
+    "complete direct blocker audit of prior review findings",
+    "merge only when required checks are green; independent Codex re-review is currently quota-blocked and must not be falsely reported as passed"
   ]
 }
