@@ -5,17 +5,10 @@
   "summary": {
     "range": "4997-5000",
     "rows": 4,
-    "exact_title": 3,
-    "abstract_verified": 3,
+    "exact_title": 4,
+    "abstract_verified": 4,
     "hard_off_domain": [],
-    "quarantined": [
-      {
-        "wave": 4998,
-        "pmid": "42828560",
-        "title": "Different irrigation solutions in calcium hydroxide removal: Do high-frequency ultrasonic and laser activation make the difference?",
-        "state": "quarantine"
-      }
-    ]
+    "quarantined": []
   },
   "rows": [
     {
@@ -58,17 +51,17 @@
       "state": "discovered_candidate_pending_exact_verification",
       "rejection_reason": null,
       "wave": 4998,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "Different irrigation solutions in calcium hydroxide removal: Do high-frequency ultrasonic and laser activation make the difference?",
+      "verified_journal": "Lasers in medical science",
+      "verified_pub_date": "2026-Oct-03",
+      "abstract": "This study aimed to comparatively evaluate the effectiveness of different irrigation solutions and activation techniques in removing calcium hydroxide (CH) from standardized artificial grooves located in the apical third of root canals. Ninety extracted single-rooted human maxillary central incisors were instrumented using a standardized preparation protocol. Artificial grooves were created in the apical third of split roots and filled with CH paste. Specimens were randomly divided into two irrigation groups: 1.5% sodium hypochlorite (NaOCl) + 0.1% octenidine dihydrochloride (OCT) or 1.5% NaOCl + 17% ethylenediaminetetraacetic acid (EDTA). Each group was further subdivided according to the activation technique: conventional needle irrigation (CNI), passive ultrasonic activation (PUA), or laser-activated irrigation (LAI). Data were analyzed using Kruskal-Wallis and Mann-Whitney U tests with Bonferroni correction (α = 0.05). Significant differences were observed among the groups (p < 0.001). OCT combined with PUA showed the lowest residual CH scores and performed significantly better than OCT + CNI. OCT demonstrated superior CH removal compared with EDTA under CNI and PUA conditions. The OCT + PUA protocol was the most effective approach for CH removal.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13633961/",
+      "pdf_link": "https://doi.org/10.1007/s10103-026-05044-7",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_pending_relevance_review"
     },
     {
       "category": "mood",
