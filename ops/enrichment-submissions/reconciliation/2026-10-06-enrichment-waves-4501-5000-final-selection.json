@@ -21,30 +21,33 @@
     "objective_off_domain_title_hits_remaining": 0,
     "final_relevance_repairs_applied": 83
   },
-  "repairs_applied": 83,
+  "repairs_applied": {
+    "post_review_replacements": 18,
+    "pmc_link_hardening": "authoritative receipt full_text_link values nulled pending independent PMID↔PMCID verification"
+  },
   "category_counts": {
-    "aging_sarcopenia": 44,
-    "botanicals_mushrooms": 41,
+    "aging_sarcopenia": 46,
+    "botanicals_mushrooms": 43,
     "cannabinoid_safety": 41,
-    "cardiometabolic": 28,
-    "cognition_focus": 39,
+    "cardiometabolic": 29,
+    "cognition_focus": 44,
     "gut": 36,
+    "mood": 14,
     "immune_respiratory": 42,
     "inflammation_pain": 30,
-    "metabolic": 31,
+    "metabolic": 34,
     "micronutrients": 33,
     "mitochondrial_energy": 35,
-    "mood": 17,
     "withdrawal_nps": 33,
-    "performance": 14,
+    "performance": 5,
     "women_health": 24,
-    "sleep": 12
+    "sleep": 11
   },
   "state_counts": {
-    "research_only_exact_verified_final": 417,
-    "research_only_exact_verified_review_replacement": 66,
+    "research_only_exact_verified_final": 402,
+    "research_only_exact_verified_review_replacement": 84,
     "research_only_exact_verified_override_r5b": 13,
-    "research_only_exact_verified_final_shortage_repair": 4
+    "research_only_exact_verified_final_shortage_repair": 1
   },
   "waves": [
     {
@@ -2074,12 +2077,12 @@
     },
     {
       "wave": 4726,
-      "pmid": "38717445",
-      "doi": "10.1080/19490976.2024.2347715",
-      "title": "Metabolome-associated psychological comorbidities improvement in irritable bowel syndrome patients receiving a probiotic.",
-      "pub_type": "Randomized Controlled Trial",
+      "pmid": "42749371",
+      "doi": "10.1136/bmjopen-2026-118047",
+      "title": "Effect of synbiotic supplementation and psychobiotic diet on prenatal and postnatal depression and anxiety in women with gestational diabetes: a three-arm randomised controlled trial protocol.",
+      "pub_type": null,
       "category": "gut",
-      "state": "research_only_exact_verified_final_shortage_repair"
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4727,
@@ -2092,12 +2095,12 @@
     },
     {
       "wave": 4728,
-      "pmid": "38794741",
-      "doi": "10.3390/nu16101503",
-      "title": "Effectiveness of a Balanced Nine-Strain Synbiotic in Primary-Care Irritable Bowel Syndrome Patients-A Multi-Center, Randomized, Double-Blind, Placebo-Controlled Trial.",
-      "pub_type": "Multicenter Study",
-      "category": "gut",
-      "state": "research_only_exact_verified_final_shortage_repair"
+      "pmid": "42796993",
+      "doi": "10.3390/nu18183011",
+      "title": "Chrono-Nutritional Disruption as a Potential Modifiable Factor in Bipolar Disorder.",
+      "pub_type": null,
+      "category": "mood",
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4729,
@@ -2749,12 +2752,12 @@
     },
     {
       "wave": 4801,
-      "pmid": "39186190",
-      "doi": "10.1007/s00210-024-03369-0",
-      "title": "The analgesic effect of curcumin and nano-curcumin in clinical and preclinical studies: a systematic review and meta-analysis.",
-      "pub_type": "Systematic Review",
+      "pmid": "42559811",
+      "doi": "10.1039/d6fo02399a",
+      "title": "Blue turmeric (Curcuma caesia Roxb.): phenolic profile, bioaccessibility after in vitro gastrointestinal digestion, and chondroprotective effects in IL-1β-stimulated human chondrocytes.",
+      "pub_type": null,
       "category": "inflammation_pain",
-      "state": "research_only_exact_verified_final_shortage_repair"
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4802,
@@ -4378,12 +4381,12 @@
     },
     {
       "wave": 4982,
-      "pmid": "42834388",
-      "doi": "10.1186/s12903-026-09657-w",
-      "title": "Green-synthesized nanoparticles for glass ionomer cement reinforcement: a systematic review of their antimicrobial, mechanical, and physicochemical properties.",
-      "pub_type": "Systematic Review",
+      "pmid": "42269175",
+      "doi": "10.1519/jsc.0000000000005501",
+      "title": "Timing Matters: Effectiveness of Compressive Garments on Recovery in Trail Runners.",
+      "pub_type": null,
       "category": "performance",
-      "state": "research_only_exact_verified_final"
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4983,
@@ -4396,21 +4399,21 @@
     },
     {
       "wave": 4984,
-      "pmid": "42780566",
-      "doi": "10.3389/fmed.2026.1926216",
-      "title": "Can acupuncture improve cardiac function in patients after percutaneous coronary intervention? A systematic review and meta-analysis.",
-      "pub_type": "Systematic Review",
-      "category": "performance",
-      "state": "research_only_exact_verified_final"
+      "pmid": "42393428",
+      "doi": "10.1007/s11357-026-02394-6",
+      "title": "PROMETHEUS clinical trial protocol: tailoring healthy ageing with lifestyle and nutraceuticals.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4985,
-      "pmid": "42534655",
-      "doi": "10.3389/fneur.2026.1793300",
-      "title": "Follow-up and outcome of patients with primary BH4 deficiencies.",
-      "pub_type": "Systematic Review",
-      "category": "sleep",
-      "state": "research_only_exact_verified_final"
+      "pmid": "42309243",
+      "doi": "10.1016/j.neuint.2026.106204",
+      "title": "Ayurvedic Herbs as neurogenesis modulators: Current understanding on their potential therapeutic relevance in enhancing neuroplasticity and cognition in aging and neurodegeneration.",
+      "pub_type": null,
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4986,
@@ -4423,21 +4426,21 @@
     },
     {
       "wave": 4987,
-      "pmid": "42806398",
-      "doi": "10.1186/s13104-026-07911-6",
-      "title": "Clinical and radiographic evaluation of MTA Flow™ thick as a retrograde filling material in apicoectomy: a preliminary study.",
-      "pub_type": "Observational Study",
-      "category": "performance",
-      "state": "research_only_exact_verified_final"
+      "pmid": "42404568",
+      "doi": "10.3389/fmed.2026.1834211",
+      "title": "Changes in MoCA scores with sequential administration of Trikatu Cūrṇa and Brahmi Ghṛta in mild cognitive impairment: an exploratory single-arm clinical study.",
+      "pub_type": null,
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4988,
-      "pmid": "42801339",
-      "doi": "10.1007/s00431-026-07445-w",
-      "title": "Combination therapy with furosemide and metolazone as compared to furosemide alone for treatment of edema in children with nephrotic syndrome: a randomized controlled trial.",
-      "pub_type": "Comparative Study",
-      "category": "performance",
-      "state": "research_only_exact_verified_final"
+      "pmid": "42361543",
+      "doi": "10.1016/j.canep.2026.103152",
+      "title": "Association between L-α-glycerylphosphorylcholine use and risk of kidney cancer: A nationwide representative retrospective cohort study.",
+      "pub_type": null,
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4989,
@@ -4450,93 +4453,93 @@
     },
     {
       "wave": 4990,
-      "pmid": "42786472",
-      "doi": "10.1186/s12903-026-09875-2",
-      "title": "Cuspal displacement, marginal adaptation, and nanoleakage in maxillary premolars restored with a novel auto-cured bulk-fill composite versus a light-cured bulk-fill composite: an in-vitro study.",
-      "pub_type": "Comparative Study",
-      "category": "performance",
-      "state": "research_only_exact_verified_final"
+      "pmid": "42796935",
+      "doi": "10.3390/nu18182952",
+      "title": "Effects of Grape and Grape-Derived Bioactives on Inflammation and Immune-Driven Mechanisms Within the Context of Cardiometabolic Health and Aging: A Review.",
+      "pub_type": null,
+      "category": "cardiometabolic",
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4991,
-      "pmid": "42750035",
-      "doi": "10.1186/s12903-026-09793-3",
-      "title": "Effect of simvastatin versus calcium hydroxide intracanal medications on postoperative pain and cytokine modulation in symptomatic apical periodontitis: a randomized controlled trial.",
-      "pub_type": "Comparative Study",
-      "category": "performance",
-      "state": "research_only_exact_verified_final"
+      "pmid": "42425421",
+      "doi": "10.1016/j.arr.2026.103241",
+      "title": "Dietary bioactive compounds and inflammaging: Pro-inflammatory triggers and geroprotective countermeasures.",
+      "pub_type": null,
+      "category": "aging_sarcopenia",
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4992,
-      "pmid": "42792995",
-      "doi": "10.3390/genes17091100",
-      "title": "Comparison of Four Bisulfite Conversion Kits and Their Effects on DNA Methylation Detection and Age Prediction.",
-      "pub_type": "Comparative Study",
-      "category": "performance",
-      "state": "research_only_exact_verified_final"
+      "pmid": "42527887",
+      "doi": "10.1002/1545-5017.70459",
+      "title": "Rational Use of Herbal Products in Pediatric Patients Treated With Anticancer Drugs in the European Union.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4993,
-      "pmid": "42731837",
-      "doi": "10.1136/bmjopen-2026-119379",
-      "title": "Brain and behavioural responses to food viewing in women during pregnancy and their relationship with metabolic health: study protocol for the FOODY Play Study - a prospective observational study.",
-      "pub_type": "Observational Study",
-      "category": "mood",
-      "state": "research_only_exact_verified_final"
+      "pmid": "42752400",
+      "doi": "10.2196/94648",
+      "title": "Effects of a Nutritionally Balanced Between-Meal Food Product on Brain Function in Older Adults: Protocol for a Randomized Controlled Trial (the MiniMeal Study).",
+      "pub_type": null,
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4994,
-      "pmid": "42771738",
-      "doi": "10.4103/jisppd.jisppd_339_26",
-      "title": "Assessment and comparison of coronal discoloration induced by natural derivatives as intracanal medicament: An in vitro observational study.",
-      "pub_type": "Observational Study",
-      "category": "performance",
-      "state": "research_only_exact_verified_final"
+      "pmid": "42531832",
+      "doi": "10.1016/j.phymed.2026.158594",
+      "title": "6-shogaol suppresses MAPK14 to attenuate endoplasmic reticulum stress and alleviate alcohol-associated liver disease.",
+      "pub_type": null,
+      "category": "botanicals_mushrooms",
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4995,
-      "pmid": "42771737",
-      "doi": "10.4103/jisppd.jisppd_343_26",
-      "title": "Comparative evaluation of the remineralization potential of chitosan-fluoride-doped mesoporous silica nanoparticles hydrogel and casein phosphopeptide-amorphous calcium phosphate fluoride paste on the enamel of primary teeth: An in vitro study.",
-      "pub_type": "Comparative Study",
-      "category": "performance",
-      "state": "research_only_exact_verified_final"
+      "pmid": "42468577",
+      "doi": "10.1016/j.arr.2026.103263",
+      "title": "Targeting neuroinflammation and neurodegeneration in Parkinson's disease: Emerging natural and synthetic therapeutic strategies.",
+      "pub_type": null,
+      "category": "cognition_focus",
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4996,
-      "pmid": "42720146",
-      "doi": "10.1111/echo.70622",
-      "title": "Time-Dependent Changes in Pulmonary Artery Pressure and Biventricular Function After Adenotonsillar Surgery: A Tissue Doppler Echocardiography Study.",
-      "pub_type": "Observational Study",
-      "category": "mood",
-      "state": "research_only_exact_verified_final"
+      "pmid": "42823420",
+      "doi": "10.1038/s41572-026-00741-7",
+      "title": "Irritable bowel syndrome.",
+      "pub_type": null,
+      "category": "gut",
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4997,
-      "pmid": "42715502",
-      "doi": "10.1200/go-26-00140",
-      "title": "Impact of Leucovorin Shortage: A Comparison of Standard-Dose Versus Reduced-Dose Leucovorin in Metastatic Colorectal Cancer.",
-      "pub_type": "Comparative Study",
-      "category": "mood",
-      "state": "research_only_exact_verified_final"
+      "pmid": "42546933",
+      "doi": "10.1016/j.fitote.2026.107420",
+      "title": "Modulation of pancreatic β-cell function by adaptogens: Emerging evidence and integrative therapeutic potential.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4998,
-      "pmid": "42828560",
-      "doi": "10.1007/s10103-026-05044-7",
-      "title": "Different irrigation solutions in calcium hydroxide removal: Do high-frequency ultrasonic and laser activation make the difference?",
-      "pub_type": "Comparative Study",
-      "category": "performance",
-      "state": "research_only_exact_verified_final"
+      "pmid": "42451115",
+      "doi": "10.3390/nu18132111",
+      "title": "Dual Activation of GLP-1 and AMPK Pathways by a Multi-Botanical Formulation Improves Obesity and Metabolic Dysfunction in Experimental Models.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4999,
-      "pmid": "42804356",
-      "doi": "10.1097/cce.0000000000001492",
-      "title": "Acute Respiratory Failure Survivors' Perspectives on Patient-Centered Communication: A Mixed Methods Study.",
-      "pub_type": "Observational Study",
-      "category": "mood",
-      "state": "research_only_exact_verified_final"
+      "pmid": "42794563",
+      "doi": "10.3390/ijms27188133",
+      "title": "Dietary Nucleotides as Potential Modulators of Inflammatory and Metabolic Pathways with Implications for Insulin Resistance.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 5000,
