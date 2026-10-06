@@ -55,7 +55,7 @@
     "2026-10-06-enrichment-waves-4956-4965-exact.json",
     "2026-10-06-enrichment-waves-4966-4975-exact.json"
   ],
-  "exact_verified_current_selection": 322,
+  "exact_verified_current_selection": 323,
   "rows": [
     {
       "wave": 4501,
@@ -2070,6 +2070,26 @@
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "source_exact_file": "2026-10-06-enrichment-waves-4606-4615-exact.json",
       "state": "reused_exact_verified_current_selection"
+    },
+    {
+      "wave": 4607,
+      "category": "cannabinoid_safety",
+      "pmid": "42640804",
+      "doi": "10.1073/pnas.2606671123",
+      "title": "Cannabinoid tolerance relies on CB(1) receptor ubiquitination by NEDD4L.",
+      "verified_title": "Cannabinoid tolerance relies on CB1 receptor ubiquitination by NEDD4L.",
+      "verified_journal": "Proceedings of the National Academy of Sciences of the United States of America",
+      "verified_pub_date": "2026-Sep",
+      "abstract": "Cannabinoids, the active components of cannabis, exert numerous acute effects in the brain by engaging cannabinoid CB1 receptors (CB1Rs). However, tolerance emerges rapidly after repeated drug exposure, undermining the efficacy of cannabinoid-based therapies and contributing to cannabis-associated adverse effects. Although the processes of CB1R short-term desensitization (i.e., receptor uncoupling and internalization) are well characterized, the mechanisms underlying CB1R long-term tolerance (i.e., downregulation of receptor protein levels) remain elusive. Here, we identify a ubiquitin-dependent pathway that couples CB1R activation to its proteasomal degradation. We show that cannabinoids engage a Gq/11-PLC-PKC signaling cascade that phosphorylates and activates the E3 ubiquitin ligase neural precursor cell-expressed developmentally downregulated 4-like (NEDD4L), promoting its recruitment to CB1R and the ubiquitination of four specific lysine residues. This modification targets the receptor for proteasomal clearance, reducing neuronal CB1R abundance in vitro and in the mouse brain. Using molecular, pharmacological, and circuit-specific rescue approaches, we demonstrate that preventing CB1R ubiquitination stabilizes receptor levels and abolishes behavioral cannabinoid tolerance in mice without impairing acute drug responses. These findings reveal a molecular mechanism that controls CB1R stability and identify NEDD4L-mediated ubiquitination as a central driver of cannabinoid tolerance.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13535161/",
+      "pdf_link": "https://doi.org/10.1073/pnas.2606671123",
+      "hard_off_domain_flag": false,
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "source_exact_file": null,
+      "state": "fresh_exact_verified_current_selection",
+      "verification_note": "title-equivalent after CB(1)/CB1 receptor-number normalization"
     },
     {
       "wave": 4608,
@@ -6581,6 +6601,15 @@
           "hard_off_domain": false
         }
       ]
+    },
+    {
+      "batch": "retry-4607-title-equivalence",
+      "attempted": 1,
+      "added": 1,
+      "failed": []
     }
-  ]
+  ],
+  "verification_policy": {
+    "title_equivalence": "allow punctuation/parenthetical receptor-number formatting such as CB(1) vs CB1 when PMID/DOI and remaining title match"
+  }
 }
