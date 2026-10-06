@@ -5,13 +5,11 @@
   "summary": {
     "range": "4581-4590",
     "rows": 10,
-    "exact_title": 9,
-    "abstract_verified": 9,
+    "exact_title": 10,
+    "abstract_verified": 10,
     "hard_off_domain": [],
     "errors": [],
-    "quarantine": [
-      4589
-    ]
+    "quarantine": []
   },
   "rows": [
     {
@@ -222,18 +220,18 @@
       "has_abstract": true,
       "pmcid": "PMC13135220",
       "selection_score": 6,
-      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "source": "NCBI PubMed EFetch via Sider Scholar retry",
       "query": "((cannabidiol[Title/Abstract] OR CBD[Title/Abstract] OR cannabis[Title/Abstract] OR cannabinoid[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text] AND (clinical trial[pt] OR randomized controlled trial[pt] OR systematic review[pt] OR meta-analysis[pt] OR observational study[pt] OR case reports[pt])",
-      "state": "quarantine",
+      "state": "exact_verified_pending_relevance_review",
       "wave": 4589,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "title_match_score": 0,
-      "abstract_verified": false,
-      "abstract": "",
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "Impact of Cannabis Edibles Combined With Alcohol on Driving, Field Sobriety Performance, and Subjective Effects: A Within-Participant Crossover Trial.",
+      "verified_journal": "JAMA network open",
+      "verified_pub_date": "2026-May-01",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "abstract": "Simultaneous cannabis and alcohol use (co-use) is a public safety concern. Controlled data on the effects of co-ingestion of oral cannabis products (edibles) with alcohol are lacking, despite an increased prevalence of this behavior. To evaluate the individual and interactive effects of cannabis edibles and alcohol on simulated driving and subjective and objective impairment measures. This within-participant, double-blind, double-dummy crossover study of healthy adults included 7 outpatient sessions, separated by 1 week, at Johns Hopkins University School of Medicine from February 2022 to August 2025. Brownies containing 0 mg, 10 mg, or 25 mg Δ9-tetrahydrocannabinol (THC) combined with placebo drinks or alcohol-containing drinks, calculated to achieve breath alcohol concentrations (BrACs) of 0%, 0.05%, or 0.08%. Driving outcomes included the global drive score (GDS), a composite index of multiple driving measures, and the standard deviation of lateral position as the main outcomes. Other outcomes included cumulative impairment clues on standardized field sobriety tests (SFSTs), subjective drug effects, cognitive and psychomotor performance (using the DRUID [Driving Under the Influence of Drugs] application), and blood cannabinoid concentrations. Participants included 25 healthy adults (15 males [60%]; mean [SD] age, 25.6 [4.9] years) who reported recent binge drinking, prior cannabis and alcohol co-use, and fewer than 3 cannabis uses per week. Compared with placebo, all active drug conditions except 10 mg THC negatively impacted driving performance (ie, GDS). Driving impairment from alcohol alone at 0.08% BrAC was comparable with that of 0.05% BrAC and 10 mg THC (mean [SD] GDS, 1.6 [1.6] vs 1.6 [1.4]) and significantly lower than 0.05% BrAC and 25 mg THC (mean [SD] GDS, 2.5 [1.7]; P = .02). Driving impairment and subjective intoxication (eg, confidence to drive) were often greater under co-use conditions compared with cannabis or alcohol alone. Relative to placebo, SFST performance worsened at 0.08% BrAC (mean [SD] score, 2.2 [2.2] vs 0.2 [1.3]; P = .008) but not in several other conditions in which marked driving decrements were observed. THC and metabolite pharmacokinetics were not influenced by alcohol. In this crossover trial of healthy adults who co-used cannabis and alcohol, cannabis edibles combined with alcohol augmented driving impairment. The legal alcohol intoxication limit in most of the US (0.08% BrAC) may be too liberal if a driver has co-used cannabis and alcohol. In this era of expanding cannabis legalization, there is a pressing public health need for improved impairment detection strategies and consideration of cannabis and alcohol co-use in policies dictating access to these substances. ClinicalTrials.gov Identifier: NCT04931095.",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13135220/",
+      "pdf_link": "https://doi.org/10.1001/jamanetworkopen.2026.9842",
       "hard_off_domain_flag": false
     },
     {
