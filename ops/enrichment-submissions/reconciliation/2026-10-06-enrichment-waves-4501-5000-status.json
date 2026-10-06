@@ -19,9 +19,11 @@
     "abstract_verified_500_of_500": true,
     "exact_title_match_500_of_500": true,
     "synthetic_rows_created": false,
-    "final_relevance_repairs": 83,
+    "final_relevance_repairs": 101,
     "objective_off_domain_rows_remaining": 0,
-    "strict_relevance_review_passed": true
+    "strict_relevance_review_passed": true,
+    "post_review_replacements": 18,
+    "final_receipt_pmc_shortcuts": 0
   },
   "artifacts": {
     "finalized_receipt": "2026-10-06-enrichment-waves-4501-5000-verified-consolidated.json",
@@ -42,8 +44,9 @@
     "retraction_quarantine": true
   },
   "next": [
-    "open or update PR for issue #6353",
-    "run repository-owned validation/checks on finalized branch head",
+    "synchronize issue #6353 / PR #6355 in authoritative control documents",
+    "run repository-owned validation/checks on repaired branch head",
+    "request fresh review of repaired head",
     "merge only when required checks and review are green"
   ]
 }
