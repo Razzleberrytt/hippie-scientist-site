@@ -21,7 +21,7 @@ The bridge uses TikTok Content Posting API `video.upload` with `PULL_FROM_URL`. 
 - `scripts/distribution/tiktok-upload-provider.mjs` — L5 provider adapter; requires a current publishable lifecycle identity.
 - `scripts/distribution/upload-tiktok-draft.mjs` — artifact-aware operator command that checks the deployed provider-ready manifest against the current bounded pilot before dispatch.
 
-V1 intentionally reuses the existing hash-verified static vertical-video staging manifest under `/media/distribution/metricool/`. That path name is legacy; using the static file does not call Metricool or depend on Metricool's API/account limits.
+V1 uses the provider-neutral hash-verified static publication manifest under `/media/distribution/publisher/`. Staging and publication identity therefore no longer depend on Metricool paths, IDs, or account limits.
 
 ## External setup required once
 
@@ -65,11 +65,13 @@ curl -sS https://thehippiescientist.net/api/tiktok/connection \
 The production/operator path is:
 
 ```bash
-TIKTOK_PUBLISHER_ADMIN_TOKEN="..." \
+THS_PUBLISHER_ADMIN_TOKEN="..." \
+THS_EXPERIMENT_ID="EXP-014" \
+THS_PUBLICATION_AT="2026-10-07T10:00:00-04:00" \
 node scripts/distribution/upload-tiktok-draft.mjs
 ```
 
-The command refuses to dispatch unless:
+The command creates/enqueues the canonical publication job first, then calls `/api/publisher/dispatch`. It refuses to dispatch unless:
 
 - the current deployed publication manifest is provider-ready;
 - the media is a single governed vertical-video MP4;
@@ -91,7 +93,7 @@ Status polling uses TikTok's `/v2/post/publish/status/fetch/` endpoint. For this
 - `PUBLISH_COMPLETE` — the user opened the inbox flow and successfully posted from TikTok.
 - `FAILED` — the operation failed; inspect the normalized fail reason.
 
-The L5 adapter records provider acceptance as `scheduled`, not `published`. A future reconciliation step may promote a lifecycle only from confirmed post evidence; draft delivery alone never does.
+THS Publisher records provider acceptance as `PROVIDER_ACCEPTED`, not `PUBLISHED`. THS Observer promotes only from verified provider evidence; draft delivery alone never becomes publication truth.
 
 ## Token lifecycle
 
