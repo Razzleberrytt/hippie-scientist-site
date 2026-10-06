@@ -178,6 +178,10 @@ export async function observeTikTokPublication({
     requestId: publishId,
     dryRun: false,
   })
+  publishedJob.governance = {
+    ...(publishedJob.governance || {}),
+    lifecycleSnapshot: structuredClone(publishedLifecycle),
+  }
 
   return {
     status: 'published',
