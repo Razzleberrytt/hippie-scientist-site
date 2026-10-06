@@ -2,7 +2,7 @@
   "schema_version": 1,
   "batch": "waves-4001-4500-domain-repair",
   "row_count": 10,
-  "failed_count": 1,
+  "failed_count": 0,
   "rows": [
     {
       "wave": 4032,
@@ -141,15 +141,15 @@
       "wave": 4478,
       "category": "gut",
       "pmid": "42760956",
-      "doi": null,
-      "title": null,
-      "journal": null,
-      "pub_date": null,
-      "focus": null,
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
+      "doi": "10.3389/fnut.2026.1856471",
+      "title": "Psychobiotic, nutritional, and behavioral interventions targeting the microbiome-gut-brain axis in depression, anxiety, and stress: a scoping review.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "focus": "Probiotics and psychobiotics are increasingly investigated as microbiome-gut-brain axis (MGBA)-targeted strategies for managing depression, anxiety, and stress-related symptoms, but human evidence remains fragmented across intervention types and biomarker domains. We conducted a scoping review of human intervention studies to map MGBA-targeted psychobiotic, nutritional, dietary, and behavioral interventions, with a specific focus on symptom-biomarker bridging evidence. Searches of major biomedical and multidisciplinary databases combined key terms for the microbiome/gut-brain axis, depression/anxiety/stress, probiotics/psychobiotics, dietary or behavioral interventions, and biomarker domains. The search yielded 1,390 records; 72 full-text reports were assessed; 32 original reports were retained after report-level adjudication; and, after study-family consolidation, 30 independent human studies were included in the study-level synthesis. Studies were classified as direct bridge, parallel evidence, or no bridge according to whether biomarker changes were statistically linked to emotional outcomes. Most included studies focused on probiotic or psychobiotic interventions, with fewer studies examining prebiotics, synbiotics, short-chain fatty acid approaches, dietary interventions, or mind-body/behavioral strategies. Across the 30 studies, 9 were classified as direct bridge, 18 as parallel evidence, and 3 as no bridge. The most frequently examined biomarker domains were gut microbiota, microbial metabolites, and inflammation/immune markers, with common specific readouts including BDNF, 5-HT/serotonin-related markers, IL-6, TNF-α/CRP, cortisol/CAR, and SCFA/metabolite measures. Overall, MGBA-related nutritional and psychobiotic interventions may contribute to mood-symptom management by modulating microbial, metabolic, immune, neuroendocrine, and neurotrophic pathways, but robust symptom-biomarker bridging evidence remains limited. Future trials should predefine bridge hypotheses, standardize core biomarker domains and sampling time points, and clearly distinguish primary trial reports from linked secondary publications.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13585514/",
+      "pdf_link": "https://doi.org/10.3389/fnut.2026.1856471",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "replacement_for_pmid": "42827489",
       "replacement_for_title": "Combined application of organic and microbial amendments reshapes soil microbiome diversity and improves soybean growth performance.",
@@ -194,5 +194,11 @@
       "replacement_reason": "objective_off_domain_relevance_repair_after_PR_review",
       "state": "research_only_exact_verified_domain_repair"
     }
-  ]
+  ],
+  "review_context": "PR #6350 Codex review: replace objective crop/soil/livestock/materials/formulation drift before finalization.",
+  "verification": {
+    "exact_title_match": "10/10",
+    "abstract_verified": "10/10",
+    "prior_or_current_pmid_collisions": 0
+  }
 }
