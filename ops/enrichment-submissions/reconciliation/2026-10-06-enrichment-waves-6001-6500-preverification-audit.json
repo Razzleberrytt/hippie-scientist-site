@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-6001-6500",
+  "status": "staged_pending_exact_verification",
+  "source_reserve_rows": 568,
+  "hard_firewall_rejections": [
+    {
+      "pmid": "41556609",
+      "category": "cognition_focus",
+      "title": "Creatine Supplementation and the Brain: Have We Put the Cart Before the Horse?"
+    },
+    {
+      "pmid": "42331169",
+      "category": "inflammation_pain",
+      "title": "Insulin complexation with curcumin derivative mitigates the protein amyloidosis and efficiently manages diabetes in Drosophila melanogaster."
+    },
+    {
+      "pmid": "41950702",
+      "category": "botanicals_mushrooms",
+      "title": "Changes in ginseng wine flavor characteristics during fermentation with Saccharomyces cerevisiae."
+    }
+  ],
+  "integrity": {
+    "row_count": 500,
+    "first_wave": 6001,
+    "last_wave": 6500,
+    "contiguous": true,
+    "unique_pmids": 500,
+    "duplicate_pmids": 0,
+    "duplicate_normalized_dois": 9,
+    "duplicate_normalized_titles": 0,
+    "hard_rejected": 3
+  },
+  "category_counts": {
+    "cardiometabolic": 37,
+    "immune_respiratory": 37,
+    "mood": 32,
+    "performance": 11,
+    "safety_interactions": 31,
+    "stress_anxiety": 39,
+    "metabolic": 36,
+    "inflammation_pain": 30,
+    "aging_sarcopenia": 33,
+    "cannabinoid_safety": 38,
+    "micronutrients": 28,
+    "botanicals_mushrooms": 33,
+    "cognition_focus": 27,
+    "sleep": 30,
+    "withdrawal_nps": 31,
+    "women_health": 26,
+    "gut": 1
+  },
+  "pub_type_counts": {
+    "Randomized Controlled Trial": 15,
+    "Meta-Analysis": 9,
+    "Systematic Review": 5,
+    "Observational Study": 11,
+    "Review": 131,
+    "Scoping Review": 5,
+    "Comparative Study": 14,
+    "Multicenter Study": 5,
+    "Journal Article": 267,
+    "Evaluation Study": 2,
+    "Expression of Concern": 3,
+    "English Abstract": 3,
+    "Letter": 1,
+    "Practice Guideline": 2,
+    "Research Support, Non-U.S. Gov't": 20,
+    "Research Support, U.S. Gov't, P.H.S.": 1,
+    "Introductory Journal Article": 1,
+    "Video-Audio Media": 1,
+    "Research Support, N.I.H., Extramural": 2,
+    "Validation Study": 1,
+    "Preprint": 1
+  },
+  "hard_stop": "Candidate staging is not final enrichment. Every retained row requires exact title + non-null abstract verification and relevance QA before finalization."
+}
