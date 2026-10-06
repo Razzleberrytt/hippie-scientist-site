@@ -22,10 +22,10 @@
     "hard_off_domain": [],
     "policy_title_violations": []
   },
-  "retry_overrides": 0,
-  "replacements_total": 20,
-  "relevance_quality_replacements": 0,
-  "upstream_collision_replacements": 0,
+  "retry_overrides": 14,
+  "replacements_total": 55,
+  "relevance_quality_replacements": 22,
+  "upstream_collision_replacements": 13,
   "policy_replacements": 20,
   "category_counts": {
     "stress_anxiety": 11,
@@ -47,11 +47,15 @@
     "botanicals_mushrooms": 24
   },
   "state_counts": {
-    "research_only_exact_verified_final": 480,
+    "research_only_exact_verified_final": 431,
+    "research_only_exact_verified_final_collision_replacement": 13,
+    "research_only_exact_verified_final_retry": 14,
+    "research_only_exact_verified_final_replacement": 22,
     "research_only_exact_verified_final_policy_replacement": 20
   },
   "research_only": true,
   "runtime_publication": false,
   "recommendation_promotion": false,
-  "dosing_inference": false
+  "dosing_inference": false,
+  "publication_type_metadata_refreshed_for_prior_replacements": 35
 }
