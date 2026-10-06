@@ -45,7 +45,7 @@ The Cloudflare Publisher service persists jobs in D1 behind `/api/publisher/*`. 
 
 Retries remain under the same `publication_id`. Definite failures may be retried explicitly; ambiguous transport outcomes become `NEEDS_RECONCILIATION` and are excluded from automatic due-work selection. Provider acceptance, inbox delivery, and public publication are separate states.
 
-`tiktok-publisher-adapter.mjs` is the first active transport/Observer adapter. Meta is not yet active. Manual publication of the exact locked artifact can be recorded as a provider receipt without changing canonical identity.
+`functions/_shared/social-publisher-runtime.ts` owns the first active TikTok transport and Observer transitions. Meta is not yet active. Manual publication of the exact governed artifact can be recorded as a provider receipt without changing canonical identity.
 
 See `docs/ths-publisher-v0.1.md`.
 
@@ -58,11 +58,9 @@ Metricool remains available only for historical reproducibility and bounded roll
 
 `metricool-provider.mjs` is the provider boundary. It accepts only explicit supported networks, future publication times, governed copy, and canonical HTTPS media URLs. The current carousel path is limited to Facebook and TikTok. YouTube is supported only by the vertical-video provider contract because it requires video media.
 
-`.github/workflows/metricool-publication.yml` is retained only as a legacy/manual-delivery path. `autoPublish=true` is rejected while Metricool is frozen. It regenerates the exact current governed pilot, confirms the deployed media identity is current, verifies every public media URL is reachable, then calls Metricool server-side. When the legacy adapter is used, its token remains server-side and is never written to source, artifacts, receipts, or logs.
+Both Metricool publication workflows and the executable Metricool scheduling CLI are intentionally frozen and fail closed. Lower-level Metricool provider/measurement code is retained only for historical fixtures, receipt interpretation, analytics continuity, and rollback archaeology. It is not an authorized creation path.
 
-A dry-run `scheduled` lifecycle may be promoted to a real Metricool `scheduled` receipt only after Metricool returns a provider post ID. Scheduling is not recorded as publication; `published` still requires separate provider confirmation. Stale identity, missing credentials, unsupported network/format combinations, invalid media URLs, or past timestamps fail closed before a provider transition is accepted.
-
-Broad/high-volume autopublishing remains unauthorized. The Metricool adapter is legacy/optional transport for already-governed assets, not a control-plane dependency and not permission to bypass evidence, safety, provenance, channel-policy, lifecycle, measurement, or scaling gates.
+If Metricool is ever reintroduced, it must sit beneath THS Publisher as a replaceable adapter consuming an existing `publication_id`; it may never own publication identity, experiment state, or learning.
 
 
 ## First-party TikTok draft upload
