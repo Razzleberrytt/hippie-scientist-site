@@ -4,13 +4,66 @@
   "summary": {
     "range": "4546-4555",
     "rows": 10,
-    "exact_title": 9,
-    "abstract_verified": 9,
-    "hard_off_domain": [],
-    "errors": [],
-    "quarantine": [
-      4552
-    ]
+    "exact_title": 10,
+    "abstract_verified": 10,
+    "relevance_pass": 1,
+    "relevance_replace": [
+      {
+        "wave": 4547,
+        "pmid": "42700077",
+        "title": "TCGA-based identification of prognostic biomarkers and candidate traditional Chinese medicine compounds in papillary thyroid carcinoma: An observational study.",
+        "category": "botanicals_mushrooms"
+      },
+      {
+        "wave": 4548,
+        "pmid": "42766950",
+        "title": "Ligand-free alkyl-modified chitosan nanoparticles are preferentially internalized by microglia and deliver curcumin to suppress cytokine release.",
+        "category": "botanicals_mushrooms"
+      },
+      {
+        "wave": 4549,
+        "pmid": "42715976",
+        "title": "Ginger-Processed American Ginseng Alleviates Myocardial Injury Induced by Acute Cold Exposure/Rewarming by Remodeling Gut Microbiota to Activate the AMPK/PGC-1α/PPARα Pathway.",
+        "category": "botanicals_mushrooms"
+      },
+      {
+        "wave": 4550,
+        "pmid": "42714706",
+        "title": "Evaluation of curcumin as an exploratory pharmacological tool for modulating dysregulated molecular pathways in cellular models of Huntington's disease.",
+        "category": "botanicals_mushrooms"
+      },
+      {
+        "wave": 4551,
+        "pmid": "42808709",
+        "title": "Analysis of Dietary Patterns Containing Curcumin and Oral Cancer.",
+        "category": "botanicals_mushrooms"
+      },
+      {
+        "wave": 4552,
+        "pmid": "42701209",
+        "title": "Mass Spectrometric Footprinting and DFT Calculations Explain the Effect of Curcumin on the Aggregation of Amyloid β 42 (Aβ42).",
+        "category": "botanicals_mushrooms"
+      },
+      {
+        "wave": 4553,
+        "pmid": "42728456",
+        "title": "Enhancing Curcumin Performance via PVP K30 Solid Dispersion: Synergistic Potential in Combination with Conventional Chemotherapeutic Agents in NSCLC Cells.",
+        "category": "botanicals_mushrooms"
+      },
+      {
+        "wave": 4554,
+        "pmid": "42796951",
+        "title": "Combined Arctigenin and Curcumin Treatment Induces Redox and Metabolic Stress, AMPK Phosphorylation, and Apoptotic Signaling in Prostate Cancer Cells.",
+        "category": "botanicals_mushrooms"
+      },
+      {
+        "wave": 4555,
+        "pmid": "42747859",
+        "title": "Phytochemical-mediated targeting of signaling pathways in glioblastoma: preclinical evidence, translational potential, and emerging nano-based therapeutic approaches.",
+        "category": "botanicals_mushrooms"
+      }
+    ],
+    "quarantined": []
   },
   "rows": [
     {
@@ -35,7 +88,10 @@
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13533672/",
       "pdf_link": "https://doi.org/10.3389/fneur.2026.1875385",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": true,
+      "relevance_review_reason": "broad human/translational botanical review retained provisionally for full-batch review",
+      "verification_state": "exact_verified_relevance_pass"
     },
     {
       "category": "botanicals_mushrooms",
@@ -59,7 +115,10 @@
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13549628/",
       "pdf_link": "https://doi.org/10.1097/MD.0000000000050562",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": false,
+      "relevance_review_reason": "exact PubMed record but preclinical, formulation-focused, molecular/cell-model, cancer-mechanism, or otherwise tangential; replace before finalization",
+      "verification_state": "exact_verified_relevance_fail_replace"
     },
     {
       "category": "botanicals_mushrooms",
@@ -83,7 +142,10 @@
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.1016/j.bioadv.2026.215175",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": false,
+      "relevance_review_reason": "exact PubMed record but preclinical, formulation-focused, molecular/cell-model, cancer-mechanism, or otherwise tangential; replace before finalization",
+      "verification_state": "exact_verified_relevance_fail_replace"
     },
     {
       "category": "botanicals_mushrooms",
@@ -107,7 +169,10 @@
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.1021/acs.jafc.6c04969",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": false,
+      "relevance_review_reason": "exact PubMed record but preclinical, formulation-focused, molecular/cell-model, cancer-mechanism, or otherwise tangential; replace before finalization",
+      "verification_state": "exact_verified_relevance_fail_replace"
     },
     {
       "category": "botanicals_mushrooms",
@@ -131,7 +196,10 @@
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2913874/",
       "pdf_link": "https://doi.org/10.1007/s11033-026-12739-1",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": false,
+      "relevance_review_reason": "exact PubMed record but preclinical, formulation-focused, molecular/cell-model, cancer-mechanism, or otherwise tangential; replace before finalization",
+      "verification_state": "exact_verified_relevance_fail_replace"
     },
     {
       "category": "botanicals_mushrooms",
@@ -155,7 +223,10 @@
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13621950/",
       "pdf_link": "https://doi.org/10.3290/j.ohpd.c_2832",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": false,
+      "relevance_review_reason": "exact PubMed record but preclinical, formulation-focused, molecular/cell-model, cancer-mechanism, or otherwise tangential; replace before finalization",
+      "verification_state": "exact_verified_relevance_fail_replace"
     },
     {
       "category": "botanicals_mushrooms",
@@ -170,16 +241,19 @@
       "selection_score": 2,
       "wave": 4552,
       "state": "quarantine",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "title_match_score": 0,
-      "abstract_verified": false,
-      "abstract": "",
+      "verified_title": "Mass Spectrometric Footprinting and DFT Calculations Explain the Effect of Curcumin on the Aggregation of Amyloid β 42 (Aβ42).",
+      "verified_journal": "Journal of the American Chemical Society",
+      "verified_pub_date": "2026-Sep-02",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "abstract": "Curcumin, a polyphenolic natural product, binds to Aβ42, a protein involved in Alzheimer's Disease, to inhibit self-aggregation in vitro. Molecular understanding of the binding is important in designing new molecules to inhibit Aβ42 aggregation. We performed OH radical footprinting of Aβ42 in the presence and absence of curcumin by using fast photochemical oxidation of proteins (FPOP), followed by mass spectral analysis, to monitor changes in Aβ42 protein dynamics in the presence of curcumin. The results reveal that curcumin binding reduces oxidative footprinting at the N-terminus and middle region, indicating binding at these sites. Kinetic modeling of the percentage modification shows a significant change in the aggregation of Aβ42 in the presence of curcumin, whereby one aggregate population nearly disappears. The [Aβ42:curcumin] binding complexes were also explored using density functional theory (DFT), optimizating the starting structures at the B3LYP/6-31G(d) level for both the N-terminal/middle and C-terminal/middle regions. The structure of the lowest-energy complex has curcumin binding at the N-terminal plus middle regions, and this was validated by reoptimization using 6-311G(d,p) and applying Grimme's dispersion function (GD3). This structure was further confirmed by reoptimization in aqueous media using the Conductor-like Polarizable Continuum Model (CPCM). The new structure not only accounts for the observed changes in •OH footprinting of the N-terminal, middle, and C-terminal regions but also forecasts how this approach can provide insight into protein aggregation. A molecular-level understanding of the binding site of curcumin with Aβ42 should be helpful in the design of new aggregation modulators.",
       "full_text_link": null,
-      "pdf_link": null,
+      "pdf_link": "https://doi.org/10.1021/jacs.5c22337",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": false,
+      "relevance_review_reason": "exact PubMed record but preclinical, formulation-focused, molecular/cell-model, cancer-mechanism, or otherwise tangential; replace before finalization",
+      "verification_state": "exact_verified_relevance_fail_replace"
     },
     {
       "category": "botanicals_mushrooms",
@@ -203,7 +277,10 @@
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10938108/",
       "pdf_link": "https://doi.org/10.1208/s12249-026-03534-z",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": false,
+      "relevance_review_reason": "exact PubMed record but preclinical, formulation-focused, molecular/cell-model, cancer-mechanism, or otherwise tangential; replace before finalization",
+      "verification_state": "exact_verified_relevance_fail_replace"
     },
     {
       "category": "botanicals_mushrooms",
@@ -227,7 +304,10 @@
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13610558/",
       "pdf_link": "https://doi.org/10.3390/nu18182968",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": false,
+      "relevance_review_reason": "exact PubMed record but preclinical, formulation-focused, molecular/cell-model, cancer-mechanism, or otherwise tangential; replace before finalization",
+      "verification_state": "exact_verified_relevance_fail_replace"
     },
     {
       "category": "botanicals_mushrooms",
@@ -251,7 +331,10 @@
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.1093/jpp/rgag093",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": false,
+      "relevance_review_reason": "exact PubMed record but preclinical, formulation-focused, molecular/cell-model, cancer-mechanism, or otherwise tangential; replace before finalization",
+      "verification_state": "exact_verified_relevance_fail_replace"
     }
   ]
 }
