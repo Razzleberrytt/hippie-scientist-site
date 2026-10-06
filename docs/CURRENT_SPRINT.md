@@ -49,19 +49,19 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 0/3
+## Active / in review — implementation WIP 1/3
 
-**Research-only admission #6349 / PR #6350:** In review — exact-verified deep research enrichment Waves 4001–4500. This governed research-only staging is admitted outside normal D/R/A implementation WIP, remains fail-closed from entity creation/runtime publication/recommendation/dose inference, and may merge only after repository validation and review are green.
+**Research-only admission #6353 / PR #6355:** In review — repaired exact-verified deep research enrichment Waves 4501–5000. This governed research-only staging is admitted outside normal D/R/A implementation WIP, remains fail-closed from entity creation/runtime publication/recommendation/dose inference, and is currently blocked by the repository-wide npm security audit incident #6211 / PR #6364 plus unavailable fresh Codex review quota.
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| R | #6356 | Add first-party TikTok draft-upload provider | Active — implementation | P0 | 93.8 | 2026-10-06 — current TikTok upload/API rules + Metricool limit failure verified |
+| R | #6356 / PR #6357 | Add first-party TikTok draft-upload provider | Active — implementation | P0 | 93.8 | 2026-10-06 — current TikTok upload/API rules + Metricool limit failure verified |
 
 
 
 **Control maintenance #6131:** In review — reconcile closed owners and make the active roster readable by the existing reconciler. The gate now requires authenticated proof that added roster owners already had unique open PRs before the fixed base; normal admission remains unchanged. This control repair grants no normal implementation slot.
 
-**Security follow-up #5456:** Open — permanent MDX/TOML dependency-chain removal remains unresolved. Temporary build-tool containment expires 2026-10-07; no extension is authorized by this reconciliation.
+**Security incident #6211 / PR #6364:** Active bounded incident repair — restore the October npm high/critical audit gate by patching Sharp and shell-quote without extending expired exceptions. This security interruption is outside normal D/R/A WIP and blocks merges that require a green audit gate. Historical #5456 is closed and no longer an active owner.
 
 **Authority prerequisite #5081:** Blocked on a fresh non-overlapping governor lease. Authority/Content is free; that does not waive #5081's prerequisite.
 
