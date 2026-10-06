@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "batch_id": "2026-10-06-enrichment-waves-5001-5500",
   "issue": 6362,
   "status": "staged_pending_exact_verification",
@@ -11,8 +11,8 @@
     "through_wave": 5000
   },
   "discovery_pool_unique_not_in_prior_index": 954,
-  "general_filter_survivors": 887,
-  "title_category_fit_survivors": 611,
+  "general_firewall_survivors": 887,
+  "strict_outcome_fit_survivors": 555,
   "staged_rows": 500,
   "integrity": {
     "unique_pmids": 500,
@@ -22,44 +22,44 @@
     "prior_pmid_collisions": 0
   },
   "category_counts": {
-    "stress_anxiety": 15,
-    "sleep": 31,
-    "withdrawal_nps": 45,
-    "mitochondrial_energy": 41,
-    "cardiometabolic": 22,
+    "stress_anxiety": 11,
+    "sleep": 30,
+    "withdrawal_nps": 50,
+    "cardiometabolic": 19,
     "cannabinoid_safety": 17,
+    "mitochondrial_energy": 30,
     "performance": 7,
-    "aging_sarcopenia": 16,
-    "micronutrients": 38,
-    "women_health": 45,
+    "aging_sarcopenia": 20,
+    "micronutrients": 49,
+    "women_health": 50,
     "gut": 23,
-    "immune_respiratory": 45,
+    "immune_respiratory": 41,
     "cognition_focus": 40,
-    "mood": 36,
-    "inflammation_pain": 27,
-    "metabolic": 31,
-    "botanicals_mushrooms": 21
+    "mood": 32,
+    "inflammation_pain": 23,
+    "metabolic": 34,
+    "botanicals_mushrooms": 24
   },
   "pub_type_counts": {
-    "Randomized Controlled Trial": 49,
-    "Meta-Analysis": 18,
-    "Systematic Review": 27,
-    "Clinical Trial, Phase II": 1,
+    "Randomized Controlled Trial": 44,
+    "Meta-Analysis": 17,
+    "Systematic Review": 26,
     "Clinical Trial, Phase III": 1,
     "Pragmatic Clinical Trial": 1,
     "Clinical Trial": 3,
     "Multicenter Study": 5,
-    "Observational Study": 19,
-    "Comparative Study": 11,
+    "Observational Study": 15,
+    "Comparative Study": 10,
     "Validation Study": 1,
-    "Review": 76,
+    "Review": 73,
     "Scoping Review": 1,
-    "Research Support, Non-U.S. Gov't": 21,
+    "Research Support, Non-U.S. Gov't": 19,
     "Research Support, N.I.H., Extramural": 4,
-    "Journal Article": 262
+    "Journal Article": 280
   },
-  "rejection_summary": {
-    "title_or_domain_or_publication_type_or_category_fit": 343
+  "rejected_before_assignment": {
+    "general_firewall": 67,
+    "category_outcome_fit": 332
   },
-  "hard_stop": "Do not call this batch finalized until every staged row has exact title + non-null abstract verification and passes abstract-level relevance review."
+  "hard_stop": "Candidate staging is not final enrichment. Every row must receive exact title + non-null abstract verification and abstract-level relevance review before finalization."
 }
