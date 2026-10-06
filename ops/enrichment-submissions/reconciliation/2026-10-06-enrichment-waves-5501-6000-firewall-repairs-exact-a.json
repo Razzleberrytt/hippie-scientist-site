@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000",
+  "row_count": 4,
+  "rows": [
+    {
+      "wave": 5517,
+      "category": "sleep",
+      "pmid": "33441476",
+      "title": "Efficacy of dietary supplements on improving sleep quality: a systematic review and meta-analysis.",
+      "abstract": "Different dietary supplements aimed at improving sleep quality are available on the market, but there has not been a comprehensive review to evaluate the efficacy of these dietary supplements on subjective sleep quality. We aimed to summarise up-to-date research evidence and to identify the types of dietary supplement that improve subjective sleep quality. Multiple databases (Ovid Emcare, Ovid MEDLINE (R) and Epub Ahead of Print, In-Process & Other Non-Indexed Citations and APA PsycInfo) were used for searching papers published until August 2020. The changes in sleep quality indices, intervention duration and sample size were extracted from every paper. To analyse the effect of dietary supplements on sleep quality, a random effects model with mean difference (MD) and 95% CI was adopted. The heterogeneity across studies was measured by I2 statistics. The quality of included studies was evaluated by Cochrane's risk of bias tool. Thirty-one randomised controlled trials of dietary supplements were included. Subjective sleep quality was significantly improved by supplementation of amino acids (MD -1.27, 95% CI -2.35 to -0.20; I2=0%), melatonin (MD -1.21, 95% CI -2.17 to -0.24; I2=79%) and vitamin D (MD -1.63, 95% CI -3.15 to -0.10; I2=85%). Although not all studies provided adequate data for meta-analysis, we also discussed how magnesium, zinc, resveratrol and nitrate supplementation may improve sleep quality. Amino acids, vitamin D and melatonin supplements were significantly beneficial to improve sleep quality. However, high heterogeneity and wide confidence levels were observed in vitamin D and melatonin. Further research on the effect of magnesium, zinc, resveratrol and nitrate supplementation on improving sleep quality is required.",
+      "journal": "Postgraduate medical journal",
+      "pub_date": "2022-Apr",
+      "pdf_link": "https://doi.org/10.1136/postgradmedj-2020-139319",
+      "full_text_link": null,
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    },
+    {
+      "wave": 5527,
+      "category": "sleep",
+      "pmid": "34092248",
+      "title": "Metabolic and hormonal effects of melatonin and/or magnesium supplementation in women with polycystic ovary syndrome: a randomized, double-blind, placebo-controlled trial.",
+      "abstract": "Polycystic ovary syndrome (PCOS) is one of the most common endocrine disorders among women of reproductive age. This study was designed to investigate the effects of melatonin and/or magnesium supplementation on metabolic profile and levels of sex hormones in PCOS women. In an 8-week randomized double-blind placebo-controlled trial, 84 subjects with PCOS aged 18-40 years were randomly assigned based on the random block procedure to take magnesium, melatonin, magnesium plus melatonin, and placebo. Fasting blood samples were obtained at the beginning and end of the study. After intervention, the mean Pittsburg Sleep Quality Index score decreased significantly in both co-supplementation and melatonin groups (P < 0.001). Magnesium supplementation in combination with melatonin resulted in a significant greater decrease in testosterone concentrations compared with the placebo (P < 0.05). Co-supplementation of magnesium-melatonin had significantly reduced serum insulin levels (geometric means difference: - 1.11 (mIU/mL) (percent change: - 15.99)), homeostasis model of assessment-insulin resistance (HOMA-IR) (- 0.28 (- 18.66)), serum cholesterol (mean difference: - 16.08 (mg/dl) [95% CI - 24.24, - 7.92]), low-density lipoprotein cholesterol (LDL-C) - 18.96 (mg/dl) [- 28.73, - 9.20]) and testosterone levels (- 0.09 (ng/ml) (- 25.00)), as compared to the baseline values (P < 0.05). An increase in serum high-density lipoprotein cholesterol (HDL-C) levels was also observed following the administration of the melatonin alone (2.76 (mg/dl) [0.57, 4.95]) or in combination with magnesium (2.19 (mg/dl) [0.61, 3.77]) (P < 0.05). Co-supplementation with magnesium and melatonin had beneficial effects on sleep quality and total testosterone. Additionally, melatonin supplementation alone was found to be associated with a significant reduction in PSQI score. Moreover, combined melatonin and magnesium supplementation was more effective in improving serum levels of cholesterol, LDL-C, HDL-C and insulin, and HOMA-IR. Iranian Registry of Clinical Trial. http://www.irct.ir : IRCT20191130045556N1, January 2020.",
+      "journal": "Nutrition & metabolism",
+      "pub_date": "2021-Jun-06",
+      "pdf_link": "https://doi.org/10.1186/s12986-021-00586-9",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8183043/",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    },
+    {
+      "wave": 5556,
+      "category": "women_health",
+      "pmid": "34590929",
+      "title": "Myoinositol versus metformin pretreatment in GnRH-antagonist cycle for women with PCOS undergoing IVF: a double-blinded randomized controlled study.",
+      "abstract": "To study the effects of myoinositol (Myo) in comparison to metformin (Met), in reducing the risk of OHSS and improving ART outcome in PCOS women undergoing IVF. Double-blinded randomized controlled trial (CTRI/2018/05/014196). ART Clinic, AIIMS, New Delhi patients: 102 infertile PCOS women undergoing IVF cycles were enrolled after evaluating for eligibility and allotted as 50 in group 1 (Myo) and 52 in group 2 (Met) after randomization. Recruited patients received Myo 2 g twice daily (group 1) and Met 850 mg twice daily (group 2). Pre- and post-treatment clinical (menstrual pattern, BMI), hormonal profile (LH, FSH, testosterone, prolactin [PRL], and AMH), biochemical parameters (HOMA IR, fasting glucose, and insulin), ovarian with antral follicle count (AFC) and side effect profile were assessed. After 3 months of therapy, patients were recruited for IVF cycle by antagonist protocol was involving controlled ovarian stimulation, cycle monitoring, oocyte recovery, insemination of oocytes and follow up with fertilization, cleavage, transfer of good grade cleavage embryos, or blastocysts pregnancy outcomes and OHSS incidence and medications was continued until the day of OPU. Primary outcome was OHSS and clinical pregnancy rate including spontaneous, IVF, and cumulative pregnancy rate including FET. Secondary outcome was ART outcomes and the change in biochemistry and hormonal profile between groups and inter group after medications at 12 weeks. Incidence of OHSS (Myo 5 (10.0) (n = 50), Met 10 (20.0) (n = 50) p .07) was not statistically different between groups. Clinical pregnancy rate (Myo 18 (36.0) (n = 50), Met 9 (18.0) (n = 50) p .04) cumulative pregnancy rate including FET (Myo 16 (43.2) (n = 37) vs. Met 10) 22.7) (n = 44) p .05) and spontaneous conception (prior to IVF) Myo 13 (26.0) (n = 50), Met 6 (12.0) (n = 50) p .07) was significantly high in Myo group. No between group difference in ovarian stimulation outcomes including duration and dosage of gonadotropins, E2, P4 levels, number of follicles >14 mm on day of trigger. Number of oocytes retrieved and grade of maturity were similar between groups. Fertilization, cleavage and number of good grade embryos were significantly higher in Myo group. However, implantation rate and number of embryos for freezing were similar between groups. Myo had improvement in fasting insulin, HOMA, Sr.AMH, and SHBG suggesting decreased insulin resistance. Myo is equally beneficial as Met in reducing the risk of OHSS and has better ART outcome in PCOS women undergoing antagonist cycles.",
+      "journal": "Gynecological endocrinology : the official journal of the International Society of Gynecological Endocrinology",
+      "pub_date": "2022-Feb",
+      "pdf_link": "https://doi.org/10.1080/09513590.2021.1981282",
+      "full_text_link": null,
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    },
+    {
+      "wave": 5557,
+      "category": "cognition_focus",
+      "pmid": "41032080",
+      "title": "Effect of Omega-3 Polyunsaturated Fatty Acid Supplements on Cognitive Performance in Patients with Mild Cognitive Impairment or Alzheimer's Disease: A Systematic Review and Meta-Analysis.",
+      "abstract": "A positive effect of omega-3 polyunsaturated fatty acids (n-3 PUFAs) on brain activity has been observed within subjects who have Alzheimer's disease (AD) or mild cognitive impairment (MCI). However, inconsistent findings have been reported regarding the efficacy or ineffectiveness of an n-3 PUFA dietary intervention for cognitive improvement. To address this problem, our thorough investigation and statistical analysis sought to assess the impact of n-3 PUFA dietary intake on cognitive function among persons diagnosed with AD or MCI. The databases consulted included PubMed, PubMed Central Library, and the Cochrane Library. Nine articles reporting on the findings of randomized controlled trials that looked at the link between n-3 PUFA intake and cognitive performance-related outcomes were included in the comprehensive evaluation, with the meta-analysis utilizing 7 of these. Key details such as author, publication year, study area, research type, pathology (MCI or AD), were incorporated into the data extraction procedure. Evaluation of the included studies used Cochrane risk-of-bias instruments, a random-effects model, standardized mean differences (SMDs) and 95% CIs. Our findings have provided evidence of the effectiveness of an n-3 PUFA treatment in improving Full-Scale IQ (FSIQ) (SMD -0.82; 95% CI: -1.57, -0.08; P = .000), information processing (SMD -2.90; 95% CI: -5.25, -0.56; P = .000), and digit span/working memory/attention aspects of cognitive functioning (SMD -1.89; 95% CI: -3.27, -0.51; P = .000). No evidence was found for the effectiveness of an n-3 PUFA treatment in improving image completion (SMD -0.07; 95% CI: -0.50, 0.35; P = .000), picture layout (SMD -0.08; 95% CI: -0.32, 0.16; P = .075), block design SMD -0.15; 95% CI: -0.37, 0.03; P = .123), or arithmetic aspects of cognitive functioning (SMD -0.33; 95% CI: -0.61, 0.04; P = .007). In summary, n-3 PUFAs have been found to significantly affect some domains of cognitive function, such as FSIQ, information processing, and digit span/working memory/attention in subjects with MCI. However, no significant effect was observed for some domains, such as picture completion, picture arrangement, or block design.",
+      "journal": "Nutrition reviews",
+      "pub_date": "2025-Oct-01",
+      "pdf_link": "https://doi.org/10.1093/nutrit/nuaf167",
+      "full_text_link": null,
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    }
+  ]
+}
