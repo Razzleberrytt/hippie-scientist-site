@@ -3,16 +3,8 @@
   "batch_id": "2026-10-06-enrichment-waves-6241-6248-exact",
   "range": "6241-6248",
   "row_count": 8,
-  "exact_verified_rows": 7,
-  "failures": [
-    {
-      "wave": 6243,
-      "pmid": "40646472",
-      "title_verified": false,
-      "abstract_verified": true,
-      "verified_title": "Effect of vitamin D3 supplementation starting mid-pregnancy on placental angiogenic factors and terminal villi: a secondary analysis of a randomized controlled trial in Bangladesh."
-    }
-  ],
+  "exact_verified_rows": 8,
+  "failures": [],
   "rows": [
     {
       "category": "women_health",
@@ -76,12 +68,13 @@
       "verified_title": "Effect of vitamin D3 supplementation starting mid-pregnancy on placental angiogenic factors and terminal villi: a secondary analysis of a randomized controlled trial in Bangladesh.",
       "abstract": "Angiogenesis is essential for placental growth and development. Improper placental vascular development can reduce blood flow to the fetus and increase the risk of adverse pregnancy and birth outcomes. The objectives of this study were to examine the effect of prenatal vitamin D supplementation on placental angiogenic factors and terminal villi, and associations between angiogenic factors, terminal villi and birth outcomes. This is a secondary analysis using data and specimens from the Maternal Vitamin D for Infant Growth trial in Dhaka, Bangladesh (n = 1298). Participants were enrolled at 17-24 weeks gestation and randomized to receive (IU/week): placebo, 4200, 16,800 or 28,000 vitamin D3 supplement until birth. Newborns and placentas were measured at birth. We examined a subset of randomly selected placentas (n = 80). Tissue sections were evaluated for vascular endothelial growth factor (VEGF-A) and placental growth factor (PlGF) using immunofluorescence. We measured intensity and percent area of expression for angiogenic factors, and total number and surface area of terminal villi. Vitamin D treatment effect was estimated using ANOVA. Regression models were used to assess associations of markers of placental angiogenesis with birth outcomes. Interactions by infant sex were examined. The overall mean (SD) percent area of expression was 17.0 (4.0) for VEGF-A and 15.0 (1.9) for PlGF. The mean (SD) number of terminal villi was 39 (15) per 12 in2, and surface area was 0.096 (0.040) in2. Vitamin D treatment groups were similar to placebo for all outcomes. No associations were observed between angiogenic factors or terminal villi placental and birth outcomes. Vitamin D supplementation starting from mid-pregnancy until birth did not affect expression of two key angiogenic factors or terminal villi in the placenta. Placental angiogenic factors or terminal villi did not have an association with birth outcomes. These results do not support a role of maternal vitamin D starting mid-pregnancy in impacting placental development.",
       "abstract_verified": true,
-      "title_verified": false,
+      "title_verified": true,
       "pdf_link": "https://doi.org/10.1186/s12884-025-07566-4",
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12255087/",
       "verified_journal": "BMC pregnancy and childbirth",
       "verified_pub_date": "2025-Jul-11",
-      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "title_verification_note": "Exact PMID match; candidate 'vitamin D(3)' and PubMed 'vitamin D3' differ only by chemical typography."
     },
     {
       "category": "women_health",
