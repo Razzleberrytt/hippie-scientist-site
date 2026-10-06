@@ -3,7 +3,7 @@
   "batch_id": "2026-10-06-enrichment-waves-5501-6000",
   "range": "5501-5510",
   "row_count": 10,
-  "verified_count": 9,
+  "verified_count": 10,
   "rows": [
     {
       "wave": 5501,
@@ -227,18 +227,18 @@
       "discovery_query": "((ashwagandha[Title/Abstract] OR lavender[Title/Abstract] OR aromatherapy[Title/Abstract] OR kava[Title/Abstract] OR rhodiola[Title/Abstract] OR theanine[Title/Abstract] OR magnesium[Title/Abstract]) AND (anxiety[Title] OR anxious[Title] OR \"psychological stress\"[Title] OR \"perceived stress\"[Title] OR \"stress management\"[Title])) AND hasabstract[text] AND 2000:2026[pdat] NOT retracted publication[pt] NOT case reports[pt]",
       "source_state": "replacement_candidate_pending_exact_verification",
       "strict_title_outcome_fit": true,
-      "abstract": null,
-      "abstract_verified": false,
-      "exact_title_verified": false,
+      "abstract": "Background/objectives: During pregnancy, women can experience stress, anxiety, and insomnia, which affect their health and wellbeing. Since many conventional medications are contraindicated for pregnant women, there is a need to find alternative therapies for alleviating their discomfort. Lavender essential oil (EO) is recognized for its calming and relaxing properties; therefore, our goal was to review current knowledge of lavender EO use to reduce anxiety and stress as well as to improve sleep quality in pregnant women. Methods: We conducted a comprehensive literature search in 11 databases that included clinical trials published between 2000 and 2022. Results: Of the 251 articles found, only 6, comprising a total of 413 participants that used lavender EO during the second or third trimester of pregnancy, met the inclusion/exclusion criteria. One trial measured sleep quality, one measured anxiety, two measured both anxiety and stress, and two measured only stress. All studies reported significant (at least p < 0.05) improvement in the respective conditions and no adverse effects. Conclusions: The results obtained suggest that although the use of lavender EO during pregnancy has shown to have certain efficacy, given the small number of participants and lack of strong scientific literature, more studies are needed to provide further evidence on this topic.",
+      "abstract_verified": true,
+      "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11641599/",
       "pdf_link": "https://doi.org/10.3390/healthcare12232456",
-      "state": "verification_failed",
+      "state": "research_only_exact_verified_pending_relevance",
       "old_pmid": "42609096",
       "old_title": "Lysine-metal complexes modulate nutrient and gene responses in Pb-stressed maize (Zea mays L.).",
-      "verified_title": null,
+      "verified_title": "Efficacy of Lavender Essential Oil in Reducing Stress, Insomnia, and Anxiety in Pregnant Women: A Systematic Review.",
       "verified_journal": null,
       "verified_pub_date": null,
-      "source": "NCBI PubMed EFetch via Sider Scholar"
+      "source": "PubMed public record exact retrieval"
     },
     {
       "wave": 5510,
