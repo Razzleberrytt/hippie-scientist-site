@@ -22,8 +22,9 @@
     "final_relevance_repairs_applied": 83
   },
   "repairs_applied": {
-    "post_review_replacements": 18,
-    "pmc_link_hardening": "authoritative receipt full_text_link values nulled pending independent PMID↔PMCID verification"
+    "post_review_replacements": 28,
+    "pmc_link_hardening": "authoritative receipt full_text_link values nulled pending independent PMID↔PMCID verification",
+    "second_pass_category_drift_replacements": 10
   },
   "category_counts": {
     "aging_sarcopenia": 46,
@@ -33,19 +34,19 @@
     "cognition_focus": 44,
     "gut": 36,
     "mood": 14,
-    "immune_respiratory": 42,
+    "immune_respiratory": 45,
     "inflammation_pain": 30,
-    "metabolic": 34,
-    "micronutrients": 33,
-    "mitochondrial_energy": 35,
+    "metabolic": 35,
+    "micronutrients": 30,
+    "mitochondrial_energy": 34,
     "withdrawal_nps": 33,
     "performance": 5,
     "women_health": 24,
     "sleep": 11
   },
   "state_counts": {
-    "research_only_exact_verified_final": 402,
-    "research_only_exact_verified_review_replacement": 84,
+    "research_only_exact_verified_final": 392,
+    "research_only_exact_verified_review_replacement": 94,
     "research_only_exact_verified_override_r5b": 13,
     "research_only_exact_verified_final_shortage_repair": 1
   },
@@ -1267,12 +1268,12 @@
     },
     {
       "wave": 4636,
-      "pmid": "42800169",
-      "doi": "10.1016/j.bioadv.2026.215188",
-      "title": "Evaluation of electrospun scaffolds for potential use as lamellar corneal DMEK transplants in eye surgery.",
+      "pmid": "42757117",
+      "doi": "10.3389/fpubh.2026.1934083",
+      "title": "Long-term night shift work and cardiometabolic health in healthcare workers: a review of mechanisms and precision intervention strategies.",
       "pub_type": null,
       "category": "cardiometabolic",
-      "state": "research_only_exact_verified_final"
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4637,
@@ -2851,12 +2852,12 @@
     },
     {
       "wave": 4812,
-      "pmid": "42726146",
-      "doi": "10.1007/s10495-026-02423-x",
-      "title": "Berberine shows potential in mitigating PM(2.5)-induced breast cancer progression by inducing DNA damage and inhibiting error-prone DNA repair pathways.",
+      "pmid": "42710936",
+      "doi": "10.1136/bmjdrc-2026-005937",
+      "title": "Selective advantages, selective mismatches, chronic inflammation, obesity, and type 2 diabetes: a new hypothesis to explain the effects of natural selection on genetic variation at the ectodysplasin A receptor locus.",
       "pub_type": null,
       "category": "metabolic",
-      "state": "research_only_exact_verified_final"
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4813,
@@ -3094,12 +3095,12 @@
     },
     {
       "wave": 4839,
-      "pmid": "42789486",
-      "doi": "10.12659/ajcr.952933",
-      "title": "Pure Red Cell Aplasia Following Neoadjuvant Docetaxel/Carboplatin/Trastuzumab (TCbH) in a 45‑Year‑Old Woman With Breast Cancer Successfully Treated With Cyclosporine.",
+      "pmid": "42737786",
+      "doi": "10.3390/ijms27177889",
+      "title": "The Role of Metals and Trace Elements in the Pathogenesis of Osteoarthritis and Other Rheumatic Diseases.",
       "pub_type": null,
       "category": "micronutrients",
-      "state": "research_only_exact_verified_final"
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4840,
@@ -3112,12 +3113,12 @@
     },
     {
       "wave": 4841,
-      "pmid": "42785774",
-      "doi": "10.1136/bcr-2026-273228",
-      "title": "Jejunal metastatic melanoma presenting with occult gastrointestinal haemorrhage and refractory anaemia.",
+      "pmid": "42747744",
+      "doi": "10.1111/jcmm.71367",
+      "title": "Downregulating CHI3L2 via the STAT3 Pathway: The Mechanism of Calcitriol in Suppressing Psoriatic Inflammation and Keratinocyte Hyperproliferation.",
       "pub_type": null,
       "category": "micronutrients",
-      "state": "research_only_exact_verified_final"
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4842,
@@ -3220,12 +3221,12 @@
     },
     {
       "wave": 4853,
-      "pmid": "42833850",
-      "doi": "10.1136/bcr-2026-274113",
-      "title": "Reduced venesection requirement as a clue to occult colorectal cancer in hereditary haemochromatosis.",
+      "pmid": "42804122",
+      "doi": "10.1007/s13181-026-01160-6",
+      "title": "Acrodynia and CASPR2 Autoimmunity in Elemental Mercury Toxicity.",
       "pub_type": null,
       "category": "micronutrients",
-      "state": "research_only_exact_verified_final"
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4854,
@@ -3283,12 +3284,12 @@
     },
     {
       "wave": 4860,
-      "pmid": "42783385",
-      "doi": "10.3390/medsci14050512",
-      "title": "Blood Transfusion in End-of-Life Cancer Care: Clinical Evidence, Patient Blood Management and Goal-Concordant Practice.",
+      "pmid": "42704536",
+      "doi": "10.1186/s43556-026-00557-7",
+      "title": "The ubiquitin-editing enzyme A20 (TNFAIP3): mechanisms of activation, biological function, diseases and therapeutic targets.",
       "pub_type": null,
-      "category": "micronutrients",
-      "state": "research_only_exact_verified_final"
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4861,
@@ -3310,12 +3311,12 @@
     },
     {
       "wave": 4863,
-      "pmid": "42807947",
-      "doi": "10.7150/ijbs.134874",
-      "title": "ZIP1-dependent lymphatic adaptations facilitate lymph node metastasis of pancreatic cancer.",
+      "pmid": "42823066",
+      "doi": "10.1093/jimmun/vkag261",
+      "title": "Context-dependent regulation of cytotoxic T lymphocytes by nuclear receptors.",
       "pub_type": null,
-      "category": "micronutrients",
-      "state": "research_only_exact_verified_final"
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4864,
@@ -3328,12 +3329,12 @@
     },
     {
       "wave": 4865,
-      "pmid": "42787014",
-      "doi": "10.3389/fendo.2026.1901279",
-      "title": "Systematic adolescent-centered supportive care program is associated with improved psychological status, treatment adherence, and social adaptation in adolescents with thyroid cancer undergoing radioiodine-131 therapy: a retrospective before-after cohort study with historical controls.",
+      "pmid": "42828482",
+      "doi": "10.1002/jmv.71173",
+      "title": "RBM6 Facilitates RLR-Mediated Antiviral Responses by Promoting K63-Linked Ubiquitination of MAVS.",
       "pub_type": null,
-      "category": "micronutrients",
-      "state": "research_only_exact_verified_final"
+      "category": "immune_respiratory",
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4866,
@@ -3508,12 +3509,12 @@
     },
     {
       "wave": 4885,
-      "pmid": "42827216",
-      "doi": "10.1208/s12249-026-03546-9",
-      "title": "Glutamine-tagged Sorafenib and Atorvastatin Coloaded Polymeric Nanoparticles for Hybrid Cell Death Induction in Colorectal Cancer: Part I Formulation, Characterization, In-vitro/In-vivo Safety and Efficacy Evaluation.",
-      "pub_type": "Journal Article",
-      "category": "mitochondrial_energy",
-      "state": "research_only_exact_verified_final"
+      "pmid": "42364341",
+      "doi": "10.1016/j.prp.2026.156604",
+      "title": "Rewiring lipid metabolism in diabetic kidney disease: Pathogenic networks and the therapeutic convergence of natural products.",
+      "pub_type": null,
+      "category": "metabolic",
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4886,
@@ -3751,12 +3752,12 @@
     },
     {
       "wave": 4912,
-      "pmid": "42760521",
-      "doi": "10.1186/s12904-026-02336-1",
-      "title": "Satisfaction with treatment decision-making and long-term experiences of life-prolonging treatments for metastatic castration-resistant prostate cancer.",
+      "pmid": "42356225",
+      "doi": "10.3390/nu18121837",
+      "title": "Eating Habits, Body Weight Perception, and Psycho-Emotional Factors Among Romanian University Students: A Cross-Sectional Study.",
       "pub_type": null,
       "category": "mood",
-      "state": "research_only_exact_verified_final"
+      "state": "research_only_exact_verified_review_replacement"
     },
     {
       "wave": 4913,
