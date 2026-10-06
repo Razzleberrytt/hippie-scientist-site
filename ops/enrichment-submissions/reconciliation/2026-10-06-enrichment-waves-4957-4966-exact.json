@@ -5,29 +5,10 @@
   "summary": {
     "range": "4957-4966",
     "rows": 10,
-    "exact_title": 7,
-    "abstract_verified": 7,
+    "exact_title": 10,
+    "abstract_verified": 10,
     "hard_off_domain": [],
-    "quarantined": [
-      {
-        "wave": 4958,
-        "pmid": "42714737",
-        "title": "Cluster-derived immunometabolic profiles: association with glycemic dysregulation in elderly postmenopausal women.",
-        "state": "quarantine"
-      },
-      {
-        "wave": 4961,
-        "pmid": "42696221",
-        "title": "Restless legs syndrome in pregnancy: Frequency, sleep quality, and questionnaire-defined risk of obstructive sleep apnea syndrome.",
-        "state": "quarantine"
-      },
-      {
-        "wave": 4964,
-        "pmid": "42777736",
-        "title": "Living Evidence for Australian Pregnancy and Postnatal Care (LEAPP): Transforming the Australian Pregnancy and Postnatal Care Guidelines.",
-        "state": "quarantine"
-      }
-    ]
+    "quarantined": []
   },
   "rows": [
     {
@@ -68,17 +49,17 @@
       "selection_score": 2,
       "wave": 4958,
       "state": "discovered_candidate_pending_exact_verification",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "Cluster-derived immunometabolic profiles: association with glycemic dysregulation in elderly postmenopausal women.",
+      "verified_journal": "Endocrine",
+      "verified_pub_date": "2026-Sep-09",
+      "abstract": "To identify variations in immunometabolic profiles in elderly postmenopausal women using a data-driven clustering approach and to examine differences in insulin resistance (HOMA-IR) and glycemic control (HbA1c) across the derived profiles. This cross-sectional study included 132 women with a mean age of 70.8 years. Unsupervised hierarchical cluster analysis (Ward.D2 method, squared Euclidean distance) was performed using twelve variables spanning demographic, hemodynamic, metabolic, inflammatory, and vitamin D-related domains. HbA1c and HOMA-IR were compared across clusters; HOMA-IR was not fully independent of cluster derivation because fasting glucose contributes to its calculation. Between-cluster differences were assessed using Kruskal-Wallis tests or one-way ANOVA. DSCF post-hoc tests and epsilon-squared (ε²) effect sizes were used for non-parametric comparisons. Three cluster-derived profiles were identified (Cluster 1, n = 25; Cluster 2, n = 50; Cluster 3, n = 57). Cluster 1 was characterized by lower IL-10 levels and a less favorable lipid profile, while blood pressure was similarly elevated in Clusters 1 and 2 relative to Cluster 3. Cluster 2 showed an overall intermediate profile, with the lowest vitamin D concentration as its most distinctive feature. Cluster 3 exhibited lower blood pressure, higher IL-10 levels, and a more favorable lipid profile. When examining these additional glycemic measures, HbA1c showed a graded increase across clusters (p < 0.05 for all pairwise comparisons), whereas HOMA-IR differed between Cluster 3 and Clusters 1 and 2 but did not differ significantly between Clusters 1 and 2. The differentiation of elderly postmenopausal women into three data-driven immunometabolic profiles illustrated substantial heterogeneity. These findings suggest that HbA1c may provide complementary information to fasting-based indices when characterizing immunometabolic heterogeneity in elderly postmenopausal women.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13558278/",
+      "pdf_link": "https://doi.org/10.1007/s12020-026-04762-w",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_pending_relevance_review"
     },
     {
       "category": "women_health",
@@ -143,17 +124,17 @@
       "selection_score": 2,
       "wave": 4961,
       "state": "discovered_candidate_pending_exact_verification",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "Restless legs syndrome in pregnancy: Frequency, sleep quality, and questionnaire-defined risk of obstructive sleep apnea syndrome.",
+      "verified_journal": "Neurological sciences : official journal of the Italian Neurological Society and of the Italian Society of Clinical Neurophysiology",
+      "verified_pub_date": "2026-Sep-04",
+      "abstract": "This study aimed to investigate the frequency of Restless Legs Syndrome (RLS) in pregnant women and its relationship with sleep quality and the questionnaire-defined risk of obstructive sleep apnea syndrome (OSAS). This cross-sectional study included 208 pregnant women, and RLS was diagnosed according to the International Restless Legs Syndrome Study Group criteria. RLS severity and disease-specific quality of life were evaluated using the International Restless Legs Syndrome Rating Scale (IRLS) and the Restless Legs Syndrome Quality of Life (RLS-QoL) questionnaire. Sleep quality and daytime sleepiness were assessed using the Pittsburgh Sleep Quality Index (PSQI) and the Epworth Sleepiness Scale (ESS), while the risk of OSAS was evaluated using the STOP-Bang and Berlin questionnaires. RLS was identified in 69 women (33.2%) and was more common in the third trimester than in the earlier trimesters (39.0% vs. 23.8%). Women with RLS had lower serum iron and hemoglobin levels, and higher ESS, PSQI, and STOP-Bang scores; poor sleep quality and a high questionnaire-defined OSAS risk were also significantly more frequent in this group. Even after adjusting for trimester, hemoglobin, and weight gain, women with RLS were approximately 6.6 times more likely to have poor sleep quality (OR: 6.56, 95% CI: 3.45-15.77, p=0.001); RLS presence also significantly increased the STOP-Bang score (β=0.320, p<0.001). RLS is a common condition during pregnancy, particularly in the third trimester, and is independently associated with poorer sleep quality and a higher questionnaire-defined OSAS risk after adjusting for trimester, hemoglobin, and gestational weight gain. These findings suggest that pregnant women with RLS may benefit from routine assessment for sleep-related problems to support timely diagnosis and appropriate management.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10532405/",
+      "pdf_link": "https://doi.org/10.1007/s10072-026-09348-y",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_pending_relevance_review"
     },
     {
       "category": "women_health",
@@ -218,17 +199,17 @@
       "selection_score": 2,
       "wave": 4964,
       "state": "discovered_candidate_pending_exact_verification",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "Living Evidence for Australian Pregnancy and Postnatal Care (LEAPP): Transforming the Australian Pregnancy and Postnatal Care Guidelines.",
+      "verified_journal": "The Medical journal of Australia",
+      "verified_pub_date": "2026-Sep",
+      "abstract": "The Living Evidence for Australian Pregnancy and Postnatal Care (LEAPP) program was established in 2023 to update and transition the Australian Pregnancy Care Guidelines into living guidelines and to establish new, living Australian Postnatal Care Guidelines. The program is a collaboration of the Australian Living Evidence Collaboration (ALEC), the Australian College of Midwives, the Royal Australian and New Zealand College of Obstetricians and Gynaecologists and 23 other Australian health organisations. The guidelines are developed using methods designed to meet the National Health and Medical Research Council standards. Clinical questions are prioritised by clinician and lived experience input. For each prioritised question, evidence is reviewed using systematic methods (existing published reviews or conducted de novo), contextual factors such as feasibility and equity are considered and new or updated recommendations are drafted. A lived experience panel and multidisciplinary clinical panels review draft recommendations. Unanimous endorsement by all 25 partner organisations is required before publication. Surveillance searches are conducted for most topic areas every 6 months. New and updated content is progressively added to the published guidelines. As of August 2026 (version 11), the Australian Pregnancy Care Guidelines include 277 recommendations on more than 80 topics; 229 are new or updated since 2023. The new Australian Postnatal Care Guidelines include 149 recommendations on more than 20 topics. The guidelines are published online at https://livingevidence.org.au/living-guidelines/leapp/. New or updated recommendations include continuity of care, assessment and support on vaping, increased testing for syphilis, reduced testing for proteinuria, guidance on progesterone and cervical cerclage to prevent preterm birth, bereavement support, assessment and support for psychological birth trauma, screening for family violence, side sleeping in later pregnancy and a recommendation against vitamin D.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13600773/",
+      "pdf_link": "https://doi.org/10.5694/mja2.70301",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_pending_relevance_review"
     },
     {
       "category": "women_health",
