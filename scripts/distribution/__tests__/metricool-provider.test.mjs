@@ -272,17 +272,13 @@ describe('Metricool public media staging', () => {
   })
 })
 
-describe('Metricool workflow retry safety', () => {
-  it('persists a durable governed-identity reservation before provider dispatch', () => {
+describe('Metricool workflow freeze contract', () => {
+  it('cannot dispatch canonical publication outside THS Publisher', () => {
     const workflow = fs.readFileSync(path.resolve('.github/workflows/metricool-publication.yml'), 'utf8')
-    const check = workflow.indexOf('Check durable dispatch reservation')
-    const reserve = workflow.indexOf('Reserve exact governed identity before provider dispatch')
-    const dispatch = workflow.indexOf('Schedule governed publication in Metricool')
-    expect(workflow).toContain('/actions/artifacts')
-    expect(workflow).toContain('metricool-dispatch-reservation-${IDEMPOTENCY_KEY}')
-    expect(workflow).toContain('A durable Metricool dispatch reservation already exists')
-    expect(check).toBeGreaterThan(-1)
-    expect(reserve).toBeGreaterThan(check)
-    expect(dispatch).toBeGreaterThan(reserve)
+    expect(workflow).toContain('Metricool Publication (Frozen)')
+    expect(workflow).toContain('Metricool canonical publication is frozen')
+    expect(workflow).toContain('canonical publication_id')
+    expect(workflow).not.toContain('METRICOOL_USER_TOKEN')
+    expect(workflow).not.toContain('schedule-metricool-publication.mjs')
   })
 })

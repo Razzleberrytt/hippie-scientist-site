@@ -64,7 +64,7 @@ export function createBoundedPilotPackage({ selection, packageData, mediaPack, a
     publication: {
       mode: 'dry-run',
       livePublicationAuthorized: false,
-      externalBlocker: 'Live scheduling requires an explicit Metricool Publication workflow invocation and server-side Metricool credentials; this pilot never posts by itself.',
+      externalBlocker: 'Live dispatch requires an authorized THS Publisher platform adapter and provider/account authorization; this governed pilot never posts by itself.',
     },
     measurementPlan: {
       primaryMetric: selected.successCriteria.primaryMetric,
