@@ -317,6 +317,7 @@ export function recordPublicationObservation(job, {
   provider,
   status,
   receipt = null,
+  nextState = null,
   now = new Date().toISOString(),
 } = {}) {
   assertJob(job)
@@ -324,7 +325,11 @@ export function recordPublicationObservation(job, {
   const observedStatus = clean(status)
   if (!providerId || !observedStatus) throw new Error('publication observation requires provider and status')
   const at = iso(now, 'publication observation time')
+  if (nextState !== null && !['PROVIDER_ACCEPTED', 'AWAITING_USER_POST'].includes(nextState)) {
+    throw new Error('publication observation nextState must be PROVIDER_ACCEPTED or AWAITING_USER_POST')
+  }
   const next = structuredClone(job)
+  if (nextState) next.state = nextState
   next.observerReceipts = [
     ...(next.observerReceipts || []),
     {
