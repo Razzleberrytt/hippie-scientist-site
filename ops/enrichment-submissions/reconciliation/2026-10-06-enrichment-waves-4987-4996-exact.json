@@ -5,23 +5,10 @@
   "summary": {
     "range": "4987-4996",
     "rows": 10,
-    "exact_title": 8,
-    "abstract_verified": 8,
+    "exact_title": 10,
+    "abstract_verified": 10,
     "hard_off_domain": [],
-    "quarantined": [
-      {
-        "wave": 4994,
-        "pmid": "42771738",
-        "title": "Assessment and comparison of coronal discoloration induced by natural derivatives as intracanal medicament: An in vitro observational study.",
-        "state": "quarantine"
-      },
-      {
-        "wave": 4996,
-        "pmid": "42720146",
-        "title": "Time-Dependent Changes in Pulmonary Artery Pressure and Biventricular Function After Adenotonsillar Surgery: A Tissue Doppler Echocardiography Study.",
-        "state": "quarantine"
-      }
-    ]
+    "quarantined": []
   },
   "rows": [
     {
@@ -220,17 +207,17 @@
       "state": "discovered_candidate_pending_exact_verification",
       "rejection_reason": null,
       "wave": 4994,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
+      "verified_title": "Assessment and comparison of coronal discoloration induced by natural derivatives as intracanal medicament: An in vitro observational study.",
+      "verified_journal": "Journal of the Indian Society of Pedodontics and Preventive Dentistry",
+      "verified_pub_date": "2026-Sep-01",
+      "abstract": "Tooth discoloration is a multifactorial condition that may result from pulpal hemorrhagic products, residual pulpal tissue, intracanal medicaments, obturating, and temporary filling materials. The discoloration potential of intracanal medicaments is of particular concern, especially in anterior teeth where esthetic outcomes are critical. Various intracanal medicaments are used in endodontics, with calcium hydroxide (Ca[OH]2) being the most common. In recent era, various new intracanal medicaments (propolis, bromelain, etc.) have been introduced. Thus, assessment of the discoloration potential due to these medicaments is essential for achieving optimal esthetic outcomes. The aim of the present study was to evaluate the discoloration potential of bromelain, propolis, Ca(OH)2, and modified triple antibiotic paste (mTAP). The objectives were to assess and compare discoloration at baseline (T0), 1 week (T1), and 21 days (T2) using a spectrophotometer. Ninety-two extracted human permanent mandibular premolars were biomechanically prepared up to size #40. The samples were randomly divided into four experimental groups ( n = 23). Bromelain, mTAP, propolis, and Ca(OH)2. ΔE values were calculated and compared with baseline readings. Statistical analysis was performed using analysis of variance, Tukey's/Dunn's post hoc tests, and paired t -tests, with P < 0.05 considered significant. At 21 days, mTAP (14.25 ± 4.193) demonstrated significantly higher ∆ i values, followed by bromelain (12.81 ± 4.157), Ca(OH)2 (11.53 ± 3.53), and propolis (9.06 ± 6.44). Bromelain showed visible but less progressive discoloration, indicating its potential as an alternative intracanal medicament.",
+      "abstract_verified": true,
+      "title_match_score": 1,
       "full_text_link": null,
-      "pdf_link": null,
+      "pdf_link": "https://doi.org/10.4103/jisppd.jisppd_339_26",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_pending_relevance_review"
     },
     {
       "category": "performance",
@@ -272,17 +259,17 @@
       "state": "discovered_candidate_pending_exact_verification",
       "rejection_reason": null,
       "wave": 4996,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "Time-Dependent Changes in Pulmonary Artery Pressure and Biventricular Function After Adenotonsillar Surgery: A Tissue Doppler Echocardiography Study.",
+      "verified_journal": "Echocardiography (Mount Kisco, N.Y.)",
+      "verified_pub_date": "2026-Sep",
+      "abstract": "Upper airway obstruction caused by adenotonsillar hypertrophy may affect the heart in children through chronic negative intrathoracic pressure and increased pulmonary vascular load. This study evaluated changes over time in pulmonary artery pressure and right and left ventricular systolic and diastolic function after adenotonsillar surgery using conventional echocardiography and tissue Doppler imaging (TDI). This prospective observational study included non-obese children aged 5-11 years with clinically and endoscopically confirmed adenotonsillar hypertrophy who underwent adenoidectomy, tonsillectomy, or adenotonsillectomy. Echocardiography was performed before surgery and at 1 and six months after surgery by the same operator. We assessed systolic pulmonary artery pressure (sPAP), conventional echocardiographic measures, tricuspid and mitral annular plane systolic excursion (TAPSE and MAPSE), tissue Doppler systolic and diastolic velocities, myocardial performance index (MPI), and ejection time (ET) for both ventricles. SPAP decreased significantly over time, with significant differences between all three time points after Bonferroni adjustment. TAPSE and MAPSE were within age-adjusted normal ranges before surgery but both changed significantly over time. TAPSE increased progressively, while MAPSE was higher at both postoperative visits than at baseline. Right ventricular TDI showed significant time effects for lateral e' velocity and the tricuspid e'/a' ratio; lateral s' did not change significantly. In the mitral annulus, significant time effects were seen for lateral e', septal e', and septal a'. After Bonferroni adjustment, only lateral e' was higher at six months than at baseline, while septal a' differed only between 1 and six months. MPI and ET did not change significantly in either ventricle, and conventional echocardiographic measures remained normal throughout follow-up. Adenotonsillar surgery was associated with an early fall in pulmonary artery pressure and different patterns of change in the two ventricles. Right ventricular changes were more prominent, including an early and progressive increase in TAPSE, while left ventricular diastolic changes were later and more limited. Because conventional echocardiographic measures remained normal, the clinical importance of the modest TDI changes is uncertain.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13560099/",
+      "pdf_link": "https://doi.org/10.1111/echo.70622",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_pending_relevance_review"
     }
   ]
 }
