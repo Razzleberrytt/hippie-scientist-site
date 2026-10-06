@@ -104,11 +104,18 @@ Not yet active in v0.1. Until the Meta adapter is implemented and authorized, Fa
 
 **Frozen as a canonical publisher.**
 
-Historical Metricool provider IDs, URLs, publication evidence, and analytics remain valid historical observations. Existing Metricool code is retained temporarily for reproducibility and rollback, but new SocialOS identity must not depend on Metricool IDs or planner state.
+Historical Metricool provider IDs, URLs, publication evidence, and analytics remain valid historical observations. Both Metricool publication workflows and the executable scheduling CLI are hard-frozen; lower-level provider/measurement code is retained only for historical reproducibility, analytics continuity, and rollback archaeology. New SocialOS identity must not depend on Metricool IDs or planner state.
 
 If Metricool is used again, it must be registered as a replaceable Publisher adapter and return receipts beneath an existing `publication_id`.
 
+## Operator entry point
+
+Trusted owner publication uses `.github/workflows/ths-publisher-publication.yml`, directly or through the owner-only `/publish-ths` issue-comment bridge. The request must identify the experiment, exact research-object ID, platform, and offset-aware intended time. The workflow rebuilds the current governed identity, refuses a research-object mismatch, enqueues the canonical job, and delegates dispatch to the server runtime.
+
+GitHub Actions receives only `THS_PUBLISHER_ADMIN_TOKEN`; TikTok client credentials and user tokens remain inside Cloudflare.
+
 ## Deployment
+
 
 Cloudflare production needs:
 
