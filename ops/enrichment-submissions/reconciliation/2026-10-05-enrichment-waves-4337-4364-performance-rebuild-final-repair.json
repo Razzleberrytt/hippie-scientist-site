@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "batch": "performance-rebuild-final-repair",
+  "rows": [
+    {
+      "wave": 4346,
+      "pmid": "42832309",
+      "replaces_pmid": "42832309",
+      "category": "performance",
+      "title": "Exercise combined with creatine supplementation for skeletal muscle hypertrophy: mechanistic basis, nutritional context, and applications.",
+      "verified_title": "Exercise combined with creatine supplementation for skeletal muscle hypertrophy: mechanistic basis, nutritional context, and applications.",
+      "verified_journal": "Critical reviews in food science and nutrition",
+      "verified_pub_date": "2026-Oct-05",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "category_firewall_pass": true,
+      "focus": "Creatine supplementation is one of the most widely studied nutritional strategies for enhancing resistance-training adaptations and skeletal muscle development. This narrative review evaluates the evidence linking creatine supplementation with skeletal muscle hypertrophy, integrating mechanistic insights, nutritional considerations, and practical applications. Current evidence indicates that creatine primarily supports hypertrophic adaptation by increasing phosphocreatine availability and enhancing the capacity to perform high-intensity training, thereby increasing the mechanical stimulus for muscle growth. Creatine-associated increases in lean mass should, however, be interpreted cautiously because changes may reflect a combination of intracellular water expansion, glycogen-associated water storage, and genuine increases in contractile tissue. Proposed molecular mechanisms, including anabolic signaling, myogenic regulation, myostatin modulation, and satellite-cell-related responses, remain biologically plausible but vary considerably in evidential strength and require further validation in contemporary human trials. Individual responses may be influenced by age, sex, baseline creatine status, dietary patterns, and training characteristics. From a nutritional perspective, creatine-fortified foods represent a promising application area, although formulation stability, processing challenges, and consumer acceptance require further investigation. Future research should prioritize standardized hypertrophy assessments and longer-duration interventions to clarify the direct and indirect contributions of creatine to skeletal muscle adaptation.",
+      "pdf_link": "https://doi.org/10.1080/10408398.2026.2742761",
+      "full_text_link": null,
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "state": "selected_exact_verified"
+    },
+    {
+      "wave": 4358,
+      "pmid": "37293750",
+      "replaces_pmid": "37293750",
+      "category": "performance",
+      "title": "Effect of Combined Grape Seed Extract and L-Citrulline Supplementation on Hemodynamic Responses to Exercise in Young Males.",
+      "verified_title": "Effect of Combined Grape Seed Extract and L-Citrulline Supplementation on Hemodynamic Responses to Exercise in Young Males.",
+      "verified_journal": "Journal of dietary supplements",
+      "verified_pub_date": "2023",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "category_firewall_pass": true,
+      "focus": "Grape seed extract (GSE) or L-citrulline supplement has been known to increase nitric oxide (NO) bioavailability and enhance endothelial-mediated vasodilation. Accordingly, to examine the additive benefits of combination of the two supplementations on hemodynamic responses to dynamic exercise, young, healthy males were recruited for this study. Effects of 7 days of 1) GSE + L-citrulline, 2) GSE, 3) L-citrulline, and 4) placebo supplementation on systolic blood pressure (SBP), diastolic blood pressure (DBP), mean arterial blood pressure (MAP), cardiac output, total vascular conductance (TVC), and oxygen (O2) consumption were examined at rest and during cycling exercise. Compared with placebo, GSE, L-citrulline, and combined supplementations did not reduce SBP, DBP, and MAP, while cardiac output (placebo; 23.6 ± 1.3 L/min, GSE; 25.7 ± 1.1 L/min; L-citrulline, 25.2 ± 1.2 L/min; GSE + L-citrulline; 25.3 ± 0.9 L/min) and TVC (placebo; 234.7 ± 11.3 ml/min/mmHg, GSE; 258.3 ± 10.6 ml/min/mmHg; L-citrulline, 255.2 ± 10.6 ml/min/mmHg; GSE + L-citrulline; 260.4 ± 8.9 ml/min/mmHg) were increased at only the 80% workload (p < 0.05). Compared with placebo and L-citrulline, GSE and combined supplementations had a reduction in VO2 across workloads (p < 0.05). However, there was no additive benefits on these variables. We conclude that supplementation with GSE, L-citrulline, and combined supplementations increased cardiac output due partially to decreased vascular resistance. Our findings suggest that GSE may act as an ergogenic aid that can improve O2 delivery to exercising muscles.",
+      "pdf_link": "https://doi.org/10.1080/19390211.2021.2023246",
+      "full_text_link": null,
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "state": "selected_exact_verified"
+    },
+    {
+      "wave": 4363,
+      "pmid": "42830777",
+      "replaces_pmid": "39199970",
+      "category": "performance",
+      "title": "Acute Effects of a Low Dose of Caffeine on Physiological and Performance Factors in Young Male Soccer Players: A Randomized Crossover Study.",
+      "verified_title": "Acute Effects of a Low Dose of Caffeine on Physiological and Performance Factors in Young Male Soccer Players: A Randomized Crossover Study.",
+      "verified_journal": "Current developments in nutrition",
+      "verified_pub_date": "2026-Oct",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "category_firewall_pass": true,
+      "focus": "This research aimed to study the acute consumption of caffeine on the performance of young male soccer players in the Loughborough soccer passing test (LSPT) and Yo-Yo intermittent recovery test level 1 (YYIR1), and also on the heart rate (HR), blood pressure (BP), and rate pressure product (RPP), immediately after the YYIR1. In a randomized, counterbalanced, crossover design, 12 young male soccer players (16.5 ± 0.52 y; 63 ± 8.06 kg; training background: 4-5 sessions/wk) voluntarily completed 2 distinct experimental sessions: 1) caffeine and 2) placebo. In each test session, 1 h after taking a caffeine or placebo (flour) capsule (3 mg·kg-1), the participants first completed the LSPT and then the YYIR1. HR, systolic BP (SBP), and diastolic BP (DBP) were measured before the start, 1 h after the start, and immediately after the end of the YYIR1. Because the Shapiro-Wilk test confirmed the normality of the data, parametric tests [repeated-measures analysis of variance (ANOVA) and dependent t-test] were used to analyze the research questions. Two-way repeated-measures ANOVA revealed significant main effects of condition (P = 0.006) and time (P < 0.001) for HR, without a significant condition × time interaction (P = 0.144); however, post hoc analysis showed significantly higher HR after caffeine ingestion compared with placebo immediately after the YYIR1 (P = 0.025). A significant condition × time interaction was observed for DBP (P = 0.014), although pairwise comparisons showed no significant post hoc differences (all P ≥ 0.101). No significant main or interaction effects were found for SBP or RPP (all P ≥ 0.066). Within the limits of the current sample size, acute ingestion of 3 mg·kg-1 caffeine elicited modest physiological responses in adolescent soccer players, significantly augmenting postexercise HR without substantially altering BP, RPP, or soccer-specific performance factors. However, given the observed numerical improvements in functional test results, these findings should be interpreted cautiously, as low-dose caffeine may offer subtle practical benefits that warrant further investigation with greater statistical power.",
+      "pdf_link": "https://doi.org/10.1016/j.cdnut.2026.109528",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13634077/",
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "state": "selected_exact_verified"
+    }
+  ]
+}
