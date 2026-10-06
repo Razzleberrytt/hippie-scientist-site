@@ -60,16 +60,26 @@ curl -sS https://thehippiescientist.net/api/tiktok/connection \
 
 ## Governed draft delivery
 
+The owner control-plane shortcut is a strict issue comment command:
+
+```text
+/publish-ths {"experiment_id":"EXP-014","research_object_id":"rhodiola-vs-ashwagandha","publication_at":"2026-10-07T10:00:00-04:00","platform":"tiktok"}
+```
+
+That command dispatches the trusted-main `THS Publisher Publication` workflow. It does not call Metricool and does not expose TikTok OAuth credentials to GitHub Actions.
+
+
 The production/operator path is:
 
 ```bash
 THS_PUBLISHER_ADMIN_TOKEN="..." \
 THS_EXPERIMENT_ID="EXP-014" \
+THS_RESEARCH_OBJECT_ID="rhodiola-vs-ashwagandha" \
 THS_PUBLICATION_AT="2026-10-07T10:00:00-04:00" \
 node scripts/distribution/upload-tiktok-draft.mjs
 ```
 
-The command creates/enqueues the canonical publication job first, then calls `/api/publisher/dispatch`. It refuses to dispatch unless:
+The command creates/enqueues the canonical publication job first, then calls `/api/publisher/dispatch`. `THS_RESEARCH_OBJECT_ID` must exactly match the currently governed deployed opportunity, preventing an experiment ID from being attached to whichever artifact happens to be current. It refuses to dispatch unless:
 
 - the current deployed publication manifest is provider-ready;
 - the media is a single governed vertical-video MP4;
