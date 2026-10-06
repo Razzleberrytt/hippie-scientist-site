@@ -12,14 +12,23 @@
     "unique_pmids": 500,
     "duplicate_pmids": 0,
     "prior_pmid_collisions": 0,
-    "retained_r6_verified_rows": 417,
+    "retained_r6_verified_rows": 416,
     "semantic_overrides": 48,
     "exact_failure_overrides": 35,
-    "exact_verified_rows": 500
+    "exact_verified_rows": 500,
+    "prior_collision_overrides": 1
   },
   "artifacts": {
     "manifest": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-5501-6000-r7-final-manifest.json",
     "cumulative_index": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-5501-6000-r7-pmid-index.json",
     "status": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-5501-6000-r7-final-status.json"
+  },
+  "review_repairs": {
+    "manifest_verified_base_receipts_added": 2,
+    "prior_collision_replacements": 1,
+    "prior_collision_repair_wave": 5710,
+    "replaced_prior_pmid": "42680255",
+    "replacement_pmid": "42772368",
+    "predecessor_index": "2026-10-06-enrichment-waves-5001-5500-pmid-index-r3.json"
   }
 }
