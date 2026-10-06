@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000",
+  "row_count": 4,
+  "verified_count": 4,
+  "rows": [
+    {
+      "wave": 5521,
+      "category": "stress_anxiety",
+      "pmid": "11807960",
+      "title": "Effect of kava and valerian on human physiological and psychological responses to mental stress assessed under laboratory conditions.",
+      "abstract": "This study investigated whether kava or valerian could moderate the effects of psychological stress induced under laboratory conditions in a group of healthy volunteers. Fifty-four participants performed a standardized colour/word mental stress task on two occasions 1 week apart. Blood pressure (BP), heart rate (HR) and subjective ratings of pressure were assessed at rest and during the mental stress task. Following the first session (time 1 = T1), individuals took a standard dose of kava (n = 18), or valerian (n = 18) for 7 days, while the remainder acted as controls (n = 18). Differences in BP and HR from resting levels were calculated as reactions to the stress task at both time points. At the second session (time 2 = T2) there was a significant decrease in systolic BP responsivity in both the kava and valerian groups relative to T1, but there were no significant reductions in diastolic BP. Between T1 and T2, the HR reaction to mental stress was found to decline in the valerian group but not in the kava group. Individuals taking kava or valerian reported less pressure during the task at T2 relative to T1. There were no significant differences in BP, HR or subjective reports of pressure between T1 and T2 in the controls. Behavioural performance on the colour/word task did not change between the groups over the two time points. The results suggest that kava and valerian may be beneficial to health by reducing physiological reactivity during stressful situations.",
+      "journal": "Phytotherapy research : PTR",
+      "pub_date": "2002-Feb",
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1002/ptr.1002",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    },
+    {
+      "wave": 5522,
+      "category": "stress_anxiety",
+      "pmid": "12590005",
+      "title": "Kava-Kava administration reduces anxiety in perimenopausal women.",
+      "abstract": "Disturbances of mood, such as anxiety and depression, increase in the perimenopausal period. Hormone replacement therapy or neuroactive drugs represent useful treatments for these disturbances but may be contraindicated or not accepted. Herein it was investigated the efficacy of Kava-Kava, an extract of Piper Methysticum, on mood of perimenopausal women. A 3-months randomized prospective open study investigating in perimenopausal women modifications induced by calcium supplementation (control; n=34), calcium plus Kava-Kava at the dose of 100 mg/day (n=15) or calcium plus Kava-Kava at the dose 200 mg/day (n=19). Anxiety was evaluated by the State Trait Anxiety Inventory (STAI); depression by the Zung's scale (SDS), and climacteric symptoms by the Greene's scale. Evaluations were performed at baseline and after 1 and 3 months. In the control group during the 3 months, anxiety, depression and climacteric symptoms tended to decline, but not significantly. During Kava-Kava anxiety declined (P<0.001) at 1 (-3.8+/-1.03) and 3 (-5.03+/-1.2) months, depression declined at 3 months (-5.03+/-1.4; P<0.002) and climacteric score declined (P<0.0006) at 1 (-2.87+/-1.5) and 3 (-5.38+/-1.3) months. Only the decline of anxiety induced by Kava-Kava was significantly greater than that spontaneously occurring in controls (P<0.009). The present data indicate that, in perimenopausal women, administration of Kava-Kava induces an improvement of mood, particularly of anxiety.",
+      "journal": "Maturitas",
+      "pub_date": "2003-Feb-25",
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1016/s0378-5122(02)00317-1",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    },
+    {
+      "wave": 5700,
+      "category": "performance",
+      "pmid": "27532605",
+      "title": "The Effects of Caffeine Supplementation on Physiological Responses to Submaximal Exercise in Endurance-Trained Men.",
+      "abstract": "The aim of this study was to evaluate the effects of caffeine on physiological responses to submaximal exercise, with a focus on blood lactate concentration ([BLa]). Using a randomised, single-blind, crossover design; 16 endurance-trained, male cyclists (age: 38 ± 8 years; height: 1.80 ± 0.05 m; body mass: 76.6 ± 7.8 kg; [Formula: see text]: 4.3 ± 0.6 L∙min-1) completed four trials on an electromagnetically-braked cycle ergometer. Each trial consisted of a six-stage incremental test (3 minute stages) followed by 30 minutes of passive recovery. One hour before trials 2-4, participants ingested a capsule containing 5 mg∙kg-1 of either caffeine or placebo (maltodextrin). Trials 2 and 3 were designed to evaluate the effects of caffeine on various physiological responses during exercise and recovery. In contrast, Trial 4 was designed to evaluate the effects of caffeine on [BLa] during passive recovery from an end-exercise concentration of 4 mmol∙L-1. Relative to placebo, caffeine increased [BLa] during exercise, independent of exercise intensity (mean difference: 0.33 ± 0.41 mmol∙L-1; 95% likely range: 0.11 to 0.55 mmol∙L-1), but did not affect the time-course of [BLa] during recovery (p = 0.604). Caffeine reduced ratings of perceived exertion (mean difference: 0.5 ± 0.7; 95% likely range: 0.1 to 0.9) and heart rate (mean difference: 3.6 ± 4.2 b∙min-1; 95% likely range: 1.3 to 5.8 b∙min-1) during exercise, with the effect on the latter dissipating as exercise intensity increased. Supplement × exercise intensity interactions were observed for respiratory exchange ratio (p = 0.004) and minute ventilation (p = 0.034). The results of the present study illustrate the clear, though often subtle, effects of caffeine on physiological responses to submaximal exercise. Researchers should be aware of these responses, particularly when evaluating the physiological effects of various experimental interventions.",
+      "journal": "PloS one",
+      "pub_date": "2016",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4988702/",
+      "pdf_link": "https://doi.org/10.1371/journal.pone.0161375",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    },
+    {
+      "wave": 5703,
+      "category": "performance",
+      "pmid": "27601217",
+      "title": "Beta-alanine supplementation enhances judo-related performance in highly-trained athletes.",
+      "abstract": "In official judo competitions, athletes usually engage in 5-7 matches in the same day, performing numerous high-intensity efforts interspersed by short recovery intervals. Thus, glycolytic demand in judo is high and acidosis may limit performance. Carnosine is a relevant intracellular acid buffer whose content is increased with beta-alanine supplementation. Thus, we hypothesized that beta-alanine supplementation could attenuate acidosis and improve judo performance. Twenty-three highly-trained judo athletes were randomly assigned to receive either beta-alanine (6.4gday-1) or placebo (dextrose, same dosage) for 4 weeks. Performance was assessed before (PRE) and after (POST) supplementation through a 5-min simulated fight (randori) followed by 3 bouts of the Special Judo Fitness Test (SJFT). Blood samples were collected for blood pH, bicarbonate (HCO3-) and lactate determination. Beta-alanine supplementation improved the number of throws per set and the total number of throws (both p<0.05). Placebo did not change these variables (both p>0.05). Blood pH and HCO3- reduced after exercise (all p<0.001), with no between-group differences (all p>0.05). However, the lactate response to exercise increased in the beta-alanine group as compared to placebo (p<0.05). In conclusion, 4 weeks of beta-alanine supplementation effectively enhance judo-related performance in highly-trained athletes.",
+      "journal": "Journal of science and medicine in sport",
+      "pub_date": "2017-Apr",
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1016/j.jsams.2016.08.014",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    }
+  ]
+}

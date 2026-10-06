@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000-r6",
+  "row_count": 2,
+  "rows": [
+    {
+      "wave": 5902,
+      "category": "botanicals_mushrooms",
+      "old_pmid": "42510917",
+      "old_title": "Elevated CO(2) as a Biostimulatory Approach to Enhance the Nutraceutical Potential of Ginseng.",
+      "pmid": "19090505",
+      "doi": "10.1002/hup.994",
+      "title": "St. John's wort and Kava in treating major depressive disorder with comorbid anxiety: a randomised double-blind placebo-controlled pilot trial.",
+      "journal": "Human psychopharmacology",
+      "pub_date": "2009-Jan",
+      "abstract": "We report the first randomised controlled trial (RCT) using a combination of St. John's wort (SJW) and Kava for the treatment of major depressive disorder (MDD) with comorbid anxiety. Twenty-eight adults with MDD and co-occurring anxiety were recruited for a double-blind RCT. After a placebo run-in of 2 weeks, the trial had a crossover design testing SJW and Kava against placebo over two controlled phases, each of 4 weeks. The primary analyses used intention-to-treat and completer analyses. On both intention-to-treat (p = 0.047) and completer analyses (p = 0.003), SJW and Kava gave a significantly greater reduction in self-reported depression on the Beck Depression Inventory (BDI-II) over placebo in the first controlled phase. However, in the crossover phase, a replication of those effects in the delayed medication group did not occur. Nor were there significant effects on anxiety or quality of life. There was some evidence of antidepressant effects using SJW and Kava in a small sample with comorbid anxiety. Possible explanations for the absence of anxiolysis may include a potential interaction with SJW, the presence of depression, or an inadequate dose of Kava.",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1002/hup.994",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    },
+    {
+      "wave": 5914,
+      "category": "botanicals_mushrooms",
+      "old_pmid": "42503062",
+      "old_title": "Integrated miRNA-mRNA-degradome analysis unveils the key regulatory mechanism of ginseng under temperature-water stress.",
+      "pmid": "19398072",
+      "doi": "10.1016/j.ctim.2009.01.001",
+      "title": "Kava Anxiety Depression Spectrum Study (KADSS): a mixed methods RCT using an aqueous extract of Piper methysticum.",
+      "journal": "Complementary therapies in medicine",
+      "pub_date": "2009-Jun",
+      "abstract": "To report on the design, significance and potential impacts of the first documented human clinical trial assessing the anxiolytic and thymoleptic efficacy of an aqueous mono-extract of Piper methysticum (kava). The significance of the qualitative element of our clinical trial is also explored. The Kava Anxiety Depression Spectrum Study (KADSS) is a 3-week placebo-controlled, double-blind, cross-over trial involving 60 adult participants (18-65) with elevated stable anxiety and varying levels of depressive symptoms. The aims of KADSS are: (1) to determine whether an aqueous standardised extract of kava is effective for the treatment of anxiety; (2) to assess the effects of kava on differing levels of depression; and (3) to explore participants' experience of taking kava via qualitative research. The study also provides preliminary assessment of the safety of an aqueous extract of kava in humans. If results reveal that the aqueous kava preparation exerts significant anxiolytic effects and appears safe, potentially beneficial impacts may occur. Data supporting a safe and effective kava extract may encourage a re-introduction of kava to Europe, UK and Canada. This may provide a major socioeconomic benefit to Pacific Island nations, and to sufferers of anxiety disorders.",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1016/j.ctim.2009.01.001",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    }
+  ]
+}
