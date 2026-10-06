@@ -2,10 +2,10 @@
 
 **Status:** Authoritative immediate execution queue
 **Sprint:** Governed Distribution MVP + Measurement Foundation
-**Updated:** 2026-10-05
+**Updated:** 2026-10-06
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (verified 2026-10-05):** Normal implementation WIP is **0/3**. #6258 / PR #6257 merged at `6151f17759b09bd0b9a73a605b58b70b813e8dda`; #6249 / PR #6252 and #6253 / PR #6254 were consolidated into that owner. All three normal lanes are free; this receipt admits no new work.
+**Current admission (verified 2026-10-06):** Normal implementation WIP is **1/3**. #6356 owns Revenue/Conversion / L5 for the first-party TikTok draft-upload provider, revalidated against exact base `1c123a71b488b44aae61d33deccd00ad7942e1e8`. Discovery/SEO and Authority/Content remain free.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -55,6 +55,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
+| R | #6356 | Add first-party TikTok draft-upload provider | Active — implementation | P0 | 93.8 | 2026-10-06 — current TikTok upload/API rules + Metricool limit failure verified |
 
 
 
@@ -135,7 +136,7 @@ Research-only enrichment staging is not canonical implementation admission. #633
 
 ## Ready next — strict dependency order
 
-Discovery/SEO is occupied by #6021; Revenue/Conversion and Authority/Content are free. Normal WIP is 1/3. No additional candidate becomes executable merely because two slots remain free; further work still requires a separate scored, fresh, non-overlapping admission transaction. Evidence, experiment, scientific, canonical, governance, and external-access gates remain unchanged.
+Revenue/Conversion is occupied by #6356; Discovery/SEO and Authority/Content are free. Normal WIP is 1/3. No additional candidate becomes executable merely because two slots remain free; further work still requires a separate scored, fresh, non-overlapping admission transaction. Evidence, experiment, scientific, canonical, governance, and external-access gates remain unchanged.
 
 ### Blocked or deferred candidates
 
