@@ -80,3 +80,48 @@ The crawl telemetry path is deliberately **fail open**: CIDR-fetch or telemetry-
 must never change crawler-visible status, content, canonical behavior, or response availability.
 See `experiments/crawl-request-indexing/README.md` for the manifest, randomization, freeze, and
 analysis contract.
+
+
+
+## Pages Function environment (THS Publisher / `functions/api/publisher/*`)
+
+THS Publisher is the first-party publication queue/control boundary. Provider IDs are receipts underneath a THS `publication_id`; they are not canonical identity.
+
+Set this server-only production secret:
+
+| Variable | Required | Purpose |
+|---|---|---|
+| `THS_PUBLISHER_ADMIN_TOKEN` | Yes | Bearer secret protecting enqueue/read/update/dispatch/observe/manual Publisher endpoints. |
+
+Create a Cloudflare D1 database for Publisher state, apply `migrations/0001_ths_publisher.sql`, and bind it to Pages Functions as:
+
+| Binding | Required | Purpose |
+|---|---|---|
+| `THS_PUBLISHER_DB` | Yes | Durable canonical publication jobs, immutable publication identity indexes, attempts, provider receipts, and Observer evidence. Missing binding fails closed. |
+
+The migration enforces a single non-cancelled writer per platform + intended-time slot; safe cancellation releases a slot only when no unresolved provider side effects exist. Due-work lookup returns only `QUEUED` jobs; `FAILED` and `NEEDS_RECONCILIATION` are never blindly auto-retried. Runtime transitions are exposed as explicit dispatch, observe, manual-receipt, and cancel endpoints; there is no generic whole-job replacement endpoint.
+
+See `docs/ths-publisher-v0.1.md` for the architecture, state machine, and transition policy.
+
+## Pages Function environment (TikTok draft upload / `functions/api/tiktok/*`)
+
+The first-party TikTok bridge is server-only. It uses TikTok Content Posting API `video.upload` to send a governed MP4 into the authorized creator's TikTok inbox/draft flow. It does not provide unattended Direct Post.
+
+Set these in **Cloudflare Pages → Settings → Environment variables (Production)**:
+
+| Variable | Required | Purpose |
+|---|---|---|
+| `TIKTOK_CLIENT_KEY` | Yes | TikTok developer-app client key. |
+| `TIKTOK_CLIENT_SECRET` | Yes | TikTok developer-app secret; server-only. |
+| `TIKTOK_REDIRECT_URI` | Yes | Exact registered OAuth callback; production value is `https://thehippiescientist.net/api/tiktok/callback`. |
+| `TIKTOK_PUBLISHER_ADMIN_TOKEN` | Yes | Long random bearer secret protecting connect/connection/upload/status endpoints. |
+
+Dedicated KV binding:
+
+| Binding | Required | Purpose |
+|---|---|---|
+| `TIKTOK_TOKEN_KV` | Yes | Stores short-lived OAuth state and the refreshable TikTok user token bundle, including rotated refresh tokens. Missing binding fails closed. |
+
+TikTok-side setup must approve `video.upload`, authorize the target creator account, register the callback URI, and verify ownership of `https://thehippiescientist.net/media/distribution/` for `PULL_FROM_URL`.
+
+See `docs/tiktok-draft-upload-provider.md` for setup, connection, upload, status, and failure semantics.
