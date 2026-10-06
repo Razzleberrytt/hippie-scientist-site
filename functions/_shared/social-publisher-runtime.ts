@@ -233,6 +233,9 @@ export async function observePublication(
     },
   ]
   next.updatedAt = observedAt
+  const publicPostIds = Array.isArray(observation.publicPostIds)
+    ? observation.publicPostIds.map((value) => clean(value)).filter(Boolean)
+    : []
 
   if (observation.failed) {
     next.state = 'FAILED'
@@ -243,8 +246,8 @@ export async function observePublication(
       at: observedAt,
       retryable: false,
     }
-  } else if (observation.publishComplete && observation.publicPostIds?.length) {
-    const externalId = String(observation.publicPostIds[0])
+  } else if (observation.publishComplete && publicPostIds.length) {
+    const externalId = publicPostIds[0]
     const receipt = {
       ...(next.providerReceipt || {}),
       provider: 'tiktok',
