@@ -47,9 +47,9 @@ describe('Metricool media-first live scheduling', () => {
       }))
       fs.writeFileSync(path.join(pilotDir, 'bounded-pilot.json'), JSON.stringify({ lifecycle }))
 
-      const mediaUrl = 'https://thehippiescientist.net/media/distribution/metricool/example/abc/carousel-01.png'
+      const mediaUrl = 'https://thehippiescientist.net/media/distribution/publisher/example/abc/carousel-01.png'
       const manifest = {
-        schemaVersion: 'metricool-publication-media-v1',
+        schemaVersion: 'ths-publication-media-v1',
         status: 'ready-for-provider',
         researchObjectId: identity.researchObjectId,
         lifecycleId: lifecycle.lifecycleId,
@@ -86,6 +86,7 @@ describe('Metricool media-first live scheduling', () => {
         manifestUrl: 'https://example.test/latest.json',
         publicationAt: '2026-09-01T14:00:00-04:00',
         networks: 'facebook',
+        autoPublish: false,
         userToken: 'secret',
         userId: '5228072',
         blogId: '6794242',
