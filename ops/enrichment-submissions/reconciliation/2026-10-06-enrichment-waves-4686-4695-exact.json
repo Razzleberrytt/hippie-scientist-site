@@ -5,14 +5,12 @@
   "summary": {
     "range": "4686-4695",
     "rows": 10,
-    "exact_title": 7,
-    "abstract_verified": 7,
+    "exact_title": 9,
+    "abstract_verified": 9,
     "hard_off_domain": [],
     "errors": [],
     "quarantine": [
-      4692,
-      4694,
-      4695
+      4694
     ]
   },
   "rows": [
@@ -179,17 +177,17 @@
       "selection_score": 2,
       "wave": 4692,
       "state": "discovered_candidate_pending_exact_verification",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "Prospects for Neuroprotective Therapies in Glaucoma: Drug Targets and Emerging Clinical Strategies.",
+      "verified_journal": "Drug design, development and therapy",
+      "verified_pub_date": "2026",
+      "abstract": "Management of glaucoma is now at an inflection point with a new generation of therapeutic candidates, whilst targeting intraocular pressure-independent strategies is challenged by the landmark Phase III failure of memantine regarding trial design and endpoint sensitivity. Preclinical research has identified promising targets including glutamate excitotoxicity, neurotrophic factor deprivation, and mitochondrial dysfunction, with nicotinamide emerging as a leading candidate due to its ability to robustly protect RGCs by supporting NAD levels and bioenergetics. Current clinical efforts are expanding into metabolic repurposing with agents (eg metformin and semaglutide), sustained-delivery systems with neurotrophic factors (eg ciliary neurotrophic factor implant), and functional enhancers (eg citicoline). To bridge the translational gap, the field is integrating new endpoints with higher sensitivity (eg advanced assessment of photopic negative response), AI-guided endpoint selection (eg graph attention neural network), novel biomarkers (eg detection of apoptotic retinal cells and neurofilament light chain in aqueous humor), and precision medicine frameworks (eg polygenic risk scores and multi-omics analysis) to develop the first clinically validated neuroprotective treatments for glaucoma.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13283388/",
+      "pdf_link": "https://doi.org/10.2147/DDDT.S612176",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_pending_relevance_review"
     },
     {
       "category": "cognition_focus",
@@ -254,17 +252,17 @@
       "selection_score": 5,
       "wave": 4695,
       "state": "discovered_candidate_pending_exact_verification",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "Gut microbiota signatures in mild cognitive impairment: a scoping review of microbial taxa and clinical implications.",
+      "verified_journal": "Frontiers in microbiology",
+      "verified_pub_date": "2026",
+      "abstract": "To identify systematically the typical gut microbiota in mild cognitive impairment patients and its association in disease progression. Systematically identify microbial taxa consistently associated with Mild Cognitive Impairment. A scoping review was performed according to the guidelines of the Joanna Briggs Institute using CoCoPop design. Several studies about gut microbiota sequencing in mild cognitive impairment diagnosed patients compared against healthy controls. Searches in PubMed, Embase, Scopus, and Web of Science using MeSH and DeCS terms, were performed up to December 2025. Two reviewers independently screened titles and abstracts. Then, the full texts were reviewed to select documents to be included. When there were disagreements in papers selection, those were resolved after discussions among the reviewers. Relevant data information from selected publications was extracted, and a descriptive analysis was made. The documents do not show drastic changes in the alpha or beta diversity of the microbiota, but they do identify consistent alterations in the relative abundance of specific taxa that allow patients with MCI to be distinguished from healthy controls. Among the most relevant findings is the decrease in SCFA-producing genera, such as Ruminococcus and Lachnospira, whose reduction is directly associated with the deterioration of key brain functions, including synaptic processes and neuronal oxidative metabolism. On the other hand, there is an increase in proinflammatory taxa such as Bacteroides, a pattern that is similar to that observed in patients with Alzheimer's disease, although generally less pronounced. The results highlight that alterations in the abundance of specific bacteria, characterized by the loss of protective taxa and an increase in proinflammatory bacteria, serve as early biomarkers for detecting and predicting Mild Cognitive Impairment (MCI). This pattern of proinflammatory dysbiosis can be identified even in preclinical stages, and it has been proposed as a potential noninvasive tool for early diagnosis and therapeutic intervention before dementia progresses.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13627313/",
+      "pdf_link": "https://doi.org/10.3389/fmicb.2026.1895237",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_pending_relevance_review"
     }
   ]
 }
