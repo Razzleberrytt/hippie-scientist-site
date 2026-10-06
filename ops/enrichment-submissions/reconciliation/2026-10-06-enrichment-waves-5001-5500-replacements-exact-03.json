@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5001-5500",
+  "rows": [
+    {
+      "wave": 5469,
+      "category": "botanicals_mushrooms",
+      "pmid": "41470859",
+      "title": "Opuntia dillenii as a Nutraceutical and Dietary Resource for Disease Prevention and Management: A Systematic Review.",
+      "abstract": "Chronic diseases are leading causes of morbidity and mortality worldwide and their prevalence is increasing due to aging and lifestyle factors. A central element in their pathophysiology is chronic low-grade inflammation, linking metabolic, cardiovascular, neurodegenerative, and proliferative disorders. In this context, Opuntia dillenii, a cactus species traditionally used in folk medicine, has attracted considerable scientific interest due to its promising nutraceutical potential. This systematic review was conducted through a PRISMA-guided literature search using PubMed, Scopus, and Web of Science, identifying 45 studies that analyze the phytochemical composition and biological activity of O. dillenii. The compounds highlighted include betalains, polyphenols, flavonoids, and polysaccharides that exhibit potent anti-inflammatory and analgesic effects by modulating key inflammatory mediators. In addition, O. dillenii demonstrates antiproliferative activity, inducing apoptosis and inhibiting tumor growth in various in vivo models, suggesting a potential role in cancer prevention and as a complementary therapy. The cactus also exhibits antiatherogenic and hypotensive effects, as well as hypolipidemic and antidiabetic properties by improving lipid profiles, reducing serum cholesterol and triglycerides, and enhancing insulin sensitivity. Furthermore, its protective actions against tissue damage extend its therapeutic potential. Antimicrobial properties have also been reported, reinforcing its value as a functional food. Taken together, the evidence supports the use of O. dillenii as a versatile nutraceutical resource with a low toxicity profile, capable of contributing to the prevention and treatment of various chronic inflammatory and metabolic diseases. Nevertheless, human clinical trials are needed to validate these findings and explore their full therapeutic utility.",
+      "journal": "Nutrients",
+      "pub_date": "2025-Dec-14",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12735451/",
+      "pdf_link": "https://doi.org/10.3390/nu17243915",
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact replacement verification"
+    },
+    {
+      "wave": 5472,
+      "category": "botanicals_mushrooms",
+      "pmid": "41185016",
+      "title": "Effectiveness of curcumin mouthwash in preventing traumatic ulcers in orthodontic patients.",
+      "abstract": "Orthodontic treatment can cause traumatic ulcers within the first month due to friction and irritation. Curcumin, a turmeric extract, exhibits analgesic, anti-inflammatory, antibacterial, and wound-healing properties. This study investigated the effectiveness of curcumin mouthwash in preventing traumatic ulcers in fixed orthodontic patients during the first month of treatment. In this double-blind, placebo-controlled, randomized clinical trial, 70 patients aged 12-30 years were assigned to curcumin or placebo mouthwash, used twice daily for 28 days after bracket cementation. Primary outcomes were (1) incidence and (2) duration of traumatic ulcers. Secondary outcomes included pain scores, ulcer sites, adverse effects, plaque index (PI), gingival index (GI), gingival bleeding index (GBI), and patient feedback. Data were analyzed using descriptive statistics and SPSS software. All 70 patients completed the trial, with 35 participants in the curcumin group (mean age 20.88 ± 4.87 years) and 35 in the placebo group (mean age 18.60 ± 4.20 years). No significant between-group differences were observed in the incidence or duration of traumatic ulcers (p > 0.05). Patients in the curcumin group reported significantly lower pain scores compared with those in the placebo group during the first and second weeks (p < 0.05), indicating an early analgesic effect; however, no significant differences were observed thereafter. The buccal mucosa was the most frequent ulcer site, and orthodontic wax use did not differ significantly between groups (p > 0.05). No adverse effects were reported in the curcumin group, and participants rated its smell as more pleasant. Baseline PI was lower in the curcumin group (p < 0.05), but no post-intervention differences were observed (p > 0.05). Within-group analyses showed a PI reduction in the placebo group and a GI reduction in the curcumin group (both p < 0.05), while GBI remained unchanged. Although ulcer prevention was not observed, curcumin mouthwash may serve as an adjunct for early pain relief in orthodontic patients. ClinicalTrials.gov (Identifier: NCT05147376), registered on December 7, 2021. Available at: https://clinicaltrials.gov/study/NCT05147376 .",
+      "journal": "BMC oral health",
+      "pub_date": "2025-Nov-03",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12581252/",
+      "pdf_link": "https://doi.org/10.1186/s12903-025-07141-5",
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact replacement verification"
+    },
+    {
+      "wave": 5486,
+      "category": "botanicals_mushrooms",
+      "pmid": "41173082",
+      "title": "Panax notoginseng saponins against ischemic stroke: From molecule to clinic.",
+      "abstract": "Ischemic stroke is a global public health problem with limited effective therapeutic options. Panax notoginseng saponins (PNS), the active extract derived from the well-known medicinal material called San-Qi in Chinese, has been widely used in the intervention of ischemic stroke. This systematic literature review aims to integrate the evidence for PNS against ischemic stroke and proposes future research directions. With \"Panax notoginseng saponins\" and \"ischemic stroke\" as keywords, we conducted systemic literature search across eight databases update to May 2025, including Scopus, PubMed, Embase, Web of Science, the Chinese National Knowledge Infrastructure, the Chinese Biomedical Database, the WanFang Database, and the Chinese Science and Technology Journals Database. Eligible studies focused on the phytochemical profiles, pharmacokinetic characteristics, pharmacological mechanisms, and clinical applications were integrated in this review. More than 200 saponins have been identified from PNS, with ginsenoside Rg1, Rb1, Rd, Re and notoginsenoside R1 accounts for 90 % of the saponins content. Extensive degradation in digestive tract and poor intestinal absorption are the primary reasons for low bioavailability of PNS. Pharmacological evidences suggest that PNS can regulate the oxidative stress, inflammatory responses, apoptosis, ferroptosis, pyroptosis, angiogenesis, and neurogenesis in ischemic stroke. It can support the treatment of ischemic stroke by lowering the neurological deficit score, inhibiting the inflammatory level, improving cerebral hemorheology, and promoting neurological function recovery. However, there are still some flaws in the research and application of PNS, including incomprehensive quality control, low bioavailability and the lack of high-quality clinical evidence (e.g. relatively small sample size and non-standardized drug combination). Existing experimental studies and clinical applications have indicated the therapeutic potential of PNS against ischemic stroke, but high-quality clinical trails are required for validation. Future studies should focus on the overall quality control involved rare ginsenosides, improvement of bioavailability, and high-quality clinical evidence.",
+      "journal": "Journal of ethnopharmacology",
+      "pub_date": "2026-Feb-10",
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1016/j.jep.2025.120834",
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact replacement verification"
+    },
+    {
+      "wave": 5491,
+      "category": "micronutrients",
+      "pmid": "41487531",
+      "title": "Efficacy of sublingual and oral vitamin B12 versus intramuscular administration: insights from a systematic review and meta-analysis.",
+      "abstract": "Vitamin B12 deficiency is a widespread condition, particularly among elderly individuals, patients with malabsorption syndromes, and those following plant-based diets. This systematic review and meta-analysis aimed to evaluate and compare the effectiveness of sublingual and oral vitamin B12 administration in comparison with intramuscular (IM) injections, both for improving serum cobalamin and reducing homocysteine levels. A comprehensive search was conducted across PubMed, Scopus, and Embase up to July 2024. Eligible studies included randomised controlled trials, cohort, and case-control studies assessing B12 supplementation efficacy via oral, sublingual, or IM administration routes. Meta-analyses were performed using random-effects models. Subgroup analyses evaluated four key factors: administration route efficacy, daily dosage, age group and clinical conditions that may affect vitamin B12 metabolism (e.g., underlying pathology). Sixteen studies were included in the quantitative synthesis, comprising a total of 6,098 participants. Vitamin B12 supplementation was associated with a significant increase in serum cobalamin levels across all routes of administration (pooled mean difference = +402.6 pg/mL; 95% CI: 293.6 to 511.5; p < 0.001). Homocysteine levels were also significantly reduced across all groups (pooled mean difference = -4.83 μmol/L; 95% CI: -6.55 to -3.11; p < 0.001). No statistically significant differences were observed between oral, sublingual, and intramuscular (IM) routes of administration (p = 0.270 for cobalamin levels and p = 0.485 for homocysteine levels), nor between randomised controlled trials and observational studies (p = 0.268 for cobalamin levels). No dose-response effect was observed (p = 0.485), suggesting that absorption efficiency rather than dosage may be the determining factor. Subgroup analyses by age and clinical conditions (e.g., gastrectomy, unspecified deficiency) revealed comparable efficacy across populations. However, heterogeneity was substantial (I2 > 80% in most comparisons), and Egger's test indicated potential publication bias. Given the high heterogeneity, further studies are needed to confirm the results. Sublingual and oral B12 supplementation appear to be as effective as intramuscular (IM) injections in improving cobalamin status and reducing homocysteine levels. Given their non-invasive nature, accessibility, and cost-effectiveness of sublingual formulations, they may represent a promising approach for long-term B12 management, particularly in patients with impaired absorption or in resource-limited settings. Further high-quality RCTs are warranted to refine dosing strategies and confirm long-term outcomes. CRD42024554513.",
+      "journal": "Frontiers in pharmacology",
+      "pub_date": "2025",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12757266/",
+      "pdf_link": "https://doi.org/10.3389/fphar.2025.1602976",
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact replacement verification"
+    },
+    {
+      "wave": 5499,
+      "category": "micronutrients",
+      "pmid": "41448804",
+      "title": "Impact evaluation of a population-based 'Screen and Treat for Anaemia Reduction (STAR)' strategy: a cluster randomised trial in rural Telangana, India.",
+      "abstract": "Population level screen and treat approach for anaemia reduction could be beneficial but its feasibility and impact remains to be tested. This cluster randomised trial in rural Telangana included 14 clusters randomised (1:1) to either intervention or control arms. A cluster included all participants (6 months to 50 years) served by a frontline health worker. In the intervention arm, participants were screened for anaemia at point of care, using WHO 2011 cut-offs, followed by iron-folic acid (IFA) supplementation as per the national guidelines. The control arm participants were eligible for benefits of an ongoing national programme. The primary outcome was mean difference (MD) in haemoglobin between two arms at 6 months. The trial was registered at CTRI (CTRI/2019/01/016918). Baseline characteristics of participants in the intervention (n=6131) and control (n=5255) arms were broadly similar. In the intervention arm, 88.6% of eligible participants were screened and intervention was delivered to 97% of participants. There was no difference in population haemoglobin (g/dL) between the arms (MD 0.03, 95% CI -0.06 to 0.12, p=0.464). However, after adjustment for relevant confounders, mean haemoglobin in the intervention arm was significantly higher (MD 0.25 g /dL, 95% CI 0.03 to 0. 48, p=0.028). Anaemia prevalence was lower in the intervention than the control arm in total sample (29.6% vs 32.5%, p=0.002) as well as in adolescent girls (40.7% vs 56.0%, p<0.001) and women of reproductive age (WRA, 52% vs 56.5%, p=0.02). Compliance to IFA (% consumption of prescribed dose) was 32% and 47.5% in those receiving therapeutic and prophylactic doses, respectively. This study demonstrates the feasibility of implementing a population level screen and treat approach. The intervention reduced anaemia prevalence significantly among vulnerable groups, particularly adolescent girls and WRA. Modest improvement in population haemoglobin and anaemia reduction suggests a need for strategies to improve the compliance to IFA. CTRI/2019/01/016918.",
+      "journal": "BMJ global health",
+      "pub_date": "2025-Dec-25",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12742117/",
+      "pdf_link": "https://doi.org/10.1136/bmjgh-2025-020633",
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact replacement verification"
+    },
+    {
+      "wave": 5500,
+      "category": "aging_sarcopenia",
+      "pmid": "41485966",
+      "title": "Individualized Nutritional Rehabilitation Improves Muscle Strength, Cognitive Function, and Quality of Life in Elderly Patients with Sarcopenia and Cognitive Impairment: A Randomized Controlled Trial.",
+      "abstract": "Sarcopenia, the progressive loss of muscle mass and strength, greatly affects the elderly. Combined with cognitive impairment, it severely impairs physical function and quality of life. While personalized nutritional rehabilitation programs are proposed, their efficacy remains understudied. To evaluate the effects of individualized nutritional rehabilitation on clinical symptoms and prognosis in elderly patients with sarcopenia and cognitive impairment. This randomized controlled trial enrolled 96 patients with sarcopenia and cognitive impairment (March 2022-March 2023), randomly assigned to intervention (individualized nutritional rehabilitation plus standard care, n=48) or control groups (standard care only, n=48). Assessments included nutritional markers (hemoglobin, albumin, vitamin D), muscle strength (Medical Research Council scale), balance (Berg Balance Scale), physical performance (Short Physical Performance Battery), activities of daily living, grip strength, 5-times sit-to-stand test, 6-m walk speed, cognitive function (Montreal Cognitive Assessment), and quality of life pre- and post-intervention. Post-intervention, the intervention group showed significantly higher hemoglobin, albumin, vitamin D, and lower Patient-Generated Subjective Global Assessment scores (all p<0.05). They demonstrated superior improvements in upper/lower limb strength, Short Physical Performance Battery, Berg Balance Scale, Activities of Daily Living scores, grip strength, sit-to-stand time, and 6-min walk distance (all p<0.05). Montreal Cognitive Assessment scores improved more in the intervention group (25.3±3.2 vs 22.1±3.5, p<0.05). Quality of life improved significantly more in the intervention versus control group (p<0.05). Individualized nutritional rehabilitation effectively improves nutritional status, muscle strength, physical function, cognitive performance, and quality of life in elderly patients with sarcopenia and cognitive impairment.",
+      "journal": "Journal of nutritional science and vitaminology",
+      "pub_date": "2025",
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.3177/jnsv.71.507",
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact replacement verification"
+    }
+  ]
+}

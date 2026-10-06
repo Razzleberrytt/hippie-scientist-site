@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5001-5500",
+  "status": "FINALIZED_PENDING_REPOSITORY_GATES",
+  "row_count": 500,
+  "first_wave": 5001,
+  "last_wave": 5500,
+  "contiguous": true,
+  "exact_verified_rows": 500,
+  "unique_pmids": 500,
+  "prior_pmid_collisions": 0,
+  "duplicate_pmids": 0,
+  "duplicate_normalized_dois": 0,
+  "duplicate_normalized_titles": 0,
+  "hard_off_domain_title_hits": 0,
+  "replacement_rows": 35,
+  "prior_unique_pmids": 4935,
+  "cumulative_unique_pmids": 5435,
+  "research_only_boundary": true,
+  "notes": [
+    "No published entities, recommendations, dosing claims, or runtime admission are created by this batch.",
+    "Finalization used exact PubMed title and non-null abstract verification plus replacement of off-domain/non-human/unusable rows.",
+    "The updated upstream ledger was rechecked after staging; 13 stale PMID collisions were replaced before final PASS."
+  ]
+}
