@@ -17,9 +17,10 @@
   "verification": {
     "exact_title_match": "500/500",
     "abstract_verified": "500/500",
-    "contiguous_wave_coverage": true
+    "contiguous_wave_coverage": true,
+    "objective_off_domain_review": "10 replaced; 0 retained"
   },
-  "repairs_applied": 52,
+  "repairs_applied": 62,
   "category_counts": {
     "aging_sarcopenia": 44,
     "botanicals_mushrooms": 41,
@@ -40,9 +41,10 @@
     "stress_anxiety": 12
   },
   "state_counts": {
-    "selected_exact_verified": 448,
+    "selected_exact_verified": 438,
     "research_only_exact_verified_repair": 51,
-    "research_only_exact_verified_repair_r2": 1
+    "research_only_exact_verified_repair_r2": 1,
+    "research_only_exact_verified_domain_repair": 10
   },
   "waves": [
     {
@@ -326,12 +328,12 @@
     },
     {
       "wave": 4032,
-      "pmid": "42776349",
-      "doi": "10.1186/s11671-026-04887-x",
-      "title": "Nanoparticle delivery of Chinese medicine monomers for remodeling the colorectal cancer immune microenvironment.",
+      "pmid": "42719322",
+      "doi": "10.1016/j.jgr.2026.101108",
+      "title": "The roles of ginseng and ginsenosides for immune regulation: Relation to immunometabolic responses.",
       "pub_type": "Review",
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair"
     },
     {
       "wave": 4033,
@@ -938,12 +940,12 @@
     },
     {
       "wave": 4100,
-      "pmid": "42792223",
-      "doi": "10.3390/antiox15091184",
-      "title": "Oxidative Stability and Nanoencapsulation of Marine Omega-3 LC-PUFAs for Sustainable Aquaculture and Human Health.",
+      "pmid": "42715777",
+      "doi": "10.1016/j.plefa.2026.102769",
+      "title": "Omega-3 fatty acids in vegetarian and vegan diets: Translating evidence into practice.",
       "pub_type": "Review",
       "category": "cardiometabolic",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair"
     },
     {
       "wave": 4101,
@@ -2018,12 +2020,12 @@
     },
     {
       "wave": 4220,
-      "pmid": "42615159",
-      "doi": "10.1021/acsami.6c08302",
-      "title": "Amyloid-Reinforced Hyaluronic Acid Composite Hydrogel Enabling Controlled Curcumin Delivery, Antibiofilm Photothermal Therapy, and Accelerated Diabetic Wound Healing.",
+      "pmid": "42635976",
+      "doi": "10.1177/10538127261477951",
+      "title": "Temporal effects of Palmitoylethanolamide (PEA) in modulating knee osteoarthritis symptoms: A randomized, double-blind, placebo-controlled trial.",
       "pub_type": "Journal Article",
       "category": "inflammation_pain",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair"
     },
     {
       "wave": 4221,
@@ -2333,12 +2335,12 @@
     },
     {
       "wave": 4255,
-      "pmid": "42801811",
-      "doi": "10.1016/j.psj.2026.107785",
-      "title": "Nano-selenium, organic selenium, and novel selenium sources: Which is best for clean and sustainable poultry production?",
-      "pub_type": "Journal Article; Review",
+      "pmid": "42833517",
+      "doi": "10.1016/j.tjnut.2026.101858",
+      "title": "Higher lipoprotein(a) concentration is associated with a blunted response to iron repletion in women with low iron stores: a secondary analysis of a randomized controlled trial.",
+      "pub_type": "Journal Article",
       "category": "micronutrients",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair"
     },
     {
       "wave": 4256,
@@ -2414,12 +2416,12 @@
     },
     {
       "wave": 4264,
-      "pmid": "42819040",
-      "doi": "10.3389/fpls.2026.1929375",
-      "title": "Elevated CO 2 and the hidden hunger crisis: mechanisms, magnitudes, and mitigation of micronutrient dilution in staple crops.",
-      "pub_type": "Journal Article; Review",
+      "pmid": "42808019",
+      "doi": "10.1155/ijod/9264740",
+      "title": "Adjunctive Effects of a 2% Zinc Citrate Toothpaste on Plaque and Oral Microbiota in Orthodontic Patients: A Randomized Controlled Trial.",
+      "pub_type": "Journal Article",
       "category": "micronutrients",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair"
     },
     {
       "wave": 4265,
@@ -3422,12 +3424,12 @@
     },
     {
       "wave": 4376,
-      "pmid": "42704990",
-      "doi": "10.1016/j.colsurfb.2026.116142",
-      "title": "Biohybrid microalgae living hydrogel with self-oxygenation and green-synthesized zinc nanoparticles to combat multidrug-resistant infections via transcriptional reprogramming.",
-      "pub_type": "Journal Article",
+      "pmid": "42739074",
+      "doi": "10.3390/nu18172902",
+      "title": "Vitamin D and Health: Establishing Causal Relationships Through Observational Evidence and Hill's Criteria in a Biological Framework.",
+      "pub_type": "Review",
       "category": "immune_respiratory",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair"
     },
     {
       "wave": 4377,
@@ -3440,12 +3442,12 @@
     },
     {
       "wave": 4378,
-      "pmid": "42822055",
-      "doi": "10.1016/j.bbrc.2026.154674",
-      "title": "Mutation of AINTEGUMENTA alleviates root growth inhibition induced by high magnesium stress.",
+      "pmid": "36306254",
+      "doi": "10.7899/JCE-21-44",
+      "title": "Effect of lavender and rosemary aromatherapy on test anxiety in chiropractic students.",
       "pub_type": "Journal Article",
       "category": "stress_anxiety",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair"
     },
     {
       "wave": 4379,
@@ -4340,12 +4342,12 @@
     },
     {
       "wave": 4478,
-      "pmid": "42827489",
-      "doi": "10.3389/fmicb.2026.1939259",
-      "title": "Combined application of organic and microbial amendments reshapes soil microbiome diversity and improves soybean growth performance.",
-      "pub_type": "Journal Article",
+      "pmid": "42760956",
+      "doi": "10.3389/fnut.2026.1856471",
+      "title": "Psychobiotic, nutritional, and behavioral interventions targeting the microbiome-gut-brain axis in depression, anxiety, and stress: a scoping review.",
+      "pub_type": "Systematic Review",
       "category": "gut",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair"
     },
     {
       "wave": 4479,
@@ -4376,12 +4378,12 @@
     },
     {
       "wave": 4482,
-      "pmid": "42179513",
-      "doi": "10.3389/fpls.2026.1764060",
-      "title": "Integrated analysis of morphological traits and salinity stress-related gene expression in alfalfa (Medicago sativa L.) from Türkiye under magnesium sulfate and calcium chloride treatments.",
+      "pmid": "36476355",
+      "doi": "10.1016/j.explore.2022.11.008",
+      "title": "The effect of lavender aromatherapy on the level of intraoperative anxiety in caesarean case under spinal anesthesia: A randomized controlled trial.",
       "pub_type": "Journal Article",
       "category": "stress_anxiety",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair"
     },
     {
       "wave": 4483,
@@ -4394,12 +4396,12 @@
     },
     {
       "wave": 4484,
-      "pmid": "42433894",
-      "doi": "10.3389/fpls.2026.1878176",
-      "title": "Multi-omics analysis reveals galactose metabolism as a key regulatory pathway of stress adaptation to magnesium deficiency in passion fruit.",
+      "pmid": "36596553",
+      "doi": "10.3177/jnsv.68.540",
+      "title": "Effect of Combined Ingestion of L-Theanine and L-Arginine for Short-Term Psychological Stress in Young Adults: A Randomized Placebo-Controlled Study.",
       "pub_type": "Journal Article",
       "category": "stress_anxiety",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair"
     },
     {
       "wave": 4485,
@@ -4545,5 +4547,6 @@
       "category": "withdrawal_nps",
       "state": "selected_exact_verified"
     }
-  ]
+  ],
+  "domain_review_repairs": 10
 }
