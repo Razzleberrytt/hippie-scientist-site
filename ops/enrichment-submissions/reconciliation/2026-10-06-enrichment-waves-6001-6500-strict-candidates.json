@@ -3,7 +3,7 @@
   "batch_id": "2026-10-06-enrichment-waves-6001-6500",
   "stage": "strict_pubmed_candidates",
   "prior_unique_pmids": 5935,
-  "candidate_count": 1143,
+  "candidate_count": 1230,
   "category_counts": {
     "stress_anxiety": 46,
     "sleep": 124,
@@ -14,7 +14,7 @@
     "women_health": 125,
     "gut": 43,
     "cognition_focus": 34,
-    "mood": 29,
+    "mood": 116,
     "inflammation_pain": 40,
     "metabolic": 109,
     "botanicals_mushrooms": 42,
@@ -11454,6 +11454,876 @@
       "pub_type": "Review",
       "doi": "10.1016/j.drudis.2026.104820",
       "source_query": "((\"vitamin D\"[Title/Abstract] OR zinc[Title/Abstract] OR \"vitamin C\"[Title/Abstract] OR echinacea[Title/Abstract] OR elderberry[Title/Abstract] OR probiotic[Title/Abstract]) AND (respiratory tract infection[Title/Abstract] OR cold[Title/Abstract] OR influenza[Title/Abstract] OR immune function[Title/Abstract] OR immunity[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2015:2026[dp]"
+    },
+    {
+      "pmid": "39830054",
+      "category": "mood",
+      "title": "The Association between Vitamin D Deficiency and Perinatal Depression: A Systematic Review and Meta-Analysis.",
+      "pub_date": "2024 Nov",
+      "journal": "Alpha psychiatry",
+      "pub_type": "Review",
+      "doi": "10.5152/alphapsychiatry.2024.241553",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "39846975",
+      "category": "mood",
+      "title": "Magnesium level and impulsivity during ketamine administration for treatment-resistant mood disorders.",
+      "pub_date": "2024 décembre 01",
+      "journal": "Magnesium research",
+      "pub_type": "Journal Article",
+      "doi": "10.1684/mrh.2024.0534",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "39846976",
+      "category": "mood",
+      "title": "Combined oral supplementation with magnesium plus vitamin D alleviates mild to moderate depressive symptoms related to long-COVID: an open-label randomized, controlled clinical trial.",
+      "pub_date": "2024 décembre 01",
+      "journal": "Magnesium research",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.1684/mrh.2024.0535",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "39874718",
+      "category": "mood",
+      "title": "Nutritional interventions in depression: The role of vitamin D and omega-3 fatty acids in neuropsychiatric health.",
+      "pub_date": "2025 Feb",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "pub_type": "Review",
+      "doi": "10.1016/j.clnu.2025.01.009",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "39912390",
+      "category": "mood",
+      "title": "Omega-3 polyunsaturated fatty acids in depression: insights from recent clinical trials.",
+      "pub_date": "2025 Mar 1",
+      "journal": "Current opinion in clinical nutrition and metabolic care",
+      "pub_type": "Systematic Review",
+      "doi": "10.1097/MCO.0000000000001077",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "39920878",
+      "category": "mood",
+      "title": "The effect of probiotic-fortified kefir on depression, appetite, oxidative stress, and inflammatory parameters in Iranian overweight and obese elderly: a randomized, double-blind, placebo-controlled clinical trial.",
+      "pub_date": "2025 Feb 7",
+      "journal": "Journal of health, population, and nutrition",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.1186/s41043-025-00773-x",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "39935323",
+      "category": "mood",
+      "title": "Husband involvement in antenatal care moderates the link between vitamin D status and depressive symptoms in pregnant women.",
+      "pub_date": "2025 Feb 12",
+      "journal": "Epidemiology and psychiatric sciences",
+      "pub_type": "Journal Article",
+      "doi": "10.1017/S2045796025000022",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40015647",
+      "category": "mood",
+      "title": "Vitamin D does not reduce depressive symptoms on primary depression: Critical appraisal and re-analysis of Wang et al.",
+      "pub_date": "2025 Jun 1",
+      "journal": "Journal of affective disorders",
+      "pub_type": "Letter",
+      "doi": "10.1016/j.jad.2025.02.086",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40049535",
+      "category": "mood",
+      "title": "Exploration of the optimized portrait of omega-3 polyunsaturated fatty acids in treating depression: A meta-analysis of randomized-controlled trials.",
+      "pub_date": "2025 Jun 15",
+      "journal": "Journal of affective disorders",
+      "pub_type": "Review",
+      "doi": "10.1016/j.jad.2025.03.006",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40077679",
+      "category": "mood",
+      "title": "The Effects of Combined Scutellaria and Saffron Supplementation on Mood Regulation in Participants with Mild-to-Moderate Depressive Symptoms: A Randomized, Double-Blind, Placebo-Controlled Study.",
+      "pub_date": "2025 Feb 26",
+      "journal": "Nutrients",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.3390/nu17050809",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40153103",
+      "category": "mood",
+      "title": "The Role and Mechanisms of Probiotic Supplementation on Depressive Symptoms: A Narrative Review.",
+      "pub_date": "2025 Mar 28",
+      "journal": "Current nutrition reports",
+      "pub_type": "Review",
+      "doi": "10.1007/s13668-025-00644-1",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40222448",
+      "category": "mood",
+      "title": "Exploring the acute and chronic effects of a multistrain probiotic supplement on cognitive function and mood in healthy older adults: a randomized controlled trial.",
+      "pub_date": "2025 Jun",
+      "journal": "The American journal of clinical nutrition",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.1016/j.ajcnut.2025.04.002",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40226680",
+      "category": "mood",
+      "title": "Effectiveness of a Saffron and Withania Supplement on Mood in Women With Mild-to-Moderate Anxiety During the COVID-19 Lockdown.",
+      "pub_date": "2024",
+      "journal": "Depression and anxiety",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "doi": "10.1155/2024/3661412",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40226727",
+      "category": "mood",
+      "title": "Vitamin D Levels and Depressive Symptoms during Pregnancy: A Prospective Pregnancy Cohort Study.",
+      "pub_date": "2024",
+      "journal": "Depression and anxiety",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "doi": "10.1155/2024/1788167",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40281561",
+      "category": "mood",
+      "title": "The effect of curcumin on postpartum depression and anxiety in primiparous women: a double-blind randomized placebo-controlled clinical trial.",
+      "pub_date": "2025 Apr 25",
+      "journal": "BMC complementary medicine and therapies",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.1186/s12906-025-04798-x",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40298641",
+      "category": "mood",
+      "title": "Multi-species probiotic supplement enhances vagal nerve function - results of a randomized controlled trial in patients with depression and healthy controls.",
+      "pub_date": "2025 Dec",
+      "journal": "Gut microbes",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "doi": "10.1080/19490976.2025.2492377",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40322928",
+      "category": "mood",
+      "title": "Vitamin D and depression in adults: A systematic review.",
+      "pub_date": "2025 Apr 30",
+      "journal": "Biomolecules & biomedicine",
+      "pub_type": "Systematic Review",
+      "doi": "10.17305/bb.2025.12331",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40398311",
+      "category": "mood",
+      "title": "Exploring the interaction between vitamin D pathway gene polymorphisms, vitamin D status, and depression: A population-based study.",
+      "pub_date": "2025 Sep",
+      "journal": "Nutrition (Burbank, Los Angeles County, Calif.)",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.nut.2025.112802",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40414301",
+      "category": "mood",
+      "title": "An Examination into the Effects of a Saffron Extract (Affron) on Mood and General Wellbeing in Adults Experiencing Low Mood: A Randomized, Double-Blind, Placebo-Controlled Trial.",
+      "pub_date": "2025 Jul",
+      "journal": "The Journal of nutrition",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "doi": "10.1016/j.tjnut.2025.05.024",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40416274",
+      "category": "mood",
+      "title": "From Mood to Memory: Unlocking Saffron's Potential in Brain Health.",
+      "pub_date": "2025 Apr",
+      "journal": "Cureus",
+      "pub_type": "Review",
+      "doi": "10.7759/cureus.82924",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40429727",
+      "category": "mood",
+      "title": "Association of Vitamin D Supplementation with Glutathione Peroxidase (GPx) Activity, Interleukine-6 (IL-6) Levels, and Anxiety and Depression Scores in Patients with Post-COVID-19 Condition.",
+      "pub_date": "2025 May 10",
+      "journal": "International journal of molecular sciences",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/ijms26104582",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40485144",
+      "category": "mood",
+      "title": "Supplementation of Omega-3 Increases Serum Levels of Brain-Derived Neurotrophic Factor and Decreases Depression Status in Patients With Bipolar Disorder: A Randomized, Double-Blind, Placebo-Controlled Clinical Trial.",
+      "pub_date": "2025 Jun",
+      "journal": "Journal of human nutrition and dietetics : the official journal of the British Dietetic Association",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.1111/jhn.70076",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40507082",
+      "category": "mood",
+      "title": "Vitamin D Status Determines the Effect of Cabergoline on Sexual Function and Depressive Symptoms in Hyperprolactinemic Women.",
+      "pub_date": "2025 May 27",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/nu17111813",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40573189",
+      "category": "mood",
+      "title": "The Role of Vitamin D in the Management of Major Depressive Disorder: A Systematic Review.",
+      "pub_date": "2025 May 25",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "pub_type": "Review",
+      "doi": "10.3390/ph18060792",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40611591",
+      "category": "mood",
+      "title": "Plasma Lipidomic Profiles Investigating the Effects of Combined Therapy With Quetiapine and Magnesium Valproate in Emerging Adults With Bipolar II Disorder During Depressive Episodes: A Follow-Up Study.",
+      "pub_date": "2025 Jul",
+      "journal": "Journal of neurochemistry",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "doi": "10.1111/jnc.70143",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40614976",
+      "category": "mood",
+      "title": "A medication-driven magnesium deficiency score is associated with increased depressive symptoms prevalence independent of renal function: Evidence from NHANES 1999-2018.",
+      "pub_date": "2025 Dec 1",
+      "journal": "Journal of affective disorders",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.jad.2025.119801",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40647196",
+      "category": "mood",
+      "title": "Sexual Functioning and Depressive Symptoms in Levothyroxine-Treated Women with Postpartum Thyroiditis and Different Vitamin D Status.",
+      "pub_date": "2025 Jun 24",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/nu17132091",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40647320",
+      "category": "mood",
+      "title": "The Role of Magnesium in Depression, Migraine, Alzheimer's Disease, and Cognitive Health: A Comprehensive Review.",
+      "pub_date": "2025 Jul 4",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "doi": "10.3390/nu17132216",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40710407",
+      "category": "mood",
+      "title": "Relationship Between Vitamin D Deficiency and Postpartum Depression.",
+      "pub_date": "2025 Jul 4",
+      "journal": "Journal of personalized medicine",
+      "pub_type": "Review",
+      "doi": "10.3390/jpm15070290",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40729791",
+      "category": "mood",
+      "title": "Exploring neurotransmitter regulation following probiotic supplementation in adults with subthreshold depression: A secondary analysis of a randomized controlled trial.",
+      "pub_date": "2025 Dec",
+      "journal": "Nutrition (Burbank, Los Angeles County, Calif.)",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.1016/j.nut.2025.112891",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40774406",
+      "category": "mood",
+      "title": "Phthalate reduction as a mediator linking probiotic or yogurt consumption to reduced depressive Symptoms: Evidence from NHANES 2005-2018.",
+      "pub_date": "2025 Nov",
+      "journal": "Food and chemical toxicology : an international journal published for the British Industrial Biological Research Association",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.fct.2025.115687",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40821024",
+      "category": "mood",
+      "title": "Meta-analysis of the effect of vitamin D on depression.",
+      "pub_date": "2025",
+      "journal": "Frontiers in psychiatry",
+      "pub_type": "Review",
+      "doi": "10.3389/fpsyt.2025.1622796",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40868087",
+      "category": "mood",
+      "title": "Gut-Brain Axis in Mood Disorders: A Narrative Review of Neurobiological Insights and Probiotic Interventions.",
+      "pub_date": "2025 Jul 26",
+      "journal": "Biomedicines",
+      "pub_type": "Review",
+      "doi": "10.3390/biomedicines13081831",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40871684",
+      "category": "mood",
+      "title": "Impact of Vitamin D Status and Supplementation on Brain-Derived Neurotrophic Factor and Mood-Cognitive Outcomes: A Structured Narrative Review.",
+      "pub_date": "2025 Aug 16",
+      "journal": "Nutrients",
+      "pub_type": "Review",
+      "doi": "10.3390/nu17162655",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "40918536",
+      "category": "mood",
+      "title": "Potential therapeutic benefits of curcumin in depression or anxiety induced by chronic diseases: a systematic review of mechanistic and clinical evidence.",
+      "pub_date": "2025",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Systematic Review",
+      "doi": "10.3389/fphar.2025.1638645",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "41047129",
+      "category": "mood",
+      "title": "Effect of saffron extract supplementation on mood in healthy adults with subclinical symptoms of depression: a randomized, double-blind placebo-controlled study.",
+      "pub_date": "2025 Dec",
+      "journal": "The American journal of clinical nutrition",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.1016/j.ajcnut.2025.09.050",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "41074179",
+      "category": "mood",
+      "title": "The relationship between vitamin D levels and depression: a genetically informed study.",
+      "pub_date": "2025 Oct 10",
+      "journal": "Nutrition journal",
+      "pub_type": "Journal Article",
+      "doi": "10.1186/s12937-025-01199-1",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "41081792",
+      "category": "mood",
+      "title": "Association between vitamin D deficiency and depressive symptoms among shift workers: Insights from network pharmacology and bioinformatics studies.",
+      "pub_date": "2026 Feb",
+      "journal": "Naunyn-Schmiedeberg's archives of pharmacology",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s00210-025-04709-4",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "41461240",
+      "category": "mood",
+      "title": "The effects of Omega-3 supplementation on stress, anxiety, depression, sleep quality, and everyday memory in individuals with psychological distress: A randomized, double-blind, placebo-controlled trial.",
+      "pub_date": "2026 Apr 15",
+      "journal": "Journal of affective disorders",
+      "pub_type": "Retracted Publication",
+      "doi": "10.1016/j.jad.2025.121055",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "41506003",
+      "category": "mood",
+      "title": "Vitamin D supplementation and incidence of major depressive disorder - A randomized clinical trial.",
+      "pub_date": "2026 Feb",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.1016/j.clnu.2025.106570",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "41573044",
+      "category": "mood",
+      "title": "Efficacy of probiotic intervention in unmedicated depression: a systematic review and meta-analysis.",
+      "pub_date": "2025",
+      "journal": "Frontiers in psychiatry",
+      "pub_type": "Systematic Review",
+      "doi": "10.3389/fpsyt.2025.1608238",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "41599922",
+      "category": "mood",
+      "title": "Effects of Probiotic Supplementation on Mental Health and the Risk of Depression in Women with Polycystic Ovary Syndrome: A Systematic Review of Randomized Controlled Trials.",
+      "pub_date": "2026 Jan 19",
+      "journal": "Nutrients",
+      "pub_type": "Systematic Review",
+      "doi": "10.3390/nu18020307",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "41605120",
+      "category": "mood",
+      "title": "Effectiveness of probiotic supplementation in managing depressive symptoms and inflammatory status in patients with depression: A systematic review and meta-analysis.",
+      "pub_date": "2026 Mar",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "pub_type": "Meta-Analysis",
+      "doi": "10.1016/j.clnu.2025.106554",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "41693488",
+      "category": "mood",
+      "title": "Effect of saffron on depression, anxiety and mood disorder: a GRADE assessed systematic review and meta-analysis of 34 randomized controlled trials.",
+      "pub_date": "2026 Jul",
+      "journal": "Nutritional neuroscience",
+      "pub_type": "Meta-Analysis",
+      "doi": "10.1080/1028415X.2025.2602153",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "41826906",
+      "category": "mood",
+      "title": "Effect of probiotic supplement on improvement of depressive symptoms in patients with substance-induced depressive disorder: a randomized, double-blind, placebo-controlled clinical trial.",
+      "pub_date": "2026 Mar 13",
+      "journal": "BMC psychiatry",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.1186/s12888-026-07903-7",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "41830024",
+      "category": "mood",
+      "title": "A Randomized Controlled Trial to Determine the Effects of Curcumin and Epigallocatechin-3-Gallate Supplementation on Serum Brain-Derived Neurotrophic Factor and Mood Disturbance in Adults.",
+      "pub_date": "2026 Mar 6",
+      "journal": "Nutrients",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.3390/nu18050855",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "41862003",
+      "category": "mood",
+      "title": "Diabetes modifies the association between magnesium and insomnia, but not depressive symptomatology, in Puerto Rican adults: a prospective cohort study.",
+      "pub_date": "2026 May",
+      "journal": "The American journal of clinical nutrition",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.ajcnut.2026.101285",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "41895384",
+      "category": "mood",
+      "title": "Vitamin D in major depressive disorder: Current evidence, possible molecular mechanisms, and future prospects.",
+      "pub_date": "2026 Jun",
+      "journal": "The Journal of steroid biochemistry and molecular biology",
+      "pub_type": "Review",
+      "doi": "10.1016/j.jsbmb.2026.107003",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "41915083",
+      "category": "mood",
+      "title": "Does inflammation moderate the effect of vitamin D supplementation on depressive symptoms? Results of an interventional study in children and adolescents.",
+      "pub_date": "2026 Mar 31",
+      "journal": "European journal of nutrition",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.1007/s00394-026-03920-0",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "41923913",
+      "category": "mood",
+      "title": "Efficacy of vitamin D supplementation in patients diagnosed with depression: a dose-response meta-analysis of randomized controlled trials.",
+      "pub_date": "2026",
+      "journal": "Frontiers in nutrition",
+      "pub_type": "Systematic Review",
+      "doi": "10.3389/fnut.2026.1772451",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "41933624",
+      "category": "mood",
+      "title": "Effect of a six-month vitamin D supplementation on depressive symptoms in patients with major depressive episode (DepFuD): a double-blinded randomised controlled trial.",
+      "pub_date": "2026 Aug 1",
+      "journal": "Journal of affective disorders",
+      "pub_type": "Equivalence Trial",
+      "doi": "10.1016/j.jad.2026.121709",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "41939549",
+      "category": "mood",
+      "title": "The Role of Saffron in the Treatment of Depression: A Literature Review.",
+      "pub_date": "2026 Mar",
+      "journal": "Cureus",
+      "pub_type": "Review",
+      "doi": "10.7759/cureus.104594",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42015491",
+      "category": "mood",
+      "title": "Pilot Trial of Adjunctive Curcumin for Treatment-Resistant Bipolar Depression in Youth: Focus on Inflammation and Oxidative Stress.",
+      "pub_date": "2026 Apr",
+      "journal": "Journal of child and adolescent psychopharmacology",
+      "pub_type": "Journal Article",
+      "doi": "10.1177/10445463251413071",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42025348",
+      "category": "mood",
+      "title": "Vitamin D deficiency and depression in diabetes mellitus: A systematic review and meta-analysis.",
+      "pub_date": "2026 Apr",
+      "journal": "Endocrinologia, diabetes y nutricion",
+      "pub_type": "Meta-Analysis",
+      "doi": "10.1016/j.endien.2026.501743",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42044701",
+      "category": "mood",
+      "title": "Vitamin D deficiency and depression: A Neuroimmune review of complement-associated synaptic remodeling and VDBP-Megalin signaling.",
+      "pub_date": "2026 Jun 15",
+      "journal": "Neurobiology of disease",
+      "pub_type": "Review",
+      "doi": "10.1016/j.nbd.2026.107425",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42061208",
+      "category": "mood",
+      "title": "Vitamin D mitigates post-stroke depression by rescuing IL-6-mediated BDNF reduction.",
+      "pub_date": "2026 Aug",
+      "journal": "Journal of psychiatric research",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "doi": "10.1016/j.jpsychires.2026.04.024",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42065141",
+      "category": "mood",
+      "title": "Effects of Lactiplantibacillus plantarum KABP051 Probiotic on Body Composition, Microbiome and Mood in Healthy Overweight Adults.",
+      "pub_date": "2026 Oct",
+      "journal": "Journal of medicinal food",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.1177/1096620X261448041",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42144425",
+      "category": "mood",
+      "title": "Micronutrient-immune interactions in mood and psychotic disorders: a case-control study of vitamin C, iron, zinc, magnesium, and peripheral blood cell indices.",
+      "pub_date": "2026 May 18",
+      "journal": "Scientific reports",
+      "pub_type": "Journal Article",
+      "doi": "10.1038/s41598-026-48616-x",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42162021",
+      "category": "mood",
+      "title": "Effects of zinc and probiotic co-supplementation on inflammation, gastrointestinal symptoms, quality of life, and mood in irritable bowel syndrome patients.",
+      "pub_date": "2026 May 20",
+      "journal": "Scientific reports",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.1038/s41598-026-52347-4",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42248399",
+      "category": "mood",
+      "title": "Association between mixed metal exposure and depressive symptoms in the elderly: The moderating role of magnesium and mediating role of amino acids.",
+      "pub_date": "2026 Sep 15",
+      "journal": "Environmental pollution (Barking, Essex : 1987)",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.envpol.2026.128524",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42268539",
+      "category": "mood",
+      "title": "Vitamin D Deficiency and 3-Year Risk of New-Onset Depression After Metabolic and Bariatric Surgery: A Longitudinal Cohort Study.",
+      "pub_date": "2026 Jul",
+      "journal": "Obesity surgery",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s11695-026-08785-0",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42283837",
+      "category": "mood",
+      "title": "Clinical evaluation of adjunctive magnesium therapy in patients receiving antidepressants for depression-open label, nonrandomized clinical trial.",
+      "pub_date": "2026 Sep",
+      "journal": "Naunyn-Schmiedeberg's archives of pharmacology",
+      "pub_type": "Journal Article",
+      "doi": "10.1007/s00210-026-05540-1",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42286783",
+      "category": "mood",
+      "title": "Association between omega-6 and omega-3 fatty acids intake, body mass index and depression in young Iranian adults: a cross sectional study.",
+      "pub_date": "2026 Jun 12",
+      "journal": "Journal of health, population, and nutrition",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "doi": "10.1186/s41043-026-01360-4",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42299714",
+      "category": "mood",
+      "title": "Does gestational vitamin D attenuate the negative effects of prenatal depression on offspring emotional and behavioral problems? Findings in the ECHO cohort.",
+      "pub_date": "2026 Jun 16",
+      "journal": "Psychological medicine",
+      "pub_type": "Research Support, N.I.H., Extramural",
+      "doi": "10.1017/S0033291726104917",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42338858",
+      "category": "mood",
+      "title": "Association Between Low Vitamin D Levels and Depression: A Systematic Review and Meta-Analysis.",
+      "pub_date": "2026 May",
+      "journal": "Cureus",
+      "pub_type": "Review",
+      "doi": "10.7759/cureus.109430",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42343742",
+      "category": "mood",
+      "title": "Causal Relationship Between Vitamin D and Anxiety and Depression: A Bidirectional Mendelian Randomization Study.",
+      "pub_date": "2026 Jun 15",
+      "journal": "Actas espanolas de psiquiatria",
+      "pub_type": "Journal Article",
+      "doi": "10.62641/aep.v54i3.2046",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42356238",
+      "category": "mood",
+      "title": "Effects of Probiotic and Dietary Fiber Supplementation on Metabolic Syndrome-Related Features, Mood, and Sleep in Adults with Obesity.",
+      "pub_date": "2026 Jun 9",
+      "journal": "Nutrients",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.3390/nu18121851",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42374947",
+      "category": "mood",
+      "title": "Effects of magnesium supplementation on serum brain-derived neurotrophic factor levels and cognitive function in patients undergoing fluoxetine therapy for depression.",
+      "pub_date": "2026 Jun",
+      "journal": "East Asian archives of psychiatry : official journal of the Hong Kong College of Psychiatrists = Dong Ya jing shen ke xue zhi : Xianggang jing shen ke yi xue yuan qi kan",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.12809/eaap2617",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42389708",
+      "category": "mood",
+      "title": "The effects of a saffron extract (Affron®) on mood, sleep, self-esteem, and exploratory measures of physical appearance in women aged 50 to 70 years experiencing low mood and poor sleep: a randomised, double-blind, placebo-controlled trial.",
+      "pub_date": "2026",
+      "journal": "Frontiers in nutrition",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fnut.2026.1838513",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42462928",
+      "category": "mood",
+      "title": "A randomized trial of omega-3 fatty acids plus inositol versus N-acetylcysteine for the treatment of depression and mania in emotionally dysregulated youth age 5-17 with and without autism traits.",
+      "pub_date": "2026 Dec 1",
+      "journal": "Journal of affective disorders",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.1016/j.jad.2026.122277",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42465826",
+      "category": "mood",
+      "title": "Association between vitamin D levels and depression among type 2 diabetes mellitus patients in the Southern Region of Malaysia.",
+      "pub_date": "2026",
+      "journal": "The Pan African medical journal",
+      "pub_type": "Journal Article",
+      "doi": "10.11604/pamj.2026.53.116.47001",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42472817",
+      "category": "mood",
+      "title": "Efficacy of curcumin in depression: A grade-assessed systematic review and meta-analysis of randomized controlled trials.",
+      "pub_date": "2026 Jul 19",
+      "journal": "Annals of general psychiatry",
+      "pub_type": "Review",
+      "doi": "10.1186/s12991-026-00676-z",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42473311",
+      "category": "mood",
+      "title": "Influence of Magnesium Status on the Association of Tobacco Exposure With Depression in Old Patients With Heart Failure: A Cross-Sectional Study of the NHANES Database.",
+      "pub_date": "2026",
+      "journal": "Cardiovascular therapeutics",
+      "pub_type": "Journal Article",
+      "doi": "10.1155/cdr/3372455",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42489742",
+      "category": "mood",
+      "title": "The impact of vitamin D supplementation on depression and anxiety in young individuals with depression and vitamin D insufficiency/deficiency.",
+      "pub_date": "2026 Jul 23",
+      "journal": "European journal of nutrition",
+      "pub_type": "Randomized Controlled Trial",
+      "doi": "10.1007/s00394-026-04061-0",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42536583",
+      "category": "mood",
+      "title": "Associations among probiotic/prebiotic consumption, depression and chronic obstructive pulmonary disease: A cross-sectional study.",
+      "pub_date": "2026 Jul 31",
+      "journal": "Medicine",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/MD.0000000000050042",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42542873",
+      "category": "mood",
+      "title": "Low Vitamin D Status and Post-Stroke Depression, Falls, and Functional Recovery in Older Adults with Nonvalvular Atrial Fibrillation-Associated Ischemic Stroke.",
+      "pub_date": "2026",
+      "journal": "Clinical interventions in aging",
+      "pub_type": "Journal Article",
+      "doi": "10.2147/CIA.S607805",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42563813",
+      "category": "mood",
+      "title": "Effects of vitamin D supplementation on depression in adult women: a systematic review of randomized controlled trials.",
+      "pub_date": "2026 Feb",
+      "journal": "Journal of Korean biological nursing science",
+      "pub_type": "Review",
+      "doi": "10.7586/jkbns.25.092",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42581788",
+      "category": "mood",
+      "title": "Selective Anti-Inflammatory Actions of Curcumin on Cytokine Pathways in Major Depressive Disorder.",
+      "pub_date": "2026 Aug",
+      "journal": "Brain and behavior",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/brb3.71672",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42589370",
+      "category": "mood",
+      "title": "Influence of Vitamin E Intake on Sexual Function and Depressive Symptoms in Young Women with Euthyroid Autoimmune Thyroiditis Undergoing Vitamin D Therapy: A Pilot Study.",
+      "pub_date": "2026 Jul 27",
+      "journal": "International journal of molecular sciences",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/ijms27156713",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42594843",
+      "category": "mood",
+      "title": "Vitamin D-containing supplementation and depressive symptom severity in adults: A Bayesian systematic review and evidence-structure assessment.",
+      "pub_date": "2026 Sep",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "pub_type": "Network Meta-Analysis",
+      "doi": "10.1016/j.clnu.2026.106751",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42645143",
+      "category": "mood",
+      "title": "Vitamin D and Postpartum Depression: A Narrative Review.",
+      "pub_date": "2026 Aug 8",
+      "journal": "Clinics and practice",
+      "pub_type": "Review",
+      "doi": "10.3390/clinpract16080147",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42677248",
+      "category": "mood",
+      "title": "Vitamin D deficiency, depression severity, and suicide risk: evidence from patients with major depressive disorder.",
+      "pub_date": "2026",
+      "journal": "Turkish journal of medical sciences",
+      "pub_type": "Journal Article",
+      "doi": "10.55730/1300-0144.6371",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42736760",
+      "category": "mood",
+      "title": "Serum magnesium and depressive symptoms among U.S. adults: A cross-sectional study of NHANES august 2021-august 2023.",
+      "pub_date": "2026 Sep 11",
+      "journal": "Medicine",
+      "pub_type": "Journal Article",
+      "doi": "10.1097/MD.0000000000050634",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42739029",
+      "category": "mood",
+      "title": "Dietary Omega-3 Fatty Acid Intake, Anxiety, and Depression Among University Students in the UK: An Exploratory Cross-Sectional Study.",
+      "pub_date": "2026 Sep 1",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/nu18172858",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42778037",
+      "category": "mood",
+      "title": "Effects of probiotic supplementation on inflammatory biomarkers in patients with depression: A systematic review and meta-analysis of randomized controlled trials.",
+      "pub_date": "2026 Sep 23",
+      "journal": "Progress in neuro-psychopharmacology & biological psychiatry",
+      "pub_type": "Review",
+      "doi": "10.1016/j.pnpbp.2026.111944",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42794622",
+      "category": "mood",
+      "title": "The Association Between Vitamin D Status and Depression Severity in Adults with Major Depressive Disorder: A Cross-Sectional Study.",
+      "pub_date": "2026 Sep 15",
+      "journal": "International journal of molecular sciences",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/ijms27188192",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
+    },
+    {
+      "pmid": "42811022",
+      "category": "mood",
+      "title": "Multi-strain probiotic intervention in adults with depressive and anxiety symptoms: A 12-Week pilot study.",
+      "pub_date": "2026 Aug 6",
+      "journal": "Translational psychiatry",
+      "pub_type": "Clinical Trial",
+      "doi": "10.1038/s41398-026-04334-6",
+      "source_query": "((saffron[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR \"vitamin D\"[Title] OR probiotic[Title] OR curcumin[Title]) AND (depression[Title] OR depressive[Title] OR mood[Title])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt]) AND english[lang] AND 2010:2026[dp]"
     }
   ]
 }
