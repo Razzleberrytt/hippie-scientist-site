@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5001-5500",
+  "status": "fail",
+  "metrics": {
+    "row_count": 500,
+    "first_wave": 5001,
+    "last_wave": 5500,
+    "contiguous": true,
+    "unique_pmids": 500,
+    "duplicate_pmids": 0,
+    "duplicate_normalized_dois": 0,
+    "duplicate_normalized_titles": 0,
+    "prior_unique_pmids": 4935,
+    "prior_pmid_collisions": 13,
+    "cumulative_unique_pmids_after_batch": 5435,
+    "exact_title_verified": 500,
+    "non_null_abstracts": 500,
+    "final_state_rows": 500,
+    "objective_hard_off_domain_title_hits": 0,
+    "replacements_applied": 22,
+    "retries_recovered": 15
+  },
+  "duplicate_pmids": [],
+  "duplicate_normalized_dois": [],
+  "duplicate_normalized_titles": [],
+  "prior_collisions": [
+    {
+      "wave": 5021,
+      "pmid": "41826633",
+      "title": "Acute muscle damage responses in elbow flexors following eccentric quasi-isometric exercise."
+    },
+    {
+      "wave": 5026,
+      "pmid": "41903346",
+      "title": "Creatine supplementation modifies fat deposition in arm and leg tissues in individuals with Down syndrome."
+    },
+    {
+      "wave": 5033,
+      "pmid": "42248424",
+      "title": "Investigating the Effects of a Novel Salmon-Derived Protein Peptide on Markers of Recovery From Exercise-Induced Muscle Damage."
+    },
+    {
+      "wave": 5034,
+      "pmid": "42271035",
+      "title": "Combined effects of photobiomodulation and osteopathic manipulation on the physical performance of young adults subjected to exercise-induced muscle damage: a randomized placebo-controlled trial."
+    },
+    {
+      "wave": 5036,
+      "pmid": "42499083",
+      "title": "Effect of vitamin D supplementation on clinical outcomes of patients with Parkinson disease: A randomized controlled study."
+    },
+    {
+      "wave": 5038,
+      "pmid": "42544905",
+      "title": "Effects of vitamin D supplementation on insulin resistance and lipid metabolic profiles in women with gestational diabetes mellitus: A randomized controlled trial."
+    },
+    {
+      "wave": 5040,
+      "pmid": "42588107",
+      "title": "Multistrain Probiotic Supplementation Combined with a Standardized Diet Did Not Significantly Affect Exercise Performance or Inflammatory Responses in Male Endurance Runners: A Randomized Controlled Trial."
+    },
+    {
+      "wave": 5043,
+      "pmid": "42631762",
+      "title": "Impact of organic selenium supplementation on glycaemic control and quality of life in patients with diabetic neuropathy: a randomized placebo-controlled trial."
+    },
+    {
+      "wave": 5053,
+      "pmid": "42286692",
+      "title": "Effects of percussive therapy dosages on recovery from acute exercise-induced muscle damage: a systematic review and meta-analysis."
+    },
+    {
+      "wave": 5121,
+      "pmid": "42709983",
+      "title": "Comparison of Traditional Chinese Exercise and Equipment-Based Exercise on Glycaemic Control and Vitamin D Levels in Middle-Aged and Elderly Patients With Prediabetes: A Randomised Controlled Trial."
+    },
+    {
+      "wave": 5393,
+      "pmid": "42637038",
+      "title": "Effect of vitamin D combined with probiotic-assisted insulin pump on glucose-lipid metabolism, intestinal flora and pregnancy outcome in gestational diabetes mellitus."
+    },
+    {
+      "wave": 5446,
+      "pmid": "42759094",
+      "title": "Adjunctive Akkermansia muciniphila postbiotic supplementation modulates metabolic and endocrine profiles in obesity-associated polyendocrine metabolic ovarian syndrome: A randomized controlled trial."
+    },
+    {
+      "wave": 5476,
+      "pmid": "42800365",
+      "title": "Creatine for glucagon-like peptide-1-associated muscle loss."
+    }
+  ],
+  "hard_off_domain_title_hits": [],
+  "missing_abstract_waves": [],
+  "non_exact_title_waves": [],
+  "invalid_states": [],
+  "boundary": {
+    "research_only": true,
+    "runtime_publication": false,
+    "recommendation_promotion": false,
+    "dosing_inference": false
+  }
+}
