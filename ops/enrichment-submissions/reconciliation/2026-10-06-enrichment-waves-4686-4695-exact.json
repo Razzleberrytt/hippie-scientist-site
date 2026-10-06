@@ -5,9 +5,11 @@
   "summary": {
     "range": "4686-4695",
     "rows": 10,
-    "exact_title": 9,
-    "abstract_verified": 9,
-    "hard_off_domain": [],
+    "exact_title": 10,
+    "abstract_verified": 10,
+    "hard_off_domain": [
+      4694
+    ],
     "errors": [],
     "quarantine": [
       4694
@@ -227,16 +229,16 @@
       "selection_score": 5,
       "wave": 4694,
       "state": "discovered_candidate_pending_exact_verification",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "Unlocking the hidden potential of the genus Salvia through a systematic review of endophytic bacterial and fungal diversity and biotechnological prospects.",
+      "verified_journal": "Archives of microbiology",
+      "verified_pub_date": "2026-Sep-21",
+      "abstract": "The genus Salvia is one of the largest and the most pharmacologically important genera within the family Lamiaceae, which is known for its rich diversity of bioactive compounds, including phenolics and terpenoids. Recent studies have shown that endophytic fungi and bacteria associated with Salvia play important roles in plant growth, development, and chemical composition, which in turn contribute to species adaptability. This review presents a comprehensive, PRISMA-guided systematic review that emphasises the diversity and biotechnological potential of these endophytes. Available evidence indicates that although Salvia-associated endophytes have been widely studied, most research has focused on a single species, namely Salvia miltiorrhiza, with comparatively limited attention to other species and their associated endophytic communities. This review compiles comprehensive, current knowledge on endophyte diversity, tissue-specific distribution, and ecological roles, along with their biotechnological applications related to plant growth promotion, stress tolerance, biocontrol activity, and the production of bioactive compounds. It also highlights the role of endophytes in enhancing host secondary metabolite accumulation, with appropriate citations. Despite significant advances, gaps remain in understanding endophyte diversity across different Salvia species and in linking microbial functions to host-associated metabolic outcomes. This review identifies key knowledge gaps and outlines future directions to advance our understanding of plant-endophyte interactions and to support their effective application in sustainable agriculture and biotechnology.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11564013/",
+      "pdf_link": "https://doi.org/10.1007/s00203-026-05222-9",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false,
+      "hard_off_domain_flag": true,
       "verification_state": "quarantine"
     },
     {
