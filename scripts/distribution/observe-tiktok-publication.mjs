@@ -2,7 +2,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
-import { observeTikTokPublication } from './tiktok-publisher-adapter.mjs'
 
 const clean = (value) => String(value ?? '').trim()
 const DEFAULT_BRIDGE_BASE = 'https://thehippiescientist.net'
@@ -17,30 +16,24 @@ function bridgeUrl(pathname, baseValue) {
     throw new Error('THS Publisher bridge must use the canonical HTTPS host')
   }
   if (base.username || base.password) throw new Error('THS Publisher bridge URL cannot contain credentials')
-  return base
+  return new URL(pathname, base).toString()
 }
 
-async function queueRequest(pathname, {
+async function publisherRequest(pathname, {
   adminToken,
   bridgeBase,
-  method = 'GET',
-  query = null,
-  body = null,
-  fetchImpl = globalThis.fetch,
+  body,
+  fetchImpl,
 } = {}) {
   const token = clean(adminToken)
   if (!token) throw new Error('missing THS_PUBLISHER_ADMIN_TOKEN')
-  const base = bridgeUrl(pathname, bridgeBase)
-  const url = new URL(pathname, base)
-  if (query) {
-    for (const [key, value] of Object.entries(query)) url.searchParams.set(key, String(value))
-  }
-  const headers = { Authorization: 'Bearer ' + token }
-  if (body !== null) headers['Content-Type'] = 'application/json'
-  const response = await fetchImpl(url.toString(), {
-    method,
-    headers,
-    body: body === null ? undefined : JSON.stringify(body),
+  const response = await fetchImpl(bridgeUrl(pathname, bridgeBase), {
+    method: 'POST',
+    headers: {
+      Authorization: 'Bearer ' + token,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
   })
   const raw = await response.text()
   let payload
@@ -56,75 +49,37 @@ export async function observeTikTokPublicationFromQueue({
   distributionDir = path.resolve(process.env.DISTRIBUTION_OUTPUT || 'artifacts/distribution'),
   publisherAdminToken = process.env.THS_PUBLISHER_ADMIN_TOKEN,
   publisherBridgeBase = process.env.THS_PUBLISHER_BRIDGE_BASE || DEFAULT_BRIDGE_BASE,
-  tiktokAdminToken = process.env.TIKTOK_PUBLISHER_ADMIN_TOKEN,
-  tiktokBridgeBase = process.env.TIKTOK_PUBLISHER_BRIDGE_BASE || DEFAULT_BRIDGE_BASE,
   fetchImpl = globalThis.fetch,
 } = {}) {
   const id = clean(publicationId)
   if (!/^pub_[0-9a-f]{24}$/.test(id)) throw new Error('missing or invalid THS_PUBLICATION_ID')
+  if (typeof fetchImpl !== 'function') throw new Error('THS Observer requires fetch')
 
-  const current = await queueRequest('/api/publisher/job', {
+  const observed = await publisherRequest('/api/publisher/observe', {
     adminToken: publisherAdminToken,
     bridgeBase: publisherBridgeBase,
-    query: { publication_id: id },
+    body: { publicationId: id },
     fetchImpl,
   })
-  const storedJob = current.job
-  if (!storedJob || storedJob.publicationId !== id) throw new Error('THS Publisher returned the wrong publication job')
-
-  if (storedJob.state === 'PUBLISHED') {
-    return {
-      publicationId: id,
-      status: 'published',
-      state: 'PUBLISHED',
-      job: storedJob,
-      lifecycle: storedJob?.governance?.lifecycleSnapshot || null,
-      observation: null,
-    }
+  const persistedJob = observed.job
+  if (!persistedJob || persistedJob.publicationId !== id) {
+    throw new Error('THS Observer returned the wrong canonical publication')
   }
-
-  const lifecycle = storedJob?.governance?.lifecycleSnapshot
-  if (!lifecycle?.identity) {
-    throw new Error('THS Publisher job is missing its governed lifecycle snapshot; reconcile before observing')
-  }
-
-  const observed = await observeTikTokPublication({
-    job: storedJob,
-    lifecycle,
-    currentIdentity: lifecycle.identity,
-    adminToken: tiktokAdminToken,
-    bridgeBase: tiktokBridgeBase,
-    fetchImpl,
-  })
-
-  const update = await queueRequest('/api/publisher/update', {
-    adminToken: publisherAdminToken,
-    bridgeBase: publisherBridgeBase,
-    method: 'POST',
-    body: {
-      job: observed.job,
-      expectedUpdatedAt: storedJob.updatedAt,
-    },
-    fetchImpl,
-  })
-  const persistedJob = update.job
 
   const receipt = {
     schemaVersion: 'ths-tiktok-observer-receipt-v1',
     publicationId: id,
     experimentId: persistedJob.identity.experimentId,
     state: persistedJob.state,
-    observerStatus: observed.status,
+    observerStatus: clean(observed.status),
     observedAt: new Date().toISOString(),
     observation: observed.observation || null,
     providerReceipt: persistedJob.providerReceipt || null,
-    lifecycle: observed.lifecycle || persistedJob?.governance?.lifecycleSnapshot || null,
   }
 
   const receiptDir = path.join(distributionDir, 'publisher')
   fs.mkdirSync(receiptDir, { recursive: true })
   fs.writeFileSync(path.join(receiptDir, id + '.observer.json'), JSON.stringify(receipt, null, 2) + '\n')
-
   return receipt
 }
 
