@@ -17,8 +17,10 @@
     "duplicate_titles": [],
     "prior_pmid_collisions": [],
     "hard_off_domain": [],
-    "replacement_count": 0,
-    "retry_recovery_count": 15
+    "replacement_count": 35,
+    "retry_recovery_count": 15,
+    "quality_or_relevance_repairs": 22,
+    "upstream_collision_repairs": 13
   },
   "rows": [
     {
