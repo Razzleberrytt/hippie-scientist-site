@@ -46,11 +46,11 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-**Research-only admitted work #6349 / PR #6350:** In review — deep research enrichment Waves 4001–4500. This does not consume a normal implementation WIP slot; it is research-only, fail-closed from runtime/publication/recommendation/dose promotion, and merge remains contingent on repository validation and review.
+**Research-only admitted work #6353 / PR #6355:** In review — repaired deep research enrichment Waves 4501–5000. This does not consume a normal implementation WIP slot; it is research-only and fail-closed from runtime/publication/recommendation/dose promotion. Merge is currently blocked by security incident #6211 / PR #6364 plus unavailable fresh Codex review quota.
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6356 | Add first-party TikTok draft-upload provider | R | Active — implementation | P0 | 5/5/3/5/1/4 | 93.8 | 2026-10-06 — current TikTok upload/API rules + Metricool limit failure verified |
+| #6356 / PR #6357 | Add first-party TikTok draft-upload provider | R | Active — implementation | P0 | 5/5/3/5/1/4 | 93.8 | 2026-10-06 — current TikTok upload/API rules + Metricool limit failure verified |
 
 
 
@@ -58,7 +58,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
-**Security follow-up #5456:** Open permanent MDX/TOML dependency-chain removal. Temporary containment expires 2026-10-07; this audit does not extend it.
+**Security incident #6211 / PR #6364:** Active bounded repair of the October npm high/critical audit gate. Patch Sharp and shell-quote; do not extend expired Wrangler/Miniflare/Sharp exceptions. This incident is outside normal D/R/A WIP. Historical #5456 is closed and retired from active ownership.
 
 ### Verified completion refresh — 2026-10-05
 
