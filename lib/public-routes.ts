@@ -11,6 +11,7 @@ export const PUBLIC_ROUTES = {
   faq: '/info/faq/',
   contact: '/info/contact/',
   privacy: '/info/privacy/',
+  terms: '/info/terms/',
   disclaimer: '/info/disclaimer/',
 } as const
 
