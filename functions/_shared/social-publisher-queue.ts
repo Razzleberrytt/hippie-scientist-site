@@ -173,7 +173,7 @@ export async function enqueuePublicationJob(env: SocialPublisherQueueEnv, value:
   const stored = await getPublicationJob(env, job.publicationId)
   if (!stored) {
     const occupied = await database
-      .prepare('SELECT publication_id FROM ths_publications WHERE platform = ?1 AND intended_time = ?2')
+      .prepare('SELECT publication_id FROM ths_publications WHERE platform = ?1 AND intended_time = ?2 AND state <> 'CANCELLED'')
       .bind(job.identity.platform, validIso(job.identity.intendedTime))
       .first<{ publication_id: string }>()
     if (occupied?.publication_id) {
