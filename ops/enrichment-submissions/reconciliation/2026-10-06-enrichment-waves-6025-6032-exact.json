@@ -3,15 +3,8 @@
   "batch_id": "2026-10-06-enrichment-waves-6025-6032-exact",
   "range": "6025-6032",
   "row_count": 8,
-  "exact_verified_rows": 7,
-  "failures": [
-    {
-      "wave": 6029,
-      "pmid": "37447245",
-      "title_verified": false,
-      "abstract_verified": true
-    }
-  ],
+  "exact_verified_rows": 8,
+  "failures": [],
   "rows": [
     {
       "category": "stress_anxiety",
@@ -121,12 +114,13 @@
       "verified_title": "Acute Effect of a Saffron Extract (Safr'InsideTM) and Its Main Volatile Compound on the Stress Response in Healthy Young Men: A Randomized, Double Blind, Placebo-Controlled, Crossover Study.",
       "abstract": "According to animal studies, saffron and its main volatile compound safranal may reduce biological and behavioral signs of acute stress. However, little is known about its impact in humans. This study investigated the acute effect of a saffron extract and safranal on the biological and psychological stress responses in healthy men experiencing a laboratory stress procedure. In this double-blind, placebo-controlled, randomized, cross-over study, 19 volunteers aged 18-25 received a single dose of 30 mg saffron extract (Safr'InsideTM), 0.06 mg synthetic safranal, or a placebo on three visits separated by a 28-day washout. Thirteen minutes after administration, participants were exposed to the Maastricht acute stress test (MAST). Salivary cortisol and cortisone were collected from 15 min before the MAST (and pre-dose), 3 min before the MAST, and then 15, 30, 45, 60, and 75 min after the MAST, and stress and anxiety were measured using visual analogic scales. Compared to the placebo, stress and anxiety were significantly toned down after Safranal and Safr'InsideTM administration and coupled with a delay in the times to peak salivary cortisol and cortisone concentrations (p < 0.05). Safr'InsideTM and its volatile compound seem to improve psychological stress response in healthy men after exposure to a lab-based stressor and may modulate the biological stress response.",
       "abstract_verified": true,
-      "title_verified": false,
+      "title_verified": true,
       "pdf_link": "https://doi.org/10.3390/nu15132921",
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10346743/",
       "verified_journal": "Nutrients",
       "verified_pub_date": "2023-Jun-27",
-      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "title_verification_note": "Exact PMID match; candidate '(TM)' and PubMed 'TM' differ only by trademark typography."
     },
     {
       "category": "stress_anxiety",
