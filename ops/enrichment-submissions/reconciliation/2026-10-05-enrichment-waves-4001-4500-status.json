@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "batch_id": "2026-10-05-enrichment-waves-4001-4500",
-  "status": "review_repair_complete_pending_repository_validation",
+  "status": "final_review_repair_complete_pending_repository_validation",
   "admission_issue": 6349,
   "branch": "data/enrichment-waves-4001-4500-2026-10-05",
   "target_findings": 500,
@@ -21,10 +21,11 @@
     "synthetic_rows_created": false,
     "failed_candidates_replaced": 52,
     "second_pass_repairs": 1,
-    "domain_review_repairs": 23,
+    "domain_review_repairs": 37,
     "objective_off_domain_rows_remaining": 0,
     "strict_relevance_review_passed": true,
-    "expanded_hard_off_domain_review_passed": true
+    "expanded_hard_off_domain_review_passed": true,
+    "final_pr_review_hard_off_domain_review_passed": true
   },
   "artifacts": {
     "finalized_receipt": "2026-10-05-enrichment-waves-4001-4500-verified-consolidated.json",
@@ -33,7 +34,8 @@
     "final_audit": "2026-10-05-enrichment-waves-4001-4500-final-audit.json",
     "verified_repairs": "2026-10-05-enrichment-waves-4001-4500-verified-repairs.json",
     "domain_review_repair": "2026-10-06-enrichment-waves-4001-4500-domain-repair-exact.json",
-    "domain_review_repair_r2": "2026-10-06-enrichment-waves-4001-4500-domain-repair-r2-exact.json"
+    "domain_review_repair_r2": "2026-10-06-enrichment-waves-4001-4500-domain-repair-r2-exact.json",
+    "domain_review_repair_r3": "2026-10-06-enrichment-waves-4001-4500-domain-repair-r3-exact.json"
   },
   "policy": {
     "entity_creation": "forbidden",

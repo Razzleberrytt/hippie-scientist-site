@@ -18,9 +18,11 @@
     "exact_title_match": "500/500",
     "abstract_verified": "500/500",
     "contiguous_wave_coverage": true,
-    "objective_off_domain_review": "23 replaced; 0 retained"
+    "objective_off_domain_review": "37 replaced; 0 retained",
+    "expanded_hard_off_domain_review": true,
+    "final_pr_review_hard_off_domain_review": true
   },
-  "repairs_applied": 75,
+  "repairs_applied": 89,
   "category_counts": {
     "aging_sarcopenia": 44,
     "botanicals_mushrooms": 41,
@@ -41,11 +43,12 @@
     "stress_anxiety": 12
   },
   "state_counts": {
-    "selected_exact_verified": 425,
+    "selected_exact_verified": 411,
     "research_only_exact_verified_repair": 51,
     "research_only_exact_verified_repair_r2": 1,
     "research_only_exact_verified_domain_repair": 10,
-    "research_only_exact_verified_domain_repair_r2": 13
+    "research_only_exact_verified_domain_repair_r2": 13,
+    "research_only_exact_verified_domain_repair_r3": 14
   },
   "waves": [
     {
@@ -815,12 +818,12 @@
     },
     {
       "wave": 4086,
-      "pmid": "42769742",
-      "doi": "10.3389/fnut.2026.1864573",
-      "title": "A trade-off between shelf-life mitigation and nutritional retention: a persistent challenge in pearl millet.",
-      "pub_type": "Review",
+      "pmid": "42798526",
+      "doi": "10.3389/fendo.2026.1938560",
+      "title": "Serum magnesium and major adverse cardiovascular events in patients with diabetic foot ulcers: a retrospective cohort study.",
+      "pub_type": "Journal Article",
       "category": "cardiometabolic",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r3"
     },
     {
       "wave": 4087,
@@ -1319,12 +1322,12 @@
     },
     {
       "wave": 4142,
-      "pmid": "42799908",
-      "doi": "10.1007/s00425-026-05178-6",
-      "title": "Exogenous regulators that alleviate waterlogging stress in plants: mechanisms, integration, and translational strategies.",
-      "pub_type": "Review",
+      "pmid": "42487516",
+      "doi": "10.1111/apt.70876",
+      "title": "Clinical Trial: Multi-Strain Probiotic Improves Bile Acid Profile, Microbiome, and Metabolomic Parameters in Patients With History of Bile Acid Malabsorption-A Randomized, Controlled Trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "gut",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r3"
     },
     {
       "wave": 4143,
@@ -1490,12 +1493,12 @@
     },
     {
       "wave": 4161,
-      "pmid": "42812778",
-      "doi": "10.3389/fpls.2026.1839892",
-      "title": "Auxin-rhizomicrobiome interactions as a driver of climate-resilient root architecture: a conceptual framework for sustainable agriculture.",
-      "pub_type": "Journal Article; Review",
+      "pmid": "41650801",
+      "doi": "10.1016/j.clnu.2026.106582",
+      "title": "Safety and immune-regulating effects of Limosilactobacillus reuteri LR08: Preclinical and clinical evidence from a randomized controlled trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "gut",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r3"
     },
     {
       "wave": 4162,
@@ -1526,12 +1529,12 @@
     },
     {
       "wave": 4165,
-      "pmid": "42813060",
-      "doi": "10.3389/fpls.2026.1904136",
-      "title": "Global change-driven plant adaptive strategies and interspecific interaction networks: from molecular regulation to ecological management.",
-      "pub_type": "Journal Article; Review",
+      "pmid": "42588161",
+      "doi": "10.3390/nu18152539",
+      "title": "Effects of Probiotic and Synbiotic Supplementation on Body Composition and Glucose Metabolism in Children and Adolescents with Overweight or Obesity: A Systematic Review and Meta-Analysis.",
+      "pub_type": "Systematic Review; Meta-Analysis",
       "category": "gut",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r3"
     },
     {
       "wave": 4166,
@@ -2327,12 +2330,12 @@
     },
     {
       "wave": 4254,
-      "pmid": "42798940",
-      "doi": "10.3389/fpls.2026.1876801",
-      "title": "Iron need attention: a review on the role of iron in plants.",
-      "pub_type": "Journal Article; Review",
+      "pmid": "42815577",
+      "doi": "10.1016/j.ajcnut.2026.101548",
+      "title": "Effect of vitamin D supplementation on bone health in Black, Asian and other non-White Ethnic adults: a systematic review and meta-analysis.",
+      "pub_type": "Systematic Review; Meta-Analysis",
       "category": "micronutrients",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r3"
     },
     {
       "wave": 4255,
@@ -2669,12 +2672,12 @@
     },
     {
       "wave": 4292,
-      "pmid": "42751143",
-      "doi": "10.3389/fvets.2026.1848289",
-      "title": "Mitochondria-associated endoplasmic reticulum membranes in canine and feline diabetic kidney disease: mechanistic links and nutritional implications.",
-      "pub_type": "Review",
+      "pmid": "41644499",
+      "doi": "10.1111/apha.70161",
+      "title": "Ketone Monoester Increases Skeletal Muscle Power and Energy Turnover in Older but Not Young Men Without Affecting Metabolic Economy: A Controlled, Double Blind, Cross-Over Trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "mitochondrial_energy",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r3"
     },
     {
       "wave": 4293,
@@ -3830,12 +3833,12 @@
     },
     {
       "wave": 4421,
-      "pmid": "42826768",
-      "doi": "10.1016/j.ibmb.2026.104670",
-      "title": "A conserved zinc-finger gene BmZFO721 regulates meiosis and female fertility in silkworm, Bombyx mori.",
-      "pub_type": "Journal Article",
+      "pmid": "42817826",
+      "doi": "10.1093/bjd/ljag421",
+      "title": "A UV-Free Strategy for Vitamin D Synthesis in Skin: Concept Verification and a Randomised Double-Blind Placebo-Controlled Clinical Trial of a Cholecalciferol Phosphate Patch (TransVitD).",
+      "pub_type": "Randomized Controlled Trial",
       "category": "micronutrients",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r3"
     },
     {
       "wave": 4422,
@@ -3884,12 +3887,12 @@
     },
     {
       "wave": 4427,
-      "pmid": "42819694",
-      "doi": "10.1093/hr/uhag185",
-      "title": "Panax-derived Zingibroside R1 exerts allelopathic effects on root architecture by modulating the auxin transport pathway and oxidative stress responses.",
+      "pmid": "42825902",
+      "doi": "10.18502/ijaai.v25is11.22490",
+      "title": "Impact of Vitamin D and Curcumin on CD4+ and CD8+ T cells Expressing CXCR3, CCR4, and CCR6 Chemokine Receptors in Patients with Relapsing-remitting Multiple Sclerosis.",
       "pub_type": "Journal Article",
       "category": "botanicals_mushrooms",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r3"
     },
     {
       "wave": 4428,
@@ -3956,12 +3959,12 @@
     },
     {
       "wave": 4435,
-      "pmid": "42749073",
-      "doi": "10.1016/j.envres.2026.125663",
-      "title": "Adsorption-coupled PMS activation over waste iron sludge-derived Fe/biochar for sulfamethoxazole degradation: A singlet oxygen-associated oxidation pathway.",
-      "pub_type": "Journal Article",
+      "pmid": "42549656",
+      "doi": "10.1097/GME.0000000000002871",
+      "title": "Efficacy of a probiotic formula in the management of menopausal symptoms and quality of life: a randomized controlled trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "women_health",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r3"
     },
     {
       "wave": 4436,
@@ -3983,12 +3986,12 @@
     },
     {
       "wave": 4438,
-      "pmid": "42195691",
-      "doi": "10.3390/ma19102051",
-      "title": "Dislocation-Based CPFEM and Phase-Field Study on the Stress Corrosion Cracking of Randomly Textured Magnesium Alloys.",
-      "pub_type": "Journal Article",
+      "pmid": "41076308",
+      "doi": "10.1177/27683605251386221",
+      "title": "Comparative Effects of Lavender Aromatherapy and Nature Sounds on Anxiety and Pain in Cataract Surgery Patients: A Randomized Controlled Trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "stress_anxiety",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r3"
     },
     {
       "wave": 4439,
@@ -4136,12 +4139,12 @@
     },
     {
       "wave": 4455,
-      "pmid": "42412894",
-      "doi": "10.1371/journal.ppat.1014392",
-      "title": "Novel duck reovirus σC hijacks the mitochondrial COQ6-CoQ10 axis to drive NLRP3-dependent pyroptosis.",
-      "pub_type": "Research Support, Non-U.S. Gov't",
+      "pmid": "42263845",
+      "doi": "10.1016/j.metabol.2026.156672",
+      "title": "The effects of acute ketone monoester supplementation on brain insulin responsiveness and cognitive performance: Results of a randomized, double-blind, placebo-controlled crossover trial in older men with overweight.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "mitochondrial_energy",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r3"
     },
     {
       "wave": 4456,
@@ -4388,12 +4391,12 @@
     },
     {
       "wave": 4483,
-      "pmid": "42343966",
-      "doi": "10.3389/fpls.2026.1867866",
-      "title": "Biochemical shifts in Chlorella vulgaris via post-stationary magnesium sulfate stress: optimizing biomass for advanced bio-fertilizers.",
-      "pub_type": "Journal Article",
+      "pmid": "41317165",
+      "doi": "10.1016/j.jopan.2025.06.015",
+      "title": "Comparison of the Effects of a Melissa officinalis L. and Valerian Combination With Clonidine on Anxiety, Hemodynamic Changes, and Shivering in Knee Replacement Surgery: A Randomized Controlled Trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "stress_anxiety",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r3"
     },
     {
       "wave": 4484,
@@ -4406,21 +4409,21 @@
     },
     {
       "wave": 4485,
-      "pmid": "42459382",
-      "doi": "10.3389/fpls.2026.1818797",
-      "title": "Genome-wide identification, evolutionary dynamics, and abiotic stress response networks of the magnesium transporter gene family in foxtail millet (Setaria italica L.).",
-      "pub_type": "Journal Article",
+      "pmid": "41553229",
+      "doi": "10.17219/dmp/186872",
+      "title": "Aromatherapy with lavender essential oil for the control of dental anxiety in patients undergoing dental surgery: A triple-blind randomized clinical trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "stress_anxiety",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r3"
     },
     {
       "wave": 4486,
-      "pmid": "42564876",
-      "doi": "10.3389/fmicb.2026.1898632",
-      "title": "Adaptive laboratory evolution of E. coli to magnesium chloride stress reveals noncanonical routes to broad chaotropic salt resistance.",
-      "pub_type": "Journal Article",
+      "pmid": "42302879",
+      "doi": "10.1016/j.ctim.2026.103396",
+      "title": "Aromatherapy effects on pain and anxiety during transrectal ultrasound-guided prostate biopsy: A randomized controlled trial.",
+      "pub_type": "Randomized Controlled Trial",
       "category": "stress_anxiety",
-      "state": "selected_exact_verified"
+      "state": "research_only_exact_verified_domain_repair_r3"
     },
     {
       "wave": 4487,
@@ -4549,5 +4552,5 @@
       "state": "selected_exact_verified"
     }
   ],
-  "domain_review_repairs": 23
+  "domain_review_repairs": 37
 }
