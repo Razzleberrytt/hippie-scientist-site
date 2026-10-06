@@ -28,7 +28,7 @@ The workbook now has a **Publication Registry** tab that mirrors first-party pub
 
 ### 2. THS Publisher — publication engine
 
-The provider-neutral publication core lives in `scripts/distribution/social-publisher-core.mjs`.
+Provider-neutral identity creation lives in `scripts/distribution/social-publisher-core.mjs`. Runtime transitions are owned only by `functions/_shared/social-publisher-runtime.ts`; operator scripts call the authenticated runtime endpoints rather than mutating stored jobs themselves.
 
 A job is created only from an exact governed artifact identity. Its deterministic `publication_id` is derived from:
 
@@ -44,14 +44,14 @@ Current endpoints:
 - `POST /api/publisher/enqueue` — idempotently persist a publication job.
 - `GET /api/publisher/job?publication_id=...` — fetch canonical state.
 - `GET /api/publisher/due?limit=...` — list due **QUEUED** work only.
-- `POST /api/publisher/update` — compare-and-swap internal/operator update boundary.
 - `POST /api/publisher/dispatch` — execute the registered platform adapter.
 - `POST /api/publisher/observe` — verify provider state and advance only from evidence.
 - `POST /api/publisher/manual` — attach a verified manual-publication receipt to the same canonical job.
+- `POST /api/publisher/cancel` — cancel only jobs that cannot have unresolved provider side effects.
 
 All endpoints require `Authorization: Bearer $THS_PUBLISHER_ADMIN_TOKEN`.
 
-The D1 schema is `migrations/0001_ths_publisher.sql`. A unique index on `(platform, intended_time)` enforces a single writer for each publication slot. Replays of the same `publication_id` are idempotent.
+The D1 schema is `migrations/0001_ths_publisher.sql`. A partial unique index on `(platform, intended_time)` enforces one non-cancelled writer for each publication slot. Cancelling a never-sent/definitely-failed job releases the slot; ambiguous or provider-accepted jobs cannot be cancelled. Replays of the same `publication_id` are idempotent.
 
 ### 3. THS Observer — publication verification
 
