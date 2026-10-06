@@ -62,3 +62,35 @@ jobs:
             echo "Unexpected TikTok auth boundary status: $tiktok_code" >&2
             exit 1
           fi
+
+
+  inspect-cloudflare-pages-config:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci --no-audit --fund=false
+      - name: Download current Cloudflare Pages config
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_PAGES_PROJECT: ${{ secrets.CLOUDFLARE_PAGES_PROJECT }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${CLOUDFLARE_API_TOKEN:-}"
+          test -n "${CLOUDFLARE_ACCOUNT_ID:-}"
+          test -n "${CLOUDFLARE_PAGES_PROJECT:-}"
+          rm -f wrangler.toml wrangler.json wrangler.jsonc
+          npx --no-install wrangler pages download config "$CLOUDFLARE_PAGES_PROJECT"
+          config_file="$(find . -maxdepth 1 -type f \( -name 'wrangler.toml' -o -name 'wrangler.json' -o -name 'wrangler.jsonc' \) | head -n 1)"
+          test -n "$config_file"
+          echo "downloaded_config=$config_file"
+          echo "---- bindings/config (secrets are not returned by download config) ----"
+          cat "$config_file"
