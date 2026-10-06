@@ -5,17 +5,10 @@
   "summary": {
     "range": "4887-4896",
     "rows": 10,
-    "exact_title": 9,
+    "exact_title": 10,
     "abstract_verified": 10,
     "hard_off_domain": [],
-    "quarantined": [
-      {
-        "wave": 4887,
-        "pmid": "42624356",
-        "title": "Redox-sensitive coordination of mitochondrial quality control: Integrating ROS, NAD(+), and Ca(2+) signaling in disease.",
-        "state": "quarantine"
-      }
-    ]
+    "quarantined": []
   },
   "rows": [
     {
@@ -36,12 +29,13 @@
       "verified_pub_date": "2026-Oct-15",
       "abstract": "Mitochondrial quality control (QC) preserves cellular homeostasis by coordinating mitochondrial structure, turnover, and bioenergetic function. Rather than operating through isolated pathways, QC is increasingly recognized as an integrated, redox-sensitive network in which reactive oxygen species (ROS), nicotinamide adenine dinucleotide (NAD+), and calcium (Ca2+) signaling regulate mitochondrial dynamics, mitophagy, biogenesis, and, ultimately, cell fate. In this narrative review, we propose a hierarchical framework in which these signaling systems function as interconnected sensors and transducers that determine whether mitochondria undergo repair, adaptive remodeling, or elimination. Under physiological conditions, controlled ROS production, adequate NAD+ availability, and tightly regulated Ca2+ flux promote a balanced mitochondrial fusion and fission, efficient mitophagic turnover, and mitochondrial biogenesis, thereby preserving bioenergetic competence and metabolic flexibility. Mitochondria-associated membranes (MAMs) emerge as key spatial platforms that integrate redox signaling, Ca2+ transfer, and lipid exchange, synchronizing communication between the endoplasmic reticulum and mitochondria. Conversely, persistent redox imbalance, characterized by excessive ROS, NAD+ depletion, and Ca2+ dysregulation, disrupts the coordination of QC pathways, resulting in mitochondrial fragmentation, defective turnover, impaired biogenesis, bioenergetic failure, and activation of apoptotic signaling. We critically discuss the mechanistic interplay among these pathways across metabolic disorders, cardiovascular disease, neurodegeneration, cancer, and aging, highlighting context-dependent adaptive and maladaptive responses. Finally, we identify unresolved questions regarding the spatiotemporal integration of redox signals, tissue-specific regulation of mitochondrial QC, and therapeutic targeting of network-level regulatory nodes. This framework provides a systems-level perspective for understanding how coordinated redox signaling governs mitochondrial adaptation and contributes to disease pathogenesis.",
       "abstract_verified": true,
-      "title_match_score": 0,
+      "title_match_score": 1,
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.1016/j.lfs.2026.124642",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_pending_relevance_review",
+      "title_match_note": "PubMed formatting-only variance in charge notation: NAD(+)/Ca(2+) vs NAD+/Ca2+."
     },
     {
       "category": "mitochondrial_energy",
