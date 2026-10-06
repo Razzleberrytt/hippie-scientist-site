@@ -6067,6 +6067,45 @@
       "attempted": 10,
       "added": 10,
       "failed": []
+    },
+    {
+      "batch": "fresh-4607-4701",
+      "attempted": 10,
+      "added": 6,
+      "failed": [
+        {
+          "wave": 4607,
+          "pmid": "42640804",
+          "title": "Cannabinoid tolerance relies on CB(1) receptor ubiquitination by NEDD4L.",
+          "exact": false,
+          "abstract_verified": true,
+          "hard_off_domain": false
+        },
+        {
+          "wave": 4626,
+          "pmid": "41714301",
+          "title": "Medical Cannabis for the Treatment of Peripheral Neuropathy due to Diabetes: A Systematic Review.",
+          "exact": false,
+          "abstract_verified": false,
+          "hard_off_domain": false
+        },
+        {
+          "wave": 4648,
+          "pmid": "42770301",
+          "title": "Mechanistic diversity within RLC-dependent myosin ATPase inhibitors differentiates EDG-7500, a diastolic-selective cardiac sarcomere modulator.",
+          "exact": true,
+          "abstract_verified": true,
+          "hard_off_domain": true
+        },
+        {
+          "wave": 4696,
+          "pmid": "42798356",
+          "title": "Beyond bacteria: a multi-omics view of the gut-brain axis in Parkinson's disease.",
+          "exact": false,
+          "abstract_verified": false,
+          "hard_off_domain": false
+        }
+      ]
     }
   ]
 }
