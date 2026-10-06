@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000-r6",
+  "row": {
+    "wave": 5672,
+    "category": "performance",
+    "old_pmid": "42569897",
+    "old_title": "Nitrate bioaccumulation, growth performance and survival of rainbow trout (Oncorhynchus mykiss) in aquaponics with elevated water NO(3)-N levels.",
+    "pmid": "32492180",
+    "doi": "10.1111/ppl.13144",
+    "title": "Exploring natural diversity of Medicago truncatula reveals physiotypes and loci associated with the response of seedling performance to nitrate supply.",
+    "journal": "Physiologia plantarum",
+    "pub_date": "2020-Oct",
+    "abstract": "Seedling pre-emergence is a critical phase of development for successful crop establishment because of its susceptibility to environmental conditions. In a context of reduced use of inorganic fertilizers, the genetic bases of the response of seedlings to nitrate supply received little attention. This issue is important even in legumes where nitrate absorption starts early after germination, before nodule development. Natural variation of traits characterizing seedling growth in the absence or presence of nitrate was investigated in a core collection of 192 accessions of Medicago truncatula. Plasticity indexes to the absence of nitrate were calculated. The genetic determinism of the traits was dissected by genome-wide association study (GWAS). The absence of nitrate affected seed biomass mobilization and root/shoot length ratio. However, the large range of genetic variability revealed different seedling performances within natural diversity. A principal component analysis (PCA) carried out with plasticity indexes highlighted four physiotypes of accessions differing in relationships between seedling elongation and seed biomass partitioning traits in response to the absence of nitrate. Finally, GWAS revealed 45 associations with single or combined traits corresponding to coordinates of accessions on PCA, as well as two clusters of genes encoding sugar transporters and glutathione transferases surrounding loci associated with seedling elongation traits.",
+    "abstract_verified": true,
+    "exact_title_verified": true,
+    "full_text_link": null,
+    "pdf_link": "https://doi.org/10.1111/ppl.13144",
+    "source": "NCBI PubMed exact retrieval via Sider Scholar",
+    "state": "research_only_exact_verified_pending_relevance"
+  }
+}
