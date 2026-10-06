@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5001-5500",
+  "rows": [
+    {
+      "wave": 5042,
+      "pmid": "42612731",
+      "title": "Baseline diet quality indicators and 6-month changes in iron and vitamin A biomarkers among rural Ghanaian adolescent schoolgirls: A secondary analysis of the Ten2Twenty-Ghana trial.",
+      "abstract": "Evidence linking food-based diet quality indicators to micronutrient biomarkers during adolescence in rural sub-Saharan Africa remains limited. To examine associations between baseline diet quality and 6-mo changes in hemoglobin (Hb), iron-related biomarkers, and vitamin A status among rural schoolgirls in northern Ghana. This secondary analysis used data from the Ten2Twenty-Ghana randomized controlled trial, which included 300 girls aged 10 to 17 y from 19 schools. Dietary intake was assessed using a quantitative 24-h recall. Diet quality indicators included the Global Diet Quality Score (GDQS), Minimum Dietary Diversity for Women (MDD-W), and gram-weighted intakes of NOVA (food classification system based on the nature, extent, and purpose of food processing) food groups. Multilevel linear and modified Poisson regression models examined associations between diet quality indicators and biomarkers of iron and vitamin A status, adjusting for baseline biomarkers, inflammation, height-for-age and BMI-for-age z-scores, household factors, energy intake, treatment allocation, and school clustering. Participants had a mean age of 12.7 ± 1.9 y; mean GDQS was 20.4 ± 3.3, and mean MDD-W was 3.8 ± 1.2, with 29.5% achieving MDD-W ≥5. At baseline, 38% had anemia, including 6.2% with iron-deficiency anemia (IDA) and 2.7% with vitamin A deficiency (VAD). Higher intake of whole or minimally processed foods was positively associated with soluble transferrin receptor (sTfR) concentrations [β: 3.0%; 95% confidence interval (CI): 1.0%, 6.2%], whereas ultraprocessed food intake was negatively associated with sTfR concentrations (β: -3.9%; 95% CI: -5.8%, -1.0%). Higher GDQS, GDQS+ (positive submetric of the GDQS), and MDD-W scores were inversely associated with ferritin concentrations but not with Hb, sTfR, or vitamin A biomarkers. No significant associations were observed with anemia or with risk of VAD. Conventional diet quality indicators and processing-based dietary measures were associated with iron-related biomarkers, although associations differed by biomarker. These findings suggest that dietary diversity and food processing capture complementary dimensions of diet quality in rural Ghanaian adolescent girls. This trial was registered at clinicaltrials.gov as NCT03368053.",
+      "journal": "The American journal of clinical nutrition",
+      "pub_date": "2026-Oct",
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1016/j.ajcnut.2026.101480",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed exact retry"
+    },
+    {
+      "wave": 5051,
+      "pmid": "42185726",
+      "title": "Cannabidiol Use in Developmental and Epileptic Encephalopathies: A Syndrome- and Age-Stratified Systematic Review and Meta-analysis.",
+      "abstract": "Developmental and epileptic encephalopathies (DEEs) are severe, drug-resistant epilepsies associated with major developmental, cognitive, and behavioral burden. Although pharmaceutical-grade cannabidiol (CBD) has shown efficacy in Dravet syndrome (DS) and Lennox-Gastaut syndrome (LGS), evidence across the broader DEE spectrum remains fragmented. The aim of this systematic review was to quantify seizure and safety outcomes with pharmaceutical-grade CBD in DEE and explore whether effectiveness differs by syndrome type, age band, dose, clobazam co-medication, or follow-up duration. We conducted a systematic review and meta-analysis of PubMed, Embase, and CENTRAL from inception to 12 October 2025. Eligible studies enrolled individuals of any age with DEE treated with pharmaceutical-grade CBD, as add-on therapy or monotherapy. Mixed-etiology reports were eligible when DEE-specific data could be isolated or obtained from authors. Main outcomes were proportions achieving ≥ 50% or ≥ 75% seizure reduction, and seizure freedom; key safety outcomes were also collected. Random-effects generalized linear mixed models were used; small-study effects were explored with funnel plots and Egger's test. Prespecified subgroup analyses were performed by age (pediatric, adult, mixed) and syndrome (DS, LGS, Doose syndrome, CDKL5-related DEE, unspecified DEE, and other defined DEEs); post-hoc exploratory subgroup analyses examined CBD dose, concomitant clobazam use, and follow-up duration. Effect modification was tested using interaction p-values and interpreted with guidance from the Cochrane Handbook and the Instrument to assess the Credibility of Effect Modification in Analyses (ICEMAN). Forty-six studies (5 randomized controlled trials [RCTs] and 41 non-randomized studies; 2592 patients) met the inclusion criteria. The pooled ≥ 50% responder rate was 49.9% (95% CI 44.9-55.0); ≥ 75% responders comprised 26.7% (95% CI 22.0-32.0), and seizure freedom was achieved in 5.7% (95% CI 4.0-8.0). Age, syndrome type, dose, concomitant clobazam use, and follow-up duration did not demonstrate a robust or consistent pattern of effect modification across efficacy outcomes. Although some subgroup analyses reached statistical significance, these findings were often imprecise, based on small subgroups with wide confidence intervals, and did not meet ICEMAN credibility criteria. Adverse-event profiles were consistent across studies: somnolence, decreased appetite, diarrhea, fatigue, and behavioral changes predominated, mostly mild to moderate and manageable with dose adjustment. Transaminase elevations occurred mainly with valproate co-therapy and were reversible upon dose reduction or discontinuation. Serious adverse events were uncommon, and withdrawals due to adverse events were infrequent. Pharmaceutical-grade CBD is associated with clinically meaningful seizure reduction in roughly half of patients with DEE, mirroring pivotal RCT results in DS and LGS. Nevertheless, substantial between-study heterogeneity and low-credibility subgroup signals preclude confident attribution of superior efficacy to any specific subgroup. These findings should be interpreted cautiously given the imprecision and heterogeneity of the available evidence. Future research should prioritize well-powered, prospectively phenotyped, and syndromically defined cohorts with standardized outcome measures and individual participant data sharing to elucidate true effect modifiers and optimize patient selection. CRD420251186064.",
+      "journal": "CNS drugs",
+      "pub_date": "2026-Jul",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5386840/",
+      "pdf_link": "https://doi.org/10.1007/s40263-026-01301-z",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed exact retry"
+    },
+    {
+      "wave": 5053,
+      "pmid": "42286692",
+      "title": "Effects of percussive therapy dosages on recovery from acute exercise-induced muscle damage: a systematic review and meta-analysis.",
+      "abstract": "Percussive therapy (PT) is increasingly used for post-exercise recovery, but its effects and dose-related responses after exercise-induced muscle damage remain uncertain. This review evaluated the effects of PT on neuromuscular performance, muscle soreness, and biochemical markers after acute exercise. The study adhered to PRISMA guidelines. A comprehensive search was conducted across PubMed, Embase, Web of Science, the Cochrane Library, and CNKI for Randomized Controlled Trials (RCTs) published through November 26, 2025. Risk of bias, methodological quality, and certainty of evidence were assessed using RoB 2, PEDro, and GRADE. Data analysis was performed using Stata-MP 18.0 software. Twelve RCTs were included. PT improved countermovement jump recovery compared with control (k = 13, g = 0.78, 95% CI 0.26 to 1.29, p < 0.01; low certainty) and reduced creatine kinase levels (k = 7, g = - 0.87, 95% CI - 1.57 to - 0.17, p = 0.02; very low certainty). PT did not clearly improve maximum voluntary contraction recovery (k = 8, g = 0.12, 95% CI - 0.10 to 0.34, p = 0.28; moderate certainty) or delayed onset muscle soreness (k = 17, g = 0.14, 95% CI - 0.19 to 0.48, p = 0.40; very low certainty). Exploratory analyses suggested that longer treatment (> 5 min per muscle group) was associated with larger countermovement jump effects, whereas 2.5-5 min protocols at higher frequency (≥ 50 Hz) were associated with creatine kinase reduction. Longer treatment was also associated with higher delayed onset muscle soreness scores. PT may improve explosive performance recovery and reduce early creatine kinase levels, but current evidence does not support clear benefits for maximum strength recovery or soreness relief. Dose-related findings are preliminary and should not be interpreted as prescriptive thresholds.",
+      "journal": "Chiropractic & manual therapies",
+      "pub_date": "2026-Jun-12",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13488264/",
+      "pdf_link": "https://doi.org/10.1186/s12998-026-00657-9",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed exact retry"
+    },
+    {
+      "wave": 5055,
+      "pmid": "42387943",
+      "title": "Association Between Serum Vitamin D Levels and Insulin Resistance in Women With Polycystic Ovary Syndrome: A Systematic Review and Meta-Analysis.",
+      "abstract": "Vitamin D deficiency has been proposed as a potential contributor to insulin resistance (IR) in polycystic ovary syndrome (PCOS); however, the evidence remains inconclusive. This meta-analysis evaluated the association between serum 25-hydroxyvitamin D [25(OH)D] and IR in PCOS. We systematically searched PubMed, Embase, Web of Science, and Cochrane Library up to December 2025 for observational studies reporting correlations of 25(OH)D with IR indices (HOMA-IR/fasting insulin) in women with PCOS. Pooled correlation coefficients (r) with 95% confidence intervals (CI) were calculated using random-effects models. Fourteen studies involving 1856 women with PCOS were included. A significant inverse correlation was found between serum 25(OH)D and IR (pooled r = -0.32, 95% CI: -0.40 to -0.23; p < 0.001; I2 = 58%). Subgroup analyses revealed stronger associations in overweight/obese women (r = -0.35) and in Asian populations (r = -0.36). Women with vitamin D deficiency (< 20 ng/mL) showed a stronger correlation (r = -0.38). Sensitivity analysis confirmed robustness, and no significant publication bias was detected. Lower serum vitamin D is significantly associated with greater insulin resistance in PCOS, especially in overweight/obese and Asian subgroups. These findings highlight the potential value of assessing vitamin D status in the metabolic evaluation of PCOS.",
+      "journal": "The journal of obstetrics and gynaecology research",
+      "pub_date": "2026-Jul",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13349429/",
+      "pdf_link": "https://doi.org/10.1111/jog.70393",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed exact retry"
+    },
+    {
+      "wave": 5186,
+      "pmid": "42737609",
+      "title": "The Zinc-Senescence Axis in Skin Aging and Wound Healing: A Narrative Review.",
+      "abstract": "Approximately one billion people worldwide are affected by acute or chronic skin wounds, placing a substantial burden on healthcare systems. This burden is further increased by population aging, as wound healing is impaired in older individuals due to age-related changes in tissue repair. Structural and functional skin alterations associated with aging and wound healing have been extensively described, including cellular senescence and inflammaging. However, less is known about zinc homeostasis in aged skin and its impact on skin regeneration in aging. Zinc deficiency, which is common in older adults, may impair wound healing and contribute to the development of chronic wounds. The present review focuses on the age-related alterations of zinc homeostasis in the skin and the role of zinc in skin regeneration and wound healing.",
+      "journal": "International journal of molecular sciences",
+      "pub_date": "2026-Aug-28",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13566430/",
+      "pdf_link": "https://doi.org/10.3390/ijms27177713",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed exact retry"
+    },
+    {
+      "wave": 5188,
+      "pmid": "42762104",
+      "title": "Evolution of zinc biomarkers and impact on clinical nutrition and public health.",
+      "abstract": "Zinc deficiency is a major modifiable nutritional and public health burden worldwide. Because zinc participates in a wide range of biochemical functions, the physiological consequences of deficiency are diverse and nonspecific, complicating the identification of reliable biomarkers of zinc status. The present review summarizes recent evidence regarding zinc status biomarkers, while integrating the impact of novel findings on the genetics of zinc homeostasis. Updated assessment of available zinc biomarkers shows that plasma/serum and urinary zinc excretion respond to changes in zinc intake in humans. Despite the impact of inflammation, plasma/serum zinc remains a good indicator of status. Numerous other putative biomarkers do not meet biomarker efficiency criteria. Zinc homeostasis is tightly controlled through the action of more than 20 membrane transporters belonging to two large families (SLC30 and SLC39). SLC30A2 genetic variants play a key role in controlling urinary zinc excretion, with high geographic variation in allele frequency. The observation from genetic studies that urinary and blood zinc levels are regulated through largely distinct biological pathways suggests that urinary zinc levels may provide relevant complementary information to serum/plasma levels pointing towards urinary-to-plasma ratio as a novel biomarker of human zinc status. The combined assessment of serum (or plasma) zinc concentration and urinary zinc excretion appears to be the most sensitive and specific approach for evaluating zinc status in humans.",
+      "journal": "Current opinion in clinical nutrition and metabolic care",
+      "pub_date": "2026-Nov-01",
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1097/MCO.0000000000001260",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed exact retry"
+    },
+    {
+      "wave": 5203,
+      "pmid": "41072817",
+      "title": "Antidepressants and the endogenous opioid system.",
+      "abstract": "The endogenous opioid system consists of three different G protein-coupled receptors, named mu-, delta- and kappa-opioid receptors (MOR, DOR, and KOR, respectively). These receptors are activated by over 20 distinct peptides produced from proenkephalin, prodynorphin, and proopiomelanocortin. The endogenous opioid system contributes to many important functions including analgesia, reward, and regulation of mood. A growing body of evidence links the opioid system with major depressive disorder. One strong line of evidence is that two different widely used antidepressants, tianeptine and ketamine, both interact with MOR; tianeptine as a full agonist, and ketamine as a positive allosteric modulator. Both of these drugs produce clinical antidepressant effects within hours or days. Buprenorphine, a partial MOR agonist commonly used for treating opioid use disorder, also shows promise as a rapid-acting antidepressant. While the conventional view is that major depressive disorder is caused by an imbalance of biogenic amine neurotransmitters, drugs that affect these neurotransmitter systems typically require weeks of dosing before showing antidepressant effects. Chronic antidepressant treatment of mice causes changes in gene expression. Interestingly, proenkephalin is one of the most highly upregulated genes following long-term treatment of mice with fluoxetine, a selective serotonin reuptake inhibitor. Taken together, these findings suggest that the opioid system plays an important role in major depressive disorder. In this review, we discuss the strengths, problems, and limitations of the studies, as well as areas in need of further investigation.",
+      "journal": "Biochemical pharmacology",
+      "pub_date": "2025-Dec",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12571423/",
+      "pdf_link": "https://doi.org/10.1016/j.bcp.2025.117392",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed exact retry"
+    },
+    {
+      "wave": 5205,
+      "pmid": "41540856",
+      "title": "Pharmacologic Modulation of Circadian Rhythms for Delirium Prevention: An Age-Stratified Systematic Review and Meta-Analysis.",
+      "abstract": "Disturbances in sleep-wake homeostasis (Process S) and circadian rhythm (Process C) are common precipitants of delirium, especially among older hospitalized adults. We conducted a systematic review and meta-analysis to test whether four sleep-modulation agents-melatonin, ramelteon, suvorexant, and lemborexant-lower delirium incidence or shorten its duration in hospitalized patients, with stratified analyses by drug class, age, and surgical status. We systematically searched PubMed, Embase, and CENTRAL through March 2025. We included randomized controlled trials (RCTs) and observational studies assessing delirium prevention with melatonin, ramelteon, suvorexant, and lemborexant in hospitalized adults (≥ 18 years), compared to placebo or standard care. Data synthesis was performed separately for RCTs and observational studies using random-effects models. Meta-regression was used to explore effect modifiers. Risk of bias was assessed using RoB2/ROBINS-I tools. Certainty of evidence was graded using the GRADE assessment. Thirty-seven studies (27 RCTs, 10 observational) comprising 7845 patients were included. Among RCTs, melatonin (RR 0.94; 95% CI 0.72-1.22) and ramelteon (RR 0.63; 95% CI 0.39-1.03) showed no significant effect on delirium incidence, whereas orexin receptor antagonists were associated with a lower risk (RR 0.55; 95% CI 0.35-0.87). Evidence for a class difference was inconsistent across analytic approaches: a subgroup heterogeneity test suggested differential effects (interaction-p = 0.09), but the meta-regression found no between-class difference (p = 0.14). No other specific test for subgroup differences was statistically significant in RCTs. Meta-regression confirmed patient setting as a significant modifier in observational studies, but not in RCTs. Sleep-wake pharmacotherapies may reduce incident delirium in hospitalized adults. In randomized trials, melatonin and ramelteon did not significantly reduce delirium incidence, whereas dual orexin receptor antagonists showed a possible benefit, but the meta-regression did not demonstrate a reliable between-class difference, and the evidence remains limited. Adequately powered randomized trials across inpatient settings are needed to clarify any true differences and define clinical relevance.",
+      "journal": "Journal of the American Geriatrics Society",
+      "pub_date": "2026-May",
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1111/jgs.70305",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed exact retry"
+    }
+  ]
+}
