@@ -5,14 +5,11 @@
   "summary": {
     "range": "4641-4650",
     "rows": 10,
-    "exact_title": 8,
-    "abstract_verified": 8,
+    "exact_title": 10,
+    "abstract_verified": 10,
     "hard_off_domain": [],
     "errors": [],
-    "quarantine": [
-      4646,
-      4650
-    ]
+    "quarantine": []
   },
   "rows": [
     {
@@ -153,16 +150,17 @@
       "selection_score": 3,
       "wave": 4646,
       "state": "quarantine",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "title_match_score": 0,
-      "abstract_verified": false,
-      "abstract": "",
-      "full_text_link": null,
-      "pdf_link": null,
-      "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "verified_title": "Docosahexaenoic Acid (DHA) Deficiency in Breast Milk: A Cross-Sectional Study of Lactating Women in Serbia, Montenegro, and North Macedonia.",
+      "verified_journal": "Nutrients",
+      "verified_pub_date": "2026-Aug-24",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "abstract": "Background/Objectives: Docosahexaenoic acid (DHA) is an essential component of breast milk for infant neurocognitive and visual development. Because DHA depends largely on dietary intake, women with low seafood consumption are at increased risk of inadequate DHA contents in breast milk. This study aims to quantify the DHA content in breast milk and assess how recommended dietary supplementation during lactation affects these contents among lactating women in three Balkan countries. Methods: This cross-sectional multicenter study included 128 lactating women (18-35 years). Dietary intake of DHA was assessed using a modified Food Frequency Questionnaire. DHA in breast milk was measured by gas chromatography following standard protocols. Both the FFQ and breast milk samples were collected at two time points: 20-40 (visit 1-V1) and 80-100 days (visit2-V2) postpartum. Results: In lactating women, seafood intake was low (Visit 1: 37.5 (0.0-93.8) g/week), meeting about 28% of the recommended amount, with some variation between countries. Consequently, the mean dietary n-3 PUFA and DHA intake for the total sample was less than 50% and 5% of the recommended daily allowance, respectively. Correlation analysis indicates that DHA content in breast milk is related to dietary DHA intake (Visit 1: r = 0.258, p = 0.001; Visit 2: r = 0.238, p = 0.012). DHA contents failed to reach the 0.3% clinical threshold for optimal neurodevelopment, with average levels ranging from 0.149 to 0.165%. Furthermore, no significant differences were observed between supplemented and unsupplemented women at either time point, highlighting a persistent regional deficit regardless of supplementation status. Conclusions: Lactating women in the Balkan region have a low dietary intake of n-3 PUFA and DHA, which is reflected in the breast milk lipid profile, regardless of standard supplementation. These findings highlight the need for a targeted nutritional strategy both via nutrition and supplementation to improve DHA intake in lactating women, but more importantly in infants.",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13567311/",
+      "pdf_link": "https://doi.org/10.3390/nu18172761",
+      "source": "NCBI PubMed EFetch via Sider Scholar retry",
+      "hard_off_domain_flag": false,
+      "verification_state": "exact_verified_pending_relevance_review"
     },
     {
       "category": "cardiometabolic",
@@ -250,19 +248,20 @@
       "has_abstract": true,
       "pmcid": "PMC13055767",
       "selection_score": 2,
-      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "source": "NCBI PubMed EFetch via Sider Scholar retry",
       "query": "((omega-3[Title/Abstract] OR EPA[Title/Abstract] OR DHA[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR magnesium[Title/Abstract] OR berberine[Title/Abstract] OR fiber[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR lipid[Title/Abstract] OR triglyceride[Title/Abstract] OR cardiovascular[Title/Abstract] OR endothelial[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text] AND (clinical trial[pt] OR randomized controlled trial[pt] OR systematic review[pt] OR meta-analysis[pt] OR observational study[pt])",
       "state": "quarantine",
       "wave": 4650,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "title_match_score": 0,
-      "abstract_verified": false,
-      "abstract": "",
-      "full_text_link": null,
-      "pdf_link": null,
-      "hard_off_domain_flag": false
+      "verified_title": "Effects of Increasing Total Fruit Intake With Avocado and Mango on Endothelial Function and Cardiometabolic Risk Factors in Adults With Prediabetes.",
+      "verified_journal": "Journal of the American Heart Association",
+      "verified_pub_date": "2026-Feb-17",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "abstract": "Low fruit intake is a global risk factor for cardiometabolic diseases. This study sought to investigate vascular and metabolic effects of increasing total and select fruit intake in adults with prediabetes. This randomized, 2-arm parallel, partially controlled feeding study provided participants (n=82, aged 45±15 years, 30±6 kg/m2) weekly diets (1500 [women] or 1750 kcal/d [men]) incorporating 1 avocado and 1 cup of mango (avocado-mango diet) daily for 8 weeks or energy-matched low-fat, low-fiber foods (control diet). Flow-mediated vasodilation was the primary end point. Central and brachial blood pressure; pulse-wave velocity; metabolic, inflammatory, and kidney function markers; and dietary intake were secondary end points. Change (Δ) data were analyzed by mixed model ANCOVA or Wilcoxon rank-sum test, and postprandial and dietary intake data by repeated-measures ANOVA using SAS 9.4 (SAS Institute, Cary, NC). Changes in percentage of flow-mediated vasodilation were significantly different between interventions (effect, -2.11±0.77%; P=0.008), increasing ≈1% on the avocado-mango diet and decreasing on the control diet, as were changes in central and brachial diastolic blood pressure (P=0.07 and P=0.03, respectively), specifically in men. Other end points were generally not different between diets (P>0.05), although select lipids and kidney markers were marginally different (P<0.1). Total fruit, dietary fiber, vitamin C, and monounsaturated fat intake significantly increased during the avocado-mango diet compared with the control diet (P<0.05). In adults with prediabetes, daily inclusion of avocado and mango increases fruit consumption, diversifies nutrient composition, and improves vascular function associated with cardiovascular health. URL: https://www.clinicaltrials.gov; Unique identifier: NCT05353790.",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13055767/",
+      "pdf_link": "https://doi.org/10.1161/JAHA.124.040933",
+      "hard_off_domain_flag": false,
+      "verification_state": "exact_verified_pending_relevance_review"
     }
   ]
 }
