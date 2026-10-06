@@ -22,7 +22,7 @@
     "duplicate_normalized_dois": 0,
     "duplicate_normalized_titles": 0,
     "prior_pmid_collisions": 0,
-    "hard_or_type_rejected": 10
+    "hard_or_type_rejected": 11
   },
   "category_counts": {
     "cardiometabolic": 37,
@@ -2647,12 +2647,14 @@
       "selection_score": 2,
       "discovery_query": "((ashwagandha[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title] OR aromatherapy[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2000:2026[pdat] AND hasabstract[text] AND humans[MeSH Terms] NOT retracted publication[pt] NOT case reports[pt]",
       "provisional_rank": 210,
-      "state": "research_only_candidate_pending_exact_verification",
+      "state": "research_only_rejected_or_failed",
       "wave": 6144,
       "source_pool": "unused_r5_oversample",
       "abstract": null,
       "abstract_verified": false,
-      "exact_title_verified": false
+      "exact_title_verified": false,
+      "hard_off_domain_flag": true,
+      "rejection_reason": "off_domain_biomaterials_dental_craniofacial"
     },
     {
       "category": "aging_sarcopenia",
