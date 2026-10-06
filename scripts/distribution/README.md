@@ -67,10 +67,8 @@ Broad/high-volume autopublishing remains unauthorized. The Metricool adapter is 
 
 ## First-party TikTok draft upload
 
-`tiktok-upload-provider.mjs` adds an independent TikTok transport for already-governed vertical-video assets. It uses the site's Cloudflare bridge and TikTok Content Posting API `video.upload` to deliver a draft into the creator's TikTok inbox. It is deliberately **not** Direct Post and never treats provider acceptance as public publication.
-
 `upload-tiktok-draft.mjs` is the artifact-aware operator boundary. It rechecks the live provider-ready static media manifest against the current selected opportunity, validated package, bounded pilot lifecycle ID, and identity fingerprint before calling the provider. The current v1 consumes the provider-neutral hash-verified static video staging path under `/media/distribution/publisher/`. The operator command enqueues canonical identity first and delegates all state mutation to the authenticated Publisher runtime.
 
-The Cloudflare bridge owns OAuth exchange, access-token refresh, rotated refresh-token persistence, canonical media URL enforcement, draft initialization via `PULL_FROM_URL`, and status polling. Secrets and TikTok tokens never belong in lifecycle receipts or source control.
+The THS Publisher runtime owns draft initialization via `PULL_FROM_URL`; the shared TikTok module owns OAuth exchange, access-token refresh, rotated refresh-token persistence, canonical media URL enforcement, and status polling. No standalone TikTok creation endpoint bypasses Publisher identity. Secrets and TikTok tokens never belong in lifecycle receipts or source control.
 
 See `docs/tiktok-draft-upload-provider.md` for the external TikTok/Cloudflare setup and one-time authorization flow.
