@@ -37,8 +37,10 @@
     "post_review_replacements": 28,
     "pmc_link_hardening": "authoritative receipt full_text_link values nulled pending independent PMID↔PMCID verification",
     "second_pass_category_drift_replacements": 10,
-    "codex_review_repair_r7_rows": 17,
-    "cumulative_index_rebuilt_from_prior_ledger": true
+    "cumulative_index_rebuilt_from_prior_ledger": true,
+    "r7_substitutions_within_post_review_set": 17,
+    "total_repair_actions": 111,
+    "note": "The 17 R7 substitutions are included within the 28 post-review replacement waves, not additional waves. Total repair actions count historical superseded repairs as actions."
   },
   "category_counts": {
     "aging_sarcopenia": 44,
