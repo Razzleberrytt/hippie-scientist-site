@@ -3,7 +3,7 @@ slug: lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide
 title: "Lion's Mane Mushroom: Cognition, Mood, Dose & Evidence — 2026 Review"
 description: "Evidence-first 2026 review of Lion's Mane (Hericium erinaceus): small human cognition trials, newer null and mixed findings in healthy adults, product-form directness, preclinical NGF mechanisms, dosing uncertainty, and safety limits."
 date: '2026-06-08'
-updatedAt: '2026-09-18'
+updatedAt: '2026-10-04'
 author: Will
 category: Cognitive health
 evidence_grade: mixed-human-evidence
@@ -28,6 +28,31 @@ tags:
 profile_status: published
 sitemap_included: true
 ai_assisted: true
+keyTakeaways:
+  - "Lion's Mane has promising but still limited and product-specific human evidence; small older-adult or cognitive-impairment trials reported selected benefits, while newer healthy-young-adult studies produced isolated signals alongside null findings."
+  - "A 2025 acute randomized crossover in healthy younger adults found no significant overall improvement in global cognition or mood, so isolated task effects should not be converted into a broad nootropic claim."
+  - "Mechanistic claims involving nerve growth factor, neurogenesis, erinacines, and hericenones remain dominated by cell and animal research and do not establish a human brain biomarker effect."
+  - "Fruiting-body powders, fruiting-body extracts, and erinacine-enriched mycelia are not interchangeable interventions; study results belong to the preparation that was tested."
+  - "No evidence-based universal dose, onset timeline, cycling schedule, indefinite-use requirement, or ADHD-treatment role has been established."
+citationQuestions:
+  - "Does Lion's Mane improve cognition or memory?"
+  - "What do controlled human trials show about Lion's Mane?"
+  - "Does Lion's Mane raise nerve growth factor in the human brain?"
+  - "Is fruiting body better than mycelium for cognition?"
+  - "What dose of Lion's Mane has been studied in humans?"
+  - "How long does Lion's Mane take to work?"
+  - "Does Lion's Mane help stress, depression, or anxiety?"
+  - "Does Lion's Mane treat ADHD?"
+  - "What are the main evidence gaps and safety limits for long-term Lion's Mane use?"
+canonicalConcepts:
+  - "Hericium erinaceus"
+  - "Lion's Mane mushroom"
+  - "cognition"
+  - "erinacines"
+  - "hericenones"
+  - "nerve growth factor"
+  - "fruiting body"
+  - "mycelium"
 references:
   - title: "Benefits, side effects, and uses of Hericium erinaceus as a supplement: a systematic review"
     authors: "Menon A, Jalal A, Arshad Z, Nawaz FA, Kashyap R"
