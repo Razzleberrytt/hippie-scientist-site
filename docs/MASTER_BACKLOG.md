@@ -46,23 +46,26 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
-**Research-only admitted work #6353 / PR #6355:** In review — repaired deep research enrichment Waves 4501–5000. This does not consume a normal implementation WIP slot; it is research-only, fail-closed from runtime/publication/recommendation/dose promotion, and merge remains contingent on repository validation and fresh review. The post-review repair replaces weak/off-domain or unverifiable rows and strips unverified PMC shortcuts from the authoritative final receipt.
+**Research-only admitted work #6349 / PR #6350:** In review — deep research enrichment Waves 4001–4500. This does not consume a normal implementation WIP slot; it is research-only, fail-closed from runtime/publication/recommendation/dose promotion, and merge remains contingent on repository validation and review.
+
+**Research-only admitted work #6353 / PR #6355:** In review — repaired deep research enrichment Waves 4501–5000. This does not consume a normal implementation WIP slot; it is research-only, fail-closed from runtime/publication/recommendation/dose promotion, and merge remains contingent on repository validation and fresh review. Final integrity is 500 contiguous waves, 500 unique PMIDs, 500/500 exact titles and non-null abstracts, zero prior-ledger collisions, and 4,935 cumulative unique PMIDs through Wave 5000.
 
 **Stacked research-only finalization #6362 / PR #6363:** In review — Waves 5001–5500 are finalized with 500/500 exact PubMed title verification, 500/500 non-null abstracts, 500 unique PMIDs, zero duplicate PMIDs/normalized DOIs/normalized titles, zero collisions against the repaired 4,935-PMID upstream ledger, and zero hard off-domain rows remaining. The cumulative research index is 5,435 unique PMIDs through Wave 5500. Final repair accounting is 35 replacements total (22 relevance/quality + 13 upstream-collision repairs) and 14 retained retry overrides. Exact literature verification is complete; merge remains stacked on #6355 and exact-head repository validation/review. No runtime/publication/recommendation/dose promotion is authorized.
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6356 / PR #6357 | Add first-party TikTok draft-upload provider | R | Active — implementation | P0 | 5/5/3/5/1/4 | 93.8 | 2026-10-06 — current TikTok upload/API rules + Metricool limit failure verified |
 
 
 
-**Current admission (verified 2026-10-06):** Normal implementation WIP is **1/3**. #6356 owns Revenue/Conversion / L5 for the first-party TikTok draft-upload provider, revalidated against exact base `1c123a71b488b44aae61d33deccd00ad7942e1e8`. Discovery/SEO and Authority/Content remain free.
+**Current admission (verified 2026-10-06):** Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are all free; vacancy alone does not authorize new work without a fresh scored, non-overlapping admission transaction.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
 **Security follow-up #5456:** Open permanent MDX/TOML dependency-chain removal. Temporary containment expires 2026-10-07; this audit does not extend it.
 
-### Verified completion refresh — 2026-10-05
+### Verified completion refresh — 2026-10-06
+
+- **#6356 / PR #6357 — completed:** THS Publisher v0.1 merged to `main` as `fc0d0fee90a027cb13e2f6b77071d8632ee99b35`. First-party publication identity/state, TikTok draft transport, Observer/reconciliation, provider-neutral staging, and Metricool publication freeze are implemented and exact-head validation/build gates passed. External Cloudflare D1/KV bindings, production secrets, TikTok app approval, creator authorization, and live publication receipt remain pending/Unknown.
 
 - **#6258 / PR #6257 — completed:** RC/NPS consolidated closeout merged at `6151f17759b09bd0b9a73a605b58b70b813e8dda` from exact source `17ea07e9ca2ecd45bbaf60fdd125c71fcfb6f055` on 2026-10-05T12:37:53Z. Includes #6249 / #6253; duplicate PRs #6252/#6254 are closed with their source incorporated. The 92-route inventory, all 45 candidate dispositions, source corrections, recovery/support normalization, tests and evidence limitations are recorded in `docs/content/rc-nps-completion-2026-10-05.md`. Sparse-compound evidence gaps, unverified global legal status and external outcomes remain explicit.
 
@@ -94,7 +97,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Revenue/Conversion is occupied by #6356; Discovery/SEO and Authority/Content are free. No additional candidate is admitted by vacancy alone.
+Discovery/SEO, Revenue/Conversion, and Authority/Content are free. No candidate is admitted by vacancy alone.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
