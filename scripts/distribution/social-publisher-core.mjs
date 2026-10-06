@@ -7,6 +7,7 @@ const STATES = new Set([
   'AWAITING_USER_POST',
   'PUBLISHED',
   'FAILED',
+  'NEEDS_RECONCILIATION',
   'CANCELLED',
 ])
 
@@ -51,6 +52,8 @@ function assertJob(job) {
     throw new Error('THS publication job identity mismatch')
   }
   if (!Array.isArray(job.attempts)) throw new Error('THS publication job attempts must be an array')
+  if (job.providerReceipts !== undefined && !Array.isArray(job.providerReceipts)) throw new Error('THS publication providerReceipts must be an array')
+  if (job.observerReceipts !== undefined && !Array.isArray(job.observerReceipts)) throw new Error('THS publication observerReceipts must be an array')
 }
 
 export function deriveExperimentId({ experimentId, taggedDestination } = {}) {
@@ -122,6 +125,8 @@ export function createPublicationJob({
     artifacts: urls,
     attempts: [],
     providerReceipt: null,
+    providerReceipts: [],
+    observerReceipts: [],
     failure: null,
     createdAt,
     updatedAt: createdAt,
@@ -171,6 +176,7 @@ export function beginPublicationAttempt(job, {
     return structuredClone(job)
   }
   if (job.state === 'CANCELLED') throw new Error('cancelled publication cannot be dispatched')
+  if (job.state === 'NEEDS_RECONCILIATION') throw new Error('publication requires reconciliation before retry')
   if (job.state === 'DISPATCHING') throw new Error('publication already has an active dispatch attempt')
   if (!['QUEUED', 'FAILED'].includes(job.state)) throw new Error(`publication cannot dispatch from ${job.state}`)
 
@@ -224,6 +230,7 @@ export function acceptProviderReceipt(job, {
   const next = structuredClone(job)
   next.state = nextState
   next.providerReceipt = normalizedReceipt
+  next.providerReceipts = [...(next.providerReceipts || []), normalizedReceipt]
   next.updatedAt = at
   next.attempts[next.attempts.length - 1] = {
     ...next.attempts[next.attempts.length - 1],
@@ -239,6 +246,7 @@ export function recordPublicationFailure(job, {
   error,
   now = new Date().toISOString(),
   providerReceipt = null,
+  retryable = true,
 } = {}) {
   assertJob(job)
   if (!['DISPATCHING', 'PROVIDER_ACCEPTED', 'AWAITING_USER_POST'].includes(job.state)) {
@@ -255,7 +263,7 @@ export function recordPublicationFailure(job, {
     provider: providerId,
     message,
     at,
-    retryable: true,
+    retryable: Boolean(retryable),
   }
   const active = next.attempts.at(-1)
   if (active && active.provider === providerId && active.state !== 'FAILED') {
@@ -267,6 +275,66 @@ export function recordPublicationFailure(job, {
       providerReceipt: providerReceipt || active.providerReceipt || null,
     }
   }
+  return next
+}
+
+export function recordPublicationReconciliationRequired(job, {
+  provider,
+  error,
+  now = new Date().toISOString(),
+} = {}) {
+  assertJob(job)
+  if (job.state !== 'DISPATCHING') {
+    throw new Error(`publication reconciliation can only be required from DISPATCHING, got ${job.state}`)
+  }
+  const providerId = clean(provider).toLowerCase()
+  const message = clean(error?.message || error) || 'provider dispatch outcome is unknown'
+  if (!providerId) throw new Error('publication reconciliation requires provider')
+  const at = iso(now, 'publication reconciliation time')
+  const next = structuredClone(job)
+  next.state = 'NEEDS_RECONCILIATION'
+  next.updatedAt = at
+  next.failure = {
+    provider: providerId,
+    message,
+    at,
+    retryable: false,
+    ambiguousDispatch: true,
+  }
+  const active = next.attempts.at(-1)
+  if (active && active.provider === providerId) {
+    next.attempts[next.attempts.length - 1] = {
+      ...active,
+      state: 'NEEDS_RECONCILIATION',
+      completedAt: at,
+      error: message,
+    }
+  }
+  return next
+}
+
+export function recordPublicationObservation(job, {
+  provider,
+  status,
+  receipt = null,
+  now = new Date().toISOString(),
+} = {}) {
+  assertJob(job)
+  const providerId = clean(provider).toLowerCase()
+  const observedStatus = clean(status)
+  if (!providerId || !observedStatus) throw new Error('publication observation requires provider and status')
+  const at = iso(now, 'publication observation time')
+  const next = structuredClone(job)
+  next.observerReceipts = [
+    ...(next.observerReceipts || []),
+    {
+      provider: providerId,
+      status: observedStatus,
+      receipt: receipt && typeof receipt === 'object' && !Array.isArray(receipt) ? structuredClone(receipt) : null,
+      observedAt: at,
+    },
+  ]
+  next.updatedAt = at
   return next
 }
 
@@ -296,6 +364,7 @@ export function markPublicationPublished(job, {
     externalId: publicId,
     verifiedPublishedAt: at,
   }
+  next.providerReceipts = [...(next.providerReceipts || []), structuredClone(next.providerReceipt)]
   return next
 }
 
@@ -315,5 +384,5 @@ export function cancelPublication(job, {
 
 export function publicationIsDispatchable(job) {
   assertJob(job)
-  return ['QUEUED', 'FAILED'].includes(job.state)
+  return job.state === 'QUEUED' || (job.state === 'FAILED' && job.failure?.retryable !== false)
 }
