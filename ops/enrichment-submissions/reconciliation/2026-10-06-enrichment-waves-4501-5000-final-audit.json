@@ -35,12 +35,13 @@
     "reviewed_replacement_rows": 66,
     "r5b_override_rows": 13,
     "final_shortage_repair_rows": 4,
-    "total_repaired_rows": 111,
     "post_review_replacement_rows": 28,
     "second_pass_category_drift_rows": 10,
-    "codex_review_repair_r7_rows": 17,
-    "total_repair_actions": 100,
-    "note": "R7 supersedes 17 final rows, including rows previously repaired in earlier rounds; repair-action counts are not unique-row counts."
+    "total_repair_actions": 111,
+    "note": "The 28 post-review replacement waves include the 17 R7 substitutions. Historical repair-action count includes superseded earlier repairs and therefore exceeds the number of final rows carrying a repair state.",
+    "post_review_replacements": 28,
+    "second_pass_category_drift_replacements": 10,
+    "r7_substitutions_within_post_review_set": 17
   },
   "category_counts": {
     "aging_sarcopenia": 44,
