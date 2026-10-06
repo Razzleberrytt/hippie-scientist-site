@@ -3,7 +3,7 @@
   "batch_id": "2026-10-06-enrichment-waves-5501-6000",
   "range": "5531-5540",
   "row_count": 10,
-  "verified_count": 7,
+  "verified_count": 10,
   "rows": [
     {
       "wave": 5531,
@@ -112,25 +112,25 @@
       "doi": "10.1007/s40120-026-01002-1",
       "title": "Current and Emerging Therapies for Pediatric Sleep Disorders: A Narrative Review.",
       "journal": "Neurology and therapy",
-      "pub_date": "2026 Jul 29",
+      "pub_date": "2026 Oct",
       "pub_type": "Review",
       "selection_score": 2,
       "source_pool": "Sider_NCBI_strict_replacement",
       "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND hasabstract[text] AND 2000:2026[pdat] NOT retracted publication[pt] NOT case reports[pt]",
       "source_state": "replacement_candidate_pending_exact_verification",
       "strict_title_outcome_fit": true,
-      "abstract": null,
-      "abstract_verified": false,
-      "exact_title_verified": false,
+      "abstract": "Sleep disorders in children represent a significant public health concern with important implications for neurodevelopment, behavior, and overall health. Among these, pediatric obstructive sleep apnea (OSA), insomnia, narcolepsy, and sleep-related movement disorders are the most clinically relevant conditions requiring targeted therapeutic strategies. Pediatric OSA, affecting approximately 2-5% of children, is characterized by recurrent upper airway obstruction during sleep and is associated with cognitive, behavioral, and cardiovascular consequences. Management is multimodal, with adenotonsillectomy as first-line therapy, which improves most patients, although residual disease remains common. Adjunctive treatments include anti-inflammatory therapies such as intranasal corticosteroids and leukotriene receptor antagonists, positive airway pressure therapy, and emerging approaches such as high-flow nasal cannula, drug-induced sleep endoscopy-guided surgery, orthodontic interventions, and hypoglossal nerve stimulation in selected populations. Insomnia in children is primarily managed with behavioral interventions, particularly cognitive behavioral therapy for insomnia (CBT-I) and parental education strategies. Melatonin has demonstrated modest efficacy in reducing sleep latency, especially in children with neurodevelopmental disorders, although long-term safety data remain limited. Narcolepsy requires a combination of behavioral and pharmacological management, with scheduled naps as first-line therapy and medications such as stimulants, sodium oxybate, and pitolisant targeting excessive daytime sleepiness and cataplexy. Sleep-related movement disorders, including restless legs syndrome and periodic limb movement disorder, are frequently associated with iron deficiency and are primarily treated with iron supplementation alongside behavioral strategies. Overall, the treatment of pediatric sleep disorders requires a multidisciplinary, individualized approach that integrates behavioral, pharmacologic, and interventional therapies.",
+      "abstract_verified": true,
+      "exact_title_verified": true,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13615275/",
       "pdf_link": "https://doi.org/10.1007/s40120-026-01002-1",
-      "state": "verification_failed",
+      "state": "research_only_exact_verified_pending_relevance",
       "old_pmid": "42728526",
       "old_title": "Melatonin in Pregnancy-Related Disorders: A Review of Protective Mechanisms and Therapeutic Potential.",
-      "verified_title": null,
+      "verified_title": "Current and Emerging Therapies for Pediatric Sleep Disorders: A Narrative Review.",
       "verified_journal": null,
       "verified_pub_date": null,
-      "source": "NCBI PubMed EFetch via Sider Scholar"
+      "source": "PubMed public record exact retrieval"
     },
     {
       "wave": 5536,
@@ -146,18 +146,18 @@
       "discovery_query": "((melatonin[Title/Abstract] OR magnesium[Title/Abstract] OR valerian[Title/Abstract] OR glycine[Title/Abstract] OR theanine[Title/Abstract] OR saffron[Title/Abstract] OR chamomile[Title/Abstract]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND hasabstract[text] AND 2000:2026[pdat] NOT retracted publication[pt] NOT case reports[pt]",
       "source_state": "replacement_candidate_pending_exact_verification",
       "strict_title_outcome_fit": true,
-      "abstract": null,
-      "abstract_verified": false,
-      "exact_title_verified": false,
+      "abstract": "Obesity, diabetes, and hypertension are major global health burdens influenced not only by lifestyle factors but also by genetic predisposition, sleep quality, chrononutrition, and circadian rhythms. This review examined how these factors interact in metabolic and cardiovascular diseases, with emphasis on sex-specific differences. A narrative review was conducted using PubMed, Scopus, and Web of Science databases for studies published between 2006 and 2026. A total of 112 studies were synthesized, including randomized trials, observational studies, systematic reviews, meta-analyses, Mendelian randomization, and mechanistic investigations. Evidence indicates that genetic susceptibility and circadian disruption contribute significantly to obesity, diabetes, and hypertension. Sleep deprivation, obstructive sleep apnea, and circadian misalignment were consistently associated with insulin resistance, appetite dysregulation, elevated blood pressure, and increased cardiometabolic risk, particularly among shift workers. Hormonal and metabolic pathways involving leptin, ghrelin, cortisol, and melatonin appear to mediate these effects. Important sex differences were observed, with women showing greater vulnerability to sleep-related appetite disturbances and men presenting a higher prevalence of visceral adiposity, sleep apnea, and hypertension. Chrononutrition strategies, including time-restricted eating and Mediterranean dietary patterns, showed beneficial effects on sleep quality, glycemic control, inflammation, and metabolic health.",
+      "abstract_verified": true,
+      "exact_title_verified": true,
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.1093/nutrit/nuag115",
-      "state": "verification_failed",
+      "state": "research_only_exact_verified_pending_relevance",
       "old_pmid": "42771218",
       "old_title": "Melatonin beyond chronobiology: integrating pharmacokinetics, dose-exposure forecasting, and clinical evidence.",
-      "verified_title": null,
+      "verified_title": "Chrononutrition, Circadian Rhythms, and Genetic Susceptibility in Noncommunicable Diseases: Sex-Specific Perspective.",
       "verified_journal": null,
       "verified_pub_date": null,
-      "source": "NCBI PubMed EFetch via Sider Scholar"
+      "source": "PubMed public record exact retrieval"
     },
     {
       "wave": 5537,
@@ -241,7 +241,7 @@
       "category": "sleep",
       "pmid": "42677863",
       "doi": "10.1080/07420528.2026.2723199",
-      "title": "Differences in circadian rhythm changes between myopic and non-myopic college students over 2 years.",
+      "title": "Differences in circadian rhythm changes between myopic and non-myopic college students over 2 years.",
       "journal": "Chronobiology international",
       "pub_date": "2026 Sep 1",
       "pub_type": "Journal Article",
@@ -252,14 +252,14 @@
       "strict_title_outcome_fit": true,
       "abstract": "This study aimed to characterize and compare the differences in circadian rhythm changes during 2 years between college students with myopia and non-myopia based on a longitudinal cohort study. Wake-up time and bedtime were obtained through a self-administered questionnaire. Chronotype was assessed using the reduced Morningness-Eveningness Questionnaire (rMEQ). Circadian rhythm timing was determined by dim-light melatonin onset (DLMO), measured through hourly saliva collection from 21:00 to 01:00. A total of 450 college students (146 [32.4%] males) with a mean age of 18.65 ± 1.05 years were included, of whom 353 (78.4%) students had myopia. Compared with non-myopic individuals, myopic students slept later, woke up earlier, and exhibited lower rMEQ scores at baseline. Over the 2-year follow-up, both groups showed significantly earlier bedtimes, later wake-up times, and higher rMEQ scores. Only myopic students demonstrated a 45-minute delay in DLMO after the 2-year follow-up. After adjusting for potential confounders, linear mixed-effects models showed that myopic individuals had later bedtimes and earlier wake-up times. These findings indicate significant circadian rhythm changes in individuals with myopia, suggesting the potential of targeted sleep rhythm interventions on preventing myopia.",
       "abstract_verified": true,
-      "exact_title_verified": false,
+      "exact_title_verified": true,
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.1080/07420528.2026.2723199",
-      "state": "verification_failed",
+      "state": "research_only_exact_verified_pending_relevance",
       "verified_title": "Differences in circadian rhythm changes between myopic and non-myopic college students over 2 years.",
       "verified_journal": "Chronobiology international",
       "verified_pub_date": "2026-Sep-01",
-      "source": "NCBI PubMed EFetch via Sider Scholar"
+      "source": "PubMed public record exact retrieval"
     }
   ]
 }
