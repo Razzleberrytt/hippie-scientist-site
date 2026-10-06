@@ -21,6 +21,13 @@
       "2026-10-06-enrichment-waves-5501-6000-r7-exact-repair-receipt-03.json",
       "2026-10-06-enrichment-waves-5501-6000-r7-exact-repair-receipt-04.json",
       "2026-10-06-enrichment-waves-5501-6000-r7-exact-repair-receipt-05.json"
+    ],
+    "verified_base_receipts": [
+      "2026-10-06-enrichment-waves-5501-6000-r6-exact-consolidated-a.json",
+      "2026-10-06-enrichment-waves-5501-6000-r6-exact-consolidated-b.json"
+    ],
+    "prior_collision_repair_receipts": [
+      "2026-10-06-enrichment-waves-5501-6000-r7-prior-collision-repair-5710.json"
     ]
   },
   "integrity": {
@@ -29,10 +36,11 @@
     "unique_pmids": 500,
     "duplicate_pmids": 0,
     "prior_pmid_collisions": 0,
-    "retained_r6_verified_rows": 417,
+    "retained_r6_verified_rows": 416,
     "semantic_overrides": 48,
     "exact_failure_overrides": 35,
-    "exact_verified_rows": 500
+    "exact_verified_rows": 500,
+    "prior_collision_overrides": 1
   },
   "rows": [
     {
@@ -1292,8 +1300,8 @@
     {
       "wave": 5710,
       "category": "aging_sarcopenia",
-      "pmid": "42680255",
-      "source": "r6_verified_base"
+      "pmid": "42772368",
+      "source": "r7_prior_collision_override"
     },
     {
       "wave": 5711,
