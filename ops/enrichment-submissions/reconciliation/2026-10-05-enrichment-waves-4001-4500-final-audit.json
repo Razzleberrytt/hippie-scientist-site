@@ -27,14 +27,15 @@
     "all_rows_abstract_verified": true,
     "unverified_rows": 0,
     "objective_off_domain_review_passed": true,
-    "objective_off_domain_rows_remaining": 0
+    "objective_off_domain_rows_remaining": 0,
+    "expanded_hard_off_domain_review_passed": true
   },
   "repairs": {
     "failed_candidates_replaced": 52,
     "second_pass_repairs": 1,
     "verified_repair_rows": 52,
-    "domain_review_repairs": 10,
-    "total_repaired_rows": 62
+    "domain_review_repairs": 23,
+    "total_repaired_rows": 75
   },
   "category_counts": {
     "aging_sarcopenia": 44,
@@ -56,19 +57,21 @@
     "stress_anxiety": 12
   },
   "state_counts": {
-    "selected_exact_verified": 438,
+    "selected_exact_verified": 425,
     "research_only_exact_verified_repair": 51,
     "research_only_exact_verified_repair_r2": 1,
-    "research_only_exact_verified_domain_repair": 10
+    "research_only_exact_verified_domain_repair": 10,
+    "research_only_exact_verified_domain_repair_r2": 13
   },
   "artifacts": {
     "finalized_receipt": "2026-10-05-enrichment-waves-4001-4500-verified-consolidated.json",
     "cumulative_index": "2026-10-05-enrichment-waves-4001-4500-pmid-index.json",
     "final_selection": "2026-10-05-enrichment-waves-4001-4500-final-selection.json",
     "verified_repairs": "2026-10-05-enrichment-waves-4001-4500-verified-repairs.json",
-    "domain_review_repair": "2026-10-06-enrichment-waves-4001-4500-domain-repair-exact.json"
+    "domain_review_repair": "2026-10-06-enrichment-waves-4001-4500-domain-repair-exact.json",
+    "domain_review_repair_r2": "2026-10-06-enrichment-waves-4001-4500-domain-repair-r2-exact.json"
   },
-  "authority_note": "This final audit and finalized consolidated receipt include the 2026-10-06 PR-review domain repair and supersede stale pending, failed, overlapping, off-domain, and superseded rows in earlier discovery, selection, exact, and repair artifacts.",
+  "authority_note": "This final audit and finalized consolidated receipt include both 2026-10-06 PR-review domain-repair passes and supersede stale pending, failed, overlapping, off-domain, and superseded rows in earlier discovery, selection, exact, and repair artifacts.",
   "policy": {
     "entity_creation": "forbidden",
     "publication_promotion": "separate fail-closed admission",
