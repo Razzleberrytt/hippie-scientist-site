@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-6001-6500",
+  "rows": [
+    {
+      "pmid": "42334050",
+      "category": "cardiometabolic",
+      "title": "Efficacy and Safety of Baxdrostat for Hypertension: A Systematic Review and Meta-Analysis of Three Phase 2/3 Randomized Controlled Trials.",
+      "verified_title": "Efficacy and Safety of Baxdrostat for Hypertension: A Systematic Review and Meta-Analysis of Three Phase 2/3 Randomized Controlled Trials.",
+      "abstract": "Baxdrostat is a selective aldosterone synthase (CYP11B2) inhibitor for treatment-resistant and uncontrolled hypertension, evaluated in phase 2/3 RCTs. To estimate pooled placebo-corrected reductions in seated office and ambulatory SBP, characterize the dose-response relationship, assess cortisol selectivity, and quantify hyperkalemia risk. We conducted a systematic review and meta-analysis of phase 2/3 randomized, double-blind, placebo-controlled trials of baxdrostat in hypertension, searching MEDLINE/PubMed, EMBASE, ClinicalTrials.gov, and NEJM.org to March 2026. The primary outcome was placebo-corrected change in seated office SBP, analyzed using random-effects meta-analysis (REML) with metafor in R. Risk of bias and certainty were evaluated using Cochrane RoB 2.0 and GRADE, respectively. Three RCTs (BrigHTN, BaxHTN, Bax24; N = 1285) were included. The pooled seated SBP reduction was -9.44 mmHg (95% CI: -11.09 to -7.79; I2 = 0.0%), with dose subgroup estimates of -8.57 mmHg (1 mg) and -10.11 mmHg (2 mg) and a clear dose-response in BrigHTN (slope -4.2 mmHg/mg; R2 = 0.96). Bax24 demonstrated a 24 h ambulatory SBP reduction of -14.0 mmHg (95% CI: -17.2 to -10.8). Serum cortisol was unsuppressed at all doses, while the pooled OR for potassium ≥ 6.0 mmol/L was 5.14 (95% CI: 1.76 to 14.97). GRADE certainty was moderate for seated SBP, low to moderate for ambulatory outcomes, and low for hyperkalemia. Baxdrostat produces meaningful, selective BP reductions across hypertensive populations. Hyperkalemia is manageable with structured monitoring. Certainty is limited by a few trials, a short follow-up, and safety imprecision. Long-term cardiovascular outcome data are needed before guideline incorporation.",
+      "journal": "Clinical cardiology",
+      "pub_date": "2026-Jun",
+      "pdf_link": "https://doi.org/10.1002/clc.70391",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13288374/",
+      "lookup_via": "pmid",
+      "exact_title_verified": true,
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact retry"
+    },
+    {
+      "pmid": "42302005",
+      "category": "cardiometabolic",
+      "title": "A Review of Dietary and Nutritional Supplements Used to Promote Cardiovascular Health.",
+      "verified_title": "A Review of Dietary and Nutritional Supplements Used to Promote Cardiovascular Health.",
+      "abstract": "Cardiovascular disease is frequently diagnosed in birds that are presented to veterinary hospitals, and atherosclerosis is a common cardiovascular condition identified in postmortem evaluations of pet psittacine birds. Atherosclerotic lesions are accumulations of lipids, smooth muscle cells, macrophages, and foam cells in the intimal layer of a blood vessel, narrowing the lumen. A reduced lumen diameter in a blood vessel typically results in physiological complications, such as ischemia, vascular remodeling, and obstructed blood flow. The treatment for atherosclerosis is often aimed at providing medications that help limit the negative effects of ischemia, a consequence of reduced blood flow. However, other therapeutic measures that have been recommended involve nutritional support, exercise, and control of secondary disorders. Nutritional therapies for the prevention and treatment of atherosclerosis have minimal evidence-based data to support their use in psittacine birds. Nonetheless, there are anecdotal reports and published studies using other animal species to investigate the benefits of diet and nutritional supplements to prevent and treat cardiovascular disease. Fish oil, ginger, ginkgo, cinnamon, cranberries, dates, dill, alfalfa, fenugreek, ginseng, red pepper, saffron, gardenia, and turmeric have all been promoted as nutritional supplements for their beneficial effects on preventing and treating atherosclerosis. The nutritional supplement with the most scientific data supporting its use in psittacine birds is fish oil, a source of omega-3 fatty acids. Although omega-3 fatty acids may hold the most promise, all nutritional supplements require further investigation to support or refute their use in psittacine birds for the prevention, management, or treatment of atherosclerosis and cardiovascular disease in general.",
+      "journal": "Journal of avian medicine and surgery",
+      "pub_date": "2026-Jun",
+      "pdf_link": "https://doi.org/10.1647/AVIANMS-D-24-00039",
+      "full_text_link": null,
+      "lookup_via": "pmid",
+      "exact_title_verified": true,
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact retry"
+    },
+    {
+      "pmid": "42550090",
+      "category": "withdrawal_nps",
+      "title": "Perioperative care for patients with opioid exposure and opioid use disorder: screening and treatment strategies.",
+      "verified_title": "Perioperative care for patients with opioid exposure and opioid use disorder: screening and treatment strategies.",
+      "abstract": "The prevalence of opioid tolerance, dependence, and use disorder is increasing among patients presenting for surgical care, yet perioperative management strategies for these patients remain inconsistent. This review examines the impact of preoperative opioid exposure on surgical outcomes, the scope of untreated opioid use disorder (OUD) among surgical patients, and advances in clinical and systems-level approaches to perioperative care. Preoperative opioid exposure independently predicts worse surgical outcomes, including higher opioid consumption, readmissions, complications, and mortality, in a dose-dependent manner. Perioperative opioid exposure predicts persistent opioid use after surgery, with the duration of exposure a stronger predictor of subsequent OUD than daily dose. Data-driven prescribing guidelines and structured opioid tapering reduce overprescribing without compromising pain control. Among surgical patients with diagnosed OUD, approximately two-thirds do not receive medications for opioid use disorder (MOUD), though treatment engagement and maintenance substantially improve outcomes. Evidence now clearly supports perioperative buprenorphine continuation over interruption. Effective perioperative management of opioid-complex surgical patients requires systematic screening, evidence-based prescribing, MOUD continuation, and institutional infrastructure. The primary barrier is shifting from evidence generation to implementation.",
+      "journal": "Current opinion in anaesthesiology",
+      "pub_date": "2026-Oct-01",
+      "pdf_link": "https://doi.org/10.1097/ACO.0000000000001698",
+      "full_text_link": null,
+      "lookup_via": "pmid",
+      "exact_title_verified": true,
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact retry"
+    }
+  ]
+}
