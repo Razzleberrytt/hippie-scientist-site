@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "batch_id": "2026-10-06-enrichment-waves-5001-5500",
   "issue": 6362,
   "branch": "data/enrichment-waves-5001-5500-2026-10-06",
@@ -10,6 +10,13 @@
   "staged_candidates": 500,
   "exact_verified": 0,
   "finalized_findings": 0,
+  "preverification": {
+    "title_category_fit_required": true,
+    "eligible_after_strict_screen": 611,
+    "selected": 500,
+    "duplicates": 0,
+    "prior_collisions": 0
+  },
   "blockers": [
     {
       "type": "external_verification_quota",
