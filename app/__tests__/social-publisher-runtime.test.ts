@@ -10,6 +10,7 @@ import {
   cancelPublication,
   dispatchPublication,
   observePublication,
+  reconcilePublication,
   recordManualPublication,
   type SocialPublisherRuntimeEnv,
 } from '../../functions/_shared/social-publisher-runtime'
@@ -44,7 +45,9 @@ class FakeStatement {
     }
     if (q.includes('WHERE platform = ?1 AND intended_time = ?2')) {
       const row = [...this.database.rows.values()].find((candidate) =>
-        candidate.platform === String(this.values[0]) && candidate.intended_time === String(this.values[1]))
+        candidate.platform === String(this.values[0]) &&
+        candidate.intended_time === String(this.values[1]) &&
+        candidate.state !== 'CANCELLED')
       return (row ? { publication_id: row.publication_id } : null) as T | null
     }
     throw new Error('unhandled first SQL: ' + q)
@@ -317,6 +320,72 @@ describe('THS Publisher runtime', () => {
     expect(published.job.state).toBe('PUBLISHED')
     expect(published.job.providerReceipt).toMatchObject({ externalId: '746123456789' })
     expect(published.job.observerReceipts).toHaveLength(2)
+  })
+
+  it('reconciles a crash-stranded DISPATCHING job as not sent and makes the same identity retryable', async () => {
+    const env = environment()
+    const queued = await enqueuePublicationJob(env, job())
+    const dispatching = structuredClone(queued)
+    dispatching.state = 'DISPATCHING'
+    dispatching.attempts = [{
+      attemptId: queued.publicationId + ':attempt:1',
+      attemptNumber: 1,
+      provider: 'tiktok',
+      state: 'DISPATCHING',
+      startedAt: '2026-10-06T18:01:00.000Z',
+      completedAt: null,
+      providerReceipt: null,
+      error: null,
+    }]
+    dispatching.updatedAt = '2026-10-06T18:01:00.000Z'
+    await replacePublicationJob(env, dispatching, queued.updatedAt)
+
+    const reconciled = await reconcilePublication(env, queued.publicationId, {
+      outcome: 'not_sent',
+      evidence: 'Verified in TikTok developer logs that no upload request was accepted.',
+      now: '2026-10-06T18:02:00.000Z',
+    })
+    expect(reconciled.state).toBe('FAILED')
+    expect(reconciled.failure).toMatchObject({
+      code: 'reconciled_not_sent',
+      retryable: true,
+      ambiguousDispatch: false,
+    })
+    expect(reconciled.attempts.at(-1)).toMatchObject({
+      state: 'FAILED',
+      completedAt: '2026-10-06T18:02:00.000Z',
+    })
+    expect(reconciled.reconciliationReceipts).toHaveLength(1)
+  })
+
+  it('preserves the ambiguous attempt when reconciliation recovers a provider operation id', async () => {
+    const env = environment()
+    await seedTikTok(env)
+    const queued = await enqueuePublicationJob(env, job())
+    const fetchImpl = vi.fn(async (_input: RequestInfo | URL, init?: RequestInit) => {
+      if (init?.method === 'HEAD') return new Response(null, { status: 200, headers: { 'content-type': 'video/mp4' } })
+      throw new TypeError('socket reset after write')
+    }) as typeof fetch
+    const ambiguous = await dispatchPublication(env, queued.publicationId, {
+      fetchImpl,
+      now: '2026-10-06T18:01:00.000Z',
+    })
+    expect(ambiguous.job.state).toBe('NEEDS_RECONCILIATION')
+    const attemptBefore = structuredClone(ambiguous.job.attempts.at(-1))
+
+    const reconciled = await reconcilePublication(env, queued.publicationId, {
+      outcome: 'provider_accepted',
+      providerOperationId: 'v_inbox_url~v2.recovered',
+      evidence: 'TikTok provider console shows the upload operation exists for this exact artifact.',
+      now: '2026-10-06T18:02:00.000Z',
+    })
+    expect(reconciled.state).toBe('PROVIDER_ACCEPTED')
+    expect(reconciled.providerReceipt).toMatchObject({
+      provider: 'tiktok',
+      providerOperationId: 'v_inbox_url~v2.recovered',
+    })
+    expect(reconciled.attempts.at(-1)).toEqual(attemptBefore)
+    expect(reconciled.reconciliationReceipts).toHaveLength(1)
   })
 
   it('refuses cancellation once provider side effects may exist', async () => {
