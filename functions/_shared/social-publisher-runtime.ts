@@ -328,6 +328,134 @@ export async function recordManualPublication(
 }
 
 
+export async function reconcilePublication(
+  env: SocialPublisherRuntimeEnv,
+  publicationId: string,
+  {
+    outcome,
+    evidence,
+    providerOperationId,
+    publicUrl,
+    publishedAt,
+    now = new Date().toISOString(),
+  }: {
+    outcome: unknown
+    evidence: unknown
+    providerOperationId?: unknown
+    publicUrl?: unknown
+    publishedAt?: unknown
+    now?: string
+  },
+): Promise<PublicationJob> {
+  const current = await getPublicationJob(env, publicationId)
+  if (!current) throw new Error('THS publication job does not exist')
+  if (!['DISPATCHING', 'NEEDS_RECONCILIATION'].includes(current.state)) {
+    throw new Error('publication cannot be reconciled from ' + current.state)
+  }
+
+  const normalizedOutcome = clean(outcome).toLowerCase()
+  if (!['not_sent', 'provider_accepted', 'published'].includes(normalizedOutcome)) {
+    throw new Error('reconciliation outcome must be not_sent, provider_accepted, or published')
+  }
+  const evidenceText = clean(evidence)
+  if (evidenceText.length < 8 || evidenceText.length > 1000) {
+    throw new Error('reconciliation evidence must be 8-1000 characters')
+  }
+
+  const reconciledAt = transitionTime(now, current.updatedAt)
+  const next = clone(current)
+  const reconciliationReceipt: Record<string, unknown> = {
+    outcome: normalizedOutcome,
+    evidence: evidenceText,
+    reconciledAt,
+    priorState: current.state,
+    publicationId: current.publicationId,
+  }
+  const priorReconciliations = records(next.reconciliationReceipts)
+
+  if (normalizedOutcome === 'not_sent') {
+    next.state = 'FAILED'
+    next.failure = {
+      provider: clean(current.identity.platform),
+      code: 'reconciled_not_sent',
+      message: 'Operator reconciliation verified that no provider publication was created.',
+      at: reconciledAt,
+      retryable: true,
+      ambiguousDispatch: false,
+      evidence: evidenceText,
+    }
+    finishAttempt(next, {
+      state: 'FAILED',
+      completedAt: reconciledAt,
+      error: 'reconciled_not_sent',
+    })
+  } else if (normalizedOutcome === 'provider_accepted') {
+    const operationId = clean(providerOperationId)
+    if (!operationId || operationId.length > 128) {
+      throw new Error('provider_accepted reconciliation requires a valid providerOperationId')
+    }
+    const receipt = {
+      ...(next.providerReceipt || {}),
+      provider: clean(current.identity.platform),
+      providerOperationId: operationId,
+      publishId: operationId,
+      publicationId: current.publicationId,
+      reconciledAt,
+      reconciliationEvidence: evidenceText,
+    }
+    next.state = 'PROVIDER_ACCEPTED'
+    next.providerReceipt = receipt
+    next.providerReceipts = [...providerReceipts(next), receipt]
+    next.failure = null
+    finishAttempt(next, {
+      state: 'PROVIDER_ACCEPTED',
+      completedAt: reconciledAt,
+      providerReceipt: receipt,
+      error: null,
+    })
+    reconciliationReceipt.providerOperationId = operationId
+  } else {
+    const url = publicUrlForPlatform(clean(current.identity.platform), publicUrl)
+    const published = new Date(clean(publishedAt))
+    if (!Number.isFinite(published.getTime())) {
+      throw new Error('published reconciliation requires a valid publishedAt')
+    }
+    if (published.getTime() > Date.parse(reconciledAt) + 5 * 60 * 1000) {
+      throw new Error('published reconciliation time cannot be materially in the future')
+    }
+    const operationId = clean(providerOperationId)
+    const receipt = {
+      provider: operationId ? clean(current.identity.platform) : 'manual-reconciliation',
+      providerOperationId: operationId || url,
+      externalId: url,
+      publicUrl: url,
+      verifiedPublishedAt: published.toISOString(),
+      publicationId: current.publicationId,
+      reconciledAt,
+      reconciliationEvidence: evidenceText,
+    }
+    next.state = 'PUBLISHED'
+    next.providerReceipt = receipt
+    next.providerReceipts = [...providerReceipts(next), receipt]
+    next.publicUrl = url
+    next.publishedAt = published.toISOString()
+    next.failure = null
+    finishAttempt(next, {
+      state: 'PUBLISHED',
+      completedAt: reconciledAt,
+      providerReceipt: receipt,
+      error: null,
+    })
+    reconciliationReceipt.publicUrl = url
+    if (operationId) reconciliationReceipt.providerOperationId = operationId
+  }
+
+  next.reconciliationReceipts = [...priorReconciliations, reconciliationReceipt]
+  next.updatedAt = reconciledAt
+  return replacePublicationJob(env, next, current.updatedAt)
+}
+
+
 export async function cancelPublication(
   env: SocialPublisherRuntimeEnv,
   publicationId: string,
