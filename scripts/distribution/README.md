@@ -37,7 +37,22 @@ The v1 state contract is `generated → validated → ready → scheduled → pu
 
 Every publication transition carries the deterministic idempotency key and upstream identity fingerprint so retries cannot silently mint a second campaign identity. Measurements are recorded as observation-only lifecycle data and cannot modify scientific claims, evidence grades, limitations, source identity, safety truth, or canonical content.
 
-## Bounded Metricool provider
+## THS Publisher v0.1
+
+`social-publisher-core.mjs` defines the provider-neutral publication identity and state machine. A canonical `publication_id` is derived from experiment ID, exact artifact SHA-256, platform, and intended time before any provider is called. Provider operation IDs are receipts beneath that identity.
+
+The Cloudflare Publisher service persists jobs in D1 behind `/api/publisher/*`. `THS_PUBLISHER_DB` is the durable queue binding and `THS_PUBLISHER_ADMIN_TOKEN` protects its operator/service endpoints. The D1 schema enforces one publication owner per platform/time slot.
+
+Retries remain under the same `publication_id`. Definite failures may be retried explicitly; ambiguous transport outcomes become `NEEDS_RECONCILIATION` and are excluded from automatic due-work selection. Provider acceptance, inbox delivery, and public publication are separate states.
+
+`tiktok-publisher-adapter.mjs` is the first active transport/Observer adapter. Meta is not yet active. Manual publication of the exact locked artifact can be recorded as a provider receipt without changing canonical identity.
+
+See `docs/ths-publisher-v0.1.md`.
+
+## Legacy bounded Metricool adapter — frozen for new canonical publishing
+
+Metricool remains available only for historical reproducibility and bounded rollback while THS Publisher replaces it as publication control. Existing receipts and analytics remain valid observations. New publication identity must not depend on Metricool post IDs, planner state, or account availability.
+
 
 `stage-metricool-publication-media.mjs` stages only hash-verified governed media under the static public path `/media/distribution/metricool/`. The production deploy regenerates the current bounded pilot and requires its provider-ready manifest to be present in the final static export. Deployment itself never schedules or publishes a post.
 
@@ -47,7 +62,7 @@ Every publication transition carries the deterministic idempotency key and upstr
 
 A dry-run `scheduled` lifecycle may be promoted to a real Metricool `scheduled` receipt only after Metricool returns a provider post ID. Scheduling is not recorded as publication; `published` still requires separate provider confirmation. Stale identity, missing credentials, unsupported network/format combinations, invalid media URLs, or past timestamps fail closed before a provider transition is accepted.
 
-Broad/high-volume autopublishing remains unauthorized. The Metricool adapter is a bounded provider path for already-governed assets, not permission to bypass evidence, safety, provenance, channel-policy, lifecycle, measurement, or scaling gates.
+Broad/high-volume autopublishing remains unauthorized. The Metricool adapter is legacy/optional transport for already-governed assets, not a control-plane dependency and not permission to bypass evidence, safety, provenance, channel-policy, lifecycle, measurement, or scaling gates.
 
 
 ## First-party TikTok draft upload
