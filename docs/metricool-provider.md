@@ -1,55 +1,39 @@
 # Metricool provider operations
 
-**Status:** Operational supporting contract  
-**Owner:** Revenue / Lane 5 publishing  
-**Provider:** Metricool  
-**Current bounded brand:** The Hippie Scientist (`blogId=6794242`, `userId=5228072`)
+**Status:** Frozen for new publication  
+**Owner:** Revenue / Lane 5 historical provider evidence  
+**Provider:** Metricool
 
-## Purpose
+## Current boundary
 
-The Metricool provider is the bounded live handoff for already-governed distribution assets. It does not create scientific claims, choose evidence, rewrite limitations, approve publication eligibility, or authorize broad autonomous posting.
+Metricool is no longer an authorized creation or scheduling path for new THS social posts.
 
-The current live-capable asset is the governed carousel pilot. Production deployment stages hash-verified PNGs and a provider-ready manifest under `https://thehippiescientist.net/media/distribution/metricool/`. Deployment itself never calls Metricool.
+Canonical publication now flows through **THS Publisher**:
 
-## Credential boundary
+`SocialOS decision → governed artifact → publication_id → THS Publisher queue → platform adapter/manual receipt → THS Observer → learning`
 
-Live repository-native scheduling requires the Metricool REST API token in the GitHub production environment secret `METRICOOL_USER_TOKEN`.
+The GitHub workflows `.github/workflows/metricool-publication.yml` and `.github/workflows/metricool-connector-publication.yml` are intentionally fail-closed. The executable `scripts/distribution/schedule-metricool-publication.mjs` is also frozen and refuses every scheduling attempt.
 
-- Never commit the token.
-- Never pass it through workflow inputs.
-- Never print it or include it in provider receipts.
-- Missing token fails closed before a provider request.
-- `METRICOOL_USER_ID` and `METRICOOL_BLOG_ID` are non-secret provider identifiers; the current workflow binds them to the verified The Hippie Scientist brand.
+## What remains valid
 
-## Live scheduling
+Historical Metricool data is not deleted or rewritten. Existing provider UUIDs, post IDs, public URLs, publication receipts, and post/account analytics may remain useful as historical observations when their identity is already established.
 
-Use the GitHub Actions workflow **Metricool Publication**. It is `workflow_dispatch` only and requires:
+Provider IDs never become canonical THS publication identity. New posts require a first-party `publication_id` derived from the exact experiment, artifact hash, platform, and intended time.
 
-- `publication_at`: a future offset-aware ISO timestamp, such as `2026-08-31T14:00:00-04:00`;
-- `networks`: explicit comma-separated targets; the current carousel contract allows `facebook` and/or `tiktok`;
-- `auto_publish`: whether Metricool should publish automatically at the requested time.
+The lower-level Metricool normalization/provider code remains temporarily in the repository for historical fixture coverage, receipt interpretation, and rollback archaeology. Its existence is **not** publication authorization.
 
-The workflow regenerates the current governed pilot, compares its identity fingerprint with the media manifest already deployed on the canonical site, checks that the media URLs are reachable, and only then calls Metricool.
+## Credentials
 
-A successful scheduler response creates a sanitized `metricool-schedule-receipt-v1` artifact and promotes the lifecycle from dry-run scheduled to live scheduled. A schedule request is **not** recorded as published. Publication requires separate confirmed provider evidence.
+Legacy Metricool credentials must remain server-side and must never be committed, printed, copied into receipts, or used to bypass THS Publisher.
 
-## Fail-closed cases
+No new workflow or operator command should depend on `METRICOOL_USER_TOKEN`. If Metricool is ever reintroduced as a transport, it must be implemented as a replaceable THS Publisher adapter that consumes an existing canonical publication job and returns provider receipts beneath that identity.
 
-Live scheduling stops before an accepted lifecycle transition when any of these are true:
+## Replacement path
 
-- the deployed media identity is stale relative to the current governed pilot;
-- the lifecycle is paused, invalid, or otherwise non-publishable;
-- the Metricool token/user/brand configuration is missing;
-- no explicit network is supplied;
-- the format is unsupported by the requested network;
-- a media URL is non-HTTPS, off the canonical host, outside the governed media path, or unreachable;
-- the requested publication time is invalid or not in the future;
-- Metricool does not return a provider post identifier.
+- New TikTok creation: THS Publisher + first-party TikTok draft adapter.
+- Facebook/Meta in v0.1: exact governed artifact may be posted manually, then attached to the existing publication job through `/api/publisher/manual`.
+- Publication truth: THS Observer / verified public receipt.
+- Learning truth: SocialOS workbook and experiment systems only after verified publication.
+- Metricool analytics: historical/provider observation only; never sufficient by itself to manufacture first-party site attribution or publication identity.
 
-## Current network boundary
-
-- Facebook carousel: enabled by the current bounded provider contract.
-- TikTok photo carousel: enabled by the current bounded provider contract.
-- YouTube: provider request support is reserved for the governed vertical-video path; the current carousel pilot cannot be sent to YouTube.
-
-Expanding live formats or high-volume scheduling requires separate evidence that channel policy, factual fidelity, lifecycle idempotency, rollback/withdrawal, measurement quality, and marginal efficiency remain acceptable.
+See `docs/ths-publisher-v0.1.md` for the active architecture.
