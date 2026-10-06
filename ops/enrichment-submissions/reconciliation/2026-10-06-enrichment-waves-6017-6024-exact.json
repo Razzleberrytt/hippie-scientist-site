@@ -3,39 +3,8 @@
   "batch_id": "2026-10-06-enrichment-waves-6017-6024-exact",
   "range": "6017-6024",
   "row_count": 8,
-  "exact_verified_rows": 3,
-  "failures": [
-    {
-      "wave": 6019,
-      "pmid": "27912875",
-      "title_verified": false,
-      "abstract_verified": false
-    },
-    {
-      "wave": 6020,
-      "pmid": "26051567",
-      "title_verified": false,
-      "abstract_verified": false
-    },
-    {
-      "wave": 6022,
-      "pmid": "36646611",
-      "title_verified": false,
-      "abstract_verified": false
-    },
-    {
-      "wave": 6023,
-      "pmid": "37767766",
-      "title_verified": false,
-      "abstract_verified": false
-    },
-    {
-      "wave": 6024,
-      "pmid": "32178950",
-      "title_verified": false,
-      "abstract_verified": false
-    }
-  ],
+  "exact_verified_rows": 8,
+  "failures": [],
   "rows": [
     {
       "category": "stress_anxiety",
@@ -96,14 +65,14 @@
       "selection_score": 11,
       "wave": 6019,
       "state": "candidate_pending_exact_verification",
-      "verified_title": null,
-      "abstract": null,
-      "abstract_verified": false,
-      "title_verified": false,
-      "pdf_link": null,
-      "full_text_link": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
+      "verified_title": "Long-term chamomile (Matricaria chamomilla L.) treatment for generalized anxiety disorder: A randomized clinical trial.",
+      "abstract": "Generalized Anxiety Disorder (GAD) is one of the most common anxiety disorders treated in primary care, yet current therapies have limited efficacy and substantial side effects. To evaluate long-term chamomile (Matricaria chamomilla L.) use for prevention of GAD symptom relapse. Outpatients from primary care practices and local communities with a primary diagnosis of moderate-to-severe GAD were enrolled for this two-phase study at a large US academic medical center. During Phase 1, eligible participants received 12 weeks of open-label therapy with chamomile pharmaceutical grade extract 1500mg (500mg capsule 3 times daily). During Phase 2, treatment responders were randomized to either 26 weeks of continuation chamomile therapy or placebo in a double-blinded, placebo-substitution design. The primary outcome was time to relapse during continuation therapy, analyzed using Cox proportional hazards. Secondary outcomes included the proportion who relapsed, treatment-emergent adverse events, and vital sign changes. This study is registered at ClinicalTrials.gov, identifier NCT01072344. Between March 1, 2010, and June 30, 2015, we enrolled 179 participants. Of those, 93 (51.9%) were responders and agreed to continue in the double-blind randomized controlled trial. A numerically greater number of placebo-switched (n=12/47; 25.5%) versus chamomile-continuation (n = 7/46; 15.2%) participants relapsed during follow-up. Mean time to relapse was 11.4 ± 8.4 weeks for chamomile and 6.3 ± 3.9 weeks for placebo. Hazard of relapse was non-significantly lower for chamomile (hazard ratio, 0.52; 95% CI, 0.20-1.33; P = 0.16). During follow-up, chamomile participants maintained significantly lower GAD symptoms than placebo (P = 0.0032), with significant reductions in body weight (P = 0.046) and mean arterial blood pressure (P = 0.0063). Both treatments had similar low adverse event rates. Long-term chamomile was safe and significantly reduced moderate-to-severe GAD symptoms, but did not significantly reduce rate of relapse. Our limited sample size and lower than expected rate of placebo group relapse likely contributed to the non-significant primary outcome finding. Possible chamomile superiority over placebo requires further examination in large-scale studies.",
+      "abstract_verified": true,
+      "title_verified": true,
+      "pdf_link": "https://doi.org/10.1016/j.phymed.2016.10.012",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5646235/",
+      "verified_journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "verified_pub_date": "2016-Dec-15",
       "source": "NCBI PubMed exact retrieval via Sider Scholar"
     },
     {
@@ -119,14 +88,14 @@
       "selection_score": 11,
       "wave": 6020,
       "state": "candidate_pending_exact_verification",
-      "verified_title": null,
-      "abstract": null,
-      "abstract_verified": false,
-      "title_verified": false,
-      "pdf_link": null,
-      "full_text_link": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
+      "verified_title": "Effect of inhalation aromatherapy with lavender essential oil on stress and vital signs in patients undergoing coronary artery bypass surgery: A single-blinded randomized clinical trial.",
+      "abstract": "At present, aromatherapy is used widely in medical research. This study aimed to investigate the effects of inhalation aromatherapy using lavender essential oil to reduce mental stress and improve the vital signs of patients after coronary artery bypass surgery (CABG). A single-blinded randomized controlled trial was conducted with 60 patients who had undergone CABG in a 2-day intervention that targeted stress reduction. Sixty subjects following coronary artery bypass surgery in two aromatherapy and control groups. The study was conducted in Ekbatan Therapeutic and Educational Center, Hamadan, Iran, in 2013. On the second and third days after surgery, the aromatherapy group patients received two drops of 2% lavender essential oil for 20min and the control group received two drops of distilled water as a placebo. The primary outcome was mental stress, which was measured before and after the intervention using the DASS-21 questionnaire. The secondary outcomes were vital signs, including the heart rate, respiratory rate, and systolic and diastolic blood pressure, which were measured before and after the intervention. The individual characteristics of the aromatherapy and control groups were the same. There were no significant difference in the mean mental stress scores and vital signs of the aromatherapy and control groups on the second or third days after surgery. Inhalation aromatherapy with lavender essential oil had no significant effects on mental stress and vital signs in patients following CABG, except the systolic blood pressure.",
+      "abstract_verified": true,
+      "title_verified": true,
+      "pdf_link": "https://doi.org/10.1016/j.ctim.2014.12.001",
+      "full_text_link": "",
+      "verified_journal": "Complementary therapies in medicine",
+      "verified_pub_date": "2015-Jun",
       "source": "NCBI PubMed exact retrieval via Sider Scholar"
     },
     {
@@ -165,14 +134,14 @@
       "selection_score": 10,
       "wave": 6022,
       "state": "candidate_pending_exact_verification",
-      "verified_title": null,
-      "abstract": null,
-      "abstract_verified": false,
-      "title_verified": false,
-      "pdf_link": null,
-      "full_text_link": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
+      "verified_title": "Effects of rose and lavender scents on nurses' job stress: A randomized controlled trial.",
+      "abstract": "A high percentage of nurses working in hospitals suffer from job stress and related psychological problems. This study aimed to examine and compare the effects of aromatherapy using lavender and rose essential oils on nurses' job stress. This randomized placebo controlled trial was conducted on 118 eligible nurses who were randomly assigned into three groups of lavender (n = 39), rose (n = 40), and sesame seed as placebo (n = 39). The nurses received lavender and rose scents for two hours a day during four weeks. The Gray-Toft and Anderson's Nursing Stress Scale (NSS) was used to measure job stress before the interventions on the first day, and at the end of the second and fourth weeks. Descriptive and inferential statistics tests were used for data analysis. The statistical significance level was set at p < 0.05. No statistically significant differences between the groups in job stress before the interventions and at the end of the second week were observed. There were statistically significant differences between the groups at the end of the fourth week (p <0.003). Aromatherapy using rose scent had a positive effect on the nurses' job stress at the end of the fourth week compared to the placebo (p = 0.002). Aromatherapy using rose scent is a safe and non-pharmacologic method that can be used by nurses for improving their own comfort at the workplace. It can reduce nurses' overreliance on medications for relieving the symptoms of job stress.",
+      "abstract_verified": true,
+      "title_verified": true,
+      "pdf_link": "https://doi.org/10.1016/j.explore.2023.01.002",
+      "full_text_link": "",
+      "verified_journal": "Explore (New York, N.Y.)",
+      "verified_pub_date": "2023",
       "source": "NCBI PubMed exact retrieval via Sider Scholar"
     },
     {
@@ -188,14 +157,14 @@
       "selection_score": 10,
       "wave": 6023,
       "state": "candidate_pending_exact_verification",
-      "verified_title": null,
-      "abstract": null,
-      "abstract_verified": false,
-      "title_verified": false,
-      "pdf_link": null,
-      "full_text_link": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
+      "verified_title": "Effect of kava (Piper methysticum) on peripheral gene expression among individuals with generalized anxiety disorder: A post hoc analysis of a randomized controlled trial.",
+      "abstract": "Kava is a South Pacific plant-based medicine with anxiolytic properties, but little is known about the impact kava has on gene expression or whether gene expression can serve as a marker of kava response. This study aimed to determine whether kava treatment alters the expression of genes with physiological relevance to anxiety pathophysiology and whether the baseline expression of these physiologically relevant genes modifies the efficacy of kava treatment. In this post hoc analysis, we examined the expression of 48 genes relevant to the pathophysiology of anxiety collected from a double-blind randomized controlled trial that assessed the efficacy of kava treatment in generalized anxiety disorder. Peripheral blood gene expression was measured in 71 (34 kava, 37 placebo) adults at baseline and in 40 (19 kava, 21 placebo) after 8 weeks of treatment by reverse transcription polymerase chain reaction (PCR). Results revealed that kava decreased the expression of a subunit of the GABAA -rho receptor gene (GABRR2) and catechol-O-methyltransferase (COMT), a gene related to catecholamine metabolism. Kava efficacy was not found to be modified by baseline (pretreatment) expression of relevant genes. Although these results did not withstand statistical correction for multiple comparisons and require external validation, they support the notion that kava's mechanism of action includes interaction with GABAergic and catecholaminergic systems.",
+      "abstract_verified": true,
+      "title_verified": true,
+      "pdf_link": "https://doi.org/10.1002/ptr.7999",
+      "full_text_link": "",
+      "verified_journal": "Phytotherapy research : PTR",
+      "verified_pub_date": "2023-Dec",
       "source": "NCBI PubMed exact retrieval via Sider Scholar"
     },
     {
@@ -211,14 +180,14 @@
       "selection_score": 10,
       "wave": 6024,
       "state": "candidate_pending_exact_verification",
-      "verified_title": null,
-      "abstract": null,
-      "abstract_verified": false,
-      "title_verified": false,
-      "pdf_link": null,
-      "full_text_link": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
+      "verified_title": "A Randomized Prospective Placebo-Controlled Study of the Effects of Lavender Aromatherapy on Preoperative Anxiety in Cataract Surgery Patients.",
+      "abstract": "To determine if lavender aromatherapy can reduce preoperative anxiety in cataract surgery patients. Single-center prospective randomized placebo-controlled trial. Seventy-five patients awaiting cataract surgery were randomized to lavender essential oil or grape seed oil (control) and administered the State-Trait Anxiety Inventory. Vital signs were also recorded. Patients in the lavender group showed greater improvements in self-reported anxiety using the State-Trait Anxiety Inventory (P = .023, two-sample t test). Compared with the control group, the effects of lavender on the reduction of anxiety were statistically significant when adjusting for age, gender, and baseline scores (P = .012, analysis of covariance). Lavender aromatherapy reduced anxiety in preoperative cataract surgery patients.",
+      "abstract_verified": true,
+      "title_verified": true,
+      "pdf_link": "https://doi.org/10.1016/j.jopan.2019.12.004",
+      "full_text_link": "",
+      "verified_journal": "Journal of perianesthesia nursing : official journal of the American Society of PeriAnesthesia Nurses",
+      "verified_pub_date": "2020-Aug",
       "source": "NCBI PubMed exact retrieval via Sider Scholar"
     }
   ]
