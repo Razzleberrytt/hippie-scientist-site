@@ -55,7 +55,7 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| R | #6356 / PR #6357 | Add first-party TikTok draft-upload provider | Active — implementation | P0 | 93.8 | 2026-10-06 — current TikTok upload/API rules + Metricool limit failure verified |
+| R | #6356 / PR #6357 | Build THS Publisher v0.1 with first-party TikTok adapter | Active — implementation | P0 | 93.8 | 2026-10-06 — current TikTok upload/API rules + Metricool limit failure verified |
 
 
 
