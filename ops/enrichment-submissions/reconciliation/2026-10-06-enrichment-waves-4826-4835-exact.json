@@ -5,22 +5,11 @@
   "summary": {
     "range": "4826-4835",
     "rows": 10,
-    "exact_title": 8,
-    "abstract_verified": 8,
+    "exact_title": 10,
+    "abstract_verified": 10,
     "hard_off_domain": [],
     "errors": [],
-    "quarantine": [
-      {
-        "wave": 4834,
-        "pmid": "42634304",
-        "title": "Comprehensive Overview of Gut Microbiota Alterations in Obesity and Related Chronic Diseases: A Narrative Review."
-      },
-      {
-        "wave": 4835,
-        "pmid": "42637038",
-        "title": "Effect of vitamin D combined with probiotic-assisted insulin pump on glucose-lipid metabolism, intestinal flora and pregnancy outcome in gestational diabetes mellitus."
-      }
-    ]
+    "quarantine": []
   },
   "rows": [
     {
@@ -246,16 +235,16 @@
       "query": "((berberine[Title/Abstract] OR inositol[Title/Abstract] OR chromium[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR probiotic[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR \"metabolic syndrome\"[Title/Abstract] OR PCOS[Title/Abstract] OR obesity[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
       "state": "selected_quality_rebuild_pending_exact_verification",
       "wave": 4834,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
+      "verified_title": "Comprehensive Overview of Gut Microbiota Alterations in Obesity and Related Chronic Diseases: A Narrative Review.",
+      "verified_journal": "Reviews on recent clinical trials",
+      "verified_pub_date": "2026-Aug-06",
+      "abstract": "Metabolic disorders, including obesity, type 2 diabetes (T2D), metabolic syndrome, Non-Alcoholic Fatty Liver Disease (NAFLD), and Metabolic Dysfunction-Associated Steatotic Liver Disease (MASLD), represent major global health challenges. Increasing evidence suggests that gut microbiota dysbiosis contributes to the development and progression of these disorders through mechanisms involving inflammation, insulin resistance, altered energy metabolism, and impaired intestinal barrier function. This review aimed to evaluate recent clinical evidence regarding the effects of gut microbiota-targeted interventions on microbial composition and metabolic outcomes in individuals with metabolic disorders. A narrative review of clinical studies published between 2021 and 2026 was conducted using the PubMed electronic database. Studies investigating dietary interventions, probiotics, prebiotics, synbiotics, Fecal Microbiota Transplantation (FMT), pharmacological therapies, bariatric surgery, and herbal formulations were included. Data regarding microbiota alterations and metabolic outcomes were extracted and qualitatively synthesized. A total of 36 clinical studies were included. Across the reviewed literature, microbiotatargeted interventions consistently promoted beneficial alterations in gut microbial composition, including increased abundance of Bifidobacterium, Akkermansia, Roseburia, Eubacterium, and other short-chain fatty acid (SCFA)-producing bacteria. These microbial changes were associated with improvements in insulin sensitivity, glycemic control, body weight, liver fat accumulation, lipid metabolism, and cardiometabolic risk markers. Dietary interventions and probiotic-based therapies demonstrated the most consistent benefits, whereas FMT studies produced variable clinical outcomes despite substantial microbiome remodeling. The findings indicate that restoration of microbial homeostasis may represent a key mechanism underlying improvements in metabolic health. Increased abundance of beneficial microbial taxa and enhanced SCFA production were consistently linked to favorable metabolic outcomes, supporting the concept that the gut microbiome plays an active role in metabolic regulation. However, variability among studies suggests that intervention efficacy may depend on baseline microbial composition, host characteristics, and treatment duration. Current evidence supports the therapeutic potential of gut microbiota modulation in obesity, T2D, NAFLD, MASLD, and related metabolic disorders. Further large-scale, long-term clinical studies are required to establish causal relationships, identify predictive microbial biomarkers, and facilitate the development of personalized microbiome-based therapies.",
+      "abstract_verified": true,
+      "title_match_score": 1,
       "full_text_link": null,
-      "pdf_link": null,
+      "pdf_link": "https://doi.org/10.2174/0115748871477574260803112949",
       "hard_off_domain_flag": false,
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_pending_relevance_review"
     },
     {
       "category": "metabolic",
@@ -272,16 +261,16 @@
       "query": "((berberine[Title/Abstract] OR inositol[Title/Abstract] OR chromium[Title/Abstract] OR \"alpha-lipoic acid\"[Title/Abstract] OR probiotic[Title/Abstract]) AND (glucose[Title/Abstract] OR insulin[Title/Abstract] OR \"metabolic syndrome\"[Title/Abstract] OR PCOS[Title/Abstract] OR obesity[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
       "state": "selected_quality_rebuild_pending_exact_verification",
       "wave": 4835,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
+      "verified_title": "Effect of vitamin D combined with probiotic-assisted insulin pump on glucose-lipid metabolism, intestinal flora and pregnancy outcome in gestational diabetes mellitus.",
+      "verified_journal": "Endocrine practice : official journal of the American College of Endocrinology and the American Association of Clinical Endocrinologists",
+      "verified_pub_date": "2026-Aug-24",
+      "abstract": "This study aimed to observe the effect of vitamin D combined with probiotic-assisted insulin pump on glucose-lipid metabolism, intestinal flora and pregnancy outcome in gestational diabetes mellitus (GDM). A total of 150 GDM patients were randomized into the study and control groups (n=75 each). All patients were admitted to the hospital to receive diet, nutrition and exercise guidance, the control group was given insulin aspart pump therapy plus vitamin D, and the study group received insulin aspart pump therapy plus vitamin D and Viable Bifidobacterium Tablets. Outcomes included glycemic and lipid metabolic indices, gut microbiota changes, standard-reaching rates of blood glucose, and adverse pregnancy outcomes. After treatment, levels of HDL-C, counts of Bifidobacterium and Lactobacillus were increased in both groups (P < 0.05), and levels of FINS, FPG, 2hPG, HbA1c, LDL-C, TC, TG, counts of Coccidioides, Enterobacteriaceae, and Saccharomycetes were all reduced (P < 0.05); and all of them were improved in the study group versus the control group (P < 0.05). The study group also showed higher standard-reaching rates of blood glucose (96.00% vs. 84.00%) and lower overall incidence of adverse pregnancy outcomes (14.67% vs. 33.33%) than the control group (all P < 0.05). Compared with insulin pump plus vitamin D therapy, the addition of probiotics may improve blood glucose and lipid metabolism in GDM patients, maintain intestinal microbiota balance, and reduce the risk of adverse pregnancy outcomes. Further multicenter, large sample size, double blind and placebo-controlled studies are needed to confirm these findings.",
+      "abstract_verified": true,
+      "title_match_score": 1,
       "full_text_link": null,
-      "pdf_link": null,
+      "pdf_link": "https://doi.org/10.1016/j.eprac.2026.08.015",
       "hard_off_domain_flag": false,
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_pending_relevance_review"
     }
   ]
 }
