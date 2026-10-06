@@ -46,6 +46,7 @@ Current endpoints:
 - `GET /api/publisher/due?limit=...` — list due **QUEUED** work only.
 - `POST /api/publisher/dispatch` — execute the registered platform adapter.
 - `POST /api/publisher/observe` — verify provider state and advance only from evidence.
+- `POST /api/publisher/reconcile` — resolve crash/transport ambiguity with explicit operator evidence without rewriting the original attempt.
 - `POST /api/publisher/manual` — attach a verified manual-publication receipt to the same canonical job.
 - `POST /api/publisher/cancel` — cancel only jobs that cannot have unresolved provider side effects.
 
@@ -79,6 +80,8 @@ Failure/control states:
 - `FAILED` — a definite rejection/failure was observed.
 - `NEEDS_RECONCILIATION` — the request may have reached the provider but THS did not receive a definitive response.
 - `CANCELLED` — operator/system cancelled before public publication.
+
+A process crash can also leave a job in `DISPATCHING`. Neither `DISPATCHING` nor `NEEDS_RECONCILIATION` is auto-retried. An authenticated reconciliation must explicitly record one of three evidence-backed outcomes: `not_sent` (safe to retry under the same identity), `provider_accepted` (attach the recovered provider operation ID), or `published` (attach verified public publication evidence). The reconciliation receipt is append-only; it does not erase the original ambiguous attempt.
 
 The critical retry rule is:
 
