@@ -1,0 +1,995 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-05-enrichment-waves-4001-4500-repair-assignment-r1",
+  "row_count": 52,
+  "rows": [
+    {
+      "wave": 4025,
+      "category": "aging_sarcopenia",
+      "old_pmid": "42791661",
+      "old_title": "Pragmatic Screening for Sarcopenia in Non-Small Cell Lung Cancer: Development and Internal Validation of a Prospective Risk Model Integrating T12 CT Indices and Routine Clinical Variables.",
+      "replacement": {
+        "category": "aging_sarcopenia",
+        "pmid": "41512633",
+        "doi": "10.1016/j.clnu.2025.106569",
+        "title": "Dietary intake of total, animal, and plant proteins and risk of frailty: A GRADE-assessed systematic review and dose-response meta-analysis of prospective cohort studies.",
+        "journal": "Clinical nutrition (Edinburgh, Scotland)",
+        "pub_date": "2026 Feb",
+        "pub_type": "Meta-Analysis",
+        "query": "((creatine OR protein OR \"vitamin D\" OR \"resistance training\" OR nutrition) AND (sarcopenia OR frailty OR \"muscle mass\" OR \"muscle strength\")) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 16,
+        "replacement_for_pmid": "42791661",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4034,
+      "category": "botanicals_mushrooms",
+      "old_pmid": "42782198",
+      "old_title": "From metalloenzymes to catalysts: nature-inspired metal-based systems for CO(2) activation and conversion.",
+      "replacement": {
+        "category": "botanicals_mushrooms",
+        "pmid": "41560742",
+        "doi": "10.3389/fphar.2025.1664319",
+        "title": "A critical review of systematic reviews and meta-analyses of curcumin for knee osteoarthritis.",
+        "journal": "Frontiers in pharmacology",
+        "pub_date": "2025",
+        "pub_type": "Systematic Review",
+        "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 19,
+        "replacement_for_pmid": "42782198",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4048,
+      "category": "botanicals_mushrooms",
+      "old_pmid": "42827972",
+      "old_title": "Icariin as a Metabolic Regulator of Bone Marrow Mesenchymal Stem Cells: Mechanisms and Therapeutic Implications to Bone Homeostasis.",
+      "replacement": {
+        "category": "botanicals_mushrooms",
+        "pmid": "41601662",
+        "doi": "10.3389/fimmu.2025.1726157",
+        "title": "Curcumin for the clinical treatment of rheumatoid arthritis: a systematic review and meta-analysis of placebo-controlled randomized clinical trials.",
+        "journal": "Frontiers in immunology",
+        "pub_date": "2025",
+        "pub_type": "Meta-Analysis",
+        "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 16,
+        "replacement_for_pmid": "42827972",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4084,
+      "category": "cannabinoid_safety",
+      "old_pmid": "42767684",
+      "old_title": "Reducing distress during vaccine injections: 2026 clinical practice guideline update.",
+      "replacement": {
+        "category": "cannabinoid_safety",
+        "pmid": "41338767",
+        "doi": "10.1016/j.jsr.2025.09.005",
+        "title": "Understanding cannabis use and car crashes: Insights from a randomized trial using a driving simulator on THC blood levels and subjective measures of sleepiness and performance.",
+        "journal": "Journal of safety research",
+        "pub_date": "2025 Dec",
+        "pub_type": "Randomized Controlled Trial",
+        "query": "((cannabidiol OR CBD OR cannabis OR cannabinoid) AND (safety OR adverse OR interaction OR hepatotoxicity OR cognition OR anxiety OR sleep)) AND 2018:2025[pdat] AND (clinical trial[pt] OR randomized controlled trial[pt] OR systematic review[pt] OR review[pt] OR observational study[pt])",
+        "selection_score": 14,
+        "replacement_for_pmid": "42767684",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4109,
+      "category": "cardiometabolic",
+      "old_pmid": "42803357",
+      "old_title": "Lachnospiraceae in the Food-Gut Axis: A Critical Review of Dietary Modulation, Immune Regulation, and Translational Barriers.",
+      "replacement": {
+        "category": "cardiometabolic",
+        "pmid": "41687665",
+        "doi": null,
+        "title": "OMEGA-3 POLYUNSATURATED FATTY ACIDS AND HYPERTENSION: A REVIEW OF VASOACTIVE MECHANISMS AND IMPLICATIONS FOR CARDIOVASCULAR DISEASE.",
+        "journal": "Georgian medical news",
+        "pub_date": "2025 Dec",
+        "pub_type": "Systematic Review",
+        "query": "((\"omega-3\" OR EPA OR DHA OR \"coenzyme Q10\" OR CoQ10 OR magnesium OR berberine OR fiber) AND (\"blood pressure\" OR lipids OR triglycerides OR cardiovascular OR endothelial)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 19,
+        "replacement_for_pmid": "42803357",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4111,
+      "category": "cardiometabolic",
+      "old_pmid": "42760561",
+      "old_title": "Experimental induction of myelin damage in post-mortem human brain slice cultures.",
+      "replacement": {
+        "category": "cardiometabolic",
+        "pmid": "41596068",
+        "doi": "10.3390/antiox15010009",
+        "title": "Specialized Pro-Resolving Lipid Mediators and Dietary Omega-3/6 Fatty Acids in Selected Inflammatory Skin Diseases: A Systematic Review.",
+        "journal": "Antioxidants (Basel, Switzerland)",
+        "pub_date": "2025 Dec 21",
+        "pub_type": "Review",
+        "query": "((\"omega-3\" OR EPA OR DHA OR \"coenzyme Q10\" OR CoQ10 OR magnesium OR berberine OR fiber) AND (\"blood pressure\" OR lipids OR triglycerides OR cardiovascular OR endothelial)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 8,
+        "replacement_for_pmid": "42760561",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4122,
+      "category": "cognition_focus",
+      "old_pmid": "42645096",
+      "old_title": "Impact of Coffee Consumption on Fructose-Related Metabolic Alterations: Potential Mechanisms and Implications for Metabolic Diseases.",
+      "replacement": {
+        "category": "cognition_focus",
+        "pmid": "40335666",
+        "doi": "10.1007/s00213-025-06775-1",
+        "title": "A systematic review and meta-analysis of the acute effect of caffeine on attention.",
+        "journal": "Psychopharmacology",
+        "pub_date": "2025 Sep",
+        "pub_type": "Meta-Analysis",
+        "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]",
+        "selection_score": 16,
+        "replacement_for_pmid": "42645096",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4124,
+      "category": "cognition_focus",
+      "old_pmid": "42654013",
+      "old_title": "Compositional Diversity and Functional Interactions of Bioactive Compounds in Japanese Green Tea: Focus on Matcha, Sencha, and Gyokuro.",
+      "replacement": {
+        "category": "cognition_focus",
+        "pmid": "39495309",
+        "doi": "10.1007/s00213-024-06710-w",
+        "title": "The effects of caffeine mouth rinsing on selective attention as a function of different caffeine concentrations and perceived taste intensity in recreationally active males at rest: a randomized placebo-controlled cross-over trial.",
+        "journal": "Psychopharmacology",
+        "pub_date": "2025 Mar",
+        "pub_type": "Randomized Controlled Trial",
+        "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]",
+        "selection_score": 14,
+        "replacement_for_pmid": "42654013",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4128,
+      "category": "cognition_focus",
+      "old_pmid": "42750265",
+      "old_title": "Advancing insights into fibromyalgia: an updated review of diagnosis and differential diagnosis.",
+      "replacement": {
+        "category": "cognition_focus",
+        "pmid": "39244155",
+        "doi": "10.1016/j.clnesp.2024.08.028",
+        "title": "Acute caffeine administration impaired spatial working memory in habitual coffee/tea drinkers: A randomized, placebo-controlled, double-blind study.",
+        "journal": "Clinical nutrition ESPEN",
+        "pub_date": "2024 Dec",
+        "pub_type": "Randomized Controlled Trial",
+        "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]",
+        "selection_score": 12,
+        "replacement_for_pmid": "42750265",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4133,
+      "category": "cognition_focus",
+      "old_pmid": "42476159",
+      "old_title": "Global, regional, and national burden of road injuries 1990-2023: a systematic analysis for the Global Burden of Disease Study 2023.",
+      "replacement": {
+        "category": "cognition_focus",
+        "pmid": "39607519",
+        "doi": "10.1007/s00394-024-03514-8",
+        "title": "Concurrent consumption of cocoa flavanols and caffeine does not acutely modulate working memory and attention.",
+        "journal": "European journal of nutrition",
+        "pub_date": "2024 Nov 28",
+        "pub_type": "Randomized Controlled Trial",
+        "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]",
+        "selection_score": 12,
+        "replacement_for_pmid": "42476159",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4139,
+      "category": "cognition_focus",
+      "old_pmid": "42612647",
+      "old_title": "Measuring the composition and availability of human resources for health by sex in 204 countries and territories, 1990-2023, and workforce gaps for universal health coverage: a systematic analysis for the Global Burden of Disease Study 2023.",
+      "replacement": {
+        "category": "cognition_focus",
+        "pmid": "39948152",
+        "doi": "10.1038/s41598-025-89680-z",
+        "title": "Effects of taurine combined with caffeine on repetitive sprint exercise performance and cognition in a hypoxic environment.",
+        "journal": "Scientific reports",
+        "pub_date": "2025 Feb 13",
+        "pub_type": "Randomized Controlled Trial",
+        "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]",
+        "selection_score": 12,
+        "replacement_for_pmid": "42612647",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4148,
+      "category": "gut",
+      "old_pmid": "42803406",
+      "old_title": "Rhizosphere Microbiome-Mediated Drought Resilience in Cereals: Implications for Grain Nutrition, Yield, and Tolerance.",
+      "replacement": {
+        "category": "gut",
+        "pmid": "41433106",
+        "doi": "10.1097/MEG.0000000000003074",
+        "title": "Effect of multistrain probiotics on symptom severity in irritable bowel syndrome: a systematic review and meta-analysis of irritable bowel syndrome-symptom severity score outcomes.",
+        "journal": "European journal of gastroenterology & hepatology",
+        "pub_date": "2026 Apr 1",
+        "pub_type": "Meta-Analysis",
+        "query": "((probiotic OR prebiotic OR synbiotic OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 16,
+        "replacement_for_pmid": "42803406",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4149,
+      "category": "gut",
+      "old_pmid": "42803778",
+      "old_title": "Functional inorganic nanomaterials for gastrointestinal disease management: Recent developments and future perspectives.",
+      "replacement": {
+        "category": "gut",
+        "pmid": "41597375",
+        "doi": "10.3390/medicina62010089",
+        "title": "Efficacy of Specific Probiotic Strains in Subtypes of Irritable Bowel Syndrome: Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+        "journal": "Medicina (Kaunas, Lithuania)",
+        "pub_date": "2025 Dec 31",
+        "pub_type": "Meta-Analysis",
+        "query": "((probiotic OR prebiotic OR synbiotic OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 16,
+        "replacement_for_pmid": "42803778",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4159,
+      "category": "gut",
+      "old_pmid": "42812025",
+      "old_title": "Pre- and Post-Emergence Herbicide-Induced Shifts in Soil Microbial Communities: Effects on Population Dynamics, Mechanistic Insights, and Ecosystem Function.",
+      "replacement": {
+        "category": "gut",
+        "pmid": "41374052",
+        "doi": "10.3390/nu17233762",
+        "title": "Probiotic Supplementation Can Alter Inflammation Parameters and Self-Reported Sleep After a Marathon: A Randomized, Double-Blind, Placebo-Controlled Study.",
+        "journal": "Nutrients",
+        "pub_date": "2025 Nov 29",
+        "pub_type": "Randomized Controlled Trial",
+        "query": "((probiotic OR prebiotic OR synbiotic OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 12,
+        "replacement_for_pmid": "42812025",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4162,
+      "category": "gut",
+      "old_pmid": "42812821",
+      "old_title": "Cross-kingdom RNA interference in the dysbiosis-mediated network of vocal fold fibrosis: a pathogenic hypothesis and molecular intervention targets.",
+      "replacement": {
+        "category": "gut",
+        "pmid": "41502201",
+        "doi": null,
+        "title": "The Role of Probiotics in Depression and Quality of Life in Patients with Irritable Bowel Syndrome.",
+        "journal": "Acta medica Indonesiana",
+        "pub_date": "2025 Oct",
+        "pub_type": "Randomized Controlled Trial",
+        "query": "((probiotic OR prebiotic OR synbiotic OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 12,
+        "replacement_for_pmid": "42812821",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4309,
+      "category": "mood",
+      "old_pmid": "42796344",
+      "old_title": "Effects of Two Different Multicomponent Cognitive-Motor Training Protocols on EEG Spectral Activity, Cognitive-Motor Interference, and Gait Performance in Individuals with Chronic Stroke: A Randomized Controlled Trial.",
+      "replacement": {
+        "category": "mood",
+        "pmid": "40485144",
+        "doi": "10.1111/jhn.70076",
+        "title": "Supplementation of Omega-3 Increases Serum Levels of Brain-Derived Neurotrophic Factor and Decreases Depression Status in Patients With Bipolar Disorder: A Randomized, Double-Blind, Placebo-Controlled Clinical Trial.",
+        "journal": "Journal of human nutrition and dietetics : the official journal of the British Dietetic Association",
+        "pub_date": "2025 Jun",
+        "pub_type": "Randomized Controlled Trial",
+        "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]",
+        "selection_score": 14,
+        "replacement_for_pmid": "42796344",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4310,
+      "category": "mood",
+      "old_pmid": "42744253",
+      "old_title": "National Antimicrobial Resistance Monitoring System: Three Decades of Advancing Public Health Through Integrated Surveillance of Antimicrobial Resistance.",
+      "replacement": {
+        "category": "mood",
+        "pmid": "41173906",
+        "doi": "10.1038/s41398-025-03669-w",
+        "title": "Therapeutic deep brain stimulation targeting BNST-NAc circuit driven large-scale brain networks in treatment-resistant depression.",
+        "journal": "Translational psychiatry",
+        "pub_date": "2025 Oct 31",
+        "pub_type": "Randomized Controlled Trial",
+        "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]",
+        "selection_score": 12,
+        "replacement_for_pmid": "42744253",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4311,
+      "category": "mood",
+      "old_pmid": "42748416",
+      "old_title": "Genitourinary syndrome of lactation: An underrecognized postpartum condition affecting women's vulvovaginal, urinary and sexual health.",
+      "replacement": {
+        "category": "mood",
+        "pmid": "40573189",
+        "doi": "10.3390/ph18060792",
+        "title": "The Role of Vitamin D in the Management of Major Depressive Disorder: A Systematic Review.",
+        "journal": "Pharmaceuticals (Basel, Switzerland)",
+        "pub_date": "2025 May 25",
+        "pub_type": "Review",
+        "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]",
+        "selection_score": 8,
+        "replacement_for_pmid": "42748416",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4312,
+      "category": "mood",
+      "old_pmid": "42750162",
+      "old_title": "Fibromyalgia beyond pain: a multisystemic dysregulation framework.",
+      "replacement": {
+        "category": "mood",
+        "pmid": "40821024",
+        "doi": "10.3389/fpsyt.2025.1622796",
+        "title": "Meta-analysis of the effect of vitamin D on depression.",
+        "journal": "Frontiers in psychiatry",
+        "pub_date": "2025",
+        "pub_type": "Review",
+        "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]",
+        "selection_score": 8,
+        "replacement_for_pmid": "42750162",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4314,
+      "category": "mood",
+      "old_pmid": "42763624",
+      "old_title": "Recurrence and primary TETs: is it the same disease?-a narrative review.",
+      "replacement": {
+        "category": "mood",
+        "pmid": "40745290",
+        "doi": "10.1186/s12888-025-07183-7",
+        "title": "Serum folate and homocysteine as biomarkers for suicide risk in major depressive disorder: insights in males and younger patients.",
+        "journal": "BMC psychiatry",
+        "pub_date": "2025 Jul 31",
+        "pub_type": "Observational Study",
+        "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]",
+        "selection_score": 7,
+        "replacement_for_pmid": "42763624",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4315,
+      "category": "mood",
+      "old_pmid": "42772833",
+      "old_title": "Quorum sensing and host cell reprogramming.",
+      "replacement": {
+        "category": "mood",
+        "pmid": "40416274",
+        "doi": "10.7759/cureus.82924",
+        "title": "From Mood to Memory: Unlocking Saffron's Potential in Brain Health.",
+        "journal": "Cureus",
+        "pub_date": "2025 Apr",
+        "pub_type": "Review",
+        "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]",
+        "selection_score": 6,
+        "replacement_for_pmid": "42772833",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4318,
+      "category": "mood",
+      "old_pmid": "42784300",
+      "old_title": "Phytotoxins Produced by Diplodia and Other Fungal Species Involved in Oak (Quercus) Diseases.",
+      "replacement": {
+        "category": "mood",
+        "pmid": "40647320",
+        "doi": "10.3390/nu17132216",
+        "title": "The Role of Magnesium in Depression, Migraine, Alzheimer's Disease, and Cognitive Health: A Comprehensive Review.",
+        "journal": "Nutrients",
+        "pub_date": "2025 Jul 4",
+        "pub_type": "Review",
+        "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]",
+        "selection_score": 6,
+        "replacement_for_pmid": "42784300",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4319,
+      "category": "mood",
+      "old_pmid": "42788259",
+      "old_title": "Risk of miscarriage in women exposed to intimate partner violence: A systematic review and meta-analysis.",
+      "replacement": {
+        "category": "mood",
+        "pmid": "40710407",
+        "doi": "10.3390/jpm15070290",
+        "title": "Relationship Between Vitamin D Deficiency and Postpartum Depression.",
+        "journal": "Journal of personalized medicine",
+        "pub_date": "2025 Jul 4",
+        "pub_type": "Review",
+        "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]",
+        "selection_score": 6,
+        "replacement_for_pmid": "42788259",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4320,
+      "category": "mood",
+      "old_pmid": "42788284",
+      "old_title": "Autonomic-Immune Crosstalk in Lupus: Impaired Cholinergic Signaling and Consequences for Cardiovascular-Renal Physiology.",
+      "replacement": {
+        "category": "mood",
+        "pmid": "40871684",
+        "doi": "10.3390/nu17162655",
+        "title": "Impact of Vitamin D Status and Supplementation on Brain-Derived Neurotrophic Factor and Mood-Cognitive Outcomes: A Structured Narrative Review.",
+        "journal": "Nutrients",
+        "pub_date": "2025 Aug 16",
+        "pub_type": "Review",
+        "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]",
+        "selection_score": 6,
+        "replacement_for_pmid": "42788284",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4335,
+      "category": "immune_respiratory",
+      "old_pmid": "42617782",
+      "old_title": "Zinc-based nanoplatforms for cancer immunotherapy achieved through the cyclic GMP-AMP synthase-stimulator of interferon genes pathway: Bridging tumor metabolism and immune activation.",
+      "replacement": {
+        "category": "immune_respiratory",
+        "pmid": "42737413",
+        "doi": "10.3390/ijms27177510",
+        "title": "Vitamin D and COVID-19: Inmunomodulatory Effects and the Mexican Public Health Perspectives.",
+        "journal": "International journal of molecular sciences",
+        "pub_date": "2026 Aug 22",
+        "pub_type": "Review",
+        "query": "((\"vitamin D\" OR zinc OR elderberry OR echinacea OR \"N-acetylcysteine\" OR NAC) AND (respiratory OR infection OR influenza OR COVID OR immune)) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 6,
+        "replacement_for_pmid": "42617782",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4336,
+      "category": "women_health",
+      "old_pmid": "42681977",
+      "old_title": "Iron deficiency during pregnancy and lactation.",
+      "replacement": {
+        "category": "women_health",
+        "pmid": "41210876",
+        "doi": "10.3389/fmed.2025.1535359",
+        "title": "Vitamin D levels in early and middle pregnancy and preeclampsia: a systematic review and meta-analysis.",
+        "journal": "Frontiers in medicine",
+        "pub_date": "2025",
+        "pub_type": "Systematic Review",
+        "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 21,
+        "replacement_for_pmid": "42681977",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4351,
+      "category": "aging_sarcopenia",
+      "old_pmid": "42648442",
+      "old_title": "Computational precision nutrition for sarcopenia and associated multimorbidity in ageing.",
+      "replacement": {
+        "category": "aging_sarcopenia",
+        "pmid": "41668861",
+        "doi": "10.3389/fpubh.2025.1735899",
+        "title": "Effects of resistance training on muscle mass, strength, and physical function in older women with sarcopenia: a systematic review and meta-analysis.",
+        "journal": "Frontiers in public health",
+        "pub_date": "2025",
+        "pub_type": "Meta-Analysis",
+        "query": "((creatine OR protein OR \"vitamin D\" OR \"resistance training\" OR nutrition) AND (sarcopenia OR frailty OR \"muscle mass\" OR \"muscle strength\")) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 16,
+        "replacement_for_pmid": "42648442",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4353,
+      "category": "stress_anxiety",
+      "old_pmid": "42625049",
+      "old_title": "Harnessing magnesium nanoparticles for enhanced crop growth and stress mitigation.",
+      "replacement": {
+        "category": "stress_anxiety",
+        "pmid": "40746175",
+        "doi": "10.1177/02601060251363647",
+        "title": "Dual impact of Ashwagandha: Significant cortisol reduction but no effects on perceived stress - A systematic review and meta-analysis.",
+        "journal": "Nutrition and health",
+        "pub_date": "2025 Dec",
+        "pub_type": "Meta-Analysis",
+        "query": "((ashwagandha OR \"Withania somnifera\" OR theanine OR kava OR lavender OR chamomile OR rhodiola OR magnesium) AND (stress OR anxiety)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 16,
+        "replacement_for_pmid": "42625049",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4354,
+      "category": "aging_sarcopenia",
+      "old_pmid": "42691222",
+      "old_title": "Endocrine Factors in Sarcopenia: Lifestyle-Based Approaches with Nutrition, Exercise, and Circadian Health.",
+      "replacement": {
+        "category": "aging_sarcopenia",
+        "pmid": "42709703",
+        "doi": "10.1519/JSC.0000000000005302",
+        "title": "How Slow Should You Go? A Systematic Review With Meta-Analysis of the Effect of Resistance Training Repetition Tempo on Muscle Hypertrophy.",
+        "journal": "Journal of strength and conditioning research",
+        "pub_date": "2025 Dec 1",
+        "pub_type": "Meta-Analysis",
+        "query": "((creatine OR protein OR \"vitamin D\" OR \"resistance training\" OR nutrition) AND (sarcopenia OR frailty OR \"muscle mass\" OR \"muscle strength\")) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 16,
+        "replacement_for_pmid": "42691222",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4356,
+      "category": "gut",
+      "old_pmid": "42825107",
+      "old_title": "Next-generation probiotic delivery: Engineering complex coacervation systems for targeted gut release and bioactive synergy.",
+      "replacement": {
+        "category": "gut",
+        "pmid": "41597541",
+        "doi": "10.3390/microorganisms14010023",
+        "title": "Efficacy and Safety of Probiotics in Children with Irritable Bowel Syndrome: A Systematic Review and Meta-Analysis.",
+        "journal": "Microorganisms",
+        "pub_date": "2025 Dec 21",
+        "pub_type": "Review",
+        "query": "((probiotic OR prebiotic OR synbiotic OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 8,
+        "replacement_for_pmid": "42825107",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4360,
+      "category": "cognition_focus",
+      "old_pmid": "41305589",
+      "old_title": "The Role of Bacopa monnieri in Alzheimer's Disease: Mechanisms and Potential Clinical Use-A Review.",
+      "replacement": {
+        "category": "cognition_focus",
+        "pmid": "40670616",
+        "doi": "10.1038/s41598-025-11737-w",
+        "title": "Caffeine reduces accuracy in face recognition memory consolidation.",
+        "journal": "Scientific reports",
+        "pub_date": "2025 Jul 16",
+        "pub_type": "Randomized Controlled Trial",
+        "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]",
+        "selection_score": 12,
+        "replacement_for_pmid": "41305589",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4380,
+      "category": "botanicals_mushrooms",
+      "old_pmid": "42812851",
+      "old_title": "Biodegradable polyethylene glycol-based poly(β-amino ester) hydrogel for curcumin delivery in wound treatment.",
+      "replacement": {
+        "category": "botanicals_mushrooms",
+        "pmid": "41393198",
+        "doi": "10.1007/s40200-025-01799-y",
+        "title": "Effect of curcumin plus piperine co-supplementation on glycemic control in adults: A meta-analysis of randomized controlled trials.",
+        "journal": "Journal of diabetes and metabolic disorders",
+        "pub_date": "2025 Dec",
+        "pub_type": "Review",
+        "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 8,
+        "replacement_for_pmid": "42812851",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4387,
+      "category": "withdrawal_nps",
+      "old_pmid": "42804230",
+      "old_title": "Effects of simulated and real opioid withdrawal on delay discounting for opioids and money in people who use fentanyl daily.",
+      "replacement": {
+        "category": "withdrawal_nps",
+        "pmid": "40606596",
+        "doi": "10.3389/fphar.2025.1587528",
+        "title": "The effects of kratom (Mitragyna speciosa) on metabolic syndrome-related parameters: a systematic review and meta-analysis.",
+        "journal": "Frontiers in pharmacology",
+        "pub_date": "2025",
+        "pub_type": "Systematic Review",
+        "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])",
+        "selection_score": 21,
+        "replacement_for_pmid": "42804230",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4391,
+      "category": "mitochondrial_energy",
+      "old_pmid": "42805300",
+      "old_title": "Synergistic Effects of L-Carnitine and Moderate-Intensity Exercise on Testicular Damage Induced by Varicocele: Implications for miR-570, Irisin, Hsp70-2a, and Hsp90 Crosstalk.",
+      "replacement": {
+        "category": "mitochondrial_energy",
+        "pmid": "41318032",
+        "doi": "10.1016/j.jocmr.2025.101993",
+        "title": "Myocardial energy metabolism in heart failure: Systematic review and meta-analysis of Phosphorus-31 magnetic resonance spectroscopy phosphocreatine/adenosine triphosphate ratio.",
+        "journal": "Journal of cardiovascular magnetic resonance : official journal of the Society for Cardiovascular Magnetic Resonance",
+        "pub_date": "2026 Summer",
+        "pub_type": "Meta-Analysis",
+        "query": "((creatine OR \"coenzyme Q10\" OR CoQ10 OR carnitine OR riboflavin OR nicotinamide OR \"alpha lipoic acid\") AND (mitochondrial OR fatigue OR energy OR exercise)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 16,
+        "replacement_for_pmid": "42805300",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4392,
+      "category": "botanicals_mushrooms",
+      "old_pmid": "42815388",
+      "old_title": "Application of Cu(2+)-chelated curcumin/chitosan coating in maintaining the storage quality of harvested passion fruit.",
+      "replacement": {
+        "category": "botanicals_mushrooms",
+        "pmid": "42707229",
+        "doi": "10.3389/fphar.2026.1691999",
+        "title": "Antifibrotic mechanism of curcumin and its therapeutic potential in multi-organ diseases.",
+        "journal": "Frontiers in pharmacology",
+        "pub_date": "2026",
+        "pub_type": "Review",
+        "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 6,
+        "replacement_for_pmid": "42815388",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4402,
+      "category": "women_health",
+      "old_pmid": "42462992",
+      "old_title": "Emerging Mo(4/3)B(2) MBene promoted high-valent iron-oxo species generation in the Fe(Ⅲ)/PMS system:The role of ordered metal vacancies.",
+      "replacement": {
+        "category": "women_health",
+        "pmid": "41316195",
+        "doi": "10.1186/s12902-025-02113-w",
+        "title": "Dysregulated iron metabolism related to ferroptosis in polycystic ovary syndrome: a meta-analysis and a case-control study in pregnant women.",
+        "journal": "BMC endocrine disorders",
+        "pub_date": "2025 Nov 28",
+        "pub_type": "Systematic Review",
+        "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 21,
+        "replacement_for_pmid": "42462992",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4408,
+      "category": "withdrawal_nps",
+      "old_pmid": "42619210",
+      "old_title": "Symptom-based dosing is an effective option for neonatal opioid withdrawal.",
+      "replacement": {
+        "category": "withdrawal_nps",
+        "pmid": "41015167",
+        "doi": "10.1016/j.neubiorev.2025.106384",
+        "title": "Novel psychoactive substances and psychosis: A comprehensive systematic review of epidemiology, clinical features, neurobiology, and treatment.",
+        "journal": "Neuroscience and biobehavioral reviews",
+        "pub_date": "2025 Nov",
+        "pub_type": "Systematic Review",
+        "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])",
+        "selection_score": 21,
+        "replacement_for_pmid": "42619210",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4416,
+      "category": "micronutrients",
+      "old_pmid": "42831639",
+      "old_title": "Iron-dependent metabolic rewiring drives tryptophan-associated melanin production in a clinical Pseudomonas aeruginosa strain.",
+      "replacement": {
+        "category": "micronutrients",
+        "pmid": "41551317",
+        "doi": "10.3389/fneur.2025.1727615",
+        "title": "Vitamin D deficiency and multiple sclerosis relapse: a meta-analysis.",
+        "journal": "Frontiers in neurology",
+        "pub_date": "2025",
+        "pub_type": "Systematic Review",
+        "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 21,
+        "replacement_for_pmid": "42831639",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4417,
+      "category": "gut",
+      "old_pmid": "42831970",
+      "old_title": "Probiotics supplements on fattening guinea pigs: effects on carcass traits and non-carcass components.",
+      "replacement": {
+        "category": "gut",
+        "pmid": "41319022",
+        "doi": "10.1002/brb3.71108",
+        "title": "Role of Probiotics in Management of Depressive Symptoms and Cognitive Impairment in Patients With Depression: An Updated Analysis of Trials.",
+        "journal": "Brain and behavior",
+        "pub_date": "2025 Dec",
+        "pub_type": "Review",
+        "query": "((probiotic OR prebiotic OR synbiotic OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 6,
+        "replacement_for_pmid": "42831970",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4418,
+      "category": "metabolic",
+      "old_pmid": "42829475",
+      "old_title": "Dual pH/glucose-responsive berberine-loaded bioactive glass/carboxymethyl chitosan hydrogel for promoting diabetic wound healing.",
+      "replacement": {
+        "category": "metabolic",
+        "pmid": "41346361",
+        "doi": "10.3389/fcimb.2025.1680840",
+        "title": "Effect of probiotic-derived metabolites on hormonal and metabolic profiles in women with polycystic ovary syndrome: a systematic review and meta-analysis.",
+        "journal": "Frontiers in cellular and infection microbiology",
+        "pub_date": "2025",
+        "pub_type": "Meta-Analysis",
+        "query": "((berberine OR inositol OR chromium OR \"alpha lipoic acid\" OR \"alpha-lipoic acid\" OR fiber OR probiotic) AND (glucose OR insulin OR \"metabolic syndrome\" OR PCOS OR obesity)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 16,
+        "replacement_for_pmid": "42829475",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4428,
+      "category": "botanicals_mushrooms",
+      "old_pmid": "42828456",
+      "old_title": "Curcumin-Loaded Nanospheres Attenuate Fine Dust (PM(10))-Induced Cellular Toxicity by Suppressing Reactive Oxygen Species-Dependent Signaling in Human Keratinocytes.",
+      "replacement": {
+        "category": "botanicals_mushrooms",
+        "pmid": "42718943",
+        "doi": "10.1016/j.jgr.2026.101021",
+        "title": "Therapeutic potential of ginseng and ginsenosides on muscle wasting disorders: Cachexia, sarcopenia, anorexia, and aging.",
+        "journal": "Journal of ginseng research",
+        "pub_date": "2026 Sep",
+        "pub_type": "Review",
+        "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2026[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 6,
+        "replacement_for_pmid": "42828456",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4430,
+      "category": "performance",
+      "old_pmid": "42830777",
+      "old_title": "Acute Effects of a Low Dose of Caffeine on Physiological and Performance Factors in Young Male Soccer Players: A Randomized Crossover Study.",
+      "replacement": {
+        "category": "performance",
+        "pmid": "41374083",
+        "doi": "10.3390/nu17233792",
+        "title": "Effects of Caffeine Dose and Administration Method on Time-Trial Performance: A Systematic Review and Network Meta-Analysis.",
+        "journal": "Nutrients",
+        "pub_date": "2025 Dec 3",
+        "pub_type": "Systematic Review",
+        "query": "((creatine OR \"beta-alanine\" OR caffeine OR beetroot OR nitrate OR citrulline OR electrolytes) AND (exercise OR performance OR strength OR endurance OR recovery)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 21,
+        "replacement_for_pmid": "42830777",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4433,
+      "category": "withdrawal_nps",
+      "old_pmid": "42462355",
+      "old_title": "Classical substructure search versus LLM-assisted keyword retrieval in SciFinder: A case study on GABA(B1) ligand discovery using a phenibut scaffold.",
+      "replacement": {
+        "category": "withdrawal_nps",
+        "pmid": "40370588",
+        "doi": "10.3389/fpsyt.2025.1552084",
+        "title": "Ketamine in treating opioid use disorder and opioid withdrawal: a scoping review.",
+        "journal": "Frontiers in psychiatry",
+        "pub_date": "2025",
+        "pub_type": "Systematic Review",
+        "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])",
+        "selection_score": 19,
+        "replacement_for_pmid": "42462355",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4452,
+      "category": "women_health",
+      "old_pmid": "42485105",
+      "old_title": "A Retrospective Propensity-Matched Cohort Study of Intravenous Versus Oral Iron Formulations for Management of Iron Deficiency Anemia in Pregnancy.",
+      "replacement": {
+        "category": "women_health",
+        "pmid": "41470812",
+        "doi": "10.3390/nu17243866",
+        "title": "Effects of Combined Exercise and Calcium/Vitamin D Supplementation on Bone Mineral Density in Postmenopausal Women: A Systematic Review and Meta-Analysis.",
+        "journal": "Nutrients",
+        "pub_date": "2025 Dec 11",
+        "pub_type": "Meta-Analysis",
+        "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 16,
+        "replacement_for_pmid": "42485105",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4459,
+      "category": "immune_respiratory",
+      "old_pmid": "42651868",
+      "old_title": "Dietary Vitamin D(3) Modulates Antioxidant Responses, Immune-Related Gene Expression, and Flesh Quality in Giant Freshwater Prawn (Macrobrachium rosenbergii) Under Pathogenic Vibrio Challenge.",
+      "replacement": {
+        "category": "immune_respiratory",
+        "pmid": "41312064",
+        "doi": "10.7759/cureus.97842",
+        "title": "Vitamin D Supplementation in Orthopedic Trauma: Influence on Immune Modulation, Fracture Healing, and Infection Outcomes.",
+        "journal": "Cureus",
+        "pub_date": "2025 Nov",
+        "pub_type": "Review",
+        "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]",
+        "selection_score": 6,
+        "replacement_for_pmid": "42651868",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4461,
+      "category": "immune_respiratory",
+      "old_pmid": "42660242",
+      "old_title": "Improved anti-tumour immune response of RBC-camouflaged oxaliplatin-zinc oxide albumin nanoparticles triggering robust activity in colorectal cancer cells.",
+      "replacement": {
+        "category": "immune_respiratory",
+        "pmid": "41312188",
+        "doi": "10.7573/dic.2025-7-7",
+        "title": "N-acetylcysteine in paediatrics: a review of efficacy, safety and dosing strategies in respiratory care.",
+        "journal": "Drugs in context",
+        "pub_date": "2025",
+        "pub_type": "Review",
+        "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]",
+        "selection_score": 6,
+        "replacement_for_pmid": "42660242",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4462,
+      "category": "sleep",
+      "old_pmid": "42687891",
+      "old_title": "Characterization of the circadian system in binge eating disorder and the effects of morning bright light and individually timed exogenous melatonin administration: A 4-week feasibility double-blind randomized controlled mechanistic clinical trial.",
+      "replacement": {
+        "category": "sleep",
+        "pmid": "41089313",
+        "doi": "10.3389/fpsyt.2025.1640198",
+        "title": "Status of research on the application of melatonin in insomnia based on bibliometric visualization analysis and development trends.",
+        "journal": "Frontiers in psychiatry",
+        "pub_date": "2025",
+        "pub_type": "Systematic Review",
+        "query": "((melatonin OR magnesium OR glycine OR theanine OR valerian OR \"tart cherry\" OR saffron) AND (sleep OR insomnia OR circadian)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 19,
+        "replacement_for_pmid": "42687891",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4464,
+      "category": "stress_anxiety",
+      "old_pmid": "42517519",
+      "old_title": "Effect of axial stress-loaded magnesium alloy intramedullary nails on bone fracture healing.",
+      "replacement": {
+        "category": "stress_anxiety",
+        "pmid": "41177368",
+        "doi": "10.1016/j.ctim.2025.103296",
+        "title": "Short- and long-term effects of inhaled lavender essential oil on anxiety, fatigue, blood pressure, and sleep quality in middle-aged adults with hypertension: A randomized placebo-controlled pilot study.",
+        "journal": "Complementary therapies in medicine",
+        "pub_date": "2025 Dec",
+        "pub_type": "Randomized Controlled Trial",
+        "query": "((ashwagandha OR \"Withania somnifera\" OR theanine OR kava OR lavender OR chamomile OR rhodiola OR magnesium) AND (stress OR anxiety)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 12,
+        "replacement_for_pmid": "42517519",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4465,
+      "category": "stress_anxiety",
+      "old_pmid": "42634968",
+      "old_title": "Withania somnifera ameliorates endoplasmic reticulum stress in human hepatocellular carcinoma HepG2 cells.",
+      "replacement": {
+        "category": "stress_anxiety",
+        "pmid": "40654405",
+        "doi": "10.1016/j.jds.2024.12.004",
+        "title": "The effects of lavender, chamomile and peppermint inhalation aromatherapy on dental anxiety in children: A randomized controlled trial.",
+        "journal": "Journal of dental sciences",
+        "pub_date": "2025 Jul",
+        "pub_type": "Journal Article",
+        "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR cortisol[Title/Abstract])) AND 2010:2025[pdat] AND hasabstract[text]",
+        "selection_score": 2,
+        "replacement_for_pmid": "42634968",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4466,
+      "category": "women_health",
+      "old_pmid": "42637038",
+      "old_title": "Effect of vitamin D combined with probiotic-assisted insulin pump on glucose-lipid metabolism, intestinal flora and pregnancy outcome in gestational diabetes mellitus.",
+      "replacement": {
+        "category": "women_health",
+        "pmid": "41254649",
+        "doi": "10.1186/s12905-025-04021-6",
+        "title": "The effect of early postpartum vitamin d and e supplementation on uterine after pain: a double-blind randomized clinical trial.",
+        "journal": "BMC women's health",
+        "pub_date": "2025 Nov 18",
+        "pub_type": "Randomized Controlled Trial",
+        "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 14,
+        "replacement_for_pmid": "42637038",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4471,
+      "category": "sleep",
+      "old_pmid": "42376244",
+      "old_title": "Melatonin rhythm-mimicking smart hydrogel for circadian clock regulation and promotion of intervertebral disc regeneration.",
+      "replacement": {
+        "category": "sleep",
+        "pmid": "41122831",
+        "doi": "10.1111/jpc.70224",
+        "title": "A Pilot Randomised Controlled Trial of Sublingual Melatonin for Sleep Onset Insomnia in Children With Foetal Alcohol Spectrum Disorder (FASD).",
+        "journal": "Journal of paediatrics and child health",
+        "pub_date": "2026 Jan",
+        "pub_type": "Randomized Controlled Trial",
+        "query": "((melatonin OR magnesium OR glycine OR theanine OR valerian OR \"tart cherry\" OR saffron) AND (sleep OR insomnia OR circadian)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 14,
+        "replacement_for_pmid": "42376244",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    },
+    {
+      "wave": 4475,
+      "category": "micronutrients",
+      "old_pmid": "42827474",
+      "old_title": "Associations between cognitive reserve, iron deposition in the basal ganglia, and cognitive function in mild cognitive impairment.",
+      "replacement": {
+        "category": "micronutrients",
+        "pmid": "41608419",
+        "doi": "10.3389/fmed.2025.1725177",
+        "title": "The role of vitamin D deficiency in fetal growth restriction: a systematic review.",
+        "journal": "Frontiers in medicine",
+        "pub_date": "2025",
+        "pub_type": "Systematic Review",
+        "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])",
+        "selection_score": 21,
+        "replacement_for_pmid": "42827474",
+        "replacement_reason": "exact_verification_or_category_firewall_failure"
+      }
+    }
+  ]
+}
