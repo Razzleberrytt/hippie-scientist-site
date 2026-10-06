@@ -5,9 +5,31 @@
   "summary": {
     "range": "4516-4525",
     "rows": 10,
-    "exact_title": 5,
-    "abstract_verified": 5,
-    "hard_off_domain": [],
+    "exact_title": 10,
+    "abstract_verified": 10,
+    "relevance_pass": 6,
+    "relevance_replace": [
+      {
+        "wave": 4517,
+        "pmid": "42776311",
+        "title": "Perioperative outcomes and risk stratification following pediatric arteriovenous malformation resection: an ACS NSQIP-P database analysis."
+      },
+      {
+        "wave": 4520,
+        "pmid": "42762400",
+        "title": "Rethinking Restrictive Diets in IBD: Toward an Inclusion-Focused Nutritional Paradigm."
+      },
+      {
+        "wave": 4521,
+        "pmid": "42760736",
+        "title": "Nursing care of a pediatric patient with anti-NMDAR encephalitis complicated by secondary epilepsy: A case report."
+      },
+      {
+        "wave": 4525,
+        "pmid": "42783437",
+        "title": "Multivalvular Involvement in Acute Heart Failure: Associations with One-Year Outcomes and the Right-Heart Phenotype."
+      }
+    ],
     "errors": []
   },
   "rows": [
@@ -34,7 +56,9 @@
       "pdf_link": "https://doi.org/10.1038/s41392-026-02935-7",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "verification_state": "exact_verified_pending_relevance_review"
+      "verification_state": "exact_verified_relevance_pass",
+      "relevance_review_passed": true,
+      "relevance_review_reason": "within aging/sarcopenia/frailty/muscle-health evidence scope"
     },
     {
       "category": "aging_sarcopenia",
@@ -49,17 +73,19 @@
       "selection_score": 2,
       "wave": 4517,
       "state": "discovered_candidate_pending_exact_verification",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "Perioperative outcomes and risk stratification following pediatric arteriovenous malformation resection: an ACS NSQIP-P database analysis.",
+      "verified_journal": "Child's nervous system : ChNS : official journal of the International Society for Pediatric Neurosurgery",
+      "verified_pub_date": "2026-Sep-23",
+      "abstract": "To characterize the 30-day postoperative outcomes following craniotomy for AVM resection in pediatric patients and to elucidate independent predictors of adverse events using a large, multi-institutional database. We performed a retrospective analysis utilizing the National Surgical Quality Improvement Program-Pediatric (NSQIP-P) database (2015-2023). Pediatric patients undergoing AVM resection were identified using a combination of CPT codes and ICD codes. The primary outcomes comprised a composite of 30-day mortality, complications, unplanned reoperation, readmission, non-home discharge, and extended length of stay. Multivariable logistic regression (Wald test; p < 0.05) was employed to identify independent predictors. Analysis of 930 pediatric patients (median age 12.1 years, IQR 9.0-14.0) revealed that 34.3% experienced adverse outcomes within 30 days postoperatively. The observed mortality rate was 0.6%. Emergent surgical intervention demonstrated the strongest association with adverse outcomes (OR 8.58; 95% CI 5.12-14.37; p < 0.001), followed by preoperative ventilator dependence (OR 30.92; 95% CI 11.09-86.26; p < 0.001) and oxygen support requirements (OR 18.88; 95% CI 7.40-48.19; p < 0.001). Each additional minute of operative time conferred increased risk (OR 1.002/min; 95% CI 1.001-1.003; p < 0.001). Notably, we identified significant racial disparities, with African American/Black patients demonstrating an increased risk (OR, 1.65; 95% CI, 1.07-2.53; p = 0.023), while Hispanic ethnicity was associated with reduced adverse outcomes (OR, 0.73; 95% CI 0.53-1.00; p = 0.047). These findings demonstrate that adverse outcomes following pediatric AVM resection are significantly influenced by surgical urgency, preoperative cardiopulmonary status, and operative complexity. The identification of potentially modifiable risk factors, particularly nutritional status and cardiopulmonary optimization, provides tangible targets for preoperative intervention. The observed racial disparities underscore the critical need for equitable, risk-stratified care paradigms in this vulnerable population.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12501859/",
+      "pdf_link": "https://doi.org/10.1007/s00381-026-07472-w",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_relevance_fail_replace",
+      "relevance_review_passed": false,
+      "relevance_review_reason": "exact PubMed record but tangential to the intended aging_sarcopenia evidence job; replace before finalization"
     },
     {
       "category": "aging_sarcopenia",
@@ -74,17 +100,19 @@
       "selection_score": 2,
       "wave": 4518,
       "state": "discovered_candidate_pending_exact_verification",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "Agreement Between a Mobile Self-Administered Comprehensive Geriatric Assessment Screening Tool and Geriatrician-Administered Assessment: Cross-Sectional Feasibility Study.",
+      "verified_journal": "JMIR formative research",
+      "verified_pub_date": "2026-Sep-21",
+      "abstract": "Comprehensive geriatric assessment (CGA) is a widely recommended, multidimensional approach for guiding clinical decision-making and management in older adults. However, its implementation remains limited by a shortage of geriatric specialists, the complexity of geriatric care, and the increasing demands of an aging population. Mobile self-administered tools offer a potential strategy to expand access to multidimensional geriatric evaluation, particularly in resource-limited settings. This study aimed to evaluate the feasibility and agreement of a mobile self-administered CGA screening tool compared with geriatrician-administered assessments among inpatient and outpatient older adults in Brazil. This cross-sectional study included 80 older adults recruited from inpatient and outpatient geriatric clinics in Brasília, Brazil. Participants completed a mobile CGA, which incorporated validated instruments covering functional status (Vulnerable Elders Survey-13 [VES-13]), cognition (Cognitive Change Questionnaire-8 [CCQ-8]), depressive symptoms (5-item Geriatric Depression Scale [GDS-5]), nutritional status (Mini Nutritional Assessment [MNA]), frailty (G8 screening tool), social support (Gijón Scale), falls, and vision and hearing. Within 48 hours, a geriatrician independently performed a geriatrician-administered CGA using the same instruments. Agreement between the 2 assessment methods was evaluated using Wilcoxon signed-rank tests, Spearman correlation coefficients, intraclass correlation coefficients (ICCs), and Cohen κ coefficients for categorical variables. Participants had a mean age of 70 (SD 7) years; 58.8% (47/80) were female, and 65% (52/80) had ≤8 years of education. The mean completion time for the self-administered CGA was 18.5 (SD 7.5) minutes. Most participants rated the tool as easy or very easy to use (65/80, 81.3%) and reported satisfaction with the assessment process (n=79, 98.8%). High concordance was observed between the self-administered and geriatrician-administered CGA versions for most domains. Cohen κ coefficients demonstrated strong agreement for falls (κ=0.878; P<.001), hearing impairment (κ=0.826), and vision impairment (κ=0.634). No significant differences were observed between the 2 assessment methods for functional status (VES-13), frailty screening (G8), depressive symptoms (GDS-5), and cognition (CCQ-8). Nutritional status and social vulnerability showed lower concordance than other CGA domains. Among inpatients, significant discrepancies were identified in both nutritional scores and Gijón social risk scores (P≤.05), with participants reporting greater perceived vulnerability. For outpatients, significant differences were observed for nutritional status (MNA; P=.02) and frailty screening (G8; P=.046). A mobile self-administered CGA demonstrated good feasibility, high user satisfaction, and substantial agreement with geriatrician-administered assessments across multiple geriatric domains. The tool may support geriatric screening and triage in settings with limited specialist availability, particularly when used as a complement to comprehensive clinical assessment.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13592382/",
+      "pdf_link": "https://doi.org/10.2196/90863",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_relevance_pass",
+      "relevance_review_passed": true,
+      "relevance_review_reason": "within aging/sarcopenia/frailty/muscle-health evidence scope"
     },
     {
       "category": "aging_sarcopenia",
@@ -109,7 +137,9 @@
       "pdf_link": "https://doi.org/10.1038/s41467-026-77275-9",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "verification_state": "exact_verified_pending_relevance_review"
+      "verification_state": "exact_verified_relevance_pass",
+      "relevance_review_passed": true,
+      "relevance_review_reason": "within aging/sarcopenia/frailty/muscle-health evidence scope"
     },
     {
       "category": "aging_sarcopenia",
@@ -124,17 +154,19 @@
       "selection_score": 2,
       "wave": 4520,
       "state": "discovered_candidate_pending_exact_verification",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "Rethinking Restrictive Diets in IBD: Toward an Inclusion-Focused Nutritional Paradigm.",
+      "verified_journal": "Current gastroenterology reports",
+      "verified_pub_date": "2026-Sep-19",
+      "abstract": "Patient-initiated elimination diets are widely adopted by those with inflammatory bowel disease (IBD), yet the evidence supporting their long-term use remains limited and their risks are increasingly recognized. Some common elimination diets utilized by patients include the specific carbohydrate diet (SCD), low-FODMAP diet, and gluten-free and dairy-free diets. This narrative review critically examines the role of self-initiated restrictive dietary strategies in IBD management, evaluating the evidence for and against common elimination-based approaches, and contrasts these with emerging data supporting more inclusive dietary patterns. Sustained elimination diets carry meaningful risks: malnutrition, micronutrient deficiency, sarcopenia, gut microbial dysbiosis, food anxiety, and avoidant/restrictive food intake disorder (ARFID). Current evidence demonstrates that the Mediterranean diet performs comparably to more restrictive approaches in inducing symptomatic remission, and generally is not associated with adverse nutritional and psychosocial consequences. Contemporary recommendations from several gastrointestinal societies discourage long-term elimination diets and favor inclusive, nutritionally adequate patterns, particularly the Mediterranean diet, as a preferred dietary framework for most patients with IBD, though supporting evidence remains largely observational and randomized controlled trial data are limited. We propose a paradigm shift from dietary exclusion toward inclusion, diversity, and nutritional adequacy, with registered dietitians as essential partners in IBD care. When elimination is clinically indicated, it should be time-limited, goal-directed, and followed by structured food reintroduction. Moving beyond restriction represents not a retreat from dietary focus, but its maturation, aligning nutritional guidance with the principles of patient-centered, evidence-based disease management.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13589753/",
+      "pdf_link": "https://doi.org/10.1007/s11894-026-01047-0",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_relevance_fail_replace",
+      "relevance_review_passed": false,
+      "relevance_review_reason": "exact PubMed record but tangential to the intended aging_sarcopenia evidence job; replace before finalization"
     },
     {
       "category": "aging_sarcopenia",
@@ -159,7 +191,9 @@
       "pdf_link": "https://doi.org/10.1097/MD.0000000000050816",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "verification_state": "exact_verified_pending_relevance_review"
+      "verification_state": "exact_verified_relevance_fail_replace",
+      "relevance_review_passed": false,
+      "relevance_review_reason": "exact PubMed record but tangential to the intended aging_sarcopenia evidence job; replace before finalization"
     },
     {
       "category": "aging_sarcopenia",
@@ -174,17 +208,19 @@
       "selection_score": 2,
       "wave": 4522,
       "state": "discovered_candidate_pending_exact_verification",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "High-load resistance training and FSHD: harmful mixture or a silver bullet combination?",
+      "verified_journal": "Journal of neurology",
+      "verified_pub_date": "2026-Sep-18",
+      "abstract": "Facioscapulohumeral muscular dystrophy (FSHD) is a progressive neuromuscular disorder characterized by asymmetric loss of muscle mass and strength, as well as fatty infiltration, inflammation, oxidative stress, and fibrosis. Unfortunately, as the disease progresses, these features can lead to the loss of mobility and independence. High-load resistance training (RT) is a well-established therapeutic strategy for increasing muscle mass and strength, and emerging evidence suggests it may also attenuate fatty infiltration, inflammation, oxidative stress, and fibrosis in other populations. Despite this therapeutic potential, high-load RT has long been approached with caution in FSHD, and current recommendations largely discourage its use. In this review, we critically examine the historical and scientific basis for this dogma and find that it rests on a small number of poorly substantiated and largely unreplicated studies. We further show that the limited RT trials conducted in individuals with FSHD have consistently reported good tolerability and, in several cases, moderate improvements in strength and function. Critically, no study to date has implemented a true high-load RT protocol alongside validated markers of muscle damage, a design that accounts for the asymmetry of the disease, and imaging that is sensitive enough to detect disease-modifying effects (e.g., MRI). We argue that the current consensus against high-load RT in FSHD reflects an absence of evidence rather than evidence of no benefit. Thus, we hope this narrative review encourages the FSHD community to revisit fundamental questions about the safety and therapeutic potential of high-load RT, and to create practical guidelines based on rigorous studies.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13588916/",
+      "pdf_link": "https://doi.org/10.1007/s00415-026-14148-7",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_relevance_pass",
+      "relevance_review_passed": true,
+      "relevance_review_reason": "within aging/sarcopenia/frailty/muscle-health evidence scope"
     },
     {
       "category": "aging_sarcopenia",
@@ -209,7 +245,9 @@
       "pdf_link": "https://doi.org/10.1007/s00223-026-01608-5",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "verification_state": "exact_verified_pending_relevance_review"
+      "verification_state": "exact_verified_relevance_pass",
+      "relevance_review_passed": true,
+      "relevance_review_reason": "within aging/sarcopenia/frailty/muscle-health evidence scope"
     },
     {
       "category": "aging_sarcopenia",
@@ -234,7 +272,9 @@
       "pdf_link": "https://doi.org/10.3390/cells15181682",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "verification_state": "exact_verified_pending_relevance_review"
+      "verification_state": "exact_verified_relevance_pass",
+      "relevance_review_passed": true,
+      "relevance_review_reason": "within aging/sarcopenia/frailty/muscle-health evidence scope"
     },
     {
       "category": "aging_sarcopenia",
@@ -249,17 +289,19 @@
       "selection_score": 2,
       "wave": 4525,
       "state": "discovered_candidate_pending_exact_verification",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "Multivalvular Involvement in Acute Heart Failure: Associations with One-Year Outcomes and the Right-Heart Phenotype.",
+      "verified_journal": "Medical sciences (Basel, Switzerland)",
+      "verified_pub_date": "2026-Sep-12",
+      "abstract": "Background: Valvular heart disease frequently accompanies acute heart failure (AHF), yet most studies address single valve lesions, and the prognostic weight of concurrent multivalvular involvement is less well defined. We examined the prevalence of single- and multi-valve disease and its relationship with one-year mortality. Methods: We analyzed 530 consecutive patients enrolled in a prospective single-center AHF registry between February 2023 and June 2025 and followed for 12 months. Aortic, mitral and tricuspid disease was graded according to European Society of Cardiology/European Association of Cardiovascular Imaging (ESC/EACVI) criteria, a valve being considered involved when it carried at least moderate stenosis and/or regurgitation; multivalvular disease was defined as involvement of two or more valves. The primary endpoint was one-year all-cause mortality. Cox regression was adjusted for admission log N-terminal pro-B-type natriuretic peptide (NT-proBNP), frailty (Clinical Frailty Scale ≥ 5) and age. In-hospital acute kidney injury was examined descriptively but was not entered into the models, because it is ascertained after admission. Results: Overall, 71.3% of patients had at least one significantly diseased valve-mitral in 44.3%, tricuspid in 43.8% and aortic in 27.5%-and 34.9% had multivalvular involvement. One-year mortality rose stepwise with the number of valves involved: 19.7%, 24.9%, 36.3% and 54.0% for zero, one, two and three valves, respectively (log-rank p < 0.001), corresponding to a crude hazard ratio (HR) of 1.51 (95% confidence interval [CI] 1.28-1.78) per additional valve. Multivalvular versus single or no valve involvement carried a crude HR of 2.07 (1.51-2.84) and remained associated with mortality after adjustment (HR 1.48, 95% CI 1.06-2.07, p = 0.020), as did each additional valve (HR 1.22, 1.03-1.45, p = 0.023). Adjustment for clinically manifest right heart failure (HF) attenuated the association with mortality (HR 1.15, 95% CI 0.96-1.37), whereas the association with the triple composite remained significant (HR 1.19, 95% CI 1.03-1.36). Propensity-score adjustment excluding right HF retained the association with mortality (HR 1.43, 95% CI 1.02-2.00), whereas inclusion of right HF attenuated it (HR 1.33, 0.94-1.87). The association was not detectable in the 304 patients without clinically manifest right HF (HR 1.06, 0.80-1.41, p = 0.69). In a post-discharge sensitivity analysis, the adjusted associations were directionally similar but did not reach statistical significance. Conclusions: In hospitalized AHF, multivalvular involvement was common, followed a predominantly mitral-tricuspid pattern, and identified an older, frailer, more congested phenotype with substantial right-sided and chronic renal involvement. Valve burden showed a graded association with one-year mortality that persisted after adjustment for baseline prognostic characteristics, but was attenuated once right-sided involvement was taken into account, whether by direct adjustment or by propensity methods; the association was retained when right HF was omitted from the propensity model. Because right-sided variables lie downstream of significant tricuspid disease, this attenuation is what adjustment for an intermediate is expected to produce and does not establish absence of prognostic value. Cumulative valve burden is therefore best interpreted as a powerful phenotypic marker of a more advanced HF phenotype with prominent right-heart involvement, rather than as an independent causal determinant of mortality.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13609675/",
+      "pdf_link": "https://doi.org/10.3390/medsci14050564",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_relevance_fail_replace",
+      "relevance_review_passed": false,
+      "relevance_review_reason": "exact PubMed record but tangential to the intended aging_sarcopenia evidence job; replace before finalization"
     }
   ]
 }
