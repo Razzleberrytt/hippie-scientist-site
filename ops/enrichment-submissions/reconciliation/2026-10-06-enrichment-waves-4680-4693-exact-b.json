@@ -14,25 +14,13 @@
       4693
     ],
     "rows": 9,
-    "exact_title": 6,
-    "abstract_verified": 6,
+    "exact_title": 8,
+    "abstract_verified": 8,
     "quarantine": [
       {
         "wave": 4681,
         "pmid": "42216624",
         "title": "A century of coffee and tea research in cognitive health and Alzheimer's disease: Structural, thematic, and translational insights (1911-2025).",
-        "state": "quarantine"
-      },
-      {
-        "wave": 4682,
-        "pmid": "42804599",
-        "title": "Personalized whole-body modeling links gut microbiota to metabolic perturbations in Alzheimer's disease.",
-        "state": "quarantine"
-      },
-      {
-        "wave": 4689,
-        "pmid": "42335514",
-        "title": "Bacoside-A from Bacopa monnieri (L.) Wettst. in Parkinson's disease: In Silico and preclinical insights into dopaminergic neuroprotection.",
         "state": "quarantine"
       }
     ]
@@ -99,16 +87,16 @@
       "selection_score": 2,
       "wave": 4682,
       "state": "discovered_candidate_pending_exact_verification",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "Personalized whole-body modeling links gut microbiota to metabolic perturbations in Alzheimer's disease.",
+      "verified_journal": "Gut microbes",
+      "verified_pub_date": "2026-Dec-31",
+      "abstract": "The human gut microbiome has been linked to metabolic disturbances in Alzheimer's disease (AD). However, the mechanisms by which gut microbes might influence metabolic dysfunction in AD remain poorly understood. Previously, gut microbiome-personalized whole-body models of human metabolism have been applied to predict how altered gut microbiome compositions may influence metabolites in the blood of healthy aging individuals with increased risk of AD. However, these previous results have not been validated in AD. In this study, we aimed to test these prior predictions in a cohort of AD dementia patients and individuals with mild cognitive impairment (MCI) and a probable AD diagnosis. Therefore, we created gut microbiome-personalized whole-body metabolic models for 34 AD dementia patients, 51 MCI patients, and 298 healthy controls. These in silico models were profiled to predict the metabolic influences of gut microbiomes on blood metabolites with previously reported alterations in AD. We found increased capacities of the in silico host-microbiome co-metabolism to produce S-adenosyl-L-methionine, L-arginine, creatine, taurine, and formate in the blood of AD patients. The metabolic predictions were then linked to key microbial taxa using a novel method that combines modeling-informed prediction sensitivity to alternative microbial abundances with LASSO-based taxonomic stability selection and elastic net regressions. This method found that increased relative abundances of Bacteroides uniformis and Bacteroides thetaiotamicron in AD were major factors driving the predicted metabolic changes. Furthermore, the metabolic predictions were associated with allelic variations in the APOE risk gene in healthy individuals, confirming our previous findings. In conclusion, we identified blood metabolites with known links to AD that were differentially influenced by gut microbiota in AD, and identified possible microbial drivers of these predicted shifts in host-microbiome interactions. These findings may facilitate the development of microbiome-informed treatments of AD.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13625723/",
+      "pdf_link": "https://doi.org/10.1080/19490976.2026.2732659",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_pending_relevance_review"
     },
     {
       "category": "cognition_focus",
@@ -195,16 +183,16 @@
       "selection_score": 2,
       "wave": 4689,
       "state": "discovered_candidate_pending_exact_verification",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
+      "verified_title": "Bacoside-A from Bacopa monnieri (L.) Wettst. in Parkinson's disease: In Silico and preclinical insights into dopaminergic neuroprotection.",
+      "verified_journal": "Biomedicine & pharmacotherapy = Biomedecine & pharmacotherapie",
+      "verified_pub_date": "2026-Aug",
+      "abstract": "Parkinson's disease (PD) presents a formidable therapeutic challenge rooted not in a singular pathogenic event but in the convergent failure of mitochondrial homeostasis, redox balance, α-synuclein proteostasis, autophagy-lysosomal integrity, and neuroinflammatory amplification within substantia nigra dopaminergic neurons. Existing dopaminergic pharmacotherapies address symptomatic deficits while leaving the underlying neurodegenerative cascade unchecked, underscoring the need for disease-modifying strategies with multi-target mechanistic reach. This review examines bacoside-A, the principal triterpenoid saponin complex of Bacopa monnieri (L.) Wettst., as a structurally distinctive, polypharmacological neuroprotective scaffold whose biological relevance emerges from convergence with core vulnerability pathways driving dopaminergic degeneration. Integrating in silico, in vitro, and in vivo evidence, we examine how bacoside-A engages molecular targets including α-synuclein aggregation intermediates, monoamine oxidase-B, LRRK2 kinase, PINK1-Parkin mitophagy regulators, and the redox sensor DJ-1, with computational predictions providing a coherent mechanistic framework for findings observed across MPP⁺-, rotenone-, and 6-OHDA-based preclinical models, including attenuation of mitochondrial dysfunction, oxidative amplification, and apoptotic signalling, and partial nigrostriatal preservation with motor improvement in vivo. This review reframes bacoside-A as a stress-buffering, network-active modulator most relevant during early, pre-degenerative disease stages. While no clinical trial has yet evaluated bacoside-A in PD, and findings from cognitive or other non-PD indications cannot be extrapolated as efficacy evidence, the convergent mechanistic, computational, and preclinical evidence presented here provides a strong rationale for advancing bacoside-A toward systems pharmacology-guided preclinical and clinical evaluation as an adjunct neuroprotective candidate.",
+      "abstract_verified": true,
+      "title_match_score": 1,
       "full_text_link": null,
-      "pdf_link": null,
+      "pdf_link": "https://doi.org/10.1016/j.biopha.2026.119712",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_pending_relevance_review"
     },
     {
       "category": "cognition_focus",
