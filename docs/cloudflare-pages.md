@@ -99,7 +99,7 @@ Create a Cloudflare D1 database for Publisher state, apply `migrations/0001_ths_
 |---|---|---|
 | `THS_PUBLISHER_DB` | Yes | Durable canonical publication jobs, immutable publication identity indexes, attempts, provider receipts, and Observer evidence. Missing binding fails closed. |
 
-The migration enforces a single writer per platform + intended-time slot. Due-work lookup returns only `QUEUED` jobs; `FAILED` and `NEEDS_RECONCILIATION` are never blindly auto-retried.
+The migration enforces a single non-cancelled writer per platform + intended-time slot; safe cancellation releases a slot only when no unresolved provider side effects exist. Due-work lookup returns only `QUEUED` jobs; `FAILED` and `NEEDS_RECONCILIATION` are never blindly auto-retried. Runtime transitions are exposed as explicit dispatch, observe, manual-receipt, and cancel endpoints; there is no generic whole-job replacement endpoint.
 
 See `docs/ths-publisher-v0.1.md` for the architecture, state machine, and transition policy.
 
