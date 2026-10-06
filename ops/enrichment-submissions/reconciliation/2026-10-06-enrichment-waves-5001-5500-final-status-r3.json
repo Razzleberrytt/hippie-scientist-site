@@ -48,5 +48,20 @@
     "resolve review findings if any",
     "merge only when required checks and review are green"
   ],
-  "publication_type_metadata_refreshed_for_prior_replacements": 35
+  "publication_type_metadata_refreshed_for_prior_replacements": 35,
+  "post_sync_validation": {
+    "upstream_head_sha": "8cb32f10543ae255d2b9a392d26e468cf4b1a58a",
+    "synchronized_batch_head_sha": "82ec3910844ef86acefb5dd2a5eed3121fa4d5c5",
+    "audit_status": "PASS",
+    "exact_title_verified": 500,
+    "abstract_verified": 500,
+    "unique_pmids": 500,
+    "prior_pmid_collisions": 0,
+    "duplicate_pmids": 0,
+    "duplicate_dois": 0,
+    "duplicate_normalized_titles": 0,
+    "hard_off_domain_rows_remaining": 0,
+    "case_report_or_explicit_preclinical_rows_remaining": 0,
+    "note": "Post-sync R3 artifacts rechecked after the stacked branch synchronization. This receipt-only update intentionally triggers repository checks from a normal content commit; it does not change scientific selection."
+  }
 }
