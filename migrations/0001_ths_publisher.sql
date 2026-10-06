@@ -34,4 +34,5 @@ CREATE INDEX IF NOT EXISTS ths_publications_experiment_idx
 
 -- One platform/time slot has one canonical writer. A retry stays under the same publication_id.
 CREATE UNIQUE INDEX IF NOT EXISTS ths_publications_slot_idx
-  ON ths_publications (platform, intended_time);
+  ON ths_publications (platform, intended_time)
+  WHERE state <> 'CANCELLED';
