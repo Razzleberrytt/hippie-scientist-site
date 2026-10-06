@@ -6,8 +6,54 @@
     "rows": 15,
     "exact_title": 15,
     "abstract_verified": 15,
-    "hard_off_domain": [],
-    "errors": []
+    "relevance_pass": 6,
+    "relevance_replace": [
+      {
+        "wave": 4505,
+        "pmid": "42764836",
+        "title": "Anti-inflammatory dietary patterns and cognitive aging in older adults: a scoping review of mechanistic, clinical, and nursing implications."
+      },
+      {
+        "wave": 4506,
+        "pmid": "42760082",
+        "title": "Periodised power training in community-dwelling adults with chronic stroke: a protocol for the Power Exercise for Stroke Recovery (POWER) pilot randomised controlled trial."
+      },
+      {
+        "wave": 4507,
+        "pmid": "42776132",
+        "title": "Frailty Assessment and Its Impact in Hospital Outcomes After Cardiac Surgery - A Prospective Observational Study."
+      },
+      {
+        "wave": 4508,
+        "pmid": "42814578",
+        "title": "CCL2 and CXCL2 are markers of delirium vulnerability in community dwelling older people."
+      },
+      {
+        "wave": 4509,
+        "pmid": "42765724",
+        "title": "GLP-1-based treatments and long-term clinical outcomes in MASLD amongst older adults: a retrospective cohort study."
+      },
+      {
+        "wave": 4511,
+        "pmid": "42802280",
+        "title": "The role of leukocyte p38 MAP kinase in immune-mediated peripheral polyneuropathies: distinct modulation by intravenous immunoglobulins."
+      },
+      {
+        "wave": 4512,
+        "pmid": "42798063",
+        "title": "Critical Kennedy's disease with Guillain-Barré syndrome and respiratory failure: A case report."
+      },
+      {
+        "wave": 4513,
+        "pmid": "42790922",
+        "title": "Study on blueberries, protein and exercise for improving frailty and cardiovascular disease (STRONG): protocol for a parallel-group randomised controlled superiority trial in older Nova Scotians."
+      },
+      {
+        "wave": 4514,
+        "pmid": "42789205",
+        "title": "The Interplay of Metabolic Dysfunction, Neuroinflammation, and Mitochondrial Dysfunction in Balance Impairment: Insights from Type 2 Diabetes Mellitus and Alzheimer's Disease."
+      }
+    ]
   },
   "rows": [
     {
@@ -32,7 +78,10 @@
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.21091/jah.2026.03065",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": true,
+      "relevance_review_reason": "Direct muscle/sarcopenia/frailty or gut-muscle evidence with sufficient relevance.",
+      "verification_state": "exact_verified_relevance_pass"
     },
     {
       "category": "aging_sarcopenia",
@@ -56,7 +105,10 @@
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13613424/",
       "pdf_link": "https://doi.org/10.1002/jcsm.70391",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": true,
+      "relevance_review_reason": "Direct muscle/sarcopenia/frailty or gut-muscle evidence with sufficient relevance.",
+      "verification_state": "exact_verified_relevance_pass"
     },
     {
       "category": "aging_sarcopenia",
@@ -80,7 +132,10 @@
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13602984/",
       "pdf_link": "https://doi.org/10.1002/jcsm.70388",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": true,
+      "relevance_review_reason": "Direct muscle/sarcopenia/frailty or gut-muscle evidence with sufficient relevance.",
+      "verification_state": "exact_verified_relevance_pass"
     },
     {
       "category": "aging_sarcopenia",
@@ -104,7 +159,10 @@
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.1111/cpf.70097",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": true,
+      "relevance_review_reason": "Direct muscle/sarcopenia/frailty or gut-muscle evidence with sufficient relevance.",
+      "verification_state": "exact_verified_relevance_pass"
     },
     {
       "category": "aging_sarcopenia",
@@ -128,7 +186,10 @@
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13589688/",
       "pdf_link": "https://doi.org/10.3389/fnut.2026.1952047",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": false,
+      "relevance_review_reason": "Exact PubMed record but protocol-only, category-drifted, or too indirect for the aging_sarcopenia evidence job; replace before finalization.",
+      "verification_state": "exact_verified_relevance_fail_replace"
     },
     {
       "category": "aging_sarcopenia",
@@ -152,7 +213,10 @@
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13599913/",
       "pdf_link": "https://doi.org/10.1136/bmjopen-2026-126255",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": false,
+      "relevance_review_reason": "Exact PubMed record but protocol-only, category-drifted, or too indirect for the aging_sarcopenia evidence job; replace before finalization.",
+      "verification_state": "exact_verified_relevance_fail_replace"
     },
     {
       "category": "aging_sarcopenia",
@@ -176,7 +240,10 @@
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13581273/",
       "pdf_link": "https://doi.org/10.21470/1678-9741-2023-0178",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": false,
+      "relevance_review_reason": "Exact PubMed record but protocol-only, category-drifted, or too indirect for the aging_sarcopenia evidence job; replace before finalization.",
+      "verification_state": "exact_verified_relevance_fail_replace"
     },
     {
       "category": "aging_sarcopenia",
@@ -200,7 +267,10 @@
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13625644/",
       "pdf_link": "https://doi.org/10.1093/ageing/afag290",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": false,
+      "relevance_review_reason": "Exact PubMed record but protocol-only, category-drifted, or too indirect for the aging_sarcopenia evidence job; replace before finalization.",
+      "verification_state": "exact_verified_relevance_fail_replace"
     },
     {
       "category": "aging_sarcopenia",
@@ -224,7 +294,10 @@
       "full_text_link": null,
       "pdf_link": "https://doi.org/10.1093/ageing/afag281",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": false,
+      "relevance_review_reason": "Exact PubMed record but protocol-only, category-drifted, or too indirect for the aging_sarcopenia evidence job; replace before finalization.",
+      "verification_state": "exact_verified_relevance_fail_replace"
     },
     {
       "category": "aging_sarcopenia",
@@ -248,7 +321,10 @@
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13619796/",
       "pdf_link": "https://doi.org/10.1007/s12020-026-04788-0",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": true,
+      "relevance_review_reason": "Direct muscle/sarcopenia/frailty or gut-muscle evidence with sufficient relevance.",
+      "verification_state": "exact_verified_relevance_pass"
     },
     {
       "category": "aging_sarcopenia",
@@ -272,7 +348,10 @@
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6244652/",
       "pdf_link": "https://doi.org/10.1007/s00415-026-14106-3",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": false,
+      "relevance_review_reason": "Exact PubMed record but protocol-only, category-drifted, or too indirect for the aging_sarcopenia evidence job; replace before finalization.",
+      "verification_state": "exact_verified_relevance_fail_replace"
     },
     {
       "category": "aging_sarcopenia",
@@ -296,7 +375,10 @@
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13619173/",
       "pdf_link": "https://doi.org/10.1097/MD.0000000000050722",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": false,
+      "relevance_review_reason": "Exact PubMed record but protocol-only, category-drifted, or too indirect for the aging_sarcopenia evidence job; replace before finalization.",
+      "verification_state": "exact_verified_relevance_fail_replace"
     },
     {
       "category": "aging_sarcopenia",
@@ -320,7 +402,10 @@
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13629895/",
       "pdf_link": "https://doi.org/10.1136/bmjopen-2025-114286",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": false,
+      "relevance_review_reason": "Exact PubMed record but protocol-only, category-drifted, or too indirect for the aging_sarcopenia evidence job; replace before finalization.",
+      "verification_state": "exact_verified_relevance_fail_replace"
     },
     {
       "category": "aging_sarcopenia",
@@ -344,7 +429,10 @@
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7825330/",
       "pdf_link": "https://doi.org/10.1007/s12035-026-06237-5",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": false,
+      "relevance_review_reason": "Exact PubMed record but protocol-only, category-drifted, or too indirect for the aging_sarcopenia evidence job; replace before finalization.",
+      "verification_state": "exact_verified_relevance_fail_replace"
     },
     {
       "category": "aging_sarcopenia",
@@ -368,7 +456,10 @@
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13612462/",
       "pdf_link": "https://doi.org/10.1038/s42003-026-10941-2",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "relevance_review_passed": true,
+      "relevance_review_reason": "Direct muscle/sarcopenia/frailty or gut-muscle evidence with sufficient relevance.",
+      "verification_state": "exact_verified_relevance_pass"
     }
   ]
 }
