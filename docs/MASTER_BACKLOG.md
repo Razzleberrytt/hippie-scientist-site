@@ -48,6 +48,8 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 **Research-only admitted work #6353 / PR #6355:** In review — repaired deep research enrichment Waves 4501–5000. This does not consume a normal implementation WIP slot; it is research-only, fail-closed from runtime/publication/recommendation/dose promotion, and merge remains contingent on repository validation and fresh review. The post-review repair replaces weak/off-domain or unverifiable rows and strips unverified PMC shortcuts from the authoritative final receipt.
 
+**Stacked research-only staging #6362 / PR #6363:** Waves 5001–5500 have a 500-row candidate set only, deduped against the 4,935-PMID upstream index with strict preverification domain/category filtering. Exact-verified/finalized count remains 0/500. The stack is blocked on #6355 plus exact literature verification; the connected Amass quota reports reset on 2026-10-16. No runtime/publication/recommendation/dose promotion is authorized.
+
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
 | #6356 / PR #6357 | Add first-party TikTok draft-upload provider | R | Active — implementation | P0 | 5/5/3/5/1/4 | 93.8 | 2026-10-06 — current TikTok upload/API rules + Metricool limit failure verified |
