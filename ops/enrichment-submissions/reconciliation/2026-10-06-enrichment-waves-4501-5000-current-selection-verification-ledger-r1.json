@@ -55,7 +55,7 @@
     "2026-10-06-enrichment-waves-4956-4965-exact.json",
     "2026-10-06-enrichment-waves-4966-4975-exact.json"
   ],
-  "exact_verified_current_selection": 251,
+  "exact_verified_current_selection": 259,
   "rows": [
     {
       "wave": 4501,
@@ -1331,6 +1331,101 @@
       "state": "fresh_exact_verified_current_selection"
     },
     {
+      "wave": 4568,
+      "category": "botanicals_mushrooms",
+      "pmid": "38931168",
+      "doi": "10.3390/nu16121813",
+      "title": "Acute and Repeated Ashwagandha Supplementation Improves Markers of Cognitive Function and Mood.",
+      "verified_title": "Acute and Repeated Ashwagandha Supplementation Improves Markers of Cognitive Function and Mood.",
+      "verified_journal": "Nutrients",
+      "verified_pub_date": "2024-Jun-08",
+      "abstract": "Ashwagandha has been reported to reduce stress and attenuate cognitive decline associated with inflammation and neurodegeneration in clinical populations. However, the effects as a potential nootropic nutrient in younger populations are unclear. This study examined the effects of liposomal ashwagandha supplementation on cognitive function, mood, and markers of health and safety in healthy young men and women. 59 men and women (22.7 ± 7 yrs., 74.9 ± 16 kg, 26.2 ± 5 BMI) fasted for 12 h, donated a fasting blood sample, and were administered the COMPASS cognitive function test battery (Word Recall, Word recognition, Choice Reaction Time Task, Picture Recognition, Digit Vigilance Task, Corsi Block test, Stroop test) and profile of mood states (POMS). In a randomized and double-blind manner, participants were administered 225 mg of a placebo (Gum Arabic) or ashwagandha (Withania somnifera) root and leaf extract coated with a liposomal covering. After 60-min, participants repeated cognitive assessments. Participants continued supplementation (225 mg/d) for 30 days and then returned to the lab to repeat the experiment. Data were analyzed using a general linear model (GLM) univariate analysis with repeated measures and pairwise comparisons of mean changes from baseline with 95% confidence intervals (CI). Ashwagandha supplementation improved acute and/or 30-day measures of Word Recall (correct and recalled attempts), Choice Reaction Time (targets identified), Picture Recognition (\"yes\" correct responses, correct and overall reaction time), Digit Vigilance (correct reaction time), Stroop Color-Word (congruent words identified, reaction time), and POMS (tension and fatigue) from baseline more consistently with several differences observed between groups. Results support contentions that ashwagandha supplementation (225 mg) may improve some measures of memory, attention, vigilance, attention, and executive function while decreasing perceptions of tension and fatigue in younger healthy individuals. Retrospectively registered clinical trial ISRCTN58680760.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11207027/",
+      "pdf_link": "https://doi.org/10.3390/nu16121813",
+      "hard_off_domain_flag": false,
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "source_exact_file": null,
+      "state": "fresh_exact_verified_current_selection"
+    },
+    {
+      "wave": 4570,
+      "category": "botanicals_mushrooms",
+      "pmid": "40440968",
+      "doi": "10.1016/j.explore.2025.103189",
+      "title": "Topical chamomile oil as a novel therapeutic intervention for diabetic neuropathy: A randomized double-blind controlled clinical trial.",
+      "verified_title": "Topical chamomile oil as a novel therapeutic intervention for diabetic neuropathy: A randomized double-blind controlled clinical trial.",
+      "verified_journal": "Explore (New York, N.Y.)",
+      "verified_pub_date": "2025",
+      "abstract": "Diabetic neuropathy, a prevalent complication of diabetes mellitus, significantly impairs quality of life due to chronic pain and sensory deficits. Conventional pharmacotherapies, while effective, are often limited by systemic adverse effects. Chamomile (Matricaria chamomilla L.) oil, renowned for its anti-inflammatory, antioxidant, and analgesic properties, presents a promising topical alternative for mitigating neuropathic symptoms. This study aimed to evaluate the efficacy of topical chamomile oil in improving neuropathy indices among patients with controlled diabetes, as measured by validated clinical tools. A randomized, double-blind, placebo-controlled trial was conducted involving 72 participants with diabetic neuropathy. Participants were allocated to either the intervention group (chamomile oil) or the control group (placebo), with both groups continuing standard gabapentin therapy. Neuropathy outcomes were assessed using Neurothesiometer scores, the Michigan Neuropathy Screening Instrument (MNSI), and the DN4 questionnaire at baseline and post-intervention. ANCOVA was employed to analyze intergroup differences, adjusting for baseline covariates. The chamomile oil group exhibited statistically significant improvements in neuropathy indices compared to the placebo group (p < 0.05). Post-intervention, reductions in Neurothesiometer scores (mean difference: -1.14 ± 0.42), MNSI (-1.89 ± 0.31), and DN4 (-1.97 ± 0.28) were observed in the intervention group, with no comparable changes in controls. ANCOVA confirmed the robustness of these findings (F = 6.72, p = 0.012). Topical chamomile oil significantly alleviates neuropathic symptoms in diabetic patients, offering a safe and adjunctive therapeutic option. Its mechanism may involve modulation of oxidative stress and inflammatory pathways, warranting further investigation into long-term benefits and molecular targets. This trial was registered at the Iranian Registry of Clinical Trials (IRCT), registration number IRCT20240611062090N1. The full protocol is available at www.irct.ir.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1016/j.explore.2025.103189",
+      "hard_off_domain_flag": false,
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "source_exact_file": null,
+      "state": "fresh_exact_verified_current_selection"
+    },
+    {
+      "wave": 4571,
+      "category": "botanicals_mushrooms",
+      "pmid": "40653563",
+      "doi": "10.1007/s00520-025-09741-x",
+      "title": "Effect of aromatherapy massage with lavender essential oil on sleep quality, pain, and mental and psychiatric disorders among breast cancer patients undergoing chemotherapy: a randomized controlled trial.",
+      "verified_title": "Effect of aromatherapy massage with lavender essential oil on sleep quality, pain, and mental and psychiatric disorders among breast cancer patients undergoing chemotherapy: a randomized controlled trial.",
+      "verified_journal": "Supportive care in cancer : official journal of the Multinational Association of Supportive Care in Cancer",
+      "verified_pub_date": "2025-Jul-14",
+      "abstract": "To assess the effects of aromatherapy massage on sleep quality and mental and psychological disorders in breast cancer survivors (BCS) undergoing chemotherapy. The study was a prospective, double-blind, randomized, placebo-controlled trial. Eligible breast cancer patients were enrolled in this study. Participants were randomly assigned to either the intervention group (received lavender aromatherapy) or the placebo group (received sweet almond oil massage). Aromatherapists focused their massage on specific areas of the body (from the lumbosacral area to the soles of the feet, and then from the shoulders to the palms of the hands). From baseline to four weeks after the intervention, the Pittsburgh Sleep Quality Index (PSQI) was used to assess sleep quality, the Visual Analog Scale (VAS) was used to assess pain response, the Mini-Mental State Examination (MMSE) score was used to assess cognitive function, the Beck Anxiety Inventory (BAI) was used to assess anxiety, and the Beck Depression Inventory Second Version (BDI-II) was used to assess depression in patients. All statistical analyses were conducted using STATA software (version 16.0), with a P-value < 0.05 considered statistically significant. Ultimately, a total of 96 participants were divided into the intervention group (n = 47) and the placebo group (n = 51). The baseline characteristics were statistically comparable between the two groups. Statistically significant differences were observed in sleep quality scores (7.51 ± 2.90 vs 9.71 ± 2.67, P < 0.001), anxiety scores (20.26 ± 6.73 vs 24.10 ± 6.46, P = 0.005), and pain response (6.66 ± 1.45 vs 7.41 ± 1.19, P = 0.006) of the intervention group compared to the control group at the 4th week post-intervention. However, there was no significant difference in depression scores (29.43 ± 7.17 vs 30.88 ± 6.26, P = 0.286) and cognitive function scores (28.06 ± 1.55 vs 27.51 ± 1.97, P = 0.128) between the two groups. Aroma massage with lavender essential oil may have a positive effect for BCS undergoing chemotherapy and warrants further promotion. This trial was registered at www. gov (Registration Number: NCT06338527, Registration Date: March 28, 2024).",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4876310/",
+      "pdf_link": "https://doi.org/10.1007/s00520-025-09741-x",
+      "hard_off_domain_flag": false,
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "source_exact_file": null,
+      "state": "fresh_exact_verified_current_selection"
+    },
+    {
+      "wave": 4572,
+      "category": "botanicals_mushrooms",
+      "pmid": "41767760",
+      "doi": "10.3389/fgwh.2026.1767865",
+      "title": "Efficacy and safety of Ashwagandha (Withania somnifera) root extract in pregnant women: a prospective, randomized, comparative, open-label, 12-week study.",
+      "verified_title": "Efficacy and safety of Ashwagandha (Withania somnifera) root extract in pregnant women: a prospective, randomized, comparative, open-label, 12-week study.",
+      "verified_journal": "Frontiers in global women's health",
+      "verified_pub_date": "2026",
+      "abstract": "Pregnancy is associated with increased risk of anemia, high psychological stress, and sleep disturbances, yet safe therapeutic options remain limited. Ashwagandha (Withania somnifera) root extract (ARE) possesses adaptogenic and hematopoietic potential, but evidence in pregnant women is scarce. The aim of the current study is to evaluate the efficacy and safety of ARE on hematological parameters and on stress, sleep quality, and laboratory safety markers in pregnant women. This 12-week, prospective, randomized, open-label, comparative trial enrolled 70 pregnant women in the second trimester. Participants received either ARE 300 mg twice daily plus standard hematinic therapy or standard hematinic therapy (standard of care; SOC) alone. Primary endpoints included changes in hemoglobin (Hb) and red blood cell (RBC) indices. Secondary endpoints included perceived stress, sleep quality, and safety assessments (adverse events, liver, renal, cardiac, and thyroid markers). Efficacy was analyzed in the per-protocol population; safety in the intention-to-treat population. Of 70 randomized participants, 63 completed the study (ARE: n = 32; SOC: n = 31). ARE supplementation produced significant improvements in hematological parameters: Hb increased by 1.06 ± 0.44 g/dL vs. 0.78 ± 0.24 g/dL with SOC (between-group difference 0.28 g/dL; p = 0.003), mean corpuscular hemoglobin concentration improved significantly (difference 0.73 g/dL; p = 0.017), and red cell distribution width decreased markedly (difference -0.57%; p < 0.001). RBC count and hematocrit showed favorable but non-significant trends. ARE significantly reduced perceived stress at Week 12 (-10.50 vs. -5.35; p < 0.001) and improved key sleep parameters, including subjective sleep quality at all visits (p = 0.036), sleep duration (Week 8 and 12; p < 0.001), and sleep disturbances (Week 12; p = 0.028). No adverse events or serious adverse events occurred. Laboratory evaluations showed no detrimental effects on hepatic, renal, or thyroid function. ARE supplementation for 12 weeks improved hemoglobin levels, RBC quality, perceived stress, and multiple aspects of sleep in pregnant women, with no adverse events and stable organ-function markers. ARE appears to be a tolerable and suitable adjunct to standard prenatal care for supporting hematological and psychological well-being during pregnancy. https://ctri.nic.in/Clinicaltrials/pmaindet2.php?EncHid=MTIyNjQ2&Enc=&userName=, identifier CTRI/2025/01/079238 on January 22, 2025.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12936510/",
+      "pdf_link": "https://doi.org/10.3389/fgwh.2026.1767865",
+      "hard_off_domain_flag": false,
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "source_exact_file": null,
+      "state": "fresh_exact_verified_current_selection"
+    },
+    {
+      "wave": 4573,
+      "category": "botanicals_mushrooms",
+      "pmid": "42253745",
+      "doi": "10.3389/fnut.2026.1823678",
+      "title": "Safety and tolerability of Ashwagandha (Withania somnifera) root extract in healthy adults: a prospective, non-comparative study.",
+      "verified_title": "Safety and tolerability of Ashwagandha (Withania somnifera) root extract in healthy adults: a prospective, non-comparative study.",
+      "verified_journal": "Frontiers in nutrition",
+      "verified_pub_date": "2026",
+      "abstract": "Ashwagandha, adaptogenic herb traditionally used to enhance resilience to stress and promote overall well-being. Although its safety at conventional doses is well established, evidence regarding the safety of higher doses in healthy adults remains limited. The present study aimed to evaluate the safety and tolerability of Ashwagandha root extract (ARE) administered at a dose of 2000 mg/day in healthy adults over 12 weeks. This was a prospective, single-arm, non-comparative clinical study conducted in healthy adults aged 18-65 years. Participants received ARE 500 mg capsules (total daily dose of 2000 mg) orally for 12 weeks. Primary safety outcomes included laboratory evaluations of renal, hepatic, and thyroid parameters. Secondary safety outcomes included clinical assessment of adverse events and changes in quality of life assessed using the SF-36 questionnaire. Over 12 weeks, minor changes (p < 0.05) occurred in serum bilirubin, alkaline phosphatase, creatinine, transaminases, blood urea, and thyroid parameters in PP dataset (n = 124) who completed study. All values remained within reference ranges and were clinically insignificant, with most values slightly reduced except a small increase in alkaline phosphatase. No serious or clinically significant changes were noted. In ITT dataset (n = 145) most participants (85.5%) experienced no adverse events, with mild nausea being the most common at 5.5%. Quality of life (SF-36 scores) demonstrated improvement (p < 0.05) after 12 weeks in the SF-36 domains of physical functioning, role limitations due to physical health, social functioning, and pain. High-dose Ashwagandha root extract (2000 mg/day) was well tolerated and demonstrated a favourable safety profile in healthy adults over 12 weeks. https://ctri.nic.in/Clinicaltrials/pmaindet2.php?EncHid=ODE3NTk=&Enc=&userName=, Identifier (CTRI/2023/04/051607).",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13233343/",
+      "pdf_link": "https://doi.org/10.3389/fnut.2026.1823678",
+      "hard_off_domain_flag": false,
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "source_exact_file": null,
+      "state": "fresh_exact_verified_current_selection"
+    },
+    {
       "wave": 4574,
       "category": "botanicals_mushrooms",
       "pmid": "42653115",
@@ -1350,6 +1445,25 @@
       "state": "reused_exact_verified_current_selection"
     },
     {
+      "wave": 4575,
+      "category": "botanicals_mushrooms",
+      "pmid": "40609195",
+      "doi": "10.1016/j.jaim.2025.101164",
+      "title": "Comparative efficacy of Medhya Rasayana,Bacopa monnieri, and Centella asiatica in enhancing memory and IQ of 8-10 year-old healthy boys: A prakriti-based double-blind, randomized controlled trial.",
+      "verified_title": "Comparative efficacy of Medhya Rasayana,Bacopa monnieri, and Centella asiatica in enhancing memory and IQ of 8-10 year-old healthy boys: A prakriti-based double-blind, randomized controlled trial.",
+      "verified_journal": "Journal of Ayurveda and integrative medicine",
+      "verified_pub_date": "2025",
+      "abstract": "Cognitive problems like learning difficulties, memory problems, intellectual disability, and ADHD are highly associated with school absenteeism and high dropout rates. The novel approach to improving memory and learning in these children is using nootropic herbs known as Medhya Rasayana (intellect enhancer) in Ayurveda. Brahmi (Bacopa monnieri L. Pannel), one of the Medhya Rasayana, has proven to be useful through extensive research. Still, the other Medhya Rasayana requires thorough research based on the Ayurvedic principle of Prakriti (constitution) to utilize their optimum therapeutic effect. The main objective of this study was to evaluate the comparative efficacy of Mandookaparni in enhancing the memory of healthy boys with dominant Prakriti. The present study was a double-blind, randomized study to evaluate the comparative efficacy of Brahmi (Bacopa monnieri L. Pannel) and Mandookaparni (Centella asiatica L. Urban) in enhancing the memory of 8-10-year-old healthy boys with dominant Prakriti. After obtaining informed consent from parents and assent from the participants, the eligible study participants were randomized to either the Mandookaparni or the Brahmi group. The participants were assessed at baseline and end of the treatment (91st day) for efficacy measures, which included total memory score and various domains of memory assessed by the Post Graduate Institute- Children's Memory Scale (PGI-CMS) and Intelligence Quotient. On analysis of 180 participants, the Brahmi group showed highly significant results in the total memory score, 9 out of 10 subsets of PGI-CMS, and IQ with p < 0.001. The Mandookaparni group showed highly significant results in 8 subsets of PGI-CMS, the total memory score, and IQ with p < 0.001. Brahmi increased the mean total memory score by 9.28 %, while a 13.45 % rise was observed with Mandookaparni. Significant differences were observed chiefly in Pitta Prakriti on Prakriti-wise analysis in the improvement of various memory domains between Brahmi and Mandookaparni. Mandookaparni has clinically equivalent efficacy to Brahmi in enhancing memory. Mandookaparni is better in improving the memory of Pitta Prakriti people while Brahmi is more effective in Kapha and Vata Prakriti. Both drugs are safe and effective in the pediatric population.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12270740/",
+      "pdf_link": "https://doi.org/10.1016/j.jaim.2025.101164",
+      "hard_off_domain_flag": false,
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "source_exact_file": null,
+      "state": "fresh_exact_verified_current_selection"
+    },
+    {
       "wave": 4576,
       "category": "botanicals_mushrooms",
       "pmid": "42667453",
@@ -1367,6 +1481,44 @@
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "source_exact_file": "2026-10-06-enrichment-waves-4576-4585-exact.json",
       "state": "reused_exact_verified_current_selection"
+    },
+    {
+      "wave": 4577,
+      "category": "botanicals_mushrooms",
+      "pmid": "41907879",
+      "doi": "10.6026/973206300215050",
+      "title": "Curcumin versus triamcinolone acetonide gel in treating minor recurrent aphthous stomatitis: A randomized trial.",
+      "verified_title": "Curcumin versus triamcinolone acetonide gel in treating minor recurrent aphthous stomatitis: A randomized trial.",
+      "verified_journal": "Bioinformation",
+      "verified_pub_date": "2025",
+      "abstract": "The effect of Curcumin gel and Triamcinolone Acetonide gel to cure tiny recurrent aphthous stomatitis (RAS) is of interest. Hence, 60 patients in groups divided evenly between 18 and 40 years old are observed for seven days the research showed that both treatments reduced pain, ulcer size and healing time of wounds significantly. But Curcumin gel had a slight edge with fewer side effects. Results of the tests found faster healing and better patient satisfaction in the Curcumin group. Thus, we show the demonstration that Curcumin gel is a safer and more effective alternative to Triamcinolone Acetonide gel for treating minor recurrent aphthous stomatitis.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13018318/",
+      "pdf_link": "https://doi.org/10.6026/973206300215050",
+      "hard_off_domain_flag": false,
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "source_exact_file": null,
+      "state": "fresh_exact_verified_current_selection"
+    },
+    {
+      "wave": 4578,
+      "category": "botanicals_mushrooms",
+      "pmid": "40226680",
+      "doi": "10.1155/2024/3661412",
+      "title": "Effectiveness of a Saffron and Withania Supplement on Mood in Women With Mild-to-Moderate Anxiety During the COVID-19 Lockdown.",
+      "verified_title": "Effectiveness of a Saffron and Withania Supplement on Mood in Women With Mild-to-Moderate Anxiety During the COVID-19 Lockdown.",
+      "verified_journal": "Depression and anxiety",
+      "verified_pub_date": "2024",
+      "abstract": "Background: A nutritional supplement based on medicinal plants (saffron and ashwagandha), tryptophan, and vitamin B6 could contribute to alleviating/improving mood and associated disorders. The aim of this study was to evaluate the potential benefits of this combination supplement. During the study period, participants underwent a period of forced home confinement due to the COVID-19 pandemic, which represented an unexpected impact factor. Methods: This open-label prospective trial enrolled a cohort of female employees who reported mild to moderate anxiety. The primary objective was to evaluate changes in the level of anxiety using the adapted Hamilton Anxiety Rating Scale (HARS) after 12 weeks of regular supplementation with Safromotive (two tablets daily, for 12 weeks). The secondary objectives were to evaluate health-related quality of life (HRQoL) and tolerability. Results: In total, 46 women with a mean age of 45.0 (6.5) years were included. A statistically significant improvement in HARS was observed, with a 7.5-unit decrease from baseline to 12 weeks (p < 0.0001) and from 4 to 12 weeks of supplement intake (p=0.0058). However, no significant changes were found during the lockdown period (between weeks 8 and 12 of the study). No relationship was found between women's sociodemographic characteristics and the HARS total score. A significant reduction in the HRQoL questionnaire score of 1.2 units was observed between baselines and 12 weeks of treatment (p=0.0273). At the end of the study, 78.6% of the women reported consistency the supplement intake during the study course. Conclusion: This nutritional supplement composed of saffron, ashwagandha, tryptophan, and vitamin B6 appears to improve anxiety and HRQoL, but confinement could have impacted the evolution of the outcome.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11919007/",
+      "pdf_link": "https://doi.org/10.1155/2024/3661412",
+      "hard_off_domain_flag": false,
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "source_exact_file": null,
+      "state": "fresh_exact_verified_current_selection"
     },
     {
       "wave": 4580,
@@ -5158,6 +5310,29 @@
       "attempted": 10,
       "added": 10,
       "failed": []
+    },
+    {
+      "batch": "fresh-4568-4579",
+      "attempted": 10,
+      "added": 8,
+      "failed": [
+        {
+          "wave": 4569,
+          "pmid": "39047346",
+          "title": "The effect of lavender and rosemary aromatherapy application on cognitive functions, anxiety, and sleep quality in the elderly with diabetes.",
+          "exact": false,
+          "abstract_verified": false,
+          "hard_off_domain": false
+        },
+        {
+          "wave": 4579,
+          "pmid": "38140277",
+          "title": "Acute Effects of Naturally Occurring Guayusa Tea and Nordic Lion's Mane Extracts on Cognitive Performance.",
+          "exact": false,
+          "abstract_verified": false,
+          "hard_off_domain": false
+        }
+      ]
     }
   ]
 }
