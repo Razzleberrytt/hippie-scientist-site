@@ -31,6 +31,7 @@ const aboutLinks = [
 
 const legalLinks = [
   { href: PUBLIC_ROUTES.privacy, label: 'Privacy' },
+  { href: PUBLIC_ROUTES.terms, label: 'Terms' },
   { href: PUBLIC_ROUTES.disclaimer, label: 'Disclaimer' },
   { href: '/info/affiliate-disclosure/', label: 'Affiliate disclosure' },
   { href: '/info/content-licensing/', label: 'Content licensing' },
