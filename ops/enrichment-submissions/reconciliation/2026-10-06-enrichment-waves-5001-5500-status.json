@@ -21,8 +21,10 @@
     "non_null_abstracts": 500
   },
   "repairs": {
-    "replacements_applied": 0,
-    "retries_recovered": 15
+    "replacements_applied": 35,
+    "retries_recovered": 15,
+    "quality_or_relevance_repairs": 22,
+    "upstream_collision_repairs": 13
   },
   "blockers": [],
   "policy": {
