@@ -1,0 +1,849 @@
+{
+  "schema_version": 1,
+  "category": "botanicals_mushrooms",
+  "target": 28,
+  "predecessor_unique_pmids": 5935,
+  "candidate_count": 84,
+  "rows": [
+    {
+      "pmid": "42395011",
+      "title": "Red ginseng-mediated modulation of the NLRP3 Inflammasome in neuroinflammatory-related cognitive impairments.",
+      "doi": "10.1016/j.jgr.2026.101022",
+      "pub_date": "2026 Jul",
+      "journal": "Journal of ginseng research",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42402729",
+      "title": "The dual role of Ganoderma lucidum polysaccharides in cancer treatment: Meridian tropism-based direct inhibition and immune-mediated modulation.",
+      "doi": "10.1097/JCMA.0000000000001403",
+      "pub_date": "2026 Aug 1",
+      "journal": "Journal of the Chinese Medical Association : JCMA",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42288630",
+      "title": "Analysis of the ERG25 gene family based on the whole-genome sequence in Trametes versicolor and its response to light stress.",
+      "doi": "10.1038/s41598-026-56305-y",
+      "pub_date": "2026 Jun 13",
+      "journal": "Scientific reports",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42312513",
+      "title": "Effects of Ganoderma lucidum Polysaccharide Peptide on Inflammatory and Metabolic Biomarkers in Obese Patients with Cardiometabolic Syndrome: A Randomized Controlled Trial.",
+      "doi": "10.2174/0115701638439377260608201603",
+      "pub_date": "2026 Jun 16",
+      "journal": "Current drug discovery technologies",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42395024",
+      "title": "Efficacy and safety of Korean red ginseng as adjunctive therapy in type 2 diabetes mellitus: a 12-week randomized, double-blind, placebo-controlled trial.",
+      "doi": "10.1016/j.jgr.2026.101068",
+      "pub_date": "2026 Jul",
+      "journal": "Journal of ginseng research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42407160",
+      "title": "Detection and cross-organ characterization of physiological response to microplastic stress in Panax ginseng based on hyperspectral imaging assisted with machine learning.",
+      "doi": "10.1016/j.talanta.2026.130239",
+      "pub_date": "2027 Jan 1",
+      "journal": "Talanta",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42450667",
+      "title": "Protective Effects of Ginseng Extract Against Oxidative Stress in Chilled Rooster Semen: Implications for Sperm Quality and Fertility.",
+      "doi": "10.3390/ani16131960",
+      "pub_date": "2026 Jun 25",
+      "journal": "Animals : an open access journal from MDPI",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42478815",
+      "title": "Heat stress-induced degradation of glutamine synthetase rebalances central carbon-nitrogen metabolism and promotes thermotolerance in Ganoderma lucidum.",
+      "doi": "10.1128/aem.00602-26",
+      "pub_date": "2026 Aug 19",
+      "journal": "Applied and environmental microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42503062",
+      "title": "Integrated miRNA-mRNA-degradome analysis unveils the key regulatory mechanism of ginseng under temperature-water stress.",
+      "doi": "10.1007/s00425-026-05089-6",
+      "pub_date": "2026 Jul 26",
+      "journal": "Planta",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42653102",
+      "title": "Bioinformatic Characterization and Functional Analysis of a Lipid Transfer Protein from Panax ginseng Involved in Biotic and Abiotic Stress Responses.",
+      "doi": "10.3390/ijms27167094",
+      "pub_date": "2026 Aug 7",
+      "journal": "International journal of molecular sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42693046",
+      "title": "[Physiological and biochemical regulatory mechanisms of salicylic acid in Panax ginseng under low-temperature stress based on transcriptomics and metabolomics].",
+      "doi": "10.19540/j.cnki.cjcmm.20260324.401",
+      "pub_date": "2026 Aug",
+      "journal": "Zhongguo Zhong yao za zhi = Zhongguo zhongyao zazhi = China journal of Chinese materia medica",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42699468",
+      "title": "Correction: Cordyceps spp.: a review on its immune-stimulatory and other biological potentials.",
+      "doi": "10.3389/fphar.2026.1952854",
+      "pub_date": "2026",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Published Erratum",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "40608959",
+      "title": "Cordyceps.",
+      "doi": null,
+      "pub_date": "2012",
+      "journal": null,
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42205585",
+      "title": "Biocontrol strategies for fungal diseases of Ganoderma lucidum: from antagonistic microbes and synthetic communities to intelligent technologies.",
+      "doi": "10.3389/fmicb.2026.1813967",
+      "pub_date": "2026",
+      "journal": "Frontiers in microbiology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42240206",
+      "title": "Ganoderma formosanum-advances in biotechnological fermentation, bioactive metabolites, and health-promoting applications: a critical review (2017-2025).",
+      "doi": "10.1080/10408398.2026.2681146",
+      "pub_date": "2026",
+      "journal": "Critical reviews in food science and nutrition",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42309243",
+      "title": "Ayurvedic Herbs as neurogenesis modulators: Current understanding on their potential therapeutic relevance in enhancing neuroplasticity and cognition in aging and neurodegeneration.",
+      "doi": "10.1016/j.neuint.2026.106204",
+      "pub_date": "2026 Oct",
+      "journal": "Neurochemistry international",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42353002",
+      "title": "Astragalus and Cordyceps Derivatives in the Treatment of Aging-Related Chronic Diseases and Neurodegenerative Disorders.",
+      "doi": "10.3390/ijms27125273",
+      "pub_date": "2026 Jun 10",
+      "journal": "International journal of molecular sciences",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42392387",
+      "title": "Structure-function relationships of Ganoderma polysaccharides: extraction, classification, bioactivities, and gut microbiota modulation.",
+      "doi": "10.1016/j.ijbiomac.2026.153325",
+      "pub_date": "2026 Sep",
+      "journal": "International journal of biological macromolecules",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42395006",
+      "title": "Microbiome-mediated pharmacology of ginseng: Mechanistic insights into metabolic regulation and therapeutic potential.",
+      "doi": "10.1016/j.jgr.2026.101023",
+      "pub_date": "2026 Jul",
+      "journal": "Journal of ginseng research",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42395019",
+      "title": "Panax ginseng as a microbial ecosystem modulator: implications for systemic health via the gut-organ axes.",
+      "doi": "10.1016/j.jgr.2026.101059",
+      "pub_date": "2026 Jul",
+      "journal": "Journal of ginseng research",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42395025",
+      "title": "Ginsenosides from Panax ginseng: Their mechanisms, microbiome determinants, and translational strategies in therapeutic activity against cancer.",
+      "doi": "10.1016/j.jgr.2026.101029",
+      "pub_date": "2026 Jul",
+      "journal": "Journal of ginseng research",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42395029",
+      "title": "Panax ginseng as a proteome-metabolome medicinal ecosystem: Reframing pharmacology beyond a strictly saponin-centric paradigm.",
+      "doi": "10.1016/j.jgr.2026.101064",
+      "pub_date": "2026 Jul",
+      "journal": "Journal of ginseng research",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42404155",
+      "title": "Indigenous knowledge and modern science: a comprehensive review of phytochemicals in Panax ginseng flower for nutritional and health applications.",
+      "doi": "10.3389/fnut.2026.1857685",
+      "pub_date": "2026",
+      "journal": "Frontiers in nutrition",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42425905",
+      "title": "Tumor Immune Regulation by Natural Products: Mechanistic Insights and Therapeutic Potential.",
+      "doi": "10.1142/S0192415X26500515",
+      "pub_date": "2026",
+      "journal": "The American journal of Chinese medicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42639578",
+      "title": "Cordyceps sinensis and Sonodynamic Therapy in Non-Small Cell Lung Cancer: Pharmacological Basis, Therapeutic Potential, and Future Directions.",
+      "doi": "10.2147/IJN.S632002",
+      "pub_date": "2026",
+      "journal": "International journal of nanomedicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42721096",
+      "title": "Phyto adaptogens in stress management and health optimization: Current understanding and future perspectives.",
+      "doi": "10.1159/cmr/acfag007",
+      "pub_date": "2026 Sep 10",
+      "journal": "Complementary medicine research",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42438288",
+      "title": "Ginsenoside Rg3 in Cancer Therapy: Pharmacokinetics, Molecular Mechanisms, and Synergistic Combinations.",
+      "doi": "10.1142/S0192415X26500552",
+      "pub_date": "2026",
+      "journal": "The American journal of Chinese medicine",
+      "pub_type": "Systematic Review",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42196032",
+      "title": "Bidirectional Fermentation of Monascus and Ginseng Enhances Pigment and Ginsenoside Rg3 Contents: Process Optimization and Antioxidant Mechanism Analysis.",
+      "doi": "10.3390/foods15101829",
+      "pub_date": "2026 May 21",
+      "journal": "Foods (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42211882",
+      "title": "M1 macrophage-targeted engineered ginseng stems and leaves-derived extracellular vesicles delivery system for alleviating rheumatoid arthritis.",
+      "doi": "10.1093/rb/rbag078",
+      "pub_date": "2026",
+      "journal": "Regenerative biomaterials",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42235777",
+      "title": "Targeting 2-hydroxyglutarate mediates the antidepressant effects of Hericium coralloides polysaccharide in hyperlipidemia-associated depression.",
+      "doi": "10.1016/j.ijbiomac.2026.152837",
+      "pub_date": "2026 Jul",
+      "journal": "International journal of biological macromolecules",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42259409",
+      "title": "Structural characterization and biological activity of polysaccharides from Ganoderma lucidum cultivated under forest conditions.",
+      "doi": "10.1016/j.ijbiomac.2026.152849",
+      "pub_date": "2026 Jun 7",
+      "journal": "International journal of biological macromolecules",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42262747",
+      "title": "Microscopy Combined with LC-UV Analysis as a Tool for Authentication of Ginseng Species Used in Traditional Medicine and Detection of Their Adulterants.",
+      "doi": "10.1080/19390211.2026.2680314",
+      "pub_date": "2026",
+      "journal": "Journal of dietary supplements",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42264398",
+      "title": "A multidimensional strategy for identifying quality markers of Radix ginseng-Schisandra chinensis in the disruption of the inflammation-cancer transformation process of hepatocellular carcinoma based on metabolic regulation and chemical properties.",
+      "doi": "10.1016/j.fitote.2026.107317",
+      "pub_date": "2026 Jul",
+      "journal": "Fitoterapia",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42270277",
+      "title": "Hypoxia-induced downregulation of cAMP drives Ganoderic acid biosynthesis and restricts biofilm development in Ganoderma lucidum.",
+      "doi": "10.1016/j.foodres.2026.119570",
+      "pub_date": "2026 Sep 1",
+      "journal": "Food research international (Ottawa, Ont.)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42273332",
+      "title": "Exploring the Mechanisms of Total Saponins of Black Ginseng and Ginsenoside Rg3 Against Doxorubicin-Induced Cardiotoxicity.",
+      "doi": "10.1002/fsn3.71968",
+      "pub_date": "2026 Jun",
+      "journal": "Food science & nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42275884",
+      "title": "The neutral and acidic polysaccharides from Ginseng are metabolized by specific gut microbial taxa and confer immunomodulatory effects.",
+      "doi": "10.1016/j.phymed.2026.158400",
+      "pub_date": "2026 Aug",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42276496",
+      "title": "CRISPR/Cas9-mediated disruption of Cmpks1 reveals its role as a key regulator of carotenoid biosynthesis and metabolic adaptation in Cordyceps militaris.",
+      "doi": "10.1016/j.ijbiomac.2026.152987",
+      "pub_date": "2026 Aug",
+      "journal": "International journal of biological macromolecules",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42278065",
+      "title": "Effects of Non-Fermented Red Ginseng Marc in a Commercial Liquid Feeding System on Growth Performance, Fecal Short-Chain Fatty Acids, Blood Profiles, and Pork Quality in Growing Finishing Pigs.",
+      "doi": "10.3390/ani16111631",
+      "pub_date": "2026 May 27",
+      "journal": "Animals : an open access journal from MDPI",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42278270",
+      "title": "Sporoderm Disruption Reshapes the Chemical Characteristics and Enhances the Mitochondrial Protective Activity of Ganoderma lucidum Spore Polysaccharides via SIRT1/AMPK Signaling.",
+      "doi": "10.3390/ijms27114741",
+      "pub_date": "2026 May 25",
+      "journal": "International journal of molecular sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42278549",
+      "title": "Fungal Cordyceps Nucleosides and Analogs as Potential Anti-Glioblastoma PD-L1 Inhibitors: An In Silico Multiparameter Optimization (MPO) Design.",
+      "doi": "10.3390/ijms27115024",
+      "pub_date": "2026 Jun 2",
+      "journal": "International journal of molecular sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42279801",
+      "title": "Integrated Microbiome and Metabolomics Analysis Reveals That Ganoderma lucidum Triterpenoids Ameliorate Colitis Associated with the Modulation of the Gut Microbiota and Metabolic Profiles.",
+      "doi": "10.3390/foods15112016",
+      "pub_date": "2026 Jun 4",
+      "journal": "Foods (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42280167",
+      "title": "Enzyme-Assisted Extraction of Polysaccharides from Steam-Exploded Ganoderma lucidum and Its Yield, Structural Characterisation, and Immunomodulatory Activity.",
+      "doi": "10.3390/molecules31111864",
+      "pub_date": "2026 May 29",
+      "journal": "Molecules (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42280643",
+      "title": "Allelopathic Activity of Ginseng-Cultivated Soil: Extracts on Seed Germination and Growth of Five Vegetables in China.",
+      "doi": "10.3390/plants15111607",
+      "pub_date": "2026 May 23",
+      "journal": "Plants (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42298099",
+      "title": "Development of a Ganoderma lucidum bioreactor for dichlorodiphenyltrichloroethane contaminated soil treatment.",
+      "doi": "10.1007/s00253-026-13910-1",
+      "pub_date": "2026 Jun 15",
+      "journal": "Applied microbiology and biotechnology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42302943",
+      "title": "Cordyceps sinensis polysaccharide disrupts the macrophage pyroptosis-neutrophil extracellular traps axis to ameliorate acute lung injury.",
+      "doi": "10.1016/j.jep.2026.122063",
+      "pub_date": "2026 Nov 15",
+      "journal": "Journal of ethnopharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42309609",
+      "title": "Exploring the neuroprotective, antioxidant, and anti-amyloid effects of Ganoderma lucidum compounds in Alzheimer's disease: insights from experimental and computational approaches.",
+      "doi": "10.1016/j.jgeb.2026.100706",
+      "pub_date": "2026 Jun",
+      "journal": "Journal, genetic engineering & biotechnology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42317871",
+      "title": "Simultaneous degradation of aflatoxin B(1), zearalenone, and deoxynivalenol by Trametes versicolor laccases.",
+      "doi": "10.3389/fnut.2026.1834914",
+      "pub_date": "2026",
+      "journal": "Frontiers in nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42333663",
+      "title": "Cultured Cordyceps Sinensis Ameliorates Oligoasthenozoospermia by Enhancing Testosterone Production via Activation of SF-1-mediated Steroid Hormone Biosynthesis.",
+      "doi": "10.1021/acs.jafc.6c00772",
+      "pub_date": "2026 Jul 1",
+      "journal": "Journal of agricultural and food chemistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42338756",
+      "title": "Red ginseng-derived nanovesicles to modulate osteoblast and osteoclastogenesis for osteoporosis therapy.",
+      "doi": "10.1016/j.ajps.2026.101168",
+      "pub_date": "2026 Jun",
+      "journal": "Asian journal of pharmaceutical sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42346520",
+      "title": "Preparation and Bioactivity Evaluation of Novel Dihydrotanshinone I Derivatives via Biotransformation by Ganoderma lingzhi.",
+      "doi": "10.3390/jof12060389",
+      "pub_date": "2026 May 28",
+      "journal": "Journal of fungi (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42348828",
+      "title": "Korean Red Ginseng Attenuates Dysfunctions and Modulates Inflammatory and Neuroplasticity Markers in the Harmaline-Induced Model of Essential Tremor.",
+      "doi": "10.1002/brb3.71470",
+      "pub_date": "2026 Jun",
+      "journal": "Brain and behavior",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42351969",
+      "title": "Lipoxygenase and Xanthine Oxidase Inhibition and Antioxidant Potential of Fractions Obtained by Multistep Extraction of Artist's Bracket (Ganoderma applanatum (Pers.) Pat.) and Red-Belted Bracket (Fomitopsis pinicola (Sw.) P. Karst.).",
+      "doi": "10.3390/antiox15060663",
+      "pub_date": "2026 May 25",
+      "journal": "Antioxidants (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42395005",
+      "title": "Contemporary utilization of ginseng among individuals with health needs: A nationwide questionnaire survey.",
+      "doi": "10.1016/j.jgr.2026.101052",
+      "pub_date": "2026 Jul",
+      "journal": "Journal of ginseng research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42395007",
+      "title": "Korean red ginseng extract ameliorates high-fat diet-induced hyperlipidemia by modulating the gut microbiota-liver metabolic axis.",
+      "doi": "10.1016/j.jgr.2026.100977",
+      "pub_date": "2026 Jul",
+      "journal": "Journal of ginseng research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42395015",
+      "title": "20(S)-protopanaxatriol alleviates gastritis by attenuating oxidative stress and inflammatory responses via inhibition of PI3K/AKT and JAK/STAT3 pathways.",
+      "doi": "10.1016/j.jgr.2026.101062",
+      "pub_date": "2026 Jul",
+      "journal": "Journal of ginseng research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42395020",
+      "title": "Ginseng-containing Shentao Ruangan (STR) formula alleviates hepatic fibrosis via hepatocellular Nrf2-ROS-TGF-β axis regulating hepatocyte-HSC crosstalk: Integrating single-cell RNA sequencing and multi-tiered validation.",
+      "doi": "10.1016/j.jgr.2026.101053",
+      "pub_date": "2026 Jul",
+      "journal": "Journal of ginseng research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42395028",
+      "title": "Contemporary perceptions of ginseng among individuals with health needs: A nationwide questionnaire survey.",
+      "doi": "10.1016/j.jgr.2026.101027",
+      "pub_date": "2026 Jul",
+      "journal": "Journal of ginseng research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42397491",
+      "title": "Trametes versicolor laccase induces apoptosis and DNA damage in colorectal cancer via reactive oxygen species-mediated signaling disruption.",
+      "doi": "10.1007/s11033-026-12260-5",
+      "pub_date": "2026 Jul 3",
+      "journal": "Molecular biology reports",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42404568",
+      "title": "Changes in MoCA scores with sequential administration of Trikatu Cūrṇa and Brahmi Ghṛta in mild cognitive impairment: an exploratory single-arm clinical study.",
+      "doi": "10.3389/fmed.2026.1834211",
+      "pub_date": "2026",
+      "journal": "Frontiers in medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42407283",
+      "title": "Carboxymethyl chitosan-based multifunctional hydrogel loaded with ginseng stem cell exosomes promotes severe burn wound healing through anti-inflammatory activity.",
+      "doi": "10.1016/j.burns.2026.108122",
+      "pub_date": "2026 Nov",
+      "journal": "Burns : journal of the International Society for Burn Injuries",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42413671",
+      "title": "Ginseng glycopeptides from Panax ginseng: Process optimization, structural characteristics, and immunomodulatory activities.",
+      "doi": "10.1016/j.ijbiomac.2026.153382",
+      "pub_date": "2026 Sep",
+      "journal": "International journal of biological macromolecules",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42419124",
+      "title": "Network analysis and experimental validation reveal mitochondrial-mediated programmed cell death mechanisms of Sini Decoction Plus Ginseng Soup against acute liver failure.",
+      "doi": "10.1016/j.phymed.2026.158511",
+      "pub_date": "2026 Sep",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42423036",
+      "title": "Preparation, characterization, and preventive effects of ginseng polysaccharide-stabilized selenium nanoparticles against DSS-induced colitis.",
+      "doi": "10.1080/17435889.2026.2697806",
+      "pub_date": "2026 Jul",
+      "journal": "Nanomedicine (London, England)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42424532",
+      "title": "Utilize Metabolomics Molecular Networking to Guide the Discovery of Chemical Entities from Cordyceps militaris Against Blue Light Hazards.",
+      "doi": "10.1021/acs.jnatprod.6c00427",
+      "pub_date": "2026 Aug 28",
+      "journal": "Journal of natural products",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42424742",
+      "title": "Inhibition of maltol on enzymatic browning in potato: Combined effects on PPO activity, substrate biosynthesis, and oxidative stress.",
+      "doi": "10.1016/j.foodchem.2026.150335",
+      "pub_date": "2026 Oct 1",
+      "journal": "Food chemistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42426589",
+      "title": "Complete genome sequence of Leuconostoc lactis B34-1-7-1 isolated from Panax ginseng in South Korea.",
+      "doi": "10.1186/s12863-026-01464-0",
+      "pub_date": "2026 Jul 9",
+      "journal": "BMC genomic data",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42450160",
+      "title": "Black Ginseng Concentrate Restores Hair Loss-Associated Dysfunction in Human Follicle Dermal Papilla Cells.",
+      "doi": "10.3390/ijms27135889",
+      "pub_date": "2026 Jun 30",
+      "journal": "International journal of molecular sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42450488",
+      "title": "Integrated Foodomics Reveals Gut Microbiota-Metabolite-Gene Interactions Associated with the Immunoprotective Effects of Ganoderma lucidum Polysaccharide Peptide.",
+      "doi": "10.3390/foods15132370",
+      "pub_date": "2026 Jul 3",
+      "journal": "Foods (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42450611",
+      "title": "Comprehensive Identification of CPP Gene Family Members in Panax ginseng and Expression Analysis of PgCPP and Key Protopanaxadiol Ginsenoside Biosynthesis Genes in Response to MeJA.",
+      "doi": "10.3390/biology15131063",
+      "pub_date": "2026 Jul 3",
+      "journal": "Biology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42451047",
+      "title": "Nano-Encapsulated Black Bean-Cultivated Cordyceps militaris Attenuates PM- and LPS-Induced Airway Inflammation.",
+      "doi": "10.3390/nu18132043",
+      "pub_date": "2026 Jun 23",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42451661",
+      "title": "Impact of Iron Speciation on the Cytotoxicity and Gene Expression Profile of Biofortified Hericium erinaceus in Human Colorectal Adenocarcinoma.",
+      "doi": "10.3390/molecules31132295",
+      "pub_date": "2026 Jul 1",
+      "journal": "Molecules (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42459125",
+      "title": "The Ganoderma atrum Polysaccharide PSG-1 Attenuates Acrylamide-Induced Hepatotoxicity by Modulating the FXR-FGF15-Mediated Gut-Liver Axis.",
+      "doi": "10.1002/mnfr.70543",
+      "pub_date": "2026 Jul",
+      "journal": "Molecular nutrition & food research",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42481118",
+      "title": "Gamma-ray irradiation induces dose-dependent mutational signatures in Ganoderma resinaceum revealed by whole-genome resequencing.",
+      "doi": "10.1016/j.funbio.2026.101796",
+      "pub_date": "2026 Aug",
+      "journal": "Fungal biology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42501861",
+      "title": "Ginsenoside Rh1 ameliorates polystyrene nanoplastics-caused vascular injury by regulating HSP70 to suppress endoplasmic reticulum stress and pyroptosis.",
+      "doi": "10.1016/j.jare.2026.07.053",
+      "pub_date": "2026 Jul 25",
+      "journal": "Journal of advanced research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42506231",
+      "title": "When Fungi Meet Bacteria: Cross-Kingdom Assembly and Bioremediation Potential Under PAH Stress.",
+      "doi": "10.3390/jof12070469",
+      "pub_date": "2026 Jun 25",
+      "journal": "Journal of fungi (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42588411",
+      "title": "Ginsenoside Rg1 Alleviates Lead-Induced Neurotoxicity Through Nrf2-Associated Modulation of Oxidative Stress and Ferroptosis.",
+      "doi": "10.3390/molecules31152559",
+      "pub_date": "2026 Jul 23",
+      "journal": "Molecules (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42608826",
+      "title": "Effects of a mushroom-based β-glucan blend on the gastrointestinal health and immune function of healthy adult cats.",
+      "doi": "10.1093/jas/skag259",
+      "pub_date": "2026 Jan 8",
+      "journal": "Journal of animal science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42609619",
+      "title": "Cordyceps and Beauveria infections drive species-specific microbiome dysbiosis in the mosquito Aedes aegypti.",
+      "doi": "10.3389/fmicb.2026.1879658",
+      "pub_date": "2026",
+      "journal": "Frontiers in microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42634094",
+      "title": "Ginseng-Containing Sijunzi Decoction Inhibits Colorectal Cancer Progression by Regulating MARCHF3-ALOX15-Mediated Ferroptosis.",
+      "doi": "10.1142/S0192415X26500709",
+      "pub_date": "2026",
+      "journal": "The American journal of Chinese medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42634533",
+      "title": "Multidimensional Research Progress of Ganoderma Lucidum Active Components in Regulating Skin Homeostasis.",
+      "doi": "10.2174/0113895575459119260729112156",
+      "pub_date": "2026 Aug 3",
+      "journal": "Mini reviews in medicinal chemistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42657388",
+      "title": "Rg1-Loaded Tetrahedral DNA Nanostructures Attenuate Myocardial Ischemia-Reperfusion Injury by Suppressing Oxidative and Endoplasmic Reticulum Stress.",
+      "doi": "10.2147/IJN.S600720",
+      "pub_date": "2026",
+      "journal": "International journal of nanomedicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42679717",
+      "title": "Mannosylated chitosan-PLGA delivers Ganoderma lucidum triterpenes for oral immunoprotection against H9N2 in broilers.",
+      "doi": "10.1016/j.psj.2026.107380",
+      "pub_date": "2026 Jul 2",
+      "journal": "Poultry science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42690736",
+      "title": "Efficacy and safety evaluation of Weifuchun in preventing recurrence and treating mucosal lesions after endoscopic resection of intestinal polyps: A potential modulation of gut microbiome.",
+      "doi": "10.1556/030.2026.03051",
+      "pub_date": "2026 Sep 3",
+      "journal": "Acta microbiologica et immunologica Hungarica",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42711829",
+      "title": "Molecular weight-dependent hepatoprotection of American ginseng polysaccharides.",
+      "doi": "10.1002/jsfa.71073",
+      "pub_date": "2026 Sep 8",
+      "journal": "Journal of the science of food and agriculture",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((Hericium[Title/Abstract] OR \"lion's mane\"[Title/Abstract] OR Ganoderma[Title/Abstract] OR reishi[Title/Abstract] OR Cordyceps[Title/Abstract] OR Trametes[Title/Abstract] OR \"turkey tail\"[Title/Abstract] OR bacopa[Title/Abstract] OR ginseng[Title/Abstract]) AND (cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR stress[Title/Abstract] OR immune[Title/Abstract] OR safety[Title/Abstract] OR trial[Title/Abstract])) AND 2008:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    }
+  ]
+}
