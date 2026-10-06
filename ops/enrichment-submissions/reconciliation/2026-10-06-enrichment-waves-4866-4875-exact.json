@@ -5,14 +5,9 @@
   "summary": {
     "range": "4866-4875",
     "rows": 10,
-    "exact_title": 8,
-    "abstract_verified": 8,
+    "exact_title": 10,
+    "abstract_verified": 10,
     "hard_off_domain": [
-      {
-        "wave": 4867,
-        "pmid": "42669658",
-        "title": "Effect of a complementary feeding intervention based on iron- and zinc-biofortified pearl millet on the gut microbiota in 12-18-month-old children: a randomized trial."
-      },
       {
         "wave": 4870,
         "pmid": "42739347",
@@ -20,26 +15,12 @@
       }
     ],
     "errors": [],
-    "quarantine": [
-      {
-        "wave": 4867,
-        "pmid": "42669658",
-        "title": "Effect of a complementary feeding intervention based on iron- and zinc-biofortified pearl millet on the gut microbiota in 12-18-month-old children: a randomized trial."
-      },
-      {
-        "wave": 4869,
-        "pmid": "42637722",
-        "title": "Zinc accumulation in macrophages exacerbates metabolic dysfunction-associated steatotic liver disease progression."
-      },
+    "quarantine": [],
+    "relevance_replace": [
       {
         "wave": 4870,
         "pmid": "42739347",
         "title": "Zinc Fertilization Mitigates Boron Toxicity in Citrus: Plant Growth, Tissue Mineral Composition and Antioxidant Enzyme Activity."
-      },
-      {
-        "wave": 4873,
-        "pmid": "42812734",
-        "title": "Association Between Digestive Power and Serum Vitamin B12 Levels in Young Adult Females: An Analytical Cross-Sectional Study."
       }
     ]
   },
@@ -93,8 +74,9 @@
       "title_match_score": 1,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13527057/",
       "pdf_link": "https://doi.org/10.1038/s41467-026-75674-6",
-      "hard_off_domain_flag": true,
-      "verification_state": "quarantine"
+      "hard_off_domain_flag": false,
+      "verification_state": "exact_verified_pending_relevance_review",
+      "relevance_override": "Human randomized complementary-feeding trial of iron/zinc-biofortified food; clinically relevant micronutrient evidence despite agriculture-related terminology."
     },
     {
       "category": "micronutrients",
@@ -133,20 +115,21 @@
       "has_abstract": true,
       "pmcid": "PMC13503898",
       "selection_score": 2,
-      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "source": "NCBI PubMed EFetch via Sider Scholar retry",
       "query": "((magnesium[Title/Abstract] OR zinc[Title/Abstract]) AND (sleep[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR cognition[Title/Abstract] OR deficiency[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
       "state": "selected_quality_rebuild_pending_exact_verification",
       "wave": 4869,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "Zinc accumulation in macrophages exacerbates metabolic dysfunction-associated steatotic liver disease progression.",
+      "verified_journal": "Signal transduction and targeted therapy",
+      "verified_pub_date": "2026-Aug-25",
+      "abstract": "Metabolic dysfunction-associated steatotic liver disease (MASLD) affects over 1 billion people globally, yet the role of trace elements in its progression remains poorly defined. Here, we identify \"macrophage zinc trapping\" (i.e., selective zinc accumulation in hepatic macrophages despite systemic zinc depletion) as a critical driver of MASLD. In a cohort of 1069 individuals with MASLD, we found that serum zinc levels were inversely correlated with the disease severity. In a mouse model of MASLD, the hepatic macrophages are marked by zinc accumulation. Macrophage-specific depletion of the zinc exporter Slc30a1 in mice recapitulates human MASLD pathology. In macrophage-specific Slc30a1-deficient mice, trapped zinc activates the Ire1α-Xbp1s pathway, which on the one hand stimulates IL-1β secretion to alter hepatocyte lipid metabolism via IL-1β signaling, and on the other hand enhances direct lipid transfer from macrophages to hepatocytes, thereby synergistically exacerbating steatosis. Notably, treatment with Ire1α inhibitors (4μ8C and STF-083010) or IL-1β blockade (clinically approved anti-IL-1β antibodies) reverse established steatosis, inflammation, and fibrosis in preclinical mouse models. This work redefines the role of zinc in MASLD, shifting the paradigm from systemic deficiency to cell-specific sequestration. It reveals that zinc accumulation in macrophages exacerbates hepatocyte lipid accumulation through both fatty acid transflux and inflammation-driven metabolic reprogramming, uncovering novel therapeutic targets and a clinically actionable biomarker.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13503898/",
+      "pdf_link": "https://doi.org/10.1038/s41392-026-02816-z",
       "hard_off_domain_flag": false,
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_pending_relevance_review",
+      "relevance_note": "Includes a 1,069-person human MASLD cohort plus mechanistic follow-up; retained as clinically anchored zinc evidence."
     },
     {
       "category": "micronutrients",
@@ -172,7 +155,9 @@
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13567620/",
       "pdf_link": "https://doi.org/10.3390/plants15172580",
       "hard_off_domain_flag": true,
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_relevance_fail_replace",
+      "relevance_review_passed": false,
+      "relevance_review_reason": "Plant fertilization/boron-toxicity experiment; true agricultural off-domain contamination."
     },
     {
       "category": "micronutrients",
@@ -237,20 +222,21 @@
       "has_abstract": true,
       "pmcid": "PMC13621440",
       "selection_score": 2,
-      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "source": "NCBI PubMed EFetch via Sider Scholar retry",
       "query": "((\"vitamin D\"[Title/Abstract] OR \"vitamin B12\"[Title/Abstract] OR folate[Title/Abstract] OR iron[Title/Abstract]) AND (fatigue[Title/Abstract] OR cognition[Title/Abstract] OR mood[Title/Abstract] OR deficiency[Title/Abstract] OR supplementation[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
       "state": "selected_quality_rebuild_pending_exact_verification",
       "wave": 4873,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "Association Between Digestive Power and Serum Vitamin B12 Levels in Young Adult Females: An Analytical Cross-Sectional Study.",
+      "verified_journal": "Cureus",
+      "verified_pub_date": "2026-Aug",
+      "abstract": "Digestive power (Agni) is a fundamental Ayurvedic concept that governs digestion and metabolism. Vitamin B12 is an essential micronutrient required for red blood cell formation, neurological function, and DNA synthesis. However, scientific evidence evaluating the relationship between digestive power and vitamin B12 levels remains limited. This study aimed to determine the association between digestive power and serum vitamin B12 levels among females aged 19-28 years using a laboratory immunoassay method. Materials and methods: A cross-sectional analytical study was carried out among 94 young adult females, including 47 vitamin B12-deficient and 47 vitamin B12-nondeficient females aged 19-28 years, selected through convenience sampling. Serum vitamin B12 was estimated using a standard laboratory immunoassay method, and participants were classified into four categories based on digestive strength (Agnibala) using a validated assessment tool. Data were analyzed using descriptive statistics, Pearson's chi-square test, independent Student's t-test, and multiple linear regression. A p-value ≤ 0.05 was considered statistically significant. Results: Serum vitamin B12 levels differed significantly between the deficient and nondeficient groups (p < 0.001). Balanced digestive power (Samagni) was predominantly observed among vitamin B12-nondeficient participants. In contrast, irregular digestive power (Vishamagni), elevated digestive power (Tikshnagni), and subdued digestive power (Mandagni) were more common among vitamin B12-deficient participants. The distribution of digestive power was significantly associated with vitamin B12 status, as demonstrated by Pearson's Chi-square test (χ² = 23.16, df = 3, p < 0.001). Conclusion: Digestive power showed a significant association with serum vitamin B12 levels. Balanced digestive power was predominantly observed in individuals with normal vitamin B12 levels, whereas disturbed digestive power was relatively higher in deficient participants. These findings suggest that digestive metabolic efficiency may be associated with micronutrient assimilation and warrant further prospective studies.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13621440/",
+      "pdf_link": "https://doi.org/10.7759/cureus.115427",
       "hard_off_domain_flag": false,
-      "verification_state": "quarantine"
+      "verification_state": "exact_verified_pending_relevance_review",
+      "relevance_note": "Human micronutrient-status study retained as lower-confidence observational evidence; no causal inference."
     },
     {
       "category": "mitochondrial_energy",
