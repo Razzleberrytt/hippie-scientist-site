@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "batch": "waves-4001-4500",
+  "status": "complete_pending_repository_validation",
+  "findings": 500,
+  "wave_coverage": {
+    "first": 4001,
+    "last": 4500,
+    "missing": []
+  },
+  "finalized_prior_basis": {
+    "through_wave_4000_unique_pmids": 3935,
+    "source": "2026-10-05-enrichment-waves-3501-4000-pmid-index.json"
+  },
+  "dedupe": {
+    "prior_unique_pmids": 3935,
+    "new_unique_pmids": 500,
+    "cumulative_unique_pmids": 4435,
+    "pmid_duplicates": 0,
+    "doi_duplicates": 0,
+    "normalized_title_duplicates": 0,
+    "prior_pmid_collisions": 0
+  },
+  "verification": {
+    "final_consolidated_row_count": 500,
+    "exact_pubmed_title_and_abstract": true,
+    "all_rows_abstract_verified": true,
+    "unverified_rows": 0
+  },
+  "repairs": {
+    "failed_candidates_replaced": 52,
+    "second_pass_repairs": 1,
+    "verified_repair_rows": 52
+  },
+  "category_counts": {
+    "aging_sarcopenia": 44,
+    "botanicals_mushrooms": 41,
+    "cannabinoid_safety": 41,
+    "cardiometabolic": 28,
+    "cognition_focus": 42,
+    "gut": 36,
+    "immune_respiratory": 42,
+    "inflammation_pain": 30,
+    "metabolic": 31,
+    "micronutrients": 38,
+    "mitochondrial_energy": 35,
+    "mood": 12,
+    "withdrawal_nps": 33,
+    "performance": 2,
+    "women_health": 24,
+    "sleep": 9,
+    "stress_anxiety": 12
+  },
+  "state_counts": {
+    "selected_exact_verified": 448,
+    "research_only_exact_verified_repair": 51,
+    "research_only_exact_verified_repair_r2": 1
+  },
+  "artifacts": {
+    "finalized_receipt": "2026-10-05-enrichment-waves-4001-4500-verified-consolidated.json",
+    "cumulative_index": "2026-10-05-enrichment-waves-4001-4500-pmid-index.json",
+    "final_selection": "2026-10-05-enrichment-waves-4001-4500-final-selection.json",
+    "verified_repairs": "2026-10-05-enrichment-waves-4001-4500-verified-repairs.json"
+  },
+  "authority_note": "The finalized consolidated receipt supersedes stale pending, failed, overlapping, and superseded rows in earlier discovery, selection, exact, and repair artifacts.",
+  "policy": {
+    "entity_creation": "forbidden",
+    "publication_promotion": "separate fail-closed admission",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "retraction_quarantine": true
+  }
+}
