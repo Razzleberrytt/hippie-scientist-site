@@ -5,13 +5,11 @@
   "summary": {
     "range": "4611-4620",
     "rows": 10,
-    "exact_title": 9,
-    "abstract_verified": 9,
+    "exact_title": 10,
+    "abstract_verified": 10,
     "hard_off_domain": [],
     "errors": [],
-    "quarantine": [
-      4615
-    ]
+    "quarantine": []
   },
   "rows": [
     {
@@ -125,18 +123,18 @@
       "has_abstract": true,
       "pmcid": null,
       "selection_score": 4,
-      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "source": "NCBI PubMed EFetch via Sider Scholar retry",
       "query": "((cannabidiol[Title/Abstract] OR CBD[Title/Abstract] OR cannabis[Title/Abstract] OR cannabinoid[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text] AND (clinical trial[pt] OR randomized controlled trial[pt] OR systematic review[pt] OR meta-analysis[pt] OR observational study[pt] OR case reports[pt])",
-      "state": "quarantine",
+      "state": "exact_verified_pending_relevance_review",
       "wave": 4615,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "title_match_score": 0,
-      "abstract_verified": false,
-      "abstract": "",
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "Long-term follow-up of children with autism spectrum disorder and severe treatment-resistant behavioral symptoms treated with purified cannabidiol.",
+      "verified_journal": "Pharmacology, biochemistry, and behavior",
+      "verified_pub_date": "2026-Sep",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "abstract": "Autism spectrum disorder (ASD) is a heterogeneous neurodevelopmental condition often associated with severe behavioral disturbances and limited pharmacological treatment options. Cannabidiol (CBD) has emerged as a potential therapeutic option; however, evidence on its long-term effectiveness and safety in children with ASD is scarce. To evaluate the long-term effectiveness and safety of purified CBD as add-on therapy in children with severe ASD and treatment-resistant behavioral symptoms. We conducted a prospective observational before-and-after study in children and adolescents (3-18 years) with ASD severity levels 2 or 3 and intellectual disability treated with add-on CBD. The primary outcome was change in caregiver-identified symptoms, while secondary outcomes included standardized behavioral scales (Repetitive Behavior Scale-Revised [RBS-R], Vineland Adaptive Behavior Scales-II maladaptive behavior domain, Aberrant Behavior Checklist [ABC], Pediatric Sleep Clinical Global Impressions-Severity, Autism Family Experience Questionnaire, and Parental Stress Scale). Safety and tolerability were assessed through caregiver-reported adverse events. Twenty children were enrolled, of whom 13 completed the long-term follow-up (mean 27.6 ± 1.3 months). Of the caregiver-identified symptoms, improvements observed during the initial short-term study were maintained or further improved during follow-up. Standardized scales showed modest but sustained improvements, particularly in irritability, social withdrawal, and hyperactivity. Mild, transient adverse events, mainly irritability or decreased appetite, did not recur during long-term followup, and concomitant medications were reduced in 40% of patients. Long-term treatment with purified CBD in children with severe ASD was well tolerated and associated with sustained improvement in caregiver-reported outcomes and standardized scales.",
+      "full_text_link": "",
+      "pdf_link": "https://doi.org/10.1016/j.pbb.2026.174220",
       "hard_off_domain_flag": false
     },
     {
