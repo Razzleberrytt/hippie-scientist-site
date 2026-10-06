@@ -1,0 +1,42 @@
+name: Security lockfile refresh
+
+on:
+  push:
+    branches:
+      - security/october-audit-sharp-shellquote-6211
+    paths:
+      - package.json
+      - .github/workflows/security-lockfile-refresh.yml
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Regenerate lockfile with npm
+        run: npm install --package-lock-only --ignore-scripts --no-audit --fund=false
+      - name: Capture npm audit
+        shell: bash
+        run: |
+          set +e
+          npm audit --json > npm-audit.generated.json
+          npm run audit:high > audit-high.generated.txt 2>&1
+          set -e
+      - name: Upload generated security artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-lockfile-refresh-${{ github.sha }}
+          path: |
+            package-lock.json
+            npm-audit.generated.json
+            audit-high.generated.txt
+          if-no-files-found: error
+          retention-days: 7
