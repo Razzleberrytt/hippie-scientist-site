@@ -5,13 +5,11 @@
   "summary": {
     "range": "4621-4630",
     "rows": 10,
-    "exact_title": 9,
-    "abstract_verified": 9,
+    "exact_title": 10,
+    "abstract_verified": 10,
     "hard_off_domain": [],
     "errors": [],
-    "quarantine": [
-      4623
-    ]
+    "quarantine": []
   },
   "rows": [
     {
@@ -75,18 +73,18 @@
       "has_abstract": true,
       "pmcid": "PMC13109967",
       "selection_score": 2,
-      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "source": "NCBI PubMed EFetch via Sider Scholar retry",
       "query": "((cannabidiol[Title/Abstract] OR CBD[Title/Abstract] OR cannabis[Title/Abstract] OR cannabinoid[Title/Abstract]) AND (safety[Title/Abstract] OR adverse[Title/Abstract] OR interaction[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR cognition[Title/Abstract] OR anxiety[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text] AND (clinical trial[pt] OR randomized controlled trial[pt] OR systematic review[pt] OR meta-analysis[pt] OR observational study[pt] OR case reports[pt])",
-      "state": "quarantine",
+      "state": "exact_verified_pending_relevance_review",
       "wave": 4623,
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "title_match_score": 0,
-      "abstract_verified": false,
-      "abstract": "",
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "Stellate Ganglion Block for the Management of Cannabis Use Disorder: A Case Series.",
+      "verified_journal": "Cureus",
+      "verified_pub_date": "2026-Mar",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "abstract": "Currently, there are no approved or consistently effective pharmacological treatments for managing cannabis use disorder. Three patients diagnosed with cannabis use disorder and presenting with cannabis withdrawal syndrome were assessed by an interdisciplinary team. These patients were treated with two-level dual stellate ganglion blocks. Validated patient-reported outcome measures were completed. Urine cannabis levels were measured at the four-week follow-up. At one-, two-, and four-week reviews, all three patients reported reduced withdrawal symptoms. Urine cannabis tests were negative at the four-week review. Limitations include a small cohort of patients, absence of a control arm, and possible placebo effects. Stellate ganglion block could have a role in the management of cannabis use disorder and cannabis withdrawal syndrome.",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13109967/",
+      "pdf_link": "https://doi.org/10.7759/cureus.105898",
       "hard_off_domain_flag": false
     },
     {
