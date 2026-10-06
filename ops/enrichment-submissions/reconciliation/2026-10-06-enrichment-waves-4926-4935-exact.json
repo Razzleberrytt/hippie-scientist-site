@@ -5,15 +5,9 @@
   "summary": {
     "range": "4926-4935",
     "rows": 10,
-    "exact_title": 9,
-    "abstract_verified": 9,
-    "errors": [
-      {
-        "wave": 4926,
-        "pmid": "42407075",
-        "state": "quarantine"
-      }
-    ]
+    "exact_title": 10,
+    "abstract_verified": 10,
+    "errors": []
   },
   "rows": [
     {
@@ -28,16 +22,16 @@
       "has_abstract": true,
       "selection_score": 2,
       "wave": 4926,
-      "state": "quarantine",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
-      "full_text_link": null,
-      "pdf_link": null,
-      "source": "NCBI PubMed EFetch via Sider Scholar"
+      "state": "exact_verified_pending_relevance_review",
+      "verified_title": "Patient-Centered Prescription Opioid Tapering Methods: A Randomized Clinical Trial.",
+      "verified_journal": "Annals of internal medicine",
+      "verified_pub_date": "2026-Sep",
+      "abstract": "Evidence is needed on tapering long-term prescription opioids in outpatient settings. Randomized controlled trial at 11 U.S. sites compared patient-centered taper only, taper plus cognitive behavioral therapy for chronic pain, and taper plus a chronic pain self-management program in adults receiving long-term prescription opioids. Taper success was similar across groups; CBT may reduce adverse effects including opioid withdrawal symptoms.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "",
+      "pdf_link": "https://doi.org/10.7326/ANNALS-25-04784",
+      "source": "NCBI PubMed EFetch via Sider Scholar retry"
     },
     {
       "category": "withdrawal_nps",
