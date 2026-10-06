@@ -5,7 +5,7 @@
 **Updated:** 2026-10-06
 **Normal WIP limit:** `AGENTS.md` permits Discovery/SEO, Revenue/Conversion, and Authority/Content only, with one active ticket per workstream. Distribution lanes do not independently grant additional Revenue/Conversion slots; Operations is not a fourth normal workstream.
 **WIP cap:** 3
-**Current admission (verified 2026-10-06):** Normal implementation WIP is **1/3**. #6356 owns Revenue/Conversion / L5 for the first-party TikTok draft-upload provider, revalidated against exact base `1c123a71b488b44aae61d33deccd00ad7942e1e8`. Discovery/SEO and Authority/Content remain free.
+**Current admission (verified 2026-10-06):** Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are all free; vacancy alone does not authorize new work without a fresh scored, non-overlapping admission transaction.
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
 
@@ -49,15 +49,16 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 | M5 | Not started |
 | M6 | Not started |
 
-## Active / in review — implementation WIP 1/3
+## Active / in review — implementation WIP 0/3
 
-**Research-only admission #6353 / PR #6355:** In review — repaired exact-verified deep research enrichment Waves 4501–5000. This governed research-only staging is admitted outside normal D/R/A implementation WIP, remains fail-closed from entity creation/runtime publication/recommendation/dose inference, and may merge only after repository validation and fresh review are green. Post-review repair replaces weak/off-domain or unverifiable rows and removes unverified PMC shortcuts from the authoritative final receipt.
+**Research-only admission #6349 / PR #6350:** In review — exact-verified deep research enrichment Waves 4001–4500. This governed research-only staging is admitted outside normal D/R/A implementation WIP, remains fail-closed from entity creation/runtime publication/recommendation/dose inference, and may merge only after repository validation and review are green.
+
+**Research-only admission #6353 / PR #6355:** In review — repaired exact-verified deep research enrichment Waves 4501–5000. This governed research-only staging is admitted outside normal D/R/A implementation WIP, remains fail-closed from entity creation/runtime publication/recommendation/dose inference, and may merge only after repository validation and fresh review are green. Final integrity is 500 contiguous waves, 500 unique PMIDs, 500/500 non-null abstracts and exact-title matches, zero prior-ledger collisions, zero duplicate PMID/DOI/title, zero hard off-domain rows, and 4,935 cumulative unique PMIDs through Wave 5000.
 
 **Stacked research-only finalization #6362 / PR #6363:** In review — Waves 5001–5500 are finalized research-only on top of #6355 with 500/500 exact PubMed title verification, 500/500 non-null abstracts, 500 unique PMIDs, zero duplicate PMIDs/normalized DOIs/normalized titles, zero collisions against the repaired 4,935-PMID upstream ledger, and zero hard off-domain rows remaining. The cumulative research index is 5,435 unique PMIDs through Wave 5500. Final repair accounting is 35 replacements total (22 relevance/quality replacements + 13 upstream-collision replacements) and 14 retained retry overrides; authoritative final `full_text_link` values remain 0. This does not consume normal implementation WIP. Exact literature verification is complete; the remaining merge dependency is #6355 plus exact-head repository validation/review.
 
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
-| R | #6356 / PR #6357 | Add first-party TikTok draft-upload provider | Active — implementation | P0 | 93.8 | 2026-10-06 — current TikTok upload/API rules + Metricool limit failure verified |
 
 
 
@@ -69,7 +70,9 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 Research-only enrichment staging is not canonical implementation admission. #6338 / PR #6339 is completed; no new work may overlap an active normal-lane owner.
 
-### Verified completion refresh — 2026-10-05
+### Verified completion refresh — 2026-10-06
+
+- **#6356 / PR #6357 — completed:** THS Publisher v0.1 merged to `main` as `fc0d0fee90a027cb13e2f6b77071d8632ee99b35`. Canonical `publication_id` identity, D1-backed publication state, governed TikTok draft-upload transport, Observer/reconciliation semantics, owner `/publish-ths` entry point, provider-neutral media staging, and hard-frozen Metricool publication paths are implemented. Exact-head CI, full tests/data/security, Fast UI, Site Health, Atomic, Build Quality, Research Distribution, Project Control, and production build/output passed before merge. Cloudflare D1/KV bindings, server secrets, TikTok app approval, and creator authorization remain external production setup; no live TikTok publication receipt is claimed yet.
 
 - **#6258 / PR #6257 — completed:** RC/NPS consolidated closeout merged at `6151f17759b09bd0b9a73a605b58b70b813e8dda` from exact source `17ea07e9ca2ecd45bbaf60fdd125c71fcfb6f055` on 2026-10-05T12:37:53Z. Includes #6249 / #6253; duplicate PRs #6252/#6254 are closed with their source incorporated. The 92-route inventory, all 45 candidate dispositions, source corrections, recovery/support normalization, tests and evidence limitations are recorded in `docs/content/rc-nps-completion-2026-10-05.md`. Sparse-compound evidence gaps, unverified global legal status and external outcomes remain explicit.
 
@@ -138,7 +141,7 @@ Research-only enrichment staging is not canonical implementation admission. #633
 
 ## Ready next — strict dependency order
 
-Revenue/Conversion is occupied by #6356; Discovery/SEO and Authority/Content are free. Normal WIP is 1/3. No additional candidate becomes executable merely because two slots remain free; further work still requires a separate scored, fresh, non-overlapping admission transaction. Evidence, experiment, scientific, canonical, governance, and external-access gates remain unchanged.
+Discovery/SEO, Revenue/Conversion, and Authority/Content are free. Normal WIP is 0/3. No candidate becomes executable merely because slots are free; further work still requires a separate scored, fresh, non-overlapping admission transaction. Evidence, experiment, scientific, canonical, governance, and external-access gates remain unchanged.
 
 ### Blocked or deferred candidates
 
