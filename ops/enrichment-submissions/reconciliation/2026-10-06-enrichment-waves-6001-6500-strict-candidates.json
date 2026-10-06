@@ -3,7 +3,7 @@
   "batch_id": "2026-10-06-enrichment-waves-6001-6500",
   "stage": "strict_pubmed_candidates",
   "prior_unique_pmids": 5935,
-  "candidate_count": 670,
+  "candidate_count": 697,
   "category_counts": {
     "stress_anxiety": 46,
     "sleep": 32,
@@ -21,7 +21,8 @@
     "safety_interactions": 52,
     "cannabinoid_safety": 50,
     "mitochondrial_energy": 43,
-    "immune_respiratory": 29
+    "immune_respiratory": 29,
+    "micronutrients": 27
   },
   "candidates": [
     {
@@ -6723,6 +6724,276 @@
       "pub_type": "Journal Article",
       "doi": "10.1073/pnas.2608087123",
       "source_query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"vitamin C\"[Title] OR probiotic[Title]) AND (immune[Title/Abstract] OR respiratory[Title/Abstract] OR infection[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42742311",
+      "category": "micronutrients",
+      "title": "Iron Deficiency and Anemia in Chronic Kidney Disease: Assessment and Management.",
+      "pub_date": "2026 Jul-Aug",
+      "journal": "Nephrology nursing journal : journal of the American Nephrology Nurses' Association",
+      "pub_type": "Review",
+      "doi": null,
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42742663",
+      "category": "micronutrients",
+      "title": "Comparison of iron and myelin changes in U‑fiber regions of relapsing-remitting multiple sclerosis and neuromyelitis optica spectrum disorders.",
+      "pub_date": "2026 Sep 15",
+      "journal": "Journal of neurology",
+      "pub_type": "Comparative Study",
+      "doi": "10.1007/s00415-026-14054-y",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42743207",
+      "category": "micronutrients",
+      "title": "Performance evaluation of a direct chemiluminescence assay for 25-hydroxyvitamin D and its application in assessing vitamin D status among reproductive-age women in southeastern China.",
+      "pub_date": "2026",
+      "journal": "PloS one",
+      "pub_type": "Journal Article",
+      "doi": "10.1371/journal.pone.0356809",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42744279",
+      "category": "micronutrients",
+      "title": "Association between the rs2228570 polymorphism of the Vitamin D Receptor gene and serum vitamin D levels: A systematic review and meta-analysis.",
+      "pub_date": "2026 Sep 15",
+      "journal": "The Journal of nutritional biochemistry",
+      "pub_type": "Review",
+      "doi": "10.1016/j.jnutbio.2026.110506",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42745028",
+      "category": "micronutrients",
+      "title": "Advances in the measurement of vitamin D binding protein.",
+      "pub_date": "2026 Sep 15",
+      "journal": "Analytical and bioanalytical chemistry",
+      "pub_type": "Review",
+      "doi": "10.1007/s00216-026-06815-5",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42751195",
+      "category": "micronutrients",
+      "title": "Inherited microcytic anemias due to disorders of iron and heme metabolism: An updated clinical review.",
+      "pub_date": "2026 Sep",
+      "journal": "HemaSphere",
+      "pub_type": "Review",
+      "doi": "10.1002/hem3.70465",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42754955",
+      "category": "micronutrients",
+      "title": "Association of Vitamin D Status With Total and Site-Specific Cancer Mortality From Tropical to Subantarctic Latitudes: A Nationwide Population-Based Study in Chile.",
+      "pub_date": "2026 Sep",
+      "journal": "Cancer medicine",
+      "pub_type": "Journal Article",
+      "doi": "10.1002/cam4.72273",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42756305",
+      "category": "micronutrients",
+      "title": "Multidimensional iron dysmetabolism and gut-brain axis interactions in restless legs syndrome: from peripheral deficiency to central dysregulation.",
+      "pub_date": "2026",
+      "journal": "Frontiers in aging neuroscience",
+      "pub_type": "Review",
+      "doi": "10.3389/fnagi.2026.1942435",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42756751",
+      "category": "micronutrients",
+      "title": "Vitamin D in male reproduction: molecular mechanisms and pharmacological perspectives.",
+      "pub_date": "2026",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Review",
+      "doi": "10.3389/fphar.2026.1849299",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42758403",
+      "category": "micronutrients",
+      "title": "Selenium Deficiency is a Significant Risk Factor for Sarcopenia: Evidence and Selenoprotein-Mediated Mechanisms.",
+      "pub_date": "2026 Sep 18",
+      "journal": "Biological trace element research",
+      "pub_type": "Review",
+      "doi": "10.1007/s12011-026-05350-9",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42760971",
+      "category": "micronutrients",
+      "title": "Predicting unfavorable response to initial radioactive iodine therapy in differentiated thyroid cancer: an explainable machine learning and survival analysis approach.",
+      "pub_date": "2026",
+      "journal": "Frontiers in endocrinology",
+      "pub_type": "Journal Article",
+      "doi": "10.3389/fendo.2026.1943597",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42763157",
+      "category": "micronutrients",
+      "title": "Combining sandwich and competitive immunoassay formats in a duplex lateral flow test for rapid iron-status assessment.",
+      "pub_date": "2026 Nov 8",
+      "journal": "Analytica chimica acta",
+      "pub_type": "Journal Article",
+      "doi": "10.1016/j.aca.2026.346097",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42764866",
+      "category": "micronutrients",
+      "title": "Intravenous Iron Therapy in Heart Failure With Iron Deficiency: An Umbrella Review of Systematic Reviews and Meta-Analyses.",
+      "pub_date": "2026 Aug",
+      "journal": "Cureus",
+      "pub_type": "Review",
+      "doi": "10.7759/cureus.114912",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42766214",
+      "category": "micronutrients",
+      "title": "Association Between Blood Heavy Metals and Selenium with All-Cause Mortality in Cardiovascular-Kidney-Metabolic Syndrome Populations: Exploring the Mediating Effects of Inflammatory Biomarkers.",
+      "pub_date": "2026 Sep 21",
+      "journal": "Cardiovascular toxicology",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "doi": "10.1007/s12012-026-10179-8",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42776121",
+      "category": "micronutrients",
+      "title": "Deficient vitamin D levels exacerbate diabetic peripheral neuropathy, and supplementation alleviates neuropathic pain.",
+      "pub_date": "2026 Sep 23",
+      "journal": "Nutritional neuroscience",
+      "pub_type": "Review",
+      "doi": "10.1080/1028415X.2026.2730594",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42776849",
+      "category": "micronutrients",
+      "title": "Vitamin D Deficiency in Children with Uveitis: A Comparison of Juvenile Idiopathic Arthritis-Associated and Idiopathic Uveitis - A Retrospective Study (2019-2025).",
+      "pub_date": "2026 Sep 23",
+      "journal": "Ocular immunology and inflammation",
+      "pub_type": "Review",
+      "doi": "10.1080/09273948.2026.2736176",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42778207",
+      "category": "micronutrients",
+      "title": "Iron and the lung: emerging roles of iron metabolism in pulmonary disease pathogenesis and therapy.",
+      "pub_date": "2026 Jul",
+      "journal": "European respiratory review : an official journal of the European Respiratory Society",
+      "pub_type": "Review",
+      "doi": "10.1183/16000617.0160-2026",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42782349",
+      "category": "micronutrients",
+      "title": "Altered iron metabolism and iron therapy in restless legs syndrome.",
+      "pub_date": "2026 Sep 24",
+      "journal": "Journal of neural transmission (Vienna, Austria : 1996)",
+      "pub_type": "Review",
+      "doi": "10.1007/s00702-026-03274-1",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42782730",
+      "category": "micronutrients",
+      "title": "Bioactive Selenium Peptides Rescue Dopaminergic Neurodegeneration via Coordinated Signal Remodeling and Redox Reinforcement.",
+      "pub_date": "2026 Sep 8",
+      "journal": "Cells",
+      "pub_type": "Journal Article",
+      "doi": "10.3390/cells15181628",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42783435",
+      "category": "micronutrients",
+      "title": "Vitamin D and Gastric Cancer: A Systematic Review and Meta-Analysis.",
+      "pub_date": "2026 Sep 11",
+      "journal": "Medical sciences (Basel, Switzerland)",
+      "pub_type": "Review",
+      "doi": "10.3390/medsci14050562",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42783607",
+      "category": "micronutrients",
+      "title": "Selenium and Iodine as Susceptibility Modifiers of Thyroid Disruption Associated with Metals: An Overview of Human and Experimental Research Data.",
+      "pub_date": "2026 Aug 31",
+      "journal": "Journal of xenobiotics",
+      "pub_type": "Review",
+      "doi": "10.3390/jox16050164",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42783810",
+      "category": "micronutrients",
+      "title": "Folate: An Emerging Target in Type 2 Diabetes Mellitus and Its Complications.",
+      "pub_date": "2026 Sep 17",
+      "journal": "Metabolites",
+      "pub_type": "Review",
+      "doi": "10.3390/metabo16090685",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42788453",
+      "category": "micronutrients",
+      "title": "Impact of Vitamin D Supplementation on Levels of Serum Cholecalciferol and Cytokines in Individuals with Colorectal Cancer: A Systematic Review and Meta-Analysis of Relevant Clinical Trials.",
+      "pub_date": "2026",
+      "journal": "International journal of preventive medicine",
+      "pub_type": "Review",
+      "doi": "10.4103/ijpvm.ijpvm_73_25",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42788782",
+      "category": "micronutrients",
+      "title": "Influence of Vitamin B12 Deficiency on Auditory and Vestibular Functioning: An Objective Test-Based Systematic Review.",
+      "pub_date": "2026 Sep 25",
+      "journal": "Otolaryngology--head and neck surgery : official journal of American Academy of Otolaryngology-Head and Neck Surgery",
+      "pub_type": "Review",
+      "doi": "10.1002/ohn.70450",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42792685",
+      "category": "micronutrients",
+      "title": "Iron Deficiency in Endocrine Diseases and the Therapeutic Role of Liposomal Iron: A Comprehensive Review.",
+      "pub_date": "2026 Aug 29",
+      "journal": "Biomedicines",
+      "pub_type": "Review",
+      "doi": "10.3390/biomedicines14091944",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42798940",
+      "category": "micronutrients",
+      "title": "Iron need attention: a review on the role of iron in plants.",
+      "pub_date": "2026",
+      "journal": "Frontiers in plant science",
+      "pub_type": "Review",
+      "doi": "10.3389/fpls.2026.1876801",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
+    },
+    {
+      "pmid": "42807526",
+      "category": "micronutrients",
+      "title": "Targeting Iron Regulatory Protein 2 in Tumor-associated Macrophages Activates Antitumor Immunity in NSCLC via Modulating SphK1-PD-L1 Axis.",
+      "pub_date": "2026",
+      "journal": "International journal of biological sciences",
+      "pub_type": "Journal Article",
+      "doi": "10.7150/ijbs.130591",
+      "source_query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR status[Title/Abstract] OR intake[Title/Abstract])) AND (Humans[Mesh] OR Review[pt] OR Meta-Analysis[pt] OR Randomized Controlled Trial[pt] OR Clinical Trial[pt] OR Systematic Review[pt]) AND english[lang] AND 2018:2026[dp]"
     }
   ]
 }
