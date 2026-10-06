@@ -1,0 +1,64 @@
+name: Publisher production readiness probe
+
+on:
+  push:
+    branches:
+      - probe/publisher-production-readiness-2026-10-06
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Probe production deployment and auth boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          receipt_code="$(curl -sS -o receipt.json -w '%{http_code}' https://thehippiescientist.net/.well-known/deployment.json)"
+          echo "receipt_http=$receipt_code"
+          test "$receipt_code" = "200"
+          grep -q 'fc0d0fee90a027cb13e2f6b77071d8632ee99b35' receipt.json
+
+          manifest_code="$(curl -sS -o manifest.json -w '%{http_code}' https://thehippiescientist.net/media/distribution/publisher/latest.json)"
+          echo "manifest_http=$manifest_code"
+          test "$manifest_code" = "200"
+          node - <<'NODE'
+          const fs = require('fs')
+          const m = JSON.parse(fs.readFileSync('manifest.json','utf8'))
+          if (m.schemaVersion !== 'ths-publication-media-v1') throw new Error('bad publisher manifest schema')
+          if (m.status !== 'ready-for-provider') throw new Error('publisher manifest not provider-ready')
+          if (!Array.isArray(m.media) || m.media.length === 0) throw new Error('publisher manifest has no media')
+          console.log('manifest_format=' + m.format)
+          console.log('manifest_media_type=' + m.mediaType)
+          console.log('manifest_research_object_id=' + (m.researchObjectId || ''))
+          NODE
+
+          publisher_code="$(curl -sS -o publisher.json -w '%{http_code}' -X POST             -H 'Content-Type: application/json'             -d '{}'             https://thehippiescientist.net/api/publisher/enqueue)"
+          echo "publisher_auth_http=$publisher_code"
+          cat publisher.json
+          echo
+          if [ "$publisher_code" = "503" ]; then
+            echo "publisher_admin_secret_configured=false"
+          elif [ "$publisher_code" = "401" ]; then
+            echo "publisher_admin_secret_configured=true"
+          else
+            echo "Unexpected Publisher auth boundary status: $publisher_code" >&2
+            exit 1
+          fi
+
+          tiktok_code="$(curl -sS -o tiktok.json -w '%{http_code}' https://thehippiescientist.net/api/tiktok/connection)"
+          echo "tiktok_auth_http=$tiktok_code"
+          cat tiktok.json
+          echo
+          if [ "$tiktok_code" = "503" ]; then
+            echo "tiktok_admin_secret_configured=false"
+          elif [ "$tiktok_code" = "401" ]; then
+            echo "tiktok_admin_secret_configured=true"
+          else
+            echo "Unexpected TikTok auth boundary status: $tiktok_code" >&2
+            exit 1
+          fi
