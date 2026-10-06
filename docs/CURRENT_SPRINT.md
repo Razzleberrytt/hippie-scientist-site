@@ -53,6 +53,8 @@ The sprint does **not** authorize broad/high-volume auto-posting, scientific rew
 
 **Research-only admission #6353 / PR #6355:** In review — repaired exact-verified deep research enrichment Waves 4501–5000. This governed research-only staging is admitted outside normal D/R/A implementation WIP, remains fail-closed from entity creation/runtime publication/recommendation/dose inference, and may merge only after repository validation and fresh review are green. Post-review repair replaces weak/off-domain or unverifiable rows and removes unverified PMC shortcuts from the authoritative final receipt.
 
+**Stacked research-only staging #6362 / PR #6363:** Candidate selection staged for Waves 5001–5500 on top of #6355. Exactly 500 deduped candidates are assigned, but 0/500 are exact-verified and 0/500 are finalized. This does not consume normal implementation WIP and must not be treated as scientific completion. Exact title + non-null abstract verification is externally blocked by the connected Amass quota until 2026-10-16; the stack also remains dependent on unresolved #6355.
+
 | Workstream | Ticket / owning PR | Scope | Status | Priority | Score | Freshness |
 |---|---|---|---|---|---:|---|
 | R | #6356 / PR #6357 | Add first-party TikTok draft-upload provider | Active — implementation | P0 | 93.8 | 2026-10-06 — current TikTok upload/API rules + Metricool limit failure verified |
