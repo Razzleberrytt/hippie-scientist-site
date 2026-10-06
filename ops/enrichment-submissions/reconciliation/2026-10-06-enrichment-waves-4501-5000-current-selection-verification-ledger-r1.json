@@ -55,7 +55,7 @@
     "2026-10-06-enrichment-waves-4956-4965-exact.json",
     "2026-10-06-enrichment-waves-4966-4975-exact.json"
   ],
-  "exact_verified_current_selection": 361,
+  "exact_verified_current_selection": 363,
   "rows": [
     {
       "wave": 4501,
@@ -4923,6 +4923,26 @@
       "state": "fresh_exact_verified_current_selection"
     },
     {
+      "wave": 4757,
+      "category": "immune_respiratory",
+      "pmid": "42775662",
+      "doi": "10.1002/pro.70808",
+      "title": "Conformational stability and domain-specific structural features of tumor autoantigens regulate autoantibody epitope propensity.",
+      "verified_title": "Conformational stability and domain-specific structural features of tumor autoantigens regulate autoantibody epitope propensity.",
+      "verified_journal": "Protein science : a publication of the Protein Society",
+      "verified_pub_date": "2026-Oct",
+      "abstract": "Autoantibodies against tumor-associated autoantigens are clinically valuable biomarkers for cancer diagnosis; however, the structural determinants governing epitope selectivity remain unknown. Here, we investigated whether the intrinsic conformational stability of target autoantigens regulates the epitope propensity of tumor-associated autoantibodies in non-small cell lung cancer. Using a dual-antigen Luminex bead-based assay that presents each autoantigen in both native and S-cationized denatured forms, we directly compared IgG autoantibody reactivity toward conformational and linear epitopes across 11 autoantigens. Intrinsically disordered aggregation-prone autoantigens, including cancer/testis antigens, NY-ESO-1, and XAGE-1b, predominantly elicit linear epitope-directed responses, whereas thermodynamically stable soluble autoantigens generally drive conformational epitope recognition. Intriguingly, for autoantigens harboring both ordered and disordered segments, the immune response is strictly guided by domain-specific biophysics: while p53-specific antibodies preferentially target their flanking disordered regions, the Wilms' tumor protein 1 exceptionally drives conformational recognition directed toward its structured zinc-finger domains. Recombinant solubility in Escherichia coli broadly correlated with epitope class across all 11 autoantigens, confirming that prokaryotic folding efficiency generally reflects intrinsic conformational stability in vivo for autonomously folding monomeric cytosolic proteins. Independent computational validation was provided by the concordance between the experimental solubility ratios and AlphaFold3-derived Rosetta energy unit/solvent-accessible surface area values, demonstrating the convergence of thermodynamic estimates and patient-derived immune data within a unifying biophysical framework. These findings establish that the autoantibody epitope propensity is closely associated with the thermodynamic stability of the target autoantigen and provide a rational basis for tailoring antigen preparation strategies for autoantibody-based cancer diagnosis.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13599353/",
+      "pdf_link": "https://doi.org/10.1002/pro.70808",
+      "hard_off_domain_flag": false,
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "source_exact_file": null,
+      "state": "fresh_exact_verified_current_selection",
+      "relevance_review_pending": true
+    },
+    {
       "wave": 4758,
       "category": "immune_respiratory",
       "pmid": "42696855",
@@ -5016,6 +5036,26 @@
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "source_exact_file": null,
       "state": "fresh_exact_verified_current_selection"
+    },
+    {
+      "wave": 4763,
+      "category": "immune_respiratory",
+      "pmid": "42809877",
+      "doi": "10.31053/1853.0605.v83.n3.49438",
+      "title": "[Acute disseminated encephalomyelitis during the acute phase of meningitis caused by Streptococcus pneumoniae: a case report.].",
+      "verified_title": "[Acute disseminated encephalomyelitis during the acute phase of meningitis caused by Streptococcus pneumoniae: a case report.].",
+      "verified_journal": "Revista de la Facultad de Ciencias Medicas (Cordoba, Argentina)",
+      "verified_pub_date": "2026-Aug-06",
+      "abstract": "To describe a pediatric patient who developed acute disseminated encephalomyelitis (ADEM) during the acute phase of meningitis caused by Streptococcus pneumoniae, a previously unreported association. A previously healthy 3-year-old girl presented with fever and altered consciousness. She was diagnosed with bacterial meningoencephalitis and required mechanical ventilation. S. pneumoniae was isolated from blood and cerebrospinal fluid cultures. Despite clinical improvement after antibiotic therapy, persistent neurological deficits were observed. Brain MRI revealed lesions consistent with ADEM. She received corticosteroids and intravenous immunoglobulin with favorable clinical response and was discharged with outpatient follow-up and rehabilitation. This case highlights the need to consider ADEM as a differential diagnosis in children with persistent neurological symptoms during or after bacterial infections of the central nervous system. Early recognition and treatment can significantly improve outcomes.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.31053/1853.0605.v83.n3.49438",
+      "hard_off_domain_flag": false,
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "source_exact_file": null,
+      "state": "fresh_exact_verified_current_selection",
+      "relevance_review_pending": true
     },
     {
       "wave": 4764,
@@ -7364,6 +7404,12 @@
           "hard_off_domain": false
         }
       ]
+    },
+    {
+      "batch": "retry-4757-4763",
+      "attempted": 2,
+      "added": 2,
+      "failed": []
     }
   ],
   "verification_policy": {
