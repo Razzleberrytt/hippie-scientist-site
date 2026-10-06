@@ -317,3 +317,39 @@ export async function recordManualPublication(
   next.updatedAt = updatedAt
   return replacePublicationJob(env, next, current.updatedAt)
 }
+
+
+export async function cancelPublication(
+  env: SocialPublisherRuntimeEnv,
+  publicationId: string,
+  {
+    reason,
+    now = new Date().toISOString(),
+  }: { reason?: unknown; now?: string } = {},
+): Promise<PublicationJob> {
+  const current = await getPublicationJob(env, publicationId)
+  if (!current) throw new Error('THS publication job does not exist')
+  if (current.state === 'PUBLISHED') throw new Error('published publication cannot be cancelled')
+  if (['DISPATCHING', 'PROVIDER_ACCEPTED', 'AWAITING_USER_POST', 'NEEDS_RECONCILIATION'].includes(current.state)) {
+    throw new Error('publication with possible provider side effects must be reconciled before cancellation')
+  }
+  if (current.state === 'CANCELLED') return current
+  if (!['QUEUED', 'FAILED'].includes(current.state)) {
+    throw new Error('publication cannot be cancelled from ' + current.state)
+  }
+  const cancelledAt = transitionTime(now, current.updatedAt)
+  const next = clone(current)
+  next.state = 'CANCELLED'
+  next.failure = clean(reason)
+    ? {
+        provider: null,
+        code: 'cancelled',
+        message: clean(reason),
+        at: cancelledAt,
+        retryable: false,
+      }
+    : null
+  next.cancelledAt = cancelledAt
+  next.updatedAt = cancelledAt
+  return replacePublicationJob(env, next, current.updatedAt)
+}
