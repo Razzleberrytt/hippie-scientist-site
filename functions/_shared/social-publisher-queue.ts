@@ -18,7 +18,7 @@ export type SocialPublisherQueueEnv = {
   THS_PUBLISHER_ADMIN_TOKEN?: string
 }
 
-type PublicationJob = {
+export type PublicationJob = {
   schemaVersion: 'ths-publication-job-v1'
   publicationId: string
   state: string
@@ -58,6 +58,7 @@ const STATES = new Set([
   'AWAITING_USER_POST',
   'PUBLISHED',
   'FAILED',
+  'NEEDS_RECONCILIATION',
   'CANCELLED',
 ])
 
@@ -170,7 +171,16 @@ export async function enqueuePublicationJob(env: SocialPublisherQueueEnv, value:
   ).run()
 
   const stored = await getPublicationJob(env, job.publicationId)
-  if (!stored) throw new Error('THS Publisher failed to persist publication job')
+  if (!stored) {
+    const occupied = await database
+      .prepare('SELECT publication_id FROM ths_publications WHERE platform = ?1 AND intended_time = ?2')
+      .bind(job.identity.platform, validIso(job.identity.intendedTime))
+      .first<{ publication_id: string }>()
+    if (occupied?.publication_id) {
+      throw new Error('THS publication slot is already owned by ' + occupied.publication_id)
+    }
+    throw new Error('THS Publisher failed to persist publication job')
+  }
   if (
     stored.identity.experimentId !== job.identity.experimentId ||
     stored.identity.artifactSha256 !== job.identity.artifactSha256 ||
@@ -235,7 +245,7 @@ export async function listDuePublicationJobs(
   const result = await db(env)
     .prepare(
       `SELECT * FROM ths_publications
-       WHERE state IN ('QUEUED', 'FAILED') AND intended_time <= ?1
+       WHERE state = 'QUEUED' AND intended_time <= ?1
        ORDER BY intended_time ASC, publication_id ASC
        LIMIT ?2`,
     )
