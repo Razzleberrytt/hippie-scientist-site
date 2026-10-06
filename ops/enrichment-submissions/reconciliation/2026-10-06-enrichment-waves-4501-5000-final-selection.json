@@ -12,42 +12,57 @@
     "within_batch_duplicate_pmids": 0,
     "within_batch_duplicate_dois": 0,
     "within_batch_duplicate_normalized_titles": 0,
-    "prior_pmid_collisions": 0
+    "prior_pmid_collisions": 0,
+    "prior_unique_pmids": 4435,
+    "new_unique_pmids": 500,
+    "cumulative_unique_pmids": 4935,
+    "pmid_duplicates": 0,
+    "doi_duplicates": 0,
+    "normalized_title_duplicates": 0
   },
   "verification": {
     "exact_title_match": "500/500",
     "abstract_verified": "500/500",
     "contiguous_wave_coverage": true,
     "objective_off_domain_title_hits_remaining": 0,
-    "final_relevance_repairs_applied": 83
+    "final_relevance_repairs_applied": 83,
+    "exact_pubmed_title_and_abstract": true,
+    "all_rows_abstract_verified": true,
+    "unverified_rows": 0,
+    "objective_off_domain_rows_remaining": 0,
+    "final_relevance_review_passed": true,
+    "final_full_text_links_omitted_pending_authoritative_mapping": true
   },
   "repairs_applied": {
     "post_review_replacements": 28,
     "pmc_link_hardening": "authoritative receipt full_text_link values nulled pending independent PMID↔PMCID verification",
-    "second_pass_category_drift_replacements": 10
+    "second_pass_category_drift_replacements": 10,
+    "codex_review_repair_r7_rows": 17,
+    "cumulative_index_rebuilt_from_prior_ledger": true
   },
   "category_counts": {
-    "aging_sarcopenia": 46,
-    "botanicals_mushrooms": 43,
+    "aging_sarcopenia": 44,
+    "botanicals_mushrooms": 41,
     "cannabinoid_safety": 41,
-    "cardiometabolic": 29,
-    "cognition_focus": 44,
-    "gut": 36,
-    "mood": 14,
+    "cardiometabolic": 28,
+    "cognition_focus": 40,
+    "gut": 34,
+    "micronutrients": 34,
     "immune_respiratory": 45,
-    "inflammation_pain": 30,
-    "metabolic": 35,
-    "micronutrients": 30,
-    "mitochondrial_energy": 34,
+    "inflammation_pain": 29,
+    "mitochondrial_energy": 45,
+    "metabolic": 34,
+    "mood": 13,
     "withdrawal_nps": 33,
-    "performance": 5,
+    "performance": 4,
     "women_health": 24,
     "sleep": 11
   },
   "state_counts": {
     "research_only_exact_verified_final": 392,
-    "research_only_exact_verified_review_replacement": 94,
+    "research_only_exact_verified_review_replacement": 77,
     "research_only_exact_verified_override_r5b": 13,
+    "research_only_exact_verified_review_repair_r7": 17,
     "research_only_exact_verified_final_shortage_repair": 1
   },
   "waves": [
@@ -2078,12 +2093,12 @@
     },
     {
       "wave": 4726,
-      "pmid": "42749371",
-      "doi": "10.1136/bmjopen-2026-118047",
-      "title": "Effect of synbiotic supplementation and psychobiotic diet on prenatal and postnatal depression and anxiety in women with gestational diabetes: a three-arm randomised controlled trial protocol.",
-      "pub_type": null,
-      "category": "gut",
-      "state": "research_only_exact_verified_review_replacement"
+      "pmid": "42499083",
+      "doi": "10.1097/MD.0000000000049931",
+      "title": "Effect of vitamin D supplementation on clinical outcomes of patients with Parkinson disease: A randomized controlled study.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_review_repair_r7"
     },
     {
       "wave": 4727,
@@ -2096,12 +2111,12 @@
     },
     {
       "wave": 4728,
-      "pmid": "42796993",
-      "doi": "10.3390/nu18183011",
-      "title": "Chrono-Nutritional Disruption as a Potential Modifiable Factor in Bipolar Disorder.",
-      "pub_type": null,
-      "category": "mood",
-      "state": "research_only_exact_verified_review_replacement"
+      "pmid": "42544905",
+      "doi": "10.29063/ajrh2026/v30i14.10",
+      "title": "Effects of vitamin D supplementation on insulin resistance and lipid metabolic profiles in women with gestational diabetes mellitus: A randomized controlled trial.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_review_repair_r7"
     },
     {
       "wave": 4729,
@@ -2753,12 +2768,12 @@
     },
     {
       "wave": 4801,
-      "pmid": "42559811",
-      "doi": "10.1039/d6fo02399a",
-      "title": "Blue turmeric (Curcuma caesia Roxb.): phenolic profile, bioaccessibility after in vitro gastrointestinal digestion, and chondroprotective effects in IL-1β-stimulated human chondrocytes.",
-      "pub_type": null,
-      "category": "inflammation_pain",
-      "state": "research_only_exact_verified_review_replacement"
+      "pmid": "42124047",
+      "doi": "10.3390/nu18091447",
+      "title": "Effects of LC n-3 PUFA Supplementation on Muscle Pain, Function, and Damage Markers in Healthy Young to Middle-Aged Adults Following Acute or Chronic Exercise: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "pub_type": "Meta-Analysis",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_review_repair_r7"
     },
     {
       "wave": 4802,
@@ -4382,12 +4397,12 @@
     },
     {
       "wave": 4982,
-      "pmid": "42269175",
-      "doi": "10.1519/jsc.0000000000005501",
-      "title": "Timing Matters: Effectiveness of Compressive Garments on Recovery in Trail Runners.",
-      "pub_type": null,
-      "category": "performance",
-      "state": "research_only_exact_verified_review_replacement"
+      "pmid": "41683264",
+      "doi": "10.3390/nu18030443",
+      "title": "Impact of Powdered Tart Cherry Supplementation on Performance Recovery Following Repeated Sprint Exercise.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_review_repair_r7"
     },
     {
       "wave": 4983,
@@ -4400,21 +4415,21 @@
     },
     {
       "wave": 4984,
-      "pmid": "42393428",
-      "doi": "10.1007/s11357-026-02394-6",
-      "title": "PROMETHEUS clinical trial protocol: tailoring healthy ageing with lifestyle and nutraceuticals.",
-      "pub_type": null,
-      "category": "aging_sarcopenia",
-      "state": "research_only_exact_verified_review_replacement"
+      "pmid": "42271035",
+      "doi": "10.1007/s10103-026-04907-3",
+      "title": "Combined effects of photobiomodulation and osteopathic manipulation on the physical performance of young adults subjected to exercise-induced muscle damage: a randomized placebo-controlled trial.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_review_repair_r7"
     },
     {
       "wave": 4985,
-      "pmid": "42309243",
-      "doi": "10.1016/j.neuint.2026.106204",
-      "title": "Ayurvedic Herbs as neurogenesis modulators: Current understanding on their potential therapeutic relevance in enhancing neuroplasticity and cognition in aging and neurodegeneration.",
-      "pub_type": null,
-      "category": "cognition_focus",
-      "state": "research_only_exact_verified_review_replacement"
+      "pmid": "42009009",
+      "doi": "10.1016/S1474-4422(26)00082-7",
+      "title": "Safety and efficacy of individualised exercise and NAD(+) precursor supplementation in patients with Friedreich's ataxia in the USA: a single-centre, 2 × 2 factorial, randomised controlled trial.",
+      "pub_type": "Clinical Trial, Phase II",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_review_repair_r7"
     },
     {
       "wave": 4986,
@@ -4427,21 +4442,21 @@
     },
     {
       "wave": 4987,
-      "pmid": "42404568",
-      "doi": "10.3389/fmed.2026.1834211",
-      "title": "Changes in MoCA scores with sequential administration of Trikatu Cūrṇa and Brahmi Ghṛta in mild cognitive impairment: an exploratory single-arm clinical study.",
-      "pub_type": null,
-      "category": "cognition_focus",
-      "state": "research_only_exact_verified_review_replacement"
+      "pmid": "42588107",
+      "doi": "10.3390/nu18152484",
+      "title": "Multistrain Probiotic Supplementation Combined with a Standardized Diet Did Not Significantly Affect Exercise Performance or Inflammatory Responses in Male Endurance Runners: A Randomized Controlled Trial.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_review_repair_r7"
     },
     {
       "wave": 4988,
-      "pmid": "42361543",
-      "doi": "10.1016/j.canep.2026.103152",
-      "title": "Association between L-α-glycerylphosphorylcholine use and risk of kidney cancer: A nationwide representative retrospective cohort study.",
-      "pub_type": null,
-      "category": "cognition_focus",
-      "state": "research_only_exact_verified_review_replacement"
+      "pmid": "42248424",
+      "doi": "10.1123/ijsnem.2025-0233",
+      "title": "Investigating the Effects of a Novel Salmon-Derived Protein Peptide on Markers of Recovery From Exercise-Induced Muscle Damage.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_review_repair_r7"
     },
     {
       "wave": 4989,
@@ -4454,30 +4469,30 @@
     },
     {
       "wave": 4990,
-      "pmid": "42796935",
-      "doi": "10.3390/nu18182952",
-      "title": "Effects of Grape and Grape-Derived Bioactives on Inflammation and Immune-Driven Mechanisms Within the Context of Cardiometabolic Health and Aging: A Review.",
-      "pub_type": null,
-      "category": "cardiometabolic",
-      "state": "research_only_exact_verified_review_replacement"
+      "pmid": "41903346",
+      "doi": "10.1016/j.nut.2026.113175",
+      "title": "Creatine supplementation modifies fat deposition in arm and leg tissues in individuals with Down syndrome.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_review_repair_r7"
     },
     {
       "wave": 4991,
-      "pmid": "42425421",
-      "doi": "10.1016/j.arr.2026.103241",
-      "title": "Dietary bioactive compounds and inflammaging: Pro-inflammatory triggers and geroprotective countermeasures.",
-      "pub_type": null,
-      "category": "aging_sarcopenia",
-      "state": "research_only_exact_verified_review_replacement"
+      "pmid": "42286692",
+      "doi": "10.1186/s12998-026-00657-9",
+      "title": "Effects of percussive therapy dosages on recovery from acute exercise-induced muscle damage: a systematic review and meta-analysis.",
+      "pub_type": "Meta-Analysis",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_review_repair_r7"
     },
     {
       "wave": 4992,
-      "pmid": "42527887",
-      "doi": "10.1002/1545-5017.70459",
-      "title": "Rational Use of Herbal Products in Pediatric Patients Treated With Anticancer Drugs in the European Union.",
-      "pub_type": null,
-      "category": "botanicals_mushrooms",
-      "state": "research_only_exact_verified_review_replacement"
+      "pmid": "41826633",
+      "doi": "10.1038/s41598-026-43855-4",
+      "title": "Acute muscle damage responses in elbow flexors following eccentric quasi-isometric exercise.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_review_repair_r7"
     },
     {
       "wave": 4993,
@@ -4490,57 +4505,57 @@
     },
     {
       "wave": 4994,
-      "pmid": "42531832",
-      "doi": "10.1016/j.phymed.2026.158594",
-      "title": "6-shogaol suppresses MAPK14 to attenuate endoplasmic reticulum stress and alleviate alcohol-associated liver disease.",
-      "pub_type": null,
-      "category": "botanicals_mushrooms",
-      "state": "research_only_exact_verified_review_replacement"
+      "pmid": "42709983",
+      "doi": "10.1002/edm2.70326",
+      "title": "Comparison of Traditional Chinese Exercise and Equipment-Based Exercise on Glycaemic Control and Vitamin D Levels in Middle-Aged and Elderly Patients With Prediabetes: A Randomised Controlled Trial.",
+      "pub_type": "Comparative Study",
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_review_repair_r7"
     },
     {
       "wave": 4995,
-      "pmid": "42468577",
-      "doi": "10.1016/j.arr.2026.103263",
-      "title": "Targeting neuroinflammation and neurodegeneration in Parkinson's disease: Emerging natural and synthetic therapeutic strategies.",
-      "pub_type": null,
-      "category": "cognition_focus",
-      "state": "research_only_exact_verified_review_replacement"
+      "pmid": "42631762",
+      "doi": "10.1007/s00394-026-04091-8",
+      "title": "Impact of organic selenium supplementation on glycaemic control and quality of life in patients with diabetic neuropathy: a randomized placebo-controlled trial.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "micronutrients",
+      "state": "research_only_exact_verified_review_repair_r7"
     },
     {
       "wave": 4996,
-      "pmid": "42823420",
-      "doi": "10.1038/s41572-026-00741-7",
-      "title": "Irritable bowel syndrome.",
-      "pub_type": null,
-      "category": "gut",
-      "state": "research_only_exact_verified_review_replacement"
+      "pmid": "42637038",
+      "doi": "10.1016/j.eprac.2026.08.015",
+      "title": "Effect of vitamin D combined with probiotic-assisted insulin pump on glucose-lipid metabolism, intestinal flora and pregnancy outcome in gestational diabetes mellitus.",
+      "pub_type": "Journal Article",
+      "category": "metabolic",
+      "state": "research_only_exact_verified_review_repair_r7"
     },
     {
       "wave": 4997,
-      "pmid": "42546933",
-      "doi": "10.1016/j.fitote.2026.107420",
-      "title": "Modulation of pancreatic β-cell function by adaptogens: Emerging evidence and integrative therapeutic potential.",
-      "pub_type": null,
-      "category": "metabolic",
-      "state": "research_only_exact_verified_review_replacement"
+      "pmid": "41800295",
+      "doi": "10.2147/DDDT.S583321",
+      "title": "Coenzyme Q10 Impact on Ovarian Reserve Measures and the Intra-Cytoplasmic Sperm Injection (ICSI) Outcomes in Women with Poor Ovarian Response: A Randomized Controlled Study.",
+      "pub_type": "Randomized Controlled Trial",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_review_repair_r7"
     },
     {
       "wave": 4998,
-      "pmid": "42451115",
-      "doi": "10.3390/nu18132111",
-      "title": "Dual Activation of GLP-1 and AMPK Pathways by a Multi-Botanical Formulation Improves Obesity and Metabolic Dysfunction in Experimental Models.",
-      "pub_type": null,
+      "pmid": "42759094",
+      "doi": "10.1016/j.clnu.2026.106782",
+      "title": "Adjunctive Akkermansia muciniphila postbiotic supplementation modulates metabolic and endocrine profiles in obesity-associated polyendocrine metabolic ovarian syndrome: A randomized controlled trial.",
+      "pub_type": "Journal Article",
       "category": "metabolic",
-      "state": "research_only_exact_verified_review_replacement"
+      "state": "research_only_exact_verified_review_repair_r7"
     },
     {
       "wave": 4999,
-      "pmid": "42794563",
-      "doi": "10.3390/ijms27188133",
-      "title": "Dietary Nucleotides as Potential Modulators of Inflammatory and Metabolic Pathways with Implications for Insulin Resistance.",
-      "pub_type": null,
-      "category": "metabolic",
-      "state": "research_only_exact_verified_review_replacement"
+      "pmid": "42800365",
+      "doi": "10.1016/j.clnu.2026.106805",
+      "title": "Creatine for glucagon-like peptide-1-associated muscle loss.",
+      "pub_type": "Journal Article",
+      "category": "mitochondrial_energy",
+      "state": "research_only_exact_verified_review_repair_r7"
     },
     {
       "wave": 5000,
