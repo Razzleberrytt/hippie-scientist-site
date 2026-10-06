@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "batch_id": "2026-10-06-enrichment-waves-5501-6000-r6",
   "row_count": 1,
   "rows": [
@@ -8,16 +8,16 @@
       "category": "aging_sarcopenia",
       "old_pmid": "42733461",
       "old_title": "Nuclear localisation of a fish-derived ice-binding protein and related transcriptional changes in Caenorhabditis elegans.",
-      "pmid": "42017232",
-      "doi": "10.1161/HYPERTENSIONAHA.125.25665",
-      "title": "Hypertension Drives Protein Lactylation and Vascular Dysfunction in Skeletal Muscle.",
-      "journal": "Hypertension (Dallas, Tex. : 1979)",
-      "pub_date": "2026-Jul",
-      "abstract": "Emerging evidence suggests a critical interplay between skeletal muscle metabolism and vascular function in the context of hypertension. Elevated plasma lactate levels precede the onset of hypertension and are inversely associated with skeletal muscle mass, highlighting skeletal muscle atrophy and metabolic dysregulation as key contributors to cardiovascular dysfunction. Male and female Wistar rats and spontaneously hypertensive rats were studied. Skeletal muscle performance was evaluated using in vivo plantarflexion torque measurements. Femoral arteries with surrounding skeletal muscle were isolated to assess contractility and relaxation. Plasma and muscle lactate levels were quantified using colorimetric assays. Structural remodeling and mitochondrial function were assessed via wheat germ agglutinin staining, succinate dehydrogenase activity, and high-resolution respirometry. Protein lactylation was evaluated by mass spectrometry-based lactylated proteomics. Human translational relevance was examined using publicly available skeletal muscle transcriptomic data. Spontaneously hypertensive rats exhibited skeletal muscle dysfunction marked by increased fatigability, reduced muscle mass, impaired mitochondrial activity, and elevated muscle lactate levels. Despite upregulation of oxidative markers, persistent lactate accumulation suggested a maladaptive metabolic shift. Proteomics revealed differential lactylation of key structural proteins (myosins, nebulin) and metabolic enzymes (Nampt, GAPDH [glyceraldehyde-3-phosphate dehydrogenase]). The anticontractile effect of skeletal muscle on femoral arteries was completely lost in spontaneously hypertensive rats, accompanied by impaired vascular relaxation and increased arterial lactylation. Human transcriptomic data supported parallel metabolic alterations in hypertension. Hypertension disrupts skeletal muscle metabolic homeostasis and muscle-vascular communication, driven in part by persistent lactate accumulation and altered protein lactylation. Targeting lactate-mediated signaling may offer new therapeutic avenues for hypertensive vascular dysfunction.",
+      "pmid": "38644647",
+      "doi": "10.1111/ggi.14881",
+      "title": "Effect of cholecalciferol supplementation on hand grip strength, walking speed, and expression of vitamin D receptor, interleukin-6, and insulin-like growth factor-1 in monocyte in pre-frail older adults: A randomized double-blind placebo-controlled trial.",
+      "journal": "Geriatrics & gerontology international",
+      "pub_date": "2024-Jun",
+      "abstract": "To investigate the effect of cholecalciferol supplementation on hand grip strength, walking speed, and expression of vitamin D receptor (VDR), interleukine-6 (IL-6) and insulin-like growth factor-1 (IGF-1) in monocyte in pre-frail older adults. We conducted a randomized double-blinded placebo-controlled clinical trial for 12 weeks, involving 120 pre-frail older adults who were randomized to the cholecalciferol group (cholecalciferol 4000 IU/day) or the placebo group. All subjects were given calcium lactate 500 mg/day. Hand grip strength and walking speed, as primary outcomes, were analyzed using intention-to-treat analysis. The expression of VDR, IGF-1 and IL-6 in monocytes, as secondary outcomes, were analyzed using per-protocol analysis. After a 12-week intervention, there was a significant increase in serum 25(OH)D levels in both groups, with the increase being higher in the cholecalciferol group than in the placebo group (49.05 vs. 24.01 ng/mL; P < 0.001). No statistically significant differences were observed in hand grip strength (P = 0.228) and walking speed (P = 0.734) between the groups. There were no differences in the expression of VDR (P = 0.513), IL-6 (P = 0.509), and IGF-1 (P = 0.503) monocytes between the groups. Cholecalciferol supplementation for 12 weeks increased serum 25(OH)D levels among pre-frail older adults. However, it did not improve hand grip strength and walking speed, and nor did it change the expression of VDR, IL-6, and IGF-1 in monocytes. Geriatr Gerontol Int 2024; 24: 554-562.",
       "abstract_verified": true,
       "exact_title_verified": true,
-      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13105269/",
-      "pdf_link": "https://doi.org/10.1161/HYPERTENSIONAHA.125.25665",
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1111/ggi.14881",
       "source": "NCBI PubMed exact retrieval via Sider Scholar",
       "state": "research_only_exact_verified"
     }
