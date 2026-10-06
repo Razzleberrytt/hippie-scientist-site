@@ -3,7 +3,7 @@
   "batch_id": "2026-10-06-enrichment-waves-6001-6500-candidate-selection",
   "range": "6001-6500",
   "row_count": 500,
-  "stage": "strict_human_evidence_candidates_pending_exact_verification",
+  "stage": "strict_human_evidence_candidates_semantic_clean_pending_exact_verification",
   "predecessor": {
     "artifact": "2026-10-06-enrichment-waves-5501-6000-r7-pmid-index.json",
     "through_wave": 6000,
@@ -33,7 +33,8 @@
     "duplicate_pmids": 0,
     "prior_pmid_collisions": 0,
     "unique_normalized_dois": 492,
-    "unique_normalized_titles": 500
+    "unique_normalized_titles": 500,
+    "row_count": 500
   },
   "category_counts": {
     "stress_anxiety": 40,
@@ -136,30 +137,30 @@
     {
       "category": "stress_anxiety",
       "target": 40,
-      "pmid": "34009514",
-      "title": "Effects of Melatonin and/or Magnesium Supplementation on Biomarkers of Inflammation and Oxidative Stress in Women with Polycystic Ovary Syndrome: a Randomized, Double-Blind, Placebo-Controlled Trial.",
-      "doi": "10.1007/s12011-021-02725-y",
-      "pub_date": "2022 Mar",
-      "pub_type": "Randomized Controlled Trial",
-      "journal": "Biological trace element research",
+      "pmid": "31006899",
+      "title": "Therapeutic efficacy and safety of chamomile for state anxiety, generalized anxiety disorder, insomnia, and sleep quality: A systematic review and meta-analysis of randomized trials and quasi-randomized trials.",
+      "doi": "10.1002/ptr.6349",
+      "pub_date": "2019 Jun",
+      "pub_type": "Systematic Review",
+      "journal": "Phytotherapy research : PTR",
       "discovery_query": "((chamomile[Title] OR rhodiola[Title] OR magnesium[Title] OR saffron[Title]) AND (stress[Title] OR anxiety[Title] OR anxious[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
-      "selection_score": 11,
       "wave": 6006,
-      "state": "candidate_pending_exact_verification"
+      "state": "candidate_pending_exact_verification",
+      "selection_score": 28
     },
     {
       "category": "stress_anxiety",
       "target": 40,
-      "pmid": "33151132",
-      "title": "Evaluation of modulatory effects of saffron (Crocus sativus L.) aqueous extract on oxidative stress in ischemic stroke patients: a randomized clinical trial.",
-      "doi": "10.1080/1028415X.2020.1840118",
-      "pub_date": "2022 Jun",
-      "pub_type": "Randomized Controlled Trial",
+      "pmid": "41693488",
+      "title": "Effect of saffron on depression, anxiety and mood disorder: a GRADE assessed systematic review and meta-analysis of 34 randomized controlled trials.",
+      "doi": "10.1080/1028415X.2025.2602153",
+      "pub_date": "2026 Jul",
+      "pub_type": "Meta-Analysis",
       "journal": "Nutritional neuroscience",
       "discovery_query": "((chamomile[Title] OR rhodiola[Title] OR magnesium[Title] OR saffron[Title]) AND (stress[Title] OR anxiety[Title] OR anxious[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
-      "selection_score": 11,
       "wave": 6007,
-      "state": "candidate_pending_exact_verification"
+      "state": "candidate_pending_exact_verification",
+      "selection_score": 28
     },
     {
       "category": "stress_anxiety",
@@ -234,16 +235,16 @@
     {
       "category": "stress_anxiety",
       "target": 40,
-      "pmid": "29127547",
-      "title": "The Effects of Magnesium and Zinc Co-Supplementation on Biomarkers of Inflammation and Oxidative Stress, and Gene Expression Related to Inflammation in Polycystic Ovary Syndrome: a Randomized Controlled Clinical Trial.",
-      "doi": "10.1007/s12011-017-1198-5",
-      "pub_date": "2018 Aug",
-      "pub_type": "Randomized Controlled Trial",
-      "journal": "Biological trace element research",
-      "discovery_query": "((chamomile[Title] OR rhodiola[Title] OR magnesium[Title] OR saffron[Title]) AND (stress[Title] OR anxiety[Title] OR anxious[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
-      "selection_score": 11,
+      "pmid": "31655395",
+      "title": "Effects of lavender on anxiety: A systematic review and meta-analysis.",
+      "doi": "10.1016/j.phymed.2019.153099",
+      "pub_date": "2019 Dec",
+      "pub_type": "Systematic Review",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "discovery_query": "((ashwagandha[Title] OR theanine[Title] OR kava[Title] OR lavender[Title]) AND (stress[Title] OR anxiety[Title] OR anxious[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
       "wave": 6013,
-      "state": "candidate_pending_exact_verification"
+      "state": "candidate_pending_exact_verification",
+      "selection_score": 19
     },
     {
       "category": "stress_anxiety",
@@ -472,30 +473,30 @@
     {
       "category": "stress_anxiety",
       "target": 40,
-      "pmid": "33409923",
-      "title": "Randomized Study of the Effects of Zinc, Vitamin A, and Magnesium Co-supplementation on Thyroid Function, Oxidative Stress, and hs-CRP in Patients with Hypothyroidism.",
-      "doi": "10.1007/s12011-020-02548-3",
-      "pub_date": "2021 Nov",
+      "pmid": "31730539",
+      "title": "Compare the effect of aromatherapy using lavender and Damask rose essential oils on the level of anxiety and severity of pain following C-section: A double-blinded randomized clinical trial.",
+      "doi": "10.1515/jcim-2019-0141",
+      "pub_date": "2020 Sep 23",
       "pub_type": "Randomized Controlled Trial",
-      "journal": "Biological trace element research",
-      "discovery_query": "((chamomile[Title] OR rhodiola[Title] OR magnesium[Title] OR saffron[Title]) AND (stress[Title] OR anxiety[Title] OR anxious[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
-      "selection_score": 7,
+      "journal": "Journal of complementary & integrative medicine",
+      "discovery_query": "((ashwagandha[Title] OR theanine[Title] OR kava[Title] OR lavender[Title]) AND (stress[Title] OR anxiety[Title] OR anxious[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
       "wave": 6030,
-      "state": "candidate_pending_exact_verification"
+      "state": "candidate_pending_exact_verification",
+      "selection_score": 19
     },
     {
       "category": "stress_anxiety",
       "target": 40,
-      "pmid": "31623349",
-      "title": "Rhodiola/Cordyceps-Based Herbal Supplement Promotes Endurance Training-Improved Body Composition But Not Oxidative Stress and Metabolic Biomarkers: A Preliminary Randomized Controlled Study.",
-      "doi": "10.3390/nu11102357",
-      "pub_date": "2019 Oct 3",
-      "pub_type": "Randomized Controlled Trial",
-      "journal": "Nutrients",
-      "discovery_query": "((chamomile[Title] OR rhodiola[Title] OR magnesium[Title] OR saffron[Title]) AND (stress[Title] OR anxiety[Title] OR anxious[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
-      "selection_score": 7,
+      "pmid": "31792285",
+      "title": "Efficacy and safety of lavender essential oil (Silexan) capsules among patients suffering from anxiety disorders: A network meta-analysis.",
+      "doi": "10.1038/s41598-019-54529-9",
+      "pub_date": "2019 Dec 2",
+      "pub_type": "Systematic Review",
+      "journal": "Scientific reports",
+      "discovery_query": "((ashwagandha[Title] OR theanine[Title] OR kava[Title] OR lavender[Title]) AND (stress[Title] OR anxiety[Title] OR anxious[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
       "wave": 6031,
-      "state": "candidate_pending_exact_verification"
+      "state": "candidate_pending_exact_verification",
+      "selection_score": 19
     },
     {
       "category": "stress_anxiety",
@@ -6940,16 +6941,16 @@
     {
       "category": "immune_respiratory",
       "target": 24,
-      "pmid": "34125899",
-      "title": "Impact of Vitamin D and Calcium Supplementation on Bone Mineral Density and Bone Metabolism Among Thai Adolescents With Perinatally Acquired Human Immunodeficiency Virus (HIV) Infection: A Randomized Clinical Trial.",
-      "doi": "10.1093/cid/ciab547",
-      "pub_date": "2021 Nov 2",
-      "pub_type": "Research Support, Non-U.S. Gov't",
-      "journal": "Clinical infectious diseases : an official publication of the Infectious Diseases Society of America",
+      "pmid": "33798465",
+      "title": "Vitamin D supplementation to prevent acute respiratory infections: a systematic review and meta-analysis of aggregate data from randomised controlled trials.",
+      "doi": "10.1016/S2213-8587(21)00051-6",
+      "pub_date": "2021 May",
+      "pub_type": "Systematic Review",
+      "journal": "The lancet. Diabetes & endocrinology",
       "discovery_query": "((\"vitamin D\"[Title] OR \"vitamin C\"[Title] OR zinc[Title] OR echinacea[Title] OR elderberry[Title]) AND (immune[Title] OR respiratory[Title] OR infection[Title] OR influenza[Title] OR cold[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
-      "selection_score": 11,
       "wave": 6492,
-      "state": "candidate_pending_exact_verification"
+      "state": "candidate_pending_exact_verification",
+      "selection_score": 28
     },
     {
       "category": "immune_respiratory",
@@ -7062,6 +7063,56 @@
       "selection_score": 11,
       "wave": 6500,
       "state": "candidate_pending_exact_verification"
+    }
+  ],
+  "semantic_repairs": [
+    {
+      "wave": 6006,
+      "old_pmid": "34009514",
+      "old_title": "Effects of Melatonin and/or Magnesium Supplementation on Biomarkers of Inflammation and Oxidative Stress in Women with Polycystic Ovary Syndrome: a Randomized, Double-Blind, Placebo-Controlled Trial.",
+      "new_pmid": "31006899",
+      "new_title": "Therapeutic efficacy and safety of chamomile for state anxiety, generalized anxiety disorder, insomnia, and sleep quality: A systematic review and meta-analysis of randomized trials and quasi-randomized trials.",
+      "category": "stress_anxiety"
+    },
+    {
+      "wave": 6007,
+      "old_pmid": "33151132",
+      "old_title": "Evaluation of modulatory effects of saffron (Crocus sativus L.) aqueous extract on oxidative stress in ischemic stroke patients: a randomized clinical trial.",
+      "new_pmid": "41693488",
+      "new_title": "Effect of saffron on depression, anxiety and mood disorder: a GRADE assessed systematic review and meta-analysis of 34 randomized controlled trials.",
+      "category": "stress_anxiety"
+    },
+    {
+      "wave": 6013,
+      "old_pmid": "29127547",
+      "old_title": "The Effects of Magnesium and Zinc Co-Supplementation on Biomarkers of Inflammation and Oxidative Stress, and Gene Expression Related to Inflammation in Polycystic Ovary Syndrome: a Randomized Controlled Clinical Trial.",
+      "new_pmid": "31655395",
+      "new_title": "Effects of lavender on anxiety: A systematic review and meta-analysis.",
+      "category": "stress_anxiety"
+    },
+    {
+      "wave": 6030,
+      "old_pmid": "33409923",
+      "old_title": "Randomized Study of the Effects of Zinc, Vitamin A, and Magnesium Co-supplementation on Thyroid Function, Oxidative Stress, and hs-CRP in Patients with Hypothyroidism.",
+      "new_pmid": "31730539",
+      "new_title": "Compare the effect of aromatherapy using lavender and Damask rose essential oils on the level of anxiety and severity of pain following C-section: A double-blinded randomized clinical trial.",
+      "category": "stress_anxiety"
+    },
+    {
+      "wave": 6031,
+      "old_pmid": "31623349",
+      "old_title": "Rhodiola/Cordyceps-Based Herbal Supplement Promotes Endurance Training-Improved Body Composition But Not Oxidative Stress and Metabolic Biomarkers: A Preliminary Randomized Controlled Study.",
+      "new_pmid": "31792285",
+      "new_title": "Efficacy and safety of lavender essential oil (Silexan) capsules among patients suffering from anxiety disorders: A network meta-analysis.",
+      "category": "stress_anxiety"
+    },
+    {
+      "wave": 6492,
+      "old_pmid": "34125899",
+      "old_title": "Impact of Vitamin D and Calcium Supplementation on Bone Mineral Density and Bone Metabolism Among Thai Adolescents With Perinatally Acquired Human Immunodeficiency Virus (HIV) Infection: A Randomized Clinical Trial.",
+      "new_pmid": "33798465",
+      "new_title": "Vitamin D supplementation to prevent acute respiratory infections: a systematic review and meta-analysis of aggregate data from randomised controlled trials.",
+      "category": "immune_respiratory"
     }
   ]
 }
