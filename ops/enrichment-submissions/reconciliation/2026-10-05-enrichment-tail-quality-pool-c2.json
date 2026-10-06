@@ -1,0 +1,1936 @@
+{
+  "schema_version": 1,
+  "row_count": 193,
+  "rows": [
+    {
+      "category": "sleep",
+      "pmid": "42352934",
+      "doi": "10.3390/ijms27125209",
+      "title": "Tryptophan-Serotonin-Melatonin Pathway as a Contributor to Changes in Mood and Cognitive Functions Induced by Sleep Deprivation.",
+      "journal": "International journal of molecular sciences",
+      "pub_date": "2026 Jun 9",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42356569",
+      "doi": "10.3390/ph19060952",
+      "title": "Circadian Influences on Chronic Kidney Disease Progression: Molecular Signaling Pathways of Melatonin and Their Therapeutic Potential.",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "pub_date": "2026 Jun 18",
+      "pub_type": "Review",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42357272",
+      "doi": "10.3390/pharmaceutics18060656",
+      "title": "Ion-Triggered In Situ Gel Combined with Melatonin Liposomes: Breaking Through the Dual Barriers of Nasal and Brain Delivery to Treat Insomnia.",
+      "journal": "Pharmaceutics",
+      "pub_date": "2026 May 27",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42372286",
+      "doi": "10.1080/13651501.2026.2695468",
+      "title": "Biological and social rhythm differences, daily melatonin secretion and psychiatric symptoms in healthy adults.",
+      "journal": "International journal of psychiatry in clinical practice",
+      "pub_date": "2026 Jun 29",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42376244",
+      "doi": "10.1016/j.mtbio.2026.103359",
+      "title": "Melatonin rhythm-mimicking smart hydrogel for circadian clock regulation and promotion of intervertebral disc regeneration.",
+      "journal": "Materials today. Bio",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42377611",
+      "doi": "10.1007/s11033-026-12222-x",
+      "title": "Melatonin for age-related vascular diseases: mechanistic rationale, translational barriers, and clinical prospects.",
+      "journal": "Molecular biology reports",
+      "pub_date": "2026 Jun 30",
+      "pub_type": "Review",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42377825",
+      "doi": "10.1007/s11030-026-11630-2",
+      "title": "Integrative network pharmacology and molecular modelling identify taxifolin as a potential modulator of melatonin receptor MT1 in mood disorders.",
+      "journal": "Molecular diversity",
+      "pub_date": "2026 Jun 30",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42382567",
+      "doi": "10.3389/fnut.2026.1845043",
+      "title": "Diurnal rhythms in melatonin and cortisol in very preterm human milk.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42392022",
+      "doi": "10.1016/j.sleep.2026.109053",
+      "title": "Dim light melatonin onset profile endotypes in a real-world clinical population with home-based, self-collected salivary assessments: Identification, distribution, and potential clinical relevance.",
+      "journal": "Sleep medicine",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42394777",
+      "doi": "10.5493/wjem.v16.i2.120754",
+      "title": "Melatonin supplementation, hyperprolactinemia, and incident heart failure: A proposed prolactin-mediated pathway for cardiovascular risk.",
+      "journal": "World journal of experimental medicine",
+      "pub_date": "2026 Jun 20",
+      "pub_type": "Review",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42399726",
+      "doi": "10.1186/s13048-026-02188-6",
+      "title": "Melatonin in ovarian function and dysfunction: Molecular mechanisms and therapeutic potential.",
+      "journal": "Journal of ovarian research",
+      "pub_date": "2026 Jul 3",
+      "pub_type": "Review",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42435888",
+      "doi": "10.1016/j.clindermatol.2026.07.002",
+      "title": "Topical melatonin in esthetic dermatology: From cutaneous melatoninergic biology to photoprotection, and skin rejuvenation.",
+      "journal": "Clinics in dermatology",
+      "pub_date": "2026 Jul 11",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42482766",
+      "doi": "10.3389/fonc.2026.1889414",
+      "title": "SULT1A1 at a differentiation branch point regulates osteosarcoma cell proliferation and melatonin-mediated anti-tumor activity.",
+      "journal": "Frontiers in oncology",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42501684",
+      "doi": "10.1016/j.ecoenv.2026.120563",
+      "title": "Cadmium induces renal injury via a BMAL1-dependent inflammatory and senescence cascade: Attenuation by Lycium barbarum polysaccharide and melatonin.",
+      "journal": "Ecotoxicology and environmental safety",
+      "pub_date": "2026 Sep 1",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42502797",
+      "doi": "10.1007/s11032-026-01695-0",
+      "title": "Mapping the genetic architecture of flowering and maturity in soybean [Glycine max (L.) Merr.] using multi-locus genome-wide association studies under Ethiopian conditions.",
+      "journal": "Molecular breeding : new strategies in plant improvement",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42504584",
+      "doi": "10.1177/07487304261469609",
+      "title": "Variable Morning Melatonin Profiles Limit Determination of Dim-Light Melatonin Offset in Preschool-Aged Children.",
+      "journal": "Journal of biological rhythms",
+      "pub_date": "2026 Jul 27",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42511861",
+      "doi": "10.3390/ijms27146524",
+      "title": "The Molecular and Cellular Mechanisms of Melatonin: From Physiological Actions to Clinical Applications in Reproductive Medicine.",
+      "journal": "International journal of molecular sciences",
+      "pub_date": "2026 Jul 22",
+      "pub_type": "Review",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42515750",
+      "doi": "10.3390/ph19071069",
+      "title": "Atrioventricular Block Potentially Associated with Melatonin Supplementation: A Case Report and Systematic Review of Cardiac Rhythm Adverse Events.",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "pub_date": "2026 Jul 11",
+      "pub_type": "Review",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42524479",
+      "doi": "10.1590/1984-3143-AR2025-0024",
+      "title": "Spawning of pacu, Piaractus mesopotamicus, at two different times, with a focus on melatonin levels and reproductive performance.",
+      "journal": "Animal reproduction",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42546381",
+      "doi": "10.1016/j.bios.2026.119087",
+      "title": "Au nanocoral-gated needle-type organic electrochemical transistor for ultrasensitive in vivo melatonin detection.",
+      "journal": "Biosensors & bioelectronics",
+      "pub_date": "2026 Nov 15",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42550425",
+      "doi": "10.1134/S0012496626600314",
+      "title": "Continuous Light Exposure as Factor in Pro-Senescent Liver Remodeling: Key Role of Melatonin Deficiency.",
+      "journal": "Doklady biological sciences : proceedings of the Academy of Sciences of the USSR, Biological sciences sections",
+      "pub_date": "2026 Aug 3",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42564320",
+      "doi": "10.1002/hsr2.73003",
+      "title": "Melatonin and Lactation in Ruminants Dairy Animals: A Systematic Review and Meta-Analysis of Preclinical Studies.",
+      "journal": "Health science reports",
+      "pub_date": "2026 Aug",
+      "pub_type": "Review",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42578404",
+      "doi": "10.1111/jpi.70181",
+      "title": "Impact of Human Melanopsin Gene (OPN4) Polymorphisms (I394T, P10L) on Nocturnal Melatonin and Daily Rhythms in Young Adults.",
+      "journal": "Journal of pineal research",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42584690",
+      "doi": "10.1007/s00592-026-02750-0",
+      "title": "Effects of bedtime melatonin treatment on blood pressure and arterial stiffness: a three-month, randomized, placebo-controlled crossover study in individuals with type 2 diabetes mellitus.",
+      "journal": "Acta diabetologica",
+      "pub_date": "2026 Aug 12",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42613860",
+      "doi": "10.4274/jcrpe.galenos.2026.2026-7-24",
+      "title": "Melatonin Use in a School-aged Boy with Obesity Born to a Mother with Type 2 Diabetes.",
+      "journal": "Journal of clinical research in pediatric endocrinology",
+      "pub_date": "2026 Aug 19",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42617392",
+      "doi": "10.1016/j.injury.2026.113548",
+      "title": "High-dose melatonin for early tibial fracture healing: A prospective study of safety, feasibility, and preliminary biological effects.",
+      "journal": "Injury",
+      "pub_date": "2026 Aug 14",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42620628",
+      "doi": "10.1177/02537176261472435",
+      "title": "Sleep and Stroop Performance with Adjunctive Melatonin in Pharmacotherapy-stable Pediatric ADHD: A Prospective Open-label Study.",
+      "journal": "Indian journal of psychological medicine",
+      "pub_date": "2026 Aug 18",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42631834",
+      "doi": "10.1007/s12094-026-04544-w",
+      "title": "Melatonin in lung cancer: integrating molecular mechanisms, tumor microenvironment regulation, apoptotic signaling, and therapeutic opportunities.",
+      "journal": "Clinical & translational oncology : official publication of the Federation of Spanish Oncology Societies and of the National Cancer Institute of Mexico",
+      "pub_date": "2026 Aug 22",
+      "pub_type": "Review",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42636615",
+      "doi": "10.1016/j.tice.2026.103884",
+      "title": "Melatonin: A versatile neuroprotective molecule in neurodegenerative diseases: A narrative review.",
+      "journal": "Tissue & cell",
+      "pub_date": "2026 Aug 21",
+      "pub_type": "Review",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42637255",
+      "doi": "10.1136/bmjopen-2025-114817",
+      "title": "MELODY trial: study protocol for a 12-week randomised controlled trial of adjunctive melatonin, digital cognitive behavioural therapy for insomnia or pill placebo to improve depressive symptoms in young adults with mood disorders.",
+      "journal": "BMJ open",
+      "pub_date": "2026 Aug 24",
+      "pub_type": "Clinical Trial Protocol",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42642973",
+      "doi": "10.1080/07420528.2026.2723201",
+      "title": "Effect of organic light-emitting diode on nighttime task performance and melatonin secretion: Randomized controlled trials.",
+      "journal": "Chronobiology international",
+      "pub_date": "2026 Aug 25",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42655910",
+      "doi": "10.1111/bph.70658",
+      "title": "Melatonin exerts dual, concentration-dependent effects on intestinal pacemaker networks via MT2 receptor activation and redox pathways.",
+      "journal": "British journal of pharmacology",
+      "pub_date": "2026 Aug 26",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42679373",
+      "doi": "10.61882/ijkd.20.4.9579",
+      "title": "Effect of Melatonin Supplementation on Glycemic and Lipid Profiles in Kidney Transplant Recipients: A Clinical Trial.",
+      "journal": "Iranian journal of kidney diseases",
+      "pub_date": "2026 Jul 31",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42687891",
+      "doi": "10.21203/rs.3.rs-10684280/v1",
+      "title": "Characterization of the circadian system in binge eating disorder and the effects of morning bright light and individually timed exogenous melatonin administration: A 4-week feasibility double-blind randomized controlled mechanistic clinical trial.",
+      "journal": "Research square",
+      "pub_date": "2026 Aug 26",
+      "pub_type": "Preprint",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42712226",
+      "doi": "10.1021/acssensors.6c01259",
+      "title": "Structure-Switching Aptamer-Based Molecular Pendulum for Profiling Melatonin Circadian Dynamics in Humans.",
+      "journal": "ACS sensors",
+      "pub_date": "2026 Sep 9",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42728526",
+      "doi": "10.1007/s43032-026-02196-3",
+      "title": "Melatonin in Pregnancy-Related Disorders: A Review of Protective Mechanisms and Therapeutic Potential.",
+      "journal": "Reproductive sciences (Thousand Oaks, Calif.)",
+      "pub_date": "2026 Sep 11",
+      "pub_type": "Review",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42729312",
+      "doi": "10.3389/fphar.2026.1880592",
+      "title": "Synergistic effects of intradialytic concurrent training and melatonin supplementation on immune cell adaptations in hemodialysis patients.",
+      "journal": "Frontiers in pharmacology",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42732417",
+      "doi": "10.4103/jrpp.jrpp_115_25",
+      "title": "Efficacy of an Oral Melatonin Suspension in Idiopathic Nocturnal Irritability among Infants Older than 6 Months: A Randomized, Single-blind, Quasi-experimental Trial.",
+      "journal": "Journal of research in pharmacy practice",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "sleep",
+      "pmid": "42771218",
+      "doi": "10.1007/s11033-026-12765-z",
+      "title": "Melatonin beyond chronobiology: integrating pharmacokinetics, dose-exposure forecasting, and clinical evidence.",
+      "journal": "Molecular biology reports",
+      "pub_date": "2026 Sep 22",
+      "pub_type": "Review",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title/Abstract] OR insomnia[Title/Abstract] OR circadian[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42069674",
+      "doi": "10.1038/s41467-026-72683-3",
+      "title": "Intelligence-responsive wettability switch coating on magnesium implants for treating osteoporotic fracture.",
+      "journal": "Nature communications",
+      "pub_date": "2026 May 3",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42080270",
+      "doi": "10.5152/tjg.2026.25591",
+      "title": "Association of the Modified Endothelial Activation and Stress Index with MASLD and Liver Fibrosis: Effect Modification by Magnesium Intake.",
+      "journal": "The Turkish journal of gastroenterology : the official journal of Turkish Society of Gastroenterology",
+      "pub_date": "2026 Apr 21",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42084749",
+      "doi": "10.1007/s12017-026-08929-6",
+      "title": "Enhanced Neurophysiological Benefits of Magnesium-Acetyl-Taurate Over Magnesium-L-Threonate: A Comparative pre-clinical Study on Bioavailability, Synaptic Plasticity and Cognitive Functions.",
+      "journal": "Neuromolecular medicine",
+      "pub_date": "2026 May 5",
+      "pub_type": "Comparative Study",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42087159",
+      "doi": "10.1186/s13011-026-00728-3",
+      "title": "Kava (Piper methysticum) consumption patterns and conceptualizations: results from an online survey.",
+      "journal": "Substance abuse treatment, prevention, and policy",
+      "pub_date": "2026 May 5",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42106136",
+      "doi": "10.1016/j.abb.2026.110857",
+      "title": "Magnesium isoglycyrrhizinate ameliorates ceritinib-induced hepatotoxicity by restoring mitochondrial homeostasis.",
+      "journal": "Archives of biochemistry and biophysics",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42125734",
+      "doi": "10.2147/TCRM.S588126",
+      "title": "Effects of Intravenous Esketamine or Magnesium Sulfate on Early Postoperative Negative Emotions and Pain in Patients Undergoing Endoscopic Sinus Surgery: A Randomized Controlled Trial.",
+      "journal": "Therapeutics and clinical risk management",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42126348",
+      "doi": "10.1021/jacs.5c20581",
+      "title": "Microenvironment Magnesium Overload Disrupts Bacterial Membrane Functions for the Central Nervous System Infection Treatment.",
+      "journal": "Journal of the American Chemical Society",
+      "pub_date": "2026 May 27",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42130673",
+      "doi": "10.1007/s40203-026-00640-5",
+      "title": "Deciphering the anxiolytic mechanism of glycowithenolides from Withania somnifera: insights from network pharmacology, molecular docking, and simulation studies.",
+      "journal": "In silico pharmacology",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42135982",
+      "doi": "10.1021/acs.chemrestox.6c00147",
+      "title": "AB-Free Kava and Dihydromethysticin Inhibit Chronic Hexavalent Chromium Exposure-Induced Cell Malignant Transformation through Down-Regulating RNA Splicing Factor SNRPA1 Expression.",
+      "journal": "Chemical research in toxicology",
+      "pub_date": "2026 Jun 15",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42163019",
+      "doi": "10.1002/jsfa.70740",
+      "title": "Theanine: a phytochemical candidate for neural protection.",
+      "journal": "Journal of the science of food and agriculture",
+      "pub_date": "2026 May 20",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42173897",
+      "doi": "10.1038/s41467-026-73640-w",
+      "title": "Triple-interlocked-nanotwinned bulk magnesium alloys with exceptional strength and ageing resistance.",
+      "journal": "Nature communications",
+      "pub_date": "2026 May 22",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42179513",
+      "doi": "10.3389/fpls.2026.1764060",
+      "title": "Integrated analysis of morphological traits and salinity stress-related gene expression in alfalfa (Medicago sativa L.) from Türkiye under magnesium sulfate and calcium chloride treatments.",
+      "journal": "Frontiers in plant science",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42195691",
+      "doi": "10.3390/ma19102051",
+      "title": "Dislocation-Based CPFEM and Phase-Field Study on the Stress Corrosion Cracking of Randomly Textured Magnesium Alloys.",
+      "journal": "Materials (Basel, Switzerland)",
+      "pub_date": "2026 May 14",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42208928",
+      "doi": "10.1016/j.cbpa.2026.112027",
+      "title": "Three Christmas Island land crabs do not alter extracellular magnesium in response to acute reduced temperature.",
+      "journal": "Comparative biochemistry and physiology. Part A, Molecular & integrative physiology",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42218795",
+      "doi": "10.1002/cbdv.71382",
+      "title": "Evaluation of Withaferin A Content in Withania somnifera Using NMR and HPLC: A Comparative Assessment of Traditional and PCSL Extraction Methods.",
+      "journal": "Chemistry & biodiversity",
+      "pub_date": "2026 Jun",
+      "pub_type": "Comparative Study",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42250298",
+      "doi": "10.1016/j.jhazmat.2026.142592",
+      "title": "Rice 2C protein phosphatase, OsNY1, and magnesium oxide positively regulate arsenic tolerance by root cells reinforcement, metals detoxification, and protein phosphorylation.",
+      "journal": "Journal of hazardous materials",
+      "pub_date": "2026 Aug 1",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42253745",
+      "doi": "10.3389/fnut.2026.1823678",
+      "title": "Safety and tolerability of Ashwagandha (Withania somnifera) root extract in healthy adults: a prospective, non-comparative study.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42277947",
+      "doi": "10.1186/s40813-026-00526-0",
+      "title": "A pilot study on the effect of feed supplementation with magnesium oxide and magnesium aspartate on blood magnesium content and tail lesions in pigs under practical on-farm conditions.",
+      "journal": "Porcine health management",
+      "pub_date": "2026 Jun 11",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42281461",
+      "doi": "10.1021/acs.inorgchem.6c00370",
+      "title": "Axial Coordination of Melatonin in Magnesium Porphyrin: Structural Insights, Excited-State Dynamics, and Photostability.",
+      "journal": "Inorganic chemistry",
+      "pub_date": "2026 Jun 29",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42316005",
+      "doi": "10.1186/s12870-026-09288-x",
+      "title": "Distinct Mg²⁺ responses and species-specific transcriptional regulation of the magnesium transporter MGR2 in Saccharum officinarum and Saccharum spontaneum.",
+      "journal": "BMC plant biology",
+      "pub_date": "2026 Jun 18",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42343966",
+      "doi": "10.3389/fpls.2026.1867866",
+      "title": "Biochemical shifts in Chlorella vulgaris via post-stationary magnesium sulfate stress: optimizing biomass for advanced bio-fertilizers.",
+      "journal": "Frontiers in plant science",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42348037",
+      "doi": "10.1007/s11064-026-04820-9",
+      "title": "Combined Puerarin and Magnesium Acetyl Taurate Intervention Mitigates Autism-Like Pathology Through Glutamatergic and MAPK Pathway Regulation.",
+      "journal": "Neurochemical research",
+      "pub_date": "2026 Jun 25",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42356373",
+      "doi": "10.3390/nu18121986",
+      "title": "Curcumin, Coenzyme-Q10, and Bioactive Compounds in Ashwagandha Extract: Multi-Targeting Potential of Co-Administered Natural Health Compounds as Therapeutic and Preventative Interventions in Alzheimer's and Parkinson's Disease Models.",
+      "journal": "Nutrients",
+      "pub_date": "2026 Jun 19",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42361498",
+      "doi": "10.1016/j.abb.2026.110915",
+      "title": "Mallotus japonicus leaf extract restores TRPM6 magnesium channel expression and suppresses cellular senescence in colonic epithelial cells.",
+      "journal": "Archives of biochemistry and biophysics",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42363093",
+      "doi": "10.1186/s12870-026-09350-8",
+      "title": "Combined application of nano-magnesium oxide and humic acid improves potato drought tolerance and soil health.",
+      "journal": "BMC plant biology",
+      "pub_date": "2026 Jun 26",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42392245",
+      "doi": "10.1016/j.cbi.2026.112228",
+      "title": "Epigallocatechin-3-gallate, l-theanine and theophylline abolish high-glucose-induced renal cell senescence and subsequent epithelial-mesenchymal transition and fibroblast activation via SIRT1/PGC-1α axis: Implications for diabetic kidney disease.",
+      "journal": "Chemico-biological interactions",
+      "pub_date": "2026 Sep 1",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42402070",
+      "doi": "10.1186/s11671-026-04771-8",
+      "title": "Size dependent antibacterial mechanism of magnesium oxide nanoparticles against Ralstonia solanacearum.",
+      "journal": "Discover nano",
+      "pub_date": "2026 Jul 5",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42421368",
+      "doi": "10.1080/01480545.2026.2700298",
+      "title": "Exploring the protective impacts of Rhodiola rosea extract against vancomycin-induced hepatic and renal toxicity through the activation of Nrf2/HO-1 and MAPK kinases, inhibition of NF-κB and TGF-β1 signaling pathways, role of apoptosis and inflammation associated-markers.",
+      "journal": "Drug and chemical toxicology",
+      "pub_date": "2026 Jul 8",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42424785",
+      "doi": "10.1016/j.colsurfb.2026.115966",
+      "title": "Polycarbonate-hydroxyapatite hybrid coatings enabling antibacterial and osteogenic regulation of magnesium implants.",
+      "journal": "Colloids and surfaces. B, Biointerfaces",
+      "pub_date": "2026 Nov",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42433894",
+      "doi": "10.3389/fpls.2026.1878176",
+      "title": "Multi-omics analysis reveals galactose metabolism as a key regulatory pathway of stress adaptation to magnesium deficiency in passion fruit.",
+      "journal": "Frontiers in plant science",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42435218",
+      "doi": "10.1007/s00421-026-06317-3",
+      "title": "Point-of-care magnesium monitoring in athletes: a physiological framework for exercise-related arrhythmic vulnerability.",
+      "journal": "European journal of applied physiology",
+      "pub_date": "2026 Sep",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42451969",
+      "doi": "10.3390/ma19132890",
+      "title": "Using Magnesium and Magnesium-Based Alloys as a Novel Biomaterial to Create Medical Devices by AM Techniques-A Review.",
+      "journal": "Materials (Basel, Switzerland)",
+      "pub_date": "2026 Jul 6",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42452295",
+      "doi": "10.3390/plants15132099",
+      "title": "Foliar Application of MgO Nanoparticles Modulates Magnesium Nutrition and Fruit Quality in Loquat Under Mg-Deficient Conditions.",
+      "journal": "Plants (Basel, Switzerland)",
+      "pub_date": "2026 Jul 6",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42452494",
+      "doi": "10.3390/jcm15135032",
+      "title": "Mapping the Neuroprotective Landscape of Perioperative Magnesium Sulphate: A Translational Scoping Review.",
+      "journal": "Journal of clinical medicine",
+      "pub_date": "2026 Jun 28",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42459370",
+      "doi": "10.3389/fpls.2026.1850949",
+      "title": "Foliar application of magnesium and amino acids to off-season maize: a strategy to improve photosynthetic and antioxidant metabolism.",
+      "journal": "Frontiers in plant science",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42459382",
+      "doi": "10.3389/fpls.2026.1818797",
+      "title": "Genome-wide identification, evolutionary dynamics, and abiotic stress response networks of the magnesium transporter gene family in foxtail millet (Setaria italica L.).",
+      "journal": "Frontiers in plant science",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42507981",
+      "doi": "10.1093/plphys/kiag543",
+      "title": "Heterologous expression of CsAlaDC enhances thermotolerance through a functional ethylamine-theanine-GABA metabolic network in tomato.",
+      "journal": "Plant physiology",
+      "pub_date": "2026 Aug 4",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42517519",
+      "doi": "10.1039/d6bm00690f",
+      "title": "Effect of axial stress-loaded magnesium alloy intramedullary nails on bone fracture healing.",
+      "journal": "Biomaterials science",
+      "pub_date": "2026 Aug 25",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42518692",
+      "doi": "10.1016/j.mtbio.2026.103444",
+      "title": "Tea egg-inspired high mechanical strength hydrogel microneedle patch combined with tea polyphenol-magnesium nanoparticles promotes spinal cord injury repair.",
+      "journal": "Materials today. Bio",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42564876",
+      "doi": "10.3389/fmicb.2026.1898632",
+      "title": "Adaptive laboratory evolution of E. coli to magnesium chloride stress reveals noncanonical routes to broad chaotropic salt resistance.",
+      "journal": "Frontiers in microbiology",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42589403",
+      "doi": "10.3390/ijms27156746",
+      "title": "Withania somnifera-Functionalized Selenium Nanoparticles Attenuate Glycerol-Induced Rhabdomyolysis-Associated Acute Renal Failure.",
+      "journal": "International journal of molecular sciences",
+      "pub_date": "2026 Jul 28",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42610286",
+      "doi": "10.62713/aic.4542",
+      "title": "Comparison of Labetalol With Versus Without Magnesium Sulfate on Intraoperative Blood Pressure Variability During Cesarean Delivery in Hypertensive Disorders of Pregnancy: A Retrospective Cohort Study.",
+      "journal": "Annali italiani di chirurgia",
+      "pub_date": "2026 Aug 13",
+      "pub_type": "Comparative Study",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42625049",
+      "doi": "10.1007/s00425-026-05126-4",
+      "title": "Harnessing magnesium nanoparticles for enhanced crop growth and stress mitigation.",
+      "journal": "Planta",
+      "pub_date": "2026 Aug 20",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42634968",
+      "doi": "10.1515/dmpt-2025-0096",
+      "title": "Withania somnifera ameliorates endoplasmic reticulum stress in human hepatocellular carcinoma HepG2 cells.",
+      "journal": "Drug metabolism and personalized therapy",
+      "pub_date": "2026 Aug 25",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42637141",
+      "doi": "10.1016/j.plantsci.2026.113396",
+      "title": "Magnesium-induced transporters remodel the ionome of mulberry leaves by promoting the nitrate reductase (NIA) gene in nitrogen metabolism.",
+      "journal": "Plant science : an international journal of experimental plant biology",
+      "pub_date": "2026 Nov",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42649815",
+      "doi": "10.3390/bioengineering13080926",
+      "title": "Biodegradable Magnesium-Based Implants in Sports Orthopedic Surgery: Advances in Alloy Design, Surface Engineering, and Translational Evidence.",
+      "journal": "Bioengineering (Basel, Switzerland)",
+      "pub_date": "2026 Aug 15",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42651842",
+      "doi": "10.3390/cimb48080844",
+      "title": "Magnesium Sulfate in Neonatal Hypoxic-Ischemic Encephalopathy: Bridging the Gap Between Molecular Neuroprotection and Clinical Outcomes.",
+      "journal": "Current issues in molecular biology",
+      "pub_date": "2026 Aug 20",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42665173",
+      "doi": "10.1016/j.cbpc.2026.110678",
+      "title": "Integrative multi-omics analysis of magnesium-mediated alleviation of nitrite toxicity in Litopenaeus vannamei.",
+      "journal": "Comparative biochemistry and physiology. Toxicology & pharmacology : CBP",
+      "pub_date": "2026 Aug 31",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42680959",
+      "doi": "10.1007/s10787-026-02383-3",
+      "title": "The lithium-magnesium-zinc axis under stress: regulation of N-glycosylation-linked proteostasis and Alzheimer's disease.",
+      "journal": "Inflammopharmacology",
+      "pub_date": "2026 Sep 2",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42687797",
+      "doi": "10.1039/d6tb00975a",
+      "title": "3D-Printed poly(lactic acid)/magnesium scaffolds functionalized with chitosan-chlorhexidine gluconate microspheres for antibacterial repair of infected bone defects.",
+      "journal": "Journal of materials chemistry. B",
+      "pub_date": "2026 Sep 23",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42748709",
+      "doi": "10.1016/j.foodchem.2026.151056",
+      "title": "Metabolite profiling indicates comparative effects of magnesium oxide nanoparticle vs. its bulk priming on lead tolerance and nutritional quality in mungbean sprouts.",
+      "journal": "Food chemistry",
+      "pub_date": "2026 Sep 9",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42768433",
+      "doi": "10.1111/dar.70263",
+      "title": "Evaluating the Pattern of Kava (Piper methysticum) Consumption in Australia by Wastewater-Based Epidemiology.",
+      "journal": "Drug and alcohol review",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42782665",
+      "doi": "10.3390/biomimetics11090639",
+      "title": "Biomedical Hydrogels Based on Oxidized Hyaluronic Acid and Carboxymethyl Chitosan Coordinated with Magnesium Ions.",
+      "journal": "Biomimetics (Basel, Switzerland)",
+      "pub_date": "2026 Sep 6",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42803697",
+      "doi": "10.1021/acsami.6c07348",
+      "title": "A Magnesium-Phenolic Coordinated Hydrogel Orchestrates Antiapoptotic, Immunomodulatory, and Angiogenic Niches for Aging Wound Regeneration.",
+      "journal": "ACS applied materials & interfaces",
+      "pub_date": "2026 Sep 28",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42814517",
+      "doi": "10.1002/adhm.71782",
+      "title": "Magnesium Phosphate Composite Hydrogel Dressing Promotes Diabetic Wound Repair Through Anti-Inflammatory, Antioxidant, Angiogenic, and Metabolic Regulatory Mechanisms.",
+      "journal": "Advanced healthcare materials",
+      "pub_date": "2026 Sep 30",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "42822055",
+      "doi": "10.1016/j.bbrc.2026.154674",
+      "title": "Mutation of AINTEGUMENTA alleviates root growth inhibition induced by high magnesium stress.",
+      "journal": "Biochemical and biophysical research communications",
+      "pub_date": "2026 Sep 30",
+      "pub_type": "Journal Article",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR theanine[Title] OR kava[Title] OR lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR magnesium[Title]) AND (stress[Title/Abstract] OR anxiety[Title/Abstract] OR anxious[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42127205",
+      "doi": "10.1097/ADM.0000000000001701",
+      "title": "Kratom Use and Associations With Mental Health in the United States.",
+      "journal": "Journal of addiction medicine",
+      "pub_date": "2026 May 13",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42146457",
+      "doi": "10.64898/2026.05.01.722234",
+      "title": "Interactomics-driven discovery of alkaloid biosynthetic pathways in kratom.",
+      "journal": "bioRxiv : the preprint server for biology",
+      "pub_date": "2026 May 5",
+      "pub_type": "Preprint",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42151526",
+      "doi": "10.1007/s11606-026-10514-3",
+      "title": "Failure to Treat Opioid Use Disorder and Opioid Withdrawal Associated with Patient-Directed Discharge in People with Injection-Related Infections.",
+      "journal": "Journal of general internal medicine",
+      "pub_date": "2026 May 18",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42210044",
+      "doi": "10.1111/1556-4029.70370",
+      "title": "Determination of mitragynine concentrations in medicolegal death investigations at the Oklahoma Office of the Chief Medical Examiner from 2022 to 2023.",
+      "journal": "Journal of forensic sciences",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42216856",
+      "doi": "10.1002/cbdv.202502332",
+      "title": "Variations of Mitragynine Content in Kratom Leaves From Southeast Asia: An Updated Review.",
+      "journal": "Chemistry & biodiversity",
+      "pub_date": "2026 Jun",
+      "pub_type": "Review",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42235057",
+      "doi": "10.1097/ADM.0000000000001728",
+      "title": "Advancing Kratom Science and Regulation: A Comparative Framework With Cannabis.",
+      "journal": "Journal of addiction medicine",
+      "pub_date": "2026 Jun 3",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42244654",
+      "doi": "10.64898/2026.05.25.727738",
+      "title": "Local control of dopamine release in nucleus accumbens gates opioid withdrawal aversion.",
+      "journal": "bioRxiv : the preprint server for biology",
+      "pub_date": "2026 May 28",
+      "pub_type": "Preprint",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42247306",
+      "doi": "10.1080/00275514.2026.2670968",
+      "title": "Phylogenomic systematics of Lanmaoa (Boletaceae) reveals cryptic diversity, resolves global evolutionary relationships, and suggests a novel psychoactive lineage.",
+      "journal": "Mycologia",
+      "pub_date": "2026 Jul-Aug",
+      "pub_type": "Research Support, U.S. Gov't, Non-P.H.S.",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42253748",
+      "doi": "10.1155/cric/9735423",
+      "title": "A Case Report on Opioid Withdrawal-Induced Stress Cardiomyopathy and a Review of the Current Literature.",
+      "journal": "Case reports in cardiology",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42266029",
+      "doi": "10.1093/jat/bkag042",
+      "title": "Mitragynine and 7-hydroxy-mitragyine plasma pharmacokinetics in humans after single and 15 multiple oral kratom extract doses.",
+      "journal": "Journal of analytical toxicology",
+      "pub_date": "2026 Jun 4",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42268250",
+      "doi": "10.1097/FBP.0000000000000885",
+      "title": "More than an opioid: dissociable analgesic and behavioral effects of kratom in planarians.",
+      "journal": "Behavioural pharmacology",
+      "pub_date": "2026 Aug 1",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42270080",
+      "doi": "10.1016/j.jaclp.2026.06.001",
+      "title": "Clinical Characteristics and Treatment of Benzodiazepine Withdrawal Delirium in Adults: An Illustrative Case and Systematic Review of Published Cases.",
+      "journal": "Journal of the Academy of Consultation-Liaison Psychiatry",
+      "pub_date": "2026 Jul-Aug",
+      "pub_type": "Systematic Review",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42285195",
+      "doi": "10.1016/j.biopsych.2026.06.001",
+      "title": "Sirtuin 2 Regulates Dorsal Hippocampal Actin Polymerization and Microtubule Acetylation-Dependent EB3 Activation to Modulate Opioid Withdrawal-Induced Aversive Memory and Associative Learning.",
+      "journal": "Biological psychiatry",
+      "pub_date": "2026 Jun 12",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42290474",
+      "doi": "10.1080/10550887.2026.2685063",
+      "title": "Comparative outcomes of opioid withdrawal management strategy in patients with injection-related bacteremia.",
+      "journal": "Journal of addictive diseases",
+      "pub_date": "2026 Jun 15",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42292999",
+      "doi": "10.3389/fpls.2026.1835418",
+      "title": "UV-B and far-red light shape morphological and phytochemical responses in kratom.",
+      "journal": "Frontiers in plant science",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42294745",
+      "doi": "10.1097/HRP.0000000000000469",
+      "title": "Inpatient Management of Benzodiazepine Withdrawal: A Narrative Review of a Systematic, Individualized Taper Design.",
+      "journal": "Harvard review of psychiatry",
+      "pub_date": "2026 Jul-Aug 01",
+      "pub_type": "Review",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42306904",
+      "doi": "10.1080/15563650.2026.2675033",
+      "title": "Frequency of kratom-related poison center calls before and after kratom legalization in Thailand: current trends.",
+      "journal": "Clinical toxicology (Philadelphia, Pa.)",
+      "pub_date": "2026 Jun 17",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42322889",
+      "doi": "10.1016/j.talanta.2026.130178",
+      "title": "Electrochemical behavior of mitragynine and its determination by HPLC with dual-channel coulometric detection.",
+      "journal": "Talanta",
+      "pub_date": "2026 Dec 1",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42334658",
+      "doi": "10.1007/s11033-026-12100-6",
+      "title": "Effects of 7-hydroxymitragynine on serotonin, amino acid profiles, and ion homeostasis in SH-SY5Y cells.",
+      "journal": "Molecular biology reports",
+      "pub_date": "2026 Jun 23",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42343486",
+      "doi": "10.1186/s42238-026-00458-0",
+      "title": "Self-reported cannabis use to manage opioid withdrawal symptoms and reductions in opioid use among people who use unregulated opioids: a cross-sectional analysis.",
+      "journal": "Journal of cannabis research",
+      "pub_date": "2026 Jun 24",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42378779",
+      "doi": "10.1016/j.drugalcdep.2026.113249",
+      "title": "Monitoring novel psychoactive substance trends on social media: Analysis of discussions and dashboard implementation.",
+      "journal": "Drug and alcohol dependence",
+      "pub_date": "2026 Sep 1",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42404212",
+      "doi": "10.1177/29768357261465591",
+      "title": "An Initial Survey Assessing the Temporal Relationship of Kratom Initiation With Medical Treatment and Substance Use.",
+      "journal": "Substance use : research and treatment",
+      "pub_date": "2026 Jan-Dec",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42410743",
+      "doi": "10.1111/1556-4029.70406",
+      "title": "Prevalence of novel psychoactive substances in selected clinical urine specimens submitted for drug monitoring.",
+      "journal": "Journal of forensic sciences",
+      "pub_date": "2026 Jul 6",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42421345",
+      "doi": "10.1080/10826084.2026.2686382",
+      "title": "Kratom in Clinical Practice: Knowledge, Attitudes, and Screening Behaviors Among U.S.-Based Healthcare Providers.",
+      "journal": "Substance use & misuse",
+      "pub_date": "2026 Jul 8",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42421372",
+      "doi": "10.1177/29767342261459988",
+      "title": "Emergency Department Opioid Withdrawal Management Across the Alpha-2 Agonist Adulterated Fentanyl Era in Philadelphia, PA: A Multi-Site Study.",
+      "journal": "Substance use & addiction journal",
+      "pub_date": "2026 Jul 8",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42423989",
+      "doi": "10.1007/s00204-026-04461-5",
+      "title": "Integrated quantitative proteomics reveals stress-associated network remodeling induced by mitragynine in RSC96 Schwann cells.",
+      "journal": "Archives of toxicology",
+      "pub_date": "2026 Jul 9",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42445841",
+      "doi": null,
+      "title": "Kratom Brands in Vape Shops Across the US.",
+      "journal": "Health behavior research",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42446876",
+      "doi": "10.1001/jamanetworkopen.2026.23280",
+      "title": "Buprenorphine-Naloxone vs Extended-Release Naltrexone Following Opioid Withdrawal Treatment.",
+      "journal": "JAMA network open",
+      "pub_date": "2026 Jul 1",
+      "pub_type": "Comparative Study",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42448619",
+      "doi": "10.1002/dta.70122",
+      "title": "Mislabeling and Status of Semisynthetic Kratom-Derived Products in the US Market.",
+      "journal": "Drug testing and analysis",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42451610",
+      "doi": "10.3390/molecules31132241",
+      "title": "Effects of Botanical Variation, Plant Part, and Extraction Technique on Mitragynine and 7-Hydroxymitragynine in Kratom (Mitragyna speciosa) Extracts Quantified by a Validated HPLC-DAD Method.",
+      "journal": "Molecules (Basel, Switzerland)",
+      "pub_date": "2026 Jun 25",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42458380",
+      "doi": "10.1186/s12887-026-07316-1",
+      "title": "Early pharmacotherapy versus no pharmacotherapy: difference in skin conductance response to physical stimuli in infants with neonatal opioid withdrawal syndrome.",
+      "journal": "BMC pediatrics",
+      "pub_date": "2026 Jul 15",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42461119",
+      "doi": "10.1097/ICB.0000000000001959",
+      "title": "Visual Snow-Like Symptoms, Ellipsoid Zone Disruption, and Outer Retinal Pigmentary Changes in a Patient with Chronic Kratom Use: A Case Report.",
+      "journal": "Retinal cases & brief reports",
+      "pub_date": "2026 Jul 16",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42462355",
+      "doi": "10.1016/j.compbiolchem.2026.109245",
+      "title": "Classical substructure search versus LLM-assisted keyword retrieval in SciFinder: A case study on GABA(B1) ligand discovery using a phenibut scaffold.",
+      "journal": "Computational biology and chemistry",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42468910",
+      "doi": "10.1055/a-2915-4061",
+      "title": "Statewide Practice Survey of Assessment Tools Utilized for Opioid Withdrawal in Preterm and Critically Ill Newborns.",
+      "journal": "American journal of perinatology",
+      "pub_date": "2026 Jul 24",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42520100",
+      "doi": "10.1080/10826084.2026.2697988",
+      "title": "Mapping the Evidence on Kratom Use, Health Outcomes, and Policy Gaps in the United States: A Scoping Review.",
+      "journal": "Substance use & misuse",
+      "pub_date": "2026 Jul 28",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42521376",
+      "doi": "10.1016/j.pop.2026.03.004",
+      "title": "Kratom Use, Synthetic Cannabinoids (K2), and Trends in the Drug Supply.",
+      "journal": "Primary care",
+      "pub_date": "2026 Sep",
+      "pub_type": "Review",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42527899",
+      "doi": "10.1186/s12887-026-07015-x",
+      "title": "A comparison of dual vs. single diagnostic code approaches for neonatal opioid withdrawal syndrome surveillance in neonates ≥ 35 weeks gestational age.",
+      "journal": "BMC pediatrics",
+      "pub_date": "2026 Jul 30",
+      "pub_type": "Observational Study",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42531922",
+      "doi": "10.1016/j.drugalcdep.2026.113284",
+      "title": "Material hardship moderates the association between cannabis use frequency and opioid withdrawal frequency among people who inject drugs.",
+      "journal": "Drug and alcohol dependence",
+      "pub_date": "2026 Sep 1",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42538522",
+      "doi": "10.1177/10915818261466217",
+      "title": "Crawling into the Unknown: Unveiling Novel Psychoactive Substances (NPSs) in the Post Pandemic Era Utilizing the NPSfinder(®).",
+      "journal": "International journal of toxicology",
+      "pub_date": "2026 Jul 31",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42549766",
+      "doi": "10.1097/JCP.0000000000002244",
+      "title": "Olanzapine/Samidorphan-Associated Opioid Withdrawal Reported to US Poison Centers.",
+      "journal": "Journal of clinical psychopharmacology",
+      "pub_date": "2026 Aug 4",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42576360",
+      "doi": "10.1177/13591053261472712",
+      "title": "Protective psychological mechanisms against adolescent cannabis and kratom use: A mixed-methods study.",
+      "journal": "Journal of health psychology",
+      "pub_date": "2026 Aug 10",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42584332",
+      "doi": "10.3390/nano16150939",
+      "title": "Multifunctional Bacterial Cellulose Films Incorporating Kratom (Mitragyna speciosa Korth.) Leaf Extract as a Preliminary Antibacterial and Cytocompatible Wound Dressing Candidate.",
+      "journal": "Nanomaterials (Basel, Switzerland)",
+      "pub_date": "2026 Jul 30",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42596730",
+      "doi": "10.1177/29767342261467585",
+      "title": "Impact of Time to Buprenorphine Initiation on Patient-Directed Discharge in Concurrent Alcohol and Opioid Withdrawal.",
+      "journal": "Substance use & addiction journal",
+      "pub_date": "2026 Aug 14",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42619210",
+      "doi": "10.1097/AJN.0000000000000370c",
+      "title": "Symptom-based dosing is an effective option for neonatal opioid withdrawal.",
+      "journal": "The American journal of nursing",
+      "pub_date": "2026 Sep 1",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42639954",
+      "doi": "10.1177/29767342261479888",
+      "title": "Benzodiazepine Withdrawal Masked by Clonidine: An Emergency Presentation With a Diagnostic Challenge.",
+      "journal": "Substance use & addiction journal",
+      "pub_date": "2026 Aug 25",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42664032",
+      "doi": "10.1080/10550887.2026.2719586",
+      "title": "A retrospective cohort study of a novel short-acting opioid protocol for opioid withdrawal.",
+      "journal": "Journal of addictive diseases",
+      "pub_date": "2026 Aug 28",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42678429",
+      "doi": "10.1177/14690667261483379",
+      "title": "Dual-ionization GC-Orbitrap HRMS workflow for screening, confirmation, and quantitation of selected psychoactive substances including novel psychoactive substances.",
+      "journal": "European journal of mass spectrometry (Chichester, England)",
+      "pub_date": "2026 Sep 1",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42696557",
+      "doi": "10.1097/ADM.0000000000001710",
+      "title": "Opioid Use Disorder Outcomes Following Inpatient Opioid Withdrawal Management.",
+      "journal": "Journal of addiction medicine",
+      "pub_date": "2026 Sep 4",
+      "pub_type": "Journal Article",
+      "query": "(kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title] OR \"novel psychoactive\"[Title] OR \"opioid withdrawal\"[Title] OR \"benzodiazepine withdrawal\"[Title]) AND 2015:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42453529",
+      "doi": "10.4103/tcmj.TCMJ-D-25-00005",
+      "title": "Shedding light on gestational loss: The role of Vitamin D 25(OH)D deficiency in miscarriage - A systematic review and meta-analysis.",
+      "journal": "Tzu chi medical journal",
+      "pub_date": "2026 Jul-Sep",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42453785",
+      "doi": "10.2147/IJWH.S613759",
+      "title": "Effectiveness of a Health Belief Model-Based Educational Intervention on Iron-Folic Acid Supplement Intake Among Pregnant Women in Southern Afghanistan: A Quasi-Experimental Study.",
+      "journal": "International journal of women's health",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42456848",
+      "doi": "10.1016/j.jbspin.2026.106111",
+      "title": "Vitamin D supplementation during pregnancy: Position statement of the Groupe de Recherche et d'Information sur les Ostéoporoses (GRIO).",
+      "journal": "Joint bone spine",
+      "pub_date": "2026 Jul 15",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42461330",
+      "doi": "10.1210/clinem/dgag245",
+      "title": "Maternal and neonatal outcomes of vitamin D supplementation in hypovitaminosis D pregnancy: preg-D randomized trial.",
+      "journal": "The Journal of clinical endocrinology and metabolism",
+      "pub_date": "2026 Jul 16",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42462992",
+      "doi": "10.1016/j.envres.2026.125264",
+      "title": "Emerging Mo(4/3)B(2) MBene promoted high-valent iron-oxo species generation in the Fe(Ⅲ)/PMS system:The role of ordered metal vacancies.",
+      "journal": "Environmental research",
+      "pub_date": "2026 Sep 15",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42468847",
+      "doi": "10.1016/j.clnesp.2026.103599",
+      "title": "From \"the more, the better\" to \"precise balance\": The U-shaped curve of vitamin D supplementation and the reassessment of optimal levels.",
+      "journal": "Clinical nutrition ESPEN",
+      "pub_date": "2026 Oct",
+      "pub_type": "Review",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42472787",
+      "doi": "10.1186/s12884-026-09639-4",
+      "title": "Non-adherence to iron and folic acid consumption among Indian pregnant women: evidences from national family health survey-5 data (2019-21).",
+      "journal": "BMC pregnancy and childbirth",
+      "pub_date": "2026 Jul 20",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42472789",
+      "doi": "10.1186/s12884-026-09589-x",
+      "title": "Serum vitamin D levels and postpartum afterpain in multigravida women.",
+      "journal": "BMC pregnancy and childbirth",
+      "pub_date": "2026 Jul 20",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42476909",
+      "doi": "10.1080/14767058.2026.2694824",
+      "title": "Expert consensus on the screening, diagnosis, and management of perinatal iron deficiency anemia in Egypt.",
+      "journal": "The journal of maternal-fetal & neonatal medicine : the official journal of the European Association of Perinatal Medicine, the Federation of Asia and Oceania Perinatal Societies, the International Society of Perinatal Obstetricians",
+      "pub_date": "2026 Dec",
+      "pub_type": "Consensus Statement",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42481186",
+      "doi": "10.1136/bmjopen-2025-108156",
+      "title": "Association of iron status during early pregnancy and the risk of gestational diabetes: a retrospective cohort study in Shanghai.",
+      "journal": "BMJ open",
+      "pub_date": "2026 Jul 21",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42485105",
+      "doi": "10.1213/ANE.0000000000008229",
+      "title": "A Retrospective Propensity-Matched Cohort Study of Intravenous Versus Oral Iron Formulations for Management of Iron Deficiency Anemia in Pregnancy.",
+      "journal": "Anesthesia and analgesia",
+      "pub_date": "2026 Jul 17",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42486343",
+      "doi": "10.1016/j.jsbmb.2026.107084",
+      "title": "Comparison of vitamin D metabolites associated with preterm birth in a cohort of Black pregnant women.",
+      "journal": "The Journal of steroid biochemistry and molecular biology",
+      "pub_date": "2026 Nov",
+      "pub_type": "Comparative Study",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42491815",
+      "doi": null,
+      "title": "Iron at the Crossroads of Thyroid Function and Detoxification in Women: Clinical Implications for Diagnosis and Management.",
+      "journal": "Integrative medicine (Encinitas, Calif.)",
+      "pub_date": "2026 Jun",
+      "pub_type": "Review",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42494622",
+      "doi": "10.1002/fsn3.72126",
+      "title": "Folate-Containing Fermented Foods of Plant and Animal Origin: The Value of Traditional Foods to Tackle Folate Deficiency.",
+      "journal": "Food science & nutrition",
+      "pub_date": "2026 Jul",
+      "pub_type": "Review",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42498323",
+      "doi": "10.1136/bcr-2026-274813",
+      "title": "Early-onset non-oliguric hyperkalaemia in a moderate preterm infant following maternal magnesium sulfate therapy.",
+      "journal": "BMJ case reports",
+      "pub_date": "2026 Jul 24",
+      "pub_type": "Case Reports",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42498979",
+      "doi": "10.1111/bjh.70718",
+      "title": "Maternal iron homeostasis, disorders and pregnancy outcomes.",
+      "journal": "British journal of haematology",
+      "pub_date": "2026 Jul 24",
+      "pub_type": "Review",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42500779",
+      "doi": "10.7759/cureus.111393",
+      "title": "Myo-Inositol for Cutaneous Manifestations of Polycystic Ovary Syndrome: An International Delphi Consensus Recommendation for Dermatology Practice.",
+      "journal": "Cureus",
+      "pub_date": "2026 Jun",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42504155",
+      "doi": "10.1002/ppul.71755",
+      "title": "Timing of Magnesium Sulfate Cessation and Apnea of Prematurity in Late-Preterm Twin Infants.",
+      "journal": "Pediatric pulmonology",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42505573",
+      "doi": "10.3390/diseases14070245",
+      "title": "Circulating 25-Hydroxy-Vitamin D Levels in Menopausal and Postmenopausal Women in Italy: A Comparison of Four Analytical Methods.",
+      "journal": "Diseases (Basel, Switzerland)",
+      "pub_date": "2026 Jul 6",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42506454",
+      "doi": "10.3390/metabo16070503",
+      "title": "Maternal Vitamin D Deficiency During Pregnancy Alters Hepatic Metabolism in Adult Female Offspring Without Overt Metabolic Dysfunction.",
+      "journal": "Metabolites",
+      "pub_date": "2026 Jul 17",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42514402",
+      "doi": "10.3390/nu18142333",
+      "title": "Timing over Dose: Maternal Vitamin D, Periconceptional Window, and Early-Life Respiratory Programming.",
+      "journal": "Nutrients",
+      "pub_date": "2026 Jul 16",
+      "pub_type": "Review",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42549868",
+      "doi": "10.1093/molehr/gaag046",
+      "title": "Vitamin D receptor in intrauterine adhesion: a hypothesis-driven review of potential roles and mechanistic insights.",
+      "journal": "Molecular human reproduction",
+      "pub_date": "2026 Jul 7",
+      "pub_type": "Review",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42555599",
+      "doi": "10.1371/journal.pone.0355295",
+      "title": "Magnitude and determinants of iron deficiency anemia among first antenatal care attending pregnant women at Addis Ababa, Ethiopia.",
+      "journal": "PloS one",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42572215",
+      "doi": "10.33029/0042-8833-2026-95-3-36-44",
+      "title": "[Lipid, protein oxidation and antioxidant status in menopausal women with different levels of vitamin D in blood].",
+      "journal": "Voprosy pitaniia",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42577934",
+      "doi": "10.2147/IJWH.S628072",
+      "title": "Analysis of Disease Burden and Future Trend Prediction for Iron Deficiency-Induced Abortion and Miscarriage in BRICS Countries.",
+      "journal": "International journal of women's health",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42588081",
+      "doi": "10.3390/nu18152458",
+      "title": "Severe Vitamin D Deficiency as a Trigger for Metabolic Seizures in Infancy: A Case Series and a Comprehensive Review of the Literature.",
+      "journal": "Nutrients",
+      "pub_date": "2026 Jul 27",
+      "pub_type": "Case Reports",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42597027",
+      "doi": "10.1002/pmf2.70089",
+      "title": "Effects of implementing a standardized protocol for identifying and treating iron-deficiency anemia in pregnancy.",
+      "journal": "Pregnancy (Hoboken, N.J.)",
+      "pub_date": "2025 Sep",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42600020",
+      "doi": "10.1126/sciadv.aeg4626",
+      "title": "A complementary descriptor for elucidating selective PMS activation by iron single-atom catalysts with tunable interatomic distances.",
+      "journal": "Science advances",
+      "pub_date": "2026 Aug 14",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42606922",
+      "doi": "10.7189/jogh.16.04286",
+      "title": "Folate and global health: part 5. syntheses on neuropsychiatric disorders.",
+      "journal": "Journal of global health",
+      "pub_date": "2026 Aug 17",
+      "pub_type": "Review",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42609580",
+      "doi": "10.1155/ogi/4276911",
+      "title": "Retrospective-Prospective Observational Study of Serum Magnesium Level Dynamics and Their Correction in Physiological and Complicated Pregnancies.",
+      "journal": "Obstetrics and gynecology international",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42637038",
+      "doi": "10.1016/j.eprac.2026.08.015",
+      "title": "Effect of vitamin D combined with probiotic-assisted insulin pump on glucose-lipid metabolism, intestinal flora and pregnancy outcome in gestational diabetes mellitus.",
+      "journal": "Endocrine practice : official journal of the American College of Endocrinology and the American Association of Clinical Endocrinologists",
+      "pub_date": "2026 Aug 24",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42654177",
+      "doi": "10.3390/nu18162597",
+      "title": "Preconception Partner-Specific Vitamin D Biomarkers and Risk of Preeclampsia Among Couples Undergoing Fertility Treatment: A Secondary Cohort Analysis of FAZST.",
+      "journal": "Nutrients",
+      "pub_date": "2026 Aug 8",
+      "pub_type": "Multicenter Study",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42662160",
+      "doi": "10.1155/anem/7951443",
+      "title": "Iron Deficiency and Iron-Deficiency Anemia Among Reproductive-Age Women in the United States: Prevalence and Disparities, 2015-2023.",
+      "journal": "Anemia",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42666787",
+      "doi": "10.33546/bnj.4588",
+      "title": "Preventing iron deficiency anemia in rural Indonesia: Experiences and support needs of pregnant women and healthcare providers - a qualitative descriptive study.",
+      "journal": "Belitung nursing journal",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42678751",
+      "doi": "10.1080/10641963.2026.2711737",
+      "title": "Integrated multi-omics analyses identify an RAS-SLC11A2-associated molecular framework linking iron metabolism with PCOS-related cardiometabolic risk.",
+      "journal": "Clinical and experimental hypertension (New York, N.Y. : 1993)",
+      "pub_date": "2026 Dec 31",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42679571",
+      "doi": "10.1016/j.jhazmat.2026.143452",
+      "title": "Nanoconfined iron-based catalysts activate peroxymonosulfate via electron transfer and radical pathways for efficient bisphenol A removal.",
+      "journal": "Journal of hazardous materials",
+      "pub_date": "2026 Sep 15",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42681977",
+      "doi": "10.1097/MCO.0000000000001257",
+      "title": "Iron deficiency during pregnancy and lactation.",
+      "journal": "Current opinion in clinical nutrition and metabolic care",
+      "pub_date": "2026 Nov 1",
+      "pub_type": "Review",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42689017",
+      "doi": "10.1136/bmjph-2025-003563",
+      "title": "Compliance to iron folic acid supplementation and its associated factors among postpartum mothers of Bharatpur, Nepal: a cross-sectional study.",
+      "journal": "BMJ public health",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42689097",
+      "doi": "10.3389/fnut.2026.1927637",
+      "title": "Folate in autism neurodevelopment.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42712365",
+      "doi": "10.3389/fnut.2026.1881959",
+      "title": "A decade-long assessment reveals persistent vitamin D deficiency and its associated factors in early-pregnant women from northern China (2016-2025).",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42712566",
+      "doi": "10.3389/fped.2026.1891295",
+      "title": "Effect of iron supplementation on brain myelination and neurodevelopmental outcomes in children aged 0-3 years: a systematic review protocol.",
+      "journal": "Frontiers in pediatrics",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42713989",
+      "doi": "10.3791/72822",
+      "title": "Iron Deficiency Anemia in Pregnancy: Status and Contributing Factors Among Women in Northern Asir, Saudi Arabia.",
+      "journal": "Journal of visualized experiments : JoVE",
+      "pub_date": "2026 Sep 8",
+      "pub_type": "Video-Audio Media",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42719282",
+      "doi": "10.21037/atm-2026-0122",
+      "title": "Ferritin as a diagnostic point-of-care marker in iron deficiency anemia: a narrative review and clinical implications.",
+      "journal": "Annals of translational medicine",
+      "pub_date": "2026 Aug 31",
+      "pub_type": "Review",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42723529",
+      "doi": "10.1080/10641955.2026.2719500",
+      "title": "A preeclampsia prediction model incorporating methylenetetrahydrofolate reductase, vitamin D receptor, and uterine artery pulsatility index.",
+      "journal": "Hypertension in pregnancy",
+      "pub_date": "2026 Dec 31",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42727129",
+      "doi": "10.1016/j.watres.2026.126881",
+      "title": "Biogenic sulfidation regenerates Fe-S interfaces on waste iron sludge for sequential reductive-oxidative degradation of chloramphenicol.",
+      "journal": "Water research",
+      "pub_date": "2026 Sep 6",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42729576",
+      "doi": "10.1155/jotm/1649421",
+      "title": "Vitamin D Level and Antibody Response to the BBIBP-CorV Vaccine in Pregnant Women.",
+      "journal": "Journal of tropical medicine",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42738957",
+      "doi": "10.3390/nu18172785",
+      "title": "Folate Deficiency Alters microRNA Expression and Transcriptomic Networks in a Human Trophoblast Model.",
+      "journal": "Nutrients",
+      "pub_date": "2026 Aug 26",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42749073",
+      "doi": "10.1016/j.envres.2026.125663",
+      "title": "Adsorption-coupled PMS activation over waste iron sludge-derived Fe/biochar for sulfamethoxazole degradation: A singlet oxygen-associated oxidation pathway.",
+      "journal": "Environmental research",
+      "pub_date": "2026 Nov 1",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42760711",
+      "doi": "10.1097/MD.0000000000050657",
+      "title": "The causal associations between 25(OH) vitamin D levels and ectopic pregnancy: A 2-sample Mendelian randomization study.",
+      "journal": "Medicine",
+      "pub_date": "2026 Sep 18",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "women_health",
+      "pmid": "42767731",
+      "doi": "10.1136/bmjopen-2026-121658",
+      "title": "Co-administration of calcium and multiple micronutrient supplements for maternal and newborn haemoglobin and iron status: protocol for a randomised non-inferiority trial in Burkina Faso and Pakistan.",
+      "journal": "BMJ open",
+      "pub_date": "2026 Sep 21",
+      "pub_type": "Clinical Trial Protocol",
+      "query": "((inositol[Title] OR iron[Title] OR folate[Title] OR \"vitamin D\"[Title] OR \"omega-3\"[Title] OR magnesium[Title] OR saffron[Title]) AND (menopause[Title/Abstract] OR perimenopause[Title/Abstract] OR premenstrual[Title/Abstract] OR PMS[Title/Abstract] OR PCOS[Title/Abstract] OR pregnancy[Title/Abstract] OR postpartum[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]"
+    }
+  ]
+}

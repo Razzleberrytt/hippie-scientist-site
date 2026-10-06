@@ -1,0 +1,826 @@
+{
+  "schema_version": 1,
+  "row_count": 82,
+  "rows": [
+    {
+      "category": "mood",
+      "pmid": "40379028",
+      "doi": "10.1016/j.tjnut.2025.05.012",
+      "title": "The Role of Folate Receptor α Autoantibodies in Folate Deficiency, Disease Severity, and Treatment Response in Adolescents with Major Depressive Disorder.",
+      "journal": "The Journal of nutrition",
+      "pub_date": "2025 Jul",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40392854",
+      "doi": "10.1073/pnas.2503675122",
+      "title": "Physical exercise activates a PVN-NAc oxytocin circuit to relieve stress-induced depressive-like behaviors.",
+      "journal": "Proceedings of the National Academy of Sciences of the United States of America",
+      "pub_date": "2025 May 27",
+      "pub_type": "Journal Article",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40398311",
+      "doi": "10.1016/j.nut.2025.112802",
+      "title": "Exploring the interaction between vitamin D pathway gene polymorphisms, vitamin D status, and depression: A population-based study.",
+      "journal": "Nutrition (Burbank, Los Angeles County, Calif.)",
+      "pub_date": "2025 Sep",
+      "pub_type": "Journal Article",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40416274",
+      "doi": "10.7759/cureus.82924",
+      "title": "From Mood to Memory: Unlocking Saffron's Potential in Brain Health.",
+      "journal": "Cureus",
+      "pub_date": "2025 Apr",
+      "pub_type": "Review",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40429727",
+      "doi": "10.3390/ijms26104582",
+      "title": "Association of Vitamin D Supplementation with Glutathione Peroxidase (GPx) Activity, Interleukine-6 (IL-6) Levels, and Anxiety and Depression Scores in Patients with Post-COVID-19 Condition.",
+      "journal": "International journal of molecular sciences",
+      "pub_date": "2025 May 10",
+      "pub_type": "Journal Article",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40442828",
+      "doi": "10.1186/s41043-025-00898-z",
+      "title": "Association of dietary intake of folate, serum folate, and red blood cell folate with mortality risk in patients with depression: a population-based longitudinal cohort study.",
+      "journal": "Journal of health, population, and nutrition",
+      "pub_date": "2025 May 29",
+      "pub_type": "Journal Article",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40469258",
+      "doi": "10.1177/02537176251339764",
+      "title": "Association of Sexual Dysfunction, Vitamin D, and Thyroid Levels with Suicidal Behavior Among Patients with Depressive Disorder: A Cross-sectional Study.",
+      "journal": "Indian journal of psychological medicine",
+      "pub_date": "2025 Jun 1",
+      "pub_type": "Journal Article",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40485144",
+      "doi": "10.1111/jhn.70076",
+      "title": "Supplementation of Omega-3 Increases Serum Levels of Brain-Derived Neurotrophic Factor and Decreases Depression Status in Patients With Bipolar Disorder: A Randomized, Double-Blind, Placebo-Controlled Clinical Trial.",
+      "journal": "Journal of human nutrition and dietetics : the official journal of the British Dietetic Association",
+      "pub_date": "2025 Jun",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40497025",
+      "doi": "10.3389/fnut.2025.1545443",
+      "title": "Association of vitamin D with depression prevalence in U.S. adults: a cross-sectional analysis from NHANES 2021 to 2023.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2025",
+      "pub_type": "Journal Article",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40507082",
+      "doi": "10.3390/nu17111813",
+      "title": "Vitamin D Status Determines the Effect of Cabergoline on Sexual Function and Depressive Symptoms in Hyperprolactinemic Women.",
+      "journal": "Nutrients",
+      "pub_date": "2025 May 27",
+      "pub_type": "Journal Article",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40573189",
+      "doi": "10.3390/ph18060792",
+      "title": "The Role of Vitamin D in the Management of Major Depressive Disorder: A Systematic Review.",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "pub_date": "2025 May 25",
+      "pub_type": "Review",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40596345",
+      "doi": "10.1038/s41598-025-05873-6",
+      "title": "Plasma vitamin D binding protein as the potential predictor of depressive disorder risk in breast cancer patients.",
+      "journal": "Scientific reports",
+      "pub_date": "2025 Jul 1",
+      "pub_type": "Journal Article",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40611591",
+      "doi": "10.1111/jnc.70143",
+      "title": "Plasma Lipidomic Profiles Investigating the Effects of Combined Therapy With Quetiapine and Magnesium Valproate in Emerging Adults With Bipolar II Disorder During Depressive Episodes: A Follow-Up Study.",
+      "journal": "Journal of neurochemistry",
+      "pub_date": "2025 Jul",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40614976",
+      "doi": "10.1016/j.jad.2025.119801",
+      "title": "A medication-driven magnesium deficiency score is associated with increased depressive symptoms prevalence independent of renal function: Evidence from NHANES 1999-2018.",
+      "journal": "Journal of affective disorders",
+      "pub_date": "2025 Dec 1",
+      "pub_type": "Journal Article",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40630373",
+      "doi": "10.7759/cureus.85555",
+      "title": "Knowledge and Awareness of the Relationship Between Vitamin D Deficiency and Depression Among a Sample of Adults in Saudi Arabia.",
+      "journal": "Cureus",
+      "pub_date": "2025 Jun",
+      "pub_type": "Journal Article",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40647196",
+      "doi": "10.3390/nu17132091",
+      "title": "Sexual Functioning and Depressive Symptoms in Levothyroxine-Treated Women with Postpartum Thyroiditis and Different Vitamin D Status.",
+      "journal": "Nutrients",
+      "pub_date": "2025 Jun 24",
+      "pub_type": "Journal Article",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40647320",
+      "doi": "10.3390/nu17132216",
+      "title": "The Role of Magnesium in Depression, Migraine, Alzheimer's Disease, and Cognitive Health: A Comprehensive Review.",
+      "journal": "Nutrients",
+      "pub_date": "2025 Jul 4",
+      "pub_type": "Review",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40710407",
+      "doi": "10.3390/jpm15070290",
+      "title": "Relationship Between Vitamin D Deficiency and Postpartum Depression.",
+      "journal": "Journal of personalized medicine",
+      "pub_date": "2025 Jul 4",
+      "pub_type": "Review",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40721140",
+      "doi": "10.1016/j.jad.2025.119974",
+      "title": "Joint and nonlinear associations of serum folate and physical activity with depressive symptoms.",
+      "journal": "Journal of affective disorders",
+      "pub_date": "2025 Dec 15",
+      "pub_type": "Journal Article",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40745290",
+      "doi": "10.1186/s12888-025-07183-7",
+      "title": "Serum folate and homocysteine as biomarkers for suicide risk in major depressive disorder: insights in males and younger patients.",
+      "journal": "BMC psychiatry",
+      "pub_date": "2025 Jul 31",
+      "pub_type": "Observational Study",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40821024",
+      "doi": "10.3389/fpsyt.2025.1622796",
+      "title": "Meta-analysis of the effect of vitamin D on depression.",
+      "journal": "Frontiers in psychiatry",
+      "pub_date": "2025",
+      "pub_type": "Review",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40821627",
+      "doi": "10.5937/jomb0-54015",
+      "title": "Vitamin D deficiency, fatigue, and persistent cough as independent predictors of depressive symptoms in sarcoidosis patients.",
+      "journal": "Journal of medical biochemistry",
+      "pub_date": "2025 Jun 13",
+      "pub_type": "Journal Article",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40871684",
+      "doi": "10.3390/nu17162655",
+      "title": "Impact of Vitamin D Status and Supplementation on Brain-Derived Neurotrophic Factor and Mood-Cognitive Outcomes: A Structured Narrative Review.",
+      "journal": "Nutrients",
+      "pub_date": "2025 Aug 16",
+      "pub_type": "Review",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40882806",
+      "doi": "10.1016/j.pnpbp.2025.111481",
+      "title": "A plasma protein profile of antidepressant response to omega-3 fatty acids.",
+      "journal": "Progress in neuro-psychopharmacology & biological psychiatry",
+      "pub_date": "2025 Aug 30",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "40979519",
+      "doi": "10.1016/j.ahjo.2025.100599",
+      "title": "Randomized, placebo-controlled, double-blind clinical trial on the contributions of vitamin D in the control of cardiovascular risk factors, depressive symptoms and suicide risk.",
+      "journal": "American heart journal plus : cardiology research and practice",
+      "pub_date": "2025 Nov",
+      "pub_type": "Journal Article",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "41054638",
+      "doi": "10.7759/cureus.91656",
+      "title": "Association Between Serum Magnesium Levels and Suicidal Behavior in Patients Diagnosed With Depression: A Cross-Sectional Case-Control Study.",
+      "journal": "Cureus",
+      "pub_date": "2025 Sep",
+      "pub_type": "Journal Article",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "41074179",
+      "doi": "10.1186/s12937-025-01199-1",
+      "title": "The relationship between vitamin D levels and depression: a genetically informed study.",
+      "journal": "Nutrition journal",
+      "pub_date": "2025 Oct 10",
+      "pub_type": "Journal Article",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "41081792",
+      "doi": "10.1007/s00210-025-04709-4",
+      "title": "Association between vitamin D deficiency and depressive symptoms among shift workers: Insights from network pharmacology and bioinformatics studies.",
+      "journal": "Naunyn-Schmiedeberg's archives of pharmacology",
+      "pub_date": "2026 Feb",
+      "pub_type": "Journal Article",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "41090004",
+      "doi": "10.4103/jfmpc.jfmpc_1991_24",
+      "title": "Association of vitamin D with depression and anxiety in polycystic ovary syndrome in Saudi Arabia.",
+      "journal": "Journal of family medicine and primary care",
+      "pub_date": "2025 Sep",
+      "pub_type": "Journal Article",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "mood",
+      "pmid": "41173906",
+      "doi": "10.1038/s41398-025-03669-w",
+      "title": "Therapeutic deep brain stimulation targeting BNST-NAc circuit driven large-scale brain networks in treatment-resistant depression.",
+      "journal": "Translational psychiatry",
+      "pub_date": "2025 Oct 31",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((saffron[Title] OR \"omega-3\"[Title] OR EPA[Title] OR \"vitamin D\"[Title] OR folate[Title] OR magnesium[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (depression[Title/Abstract] OR depressive[Title/Abstract] OR mood[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "39244155",
+      "doi": "10.1016/j.clnesp.2024.08.028",
+      "title": "Acute caffeine administration impaired spatial working memory in habitual coffee/tea drinkers: A randomized, placebo-controlled, double-blind study.",
+      "journal": "Clinical nutrition ESPEN",
+      "pub_date": "2024 Dec",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "39495309",
+      "doi": "10.1007/s00213-024-06710-w",
+      "title": "The effects of caffeine mouth rinsing on selective attention as a function of different caffeine concentrations and perceived taste intensity in recreationally active males at rest: a randomized placebo-controlled cross-over trial.",
+      "journal": "Psychopharmacology",
+      "pub_date": "2025 Mar",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "39509039",
+      "doi": "10.1007/s11914-024-00895-x",
+      "title": "Effects of Creatine Monohydrate Supplementation on Muscle, Bone and Brain- Hope or Hype for Older Adults?",
+      "journal": "Current osteoporosis reports",
+      "pub_date": "2024 Nov 1",
+      "pub_type": "Review",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "39564533",
+      "doi": "10.2903/j.efsa.2024.9100",
+      "title": "Creatine and improvement in cognitive function: Evaluation of a health claim pursuant to article 13(5) of regulation (EC) No 1924/2006.",
+      "journal": "EFSA journal. European Food Safety Authority",
+      "pub_date": "2024 Nov",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "39607519",
+      "doi": "10.1007/s00394-024-03514-8",
+      "title": "Concurrent consumption of cocoa flavanols and caffeine does not acutely modulate working memory and attention.",
+      "journal": "European journal of nutrition",
+      "pub_date": "2024 Nov 28",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "39648354",
+      "doi": "10.1177/02698811241303601",
+      "title": "Habitual caffeine intake, genetics and cognitive performance.",
+      "journal": "Journal of psychopharmacology (Oxford, England)",
+      "pub_date": "2025 Mar",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "39670604",
+      "doi": "10.1111/cns.70134",
+      "title": "Caffeine's Neuroprotective Effect on Memory Impairment: Suppression of Adenosine A(2)A Receptor and Enhancement of Tyrosine Hydroxylase in Dopaminergic Neurons Under Hypobaric Hypoxia Conditions.",
+      "journal": "CNS neuroscience & therapeutics",
+      "pub_date": "2024 Dec",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "39816485",
+      "doi": "10.1002/fsn3.4767",
+      "title": "Long-Term Creatine Supplementation Improves Cognitive and Hippocampal Structural Plasticity Impairments in a D-Gal-Induced Aging Model via Increasing CK-BB Activity in the Brain.",
+      "journal": "Food science & nutrition",
+      "pub_date": "2025 Jan",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "39854799",
+      "doi": "10.1016/j.nutres.2024.12.008",
+      "title": "l-theanine: From tea leaf to trending supplement - does the science match the hype for brain health and relaxation?",
+      "journal": "Nutrition research (New York, N.Y.)",
+      "pub_date": "2025 Feb",
+      "pub_type": "Research Support, N.I.H., Extramural",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "39948152",
+      "doi": "10.1038/s41598-025-89680-z",
+      "title": "Effects of taurine combined with caffeine on repetitive sprint exercise performance and cognition in a hypoxic environment.",
+      "journal": "Scientific reports",
+      "pub_date": "2025 Feb 13",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "39959708",
+      "doi": "10.1007/s13205-025-04224-6",
+      "title": "Exploring therapeutic potential of Bacopa monnieri bioactive compounds against Alzheimer's and Parkinson's diseases.",
+      "journal": "3 Biotech",
+      "pub_date": "2025 Mar",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "40026748",
+      "doi": "10.4103/joacp.joacp_417_23",
+      "title": "Comparison of the effects of two amino acids, Gamma-aminobutyric acid (GABA) and L-theanine, on sedation, anxiety, and cognition in preoperative surgical patients - A randomized controlled study.",
+      "journal": "Journal of anaesthesiology, clinical pharmacology",
+      "pub_date": "2025 Jan-Mar",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "40131698",
+      "doi": "10.1007/s12035-025-04845-1",
+      "title": "Caffeine and Exercise: A Dual Approach to Combat Cognitive Decline Induced by REM Sleep Deprivation.",
+      "journal": "Molecular neurobiology",
+      "pub_date": "2025 Aug",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "40335666",
+      "doi": "10.1007/s00213-025-06775-1",
+      "title": "A systematic review and meta-analysis of the acute effect of caffeine on attention.",
+      "journal": "Psychopharmacology",
+      "pub_date": "2025 Sep",
+      "pub_type": "Meta-Analysis",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "40395689",
+      "doi": "10.1002/trc2.70101",
+      "title": "Creatine monohydrate pilot in Alzheimer's: Feasibility, brain creatine, and cognition.",
+      "journal": "Alzheimer's & dementia (New York, N. Y.)",
+      "pub_date": "2025 Apr-Jun",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "40474216",
+      "doi": "10.1186/s13102-024-01052-8",
+      "title": "Effect of caffeine on attack decision-making in trained beach volleyball players following prolonged cognitive effort induced by social media use: a randomized, single-blind, crossover pilot study.",
+      "journal": "BMC sports science, medicine & rehabilitation",
+      "pub_date": "2025 Jun 5",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "40547867",
+      "doi": "10.1016/j.ibneur.2025.05.015",
+      "title": "Effect of L-theanine on cerebellar granule cell migration related to cognitive disorders.",
+      "journal": "IBRO neuroscience reports",
+      "pub_date": "2025 Dec",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "40601692",
+      "doi": "10.1371/journal.pone.0327385",
+      "title": "Examining recent effects of caffeine on default mode network and dorsal attention network anticorrelation in youth.",
+      "journal": "PloS one",
+      "pub_date": "2025",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "40609195",
+      "doi": "10.1016/j.jaim.2025.101164",
+      "title": "Comparative efficacy of Medhya Rasayana,Bacopa monnieri, and Centella asiatica in enhancing memory and IQ of 8-10 year-old healthy boys: A prakriti-based double-blind, randomized controlled trial.",
+      "journal": "Journal of Ayurveda and integrative medicine",
+      "pub_date": "2025 Jul-Aug",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "40614562",
+      "doi": "10.1016/j.pscychresns.2025.112006",
+      "title": "Understanding caffeine's impact on sustained attention in early phase psychosis: Unveiling cognitive insights through the use of EEG.",
+      "journal": "Psychiatry research. Neuroimaging",
+      "pub_date": "2025 Aug",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "40670616",
+      "doi": "10.1038/s41598-025-11737-w",
+      "title": "Caffeine reduces accuracy in face recognition memory consolidation.",
+      "journal": "Scientific reports",
+      "pub_date": "2025 Jul 16",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "40744234",
+      "doi": "10.1016/j.tjnut.2025.07.016",
+      "title": "Creatine Supplementation for Cognition: A Critical Perspective on Promise, Proof, and Public Perception.",
+      "journal": "The Journal of nutrition",
+      "pub_date": "2025 Oct",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "40789769",
+      "doi": "10.1017/S0007114525104169",
+      "title": "High-dose L-theanine-caffeine combination improves neurobehavioural and neurophysiological measures of selective attention in acutely sleep-deprived young adults: a double-blind, placebo-controlled crossover study.",
+      "journal": "The British journal of nutrition",
+      "pub_date": "2025 Aug 14",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "40869757",
+      "doi": "10.3390/ijerph22081171",
+      "title": "Caffeine in Aging Brains: Cognitive Enhancement, Neurodegeneration, and Emerging Concerns About Addiction.",
+      "journal": "International journal of environmental research and public health",
+      "pub_date": "2025 Jul 24",
+      "pub_type": "Review",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "40885226",
+      "doi": "10.1016/j.physbeh.2025.115078",
+      "title": "Does habitual caffeine consumption moderate the association between a high fat and sugar diet and self-reported and episodic memory impairment in humans?",
+      "journal": "Physiology & behavior",
+      "pub_date": "2025 Dec 1",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "40888092",
+      "doi": "10.1080/15502783.2025.2555249",
+      "title": "Transcranial direct current stimulation combined with caffeine promotes executive function in healthy females.",
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "pub_date": "2025 Dec",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "40968664",
+      "doi": "10.1021/acschemneuro.5c00475",
+      "title": "Intraventricular Creatine Treatment Attenuates Alzheimer's Disease-Related Neuropathological Changes and Memory Impairment via Inhibiting STAT1 Phosphorylation.",
+      "journal": "ACS chemical neuroscience",
+      "pub_date": "2025 Oct 1",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "40983455",
+      "doi": "10.1016/j.jphs.2025.08.002",
+      "title": "Theanine boosts frontal theta and hippocampal beta and gamma oscillations for familiarity in object recognition.",
+      "journal": "Journal of pharmacological sciences",
+      "pub_date": "2025 Nov",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "41035862",
+      "doi": "10.3389/fmed.2025.1657004",
+      "title": "\"An exploratory randomized, double-blind, placebo- controlled trial protocol on combined Cognitive Behavioral Therapy and adjunct Brahmi (Bacopa monnieri) tablets in Premenstrual Syndrome management\".",
+      "journal": "Frontiers in medicine",
+      "pub_date": "2025",
+      "pub_type": "Journal Article",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "41280460",
+      "doi": "10.3389/fpsyt.2025.1667639",
+      "title": "The role of brain creatine in behavioral health conditions.",
+      "journal": "Frontiers in psychiatry",
+      "pub_date": "2025",
+      "pub_type": "Review",
+      "query": "((caffeine[Title] OR theanine[Title] OR creatine[Title] OR citicoline[Title] OR \"alpha-GPC\"[Title] OR bacopa[Title] OR \"lion's mane\"[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title/Abstract] OR attention[Title/Abstract] OR memory[Title/Abstract] OR executive[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41312064",
+      "doi": "10.7759/cureus.97842",
+      "title": "Vitamin D Supplementation in Orthopedic Trauma: Influence on Immune Modulation, Fracture Healing, and Infection Outcomes.",
+      "journal": "Cureus",
+      "pub_date": "2025 Nov",
+      "pub_type": "Review",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41312188",
+      "doi": "10.7573/dic.2025-7-7",
+      "title": "N-acetylcysteine in paediatrics: a review of efficacy, safety and dosing strategies in respiratory care.",
+      "journal": "Drugs in context",
+      "pub_date": "2025",
+      "pub_type": "Review",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41323991",
+      "doi": "10.3389/fnut.2025.1665593",
+      "title": "Immune imbalance mediates the relationship between plasma vitamin D concentration and preeclampsia in Chinese pregnant women: a case-control study.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2025",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41324162",
+      "doi": "10.4196/kjpp.25.266",
+      "title": "Identification of novel molecular subtypes in ovarian cancer via zinc homeostasis-related genes and their prognostic and immune landscape implications.",
+      "journal": "The Korean journal of physiology & pharmacology : official journal of the Korean Physiological Society and the Korean Society of Pharmacology",
+      "pub_date": "2026 Mar 1",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41327335",
+      "doi": "10.1186/s40360-025-01036-5",
+      "title": "Therapeutic potential of zinc oxide/berberine nanoparticles in mitigating acute respiratory distress syndrome: in vivo and in silico approaches.",
+      "journal": "BMC pharmacology & toxicology",
+      "pub_date": "2025 Dec 1",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41346664",
+      "doi": "10.3389/fped.2025.1680809",
+      "title": "Predictive value of vitamin D levels in neonatal respiratory failure: a retrospective study.",
+      "journal": "Frontiers in pediatrics",
+      "pub_date": "2025",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41351365",
+      "doi": "10.14715/cmb/2025.71.11.13",
+      "title": "Vaccination and vitamin D in relation to disease severity and mortality in patients with COVID-19 disease: a follow-up study.",
+      "journal": "Cellular and molecular biology (Noisy-le-Grand, France)",
+      "pub_date": "2025 Dec 6",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41356284",
+      "doi": "10.1155/jimr/5810208",
+      "title": "Immunomodulatory Mechanisms and Therapeutic Potential of Vitamin D in Immune Thrombocytopenia.",
+      "journal": "Journal of immunology research",
+      "pub_date": "2025",
+      "pub_type": "Review",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41376877",
+      "doi": "10.1007/s13205-025-04649-z",
+      "title": "Multi-functional zinc oxide nanoparticles (ZnONps inspired from Myristica Fragrans seed extract against cervical Cancer, pyogenic bacteria and inflammatory response. a promising potential of ZnONps in cancer nanotherapy, infection control and inflammation management.",
+      "journal": "3 Biotech",
+      "pub_date": "2026 Jan",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41377542",
+      "doi": "10.5492/wjccm.v14.i4.108638",
+      "title": "Reactive oxygen species elevations in human immune cell subsets during sepsis are mitigated by norepinephrine and N-acetylcysteine.",
+      "journal": "World journal of critical care medicine",
+      "pub_date": "2025 Dec 9",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41412509",
+      "doi": "10.1016/j.fsi.2025.111065",
+      "title": "Vitamin D(3) pretreatment outperforms post-infection supplementation in suppressing ferroptosis and enhancing bacterial clearance during Edwardsiella tarda infection in hybrid yellow catfish (Pelteobagrus fulvidraco♀ ×Pelteobagrus vachelli♂).",
+      "journal": "Fish & shellfish immunology",
+      "pub_date": "2026 Feb",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41413700",
+      "doi": "10.1038/s41598-025-32831-z",
+      "title": "Chromatin and transcriptional dynamics underlying the immune-modulatory effects of vitamin D(3) in vivo.",
+      "journal": "Scientific reports",
+      "pub_date": "2025 Dec 18",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41436955",
+      "doi": "10.1186/s12879-025-12297-0",
+      "title": "Nutritional and inflammatory biomarkers for COVID-19 susceptibility: a focus on vitamin D, potassium, and hematological indices.",
+      "journal": "BMC infectious diseases",
+      "pub_date": "2025 Dec 23",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41438974",
+      "doi": "10.1016/j.eclinm.2025.103682",
+      "title": "Association between maternal vitamin D supplementation during pregnancy and the risk of acute respiratory infections in offspring: a systematic review and meta-analysis.",
+      "journal": "EClinicalMedicine",
+      "pub_date": "2025 Dec",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41456264",
+      "doi": "10.14715/cmb/2025.71.12.6",
+      "title": "Characterization of COVID-19 patients in clinical, epidemiological, and laboratory settings: the role of vitamin D binding protein and vitamin D level in severity.",
+      "journal": "Cellular and molecular biology (Noisy-le-Grand, France)",
+      "pub_date": "2025 Dec 28",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41498010",
+      "doi": "10.1155/omcl/9794537",
+      "title": "Correction to \"N-Acetylcysteine Reduces ROS-Mediated Oxidative DNA Damage and PI3K/Akt Pathway Activation Induced by Helicobacter pylori Infection\".",
+      "journal": "Oxidative medicine and cellular longevity",
+      "pub_date": "2025",
+      "pub_type": "Published Erratum",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41508942",
+      "doi": "10.3923/pjbs.2025.640.648",
+      "title": "Role of Vitamin D Levels in COVID-19 Disease Severity: A Multicenter Retrospective Study from Qatar.",
+      "journal": "Pakistan journal of biological sciences : PJBS",
+      "pub_date": "2025 Dec",
+      "pub_type": "Multicenter Study",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41515234",
+      "doi": "10.3390/nu18010116",
+      "title": "Modulation of Peripheral Immune Cells Following Vitamin D(3) Supplementation in Vitamin D-Insufficient Cancer Patients.",
+      "journal": "Nutrients",
+      "pub_date": "2025 Dec 29",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41583466",
+      "doi": "10.3389/fimmu.2025.1691179",
+      "title": "Integrating zinc homeostasis network and immune landscape: a five-gene prognostic framework for precision oncology in lung adenocarcinoma.",
+      "journal": "Frontiers in immunology",
+      "pub_date": "2025",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41717585",
+      "doi": "10.12688/f1000research.144077.2",
+      "title": "VDR mRNA Expression And Serum Vitamin D Levels in Post-Covid Vaccinated Patients.",
+      "journal": "F1000Research",
+      "pub_date": "2024",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42006107",
+      "doi": "10.12865/CHSJ.51.04.07",
+      "title": "Prevalence of Vitamin D Deficiency and its Association with Disease Severity in Children Hospitalized with Acute Respiratory Infections.",
+      "journal": "Current health sciences journal",
+      "pub_date": "2025 Oct-Dec",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "42226998",
+      "doi": "10.32598/ARI.80.5.3611",
+      "title": "The Effect of Vitamin D on the Humoral Immune Response of Calves to the Sheeppox Virus Vaccine.",
+      "journal": "Archives of Razi Institute",
+      "pub_date": "2025 Sep",
+      "pub_type": "Journal Article",
+      "query": "((\"vitamin D\"[Title] OR zinc[Title] OR elderberry[Title] OR echinacea[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title/Abstract] OR infection[Title/Abstract] OR influenza[Title/Abstract] OR COVID[Title/Abstract] OR immune[Title/Abstract])) AND 2015:2025[pdat] AND hasabstract[text]"
+    }
+  ]
+}
