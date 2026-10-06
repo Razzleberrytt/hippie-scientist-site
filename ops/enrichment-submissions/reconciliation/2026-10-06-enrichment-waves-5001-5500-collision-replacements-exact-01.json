@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5001-5500",
+  "rows": [
+    {
+      "wave": 5021,
+      "category": "mitochondrial_energy",
+      "pmid": "42528893",
+      "title": "Effects of Lactiplantibacillus plantarum supplementation on exercise performance and recovery: a systematic review and narrative synthesis.",
+      "abstract": "Lactiplantibacillus plantarum is a prominent probiotic species in sports nutrition; however, its potential ergogenic benefits have not yet been systematically consolidated, particularly regarding strain-specific variations. This systematic review aimed to assess the efficacy of L. plantarum supplementation on exercise performance and recovery in healthy cohorts, while identifying differential effects across distinct strains. Randomized controlled trials (RCTs) were retrieved from PubMed, Web of Science, Scopus, SPORTDiscus, and the Cochrane Library from database inception through March 11, 2026. Risk of bias was assessed using the Cochrane RoB 2 tool. Given the substantial heterogeneity in probiotic strains, dosing regimens, and outcome measures, a narrative synthesis was conducted to integrate the findings. The efficacy of L. plantarum supplementation is highly strain-specific. TWK10 exhibited the highest evidential consistency in evidence, significantly enhancing aerobic endurance and accelerating the clearance of blood lactate and ammonia; notably, its heat-inactivated form (postbiotics) retained these core metabolic benefits. PS128 functioned primarily as a recovery-oriented strain, effectively mitigating exercise-induced muscle damage (EIMD), suppressing systemic inflammation, and preserving neuromuscular efficiency, although its impact on peak performance metrics remained equivocal. PL-02 showed preliminary potential in attenuating markers of muscle damage and inflammation, albeit within a limited evidence base. Conversely, interventions using unspecified L. plantarum strains failed to confer demonstrable or consistent benefits. The RoB 2 assessment indicated moderate methodological quality overall, with primary deficiencies identified in allocation concealment and prospective trial registration. Furthermore, the geographical clustering of studies in Taiwan, China, and the reliance on small-to-moderate sample sizes constrain the global generalizability of these findings. Supplementation with L. plantarum can effectively enhance exercise performance and facilitate recovery in healthy individuals, with outcomes fundamentally dictated by strain specificity. Future large-scale, multicenter, and longitudinal RCTs are warranted to fortify the evidence base and confirm these findings across more diverse populations. https://www.crd.york.ac.uk/PROSPERO/myprospero, identifier CRD420261292490.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13415575/",
+      "pdf_link": "https://doi.org/10.3389/fnut.2026.1881322",
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact collision replacement verification"
+    },
+    {
+      "wave": 5026,
+      "category": "mitochondrial_energy",
+      "pmid": "42487402",
+      "title": "Efficacy and Safety of Enzyme-Derived Deer Velvet Extract Supplementation on Adults with Chronic Fatigue: a Randomized, Placebo-Controlled, Double-Blind Trial.",
+      "abstract": "Chronic Fatigue Syndrome (CFS) significantly impairs health-related quality of life in working-age populations, leading many individuals to use nutritional supplements for fatigue management. YC-1101, an enzymatically derived deer velvet extract, has demonstrated anti-fatigue potential in preclinical studies; however, clinical evidence in humans remains limited. This study aimed to evaluate the efficacy and safety of YC-1101 in adults with CFS. In an 8-week randomized controlled trial, 100 patients with CFS were assigned to either the YC-1101 or the placebo group. Subjective fatigue was assessed at baseline, at an interim point, and at the end of the intervention. Fatigue-related blood biomarkers and cardiorespiratory endurance were measured at baseline and postintervention. Compared with placebo, YC-1101 significantly improved Factor 1 (general and physical fatigue) of the Multidimensional Fatigue Inventory (MFI) at weeks 4 and 8, with a significant group-by-time interaction (p = 0.002), and improved the MFI items \"I feel tired\" and \"I get tired easily\" at both time points (group-by-time interaction p = 0.014 for each). YC-1101 also significantly improved fatigue-related motivation and functional interference on the Fatigue Severity Scale (FSS) at weeks 4 and 8, with significant group-by-time interactions (p = 0.040). After excluding outliers, the exercise distance to exhaustion was significantly greater in the YC-1101 group (p = 0.031), and lactate levels showed a significant group-by-time interaction at week 8 (p = 0.049). No significant differences in the safety outcomes were observed between the groups, and no adverse events were reported. Daily supplementation with YC-1101 for 8 weeks was safe, enhanced fatigue resistance, and improved exercise performance in adults with CFS, supporting its potential use in treating chronic fatigue.",
+      "journal": "Journal of microbiology and biotechnology",
+      "pub_date": "2026-Jul-09",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13396742/",
+      "pdf_link": "https://doi.org/10.4014/jmb.2601.01055",
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact collision replacement verification"
+    },
+    {
+      "wave": 5033,
+      "category": "mitochondrial_energy",
+      "pmid": "42577968",
+      "title": "VSL#3® supplementation improves fatigue in long COVID: results from the DELong#3 randomized placebo-controlled trial.",
+      "abstract": "Long COVID is frequently characterized by persistent fatigue and impaired quality of life. Increasing evidence suggests that gut microbiota dysbiosis and immune dysregulation may contribute to symptom persistence. We evaluated the effects of the probiotic formulation VSL#3® in patients with long COVID. In this randomized, double-blind, placebo-controlled trial (ClinicalTrials.gov identifier: NCT05874089), patients with long COVID and clinically relevant fatigue received VSL#3® or placebo for 4 weeks. The primary endpoint was fatigue improvement assessed by the Chalder Fatigue Scale (CFS). Secondary and exploratory analyses included patient-reported outcomes, gut microbiota profiling, immune phenotyping, cytokine analyses, and targeted metabolomics. Forty-eight patients completed the study (placebo n = 25; VSL#3® n = 23). VSL#3® supplementation significantly improved fatigue compared with placebo, with a greater reduction in CFS score (24.24% vs. 6.06%; p = 0.037) and a higher proportion of responders (68% vs. 35.7%; p = 0.019). Clinical benefit persisted after treatment discontinuation and was accompanied by improvements in selected quality-of-life and gastrointestinal symptom domains. VSL#3® supplementation was associated with selective enrichment of health-associated bacterial taxa, including Bifidobacterium, Lactobacillus, Ruminococcus, and Coprococcus, together with modulation of inflammatory and immune-related pathways. Exploratory multi-omic analyses identified coordinated associations among microbiota-derived metabolites, immune markers, and clinical outcomes. VSL#3® supplementation improved fatigue and selected clinical outcomes in patients with long COVID and was associated with coordinated microbiota and immune changes. These findings support further investigation of microbiota-targeted interventions in long COVID.",
+      "journal": "British journal of biomedical science",
+      "pub_date": "2026",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13455643/",
+      "pdf_link": "https://doi.org/10.3389/bjbs.2026.16993",
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact collision replacement verification"
+    },
+    {
+      "wave": 5034,
+      "category": "mitochondrial_energy",
+      "pmid": "42601943",
+      "title": "Efficacy and safety of higher versus lower protein provision with meaningful dose separation in critically ill adults: a systematic review and meta-analysis of randomized controlled trials.",
+      "abstract": "Optimal protein provision in critically ill patients remains uncertain. We conducted a systematic review and meta-analysis of randomized controlled trials to evaluate the efficacy and safety of higher versus lower or standard protein provision in critically ill adults. Randomized controlled trials comparing higher versus lower/standard protein provision in critically ill adults were included. The primary analysis focused on trials with a between-group protein difference of at least 0.3 g/kg/day. Mortality was analyzed separately by time point, including 28/30-day, 60-day, 90-day, in-hospital, and ICU mortality. Secondary outcomes included mechanical ventilation duration, ICU and hospital length of stay, nutrition/metabolic markers, muscle-related outcomes, and safety. Risk ratios (RRs) and mean differences (MDs) were pooled using random-effects models. Certainty of evidence was assessed using GRADE. Twenty-six studies were included. Higher protein provision did not significantly reduce mortality at any time point. For 28/30-day mortality, no statistically significant difference was observed, although the point estimate was lower with higher protein provision (RR = 0.82, 95% CI 0.58-1.17; I 2 = 0%). No significant differences were observed for 60-day mortality (RR = 0.85, 95% CI 0.52-1.39; I 2 = 51.1%), 90-day mortality (RR = 1.03, 95% CI 0.93-1.14; I 2 = 0%), in-hospital mortality (RR = 1.04, 95% CI 0.78-1.39; I 2 = 0%), or ICU mortality (RR = 0.84, 95% CI 0.57-1.26; I 2 = 0%). Higher protein provision did not significantly shorten mechanical ventilation duration (MD = -0.74 days, 95% CI-1.92-0.43; I 2 = 79.0%), ICU stay, or hospital stay. Higher protein provision was associated with a more favorable Day 3 nitrogen balance (MD = 6.39 g/day, 95% CI 2.77-10.01; I 2 = 51.7%), but was not associated with a significant increase in gastrointestinal intolerance. Higher protein provision did not significantly reduce mortality or consistently improve clinical recovery outcomes in critically ill adults. It was associated with more favorable early nitrogen balance, but evidence for patient-centered benefit and safety remains limited.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13472815/",
+      "pdf_link": "https://doi.org/10.3389/fnut.2026.1893988",
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact collision replacement verification"
+    },
+    {
+      "wave": 5040,
+      "category": "mitochondrial_energy",
+      "pmid": "41470847",
+      "title": "Effects of Greek Yogurt Supplementation and Exercise on Markers of Bone Turnover and Inflammation in Older Adult Exercisers: An 8-Week Pilot Intervention Trial.",
+      "abstract": "This 8-week randomized pilot intervention trial examined the effects of Greek yogurt (GY) supplementation on markers of bone turnover and inflammation in older adult exercisers. A total of 48 participants aged 55+ completed this 8-week intervention: 33 exercisers randomized to exercisers receiving GY (GYEX, n = 18, 12 females) and exercisers without GY (NYEX, n = 15, 12 females), and a group of 15 age-matched, community-dwelling, non-exercisers also receiving GY (GYNE, n = 15, 10 females). Exercisers were enrolled in a moderate-intensity community-based exercise program. GYEX and GYNE supplemented their diet with two daily servings of 175 g of GY (17 g protein, 225 mg calcium per serving). Assessments at baseline and week 8 included dietary intake, body composition, and fasting blood samples for bone markers and pro-inflammatory cytokines. Body mass increased modestly across groups (time effect, p = 0.033), with no changes in body fat. C-terminal telopeptide of type I collagen (bone resorption marker) increased 14% in GYEX (time × group interaction, p = 0.022). Osteoprotegerin (bone formation regulator) decreased overall by 4% (time effect, p = 0.002). Dickkopf-1 (bone formation inhibitor) increased by 13% (p = 0.008) in GYNE but not in exercisers (time × group interaction, p = 0.018). Interleukin 1β and interleukin 6 showed significant interactions (p = 0.043 and p = 0.023), where interleukin 1β increased by 80% (p = 0.007) and interleukin 6 decreased by 89% (p < 0.001) in GYNE, but remained stable in exercisers. Tumor necrosis factor alpha remained unchanged. Although the observed effects of GY on the assessed biomarkers were limited and should be interpreted cautiously due to pilot design and statistical constraints, they highlight the need for longer interventions to determine whether whole-food dairy proteins can meaningfully support skeletal and immune health in older adults.",
+      "journal": "Nutrients",
+      "pub_date": "2025-Dec-13",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12735629/",
+      "pdf_link": "https://doi.org/10.3390/nu17243902",
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact collision replacement verification"
+    },
+    {
+      "wave": 5053,
+      "category": "mitochondrial_energy",
+      "pmid": "41385355",
+      "title": "Effects of supplemental protein in older people: an overview of meta-analyses.",
+      "abstract": "Benefits of supplemental protein in older people in different health states and settings are uncertain. This review aimed to determine the effects of supplemental protein on health outcomes in older people. An overview of reviews. Cochrane Library, MEDLINE (Ovid), EMBASE (Ovid), Cumulative Index to Nursing and Allied Health Literature (CINAHL) (EBSCOhost) and Google Scholar were searched from January 1990 to August 2024. Systematic reviews with meta-analyses reporting protein intake's effect on health outcomes were included. Methodological quality was assessed using the Assessing Methodological Quality of Systematic Reviews 2 critical appraisal tool. Inconsistency between results from different reviews was explored by examining effects by population type [healthy people, living with long-term conditions (LTCs), hospital inpatients] and whether supplementation was given with or without concomitant exercise. Thirty-three reviews with meta-analyses collating data from 441 unique studies were included. There was no increase in muscle mass, strength or physical performance from protein supplementation in older people in general, nor in healthy older people. There was medium-certainty evidence of at least small increases in muscle mass and strength in older people with LTCs, and the benefits of protein supplementation were more certain with concomitant exercise. Evidence suggests that protein supplementation in hospital patients with hip fractures reduced the number of medical complications. Protein supplementation is effective for improving muscle mass and strength in older people with LTCs and medical complications in older hospitalised patients with hip fractures. The evidence does not support its routine use in other groups of healthy older people.",
+      "journal": "Age and ageing",
+      "pub_date": "2025-Nov-28",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12700089/",
+      "pdf_link": "https://doi.org/10.1093/ageing/afaf351",
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact collision replacement verification"
+    },
+    {
+      "wave": 5476,
+      "category": "mitochondrial_energy",
+      "pmid": "41461265",
+      "title": "Effects of EPA+DHA and Corn Oil Supplementation on PUFA Concentrations across Plasma Lipid Pools and on Downstream Oxylipins: Exploratory Results from a Randomized Controlled Trial in Healthy Humans.",
+      "abstract": "Eicosapentaenoic acid (EPA) and docosahexaenoic acid (DHA) may improve inflammatory conditions. We previously demonstrated that supplementation with EPA+DHA in adults elevates anti-inflammatory oxylipins in human plasma and adipose tissue. However, the localization of EPA/DHA in plasma lipid pools [phosphatidylcholines (PC), triglycerides (TAG), cholesteryl esters (CE), and nonesterified fatty acids (NEFA)] and how this relates to the downstream oxylipin levels remains unknown. This study aimed to identify the incorporation of supplemental EPA+DHA into plasma PC, TAG, CE, NEFA, and the impact on downstream oxylipins. We conducted an exploratory analysis with available samples (n = 21, 20 female, 1 male, age 35-49 y) from a previous double-blind, placebo-controlled trial of participants randomly assigned to consume either 3 g of EPA+DHA concentrate (1.1 g EPA + 0.8 g DHA) or corn oil (CO) [1.65 g linoleic acid (LA) + 0.81 g oleic acid] daily for 12 wk. Plasma was analyzed using gas chromatography and mass spectrometry to quantify fatty acids and oxylipins, respectively. EPA+DHA supplementation increased EPA levels across PC, CE, NEFA, and TAG pools, and increased DHA levels in PC, CE, and TAG pools. Conversely, supplementation decreased LA levels in PC, CE, and NEFA pools, and decreased arachidonic acid (AA) levels in PC and NEFA pools. EPA+DHA supplementation also led to significant shifts in oxylipin concentrations compared with baseline, with predominant increases in anti-inflammatory and decreases in proinflammatory oxylipins. CO supplementation decreased TAG AA levels and modified concentrations of several AA-derived oxylipins. Levels of EPA+DHA and derived oxylipins were significantly higher across lipid pools following supplementation with EPA+DHA compared with CO. These findings offer insights into supplemental EPA+DHA localization to different circulating lipid pools, which have implications for understanding how to mitigate systemic inflammation. Furthermore, studies are needed to evaluate relationships between the changes in polyunsaturated fatty acids, oxylipins, and markers of inflammation. The study was registered at www.isrctn.com as ISRCTN96712688.",
+      "journal": "The Journal of nutrition",
+      "pub_date": "2026-Feb",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12975358/",
+      "pdf_link": "https://doi.org/10.1016/j.tjnut.2025.101274",
+      "abstract_verified": true,
+      "source": "NCBI PubMed exact collision replacement verification"
+    }
+  ]
+}
