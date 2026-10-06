@@ -6,9 +6,9 @@ import { fileURLToPath } from 'node:url'
 
 import {
   governorDispatchInputs,
-  metricoolDispatchInputs,
   parseGovernorComment,
-  parseMetricoolPublishComment,
+  parsePublisherComment,
+  publisherDispatchInputs,
   sessionFromChangedFiles,
   shouldInspectSessionCandidate,
   validateCurrentMainAncestry,
@@ -68,39 +68,46 @@ test('rejects release commands that try to redefine lease scope', () => {
   )
 })
 
-test('parses a strict future owner Metricool publish command into bounded workflow inputs', () => {
-  const request = parseMetricoolPublishComment(
-    '/publish-metricool {"publication_at":"2026-08-31T20:30:00-04:00","networks":["TikTok","tiktok"]}',
+test('parses a strict future owner THS Publisher command into canonical workflow inputs', () => {
+  const request = parsePublisherComment(
+    '/publish-ths {"experiment_id":"EXP-014","research_object_id":"rhodiola-vs-ashwagandha","publication_at":"2026-08-31T20:30:00-04:00","platform":"TikTok"}',
     { now: new Date('2026-08-31T20:00:00-04:00') },
   )
   assert.deepEqual(request, {
+    experimentId: 'EXP-014',
+    researchObjectId: 'rhodiola-vs-ashwagandha',
     publicationAt: '2026-08-31T20:30:00-04:00',
-    networks: ['tiktok'],
+    platform: 'tiktok',
   })
-  assert.deepEqual(metricoolDispatchInputs(request), {
+  assert.deepEqual(publisherDispatchInputs(request), {
+    experiment_id: 'EXP-014',
+    research_object_id: 'rhodiola-vs-ashwagandha',
     publication_at: '2026-08-31T20:30:00-04:00',
-    networks: 'tiktok',
-    auto_publish: 'true',
+    platform: 'tiktok',
   })
 })
 
-test('Metricool owner publish command rejects unsafe fields, unsupported networks, stale time, and offset-less time', () => {
+test('THS Publisher owner command rejects unsafe fields, unsupported platforms, bad identity, stale time, and offset-less time', () => {
   const now = new Date('2026-08-31T20:00:00-04:00')
   assert.throws(
-    () => parseMetricoolPublishComment('/publish-metricool {"publication_at":"2026-08-31T20:30:00-04:00","networks":["tiktok"],"token":"secret"}', { now }),
-    /unsupported Metricool publish fields: token/,
+    () => parsePublisherComment('/publish-ths {"experiment_id":"EXP-014","research_object_id":"rhodiola-vs-ashwagandha","publication_at":"2026-08-31T20:30:00-04:00","platform":"tiktok","token":"secret"}', { now }),
+    /unsupported THS Publisher fields: token/,
   )
   assert.throws(
-    () => parseMetricoolPublishComment('/publish-metricool {"publication_at":"2026-08-31T20:30:00-04:00","networks":["youtube"]}', { now }),
-    /unsupported Metricool publish networks: youtube/,
+    () => parsePublisherComment('/publish-ths {"experiment_id":"EXP-014","research_object_id":"rhodiola-vs-ashwagandha","publication_at":"2026-08-31T20:30:00-04:00","platform":"youtube"}', { now }),
+    /unsupported THS Publisher platform: youtube/,
   )
   assert.throws(
-    () => parseMetricoolPublishComment('/publish-metricool {"publication_at":"2026-08-31T19:59:00-04:00","networks":["tiktok"]}', { now }),
+    () => parsePublisherComment('/publish-ths {"experiment_id":"EXP-014","research_object_id":"rhodiola-vs-ashwagandha","publication_at":"2026-08-31T19:59:00-04:00","platform":"tiktok"}', { now }),
     /at least two minutes in the future/,
   )
   assert.throws(
-    () => parseMetricoolPublishComment('/publish-metricool {"publication_at":"2026-08-31T20:30:00","networks":["tiktok"]}', { now }),
+    () => parsePublisherComment('/publish-ths {"experiment_id":"EXP-014","research_object_id":"rhodiola-vs-ashwagandha","publication_at":"2026-08-31T20:30:00","platform":"tiktok"}', { now }),
     /offset-aware ISO timestamp/,
+  )
+  assert.throws(
+    () => parsePublisherComment('/publish-ths {"experiment_id":"bad","research_object_id":"rhodiola-vs-ashwagandha","publication_at":"2026-08-31T20:30:00-04:00","platform":"tiktok"}', { now }),
+    /experiment_id must match EXP-###/,
   )
 })
 
@@ -155,9 +162,9 @@ test('ready transition requires the head to contain exact current main', () => {
   )
 })
 
-test('workflow is owner-only, serialized, main-trusted, and dispatches the governed free-plan connector preparation path', () => {
+test('workflow is owner-only, serialized, main-trusted, and dispatches canonical THS Publisher work', () => {
   const workflow = fs.readFileSync(path.join(repoRoot, '.github', 'workflows', 'owner-control-plane-bridge.yml'), 'utf8')
-  const connectorWorkflow = fs.readFileSync(path.join(repoRoot, '.github', 'workflows', 'metricool-connector-publication.yml'), 'utf8')
+  const publisherWorkflow = fs.readFileSync(path.join(repoRoot, '.github', 'workflows', 'ths-publisher-publication.yml'), 'utf8')
   assert.match(workflow, /issue_comment:/)
   assert.match(workflow, /github\.event\.comment\.user\.login == github\.repository_owner/)
   assert.match(workflow, /group:\s*owner-control-plane-bridge-global/)
@@ -165,16 +172,17 @@ test('workflow is owner-only, serialized, main-trusted, and dispatches the gover
   assert.match(workflow, /pull-requests:\s*write/)
   assert.match(workflow, /ref:\s*main/)
   assert.match(workflow, /gh workflow run enrichment-governor-transaction\.yml/)
-  assert.match(workflow, /startsWith\(github\.event\.comment\.body, '\/publish-metricool '\)/)
-  assert.match(workflow, /gh workflow run metricool-connector-publication\.yml/)
-  assert.match(workflow, /auto_publish=true/)
-  assert.match(connectorWorkflow, /group:\s*metricool-publication/)
-  assert.match(connectorWorkflow, /metricool-dispatch-reservation-/)
-  assert.match(connectorWorkflow, /metricool-connector-dispatch-v1/)
-  assert.match(connectorWorkflow, /reserved-awaiting-connector/)
-  assert.match(connectorWorkflow, /Provider call: not performed by GitHub Actions/)
-  assert.doesNotMatch(connectorWorkflow, /METRICOOL_USER_TOKEN/)
-  assert.doesNotMatch(connectorWorkflow, /X-Mc-Auth/)
+  assert.match(workflow, /startsWith\(github\.event\.comment\.body, '\/publish-ths '\)/)
+  assert.match(workflow, /gh workflow run ths-publisher-publication\.yml/)
+  assert.match(workflow, /research_object_id=\$RESEARCH_OBJECT_ID/)
+  assert.doesNotMatch(workflow, /publish-metricool/)
+  assert.doesNotMatch(workflow, /metricool-connector-publication\.yml/)
+  assert.match(publisherWorkflow, /THS_PUBLISHER_ADMIN_TOKEN/)
+  assert.match(publisherWorkflow, /THS_RESEARCH_OBJECT_ID/)
+  assert.match(publisherWorkflow, /upload-tiktok-draft\.mjs/)
+  assert.match(publisherWorkflow, /\/api\/publisher\/enqueue → \/api\/publisher\/dispatch/)
+  assert.doesNotMatch(publisherWorkflow, /METRICOOL_USER_TOKEN/)
+  assert.doesNotMatch(publisherWorkflow, /TIKTOK_CLIENT_SECRET/)
   assert.match(workflow, /gh pr ready/)
   assert.match(workflow, /Verify transition preserved exact head and current main/)
   assert.match(workflow, /gh pr ready "\$PR_NUMBER" --undo/)
