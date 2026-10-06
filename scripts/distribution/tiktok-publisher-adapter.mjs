@@ -4,6 +4,8 @@ import {
   beginPublicationAttempt,
   markPublicationPublished,
   recordPublicationFailure,
+  recordPublicationObservation,
+  recordPublicationReconciliationRequired,
 } from './social-publisher-core.mjs'
 import {
   getGovernedTikTokDraftStatus,
@@ -72,9 +74,12 @@ export async function dispatchTikTokPublication({
       lifecycle: result.lifecycle,
     }
   } catch (error) {
+    const explicitProviderFailure = Boolean(clean(error?.code))
     return {
-      status: 'failed',
-      job: recordPublicationFailure(started, { provider: 'tiktok', error, now }),
+      status: explicitProviderFailure ? 'failed' : 'needs-reconciliation',
+      job: explicitProviderFailure
+        ? recordPublicationFailure(started, { provider: 'tiktok', error, now, retryable: true })
+        : recordPublicationReconciliationRequired(started, { provider: 'tiktok', error, now }),
       lifecycle: structuredClone(lifecycle),
       error: clean(error?.message || error),
     }
@@ -108,14 +113,21 @@ export async function observeTikTokPublication({
     bridgeBase,
     fetchImpl,
   })
+  const observedJob = recordPublicationObservation(job, {
+    provider: 'tiktok',
+    status: observation.status || 'UNKNOWN',
+    receipt: observation,
+    now,
+  })
 
   if (observation.failed) {
     return {
       status: 'failed',
-      job: recordPublicationFailure(job, {
+      job: recordPublicationFailure(observedJob, {
         provider: 'tiktok',
         error: observation.failReason || 'TikTok reported FAILED',
         providerReceipt: { ...(job.providerReceipt || {}), observation },
+        retryable: false,
         now,
       }),
       lifecycle: structuredClone(lifecycle),
@@ -126,7 +138,7 @@ export async function observeTikTokPublication({
   if (!observation.publishComplete) {
     return {
       status: observation.inboxDelivered ? 'awaiting-user-post' : 'processing',
-      job: structuredClone(job),
+      job: observedJob,
       lifecycle: structuredClone(lifecycle),
       observation,
     }
@@ -136,13 +148,13 @@ export async function observeTikTokPublication({
   if (!externalId) {
     return {
       status: 'awaiting-public-proof',
-      job: structuredClone(job),
+      job: observedJob,
       lifecycle: structuredClone(lifecycle),
       observation,
     }
   }
 
-  const publishedJob = markPublicationPublished(job, {
+  const publishedJob = markPublicationPublished(observedJob, {
     provider: 'tiktok',
     externalId,
     receipt: {
