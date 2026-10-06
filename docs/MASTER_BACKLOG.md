@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-10-05
+**Updated:** 2026-10-06
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
@@ -50,10 +50,11 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
+| #6356 | Add first-party TikTok draft-upload provider | R | Active — implementation | P0 | 5/5/3/5/1/4 | 93.8 | 2026-10-06 — current TikTok upload/API rules + Metricool limit failure verified |
 
 
 
-**Current admission (verified 2026-10-05):** Normal implementation WIP is **0/3**. #6258 / PR #6257 merged at `6151f17759b09bd0b9a73a605b58b70b813e8dda`; #6249 / PR #6252 and #6253 / PR #6254 were consolidated into that owner. All three normal lanes are free; this receipt admits no new work.
+**Current admission (verified 2026-10-06):** Normal implementation WIP is **1/3**. #6356 owns Revenue/Conversion / L5 for the first-party TikTok draft-upload provider, revalidated against exact base `1c123a71b488b44aae61d33deccd00ad7942e1e8`. Discovery/SEO and Authority/Content remain free.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
@@ -91,7 +92,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Authority/Content is occupied by #6338; Discovery/SEO and Revenue/Conversion are free. No additional candidate is admitted by vacancy alone.
+Revenue/Conversion is occupied by #6356; Discovery/SEO and Authority/Content are free. No additional candidate is admitted by vacancy alone.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|
