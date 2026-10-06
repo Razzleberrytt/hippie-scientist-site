@@ -94,3 +94,110 @@ jobs:
           echo "downloaded_config=$config_file"
           echo "---- bindings/config (secrets are not returned by download config) ----"
           cat "$config_file"
+
+
+  bootstrap-cloudflare-publisher:
+    needs: inspect-cloudflare-pages-config
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci --no-audit --fund=false
+      - name: Create and bind Publisher resources
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_PAGES_PROJECT: ${{ secrets.CLOUDFLARE_PAGES_PROJECT }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${CLOUDFLARE_API_TOKEN:-}"
+          test -n "${CLOUDFLARE_ACCOUNT_ID:-}"
+          test -n "${CLOUDFLARE_PAGES_PROJECT:-}"
+
+          api="https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID"
+          auth=(-H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" -H "Content-Type: application/json")
+          d1_name="ths-publisher-production"
+          kv_title="ths-tiktok-token-production"
+
+          curl -fsS "${auth[@]}" "$api/d1/database?name=$d1_name&per_page=100" > d1-list.json
+          d1_id="$(jq -r --arg n "$d1_name" '.result[]? | select(.name==$n) | (.uuid // .id)' d1-list.json | head -n1)"
+          if [ -z "$d1_id" ]; then
+            echo "Creating D1 database $d1_name"
+            curl -fsS -X POST "${auth[@]}" "$api/d1/database"               --data "$(jq -nc --arg name "$d1_name" '{name:$name}')" > d1-create.json
+            jq -e '.success == true' d1-create.json >/dev/null
+            d1_id="$(jq -r '.result.uuid // .result.id' d1-create.json)"
+          else
+            echo "Reusing existing D1 database $d1_name"
+          fi
+          test -n "$d1_id"
+
+          curl -fsS "${auth[@]}" "$api/storage/kv/namespaces?per_page=100" > kv-list.json
+          kv_id="$(jq -r --arg n "$kv_title" '.result[]? | select(.title==$n) | .id' kv-list.json | head -n1)"
+          if [ -z "$kv_id" ]; then
+            echo "Creating KV namespace $kv_title"
+            curl -fsS -X POST "${auth[@]}" "$api/storage/kv/namespaces"               --data "$(jq -nc --arg title "$kv_title" '{title:$title}')" > kv-create.json
+            jq -e '.success == true' kv-create.json >/dev/null
+            kv_id="$(jq -r '.result.id' kv-create.json)"
+          else
+            echo "Reusing existing KV namespace $kv_title"
+          fi
+          test -n "$kv_id"
+
+          echo "Applying Publisher D1 migration"
+          npx --no-install wrangler d1 execute "$d1_name" --remote --file=migrations/0001_ths_publisher.sql
+
+          echo "Binding D1 and KV to production Pages Functions"
+          payload="$(jq -nc --arg d1 "$d1_id" --arg kv "$kv_id" '{
+            deployment_configs:{
+              production:{
+                d1_databases:{THS_PUBLISHER_DB:{id:$d1}},
+                kv_namespaces:{TIKTOK_TOKEN_KV:{namespace_id:$kv}}
+              }
+            }
+          }')"
+          curl -fsS -X PATCH "${auth[@]}"             "$api/pages/projects/$CLOUDFLARE_PAGES_PROJECT"             --data "$payload" > pages-patch.json
+          jq -e '.success == true' pages-patch.json >/dev/null
+
+          admin_token="$(printf '%s' 'ths-social-publisher-admin-v1' | openssl dgst -sha256 -hmac "$CLOUDFLARE_API_TOKEN" -binary | xxd -p -c 256)"
+          test "${#admin_token}" -eq 64
+          printf '%s' "$admin_token" | npx --no-install wrangler pages secret put THS_PUBLISHER_ADMIN_TOKEN --project-name "$CLOUDFLARE_PAGES_PROJECT" >/dev/null
+          printf '%s' "$admin_token" | npx --no-install wrangler pages secret put TIKTOK_PUBLISHER_ADMIN_TOKEN --project-name "$CLOUDFLARE_PAGES_PROJECT" >/dev/null
+          printf '%s' 'https://thehippiescientist.net/api/tiktok/callback' | npx --no-install wrangler pages secret put TIKTOK_REDIRECT_URI --project-name "$CLOUDFLARE_PAGES_PROJECT" >/dev/null
+
+          echo "d1_bound=THS_PUBLISHER_DB"
+          echo "kv_bound=TIKTOK_TOKEN_KV"
+          echo "publisher_admin_secret=set"
+          echo "tiktok_admin_secret=set"
+          echo "tiktok_redirect_uri=set"
+
+          echo "Retrying current canonical production deployment so new bindings apply"
+          curl -fsS "${auth[@]}" "$api/pages/projects/$CLOUDFLARE_PAGES_PROJECT" > project.json
+          deployment_id="$(jq -r '.result.canonical_deployment.id' project.json)"
+          test -n "$deployment_id"
+          curl -fsS -X POST "${auth[@]}"             "$api/pages/projects/$CLOUDFLARE_PAGES_PROJECT/deployments/$deployment_id/retry" > retry.json
+          jq -e '.success == true' retry.json >/dev/null
+          retry_id="$(jq -r '.result.id' retry.json)"
+          echo "retry_deployment_id=$retry_id"
+
+          for attempt in $(seq 1 60); do
+            sleep 5
+            curl -fsS "${auth[@]}"               "$api/pages/projects/$CLOUDFLARE_PAGES_PROJECT/deployments/$retry_id" > retry-status.json
+            stage="$(jq -r '.result.latest_stage.status // .result.stages[-1].status // empty' retry-status.json)"
+            echo "retry_poll_$attempt=$stage"
+            if [ "$stage" = "success" ]; then
+              exit 0
+            fi
+            if [ "$stage" = "failure" ] || [ "$stage" = "canceled" ]; then
+              cat retry-status.json
+              exit 1
+            fi
+          done
+          echo "Timed out waiting for Pages retry deployment" >&2
+          exit 1
