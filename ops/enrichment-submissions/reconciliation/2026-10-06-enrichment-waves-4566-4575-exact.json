@@ -4,15 +4,11 @@
   "summary": {
     "range": "4566-4575",
     "rows": 10,
-    "exact_title": 7,
-    "abstract_verified": 8,
+    "exact_title": 8,
+    "abstract_verified": 9,
     "hard_off_domain": [],
     "errors": [],
-    "quarantine": [
-      4568,
-      4570,
-      4574
-    ]
+    "quarantine": []
   },
   "rows": [
     {
@@ -220,16 +216,17 @@
       "selection_score": 2,
       "wave": 4574,
       "state": "quarantine",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "title_match_score": 0,
-      "abstract_verified": false,
-      "abstract": "",
-      "full_text_link": null,
-      "pdf_link": null,
+      "verified_title": "Defined Natural Products as Adjunctive Therapies: Evidence-Gated Polypharmacology Across Molecular Targets, Human Exposure, Clinical Signals, and Safety Boundaries.",
+      "verified_journal": "International journal of molecular sciences",
+      "verified_pub_date": "2026-Aug-08",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "abstract": "Defined natural products are often framed as intrinsically safer multi-target alternatives to selective drugs, but this assumption is not pharmacologically justified. This critical review evaluates product-specific adjunctive evidence in respiratory allergy, inflammatory bowel disease, type 2 diabetes, depression, and insomnia. MEDLINE/PubMed records published from 2020 to 23 June 2026 were prioritized, while earlier pivotal randomized trials and quantitative safety studies were retained. Evidence was gated by product identity, human exposure, exposure-compatible target engagement, incremental efficacy, and safety boundaries. Nigella sativa oil improved Asthma Control Test scores by 1.5 points over placebo after 4 weeks, although the clinical importance is uncertain and FEV1 was not significantly improved. Curcumin plus mesalamine induced remission in mild-to-moderate ulcerative colitis (53.8% versus 0%), whereas indigo naturalis produced strong response rates but is constrained by pulmonary arterial hypertension. Berberine improves glycemic surrogates but lacks cardiovascular or renal outcome evidence and shows commercial potency variability. Saffron has a short-term antidepressant signal, while St John's wort combines extract-dependent efficacy with CYP3A4/P-glycoprotein induction. Overall, selected defined natural products may merit narrow adjunctive roles, but undefined mixtures should not be treated as mechanistically established interventions without batch-level characterization, human pharmacokinetics, objective endpoints, and prospective interaction surveillance.",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13513852/",
+      "pdf_link": "https://doi.org/10.3390/ijms27167111",
       "source": "NCBI PubMed EFetch via Sider Scholar",
-      "hard_off_domain_flag": false
+      "hard_off_domain_flag": false,
+      "verification_state": "exact_verified_pending_relevance_review"
     },
     {
       "category": "botanicals_mushrooms",
