@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000-r7",
+  "status": "finalized_pending_repository_validation",
+  "range": "5501-6000",
+  "verified_findings": 500,
+  "prior_unique_pmids": 5435,
+  "cumulative_unique_pmids": 5935,
+  "integrity": {
+    "row_count": 500,
+    "contiguous_waves": true,
+    "unique_pmids": 500,
+    "duplicate_pmids": 0,
+    "prior_pmid_collisions": 0,
+    "retained_r6_verified_rows": 417,
+    "semantic_overrides": 48,
+    "exact_failure_overrides": 35,
+    "exact_verified_rows": 500
+  },
+  "artifacts": {
+    "manifest": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-5501-6000-r7-final-manifest.json",
+    "cumulative_index": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-5501-6000-r7-pmid-index.json",
+    "status": "ops/enrichment-submissions/reconciliation/2026-10-06-enrichment-waves-5501-6000-r7-final-status.json"
+  }
+}
