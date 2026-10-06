@@ -55,7 +55,7 @@
     "2026-10-06-enrichment-waves-4956-4965-exact.json",
     "2026-10-06-enrichment-waves-4966-4975-exact.json"
   ],
-  "exact_verified_current_selection": 259,
+  "exact_verified_current_selection": 261,
   "rows": [
     {
       "wave": 4501,
@@ -1350,6 +1350,25 @@
       "state": "fresh_exact_verified_current_selection"
     },
     {
+      "wave": 4569,
+      "category": "botanicals_mushrooms",
+      "pmid": "39047346",
+      "doi": "10.1016/j.explore.2024.103033",
+      "title": "The effect of lavender and rosemary aromatherapy application on cognitive functions, anxiety, and sleep quality in the elderly with diabetes.",
+      "verified_title": "The effect of lavender and rosemary aromatherapy application on cognitive functions, anxiety, and sleep quality in the elderly with diabetes.",
+      "verified_journal": "Explore (New York, N.Y.)",
+      "verified_pub_date": "2024",
+      "abstract": "This study aimed to determine the effects of aromatherapy use on cognitive function, anxiety, and sleep quality in the elderly with diabetes. The study was conducted with 63 participants aged 65 and over. Participants were randomly divided into three groups: lavender, rosemary and control groups. The intervention continued for four weeks. Data was collected using the Blessed Orientation Concentration Test, State-Trait Anxiety Scale, and Pittsburgh Sleep Quality Scale. Data were analyzed using One-Way ANOVA, Mann-Whitney U/Kruskal-Wallis, Wilcoxon and Friedman tests. In both intervention groups, the 4th week scores of cognitive functions, anxiety, and sleep quality after aromatherapy were significant compared to the baseline scores. In the control group, state anxiety scores were significantly higher in the 2nd and 4th weeks compared to the initial scores. Inhaling lavender and rosemary has been observed to improve cognitive function and sleep quality and reduce anxiety levels. The effects of the essential oils used in the research were evaluated over four weeks. It is thought that studying for a longer period and with more samples would be beneficial. There is a need for studies examining its effects, especially in the elderly with diabetes.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1016/j.explore.2024.103033",
+      "hard_off_domain_flag": false,
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "source_exact_file": null,
+      "state": "fresh_exact_verified_current_selection"
+    },
+    {
       "wave": 4570,
       "category": "botanicals_mushrooms",
       "pmid": "40440968",
@@ -1515,6 +1534,25 @@
       "title_match_score": 1,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11919007/",
       "pdf_link": "https://doi.org/10.1155/2024/3661412",
+      "hard_off_domain_flag": false,
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "source_exact_file": null,
+      "state": "fresh_exact_verified_current_selection"
+    },
+    {
+      "wave": 4579,
+      "category": "botanicals_mushrooms",
+      "pmid": "38140277",
+      "doi": "10.3390/nu15245018",
+      "title": "Acute Effects of Naturally Occurring Guayusa Tea and Nordic Lion's Mane Extracts on Cognitive Performance.",
+      "verified_title": "Acute Effects of Naturally Occurring Guayusa Tea and Nordic Lion's Mane Extracts on Cognitive Performance.",
+      "verified_journal": "Nutrients",
+      "verified_pub_date": "2023-Dec-06",
+      "abstract": "The aim of this study was to assess the effects of guayusa extract and Nordic Lion's Mane (LM) on cognition. Using a randomized, double-blind, placebo-controlled, crossover design, we examined the effects of a single dose of 650 mg guayusa extract (AMT: AmaTea® Max) vs. 1 g Nordic-grown Lion's Mane (LM) vs. placebo (PL). Participants attended three testing visits consisting of neuropsychological tests (Go/No-go, N-Back, and Serial 7 s tasks) assessing performance, subjective assessments of cognitive perception, and vital signs. Each assessment was measured at baseline (pre-ingestion) and 1 and 2 h post ingestion. AMT significantly (p ≤ 0.05) improved the number of attempts during Serial 7s, total score, number of correct responses, total number of responses, and reaction time during N-Back and improved Go stimulus reaction time, but it reduced the percentage of correct responses in the No-go stimulus response during Go/No-go. LM significantly (p ≤ 0.05) improved the number of attempts during Serial 7s and reaction time during N-Back and improved Go stimulus reaction time in Go/No-go. AMT improved mental clarity, focus, concentration, mood, and productivity at 1 and 2 h (p < 0.05); the ability to tolerate stress at 1 h; and had greater ratings than LM and PL for mental clarity, focus, concentration, and productivity. PL improved focus and concentration at 1 h from baseline (p ≤ 0.05). AMT and LM improved subjective ratings of \"happiness compared to peers\" and \"getting the most out of everything\" (p < 0.05); however, this occurred earlier in LM (i.e., 1 h post ingestion). AMT uniquely elevated blood pressure from baseline. AMT significantly improved cognitive performance and self-perceived cognitive indices of affect over a 2 h period and perceptions of happiness 2 h post ingestion. In comparison, LM helped improve working memory, complex attention, and reaction time 2 h post ingestion and perceptions of happiness over a 2 h period.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10745489/",
+      "pdf_link": "https://doi.org/10.3390/nu15245018",
       "hard_off_domain_flag": false,
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "source_exact_file": null,
@@ -5333,6 +5371,12 @@
           "hard_off_domain": false
         }
       ]
+    },
+    {
+      "batch": "retry-4569-4579",
+      "attempted": 2,
+      "added": 2,
+      "failed": []
     }
   ]
 }
