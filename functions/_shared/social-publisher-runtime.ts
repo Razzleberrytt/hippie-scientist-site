@@ -384,11 +384,13 @@ export async function reconcilePublication(
       ambiguousDispatch: false,
       evidence: evidenceText,
     }
-    finishAttempt(next, {
-      state: 'FAILED',
-      completedAt: reconciledAt,
-      error: 'reconciled_not_sent',
-    })
+    if (current.state === 'DISPATCHING') {
+      finishAttempt(next, {
+        state: 'FAILED',
+        completedAt: reconciledAt,
+        error: 'reconciled_not_sent',
+      })
+    }
   } else if (normalizedOutcome === 'provider_accepted') {
     const operationId = clean(providerOperationId)
     if (!operationId || operationId.length > 128) {
@@ -407,12 +409,14 @@ export async function reconcilePublication(
     next.providerReceipt = receipt
     next.providerReceipts = [...providerReceipts(next), receipt]
     next.failure = null
-    finishAttempt(next, {
-      state: 'PROVIDER_ACCEPTED',
-      completedAt: reconciledAt,
-      providerReceipt: receipt,
-      error: null,
-    })
+    if (current.state === 'DISPATCHING') {
+      finishAttempt(next, {
+        state: 'PROVIDER_ACCEPTED',
+        completedAt: reconciledAt,
+        providerReceipt: receipt,
+        error: null,
+      })
+    }
     reconciliationReceipt.providerOperationId = operationId
   } else {
     const url = publicUrlForPlatform(clean(current.identity.platform), publicUrl)
@@ -440,12 +444,14 @@ export async function reconcilePublication(
     next.publicUrl = url
     next.publishedAt = published.toISOString()
     next.failure = null
-    finishAttempt(next, {
-      state: 'PUBLISHED',
-      completedAt: reconciledAt,
-      providerReceipt: receipt,
-      error: null,
-    })
+    if (current.state === 'DISPATCHING') {
+      finishAttempt(next, {
+        state: 'PUBLISHED',
+        completedAt: reconciledAt,
+        providerReceipt: receipt,
+        error: null,
+      })
+    }
     reconciliationReceipt.publicUrl = url
     if (operationId) reconciliationReceipt.providerOperationId = operationId
   }
