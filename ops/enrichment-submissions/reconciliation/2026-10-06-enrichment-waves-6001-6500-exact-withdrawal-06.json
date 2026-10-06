@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-6001-6500",
+  "part": "withdrawal-06",
+  "row_count": 1,
+  "verified_count": 1,
+  "semantic_pass_count": 1,
+  "rows": [
+    {
+      "pmid": "42789655",
+      "category": "withdrawal_nps",
+      "title": "Discontinuation of Buprenorphine for Opioid Use Disorder: Methods and Risks.",
+      "abstract": "In the United States, opioid use disorder affects approximately 9.5 million people and has contributed to more than 50,000 opioid-related overdose deaths in 2024. Buprenorphine treats opioid cravings, alleviates withdrawal symptoms, and reduces opioid overdose risk and all-cause mortality by more than 50% each. However, discontinuation is common and often patient-driven. Longer periods of maintenance therapy (longer than 12 months) and slow, individualized taper rates (decreasing by 2 mg/month or less) are associated with lower overdose risk, lower rates of opioid use, and higher rates of taper completion. Evidence also supports use of adjunctive medications to treat withdrawal symptoms and harm reduction strategies such as naloxone provision and ongoing follow-up. Because the optimal duration of buprenorphine maintenance therapy is not known, the decision to discontinue should be clinically supported, patient-centered, and voluntary. Clinicians should prioritize shared decision-making, flexible tapering plans, and overdose prevention to mitigate risks. For some patients, sustained dose reduction may be a more feasible end point than complete cessation.",
+      "journal": "American family physician",
+      "pub_date": "2026-Aug",
+      "pdf_link": null,
+      "full_text_link": null,
+      "exact_title_verified": true,
+      "abstract_verified": true,
+      "semantic_pass": true,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+    }
+  ]
+}
