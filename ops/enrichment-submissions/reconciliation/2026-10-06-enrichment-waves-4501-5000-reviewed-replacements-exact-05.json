@@ -16,22 +16,9 @@
       4738,
       4740
     ],
-    "exact_title": 8,
-    "abstract_verified": 9,
-    "quarantine": [
-      {
-        "wave": 4737,
-        "pmid": "41966073",
-        "title": "Effects of vitamin D(3) supplementation on cardiac, muscle, and immune responses after a marathon race: a single-blind, placebo-controlled trial.",
-        "state": "quarantine"
-      },
-      {
-        "wave": 4740,
-        "pmid": "42178955",
-        "title": "Impact of Vitamin D Levels on Clinical Outcomes in Hospitalized Burn Patients: A Systematic Review and Meta-Analysis.",
-        "state": "quarantine"
-      }
-    ]
+    "exact_title": 10,
+    "abstract_verified": 10,
+    "quarantine": []
   },
   "rows": [
     {
@@ -239,12 +226,13 @@
       "verified_pub_date": "2026-Dec-31",
       "abstract": "Strenuous endurance exercise imposes substantial physiological stress on the cardiovascular system and has been associated with transient elevations in cardiac biomarkers. Vitamin D₃ has been suggested to influence oxidative stress and immune responses. In this study, we investigated the effects of vitamin D₃ supplementation on biomarkers of cardiac, muscle, and immune responses following a marathon race. Twenty-one amateur runners were allocated to either a vitamin D₃ supplementation group (receiving vitamin D₃ for 8 weeks) or a placebo group. All participants completed an official full marathon (42.195 km). Blood biomarkers were measured from 24 h before to 24 h after the race. Post-race increases in markers of muscle damage and cardiac stress were observed. Vitamin D₃ supplementation was associated with attenuated elevations in selected biomarkers demonstrating significant interaction effects. Compared with the placebo group, the vitamin D₃ group demonstrated attenuation of protein carbonyls (PC), the only oxidative stress marker showing a significant Group × Time interaction. No significant interaction effects were observed for thiobarbituric acid reactive substances (TBARS) or antioxidant enzymes. Both groups showed post-race increases in white blood cell counts, particularly neutrophils, whereas lymphocyte counts significantly decreased at 0.5 h and 2 h post-race. Immunoprofiling revealed time-dependent alterations in selected immune cell subsets, although no significant interaction effects were detected. Descriptive differences in recovery patterns were observed between groups, and exploratory correlation analyses suggested time-specific associations between immune cell subsets and biochemical markers during recovery. Vitamin D₃ supplementation may attenuate PC responses and was associated with lower creatine kinase (CK) and creatine kinase-MB (CK-MB) levels at 24 h post-race following marathon running. Immune alterations were time-dependent, with descriptive differences in recovery patterns between groups.",
       "abstract_verified": true,
-      "title_match_score": 0,
+      "title_match_score": 1,
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13072698/",
       "pdf_link": "https://doi.org/10.1080/15502783.2026.2657316",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "verification_state": "quarantine"
+      "verification_state": "replacement_exact_verified_pending_final_relevance",
+      "title_match_note": "Formatting-only variance: vitamin D(3) vs vitamin D3."
     },
     {
       "wave": 4738,
@@ -288,17 +276,17 @@
       "selection_score": 6,
       "pool": "B",
       "state": "replacement_assigned_pending_exact_verification",
-      "verified_title": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "abstract": "",
-      "abstract_verified": false,
-      "title_match_score": 0,
+      "verified_title": "Impact of Vitamin D Levels on Clinical Outcomes in Hospitalized Burn Patients: A Systematic Review and Meta-Analysis.",
+      "verified_journal": "Polski przeglad chirurgiczny",
+      "verified_pub_date": "2025-Dec-15",
+      "abstract": "&lt;b&gt;Introduction:&lt;/b&gt; Vitamin D plays a key role in immune regulation, inflammation control, and musculoskeletal health. Patients with burn injuries are particularly vulnerable to its deficiency. Despite its importance, current clinical guidelines do not provide a clear consensus on how vitamin D should be managed in this population. &lt;br&gt;&lt;br&gt;&lt;b&gt;Aim:&lt;/b&gt; This meta-analysis aimed to assess the clinical impact of adequate vitamin D levels or supplementation compared to vitamin D deficiency or no supplementation in patients with burns. &lt;br&gt;&lt;br&gt;&lt;b&gt;Materials and methods:&lt;/b&gt; A systematic literature search was conducted in PubMed, Scopus, and Web of Science databases for studies reporting clinical outcomes in these 2 patient groups. The primary outcomes included duration of hospitalization, length of stay in burn intensive care units, mortality, and the incidence of sepsis and intubation. Subgroup analyses were performed for randomized and non-randomized studies. Statistical analysis was conducted using Cochrane's Review Manager. &lt;br&gt;&lt;br&gt;&lt;b&gt;Results:&lt;/b&gt; Patients with sufficient vitamin D levels or those who received supplementation had significantly shorter overall hospitalization and burn intensive care unit stays. Although the difference in mortality was not statistically significant, intubation and sepsis occurred more frequently in patients with vitamin D deficiency or no supplementation. Subgroup analyses confirmed that both randomized and non-randomized studies showed a significantly reduced hospital stay in patients with adequate vitamin D status. &lt;br&gt;&lt;br&gt;&lt;b&gt;Discussion:&lt;/b&gt; The findings suggest that vitamin D management may improve clinical outcomes in burn patients and should be considered in future guidelines. &lt;br&gt;&lt;br&gt;&lt;b&gt;Conclusions:&lt;/b&gt; Further prospective studies with larger patient populations are necessary to establish standardized treatment protocols.",
+      "abstract_verified": true,
+      "title_match_score": 1,
       "full_text_link": null,
-      "pdf_link": null,
+      "pdf_link": "https://doi.org/10.5604/01.3001.0055.5118",
       "source": "NCBI PubMed EFetch via Sider Scholar",
       "hard_off_domain_flag": false,
-      "verification_state": "quarantine"
+      "verification_state": "replacement_exact_verified_pending_final_relevance"
     }
   ]
 }
