@@ -8,6 +8,7 @@ import { buildThumbnailContract, validateThumbnailContract } from './creative-th
 import { buildLosslessAccessibilityDescriptionContract, validateLosslessAccessibilityDescriptionContract } from './creative-accessibility-description-contract.mjs'
 import { buildCreativeVisualRegressionContract, validateCreativeVisualRegressionContract } from './creative-visual-regression-contract.mjs'
 import { buildCreativeHook } from './social-post-copy.mjs'
+import { assertR805CreativeBrief, buildR805CreativeReceipt } from './r805-creative-gate.mjs'
 
 const clean = (value) => String(value ?? '').trim().replace(/\s+/g, ' ')
 const sentence = (value) => {
@@ -37,6 +38,9 @@ function continuationSlides(role, eyebrow, plan, { body = null, colorTreatment }
 }
 
 export function buildLosslessCreativeSpec(input) {
+  const systemRelease = clean(input?.systemRelease)
+  const r805Brief = systemRelease === 'R8.05' ? assertR805CreativeBrief(input?.creativeBrief) : null
+  const r805Receipt = r805Brief ? buildR805CreativeReceipt(r805Brief) : null
   const base = buildCreativeSpec(input)
   const creativeHook = buildCreativeHook(input)
   const maxChars = CREATIVE_BRAND_TOKENS.typography.bodyMaxChars
@@ -230,6 +234,8 @@ export function buildLosslessCreativeSpec(input) {
   return {
     ...base,
     version: 13,
+    systemRelease: systemRelease || null,
+    creativeQuality: r805Receipt,
     thumbnails,
     accessibilityDescription,
     visualRegression,
