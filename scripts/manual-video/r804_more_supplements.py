@@ -110,7 +110,7 @@ BASE = base_background()
 def text_bbox(draw, s, fnt):
     return draw.textbbox((0,0), s, font=fnt)
 
-def draw_centered(draw, s, y, fnt, fill=INK, max_width=620, spacing=8, anchor="mm"):
+def draw_centered(draw, s, y, fnt, fill=INK, max_width=500, spacing=8, anchor="mm", cx=SAFE_C):
     words = s.split()
     lines, cur = [], ""
     for w in words:
@@ -127,7 +127,7 @@ def draw_centered(draw, s, y, fnt, fill=INK, max_width=620, spacing=8, anchor="m
     for line in lines:
         bb = text_bbox(draw, line, fnt)
         w = bb[2]-bb[0]
-        draw.text(((W-w)/2, yy), line, font=fnt, fill=fill)
+        draw.text((cx-w/2, yy), line, font=fnt, fill=fill)
         yy += line_h+spacing
     return total_h
 
@@ -154,19 +154,18 @@ def moon(draw, cx, cy, r=48, alpha=255):
     draw.ellipse((cx-r+22,cy-r-5,cx+r+22,cy+r-5), fill=(*BG_TOP,alpha))
 
 def leaf(draw, cx, cy, scale=1.0, accent=GREEN, alpha=255):
-    pts=[]
-    for i in range(24):
-        a=math.pi*i/23
-        x=cx+math.cos(a)*55*scale
-        y=cy+math.sin(a)*22*scale - math.sin(a)*32*scale
-        pts.append((x,y))
-    for i in range(23,-1,-1):
-        a=math.pi*i/23
-        x=cx+math.cos(a)*55*scale
-        y=cy-math.sin(a)*22*scale + math.sin(a)*32*scale
-        pts.append((x,y))
-    draw.polygon(pts, fill=(*accent,alpha))
-    draw.line((cx-45*scale,cy,cx+45*scale,cy), fill=(*BG_TOP,alpha), width=max(2,int(4*scale)))
+    stem=max(2,int(5*scale))
+    draw.line((cx,cy+70*scale,cx,cy-70*scale), fill=(*accent,alpha), width=stem)
+    left=[
+        (cx,cy+10*scale),(cx-62*scale,cy-8*scale),(cx-78*scale,cy-55*scale),
+        (cx-26*scale,cy-52*scale)
+    ]
+    right=[
+        (cx,cy-18*scale),(cx+58*scale,cy-34*scale),(cx+72*scale,cy-78*scale),
+        (cx+20*scale,cy-70*scale)
+    ]
+    draw.polygon(left, fill=(*accent,alpha))
+    draw.polygon(right, fill=(*accent,alpha))
 
 def fade_alpha(t, start, end, edge=0.28):
     a=clamp((t-start)/edge)
@@ -199,7 +198,7 @@ def frame_at(t):
         for j,lab in enumerate(labels):
             q=clamp((local-(0.18+j*0.08))/0.35)
             yy=650+j*96
-            xx=360 + math.sin(j*1.7)*38*(1-ease_out(q))
+            xx=312 + math.sin(j*1.7)*32*(1-ease_out(q))
             pill(d,int(xx-115),int(yy-35),230,70,lab,accent=GREEN if j<2 else AMBER,alpha=int(a*ease_out(q)),fs=25)
         if local>0.55:
             aa=int(220*ease_out((local-0.55)/0.25))
@@ -213,10 +212,10 @@ def frame_at(t):
         cards=[("PLACEBO","—"),("AM","2 ingredients"),("PM","3 ingredients"),("AM + PM","5 ingredients")]
         for j,(lab,sub) in enumerate(cards):
             col=j%2; row=j//2
-            x=70+col*300; y=520+row*235
+            x=55+col*260; y=520+row*235
             q=ease_out(clamp((local-j*0.08)/0.35))
             yy=y+int(34*(1-q))
-            rounded(d,(x,yy,x+260,yy+180),26,fill=(*PANEL,int(a*q)),outline=(*MUTED,int(90*q)),width=2)
+            rounded(d,(x,yy,x+240,yy+180),26,fill=(*PANEL,int(a*q)),outline=(*MUTED,int(90*q)),width=2)
             d.text((x+24,yy+28),lab,font=font(32,True),fill=(*INK,int(a*q)))
             d.text((x+24,yy+93),sub,font=font(26,False),fill=(*(GREEN if j in (1,3) else MUTED),int(a*q)))
 
@@ -228,7 +227,7 @@ def frame_at(t):
         pill(d,105,610,510,88,"ASHWAGANDHA",GREEN,a,31)
         pill(d,145,730,430,88,"RHODIOLA",GREEN,a,31)
         rounded(d,(85,890,635,1055),28,fill=(*PANEL,a),outline=(*GREEN,160),width=2)
-        draw_centered(d,"The clearest improvements\nclustered here.",968,font(35,True),fill=(*INK,a),max_width=500,spacing=7)
+        draw_centered(d,"The clearest improvements\nclustered here.",968,font(35,True),fill=(*INK,a),max_width=465,spacing=7)
 
     elif idx==3:
         moon(d,118,220,50,a)
@@ -236,27 +235,27 @@ def frame_at(t):
         items=[("MAGNESIUM L-THREONATE",GREEN),("L-THEANINE",GREEN),("APIGENIN",GREEN)]
         for j,(lab,ac) in enumerate(items):
             q=ease_out(clamp((local-j*0.08)/0.35))
-            pill(d,80,410+j*115,560,82,lab,ac,int(a*q),25)
+            pill(d,55,410+j*115,510,82,lab,ac,int(a*q),24)
         if local>0.48:
             q=ease_out((local-0.48)/0.32)
-            rounded(d,(75,850,645,1080),34,fill=(*PANEL,int(a*q)),outline=(*RED,int(180*q)),width=3)
+            rounded(d,(55,850,570,1080),34,fill=(*PANEL,int(a*q)),outline=(*RED,int(180*q)),width=3)
             draw_centered(d,"ADDING MORE",912,font(35,True),fill=(*RED,int(a*q)))
-            draw_centered(d,"didn't clearly improve\nthings further",990,font(39,True),fill=(*INK,int(a*q)),max_width=520,spacing=4)
+            draw_centered(d,"didn't clearly improve\nthings further",990,font(39,True),fill=(*INK,int(a*q)),max_width=470,spacing=4)
 
     elif idx==4:
         draw_centered(d,"WHAT ACTUALLY HAPPENED",190,font(36,True),fill=(*GREEN,a))
         # qualitative result cards -- intentionally no fake numeric bars
         q1=ease_out(local)
-        rounded(d,(70,330,650,620),32,fill=(*PANEL,a),outline=(*GREEN,180),width=3)
-        d.text((105,375),"AM ONLY",font=font(38,True),fill=(*GREEN,a))
-        d.text((105,450),"Stress ↓",font=font(31,True),fill=(*INK,a))
-        d.text((105,500),"Sleep impairment ↓",font=font(31,True),fill=(*INK,a))
-        d.text((105,550),"Wake-after-sleep-onset ↓",font=font(27,True),fill=(*INK,a))
+        rounded(d,(55,330,570,620),32,fill=(*PANEL,a),outline=(*GREEN,180),width=3)
+        d.text((85,375),"AM ONLY",font=font(38,True),fill=(*GREEN,a))
+        d.text((85,450),"Stress ↓",font=font(31,True),fill=(*INK,a))
+        d.text((85,500),"Sleep impairment ↓",font=font(31,True),fill=(*INK,a))
+        d.text((85,550),"Wake-after-sleep-onset ↓",font=font(27,True),fill=(*INK,a))
         q2=ease_out(clamp((local-0.18)/0.55))
-        rounded(d,(70,690,650,970),32,fill=(*PANEL,int(a*q2)),outline=(*AMBER,int(150*q2)),width=3)
-        d.text((105,735),"AM + PM",font=font(38,True),fill=(*AMBER,int(a*q2)))
-        d.text((105,820),"No clear extra benefit",font=font(34,True),fill=(*INK,int(a*q2)))
-        d.text((105,875),"over the morning stack",font=font(30,False),fill=(*MUTED,int(a*q2)))
+        rounded(d,(55,690,570,970),32,fill=(*PANEL,int(a*q2)),outline=(*AMBER,int(150*q2)),width=3)
+        d.text((85,735),"AM + PM",font=font(38,True),fill=(*AMBER,int(a*q2)))
+        d.text((85,820),"No clear extra benefit",font=font(34,True),fill=(*INK,int(a*q2)))
+        d.text((85,875),"over the morning stack",font=font(30,False),fill=(*MUTED,int(a*q2)))
         draw_centered(d,"More ingredients ≠ automatic synergy",1100,font(27,True),fill=(*RED,a))
 
     elif idx==5:
@@ -269,18 +268,18 @@ def frame_at(t):
         for j,(top,sub) in enumerate(cards):
             q=ease_out(clamp((local-j*0.12)/0.35))
             y=330+j*240
-            rounded(d,(70,y,650,y+185),28,fill=(*PANEL,int(a*q)),outline=(*MUTED,int(100*q)),width=2)
-            d.text((105,y+35),top,font=font(37,True),fill=(*(GREEN if j==2 else INK),int(a*q)))
-            d.text((105,y+103),sub,font=font(24,False),fill=(*MUTED,int(a*q)))
+            rounded(d,(55,y,570,y+185),28,fill=(*PANEL,int(a*q)),outline=(*MUTED,int(100*q)),width=2)
+            d.text((85,y+35),top,font=font(37,True),fill=(*(GREEN if j==2 else INK),int(a*q)))
+            d.text((85,y+103),sub,font=font(24,False),fill=(*MUTED,int(a*q)))
 
     elif idx==6:
         q=ease_out(local)
         draw_centered(d,"INGREDIENT EVIDENCE",390,font(48,True),fill=(*INK,int(a*q)))
         draw_centered(d,"≠",515,font(76,True),fill=(*RED,int(a*q)))
         draw_centered(d,"STACK EVIDENCE",640,font(55,True),fill=(*GREEN,int(a*q)))
-        rounded(d,(105,810,615,930),60,fill=(*PANEL,int(a*q)),outline=(*GREEN,int(160*q)),width=2)
+        rounded(d,(70,810,555,930),60,fill=(*PANEL,int(a*q)),outline=(*GREEN,int(160*q)),width=2)
         draw_centered(d,"SAVE THIS DISTINCTION",870,font(27,True),fill=(*INK,int(a*q)))
-        draw_centered(d,"Study: Mastrofini et al. • PMID 42829807",1035,font(20,False),fill=(*MUTED,int(a*q)),max_width=560)
+        draw_centered(d,"Study: Mastrofini et al. • PMID 42829807",1035,font(20,False),fill=(*MUTED,int(a*q)),max_width=470)
     return img.convert("RGB")
 
 def render_visual(out_path: Path):
