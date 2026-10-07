@@ -39,13 +39,13 @@ else {
 
 for (const [file, markers] of [
   [policyPath, ['one mental job', 'Payoff before methodology', 'voice-first semantic beat map', 'internal motion', 'One macro rebuild']],
-  [gatePath, ['interestScore', 'methodologyBeforePayoff', 'narrationIsTimingMaster', 'visualPurpose', 'spokenAnchor', 'semanticBeatMapSha256', 'internalMotionPlanRequired', 'exact-master-qa', 'macroRebuildCount']],
-  [path.join(root, 'scripts', 'distribution', 'render-local-narration.py'), ['semantic-beat-timeline.json', 'exact-local-narration']],
+  [gatePath, ['interestScore', 'methodologyBeforePayoff', 'narrationIsTimingMaster', 'visualPurpose', 'spokenAnchor', 'semanticBeatMapSha256', "requires exactly one ${role} beat", 'hook to be the first rendered beat', 'payoff-before-method requires the finding beat before the evidence/method beat', 'internalMotionPlanRequired', 'exact-master-qa', 'macroRebuildCount']],
+  [path.join(root, 'scripts', 'distribution', 'render-local-narration.py'), ['semantic-beat-timeline.json', 'exact-local-narration', 'parent_manifest_release', 'parent_release == "R8.04"', 'parent_release == "R8.05"']],
   [path.join(root, 'scripts', 'distribution', 'render-vertical-video-package.mjs'), ["|| 'R8.04'", 'motionPhase', "motionPhase: 'pre'", 'motionCueOffset', 'voice-duration-proportional-text-anchor']],
   [path.join(root, 'scripts', 'distribution', 'render-vertical-video-mp4.mjs'), ['verifyMotionVariant', 'cue.toFixed(4)', 'internalMotionRendered: true']],
   [path.join(root, 'scripts', 'distribution', 'approve-r805-master.mjs'), ['ths-r805-master-qa-receipt-v1', 'wholePieceCohesion', 'narrationVisualSync', 'internalMotionSync']],
   [path.join(root, 'scripts', 'distribution', 'stage-publication-media.mjs'), ['r805-master-qa.receipt.json', 'technical sync alone is insufficient', 'exact already-rendered/reviewed master']],
-  [path.join(root, 'scripts', 'distribution', 'build-bounded-pilot.mjs'), ['validateR805BriefCopyAgainstCanonical', 'resolveShortVideoRelease', "|| 'R8.04'", 'assertResearchObjectMatchesMediaPack', 'fresh lossless evidence-safety validation', 'vertical-video-r805-natural-v1']],
+  [path.join(root, 'scripts', 'distribution', 'build-bounded-pilot.mjs'), ['validateR805BriefCopyAgainstCanonical', 'requires exactly one governed', 'resolveShortVideoRelease', "|| 'R8.04'", 'assertResearchObjectMatchesMediaPack', 'STALE relative to the governed media-pack content hash', 'fresh lossless evidence-safety validation', 'vertical-video-r805-natural-v1']],
   [path.join(root, 'scripts', 'distribution', 'build-research-distribution.mjs'), ["systemRelease: 'R8.05'"]],
   [path.join(root, 'scripts', 'distribution', 'creative-spec-lossless.mjs'), ["|| 'R8.04'", 'concept-required']],
 ]) {
