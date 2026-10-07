@@ -3,6 +3,10 @@ import { buildR805CreativeReceipt, validateR805CreativeBrief } from '../distribu
 
 const good = {
   release: 'R8.05',
+  sourceIdentity: {
+    id: 'ashwagandha-stress-evidence',
+    sourceUrl: 'https://thehippiescientist.net/herbs/ashwagandha/',
+  },
   premise: {
     interestScore: 5,
     coldViewerWhyCare: 'The result breaks a common assumption in a way that matters immediately.',
@@ -18,21 +22,45 @@ const good = {
     narrationIsTimingMaster: true,
     voiceFirstBeatMapApproved: true,
   },
-  beats: [{
-    id: 'payoff',
-    narration: 'More did not clearly mean better.',
-    visualPurpose: 'Show the complex option failing to exceed the simple option.',
-    spokenAnchor: 'did not clearly mean better',
-    visualAction: 'result markers settle at the same level',
-    cutReason: 'reveal',
-    primaryEntities: ['result-contrast'],
-    comparisonRequired: false,
-  }],
+  beats: [
+    {
+      id: 'payoff',
+      role: 'hook',
+      narration: 'More did not clearly mean better.',
+      onScreenText: 'MORE ≠ BETTER',
+      visualPurpose: 'Show the complex option failing to exceed the simple option.',
+      spokenAnchor: 'did not clearly mean better',
+      visualAction: 'result markers settle at the same level',
+      cutReason: 'reveal',
+      factualAuthority: 'creative-framing',
+      primaryEntities: ['result-contrast'],
+      comparisonRequired: false,
+      pauseAfterSeconds: 0.14,
+    },
+    {
+      id: 'source',
+      role: 'source',
+      narration: '',
+      onScreenText: 'https://thehippiescientist.net/herbs/ashwagandha/',
+      visualPurpose: 'Hold exact canonical source.',
+      spokenAnchor: '',
+      visualAction: 'source remains static',
+      cutReason: 'end',
+      factualAuthority: 'canonical-source',
+      primaryEntities: ['source'],
+      comparisonRequired: false,
+      holdSeconds: 3,
+      pauseAfterSeconds: 0,
+    },
+  ],
   recovery: { macroRebuildCount: 0 },
 }
 
 assert.deepEqual(validateR805CreativeBrief(good), [])
-assert.equal(buildR805CreativeReceipt(good).release, 'R8.05')
+const receipt = buildR805CreativeReceipt(good)
+assert.equal(receipt.release, 'R8.05')
+assert.equal(receipt.status, 'approved')
+assert.match(receipt.semanticBeatMapSha256, /^[a-f0-9]{64}$/)
 
 const bad = structuredClone(good)
 bad.premise.interestScore = 3
@@ -47,4 +75,4 @@ assert.match(failures, /targetDurationSeconds/)
 assert.match(failures, /cognitive-load/)
 assert.match(failures, /rescue limit/)
 
-console.log('[r805-creative-gate] PASS — good brief accepted, known failure modes rejected')
+console.log('[r805-creative-gate] PASS — beat-bound good brief accepted, known failure modes rejected')
