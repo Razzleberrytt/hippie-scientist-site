@@ -67,6 +67,10 @@ if (!fs.existsSync(policyPath)) {
   }
 }
 
+function cleanScript(value) {
+  return typeof value === 'string' && value.includes('local-social-production.mjs')
+}
+
 function readRequired(relativePath) {
   const file = path.join(root, relativePath)
   if (!fs.existsSync(file)) {
@@ -130,6 +134,26 @@ for (const marker of [
   "exactArtifactReviewed: true",
 ]) {
   if (!voiceApproval.includes(marker)) fail(`voice approval gate is missing: ${marker}`)
+}
+
+const localOrchestrator = readRequired('scripts/distribution/local-social-production.mjs')
+for (const marker of [
+  "prepareLocalProduction",
+  "finalizeLocalProduction",
+  "buildManualUploadPacket",
+  "manual_native_upload",
+  "premiumProviderFallbackAllowed: false",
+  "social:local:finalize",
+]) {
+  if (!localOrchestrator.includes(marker)) fail(`local production CLI lost R8.04 invariant: ${marker}`)
+}
+if (/descript|metricool|elevenlabs/i.test(localOrchestrator)) {
+  fail('local production CLI may not reference premium/provider production fallbacks')
+}
+
+const packageJson = JSON.parse(readRequired('package.json'))
+for (const scriptName of ['social:local:prepare', 'social:local:finalize', 'social:local:status']) {
+  if (!cleanScript(packageJson.scripts?.[scriptName])) fail(`missing local social command: ${scriptName}`)
 }
 
 const publisherWorkflow = readRequired('.github/workflows/ths-publisher-publication.yml')
