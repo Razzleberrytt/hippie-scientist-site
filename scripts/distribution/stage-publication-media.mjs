@@ -102,8 +102,8 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
   const manifestBytes = fs.readFileSync(manifestFile)
   const mp4Bytes = fs.readFileSync(mp4File)
   const receipt = readJson(receiptFile)
-  if (receipt?.schemaVersion !== '1.0.0' || receipt?.renderer !== 'vertical-video-mp4-v1') {
-    throw new Error('THS Publisher video staging requires a governed vertical-video-mp4-v1 receipt')
+  if (receipt?.schemaVersion !== '2.0.0' || receipt?.renderer !== 'vertical-video-mp4-v2-r804' || receipt?.release !== 'R8.04') {
+    throw new Error('THS Publisher video staging requires a governed R8.04 vertical-video-mp4-v2-r804 receipt')
   }
   if (clean(receipt.parentRenderer) !== clean(pilot.assets.renderer) || clean(receipt.packId) !== clean(pilot.assets.packId)) {
     throw new Error('THS Publisher MP4 receipt does not match the governed parent package')
@@ -121,6 +121,15 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
   if (Number(receipt.profile?.width) !== 1080 || Number(receipt.profile?.height) !== 1920 || Number(receipt.profile?.durationSeconds) !== 30) {
     throw new Error('THS Publisher MP4 receipt does not match the governed vertical-video profile')
   }
+  if (receipt.profile?.audio !== true || clean(receipt.profile?.audioCodec) !== 'aac') {
+    throw new Error('R8.04 publication staging rejects silent vertical video')
+  }
+  if (clean(receipt.localNarration?.engineKind) !== 'local-open-source' || receipt.localNarration?.meteredCreditsRequired !== false) {
+    throw new Error('R8.04 publication staging requires zero-credit local narration provenance')
+  }
+  if (clean(receipt.localNarration?.naturalPresence) !== 'pass' || clean(receipt.localNarration?.pronunciation) !== 'pass') {
+    throw new Error('R8.04 publication staging requires passed Natural Presence and pronunciation receipts')
+  }
 
   fs.writeFileSync(path.join(bundleDir, 'short-video.mp4'), mp4Bytes)
   return {
@@ -137,6 +146,15 @@ function stageVerticalVideo({ pilot, sourceDirectory, bundleDir, publicOrigin, o
       bytes: mp4Bytes.length,
       renderKey: clean(receipt.renderKey),
       parentManifestSha256: clean(receipt.parentManifestSha256),
+      audio: {
+        codec: clean(receipt.profile?.audioCodec),
+        localEngine: clean(receipt.localNarration?.engine),
+        localModel: clean(receipt.localNarration?.model),
+        voice: clean(receipt.localNarration?.voice),
+        naturalPresence: clean(receipt.localNarration?.naturalPresence),
+        pronunciation: clean(receipt.localNarration?.pronunciation),
+        meteredCreditsRequired: false,
+      },
       url: `${publicOrigin}/media/distribution/publisher/${objectId}/${bundleId}/short-video.mp4`,
     }],
   }
