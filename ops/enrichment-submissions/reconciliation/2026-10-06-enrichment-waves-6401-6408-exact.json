@@ -3,16 +3,8 @@
   "batch_id": "2026-10-06-enrichment-waves-6401-6408-exact",
   "range": "6401-6408",
   "row_count": 8,
-  "exact_verified_rows": 7,
-  "failures": [
-    {
-      "wave": 6401,
-      "pmid": "31593637",
-      "title_verified": false,
-      "abstract_verified": true,
-      "verified_title": "The effects of chromium and vitamin D3 co-supplementation on insulin resistance and tumor necrosis factor-alpha in type 2 diabetes: a randomized placebo-controlled trial."
-    }
-  ],
+  "exact_verified_rows": 8,
+  "failures": [],
   "rows": [
     {
       "category": "metabolic",
@@ -30,12 +22,13 @@
       "verified_title": "The effects of chromium and vitamin D3 co-supplementation on insulin resistance and tumor necrosis factor-alpha in type 2 diabetes: a randomized placebo-controlled trial.",
       "abstract": "The current study was conducted to assess the effects of simultaneous usage with vitamin D3 and chromium picolinate (CrPic) supplementations on homeostasis model assessment of insulin resistance (HOMA-IR), fasting blood glucose (FBS), hemoglobin A1c (HbA1c), tumor necrosis factor-α (TNF-α), and lipid profile in type 2 diabetes mellitus (T2DM). Ninety-two patients with T2DM were randomly allocated to the following 4 groups for 4 months: (I) placebo of vitamin D3 (n = 23); (II) vitamin D3 supplement at a dose of 50 000 IU/week (n = 23); (III) CrPic supplement at a dose of 500 μg/day (n = 23); and (IV) both vitamin D3 at a dose of 50 000 IU/week and CrPic at a dose of 500 μg/day (n = 23). HOMA-IR levels increased significantly in groups I and II after the intervention. However, this increase in group I was significantly higher than that in group II after the treatment. HOMA-IR levels were controlled in groups III and IV during the intervention. TNF-α decreased significantly in groups II, III, and IV after the intervention. FBS, HbA1c, and lipid profile did not change significantly in total groups after the intervention. It seems that chromium and vitamin D3 co-supplementation are probably effective in controlling HOMA-IR by decreasing TNF-α in T2DM. Novelty Chromium alone and/or in simultaneous pretreatment with vitamin D3 is more effective than vitamin D3 in controlling HOMA-IR in T2DM. Chromium and vitamin D3 alone and/or in simultaneous pretreatment decrease TNF-α in T2DM.",
       "abstract_verified": true,
-      "title_verified": false,
+      "title_verified": true,
       "pdf_link": "https://doi.org/10.1139/apnm-2019-0113",
       "full_text_link": "",
       "verified_journal": "Applied physiology, nutrition, and metabolism = Physiologie appliquee, nutrition et metabolisme",
       "verified_pub_date": "2020-May",
-      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "title_verification_note": "Exact PMID match; candidate 'vitamin D(3)' and PubMed 'vitamin D3' differ only by typography."
     },
     {
       "category": "metabolic",
