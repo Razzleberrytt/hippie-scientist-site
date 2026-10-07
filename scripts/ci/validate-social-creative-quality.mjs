@@ -45,7 +45,7 @@ for (const [file, markers] of [
   [path.join(root, 'scripts', 'distribution', 'render-vertical-video-mp4.mjs'), ['verifyMotionVariant', 'cue.toFixed(4)', 'internalMotionRendered: true']],
   [path.join(root, 'scripts', 'distribution', 'approve-r805-master.mjs'), ['ths-r805-master-qa-receipt-v1', 'wholePieceCohesion', 'narrationVisualSync', 'internalMotionSync']],
   [path.join(root, 'scripts', 'distribution', 'stage-publication-media.mjs'), ['r805-master-qa.receipt.json', 'technical sync alone is insufficient', 'exact already-rendered/reviewed master']],
-  [path.join(root, 'scripts', 'distribution', 'build-bounded-pilot.mjs'), ['validateR805BriefCopyAgainstCanonical', 'fresh lossless evidence-safety validation']],
+  [path.join(root, 'scripts', 'distribution', 'build-bounded-pilot.mjs'), ['validateR805BriefCopyAgainstCanonical', 'resolveShortVideoRelease', "|| 'R8.04'", 'assertResearchObjectMatchesMediaPack', 'fresh lossless evidence-safety validation', 'vertical-video-r805-natural-v1']],
   [path.join(root, 'scripts', 'distribution', 'build-research-distribution.mjs'), ["systemRelease: 'R8.05'"]],
   [path.join(root, 'scripts', 'distribution', 'creative-spec-lossless.mjs'), ["|| 'R8.04'", 'concept-required']],
 ]) {
