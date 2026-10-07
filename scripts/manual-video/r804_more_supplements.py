@@ -15,6 +15,8 @@ from PIL import Image, ImageDraw, ImageFont
 from kokoro_onnx import Kokoro
 
 W, H = 720, 1280
+# Keep critical copy left of TikTok's right-side interaction rail.
+SAFE_L, SAFE_R, SAFE_C = 55, 570, 312
 FPS = 30
 DURATION = 22.2
 SR = 24000
@@ -202,13 +204,13 @@ def frame_at(t):
             pill(d,int(xx-115),int(yy-35),230,70,lab,accent=GREEN if j<2 else AMBER,alpha=int(a*ease_out(q)),fs=25)
         if local>0.55:
             aa=int(220*ease_out((local-0.55)/0.25))
-            d.line((190,620,530,1080),fill=(*RED,aa),width=12)
-            d.line((530,620,190,1080),fill=(*RED,aa),width=12)
+            d.line((150,620,480,1080),fill=(*RED,aa),width=12)
+            d.line((480,620,150,1080),fill=(*RED,aa),width=12)
 
     elif idx==1:
         draw_centered(d,"THE STUDY",200,font(38,True),fill=(*GREEN,a))
-        draw_centered(d,"103 healthy, active adults",300,font(52,True),fill=(*INK,a))
-        draw_centered(d,"randomized • double-blind • placebo-controlled",370,font(26,False),fill=(*MUTED,a))
+        draw_centered(d,"103 healthy, active adults",300,font(44,True),fill=(*INK,a),max_width=500)
+        draw_centered(d,"randomized • double-blind • placebo-controlled",420,font(23,False),fill=(*MUTED,a),max_width=500)
         cards=[("PLACEBO","—"),("AM","2 ingredients"),("PM","3 ingredients"),("AM + PM","5 ingredients")]
         for j,(lab,sub) in enumerate(cards):
             col=j%2; row=j//2
@@ -220,18 +222,18 @@ def frame_at(t):
             d.text((x+24,yy+93),sub,font=font(26,False),fill=(*(GREEN if j in (1,3) else MUTED),int(a*q)))
 
     elif idx==2:
-        sun(d,120,240,50,a)
-        d.text((195,205),"MORNING STACK",font=font(40,True),fill=(*AMBER,a))
+        sun(d,105,240,48,a)
+        d.text((175,205),"MORNING STACK",font=font(38,True),fill=(*AMBER,a))
         q=ease_out(local)
-        leaf(d,360,465,1.05,GREEN,int(a*q))
-        pill(d,105,610,510,88,"ASHWAGANDHA",GREEN,a,31)
-        pill(d,145,730,430,88,"RHODIOLA",GREEN,a,31)
-        rounded(d,(85,890,635,1055),28,fill=(*PANEL,a),outline=(*GREEN,160),width=2)
+        leaf(d,312,465,1.05,GREEN,int(a*q))
+        pill(d,60,610,510,88,"ASHWAGANDHA",GREEN,a,30)
+        pill(d,100,730,430,88,"RHODIOLA",GREEN,a,30)
+        rounded(d,(55,890,570,1055),28,fill=(*PANEL,a),outline=(*GREEN,160),width=2)
         draw_centered(d,"The clearest improvements\nclustered here.",968,font(35,True),fill=(*INK,a),max_width=465,spacing=7)
 
     elif idx==3:
-        moon(d,118,220,50,a)
-        d.text((195,185),"BEDTIME STACK",font=font(40,True),fill=(*AMBER,a))
+        moon(d,105,220,48,a)
+        d.text((175,185),"BEDTIME STACK",font=font(38,True),fill=(*AMBER,a))
         items=[("MAGNESIUM L-THREONATE",GREEN),("L-THEANINE",GREEN),("APIGENIN",GREEN)]
         for j,(lab,ac) in enumerate(items):
             q=ease_out(clamp((local-j*0.08)/0.35))
