@@ -1,7 +1,7 @@
 # Decision Log
 
 **Status:** Authoritative
-**Updated:** 2026-10-06
+**Updated:** 2026-10-07
 **Format:** New decisions are appended. Superseded decisions remain for history and link to their replacement.
 
 
@@ -318,3 +318,12 @@ Coverage: 9 routes × 2 themes × 3 breakpoints = 54 combinations, 7,998 element
 **Rationale:** The Metricool account-limit failure demonstrated that a replaceable transport had become a control-plane dependency. That made provider planner state capable of blocking publication and complicated reconciliation. A first-party publication identity lets adapters fail, retry, change IDs, or be replaced without corrupting experiment/artifact identity.
 
 **Consequences:** New publication jobs are single-writer by platform/time and idempotent by `publication_id`. Known failures may retry under that same identity. Ambiguous transport outcomes become `NEEDS_RECONCILIATION` and never blind-retry. Metricool is frozen as canonical publisher but its historical receipts/analytics are preserved. TikTok draft upload is the first active adapter; Meta remains future work; exact locked artifacts may be manually posted and recorded during transition. Website attribution stays separate and fail-closed. The earlier same-day TikTok draft-upload decision remains valid as an adapter decision but no longer defines the overall publication control plane. **Status:** Accepted; implementation tracked by #6356 / PR #6357.
+
+
+## 2026-10-07 — Social production must have a sovereign zero-credit critical path
+
+**Decision:** Adopt THS R8.04 “Sovereign Production & Zero-Credit Critical Path” for new social production. A releasable artifact must be creatable, narrated, rendered, mastered, QA-checked, packaged, and handed off for manual native upload without a paid membership, hosted generation account, API key, metered generation credit, or premium external editor. First-party platform APIs may remain optional transport adapters; manual native upload is sufficient canonical transport. Descript, Metricool scheduling, hosted TTS/image/video credits, and basic operating-system TTS are prohibited as automatic or emergency production fallbacks.
+
+**Rationale:** A real Descript credit failure demonstrated that the prior architecture had a local/no-credit voice capability but did not make it mandatory. The pipeline could therefore degrade into robotic narration merely to preserve output. That violates the existing Natural Presence quality doctrine and makes production reliability depend on external plan state.
+
+**Consequences:** Vertical-video packages emit a governed narration script. The canonical local Voice Engine renders an on-device open-source narration artifact and provenance receipt. The exact WAV must explicitly pass Natural Presence and pronunciation QA before the MP4 renderer can mux AAC audio. THS Publisher staging rejects silent, stale, credit-backed, or non-local narration. The sovereignty validator watches the actual distribution/rendering/publisher surfaces. If local quality cannot pass, release fails closed; the allowed recovery path is local regeneration/model change, authorized human house voice, or stop—not a paid-provider fallback. **Status:** Accepted; implementation tracked by #6378 / PR #6377.
