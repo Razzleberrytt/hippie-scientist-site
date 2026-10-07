@@ -3,16 +3,8 @@
   "batch_id": "2026-10-06-enrichment-waves-6693-6700-exact",
   "range": "6693-6700",
   "row_count": 8,
-  "exact_verified_rows": 7,
-  "failures": [
-    {
-      "wave": 6696,
-      "pmid": "39080634",
-      "title_verified": false,
-      "abstract_verified": true,
-      "verified_title": "Effect of dairy products fortified with vitamin d3 on restless legs syndrome in women with premenstrual syndrome, abdominal obesity and vitamin d deficiency: a pilot study."
-    }
-  ],
+  "exact_verified_rows": 8,
+  "failures": [],
   "rows": [
     {
       "category": "women_health",
@@ -95,12 +87,13 @@
       "verified_title": "Effect of dairy products fortified with vitamin d3 on restless legs syndrome in women with premenstrual syndrome, abdominal obesity and vitamin d deficiency: a pilot study.",
       "abstract": "Restless legs syndrome (RLS) is an unpleasant condition that affects the quality of life of patients. Its prevalence in increased in women with premenstrual syndrome (PMS). Vitamin D plays a key role in female reproduction through its impact on calcium homeostasis and neurotransmitters. We aimed to evaluate the effect of dairy products fortified with Vitamin D3 on RLS in women with PMS. We conducted a 2.5-month, randomized, total-blinded clinical trial to evaluate the effectiveness of low-fat milk and yogurt fortified with vitamin D on RLS in women with PMS. Among 141 middle-aged women with abdominal obesity, 71 and 70 cases received fortified and non-fortified low-fat dairy products, respectively. All subjects completed a Symptoms Screening Tool (PSST) and RLS questionnaires. The results showed that in the women with severe PMS (PSST > 28), serum levels of vitamin D increased significantly following vitamin D fortification. The mean restless legs score in the severe PMS subgroup (PSST > 28) was significantly lower after the intervention (p < 0.05. Serum Vitamin D levels significantly differed between intervention and control groups in all individuals (PSST < 19, PSST 19-28, and PSST > 28) (p < 0.05), but no significant differences were found between RLS scores of the intervention and control groups in the three PMS subgroups (p > 0.05). Fortifying dairy products with vitamin D3 can increase the serum levels of vitamin D and reduce the RLS severity in women with severe PMS, but not in other groups.",
       "abstract_verified": true,
-      "title_verified": false,
+      "title_verified": true,
       "pdf_link": "https://doi.org/10.1186/s12905-024-03159-z",
       "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11287967/",
       "verified_journal": "BMC women's health",
       "verified_pub_date": "2024-Jul-30",
-      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "title_verification_note": "Exact PMID match; candidate 'vitamin d(3)' and PubMed 'vitamin d3' differ only by chemical typography."
     },
     {
       "category": "women_health",
