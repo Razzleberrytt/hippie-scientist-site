@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-1726-1750-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-1701-1725-selection",
+  "program": {
+    "range": "1501-2000",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 250,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2000"
+  },
+  "source_provenance": [
+    "Sider Scholar + NCBI PubMed exact-source verification",
+    "cumulative PMID collision index covering prior enrichment waves and current branch"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2000 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe/source verification during authoring; expensive repository-wide validation only after Wave 2000"
+  },
+  "waves": [
+    {
+      "wave": 1726,
+      "entity_slug": "e-coli-nissle-recurrent-uti",
+      "pmid": "42803671",
+      "focus": "Pilot multicenter double-blind RCT in 50 women with recurrent uncomplicated UTI found fewer microbiological recurrences with E. coli Nissle 1917 numerically, but the primary comparison did not reach statistical significance; strain-specific recurrence-free trends remain exploratory.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1727,
+      "entity_slug": "probiotics-neonatal-jaundice-meta",
+      "pmid": "42808098",
+      "focus": "Systematic review/meta-analysis of 19 RCTs found probiotics may reduce phototherapy use/duration and bilirubin in neonatal physiological jaundice, with strain-specific differences across C. butyricum, L. reuteri and S. boulardii; category pooling limits broad claims.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1728,
+      "entity_slug": "l-reuteri-pediatric-functional-gi-meta",
+      "pmid": "42811720",
+      "focus": "Meta-analysis of five RCTs each in pediatric functional abdominal pain and constipation found L. reuteri DSM 17938 did not significantly improve responder rates, pain frequency/intensity or stool frequency versus placebo; a useful direct null for this strain.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1729,
+      "entity_slug": "probiotics-child-oral-health-systematic-review",
+      "pmid": "42819081",
+      "focus": "Systematic review of pediatric probiotic interventions found many trials reported lower caries incidence/progression or salivary S. mutans, but strain, design and outcome heterogeneity prevented a single class-wide efficacy conclusion.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1730,
+      "entity_slug": "vitamin-c-nac-lugol-topical-rct",
+      "pmid": "42715145",
+      "focus": "Large multicenter double-blind RCT found topical vitamin C solution and topical NAC both reduced short-term discomfort after Lugol chromoendoscopy versus saline and accelerated decolorization; route-specific mucosal evidence cannot be generalized to oral supplementation.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1731,
+      "entity_slug": "nac-tuberculosis-adjunct-rct",
+      "pmid": "42718567",
+      "focus": "Open-label randomized single-center trial in 90 newly diagnosed pulmonary-TB patients found adjunctive oral or nebulized NAC improved several treatment-response, oxidative-stress and inflammatory measures versus standard therapy alone; open-label design and concomitant HRZE therapy require cautious attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1732,
+      "entity_slug": "nac-multiple-sclerosis-pet-mri",
+      "pmid": "42732209",
+      "focus": "Small randomized study in 36 patients with mild-to-moderate MS found combined IV/oral NAC altered resting functional connectivity and cerebral glucose metabolism, with correlations to self-reported cognition/attention; neuroimaging and symptom associations remain exploratory.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1733,
+      "entity_slug": "nac-endometriosis-icsi-rct",
+      "pmid": "42781143",
+      "focus": "RCT in 60 women with endometriosis undergoing ICSI found six weeks of NAC reduced serum lead/nickel and several lipid measures but also reduced HDL, with no LDL change; fertility-treatment context and biomarker endpoints limit clinical inference.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1734,
+      "entity_slug": "beetroot-hypoxia-exercise",
+      "pmid": "42738952",
+      "focus": "Randomized crossover study in 12 healthy men found acute nitrate-rich beetroot attenuated hypoxia-associated skeletal-muscle deoxygenation during submaximal exercise, while broader performance implications were not established.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1735,
+      "entity_slug": "l-arginine-cognitive-impairment-pilot",
+      "pmid": "42621366",
+      "focus": "Small double-blind randomized pilot in older adults with cognitive impairment found more participants receiving oral L-arginine normalized ACE-III scores after 30 days, but only 35 completed and domain gains were partly within-group; confirmation is needed.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1736,
+      "entity_slug": "choline-apoe4-prevention-pilot",
+      "pmid": "42746101",
+      "focus": "Six-month open-label phase-1 study in 13 asymptomatic APOE ε4 carriers found oral choline increased plasma/CSF choline and betaine with exploratory lipidomic and AD-biomarker shifts; study was not powered for clinical efficacy and lacked placebo control.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1737,
+      "entity_slug": "esports-supplements-mental-fatigue",
+      "pmid": "42715390",
+      "focus": "Randomized crossover study in 20 high-level FPS esports athletes compared caffeine, nitrate, Ginkgo extract, catechins and placebo after induced mental fatigue; several supplements improved shooting accuracy, but no clear winner emerged and some abilities improved similarly with natural recovery.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1738,
+      "entity_slug": "vitamin-c-dermatology-systematic-review",
+      "pmid": "42761976",
+      "focus": "Systematic review of 44 dermatology studies found vitamin C effectiveness depended strongly on derivative chemistry, vehicle, pH, stabilization and delivery route; heterogeneity and sparse standardized data make formulation-specific interpretation essential.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1739,
+      "entity_slug": "postbiotic-b-breve-b3-sarcopenia",
+      "pmid": "42797058",
+      "focus": "24-week randomized double-blind pilot in sarcopenia found heat-killed B. breve B-3 did not improve the primary knee-extension-strength outcome; exploratory BIA and biomarker signals were not corroborated by DXA or functional outcomes.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1740,
+      "entity_slug": "microbiota-directed-acute-pancreatitis-meta",
+      "pmid": "42798434",
+      "focus": "Systematic review/meta-analysis found prebiotic/probiotic/synbiotic adjuncts were associated with shorter hospital stay and fewer infections in acute pancreatitis, while mortality lost significance in sensitivity analysis and organ-failure outcomes were not consistently improved.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1741,
+      "entity_slug": "omega3-obesity-inflammation-ffar4",
+      "pmid": "41373925",
+      "focus": "Eight-week double-blind RCT in 55 adults with obesity found marine EPA+DHA increased PBMC FFAR4 activation and reduced several inflammatory markers during calorie restriction; mechanistic and biomarker outcomes do not establish clinical-event benefit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1742,
+      "entity_slug": "omega3-cardiometabolic-markers-meta",
+      "pmid": "41494879",
+      "focus": "Meta-analysis of 24 randomized studies found omega-3 supplementation reduced triglycerides and modestly improved several metabolic markers, with subgroup-specific LDL/total-cholesterol effects; diverse populations and endpoints require outcome-specific interpretation.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1743,
+      "entity_slug": "omega3-lppla2-meta",
+      "pmid": "41545244",
+      "focus": "Meta-analysis of 16 RCTs found omega-3 supplementation reduced circulating Lp-PLA2 mass but not Lp-PLA2 enzymatic activity; biomarker changes should not be converted into cardiovascular event-reduction claims.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1744,
+      "entity_slug": "vitamin-d-omega3-anemia-vital",
+      "pmid": "42630947",
+      "focus": "Randomized VITAL ancillary study in 839 nonanemic adults found neither vitamin D nor omega-3 supplementation reduced two-year anemia incidence or meaningfully changed hemoglobin overall; subgroup interactions were exploratory.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1745,
+      "entity_slug": "probiotics-ventilator-pneumonia-umbrella",
+      "pmid": "41834846",
+      "focus": "Umbrella review of 24 meta-analyses reported lower ventilator-associated pneumonia and nosocomial infection with probiotics, but methodological quality ranged from critically low to high and the pooled literature spans diverse formulations and ICU contexts.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1746,
+      "entity_slug": "b-adolescentis-lactose-intolerance",
+      "pmid": "41909904",
+      "focus": "Small randomized placebo-controlled trial in 21 lactose maldigesters found B. adolescentis iVS-1 reduced overall daily symptoms and selected urgency/diarrhea outcomes during two weeks, with detectable strain persistence after treatment; replication is needed.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1747,
+      "entity_slug": "selenium-yeast-diabetic-neuropathy",
+      "pmid": "41504164",
+      "focus": "Triple-blind RCT in 50 adults with diabetic peripheral neuropathy found selenium-enriched yeast did not significantly improve between-group neuropathy symptom scores or oxidative balance, though some within-group severity and quality-of-life measures improved; primary neuropathy benefit remains uncertain.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1748,
+      "entity_slug": "beetroot-bfr-strength-fatigue",
+      "pmid": "41048224",
+      "focus": "Four-week randomized study in 21 male college athletes found blood-flow-restriction training improved strength/fatigue measures and adding beetroot juice produced larger late-set fatigue-resistance effects; combination design prevents beetroot-only attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1749,
+      "entity_slug": "beetroot-judo-performance",
+      "pmid": "41112748",
+      "focus": "Randomized double-blind crossover trial in 35 adolescent recreational judokas found acute nitrate-rich beetroot improved jump height, strength and judo-specific performance metrics versus placebo; adolescent recreational-athlete context limits generalization.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1750,
+      "entity_slug": "carnitine-glycemic-overweight-women-meta",
+      "pmid": "41177307",
+      "focus": "Meta-analysis of eight studies/nine RCT arms found carnitine modestly reduced fasting glucose, insulin and HOMA-IR in women with overweight/obesity, while QUICKI was unchanged; subgroup dose/duration signals remain exploratory and should not drive dosing guidance.",
+      "state": "reviewed_receipt_pending_final_admission"
+    }
+  ]
+}

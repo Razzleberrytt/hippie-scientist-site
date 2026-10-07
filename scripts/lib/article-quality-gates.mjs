@@ -25,7 +25,8 @@ const BOILERPLATE_PATTERNS = [
 
 const DUMMY_REFERENCE_PATTERNS = [
   /placeholder/i,
-  /example/i,
+  /\bexample\s+(?:reference|citation)s?\b/i,
+  /^example$/i,
   /\bsample\s+(?:reference|citation)s?\b/i,
   /\bpubmed\b\s*$/i,
   /\bnih\b\s*$/i,
@@ -244,7 +245,7 @@ export function validateArticleQuality(record, options = {}) {
     if (!String(ref?.pmid || ref?.url || '').trim()) {
       issues.push(`reference without PMID or URL in ${fileName} at index ${index}`)
     }
-    if (DUMMY_REFERENCE_PATTERNS.some(pattern => pattern.test(refCorpus))) {
+    if (DUMMY_REFERENCE_PATTERNS.some(pattern => pattern.test(refCorpus) || pattern.test(String(ref?.title || '').trim()))) {
       issues.push(`dummy reference detected in ${fileName} at index ${index}`)
     }
   }

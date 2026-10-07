@@ -1,0 +1,366 @@
+{
+  "schema_version": 1,
+  "row_count": 36,
+  "rows": [
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41388841",
+      "doi": "10.1111/jocd.70615",
+      "title": "A Scoping Review of Clinical Trials on the Efficacy of Curcumin and Its Formulations for Wound Healing.",
+      "journal": "Journal of cosmetic dermatology",
+      "pub_date": "2025 Dec",
+      "pub_type": "Scoping Review",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41393198",
+      "doi": "10.1007/s40200-025-01799-y",
+      "title": "Effect of curcumin plus piperine co-supplementation on glycemic control in adults: A meta-analysis of randomized controlled trials.",
+      "journal": "Journal of diabetes and metabolic disorders",
+      "pub_date": "2025 Dec",
+      "pub_type": "Review",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41399799",
+      "doi": "10.1016/j.chmed.2025.06.003",
+      "title": "Potential of Panax ginseng for bone health and osteoporosis management.",
+      "journal": "Chinese herbal medicines",
+      "pub_date": "2025 Oct",
+      "pub_type": "Review",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41420177",
+      "doi": "10.1186/s12967-025-07458-3",
+      "title": "Therapeutic potential of curcumin in ophthalmic diseases: mechanisms and clinical applications.",
+      "journal": "Journal of translational medicine",
+      "pub_date": "2025 Dec 19",
+      "pub_type": "Review",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41420287",
+      "doi": "10.1002/ptr.70151",
+      "title": "Ashwagandha: Is It Safe? Part 1: A Regulatory Review.",
+      "journal": "Phytotherapy research : PTR",
+      "pub_date": "2026 Aug",
+      "pub_type": "Review",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41423976",
+      "doi": "10.13294/j.aps.2025.0069",
+      "title": "[Research progress on the signaling pathways of curcumin in obesity treatment].",
+      "journal": "Sheng li xue bao : [Acta physiologica Sinica]",
+      "pub_date": "2025 Dec 25",
+      "pub_type": "English Abstract",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41432971",
+      "doi": "10.1007/s12035-025-05627-5",
+      "title": "Tetrahydrocurcumin for Major Depressive Disorder with Therapeutic Potential and Mechanistic Insights from Clinical and Preclinical Studies.",
+      "journal": "Molecular neurobiology",
+      "pub_date": "2025 Dec 23",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41441480",
+      "doi": "10.3390/nano15241869",
+      "title": "Curcumin-Loaded Nanoscale Metal-Organic Frameworks for Therapeutic Applications in Cancer.",
+      "journal": "Nanomaterials (Basel, Switzerland)",
+      "pub_date": "2025 Dec 12",
+      "pub_type": "Review",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41452213",
+      "doi": "10.1002/adhm.202504018",
+      "title": "pH-Triggered and Targeted Delivery of Curcumin: From Dendritic Polymers to Natural and Synthetic Nanocarriers.",
+      "journal": "Advanced healthcare materials",
+      "pub_date": "2026 Apr",
+      "pub_type": "Review",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41453594",
+      "doi": "10.1016/j.fct.2025.115921",
+      "title": "Synthetic curcumin analogs in nephrotoxicity: Mechanisms and therapeutic advances.",
+      "journal": "Food and chemical toxicology : an international journal published for the British Industrial Biological Research Association",
+      "pub_date": "2026 Mar",
+      "pub_type": "Review",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41454558",
+      "doi": "10.1002/ptr.70155",
+      "title": "Evaluation of Potential Hormonal Activities of Ashwagandha (Withania somnifera).",
+      "journal": "Phytotherapy research : PTR",
+      "pub_date": "2026 Aug",
+      "pub_type": "Review",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41460258",
+      "doi": "10.1007/s00280-025-04835-z",
+      "title": "Curcumin in colorectal cancer: preventive strategies and therapeutic mechanisms.",
+      "journal": "Cancer chemotherapy and pharmacology",
+      "pub_date": "2025 Dec 29",
+      "pub_type": "Review",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41471280",
+      "doi": "10.3390/ph18121791",
+      "title": "Curcumin and Tetrahydrocurcumin as Multi-Organ Modulators of the Adipose Tissue-Gut-Liver Axis: Mechanistic Insights, Therapeutic Potential, and Translational Challenges.",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "pub_date": "2025 Nov 25",
+      "pub_type": "Review",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41502433",
+      "doi": "10.21037/atm-25-69",
+      "title": "The application of Panax notoginseng with a focus on its anti-inflammatory effect: a narrative review.",
+      "journal": "Annals of translational medicine",
+      "pub_date": "2025 Dec 31",
+      "pub_type": "Review",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41515171",
+      "doi": "10.3390/nu18010053",
+      "title": "Curcumin Rewires the Tumor Metabolic Landscape: Mechanisms and Clinical Prospects.",
+      "journal": "Nutrients",
+      "pub_date": "2025 Dec 23",
+      "pub_type": "Review",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41550594",
+      "doi": "10.1016/j.jgr.2025.08.008",
+      "title": "The role of ginseng and ginsenosides in ROS and cardiovascular disease.",
+      "journal": "Journal of ginseng research",
+      "pub_date": "2026 Jan",
+      "pub_type": "Review",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41560742",
+      "doi": "10.3389/fphar.2025.1664319",
+      "title": "A critical review of systematic reviews and meta-analyses of curcumin for knee osteoarthritis.",
+      "journal": "Frontiers in pharmacology",
+      "pub_date": "2025",
+      "pub_type": "Systematic Review",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41584363",
+      "doi": "10.1016/j.apsb.2025.10.018",
+      "title": "Targeting glial cells: Unveiling the neuroprotective mechanisms of Ginseng in the brain microenvironment.",
+      "journal": "Acta pharmaceutica Sinica. B",
+      "pub_date": "2026 Jan",
+      "pub_type": "Review",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41584709",
+      "doi": "10.1016/j.chmed.2025.03.003",
+      "title": "From natural laboratory to drug discovery: Chemical structures, bioactivities, and biosynthesis of meroterpenoids from Ganoderma species.",
+      "journal": "Chinese herbal medicines",
+      "pub_date": "2026 Jan",
+      "pub_type": "Review",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41601662",
+      "doi": "10.3389/fimmu.2025.1726157",
+      "title": "Curcumin for the clinical treatment of rheumatoid arthritis: a systematic review and meta-analysis of placebo-controlled randomized clinical trials.",
+      "journal": "Frontiers in immunology",
+      "pub_date": "2025",
+      "pub_type": "Meta-Analysis",
+      "query": "(ashwagandha OR \"Withania somnifera\" OR rhodiola OR ginseng OR \"Panax ginseng\" OR bacopa OR \"Hericium erinaceus\" OR \"lion's mane\" OR curcumin OR ganoderma) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "gut",
+      "pmid": "41319022",
+      "doi": "10.1002/brb3.71108",
+      "title": "Role of Probiotics in Management of Depressive Symptoms and Cognitive Impairment in Patients With Depression: An Updated Analysis of Trials.",
+      "journal": "Brain and behavior",
+      "pub_date": "2025 Dec",
+      "pub_type": "Review",
+      "query": "((probiotic OR prebiotic OR synbiotic OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "gut",
+      "pmid": "41353062",
+      "doi": "10.1016/j.orcp.2025.12.001",
+      "title": "Emerging trends and hotspots of the link between gut probiotics and obesity from 2000 to 2024: A bibliometric analysis.",
+      "journal": "Obesity research & clinical practice",
+      "pub_date": "2025 Nov-Dec",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "((probiotic OR prebiotic OR synbiotic OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "gut",
+      "pmid": "41374052",
+      "doi": "10.3390/nu17233762",
+      "title": "Probiotic Supplementation Can Alter Inflammation Parameters and Self-Reported Sleep After a Marathon: A Randomized, Double-Blind, Placebo-Controlled Study.",
+      "journal": "Nutrients",
+      "pub_date": "2025 Nov 29",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((probiotic OR prebiotic OR synbiotic OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "gut",
+      "pmid": "41378857",
+      "doi": "10.1111/ejn.70316",
+      "title": "The Role of Gut Microbiota in Migraine: Effects of Probiotics, Prebiotics, and Their Combinations.",
+      "journal": "The European journal of neuroscience",
+      "pub_date": "2025 Dec",
+      "pub_type": "Review",
+      "query": "((probiotic OR prebiotic OR synbiotic OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "gut",
+      "pmid": "41433106",
+      "doi": "10.1097/MEG.0000000000003074",
+      "title": "Effect of multistrain probiotics on symptom severity in irritable bowel syndrome: a systematic review and meta-analysis of irritable bowel syndrome-symptom severity score outcomes.",
+      "journal": "European journal of gastroenterology & hepatology",
+      "pub_date": "2026 Apr 1",
+      "pub_type": "Meta-Analysis",
+      "query": "((probiotic OR prebiotic OR synbiotic OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "gut",
+      "pmid": "41453849",
+      "doi": "10.1177/02698811251397332",
+      "title": "The therapeutic readiness of probiotics in major depressive disorder: A systematic review of randomised controlled trials.",
+      "journal": "Journal of psychopharmacology (Oxford, England)",
+      "pub_date": "2026 Apr",
+      "pub_type": "Journal Article",
+      "query": "((probiotic OR prebiotic OR synbiotic OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "gut",
+      "pmid": "41457283",
+      "doi": "10.1186/s12906-025-05232-y",
+      "title": "The effect of probiotics on anxiety, depression, nicotine dependence, and metabolic biomarkers in smokers: a randomized clinical trial.",
+      "journal": "BMC complementary medicine and therapies",
+      "pub_date": "2025 Dec 29",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((probiotic OR prebiotic OR synbiotic OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "gut",
+      "pmid": "41502201",
+      "doi": null,
+      "title": "The Role of Probiotics in Depression and Quality of Life in Patients with Irritable Bowel Syndrome.",
+      "journal": "Acta medica Indonesiana",
+      "pub_date": "2025 Oct",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((probiotic OR prebiotic OR synbiotic OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "gut",
+      "pmid": "41597375",
+      "doi": "10.3390/medicina62010089",
+      "title": "Efficacy of Specific Probiotic Strains in Subtypes of Irritable Bowel Syndrome: Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "journal": "Medicina (Kaunas, Lithuania)",
+      "pub_date": "2025 Dec 31",
+      "pub_type": "Meta-Analysis",
+      "query": "((probiotic OR prebiotic OR synbiotic OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "gut",
+      "pmid": "41597541",
+      "doi": "10.3390/microorganisms14010023",
+      "title": "Efficacy and Safety of Probiotics in Children with Irritable Bowel Syndrome: A Systematic Review and Meta-Analysis.",
+      "journal": "Microorganisms",
+      "pub_date": "2025 Dec 21",
+      "pub_type": "Review",
+      "query": "((probiotic OR prebiotic OR synbiotic OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "gut",
+      "pmid": "41648756",
+      "doi": "10.3389/fnut.2025.1701341",
+      "title": "Eight weeks of treatment with probiotic Bifidobacterium breve, Bif195 lowers fatigue scores in patients with diarrhoea-predominant irritable bowel syndrome: results from a randomised, clinical trial.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2025",
+      "pub_type": "Journal Article",
+      "query": "((probiotic OR prebiotic OR synbiotic OR psychobiotic) AND (IBS OR \"irritable bowel\" OR anxiety OR depression OR sleep OR stress OR cognition)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "40563371",
+      "doi": "10.3390/antiox14060740",
+      "title": "Unlocking the Power of Magnesium: A Systematic Review and Meta-Analysis Regarding Its Role in Oxidative Stress and Inflammation.",
+      "journal": "Antioxidants (Basel, Switzerland)",
+      "pub_date": "2025 Jun 16",
+      "pub_type": "Review",
+      "query": "((ashwagandha OR \"Withania somnifera\" OR theanine OR kava OR lavender OR chamomile OR rhodiola OR magnesium) AND (stress OR anxiety)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "40746175",
+      "doi": "10.1177/02601060251363647",
+      "title": "Dual impact of Ashwagandha: Significant cortisol reduction but no effects on perceived stress - A systematic review and meta-analysis.",
+      "journal": "Nutrition and health",
+      "pub_date": "2025 Dec",
+      "pub_type": "Meta-Analysis",
+      "query": "((ashwagandha OR \"Withania somnifera\" OR theanine OR kava OR lavender OR chamomile OR rhodiola OR magnesium) AND (stress OR anxiety)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41177368",
+      "doi": "10.1016/j.ctim.2025.103296",
+      "title": "Short- and long-term effects of inhaled lavender essential oil on anxiety, fatigue, blood pressure, and sleep quality in middle-aged adults with hypertension: A randomized placebo-controlled pilot study.",
+      "journal": "Complementary therapies in medicine",
+      "pub_date": "2025 Dec",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((ashwagandha OR \"Withania somnifera\" OR theanine OR kava OR lavender OR chamomile OR rhodiola OR magnesium) AND (stress OR anxiety)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41228524",
+      "doi": "10.3390/nu17213452",
+      "title": "Beneficial Effects of Long-Lasting Bicarbonate-Sulfate-Calcium-Magnesium Water Intake on Metabolic Dysfunction-Associated Steatotic Liver Disease (MASLD)-Related Outcomes via Impacting Intestinal Permeability (IP), IP-Related Systemic Inflammation, and Oxidative Stress.",
+      "journal": "Nutrients",
+      "pub_date": "2025 Oct 31",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((ashwagandha OR \"Withania somnifera\" OR theanine OR kava OR lavender OR chamomile OR rhodiola OR magnesium) AND (stress OR anxiety)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "41318032",
+      "doi": "10.1016/j.jocmr.2025.101993",
+      "title": "Myocardial energy metabolism in heart failure: Systematic review and meta-analysis of Phosphorus-31 magnetic resonance spectroscopy phosphocreatine/adenosine triphosphate ratio.",
+      "journal": "Journal of cardiovascular magnetic resonance : official journal of the Society for Cardiovascular Magnetic Resonance",
+      "pub_date": "2026 Summer",
+      "pub_type": "Meta-Analysis",
+      "query": "((creatine OR \"coenzyme Q10\" OR CoQ10 OR carnitine OR riboflavin OR nicotinamide OR \"alpha lipoic acid\") AND (fatigue OR mitochondrial OR energy OR exercise)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    }
+  ]
+}

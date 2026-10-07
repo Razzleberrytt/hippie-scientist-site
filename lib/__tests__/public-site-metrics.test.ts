@@ -29,15 +29,19 @@ function dataset(): PublicEvidenceDataset {
 }
 
 describe('public site metrics', () => {
-  it('uses final public-library inventory counts while preserving evidence-dataset study metrics', () => {
+  it('keeps published coverage separate from the broader tracked compound inventory', () => {
     const metrics = buildPublicSiteMetrics(dataset(), {
+      publishedArticles: 254,
       publishedHerbs: 1,
       publishedCompounds: 2,
+      totalCompounds: 528,
     })
 
     expect(metrics).toEqual({
+      publishedArticles: 254,
       publishedHerbs: 1,
       publishedCompounds: 2,
+      totalCompounds: 528,
       publishedProfiles: 3,
       structuredStudies: 899,
       humanEvidenceSources: 281,

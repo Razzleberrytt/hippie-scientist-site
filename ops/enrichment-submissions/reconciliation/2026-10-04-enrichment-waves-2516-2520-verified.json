@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "range": "2516-2520",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2516,
+      "pmid": "42682565",
+      "title": "Skeletal muscle mitochondrial-methylation-neurotransmitter crosstalk: a novel synergistic model of betaine, tyrosine, and Cordyceps for exercise performance in older adults, individuals with metabolic disorders, and healthy populations.",
+      "abstract_verified": true,
+      "state": "research_only_hypothesis_review",
+      "evidence_boundary": "Systems-level hypothesis/review; proposed synergy is not established by direct clinical testing."
+    },
+    {
+      "wave": 2517,
+      "pmid": "42676506",
+      "title": "The intake-adequacy gap in dysphagia nutrition: texture-modified foods, nutrient delivery and realised intake in older adults.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "Review addresses realized intake and care delivery rather than efficacy of any single supplement."
+    },
+    {
+      "wave": 2518,
+      "pmid": "42671953",
+      "title": "Adynamic Bone Disease in Chronic Kidney Disease: From PTH Suppression-Driven Remodeling Phenotype to Osteoanabolic Therapy.",
+      "abstract_verified": true,
+      "state": "research_only_clinical_review",
+      "evidence_boundary": "CKD-specific mechanistic/clinical review; therapy implications require disease-specific specialist context and are not general supplement guidance."
+    },
+    {
+      "wave": 2519,
+      "pmid": "42668123",
+      "title": "The cognitive effects of creatine supplementation in older adults and preclinical models of dementia: A scoping review.",
+      "abstract_verified": true,
+      "state": "research_only_scoping_review",
+      "evidence_boundary": "Evidence is sparse and predominantly preclinical; no relevant RCTs were identified."
+    },
+    {
+      "wave": 2520,
+      "pmid": "42666359",
+      "title": "Exercise alone or combined with functional foods in aging and age-related diseases: targeting DNA damage, repair pathways, and genome integrity.",
+      "abstract_verified": true,
+      "state": "research_only_combination_firewall",
+      "evidence_boundary": "Mixed molecular, animal, and human literature plus combined interventions prevents ingredient-specific causal attribution."
+    }
+  ]
+}

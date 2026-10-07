@@ -15,8 +15,11 @@ describe("Lion's Mane evidence calibration", () => {
   it('keeps the review current without raising the evidence grade', () => {
     const text = source()
 
-    expect(text).toContain("updatedAt: '2026-09-18'")
+    expect(text).toContain("updatedAt: '2026-10-04'")
     expect(text).toContain('evidence_grade: mixed-human-evidence')
+    expect(text).toContain('keyTakeaways:')
+    expect(text).toContain('citationQuestions:')
+    expect(text).toContain('canonicalConcepts:')
     for (const pmid of ['40959699', '40276537', '38004235']) {
       expect(text).toContain(pmid)
     }

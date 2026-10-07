@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-10-02
+**Updated:** 2026-10-06
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
@@ -46,19 +46,28 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Now — active exact work
 
+**Research-only admitted work #6349 / PR #6350:** In review — deep research enrichment Waves 4001–4500. This does not consume a normal implementation WIP slot; it is research-only, fail-closed from runtime/publication/recommendation/dose promotion, and merge remains contingent on repository validation and review.
+
 | ID / owning PR | Scope | WS | Status | Priority | BI/UV/TP/SL/C/E | Score | Freshness |
 |---|---|---|---|---|---|---:|---|
-| #6021 / PR #6195 | nav: fix misleading Articles breadcrumb destination on focus-cluster pages | D | In review — breadcrumb label/a11y repair implemented; exact-head validation pending | P1 | 3/4/2/3/1/1 | 72.0 | 2026-10-02T16:00:00Z — admitted on exact base 85470582cbeaf68fedf9ef6c9386f109b1e281b2 |
 
 
 
-**Current admission (verified 2026-10-02):** Normal implementation WIP is **1/3**. Discovery/SEO is occupied by #6021; Revenue/Conversion and Authority/Content remain free. #6021 is admitted against exact free-base main `85470582cbeaf68fedf9ef6c9386f109b1e281b2` after the separate retirement transaction for #6185. Current defect and non-overlap proof remain valid; fresh score is **72.0**. #5081 remains blocked on its own governor prerequisite.
+**Current admission (verified 2026-10-06):** Normal implementation WIP is **0/3**. Discovery/SEO, Revenue/Conversion, and Authority/Content are all free; vacancy alone does not authorize new work without a fresh scored, non-overlapping admission transaction.
 
 **Control maintenance #6131:** In review; reconcile closed owners and machine-readable WIP. Existing-owner reconciliation requires authenticated pre-base PR ownership; this bounded control repair grants no additional normal implementation slot.
 
 **Security follow-up #5456:** Open permanent MDX/TOML dependency-chain removal. Temporary containment expires 2026-10-07; this audit does not extend it.
 
-### Verified completion refresh — 2026-10-02
+### Verified completion refresh — 2026-10-06
+
+- **#6356 / PR #6357 — completed:** THS Publisher v0.1 merged to `main` as `fc0d0fee90a027cb13e2f6b77071d8632ee99b35`. First-party publication identity/state, TikTok draft transport, Observer/reconciliation, provider-neutral staging, and Metricool publication freeze are implemented and exact-head validation/build gates passed. External Cloudflare D1/KV bindings, production secrets, TikTok app approval, creator authorization, and live publication receipt remain pending/Unknown.
+
+- **#6258 / PR #6257 — completed:** RC/NPS consolidated closeout merged at `6151f17759b09bd0b9a73a605b58b70b813e8dda` from exact source `17ea07e9ca2ecd45bbaf60fdd125c71fcfb6f055` on 2026-10-05T12:37:53Z. Includes #6249 / #6253; duplicate PRs #6252/#6254 are closed with their source incorporated. The 92-route inventory, all 45 candidate dispositions, source corrections, recovery/support normalization, tests and evidence limitations are recorded in `docs/content/rc-nps-completion-2026-10-05.md`. Sparse-compound evidence gaps, unverified global legal status and external outcomes remain explicit.
+
+- **#6338 / PR #6339 — completed:** live GitHub merge receipt is `c5179df73b0ad472149b13f595a279ec60af49d5`, merged 2026-10-05T03:41:40Z. Retirement reconciles ownership only; it does not assert measured traffic, revenue, or a new deployment receipt.
+
+- **#6021 / PR #6195 — completed:** merged as `a1463e8010cfb2c30126bd06671451e23b19b703`; breadcrumb destination/label and accessibility repair are on `main`. The Discovery/SEO slot is free; external outcomes remain **Unknown**.
 
 - **#6185 / PR #6190 — completed:** merged as `0657391a3bb73916f18bd0df42542363dcdc07d3`; bounded UI-contract drift now fails before broad validation, exact-head governed static exports are reused by downstream build-dependent checks, P0 Visual Proof is required for every retained visual trigger including low-risk visual-path tests, and artifact mismatch/miss still falls back to a full build. Exact-head CI/full tests/a11y/data/security, production build/output/SEO, Build Quality, Atomic, Site Health, Build Check, Production Content Lint, Lighthouse, P0 visual proof, governed export reuse, and review resolution passed. External business impact remains **Unknown**.
 
@@ -84,7 +93,7 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 
 ## Next — ordered dependency queue
 
-Discovery/SEO is occupied by #6021; Revenue/Conversion and Authority/Content are free. Normal WIP is 1/3. No additional candidate is admitted by vacancy alone. Further work requires the normal scored, freshness, dependency, experiment, non-overlap, and admission gates. External outcomes for #6021 remain Unknown until observed.
+Discovery/SEO, Revenue/Conversion, and Authority/Content are free. No candidate is admitted by vacancy alone.
 
 | ID | Title | WS/Lane | Status | Priority | BI/UV/TP/SL/C/E | Score | Dependencies / freshness | Acceptance / proof boundary |
 |---|---|---|---|---|---|---:|---|---|

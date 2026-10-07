@@ -1,0 +1,1209 @@
+{
+  "schema_version": 1,
+  "category": "cardiometabolic",
+  "target": 40,
+  "predecessor_unique_pmids": 5935,
+  "candidate_count": 120,
+  "rows": [
+    {
+      "pmid": "42836438",
+      "title": "Effectiveness of a Sodium Intake Monitoring Smartphone Application (NamakBan) on Clinical Outcomes of Patients Diagnosed With Hypertension: A Randomized Clinical Trial.",
+      "doi": "10.1002/nop2.70909",
+      "pub_date": "2026 Oct",
+      "journal": "Nursing open",
+      "pub_type": "Randomized Controlled Trial",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42745676",
+      "title": "Intravenous lipid emulsions with or without fish oil for the prevention of liver disease in VLBW neonates: A network meta-analysis.",
+      "doi": "10.1002/jpen.70145",
+      "pub_date": "2026 Sep 16",
+      "journal": "JPEN. Journal of parenteral and enteral nutrition",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42778211",
+      "title": "QTc changes and early major adverse cardiovascular events associated with antidepressant treatment for major depressive disorder in adults: individual participant data network meta-regression of double blind randomised trials.",
+      "doi": "10.1136/bmj-2026-100600",
+      "pub_date": "2026 Sep 23",
+      "journal": "BMJ (Clinical research ed.)",
+      "pub_type": "Network Meta-Analysis",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42836929",
+      "title": "Questionable Evidence for Berberine in Polyendocrine Metabolic Ovarian Syndrome: An Integrity-Based Reappraisal.",
+      "doi": "10.1007/s12325-026-03799-7",
+      "pub_date": "2026 Oct 6",
+      "journal": "Advances in therapy",
+      "pub_type": "Systematic Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42837060",
+      "title": "Baxdrostat in Resistant and Uncontrolled Hypertension: A Systematic Review and Meta-Analysis.",
+      "doi": "10.1007/s10557-026-07973-5",
+      "pub_date": "2026 Oct 6",
+      "journal": "Cardiovascular drugs and therapy",
+      "pub_type": "Systematic Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42697387",
+      "title": "A dual functional hybrid lipid-polymeric nanoparticle co-loaded coenzyme Q10 and siRNA TNFα for anti-inflammatory skin therapy.",
+      "doi": "10.1016/j.ijpharm.2026.127373",
+      "pub_date": "2026 Oct 5",
+      "journal": "International journal of pharmaceutics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42722769",
+      "title": "Magnesium therapy in persistent pulmonary hypertension of the newborn: a scoping review.",
+      "doi": "10.1038/s41372-026-02893-6",
+      "pub_date": "2026 Sep 10",
+      "journal": "Journal of perinatology : official journal of the California Perinatal Association",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42729988",
+      "title": "Impact of Total Protein and Triglycerides on the comparability of Sodium and Potassium Measurements by Direct and Indirect Ion-Selective Electrodes : An Experimental Analytical Study.",
+      "doi": null,
+      "pub_date": "2026 Aug",
+      "journal": "EJIFCC",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42817146",
+      "title": "Stabilization by spherical cellulose nanocrystals and bacterial nanofibrils: modulating lipid digestion in fish oil-in-water Pickering emulsions.",
+      "doi": "10.1002/jsfa.71127",
+      "pub_date": "2026 Sep 30",
+      "journal": "Journal of the science of food and agriculture",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42675452",
+      "title": "Integrative Approaches in Cardiovascular Disease: The Role of Nutraceuticals in Heart Failure, Atrial Fibrillation, and Related Conditions.",
+      "doi": "10.1002/ptr.70433",
+      "pub_date": "2026 Aug 31",
+      "journal": "Phytotherapy research : PTR",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42677462",
+      "title": "Neurovascular Signaling in the Perivascular Space: Biophysical Principles and Disruption in Hypertension.",
+      "doi": "10.1161/HYPERTENSIONAHA.126.26766",
+      "pub_date": "2026 Sep 1",
+      "journal": "Hypertension (Dallas, Tex. : 1979)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42688556",
+      "title": "Pulmonary Hypertension Molecular Switch: HIF Signaling Pathway.",
+      "doi": "10.1002/pul2.70385",
+      "pub_date": "2026 Jul",
+      "journal": "Pulmonary circulation",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42704049",
+      "title": "Efficacy and Safety of Baxdrostat in Hypertension: A GRADE-Assessed Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "doi": "10.1177/10600280261480672",
+      "pub_date": "2026 Sep 7",
+      "journal": "The Annals of pharmacotherapy",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42733634",
+      "title": "Early mineralocorticoid receptor antagonism for end-organ protection in hypertension: Implications for disparities and rethinking the timing paradigm.",
+      "doi": "10.1016/j.dialog.2026.100343",
+      "pub_date": "2026 Dec",
+      "journal": "Dialogues in health",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42738842",
+      "title": "Exploring the Role of the SLC12A Cation-Coupled Chloride Cotransporters in the Cardiovascular System.",
+      "doi": "10.3390/cells15171549",
+      "pub_date": "2026 Aug 27",
+      "journal": "Cells",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42756067",
+      "title": "Lipid-dependent regulation of Kv10.1 in cancer: implications of membrane remodeling for channel function and pharmacology.",
+      "doi": "10.3389/fphar.2026.1905919",
+      "pub_date": "2026",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42787526",
+      "title": "Potassium channels as an ionic checkpoint in tumor immunity.",
+      "doi": "10.3389/fphar.2026.1907228",
+      "pub_date": "2026",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42792223",
+      "title": "Oxidative Stability and Nanoencapsulation of Marine Omega-3 LC-PUFAs for Sustainable Aquaculture and Human Health.",
+      "doi": "10.3390/antiox15091184",
+      "pub_date": "2026 Sep 17",
+      "journal": "Antioxidants (Basel, Switzerland)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42812492",
+      "title": "Monogenic Kidney Disorders as Hidden Drivers of Electrolyte Imbalance and Hypertension.",
+      "doi": "10.5049/EBP.2026.24.e15",
+      "pub_date": "2026 Sep",
+      "journal": "Electrolyte & blood pressure : E & BP",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42812504",
+      "title": "Dietary Salt Intake and Hypertension in Chronic Kidney Disease.",
+      "doi": "10.5049/EBP.2026.24.e10",
+      "pub_date": "2026 Sep",
+      "journal": "Electrolyte & blood pressure : E & BP",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42665016",
+      "title": "Erythrocyte fatty acid compositional patterns and cardiovascular-kidney-metabolic stage burden.",
+      "doi": "10.1016/j.jjcc.2026.08.003",
+      "pub_date": "2026 Aug 28",
+      "journal": "Journal of cardiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42665153",
+      "title": "Airway lipid mediators in horses: Baseline bronchoalveolar lavage fluid profiles and effects of EPA and DHA-rich microalgae oil supplementation.",
+      "doi": "10.1016/j.tvjl.2026.106862",
+      "pub_date": "2026 Aug 28",
+      "journal": "Veterinary journal (London, England : 1997)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42682832",
+      "title": "SGLT2 inhibitors in kidney transplant recipients: metabolic changes, potassium-related safety and implications for albuminuria assessment.",
+      "doi": "10.3389/frtra.2026.1927374",
+      "pub_date": "2026",
+      "journal": "Frontiers in transplantation",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42686441",
+      "title": "Phytosterol content in lipid components used in patients receiving parenteral nutrition.",
+      "doi": "10.1016/j.farma.2026.06.007",
+      "pub_date": "2026 Sep 2",
+      "journal": "Farmacia hospitalaria : organo oficial de expresion cientifica de la Sociedad Espanola de Farmacia Hospitalaria",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42687438",
+      "title": "C8 Medium chain triglycerides benefit energy metabolism and modulate inflammatory lipids in cats with chronic kidney disease.",
+      "doi": "10.1093/jas/skag193",
+      "pub_date": "2026 Sep 2",
+      "journal": "Journal of animal science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42687642",
+      "title": "Berberine promotes host lipolysis to enhance antimicrobial defense against hypervirulent Klebsiella pneumoniae infection.",
+      "doi": "10.71150/jm.2605001",
+      "pub_date": "2026 Aug",
+      "journal": "Journal of microbiology (Seoul, Korea)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42695472",
+      "title": "Marinobufagenin and left ventricular mass and geometry in patients with essential hypertension.",
+      "doi": "10.1097/HJH.0000000000004437",
+      "pub_date": "2026 Aug 31",
+      "journal": "Journal of hypertension",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42714742",
+      "title": "Influence of the type of roughage associated with forage cactus Opuntia cochenillifera L. and a lipid source on the milk fatty acids composition of dairy goats.",
+      "doi": "10.1007/s11250-026-05324-y",
+      "pub_date": "2026 Sep 9",
+      "journal": "Tropical animal health and production",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42716956",
+      "title": "Effects of sodium reduction interventions on home and morning home blood pressure: a systematic review and meta-analysis of randomized controlled trials.",
+      "doi": "10.1038/s41440-026-02794-3",
+      "pub_date": "2026 Sep 9",
+      "journal": "Hypertension research : official journal of the Japanese Society of Hypertension",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42718667",
+      "title": "Sustainable bioremediation of undiluted matured compost leachate and enhanced lipid partitioning in Desmodesmus sp.: a zero-dilution approach for circular bioeconomy.",
+      "doi": "10.3389/fmicb.2026.1872485",
+      "pub_date": "2026",
+      "journal": "Frontiers in microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42730342",
+      "title": "Vitamin A-Modified Berberine Liposomes Potentiate Anti-Fibrotic Effects Through Enhanced Hepatic Stellate Cell Uptake.",
+      "doi": "10.2147/IJN.S629505",
+      "pub_date": "2026",
+      "journal": "International journal of nanomedicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42731033",
+      "title": "Acetazolamide use in idiopathic intracranial hypertension: a real-world cohort study of side effects.",
+      "doi": "10.1080/14737175.2026.2733195",
+      "pub_date": "2026 Oct",
+      "journal": "Expert review of neurotherapeutics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42735572",
+      "title": "Paternal DHA supplementation before conception shapes offspring lipid metabolism in a sex- and postnatal diet-dependent manner.",
+      "doi": "10.1016/j.nutres.2026.08.003",
+      "pub_date": "2026 Oct",
+      "journal": "Nutrition research (New York, N.Y.)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42747303",
+      "title": "Lipid source and kibble matrix determine oxidative stability and n-3 fatty acid loss in coated extruded dog food.",
+      "doi": "10.1093/jas/skag297",
+      "pub_date": "2026 Sep 16",
+      "journal": "Journal of animal science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42748620",
+      "title": "Improved flexible silane/Schiff base coating with better biocompatibility for magnesium vascular implants applications.",
+      "doi": "10.1016/j.colsurfb.2026.116167",
+      "pub_date": "2026 Sep 9",
+      "journal": "Colloids and surfaces. B, Biointerfaces",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42753339",
+      "title": "Development and validation of a modified Dietary Approaches to Stop Hypertension (mDASH) index in the community-based Framingham Heart Study Second Generation cohort.",
+      "doi": "10.1016/j.clnu.2026.106766",
+      "pub_date": "2026 Aug 19",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42763211",
+      "title": "[Analysis of related factors for the occurrence of cardiovascular-renal-metabolic syndrome stage 4 in patients with primary aldosteronism].",
+      "doi": "10.3760/cma.j.cn112137-20260408-00949",
+      "pub_date": "2026 Sep 22",
+      "journal": "Zhonghua yi xue za zhi",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42766107",
+      "title": "Cardiovascular Disease as a Risk Amplifier of COVID-19 Severity and a Potential Correlations to Long-Term Gastrointestinal Sequelae.",
+      "doi": "10.1007/s40615-026-03176-8",
+      "pub_date": "2026 Sep 21",
+      "journal": "Journal of racial and ethnic health disparities",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42768472",
+      "title": "The health burden of incarceration: cardiovascular risk in a Nigerian prison population.",
+      "doi": "10.1108/IJOPH-07-2025-0057",
+      "pub_date": "2026 Sep 22",
+      "journal": "International journal of prison health",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42769424",
+      "title": "Microbiome network remodeling is associated with soil lipid metabolism in safflower under different cropping system-location combinations: an omics-based dissection.",
+      "doi": "10.3389/fmicb.2026.1898896",
+      "pub_date": "2026",
+      "journal": "Frontiers in microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42769504",
+      "title": "Primary Hyperaldosteronism as a Cause of Resistant Hypertension: A Case Report.",
+      "doi": "10.1002/ccr3.73576",
+      "pub_date": "2026 Sep",
+      "journal": "Clinical case reports",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42774410",
+      "title": "Observed frequency of primary aldosteronism among adults with low-grade hypertension in routine outpatient practice.",
+      "doi": "10.1016/j.mjafi.2026.01.011",
+      "pub_date": "2026 Sep-Oct",
+      "journal": "Medical journal, Armed Forces India",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42776587",
+      "title": "Primary hyperaldosteronism in patient with Bardet-Biedl syndrome: unmasking secondary hypertension.",
+      "doi": "10.1530/EDM-25-0193",
+      "pub_date": "2026 Jul 1",
+      "journal": "Endocrinology, diabetes & metabolism case reports",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42779184",
+      "title": "EXPRESS: NEUROPROTECTIVE EFFICACY OF AN OMEGA-3 DIGLYCERIDE EMULSION IN A PIGLET MODEL OF NEWBORN HYPOXIC-ISCHEMIC BRAIN DAMAGE.",
+      "doi": "10.1177/0271678X261494381",
+      "pub_date": "2026 Sep 23",
+      "journal": "Journal of cerebral blood flow and metabolism : official journal of the International Society of Cerebral Blood Flow and Metabolism",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42779980",
+      "title": "Examining the Differences in Frequency of Whole Fruit or 100% Fruit Juice Intake among United States Adults With and Without Cardiovascular Disease Risk Factors: Analysis of 2019 Behavioral Risk Factor Surveillance System Data.",
+      "doi": "10.1016/j.cdnut.2026.109517",
+      "pub_date": "2026 Sep",
+      "journal": "Current developments in nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42780603",
+      "title": "Joint Expert Consensus on the Sodium Reduction Policy in Taiwan: A Collaborative Declaration by the Taiwan Hypertension Society (THS), Taiwan Society of Cardiology (TSOC), International Life Sciences Institute (ILSI), and Nutrition Society of Taiwan (NST).",
+      "doi": "10.6515/ACS.202609_42(5).20260416A",
+      "pub_date": "2026 Sep",
+      "journal": "Acta Cardiologica Sinica",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42790704",
+      "title": "Effects of diet, smoking and chronic alcohol misuse on plasma lipid profiles and n-6 essential fatty acid metabolism in males and females.",
+      "doi": "10.1016/j.jlr.2026.101134",
+      "pub_date": "2026 Oct 1",
+      "journal": "Journal of lipid research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42793093",
+      "title": "Kcna3 Deficiency Promotes Renin-Associated Hypertension Through Ca(2+)-Dependent AKT-PKA-CREB Signaling.",
+      "doi": "10.3390/biom16091262",
+      "pub_date": "2026 Aug 31",
+      "journal": "Biomolecules",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42803000",
+      "title": "Oral KCl Supplementation Safely Reduces Body Na(+) Surplus and Blood Pressure.",
+      "doi": "10.1161/CIRCRESAHA.126.329131",
+      "pub_date": "2026 Sep 28",
+      "journal": "Circulation research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42812753",
+      "title": "Sunlight-Induced Lipid Oxidation and Degradation of Edible Oil Mediated by Hemoglobin: Implications for Food System Sustainability.",
+      "doi": "10.1002/fsn3.72423",
+      "pub_date": "2026 Oct",
+      "journal": "Food science & nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42813840",
+      "title": "Beyond Kt/V: Redefining Dialysis Adequacy as Targeted Cardiovascular Risk Reduction.",
+      "doi": "10.1093/ndt/gfag223",
+      "pub_date": "2026 Sep 30",
+      "journal": "Nephrology, dialysis, transplantation : official publication of the European Dialysis and Transplant Association - European Renal Association",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42821124",
+      "title": "Dietary pyrroloquinoline quinone alleviated intestinal damage of juvenile yellow catfish (Pelteobagrus fulvidraco) induced by oxidized fish oil: insight from intestinal digestive enzyme, antioxidant status, morphology, inflammation, and microbiota.",
+      "doi": "10.1007/s10695-026-01808-8",
+      "pub_date": "2026 Oct 1",
+      "journal": "Fish physiology and biochemistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42828013",
+      "title": "The Lipid Switch: Ultra-High Dose Omega Fatty Acids Determine MYCN Neuroblastoma Fate and Implicate Substrate-Level Oxylipin Competition.",
+      "doi": "10.1021/acsptsci.6c00098",
+      "pub_date": "2026 Sep 11",
+      "journal": "ACS pharmacology & translational science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42830353",
+      "title": "High-resolution structures of human NHE6 and NHE9 elucidate endosomal ion and lipid interactions.",
+      "doi": "10.1038/s41467-026-77254-0",
+      "pub_date": "2026 Sep 3",
+      "journal": "Nature communications",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42831403",
+      "title": "Effects of Fish Oil-Enriched Tubifex sp. on Fatty Acid Composition, Growth and Survival of Thai Mahseer (Tor tambroides, Bleeker, 1854) Larvae.",
+      "doi": "10.3923/pjbs.2026.351.361",
+      "pub_date": "2026 Oct",
+      "journal": "Pakistan journal of biological sciences : PJBS",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42834458",
+      "title": "The Therapeutic Potential of Berberine in Treating Diabetes and Its Complications: Molecular Mechanisms and Future Perspectives.",
+      "doi": "10.1142/S0192415X26500795",
+      "pub_date": "2026 Oct 6",
+      "journal": "The American journal of Chinese medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42710016",
+      "title": "Eplerenone vs. spironolactone in heart failure: a propensity score-matched analysis of 77 904 patients from a global federated network.",
+      "doi": "10.2459/JCM.0000000000001929",
+      "pub_date": "2026 Aug 1",
+      "journal": "Journal of cardiovascular medicine (Hagerstown, Md.)",
+      "pub_type": "Observational Study",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42783395",
+      "title": "Effects of Ramadan Fasting on Intradialytic Hypoglycemia and Clinical Outcomes in Patients with Diabetes on Maintenance Hemodialysis: A Multicenter Prospective Cohort Study in Southern Thailand.",
+      "doi": "10.3390/medsci14050522",
+      "pub_date": "2026 Aug 27",
+      "journal": "Medical sciences (Basel, Switzerland)",
+      "pub_type": "Observational Study",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42661020",
+      "title": "Bridging the Gap: Harnessing Phytochemical-Loaded Nanocarriers for Enhanced Epilepsy Treatment.",
+      "doi": "10.1007/s12035-026-06147-6",
+      "pub_date": "2026 Aug 28",
+      "journal": "Molecular neurobiology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42682944",
+      "title": "Metal oxide nanoparticles for acne vulgaris: mechanisms, synthesis, formulation, and translational prospects.",
+      "doi": "10.1039/d6ra04926e",
+      "pub_date": "2026 Sep 16",
+      "journal": "RSC advances",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42683359",
+      "title": "Association of testosterone and testosterone replacement therapy with atrial fibrillation: an updated review.",
+      "doi": "10.1210/jendso/bvag180",
+      "pub_date": "2026 Sep",
+      "journal": "Journal of the Endocrine Society",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42707964",
+      "title": "Finerenone in Asian patients with diabetic kidney disease: evaluating the evidence for \"better efficacy\".",
+      "doi": "10.1093/ckj/sfag279",
+      "pub_date": "2026 Sep",
+      "journal": "Clinical kidney journal",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42731298",
+      "title": "Balancing efficacy and risk: A toxicological review and safety transformation of Berberis plants and their alkaloids.",
+      "doi": "10.1016/j.phymed.2026.158782",
+      "pub_date": "2026 Sep 7",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42750845",
+      "title": "Dual role of ferroptosis in embryonic development, cascade amplification regulatory mechanism and targeted intervention.",
+      "doi": "10.3389/fcell.2026.1912633",
+      "pub_date": "2026",
+      "journal": "Frontiers in cell and developmental biology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42757589",
+      "title": "Plant-based diets, cognitive function, and Alzheimer's disease.",
+      "doi": "10.1039/d6fo01946c",
+      "pub_date": "2026 Sep 18",
+      "journal": "Food & function",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42758261",
+      "title": "Small-Conductance Ca(2+)-Activated K(+) Channels and Their Regulation of Excitability of Autonomic Neurons.",
+      "doi": "10.1007/s12264-026-01715-1",
+      "pub_date": "2026 Sep 18",
+      "journal": "Neuroscience bulletin",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42761830",
+      "title": "Liraglutide and renal mitochondrial homeostasis: targeting the \"metabolism-inflammation-lithogenesis\" axis in metabolic syndrome.",
+      "doi": "10.3389/fphar.2026.1903973",
+      "pub_date": "2026",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42795302",
+      "title": "Siberian Sturgeon (Acipenser baerii, Brandt, 1869) the Relationship Between Genetic Resources and Acclimatization: Ecology, Conservation, and the Nutritional Significance of Meat and Caviar.",
+      "doi": "10.3390/life16091437",
+      "pub_date": "2026 Aug 28",
+      "journal": "Life (Basel, Switzerland)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "29763139",
+      "title": "Local Anesthetic Toxicity.",
+      "doi": null,
+      "pub_date": "2026 Jan",
+      "journal": null,
+      "pub_type": "Study Guide",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42660766",
+      "title": "Metabolic signatures of sleep health and stroke risk: A prospective cohort study with mediation analysis.",
+      "doi": "10.1016/j.sleh.2026.08.008",
+      "pub_date": "2026 Oct",
+      "journal": "Sleep health",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42662470",
+      "title": "Effects of replacing a concentrate-based regimen with low-value date fruit on growth performance, meat quality, and fatty acid composition in Hamra lambs.",
+      "doi": "10.5194/aab-68-641-2025",
+      "pub_date": "2025",
+      "journal": "Archives animal breeding",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42666241",
+      "title": "Sex-specific associations between dietary nutrient intake and cardiometabolic biomarkers in older adults with diet-related chronic diseases.",
+      "doi": "10.3389/fnut.2026.1877635",
+      "pub_date": "2026",
+      "journal": "Frontiers in nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42667105",
+      "title": "Burden of diagnosed and undetected hyperkalemia in Spain: Clinical characteristics, management, healthcare resource utilization, and costs.",
+      "doi": "10.1093/joneph/aajag234",
+      "pub_date": "2026 Aug 29",
+      "journal": "Journal of nephrology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42668469",
+      "title": "ALOX15-driven ω-6 fatty acid metabolism promotes type 2 inflammation in eosinophilic chronic rhinosinusitis with nasal polyps.",
+      "doi": "10.1016/j.jacig.2026.100759",
+      "pub_date": "2026 Nov",
+      "journal": "The journal of allergy and clinical immunology. Global",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42669733",
+      "title": "Age-related biochemical profiling reveals multi-system physiological decline in the annual fish Nothobranchius guentheri.",
+      "doi": "10.1007/s10522-026-10493-2",
+      "pub_date": "2026 Aug 31",
+      "journal": "Biogerontology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42670867",
+      "title": "Integrating AI and Molecular Modeling for Structural Prediction of a Closed-Pore State of the hERG Channel.",
+      "doi": "10.1021/acs.jcim.6c01219",
+      "pub_date": "2026 Aug 24",
+      "journal": "Journal of chemical information and modeling",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42675807",
+      "title": "Preliminary Reference Interval Estimation for Hemolymph Analysis in Free-Ranging Mangrove Horseshoe Crab (Carcinoscorpius rotundicauda).",
+      "doi": "10.1111/vcp.70150",
+      "pub_date": "2026 Aug 31",
+      "journal": "Veterinary clinical pathology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42676520",
+      "title": "Salmon protein hydrolysates and upcycled oil as functional ingredients for hybrid oat okara spreads: a circular marine by-product valorization approach.",
+      "doi": "10.3389/fnut.2026.1914478",
+      "pub_date": "2026",
+      "journal": "Frontiers in nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42679500",
+      "title": "Discordant fatty acid profile drives residual inflammatory risk in metabolically vulnerable patients with low atherogenic lipoprotein burden.",
+      "doi": "10.1016/j.atherosclerosis.2026.121885",
+      "pub_date": "2026 Oct",
+      "journal": "Atherosclerosis",
+      "pub_type": "Multicenter Study",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42690750",
+      "title": "Differentiation of Isomeric Bis(monoacylglycero)phosphates and Phosphatidylglycerols via Gas-Phase Ion/Ion Reactions and Ion Trap Collision-Induced Dissociation.",
+      "doi": "10.1021/jasms.6c00236",
+      "pub_date": "2026 Sep 2",
+      "journal": "Journal of the American Society for Mass Spectrometry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42691682",
+      "title": "The effect of a mobile game application on knowledge and health-related beliefs in children with chronic kidney disease: A randomized controlled trial.",
+      "doi": "10.1016/j.pedn.2026.08.060",
+      "pub_date": "2026 Sep 3",
+      "journal": "Journal of pediatric nursing",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42692663",
+      "title": "Effects of pressure-resistant bilayer microcapsules and ultra-high pressure on gel stability and nutrient retention of high-oil surimi gels.",
+      "doi": "10.1016/j.foodres.2026.120232",
+      "pub_date": "2026 Nov 1",
+      "journal": "Food research international (Ottawa, Ont.)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42693013",
+      "title": "[Research progress on traditional Chinese medicine in prevention and treatment of metabolic diseases via SIRT1/AMPK signaling pathway].",
+      "doi": "10.19540/j.cnki.cjcmm.20260330.707",
+      "pub_date": "2026 Aug",
+      "journal": "Zhongguo Zhong yao za zhi = Zhongguo zhongyao zazhi = China journal of Chinese materia medica",
+      "pub_type": "English Abstract",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42695386",
+      "title": "[Remodeling of the major arteries of the brain and serum cystatin C levels in patients with non-communicable diseases].",
+      "doi": "10.17116/jnevro20261260825",
+      "pub_date": "2026",
+      "journal": "Zhurnal nevrologii i psikhiatrii imeni S.S. Korsakova",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42700889",
+      "title": "Spent mushroom substrate extracts as natural-substance biostimulants: Effects on growth, chlorophyll and root architecture of cucumber.",
+      "doi": "10.1016/j.plantsci.2026.113431",
+      "pub_date": "2026 Sep 5",
+      "journal": "Plant science : an international journal of experimental plant biology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42704826",
+      "title": "Evaluation of factors influencing food choices among Lebanese weightlifters and football players.",
+      "doi": "10.1080/15502783.2026.2706009",
+      "pub_date": "2026 Dec 30",
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42706873",
+      "title": "Identifying Co-Expressed lncRNAs Correlated With Traits of Interest in an Animal Model for Metabolic Diseases in Humans.",
+      "doi": "10.1002/age.70201",
+      "pub_date": "2026 Oct",
+      "journal": "Animal genetics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42707114",
+      "title": "Patterns of spironolactone management following hyperkalemia among hospitalized patients with heart failure and reduced ejection fraction: a retrospective single-center study.",
+      "doi": "10.3389/fmed.2026.1870470",
+      "pub_date": "2026",
+      "journal": "Frontiers in medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42707244",
+      "title": "Association between the naturally nutrient rich score and type 2 diabetes mellitus risk: a case-control study.",
+      "doi": "10.3389/fnut.2026.1889494",
+      "pub_date": "2026",
+      "journal": "Frontiers in nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42709556",
+      "title": "Adrenalectomy versus esaxerenone: comparison of vascular benefits in patients with aldosterone-producing adenoma.",
+      "doi": "10.1097/HJH.0000000000004425",
+      "pub_date": "2026 Aug 31",
+      "journal": "Journal of hypertension",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42710710",
+      "title": "A risk prediction model for hospitalization in patients with hyperemesis gravidarum based on Traditional Logistic Regression Algorithms.",
+      "doi": "10.1016/j.jogoh.2026.103276",
+      "pub_date": "2026 Sep 9",
+      "journal": "Journal of gynecology obstetrics and human reproduction",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42711435",
+      "title": "The role of N-terminal probrain natriuretic peptide in predicting Kawasaki disease shock syndrome: a prospective cohort study.",
+      "doi": "10.1007/s00431-026-07390-8",
+      "pub_date": "2026 Sep 8",
+      "journal": "European journal of pediatrics",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42715455",
+      "title": "Recurrence of benign paroxysmal positional vertigo: risk factors and outcomes.",
+      "doi": "10.1590/1806-9282.20260695",
+      "pub_date": "2026",
+      "journal": "Revista da Associacao Medica Brasileira (1992)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42716473",
+      "title": "Inflammatory proteomic signatures of cardiometabolic traits and the contribution of visceral adipose tissue: a cross-sectional and network proteomic analysis.",
+      "doi": "10.1016/j.ajcnut.2026.101517",
+      "pub_date": "2026 Sep 9",
+      "journal": "The American journal of clinical nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42722804",
+      "title": "Metal Homeostasis Imbalance as Potentially Contributing Mechanism in Onset of Cardiac Disorders in Individuals with Chronic Obstructive Pulmonary Disease and Chronic Kidney Disease.",
+      "doi": "10.1007/s12011-026-05330-z",
+      "pub_date": "2026 Sep 10",
+      "journal": "Biological trace element research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42725679",
+      "title": "Identification of Sodium/Myo-Inositol Transporter 1 as a Major Determinant of Arterial Contractility.",
+      "doi": "10.1096/fj.202600244R",
+      "pub_date": "2026 Sep 30",
+      "journal": "FASEB journal : official publication of the Federation of American Societies for Experimental Biology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42728328",
+      "title": "Diet-induced obesity impairs salt-dependent downregulation of NCC activity.",
+      "doi": "10.1038/s41440-026-02798-z",
+      "pub_date": "2026 Sep 11",
+      "journal": "Hypertension research : official journal of the Japanese Society of Hypertension",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42736134",
+      "title": "[Establishment and assessment of a nomogram for predicting the risk of primary aldosteronism].",
+      "doi": "10.3760/cma.j.cn112148-20251224-00906",
+      "pub_date": "2026 Sep 24",
+      "journal": "Zhonghua xin xue guan bing za zhi",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42737339",
+      "title": "An Exploratory Field Study on Egg Quality and Yolk Functional Properties in Commercial and Local Laying Hen Breeds Fed Whole Hemp Seed Under Agroecological Conditions.",
+      "doi": "10.3390/foods15173095",
+      "pub_date": "2026 Aug 31",
+      "journal": "Foods (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42737591",
+      "title": "Physiological and Biochemical Responses of Nitraria tangutorum to Long-Term Saline Irrigation in an Arid Coal-Mining Restoration Area.",
+      "doi": "10.3390/ijms27177694",
+      "pub_date": "2026 Aug 28",
+      "journal": "International journal of molecular sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42737762",
+      "title": "Mixed-Culture Fermentation of Coffee Pulp Induces Metabolomic Changes and Enhances Multi-Target Bioactivity Relevant to Androgenetic Alopecia.",
+      "doi": "10.3390/ijms27177865",
+      "pub_date": "2026 Sep 2",
+      "journal": "International journal of molecular sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42739262",
+      "title": "Association of Post-Procedural Serum Sodium with 90-Day Mortality in Acute Ischaemic Stroke Patients Undergoing Mechanical Thrombectomy: A Retrospective Single-Centre Observational Study.",
+      "doi": "10.3390/diagnostics16172832",
+      "pub_date": "2026 Sep 2",
+      "journal": "Diagnostics (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42741071",
+      "title": "Multi-omics reveals the associations between cecal candidate bacteria and muscle fatty acid composition variations in Daheng and Luning chickens.",
+      "doi": "10.3389/fmicb.2026.1907226",
+      "pub_date": "2026",
+      "journal": "Frontiers in microbiology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42741517",
+      "title": "Delayed diagnosis, greater disease burden: primary aldosteronism in a Brazilian cohort.",
+      "doi": "10.1210/jendso/bvag199",
+      "pub_date": "2026 Oct",
+      "journal": "Journal of the Endocrine Society",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42751121",
+      "title": "Characterization of Powdered Roasted Açaí Seeds (Euterpe oleracea Mart.): Impact on Bioactive Compounds and Nutritional Potential.",
+      "doi": "10.1002/fsn3.72353",
+      "pub_date": "2026 Sep",
+      "journal": "Food science & nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42751802",
+      "title": "Evaluation of Current Screening Thresholds for the Detection of Primary Aldosteronism.",
+      "doi": "10.1161/HYPERTENSIONAHA.126.27634",
+      "pub_date": "2026 Sep 17",
+      "journal": "Hypertension (Dallas, Tex. : 1979)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42752325",
+      "title": "Biochemical characteristics associated with spironolactone use in hospitalized patients with hypotonic hyponatraemia.",
+      "doi": "10.1080/07853890.2026.2718576",
+      "pub_date": "2026 Dec",
+      "journal": "Annals of medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42754664",
+      "title": "Resolving Cancer: Specialized Pro-resolving Mediators as Host-Directed Regulators of Tumor Progression and Therapy Response.",
+      "doi": "10.1007/82_2026_356",
+      "pub_date": "2026 Sep 18",
+      "journal": "Current topics in microbiology and immunology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42770359",
+      "title": "Ferroptosis in Neurodegenerative Diseases: Iron Dysregulation, GPX4/FSP1 Signaling, and Emerging Neuroprotective Strategies.",
+      "doi": "10.2174/0115672026502165260904054005",
+      "pub_date": "2026 Sep 17",
+      "journal": "Current neurovascular research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42772360",
+      "title": "Ecotoxicological links between trace elements, fatty acids, and oxidative stress in atlantic and mediterranean shearwaters.",
+      "doi": "10.1016/j.envres.2026.125700",
+      "pub_date": "2026 Sep 23",
+      "journal": "Environmental research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42772535",
+      "title": "Chemical and toxicological assessment of particulate matter in a charcoal barbecue restaurant.",
+      "doi": "10.1016/j.etap.2026.105173",
+      "pub_date": "2026 Sep 22",
+      "journal": "Environmental toxicology and pharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42777117",
+      "title": "Telomere-to-telomere co-mapping of transposable elements and human genes identifies a cluster of young L1 elements in the interferon-alpha domain with potential evolutionary arms-race.",
+      "doi": "10.1093/g3journal/jkag250",
+      "pub_date": "2026 Sep 23",
+      "journal": "G3 (Bethesda, Md.)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42777820",
+      "title": "An exploratory study of before hospitalization nutrients associated with N-terminal pro b-type natriuretic peptide during the exacerbation of chronic heart failure.",
+      "doi": "10.1016/j.clnesp.2026.105123",
+      "pub_date": "2026 Sep 23",
+      "journal": "Clinical nutrition ESPEN",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42778761",
+      "title": "Integrative analysis of cadmium exposure and osteoarthritis: from population evidence to molecular mechanisms.",
+      "doi": "10.1007/s00210-026-05830-8",
+      "pub_date": "2026 Sep 24",
+      "journal": "Naunyn-Schmiedeberg's archives of pharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42779513",
+      "title": "Research Priorities to Accelerate Global Uptake of Lower Sodium Salt Substitutes.",
+      "doi": "10.1161/HYPERTENSIONAHA.126.27540",
+      "pub_date": "2026 Sep 24",
+      "journal": "Hypertension (Dallas, Tex. : 1979)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42780774",
+      "title": "A comparative real-world analysis of finerenone and steroidal mineralocorticoid receptor antagonists in patients with chronic kidney disease.",
+      "doi": "10.3389/fphar.2026.1918516",
+      "pub_date": "2026",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42780926",
+      "title": "Spontaneous fermentation of Tunisian dromedary milk: VASE™-GC-MS volatile profiling, physicochemical and mineral composition, bioactivities, and lactic acid bacteria enumeration.",
+      "doi": "10.3389/fnut.2026.1897549",
+      "pub_date": "2026",
+      "journal": "Frontiers in nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42795610",
+      "title": "Spatial Variation in Mycosphere Soil Bacterial Communities of Leucopaxillus giganteus and Its Environmental Drivers in Shanxi, China.",
+      "doi": "10.3390/microorganisms14092029",
+      "pub_date": "2026 Sep 11",
+      "journal": "Microorganisms",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42798482",
+      "title": "A six-metabolite signature characterizes metabolically unhealthy obesity and reveals hidden metabolic risk within metabolically healthy obesity.",
+      "doi": "10.3389/fendo.2026.1910610",
+      "pub_date": "2026",
+      "journal": "Frontiers in endocrinology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42800979",
+      "title": "Factors Associated with Arrhythmia in Patients with ST Segment Elevation Myocardial Infarction: A Single-Center Cross-Sectional Study.",
+      "doi": "10.18502/jthc.v21i1.21280",
+      "pub_date": "2026",
+      "journal": "Research in heart yield and translational medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((omega-3[Title/Abstract] OR \"fish oil\"[Title/Abstract] OR magnesium[Title/Abstract] OR potassium[Title/Abstract] OR beetroot[Title/Abstract] OR nitrate[Title/Abstract] OR \"coenzyme Q10\"[Title/Abstract] OR CoQ10[Title/Abstract] OR berberine[Title/Abstract]) AND (\"blood pressure\"[Title/Abstract] OR hypertension[Title/Abstract] OR lipid[Title/Abstract] OR cholesterol[Title/Abstract] OR cardiovascular[Title/Abstract] OR triglyceride[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    }
+  ]
+}

@@ -43,7 +43,7 @@ Verify the following environment variables are correctly set in the **Cloudflare
 
 ### Affiliate Sourcing Foundation
 - [ ] **Register for Affiliate Accounts:** Sign up for accounts on iHerb and Nootropics Depot.
-- [ ] **Verify Amazon Associates Tag:** Confirm links are generated using the tag `razzleberry02-20`.
+- [ ] **Verify Amazon Associates Tag:** Confirm links are generated using the tag `razzleberr0e2-20`.
 - [ ] **Map Config Catalog:** Update `config/revenue-products.ts` with target iHerb and Nootropics Depot product links once approved.
 
 ---

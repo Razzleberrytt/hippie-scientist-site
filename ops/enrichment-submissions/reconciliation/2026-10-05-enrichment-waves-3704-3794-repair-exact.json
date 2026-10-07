@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "row_count": 4,
+  "verified_count": 4,
+  "rows": [
+    {
+      "wave": 3704,
+      "pmid": "42785100",
+      "selected_title": "Perioperative immunonutrition in gastrointestinal malignancies: Clinical benefit, patient selection, and current uncertainties.",
+      "title": "Perioperative immunonutrition in gastrointestinal malignancies: Clinical benefit, patient selection, and current uncertainties.",
+      "abstract": "Patients undergoing surgery for gastrointestinal malignancies may present with malnutrition, systemic inflammation, immune dysfunction, and impaired intestinal barrier function, all of which can increase susceptibility to postoperative infection and delayed recovery. Perioperative immunonutrition involves the administration of nutritional formulations enriched with immunomodulatory substrates, most commonly arginine, omega-3 fatty acids, L-glutamine, and nucleotides, as an adjunct to standard nutritional support. This narrative review examines the biological rationale, clinical evidence, patient-selection considerations, and current uncertainties surrounding immunonutrition in gastrointestinal cancer surgery. The most consistent evidence supports a reduction in postoperative infectious complications, with the clearest benefit signals reported in nutritionally vulnerable patients and those undergoing major upper gastrointestinal surgery. Effects on length of hospital stay, wound healing, and short-term recovery are less consistent and appear to vary according to tumor site, baseline nutritional risk, operative stress, formulation, timing, and integration with enhanced recovery pathways. Evidence for mortality, recurrence, and long-term survival remains limited and inconsistent. Perioperative immunonutrition should therefore be considered a selective, risk-stratified adjunct to standard nutritional care rather than a universal intervention. Future studies should use standardized protocols, clearly defined patient populations, and clinically meaningful endpoints to clarify its role in contemporary gastrointestinal surgical oncology.",
+      "journal": "Surgical oncology",
+      "pub_date": "2026-Sep-22",
+      "pdf_link": "https://doi.org/10.1016/j.suronc.2026.102572",
+      "full_text_link": null,
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3746,
+      "pmid": "42811360",
+      "selected_title": "Berberine attenuates diabetic kidney injury via FOXO1/SP1-associated regulation of renal SGLT-2 expression.",
+      "title": "Berberine attenuates diabetic kidney injury via FOXO1/SP1-associated regulation of renal SGLT-2 expression.",
+      "abstract": "Berberine (BBR), a plant-derived isoquinoline alkaloid, has been reported to exert anti-hyperglycemic and renoprotective effects. However, the mechanism by which BBR regulates renal glucose transport under diabetic conditions remains unclear. Sodium-glucose cotransporter-2 (SGLT-2), mainly expressed in renal proximal tubular epithelial cells, plays a key role in renal glucose reabsorption. This study investigated whether BBR attenuates diabetic kidney injury by regulating SGLT-2 expression and examined the potential involvement of FOXO1 and SP1 in this regulation. Db/db mice and high-glucose-exposed human kidney-2 (HK-2) cells were used to evaluate the effects of BBR, empagliflozin (EM), and their combination. Metabolic and renal phenotypes were assessed by biochemical, histological, and ultrastructural analyses. Network pharmacology, public transcriptomic data mining, molecular docking, cellular thermal shift assay (CETSA), quantitative real-time PCR, western blotting, immunofluorescence, nuclear-cytoplasmic fractionation, co-immunoprecipitation, 2-NBDG uptake, dual-luciferase reporter assays, FOXO1 overexpression, and pharmacological interference with SP1-associated regulation were performed to investigate the regulatory mechanism. Both BBR and EM improved metabolic abnormalities and renal injury in db/db mice, whereas combined treatment produced marked metabolic and renal improvements but was accompanied by an increasing trend in AST. BBR reduced hyperglycemia, improved glucose tolerance and enhanced the glucose-lowering response to exogenous insulin during the ITT, suppressed urinary albumin excretion, and alleviated renal histopathological and ultrastructural damage. Molecular docking and qualitative CETSA findings suggested that FOXO1 may represent a potential molecular target of BBR. In HK-2 cells, high-glucose stimulation increased SGLT-2 expression and glucose uptake, accompanied by dysregulation of FOXO1 and SP1 signaling. BBR downregulated FOXO1 and SGLT-2, restored SP1 and phosphorylated FOXO1 levels, and reduced glucose uptake under high-glucose conditions. FOXO1 overexpression attenuated the BBR-induced reduction in SGLT-2 expression, whereas pharmacological interference with SP1-associated regulation further supported the functional involvement of SP1 in SGLT-2 regulation. BBR attenuates diabetic kidney injury, at least in part, through FOXO1/SP1-associated regulation of renal SGLT-2 expression. These findings support the involvement of a FOXO1/SP1-associated regulatory axis in renal tubular glucose handling under diabetic conditions.",
+      "journal": "Chinese medicine",
+      "pub_date": "2026-Sep-29",
+      "pdf_link": "https://doi.org/10.1186/s13020-026-01533-7",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13621674/",
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3748,
+      "pmid": "42745443",
+      "selected_title": "A Multicomponent Saturated MgCl(2)/Glucose/Isopropanol Electrolyte for Aqueous Magnesium-Ion Batteries.",
+      "title": "A Multicomponent Saturated MgCl2/Glucose/Isopropanol Electrolyte for Aqueous Magnesium-Ion Batteries.",
+      "abstract": "Magnesium-ion batteries (MIBs) have attracted increasing attention owing to their high theoretical capacity, intrinsic safety, and cost-effectiveness of metallic Mg anodes, as well as the natural abundance of magnesium. However, their development remains impeded primarily by the incompatibility between Mg anodes and conventional electrolytes. Herein, we report a novel multicomponent, high-concentration aqueous magnesium electrolyte design, realized by introducing isopropanol (IPA) and glucose (Glu) into a saturated MgCl2 solution, denoted as SMIG. The incorporation of IPA and Glu disrupts the original hydrogen-bond network of the SM electrolyte, reducing the content of free water and thereby mitigating water-related side reactions. This synergistic effect alleviates the corrosion of the Mg alloy anode and inhibits the hydrogen evolution reaction (HER) during magnesium deposition. As a result, the assembled polyaniline//Mg alloy aqueous MIB (AMIB) delivers a high specific capacity of 127.9 mAh g-1 at a current density of 0.2 A g-1 and retains 92.9% of its initial capacity after 300 cycles, with a Coulombic efficiency approaching 100%. This work provides a promising strategy toward developing high-performance and durable AMIBs.",
+      "journal": "ChemSusChem",
+      "pub_date": "2026-Sep-28",
+      "pdf_link": "https://doi.org/10.1002/cssc.71065",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13578851/",
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    },
+    {
+      "wave": 3794,
+      "pmid": "42709651",
+      "selected_title": "Reconstitution of the Fovea Through Foveation After Ifosfamide-Induced Foveolysis.",
+      "title": "Reconstitution of the Fovea Through Foveation After Ifosfamide-Induced Foveolysis.",
+      "abstract": "To describe a case of acute, severe bilateral foveolysis following systemic ifosfamide therapy and the subsequent anatomical and functional recovery after discontinuation of the drug and administration of metabolic therapy targeting mitochondrial dysfunction. The patient had a comprehensive ophthalmological examination including high resolution optical coherence tomography. After cessation of ifosfamide, she was treated with nicotinamide adenine dinucleotide 850 mg, alpha lipoic acid 600 mg, and coenzyme Q10 100 mg daily. A 34-year-old woman receiving ifosfamide for an inoperable skull-base chordoma developed rapid bilateral 20/60 visual acuity. Optical coherence tomography revealed complete dissolution of the central fovea in each eye with accumulation of necrotic debris centrally. Given the known pathway of ifosfamide neurotoxicity, mitochondrial complex I inhibition with depletion of nicotinamide adenine dinucleotide (NAD), the patient received high-dose oral NAD, coenzyme Q10, and alpha-lipoic acid. Over the next several weeks, both eyes showed symmetrical reconstitution of the fovea with centripetal migration of the outer nuclear layer and eventual restoration of outer retinal architecture. By 12 weeks, foveal structure was normal and visual acuity improved to 20/25 and 20/20. Systemic ifosfamide was associated with an acute symmetrical dissolution of the central fovea, termed foveolysis. Although spontaneous improvement after drug withdrawal cannot be excluded, the rapid and near-complete recovery after metabolic therapy supports a mechanistic link between ifosfamide-induced mitochondrial dysfunction, NAD depletion, and reversible foveal injury. The foveal architecture was restored through the defined sequence of foveation, demonstrating the capacity of the adult fovea for organized structural reconstitution.",
+      "journal": "Retinal cases & brief reports",
+      "pub_date": "2026-Sep-08",
+      "pdf_link": "https://doi.org/10.1097/ICB.0000000000001979",
+      "full_text_link": null,
+      "abstract_verified": true,
+      "state": "research_only_exact_verified_repair"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "batch": "cannabinoid-safety-rebuild-final-repair",
+  "rows": [
+    {
+      "wave": 4057,
+      "pmid": "41974303",
+      "category": "cannabinoid_safety",
+      "title": "Cannabinoid-based interventions for behavioral outcomes in children and adolescents with autism spectrum disorder: A systematic review of safety and effectiveness.",
+      "verified_title": "Cannabinoid-based interventions for behavioral outcomes in children and adolescents with autism spectrum disorder: A systematic review of safety and effectiveness.",
+      "verified_journal": "Progress in neuro-psychopharmacology & biological psychiatry",
+      "verified_pub_date": "2026-Apr-02",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "category_firewall_pass": true,
+      "focus": "Autism spectrum disorder (ASD) lacks effective options for core symptoms. Cannabinoids, especially cannabidiol (CBD) and combined CBD:Δ9-tetrahydrocannabinol (THC) formulations, are of interest, but clinical evidence is heterogeneous. To evaluate the effectiveness and safety of cannabinoid-based interventions for behavioral outcomes in children and adolescents with ASD. Six databases (Scopus, Web of Science, Embase, Cochrane Library, PubMed, PsycINFO) were searched from February 2024 to June 2025. Risk of bias was assessed using RoB 2 (randomized controlled trials [RCTs]) and the Newcastle-Ottawa Scale (non-RCTs); certainty was evaluated with GRADE. Twelve studies (4 RCTs, 8 non-RCTs) were included; six ongoing trials were identified. Most interventions used full-spectrum extracts with high CBD:THC ratios (often 20:1), with titration up to ∼10 mg/kg/day; doses varied across studies. Responder rates for global improvement vs placebo (49% vs 21%) and greater improvement in social communication. No between-group differences were observed for sleep or overall symptom severity, and repetitive behaviors showed a non-significant trend toward improvement. Non-RCTs studies suggested benefits but had high risk of bias and very low certainty. Adverse events were mostly mild and non-serious (e.g., somnolence, appetite changes, sleep problems, irritability); no treatment-related serious adverse events were reported. Evidence remains limited. A whole-plant 20:1 extract improved global clinical impression and social communication in one RCT, whereas other standardized outcomes were null. Current data support only cautious, adjunctive use under medical supervision. Larger, well-designed RCTs using validated outcomes are needed to clarify efficacy, optimal formulations, and long-term safety. PROSPERO registration: CRD42024508518.",
+      "pdf_link": "https://doi.org/10.1016/j.pnpbp.2026.111697",
+      "full_text_link": null,
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "state": "selected_exact_verified"
+    },
+    {
+      "wave": 4058,
+      "pmid": "42494831",
+      "category": "cannabinoid_safety",
+      "title": "Functional neuroimaging of Cannabidiol in stress and anxiety: a systematic review.",
+      "verified_title": "Functional neuroimaging of Cannabidiol in stress and anxiety: a systematic review.",
+      "verified_journal": "Frontiers in neuroimaging",
+      "verified_pub_date": "2026",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "category_firewall_pass": true,
+      "focus": "Cannabidiol (CBD) is a non-intoxicating phytocannabinoid primarily derived from hemp (cannabis sativa L.) that has been investigated for its potential anxiolytic effects. Prior functional neuroimaging studies suggest that CBD may affect brain regions associated with stress and anxiety. However, it remains unclear if there is a consistent pattern of modulation within these regions and if there is a correlation with behavioral or physiological measures. We conducted a systematic review examining adult human neuroimaging investigations comparing CBD with placebo under conditions related to stress or anxiety. We searched PubMed, Web of Science, EBSCO, and ProQuest for studies published before June 30, 2025. The quality of the evidence was assessed with the revised Cochrane Risk of Bias Tool for Randomized Trials (RoB 2), findings were summarized using a Synthesis Without Meta-analysis (SWiM) approach, and certainty of evidence was rated using the Grading of Recommendations Assessment, Development, and Evaluation (GRADE) framework. A total of 12 studies with 146 participants in 7 cohorts met the eligibility criteria and were included in the synthesis. Results indicated a wide distribution of reported peaks across many cortical and subcortical regions with mixed directions of activation or perfusion, demonstrating substantial heterogeneity in the reported findings. Risk of bias assessments generally indicated either some concerns or high risk of bias, and the certainty of evidence was judged to be low to very low. Overall, there is a lack of consistent evidence showing the acute effects of CBD on the brain across various study designs. The current literature on the putative anxiolytic effects of CBD is constrained by methodological variability and limited statistical power. Future studies should employ standardized paradigms, improve reporting practices, and include more diverse and adequately powered samples to clarify the neural correlates of CBD-related effects on stress and anxiety. PROSPERO, CRD420251063369.",
+      "pdf_link": "https://doi.org/10.3389/fnimg.2026.1860919",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13391337/",
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "state": "selected_exact_verified"
+    },
+    {
+      "wave": 4078,
+      "pmid": "40517066",
+      "category": "cannabinoid_safety",
+      "title": "Cannabinoid hyperemesis syndrome: A review.",
+      "verified_title": "Cannabinoid hyperemesis syndrome: A review.",
+      "verified_journal": "Revista de gastroenterologia de Mexico (English)",
+      "verified_pub_date": "2025",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "category_firewall_pass": true,
+      "focus": "Cannabinoid hyperemesis syndrome (CHS) is a chronic disorder characterized by episodes of severe vomiting, alternating with asymptomatic or minimally symptomatic periods. The episodes of emesis tend to be disabling, negatively affecting quality of life. The disorder's main characteristic is that it is associated with previous chronic heavy cannabis use. CHS is similar to cyclic vomiting syndrome (CVS), with the exception that the sustained cessation of cannabis use is expected to resolve the vomiting episodes. The average time between the onset of acute CHS episodes and diagnosis ranges from three to six years, based on previously published cases. This delay in the diagnosis reflects a lack of awareness of the condition on the part of physicians. Delayed diagnosis of CHS results in frequent emergency room visits and increased healthcare costs, and the lack of effective treatment leads to poor patient outcomes. The diagnosis is challenging, and some authors have diagnosed CHS when patients had cyclic vomiting, in the context of chronic cannabis use, regardless of the duration of use or the potency of the product used. The aim of this narrative review is to provide a detailed and critical analysis of current knowledge about CHS. The present document focuses on a thorough review of the literature on worldwide cannabis use, the role of the endocannabinoid system in the pathophysiology of CHS, diagnostic criteria, and current management of CHS.",
+      "pdf_link": "https://doi.org/10.1016/j.rgmxen.2025.02.002",
+      "full_text_link": null,
+      "source": "NCBI PubMed EFetch via Sider Scholar",
+      "state": "selected_exact_verified"
+    }
+  ]
+}

@@ -80,6 +80,47 @@ describe('apply-redirect-overrides', () => {
     expect(lines.some((line) => line.includes('/de/ziele/stress'))).toBe(false)
   })
 
+  it('keeps the cited magnesium-types legacy URL pointed at the same-intent live guide', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ths-magnesium-sleep-redirect-'))
+    tempRoots.push(root)
+
+    fs.mkdirSync(path.join(root, 'out'), { recursive: true })
+    fs.writeFileSync(
+      path.join(root, 'out', '_redirects'),
+      [
+        '/articles/magnesium-types-for-sleep /guides/sleep/magnesium-types-for-sleep/ 301',
+        '/articles/magnesium-types-for-sleep/ /guides/sleep/magnesium-types-for-sleep/ 301',
+      ].join('\n'),
+    )
+    fs.cpSync(
+      path.resolve('public/redirect-overrides'),
+      path.join(root, 'public', 'redirect-overrides'),
+      { recursive: true },
+    )
+
+    const result = spawnSync(process.execPath, [scriptPath], {
+      cwd: root,
+      encoding: 'utf8',
+    })
+
+    expect(result.status, result.stderr || result.stdout).toBe(0)
+
+    const activeRules = fs.readFileSync(path.join(root, 'out', '_redirects'), 'utf8')
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .filter((line) => line && !line.startsWith('#'))
+
+    const magnesiumRules = activeRules.filter((line) =>
+      /^\/articles\/magnesium-types-for-sleep\/?\s+/.test(line),
+    )
+
+    expect(magnesiumRules).toHaveLength(2)
+    for (const rule of magnesiumRules) {
+      expect(rule).toContain('/guides/sleep/magnesium-types-for-sleep/')
+      expect(rule).not.toContain('/guides/sleep/best-magnesium-for-sleep/')
+    }
+  })
+
   it('keeps restored info and evidence hubs out of the deployed redirect table', () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ths-restored-hubs-'))
     tempRoots.push(root)

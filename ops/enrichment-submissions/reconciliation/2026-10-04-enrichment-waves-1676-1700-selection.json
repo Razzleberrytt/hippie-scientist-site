@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-1676-1700-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-1651-1675-selection",
+  "program": {
+    "range": "1501-2000",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 200,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2000"
+  },
+  "source_provenance": [
+    "Sider Scholar + NCBI PubMed exact-source verification",
+    "cumulative PMID collision index covering prior enrichment waves and current branch"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2000 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe/source verification during authoring; expensive repository-wide validation only after Wave 2000"
+  },
+  "waves": [
+    {
+      "wave": 1676,
+      "entity_slug": "prunes-bone-health-older-men",
+      "pmid": "42356242",
+      "focus": "One-year RCT in 59 men age 55-80 found daily prunes did not improve total or lumbar-spine BMD beyond calcium/vitamin D control, although selected bone-turnover markers changed less than control.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1677,
+      "entity_slug": "potassium-citrate-postmenopause-bone-turnover",
+      "pmid": "42423994",
+      "focus": "GRADE-assessed meta-analysis of five RCTs and 401 postmenopausal women found potassium citrate reduced urinary NTX at one month but did not consistently improve CTX or P1NP at later time points; trial-sequential evidence remained insufficient for key formation markers.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1678,
+      "entity_slug": "greek-yogurt-postexercise-bone-markers",
+      "pmid": "42561457",
+      "focus": "Randomized crossover secondary analysis in 20 premenopausal women with obesity found Greek yogurt altered acute post-exercise bone-turnover markers versus an isoenergetic carbohydrate pudding; these short-term surrogate responses do not establish fracture or BMD benefit.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1679,
+      "entity_slug": "synbiotic-protein-resistance-training-older-t2d",
+      "pmid": "42616143",
+      "focus": "Triple-blind RCT in older men with type 2 diabetes found resistance training improved physical outcomes across groups, with protein and synbiotic-plus-protein arms showing selected metabolic, inflammatory and strength differences; combined interventions prevent strain- or protein-only attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1680,
+      "entity_slug": "frailty-exercise-nutrition-systematic-review",
+      "pmid": "42620771",
+      "focus": "Systematic review of frail/pre-frail older adults found exercise consistently improved strength, gait and frailty status, while nutrition alone was modest/inconsistent and combined exercise-nutrition strategies generally outperformed nutrition-only approaches.",
+      "state": "research_only_category_firewall"
+    },
+    {
+      "wave": 1681,
+      "entity_slug": "low-carbohydrate-availability-bone-turnover",
+      "pmid": "42670629",
+      "focus": "Randomized crossover study in eight trained men found four days of low carbohydrate availability under energy balance increased beta-CTX and lowered IGF-1 without changing P1NP or several endocrine markers; tiny acute physiology study does not establish long-term bone harm.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1682,
+      "entity_slug": "milk-postexercise-bone-markers",
+      "pmid": "42673620",
+      "focus": "Randomized crossover study in 20 young adults found milk and Greek-yogurt conditions altered acute post-exercise bone-status markers compared with carbohydrate or water; biomarker responses are not evidence of long-term BMD or fracture prevention.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1683,
+      "entity_slug": "vegan-diet-older-adults-muscle",
+      "pmid": "42680254",
+      "focus": "Twelve-week RCT in 72 healthy adults age 65 and older found a self-selected vegan diet reduced protein intake and skeletal-muscle measures versus habitual omnivorous eating, while a resistance-exercise vegan arm tested whether training could mitigate losses; diet quality/protein context is critical.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1684,
+      "entity_slug": "hmb-exercise-frailty-older-adults",
+      "pmid": "42688609",
+      "focus": "Twelve-week double-blind RCT in 136 frail older adults found calcium-HMB added to the same exercise program produced greater improvement in SPPB physical-function scores and selected secondary measures than placebo.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1685,
+      "entity_slug": "nutrition-exercise-sarcopenia-vietnam",
+      "pmid": "42797063",
+      "focus": "Cluster RCT in 90 community-dwelling Vietnamese older adults with sarcopenia found exercise improved grip strength and gait speed versus education, while adding counseling plus a multinutrient supplement did not consistently outperform exercise alone on all outcomes.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1686,
+      "entity_slug": "vitamin-d-omega3-exercise-bone-markers",
+      "pmid": "39657964",
+      "focus": "Three-year DO-HEALTH secondary analysis in 1,848 older adults found vitamin D and omega-3 alone did not significantly change sclerostin, P1NP or beta-CTX, while home strength exercise reduced sclerostin; combination effects were marker-specific.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1687,
+      "entity_slug": "boswellia-knee-osteoarthritis-aflapin",
+      "pmid": "39700461",
+      "focus": "180-day placebo-controlled RCT in 80 adults with mild-to-moderate knee osteoarthritis found proprietary standardized Boswellia extract improved pain/function scores and selected MRI/cartilage biomarkers; efficacy remains formulation-specific.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1688,
+      "entity_slug": "multi-type-collagen-knee-osteoarthritis",
+      "pmid": "39719905",
+      "focus": "Eight-week double-blind RCT in 31 adults with grade 2-3 knee osteoarthritis found a type I/II/III collagen product improved several pain, quality-of-life and selected functional outcomes versus placebo; very small sample and proprietary blend limit certainty.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1689,
+      "entity_slug": "hmb-older-women-muscle-quality-null",
+      "pmid": "35288513",
+      "focus": "Factorial RCT in older women with low muscle mass found HMB did not significantly add to resistance training for functional or compositional muscle quality; resistance training itself provided the clearer benefit.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1690,
+      "entity_slug": "collagen-peptides-achilles-resistance-training",
+      "pmid": "35403756",
+      "focus": "14-week RCT in 40 active young men found specific collagen peptides plus resistance training increased Achilles tendon cross-sectional area and muscle thickness more than training alone, but tendon stiffness and strength gains did not differ between groups.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1691,
+      "entity_slug": "hmb-aging-clinical-umbrella-review",
+      "pmid": "35818771",
+      "focus": "Umbrella review of 15 systematic reviews found HMB evidence inconsistent for lean mass and strength and no review established a clear positive physical-function effect across aging/clinical populations.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 1692,
+      "entity_slug": "hmb-sarcopenia-rct",
+      "pmid": "37248756",
+      "focus": "Twelve-week double-blind RCT in older adults with sarcopenia found HMB plus resistance exercise improved grip strength, gait speed, chair-stand performance and muscle quality more than exercise plus placebo; small sample limits precision.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1693,
+      "entity_slug": "collagen-peptides-active-adults-pain-function",
+      "pmid": "37551682",
+      "focus": "Longer-term double-blind RCT in active middle-aged adults found collagen peptides improved selected pain, activities-of-daily-living and mental/physical health measures in dose- and subgroup-dependent ways; effects were not uniform across all participants.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1694,
+      "entity_slug": "collagen-whey-eccentric-recovery-null",
+      "pmid": "37922892",
+      "focus": "Three-week double-blind trial in fit men found replacing part of whey protein with collagen peptides did not improve muscle-damage markers or recovery of muscular performance versus the same total protein from whey alone.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1695,
+      "entity_slug": "hmb-postacute-sarcopenia-rehabilitation",
+      "pmid": "38171034",
+      "focus": "Twelve-week double-blind trial in post-acute older adults with sarcopenia found calcium-HMB added to resistance rehabilitation improved selected SPPB domains and female grip strength, with some gains persisting at one year; findings are rehabilitation-context specific.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1696,
+      "entity_slug": "bovine-collagen-typej-knee-oa",
+      "pmid": "38235711",
+      "focus": "Five-arm RCT in 100 adults with knee osteoarthritis found proprietary Type-J bovine collagen peptides improved WOMAC, quality-of-life and selected imaging/biomarker outcomes, but product-specific dose comparisons should not be generalized to all collagen.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 1697,
+      "entity_slug": "multicomponent-training-hmb-institutionalized-older-adults",
+      "pmid": "38489992",
+      "focus": "Cluster RCT in 72 institutionalized older adults found multicomponent exercise improved cognition, SPPB and muscle power, whereas HMB alone did not; adding HMB did not clearly outperform exercise for most endpoints.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 1698,
+      "entity_slug": "hmb-sarcopenia-meta",
+      "pmid": "39071082",
+      "focus": "Meta-analysis of six sarcopenia RCTs found HMB/HMB-rich supplements modestly improved grip strength but not gait speed, fat-free mass, skeletal-muscle index or several body-composition outcomes.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1699,
+      "entity_slug": "collagen-connective-protein-synthesis-null",
+      "pmid": "39086044",
+      "focus": "One-week double-blind resistance-training study in 25 young men found collagen peptides raised collagen-derived amino acids but did not further increase muscle connective or myofibrillar protein-synthesis rates versus placebo.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 1700,
+      "entity_slug": "exercise-hmb-sarcopenia-meta",
+      "pmid": "39360288",
+      "focus": "Meta-analysis of five RCTs and 257 older adults with sarcopenia found exercise plus HMB improved gait speed versus exercise plus placebo but did not significantly improve skeletal-muscle index; benefits were outcome-specific.",
+      "state": "research_only_combination_firewall"
+    }
+  ]
+}

@@ -1,0 +1,286 @@
+{
+  "schema_version": 1,
+  "row_count": 28,
+  "rows": [
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "41449463",
+      "doi": "10.1186/s12967-025-07607-8",
+      "title": "Effect of vitamin D supplementation on skeletal muscle function and quality of life in patients with chronic intestinal failure: a randomized controlled trial : Clean version.",
+      "journal": "Journal of translational medicine",
+      "pub_date": "2025 Dec 25",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((creatine OR protein OR \"vitamin D\" OR \"resistance training\" OR nutrition) AND (sarcopenia OR frailty OR \"muscle mass\" OR \"muscle strength\")) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "41460619",
+      "doi": "10.1007/s13668-025-00717-1",
+      "title": "An Overview of the Importance of Muscle Health in Oncology: Assessment, Preservation, and Nutritional Recovery Strategies.",
+      "journal": "Current nutrition reports",
+      "pub_date": "2025 Dec 29",
+      "pub_type": "Review",
+      "query": "((creatine OR protein OR \"vitamin D\" OR \"resistance training\" OR nutrition) AND (sarcopenia OR frailty OR \"muscle mass\" OR \"muscle strength\")) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "41463399",
+      "doi": "10.3390/biom15121746",
+      "title": "Malnutrition and Sarcopenia in Patients with Neuroendocrine Tumors: A Comprehensive Review of Evidence.",
+      "journal": "Biomolecules",
+      "pub_date": "2025 Dec 17",
+      "pub_type": "Review",
+      "query": "((creatine OR protein OR \"vitamin D\" OR \"resistance training\" OR nutrition) AND (sarcopenia OR frailty OR \"muscle mass\" OR \"muscle strength\")) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "41470845",
+      "doi": "10.3390/nu17243900",
+      "title": "The Effect of Routine High-Soy-Protein Soymilk Intake on the Skeletal Muscle Index (SMI) in Japanese Pre-Frail Elderly Individuals with an Ordinary Life: A Post Hoc Analysis of a Randomized Controlled Trial.",
+      "journal": "Nutrients",
+      "pub_date": "2025 Dec 13",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((creatine OR protein OR \"vitamin D\" OR \"resistance training\" OR nutrition) AND (sarcopenia OR frailty OR \"muscle mass\" OR \"muscle strength\")) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "41485966",
+      "doi": "10.3177/jnsv.71.507",
+      "title": "Individualized Nutritional Rehabilitation Improves Muscle Strength, Cognitive Function, and Quality of Life in Elderly Patients with Sarcopenia and Cognitive Impairment: A Randomized Controlled Trial.",
+      "journal": "Journal of nutritional science and vitaminology",
+      "pub_date": "2025",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((creatine OR protein OR \"vitamin D\" OR \"resistance training\" OR nutrition) AND (sarcopenia OR frailty OR \"muscle mass\" OR \"muscle strength\")) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "41512633",
+      "doi": "10.1016/j.clnu.2025.106569",
+      "title": "Dietary intake of total, animal, and plant proteins and risk of frailty: A GRADE-assessed systematic review and dose-response meta-analysis of prospective cohort studies.",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "pub_date": "2026 Feb",
+      "pub_type": "Meta-Analysis",
+      "query": "((creatine OR protein OR \"vitamin D\" OR \"resistance training\" OR nutrition) AND (sarcopenia OR frailty OR \"muscle mass\" OR \"muscle strength\")) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "41515201",
+      "doi": "10.3390/nu18010083",
+      "title": "Independent and Combined Effects of Resistance Training and Whey Protein on Skeletal Muscle Mass and Function in Individuals with MASLD Under Caloric Restriction.",
+      "journal": "Nutrients",
+      "pub_date": "2025 Dec 26",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((creatine OR protein OR \"vitamin D\" OR \"resistance training\" OR nutrition) AND (sarcopenia OR frailty OR \"muscle mass\" OR \"muscle strength\")) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "41593872",
+      "doi": "10.5720/kjcn.2025.00360",
+      "title": "Dietary factors and nutritional guidelines for sarcopenia in older adults: a narrative review.",
+      "journal": "Korean journal of community nutrition",
+      "pub_date": "2025 Dec",
+      "pub_type": "Review",
+      "query": "((creatine OR protein OR \"vitamin D\" OR \"resistance training\" OR nutrition) AND (sarcopenia OR frailty OR \"muscle mass\" OR \"muscle strength\")) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "41625766",
+      "doi": "10.3389/fmed.2025.1727270",
+      "title": "Gut-liver-muscle axis: linking gut microbiota dysbiosis to malnutrition and sarcopenia in liver disease.",
+      "journal": "Frontiers in medicine",
+      "pub_date": "2025",
+      "pub_type": "Review",
+      "query": "((creatine OR protein OR \"vitamin D\" OR \"resistance training\" OR nutrition) AND (sarcopenia OR frailty OR \"muscle mass\" OR \"muscle strength\")) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "41668861",
+      "doi": "10.3389/fpubh.2025.1735899",
+      "title": "Effects of resistance training on muscle mass, strength, and physical function in older women with sarcopenia: a systematic review and meta-analysis.",
+      "journal": "Frontiers in public health",
+      "pub_date": "2025",
+      "pub_type": "Meta-Analysis",
+      "query": "((creatine OR protein OR \"vitamin D\" OR \"resistance training\" OR nutrition) AND (sarcopenia OR frailty OR \"muscle mass\" OR \"muscle strength\")) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "41946023",
+      "doi": "10.1016/j.physio.2025.101873",
+      "title": "Impact of a physiotherapy-led low threshold exercise and protein supplementation intervention to optimise physical function and target frailty in people experiencing homelessness and addiction: The LEAP-II trial.",
+      "journal": "Physiotherapy",
+      "pub_date": "2026 Sep",
+      "pub_type": "Journal Article",
+      "query": "((creatine OR protein OR \"vitamin D\" OR \"resistance training\" OR nutrition) AND (sarcopenia OR frailty OR \"muscle mass\" OR \"muscle strength\")) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42030574",
+      "doi": "10.1016/j.nut.2025.113047",
+      "title": "Efficacy of a resistance training program on muscle mass and muscle strength in adults following a vegan versus omnivorous diet: A nonrandomized four-arm parallel clinical trial.",
+      "journal": "Nutrition (Burbank, Los Angeles County, Calif.)",
+      "pub_date": "2026 Aug",
+      "pub_type": "Comparative Study",
+      "query": "((creatine OR protein OR \"vitamin D\" OR \"resistance training\" OR nutrition) AND (sarcopenia OR frailty OR \"muscle mass\" OR \"muscle strength\")) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42709703",
+      "doi": "10.1519/JSC.0000000000005302",
+      "title": "How Slow Should You Go? A Systematic Review With Meta-Analysis of the Effect of Resistance Training Repetition Tempo on Muscle Hypertrophy.",
+      "journal": "Journal of strength and conditioning research",
+      "pub_date": "2025 Dec 1",
+      "pub_type": "Meta-Analysis",
+      "query": "((creatine OR protein OR \"vitamin D\" OR \"resistance training\" OR nutrition) AND (sarcopenia OR frailty OR \"muscle mass\" OR \"muscle strength\")) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "41254489",
+      "doi": "10.1186/s11689-025-09657-x",
+      "title": "Long-term safety and tolerability of transdermal cannabidiol gel in children and adolescents with Fragile X syndrome (ZYN2-CL-017): an interim analysis of an ongoing open-label extension study.",
+      "journal": "Journal of neurodevelopmental disorders",
+      "pub_date": "2025 Nov 18",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((cannabidiol OR CBD OR cannabis OR cannabinoid) AND (safety OR adverse OR interaction OR hepatotoxicity OR cognition OR anxiety OR sleep)) AND 2018:2025[pdat] AND (clinical trial[pt] OR randomized controlled trial[pt] OR systematic review[pt] OR review[pt] OR observational study[pt])"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "41265541",
+      "doi": "10.1016/j.neubiorev.2025.106480",
+      "title": "Cannabis and nicotine/tobacco co-use and its association with cognitive and neural outcomes: A systematic review.",
+      "journal": "Neuroscience and biobehavioral reviews",
+      "pub_date": "2026 Jan",
+      "pub_type": "Journal Article",
+      "query": "((cannabidiol OR CBD OR cannabis OR cannabinoid) AND (safety OR adverse OR interaction OR hepatotoxicity OR cognition OR anxiety OR sleep)) AND 2018:2025[pdat] AND (clinical trial[pt] OR randomized controlled trial[pt] OR systematic review[pt] OR review[pt] OR observational study[pt])"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "41312717",
+      "doi": "10.1111/acer.70212",
+      "title": "Effects of cannabidiol in alcohol use disorder patients with and without co-occurring post-traumatic stress disorder: Tolerability but no evidence for efficacy in two randomized proof-of-concept trials.",
+      "journal": "Alcohol, clinical & experimental research",
+      "pub_date": "2026 Jan",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((cannabidiol OR CBD OR cannabis OR cannabinoid) AND (safety OR adverse OR interaction OR hepatotoxicity OR cognition OR anxiety OR sleep)) AND 2018:2025[pdat] AND (clinical trial[pt] OR randomized controlled trial[pt] OR systematic review[pt] OR review[pt] OR observational study[pt])"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "41338767",
+      "doi": "10.1016/j.jsr.2025.09.005",
+      "title": "Understanding cannabis use and car crashes: Insights from a randomized trial using a driving simulator on THC blood levels and subjective measures of sleepiness and performance.",
+      "journal": "Journal of safety research",
+      "pub_date": "2025 Dec",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((cannabidiol OR CBD OR cannabis OR cannabinoid) AND (safety OR adverse OR interaction OR hepatotoxicity OR cognition OR anxiety OR sleep)) AND 2018:2025[pdat] AND (clinical trial[pt] OR randomized controlled trial[pt] OR systematic review[pt] OR review[pt] OR observational study[pt])"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "41447562",
+      "doi": "10.1080/15504263.2025.2606019",
+      "title": "The Prevalence of Cannabis Use Disorder in Individuals with Anxiety or Related Disorders: A Systematic Review.",
+      "journal": "Journal of dual diagnosis",
+      "pub_date": "2026",
+      "pub_type": "Journal Article",
+      "query": "((cannabidiol OR CBD OR cannabis OR cannabinoid) AND (safety OR adverse OR interaction OR hepatotoxicity OR cognition OR anxiety OR sleep)) AND 2018:2025[pdat] AND (clinical trial[pt] OR randomized controlled trial[pt] OR systematic review[pt] OR review[pt] OR observational study[pt])"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "41452412",
+      "doi": "10.1002/aur.70159",
+      "title": "Effects of Cannabidiol on Social Relating, Anxiety, and Parental Stress in Autistic Children: A Randomized Controlled Crossover Trial.",
+      "journal": "Autism research : official journal of the International Society for Autism Research",
+      "pub_date": "2026 Feb",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((cannabidiol OR CBD OR cannabis OR cannabinoid) AND (safety OR adverse OR interaction OR hepatotoxicity OR cognition OR anxiety OR sleep)) AND 2018:2025[pdat] AND (clinical trial[pt] OR randomized controlled trial[pt] OR systematic review[pt] OR review[pt] OR observational study[pt])"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "41459647",
+      "doi": "10.1080/09546634.2025.2604448",
+      "title": "Efficacy and safety of cannabidiol oil in psoriasis: a randomized, double-blind, placebo-controlled trial.",
+      "journal": "The Journal of dermatological treatment",
+      "pub_date": "2026 Dec",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((cannabidiol OR CBD OR cannabis OR cannabinoid) AND (safety OR adverse OR interaction OR hepatotoxicity OR cognition OR anxiety OR sleep)) AND 2018:2025[pdat] AND (clinical trial[pt] OR randomized controlled trial[pt] OR systematic review[pt] OR review[pt] OR observational study[pt])"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "41467893",
+      "doi": "10.1177/25785125251398286",
+      "title": "A Randomized, Open-Label Trial to Assess Feasibility and Tolerability of Topical Cannabis Balms for the Treatment of Aromatase Inhibitor-Associated Musculoskeletal Syndrome (AIMSS).",
+      "journal": "Cannabis and cannabinoid research",
+      "pub_date": "2026 Feb",
+      "pub_type": "Research Support, N.I.H., Extramural",
+      "query": "((cannabidiol OR CBD OR cannabis OR cannabinoid) AND (safety OR adverse OR interaction OR hepatotoxicity OR cognition OR anxiety OR sleep)) AND 2018:2025[pdat] AND (clinical trial[pt] OR randomized controlled trial[pt] OR systematic review[pt] OR review[pt] OR observational study[pt])"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "41487518",
+      "doi": "10.3389/fphar.2025.1657065",
+      "title": "Effects and safety of a CBD-rich Cannabis sativa oil in knee osteoarthritis: a double-blind, randomized, placebo-controlled trial - CANOA - cannabis for osteoarthritis.",
+      "journal": "Frontiers in pharmacology",
+      "pub_date": "2025",
+      "pub_type": "Journal Article",
+      "query": "((cannabidiol OR CBD OR cannabis OR cannabinoid) AND (safety OR adverse OR interaction OR hepatotoxicity OR cognition OR anxiety OR sleep)) AND 2018:2025[pdat] AND (clinical trial[pt] OR randomized controlled trial[pt] OR systematic review[pt] OR review[pt] OR observational study[pt])"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "41561992",
+      "doi": "10.3389/fpsyt.2025.1733254",
+      "title": "Self-disturbance in first-episode psychosis: Theoretical framework and potential cannabis interactions - a systematic review.",
+      "journal": "Frontiers in psychiatry",
+      "pub_date": "2025",
+      "pub_type": "Review",
+      "query": "((cannabidiol OR CBD OR cannabis OR cannabinoid) AND (safety OR adverse OR interaction OR hepatotoxicity OR cognition OR anxiety OR sleep)) AND 2018:2025[pdat] AND (clinical trial[pt] OR randomized controlled trial[pt] OR systematic review[pt] OR review[pt] OR observational study[pt])"
+    },
+    {
+      "category": "cannabinoid_safety",
+      "pmid": "41635790",
+      "doi": "10.3389/fvets.2025.1746266",
+      "title": "Efficacy, pharmacokinetics and safety of liposomal synthetic cannabidiol injected subcutaneously in dogs: a randomized, blinded, placebo-controlled, crossover clinical trial.",
+      "journal": "Frontiers in veterinary science",
+      "pub_date": "2025",
+      "pub_type": "Journal Article",
+      "query": "((cannabidiol OR CBD OR cannabis OR cannabinoid) AND (safety OR adverse OR interaction OR hepatotoxicity OR cognition OR anxiety OR sleep)) AND 2018:2025[pdat] AND (clinical trial[pt] OR randomized controlled trial[pt] OR systematic review[pt] OR review[pt] OR observational study[pt])"
+    },
+    {
+      "category": "cardiometabolic",
+      "pmid": "41461265",
+      "doi": "10.1016/j.tjnut.2025.101274",
+      "title": "Effects of EPA+DHA and Corn Oil Supplementation on PUFA Concentrations across Plasma Lipid Pools and on Downstream Oxylipins: Exploratory Results from a Randomized Controlled Trial in Healthy Humans.",
+      "journal": "The Journal of nutrition",
+      "pub_date": "2026 Feb",
+      "pub_type": "Research Support, N.I.H., Extramural",
+      "query": "((\"omega-3\" OR EPA OR DHA OR \"coenzyme Q10\" OR CoQ10 OR magnesium OR berberine OR fiber) AND (\"blood pressure\" OR lipids OR triglycerides OR cardiovascular OR endothelial)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "cardiometabolic",
+      "pmid": "41596068",
+      "doi": "10.3390/antiox15010009",
+      "title": "Specialized Pro-Resolving Lipid Mediators and Dietary Omega-3/6 Fatty Acids in Selected Inflammatory Skin Diseases: A Systematic Review.",
+      "journal": "Antioxidants (Basel, Switzerland)",
+      "pub_date": "2025 Dec 21",
+      "pub_type": "Review",
+      "query": "((\"omega-3\" OR EPA OR DHA OR \"coenzyme Q10\" OR CoQ10 OR magnesium OR berberine OR fiber) AND (\"blood pressure\" OR lipids OR triglycerides OR cardiovascular OR endothelial)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "cardiometabolic",
+      "pmid": "41687665",
+      "doi": null,
+      "title": "OMEGA-3 POLYUNSATURATED FATTY ACIDS AND HYPERTENSION: A REVIEW OF VASOACTIVE MECHANISMS AND IMPLICATIONS FOR CARDIOVASCULAR DISEASE.",
+      "journal": "Georgian medical news",
+      "pub_date": "2025 Dec",
+      "pub_type": "Systematic Review",
+      "query": "((\"omega-3\" OR EPA OR DHA OR \"coenzyme Q10\" OR CoQ10 OR magnesium OR berberine OR fiber) AND (\"blood pressure\" OR lipids OR triglycerides OR cardiovascular OR endothelial)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "41318032",
+      "doi": "10.1016/j.jocmr.2025.101993",
+      "title": "Myocardial energy metabolism in heart failure: Systematic review and meta-analysis of Phosphorus-31 magnetic resonance spectroscopy phosphocreatine/adenosine triphosphate ratio.",
+      "journal": "Journal of cardiovascular magnetic resonance : official journal of the Society for Cardiovascular Magnetic Resonance",
+      "pub_date": "2026 Summer",
+      "pub_type": "Meta-Analysis",
+      "query": "((creatine OR \"coenzyme Q10\" OR CoQ10 OR carnitine OR riboflavin OR nicotinamide OR \"alpha lipoic acid\") AND (mitochondrial OR fatigue OR energy OR exercise)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    }
+  ]
+}

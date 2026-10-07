@@ -6,3 +6,7 @@
 # Keep both variants live so the post-export sitemap can advertise the canonicals.
 # @canonical-source /info/
 # @canonical-source /evidence/
+# The July 2026 Semrush cleanup pointed this formerly missing article to the broader
+# best-magnesium guide. The live same-intent owner is now /guides/sleep/magnesium-types-for-sleep/;
+# suppress the historical imported override so public/_redirects retains that direct canonical mapping.
+# @canonical-source /articles/magnesium-types-for-sleep/

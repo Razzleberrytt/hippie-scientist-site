@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000",
+  "row_count": 1,
+  "rows": [
+    {
+      "wave": 5583,
+      "category": "withdrawal_nps",
+      "old_pmid": "36256767",
+      "old_title": "Kratom Toxicity and Withdrawal.",
+      "pmid": "42464533",
+      "title": "Assessing the Acceptability of a Wearable Versus Implantable Device for Overdose Detection and Naloxone Administration: Perspectives from Individuals in the Addiction Workforce and Individuals with a History of Opioid Use.",
+      "doi": "10.1080/10826084.2026.2703849",
+      "journal": "Substance use & misuse",
+      "pub_date": "2026 Jul 16",
+      "pub_type": "Journal Article",
+      "abstract": "Use of medical devices for overdose detection and intervention are important for reducing overdose deaths; however, uptake and adoption has been slow. This study explores acceptability of a preclinical wearable versus implantable device, that detects overdose-induced respiratory failure and administers naloxone, among people who use opioids (PWUO) and individuals in the addiction treatment workforce. Survey data were collected with n = 60 PWUO (73.3% female; 91.7% White; 49.2% used opioids in past 3 months) and n = 126 individuals in the addiction workforce (81% female; 81% White; 13.5% prescribers). Acceptability was significantly higher for a wearable than implantable device among both PWUO (t[59] = 3.22, p = 0.001) and workforce participants (t[125] = 7.78, p < 0.001). Among PWUO, those with history of overdose, use of medications for opioid use disorder, and intravenous opioid use rated the device as more acceptable (p's < 0.05). In regression analysis, workforce participants' device acceptability was associated with less stigmatizing views of harm reduction (b = -0.34, p = 0.01); neither demographics nor workplace characteristics were significantly associated (p's > 0.05). Results suggest acceptability of a device for overdose detection and naloxone administration among PWUO and the addiction workforce, with more acceptability for a wearable versus implantable device. Individual differences should be considered in further testing and dissemination of such devices.",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "verified_title": "Assessing the Acceptability of a Wearable Versus Implantable Device for Overdose Detection and Naloxone Administration: Perspectives from Individuals in the Addiction Workforce and Individuals with a History of Opioid Use.",
+      "verified_journal": "Substance use & misuse",
+      "verified_pub_date": "2026-Jul-16",
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1080/10826084.2026.2703849",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    }
+  ]
+}

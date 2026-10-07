@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-2476-2500-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-2451-2475-selection",
+  "program": {
+    "range": "2001-2500",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 500,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2500"
+  },
+  "source_provenance": [
+    "NCBI PubMed ESearch + exact EFetch abstract verification",
+    "cumulative PMID collision index through Wave 2250"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe and exact abstract verification during authoring; expensive repository-wide validation only after Wave 2500"
+  },
+  "waves": [
+    {
+      "wave": 2476,
+      "entity_slug": "vitamin-d-gut-microbiota-thyroid-diseases-mechanisms",
+      "pmid": "42824782",
+      "focus": "Review on vitamin d and gut microbiota in thyroid diseases: mechanisms and therapeutic reports In this review, we integrate existing current basic and clinical evidence to systematically dissect the individual functions and reciprocal crosstalk of vitamin D and. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2477,
+      "entity_slug": "astaxanthin-as-therapeutic-candidate-nociceptive-inflammatory-pain",
+      "pmid": "41892960",
+      "focus": "Review on astaxanthin as a therapeutic candidate for nociceptive and inflammatory pain: mechanisms reports Based on the in vivo research findings from our laboratory presented in this review, we have confirmed that carotenoid ASTs possess: (i) an intravenous. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2478,
+      "entity_slug": "chardonnay-grape-marc-grape-seed-extract-blends",
+      "pmid": "41894982",
+      "focus": "Randomized controlled trial on chardonnay grape marc/grape seed extract blends improve postprandial triglycerides and/or hdl reports These findings suggest that the broader nutrient complexity of Chardonnay marc may offer pleiotropic benefits for modifiable ASCVD risk factors (ClinicalTrials. gov: NCT03203915). Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2479,
+      "entity_slug": "cl16019-combination-cissus-quadrangularis-boswellia-serrata-extracts",
+      "pmid": "41896193",
+      "focus": "Randomized controlled trial on cl16019, a combination of cissus quadrangularis and boswellia serrata extracts promotes reports Supplementation of CL16019 along with standard therapy was found to enhance the bone fracture healing rate, possibly by accelerating the callus formation rate and. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2480,
+      "entity_slug": "decoding-regulatory-mechanism-astaxanthin-autophagy-insights-anti",
+      "pmid": "41897412",
+      "focus": "Review on decoding the regulatory mechanism of astaxanthin on autophagy: insights for anti-inflammatory reports This review systematically elucidates how AST acts as a key \"molecular modulator\" in animal or cellular models, dynamically regulating autophagy to restore cellular homeostasis. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2481,
+      "entity_slug": "glutathione-skin-aging-tissue-regeneration-systematic-review",
+      "pmid": "41900080",
+      "focus": "Systematic review on glutathione in skin aging and tissue regeneration: a systematic review of reports GSH plays a pivotal role in cutaneous aging and tissue repair through redox regulation, mitochondrial protection, and the modulation of inflammatory and extracellular matrix. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2482,
+      "entity_slug": "hesperidin-bioflavonoid-broad-therapeutic-promise",
+      "pmid": "41910698",
+      "focus": "Review on hesperidin: a bioflavonoid with broad therapeutic promise reports However, its low oral bioavailability—caused by poor solubility and limited absorption—poses significant challenges for its therapeutic application in clinical studies. This manuscript aims to. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2483,
+      "entity_slug": "alpha-lipoic-acid-supplementation-patients-nonalcoholic-fatty",
+      "pmid": "41917882",
+      "focus": "Meta-analysis on effects of alpha-lipoic acid supplementation on patients with nonalcoholic fatty liver reports The findings indicated that ALA supplementation did not improve liver enzymes, lipid profiles, glycemic indices, adipocytokines, and obesity measures in patients with NAFLD. Evidence boundary: pooled inference depends on included populations, formulations, endpoints, and study quality.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2484,
+      "entity_slug": "liposomal-delivery-enhances-collagen-tripeptide-containing-formulation",
+      "pmid": "41918155",
+      "focus": "Randomized controlled trial on liposomal delivery enhances the effects of a collagen tripeptide-containing formulation on reports Liposomal delivery significantly enhances the functional effects of a collagen tripeptide-containing formulation on dermal structure and biomechanical performance, particularly dermal collagen density and skin. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2485,
+      "entity_slug": "effectiveness-green-tea-camellia-sinensis-based-mouth",
+      "pmid": "41920369",
+      "focus": "Randomized controlled trial on effectiveness of green tea (camellia sinensis) based mouth rinse on oral reports Green tea-based mouth rinse was found to be effective in improving the oral health status of advanced HNC patients. Nurses should incorporate such cost-effective. Evidence boundary: the finding is limited to the studied population, intervention, duration, and endpoints.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2486,
+      "entity_slug": "evaluation-alpha-lipoic-acid-b-vitamins-quality",
+      "pmid": "41935358",
+      "focus": "Randomized controlled trial on evaluation of alpha-lipoic acid and b vitamins on quality of life reports Twelve weeks of treatment with ALA and B vitamins resulted in an improvement in QoL and BP among DSPN patients. However, these changes did. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2487,
+      "entity_slug": "collagen-peptides-from-marine-by-products-from",
+      "pmid": "41942224",
+      "focus": "Review on collagen peptides from marine by-products: from waste to functional ingredients reports The central idea is that this area of research is moving from the discovery of a valuable bioresource to precision to unlock its full. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2488,
+      "entity_slug": "chondroitin-sulfate-osteoarthritis-treatment-twenty-year-bibliometric",
+      "pmid": "41944208",
+      "focus": "Review on chondroitin sulfate in osteoarthritis treatment: a twenty-year bibliometric analysis and comprehensive reports By bridging macro-level literature analysis with micro-level materials chemistry insights, this work provides a comprehensive framework that integrates quantitative research mapping with mechanistic understanding. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2489,
+      "entity_slug": "glutathione-deficiency-early-postnatal-developmental-period-as",
+      "pmid": "41945311",
+      "focus": "Review on glutathione deficiency in the early postnatal developmental period as a neurodevelopmental reports Such artificially induced dysfunctions, discussed in this article, suggest the usefulness of these neurodevelopmental models in research on the pathomechanisms of schizophrenia. The aim. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2490,
+      "entity_slug": "oral-fish-collagen-peptide-complex-enhances-skin",
+      "pmid": "41952536",
+      "focus": "Observational study on oral fish collagen peptide complex enhances skin rejuvenation and systemic health reports These findings suggest that FCPNC may positively influence skin health and overall health status, emphasizing its potential as a functional food. However, further large-scale. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2491,
+      "entity_slug": "histone-acetylation-mediating-anticancer-polyphenols-insights-from",
+      "pmid": "41955826",
+      "focus": "Review on the role of histone acetylation in mediating the anticancer effects of reports Furthermore, this article examines the synergistic potential of combining these polyphenols with synthetic HDAC inhibitors and chemotherapy to enhance therapeutic efficacy while reducing associated. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2492,
+      "entity_slug": "collagen-supplementation-bone-health-narrative-review",
+      "pmid": "41962095",
+      "focus": "Review on collagen supplementation and bone health - a narrative review reports The prevailing evidence suggests that oral collagen has a beneficial supportive effect on bone health, particularly in individuals with early bone loss. Due to. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2493,
+      "entity_slug": "quercetin-loaded-composite-materials-bone-regeneration-review",
+      "pmid": "41965753",
+      "focus": "Review on quercetin-loaded composite materials for bone regeneration: a review of carriers, controlled reports In vivo studies confirm that quercetin-loaded composite materials increase bone volume, density, and vascularization, with various signaling pathways. This review integrates novel mechanistic insights. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2494,
+      "entity_slug": "efficacy-aopt-combined-collagen-dressings-facial-flushing",
+      "pmid": "41967902",
+      "focus": "Randomized controlled trial on efficacy of aopt combined with collagen dressings on facial flushing and reports 009). The combination of AOPT with collagen dressing offers superior benefits over AOPT alone, alleviating facial flushing, strengthening the skin barrier, decreasing systemic inflammation. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2495,
+      "entity_slug": "pyrroloquinoline-quinone-scaffolds-centrality-anticancer-drug-design",
+      "pmid": "41969172",
+      "focus": "Review on pyrroloquinoline quinone scaffolds: centrality in anticancer drug design reports The known safety profile and availability of standardized formulations provide the opportunity to advance PQQ into translational research in cancer. Future initiatives will involve. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2496,
+      "entity_slug": "procollagen-i-carboxy-terminal-propeptide-multi-faceted",
+      "pmid": "41971517",
+      "focus": "Review on procollagen i carboxy-terminal propeptide: a multi-faceted biomarker reports This literature review aims to provide a comprehensive synthesis of current knowledge on PICP, focusing on its biological role in collagen metabolism and clinical. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2497,
+      "entity_slug": "japanese-green-tea-brain-prevention-aging",
+      "pmid": "41974439",
+      "focus": "Review on [effects of japanese green tea on the brain: prevention of aging] reports As stress promotes aging, the anti-aging effects of theanine are also anticipated. Notably, catechins and caffeine act antagonistically to theanine, and the effects of. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2498,
+      "entity_slug": "rutin-as-potential-therapeutic-agent-multi-organ",
+      "pmid": "41976114",
+      "focus": "Review on rutin as a potential therapeutic agent for multi-organ ischemia-reperfusion injury: from reports However, the clinical application of rutin is currently hampered by its relatively low bioavailability. Future research should prioritize the development of innovative pharmaceutical formulations. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2499,
+      "entity_slug": "n-acetylcysteine-neurological-disorders-systematic-review-clinical",
+      "pmid": "41977262",
+      "focus": "Systematic review on n-acetylcysteine in neurological disorders: a systematic review of clinical and translational reports NAC demonstrated a favorable safety profile across all conditions. Despite fragmented and heterogeneous evidence, the encouraging signals identified warrant large-scale randomized controlled trials with. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2500,
+      "entity_slug": "circulating-lycopene-carotene-levels-are-inversely-associated",
+      "pmid": "41978094",
+      "focus": "Meta-analysis on circulating lycopene and β-carotene levels are inversely associated with carotid intima-media reports Conclusions: Increased serum lycopene concentrations, and to a lesser extent β-carotene concentrations, are inversely associated with carotid IMT, suggesting a protective role of lycopene. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    }
+  ]
+}

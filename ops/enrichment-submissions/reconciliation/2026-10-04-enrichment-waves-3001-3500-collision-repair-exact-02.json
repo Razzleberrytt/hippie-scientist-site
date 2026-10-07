@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "part": 2,
+  "rows": [
+    {
+      "wave": 3045,
+      "old_pmid": "42782741",
+      "pmid": "42719314",
+      "doi": "10.1016/j.jgr.2026.101079",
+      "category": "botanicals_mushrooms",
+      "title": "Nrf2 as a therapeutic target of ginseng: A comprehensive review from preclinical evidence to clinical applications.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "Journal of ginseng research",
+      "pub_date": "2026-Sep"
+    },
+    {
+      "wave": 3047,
+      "old_pmid": "42792150",
+      "pmid": "42719334",
+      "doi": "10.1016/j.jgr.2026.101078",
+      "category": "botanicals_mushrooms",
+      "title": "Traditional Chinese medicine ginseng regulates neurotrophic factors to improve neurodegenerative diseases: A potential strategy for Alzheimer's disease treatment.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "Journal of ginseng research",
+      "pub_date": "2026-Sep"
+    },
+    {
+      "wave": 3048,
+      "old_pmid": "42794746",
+      "pmid": "42667846",
+      "doi": "10.1016/j.ctarc.2026.101414",
+      "category": "botanicals_mushrooms",
+      "title": "Curcumin in pancreatic cancer: A comprehensive review of anticancer mechanisms, EMT modulation, and clinical challenges.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "Cancer treatment and research communications",
+      "pub_date": "2026-Aug-29"
+    },
+    {
+      "wave": 3059,
+      "old_pmid": "42813605",
+      "pmid": "42821661",
+      "doi": "10.1371/journal.pone.0349328",
+      "category": "cannabinoid_safety",
+      "title": "Protocol for the REVELIO test-track pilot study: A randomised, controlled, single-centre trial in healthy recreational cannabis users investigating real-time in-vehicle detection of cannabis-impaired driving.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "PloS one",
+      "pub_date": "2026"
+    },
+    {
+      "wave": 3060,
+      "old_pmid": "42761670",
+      "pmid": "42810868",
+      "doi": "10.1016/j.bja.2026.09.001",
+      "category": "cannabinoid_safety",
+      "title": "Cannabis use and anaesthetic agent dosing in patients undergoing surgery or interventional procedures: a single-centre retrospective cohort study.",
+      "abstract_verified": true,
+      "title_match_score": 1,
+      "journal": "British journal of anaesthesia",
+      "pub_date": "2026-Sep-29"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3305,
+      "pmid": "42654277",
+      "doi": "10.3390/nu18162697",
+      "category": "mitochondrial_energy",
+      "title": "Methodological Approaches to Bioavailability of Oral Creatine in Randomized Controlled Trials: A Meta-Research Study.",
+      "journal": "Nutrients",
+      "pub_date": "2026-Aug-18",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Meta-research of 343 randomized controlled trials found oral creatine studies often underreported formulation and rarely addressed bioavailability directly; creatine monohydrate was the dominant formulation. This informs formulation and evidence-quality interpretation rather than proving comparative efficacy."
+    },
+    {
+      "wave": 3323,
+      "pmid": "42581788",
+      "doi": "10.1002/brb3.71672",
+      "category": "mood",
+      "title": "Selective Anti-Inflammatory Actions of Curcumin on Cytokine Pathways in Major Depressive Disorder.",
+      "journal": "Brain and behavior",
+      "pub_date": "2026-Aug",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Ex vivo blood experiments from adults with major depressive disorder found curcumin selectively suppressed several overactivated inflammatory pathways. This is mechanistic ex vivo evidence, not clinical efficacy evidence, and further in vivo studies are required."
+    }
+  ]
+}

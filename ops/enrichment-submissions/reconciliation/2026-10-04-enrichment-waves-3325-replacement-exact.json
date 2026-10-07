@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3325,
+      "pmid": "42253726",
+      "doi": "10.3389/fnut.2026.1845922",
+      "category": "mood",
+      "title": "Association between vitamin D deficiency and the 8-year risk of incident depression in patients with rheumatoid arthritis: a cohort study.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Retrospective propensity-matched cohort data associated vitamin D deficiency with higher long-term incident depression risk in rheumatoid arthritis. The study is observational and cannot establish causality."
+    }
+  ]
+}

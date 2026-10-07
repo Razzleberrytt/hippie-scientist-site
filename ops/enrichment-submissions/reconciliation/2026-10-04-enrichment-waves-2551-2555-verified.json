@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "range": "2551-2555",
+  "source": "NCBI PubMed EFetch via Sider Scholar",
+  "rows": [
+    {
+      "wave": 2551,
+      "pmid": "42774472",
+      "title": "Therapeutic effect of ginseng: a non-antibiotic approach to preventing pathogenic bacterial infections and restoring gut microbiota composition.",
+      "abstract_verified": true,
+      "state": "research_only_review",
+      "evidence_boundary": "Review-level synthesis; microbiota restoration and anti-pathogen effects vary by model and do not establish broad clinical efficacy."
+    },
+    {
+      "wave": 2552,
+      "pmid": "42766259",
+      "title": "Erinacerins from Hericium erinaceus: a review of their chemistry, bioactivities, and NMR characterization.",
+      "abstract_verified": true,
+      "state": "research_only_chemistry_review",
+      "evidence_boundary": "Chemistry and mostly preclinical bioactivity review; therapeutic potential is not equivalent to demonstrated human benefit."
+    },
+    {
+      "wave": 2553,
+      "pmid": "42738974",
+      "title": "Proteomic and Phosphoproteomic Signatures Link Molecular Remodeling to Behavioral Outcomes Following Elderberry and DHA Supplementation in Aging Mice.",
+      "abstract_verified": true,
+      "state": "research_only_replacement_animal",
+      "replaces_rejected_pmid": "42828551",
+      "evidence_boundary": "Mouse combination study; elderberry- and DHA-associated molecular/behavioral findings cannot be generalized directly to humans."
+    },
+    {
+      "wave": 2554,
+      "pmid": "42827952",
+      "title": "1H NMR-Based Metabolomics Coupled With Molecular Docking to Explore the Anti-NAFLD Effects of Astragalus Radix and Dioscoreae Rhizoma Herb Pair.",
+      "abstract_verified": true,
+      "state": "research_only_animal_combination",
+      "evidence_boundary": "Mouse herb-pair plus docking study; ingredient-specific and human clinical effects remain unproven."
+    },
+    {
+      "wave": 2555,
+      "pmid": "42826594",
+      "title": "An N-acetyltransferase influences AreA nuclear localization and nitrogen utilization in the basidiomycete Ganoderma lucidum.",
+      "abstract_verified": true,
+      "state": "research_only_medicinal_species_biology",
+      "evidence_boundary": "Basic fungal biology may inform cultivation/chemotype context but is not evidence of human efficacy."
+    }
+  ],
+  "rejected": [
+    {
+      "wave": 2553,
+      "pmid": "42828551",
+      "reason": "Forage-legume mitochondrial-genome paper; irrelevant keyword collision for the site's evidence goals."
+    }
+  ]
+}

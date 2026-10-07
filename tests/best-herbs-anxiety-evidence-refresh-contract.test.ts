@@ -9,8 +9,8 @@ const page = fs.readFileSync(
 
 describe('best herbs for anxiety evidence refresh', () => {
   it('records the refreshed 22-source provenance consistently', () => {
-    expect(page).toContain("const DATE = '2026-09-19'")
-    expect(page).toContain('Last evidence review September 19, 2026')
+    expect(page).toContain("const DATE = '2026-10-04'")
+    expect(page).toContain('Last evidence review October 4, 2026')
     expect(page).toContain('Anxiety herb evidence guide · 22-source ledger')
     expect(page).toContain('with 22 clinical and safety sources.')
     expect(page).toContain('Evidence-ranked anxiety herbs with 22 clinical and safety sources')

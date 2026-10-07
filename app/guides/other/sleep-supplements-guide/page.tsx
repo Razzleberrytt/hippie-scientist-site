@@ -197,7 +197,7 @@ export default function SleepSupplementsPage() {
             research.<Cite n={12} />
           </p>
           <p className="text-sm leading-7 text-muted"><strong className="text-ink">Best interpretation:</strong> a legitimate emerging sleep-support ingredient, but not a validated protocol for racing thoughts or insomnia disorder.</p>
-          <Link href="/compounds/l-theanine/" className="font-semibold text-brand-700 hover:underline">L-theanine evidence profile →</Link>
+          <Link href="/guides/herbs/l-theanine/" className="font-semibold text-brand-700 hover:underline">L-theanine evidence profile →</Link>
         </article>
 
         <article className="card-premium p-6 space-y-3">
@@ -232,7 +232,7 @@ export default function SleepSupplementsPage() {
             reviews showed subjective sleep-quality improvement. Objective and quantitative results were inconsistent and the
             underlying literature was heterogeneous.<Cite n={16} />
           </p>
-          <Link href="/herbs/valerian/" className="font-semibold text-brand-700 hover:underline">Valerian evidence profile →</Link>
+          <Link href="/articles/valerian-root/" className="font-semibold text-brand-700 hover:underline">Valerian sleep evidence review →</Link>
         </article>
 
         <article className="card-premium p-6 space-y-3">
@@ -337,8 +337,8 @@ export default function SleepSupplementsPage() {
           <li><Link href="/guides/sleep/best-supplements-for-sleep/" className="hover:underline">Best supplements for sleep →</Link></li>
           <li><Link href="/guides/sleep/glycine-for-sleep/" className="hover:underline">Glycine for sleep →</Link></li>
           <li><Link href="/guides/sleep/magnesium-for-sleep/" className="hover:underline">Magnesium for sleep →</Link></li>
-          <li><Link href="/compounds/l-theanine/" className="hover:underline">L-theanine profile →</Link></li>
-          <li><Link href="/herbs/valerian/" className="hover:underline">Valerian profile →</Link></li>
+          <li><Link href="/guides/herbs/l-theanine/" className="hover:underline">L-theanine profile →</Link></li>
+          <li><Link href="/articles/valerian-root/" className="hover:underline">Valerian sleep review →</Link></li>
         </ul>
       </section>
 

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "batch": "waves-3001-3500",
+  "status": "complete_pending_repository_validation",
+  "findings": 500,
+  "wave_coverage": {
+    "first": 3001,
+    "last": 3500,
+    "missing": []
+  },
+  "finalized_prior_basis": {
+    "through_wave_2500_unique_pmids": 2435,
+    "waves_2501_3000_finalized_rows": 500,
+    "true_prior_unique_pmids": 2935,
+    "source": "cumulative through-2500 PMID index + finalized 2501-3000 verified consolidated receipt"
+  },
+  "dedupe": {
+    "prior_unique_pmids": 2935,
+    "new_unique_pmids": 500,
+    "cumulative_unique_pmids": 3435,
+    "pmid_duplicates": 0,
+    "doi_duplicates": 0,
+    "normalized_title_duplicates": 0,
+    "prior_pmid_collisions": 0
+  },
+  "verification": {
+    "initial_checkpoint_count": 20,
+    "final_consolidated_row_count": 500,
+    "exact_pubmed_title_and_abstract": true,
+    "editorial_notice_crosscheck": "Scite where DOI metadata returned",
+    "final_selection_consolidated_alignment": "500/500",
+    "all_rows_abstract_verified": true,
+    "final_collision_repair_exact_verified": true
+  },
+  "finalized_repairs": {
+    "prior_collision_replacements": 40,
+    "off_category_replacements": 1,
+    "total_finalized_repair_rows": 41,
+    "battery_paper_wave_3236_replaced": true,
+    "unique_sleep_repair_wave_3416": true
+  },
+  "artifacts": {
+    "finalized_receipt": "2026-10-04-enrichment-waves-3001-3500-verified-consolidated.json",
+    "cumulative_index": "2026-10-04-enrichment-waves-3001-3500-pmid-index.json",
+    "selection": "2026-10-04-enrichment-waves-3001-3500-selection.json"
+  },
+  "policy": {
+    "entity_creation": "forbidden",
+    "publication_promotion": "separate fail-closed admission",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "formulation_firewall": true,
+    "category_firewall": true
+  }
+}

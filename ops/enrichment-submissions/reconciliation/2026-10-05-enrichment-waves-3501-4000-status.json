@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-05-enrichment-waves-3501-4000",
+  "status": "review_repairs_complete_pending_repository_validation",
+  "admission_issue": 6347,
+  "pr_number": 6348,
+  "branch": "data/enrichment-waves-3501-4000-2026-10-05",
+  "target_findings": 500,
+  "range": "3501-4000",
+  "prior_unique_pmids": 3435,
+  "verified_findings": 500,
+  "cumulative_unique_pmids": 3935,
+  "integrity": {
+    "contiguous_waves": true,
+    "unique_pmids": 500,
+    "within_batch_duplicate_pmids": 0,
+    "within_batch_duplicate_dois": 0,
+    "within_batch_duplicate_normalized_titles": 0,
+    "prior_pmid_collisions": 0,
+    "abstract_verified_500_of_500": true,
+    "exact_title_match_500_of_500": true,
+    "synthetic_rows_created": false,
+    "category_firewall_review_repairs": 4,
+    "retraction_quarantine_rows": 2
+  },
+  "artifacts": {
+    "finalized_receipt": "2026-10-05-enrichment-waves-3501-4000-verified-consolidated.json",
+    "cumulative_index": "2026-10-05-enrichment-waves-3501-4000-pmid-index.json",
+    "final_selection": "2026-10-05-enrichment-waves-3501-4000-final-selection.json",
+    "review_repair_receipt": "2026-10-05-enrichment-waves-3611-3936-review-repair-exact.json"
+  },
+  "next": [
+    "resolve satisfied PR review threads",
+    "wait for required checks on the repaired head",
+    "merge PR #6348 only when required checks are green"
+  ]
+}

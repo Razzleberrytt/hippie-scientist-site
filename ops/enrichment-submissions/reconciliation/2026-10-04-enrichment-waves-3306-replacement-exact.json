@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3306,
+      "pmid": "42435122",
+      "doi": "10.1007/s10157-026-02917-7",
+      "category": "mitochondrial_energy",
+      "title": "Kidney outcomes of coenzyme Q10 supplementation in patients with genetically confirmed CoQ10 nephropathy in Japan.",
+      "journal": "Clinical and experimental nephrology",
+      "pub_date": "2026-Sep",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Retrospective observational study of 12 genetically confirmed CoQ10 nephropathy patients receiving CoQ10 supplementation. Proteinuria decreased substantially in those with available follow-up, kidney function remained stable, and reported adverse events were mild. Evidence remains disease-specific and observational."
+    }
+  ]
+}

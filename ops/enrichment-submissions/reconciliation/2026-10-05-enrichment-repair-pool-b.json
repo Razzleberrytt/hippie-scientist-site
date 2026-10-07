@@ -1,0 +1,726 @@
+{
+  "schema_version": 1,
+  "row_count": 72,
+  "rows": [
+    {
+      "category": "women_health",
+      "pmid": "41210876",
+      "doi": "10.3389/fmed.2025.1535359",
+      "title": "Vitamin D levels in early and middle pregnancy and preeclampsia: a systematic review and meta-analysis.",
+      "journal": "Frontiers in medicine",
+      "pub_date": "2025",
+      "pub_type": "Systematic Review",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "women_health",
+      "pmid": "41224959",
+      "doi": "10.1038/s41598-025-23353-9",
+      "title": "Efficacy and safety of emulsified microsomal ferric pyrophosphate vs. Ferrous Ascorbate in pregnancy with iron-deficiency anemia- a randomized, comparative study.",
+      "journal": "Scientific reports",
+      "pub_date": "2025 Nov 12",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "women_health",
+      "pmid": "41226419",
+      "doi": "10.3390/ijms262110381",
+      "title": "Ferroptosis in the Ovarian Follicular Microenvironment: A Redox-Dependent Cell Death Pathway with Emerging Roles in PCOS, Oocyte Quality, and IVF Outcomes.",
+      "journal": "International journal of molecular sciences",
+      "pub_date": "2025 Oct 25",
+      "pub_type": "Review",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "women_health",
+      "pmid": "41244549",
+      "doi": "10.12669/pjms.41.10.12671",
+      "title": "Association between erythrocyte folate and pregnancy: A scientometric analysis.",
+      "journal": "Pakistan journal of medical sciences",
+      "pub_date": "2025 Oct",
+      "pub_type": "Review",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "women_health",
+      "pmid": "41254649",
+      "doi": "10.1186/s12905-025-04021-6",
+      "title": "The effect of early postpartum vitamin d and e supplementation on uterine after pain: a double-blind randomized clinical trial.",
+      "journal": "BMC women's health",
+      "pub_date": "2025 Nov 18",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "women_health",
+      "pmid": "41316195",
+      "doi": "10.1186/s12902-025-02113-w",
+      "title": "Dysregulated iron metabolism related to ferroptosis in polycystic ovary syndrome: a meta-analysis and a case-control study in pregnant women.",
+      "journal": "BMC endocrine disorders",
+      "pub_date": "2025 Nov 28",
+      "pub_type": "Systematic Review",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "women_health",
+      "pmid": "41372873",
+      "doi": "10.1186/s12884-025-08292-7",
+      "title": "Effect of different Iron-Folic acid (IFA) formulations, doses, and frequencies on pregnancy and neonatal outcomes compared to multiple micronutrients (MMN) among pregnant women: a systematic review and meta-analysis.",
+      "journal": "BMC pregnancy and childbirth",
+      "pub_date": "2025 Dec 10",
+      "pub_type": "Comparative Study",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "women_health",
+      "pmid": "41414845",
+      "doi": "10.1080/07853890.2025.2602960",
+      "title": "Global prevalences of erythropoiesis-associated micronutrient deficiencies (iron, folate, and vitamin B(12)) among pregnant women: a systematic review and meta-analysis.",
+      "journal": "Annals of medicine",
+      "pub_date": "2025 Dec",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "women_health",
+      "pmid": "41439469",
+      "doi": "10.1002/ijgo.70651",
+      "title": "Iron deficiency with and without anemia in pregnancy: A scoping review of prevalence and perinatal impact.",
+      "journal": "International journal of gynaecology and obstetrics: the official organ of the International Federation of Gynaecology and Obstetrics",
+      "pub_date": "2026 Jun",
+      "pub_type": "Scoping Review",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "women_health",
+      "pmid": "41470812",
+      "doi": "10.3390/nu17243866",
+      "title": "Effects of Combined Exercise and Calcium/Vitamin D Supplementation on Bone Mineral Density in Postmenopausal Women: A Systematic Review and Meta-Analysis.",
+      "journal": "Nutrients",
+      "pub_date": "2025 Dec 11",
+      "pub_type": "Meta-Analysis",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "women_health",
+      "pmid": "41497562",
+      "doi": "10.1155/jp/8816154",
+      "title": "Effect of Myo-Inositol Treatment on Serum Asprosin Levels of Pregnant Women: A Prospective Randomized Controlled Pilot Study.",
+      "journal": "Journal of pregnancy",
+      "pub_date": "2025",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "women_health",
+      "pmid": "41536823",
+      "doi": "10.3934/publichealth.2025062",
+      "title": "A systematic review and meta analysis on the effect of vitamin D in preeclampsia and gestational diabetes mellitus in pregnancy.",
+      "journal": "AIMS public health",
+      "pub_date": "2025",
+      "pub_type": "Review",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "women_health",
+      "pmid": "41544303",
+      "doi": "10.1016/j.nutres.2025.12.008",
+      "title": "Feasibility of a randomized clinical trial comparing 5-methyltetrahydrofolate and folic acid prenatal multivitamins in couples with recurrent pregnancy loss.",
+      "journal": "Nutrition research (New York, N.Y.)",
+      "pub_date": "2026 Feb",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((inositol OR iron OR folate OR \"vitamin D\" OR \"omega-3\" OR magnesium OR saffron) AND (menopause OR perimenopause OR premenstrual OR PMS OR PCOS OR pregnancy OR postpartum)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "40563371",
+      "doi": "10.3390/antiox14060740",
+      "title": "Unlocking the Power of Magnesium: A Systematic Review and Meta-Analysis Regarding Its Role in Oxidative Stress and Inflammation.",
+      "journal": "Antioxidants (Basel, Switzerland)",
+      "pub_date": "2025 Jun 16",
+      "pub_type": "Review",
+      "query": "((ashwagandha OR \"Withania somnifera\" OR theanine OR kava OR lavender OR chamomile OR rhodiola OR magnesium) AND (stress OR anxiety)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "40746175",
+      "doi": "10.1177/02601060251363647",
+      "title": "Dual impact of Ashwagandha: Significant cortisol reduction but no effects on perceived stress - A systematic review and meta-analysis.",
+      "journal": "Nutrition and health",
+      "pub_date": "2025 Dec",
+      "pub_type": "Meta-Analysis",
+      "query": "((ashwagandha OR \"Withania somnifera\" OR theanine OR kava OR lavender OR chamomile OR rhodiola OR magnesium) AND (stress OR anxiety)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41177368",
+      "doi": "10.1016/j.ctim.2025.103296",
+      "title": "Short- and long-term effects of inhaled lavender essential oil on anxiety, fatigue, blood pressure, and sleep quality in middle-aged adults with hypertension: A randomized placebo-controlled pilot study.",
+      "journal": "Complementary therapies in medicine",
+      "pub_date": "2025 Dec",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((ashwagandha OR \"Withania somnifera\" OR theanine OR kava OR lavender OR chamomile OR rhodiola OR magnesium) AND (stress OR anxiety)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41228524",
+      "doi": "10.3390/nu17213452",
+      "title": "Beneficial Effects of Long-Lasting Bicarbonate-Sulfate-Calcium-Magnesium Water Intake on Metabolic Dysfunction-Associated Steatotic Liver Disease (MASLD)-Related Outcomes via Impacting Intestinal Permeability (IP), IP-Related Systemic Inflammation, and Oxidative Stress.",
+      "journal": "Nutrients",
+      "pub_date": "2025 Oct 31",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((ashwagandha OR \"Withania somnifera\" OR theanine OR kava OR lavender OR chamomile OR rhodiola OR magnesium) AND (stress OR anxiety)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "40313030",
+      "doi": "10.1002/npr2.70020",
+      "title": "Benzodiazepine and Opioid Withdrawal Induced Neuroleptic Malignant Like Syndrome: A Clinical Case Report With Management Complexities.",
+      "journal": "Neuropsychopharmacology reports",
+      "pub_date": "2025 Jun",
+      "pub_type": "Journal Article",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "40370588",
+      "doi": "10.3389/fpsyt.2025.1552084",
+      "title": "Ketamine in treating opioid use disorder and opioid withdrawal: a scoping review.",
+      "journal": "Frontiers in psychiatry",
+      "pub_date": "2025",
+      "pub_type": "Systematic Review",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "40410582",
+      "doi": "10.1038/s41390-025-04162-2",
+      "title": "Efficacy of stochastic vibro-tactile stimulation for newborns at risk of neonatal opioid withdrawal syndrome.",
+      "journal": "Pediatric research",
+      "pub_date": "2026 Jan",
+      "pub_type": "Multicenter Study",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "40518266",
+      "doi": "10.1136/bcr-2025-265834",
+      "title": "Treatment of obsessive compulsive disorder and Kratom dependence with buprenorphine and supportive care.",
+      "journal": "BMJ case reports",
+      "pub_date": "2025 Jun 15",
+      "pub_type": "Case Reports",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "40522665",
+      "doi": "10.1080/17425255.2025.2521045",
+      "title": "Evaluating the drug interactions in kratom usage: clinical application.",
+      "journal": "Expert opinion on drug metabolism & toxicology",
+      "pub_date": "2025 Aug",
+      "pub_type": "Review",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "40548916",
+      "doi": "10.1016/j.neurom.2025.04.012",
+      "title": "Transcutaneous Cervical Vagus Nerve Stimulation Modulates Prefrontal Cortex Activity During Opioid Withdrawal in Individuals With Opioid Use Disorder.",
+      "journal": "Neuromodulation : journal of the International Neuromodulation Society",
+      "pub_date": "2025 Dec",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "40606596",
+      "doi": "10.3389/fphar.2025.1587528",
+      "title": "The effects of kratom (Mitragyna speciosa) on metabolic syndrome-related parameters: a systematic review and meta-analysis.",
+      "journal": "Frontiers in pharmacology",
+      "pub_date": "2025",
+      "pub_type": "Systematic Review",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "40619192",
+      "doi": "10.1016/j.pcl.2025.03.006",
+      "title": "Neonatal Opioid Withdrawal Syndrome.",
+      "journal": "Pediatric clinics of North America",
+      "pub_date": "2025 Aug",
+      "pub_type": "Review",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "40621554",
+      "doi": "10.3389/fpsyt.2025.1586945",
+      "title": "Ketamine treatment for buprenorphine-precipitated opioid withdrawal: a case report.",
+      "journal": "Frontiers in psychiatry",
+      "pub_date": "2025",
+      "pub_type": "Journal Article",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "40683011",
+      "doi": "10.1016/j.drugalcdep.2025.112793",
+      "title": "Oral methadone versus sublingual buprenorphine for the treatment of acute opioid withdrawal: A triple-blind, double-dummy, randomized control trial.",
+      "journal": "Drug and alcohol dependence",
+      "pub_date": "2025 Sep 1",
+      "pub_type": "Comparative Study",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "40713117",
+      "doi": "10.1016/j.jaccas.2025.104206",
+      "title": "Kratom-Associated Acute Right Ventricular Dysfunction: Diagnostic and Management Insights.",
+      "journal": "JACC. Case reports",
+      "pub_date": "2025 Jul 23",
+      "pub_type": "Journal Article",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "40758956",
+      "doi": "10.1097/ADM.0000000000001558",
+      "title": "A Case of 7-Hydroxymitragynine Use Requiring Inpatient Medically Managed Withdrawal.",
+      "journal": "Journal of addiction medicine",
+      "pub_date": "2026 Jul-Aug 01",
+      "pub_type": "Case Reports",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "40762659",
+      "doi": "10.1007/s11920-025-01631-7",
+      "title": "The Impact of Diverse Kratom Products on Use Patterns, Dependence, and Toxicity.",
+      "journal": "Current psychiatry reports",
+      "pub_date": "2025 Oct",
+      "pub_type": "Review",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "40778644",
+      "doi": "10.1097/ADM.0000000000001567",
+      "title": "Butorphanol-induced Precipitated Opioid Withdrawal With Stress Cardiomyopathy in the Setting of Chronic Fentanyl Use.",
+      "journal": "Journal of addiction medicine",
+      "pub_date": "2026 Jul-Aug 01",
+      "pub_type": "Case Reports",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "40811982",
+      "doi": "10.1016/j.psyneuen.2025.107570",
+      "title": "Effects of suvorexant on diurnal cortisol and patient-reported stress during opioid withdrawal in a randomized trial.",
+      "journal": "Psychoneuroendocrinology",
+      "pub_date": "2025 Oct",
+      "pub_type": "Research Support, N.I.H., Extramural",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "40816752",
+      "doi": "10.1891/NN-2024-0059",
+      "title": "Second-Line Medications for Neonatal Opioid Withdrawal Syndrome/Neonatal Abstinence Syndrome.",
+      "journal": "Neonatal network : NN",
+      "pub_date": "2025 Aug 1",
+      "pub_type": "Review",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "40864841",
+      "doi": null,
+      "title": "Kratom.",
+      "journal": null,
+      "pub_date": "2006",
+      "pub_type": "Review",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "40944869",
+      "doi": "10.1007/s43678-025-00979-2",
+      "title": "Takotsubo cardiomyopathy induced by opioid withdrawal: a case report.",
+      "journal": "CJEM",
+      "pub_date": "2026 Feb",
+      "pub_type": "Case Reports",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "40949154",
+      "doi": "10.3389/fphar.2025.1620601",
+      "title": "The acute adverse health effects of kratom: an evaluation of case reports.",
+      "journal": "Frontiers in pharmacology",
+      "pub_date": "2025",
+      "pub_type": "Review",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "40964538",
+      "doi": "10.7759/cureus.90224",
+      "title": "Hinchey Stage IV Diverticulitis in a Kratom User.",
+      "journal": "Cureus",
+      "pub_date": "2025 Aug",
+      "pub_type": "Journal Article",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "40968465",
+      "doi": "10.1097/AJP.0000000000001325",
+      "title": "Procedural Pain Assessments for Neonates at Risk of Neonatal Opioid Withdrawal Syndrome: A Scoping Review.",
+      "journal": "The Clinical journal of pain",
+      "pub_date": "2025 Dec 1",
+      "pub_type": "Scoping Review",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "41015167",
+      "doi": "10.1016/j.neubiorev.2025.106384",
+      "title": "Novel psychoactive substances and psychosis: A comprehensive systematic review of epidemiology, clinical features, neurobiology, and treatment.",
+      "journal": "Neuroscience and biobehavioral reviews",
+      "pub_date": "2025 Nov",
+      "pub_type": "Systematic Review",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "41017566",
+      "doi": "10.1097/FBP.0000000000000846",
+      "title": "Efficacy and safety of Qudu Huiyuan Pills in the treatment of opioid withdrawal syndrome: a randomized, double-blind, placebo-controlled clinical trial.",
+      "journal": "Behavioural pharmacology",
+      "pub_date": "2025 Dec 1",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "41043175",
+      "doi": "10.1002/npr2.70062",
+      "title": "Potential Effectiveness of Yokukansan and Lemborexant as Alternative Candidates to Benzodiazepines to Prevent Benzodiazepine Withdrawal Delirium in the Cancer Perioperative Period: A Case Report and Literature Review.",
+      "journal": "Neuropsychopharmacology reports",
+      "pub_date": "2025 Dec",
+      "pub_type": "Review",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "41084685",
+      "doi": "10.7759/cureus.92116",
+      "title": "Phantosmia and Benzodiazepine Withdrawal: A Case Report.",
+      "journal": "Cureus",
+      "pub_date": "2025 Sep",
+      "pub_type": "Journal Article",
+      "query": "(kratom OR mitragynine OR \"7-hydroxymitragynine\" OR tianeptine OR phenibut OR \"novel psychoactive\" OR \"opioid withdrawal\" OR \"benzodiazepine withdrawal\") AND 2015:2025[pdat] AND (systematic review[pt] OR review[pt] OR case reports[pt] OR observational study[pt] OR clinical trial[pt])"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "41461274",
+      "doi": "10.1016/j.tjnut.2025.101291",
+      "title": "Impact of Mandatory Grain Fortification With Folic Acid on Population Folate Concentrations and the Risk of Folate Deficiency and Insufficiency: A Systematic Review and Meta-Analysis.",
+      "journal": "The Journal of nutrition",
+      "pub_date": "2026 Mar",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "41475404",
+      "doi": "10.1080/07853890.2025.2608532",
+      "title": "Zinc status following different bariatric procedures: systematic review and meta-analysis.",
+      "journal": "Annals of medicine",
+      "pub_date": "2026 Dec",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "41504160",
+      "doi": "10.31083/IJVNR46828",
+      "title": "Global Dietary Magnesium Deficiency: Prevalence, Underlying Causes, Health Consequences, and Strategic Solutions.",
+      "journal": "International journal for vitamin and nutrition research. Internationale Zeitschrift fur Vitamin- und Ernahrungsforschung. Journal international de vitaminologie et de nutrition",
+      "pub_date": "2025 Dec 25",
+      "pub_type": "Review",
+      "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "41506003",
+      "doi": "10.1016/j.clnu.2025.106570",
+      "title": "Vitamin D supplementation and incidence of major depressive disorder - A randomized clinical trial.",
+      "journal": "Clinical nutrition (Edinburgh, Scotland)",
+      "pub_date": "2026 Feb",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "41516172",
+      "doi": "10.3390/ijms27010298",
+      "title": "Modulation of Cardiometabolic Risk by Vitamin D and K2: Simple Supplementation or Real Drug? Uncovering the Pharmacological Properties.",
+      "journal": "International journal of molecular sciences",
+      "pub_date": "2025 Dec 27",
+      "pub_type": "Review",
+      "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "41551317",
+      "doi": "10.3389/fneur.2025.1727615",
+      "title": "Vitamin D deficiency and multiple sclerosis relapse: a meta-analysis.",
+      "journal": "Frontiers in neurology",
+      "pub_date": "2025",
+      "pub_type": "Systematic Review",
+      "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "41608325",
+      "doi": "10.3389/fped.2025.1700949",
+      "title": "The interplay between childhood obesity and vitamin D deficiency: mechanisms and implications.",
+      "journal": "Frontiers in pediatrics",
+      "pub_date": "2025",
+      "pub_type": "Review",
+      "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "41608419",
+      "doi": "10.3389/fmed.2025.1725177",
+      "title": "The role of vitamin D deficiency in fetal growth restriction: a systematic review.",
+      "journal": "Frontiers in medicine",
+      "pub_date": "2025",
+      "pub_type": "Systematic Review",
+      "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "41778275",
+      "doi": "10.3389/fpls.2025.1721421",
+      "title": "Biofortification of baby corn: Integrating agronomic and genetic approaches to address zinc micronutrient deficiencies - global perspectives and future challenges.",
+      "journal": "Frontiers in plant science",
+      "pub_date": "2025",
+      "pub_type": "Review",
+      "query": "((magnesium OR zinc OR \"vitamin D\" OR cobalamin OR \"vitamin B12\" OR folate OR iron OR selenium OR iodine) AND (deficiency OR supplementation OR cognition OR fatigue OR mood OR sleep)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "41346361",
+      "doi": "10.3389/fcimb.2025.1680840",
+      "title": "Effect of probiotic-derived metabolites on hormonal and metabolic profiles in women with polycystic ovary syndrome: a systematic review and meta-analysis.",
+      "journal": "Frontiers in cellular and infection microbiology",
+      "pub_date": "2025",
+      "pub_type": "Meta-Analysis",
+      "query": "((berberine OR inositol OR chromium OR \"alpha lipoic acid\" OR \"alpha-lipoic acid\" OR fiber OR probiotic) AND (glucose OR insulin OR \"metabolic syndrome\" OR PCOS OR obesity)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "41353062",
+      "doi": "10.1016/j.orcp.2025.12.001",
+      "title": "Emerging trends and hotspots of the link between gut probiotics and obesity from 2000 to 2024: A bibliometric analysis.",
+      "journal": "Obesity research & clinical practice",
+      "pub_date": "2025 Nov-Dec",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "((berberine OR inositol OR chromium OR \"alpha lipoic acid\" OR \"alpha-lipoic acid\" OR fiber OR probiotic) AND (glucose OR insulin OR \"metabolic syndrome\" OR PCOS OR obesity)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "41360166",
+      "doi": "10.1016/j.clnesp.2025.102846",
+      "title": "Association of cardiometabolic and lifestyle risk variables with high-density lipoprotein metabolites in hypertensive and normotensive overweight women: Findings from a randomized trial of mixed dietary fibers.",
+      "journal": "Clinical nutrition ESPEN",
+      "pub_date": "2026 Feb",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((berberine OR inositol OR chromium OR \"alpha lipoic acid\" OR \"alpha-lipoic acid\" OR fiber OR probiotic) AND (glucose OR insulin OR \"metabolic syndrome\" OR PCOS OR obesity)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "41457283",
+      "doi": "10.1186/s12906-025-05232-y",
+      "title": "The effect of probiotics on anxiety, depression, nicotine dependence, and metabolic biomarkers in smokers: a randomized clinical trial.",
+      "journal": "BMC complementary medicine and therapies",
+      "pub_date": "2025 Dec 29",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((berberine OR inositol OR chromium OR \"alpha lipoic acid\" OR \"alpha-lipoic acid\" OR fiber OR probiotic) AND (glucose OR insulin OR \"metabolic syndrome\" OR PCOS OR obesity)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "41459804",
+      "doi": "10.1080/19490976.2025.2606473",
+      "title": "Effects of a slowly fermentable fiber mixture against the background of a high-protein diet on insulin sensitivity and metabolic health in individuals with overweight: a randomized, placebo-controlled trial.",
+      "journal": "Gut microbes",
+      "pub_date": "2026 Dec 31",
+      "pub_type": "Research Support, Non-U.S. Gov't",
+      "query": "((berberine OR inositol OR chromium OR \"alpha lipoic acid\" OR \"alpha-lipoic acid\" OR fiber OR probiotic) AND (glucose OR insulin OR \"metabolic syndrome\" OR PCOS OR obesity)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "41471379",
+      "doi": "10.3390/ph18121890",
+      "title": "Berberine: A Rising Star in the Management of Type 2 Diabetes-Novel Insights into Its Anti-Inflammatory, Metabolic, and Epigenetic Mechanisms.",
+      "journal": "Pharmaceuticals (Basel, Switzerland)",
+      "pub_date": "2025 Dec 14",
+      "pub_type": "Review",
+      "query": "((berberine OR inositol OR chromium OR \"alpha lipoic acid\" OR \"alpha-lipoic acid\" OR fiber OR probiotic) AND (glucose OR insulin OR \"metabolic syndrome\" OR PCOS OR obesity)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "metabolic",
+      "pmid": "41479657",
+      "doi": "10.3389/fnut.2025.1718169",
+      "title": "Targeting gut microbiota with short-chain fructo-oligosaccharides prebiotic fibers to support metabolic health in overweight prediabetic adults: a randomized, double-blinded, placebo-controlled study.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2025",
+      "pub_type": "Journal Article",
+      "query": "((berberine OR inositol OR chromium OR \"alpha lipoic acid\" OR \"alpha-lipoic acid\" OR fiber OR probiotic) AND (glucose OR insulin OR \"metabolic syndrome\" OR PCOS OR obesity)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "performance",
+      "pmid": "41374083",
+      "doi": "10.3390/nu17233792",
+      "title": "Effects of Caffeine Dose and Administration Method on Time-Trial Performance: A Systematic Review and Network Meta-Analysis.",
+      "journal": "Nutrients",
+      "pub_date": "2025 Dec 3",
+      "pub_type": "Systematic Review",
+      "query": "((creatine OR \"beta-alanine\" OR caffeine OR beetroot OR nitrate OR citrulline OR electrolytes) AND (exercise OR performance OR strength OR endurance OR recovery)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "performance",
+      "pmid": "41421525",
+      "doi": "10.3168/jds.2025-27514",
+      "title": "A meta-analysis of the effects of nitrate supplementation on enteric methane emission, production performance, and blood methemoglobin in dairy cattle.",
+      "journal": "Journal of dairy science",
+      "pub_date": "2026 Mar",
+      "pub_type": "Meta-Analysis",
+      "query": "((creatine OR \"beta-alanine\" OR caffeine OR beetroot OR nitrate OR citrulline OR electrolytes) AND (exercise OR performance OR strength OR endurance OR recovery)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "performance",
+      "pmid": "41425161",
+      "doi": "10.3389/fphys.2025.1648862",
+      "title": "Does caffeine intake enhance physical and physiological performance in swimmers? a systematic review and meta-analysis.",
+      "journal": "Frontiers in physiology",
+      "pub_date": "2025",
+      "pub_type": "Systematic Review",
+      "query": "((creatine OR \"beta-alanine\" OR caffeine OR beetroot OR nitrate OR citrulline OR electrolytes) AND (exercise OR performance OR strength OR endurance OR recovery)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "performance",
+      "pmid": "41470898",
+      "doi": "10.3390/nu17243954",
+      "title": "Beetroot Juice Supplementation as a Healthy Aging Strategy Through Improving Physical Performance and Cognitive Functions: A Systematic Review.",
+      "journal": "Nutrients",
+      "pub_date": "2025 Dec 17",
+      "pub_type": "Systematic Review",
+      "query": "((creatine OR \"beta-alanine\" OR caffeine OR beetroot OR nitrate OR citrulline OR electrolytes) AND (exercise OR performance OR strength OR endurance OR recovery)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "performance",
+      "pmid": "42005822",
+      "doi": "10.3389/fnut.2025.1739173",
+      "title": "Targeting muscle-vasculature crosstalk in aging through the integrative roles of L-citrulline, leucine, and exercise: focus on muscle metabolism, vascular function, and sarcopenia prevention.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2025",
+      "pub_type": "Review",
+      "query": "((creatine OR \"beta-alanine\" OR caffeine OR beetroot OR nitrate OR citrulline OR electrolytes) AND (exercise OR performance OR strength OR endurance OR recovery)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41089313",
+      "doi": "10.3389/fpsyt.2025.1640198",
+      "title": "Status of research on the application of melatonin in insomnia based on bibliometric visualization analysis and development trends.",
+      "journal": "Frontiers in psychiatry",
+      "pub_date": "2025",
+      "pub_type": "Systematic Review",
+      "query": "((melatonin OR magnesium OR glycine OR theanine OR valerian OR \"tart cherry\" OR saffron) AND (sleep OR insomnia OR circadian)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41116797",
+      "doi": "10.2147/NSS.S552646",
+      "title": "The Mechanisms of Magnesium in Sleep Disorders.",
+      "journal": "Nature and science of sleep",
+      "pub_date": "2025",
+      "pub_type": "Review",
+      "query": "((melatonin OR magnesium OR glycine OR theanine OR valerian OR \"tart cherry\" OR saffron) AND (sleep OR insomnia OR circadian)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41122831",
+      "doi": "10.1111/jpc.70224",
+      "title": "A Pilot Randomised Controlled Trial of Sublingual Melatonin for Sleep Onset Insomnia in Children With Foetal Alcohol Spectrum Disorder (FASD).",
+      "journal": "Journal of paediatrics and child health",
+      "pub_date": "2026 Jan",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((melatonin OR magnesium OR glycine OR theanine OR valerian OR \"tart cherry\" OR saffron) AND (sleep OR insomnia OR circadian)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41166315",
+      "doi": "10.1371/journal.pone.0332877",
+      "title": "Partial blue light blocking glasses at night advanced sleep phase and reduced daytime irritability, disruptive behavior and improved morning mood, but did not alter salivary melatonin secretion in Japanese male schoolchildren.",
+      "journal": "PloS one",
+      "pub_date": "2025",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((melatonin OR magnesium OR glycine OR theanine OR valerian OR \"tart cherry\" OR saffron) AND (sleep OR insomnia OR circadian)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41208640",
+      "doi": "10.1002/epi4.70169",
+      "title": "A prospective randomized crossover trial investigating melatonin versus sleep deprivation for sleep induction in nap electroencephalography.",
+      "journal": "Epilepsia open",
+      "pub_date": "2026 Feb",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((melatonin OR magnesium OR glycine OR theanine OR valerian OR \"tart cherry\" OR saffron) AND (sleep OR insomnia OR circadian)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41294545",
+      "doi": "10.3390/gels11110860",
+      "title": "Beyond Sleeping Disorders, the Role of Melatonin in Skin Diseases and Emerging Applications in Dermatology and Topical Therapy.",
+      "journal": "Gels (Basel, Switzerland)",
+      "pub_date": "2025 Oct 27",
+      "pub_type": "Review",
+      "query": "((melatonin OR magnesium OR glycine OR theanine OR valerian OR \"tart cherry\" OR saffron) AND (sleep OR insomnia OR circadian)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41294630",
+      "doi": "10.3390/clinpract15110199",
+      "title": "Melatonin and Cortisol Suppression and Circadian Rhythm Disruption in Burnout Among Healthcare Professionals: A Systematic Review.",
+      "journal": "Clinics and practice",
+      "pub_date": "2025 Oct 29",
+      "pub_type": "Review",
+      "query": "((melatonin OR magnesium OR glycine OR theanine OR valerian OR \"tart cherry\" OR saffron) AND (sleep OR insomnia OR circadian)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41523646",
+      "doi": "10.37796/2211-8039.1682",
+      "title": "The integrative role of melatonin in psychiatric disorders: A systematic review of evidence from circadian biology, lifestyle medicine, and psychoneuroimmunology.",
+      "journal": "BioMedicine",
+      "pub_date": "2025",
+      "pub_type": "Review",
+      "query": "((melatonin OR magnesium OR glycine OR theanine OR valerian OR \"tart cherry\" OR saffron) AND (sleep OR insomnia OR circadian)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    },
+    {
+      "category": "sleep",
+      "pmid": "41743302",
+      "doi": "10.4103/ijoy.ijoy_17_25",
+      "title": "Meta-analysis of the Effect of Yogic Techniques on Melatonin Levels: Implications for Sleep Health.",
+      "journal": "International journal of yoga",
+      "pub_date": "2025 Sep-Dec",
+      "pub_type": "Review",
+      "query": "((melatonin OR magnesium OR glycine OR theanine OR valerian OR \"tart cherry\" OR saffron) AND (sleep OR insomnia OR circadian)) AND 2018:2025[pdat] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR review[pt])"
+    }
+  ]
+}

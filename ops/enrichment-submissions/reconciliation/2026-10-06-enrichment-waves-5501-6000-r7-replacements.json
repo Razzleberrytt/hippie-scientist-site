@@ -1,0 +1,295 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000-r7",
+  "row_count": 48,
+  "replacements": [
+    {
+      "wave": 5501,
+      "category": "stress_anxiety",
+      "pmid": "31505191",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5503,
+      "category": "stress_anxiety",
+      "pmid": "31574261",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5504,
+      "category": "stress_anxiety",
+      "pmid": "31730539",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5505,
+      "category": "stress_anxiety",
+      "pmid": "31808709",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5507,
+      "category": "stress_anxiety",
+      "pmid": "31859096",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5514,
+      "category": "stress_anxiety",
+      "pmid": "32030454",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5515,
+      "category": "stress_anxiety",
+      "pmid": "32178950",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5521,
+      "category": "stress_anxiety",
+      "pmid": "32212806",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5523,
+      "category": "stress_anxiety",
+      "pmid": "32267031",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5527,
+      "category": "stress_anxiety",
+      "pmid": "32341707",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5528,
+      "category": "stress_anxiety",
+      "pmid": "32444033",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5531,
+      "category": "stress_anxiety",
+      "pmid": "32739466",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5534,
+      "category": "stress_anxiety",
+      "pmid": "32798174",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5535,
+      "category": "stress_anxiety",
+      "pmid": "32891272",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5538,
+      "category": "stress_anxiety",
+      "pmid": "33210604",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5539,
+      "category": "stress_anxiety",
+      "pmid": "33454232",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5540,
+      "category": "stress_anxiety",
+      "pmid": "33640257",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5628,
+      "category": "cardiometabolic",
+      "pmid": "38040982",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5636,
+      "category": "cardiometabolic",
+      "pmid": "38256336",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5638,
+      "category": "cardiometabolic",
+      "pmid": "38972612",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5639,
+      "category": "cardiometabolic",
+      "pmid": "39796479",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5641,
+      "category": "cardiometabolic",
+      "pmid": "38794749",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5642,
+      "category": "cardiometabolic",
+      "pmid": "38869144",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5643,
+      "category": "cardiometabolic",
+      "pmid": "39519450",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5647,
+      "category": "cardiometabolic",
+      "pmid": "39522567",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5652,
+      "category": "cardiometabolic",
+      "pmid": "38946332",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5659,
+      "category": "cardiometabolic",
+      "pmid": "37999373",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5660,
+      "category": "cardiometabolic",
+      "pmid": "38004225",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5686,
+      "category": "aging_sarcopenia",
+      "pmid": "42013668",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5690,
+      "category": "aging_sarcopenia",
+      "pmid": "42107663",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5707,
+      "category": "aging_sarcopenia",
+      "pmid": "42294533",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5712,
+      "category": "micronutrients",
+      "pmid": "42588083",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5714,
+      "category": "micronutrients",
+      "pmid": "42654316",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5741,
+      "category": "women_health",
+      "pmid": "41754122",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5769,
+      "category": "gut",
+      "pmid": "41901188",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5790,
+      "category": "gut",
+      "pmid": "42116498",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5851,
+      "category": "inflammation_pain",
+      "pmid": "40841392",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5857,
+      "category": "inflammation_pain",
+      "pmid": "41599836",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5859,
+      "category": "inflammation_pain",
+      "pmid": "41683362",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5883,
+      "category": "metabolic",
+      "pmid": "39141124",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5884,
+      "category": "metabolic",
+      "pmid": "39781581",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5891,
+      "category": "metabolic",
+      "pmid": "40573153",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5916,
+      "category": "botanicals_mushrooms",
+      "pmid": "38931306",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5944,
+      "category": "safety_interactions",
+      "pmid": "39970858",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5945,
+      "category": "safety_interactions",
+      "pmid": "39861409",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5949,
+      "category": "safety_interactions",
+      "pmid": "40321085",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5975,
+      "category": "immune_respiratory",
+      "pmid": "40397266",
+      "state": "replacement_candidate_pending_exact_verification"
+    },
+    {
+      "wave": 5982,
+      "category": "immune_respiratory",
+      "pmid": "40431411",
+      "state": "replacement_candidate_pending_exact_verification"
+    }
+  ]
+}

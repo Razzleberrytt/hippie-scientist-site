@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-2276-2300-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-2251-2275-selection",
+  "program": {
+    "range": "2001-2500",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 300,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2500"
+  },
+  "source_provenance": [
+    "NCBI PubMed ESearch + exact EFetch abstract verification",
+    "cumulative PMID collision index through Wave 2250"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe and exact abstract verification during authoring; expensive repository-wide validation only after Wave 2500"
+  },
+  "waves": [
+    {
+      "wave": 2276,
+      "entity_slug": "relationship-between-omega-3-fatty-acids-glaucoma",
+      "pmid": "42223316",
+      "focus": "Observational study on relationship between omega-3 fatty acids and glaucoma risk in patients with reports Omega-3 fatty acid supplementations may have the potential to decrease glaucoma risk in individuals with dry eye disease. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2277,
+      "entity_slug": "enteral-when-compared-iv-magnesium-replacement-critically",
+      "pmid": "42223327",
+      "focus": "Randomized controlled trial on enteral when compared with iv magnesium replacement in the critically ill reports Enteral magnesium replacement for mild-to-moderate hypomagnesemia did not establish noninferiority to IV replacement at a margin of 0.1 mmol/L but it reduced urinary concentration. Evidence boundary: the finding is limited to the studied population, intervention, duration, and endpoints.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2278,
+      "entity_slug": "relatively-high-prevalence-subclinical-iron-deficiency-japanese",
+      "pmid": "42226200",
+      "focus": "Observational study on relatively high prevalence of subclinical iron deficiency in japanese children: evidence reports Subclinical ID was common among asymptomatic Japanese children undergoing elective surgery, indicating that clinically silent iron deficiency may be present even in children who. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2279,
+      "entity_slug": "vitamin-d-risk-stress-fractures-athletes-military",
+      "pmid": "42226402",
+      "focus": "Meta-analysis on vitamin d and the risk of stress fractures in athletes and reports A lower serum vitamin D level was associated with an increased risk of stress fractures, particularly in military personnel and male participants. The absence. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2280,
+      "entity_slug": "ferroptosis-breast-cancer-from-adipocyte-immune-iron",
+      "pmid": "42226605",
+      "focus": "Review on ferroptosis in breast cancer: from adipocyte-immune-iron regulation to therapeutic application reports Ferroptosis in breast cancer should be understood as an ecosystem-level vulnerability shaped by metabolic, immune and spatial factors. Defining and therapeutically targeting this ferroptosis. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2281,
+      "entity_slug": "enabling-clinical-translation-oral-probiotics-through-formulation",
+      "pmid": "42226613",
+      "focus": "Systematic review on enabling clinical translation of oral probiotics through formulation engineering and scalable reports Looking ahead, the convergence of multiple technological platforms is expected to drive the development of next-generation probiotic formulations. We believe that intelligently engineered oral. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2282,
+      "entity_slug": "management-iron-deficiency-anemia-intravenous-iron-supplementation",
+      "pmid": "42228300",
+      "focus": "Observational study on management of iron deficiency anemia and the role of intravenous iron reports This study demonstrated that anemia is highly prevalent in patients with cancer and worsens following chemotherapy. Additionally, iron parameters were rarely measured, and functional. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2283,
+      "entity_slug": "fast-acting-caffeine-does-caffeinated-chewing-gum",
+      "pmid": "42228847",
+      "focus": "Meta-analysis on fast-acting caffeine: does caffeinated chewing gum enhance muscular strength, endurance, and reports 42). Caffeinated chewing gum consumed shortly before exercise (∼5-25 minutes) confers a positive, but small ergogenic effect on dynamic and isometric muscular strength and. Evidence boundary: pooled inference depends on included populations, formulations, endpoints, and study quality.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2284,
+      "entity_slug": "targeting-mitochondrial-metabolism-renal-cell-carcinoma-melatonin",
+      "pmid": "42229285",
+      "focus": "Review on targeting mitochondrial metabolism in renal cell carcinoma with melatonin: preclinical evidence reports Overall, melatonin provides a multi-targeted, low-toxicity strategy for overcoming metabolic and therapeutic resistance in RCC, emphasizing its translational promise as an adjuvant. Further clinical. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2285,
+      "entity_slug": "exploring-associations-between-maternal-vitamin-d-binding",
+      "pmid": "42230085",
+      "focus": "Randomized controlled trial on exploring associations between maternal vitamin d-binding protein, vitamin d, and offspring reports Our study gives insight into the interplay between vitamin D metabolites during pregnancy and their associations with offspring asthma/recurrent wheeze. These results also suggest. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2286,
+      "entity_slug": "gut-microbiota-autoimmune-diseases-therapeutic-potential-probiotics",
+      "pmid": "42230351",
+      "focus": "Review on gut microbiota and autoimmune diseases: the therapeutic potential of probiotics reports Further rigorous research is necessary to better understand the immunological mechanisms involved and to develop safe, personalized, and effective microbiota-based therapeutic strategies. Until then. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2287,
+      "entity_slug": "multidisciplinary-approach-implementing-ferric-carboxymaltose-iv-iron",
+      "pmid": "42233689",
+      "focus": "Review on multidisciplinary approach to implementing ferric carboxymaltose for iv iron replacement in reports The care plan includes testing for iron deficiency, treatment, and proper follow-up. Strengthening teamwork and including approved medications like FCM in a treatment plan. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2288,
+      "entity_slug": "impact-maternal-vitamin-d-levels-during-pregnancy",
+      "pmid": "42234108",
+      "focus": "Meta-analysis on the impact of maternal vitamin d levels during pregnancy and risk reports Higher vitamin D status during pregnancy appears to be linearly associated with a reduced risk of ASD and ADHD diagnoses and symptoms in offspring. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2289,
+      "entity_slug": "high-prevalence-serum-zinc-copper-deficiencies-systemic",
+      "pmid": "42234184",
+      "focus": "Observational study on high prevalence of serum zinc and copper deficiencies in systemic sclerosis reports The observed high rates of zinc, copper, and vitamin D deficiencies point toward a need for heightened clinical vigilance. While further large-scale studies are. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2290,
+      "entity_slug": "vitamin-d-supplementation-fall-prevention-nursing-homes",
+      "pmid": "42235406",
+      "focus": "Observational study on vitamin d supplementation for fall prevention in nursing homes: fall study reports Nursing home residents were undertreated with vitamin D, the dosage with the lowest association with falls was cholecalciferol weekly. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2291,
+      "entity_slug": "association-between-vitamin-d-status-bacterial-vaginosis",
+      "pmid": "42235462",
+      "focus": "Meta-analysis on association between vitamin d status and bacterial vaginosis in non-pregnant women reports The VDD-BV relationship is population-dependent. In VDD-prevalent populations, both observational and intervention evidence suggested an association: VD supplementation reduced BV persistence in the Iran. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2292,
+      "entity_slug": "probiotic-human-study-design-reporting-prodare-recommendations",
+      "pmid": "42235685",
+      "focus": "Review on probiotic human study design and reporting (prodare): recommendations to improve research reports Across all study types, probiotic-specific considerations include strain characterization and sequencing, verification of identity, purity, viability, antimicrobial resistance, minimization of confounding factors, management of. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2293,
+      "entity_slug": "gut-microbiome-dysbiosis-cancer-systematic-review-emerging",
+      "pmid": "42235902",
+      "focus": "Systematic review on gut microbiome dysbiosis and cancer: a systematic review on the emerging reports Narrative synthesis of included studies, stratified by assessed outcomes. Across chemotherapy settings, probiotic supplementation was associated with a reduction in clinically relevant diarrhea, with. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2294,
+      "entity_slug": "how-does-iron-cross-abluminal-membrane-blood",
+      "pmid": "42236895",
+      "focus": "Review on how does iron cross the abluminal membrane of the blood-brain barrier reports Accumulating evidence suggests that Fpn1 is a key player in step 2 and that Fpn1/hephaestin and/or Fpn1/ceruloplasmin iron export pathways found in the basement. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2295,
+      "entity_slug": "oral-or-parenteral-iron-supplementation-reduce-deferral",
+      "pmid": "42240175",
+      "focus": "Meta-analysis on oral or parenteral iron supplementation to reduce deferral, iron deficiency and/or reports Iron supplementation may lead to improved blood indices and iron stores, but we are uncertain about the effect due to heterogeneity in the population. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2296,
+      "entity_slug": "vitamin-d-multiple-sclerosis-as-adjuvant-therapy",
+      "pmid": "42242131",
+      "focus": "Meta-analysis on vitamin d for multiple sclerosis as an adjuvant therapy: a network reports Vitamin D supplementation as an adjuvant therapy may reduce relapse and disability progression, with a favorable safety profile. These findings support the consideration of. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2297,
+      "entity_slug": "calcium-vitamin-d-supplements-patients-sarcoidosis",
+      "pmid": "42242548",
+      "focus": "Review on calcium and vitamin d supplements in patients with sarcoidosis reports These patients often require supplementation to support their metabolic bone health; however, such interventions may theoretically increase the risk of hypercalcemia and hypercalciuria, along. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2298,
+      "entity_slug": "exploring-tolerable-effective-dosage-omega-3-fatty",
+      "pmid": "42242854",
+      "focus": "Randomized controlled trial on exploring a tolerable and effective dosage of omega-3 fatty acids as reports In this pilot study, ω-3 FA supplementation at 3.50-8.75 g/day to enterally fed patients with severe pneumonia for 7 days was relatively well-tolerated, shortened. Evidence boundary: the evidence is review/mechanism-heavy rather than direct clinical efficacy evidence.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2299,
+      "entity_slug": "iron-based-magnetic-nanoplatforms-immune-microenvironment-remodeling",
+      "pmid": "42243893",
+      "focus": "Review on iron-based magnetic nanoplatforms for immune microenvironment remodeling and cancer immunotherapy: progress reports However, challenges remain regarding biosafety, long-term iron metabolism, delivery efficiency, and large-scale manufacturing. Overall, this review provides a systematic overview of Fe-MNP-mediated immunomodulation and. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2300,
+      "entity_slug": "magnesium-as-bioenergetic-checkpoint-linking-mitochondrial-function",
+      "pmid": "42244260",
+      "focus": "Review on magnesium as a bioenergetic checkpoint linking mitochondrial function, metabolic disease, and reports Finally, we outline emerging therapeutic strategies, including transport-informed and compartment-specific approaches, that move beyond nonspecific supplementation toward precision modulation of magnesium-dependent bioenergetics. Together, this. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    }
+  ]
+}

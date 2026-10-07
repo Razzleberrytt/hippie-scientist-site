@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "selection_revision": "strict_direct_relevance_v3",
+  "rows": [
+    {
+      "wave": 3480,
+      "pmid": "42658286",
+      "doi": "10.1007/s00394-026-04065-w",
+      "category": "women_health",
+      "title": "Effect modification of prenatal folic acid supplementation on the associations of pre-pregnancy BMI and gestational weight gain with offspring birth weight: a large prospective cohort study.",
+      "journal": "European journal of nutrition",
+      "pub_date": "2026-Aug-27",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Prospective cohort analysis of 192,596 mother-infant pairs found prenatal folic acid supplementation was modestly associated with lower macrosomia risk and may modify associations between pre-pregnancy BMI and birth weight; observational design limits causal inference."
+    },
+    {
+      "wave": 3484,
+      "pmid": "42675291",
+      "doi": "10.1007/s00404-026-08522-z",
+      "category": "women_health",
+      "title": "High prevalence of magnesium supplementation during pregnancy: results from the LIFE Child study.",
+      "journal": "Archives of gynecology and obstetrics",
+      "pub_date": "2026-Aug-31",
+      "title_match_score": 1,
+      "abstract_verified": true,
+      "focus": "Prospective observational LIFE Child cohort (n=1,078) found magnesium supplementation during pregnancy was common and associated with age, socioeconomic status, and premature contractions; supplementation was not associated with pregnancy duration."
+    }
+  ]
+}

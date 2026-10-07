@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5001-5500",
+  "rows": [
+    {
+      "wave": 5389,
+      "category": "women_health",
+      "pmid": "42819227",
+      "title": "Long-term metabolic consequences of in-utero gestational diabetes exposure and maternal treatment interventions: a systematic review and meta-analysis.",
+      "abstract": "Gestational diabetes mellitus (GDM) affects 14-17% of pregnancies globally, imposing long-term public health burdens beyond pregnancy. Maternal hyperglycaemia increases offspring risk of metabolic disorders through epigenetic, hormonal and developmental programming. Growing evidence connects prenatal GDM exposure to childhood and adult metabolic diseases, yet the consistency and magnitude of these associations across different metabolic conditions remains unclear. We systematically searched PubMed, Cochrane CENTRAL and Embase. Eligible studies included observational cohorts exploring associations between in-utero GDM exposure and offspring metabolic outcomes, and RCTs assessing maternal antenatal interventions. Bias risk was evaluated with Cochrane RoB 2 (for RCTs) and the Newcastle-Ottawa Scale (NOS) (for observational studies). Separate outcome-based pooled analyses were conducted, given the distinct clinical questions addressed by the two study designs. All meta-analyses used the random-effects inverse-variance model. Heterogeneity was assessed via I² and Cochran's Q statistic, and Egger's linear regression test was used to detect publication bias. Sixteen studies (n=9 RCTs, n=7 observational cohorts) involving diverse populations across 11 countries were included. In observational cohorts, GDM-exposed offspring showed higher BMI (MD = 1.42 kg/m2, 95% CI: 0.94-1.89) and greater estimates for overweight/obesity in adulthood (OR = 2.09, 95% CI: 1.25-3.50, I² = 80.7%). The analysis of fasting glucose results displayed high variability (I² = 80.7%) yet produced no meaningful combined impact (MD = -0.016 mmol/L, 95% CI: -1.52 to 1.49). In RCTs, active antenatal GDM management was associated with a non-significant trend towards lower HOMA-IR (MD = -0.30, 95% CI: -0.61 to 0.01; I² = 68.2%) and HbA1c (MD = -0.41%, 95% CI: -0.85 to 0.03; I² = 99.1%) relative to usual care. There were no statistically significant combined effects found for 2-hour OGTT glucose levels total cholesterol levels triglyceride levels or HDL-C levels. Egger's test revealed no significant publication bias for either glucose (t = 0.82, p = 0.43) or lipid outcomes (t = -0.08, p = 0.94). In-utero GDM exposure confers metabolic risks from childhood to adulthood; lifelong persistence requires verification via extended longitudinal research GDM interventions including diet, exercise and pharmacotherapy may lower offspring risk, although heterogeneity necessitates cautious interpretation.",
+      "journal": "Frontiers in endocrinology",
+      "pub_date": "2026",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13623741/",
+      "pdf_link": "https://doi.org/10.3389/fendo.2026.1904624",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed exact r3 policy replacement verification"
+    },
+    {
+      "wave": 5426,
+      "category": "women_health",
+      "pmid": "42823712",
+      "title": "Self-management strategies for menstrual cycle symptoms: a systematic review.",
+      "abstract": "Menstrual cycle symptoms, such as discomfort, fatigue, and mood swings, are prevalent among women and can significantly diminish quality of life. Many women employ non-clinical, self-management strategies to mitigate symptoms, yet the supporting evidence for these strategies is equivocal. This systematic review sought to identify, evaluate and synthesise existing evidence from randomised controlled trials (RCTs) for non-clinical, self-management strategies for menstrual cycle symptoms. A systematic literature search was performed in PubMed, Scopus, Web of Science, and Cochrane Library in March 2025 and updated in December 2025. The review adhered to PRISMA principles. Eligible studies comprised double- and triple-blinded RCTs published from 2000 onwards that examined non-clinical, self-management strategies including physical activity, nutrition, heat treatment, sleep, stress management, education, and over-the-counter medications for alleviating menstrual cycle symptoms in females aged 18 years and older. The JBI Critical Appraisal Checklist for RCTs was utilised for quality assessment. Of the 13,208 screened records, 39 were included in the final synthesis, comprising 42 treatment interventions and 3,806 participants. This provided categories of physical activity strategies (n = 5), nutritional strategies (n = 26), other self-management strategies (n = 7), and combined strategies (n = 4). Physical activity, especially yoga, consistently showed improvements in menstrual discomfort, exhaustion, and mood. The most researched strategies were nutritional, including vitamin and mineral supplementation, and demonstrated varied yet predominantly positive results. Some of the other self-management strategies, including low light therapy, listening to music and drawing, also reduced total PMS scores. Some of the combined strategies, investigating two or more strategies in combination, reduced menstrual cycle symptoms and menstrual pain intensity. Methodological shortcomings were prevalent, including small sample sizes and inconsistent outcome measurements. Data from 39 RCTs indicate that strategies including physical activity, nutrition, other self-management strategies and combined strategies may effectively alleviate menstrual cycle symptoms. There are limitations in the evidence base due to limited research and methodological inconsistencies, and publication bias may have skewed the results to being predominantly positive. Future research ought to evaluate common strategies that are yet to be investigated using blinded RCTs, and the long-term efficacy of existing self-management strategies. CRD420250612937.",
+      "journal": "BMC women's health",
+      "pub_date": "2026-Jul-24",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13632255/",
+      "pdf_link": "https://doi.org/10.1186/s12905-026-04717-3",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed exact r3 policy replacement verification"
+    },
+    {
+      "wave": 5428,
+      "category": "women_health",
+      "pmid": "42798614",
+      "title": "Cerebral venous sinus thrombosis in pregnancy and the postpartum period: epidemiology, management, and maternal mortality-a systematic review and meta-analysis.",
+      "abstract": "Cerebral venous sinus thrombosis is a rare cerebrovascular disease of importance both during pregnancy and in the puerperium. However, the existing cohort literature relates to two distinct clinical populations: women with acute onset of pregnancy-/puerperium-associated cerebral venous thrombosis (CVST), and women with known previous CVST who were assessed in connection with a subsequent pregnancy. As these populations address distinct clinical questions and have distinct denominators and follow-up structures, this review has distinguished outcomes from the two populations and synthesized them separately. A PRISMA-compliant systematic review was conducted searching six bibliographic databases for evidence on CVST/central venous thrombosis (CVT), pregnancy/puerperium, and follow-up cohorts. Cohort studies only have been eligible for inclusion, with the additional criterion of a follow-up period of ≥5 years or participant-level follow-up period of ≥5 years. This particular criterion was used mainly as an aid to interpreting data on recurrence or subsequent pregnancy, while for outcomes related to acute obstetric CVST, it was used simply as a measure of study period. Outcomes have been summarized as pooled proportions by random-effects meta-analysis with pre-specified stratification in follow-up cohorts (women with known CVST in the past) and study period cohorts (acute obstetric CVST). Twelve studies were included. In follow-up cohorts assessing subsequent pregnancy following previous CVST, deliveries/livebirths pooled to 69.6% (95% CI 59.2 to 78.4%, I2 = 51.7%), spontaneous miscarriage pooled to 19.4% (95% CI 13.8 to 26.5%, I2 = 20.6%), and recurrence of cerebral venous sinus thrombosis during subsequent pregnancy/puerperium pooled to 3.17% (95% CI 1.43 to 6.89%, I2 = 0%). In acute pregnancy/puerperium cerebral venous sinus thrombosis cohorts, maternal mortality pooled to 8.28% (95% CI 5.65 to 11.97%, I2 = 0%), while acute-phase anticoagulation use pooled to 92.9% (95% CI 64.8 to 98.9%) with high heterogeneity (I2 = 81.2%). These outcomes were thus interpreted within the context of their particular population and observation period. Long-term follow-up cohorts indicated that subsequent pregnancy following previous cerebral venous sinus thrombosis was associated with good delivery outcomes and low recurrence in cases when CVST management included structured risk stratification and appropriate prophylaxis. Acute obstetric CVST cohorts, on the other hand, dealt with acute morbidity, mortality, and treatment, and not with future pregnancy safety, with significant maternal mortality burden. PROSPERO registration number CRD420261328921.",
+      "journal": "Frontiers in neurology",
+      "pub_date": "2026",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13612440/",
+      "pdf_link": "https://doi.org/10.3389/fneur.2026.1836450",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed exact r3 policy replacement verification"
+    },
+    {
+      "wave": 5445,
+      "category": "micronutrients",
+      "pmid": "42709254",
+      "title": "Magnesium administration for vasospasm prevention in acute aneurysmal SAH: a multicenter randomized controlled trial.",
+      "abstract": "Aneurysmal subarachnoid hemorrhage (aSAH) is associated with significant morbidity and mortality, with cerebral vasospasm (CV) and delayed cerebral ischemia (DCI) being the primary contributors to poor outcomes. Magnesium sulfate (MgSO₄) has demonstrated neuroprotective and vasodilatory properties in preclinical models. This study aimed to evaluate the effect of targeted serum magnesium (Mg) maintenance on CV and exploratory clinical outcomes following aSAH. We conducted a prospective, multicenter, single-blind RCT across four neurocritical care units in Korea between 2019 and 2024. A total of 121 aSAH patients were randomized to receive either IV MgSO₄or placebo within six hours of admission. Mg was infused to maintain serum concentrations between 2.0 and 3.0 mg/dL for 14 days. The primary outcome was incidence of CV assessed by transcranial doppler. Secondary outcomes included DCI, ICU and hospital length of stay, modified rankin scale (mRS) at 30 days. There was no significant difference in overall CV incidence; however, the Mg group demonstrated significantly lower mean flow velocity and Lindegaard ratio on days 4-9, indicating reduced vasospasm severity. In exploratory multivariable analyses, a median serum Mg concentration > 2.5 mg/dL during the first 14 hospital days was independently associated with lower risks of CV and DCI. No significant differences were found in mRS scores, ICU and hospital stay, or serious adverse events between groups. Early targeted Mg administration improved TCD-derived hemodynamic markers during the peak vasospasm window; however, it did not significantly reduce CV incidence, DCI, ICU or hospital stay, or 30-day functional outcome.",
+      "journal": "Neurosurgical review",
+      "pub_date": "2026-Sep-08",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4101045/",
+      "pdf_link": "https://doi.org/10.1007/s10143-026-04470-z",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "source": "NCBI PubMed exact r3 policy replacement verification"
+    }
+  ]
+}

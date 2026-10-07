@@ -1,0 +1,669 @@
+{
+  "schema_version": 1,
+  "category": "safety_interactions",
+  "target": 22,
+  "predecessor_unique_pmids": 5935,
+  "candidate_count": 66,
+  "rows": [
+    {
+      "pmid": "42741450",
+      "title": "Safety and efficacy of honeysuckle therapy for epidermal growth factor receptor inhibitor-related rash: a systematic review and meta-analysis.",
+      "doi": "10.3389/fphar.2026.1875649",
+      "pub_date": "2026",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Systematic Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42812143",
+      "title": "Efficacy and safety of hybrid closed-loop systems in children aged < 7 years with type 1 diabetes: a systematic review and meta-analysis of randomized controlled trials.",
+      "doi": "10.48130/pedi-0026-0006",
+      "pub_date": "2026",
+      "journal": "Pediatric diabetes",
+      "pub_type": "Systematic Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42760785",
+      "title": "A variance QTL approach to uncover gene-fish oil supplement interaction loci for 14 circulating unsaturated fatty acid traits.",
+      "doi": "10.1016/j.xhgg.2026.100675",
+      "pub_date": "2026 Sep 18",
+      "journal": "HGG advances",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42812992",
+      "title": "Effect of Herbal Extracts on Antituberculosis Drug-Induced Hepatotoxicity: A Systematic Review.",
+      "doi": "10.1155/jt/6698835",
+      "pub_date": "2026",
+      "journal": "Journal of toxicology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42814886",
+      "title": "The STORY MINE Digital Recovery Narrative Intervention for Personal Recovery in Mental Health Care: Pilot Randomized Controlled Trial.",
+      "doi": "10.2196/83948",
+      "pub_date": "2026 Sep 30",
+      "journal": "JMIR formative research",
+      "pub_type": "Randomized Controlled Trial",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42731298",
+      "title": "Balancing efficacy and risk: A toxicological review and safety transformation of Berberis plants and their alkaloids.",
+      "doi": "10.1016/j.phymed.2026.158782",
+      "pub_date": "2026 Sep 7",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42731692",
+      "title": "From crop stress to host response: plant extracellular vesicles as dynamic exposure vectors in food and botanical toxicology.",
+      "doi": "10.1016/j.fct.2026.116385",
+      "pub_date": "2026 Sep 12",
+      "journal": "Food and chemical toxicology : an international journal published for the British Industrial Biological Research Association",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42751373",
+      "title": "Dietary supplements in integrative oncology.",
+      "doi": "10.3389/fonc.2026.1866767",
+      "pub_date": "2026",
+      "journal": "Frontiers in oncology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42752626",
+      "title": "Unveiling the therapeutic potential of Calotropis procera: from traditional applications to phytochemistry, pharmacology, and safety.",
+      "doi": "10.1007/s00044-026-03613-7",
+      "pub_date": "2026 Sep 17",
+      "journal": "Medicinal chemistry research : an international journal for rapid communications on design and mechanisms of action of biologically active agents",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42760843",
+      "title": "Liver-on-Chip Models as Miniaturized Platforms for In Vitro Hepatotoxicity Testing.",
+      "doi": "10.1002/jat.70435",
+      "pub_date": "2026 Sep 18",
+      "journal": "Journal of applied toxicology : JAT",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42769318",
+      "title": "Advances in the management of obesity: non-pharmacological strategies, herbal formulations, current pharmacotherapy, emerging drugs, and future perspectives.",
+      "doi": "10.3389/fendo.2026.1933913",
+      "pub_date": "2026",
+      "journal": "Frontiers in endocrinology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42772543",
+      "title": "Herb-induced liver injury: An immunological perspective.",
+      "doi": "10.1016/j.tox.2026.154594",
+      "pub_date": "2026 Sep 22",
+      "journal": "Toxicology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42780878",
+      "title": "Bioactive natural products predominantly derived from Chinese herbal medicines for diminished ovarian reserve: mechanistic insights into ovarian protection.",
+      "doi": "10.3389/fendo.2026.1942723",
+      "pub_date": "2026",
+      "journal": "Frontiers in endocrinology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42785850",
+      "title": "Plant bioactives in carrageenan biocomposites for food preservation and quality monitoring: Functional performance and safety considerations.",
+      "doi": "10.1016/j.carbpol.2026.125800",
+      "pub_date": "2026 Nov 1",
+      "journal": "Carbohydrate polymers",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42794717",
+      "title": "Wheat Bioactive Compounds and Human Health: A Review of Nutraceutical Potential, Molecular Mechanisms and AI-Assisted Functional Food Innovation.",
+      "doi": "10.3390/ijms27188290",
+      "pub_date": "2026 Sep 17",
+      "journal": "International journal of molecular sciences",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42796477",
+      "title": "Aloe ferox as a Candidate Botanical Insecticide for Stored-Grain Protection: Evidence, Knowledge Gaps, and Prospects for Sitophilus zeamais Management.",
+      "doi": "10.3390/molecules31183190",
+      "pub_date": "2026 Sep 10",
+      "journal": "Molecules (Basel, Switzerland)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42812898",
+      "title": "Recent Studies on the Effectiveness and Safety of Anti-Obesity Medications: A Scoping Review.",
+      "doi": "10.2147/DMSO.S626279",
+      "pub_date": "2026",
+      "journal": "Diabetes, metabolic syndrome and obesity : targets and therapy",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42830918",
+      "title": "Nanoparticle-Mediated Lutein Delivery for Diabetic Retinopathy: From Blood-Retinal Barrier Crossing to Neurovascular Unit Protection.",
+      "doi": "10.2147/IJN.S633993",
+      "pub_date": "2026",
+      "journal": "International journal of nanomedicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42832911",
+      "title": "SLC7A11 in liver tissue homeostasis and disease: Cellular mechanisms linking ferroptosis, redox regulation, and hepatic cell survival.",
+      "doi": "10.1016/j.tice.2026.103986",
+      "pub_date": "2026 Sep 24",
+      "journal": "Tissue & cell",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42741721",
+      "title": "Jingtong Granules for Cervicogenic Headache: Clinical Efficacy, Mechanisms, and Translational Potential.",
+      "doi": "10.2147/DDDT.S625586",
+      "pub_date": "2026",
+      "journal": "Drug design, development and therapy",
+      "pub_type": "Systematic Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42736898",
+      "title": "Perceptions and Acceptability of Artemisia annua Herbal Tea for Malaria Treatment: A Qualitative Study in Kalima Health Zone, Maniema, Democratic Republic of the Congo.",
+      "doi": "10.3390/healthcare14172740",
+      "pub_date": "2026 Aug 27",
+      "journal": "Healthcare (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42738934",
+      "title": "Prevalence and Correlates of Dietary Supplement Use Among Italian University Students: A Cross-Sectional Study.",
+      "doi": "10.3390/nu18172760",
+      "pub_date": "2026 Aug 24",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42738962",
+      "title": "Personalised Nutraceutical Treatment Guided by MTHFR Genotype in Mental Health: A Retrospective Cohort Study.",
+      "doi": "10.3390/nu18172791",
+      "pub_date": "2026 Aug 26",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42739092",
+      "title": "A Combination of Psidium guajava and Seriphium plumosum Modulates Glucose Metabolism and Reduces Hepatic GLUT2 Expression Through Additive-to-Synergistic Interactions.",
+      "doi": "10.3390/nu18172920",
+      "pub_date": "2026 Sep 6",
+      "journal": "Nutrients",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42746433",
+      "title": "A biopsychosocial analysis of supplement purchasing behavior in recreational fitness centers: objective BMI, motivational factors, and sex-specific effects.",
+      "doi": "10.3389/fspor.2026.1867565",
+      "pub_date": "2026",
+      "journal": "Frontiers in sports and active living",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42747634",
+      "title": "Olive mill wastewater as a sustainable feed supplement in dairy cows: effects on milk composition and the occurrence of bioactive compounds.",
+      "doi": "10.1007/s11250-026-05334-w",
+      "pub_date": "2026 Sep 16",
+      "journal": "Tropical animal health and production",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42754118",
+      "title": "Mechanism-informed machine learning for optimizing herbal residue-assisted anaerobic co-digestion using polydopamine-modified Fe-Ni foam.",
+      "doi": "10.1016/j.biortech.2026.135882",
+      "pub_date": "2026 Sep 17",
+      "journal": "Bioresource technology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42759205",
+      "title": "Inhibition of cytochrome P450 2B6 activity by kava extracts.",
+      "doi": "10.1016/j.dmd.2026.100395",
+      "pub_date": "2026 Aug 26",
+      "journal": "Drug metabolism and disposition: the biological fate of chemicals",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42760234",
+      "title": "Effects of a (poly)phenol-rich supplement on body composition and cardiometabolic health in adults with severe obesity: a randomized controlled trial.",
+      "doi": "10.1016/j.numecd.2026.104969",
+      "pub_date": "2026 Aug 25",
+      "journal": "Nutrition, metabolism, and cardiovascular diseases : NMCD",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42760912",
+      "title": "The Beekeeping Sector of Kazakhstan and Contributions to the Pharmaceutical Industry: Promising Flavonoids with the Pharmacokinetic Properties Via the Computational Evaluations.",
+      "doi": "10.12688/f1000research.188625.2",
+      "pub_date": "2026",
+      "journal": "F1000Research",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42764535",
+      "title": "Anti-inflammatory effect of a traditional herbal cream following dosage form transformation.",
+      "doi": "10.1080/20415990.2026.2731739",
+      "pub_date": "2026 Sep 20",
+      "journal": "Therapeutic delivery",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42765306",
+      "title": "A multidimensional integrated diagnostic strategy using needle sheath flushing solution: combining PGM-based GPC3 protein detection and gene methylation analysis for improved liver cancer diagnosis.",
+      "doi": "10.1039/d6ay01519k",
+      "pub_date": "2026 Sep 21",
+      "journal": "Analytical methods : advancing methods and applications",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42767371",
+      "title": "Effects of phytogenic supplementation at different dietary protein concentrations on performance, rumen fermentation, and nutrient digestibility in lactating dairy diets.",
+      "doi": "10.3168/jds.2026-28978",
+      "pub_date": "2026 Sep 21",
+      "journal": "Journal of dairy science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42770447",
+      "title": "Next-Generation Hybrid Nano-formulations for Polyphenolic Nutraceuticals in Cancer Therapy: An Overview.",
+      "doi": "10.2174/0113816128501808260903071631",
+      "pub_date": "2026 Sep 18",
+      "journal": "Current pharmaceutical design",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42780962",
+      "title": "A polyherbal and probiotic-based immunostimulatory formulation for managing gut dysbiosis in colorectal cancer.",
+      "doi": "10.3389/fnut.2026.1854998",
+      "pub_date": "2026",
+      "journal": "Frontiers in nutrition",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42782159",
+      "title": "The high protection of a novel chemo-attenuated sporozoite vaccine requires IL-15-mediated liver CD8(+) tissue-resident memory T-cell responses.",
+      "doi": "10.1128/mbio.01131-26",
+      "pub_date": "2026 Sep 24",
+      "journal": "mBio",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42782766",
+      "title": "Differential Effects of Olive Leaf Extract on Human Small and Non-Small Cell Lung Cancer and Synergy with Cisplatin: Rationale for Its Potential Use as Food Supplement for Patients?",
+      "doi": "10.3390/cells15181666",
+      "pub_date": "2026 Sep 15",
+      "journal": "Cells",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42785851",
+      "title": "The gut-liver axis mediates the hepatoprotective effect of mulberry polysaccharide MBPS-02A.",
+      "doi": "10.1016/j.carbpol.2026.125801",
+      "pub_date": "2026 Nov 1",
+      "journal": "Carbohydrate polymers",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42786874",
+      "title": "Synergistic Fusion: Enhancing Cancer Treatment with Herbal-Chemotherapy Nanocomplexes.",
+      "doi": "10.2174/0118715206493976260914061841",
+      "pub_date": "2026 Sep 24",
+      "journal": "Anti-cancer agents in medicinal chemistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42793022",
+      "title": "Dietary Lepidium meyenii Supplementation Is Associated with Hepatic Transcriptomic and Targeted DNA Methylation Changes in Pigs.",
+      "doi": "10.3390/genes17091128",
+      "pub_date": "2026 Sep 16",
+      "journal": "Genes",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42796544",
+      "title": "Green-Synthesized Mesoporous Silica-Enhanced Herbal Nanofibers with Antimicrobial, Anti-Inflammatory, and Biocompatible Wound Healing Potential.",
+      "doi": "10.3390/molecules31183257",
+      "pub_date": "2026 Sep 14",
+      "journal": "Molecules (Basel, Switzerland)",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42797895",
+      "title": "Effects of Oral Pumpkin (Cucurbita pepo L.) Seed Oil Supplementation on Body Weight, Oxidative Status, Serum IgG Concentrations, and Serum Biochemical Parameters in Weaned Pırlak Lambs.",
+      "doi": "10.3390/vetsci13090859",
+      "pub_date": "2026 Aug 25",
+      "journal": "Veterinary sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42797898",
+      "title": "Direct Oral Administration of Cold-Pressed Nigella sativa Oil in Neonatal Lambs: A Longitudinal Assessment of Systemic Safety and Hematobiochemical Responses.",
+      "doi": "10.3390/vetsci13090862",
+      "pub_date": "2026 Aug 25",
+      "journal": "Veterinary sciences",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42800484",
+      "title": "The eukaryotic host-microbe-phage-nutrition interplay determines the bacterial effectors of supplemental lysine's health benefits: An experimental cellular senescence model of digestive conditions in older adults.",
+      "doi": "10.1016/j.mad.2026.112260",
+      "pub_date": "2026 Sep 26",
+      "journal": "Mechanisms of ageing and development",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42800687",
+      "title": "Forsythiaside A suppresses PANoptosis to alleviate senecionine-induced hepatotoxicity.",
+      "doi": "10.1016/j.jep.2026.122439",
+      "pub_date": "2026 Sep 26",
+      "journal": "Journal of ethnopharmacology",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42800859",
+      "title": "Ethnopharmacological insights into type 2 diabetes management by traditional Moroccan herbal teas: HPLC-MS characterization of phenolic compounds and their related antioxidant and enzyme inhibitory activities.",
+      "doi": "10.1186/s12906-026-05588-9",
+      "pub_date": "2026 Sep 26",
+      "journal": "BMC complementary medicine and therapies",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42802916",
+      "title": "Health Claims, Labeling Practices, and Consumer Information Characteristics of Herbal Lactation Teas Marketed to Breastfeeding Women in Türkiye: A Cross-Sectional Digital Marketplace Analysis.",
+      "doi": "10.1177/15568253261492468",
+      "pub_date": "2026 Sep 28",
+      "journal": "Breastfeeding medicine : the official journal of the Academy of Breastfeeding Medicine",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42805387",
+      "title": "Effect of colostrum supplementation administered at a behavior-based alert for calf diarrhea.",
+      "doi": "10.3168/jds.2026-28833",
+      "pub_date": "2026 Sep 28",
+      "journal": "Journal of dairy science",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42809021",
+      "title": "Use of dietary supplements and over-the-counter products among adults with a self-reported history of cancer in Poland.",
+      "doi": "10.1007/s00520-026-11263-z",
+      "pub_date": "2026 Sep 29",
+      "journal": "Supportive care in cancer : official journal of the Multinational Association of Supportive Care in Cancer",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42813050",
+      "title": "Protein and Amino Acid Supplementation in Military Personnel: Accessibility, Prevalence, and Effectiveness.",
+      "doi": "10.1097/nt.0000000000000807",
+      "pub_date": "2026 Jul-Aug",
+      "journal": "Nutrition today",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42813126",
+      "title": "Self-Medication Safety Behaviours and Recognition of Pharmacological Risks: A Clinical Pharmacology Perspective.",
+      "doi": "10.7759/cureus.117147",
+      "pub_date": "2026 Sep",
+      "journal": "Cureus",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42813630",
+      "title": "Pharmacological Profile of Thymoquinone: From Cellular Pathways to Nutraceutical Potential.",
+      "doi": "10.2174/0113895575456689260904070048",
+      "pub_date": "2026 Sep 25",
+      "journal": "Mini reviews in medicinal chemistry",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42815441",
+      "title": "Integrated assessment of cytochrome P450 inhibition by açaí and mass spectrometry-based identification of P450 inhibitory constituents using biochemometric approaches.",
+      "doi": "10.1016/j.dmd.2026.100388",
+      "pub_date": "2026 Aug 11",
+      "journal": "Drug metabolism and disposition: the biological fate of chemicals",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42817109",
+      "title": "Herbal Medicine in Episiotomy Wound Healing: A Systematic Review.",
+      "doi": "10.2174/0115672018448913260923044628",
+      "pub_date": "2026 Sep 29",
+      "journal": "Current drug delivery",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42831700",
+      "title": "Targeting activated hepatic stellate cells through ferroptosis: phenethyl isothiocyanate attenuates CCl(4)-induced liver fibrosis by regulating iron metabolism, redox homeostasis, and autophagy.",
+      "doi": "10.1039/d6fo01700b",
+      "pub_date": "2026 Oct 5",
+      "journal": "Food & function",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42833341",
+      "title": "Establishment of Expanded Botanical Thresholds of Toxicological Concern: Enrichment of Botanical PoD Databases and New Thresholds.",
+      "doi": "10.1016/j.yrtph.2026.106268",
+      "pub_date": "2026 Oct 5",
+      "journal": "Regulatory toxicology and pharmacology : RTP",
+      "pub_type": "Journal Article",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42733103",
+      "title": "Postbiotic Metabolites: Therapeutic Potential, Industrial Applications, Market Dynamics, and Regulatory Frameworks.",
+      "doi": "10.1007/s12602-026-11213-5",
+      "pub_date": "2026 Sep 14",
+      "journal": "Probiotics and antimicrobial proteins",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42737306",
+      "title": "Buckwheat Husk: An Underexplored Source of Bioactive Compounds and Functional Food Applications.",
+      "doi": "10.3390/foods15173062",
+      "pub_date": "2026 Aug 29",
+      "journal": "Foods (Basel, Switzerland)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42739423",
+      "title": "From Invasive Bramble to Functional Browse: A Translational Review of Rubus ulmifolius Schott for Sheep Nutrition.",
+      "doi": "10.3390/plants15172656",
+      "pub_date": "2026 Aug 30",
+      "journal": "Plants (Basel, Switzerland)",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42741529",
+      "title": "TCM Treatment of Endometriosis: Pathogenesis, Mechanism and Clinical Practice.",
+      "doi": "10.2147/DDDT.S625247",
+      "pub_date": "2026",
+      "journal": "Drug design, development and therapy",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42745318",
+      "title": "The potential effects, mechanisms and translational perspectives of natural products in the treatment of atopic dermatitis.",
+      "doi": "10.1186/s13020-026-01497-8",
+      "pub_date": "2026 Sep 16",
+      "journal": "Chinese medicine",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42751698",
+      "title": "Natural medicines for asthma management: mechanisms aligned with endotypes and multi-dimensional intervention.",
+      "doi": "10.3389/fphar.2026.1903220",
+      "pub_date": "2026",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42756094",
+      "title": "Traditional Chinese medicine remodels the immune microenvironment of colorectal cancer: mechanisms and therapeutic perspectives.",
+      "doi": "10.3389/fimmu.2026.1932903",
+      "pub_date": "2026",
+      "journal": "Frontiers in immunology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42761791",
+      "title": "Research progress on targeting autophagy pathways with medicinal plants and their active metabolites for the treatment of heart failure.",
+      "doi": "10.3389/fphar.2026.1908479",
+      "pub_date": "2026",
+      "journal": "Frontiers in pharmacology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42769550",
+      "title": "Natural product derived phytochemicals as modulators of cancer stemness and drug resistance.",
+      "doi": "10.3389/fonc.2026.1940814",
+      "pub_date": "2026",
+      "journal": "Frontiers in oncology",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    },
+    {
+      "pmid": "42772206",
+      "title": "Nursing in adult critical care services - safe staffing evidence: A rapid review.",
+      "doi": "10.1016/j.iccn.2026.104585",
+      "pub_date": "2026 Sep 22",
+      "journal": "Intensive & critical care nursing",
+      "pub_type": "Review",
+      "has_abstract": true,
+      "discovery_query": "((supplement[Title/Abstract] OR herbal[Title/Abstract] OR botanical[Title/Abstract] OR nutraceutical[Title/Abstract] OR \"dietary supplement\"[Title/Abstract]) AND (interaction[Title/Abstract] OR adverse[Title/Abstract] OR safety[Title/Abstract] OR hepatotoxicity[Title/Abstract] OR liver[Title/Abstract] OR pharmacokinetic[Title/Abstract] OR cytochrome[Title/Abstract])) AND 2010:2026[pdat] AND hasabstract[text] NOT retracted publication[pt] NOT case reports[pt]"
+    }
+  ]
+}

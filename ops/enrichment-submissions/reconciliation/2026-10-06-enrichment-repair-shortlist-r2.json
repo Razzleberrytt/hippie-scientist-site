@@ -1,0 +1,803 @@
+{
+  "schema_version": 1,
+  "row_count": 65,
+  "needs": {
+    "immune_respiratory": 3,
+    "women_health": 4,
+    "aging_sarcopenia": 2,
+    "stress_anxiety": 3,
+    "gut": 2,
+    "cognition_focus": 1,
+    "botanicals_mushrooms": 3,
+    "withdrawal_nps": 3,
+    "mitochondrial_energy": 1,
+    "micronutrients": 2,
+    "metabolic": 1,
+    "performance": 1,
+    "sleep": 2
+  },
+  "by_category": {
+    "immune_respiratory": {
+      "need": 3,
+      "available": 20,
+      "taken": 6
+    },
+    "women_health": {
+      "need": 4,
+      "available": 12,
+      "taken": 7
+    },
+    "aging_sarcopenia": {
+      "need": 2,
+      "available": 6,
+      "taken": 5
+    },
+    "stress_anxiety": {
+      "need": 3,
+      "available": 76,
+      "taken": 6
+    },
+    "gut": {
+      "need": 2,
+      "available": 4,
+      "taken": 4
+    },
+    "cognition_focus": {
+      "need": 1,
+      "available": 19,
+      "taken": 4
+    },
+    "botanicals_mushrooms": {
+      "need": 3,
+      "available": 16,
+      "taken": 6
+    },
+    "withdrawal_nps": {
+      "need": 3,
+      "available": 20,
+      "taken": 6
+    },
+    "mitochondrial_energy": {
+      "need": 1,
+      "available": 3,
+      "taken": 3
+    },
+    "micronutrients": {
+      "need": 2,
+      "available": 7,
+      "taken": 5
+    },
+    "metabolic": {
+      "need": 1,
+      "available": 19,
+      "taken": 4
+    },
+    "performance": {
+      "need": 1,
+      "available": 19,
+      "taken": 4
+    },
+    "sleep": {
+      "need": 2,
+      "available": 20,
+      "taken": 5
+    }
+  },
+  "rows": [
+    {
+      "category": "immune_respiratory",
+      "pmid": "41204244",
+      "doi": "10.1186/s12887-025-06268-2",
+      "title": "Association between prenatal vitamin D supplementation and respiratory diseases in children: a systematic review and meta-analysis.",
+      "journal": "BMC pediatrics",
+      "pub_date": "2025 Nov 7",
+      "pub_type": "Meta-Analysis",
+      "query": "(((\"vitamin D\"[Title] OR zinc[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title] OR COPD[Title] OR influenza[Title] OR COVID[Title] OR infection[Title])) OR (elderberry[Title] AND respiratory[Title/Abstract]) OR (echinacea[Title] AND respiratory[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 15
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41219174",
+      "doi": "10.1002/ncp.70070",
+      "title": "Serum zinc level independently predicts need for inpatient intubation among patients hospitalized with COVID-19: A prospective observational study.",
+      "journal": "Nutrition in clinical practice : official publication of the American Society for Parenteral and Enteral Nutrition",
+      "pub_date": "2026 Apr",
+      "pub_type": "Observational Study",
+      "query": "(((\"vitamin D\"[Title] OR zinc[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title] OR COPD[Title] OR influenza[Title] OR COVID[Title] OR infection[Title])) OR (elderberry[Title] AND respiratory[Title/Abstract]) OR (echinacea[Title] AND respiratory[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 6
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41110316",
+      "doi": "10.1016/j.jiph.2025.103013",
+      "title": "Vitamin D deficiency and respiratory health: A narrative review bridging gaps in public health through innovative strategies and sustainable solutions.",
+      "journal": "Journal of infection and public health",
+      "pub_date": "2026 Jan",
+      "pub_type": "Review",
+      "query": "(((\"vitamin D\"[Title] OR zinc[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title] OR COPD[Title] OR influenza[Title] OR COVID[Title] OR infection[Title])) OR (elderberry[Title] AND respiratory[Title/Abstract]) OR (echinacea[Title] AND respiratory[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 5
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41312064",
+      "doi": "10.7759/cureus.97842",
+      "title": "Vitamin D Supplementation in Orthopedic Trauma: Influence on Immune Modulation, Fracture Healing, and Infection Outcomes.",
+      "journal": "Cureus",
+      "pub_date": "2025 Nov",
+      "pub_type": "Review",
+      "query": "(((\"vitamin D\"[Title] OR zinc[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title] OR COPD[Title] OR influenza[Title] OR COVID[Title] OR infection[Title])) OR (elderberry[Title] AND respiratory[Title/Abstract]) OR (echinacea[Title] AND respiratory[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 5
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41312188",
+      "doi": "10.7573/dic.2025-7-7",
+      "title": "N-acetylcysteine in paediatrics: a review of efficacy, safety and dosing strategies in respiratory care.",
+      "journal": "Drugs in context",
+      "pub_date": "2025",
+      "pub_type": "Review",
+      "query": "(((\"vitamin D\"[Title] OR zinc[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title] OR COPD[Title] OR influenza[Title] OR COVID[Title] OR infection[Title])) OR (elderberry[Title] AND respiratory[Title/Abstract]) OR (echinacea[Title] AND respiratory[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 5
+    },
+    {
+      "category": "immune_respiratory",
+      "pmid": "41066442",
+      "doi": "10.1371/journal.pmed.1004759",
+      "title": "Zinc as adjunct treatment for clinical severe infection in young infants: A randomized double-blind placebo-controlled trial in India and Nepal.",
+      "journal": "PLoS medicine",
+      "pub_date": "2025 Oct",
+      "pub_type": "Multicenter Study",
+      "query": "(((\"vitamin D\"[Title] OR zinc[Title] OR \"N-acetylcysteine\"[Title] OR NAC[Title]) AND (respiratory[Title] OR COPD[Title] OR influenza[Title] OR COVID[Title] OR infection[Title])) OR (elderberry[Title] AND respiratory[Title/Abstract]) OR (echinacea[Title] AND respiratory[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 3
+    },
+    {
+      "category": "women_health",
+      "pmid": "42349752",
+      "doi": "10.1016/j.tjnut.2026.101688",
+      "title": "Higher Maternal Body Mass Index Attenuates the Response to High-Dose Vitamin D Supplementation During Pregnancy: A Secondary Analysis of the Randomized Vitamin D Antenatal Asthma Reduction Trial (VDAART).",
+      "journal": "The Journal of nutrition",
+      "pub_date": "2026 Sep",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((inositol[Title] AND PCOS[Title/Abstract]) OR (iron[Title] AND pregnancy[Title/Abstract]) OR (\"vitamin D\"[Title] AND pregnancy[Title/Abstract]) OR (magnesium[Title] AND premenstrual[Title/Abstract]) OR (saffron[Title] AND premenstrual[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 13
+    },
+    {
+      "category": "women_health",
+      "pmid": "42274468",
+      "doi": "10.3390/biology15110817",
+      "title": "Genetic Polymorphisms of Vitamin D Receptor and Immune-Metabolic Mechanisms in Recurrent Pregnancy Loss: Narrative Review.",
+      "journal": "Biology",
+      "pub_date": "2026 May 22",
+      "pub_type": "Review",
+      "query": "((inositol[Title] AND PCOS[Title/Abstract]) OR (iron[Title] AND pregnancy[Title/Abstract]) OR (\"vitamin D\"[Title] AND pregnancy[Title/Abstract]) OR (magnesium[Title] AND premenstrual[Title/Abstract]) OR (saffron[Title] AND premenstrual[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 5
+    },
+    {
+      "category": "women_health",
+      "pmid": "42243758",
+      "doi": "10.1186/s12884-026-09346-0",
+      "title": "Maternal iron status during pregnancy: relationship with fetal growth; ECLIPSES study.",
+      "journal": "BMC pregnancy and childbirth",
+      "pub_date": "2026 Jun 4",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] AND PCOS[Title/Abstract]) OR (iron[Title] AND pregnancy[Title/Abstract]) OR (\"vitamin D\"[Title] AND pregnancy[Title/Abstract]) OR (magnesium[Title] AND premenstrual[Title/Abstract]) OR (saffron[Title] AND premenstrual[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 0
+    },
+    {
+      "category": "women_health",
+      "pmid": "42236469",
+      "doi": "10.4103/aam.aam_18_26",
+      "title": "Comparative Efficacy, Safety, and Quality-of-Life Outcomes of Oral Ferrous Sulfate Versus Intravenous Ferric Carboxymaltose in the Management of Iron Deficiency Anemia During Pregnancy.",
+      "journal": "Annals of African medicine",
+      "pub_date": "2026 Jun 3",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] AND PCOS[Title/Abstract]) OR (iron[Title] AND pregnancy[Title/Abstract]) OR (\"vitamin D\"[Title] AND pregnancy[Title/Abstract]) OR (magnesium[Title] AND premenstrual[Title/Abstract]) OR (saffron[Title] AND premenstrual[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 0
+    },
+    {
+      "category": "women_health",
+      "pmid": "42239729",
+      "doi": "10.1016/j.isci.2026.116120",
+      "title": "Vitamin D status tracks inflammation perfusion and pregnancy in polycystic ovary syndrome.",
+      "journal": "iScience",
+      "pub_date": "2026 Jun 19",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] AND PCOS[Title/Abstract]) OR (iron[Title] AND pregnancy[Title/Abstract]) OR (\"vitamin D\"[Title] AND pregnancy[Title/Abstract]) OR (magnesium[Title] AND premenstrual[Title/Abstract]) OR (saffron[Title] AND premenstrual[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 0
+    },
+    {
+      "category": "women_health",
+      "pmid": "42316189",
+      "doi": "10.1186/s12902-026-02343-6",
+      "title": "Impact of vitamin D deficiency on hyperlipidemia and hyperuricemia in pregnant women with gestational diabetes mellitus in Bangladesh.",
+      "journal": "BMC endocrine disorders",
+      "pub_date": "2026 Jun 18",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] AND PCOS[Title/Abstract]) OR (iron[Title] AND pregnancy[Title/Abstract]) OR (\"vitamin D\"[Title] AND pregnancy[Title/Abstract]) OR (magnesium[Title] AND premenstrual[Title/Abstract]) OR (saffron[Title] AND premenstrual[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 0
+    },
+    {
+      "category": "women_health",
+      "pmid": "42344554",
+      "doi": "10.1016/S3050-5038(26)00049-X",
+      "title": "Intravenous ferric carboxymaltose versus oral ferrous sulphate for iron deficiency anaemia in pregnancy in Nigeria: a cost-utility analysis.",
+      "journal": "The Lancet. Obstetrics, gynaecology, & women's health",
+      "pub_date": "2026 Jun",
+      "pub_type": "Journal Article",
+      "query": "((inositol[Title] AND PCOS[Title/Abstract]) OR (iron[Title] AND pregnancy[Title/Abstract]) OR (\"vitamin D\"[Title] AND pregnancy[Title/Abstract]) OR (magnesium[Title] AND premenstrual[Title/Abstract]) OR (saffron[Title] AND premenstrual[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 0
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42752819",
+      "doi": "10.1007/s40279-026-02499-0",
+      "title": "Effects of Resistance Training on Muscle Hypertrophy in Children and Adolescents: A Systematic Review and Meta-Analysis.",
+      "journal": "Sports medicine (Auckland, N.Z.)",
+      "pub_date": "2026 Sep 17",
+      "pub_type": "Systematic Review",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 19
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42768432",
+      "doi": "10.1177/10815589261493463",
+      "title": "EXPRESS: Vitamin D variability might be linked to sarcopenia, especially with decreased muscle mass in older patients: a retrospective longitudinal study.",
+      "journal": "Journal of investigative medicine : the official publication of the American Federation for Clinical Research",
+      "pub_date": "2026 Sep 21",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 0
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42763302",
+      "doi": "10.11817/j.issn.1672-7347.2026.250650",
+      "title": "[Effects of exergame combined with elastic band resistance training on exercise self-efficacy and physical activity levels in older adults with cognitive frailty: A mixed-methods study].",
+      "journal": "Zhong nan da xue xue bao. Yi xue ban = Journal of Central South University. Medical sciences",
+      "pub_date": "2026 Jul 28",
+      "pub_type": "English Abstract",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 0
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42776704",
+      "doi": "10.3390/geriatrics11050115",
+      "title": "Prevalence of Sarcopenia and Factors Associated with Body Composition and Protein Intake in Institutionalized Older Adults from Three Long-Term Care Facilities in Loja, Ecuador: A Cross-Sectional Study.",
+      "journal": "Geriatrics (Basel, Switzerland)",
+      "pub_date": "2026 Aug 31",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 0
+    },
+    {
+      "category": "aging_sarcopenia",
+      "pmid": "42757313",
+      "doi": "10.5005/jp-journals-10071-25246",
+      "title": "Added Value of Quadriceps Muscle Layer Thickness to modified Nutrition Risk in the Critically Ill (mNUTRIC) Score in Predicting Clinical Outcomes in Critically Ill Patients: A Prospective Observational Study.",
+      "journal": "Indian journal of critical care medicine : peer-reviewed, official publication of Indian Society of Critical Care Medicine",
+      "pub_date": "2026 Aug",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR protein[Title] OR \"vitamin D\"[Title] OR \"resistance training\"[Title] OR nutrition[Title]) AND (sarcopenia[Title/Abstract] OR frailty[Title/Abstract] OR \"muscle mass\"[Title/Abstract] OR \"muscle strength\"[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 0
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "35429599",
+      "doi": "10.1016/j.ctim.2022.102832",
+      "title": "The effect of lavender on stress in individuals: A systematic review and meta-analysis.",
+      "journal": "Complementary therapies in medicine",
+      "pub_date": "2022 Sep",
+      "pub_type": "Systematic Review",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 19
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41553229",
+      "doi": "10.17219/dmp/186872",
+      "title": "Aromatherapy with lavender essential oil for the control of dental anxiety in patients undergoing dental surgery: A triple-blind randomized clinical trial.",
+      "journal": "Dental and medical problems",
+      "pub_date": "2026 Jan-Feb",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 13
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "40288054",
+      "doi": "10.1016/j.pedn.2025.04.025",
+      "title": "The effect of lavender oil on anxiety before endoscopy in children: A randomized controlled trial.",
+      "journal": "Journal of pediatric nursing",
+      "pub_date": "2025 Jul-Aug",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 13
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "40145478",
+      "doi": "10.14744/eej.2024.06641",
+      "title": "Effect of Lavender Oral Drops in Reducing Dental Anxiety Among Patients Requiring Endodontic Treatment: A Randomised Clinical Trial.",
+      "journal": "European endodontic journal",
+      "pub_date": "2025 Jan",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 13
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "41177368",
+      "doi": "10.1016/j.ctim.2025.103296",
+      "title": "Short- and long-term effects of inhaled lavender essential oil on anxiety, fatigue, blood pressure, and sleep quality in middle-aged adults with hypertension: A randomized placebo-controlled pilot study.",
+      "journal": "Complementary therapies in medicine",
+      "pub_date": "2025 Dec",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 13
+    },
+    {
+      "category": "stress_anxiety",
+      "pmid": "38036371",
+      "doi": "10.1016/j.explore.2023.11.008",
+      "title": "The effect of the hand massage using baby oil with lavender application on the procedural pain and state anxiety of women undergoing brachytherapy: A parallel-group randomized controlled study.",
+      "journal": "Explore (New York, N.Y.)",
+      "pub_date": "2024 Jul-Aug",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((lavender[Title] OR chamomile[Title] OR rhodiola[Title] OR kava[Title]) AND (stress[Title] OR anxiety[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 13
+    },
+    {
+      "category": "gut",
+      "pmid": "42778035",
+      "doi": "10.1016/j.rmed.2026.109167",
+      "title": "The gut-lung axis in respiratory diseases: Mechanisms, microbiome dysbiosis, and therapeutic implications. A comprehensive review.",
+      "journal": "Respiratory medicine",
+      "pub_date": "2026 Sep 23",
+      "pub_type": "Review",
+      "query": "((probiotic[Title] OR prebiotic[Title] OR synbiotic[Title] OR microbiome[Title] OR psychobiotic[Title]) AND (IBS[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract] OR cognition[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 5
+    },
+    {
+      "category": "gut",
+      "pmid": "42795676",
+      "doi": "10.3390/microorganisms14092097",
+      "title": "Multidimensional Physiological and Gut Microbiome Profiling Identifies Subtle Physiological Patterns in an Apparently Healthy Aging Indian Cohort: A Cross-Sectional Observational Study.",
+      "journal": "Microorganisms",
+      "pub_date": "2026 Sep 19",
+      "pub_type": "Journal Article",
+      "query": "((probiotic[Title] OR prebiotic[Title] OR synbiotic[Title] OR microbiome[Title] OR psychobiotic[Title]) AND (IBS[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract] OR cognition[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 0
+    },
+    {
+      "category": "gut",
+      "pmid": "42777374",
+      "doi": "10.1016/j.psj.2026.107689",
+      "title": "Age-related succession of the gut microbiome drives ovarian function decline in laying hens.",
+      "journal": "Poultry science",
+      "pub_date": "2026 Aug 26",
+      "pub_type": "Journal Article",
+      "query": "((probiotic[Title] OR prebiotic[Title] OR synbiotic[Title] OR microbiome[Title] OR psychobiotic[Title]) AND (IBS[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract] OR cognition[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 0
+    },
+    {
+      "category": "gut",
+      "pmid": "42778553",
+      "doi": "10.1038/s41467-026-76763-2",
+      "title": "An atlas of colonization factors in the human gut microbiome reveals ecological strategies and inflammatory bowel disease signatures.",
+      "journal": "Nature communications",
+      "pub_date": "2026 Aug 25",
+      "pub_type": "Journal Article",
+      "query": "((probiotic[Title] OR prebiotic[Title] OR synbiotic[Title] OR microbiome[Title] OR psychobiotic[Title]) AND (IBS[Title/Abstract] OR \"irritable bowel\"[Title/Abstract] OR anxiety[Title/Abstract] OR depression[Title/Abstract] OR sleep[Title/Abstract] OR stress[Title/Abstract] OR cognition[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 0
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "40335666",
+      "doi": "10.1007/s00213-025-06775-1",
+      "title": "A systematic review and meta-analysis of the acute effect of caffeine on attention.",
+      "journal": "Psychopharmacology",
+      "pub_date": "2025 Sep",
+      "pub_type": "Meta-Analysis",
+      "query": "((creatine[Title] OR caffeine[Title] OR theanine[Title] OR citicoline[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title] OR cognitive[Title] OR memory[Title] OR attention[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 15
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "40581775",
+      "doi": "10.1080/15502783.2025.2526094",
+      "title": "Low-dose caffeine enhances cognitive processing but not physical performance in fatigued taekwondo athletes: a randomized crossover trial.",
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "pub_date": "2025 Dec",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((creatine[Title] OR caffeine[Title] OR theanine[Title] OR citicoline[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title] OR cognitive[Title] OR memory[Title] OR attention[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 13
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "40670616",
+      "doi": "10.1038/s41598-025-11737-w",
+      "title": "Caffeine reduces accuracy in face recognition memory consolidation.",
+      "journal": "Scientific reports",
+      "pub_date": "2025 Jul 16",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((creatine[Title] OR caffeine[Title] OR theanine[Title] OR citicoline[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title] OR cognitive[Title] OR memory[Title] OR attention[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 10
+    },
+    {
+      "category": "cognition_focus",
+      "pmid": "39948152",
+      "doi": "10.1038/s41598-025-89680-z",
+      "title": "Effects of taurine combined with caffeine on repetitive sprint exercise performance and cognition in a hypoxic environment.",
+      "journal": "Scientific reports",
+      "pub_date": "2025 Feb 13",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((creatine[Title] OR caffeine[Title] OR theanine[Title] OR citicoline[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title]) AND (cognition[Title] OR cognitive[Title] OR memory[Title] OR attention[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 10
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42100315",
+      "doi": "10.3389/fphar.2026.1712401",
+      "title": "The efficacy and safety of ginseng berry saponin for heart failure: a systematic review and meta-analysis.",
+      "journal": "Frontiers in pharmacology",
+      "pub_date": "2026",
+      "pub_type": "Systematic Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 19
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42317874",
+      "doi": "10.3389/fnut.2026.1748861",
+      "title": "Nutritional supplementation with Panax ginseng extract and bone health in osteoporotic animal models: a systematic review and meta-analysis.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Systematic Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 19
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42719408",
+      "doi": "10.1016/j.jgr.2026.100975",
+      "title": "Ginseng polysaccharides: Structures-based classification and biological activities-A review.",
+      "journal": "Journal of ginseng research",
+      "pub_date": "2026 Sep",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 5
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41921254",
+      "doi": "10.1016/j.nutres.2026.03.002",
+      "title": "Ginseng in exercise training and injury recovery: Composition, mechanism of action, dosage recommendations, and safety analysis.",
+      "journal": "Nutrition research (New York, N.Y.)",
+      "pub_date": "2026 May",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 5
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "42160897",
+      "doi": "10.1016/j.phymed.2026.158313",
+      "title": "Preclinical investigation and clinical trials of Red ginseng as an immunomodulator: a narrative review from 2015 to 2025.",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "pub_date": "2026 Jul 25",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 5
+    },
+    {
+      "category": "botanicals_mushrooms",
+      "pmid": "41936838",
+      "doi": "10.1016/j.jep.2026.121627",
+      "title": "Research progress from traditional medicine to chemical composition, pharmacological activity, and clinical application of Rhodiola crenulata.",
+      "journal": "Journal of ethnopharmacology",
+      "pub_date": "2026 Jul 15",
+      "pub_type": "Review",
+      "query": "((ashwagandha[Title] OR \"Withania somnifera\"[Title] OR rhodiola[Title] OR ginseng[Title] OR bacopa[Title] OR \"Hericium erinaceus\"[Title] OR \"lion's mane\"[Title]) AND (randomized[Title/Abstract] OR randomised[Title/Abstract] OR clinical[Title/Abstract] OR systematic[Title/Abstract] OR meta-analysis[Title/Abstract] OR safety[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 5
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42033722",
+      "doi": "10.1001/jama.2026.5782",
+      "title": "Symptom-Based Dosing for Neonatal Opioid Withdrawal: The OPTimize NOW Randomized Clinical Trial.",
+      "journal": "JAMA",
+      "pub_date": "2026 Jun 23",
+      "pub_type": "Randomized Controlled Trial",
+      "query": "((kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title]) OR (\"opioid withdrawal\"[Title] AND (treatment[Title/Abstract] OR management[Title/Abstract] OR syndrome[Title/Abstract])) OR (\"benzodiazepine withdrawal\"[Title] AND (treatment[Title/Abstract] OR management[Title/Abstract]))) AND 2015:2026[pdat] AND hasabstract[text]",
+      "repair_score": 13
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42109221",
+      "doi": "10.1097/ADM.0000000000001714",
+      "title": "The Economic Impact of Medetomidine on Critical Care Utilization: A Longitudinal Analysis of Intensive Care Unit Charges for Opioid Withdrawal Across the Adulterated Era.",
+      "journal": "Journal of addiction medicine",
+      "pub_date": "2026 Sep-Oct 01",
+      "pub_type": "Journal Article",
+      "query": "((kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title]) OR (\"opioid withdrawal\"[Title] AND (treatment[Title/Abstract] OR management[Title/Abstract] OR syndrome[Title/Abstract])) OR (\"benzodiazepine withdrawal\"[Title] AND (treatment[Title/Abstract] OR management[Title/Abstract]))) AND 2015:2026[pdat] AND hasabstract[text]",
+      "repair_score": 0
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42109154",
+      "doi": "10.1111/cup.70126",
+      "title": "Photodistributed Hyperpigmentation in a Chronic Kratom User: Histologic and Elemental Characterization.",
+      "journal": "Journal of cutaneous pathology",
+      "pub_date": "2026 Oct",
+      "pub_type": "Journal Article",
+      "query": "((kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title]) OR (\"opioid withdrawal\"[Title] AND (treatment[Title/Abstract] OR management[Title/Abstract] OR syndrome[Title/Abstract])) OR (\"benzodiazepine withdrawal\"[Title] AND (treatment[Title/Abstract] OR management[Title/Abstract]))) AND 2015:2026[pdat] AND hasabstract[text]",
+      "repair_score": 0
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42146457",
+      "doi": "10.64898/2026.05.01.722234",
+      "title": "Interactomics-driven discovery of alkaloid biosynthetic pathways in kratom.",
+      "journal": "bioRxiv : the preprint server for biology",
+      "pub_date": "2026 May 5",
+      "pub_type": "Preprint",
+      "query": "((kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title]) OR (\"opioid withdrawal\"[Title] AND (treatment[Title/Abstract] OR management[Title/Abstract] OR syndrome[Title/Abstract])) OR (\"benzodiazepine withdrawal\"[Title] AND (treatment[Title/Abstract] OR management[Title/Abstract]))) AND 2015:2026[pdat] AND hasabstract[text]",
+      "repair_score": 0
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42113179",
+      "doi": "10.1037/pha0000850",
+      "title": "Feasibility data from a novel laboratory model of spontaneous opioid withdrawal.",
+      "journal": "Experimental and clinical psychopharmacology",
+      "pub_date": "2026 May 11",
+      "pub_type": "Journal Article",
+      "query": "((kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title]) OR (\"opioid withdrawal\"[Title] AND (treatment[Title/Abstract] OR management[Title/Abstract] OR syndrome[Title/Abstract])) OR (\"benzodiazepine withdrawal\"[Title] AND (treatment[Title/Abstract] OR management[Title/Abstract]))) AND 2015:2026[pdat] AND hasabstract[text]",
+      "repair_score": 0
+    },
+    {
+      "category": "withdrawal_nps",
+      "pmid": "42108728",
+      "doi": "10.1111/cts.70581",
+      "title": "A Scoping Review of Non-Opioid Therapeutics for Opioid Withdrawal: Translational Relevance to Neonatal Opioid Withdrawal Syndrome (NOWS) Research.",
+      "journal": "Clinical and translational science",
+      "pub_date": "2026 May",
+      "pub_type": "Research Support, N.I.H., Extramural",
+      "query": "((kratom[Title] OR mitragynine[Title] OR \"7-hydroxymitragynine\"[Title] OR tianeptine[Title] OR phenibut[Title]) OR (\"opioid withdrawal\"[Title] AND (treatment[Title/Abstract] OR management[Title/Abstract] OR syndrome[Title/Abstract])) OR (\"benzodiazepine withdrawal\"[Title] AND (treatment[Title/Abstract] OR management[Title/Abstract]))) AND 2015:2026[pdat] AND hasabstract[text]",
+      "repair_score": 0
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42410653",
+      "doi": "10.1002/mgg3.70221",
+      "title": "COQ2-Associated Primary Coenzyme Q10 Deficiency Presenting With Proteinuria: A Case Report and Literature Review.",
+      "journal": "Molecular genetics & genomic medicine",
+      "pub_date": "2026 Jul",
+      "pub_type": "Systematic Review",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 16
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42476091",
+      "doi": "10.1016/j.jns.2026.126095",
+      "title": "Riboflavin therapy in complex I deficiency: Two new cases of leukoencephalopathy and a systematic literature review.",
+      "journal": "Journal of the neurological sciences",
+      "pub_date": "2026 Oct 15",
+      "pub_type": "Case Reports",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 4
+    },
+    {
+      "category": "mitochondrial_energy",
+      "pmid": "42422396",
+      "doi": "10.5114/biolsport.2026.157992",
+      "title": "Are three recovery days enough? Elevated match day creatine kinase levels under congested schedules in youth soccer.",
+      "journal": "Biology of sport",
+      "pub_date": "2026 Jan",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"coenzyme Q10\"[Title] OR CoQ10[Title] OR carnitine[Title] OR riboflavin[Title] OR nicotinamide[Title] OR \"alpha lipoic acid\"[Title]) AND (mitochondrial[Title/Abstract] OR fatigue[Title/Abstract] OR energy[Title/Abstract] OR exercise[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 0
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42805644",
+      "doi": "10.1136/bmjopen-2026-122579",
+      "title": "Primary prevention of maternal anaemia to prevent preterm delivery and other adverse outcomes (PANDA): a protocol for a double-blind placebo-controlled randomised trial of a daily iron supplement during pregnancy.",
+      "journal": "BMJ open",
+      "pub_date": "2026 Sep 28",
+      "pub_type": "Clinical Trial Protocol",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 11
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42796945",
+      "doi": "10.3390/nu18182962",
+      "title": "Vitamin D Status and Response to Calcifediol Supplementation in Term and Preterm Infants with Cholestasis.",
+      "journal": "Nutrients",
+      "pub_date": "2026 Sep 9",
+      "pub_type": "Observational Study",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 6
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42796989",
+      "doi": "10.3390/nu18183006",
+      "title": "Retinal and Choroidal Vascular Changes Associated with Vitamin D Deficiency.",
+      "journal": "Nutrients",
+      "pub_date": "2026 Sep 14",
+      "pub_type": "Review",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 5
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42796307",
+      "doi": "10.3390/medicina62091700",
+      "title": "Ferric Carboxymaltose Therapy Improves the Index of Cardiac Electrophysiological Balance in Iron-Deficient Heart Failure with Reduced Ejection Fraction.",
+      "journal": "Medicina (Kaunas, Lithuania)",
+      "pub_date": "2026 Sep 4",
+      "pub_type": "Journal Article",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 0
+    },
+    {
+      "category": "micronutrients",
+      "pmid": "42803611",
+      "doi": "10.1097/BPO.0000000000003492",
+      "title": "Vitamin D Status, Supplementation and Radiographic Healing in Pediatric Both-Bone Forearm Fractures: A Prospective Controlled Study.",
+      "journal": "Journal of pediatric orthopedics",
+      "pub_date": "2026 Sep 28",
+      "pub_type": "Journal Article",
+      "query": "((magnesium[Title] OR zinc[Title] OR \"vitamin D\"[Title] OR cobalamin[Title] OR \"vitamin B12\"[Title] OR folate[Title] OR iron[Title] OR selenium[Title] OR iodine[Title]) AND (deficiency[Title/Abstract] OR supplementation[Title/Abstract] OR cognition[Title/Abstract] OR fatigue[Title/Abstract] OR mood[Title/Abstract] OR sleep[Title/Abstract])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 0
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42130343",
+      "doi": "10.1111/obr.70158",
+      "title": "Effect of Probiotic and Symbiotic Supplementation on Lipid Parameters in Individuals With Overweight and Obesity: A Systematic Review and Meta-Analysis.",
+      "journal": "Obesity reviews : an official journal of the International Association for the Study of Obesity",
+      "pub_date": "2026 May 14",
+      "pub_type": "Review",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 8
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42106160",
+      "doi": "10.1016/j.advnut.2026.100647",
+      "title": "Dietary Fiber and Glucagon-Like Peptide-1 Receptor Agonists in Obesity Management: Converging Mechanisms, Interactions, and Strategies for Durable Weight Control.",
+      "journal": "Advances in nutrition (Bethesda, Md.)",
+      "pub_date": "2026 Jun",
+      "pub_type": "Review",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 5
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42221763",
+      "doi": "10.3389/fnut.2026.1819082",
+      "title": "Nutritional redox reprogramming in cardiometabolic diseases: alpha-lipoic acid, urolithin A, and ergothioneine as modulators of the ferroptosis-mitophagy axis and mitochondrial metabolic remodeling.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Review",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 5
+    },
+    {
+      "category": "metabolic",
+      "pmid": "42116047",
+      "doi": "10.1186/s12986-026-01124-1",
+      "title": "Probiotic Bifidobacterium bifidum BGN4 supplementation modulates gut microbiome composition and reduces circulating zonulin, TNFα, and insulin in adults with excess adiposity: a randomized, double-blind, placebo-controlled trial.",
+      "journal": "Nutrition & metabolism",
+      "pub_date": "2026 May 11",
+      "pub_type": "Journal Article",
+      "query": "((berberine[Title] OR inositol[Title] OR chromium[Title] OR \"alpha lipoic acid\"[Title] OR fiber[Title] OR probiotic[Title]) AND (glucose[Title] OR insulin[Title] OR metabolic[Title] OR PCOS[Title] OR obesity[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 3
+    },
+    {
+      "category": "performance",
+      "pmid": "42490897",
+      "doi": "10.3389/fnut.2026.1884686",
+      "title": "Acute caffeine supplementation in rugby players: a systematic review and meta-analysis of physical performance, sport-specific performance, perceptual responses, and physiological markers.",
+      "journal": "Frontiers in nutrition",
+      "pub_date": "2026",
+      "pub_type": "Systematic Review",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 19
+    },
+    {
+      "category": "performance",
+      "pmid": "42326997",
+      "doi": "10.3389/fphys.2026.1875283",
+      "title": "Caffeine, skeletal muscle signalling, and exercise adaptation: a narrative review separating acute ergogenic effects from chronic remodelling.",
+      "journal": "Frontiers in physiology",
+      "pub_date": "2026",
+      "pub_type": "Systematic Review",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 16
+    },
+    {
+      "category": "performance",
+      "pmid": "42549650",
+      "doi": "10.1039/d6cc02642g",
+      "title": "Electrocatalytic nitrate reduction to ammonia: bimetallic-site catalysts, mechanistic insights, and performance optimization.",
+      "journal": "Chemical communications (Cambridge, England)",
+      "pub_date": "2026 Aug 25",
+      "pub_type": "Review",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 5
+    },
+    {
+      "category": "performance",
+      "pmid": "42438967",
+      "doi": "10.1002/anie.9522099",
+      "title": "Nonmetallic Si Doping Constructs Cu(2)O/Co-O-Si Tandem Sites for Neutral Nitrate Reduction Electrocatalysis Toward Ammonia Recovery and Energy-Integrated Applications.",
+      "journal": "Angewandte Chemie (International ed. in English)",
+      "pub_date": "2026 Sep 14",
+      "pub_type": "Journal Article",
+      "query": "((creatine[Title] OR \"beta-alanine\"[Title] OR caffeine[Title] OR beetroot[Title] OR nitrate[Title] OR citrulline[Title]) AND (exercise[Title] OR performance[Title] OR strength[Title] OR endurance[Title] OR recovery[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 0
+    },
+    {
+      "category": "sleep",
+      "pmid": "41901097",
+      "doi": "10.3390/nu18060922",
+      "title": "CherryZZZ: A Protocol for a Randomized, Double-Blind, Placebo-Controlled, Cross-Over Pilot Study Testing Tart Cherry Juice in Older Adults with Self-Reported Insomnia.",
+      "journal": "Nutrients",
+      "pub_date": "2026 Mar 14",
+      "pub_type": "Clinical Trial Protocol",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 11
+    },
+    {
+      "category": "sleep",
+      "pmid": "41806479",
+      "doi": "10.1177/10998004261433563",
+      "title": "The Effect of a Race-Based Stress Reduction Intervention on Sleep Quality, Melatonin Onset, and Inflammation in African American Women: Protocol for a Pilot Randomized Controlled Trial.",
+      "journal": "Biological research for nursing",
+      "pub_date": "2026 Jul",
+      "pub_type": "Clinical Trial Protocol",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 11
+    },
+    {
+      "category": "sleep",
+      "pmid": "41814853",
+      "doi": "10.14814/phy2.70805",
+      "title": "Sleep quality and sleepiness in adults with multiple myeloma. Is melatonin a potential treatment?",
+      "journal": "Physiological reports",
+      "pub_date": "2026 Mar",
+      "pub_type": "Observational Study",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 6
+    },
+    {
+      "category": "sleep",
+      "pmid": "42058225",
+      "doi": "10.1002/fsn3.71823",
+      "title": "Effectiveness of Melatonin-Containing Foods on Promoting Sleep: A Scoping Review.",
+      "journal": "Food science & nutrition",
+      "pub_date": "2026 May",
+      "pub_type": "Review",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 5
+    },
+    {
+      "category": "sleep",
+      "pmid": "41915304",
+      "doi": "10.1007/s12035-026-05824-w",
+      "title": "Hydrogen as a Potential Modulator: Implications for Mast Cell-Sleep-Wake Rhythm-Melatonin Interactions in Sleep Disorders.",
+      "journal": "Molecular neurobiology",
+      "pub_date": "2026 Mar 31",
+      "pub_type": "Review",
+      "query": "((melatonin[Title] OR magnesium[Title] OR glycine[Title] OR theanine[Title] OR valerian[Title] OR \"tart cherry\"[Title] OR saffron[Title]) AND (sleep[Title] OR insomnia[Title] OR circadian[Title])) AND 2018:2026[pdat] AND hasabstract[text]",
+      "repair_score": 5
+    }
+  ]
+}

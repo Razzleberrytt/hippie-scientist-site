@@ -237,6 +237,11 @@ const RESEARCH_ARTICLES: GuideCard[] = [
     desc: 'Direct insomnia PSG evidence, the older tea trial and the newer standardized-extract RCT separated by endpoint and formulation.',
   },
   {
+    href: '/articles/valerian-root/',
+    title: 'Valerian Root for Sleep',
+    desc: 'The 2024 umbrella review, preparation-specific positive trials, objective-sleep findings, dose uncertainty, and why class-wide insomnia efficacy remains unestablished.',
+  },
+  {
     href: '/articles/lemon-balm-for-sleep/',
     title: 'Lemon Balm for Sleep',
     desc: 'Newer standardized-extract RCTs look promising, while combination trials and formulation differences keep the verdict cautious.',

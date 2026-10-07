@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-04-enrichment-waves-2101-2125-selection",
+  "continuation_of": "2026-10-04-enrichment-waves-2076-2100-selection",
+  "program": {
+    "range": "2001-2500",
+    "pass_size": 25,
+    "target_findings": 500,
+    "progress_after_pass": 125,
+    "merge_policy": "accumulate twenty 25-finding passes; consolidate, admit, validate, and merge once after Wave 2500"
+  },
+  "source_provenance": [
+    "NCBI PubMed ESearch + exact EFetch abstract verification",
+    "cumulative PMID collision index through Wave 2000"
+  ],
+  "policy": {
+    "entity_creation": "forbidden",
+    "governance_override": "forbidden",
+    "publication_promotion": "forbidden until Wave 2500 consolidation",
+    "recommendation_promotion": "forbidden",
+    "dose_inference": "forbidden",
+    "preserve_null_mixed_safety": true,
+    "formulation_firewall": true,
+    "category_firewall": true,
+    "source_identity_integrity": true,
+    "correction_provenance": true,
+    "validation_strategy": "PMID-level dedupe and exact abstract verification during authoring; expensive repository-wide validation only after Wave 2500"
+  },
+  "waves": [
+    {
+      "wave": 2101,
+      "entity_slug": "probiotic-supplementation-glycemic-control-children-type-1",
+      "pmid": "42050902",
+      "focus": "Meta-analysis on effects of probiotic supplementation on glycemic control in children with type reports No publication bias was detected. ConclusionProbiotic supplementation, particularly specific formulations, may reduce glycated hemoglobin levels and insulin needs in children with type 1 diabetes. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2102,
+      "entity_slug": "intravenous-iron-perioperative-anemia-recent-advances-practical",
+      "pmid": "42054163",
+      "focus": "Review on intravenous iron for perioperative anemia: recent advances, practical considerations, and future reports Postoperative iron supplementation may support recovery from anemia, although evidence for patient-centered outcomes remains limited. Perioperative iron therapy is an essential, evidence-based strategy to. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2103,
+      "entity_slug": "efficacy-safety-high-dose-vitamin-d-supplementation",
+      "pmid": "42054624",
+      "focus": "Randomized controlled trial on efficacy and safety of high-dose vitamin d supplementation combined with an reports High-dose VDS combined with EA was effective and well tolerated for treating PMNE in children with vitamin D insufficiency, supporting its potential as a. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2104,
+      "entity_slug": "one-patient-two-knees-no-difference-magnesium",
+      "pmid": "42055224",
+      "focus": "Randomized controlled trial on one patient, two knees, no difference: magnesium sulfate fails to improve reports In this paired, within-patient randomized study, MgSO4 in an intra-articular cocktail after simultaneous bilateral TKA conferred little to no additional analgesic benefit and did. Evidence boundary: the finding is limited to the studied population, intervention, duration, and endpoints.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2105,
+      "entity_slug": "prospective-randomized-double-blind-placebo-controlled-multicenter",
+      "pmid": "42059045",
+      "focus": "Randomized controlled trial on a prospective, randomized, double-blind, placebo-controlled, multicenter study of thiamin plus folic reports 001). The study concludes that combined thiamin and folic acid supplementation improves cognitive function in MHD patients with a favorable safety profile. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2106,
+      "entity_slug": "vitamin-d-supplementation-prevent-post-thyroidectomy-hypocalcemia",
+      "pmid": "42059053",
+      "focus": "Observational study on vitamin d supplementation to prevent post-thyroidectomy hypocalcemia reports Although larger randomized trials are needed to confirm these observations, preoperative vitamin D3 was associated with a significant reduction in post-thyroidectomy hypocalcemia in this. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2107,
+      "entity_slug": "differential-caffeine-acute-aerobic-exercise-placebo-mental",
+      "pmid": "42060683",
+      "focus": "Randomized controlled trial on differential effects of caffeine, acute aerobic exercise, and placebo on mental reports 499). Further investigations are warranted to explore the potential of varying exercise intensities and durations in mitigating mental fatigue. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2108,
+      "entity_slug": "nutraceutical-market-india-thoughts-right-based-regulatory",
+      "pmid": "42060803",
+      "focus": "Review on nutraceutical market in india: thoughts on a right-based regulatory approach reports This article critically analyses the current regulatory framework for nutraceuticals in India and also makes a comparative analysis of the regulation of nutraceuticals in. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2109,
+      "entity_slug": "speciation-selenium-through-chromatography-atomic-techniques",
+      "pmid": "42061177",
+      "focus": "Review on speciation of selenium through chromatography with atomic techniques reports This review indicates that significant challenges remain due to low analyte concentrations, the risk of interconversion between species, and the emergence of new demands. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2110,
+      "entity_slug": "short-chain-fatty-acid-producing-probiotics-effective",
+      "pmid": "42061662",
+      "focus": "Review on short-chain fatty acid-producing probiotics: an effective approach for modulating gut dysbiosis reports In this review, we compile cutting-edge discoveries on probiotic-derived SCFAs, highlighting their mechanisms associated with their prophylactic and therapeutic potential and their impact across. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2111,
+      "entity_slug": "improved-iron-status-but-not-protein-source",
+      "pmid": "42061720",
+      "focus": "Randomized controlled trial on improved iron status, but not protein source, is related to appetite reports These findings indicate that improvements in iron status, but not differences in protein source, affect appetite, satiety, and mood in WRA with ID. This. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2112,
+      "entity_slug": "enteral-iron-supplementation",
+      "pmid": "42062100",
+      "focus": "Review on enteral iron supplementation reports Iron also plays a critical role in brain development, and iron deficiency can be described on a spectrum, from mild to severe. The role. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2113,
+      "entity_slug": "selenium-from-redox-signaling-interactions-gut-microbiome",
+      "pmid": "42062664",
+      "focus": "Review on selenium: from redox signaling to interactions with the gut microbiome reports It highlights the potential role of this element in the prevention and treatment of gastrointestinal diseases. Future research should focus on further understanding these. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2114,
+      "entity_slug": "melatonin-integrative-oncology-biological-mechanisms-therapeutic-evidence",
+      "pmid": "42065061",
+      "focus": "Review on melatonin in integrative oncology: biological mechanisms, therapeutic evidence and implementation strategies reports At the organizational and system levels, successful integration of melatonin into oncology practice requires interdisciplinary collaboration, standardized protocols, clinician awareness, regulatory clarity, and evidence-based. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_cross_entity_safety"
+    },
+    {
+      "wave": 2115,
+      "entity_slug": "child-cobalamin-c-deficiency-caused-by-complex",
+      "pmid": "42065149",
+      "focus": "Review on a child with cobalamin c deficiency caused by complex heterozygous variation reports This report highlights the diverse clinical manifestations of cblC deficiency based on specific methylmalonic aciduria cobalamin deficiency type C with homocystinuria mutations. A review. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2116,
+      "entity_slug": "curcumin-delivery-systems-from-importance-microencapsulation-techniques",
+      "pmid": "42065846",
+      "focus": "Review on curcumin delivery systems: from importance and microencapsulation techniques to molecular docking reports Additionally, recent progress in molecular docking and molecular dynamics simulations is discussed to emphasize their growing role in helping choose carriers and design formulations. Evidence boundary: the result is formulation-specific and should not be generalized across products.",
+      "state": "research_only_formulation_firewall"
+    },
+    {
+      "wave": 2117,
+      "entity_slug": "multi-ancestry-genome-wide-association-study-serum",
+      "pmid": "42066438",
+      "focus": "Meta-analysis on multi-ancestry genome-wide association study of serum creatine kinase implicates myopathy genes reports These findings delineate the genetic architecture of serum CK across diverse populations and highlight muscle-related pathways contributing to CK variation. No funding was received. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2118,
+      "entity_slug": "fecal-iron-quantification-randomized-controlled-trial-lactiplantibacillus",
+      "pmid": "42066676",
+      "focus": "Randomized controlled trial on fecal iron quantification in a randomized controlled trial of lactiplantibacillus plantarum reports Fecal iron quantification by AAS was valid and feasibly implemented in a trial of neonatal administration of L. plantarum ATCC 202195. However, the assay. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    },
+    {
+      "wave": 2119,
+      "entity_slug": "calcium-supplementation-pregnancy-maternal-anemia-iron-status",
+      "pmid": "42067065",
+      "focus": "Randomized controlled trial on effect of calcium supplementation in pregnancy on maternal anemia and iron reports Low- and high-dose calcium supplementation showed no differences in third-trimester hematologic outcomes. Future studies should assess the effects of coadministering or combining calcium and. Evidence boundary: the finding is limited to the studied population, intervention, duration, and endpoints.",
+      "state": "reviewed_receipt_pending_final_admission"
+    },
+    {
+      "wave": 2120,
+      "entity_slug": "code-lavender-recognizing-responding-emotional-crises-among",
+      "pmid": "42067246",
+      "focus": "Review on code lavender: recognizing and responding to emotional crises among nurses reports Code Lavender (CL) is an emotional crisis intervention designed to support health care staff during or after stressful incidents. King Faisal Specialist Hospital and. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2121,
+      "entity_slug": "preclinical-clinical-evidence-efficacy-cytotoxicity-curcumin-curcumin",
+      "pmid": "42067395",
+      "focus": "Systematic review on preclinical and clinical evidence on the efficacy and cytotoxicity of curcumin reports Preclinical evidence supports the potential role of CUR and its derivatives, adjuvant or stand-alone therapeutic agents, for CML management. More comprehensive clinical trials are. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2122,
+      "entity_slug": "zinc-as-master-regulator-intracellular-organelle-homeostasis",
+      "pmid": "42067618",
+      "focus": "Review on zinc as a master regulator of intracellular organelle homeostasis reports We further examine emerging therapeutic strategies aimed at restoring zinc homeostasis, including supplementation and bioengineered, organelle-targeted delivery systems, as well as advanced tools for. Evidence boundary: the claim should remain limited to this source and studied context.",
+      "state": "research_only_evidence_quality"
+    },
+    {
+      "wave": 2123,
+      "entity_slug": "ashwagandha-supplementation-athletic-performance-recovery-narrative-review",
+      "pmid": "42068281",
+      "focus": "Review on effects of ashwagandha supplementation on athletic performance and recovery: a narrative reports Conclusion: Ashwagandha has been found to be safe and effective in a natural supplementary capacity in sports and athletics. The correct dosage and application. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2124,
+      "entity_slug": "iron-dysregulation-across-schizophrenia-lifespan-systematic-review",
+      "pmid": "42068734",
+      "focus": "Systematic review on iron dysregulation across the schizophrenia lifespan: a systematic review from prenatal reports Absolute iron depletion and inflammation-driven functional iron restriction represent biologically distinct states that share reduced circulating iron but arise from different mechanisms. Stratifying schizophrenia. Evidence boundary: combined or adjunctive exposure limits ingredient-specific attribution.",
+      "state": "research_only_combination_firewall"
+    },
+    {
+      "wave": 2125,
+      "entity_slug": "probiotics-combat-sarcopenia-by-restoring-gut-integrity",
+      "pmid": "42068795",
+      "focus": "Randomized controlled trial on probiotics combat sarcopenia by restoring gut integrity in alzheimer's disease reports Collectively, probiotics improve HGS and physical capacity by strengthening the intestinal barrier and reducing systemic inflammation and oxidative stress. Further studies should investigate the. Evidence boundary: the observational design cannot establish causality.",
+      "state": "research_only_observational"
+    }
+  ]
+}
