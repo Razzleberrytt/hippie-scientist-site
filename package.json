@@ -245,7 +245,10 @@
     "report:pending-patches": "node scripts/ci/report-pending-patches.mjs",
     "status:agent-patches": "node scripts/ci/agent-patches-status.mjs",
     "enrich:duplicates": "node scripts/enrichment-pipeline/cli.mjs duplicates",
-    "validate:toml-security-floor": "node scripts/ci/validate-toml-security-floor.mjs"
+    "validate:toml-security-floor": "node scripts/ci/validate-toml-security-floor.mjs",
+    "social:local:prepare": "node scripts/distribution/local-social-production.mjs prepare",
+    "social:local:finalize": "node scripts/distribution/local-social-production.mjs finalize",
+    "social:local:status": "node scripts/distribution/local-social-production.mjs status"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "5.2.9",
