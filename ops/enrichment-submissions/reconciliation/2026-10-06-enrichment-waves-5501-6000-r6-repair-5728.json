@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000-r6",
+  "row": {
+    "wave": 5728,
+    "category": "micronutrients",
+    "old_pmid": "42827970",
+    "old_title": "Patient-reported symptom profiles in vitamin B(12) deficiency and pernicious anemia: a cross-sectional study using latent class analysis.",
+    "pmid": "33331474",
+    "doi": "10.1590/S0004-2803.202000000-75",
+    "title": "CASE-CONTROL STUDY ON VITAMIN D STATUS IN CHILDREN AND ADOLESCENTS WITH EOSINOPHILIC ESOPHAGITIS.",
+    "journal": "Arquivos de gastroenterologia",
+    "pub_date": "2020",
+    "abstract": "Vitamin D is an essential fat-soluble steroid hormone and vitamin D deficiency is a global public health problem especially among children and adolescents. Factors such as the low intake of vitamin D-rich food sources, poor absorption and less exposure to the sun influence this outcome. Vitamin D has an anti-inflammatory effect in the body by promoting regulatory T cell differentiation as well as recovering T helper 17 cell response and secretion of anti-inflammatory cytokines. Eosinophilic esophagitis (EoE) is a chronic disease, histologically characterized by predominantly eosinophilic inflammation. The most common therapeutic approaches are allergen-eliminating diets, such as excluding cow's milk, egg, soy, wheat, peanuts and seafood, or more specific dietary restrictions. To verify the serum levels of vitamin D in children and adolescents with eosinophilic esophagitis on a restricted food diet and to analyze their association with nutritional status, consumption of different food sources, exposure to the sun and skin color. Case-control study conducted in the city of Campinas-SP, Brazil, in which included patients were aged 2 to 18 years old, and those diagnosed with eosinophilic esophagitis was referred to as the case group (n=15), meanwhile a control group (n=17) was also formed. Epidemiological data, nutritional status, data on vitamin D intake (24-hour recall - performed only by EoE patients - and self-reported intake of vitamin D food sources: milk and dairy products, canned tuna and sardines, Bull's liver, chicken eggs - applied in both groups), and daily time of sun exposure (≥30 min or ≤30 min) were recorded. The samples were collected for serum levels of 25-hydroxy-vitamin D, where sufficiency levels >30 ng/mL were considered, insufficiency 21 to 30 ng/mL, deficiency <20 ng/mL. There was a higher frequency of vitamin D insufficiency/ deficiency in the Eosinophilic Esophagitis group (P=0.035), even with longer sun exposure (P= 0.035). Skin color was not associated with lower levels of vitamin D in both groups studied. No difference was found in nutritional status between the groups. The present study demonstrated a higher frequency of inadequate/ deficient levels of vitamin D in children and adolescents with EoE on a restricted diet. When necessary, serum levels should be investigated and correct exposure to the sun should be encouraged, with special attention to the recommended guidelines, time spent in the sun and the appropriate clothing for correct absorption. Since exposure for more than 30 minutes in the sun does not appear to have provided a protective effect in the EoE group, even in a region with high levels of solar radiation. There was a significant difference only in the consumption of cow's milk between the case and control groups, demonstrating the low adherence to the restriction diet by the case group. No association was found between serum 25 hydroxyvitamin D levels and nutritional status. Moreover, no association regarding the adequate or inadequate status of 25 hydroxyvitamin D and the consumption vitamin D-rich foods was identified. Multicentered studies with a larger number of cases should be performed to assess serum 25 hydroxyvitamin D levels and associated factors in pediatric patients with EoE.",
+    "abstract_verified": true,
+    "exact_title_verified": true,
+    "full_text_link": null,
+    "pdf_link": "https://doi.org/10.1590/S0004-2803.202000000-75",
+    "source": "NCBI PubMed exact retrieval via Sider Scholar",
+    "state": "research_only_exact_verified_pending_relevance"
+  }
+}

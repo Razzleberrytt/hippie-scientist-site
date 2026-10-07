@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000-r6",
+  "row_count": 500,
+  "failure_count": 32,
+  "category_counts": {
+    "stress_anxiety": 3,
+    "sleep": 2,
+    "withdrawal_nps": 1,
+    "cardiometabolic": 6,
+    "aging_sarcopenia": 1,
+    "cognition_focus": 1,
+    "mood": 1,
+    "inflammation_pain": 2,
+    "metabolic": 2,
+    "botanicals_mushrooms": 3,
+    "cannabinoid_safety": 2,
+    "mitochondrial_energy": 1,
+    "immune_respiratory": 7
+  },
+  "status": "repair_required",
+  "failures": [
+    {
+      "wave": 5509,
+      "category": "stress_anxiety",
+      "pmid": "39654923",
+      "title": "Study on the mechanism of grain size and residual stress coupling distribution on the intergranular corrosion susceptibility of AZ31B magnesium alloy.",
+      "reason": "hard_off_domain"
+    },
+    {
+      "wave": 5526,
+      "category": "stress_anxiety",
+      "pmid": "40508586",
+      "title": "Effects of Forging Temperature and Micro-Arc Coatings on the Static/Stress Corrosion Resistance of AZ80 Magnesium Alloy.",
+      "reason": "hard_off_domain"
+    },
+    {
+      "wave": 5533,
+      "category": "stress_anxiety",
+      "pmid": "41186791",
+      "title": "Effect of dietary additives based on essential oils of Lemongrass and Chamomile on the zootechnical performance and physiological stress response of European seabass (Dicentrarchus labrax) in aquaculture.",
+      "reason": "hard_off_domain"
+    },
+    {
+      "wave": 5563,
+      "category": "sleep",
+      "pmid": "41726293",
+      "title": "Association of sleep quality and urinary melatonin levels with endometrial cancer: A case control pilot study.",
+      "reason": "hard_off_domain"
+    },
+    {
+      "wave": 5565,
+      "category": "sleep",
+      "pmid": "41846526",
+      "title": "Nocturnal Melatonin Deficiency in Colorectal Cancer: Independent Predictive Value Beyond Sleep Quality.",
+      "reason": "hard_off_domain"
+    },
+    {
+      "wave": 5603,
+      "category": "withdrawal_nps",
+      "pmid": "42700339",
+      "title": "Disparities and burden of illness among hospitalized cancer patients with opioid dependence.",
+      "reason": "hard_off_domain"
+    },
+    {
+      "wave": 5622,
+      "category": "cardiometabolic",
+      "pmid": "42558607",
+      "title": "From Fish Waste to Stable Omega-3 Bioactive Lipids: Encapsulation Strategies and a Conceptual Framework for Antioxidant and Antimicrobial Functional Food Fortification.",
+      "reason": "category_semantic_trap"
+    },
+    {
+      "wave": 5629,
+      "category": "cardiometabolic",
+      "pmid": "42787526",
+      "title": "Potassium channels as an ionic checkpoint in tumor immunity.",
+      "reason": "category_semantic_trap"
+    },
+    {
+      "wave": 5630,
+      "category": "cardiometabolic",
+      "pmid": "42792223",
+      "title": "Oxidative Stability and Nanoencapsulation of Marine Omega-3 LC-PUFAs for Sustainable Aquaculture and Human Health.",
+      "reason": "hard_off_domain"
+    },
+    {
+      "wave": 5632,
+      "category": "cardiometabolic",
+      "pmid": "42550971",
+      "title": "Post-traumatic complex regional pain syndrome type 1: Risk factors and the potential clinical relevance of magnesium depletion score.",
+      "reason": "category_semantic_trap"
+    },
+    {
+      "wave": 5645,
+      "category": "cardiometabolic",
+      "pmid": "42657268",
+      "title": "Association of urinary sodium and potassium excretion with outcomes of neuroendocrine cancer.",
+      "reason": "category_semantic_trap"
+    },
+    {
+      "wave": 5650,
+      "category": "cardiometabolic",
+      "pmid": "42729988",
+      "title": "Impact of Total Protein and Triglycerides on the comparability of Sodium and Potassium Measurements by Direct and Indirect Ion-Selective Electrodes : An Experimental Analytical Study.",
+      "reason": "hard_off_domain"
+    },
+    {
+      "wave": 5710,
+      "category": "aging_sarcopenia",
+      "pmid": "42777454",
+      "title": "A potential new biomarker in lip cancer: Metastasis suppressor protein 1 (MTSS1).",
+      "reason": "hard_off_domain"
+    },
+    {
+      "wave": 5795,
+      "category": "cognition_focus",
+      "pmid": "42488209",
+      "title": "Bibliometric and visual analysis of omega-3 polyunsaturated fatty acids in cancer research (2000-2025).",
+      "reason": "category_semantic_trap"
+    },
+    {
+      "wave": 5844,
+      "category": "mood",
+      "pmid": "42787300",
+      "title": "Hypericin and hyperforin from St. John's Wort are potent intestinal UGT inhibitors with distinct binding modes: mechanistic and quantitative prediction of clinical drug-drug interaction risk.",
+      "reason": "category_title_miss"
+    },
+    {
+      "wave": 5853,
+      "category": "inflammation_pain",
+      "pmid": "42667193",
+      "title": "Association of Omega-3 PUFA Oral Nutritional Supplementation with Hematological and Nutritional Status in Discharged Malnourished GI Cancer Patients.",
+      "reason": "hard_off_domain"
+    },
+    {
+      "wave": 5854,
+      "category": "inflammation_pain",
+      "pmid": "42685494",
+      "title": "Omega-3 polyunsaturated fatty acids and epigallocatechin-3-gallate attenuate obesity-associated CD44-high stemness in colorectal cancer through modulation of Notch1, Wnt/β-catenin and PI3K/mTOR signaling.",
+      "reason": "hard_off_domain"
+    },
+    {
+      "wave": 5890,
+      "category": "metabolic",
+      "pmid": "42328126",
+      "title": "Dual Metabolic Inhibition by Berberine and Glutor Triggers AMPK/JNK-Dependent DNA Damage in Cancer Cells.",
+      "reason": "hard_off_domain"
+    },
+    {
+      "wave": 5895,
+      "category": "metabolic",
+      "pmid": "42373216",
+      "title": "Berberine hydrochloride induces apoptosis in triple-negative breast cancer cells through modulation of the sirtuin/p65 signalling axis.",
+      "reason": "hard_off_domain"
+    },
+    {
+      "wave": 5907,
+      "category": "botanicals_mushrooms",
+      "pmid": "42639578",
+      "title": "Cordyceps sinensis and Sonodynamic Therapy in Non-Small Cell Lung Cancer: Pharmacological Basis, Therapeutic Potential, and Future Directions.",
+      "reason": "hard_off_domain"
+    },
+    {
+      "wave": 5927,
+      "category": "botanicals_mushrooms",
+      "pmid": "42633843",
+      "title": "MicroRNA signatures in ginseng derived exosome-like vesicles reveal functional RNAs for anti-tumor activity.",
+      "reason": "hard_off_domain"
+    },
+    {
+      "wave": 5928,
+      "category": "botanicals_mushrooms",
+      "pmid": "42634094",
+      "title": "Ginseng-Containing Sijunzi Decoction Inhibits Colorectal Cancer Progression by Regulating MARCHF3-ALOX15-Mediated Ferroptosis.",
+      "reason": "hard_off_domain"
+    },
+    {
+      "wave": 5956,
+      "category": "cannabinoid_safety",
+      "pmid": "42643036",
+      "title": "Distinguishing Medical From Nonmedical Cannabis Use Among US Young Adult Cancer Survivors.",
+      "reason": "hard_off_domain"
+    },
+    {
+      "wave": 5959,
+      "category": "cannabinoid_safety",
+      "pmid": "42666469",
+      "title": "A comparative network analysis to explore cancer patient experiences with cannabis.",
+      "reason": "hard_off_domain"
+    },
+    {
+      "wave": 5961,
+      "category": "mitochondrial_energy",
+      "pmid": "42356373",
+      "title": "Curcumin, Coenzyme-Q10, and Bioactive Compounds in Ashwagandha Extract: Multi-Targeting Potential of Co-Administered Natural Health Compounds as Therapeutic and Preventative Interventions in Alzheimer's and Parkinson's Disease Models.",
+      "reason": "category_semantic_trap"
+    },
+    {
+      "wave": 5967,
+      "category": "immune_respiratory",
+      "pmid": "42617782",
+      "title": "Zinc-based nanoplatforms for cancer immunotherapy achieved through the cyclic GMP-AMP synthase-stimulator of interferon genes pathway: Bridging tumor metabolism and immune activation.",
+      "reason": "category_semantic_trap"
+    },
+    {
+      "wave": 5968,
+      "category": "immune_respiratory",
+      "pmid": "42645101",
+      "title": "Vitamin D and Intestinal Diseases: Impact on Intestinal Immunity and Gut Barrier Function.",
+      "reason": "category_semantic_trap"
+    },
+    {
+      "wave": 5969,
+      "category": "immune_respiratory",
+      "pmid": "42654284",
+      "title": "Vitamin C as a Potential Geroprotector: Interactions with Aging Hallmarks and Implications for Healthy Longevity.",
+      "reason": "category_semantic_trap"
+    },
+    {
+      "wave": 5970,
+      "category": "immune_respiratory",
+      "pmid": "42712808",
+      "title": "Therapeutic Potential of High Dose Vitamin C in Cancer: Mechanisms, Clinical Evidence and Future Directions.",
+      "reason": "category_semantic_trap"
+    },
+    {
+      "wave": 5976,
+      "category": "immune_respiratory",
+      "pmid": "42645478",
+      "title": "The Association Between Dental Implant and Bone Graft Failure and the Levels of Vitamin D and LDL Cholesterol: Retrospective Clinical Study.",
+      "reason": "category_semantic_trap"
+    },
+    {
+      "wave": 5995,
+      "category": "immune_respiratory",
+      "pmid": "42744271",
+      "title": "Engineering cellulose acetate microneedle coated with zinc-phenolic imidazolium poly(ionic liquids) for atopic dermatitis treatment.",
+      "reason": "category_semantic_trap"
+    },
+    {
+      "wave": 6000,
+      "category": "immune_respiratory",
+      "pmid": "42753582",
+      "title": "Manganese-doped zinc oxide Nano-agonists activating the cGAS-STING pathway to potentiate anti-tumor immunotherapy and reprogram the immunosuppressive tumor microenvironment.",
+      "reason": "category_semantic_trap"
+    }
+  ]
+}

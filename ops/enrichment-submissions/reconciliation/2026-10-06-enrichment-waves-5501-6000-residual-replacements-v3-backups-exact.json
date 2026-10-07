@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000",
+  "row_count": 2,
+  "rows": [
+    {
+      "wave": 5566,
+      "category": "withdrawal_nps",
+      "old_pmid": "42727882",
+      "old_title": "Transdermal buprenorphine in low-dose induction strategies for opioid use disorder: a case report and systematic review.",
+      "pmid": "42721136",
+      "title": "Vanderbilt Integrated Community TMS for Opioid Recovery (VICTORY): Study protocol for a randomized, controlled trial of non-invasive brain stimulation to reduce craving in people with opioid use disorder.",
+      "doi": "10.1371/journal.pone.0357402",
+      "journal": "PloS one",
+      "pub_date": "2026 Sep 10",
+      "pub_type": "Clinical Trial Protocol",
+      "abstract": "Individuals receiving buprenorphine treatment for opioid use disorder (OUD) remain at high risk for treatment discontinuation and return to opioid use. Transcranial magnetic stimulation (TMS) has shown efficacy in reducing craving and substance use in other substance use disorders, but its application in OUD remains limited and the neural mechanism underlying its therapeutic effects is poorly understood. Determining the feasibility and generalizability of TMS in patients receiving buprenorphine - the most commonly prescribed medication for OUD - is therefore critical. This protocol aims to address these issues in a clinical trial of weekly TMS sessions for OUD. We will enroll up to 120 individuals with OUD taking buprenorphine in a randomized, single-blind, sham-controlled trial of left dorsolateral prefrontal cortex (DLPFC)-targeted intermittent theta burst stimulation (iTBS). Participants will receive active or sham iTBS weekly (2 sessions of 1800 pulses each applied once per week x 8 weeks, 16 sessions total) with pre- and post-iTBS assessments (10, 12, 20 weeks) of craving, opioid use, and treatment retention. A subset of individuals will undergo optional pre- and post-iTBS neuroimaging. The study will be conducted at an academic medical center and a private outpatient TMS clinic. Our primary aim is to determine whether 16 sessions of active iTBS applied to the left DLPFC results in reduced craving and opioid use, and higher treatment retention, relative to sham. In a secondary aim, we will also examine whether iTBS-related changes in craving are associated with changes in functional connectivity between the left DLPFC and both the dorsal striatum and anterior cingulate cortex. By evaluating the feasibility and efficacy of a weekly TMS protocol that aligns with routine care and focuses on patients maintained on buprenorphine, this study addresses key limitations of prior TMS research in OUD. Furthermore, the inclusion of neuroimaging will help characterize the neural mechanisms underlying TMS-related changes in craving. This clinical trial is registered at ClinicalTrials.Gov; ID NCT07457489; date of registration: 03/02/2026.",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "verified_title": "Vanderbilt Integrated Community TMS for Opioid Recovery (VICTORY): Study protocol for a randomized, controlled trial of non-invasive brain stimulation to reduce craving in people with opioid use disorder.",
+      "verified_journal": "PloS one",
+      "verified_pub_date": "2026",
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13561319/",
+      "pdf_link": "https://doi.org/10.1371/journal.pone.0357402",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    },
+    {
+      "wave": 5579,
+      "category": "withdrawal_nps",
+      "old_pmid": "36256767",
+      "old_title": "Kratom Toxicity and Withdrawal.",
+      "pmid": "42723009",
+      "title": "Private Equity Investment in Substance Use Disorder Treatment Facilities and Opioid- and Alcohol-Related Mortality.",
+      "doi": "10.1176/appi.ps.20250613",
+      "journal": "Psychiatric services (Washington, D.C.)",
+      "pub_date": "2026 Sep 11",
+      "pub_type": "Journal Article",
+      "abstract": "The aim of this study was to describe the association of private equity (PE) investment in substance use disorder treatment facilities in the United States and opioid- and alcohol-related mortality. Facilities acquired or founded by PE from 2013 to 2023 were cataloged. Logistic models using cross-sectional data were estimated to predict the presence of at least one PE-owned facility in each U.S. county. Approximately 22.9% of counties had at least one PE-owned treatment facility, and 67.6% of U.S. residents resided in such counties. Counties with (vs. without) PE ownership had nearly twice the opioid mortality rate (21.8 vs. 11.1 per 100,000 population). They were also more likely to be in urban areas (71.4% vs. 26.7%) and had a higher percentage of privately insured individuals (70.0% vs. 67.1%). PE ownership is less likely to occur in rural areas and more likely to occur in areas with greater opioid treatment need.",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "verified_title": "Private Equity Investment in Substance Use Disorder Treatment Facilities and Opioid- and Alcohol-Related Mortality.",
+      "verified_journal": "Psychiatric services (Washington, D.C.)",
+      "verified_pub_date": "2026-Sep-11",
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1176/appi.ps.20250613",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000-r6",
+  "row_count": 2,
+  "rows": [
+    {
+      "wave": 5814,
+      "category": "cognition_focus",
+      "old_pmid": "42548045",
+      "old_title": "From Caffeine to Aspirin: Everyday Molecules as Triggers for Genetically Encoded Proximity Systems.",
+      "pmid": "37923225",
+      "doi": "10.1016/j.jad.2023.10.153",
+      "title": "Association between serum omega-3 PUFAs levels and cognitive impairment in never medically treated first-episode patients with geriatric depression: A cross-sectional study.",
+      "journal": "Journal of affective disorders",
+      "pub_date": "2024-Feb-01",
+      "abstract": "Geriatric depression increases the public health burden and health care costs, reduces quality of life. Studies have shown the association between ω-3 PUFAs levels and inflammatory markers levels and depression, but few have explored the relationship between omega-3 PUFAs, inflammatory markers, and cognitive function in geriatric depression. This study aimed to compare the differences in ω-3 PUFAs levels and inflammatory markers between geriatric depression with cognitive impairment (CI) and those without CI. A total of three hundred and five elderly patients were recruited. In addition to collecting basic information, their blood specimens were collected to detect serum EPA, DHA, AA, TC, LDL-C, IL-6, TNF-α, and hs-CRP levels. The Hamilton depression scale (HAMD), Hamilton anxiety scale (HAMA), and The Montreal cognitive assessment (MoCA) were used to assess their depression, anxiety, and cognitive function, respectively. Compared to those without CI, geriatric depression patients with CI had higher serum TC, LDL-C levels, lower EPA, DHA, and AA levels, and more elevated IL-6, TNF-α, and hs-CRP levels (all P < 0.05). Further linear regression analysis showed that EPA, DHA, and TNF-α, hs-CRP levels were significantly associated with the occurrence and the severity of CI. No causal relationship could be drawn due to the cross-sectional design. Omega-3 PUFAs and inflammatory factors levels may predict CI in elderly patients with MDD in the future. Our findings suggest that ω-3 PUFAs (EPA and DHA) and inflammatory factors (TNF-α and CRP) may predict the occurrence and the severity of CI among elderly MDD patients.",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "full_text_link": null,
+      "pdf_link": "https://doi.org/10.1016/j.jad.2023.10.153",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    },
+    {
+      "wave": 5816,
+      "category": "cognition_focus",
+      "old_pmid": "42667458",
+      "old_title": "L-theanine from Camellia sinensis (L.) attenuates 3-NP-induced Huntington's disease-like alterations by remedying behavioral patterns and modulating neurotransmitters across three distinct brain regions: evidence from in-vivo and in-silico approaches.",
+      "pmid": "37968687",
+      "doi": "10.1186/s12916-023-03146-5",
+      "title": "The effects of creatine supplementation on cognitive performance-a randomised controlled study.",
+      "journal": "BMC medicine",
+      "pub_date": "2023-Nov-15",
+      "abstract": "Creatine is an organic compound that facilitates the recycling of energy-providing adenosine triphosphate (ATP) in muscle and brain tissue. It is a safe, well-studied supplement for strength training. Previous studies have shown that supplementation increases brain creatine levels, which might increase cognitive performance. The results of studies that have tested cognitive performance differ greatly, possibly due to different populations, supplementation regimens, and cognitive tasks. This is the largest study on the effect of creatine supplementation on cognitive performance to date. Our trial was preregistered, cross-over, double-blind, placebo-controlled, and randomised, with daily supplementation of 5 g for 6 weeks each. We tested participants on Raven's Advanced Progressive Matrices (RAPM) and on the Backward Digit Span (BDS). In addition, we included eight exploratory cognitive tests. About half of our 123 participants were vegetarians and half were omnivores. Bayesian evidence supported a small beneficial effect of creatine. The creatine effect bordered significance for BDS (p = 0.064, η2P = 0.029) but not RAPM (p = 0.327, η2P = 0.008). There was no indication that creatine improved the performance of our exploratory cognitive tasks. Side effects were reported significantly more often for creatine than for placebo supplementation (p = 0.002, RR = 4.25). Vegetarians did not benefit more from creatine than omnivores. Our study, in combination with the literature, implies that creatine might have a small beneficial effect. Larger studies are needed to confirm or rule out this effect. Given the safety and broad availability of creatine, this is well worth investigating; a small effect could have large benefits when scaled over time and over many people. The trial was prospectively registered (drks.de identifier: DRKS00017250, https://osf.io/xpwkc/ ).",
+      "abstract_verified": true,
+      "exact_title_verified": true,
+      "full_text_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10647179/",
+      "pdf_link": "https://doi.org/10.1186/s12916-023-03146-5",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "state": "research_only_exact_verified_pending_relevance"
+    }
+  ]
+}

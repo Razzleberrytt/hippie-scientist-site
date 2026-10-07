@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000-r6",
+  "expected_repairs": 38,
+  "repair_rows": 38,
+  "missing_waves": [],
+  "extra_waves": [],
+  "integrity": {
+    "unique_pmids": 38,
+    "duplicate_pmids": 0,
+    "duplicate_dois": 0,
+    "duplicate_titles": 0,
+    "prior_pmid_collisions": 0,
+    "collisions_with_original_500": 0,
+    "exact_verified": 38,
+    "semantic_failures": 0
+  },
+  "semantic_failures": []
+}

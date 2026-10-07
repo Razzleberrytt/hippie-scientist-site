@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "batch_id": "2026-10-06-enrichment-waves-5501-6000-r6",
+  "status": "additional_semantic_repairs_required",
+  "failure_count": 37,
+  "category_counts": {
+    "stress_anxiety": 9,
+    "sleep": 1,
+    "cardiometabolic": 7,
+    "aging_sarcopenia": 1,
+    "micronutrients": 2,
+    "mood": 12,
+    "inflammation_pain": 3,
+    "botanicals_mushrooms": 1,
+    "safety_interactions": 1
+  },
+  "failures": [
+    {
+      "wave": 5503,
+      "category": "stress_anxiety",
+      "pmid": "39943054",
+      "title": "L-Theanine Metabolism in Tea Plants: Biological Functions and Stress Tolerance Mechanisms."
+    },
+    {
+      "wave": 5507,
+      "category": "stress_anxiety",
+      "pmid": "39484841",
+      "title": "Magnesium-Doped Carbon Quantum Dot Nanomaterials Alleviate Salt Stress in Rice by Scavenging Reactive Oxygen Species to Increase Photosynthesis."
+    },
+    {
+      "wave": 5511,
+      "category": "stress_anxiety",
+      "pmid": "39693951",
+      "title": "Investigation into the mechanisms of photosynthetic regulation and adaptation under salt stress in lavender."
+    },
+    {
+      "wave": 5515,
+      "category": "stress_anxiety",
+      "pmid": "39838318",
+      "title": "Genome-wide identification of MGT gene family in soybean (Glycine max) and their expression analyses under magnesium stress conditions."
+    },
+    {
+      "wave": 5525,
+      "category": "stress_anxiety",
+      "pmid": "40441560",
+      "title": "Magnesium-dependent phosphatase 1 (MDP1) interacts with WRKY 53 and protein phosphatase 2C 80 (PP2C80) to improve salt stress tolerance by scavenging reactive oxygen species in Salix psammophila."
+    },
+    {
+      "wave": 5531,
+      "category": "stress_anxiety",
+      "pmid": "40997134",
+      "title": "The CsWRKY50-CsREM1-CsTSⅠ module inhibits theanine biosynthesis in tea plants under drought stress."
+    },
+    {
+      "wave": 5535,
+      "category": "stress_anxiety",
+      "pmid": "41291405",
+      "title": "Exogenous curcumin alleviates salt stress in lavender plants: a physiological and biochemical investigation."
+    },
+    {
+      "wave": 5537,
+      "category": "stress_anxiety",
+      "pmid": "41304675",
+      "title": "Growth, Physiology and Yield of Traditional Cowpea Varieties Under Salt Stress Using Exogenous Magnesium."
+    },
+    {
+      "wave": 5545,
+      "category": "stress_anxiety",
+      "pmid": "41829796",
+      "title": "Magnesium Leaf Application as a Rapid Tool for Salt Stress Resistance in Faba Beans (Vicia faba L.)."
+    },
+    {
+      "wave": 5580,
+      "category": "sleep",
+      "pmid": "42836179",
+      "title": "Niosome-mediated melatonin delivery via SilMA/GelMA microneedles promotes healing of sleep deprivation-aggravated oral ulcers."
+    },
+    {
+      "wave": 5628,
+      "category": "cardiometabolic",
+      "pmid": "42745676",
+      "title": "Intravenous lipid emulsions with or without fish oil for the prevention of liver disease in VLBW neonates: A network meta-analysis."
+    },
+    {
+      "wave": 5636,
+      "category": "cardiometabolic",
+      "pmid": "42605134",
+      "title": "Comparison of Olive Versus Fish Oil Based Parenteral Nutrition and Clinical Outcomes-A Systematic Review."
+    },
+    {
+      "wave": 5638,
+      "category": "cardiometabolic",
+      "pmid": "42614129",
+      "title": "Transcriptomic analysis revealed the protective role of genistein against oxidized fish oil-induced oxidative stress and inflammatory responses in turbot (Scophthalmus maximus)."
+    },
+    {
+      "wave": 5641,
+      "category": "cardiometabolic",
+      "pmid": "42627382",
+      "title": "Valorization of fish oil byproduct methyl esters for omega‑3 polyunsaturated fatty acids production via immobilized CALB lipase‑catalyzed hydrolysis."
+    },
+    {
+      "wave": 5642,
+      "category": "cardiometabolic",
+      "pmid": "42632673",
+      "title": "Elucidating the thermal degradation of fish oil and algal oil: A comparative study on the evolution of flavor profiles and lipid oxidative pathways."
+    },
+    {
+      "wave": 5659,
+      "category": "cardiometabolic",
+      "pmid": "42817146",
+      "title": "Stabilization by spherical cellulose nanocrystals and bacterial nanofibrils: modulating lipid digestion in fish oil-in-water Pickering emulsions."
+    },
+    {
+      "wave": 5660,
+      "category": "cardiometabolic",
+      "pmid": "42821124",
+      "title": "Dietary pyrroloquinoline quinone alleviated intestinal damage of juvenile yellow catfish (Pelteobagrus fulvidraco) induced by oxidized fish oil: insight from intestinal digestive enzyme, antioxidant status, morphology, inflammation, and microbiota."
+    },
+    {
+      "wave": 5690,
+      "category": "aging_sarcopenia",
+      "pmid": "42733461",
+      "title": "Nuclear localisation of a fish-derived ice-binding protein and related transcriptional changes in Caenorhabditis elegans."
+    },
+    {
+      "wave": 5717,
+      "category": "micronutrients",
+      "pmid": "42808789",
+      "title": "Salmonella Typhimurium vitamin B12-dependent methionine metabolism regulates Caenorhabditis elegans development and vitellogenesis."
+    },
+    {
+      "wave": 5720,
+      "category": "micronutrients",
+      "pmid": "42812029",
+      "title": "Social Interaction With Younger Females Extends Lifespan in Aged Male Drosophila melanogaster Independent of Vitamin C."
+    },
+    {
+      "wave": 5819,
+      "category": "mood",
+      "pmid": "42302936",
+      "title": "Hypericum perforatum L.: A legacy of herbal medicine in light of modern scientific evidence."
+    },
+    {
+      "wave": 5824,
+      "category": "mood",
+      "pmid": "41938573",
+      "title": "Association of Circulating Vitamin D in Midlife With Increased Tau-PET Burden in Dementia-Free Adults."
+    },
+    {
+      "wave": 5825,
+      "category": "mood",
+      "pmid": "41985648",
+      "title": "Normalization of magnesium deficiency with magnesium-L-Threonate alleviates bladder overactivity in cyclophosphamide-induced cystitis: Mechanisms of inflammatory modulation and barrier restoration."
+    },
+    {
+      "wave": 5828,
+      "category": "mood",
+      "pmid": "42063248",
+      "title": "Vitamin D Deficiency in Bipolar Disorder: Prevalence, Sociodemographic and Clinical Characteristics."
+    },
+    {
+      "wave": 5829,
+      "category": "mood",
+      "pmid": "42099762",
+      "title": "Association between vitamin D levels and psychological stress-induced asthma prevalence: an untargeted metabolomics study combined with the NHANES database."
+    },
+    {
+      "wave": 5833,
+      "category": "mood",
+      "pmid": "42125734",
+      "title": "Effects of Intravenous Esketamine or Magnesium Sulfate on Early Postoperative Negative Emotions and Pain in Patients Undergoing Endoscopic Sinus Surgery: A Randomized Controlled Trial."
+    },
+    {
+      "wave": 5834,
+      "category": "mood",
+      "pmid": "42132340",
+      "title": "Magnesium depletion score and circadian syndrome: Mediated by body mass index."
+    },
+    {
+      "wave": 5835,
+      "category": "mood",
+      "pmid": "42180577",
+      "title": "Dietary and supplemental vitamin D intake and pain interference in adults with chronic spine-related pain: a cross-sectional survey study."
+    },
+    {
+      "wave": 5839,
+      "category": "mood",
+      "pmid": "42464419",
+      "title": "An exploratory study on the association between vitamin D intake or synthesis and sleep health in young adult women: an observational study."
+    },
+    {
+      "wave": 5840,
+      "category": "mood",
+      "pmid": "42500638",
+      "title": "Dexmedetomidine versus magnesium sulphate as adjuvants to ropivacaine in ilioinguinal-iliohypogastric nerve block for inguinal hernia repair: A randomised controlled trial."
+    },
+    {
+      "wave": 5841,
+      "category": "mood",
+      "pmid": "42509056",
+      "title": "Probiotic supplementation improves the emotional state of combat athletes during the pre-competition weight loss phase."
+    },
+    {
+      "wave": 5843,
+      "category": "mood",
+      "pmid": "42716287",
+      "title": "Replacing conventional magnesium oxide with high-solubility magnesium oxide while reducing sodium bicarbonate improves ruminal pH and fiber digestibility."
+    },
+    {
+      "wave": 5851,
+      "category": "inflammation_pain",
+      "pmid": "42662176",
+      "title": "Methacrylated gelatin microneedles loaded with cobalt-curcumin nanozymes promote diabetic wound healing by modulating oxidative stress and inflammatory microenvironment."
+    },
+    {
+      "wave": 5864,
+      "category": "inflammation_pain",
+      "pmid": "42727667",
+      "title": "Droplet-coacervated cellulose nanocrystals/chitosan microcapsules for pH-responsive oral delivery of curcumin: Role of adsorption and entrapment mechanisms."
+    },
+    {
+      "wave": 5867,
+      "category": "inflammation_pain",
+      "pmid": "42747137",
+      "title": "Curcumin-Adapted Nano-Composites within Dissolvable Microneedles for Precision-Tuned Piezo-Sono-Thermal Antibiotic-Free Acne Therapy."
+    },
+    {
+      "wave": 5916,
+      "category": "botanicals_mushrooms",
+      "pmid": "42506299",
+      "title": "Ganoderma lucidum Polysaccharide Seed Dressing Induces Systemic Resistance Against Fusarium Head Blight and Sharp Eyespot in Wheat."
+    },
+    {
+      "wave": 5944,
+      "category": "safety_interactions",
+      "pmid": "42794717",
+      "title": "Wheat Bioactive Compounds and Human Health: A Review of Nutraceutical Potential, Molecular Mechanisms and AI-Assisted Functional Food Innovation."
+    }
+  ]
+}
