@@ -218,7 +218,7 @@ def frame_at(t):
             yy=y+int(34*(1-q))
             rounded(d,(x,yy,x+260,yy+180),26,fill=(*PANEL,int(a*q)),outline=(*MUTED,int(90*q)),width=2)
             d.text((x+24,yy+28),lab,font=font(32,True),fill=(*INK,int(a*q)))
-            d.text((x+24,yy+93),sub,font=font(26,False),fill=(*GREEN if j in (1,3) else MUTED,int(a*q)))
+            d.text((x+24,yy+93),sub,font=font(26,False),fill=(*(GREEN if j in (1,3) else MUTED),int(a*q)))
 
     elif idx==2:
         sun(d,120,240,50,a)
@@ -270,7 +270,7 @@ def frame_at(t):
             q=ease_out(clamp((local-j*0.12)/0.35))
             y=330+j*240
             rounded(d,(70,y,650,y+185),28,fill=(*PANEL,int(a*q)),outline=(*MUTED,int(100*q)),width=2)
-            d.text((105,y+35),top,font=font(37,True),fill=(*GREEN if j==2 else INK,int(a*q)))
+            d.text((105,y+35),top,font=font(37,True),fill=(*(GREEN if j==2 else INK),int(a*q)))
             d.text((105,y+103),sub,font=font(24,False),fill=(*MUTED,int(a*q)))
 
     elif idx==6:
