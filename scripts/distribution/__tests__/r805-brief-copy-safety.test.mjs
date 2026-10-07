@@ -22,8 +22,11 @@ function safeBrief() {
     beats: [
       { role: 'hook', narration: 'What the evidence actually says', onScreenText: 'What the evidence actually says', factualAuthority: 'creative-framing' },
       { role: 'finding', narration: 'The canonical finding.', onScreenText: 'The canonical finding.', factualAuthority: 'canonical-input' },
+      { role: 'evidence', narration: 'Evidence: randomized human trial.', onScreenText: 'Evidence: randomized human trial.', factualAuthority: 'canonical-input' },
       { role: 'limitation', narration: 'The canonical limitation.', onScreenText: 'The canonical limitation.', factualAuthority: 'canonical-input' },
       { role: 'source', narration: '', onScreenText: 'https://thehippiescientist.net/herbs/example/', factualAuthority: 'canonical-source' },
+      { role: 'context', narration: 'Educational, not medical advice.', onScreenText: 'Educational, not medical advice.', factualAuthority: 'canonical-input' },
+      { role: 'cta', narration: 'Read the full evidence page.', onScreenText: 'Read the full evidence page.', factualAuthority: 'canonical-input' },
     ],
   }
 }
@@ -31,6 +34,12 @@ function safeBrief() {
 describe('R8.05 exact-copy safety gate', () => {
   it('accepts exact canonical factual copy', () => {
     expect(validateR805BriefCopyAgainstCanonical(safeBrief(), canonicalSpec)).toBe('validated-lossless')
+  })
+
+  it('rejects omission of governed evidence/disclosure/CTA beats', () => {
+    const brief = safeBrief()
+    brief.beats = brief.beats.filter((beat) => beat.role !== 'context')
+    expect(() => validateR805BriefCopyAgainstCanonical(brief, canonicalSpec)).toThrow(/exactly one governed context beat/i)
   })
 
   it('rejects an overclaim instead of inheriting an unrelated safety receipt', () => {
