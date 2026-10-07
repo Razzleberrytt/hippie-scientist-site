@@ -15,7 +15,7 @@ if (!fs.existsSync(configPath)) {
 } else {
   const cfg = JSON.parse(fs.readFileSync(configPath, 'utf8'))
 
-  if (cfg.release !== 'R8.04') fail('canonical release must be R8.04')
+  if (cfg.release !== 'R8.04') fail('production-sovereignty base release must remain R8.04')
   if (cfg.critical_path?.requires_paid_membership !== false) fail('paid membership may not be required')
   if (cfg.critical_path?.requires_metered_credits !== false) fail('metered credits may not be required')
   if (cfg.critical_path?.requires_hosted_generation !== false) fail('hosted generation may not be required')
@@ -117,7 +117,8 @@ for (const marker of [
   "KPipeline",
   "meteredCreditsRequired",
   '"local-open-source"',
-  "Natural Presence remains pending",
+  "semantic-beat-timeline.json",
+  "exact-local-narration",
 ]) {
   if (!localVoice.includes(marker)) fail(`local voice runtime is missing sovereignty marker: ${marker}`)
 }
