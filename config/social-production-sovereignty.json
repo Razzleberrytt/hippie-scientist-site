@@ -1,0 +1,49 @@
+{
+  "schema": "ths.social.production.sovereignty.v1",
+  "release": "R8.04",
+  "name": "Sovereign Production & Zero-Credit Critical Path",
+  "critical_path": {
+    "requires_paid_membership": false,
+    "requires_metered_credits": false,
+    "requires_hosted_generation": false,
+    "manual_upload_capable": true,
+    "local_steps_required": [
+      "evidence_and_script",
+      "narration",
+      "visual_assets",
+      "composition",
+      "captions",
+      "mastering",
+      "artifact_qa",
+      "packaging"
+    ]
+  },
+  "voice": {
+    "default": "local_open_source",
+    "natural_presence_required": true,
+    "allow_basic_system_tts": false,
+    "allowed_recovery": [
+      "local_regenerate",
+      "local_model_switch",
+      "authorized_human_recording",
+      "fail_closed"
+    ]
+  },
+  "publication": {
+    "baseline_transport": "manual_native_upload",
+    "third_party_scheduler_required": false,
+    "first_party_platform_api_optional": true,
+    "provider_identity_is_canonical": false
+  },
+  "providers": {
+    "descript": "forbidden_critical_path",
+    "metricool": "forbidden_new_creation_or_scheduling",
+    "hosted_tts_credits": "forbidden_critical_path",
+    "hosted_image_generation_credits": "forbidden_critical_path",
+    "hosted_video_generation_credits": "forbidden_critical_path"
+  },
+  "failure_semantics": {
+    "quality": "fail_closed",
+    "dependency": "never_fail_open_to_paid_provider"
+  }
+}

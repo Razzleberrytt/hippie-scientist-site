@@ -40,13 +40,57 @@ function fixture({ embeddedSourceUrl = 'https://thehippiescientist.net/herbs/ash
   fs.writeFileSync(path.join(dir, 'video-timeline.json'), timelineBytes)
   const captions = '1\n00:00:00,000 --> 00:00:30,000\nAshwagandha\n'
   fs.writeFileSync(path.join(dir, 'captions.srt'), captions)
+  const narrationScript = {
+    schemaVersion: 'ths-local-narration-script-v1',
+    release: 'R8.04',
+    packId: 'pack-1',
+    sourceContentHash,
+    sourceUrl,
+    durationSeconds: 30,
+    sampleRate: 24000,
+    scenes: [{ role: 'hook', start: 0, end: 30, text: 'Ashwagandha', factualAuthority: 'canonical-input' }],
+  }
+  const narrationScriptBytes = `${JSON.stringify(narrationScript, null, 2)}\n`
+  fs.writeFileSync(path.join(dir, 'narration-script.json'), narrationScriptBytes)
   const manifest = {
     schemaVersion: '1.0.0', packId: 'pack-1', sourceContentHash, sourceUrl, renderer: 'vertical-video-package-v1', durationSeconds: 30,
     timeline: { file: 'video-timeline.json', sha256: sha256(timelineBytes) },
     captions: { file: 'captions.srt', sha256: sha256(captions), format: 'srt', lossless: true },
+    narrationScript: {
+      file: 'narration-script.json',
+      sha256: sha256(narrationScriptBytes),
+      schemaVersion: 'ths-local-narration-script-v1',
+      localVoiceRequired: true,
+      premiumProviderFallbackAllowed: false,
+    },
     assets: [asset],
   }
   fs.writeFileSync(path.join(dir, 'video-asset-manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`)
+
+  const audioBytes = Buffer.from('RIFF-local-narration-fixture')
+  fs.writeFileSync(path.join(dir, 'narration.wav'), audioBytes)
+  const narrationReceipt = {
+    schemaVersion: 'ths-local-narration-receipt-v1',
+    engine: { name: 'kokoro', model: 'Kokoro-82M', packageVersion: 'test', kind: 'local-open-source', language: 'a', voice: 'am_michael' },
+    accountRequired: false,
+    apiKeyRequired: false,
+    meteredCreditsRequired: false,
+    source: { scriptFile: 'narration-script.json', scriptSha256: sha256(narrationScriptBytes), packId: 'pack-1' },
+    profile: { sampleRate: 24000, channels: 1, durationSeconds: 30, format: 'wav-pcm16' },
+    output: { file: 'narration.wav', sha256: sha256(audioBytes), bytes: audioBytes.length },
+  }
+  const narrationReceiptBytes = Buffer.from(`${JSON.stringify(narrationReceipt, null, 2)}\n`)
+  fs.writeFileSync(path.join(dir, 'narration.wav.receipt.json'), narrationReceiptBytes)
+  const voiceQa = {
+    schemaVersion: 'ths-voice-qa-receipt-v1',
+    release: 'R8.04',
+    reviewer: 'test',
+    artifact: { file: 'narration.wav', sha256: sha256(audioBytes), bytes: audioBytes.length },
+    narrationReceiptSha256: sha256(narrationReceiptBytes),
+    engine: { name: 'kokoro', model: 'Kokoro-82M', kind: 'local-open-source', voice: 'am_michael' },
+    qa: { naturalPresence: 'pass', pronunciation: 'pass', exactArtifactReviewed: true },
+  }
+  fs.writeFileSync(path.join(dir, 'voice-qa.receipt.json'), `${JSON.stringify(voiceQa, null, 2)}\n`)
 
   // The stand-in behaviour lives in one Node script so both platforms exercise
   // identical logic; only the wrapper that makes it executable differs. A bare
@@ -77,9 +121,10 @@ function fixture({ embeddedSourceUrl = 'https://thehippiescientist.net/herbs/ash
 
 describe('vertical video MP4 renderer', () => {
   it('binds cache identity to both parent manifest and encoder version', () => {
-    const a = buildMp4RenderKey({ manifestSha256: 'a'.repeat(64), ffmpegVersionLine: 'ffmpeg version 7.0' })
-    const b = buildMp4RenderKey({ manifestSha256: 'a'.repeat(64), ffmpegVersionLine: 'ffmpeg version 7.1' })
-    const c = buildMp4RenderKey({ manifestSha256: 'b'.repeat(64), ffmpegVersionLine: 'ffmpeg version 7.0' })
+    const common = { narrationSha256: 'c'.repeat(64), voiceQaSha256: 'd'.repeat(64) }
+    const a = buildMp4RenderKey({ manifestSha256: 'a'.repeat(64), ffmpegVersionLine: 'ffmpeg version 7.0', ...common })
+    const b = buildMp4RenderKey({ manifestSha256: 'a'.repeat(64), ffmpegVersionLine: 'ffmpeg version 7.1', ...common })
+    const c = buildMp4RenderKey({ manifestSha256: 'b'.repeat(64), ffmpegVersionLine: 'ffmpeg version 7.0', ...common })
     expect(a).toMatch(/^[a-f0-9]{64}$/)
     expect(a).not.toBe(b)
     expect(a).not.toBe(c)
@@ -90,14 +135,38 @@ describe('vertical video MP4 renderer', () => {
     const output = path.join(dir, 'vertical-video.mp4')
     const receipt = await renderVerticalVideoMp4({ packageDir: dir, outputFile: output, ffmpegPath: fakeFfmpeg })
     expect(fs.readFileSync(output, 'utf8')).toBe('mp4-fixture-bytes')
-    expect(receipt.renderer).toBe('vertical-video-mp4-v1')
+    expect(receipt.renderer).toBe('vertical-video-mp4-v2-r804')
     expect(receipt.parentRenderer).toBe('vertical-video-package-v1')
     expect(receipt.sourceUrl).toBe(sourceUrl)
     expect(receipt.sourceContentHash).toBe(sourceContentHash)
     expect(receipt.ffmpegVersion).toBe('ffmpeg version test-1.0')
-    expect(receipt.profile).toMatchObject({ width: 1080, height: 1920, fps: 30, durationSeconds: 30, codec: 'libx264', audio: false })
+    expect(receipt.profile).toMatchObject({ width: 1080, height: 1920, fps: 30, durationSeconds: 30, codec: 'libx264', audio: true, audioCodec: 'aac' })
+    expect(receipt.localNarration).toMatchObject({
+      engine: 'kokoro',
+      engineKind: 'local-open-source',
+      naturalPresence: 'pass',
+      pronunciation: 'pass',
+      meteredCreditsRequired: false,
+    })
     expect(receipt.output.sha256).toBe(sha256('mp4-fixture-bytes'))
     expect(readReceipt(`${output}.receipt.json`)).toEqual(receipt)
+  })
+
+  it('fails closed rather than emitting a silent MP4 when voice QA is missing', async () => {
+    const { dir, fakeFfmpeg } = fixture()
+    fs.rmSync(path.join(dir, 'voice-qa.receipt.json'))
+    await expect(renderVerticalVideoMp4({ packageDir: dir, outputFile: path.join(dir, 'silent.mp4'), ffmpegPath: fakeFfmpeg }))
+      .rejects.toThrow(/missing voice-qa\.receipt\.json/i)
+  })
+
+  it('fails closed when exact narration has not passed Natural Presence', async () => {
+    const { dir, fakeFfmpeg } = fixture()
+    const qaPath = path.join(dir, 'voice-qa.receipt.json')
+    const qa = JSON.parse(fs.readFileSync(qaPath, 'utf8'))
+    qa.qa.naturalPresence = 'fail'
+    fs.writeFileSync(qaPath, `${JSON.stringify(qa, null, 2)}\n`)
+    await expect(renderVerticalVideoMp4({ packageDir: dir, outputFile: path.join(dir, 'robotic.mp4'), ffmpegPath: fakeFfmpeg }))
+      .rejects.toThrow(/Natural Presence and pronunciation must pass/i)
   })
 
   it('fails closed when embedded scene provenance disagrees with the hashed manifest', async () => {

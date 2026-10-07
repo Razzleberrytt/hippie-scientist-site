@@ -107,18 +107,81 @@ function verifyPackage(packageDir) {
   return { manifest, manifestBytes, timeline, sourceUrl, sourceContentHash, assets }
 }
 
+function verifyLocalNarration(packageDir, manifest) {
+  const scriptMeta = manifest?.narrationScript
+  if (scriptMeta?.localVoiceRequired !== true || scriptMeta?.premiumProviderFallbackAllowed !== false) {
+    throw new Error('R8.04 parent package must require local voice and forbid premium-provider fallback')
+  }
+  const scriptFile = assertCanonicalChild(packageDir, scriptMeta.file, /^narration-script\.json$/)
+  const scriptBytes = fs.readFileSync(scriptFile)
+  if (sha256(scriptBytes) !== clean(scriptMeta.sha256)) throw new Error('narration script hash mismatch')
+  const script = JSON.parse(scriptBytes.toString('utf8'))
+  if (clean(script.schemaVersion) !== 'ths-local-narration-script-v1' || clean(script.packId) !== clean(manifest.packId) || Number(script.durationSeconds) !== 30) {
+    throw new Error('narration script identity/profile does not match parent manifest')
+  }
+
+  const audioFile = assertCanonicalChild(packageDir, 'narration.wav', /^narration\.wav$/)
+  const narrationReceiptFile = assertCanonicalChild(packageDir, 'narration.wav.receipt.json', /^narration\.wav\.receipt\.json$/)
+  const voiceQaFile = assertCanonicalChild(packageDir, 'voice-qa.receipt.json', /^voice-qa\.receipt\.json$/)
+  for (const file of [audioFile, narrationReceiptFile, voiceQaFile]) {
+    if (!fs.existsSync(file)) {
+      throw new Error(`R8.04 local narration is incomplete: missing ${path.basename(file)}; hosted/credit fallback is forbidden`)
+    }
+  }
+
+  const audioBytes = fs.readFileSync(audioFile)
+  const narrationReceiptBytes = fs.readFileSync(narrationReceiptFile)
+  const voiceQaBytes = fs.readFileSync(voiceQaFile)
+  const narrationReceipt = JSON.parse(narrationReceiptBytes.toString('utf8'))
+  const voiceQa = JSON.parse(voiceQaBytes.toString('utf8'))
+  const audioSha256 = sha256(audioBytes)
+  const narrationReceiptSha256 = sha256(narrationReceiptBytes)
+  const voiceQaSha256 = sha256(voiceQaBytes)
+
+  if (clean(narrationReceipt.schemaVersion) !== 'ths-local-narration-receipt-v1') {
+    throw new Error('unexpected local narration receipt schema')
+  }
+  if (clean(narrationReceipt.engine?.kind) !== 'local-open-source') {
+    throw new Error('R8.04 MP4 renderer accepts only local-open-source narration')
+  }
+  if (narrationReceipt.accountRequired !== false || narrationReceipt.apiKeyRequired !== false || narrationReceipt.meteredCreditsRequired !== false) {
+    throw new Error('R8.04 narration receipt indicates an account/API-key/credit dependency')
+  }
+  if (clean(narrationReceipt.source?.scriptSha256) !== clean(scriptMeta.sha256) || clean(narrationReceipt.source?.packId) !== clean(manifest.packId)) {
+    throw new Error('local narration receipt was produced from a stale script/package')
+  }
+  if (clean(narrationReceipt.output?.file) !== 'narration.wav' || clean(narrationReceipt.output?.sha256) !== audioSha256 || Number(narrationReceipt.output?.bytes) !== audioBytes.length) {
+    throw new Error('local narration WAV does not match its provenance receipt')
+  }
+  if (Number(narrationReceipt.profile?.durationSeconds) !== 30 || Number(narrationReceipt.profile?.channels) !== 1) {
+    throw new Error('local narration receipt does not match the canonical audio profile')
+  }
+
+  if (clean(voiceQa.schemaVersion) !== 'ths-voice-qa-receipt-v1' || clean(voiceQa.release) !== 'R8.04') {
+    throw new Error('R8.04 voice QA receipt is missing or incompatible')
+  }
+  if (clean(voiceQa.artifact?.sha256) !== audioSha256 || clean(voiceQa.narrationReceiptSha256) !== narrationReceiptSha256) {
+    throw new Error('voice QA receipt does not bind the exact local narration artifact')
+  }
+  if (clean(voiceQa.engine?.kind) !== 'local-open-source') throw new Error('voice QA approved a non-local narration engine')
+  if (clean(voiceQa.qa?.naturalPresence) !== 'pass' || clean(voiceQa.qa?.pronunciation) !== 'pass' || voiceQa.qa?.exactArtifactReviewed !== true) {
+    throw new Error('Natural Presence and pronunciation must pass on the exact narration WAV before MP4 render')
+  }
+
+  return {
+    file: audioFile,
+    audioBytes,
+    audioSha256,
+    narrationReceipt,
+    narrationReceiptSha256,
+    voiceQa,
+    voiceQaSha256,
+    scriptSha256: sha256(scriptBytes),
+  }
+}
+
 /**
- * Spawn a command, tolerating Windows batch shims.
- *
- * On Windows ffmpeg is very often installed as a `.cmd` or `.bat` shim rather
- * than an `.exe` — scoop, chocolatey and the npm wrappers all do this. Node
- * refuses to spawn those directly (EINVAL) since the shell-injection fix, so
- * `spawnSync(shim, args)` fails before ffmpeg is ever reached.
- *
- * Routing through ComSpec restores that, and does it without `shell: true`:
- * arguments stay a real argv array that Node quotes, instead of being
- * concatenated into a command line where a path with a space or an ampersand
- * would change the command's meaning.
+ * Spawn a command, tolerating Windows batch shims without shell:true.
  */
 function runCommand(executable, args, options = {}) {
   const isWindowsShim = process.platform === 'win32' && /\.(cmd|bat)$/i.test(executable)
@@ -137,9 +200,11 @@ function ffmpegVersion(ffmpegPath) {
   return clean(String(result.stdout || '').split('\n')[0])
 }
 
-export function buildMp4RenderKey({ manifestSha256, ffmpegVersionLine }) {
-  if (!clean(manifestSha256) || !clean(ffmpegVersionLine)) throw new Error('manifest hash and ffmpeg version are required for MP4 render identity')
-  return sha256(`vertical-video-mp4-v1\n${clean(manifestSha256)}\n${clean(ffmpegVersionLine)}\n1080x1920\n30fps\nlibx264\nyuv420p\n`)
+export function buildMp4RenderKey({ manifestSha256, ffmpegVersionLine, narrationSha256, voiceQaSha256 }) {
+  for (const [label, value] of Object.entries({ manifestSha256, ffmpegVersionLine, narrationSha256, voiceQaSha256 })) {
+    if (!clean(value)) throw new Error(`${label} is required for R8.04 MP4 render identity`)
+  }
+  return sha256(`vertical-video-mp4-v2-r804\n${clean(manifestSha256)}\n${clean(ffmpegVersionLine)}\n${clean(narrationSha256)}\n${clean(voiceQaSha256)}\n1080x1920\n30fps\nlibx264\naac192k\nyuv420p\n`)
 }
 
 export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPath = process.env.FFMPEG_PATH || 'ffmpeg' }) {
@@ -149,9 +214,15 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
   fs.mkdirSync(path.dirname(output), { recursive: true })
 
   const verified = verifyPackage(inputDir)
+  const narration = verifyLocalNarration(inputDir, verified.manifest)
   const version = ffmpegVersion(ffmpegPath)
   const manifestSha256 = sha256(verified.manifestBytes)
-  const renderKey = buildMp4RenderKey({ manifestSha256, ffmpegVersionLine: version })
+  const renderKey = buildMp4RenderKey({
+    manifestSha256,
+    ffmpegVersionLine: version,
+    narrationSha256: narration.audioSha256,
+    voiceQaSha256: narration.voiceQaSha256,
+  })
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ths-video-mp4-'))
 
   try {
@@ -170,16 +241,24 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
     fs.writeFileSync(concatFile, `${concatLines.join('\n')}\n`)
 
     runCommand(ffmpegPath, [
-      '-hide_banner', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', concatFile,
-      '-vf', 'fps=30,scale=1080:1920:flags=lanczos', '-an', '-c:v', 'libx264', '-preset', 'slow', '-crf', '18',
-      '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-map_metadata', '-1', '-metadata', 'creation_time=', '-y', output,
+      '-hide_banner', '-loglevel', 'error',
+      '-f', 'concat', '-safe', '0', '-i', concatFile,
+      '-i', narration.file,
+      '-vf', 'fps=30,scale=1080:1920:flags=lanczos',
+      '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11,apad=pad_dur=30,atrim=duration=30',
+      '-map', '0:v:0', '-map', '1:a:0',
+      '-c:v', 'libx264', '-preset', 'slow', '-crf', '18',
+      '-c:a', 'aac', '-b:a', '192k',
+      '-pix_fmt', 'yuv420p', '-t', '30',
+      '-movflags', '+faststart', '-map_metadata', '-1', '-metadata', 'creation_time=', '-y', output,
     ])
 
     const outputBytes = fs.readFileSync(output)
     if (!outputBytes.length) throw new Error('ffmpeg produced an empty MP4')
     const receipt = {
-      schemaVersion: '1.0.0',
-      renderer: 'vertical-video-mp4-v1',
+      schemaVersion: '2.0.0',
+      release: 'R8.04',
+      renderer: 'vertical-video-mp4-v2-r804',
       parentRenderer: verified.manifest.renderer,
       packId: verified.manifest.packId,
       sourceUrl: verified.sourceUrl,
@@ -187,7 +266,30 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
       parentManifestSha256: manifestSha256,
       ffmpegVersion: version,
       renderKey,
-      profile: { width: 1080, height: 1920, fps: 30, durationSeconds: 30, codec: 'libx264', pixelFormat: 'yuv420p', audio: false },
+      profile: {
+        width: 1080,
+        height: 1920,
+        fps: 30,
+        durationSeconds: 30,
+        codec: 'libx264',
+        pixelFormat: 'yuv420p',
+        audio: true,
+        audioCodec: 'aac',
+        audioBitrate: '192k',
+      },
+      localNarration: {
+        engine: clean(narration.narrationReceipt.engine?.name),
+        model: clean(narration.narrationReceipt.engine?.model),
+        engineKind: clean(narration.narrationReceipt.engine?.kind),
+        voice: clean(narration.narrationReceipt.engine?.voice),
+        scriptSha256: narration.scriptSha256,
+        audioSha256: narration.audioSha256,
+        narrationReceiptSha256: narration.narrationReceiptSha256,
+        voiceQaSha256: narration.voiceQaSha256,
+        naturalPresence: clean(narration.voiceQa.qa?.naturalPresence),
+        pronunciation: clean(narration.voiceQa.qa?.pronunciation),
+        meteredCreditsRequired: narration.narrationReceipt.meteredCreditsRequired,
+      },
       output: { file: path.basename(output), sha256: sha256(outputBytes), bytes: outputBytes.length },
     }
     fs.writeFileSync(`${output}.receipt.json`, `${JSON.stringify(receipt, null, 2)}\n`)

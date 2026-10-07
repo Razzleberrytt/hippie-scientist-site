@@ -1,7 +1,7 @@
 # Master Backlog
 
 **Status:** Authoritative ranked backlog
-**Updated:** 2026-10-06
+**Updated:** 2026-10-07
 **WIP cap:** 3
 
 **Control dependencies:** #4412 <- #4411; #4406 <- #4388, #4401, #4405; #4407 <- #4406
@@ -45,6 +45,9 @@ Normal workstreams under `AGENTS.md` are **D** Discovery/SEO, **R** Revenue/Conv
 | M6 | Not started |
 
 ## Now — active exact work
+
+**#6378 / PR #6377 — production-safety control, in review:** make R8.04 sovereign zero-credit social production enforceable in real code. Acceptance requires an audible local/self-hosted narration path, exact-artifact Natural Presence/pronunciation approval, no silent MP4 release, manual-upload-capable packaging, and a CI gate that watches the actual production surfaces. Paid memberships, metered generation credits, third-party schedulers, and robotic system-TTS fallbacks are prohibited from the canonical critical path.
+
 
 **Research-only admitted work #6349 / PR #6350:** In review — deep research enrichment Waves 4001–4500. This does not consume a normal implementation WIP slot; it is research-only, fail-closed from runtime/publication/recommendation/dose promotion, and merge remains contingent on repository validation and review.
 
