@@ -7,7 +7,7 @@ import sharp from 'sharp'
 
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex')
 const clean = (value) => String(value ?? '').trim()
-const timingMatches = (a, b) => Number.isFinite(Number(a)) && Number.isFinite(Number(b)) && Math.abs(Number(a) - Number(b)) < 1e-6
+const timingMatches = (a, b) => Number.isFinite(Number(a)) && Number.isFinite(Number(b)) && Math.abs(Number(a) - Number(b)) <= 0.0006
 
 function assertCanonicalChild(dir, file, pattern) {
   const normalized = clean(file)
@@ -59,6 +59,30 @@ function verifyScene({ packageDir, asset, sourceUrl, sourceContentHash }) {
   return { file, bytes }
 }
 
+function verifyMotionVariant({ packageDir, asset, sourceUrl, sourceContentHash }) {
+  const motion = asset?.motion
+  if (!motion || !['reveal', 'highlight'].includes(clean(motion.type))) {
+    throw new Error(`R8.05 narrated beat ${asset?.beatId || '<missing>'} lacks a renderable motion primitive`)
+  }
+  const file = assertCanonicalChild(packageDir, motion.preFile, /^video-scene-\d{2}-pre\.svg$/)
+  const bytes = fs.readFileSync(file)
+  if (sha256(bytes) !== clean(motion.preSha256)) throw new Error(`R8.05 pre-motion scene hash mismatch: ${motion.preFile}`)
+  const metadata = parseSceneMetadata(bytes.toString('utf8'))
+  if (clean(metadata.sourceUrl) !== sourceUrl || clean(metadata.contentHash) !== sourceContentHash) {
+    throw new Error(`R8.05 pre-motion provenance mismatch: ${motion.preFile}`)
+  }
+  if (clean(metadata.beatId) !== clean(asset.beatId)
+      || clean(metadata.motionType) !== clean(motion.type)
+      || clean(metadata.motionPhase) !== 'pre'
+      || !timingMatches(metadata.motionCueOffset, motion.cueOffset)) {
+    throw new Error(`R8.05 pre-motion metadata mismatch: ${motion.preFile}`)
+  }
+  if (clean(motion.postFile) !== clean(asset.file) || clean(motion.postSha256) !== clean(asset.sha256)) {
+    throw new Error(`R8.05 post-motion binding mismatch: ${asset.file}`)
+  }
+  return { file, bytes }
+}
+
 function verifyPackage(packageDir) {
   const manifestPath = path.join(packageDir, 'video-asset-manifest.json')
   const manifestBytes = fs.readFileSync(manifestPath)
@@ -104,6 +128,9 @@ function verifyPackage(packageDir) {
     const asset = assets[index]
     const scene = timeline.scenes[index]
     if (clean(asset.file) !== clean(scene.file) || clean(asset.sha256) !== clean(scene.sha256)) throw new Error(`timeline/manifest scene mismatch at index ${index}`)
+    if (JSON.stringify(asset.motion ?? null) !== JSON.stringify(scene.motion ?? null) || Boolean(asset.spoken) !== Boolean(scene.spoken)) {
+      throw new Error(`timeline/manifest motion contract mismatch at index ${index}`)
+    }
     if (!timingMatches(asset.start, scene.start) || !timingMatches(asset.end, scene.end) || !timingMatches(asset.duration, scene.duration)) {
       throw new Error(`timeline/manifest timing mismatch at index ${index}`)
     }
@@ -117,6 +144,17 @@ function verifyPackage(packageDir) {
     if (!timingMatches(duration, end - start)) throw new Error(`video scene duration does not match start/end at index ${index}`)
     if (clean(asset.role) !== clean(scene.role) || clean(asset.factualAuthority) !== clean(scene.factualAuthority)) {
       throw new Error(`timeline/manifest governed metadata mismatch at index ${index}`)
+    }
+    if (release === 'R8.05') {
+      const motionType = clean(asset.motion?.type)
+      if (asset.spoken) {
+        if (!['reveal', 'highlight'].includes(motionType)) throw new Error(`R8.05 narrated scene ${index} requires reveal/highlight motion`)
+        const cue = Number(asset.motion?.cueOffset)
+        if (!Number.isFinite(cue) || cue <= 0 || cue >= duration) throw new Error(`R8.05 scene ${index} has invalid motion cue`)
+        if (clean(asset.motion?.cueMethod) !== 'voice-duration-proportional-text-anchor') throw new Error(`R8.05 scene ${index} has ungoverned motion-cue method`)
+      } else if (motionType !== 'hold') {
+        throw new Error(`R8.05 silent scene ${index} must use hold motion`)
+      }
     }
     expectedStart = end
     totalDuration += duration
@@ -271,15 +309,32 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
 
   try {
     const concatLines = []
+    let finalPng = null
     for (let index = 0; index < verified.assets.length; index += 1) {
       const asset = verified.assets[index]
       const { bytes } = verifyScene({ packageDir: inputDir, asset, sourceUrl: verified.sourceUrl, sourceContentHash: verified.sourceContentHash })
-      const pngFile = path.join(tempDir, `scene-${String(index + 1).padStart(2, '0')}.png`)
-      await sharp(bytes).png({ compressionLevel: 9, adaptiveFiltering: false }).toFile(pngFile)
-      concatLines.push(`file '${pngFile.replace(/'/g, "'\\''")}'`)
-      concatLines.push(`duration ${Number(asset.duration).toFixed(3)}`)
+      const suffix = String(index + 1).padStart(2, '0')
+      const postPng = path.join(tempDir, `scene-${suffix}-post.png`)
+      await sharp(bytes).png({ compressionLevel: 9, adaptiveFiltering: false }).toFile(postPng)
+
+      if (verified.release === 'R8.05' && asset.spoken) {
+        const pre = verifyMotionVariant({ packageDir: inputDir, asset, sourceUrl: verified.sourceUrl, sourceContentHash: verified.sourceContentHash })
+        const prePng = path.join(tempDir, `scene-${suffix}-pre.png`)
+        await sharp(pre.bytes).png({ compressionLevel: 9, adaptiveFiltering: false }).toFile(prePng)
+        const cue = Number(asset.motion.cueOffset)
+        const postDuration = Number(asset.duration) - cue
+        if (!(cue > 0 && postDuration > 0)) throw new Error(`R8.05 motion split is invalid for beat ${asset.beatId}`)
+        concatLines.push(`file '${prePng.replace(/'/g, "'\\''")}'`)
+        concatLines.push(`duration ${cue.toFixed(4)}`)
+        concatLines.push(`file '${postPng.replace(/'/g, "'\\''")}'`)
+        concatLines.push(`duration ${postDuration.toFixed(4)}`)
+      } else {
+        concatLines.push(`file '${postPng.replace(/'/g, "'\\''")}'`)
+        concatLines.push(`duration ${Number(asset.duration).toFixed(4)}`)
+      }
+      finalPng = postPng
     }
-    const finalPng = path.join(tempDir, `scene-${String(verified.assets.length).padStart(2, '0')}.png`)
+    if (!finalPng) throw new Error('video renderer produced no scene frames')
     concatLines.push(`file '${finalPng.replace(/'/g, "'\\''")}'`)
     const concatFile = path.join(tempDir, 'concat.txt')
     fs.writeFileSync(concatFile, `${concatLines.join('\n')}\n`)
@@ -326,6 +381,8 @@ export async function renderVerticalVideoMp4({ packageDir, outputFile, ffmpegPat
         creativeBriefSha256: clean(verified.manifest.r805Bindings?.creativeBrief?.sha256),
         semanticBeatTimelineSha256: clean(verified.manifest.r805Bindings?.semanticBeatTimeline?.sha256),
         exactMasterCohesion: 'pending',
+        internalMotionRendered: true,
+        motionCueMethod: 'voice-duration-proportional-text-anchor',
       } : null,
       localNarration: {
         engine: clean(narration.narrationReceipt.engine?.name),
