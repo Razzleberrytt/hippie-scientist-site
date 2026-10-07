@@ -3,16 +3,8 @@
   "batch_id": "2026-10-06-enrichment-waves-6473-6480-exact",
   "range": "6473-6480",
   "row_count": 8,
-  "exact_verified_rows": 7,
-  "failures": [
-    {
-      "wave": 6474,
-      "pmid": "30762623",
-      "title_verified": false,
-      "abstract_verified": false,
-      "verified_title": null
-    }
-  ],
+  "exact_verified_rows": 8,
+  "failures": [],
   "rows": [
     {
       "category": "mitochondrial_energy",
@@ -50,15 +42,16 @@
       "selection_score": 17,
       "wave": 6474,
       "state": "candidate_pending_exact_verification",
-      "verified_title": null,
-      "abstract": null,
-      "abstract_verified": false,
-      "title_verified": false,
-      "pdf_link": null,
-      "full_text_link": null,
-      "verified_journal": null,
-      "verified_pub_date": null,
-      "source": "NCBI PubMed exact retrieval via Sider Scholar"
+      "verified_title": "The Additive Effects of Creatine Supplementation and Exercise Training in an Aging Population: A Systematic Review of Randomized Controlled Trials.",
+      "abstract": "The role of creatine supplementation in young athletes and bodybuilders is well established including ergogenic properties of muscular hypertrophy, strength, power, and endurance. Whether the benefits of creatine supplementation translate to an aging population with moderate training stimulus remains unclear especially in regard to gender, creatine dose, and duration. This systematic review assessed whether creatine supplementation combined with exercise results in additive improvements in indices of skeletal muscle, bone, and mental health over exercise alone in healthy older adults. PubMed, CINAHL, and Web of Science databases were utilized to identify randomized controlled trials of creatine supplementation combined with exercise in an aging population with additional predetermined inclusion and exclusion criteria. Two reviewers independently screened the titles and abstracts, reviewed full-text articles, and performed quality assessments using the Physiotherapy Evidence Database scale. Seventeen studies were comprehensively reviewed according to categories of strength, endurance, functional capacity, body composition, cognition, and safety. These studies suggest that any additive ergogenic creatine effects on upper and/or lower body strength, functional capacity, and lean mass in an older population would require a continuous and daily low-dose creatine supplementation combined with at least 12 weeks of resistance training. Potential creatine specific increases in regional bone mineral density of the femur are possible but may require at least 1 year of creatine supplementation combined with moderate resistance training, and additional long-term clinical trials are warranted. The limited data suggested no additive effects of creatine over exercise alone on indices of mental health. The beneficial effects of creatine supplementation are more consistent in older women than in men. Creatine monohydrate is safe to use in older adults. While creatine in conjunction with moderate- to high-intensity exercise in an aging population may improve skeletal muscle health, additional studies are needed to determine the effective dosing and duration paradigm for potential combined creatine and exercise effects on bone and cognition in older adults.",
+      "abstract_verified": true,
+      "title_verified": true,
+      "pdf_link": "https://doi.org/10.1519/JPT.0000000000000222",
+      "full_text_link": "",
+      "verified_journal": "Journal of geriatric physical therapy (2001)",
+      "verified_pub_date": "2020",
+      "source": "NCBI PubMed exact retrieval via Sider Scholar",
+      "title_verification_note": "Transient retrieval miss resolved on individual retry."
     },
     {
       "category": "mitochondrial_energy",
