@@ -12,6 +12,8 @@ const CUT_REASONS = new Set([
   'end',
 ])
 
+const MOTION_TYPES = new Set(['reveal', 'highlight', 'hold'])
+
 const ROLES = new Set([
   'hook',
   'finding',
@@ -31,6 +33,7 @@ function canonicalBeat(beat) {
     visualPurpose: clean(beat?.visualPurpose),
     spokenAnchor: clean(beat?.spokenAnchor),
     visualAction: clean(beat?.visualAction),
+    motionType: clean(beat?.motion?.type),
     cutReason: clean(beat?.cutReason),
     factualAuthority: clean(beat?.factualAuthority) || 'creative-framing',
     primaryEntities: Array.isArray(beat?.primaryEntities)
@@ -60,6 +63,7 @@ export function buildR805BeatReceipts(beats) {
       visualPurposeSha256: sha256(beat.visualPurpose),
       spokenAnchorSha256: sha256(beat.spokenAnchor),
       visualActionSha256: sha256(beat.visualAction),
+      motionType: beat.motionType,
       cutReason: beat.cutReason,
       factualAuthority: beat.factualAuthority,
       primaryEntitiesSha256: sha256(JSON.stringify(beat.primaryEntities)),
@@ -117,6 +121,9 @@ export function validateR805CreativeBrief(brief) {
     if (!beat.onScreenText) errors.push(`${label} requires onScreenText`)
     if (!beat.visualPurpose) errors.push(`${label} requires visualPurpose bound to the narration`)
     if (!beat.visualAction) errors.push(`${label} requires visualAction for internal-motion synchronization`)
+    if (!MOTION_TYPES.has(beat.motionType)) errors.push(`${label} motion.type must be one of: ${[...MOTION_TYPES].join(', ')}`)
+    if (beat.narration && beat.motionType === 'hold') errors.push(`${label} narrated beats require reveal or highlight motion, not hold`)
+    if (!beat.narration && beat.motionType !== 'hold') errors.push(`${label} silent beats must use hold motion`)
     if (beat.narration && !beat.spokenAnchor) errors.push(`${label} requires spokenAnchor when narration is present`)
     if (beat.spokenAnchor && beat.narration && !beat.narration.toLowerCase().includes(beat.spokenAnchor.toLowerCase())) {
       errors.push(`${label} spokenAnchor must occur inside its narration`)
@@ -180,7 +187,8 @@ export function buildR805CreativeReceipt(brief) {
     beatReceipts: buildR805BeatReceipts(beats),
     semanticClipOwnership: true,
     cutOnMeaning: true,
-    internalMotionSync: true,
+    internalMotionPlanRequired: true,
+    internalMotionSyncCertifiedAt: 'exact-master-qa',
     macroRebuildCount: Number(brief.recovery?.macroRebuildCount ?? 0),
   }
 }
