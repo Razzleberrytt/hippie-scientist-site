@@ -3,7 +3,7 @@
   "batch_id": "2026-10-06-enrichment-waves-6001-6500-candidate-selection",
   "range": "6001-6500",
   "row_count": 500,
-  "stage": "strict_human_evidence_candidates_semantic_clean_pending_exact_verification",
+  "stage": "strict_human_evidence_candidates_exact_verified_with_collision_repairs",
   "predecessor": {
     "artifact": "2026-10-06-enrichment-waves-5501-6000-r7-pmid-index.json",
     "through_wave": 6000,
@@ -137,30 +137,32 @@
     {
       "category": "stress_anxiety",
       "target": 40,
-      "pmid": "31006899",
-      "title": "Therapeutic efficacy and safety of chamomile for state anxiety, generalized anxiety disorder, insomnia, and sleep quality: A systematic review and meta-analysis of randomized trials and quasi-randomized trials.",
-      "doi": "10.1002/ptr.6349",
-      "pub_date": "2019 Jun",
+      "pmid": "19962288",
+      "title": "A multi-center, double-blind, randomised study of the Lavender oil preparation Silexan in comparison to Lorazepam for generalized anxiety disorder.",
+      "doi": "10.1016/j.phymed.2009.10.006",
+      "pub_date": "2010-Feb",
       "pub_type": "Systematic Review",
-      "journal": "Phytotherapy research : PTR",
+      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
       "discovery_query": "((chamomile[Title] OR rhodiola[Title] OR magnesium[Title] OR saffron[Title]) AND (stress[Title] OR anxiety[Title] OR anxious[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
       "wave": 6006,
-      "state": "candidate_pending_exact_verification",
-      "selection_score": 28
+      "state": "candidate_exact_verified_collision_repair",
+      "selection_score": 28,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
     },
     {
       "category": "stress_anxiety",
       "target": 40,
-      "pmid": "41693488",
-      "title": "Effect of saffron on depression, anxiety and mood disorder: a GRADE assessed systematic review and meta-analysis of 34 randomized controlled trials.",
-      "doi": "10.1080/1028415X.2025.2602153",
-      "pub_date": "2026 Jul",
+      "pmid": "22311378",
+      "title": "The acute effects of kava and oxazepam on anxiety, mood, neurocognition; and genetic correlates: a randomized, placebo-controlled, double-blind study.",
+      "doi": "10.1002/hup.2216",
+      "pub_date": "2012-May",
       "pub_type": "Meta-Analysis",
-      "journal": "Nutritional neuroscience",
+      "journal": "Human psychopharmacology",
       "discovery_query": "((chamomile[Title] OR rhodiola[Title] OR magnesium[Title] OR saffron[Title]) AND (stress[Title] OR anxiety[Title] OR anxious[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
       "wave": 6007,
-      "state": "candidate_pending_exact_verification",
-      "selection_score": 28
+      "state": "candidate_exact_verified_collision_repair",
+      "selection_score": 28,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
     },
     {
       "category": "stress_anxiety",
@@ -235,16 +237,17 @@
     {
       "category": "stress_anxiety",
       "target": 40,
-      "pmid": "31655395",
-      "title": "Effects of lavender on anxiety: A systematic review and meta-analysis.",
-      "doi": "10.1016/j.phymed.2019.153099",
-      "pub_date": "2019 Dec",
+      "pmid": "26797633",
+      "title": "Anti-Stress, Behavioural and Magnetoencephalography Effects of an L-Theanine-Based Nutrient Drink: A Randomised, Double-Blind, Placebo-Controlled, Crossover Trial.",
+      "doi": "10.3390/nu8010053",
+      "pub_date": "2016-Jan-19",
       "pub_type": "Systematic Review",
-      "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+      "journal": "Nutrients",
       "discovery_query": "((ashwagandha[Title] OR theanine[Title] OR kava[Title] OR lavender[Title]) AND (stress[Title] OR anxiety[Title] OR anxious[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
       "wave": 6013,
-      "state": "candidate_pending_exact_verification",
-      "selection_score": 19
+      "state": "candidate_exact_verified_collision_repair",
+      "selection_score": 19,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
     },
     {
       "category": "stress_anxiety",
@@ -473,30 +476,32 @@
     {
       "category": "stress_anxiety",
       "target": 40,
-      "pmid": "31730539",
-      "title": "Compare the effect of aromatherapy using lavender and Damask rose essential oils on the level of anxiety and severity of pain following C-section: A double-blinded randomized clinical trial.",
-      "doi": "10.1515/jcim-2019-0141",
-      "pub_date": "2020 Sep 23",
+      "pmid": "31813230",
+      "title": "Kava for generalised anxiety disorder: A 16-week double-blind, randomised, placebo-controlled study.",
+      "doi": "10.1177/0004867419891246",
+      "pub_date": "2020-Mar",
       "pub_type": "Randomized Controlled Trial",
-      "journal": "Journal of complementary & integrative medicine",
+      "journal": "The Australian and New Zealand journal of psychiatry",
       "discovery_query": "((ashwagandha[Title] OR theanine[Title] OR kava[Title] OR lavender[Title]) AND (stress[Title] OR anxiety[Title] OR anxious[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
       "wave": 6030,
-      "state": "candidate_pending_exact_verification",
-      "selection_score": 19
+      "state": "candidate_exact_verified_collision_repair",
+      "selection_score": 19,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
     },
     {
       "category": "stress_anxiety",
       "target": 40,
-      "pmid": "31792285",
-      "title": "Efficacy and safety of lavender essential oil (Silexan) capsules among patients suffering from anxiety disorders: A network meta-analysis.",
-      "doi": "10.1038/s41598-019-54529-9",
-      "pub_date": "2019 Dec 2",
+      "pmid": "35984871",
+      "title": "The Impact of Ashwagandha on Stress, Sleep Quality, and Food Cravings in College Students: Quantitative Analysis of a Double-Blind Randomized Control Trial.",
+      "doi": "10.1089/jmf.2022.0040",
+      "pub_date": "2022-Dec",
       "pub_type": "Systematic Review",
-      "journal": "Scientific reports",
+      "journal": "Journal of medicinal food",
       "discovery_query": "((ashwagandha[Title] OR theanine[Title] OR kava[Title] OR lavender[Title]) AND (stress[Title] OR anxiety[Title] OR anxious[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
       "wave": 6031,
-      "state": "candidate_pending_exact_verification",
-      "selection_score": 19
+      "state": "candidate_exact_verified_collision_repair",
+      "selection_score": 19,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
     },
     {
       "category": "stress_anxiety",
@@ -6941,16 +6946,17 @@
     {
       "category": "immune_respiratory",
       "target": 24,
-      "pmid": "33798465",
-      "title": "Vitamin D supplementation to prevent acute respiratory infections: a systematic review and meta-analysis of aggregate data from randomised controlled trials.",
-      "doi": "10.1016/S2213-8587(21)00051-6",
-      "pub_date": "2021 May",
+      "pmid": "33748066",
+      "title": "The Impact of Vitamin D Level on COVID-19 Infection: Systematic Review and Meta-Analysis.",
+      "doi": "10.3389/fpubh.2021.624559",
+      "pub_date": "2021",
       "pub_type": "Systematic Review",
-      "journal": "The lancet. Diabetes & endocrinology",
+      "journal": "Frontiers in public health",
       "discovery_query": "((\"vitamin D\"[Title] OR \"vitamin C\"[Title] OR zinc[Title] OR echinacea[Title] OR elderberry[Title]) AND (immune[Title] OR respiratory[Title] OR infection[Title] OR influenza[Title] OR cold[Title])) AND 2010:2026[pdat] AND hasabstract[text] AND Humans[Mesh] AND (randomized controlled trial[pt] OR clinical trial[pt] OR meta-analysis[pt] OR systematic review[pt] OR observational study[pt] OR comparative study[pt]) NOT retracted publication[pt] NOT case reports[pt]",
       "wave": 6492,
-      "state": "candidate_pending_exact_verification",
-      "selection_score": 28
+      "state": "candidate_exact_verified_collision_repair",
+      "selection_score": 28,
+      "source": "NCBI PubMed exact retrieval via Sider Scholar"
     },
     {
       "category": "immune_respiratory",
@@ -7113,6 +7119,38 @@
       "new_pmid": "33798465",
       "new_title": "Vitamin D supplementation to prevent acute respiratory infections: a systematic review and meta-analysis of aggregate data from randomised controlled trials.",
       "category": "immune_respiratory"
+    }
+  ],
+  "collision_repairs": [
+    {
+      "wave": 6006,
+      "old_pmid": "31006899",
+      "new_pmid": "19962288"
+    },
+    {
+      "wave": 6007,
+      "old_pmid": "41693488",
+      "new_pmid": "22311378"
+    },
+    {
+      "wave": 6013,
+      "old_pmid": "31655395",
+      "new_pmid": "26797633"
+    },
+    {
+      "wave": 6030,
+      "old_pmid": "31730539",
+      "new_pmid": "31813230"
+    },
+    {
+      "wave": 6031,
+      "old_pmid": "31792285",
+      "new_pmid": "35984871"
+    },
+    {
+      "wave": 6492,
+      "old_pmid": "33798465",
+      "new_pmid": "33748066"
     }
   ]
 }
